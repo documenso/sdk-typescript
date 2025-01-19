@@ -1,0 +1,20 @@
+workflowVersion: 1.0.0
+speakeasyVersion: latest
+sources:
+    Documenso v2 beta API:
+        inputs:
+            - location: ./local-openapi.json
+        overlays:
+            - location: .speakeasy/speakeasy-modifications-overlay.yaml
+        registry:
+            location: registry.speakeasyapi.dev/documenso-inc/api/documenso-v-2-beta-api
+targets:
+    documenso:
+        target: typescript
+        source: Documenso v2 beta API
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/documenso-inc/api/documenso-v-2-beta-api-typescript-code-samples
+            labelOverride:
+                fixedValue: Typescript (SDK)
+            blocking: false

@@ -1,0 +1,419 @@
+overlay: 1.0.0
+info:
+  title: Speakeasy Modifications
+  version: 0.0.2
+  x-speakeasy-metadata:
+    after: ""
+    before: ""
+    type: speakeasy-modifications
+actions:
+  - target: $["paths"]["/recipient/{recipientId}"]["get"]
+    update:
+      x-speakeasy-group: recipients
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Document Recipients.recipient-getRecipient()
+      after: sdk.recipients.get()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/template/direct/create"]["post"]
+    update:
+      x-speakeasy-group: templates.directLink
+      x-speakeasy-name-override: create
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Template.template-createTemplateDirectLink()
+      after: sdk.templates.directLink.create()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/document/delete"]["post"]
+    update:
+      x-speakeasy-group: documents
+      x-speakeasy-name-override: delete
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Document.document-deleteDocument()
+      after: sdk.documents.delete()
+      reviewed_at: 1737284371636
+      created_at: 1737284351915
+  - target: $["paths"]["/document/field/create"]["post"]
+    update:
+      x-speakeasy-group: documents.fields
+      x-speakeasy-name-override: create
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Document Fields.field-createDocumentField()
+      after: sdk.documents.fields.create()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/template/field/update"]["post"]
+    update:
+      x-speakeasy-group: templates.fields
+      x-speakeasy-name-override: update
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Template Fields.field-updateTemplateField()
+      after: sdk.templates.fields.update()
+      reviewed_at: 1737284371636
+      created_at: 1737284351917
+  - target: $["paths"]["/template/update"]["post"]
+    update:
+      x-speakeasy-group: templates
+      x-speakeasy-name-override: update
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Template.template-updateTemplate()
+      after: sdk.templates.update()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/document/duplicate"]["post"]
+    update:
+      x-speakeasy-group: documents
+      x-speakeasy-name-override: duplicate
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Document.document-duplicateDocument()
+      after: sdk.documents.duplicate()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/document"]["get"]
+    update:
+      x-speakeasy-group: documents
+      x-speakeasy-name-override: find
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Document.document-findDocuments()
+      after: sdk.documents.find()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/template/direct/delete"]["post"]
+    update:
+      x-speakeasy-group: templates.directLink
+      x-speakeasy-name-override: delete
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Template.template-deleteTemplateDirectLink()
+      after: sdk.templates.directLink.delete()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/template/duplicate"]["post"]
+    update:
+      x-speakeasy-group: templates
+      x-speakeasy-name-override: duplicate
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Template.template-duplicateTemplate()
+      after: sdk.templates.duplicate()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/template/direct/toggle"]["post"]
+    update:
+      x-speakeasy-group: templates.directLink
+      x-speakeasy-name-override: toggle
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Template.template-toggleTemplateDirectLink()
+      after: sdk.templates.directLink.toggle()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/document/recipient/create"]["post"]
+    update:
+      x-speakeasy-group: documents.recipients
+      x-speakeasy-name-override: create
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Document Recipients.recipient-createDocumentRecipient()
+      after: sdk.documents.recipients.create()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/template/recipient/update"]["post"]
+    update:
+      x-speakeasy-group: templates.recipients
+      x-speakeasy-name-override: update
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Template Recipients.recipient-updateTemplateRecipient()
+      after: sdk.templates.recipients.update()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/template/field/create-many"]["post"]
+    update:
+      x-speakeasy-group: templates.fields
+      x-speakeasy-name-override: createMany
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Template Fields.field-createTemplateFields()
+      after: sdk.templates.fields.createMany()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/template/use"]["post"]
+    update:
+      x-speakeasy-group: templates
+      x-speakeasy-name-override: use
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Template.template-createDocumentFromTemplate()
+      after: sdk.templates.use()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/document/distribute"]["post"]
+    update:
+      x-speakeasy-group: documents
+      x-speakeasy-name-override: distribute
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Document.document-sendDocument()
+      after: sdk.documents.distribute()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/document/create/beta"]["post"]
+    update:
+      x-speakeasy-group: documents
+      x-speakeasy-name-override: createV0
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Document.document-createDocumentTemporary()
+      after: sdk.documents.createV0()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/template/field/update-many"]["post"]
+    update:
+      x-speakeasy-group: templates.fields
+      x-speakeasy-name-override: updateMany
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Template Fields.field-updateTemplateFields()
+      after: sdk.templates.fields.updateMany()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/document/move"]["post"]
+    update:
+      x-speakeasy-group: documents
+      x-speakeasy-name-override: moveToTeam
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Document.document-moveDocumentToTeam()
+      after: sdk.documents.moveToTeam()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/template/field/create"]["post"]
+    update:
+      x-speakeasy-group: templates.fields
+      x-speakeasy-name-override: create
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Template Fields.field-createTemplateField()
+      after: sdk.templates.fields.create()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/template/{templateId}"]["get"]
+    update:
+      x-speakeasy-group: templates
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Template.template-getTemplateById()
+      after: sdk.templates.get()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/document/field/delete"]["post"]
+    update:
+      x-speakeasy-group: documents.fields
+      x-speakeasy-name-override: delete
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Document Fields.field-deleteDocumentField()
+      after: sdk.documents.fields.delete()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/document/recipient/update-many"]["post"]
+    update:
+      x-speakeasy-group: documents.recipients
+      x-speakeasy-name-override: updateMany
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Document Recipients.recipient-updateDocumentRecipients()
+      after: sdk.documents.recipients.updateMany()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/document/field/update-many"]["post"]
+    update:
+      x-speakeasy-group: documents.fields
+      x-speakeasy-name-override: updateMany
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Document Fields.field-updateDocumentFields()
+      after: sdk.documents.fields.updateMany()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/template/recipient/create-many"]["post"]
+    update:
+      x-speakeasy-group: templates.recipients
+      x-speakeasy-name-override: createMany
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Template Recipients.recipient-createTemplateRecipients()
+      after: sdk.templates.recipients.createMany()
+      reviewed_at: 1737284371636
+      created_at: 1737284351917
+  - target: $["paths"]["/document/update"]["post"]
+    update:
+      x-speakeasy-group: documents
+      x-speakeasy-name-override: update
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Document.document-setSettingsForDocument()
+      after: sdk.documents.update()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/template/recipient/delete"]["post"]
+    update:
+      x-speakeasy-group: templates.recipients
+      x-speakeasy-name-override: delete
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Template Recipients.recipient-deleteTemplateRecipient()
+      after: sdk.templates.recipients.delete()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/document/redistribute"]["post"]
+    update:
+      x-speakeasy-group: documents
+      x-speakeasy-name-override: redistribute
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Document.document-resendDocument()
+      after: sdk.documents.redistribute()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/template/move"]["post"]
+    update:
+      x-speakeasy-group: templates
+      x-speakeasy-name-override: moveToTeam
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Template.template-moveTemplateToTeam()
+      after: sdk.templates.moveToTeam()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/template/field/delete"]["post"]
+    update:
+      x-speakeasy-group: templates.fields
+      x-speakeasy-name-override: delete
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Template Fields.field-deleteTemplateField()
+      after: sdk.templates.fields.delete()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/template"]["get"]
+    update:
+      x-speakeasy-group: templates
+      x-speakeasy-name-override: find
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Template.template-findTemplates()
+      after: sdk.templates.find()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/template/recipient/create"]["post"]
+    update:
+      x-speakeasy-group: templates.recipients
+      x-speakeasy-name-override: create
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Template Recipients.recipient-createTemplateRecipient()
+      after: sdk.templates.recipients.create()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/document/recipient/update"]["post"]
+    update:
+      x-speakeasy-group: documents.recipients
+      x-speakeasy-name-override: update
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Document Recipients.recipient-updateDocumentRecipient()
+      after: sdk.documents.recipients.update()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/document/recipient/create-many"]["post"]
+    update:
+      x-speakeasy-group: documents.recipients
+      x-speakeasy-name-override: createMany
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Document Recipients.recipient-createDocumentRecipients()
+      after: sdk.documents.recipients.createMany()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/document/field/update"]["post"]
+    update:
+      x-speakeasy-group: documents.fields
+      x-speakeasy-name-override: update
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Document Fields.field-updateDocumentField()
+      after: sdk.documents.fields.update()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/field/{fieldId}"]["get"]
+    update:
+      x-speakeasy-group: fields
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Document Fields.field-getField()
+      after: sdk.fields.get()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/template/recipient/update-many"]["post"]
+    update:
+      x-speakeasy-group: templates.recipients
+      x-speakeasy-name-override: updateMany
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Template Recipients.recipient-updateTemplateRecipients()
+      after: sdk.templates.recipients.updateMany()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/template/delete"]["post"]
+    update:
+      x-speakeasy-group: templates
+      x-speakeasy-name-override: delete
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Template.template-deleteTemplate()
+      after: sdk.templates.delete()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/document/field/create-many"]["post"]
+    update:
+      x-speakeasy-group: documents.fields
+      x-speakeasy-name-override: createMany
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Document Fields.field-createDocumentFields()
+      after: sdk.documents.fields.createMany()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/document/{documentId}"]["get"]
+    update:
+      x-speakeasy-group: documents
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Document.document-getDocumentWithDetailsById()
+      after: sdk.documents.get()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
+  - target: $["paths"]["/document/recipient/delete"]["post"]
+    update:
+      x-speakeasy-group: documents.recipients
+      x-speakeasy-name-override: delete
+    x-speakeasy-metadata:
+      type: method-name
+      before: sdk.Document Recipients.recipient-deleteDocumentRecipient()
+      after: sdk.documents.recipients.delete()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918

@@ -1,0 +1,41 @@
+# DocumentGetDocumentWithDetailsByIdFields
+
+## Example Usage
+
+```typescript
+import { DocumentGetDocumentWithDetailsByIdFields } from "@documenso/sdk-typescript/models/operations";
+
+let value: DocumentGetDocumentWithDetailsByIdFields = {
+  type: "INITIALS",
+  id: 254356,
+  secondaryId: "<id>",
+  documentId: 58029,
+  templateId: 434417,
+  recipientId: 311796,
+  page: 6963.44,
+  customText: "<value>",
+  inserted: false,
+  fieldMeta: {
+    type: "date",
+  },
+};
+```
+
+## Fields
+
+| Field                                                                                                                  | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `type`                                                                                                                 | [operations.DocumentGetDocumentWithDetailsByIdType](../../models/operations/documentgetdocumentwithdetailsbyidtype.md) | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
+| `id`                                                                                                                   | *number*                                                                                                               | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
+| `secondaryId`                                                                                                          | *string*                                                                                                               | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
+| `documentId`                                                                                                           | *number*                                                                                                               | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
+| `templateId`                                                                                                           | *number*                                                                                                               | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
+| `recipientId`                                                                                                          | *number*                                                                                                               | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
+| `page`                                                                                                                 | *number*                                                                                                               | :heavy_check_mark:                                                                                                     | The page number of the field on the document. Starts from 1.                                                           |
+| `positionX`                                                                                                            | *any*                                                                                                                  | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `positionY`                                                                                                            | *any*                                                                                                                  | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `width`                                                                                                                | *any*                                                                                                                  | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `height`                                                                                                               | *any*                                                                                                                  | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `customText`                                                                                                           | *string*                                                                                                               | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
+| `inserted`                                                                                                             | *boolean*                                                                                                              | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
+| `fieldMeta`                                                                                                            | *operations.DocumentGetDocumentWithDetailsByIdFieldMeta*                                                               | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |

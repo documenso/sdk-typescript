@@ -1,0 +1,19 @@
+# TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields8Type
+
+## Example Usage
+
+```typescript
+import {
+  TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields8Type,
+} from "@documenso/sdk-typescript/models/operations";
+
+let value:
+  TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields8Type =
+    "checkbox";
+```
+
+## Values
+
+```typescript
+"checkbox"
+```
