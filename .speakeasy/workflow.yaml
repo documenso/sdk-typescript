@@ -12,6 +12,9 @@ targets:
     documenso:
         target: typescript
         source: Documenso v2 beta API
+        publish:
+            npm:
+                token: $npm_token
         codeSamples:
             registry:
                 location: registry.speakeasyapi.dev/documenso-inc/api/documenso-v-2-beta-api-typescript-code-samples
