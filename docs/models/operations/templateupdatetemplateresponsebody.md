@@ -20,8 +20,8 @@ let value: TemplateUpdateTemplateResponseBody = {
     globalActionAuth: "ACCOUNT",
   },
   templateDocumentDataId: "<id>",
-  createdAt: "1737320754424",
-  updatedAt: "1737292189301",
+  createdAt: "1737322175387",
+  updatedAt: "1737293610264",
   publicTitle: "<value>",
   publicDescription: "<value>",
 };
