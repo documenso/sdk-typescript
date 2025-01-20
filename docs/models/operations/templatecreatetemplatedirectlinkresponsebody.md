@@ -9,11 +9,11 @@ import { TemplateCreateTemplateDirectLinkResponseBody } from "@documenso/sdk-typ
 
 let value: TemplateCreateTemplateDirectLinkResponseBody = {
   id: "<id>",
-  templateId: 732815,
+  templateId: 933847,
   token: "<value>",
-  createdAt: "1708851062265",
+  createdAt: "1730235478042",
   enabled: false,
-  directTemplateRecipientId: 366117,
+  directTemplateRecipientId: 358861,
 };
 ```
 

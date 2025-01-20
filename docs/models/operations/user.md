@@ -6,9 +6,9 @@
 import { User } from "@documenso/sdk-typescript/models/operations";
 
 let value: User = {
-  id: 489685,
+  id: 830477,
   name: "<value>",
-  email: "Grady90@gmail.com",
+  email: "Einar_Will@gmail.com",
 };
 ```
 

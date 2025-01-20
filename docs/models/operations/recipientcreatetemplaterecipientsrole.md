@@ -5,7 +5,7 @@
 ```typescript
 import { RecipientCreateTemplateRecipientsRole } from "@documenso/sdk-typescript/models/operations";
 
-let value: RecipientCreateTemplateRecipientsRole = "APPROVER";
+let value: RecipientCreateTemplateRecipientsRole = "VIEWER";
 ```
 
 ## Values

@@ -1,8 +1,5 @@
 configVersion: 2.0.0
 generation:
-  devContainers:
-    enabled: true
-    schemaPath: ./local-openapi.json
   sdkClassName: Documenso
   maintainOpenAPIOrder: true
   usageSnippets:
@@ -44,7 +41,7 @@ typescript:
   methodArguments: require-security-and-request
   moduleFormat: commonjs
   outputModelSuffix: output
-  packageName: '@documenso/sdk-typescript'
+  packageName: "@documenso/sdk-typescript"
   responseFormat: flat
   templateVersion: v2
   useIndexModules: true

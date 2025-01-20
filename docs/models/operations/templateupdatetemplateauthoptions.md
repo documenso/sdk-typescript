@@ -7,7 +7,7 @@ import { TemplateUpdateTemplateAuthOptions } from "@documenso/sdk-typescript/mod
 
 let value: TemplateUpdateTemplateAuthOptions = {
   globalAccessAuth: "ACCOUNT",
-  globalActionAuth: "ACCOUNT",
+  globalActionAuth: "TWO_FACTOR_AUTH",
 };
 ```
 

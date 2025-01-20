@@ -5,7 +5,7 @@
 ```typescript
 import { TemplateGetTemplateByIdTemplatesResponseType } from "@documenso/sdk-typescript/models/operations";
 
-let value: TemplateGetTemplateByIdTemplatesResponseType = "SIGNATURE";
+let value: TemplateGetTemplateByIdTemplatesResponseType = "TEXT";
 ```
 
 ## Values

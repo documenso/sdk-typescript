@@ -6,7 +6,7 @@
 import { TemplateCreateDocumentFromTemplateFieldMetaValues } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateCreateDocumentFromTemplateFieldMetaValues = {
-  id: 7998.3,
+  id: 7674.66,
   checked: false,
   value: "<value>",
 };

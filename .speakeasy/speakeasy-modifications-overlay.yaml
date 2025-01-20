@@ -7,16 +7,14 @@ info:
     before: ""
     type: speakeasy-modifications
 actions:
-  - target: $["paths"]["/recipient/{recipientId}"]["get"]
+  - target: $["paths"]["/document/recipient/{recipientId}"]["get"]
     update:
-      x-speakeasy-group: recipients
+      x-speakeasy-group: documents.recipients
       x-speakeasy-name-override: get
-    x-speakeasy-metadata:
-      type: method-name
-      before: sdk.Document Recipients.recipient-getRecipient()
-      after: sdk.recipients.get()
-      reviewed_at: 1737284371636
-      created_at: 1737284351918
+  - target: $["paths"]["/template/recipient/{recipientId}"]["get"]
+    update:
+      x-speakeasy-group: templates.recipients
+      x-speakeasy-name-override: get
   - target: $["paths"]["/template/direct/create"]["post"]
     update:
       x-speakeasy-group: templates.directLink
@@ -357,16 +355,14 @@ actions:
       after: sdk.documents.fields.update()
       reviewed_at: 1737284371636
       created_at: 1737284351918
-  - target: $["paths"]["/field/{fieldId}"]["get"]
+  - target: $["paths"]["/document/field/{fieldId}"]["get"]
     update:
-      x-speakeasy-group: fields
+      x-speakeasy-group: documents.fields
       x-speakeasy-name-override: get
-    x-speakeasy-metadata:
-      type: method-name
-      before: sdk.Document Fields.field-getField()
-      after: sdk.fields.get()
-      reviewed_at: 1737284371636
-      created_at: 1737284351918
+  - target: $["paths"]["/template/field/{fieldId}"]["get"]
+    update:
+      x-speakeasy-group: templates.fields
+      x-speakeasy-name-override: get
   - target: $["paths"]["/template/recipient/update-many"]["post"]
     update:
       x-speakeasy-group: templates.recipients

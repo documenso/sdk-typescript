@@ -5,7 +5,7 @@
 ```typescript
 import { FieldCreateDocumentFieldsType } from "@documenso/sdk-typescript/models/operations";
 
-let value: FieldCreateDocumentFieldsType = "DATE";
+let value: FieldCreateDocumentFieldsType = "DROPDOWN";
 ```
 
 ## Values

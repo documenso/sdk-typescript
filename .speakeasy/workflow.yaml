@@ -3,7 +3,7 @@ speakeasyVersion: latest
 sources:
     Documenso v2 beta API:
         inputs:
-            - location: ./local-openapi.json
+            - location: https://app.documenso.com/api/v2-beta/openapi.json
         overlays:
             - location: .speakeasy/speakeasy-modifications-overlay.yaml
         registry:

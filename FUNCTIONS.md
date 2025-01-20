@@ -30,7 +30,9 @@ const documenso = new DocumensoCore({
 });
 
 async function run() {
-  const res = await documentsFind(documenso, {});
+  const res = await documentsFind(documenso, {
+    orderByDirection: "desc",
+  });
 
   switch (true) {
     case res.ok:

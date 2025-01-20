@@ -6,16 +6,16 @@
 import { TemplateCreateDocumentFromTemplateDocumentMeta } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateCreateDocumentFromTemplateDocumentMeta = {
-  signingOrder: "PARALLEL",
+  signingOrder: "SEQUENTIAL",
   distributionMethod: "EMAIL",
   id: "<id>",
   subject: "<value>",
   message: "<value>",
-  timezone: "Africa/Monrovia",
-  password: "hLdwxHz3_obHEFY",
+  timezone: "Africa/Abidjan",
+  password: "Lm2HRKllm73SM7i",
   dateFormat: "<value>",
-  documentId: 881568,
-  redirectUrl: "https://awesome-conservative.com",
+  documentId: 870183,
+  redirectUrl: "https://lasting-necklace.info",
   typedSignatureEnabled: false,
   language: "<value>",
   emailSettings: {},

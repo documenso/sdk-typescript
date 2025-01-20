@@ -8,20 +8,20 @@ Successful response
 import { TemplateUpdateTemplateResponseBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateUpdateTemplateResponseBody = {
-  type: "PUBLIC",
-  visibility: "MANAGER_AND_ABOVE",
-  id: 298246,
+  type: "PRIVATE",
+  visibility: "ADMIN",
+  id: 898826,
   externalId: "<id>",
   title: "<value>",
-  userId: 862560,
-  teamId: 586277,
+  userId: 586717,
+  teamId: 588158,
   authOptions: {
     globalAccessAuth: "ACCOUNT",
-    globalActionAuth: "PASSKEY",
+    globalActionAuth: "ACCOUNT",
   },
   templateDocumentDataId: "<id>",
-  createdAt: "1732521449445",
-  updatedAt: "1737271792691",
+  createdAt: "1737320754424",
+  updatedAt: "1737292189301",
   publicTitle: "<value>",
   publicDescription: "<value>",
 };

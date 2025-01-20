@@ -11,6 +11,13 @@ export type TemplateDeleteTemplateRequestBody = {
   templateId: number;
 };
 
+/**
+ * Successful response
+ */
+export type TemplateDeleteTemplateResponseBody = {
+  success: boolean;
+};
+
 /** @internal */
 export const TemplateDeleteTemplateRequestBody$inboundSchema: z.ZodType<
   TemplateDeleteTemplateRequestBody,
@@ -65,5 +72,63 @@ export function templateDeleteTemplateRequestBodyFromJSON(
     jsonString,
     (x) => TemplateDeleteTemplateRequestBody$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'TemplateDeleteTemplateRequestBody' from JSON`,
+  );
+}
+
+/** @internal */
+export const TemplateDeleteTemplateResponseBody$inboundSchema: z.ZodType<
+  TemplateDeleteTemplateResponseBody,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  success: z.boolean(),
+});
+
+/** @internal */
+export type TemplateDeleteTemplateResponseBody$Outbound = {
+  success: boolean;
+};
+
+/** @internal */
+export const TemplateDeleteTemplateResponseBody$outboundSchema: z.ZodType<
+  TemplateDeleteTemplateResponseBody$Outbound,
+  z.ZodTypeDef,
+  TemplateDeleteTemplateResponseBody
+> = z.object({
+  success: z.boolean(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateDeleteTemplateResponseBody$ {
+  /** @deprecated use `TemplateDeleteTemplateResponseBody$inboundSchema` instead. */
+  export const inboundSchema = TemplateDeleteTemplateResponseBody$inboundSchema;
+  /** @deprecated use `TemplateDeleteTemplateResponseBody$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateDeleteTemplateResponseBody$outboundSchema;
+  /** @deprecated use `TemplateDeleteTemplateResponseBody$Outbound` instead. */
+  export type Outbound = TemplateDeleteTemplateResponseBody$Outbound;
+}
+
+export function templateDeleteTemplateResponseBodyToJSON(
+  templateDeleteTemplateResponseBody: TemplateDeleteTemplateResponseBody,
+): string {
+  return JSON.stringify(
+    TemplateDeleteTemplateResponseBody$outboundSchema.parse(
+      templateDeleteTemplateResponseBody,
+    ),
+  );
+}
+
+export function templateDeleteTemplateResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<TemplateDeleteTemplateResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      TemplateDeleteTemplateResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateDeleteTemplateResponseBody' from JSON`,
   );
 }

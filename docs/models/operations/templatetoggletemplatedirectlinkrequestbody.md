@@ -6,7 +6,7 @@
 import { TemplateToggleTemplateDirectLinkRequestBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateToggleTemplateDirectLinkRequestBody = {
-  templateId: 844.38,
+  templateId: 2962.57,
   enabled: false,
 };
 ```

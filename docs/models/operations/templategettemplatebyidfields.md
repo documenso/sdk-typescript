@@ -6,17 +6,17 @@
 import { TemplateGetTemplateByIdFields } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateGetTemplateByIdFields = {
-  type: "CHECKBOX",
-  id: 321473,
+  type: "EMAIL",
+  id: 601277,
   secondaryId: "<id>",
-  documentId: 474185,
-  templateId: 514767,
-  recipientId: 140439,
-  page: 7128.93,
+  documentId: 771931,
+  templateId: 413086,
+  recipientId: 710059,
+  page: 7898.7,
   customText: "<value>",
   inserted: false,
   fieldMeta: {
-    type: "checkbox",
+    type: "email",
   },
 };
 ```

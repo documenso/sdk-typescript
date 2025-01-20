@@ -7,7 +7,7 @@ The type of authentication required for the recipient to sign the document.
 ```typescript
 import { TemplateGetTemplateByIdActionAuth } from "@documenso/sdk-typescript/models/operations";
 
-let value: TemplateGetTemplateByIdActionAuth = "EXPLICIT_NONE";
+let value: TemplateGetTemplateByIdActionAuth = "TWO_FACTOR_AUTH";
 ```
 
 ## Values

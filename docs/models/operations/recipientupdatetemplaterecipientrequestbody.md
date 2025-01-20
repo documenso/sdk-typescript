@@ -6,9 +6,9 @@
 import { RecipientUpdateTemplateRecipientRequestBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: RecipientUpdateTemplateRecipientRequestBody = {
-  templateId: 413.46,
+  templateId: 9904.54,
   recipient: {
-    id: 5301.99,
+    id: 8453.74,
   },
 };
 ```

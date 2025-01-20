@@ -7,12 +7,12 @@ import { Fields9 } from "@documenso/sdk-typescript/models/operations";
 
 let value: Fields9 = {
   type: "RADIO",
-  recipientId: 8822.84,
-  pageNumber: 7332.89,
-  pageX: 4097.26,
-  pageY: 3735.11,
-  width: 5156.38,
-  height: 8890.6,
+  recipientId: 1770.05,
+  pageNumber: 4835.18,
+  pageX: 1403.16,
+  pageY: 3589.95,
+  width: 9371.17,
+  height: 9233.06,
 };
 ```
 

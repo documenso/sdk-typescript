@@ -7,7 +7,9 @@ const documenso = new Documenso({
 });
 
 async function run() {
-  const result = await documenso.documents.find({});
+  const result = await documenso.documents.find({
+    orderByDirection: "desc",
+  });
 
   // Handle the result
   console.log(result);

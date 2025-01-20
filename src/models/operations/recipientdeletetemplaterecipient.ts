@@ -11,6 +11,13 @@ export type RecipientDeleteTemplateRecipientRequestBody = {
   recipientId: number;
 };
 
+/**
+ * Successful response
+ */
+export type RecipientDeleteTemplateRecipientResponseBody = {
+  success: boolean;
+};
+
 /** @internal */
 export const RecipientDeleteTemplateRecipientRequestBody$inboundSchema:
   z.ZodType<
@@ -75,5 +82,72 @@ export function recipientDeleteTemplateRecipientRequestBodyFromJSON(
         JSON.parse(x),
       ),
     `Failed to parse 'RecipientDeleteTemplateRecipientRequestBody' from JSON`,
+  );
+}
+
+/** @internal */
+export const RecipientDeleteTemplateRecipientResponseBody$inboundSchema:
+  z.ZodType<
+    RecipientDeleteTemplateRecipientResponseBody,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    success: z.boolean(),
+  });
+
+/** @internal */
+export type RecipientDeleteTemplateRecipientResponseBody$Outbound = {
+  success: boolean;
+};
+
+/** @internal */
+export const RecipientDeleteTemplateRecipientResponseBody$outboundSchema:
+  z.ZodType<
+    RecipientDeleteTemplateRecipientResponseBody$Outbound,
+    z.ZodTypeDef,
+    RecipientDeleteTemplateRecipientResponseBody
+  > = z.object({
+    success: z.boolean(),
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace RecipientDeleteTemplateRecipientResponseBody$ {
+  /** @deprecated use `RecipientDeleteTemplateRecipientResponseBody$inboundSchema` instead. */
+  export const inboundSchema =
+    RecipientDeleteTemplateRecipientResponseBody$inboundSchema;
+  /** @deprecated use `RecipientDeleteTemplateRecipientResponseBody$outboundSchema` instead. */
+  export const outboundSchema =
+    RecipientDeleteTemplateRecipientResponseBody$outboundSchema;
+  /** @deprecated use `RecipientDeleteTemplateRecipientResponseBody$Outbound` instead. */
+  export type Outbound = RecipientDeleteTemplateRecipientResponseBody$Outbound;
+}
+
+export function recipientDeleteTemplateRecipientResponseBodyToJSON(
+  recipientDeleteTemplateRecipientResponseBody:
+    RecipientDeleteTemplateRecipientResponseBody,
+): string {
+  return JSON.stringify(
+    RecipientDeleteTemplateRecipientResponseBody$outboundSchema.parse(
+      recipientDeleteTemplateRecipientResponseBody,
+    ),
+  );
+}
+
+export function recipientDeleteTemplateRecipientResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  RecipientDeleteTemplateRecipientResponseBody,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      RecipientDeleteTemplateRecipientResponseBody$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'RecipientDeleteTemplateRecipientResponseBody' from JSON`,
   );
 }

@@ -6,10 +6,10 @@
 import { FieldUpdateTemplateFieldRequestBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: FieldUpdateTemplateFieldRequestBody = {
-  templateId: 3920.22,
+  templateId: 3927.59,
   field: {
-    type: "FREE_SIGNATURE",
-    id: 8048.23,
+    type: "SIGNATURE",
+    id: 4349.55,
   },
 };
 ```

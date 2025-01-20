@@ -7,7 +7,7 @@ import { TemplateCreateDocumentFromTemplateAuthOptions } from "@documenso/sdk-ty
 
 let value: TemplateCreateDocumentFromTemplateAuthOptions = {
   globalAccessAuth: "ACCOUNT",
-  globalActionAuth: "PASSKEY",
+  globalActionAuth: "TWO_FACTOR_AUTH",
 };
 ```
 

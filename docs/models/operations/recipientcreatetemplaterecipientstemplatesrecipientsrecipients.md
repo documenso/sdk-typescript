@@ -8,12 +8,12 @@ import { RecipientCreateTemplateRecipientsTemplatesRecipientsRecipients } from "
 let value: RecipientCreateTemplateRecipientsTemplatesRecipientsRecipients = {
   role: "VIEWER",
   readStatus: "OPENED",
-  signingStatus: "REJECTED",
+  signingStatus: "NOT_SIGNED",
   sendStatus: "SENT",
-  id: 505908,
-  documentId: 466022,
-  templateId: 890379,
-  email: "Bessie.Rosenbaum@gmail.com",
+  id: 534432,
+  documentId: 15676,
+  templateId: 344702,
+  email: "Jeffery54@hotmail.com",
   name: "<value>",
   token: "<value>",
   documentDeletedAt: "<value>",
@@ -21,9 +21,9 @@ let value: RecipientCreateTemplateRecipientsTemplatesRecipientsRecipients = {
   signedAt: "<value>",
   authOptions: {
     accessAuth: "ACCOUNT",
-    actionAuth: "PASSKEY",
+    actionAuth: "EXPLICIT_NONE",
   },
-  signingOrder: 5315.68,
+  signingOrder: 6714.28,
   rejectionReason: "<value>",
 };
 ```

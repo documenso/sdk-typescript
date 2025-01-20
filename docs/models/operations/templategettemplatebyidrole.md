@@ -5,7 +5,7 @@
 ```typescript
 import { TemplateGetTemplateByIdRole } from "@documenso/sdk-typescript/models/operations";
 
-let value: TemplateGetTemplateByIdRole = "VIEWER";
+let value: TemplateGetTemplateByIdRole = "APPROVER";
 ```
 
 ## Values

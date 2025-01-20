@@ -6,7 +6,7 @@
 import { TemplateGetTemplateByIdFieldMetaTemplatesValues } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateGetTemplateByIdFieldMetaTemplatesValues = {
-  id: 6428.04,
+  id: 455.1,
   checked: false,
   value: "<value>",
 };

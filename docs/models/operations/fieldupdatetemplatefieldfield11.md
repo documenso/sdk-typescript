@@ -7,7 +7,7 @@ import { FieldUpdateTemplateFieldField11 } from "@documenso/sdk-typescript/model
 
 let value: FieldUpdateTemplateFieldField11 = {
   type: "DROPDOWN",
-  id: 4098.57,
+  id: 2580.36,
 };
 ```
 

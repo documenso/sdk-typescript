@@ -7,7 +7,7 @@ import { RecipientCreateDocumentRecipientsAuthOptions } from "@documenso/sdk-typ
 
 let value: RecipientCreateDocumentRecipientsAuthOptions = {
   accessAuth: "ACCOUNT",
-  actionAuth: "PASSKEY",
+  actionAuth: "EXPLICIT_NONE",
 };
 ```
 

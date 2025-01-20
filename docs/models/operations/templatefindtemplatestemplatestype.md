@@ -5,7 +5,7 @@
 ```typescript
 import { TemplateFindTemplatesTemplatesType } from "@documenso/sdk-typescript/models/operations";
 
-let value: TemplateFindTemplatesTemplatesType = "NUMBER";
+let value: TemplateFindTemplatesTemplatesType = "DROPDOWN";
 ```
 
 ## Values

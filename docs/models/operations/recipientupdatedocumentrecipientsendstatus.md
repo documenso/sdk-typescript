@@ -5,7 +5,7 @@
 ```typescript
 import { RecipientUpdateDocumentRecipientSendStatus } from "@documenso/sdk-typescript/models/operations";
 
-let value: RecipientUpdateDocumentRecipientSendStatus = "NOT_SENT";
+let value: RecipientUpdateDocumentRecipientSendStatus = "SENT";
 ```
 
 ## Values

@@ -1,12 +1,13 @@
 lockVersion: 2.0.0
 id: 2f28b0c4-e21c-47c4-aada-41da1a74c452
 management:
-  docChecksum: fbb73edc37a5377514201c91ad1cb6ab
+  docChecksum: ac84529375cc88bfe1ddded5c9f2c8fa
   docVersion: 0.0.0
-  speakeasyVersion: 1.469.1
-  generationVersion: 2.493.21
+  speakeasyVersion: 1.469.10
+  generationVersion: 2.493.31
   releaseVersion: 0.1.1
   configChecksum: e5e857e20b1a8ded6ae8e626c09aa97d
+  published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -128,6 +129,7 @@ generatedFiles:
   - docs/models/operations/documentcreatedocumenttemporaryvisibility.md
   - docs/models/operations/documentdata.md
   - docs/models/operations/documentdeletedocumentrequestbody.md
+  - docs/models/operations/documentdeletedocumentresponsebody.md
   - docs/models/operations/documentduplicatedocumentrequestbody.md
   - docs/models/operations/documentduplicatedocumentresponsebody.md
   - docs/models/operations/documentfinddocumentsaccessauth.md
@@ -204,6 +206,7 @@ generatedFiles:
   - docs/models/operations/documentmovedocumenttoteamstatus.md
   - docs/models/operations/documentmovedocumenttoteamvisibility.md
   - docs/models/operations/documentresenddocumentrequestbody.md
+  - docs/models/operations/documentresenddocumentresponsebody.md
   - docs/models/operations/documentsenddocumentauthoptions.md
   - docs/models/operations/documentsenddocumentdateformat.md
   - docs/models/operations/documentsenddocumentdistributionmethod.md
@@ -504,22 +507,49 @@ generatedFiles:
   - docs/models/operations/fieldcreatetemplatefieldstype.md
   - docs/models/operations/fieldcreatetemplatefieldtype.md
   - docs/models/operations/fielddeletedocumentfieldrequestbody.md
+  - docs/models/operations/fielddeletedocumentfieldresponsebody.md
   - docs/models/operations/fielddeletetemplatefieldrequestbody.md
+  - docs/models/operations/fielddeletetemplatefieldresponsebody.md
   - docs/models/operations/fieldfieldmeta.md
-  - docs/models/operations/fieldgetfieldfieldmeta.md
-  - docs/models/operations/fieldgetfieldfieldmetafieldsresponse200applicationjsonresponsebody8type.md
-  - docs/models/operations/fieldgetfieldfieldmetafieldsresponse200applicationjsonresponsebody9type.md
-  - docs/models/operations/fieldgetfieldfieldmetafieldsresponse200applicationjsonresponsebodytype.md
-  - docs/models/operations/fieldgetfieldfieldmetafieldsresponse200applicationjsontype.md
-  - docs/models/operations/fieldgetfieldfieldmetafieldsresponse200type.md
-  - docs/models/operations/fieldgetfieldfieldmetafieldsresponsetype.md
-  - docs/models/operations/fieldgetfieldfieldmetafieldstype.md
-  - docs/models/operations/fieldgetfieldfieldmetafieldsvalues.md
-  - docs/models/operations/fieldgetfieldfieldmetatype.md
-  - docs/models/operations/fieldgetfieldfieldmetavalues.md
-  - docs/models/operations/fieldgetfieldrequest.md
-  - docs/models/operations/fieldgetfieldresponsebody.md
-  - docs/models/operations/fieldgetfieldtype.md
+  - docs/models/operations/fieldgetdocumentfieldfieldmeta.md
+  - docs/models/operations/fieldgetdocumentfieldfieldmetadocumentsfieldsresponse200applicationjsonresponsebody8type.md
+  - docs/models/operations/fieldgetdocumentfieldfieldmetadocumentsfieldsresponse200applicationjsonresponsebody9type.md
+  - docs/models/operations/fieldgetdocumentfieldfieldmetadocumentsfieldsresponse200applicationjsonresponsebodytype.md
+  - docs/models/operations/fieldgetdocumentfieldfieldmetadocumentsfieldsresponse200applicationjsontype.md
+  - docs/models/operations/fieldgetdocumentfieldfieldmetadocumentsfieldsresponse200type.md
+  - docs/models/operations/fieldgetdocumentfieldfieldmetadocumentsfieldsresponsetype.md
+  - docs/models/operations/fieldgetdocumentfieldfieldmetadocumentsfieldstype.md
+  - docs/models/operations/fieldgetdocumentfieldfieldmetadocumentsfieldsvalues.md
+  - docs/models/operations/fieldgetdocumentfieldfieldmetatype.md
+  - docs/models/operations/fieldgetdocumentfieldfieldmetavalues.md
+  - docs/models/operations/fieldgetdocumentfieldrequest.md
+  - docs/models/operations/fieldgetdocumentfieldresponsebody.md
+  - docs/models/operations/fieldgetdocumentfieldtype.md
+  - docs/models/operations/fieldgettemplatefieldfieldmeta.md
+  - docs/models/operations/fieldgettemplatefieldfieldmeta1.md
+  - docs/models/operations/fieldgettemplatefieldfieldmeta2.md
+  - docs/models/operations/fieldgettemplatefieldfieldmeta3.md
+  - docs/models/operations/fieldgettemplatefieldfieldmeta4.md
+  - docs/models/operations/fieldgettemplatefieldfieldmeta5.md
+  - docs/models/operations/fieldgettemplatefieldfieldmeta6.md
+  - docs/models/operations/fieldgettemplatefieldfieldmeta7.md
+  - docs/models/operations/fieldgettemplatefieldfieldmeta8.md
+  - docs/models/operations/fieldgettemplatefieldfieldmeta9.md
+  - docs/models/operations/fieldgettemplatefieldfieldmetatemplatesfieldsresponse200applicationjsonresponsebody7type.md
+  - docs/models/operations/fieldgettemplatefieldfieldmetatemplatesfieldsresponse200applicationjsonresponsebody8type.md
+  - docs/models/operations/fieldgettemplatefieldfieldmetatemplatesfieldsresponse200applicationjsonresponsebody9type.md
+  - docs/models/operations/fieldgettemplatefieldfieldmetatemplatesfieldsresponse200applicationjsonresponsebodytype.md
+  - docs/models/operations/fieldgettemplatefieldfieldmetatemplatesfieldsresponse200applicationjsontype.md
+  - docs/models/operations/fieldgettemplatefieldfieldmetatemplatesfieldsresponse200type.md
+  - docs/models/operations/fieldgettemplatefieldfieldmetatemplatesfieldsresponsetype.md
+  - docs/models/operations/fieldgettemplatefieldfieldmetatemplatesfieldsresponsevalues.md
+  - docs/models/operations/fieldgettemplatefieldfieldmetatemplatesfieldstype.md
+  - docs/models/operations/fieldgettemplatefieldfieldmetatemplatesfieldsvalues.md
+  - docs/models/operations/fieldgettemplatefieldfieldmetatype.md
+  - docs/models/operations/fieldgettemplatefieldfieldmetavalues.md
+  - docs/models/operations/fieldgettemplatefieldrequest.md
+  - docs/models/operations/fieldgettemplatefieldresponsebody.md
+  - docs/models/operations/fieldgettemplatefieldtype.md
   - docs/models/operations/fieldmeta.md
   - docs/models/operations/fieldmeta1.md
   - docs/models/operations/fieldmeta2.md
@@ -895,37 +925,72 @@ generatedFiles:
   - docs/models/operations/recipientcreatetemplaterecipienttemplatesrecipientsactionauth.md
   - docs/models/operations/recipientcreatetemplaterecipienttemplatesrecipientsrole.md
   - docs/models/operations/recipientdeletedocumentrecipientrequestbody.md
+  - docs/models/operations/recipientdeletedocumentrecipientresponsebody.md
   - docs/models/operations/recipientdeletetemplaterecipientrequestbody.md
-  - docs/models/operations/recipientgetrecipientaccessauth.md
-  - docs/models/operations/recipientgetrecipientactionauth.md
-  - docs/models/operations/recipientgetrecipientauthoptions.md
-  - docs/models/operations/recipientgetrecipientfieldmeta.md
-  - docs/models/operations/recipientgetrecipientfieldmeta1.md
-  - docs/models/operations/recipientgetrecipientfieldmeta2.md
-  - docs/models/operations/recipientgetrecipientfieldmeta3.md
-  - docs/models/operations/recipientgetrecipientfieldmeta4.md
-  - docs/models/operations/recipientgetrecipientfieldmeta5.md
-  - docs/models/operations/recipientgetrecipientfieldmeta6.md
-  - docs/models/operations/recipientgetrecipientfieldmeta7.md
-  - docs/models/operations/recipientgetrecipientfieldmeta8.md
-  - docs/models/operations/recipientgetrecipientfieldmeta9.md
-  - docs/models/operations/recipientgetrecipientfieldmetarecipientsresponse200applicationjsonresponsebodyfields8type.md
-  - docs/models/operations/recipientgetrecipientfieldmetarecipientsresponse200applicationjsonresponsebodyfields9type.md
-  - docs/models/operations/recipientgetrecipientfieldmetarecipientsresponse200applicationjsonresponsebodyfieldstype.md
-  - docs/models/operations/recipientgetrecipientfieldmetarecipientsresponse200applicationjsonresponsebodytype.md
-  - docs/models/operations/recipientgetrecipientfieldmetarecipientsresponse200applicationjsontype.md
-  - docs/models/operations/recipientgetrecipientfieldmetarecipientsresponse200type.md
-  - docs/models/operations/recipientgetrecipientfieldmetarecipientsresponsetype.md
-  - docs/models/operations/recipientgetrecipientfieldmetarecipientsresponsevalues.md
-  - docs/models/operations/recipientgetrecipientfieldmetarecipientstype.md
-  - docs/models/operations/recipientgetrecipientfieldmetarecipientsvalues.md
-  - docs/models/operations/recipientgetrecipientfieldmetatype.md
-  - docs/models/operations/recipientgetrecipientfieldmetavalues.md
-  - docs/models/operations/recipientgetrecipientfields.md
-  - docs/models/operations/recipientgetrecipientrequest.md
-  - docs/models/operations/recipientgetrecipientresponsebody.md
-  - docs/models/operations/recipientgetrecipientrole.md
-  - docs/models/operations/recipientgetrecipienttype.md
+  - docs/models/operations/recipientdeletetemplaterecipientresponsebody.md
+  - docs/models/operations/recipientgetdocumentrecipientaccessauth.md
+  - docs/models/operations/recipientgetdocumentrecipientactionauth.md
+  - docs/models/operations/recipientgetdocumentrecipientauthoptions.md
+  - docs/models/operations/recipientgetdocumentrecipientfieldmeta.md
+  - docs/models/operations/recipientgetdocumentrecipientfieldmeta1.md
+  - docs/models/operations/recipientgetdocumentrecipientfieldmeta2.md
+  - docs/models/operations/recipientgetdocumentrecipientfieldmeta3.md
+  - docs/models/operations/recipientgetdocumentrecipientfieldmeta4.md
+  - docs/models/operations/recipientgetdocumentrecipientfieldmeta5.md
+  - docs/models/operations/recipientgetdocumentrecipientfieldmeta6.md
+  - docs/models/operations/recipientgetdocumentrecipientfieldmeta7.md
+  - docs/models/operations/recipientgetdocumentrecipientfieldmeta8.md
+  - docs/models/operations/recipientgetdocumentrecipientfieldmeta9.md
+  - docs/models/operations/recipientgetdocumentrecipientfieldmetadocumentsrecipientsresponse200applicationjsonresponsebodyfields8type.md
+  - docs/models/operations/recipientgetdocumentrecipientfieldmetadocumentsrecipientsresponse200applicationjsonresponsebodyfields9type.md
+  - docs/models/operations/recipientgetdocumentrecipientfieldmetadocumentsrecipientsresponse200applicationjsonresponsebodyfieldstype.md
+  - docs/models/operations/recipientgetdocumentrecipientfieldmetadocumentsrecipientsresponse200applicationjsonresponsebodytype.md
+  - docs/models/operations/recipientgetdocumentrecipientfieldmetadocumentsrecipientsresponse200applicationjsontype.md
+  - docs/models/operations/recipientgetdocumentrecipientfieldmetadocumentsrecipientsresponse200type.md
+  - docs/models/operations/recipientgetdocumentrecipientfieldmetadocumentsrecipientsresponsetype.md
+  - docs/models/operations/recipientgetdocumentrecipientfieldmetadocumentsrecipientsresponsevalues.md
+  - docs/models/operations/recipientgetdocumentrecipientfieldmetadocumentsrecipientstype.md
+  - docs/models/operations/recipientgetdocumentrecipientfieldmetadocumentsrecipientsvalues.md
+  - docs/models/operations/recipientgetdocumentrecipientfieldmetatype.md
+  - docs/models/operations/recipientgetdocumentrecipientfieldmetavalues.md
+  - docs/models/operations/recipientgetdocumentrecipientfields.md
+  - docs/models/operations/recipientgetdocumentrecipientrequest.md
+  - docs/models/operations/recipientgetdocumentrecipientresponsebody.md
+  - docs/models/operations/recipientgetdocumentrecipientrole.md
+  - docs/models/operations/recipientgetdocumentrecipienttype.md
+  - docs/models/operations/recipientgettemplaterecipientaccessauth.md
+  - docs/models/operations/recipientgettemplaterecipientactionauth.md
+  - docs/models/operations/recipientgettemplaterecipientauthoptions.md
+  - docs/models/operations/recipientgettemplaterecipientfieldmeta.md
+  - docs/models/operations/recipientgettemplaterecipientfieldmeta1.md
+  - docs/models/operations/recipientgettemplaterecipientfieldmeta2.md
+  - docs/models/operations/recipientgettemplaterecipientfieldmeta3.md
+  - docs/models/operations/recipientgettemplaterecipientfieldmeta4.md
+  - docs/models/operations/recipientgettemplaterecipientfieldmeta5.md
+  - docs/models/operations/recipientgettemplaterecipientfieldmeta6.md
+  - docs/models/operations/recipientgettemplaterecipientfieldmeta7.md
+  - docs/models/operations/recipientgettemplaterecipientfieldmeta8.md
+  - docs/models/operations/recipientgettemplaterecipientfieldmeta9.md
+  - docs/models/operations/recipientgettemplaterecipientfieldmetatemplatesrecipientsresponse200applicationjsonresponsebodyfields8type.md
+  - docs/models/operations/recipientgettemplaterecipientfieldmetatemplatesrecipientsresponse200applicationjsonresponsebodyfields9type.md
+  - docs/models/operations/recipientgettemplaterecipientfieldmetatemplatesrecipientsresponse200applicationjsonresponsebodyfieldstype.md
+  - docs/models/operations/recipientgettemplaterecipientfieldmetatemplatesrecipientsresponse200applicationjsonresponsebodytype.md
+  - docs/models/operations/recipientgettemplaterecipientfieldmetatemplatesrecipientsresponse200applicationjsontype.md
+  - docs/models/operations/recipientgettemplaterecipientfieldmetatemplatesrecipientsresponse200type.md
+  - docs/models/operations/recipientgettemplaterecipientfieldmetatemplatesrecipientsresponsetype.md
+  - docs/models/operations/recipientgettemplaterecipientfieldmetatemplatesrecipientsresponsevalues.md
+  - docs/models/operations/recipientgettemplaterecipientfieldmetatemplatesrecipientstype.md
+  - docs/models/operations/recipientgettemplaterecipientfieldmetatemplatesrecipientsvalues.md
+  - docs/models/operations/recipientgettemplaterecipientfieldmetatype.md
+  - docs/models/operations/recipientgettemplaterecipientfieldmetavalues.md
+  - docs/models/operations/recipientgettemplaterecipientfields.md
+  - docs/models/operations/recipientgettemplaterecipientreadstatus.md
+  - docs/models/operations/recipientgettemplaterecipientrequest.md
+  - docs/models/operations/recipientgettemplaterecipientresponsebody.md
+  - docs/models/operations/recipientgettemplaterecipientrole.md
+  - docs/models/operations/recipientgettemplaterecipientsendstatus.md
+  - docs/models/operations/recipientgettemplaterecipientsigningstatus.md
+  - docs/models/operations/recipientgettemplaterecipienttype.md
   - docs/models/operations/recipients.md
   - docs/models/operations/recipientupdatedocumentrecipientaccessauth.md
   - docs/models/operations/recipientupdatedocumentrecipientactionauth.md
@@ -1137,7 +1202,9 @@ generatedFiles:
   - docs/models/operations/templatecreatetemplatedirectlinkrequestbody.md
   - docs/models/operations/templatecreatetemplatedirectlinkresponsebody.md
   - docs/models/operations/templatedeletetemplatedirectlinkrequestbody.md
+  - docs/models/operations/templatedeletetemplatedirectlinkresponsebody.md
   - docs/models/operations/templatedeletetemplaterequestbody.md
+  - docs/models/operations/templatedeletetemplateresponsebody.md
   - docs/models/operations/templatedocumentdata.md
   - docs/models/operations/templateduplicatetemplateauthoptions.md
   - docs/models/operations/templateduplicatetemplateglobalaccessauth.md
@@ -1273,8 +1340,6 @@ generatedFiles:
   - docs/sdks/documenso/README.md
   - docs/sdks/documensofields/README.md
   - docs/sdks/documensorecipients/README.md
-  - docs/sdks/documensotemplatesfields/README.md
-  - docs/sdks/documensotemplatesrecipients/README.md
   - docs/sdks/documents/README.md
   - docs/sdks/fields/README.md
   - docs/sdks/recipients/README.md
@@ -1289,6 +1354,7 @@ generatedFiles:
   - src/funcs/documentsFieldsCreate.ts
   - src/funcs/documentsFieldsCreateMany.ts
   - src/funcs/documentsFieldsDelete.ts
+  - src/funcs/documentsFieldsGet.ts
   - src/funcs/documentsFieldsUpdate.ts
   - src/funcs/documentsFieldsUpdateMany.ts
   - src/funcs/documentsFind.ts
@@ -1297,12 +1363,11 @@ generatedFiles:
   - src/funcs/documentsRecipientsCreate.ts
   - src/funcs/documentsRecipientsCreateMany.ts
   - src/funcs/documentsRecipientsDelete.ts
+  - src/funcs/documentsRecipientsGet.ts
   - src/funcs/documentsRecipientsUpdate.ts
   - src/funcs/documentsRecipientsUpdateMany.ts
   - src/funcs/documentsRedistribute.ts
   - src/funcs/documentsUpdate.ts
-  - src/funcs/fieldsGet.ts
-  - src/funcs/recipientsGet.ts
   - src/funcs/templatesDelete.ts
   - src/funcs/templatesDirectLinkCreate.ts
   - src/funcs/templatesDirectLinkDelete.ts
@@ -1311,6 +1376,7 @@ generatedFiles:
   - src/funcs/templatesFieldsCreate.ts
   - src/funcs/templatesFieldsCreateMany.ts
   - src/funcs/templatesFieldsDelete.ts
+  - src/funcs/templatesFieldsGet.ts
   - src/funcs/templatesFieldsUpdate.ts
   - src/funcs/templatesFieldsUpdateMany.ts
   - src/funcs/templatesFind.ts
@@ -1319,6 +1385,7 @@ generatedFiles:
   - src/funcs/templatesRecipientsCreate.ts
   - src/funcs/templatesRecipientsCreateMany.ts
   - src/funcs/templatesRecipientsDelete.ts
+  - src/funcs/templatesRecipientsGet.ts
   - src/funcs/templatesRecipientsUpdate.ts
   - src/funcs/templatesRecipientsUpdateMany.ts
   - src/funcs/templatesUpdate.ts
@@ -1367,7 +1434,8 @@ generatedFiles:
   - src/models/operations/fieldcreatetemplatefields.ts
   - src/models/operations/fielddeletedocumentfield.ts
   - src/models/operations/fielddeletetemplatefield.ts
-  - src/models/operations/fieldgetfield.ts
+  - src/models/operations/fieldgetdocumentfield.ts
+  - src/models/operations/fieldgettemplatefield.ts
   - src/models/operations/fieldupdatedocumentfield.ts
   - src/models/operations/fieldupdatedocumentfields.ts
   - src/models/operations/fieldupdatetemplatefield.ts
@@ -1379,7 +1447,8 @@ generatedFiles:
   - src/models/operations/recipientcreatetemplaterecipients.ts
   - src/models/operations/recipientdeletedocumentrecipient.ts
   - src/models/operations/recipientdeletetemplaterecipient.ts
-  - src/models/operations/recipientgetrecipient.ts
+  - src/models/operations/recipientgetdocumentrecipient.ts
+  - src/models/operations/recipientgettemplaterecipient.ts
   - src/models/operations/recipientupdatedocumentrecipient.ts
   - src/models/operations/recipientupdatedocumentrecipients.ts
   - src/models/operations/recipientupdatetemplaterecipient.ts
@@ -1397,8 +1466,6 @@ generatedFiles:
   - src/sdk/directlink.ts
   - src/sdk/documensofields.ts
   - src/sdk/documensorecipients.ts
-  - src/sdk/documensotemplatesfields.ts
-  - src/sdk/documensotemplatesrecipients.ts
   - src/sdk/documents.ts
   - src/sdk/fields.ts
   - src/sdk/index.ts
@@ -1417,9 +1484,12 @@ generatedFiles:
 examples:
   document-findDocuments:
     speakeasy-default-document-find-documents:
+      parameters:
+        query:
+          orderByDirection: "desc"
       responses:
         "200":
-          application/json: {"data": [{"visibility": "MANAGER_AND_ABOVE", "status": "DRAFT", "source": "DOCUMENT", "id": 8644, "externalId": "<id>", "userId": "3237.75", "authOptions": {"globalAccessAuth": "ACCOUNT", "globalActionAuth": "ACCOUNT"}, "title": "<value>", "documentDataId": "<id>", "createdAt": "1727175444987", "updatedAt": "1737243874672", "completedAt": "<value>", "deletedAt": "<value>", "teamId": 456409, "templateId": 501781, "user": {"id": 547642, "name": "<value>", "email": "Winnifred.Mohr@hotmail.com"}, "recipients": [{"role": "SIGNER", "readStatus": "NOT_OPENED", "signingStatus": "SIGNED", "sendStatus": "SENT", "id": 549824, "documentId": 856672, "templateId": 560220, "email": "Amari_Quitzon45@gmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "PASSKEY"}, "signingOrder": "1204.07", "rejectionReason": "<value>"}], "team": {"id": 18267, "url": "https://plain-ostrich.name"}}, {"visibility": "MANAGER_AND_ABOVE", "status": "PENDING", "source": "TEMPLATE_DIRECT_LINK", "id": 528559, "externalId": "<id>", "userId": "9512.88", "authOptions": {"globalAccessAuth": "ACCOUNT", "globalActionAuth": "PASSKEY"}, "formValues": {"key": "<value>", "key1": "<value>", "key2": "<value>"}, "title": "<value>", "documentDataId": "<id>", "createdAt": "1713443435970", "updatedAt": "1737234450615", "completedAt": "<value>", "deletedAt": "<value>", "teamId": 962594, "templateId": 581308, "user": {"id": 829858, "name": "<value>", "email": "Pedro_Goyette@hotmail.com"}, "recipients": [{"role": "VIEWER", "readStatus": "NOT_OPENED", "signingStatus": "NOT_SIGNED", "sendStatus": "SENT", "id": 830432, "documentId": 702316, "templateId": 641402, "email": "Raymundo_Corkery53@hotmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "EXPLICIT_NONE"}, "signingOrder": "1793.75", "rejectionReason": "<value>"}], "team": {"id": 134875, "url": "https://soulful-duster.name"}}], "count": "3268.29", "currentPage": "5372.86", "perPage": "177.60", "totalPages": "380.66"}
+          application/json: {"data": [], "count": 4880.98, "currentPage": 9399.43, "perPage": 168.65, "totalPages": 4136.86}
         "400":
           application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
         "404":
@@ -1430,10 +1500,10 @@ examples:
     speakeasy-default-document-get-document-with-details-by-id:
       parameters:
         path:
-          documentId: "6185.96"
+          documentId: 7003.47
       responses:
         "200":
-          application/json: {"visibility": "ADMIN", "status": "PENDING", "source": "TEMPLATE_DIRECT_LINK", "id": 860664, "externalId": "<id>", "userId": "5567.94", "authOptions": {"globalAccessAuth": "ACCOUNT", "globalActionAuth": "ACCOUNT"}, "formValues": {"key": true, "key1": "5588.34", "key2": "<value>"}, "title": "<value>", "documentDataId": "<id>", "createdAt": "1720678683551", "updatedAt": "1737223901175", "completedAt": "<value>", "deletedAt": "<value>", "teamId": 279766, "templateId": 87021, "documentData": {"type": "BYTES", "id": "<id>", "data": "<value>", "initialData": "<value>"}, "documentMeta": {"signingOrder": "PARALLEL", "distributionMethod": "NONE", "id": "<id>", "subject": "<value>", "message": "<value>", "timezone": "America/Eirunepe", "password": "_G3fvw8AnPBVkcv", "dateFormat": "<value>", "documentId": 184617, "redirectUrl": "https://major-bathhouse.com", "typedSignatureEnabled": true, "language": "<value>", "emailSettings": {}}, "recipients": [], "fields": []}
+          application/json: {"visibility": "MANAGER_AND_ABOVE", "status": "PENDING", "source": "TEMPLATE", "id": 969961, "externalId": "<id>", "userId": 4580.49, "authOptions": {"globalAccessAuth": "ACCOUNT", "globalActionAuth": "PASSKEY"}, "formValues": {"key": "<value>"}, "title": "<value>", "documentDataId": "<id>", "createdAt": "1735357644394", "updatedAt": "1737291263114", "completedAt": "<value>", "deletedAt": "<value>", "teamId": 801373, "templateId": 78888, "documentData": {"type": "S3_PATH", "id": "<id>", "data": "<value>", "initialData": "<value>"}, "documentMeta": {"signingOrder": "PARALLEL", "distributionMethod": "EMAIL", "id": "<id>", "subject": "<value>", "message": "<value>", "timezone": "Asia/Dushanbe", "password": "cVTRLK95zJm5UmE", "dateFormat": "<value>", "documentId": 550563, "redirectUrl": "https://tough-parade.name/", "typedSignatureEnabled": true, "language": "<value>", "emailSettings": {"recipientSigningRequest": true, "recipientRemoved": true, "recipientSigned": true, "documentPending": true, "documentCompleted": true, "documentDeleted": true, "ownerDocumentCompleted": true}}, "recipients": [{"role": "APPROVER", "readStatus": "NOT_OPENED", "signingStatus": "SIGNED", "sendStatus": "NOT_SENT", "id": 808481, "documentId": 508887, "templateId": 656841, "email": "Lenore_Jacobi45@yahoo.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "TWO_FACTOR_AUTH"}, "signingOrder": 3925.74, "rejectionReason": "<value>"}, {"role": "APPROVER", "readStatus": "OPENED", "signingStatus": "REJECTED", "sendStatus": "NOT_SENT", "id": 149108, "documentId": 741131, "templateId": 503671, "email": "Jed64@hotmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "EXPLICIT_NONE"}, "signingOrder": 250.42, "rejectionReason": "<value>"}], "fields": [{"type": "NUMBER", "id": 292469, "secondaryId": "<id>", "documentId": 892556, "templateId": 286547, "recipientId": 237994, "page": 7106.36, "customText": "<value>", "inserted": true, "fieldMeta": {"type": "checkbox"}}, {"type": "RADIO", "id": 667645, "secondaryId": "<id>", "documentId": 188420, "templateId": 457772, "recipientId": 83673, "page": 4090.49, "customText": "<value>", "inserted": false, "fieldMeta": {"type": "date"}}]}
         "400":
           application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
         "404":
@@ -1446,7 +1516,7 @@ examples:
         application/json: {"title": "<value>"}
       responses:
         "200":
-          application/json: {"document": {"visibility": "ADMIN", "status": "DRAFT", "source": "DOCUMENT", "id": 992227, "externalId": "<id>", "userId": "1869.31", "authOptions": {"globalAccessAuth": "ACCOUNT", "globalActionAuth": "ACCOUNT"}, "formValues": {"key": "<value>", "key1": "6085.38"}, "title": "<value>", "documentDataId": "<id>", "createdAt": "1709336682788", "updatedAt": "1737269621205", "completedAt": "<value>", "deletedAt": "<value>", "teamId": 564935, "templateId": 641848, "documentData": {"type": "S3_PATH", "id": "<id>", "data": "<value>", "initialData": "<value>"}, "documentMeta": {"signingOrder": "SEQUENTIAL", "distributionMethod": "NONE", "id": "<id>", "subject": "<value>", "message": "<value>", "timezone": "Pacific/Pago_Pago", "password": "Fx3iisoEnw1wFq0", "dateFormat": "<value>", "documentId": 720502, "redirectUrl": "https://remorseful-pick.name/", "typedSignatureEnabled": true, "language": "<value>", "emailSettings": {}}, "recipients": [{"role": "APPROVER", "readStatus": "NOT_OPENED", "signingStatus": "REJECTED", "sendStatus": "NOT_SENT", "id": 516492, "documentId": 938870, "templateId": 704843, "email": "Katelynn83@hotmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "PASSKEY"}, "signingOrder": "8278.46", "rejectionReason": "<value>"}, {"role": "CC", "readStatus": "NOT_OPENED", "signingStatus": "SIGNED", "sendStatus": "SENT", "id": 718169, "documentId": 985617, "templateId": 431323, "email": "Kian.Johnson@yahoo.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "EXPLICIT_NONE"}, "signingOrder": "7730.51", "rejectionReason": "<value>"}, {"role": "APPROVER", "readStatus": "NOT_OPENED", "signingStatus": "SIGNED", "sendStatus": "SENT", "id": 487638, "documentId": 443141, "templateId": 892884, "email": "Aric_Ankunding@hotmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "ACCOUNT"}, "signingOrder": "4649.76", "rejectionReason": "<value>"}], "fields": []}, "uploadUrl": "https://busy-jacket.info/"}
+          application/json: {"document": {"visibility": "EVERYONE", "status": "COMPLETED", "source": "DOCUMENT", "id": 42952, "externalId": "<id>", "userId": 5373.96, "authOptions": {"globalAccessAuth": "ACCOUNT", "globalActionAuth": "ACCOUNT"}, "formValues": {"key": 4734.62, "key1": "<value>", "key2": "<value>"}, "title": "<value>", "documentDataId": "<id>", "createdAt": "1727995921726", "updatedAt": "1737322388057", "completedAt": "<value>", "deletedAt": "<value>", "teamId": 357046, "templateId": 812006, "documentData": {"type": "BYTES", "id": "<id>", "data": "<value>", "initialData": "<value>"}, "documentMeta": {"signingOrder": "PARALLEL", "distributionMethod": "EMAIL", "id": "<id>", "subject": "<value>", "message": "<value>", "timezone": "America/Port-au-Prince", "password": "oTohMUaclBnJ7CE", "dateFormat": "<value>", "documentId": 901036, "redirectUrl": "https://scientific-cutover.biz/", "typedSignatureEnabled": true, "language": "<value>", "emailSettings": {"recipientSigningRequest": true, "recipientRemoved": true, "recipientSigned": true, "documentPending": true, "documentCompleted": true, "documentDeleted": true, "ownerDocumentCompleted": true}}, "recipients": [{"role": "VIEWER", "readStatus": "NOT_OPENED", "signingStatus": "SIGNED", "sendStatus": "NOT_SENT", "id": 504146, "documentId": 487425, "templateId": 415779, "email": "Roel80@yahoo.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "TWO_FACTOR_AUTH"}, "signingOrder": 700.38, "rejectionReason": "<value>"}, {"role": "APPROVER", "readStatus": "OPENED", "signingStatus": "NOT_SIGNED", "sendStatus": "NOT_SENT", "id": 713985, "documentId": 107633, "templateId": 731204, "email": "Anabel.Gleichner@hotmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "EXPLICIT_NONE"}, "signingOrder": 9547.02, "rejectionReason": "<value>"}], "fields": []}, "uploadUrl": "https://determined-technician.biz/"}
         "400":
           application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
         "500":
@@ -1454,10 +1524,10 @@ examples:
   document-setSettingsForDocument:
     speakeasy-default-document-set-settings-for-document:
       requestBody:
-        application/json: {"documentId": "1694.90"}
+        application/json: {"documentId": 8574.78}
       responses:
         "200":
-          application/json: {"visibility": "ADMIN", "status": "PENDING", "source": "TEMPLATE", "id": 628272, "externalId": "<id>", "userId": "549.49", "authOptions": {"globalAccessAuth": "ACCOUNT", "globalActionAuth": "TWO_FACTOR_AUTH"}, "formValues": {"key": "<value>", "key1": "1643.12"}, "title": "<value>", "documentDataId": "<id>", "createdAt": "1707345680873", "updatedAt": "1737242241512", "completedAt": "<value>", "deletedAt": "<value>", "teamId": 238186, "templateId": 546111}
+          application/json: {"visibility": "MANAGER_AND_ABOVE", "status": "PENDING", "source": "TEMPLATE_DIRECT_LINK", "id": 627690, "externalId": "<id>", "userId": 4888.52, "authOptions": {"globalAccessAuth": "ACCOUNT", "globalActionAuth": "TWO_FACTOR_AUTH"}, "formValues": {"key": true, "key1": 6276.9, "key2": 5971.29}, "title": "<value>", "documentDataId": "<id>", "createdAt": "1734075837852", "updatedAt": "1737292016584", "completedAt": "<value>", "deletedAt": "<value>", "teamId": 311507, "templateId": 249440}
         "400":
           application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
         "500":
@@ -1465,10 +1535,10 @@ examples:
   document-deleteDocument:
     speakeasy-default-document-delete-document:
       requestBody:
-        application/json: {"documentId": "3282.64"}
+        application/json: {"documentId": 5459.07}
       responses:
         "200":
-          application/json: "<value>"
+          application/json: {"success": false}
         "400":
           application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
         "500":
@@ -1476,10 +1546,10 @@ examples:
   document-moveDocumentToTeam:
     speakeasy-default-document-move-document-to-team:
       requestBody:
-        application/json: {"documentId": "1709.10", "teamId": "5536.69"}
+        application/json: {"documentId": 8301.72, "teamId": 6724.78}
       responses:
         "200":
-          application/json: {"visibility": "EVERYONE", "status": "PENDING", "source": "TEMPLATE_DIRECT_LINK", "id": 160463, "externalId": "<id>", "userId": "8293.72", "authOptions": {"globalAccessAuth": "ACCOUNT", "globalActionAuth": "PASSKEY"}, "formValues": {"key": "5337.61", "key1": "<value>", "key2": "6724.78"}, "title": "<value>", "documentDataId": "<id>", "createdAt": "1725150056299", "updatedAt": "1737257265662", "completedAt": "<value>", "deletedAt": "<value>", "teamId": 589515, "templateId": 483405}
+          application/json: {"visibility": "ADMIN", "status": "COMPLETED", "source": "TEMPLATE", "id": 775043, "externalId": "<id>", "userId": 780.73, "authOptions": {"globalAccessAuth": "ACCOUNT", "globalActionAuth": "ACCOUNT"}, "formValues": {"key": 7264.87, "key1": 6341.95, "key2": 780.73}, "title": "<value>", "documentDataId": "<id>", "createdAt": "1711224317669", "updatedAt": "1737291137518", "completedAt": "<value>", "deletedAt": "<value>", "teamId": 700797, "templateId": 933634}
         "400":
           application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
         "500":
@@ -1487,10 +1557,10 @@ examples:
   document-sendDocument:
     speakeasy-default-document-send-document:
       requestBody:
-        application/json: {"documentId": "2400.95"}
+        application/json: {"documentId": 4115.92}
       responses:
         "200":
-          application/json: {"visibility": "ADMIN", "status": "PENDING", "source": "TEMPLATE_DIRECT_LINK", "id": 933924, "externalId": "<id>", "userId": "7568.97", "authOptions": {"globalAccessAuth": "ACCOUNT", "globalActionAuth": "ACCOUNT"}, "formValues": {"key": "<value>"}, "title": "<value>", "documentDataId": "<id>", "createdAt": "1728810448081", "updatedAt": "1737223052426", "completedAt": "<value>", "deletedAt": "<value>", "teamId": 774719, "templateId": 885336}
+          application/json: {"visibility": "ADMIN", "status": "DRAFT", "source": "TEMPLATE_DIRECT_LINK", "id": 265491, "externalId": "<id>", "userId": 6765.82, "authOptions": {"globalAccessAuth": "ACCOUNT", "globalActionAuth": "TWO_FACTOR_AUTH"}, "formValues": {"key": 1184.5}, "title": "<value>", "documentDataId": "<id>", "createdAt": "1733956918844", "updatedAt": "1737299112382", "completedAt": "<value>", "deletedAt": "<value>", "teamId": 296533, "templateId": 836846}
         "400":
           application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
         "500":
@@ -1498,10 +1568,10 @@ examples:
   document-resendDocument:
     speakeasy-default-document-resend-document:
       requestBody:
-        application/json: {"documentId": "5154.74", "recipients": ["1927.81"]}
+        application/json: {"documentId": 5758.65, "recipients": []}
       responses:
         "200":
-          application/json: "<value>"
+          application/json: {"success": false}
         "400":
           application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
         "500":
@@ -1509,35 +1579,21 @@ examples:
   document-duplicateDocument:
     speakeasy-default-document-duplicate-document:
       requestBody:
-        application/json: {"documentId": "8656.07"}
+        application/json: {"documentId": 3523.11}
       responses:
         "200":
-          application/json: {"documentId": "2880.37"}
+          application/json: {"documentId": 3284.91}
         "400":
           application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
-        "500":
-          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
-  field-getField:
-    speakeasy-default-field-get-field:
-      parameters:
-        path:
-          fieldId: "7887.42"
-      responses:
-        "200":
-          application/json: {"type": "INITIALS", "id": 199297, "secondaryId": "<id>", "documentId": 423444, "templateId": 590974, "recipientId": 764792, "page": "9258.63", "customText": "<value>", "inserted": true, "fieldMeta": {"type": "date"}}
-        "400":
-          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
-        "404":
-          application/json: {"message": "Not found", "code": "NOT_FOUND", "issues": []}
         "500":
           application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
   field-createDocumentField:
     speakeasy-default-field-create-document-field:
       requestBody:
-        application/json: {"documentId": "9776.56", "field": {"type": "SIGNATURE", "recipientId": 4803.01, "pageNumber": 219.72, "pageX": 596.83, "pageY": 6254.72, "width": 7480.96, "height": 8229.25}}
+        application/json: {"documentId": 4865.89, "field": {"type": "NUMBER", "recipientId": 4174.58, "pageNumber": 1343.65, "pageX": 690.25, "pageY": 7964.74, "width": 9510.62, "height": 0.86}}
       responses:
         "200":
-          application/json: {"type": "FREE_SIGNATURE", "id": 638691, "secondaryId": "<id>", "documentId": 482437, "templateId": 383627, "recipientId": 954070, "page": "2372.78", "customText": "<value>", "inserted": true, "fieldMeta": {"type": "number"}}
+          application/json: {"type": "FREE_SIGNATURE", "id": 89964, "secondaryId": "<id>", "documentId": 792620, "templateId": 816588, "recipientId": 586220, "page": 7524.38, "customText": "<value>", "inserted": false, "fieldMeta": {"type": "date"}}
         "400":
           application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
         "500":
@@ -1545,10 +1601,10 @@ examples:
   field-createDocumentFields:
     speakeasy-default-field-create-document-fields:
       requestBody:
-        application/json: {"documentId": "7316.62", "fields": [{"type": "RADIO", "recipientId": 3579.51, "pageNumber": 7384.64, "pageX": 1281.78, "pageY": 9028.96, "width": 5375.33, "height": 6568.2}, {"type": "TEXT", "recipientId": 1672.42, "pageNumber": 4855.67, "pageX": 3462.49, "pageY": 6440.72, "width": 6334.22, "height": 4745.08}]}
+        application/json: {"documentId": 5158.41, "fields": [{"type": "CHECKBOX", "recipientId": 2516.72, "pageNumber": 2304.17, "pageX": 7760.32, "pageY": 3376.66, "width": 3566.94, "height": 2768.94}, {"type": "NUMBER", "recipientId": 5689.64, "pageNumber": 6483.69, "pageX": 7271.79, "pageY": 1891.56, "width": 7263.21, "height": 5043.41}]}
       responses:
         "200":
-          application/json: {"fields": []}
+          application/json: {"fields": [{"type": "RADIO", "id": 222957, "secondaryId": "<id>", "documentId": 474913, "templateId": 581606, "recipientId": 817193, "page": 6129.81, "customText": "<value>", "inserted": false, "fieldMeta": {"type": "number"}}, {"type": "TEXT", "id": 253057, "secondaryId": "<id>", "documentId": 491806, "templateId": 191040, "recipientId": 291674, "page": 9879.25, "customText": "<value>", "inserted": true, "fieldMeta": {"type": "dropdown"}}, {"type": "SIGNATURE", "id": 43577, "secondaryId": "<id>", "documentId": 501293, "templateId": 42577, "recipientId": 858534, "page": 3847.59, "customText": "<value>", "inserted": false, "fieldMeta": {"type": "number"}}]}
         "400":
           application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
         "500":
@@ -1556,10 +1612,10 @@ examples:
   field-updateDocumentField:
     speakeasy-default-field-update-document-field:
       requestBody:
-        application/json: {"documentId": "8861.20", "field": {"type": "CHECKBOX", "id": 5971.29}}
+        application/json: {"documentId": 8574.78, "field": {"type": "TEXT", "id": 3446.2}}
       responses:
         "200":
-          application/json: {"type": "NAME", "id": 423938, "secondaryId": "<id>", "documentId": 518864, "templateId": 616489, "recipientId": 823724, "page": "8436.93", "customText": "<value>", "inserted": false, "fieldMeta": {"type": "date"}}
+          application/json: {"type": "DROPDOWN", "id": 627690, "secondaryId": "<id>", "documentId": 488852, "templateId": 984008, "recipientId": 54062, "page": 8965.01, "customText": "<value>", "inserted": true, "fieldMeta": {"type": "email"}}
         "400":
           application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
         "500":
@@ -1567,7 +1623,7 @@ examples:
   field-updateDocumentFields:
     speakeasy-default-field-update-document-fields:
       requestBody:
-        application/json: {"documentId": "6501.31", "fields": [{"type": "EMAIL", "id": 5716.73}]}
+        application/json: {"documentId": 4057.69, "fields": [{"type": "DATE", "id": 8982.15}, {"type": "NAME", "id": 310.19}]}
       responses:
         "200":
           application/json: {"fields": []}
@@ -1578,90 +1634,21 @@ examples:
   field-deleteDocumentField:
     speakeasy-default-field-delete-document-field:
       requestBody:
-        application/json: {"fieldId": "7200.60"}
+        application/json: {"fieldId": 5459.07}
       responses:
         "200":
-          application/json: "<value>"
+          application/json: {"success": false}
         "400":
           application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
-        "500":
-          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
-  field-createTemplateField:
-    speakeasy-default-field-create-template-field:
-      requestBody:
-        application/json: {"templateId": "6083.49", "field": {"type": "SIGNATURE", "recipientId": 4803.01, "pageNumber": 219.72, "pageX": 596.83, "pageY": 6254.72, "width": 7480.96, "height": 8229.25}}
-      responses:
-        "200":
-          application/json: {"type": "RADIO", "id": 709966, "secondaryId": "<id>", "documentId": 436738, "templateId": 55950, "recipientId": 785406, "page": "3490.07", "customText": "<value>", "inserted": false, "fieldMeta": {"type": "radio"}}
-        "400":
-          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
-        "500":
-          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
-  field-createTemplateFields:
-    speakeasy-default-field-create-template-fields:
-      requestBody:
-        application/json: {"templateId": "9506.98", "fields": [{"type": "RADIO", "recipientId": 3579.51, "pageNumber": 7384.64, "pageX": 1281.78, "pageY": 9028.96, "width": 5375.33, "height": 6568.2}]}
-      responses:
-        "200":
-          application/json: {"fields": []}
-        "400":
-          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
-        "500":
-          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
-  field-updateTemplateField:
-    speakeasy-default-field-update-template-field:
-      requestBody:
-        application/json: {"templateId": "1123.62", "field": {"type": "CHECKBOX", "id": 5971.29}}
-      responses:
-        "200":
-          application/json: {"type": "CHECKBOX", "id": 925402, "secondaryId": "<id>", "documentId": 506827, "templateId": 59430, "recipientId": 720906, "page": "6000.48", "customText": "<value>", "inserted": false, "fieldMeta": {"type": "email"}}
-        "400":
-          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
-        "500":
-          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
-  field-updateTemplateFields:
-    speakeasy-default-field-update-template-fields:
-      requestBody:
-        application/json: {"templateId": "9903.87", "fields": []}
-      responses:
-        "200":
-          application/json: {"fields": [{"type": "NUMBER", "id": 55281, "secondaryId": "<id>", "documentId": 204480, "templateId": 695499, "recipientId": 790628, "page": "8573.28", "customText": "<value>", "inserted": false, "fieldMeta": {"type": "initials"}}]}
-        "400":
-          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
-        "500":
-          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
-  field-deleteTemplateField:
-    speakeasy-default-field-delete-template-field:
-      requestBody:
-        application/json: {"fieldId": "1039.76"}
-      responses:
-        "200":
-          application/json: "<value>"
-        "400":
-          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
-        "500":
-          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
-  recipient-getRecipient:
-    speakeasy-default-recipient-get-recipient:
-      parameters:
-        path:
-          recipientId: "6011.36"
-      responses:
-        "200":
-          application/json: {"role": "VIEWER", "readStatus": "OPENED", "signingStatus": "REJECTED", "sendStatus": "NOT_SENT", "id": 516388, "documentId": 875379, "templateId": 945965, "email": "Daren15@gmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "PASSKEY"}, "signingOrder": "714.14", "rejectionReason": "<value>", "fields": [{"type": "RADIO", "id": 570389, "secondaryId": "<id>", "documentId": 716672, "templateId": 94395, "recipientId": 181306, "page": "7768.57", "customText": "<value>", "inserted": true, "fieldMeta": {"type": "checkbox"}}]}
-        "400":
-          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
-        "404":
-          application/json: {"message": "Not found", "code": "NOT_FOUND", "issues": []}
         "500":
           application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
   recipient-createDocumentRecipient:
     speakeasy-default-recipient-create-document-recipient:
       requestBody:
-        application/json: {"documentId": "5459.23", "recipient": {"email": "Saul_Langosh75@yahoo.com", "name": "<value>", "role": "CC"}}
+        application/json: {"documentId": 4865.89, "recipient": {"email": "Haylie_Bernhard95@yahoo.com", "name": "<value>", "role": "CC"}}
       responses:
         "200":
-          application/json: {"role": "SIGNER", "readStatus": "NOT_OPENED", "signingStatus": "SIGNED", "sendStatus": "SENT", "id": 3337, "documentId": 78086, "templateId": 150661, "email": "Destiny.Rutherford6@gmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "ACCOUNT"}, "signingOrder": "4976.19", "rejectionReason": "<value>"}
+          application/json: {"role": "CC", "readStatus": "OPENED", "signingStatus": "REJECTED", "sendStatus": "SENT", "id": 752438, "documentId": 957409, "templateId": 357021, "email": "Ahmed.Ebert32@gmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "ACCOUNT"}, "signingOrder": 1009.66, "rejectionReason": "<value>"}
         "400":
           application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
         "500":
@@ -1669,7 +1656,7 @@ examples:
   recipient-createDocumentRecipients:
     speakeasy-default-recipient-create-document-recipients:
       requestBody:
-        application/json: {"documentId": "9895.72", "recipients": []}
+        application/json: {"documentId": 5158.41, "recipients": [{"email": "Demetrius.Sanford35@hotmail.com", "name": "<value>", "role": "VIEWER"}, {"email": "Lyla50@yahoo.com", "name": "<value>", "role": "APPROVER"}]}
       responses:
         "200":
           application/json: {"recipients": []}
@@ -1680,10 +1667,10 @@ examples:
   recipient-updateDocumentRecipient:
     speakeasy-default-recipient-update-document-recipient:
       requestBody:
-        application/json: {"documentId": "3856.88", "recipient": {"id": "6008.21"}}
+        application/json: {"documentId": 8574.78, "recipient": {"id": 5971.29}}
       responses:
         "200":
-          application/json: {"role": "CC", "readStatus": "NOT_OPENED", "signingStatus": "SIGNED", "sendStatus": "SENT", "id": 893907, "documentId": 815675, "templateId": 160468, "email": "Jessica_Shields@yahoo.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "EXPLICIT_NONE"}, "signingOrder": "8454.03", "rejectionReason": "<value>", "fields": [{"type": "CHECKBOX", "id": 905298, "secondaryId": "<id>", "documentId": 431533, "templateId": 703771, "recipientId": 255327, "page": "7262.57", "customText": "<value>", "inserted": true, "fieldMeta": {"type": "checkbox"}}]}
+          application/json: {"role": "SIGNER", "readStatus": "OPENED", "signingStatus": "SIGNED", "sendStatus": "NOT_SENT", "id": 984008, "documentId": 54062, "templateId": 896501, "email": "Elvie_Connelly88@yahoo.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "PASSKEY"}, "signingOrder": 7712.03, "rejectionReason": "<value>", "fields": [{"type": "EMAIL", "id": 33980, "secondaryId": "<id>", "documentId": 756247, "templateId": 810877, "recipientId": 439152, "page": 5011.35, "customText": "<value>", "inserted": true, "fieldMeta": {"type": "email"}}, {"type": "NAME", "id": 824679, "secondaryId": "<id>", "documentId": 834574, "templateId": 888006, "recipientId": 711565, "page": 5198.81, "customText": "<value>", "inserted": true, "fieldMeta": {"type": "text"}}]}
         "400":
           application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
         "500":
@@ -1691,10 +1678,10 @@ examples:
   recipient-updateDocumentRecipients:
     speakeasy-default-recipient-update-document-recipients:
       requestBody:
-        application/json: {"documentId": "1195.29", "recipients": []}
+        application/json: {"documentId": 4057.69, "recipients": [{"id": 5359.16}, {"id": 8982.15}]}
       responses:
         "200":
-          application/json: {"recipients": [{"role": "SIGNER", "readStatus": "NOT_OPENED", "signingStatus": "NOT_SIGNED", "sendStatus": "SENT", "id": 400119, "documentId": 920170, "templateId": 681738, "email": "Dewayne.Reichel17@hotmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "PASSKEY"}, "signingOrder": "7698.45", "rejectionReason": "<value>", "fields": []}, {"role": "VIEWER", "readStatus": "OPENED", "signingStatus": "REJECTED", "sendStatus": "SENT", "id": 581163, "documentId": 289386, "templateId": 332049, "email": "Samson_Parisian@yahoo.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "ACCOUNT"}, "signingOrder": "1508.14", "rejectionReason": "<value>", "fields": [{"type": "RADIO", "id": 922345, "secondaryId": "<id>", "documentId": 376726, "templateId": 707439, "recipientId": 871500, "page": "8368.69", "customText": "<value>", "inserted": true, "fieldMeta": {"type": "text"}}, {"type": "TEXT", "id": 683266, "secondaryId": "<id>", "documentId": 816646, "templateId": 459932, "recipientId": 191291, "page": "8363.14", "customText": "<value>", "inserted": false, "fieldMeta": {"type": "name"}}]}, {"role": "VIEWER", "readStatus": "NOT_OPENED", "signingStatus": "NOT_SIGNED", "sendStatus": "NOT_SENT", "id": 608897, "documentId": 785923, "templateId": 344363, "email": "Dillan_Schmitt25@gmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "TWO_FACTOR_AUTH"}, "signingOrder": "2419.19", "rejectionReason": "<value>", "fields": []}]}
+          application/json: {"recipients": [{"role": "CC", "readStatus": "NOT_OPENED", "signingStatus": "REJECTED", "sendStatus": "NOT_SENT", "id": 180205, "documentId": 993155, "templateId": 967004, "email": "Vickie_Koss@hotmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "PASSKEY"}, "signingOrder": 1585.39, "rejectionReason": "<value>", "fields": []}]}
         "400":
           application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
         "500":
@@ -1702,74 +1689,33 @@ examples:
   recipient-deleteDocumentRecipient:
     speakeasy-default-recipient-delete-document-recipient:
       requestBody:
-        application/json: {"recipientId": "6631.86"}
+        application/json: {"recipientId": 5459.07}
       responses:
         "200":
-          application/json: "<value>"
+          application/json: {"success": false}
         "400":
           application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
         "500":
           application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
-  recipient-createTemplateRecipient:
-    speakeasy-default-recipient-create-template-recipient:
-      requestBody:
-        application/json: {"templateId": "3169.32", "recipient": {"email": "Jorge.Kirlin@hotmail.com", "name": "<value>", "role": "SIGNER"}}
+  field-getDocumentField:
+    speakeasy-default-field-get-document-field:
+      parameters:
+        path:
+          fieldId: 8629.15
       responses:
         "200":
-          application/json: {"role": "VIEWER", "readStatus": "OPENED", "signingStatus": "NOT_SIGNED", "sendStatus": "SENT", "id": 871576, "documentId": 936108, "templateId": 804477, "email": "Bertrand_Hessel96@gmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "PASSKEY"}, "signingOrder": "7698.77", "rejectionReason": "<value>"}
+          application/json: {"type": "TEXT", "id": 190050, "secondaryId": "<id>", "documentId": 415517, "templateId": 63695, "recipientId": 328768, "page": 91.4, "customText": "<value>", "inserted": false, "fieldMeta": {"type": "radio"}}
         "400":
           application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
-        "500":
-          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
-  recipient-createTemplateRecipients:
-    speakeasy-default-recipient-create-template-recipients:
-      requestBody:
-        application/json: {"templateId": "6206.07", "recipients": []}
-      responses:
-        "200":
-          application/json: {"recipients": [{"role": "CC", "readStatus": "NOT_OPENED", "signingStatus": "SIGNED", "sendStatus": "SENT", "id": 512673, "documentId": 653306, "templateId": 348323, "email": "Talon.Franey@yahoo.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "ACCOUNT"}, "signingOrder": "7845.37", "rejectionReason": "<value>"}]}
-        "400":
-          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
-        "500":
-          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
-  recipient-updateTemplateRecipient:
-    speakeasy-default-recipient-update-template-recipient:
-      requestBody:
-        application/json: {"templateId": "4456.02", "recipient": {"id": "9017.65"}}
-      responses:
-        "200":
-          application/json: {"role": "VIEWER", "readStatus": "OPENED", "signingStatus": "REJECTED", "sendStatus": "SENT", "id": 645555, "documentId": 730149, "templateId": 996581, "email": "Lynn_Ullrich49@gmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "EXPLICIT_NONE"}, "signingOrder": "1175.29", "rejectionReason": "<value>", "fields": []}
-        "400":
-          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
-        "500":
-          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
-  recipient-updateTemplateRecipients:
-    speakeasy-default-recipient-update-template-recipients:
-      requestBody:
-        application/json: {"templateId": "2320.69", "recipients": [{"id": "8980.22"}, {"id": "7442.40"}]}
-      responses:
-        "200":
-          application/json: {"recipients": [{"role": "VIEWER", "readStatus": "NOT_OPENED", "signingStatus": "NOT_SIGNED", "sendStatus": "NOT_SENT", "id": 654212, "documentId": 505756, "templateId": 2245, "email": "Noemie6@yahoo.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "ACCOUNT"}, "signingOrder": "5846.85", "rejectionReason": "<value>", "fields": []}]}
-        "400":
-          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
-        "500":
-          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
-  recipient-deleteTemplateRecipient:
-    speakeasy-default-recipient-delete-template-recipient:
-      requestBody:
-        application/json: {"recipientId": "6857.35"}
-      responses:
-        "200":
-          application/json: "<value>"
-        "400":
-          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
+        "404":
+          application/json: {"message": "Not found", "code": "NOT_FOUND", "issues": []}
         "500":
           application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
   template-findTemplates:
     speakeasy-default-template-find-templates:
       responses:
         "200":
-          application/json: {"data": [], "count": "8218.17", "currentPage": "1025.44", "perPage": "6375.82", "totalPages": "2454.48"}
+          application/json: {"data": [], "count": 4880.98, "currentPage": 9399.43, "perPage": 168.65, "totalPages": 4136.86}
         "400":
           application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
         "404":
@@ -1780,10 +1726,10 @@ examples:
     speakeasy-default-template-get-template-by-id:
       parameters:
         path:
-          templateId: "1970.89"
+          templateId: 7003.47
       responses:
         "200":
-          application/json: {"type": "PUBLIC", "visibility": "EVERYONE", "id": 105861, "externalId": "<id>", "title": "<value>", "userId": 851010, "teamId": 16918, "authOptions": {"globalAccessAuth": "ACCOUNT", "globalActionAuth": "TWO_FACTOR_AUTH"}, "templateDocumentDataId": "<id>", "createdAt": "1722340127265", "updatedAt": "1737255212596", "publicTitle": "<value>", "publicDescription": "<value>", "templateDocumentData": {"type": "BYTES", "id": "<id>", "data": "<value>", "initialData": "<value>"}, "templateMeta": {"id": "<id>", "subject": "<value>", "message": "<value>", "timezone": "Europe/Monaco", "dateFormat": "<value>", "signingOrder": "PARALLEL", "typedSignatureEnabled": false, "distributionMethod": "NONE", "templateId": 538900, "redirectUrl": "https://wobbly-popularity.org", "language": "<value>", "emailSettings": {}}, "directLink": {"id": "<id>", "templateId": 190013, "token": "<value>", "createdAt": "1734934876883", "enabled": false, "directTemplateRecipientId": 437795}, "user": {"id": 794380, "name": "<value>", "email": "Bud_Erdman17@gmail.com"}, "recipients": [], "fields": [{"type": "EMAIL", "id": 979389, "secondaryId": "<id>", "documentId": 959640, "templateId": 584418, "recipientId": 764634, "page": "4999.43", "customText": "<value>", "inserted": false, "fieldMeta": {"type": "checkbox"}}, {"type": "NUMBER", "id": 260139, "secondaryId": "<id>", "documentId": 916408, "templateId": 630850, "recipientId": 187794, "page": "5885.57", "customText": "<value>", "inserted": false, "fieldMeta": {"type": "text"}}, {"type": "INITIALS", "id": 276797, "secondaryId": "<id>", "documentId": 824562, "templateId": 684045, "recipientId": 630957, "page": "4609.34", "customText": "<value>", "inserted": true, "fieldMeta": {"type": "number"}}]}
+          application/json: {"type": "PRIVATE", "visibility": "MANAGER_AND_ABOVE", "id": 521235, "externalId": "<id>", "title": "<value>", "userId": 969961, "teamId": 458049, "authOptions": {"globalAccessAuth": "ACCOUNT", "globalActionAuth": "PASSKEY"}, "templateDocumentDataId": "<id>", "createdAt": "1714091328518", "updatedAt": "1737271850772", "publicTitle": "<value>", "publicDescription": "<value>", "templateDocumentData": {"type": "BYTES_64", "id": "<id>", "data": "<value>", "initialData": "<value>"}, "templateMeta": {"id": "<id>", "subject": "<value>", "message": "<value>", "timezone": "America/St_Thomas", "dateFormat": "<value>", "signingOrder": "SEQUENTIAL", "typedSignatureEnabled": true, "distributionMethod": "EMAIL", "templateId": 313464, "redirectUrl": "https://next-shark.info/", "language": "<value>", "emailSettings": {"recipientSigningRequest": true, "recipientRemoved": true, "recipientSigned": true, "documentPending": true, "documentCompleted": true, "documentDeleted": true, "ownerDocumentCompleted": true}}, "directLink": {"id": "<id>", "templateId": 746585, "token": "<value>", "createdAt": "1724994574003", "enabled": false, "directTemplateRecipientId": 322612}, "user": {"id": 323185, "name": "<value>", "email": "Dedric77@gmail.com"}, "recipients": [{"role": "SIGNER", "readStatus": "NOT_OPENED", "signingStatus": "REJECTED", "sendStatus": "NOT_SENT", "id": 424256, "documentId": 132944, "templateId": 159685, "email": "Bernardo29@yahoo.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "EXPLICIT_NONE"}, "signingOrder": 4073.3, "rejectionReason": "<value>"}, {"role": "SIGNER", "readStatus": "NOT_OPENED", "signingStatus": "REJECTED", "sendStatus": "SENT", "id": 656841, "documentId": 570980, "templateId": 607679, "email": "Graham.Klocko@hotmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "EXPLICIT_NONE"}, "signingOrder": 7540.54, "rejectionReason": "<value>"}, {"role": "APPROVER", "readStatus": "NOT_OPENED", "signingStatus": "NOT_SIGNED", "sendStatus": "SENT", "id": 503671, "documentId": 950598, "templateId": 486669, "email": "Armani_OConner98@gmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "TWO_FACTOR_AUTH"}, "signingOrder": 6887.35, "rejectionReason": "<value>"}], "fields": [{"type": "CHECKBOX", "id": 286547, "secondaryId": "<id>", "documentId": 237994, "templateId": 710636, "recipientId": 256758, "page": 7869.52, "customText": "<value>", "inserted": false, "fieldMeta": {"type": "radio"}}]}
         "400":
           application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
         "404":
@@ -1793,10 +1739,10 @@ examples:
   template-updateTemplate:
     speakeasy-default-template-update-template:
       requestBody:
-        application/json: {"templateId": "3585.07"}
+        application/json: {"templateId": 8574.78}
       responses:
         "200":
-          application/json: {"type": "PRIVATE", "visibility": "MANAGER_AND_ABOVE", "id": 168701, "externalId": "<id>", "title": "<value>", "userId": 865060, "teamId": 552830, "authOptions": {"globalAccessAuth": "ACCOUNT", "globalActionAuth": "PASSKEY"}, "templateDocumentDataId": "<id>", "createdAt": "1717215893565", "updatedAt": "1737260964818", "publicTitle": "<value>", "publicDescription": "<value>"}
+          application/json: {"type": "PRIVATE", "visibility": "MANAGER_AND_ABOVE", "id": 991464, "externalId": "<id>", "title": "<value>", "userId": 627690, "teamId": 488852, "authOptions": {"globalAccessAuth": "ACCOUNT", "globalActionAuth": "TWO_FACTOR_AUTH"}, "templateDocumentDataId": "<id>", "createdAt": "1707508713198", "updatedAt": "1737330864994", "publicTitle": "<value>", "publicDescription": "<value>"}
         "400":
           application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
         "500":
@@ -1804,10 +1750,10 @@ examples:
   template-duplicateTemplate:
     speakeasy-default-template-duplicate-template:
       requestBody:
-        application/json: {"templateId": "4435.87"}
+        application/json: {"templateId": 3523.11}
       responses:
         "200":
-          application/json: {"type": "PUBLIC", "visibility": "MANAGER_AND_ABOVE", "id": 792078, "externalId": "<id>", "title": "<value>", "userId": 669562, "teamId": 844451, "authOptions": {"globalAccessAuth": "ACCOUNT", "globalActionAuth": "TWO_FACTOR_AUTH"}, "templateDocumentDataId": "<id>", "createdAt": "1729013371539", "updatedAt": "1737216218279", "publicTitle": "<value>", "publicDescription": "<value>"}
+          application/json: {"type": "PUBLIC", "visibility": "ADMIN", "id": 461148, "externalId": "<id>", "title": "<value>", "userId": 348891, "teamId": 524674, "authOptions": {"globalAccessAuth": "ACCOUNT", "globalActionAuth": "ACCOUNT"}, "templateDocumentDataId": "<id>", "createdAt": "1718386648244", "updatedAt": "1737294831547", "publicTitle": "<value>", "publicDescription": "<value>"}
         "400":
           application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
         "500":
@@ -1815,10 +1761,10 @@ examples:
   template-deleteTemplate:
     speakeasy-default-template-delete-template:
       requestBody:
-        application/json: {"templateId": "5711.61"}
+        application/json: {"templateId": 5459.07}
       responses:
         "200":
-          application/json: "<value>"
+          application/json: {"success": false}
         "400":
           application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
         "500":
@@ -1826,43 +1772,10 @@ examples:
   template-createDocumentFromTemplate:
     speakeasy-default-template-create-document-from-template:
       requestBody:
-        application/json: {"templateId": "3949.44", "recipients": []}
+        application/json: {"templateId": 6626.9, "recipients": [{"id": 6473.53, "email": "August_Schmeler68@yahoo.com"}, {"id": 3772.31, "email": "Angeline.Purdy@gmail.com"}]}
       responses:
         "200":
-          application/json: {"visibility": "MANAGER_AND_ABOVE", "status": "PENDING", "source": "TEMPLATE", "id": 310237, "externalId": "<id>", "userId": "7663.30", "authOptions": {"globalAccessAuth": "ACCOUNT", "globalActionAuth": "PASSKEY"}, "formValues": {"key": true, "key1": "1591.49", "key2": "<value>"}, "title": "<value>", "documentDataId": "<id>", "createdAt": "1732629572613", "updatedAt": "1737231028484", "completedAt": "<value>", "deletedAt": "<value>", "teamId": 155168, "templateId": 432176, "documentData": {"type": "S3_PATH", "id": "<id>", "data": "<value>", "initialData": "<value>"}, "documentMeta": {"signingOrder": "PARALLEL", "distributionMethod": "NONE", "id": "<id>", "subject": "<value>", "message": "<value>", "timezone": "Asia/Jerusalem", "password": "fbNgon2UrNKls1C", "dateFormat": "<value>", "documentId": 591494, "redirectUrl": "https://hard-to-find-strait.name", "typedSignatureEnabled": false, "language": "<value>", "emailSettings": {}}, "recipients": [{"role": "CC", "readStatus": "NOT_OPENED", "signingStatus": "NOT_SIGNED", "sendStatus": "NOT_SENT", "id": 722353, "documentId": 302731, "templateId": 867605, "email": "Marcelo.Macejkovic@yahoo.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "TWO_FACTOR_AUTH"}, "signingOrder": "2159.64", "rejectionReason": "<value>"}], "fields": [{"type": "SIGNATURE", "id": 329959, "secondaryId": "<id>", "documentId": 119149, "templateId": 632286, "recipientId": 849759, "page": "115.24", "customText": "<value>", "inserted": false, "fieldMeta": {"type": "radio"}}, {"type": "RADIO", "id": 272550, "secondaryId": "<id>", "documentId": 238729, "templateId": 969695, "recipientId": 810349, "page": "7700.92", "customText": "<value>", "inserted": true, "fieldMeta": {"type": "radio"}}, {"type": "TEXT", "id": 531193, "secondaryId": "<id>", "documentId": 595844, "templateId": 487041, "recipientId": 672928, "page": "3638.55", "customText": "<value>", "inserted": true, "fieldMeta": {"type": "checkbox"}}]}
-        "400":
-          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
-        "500":
-          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
-  template-createTemplateDirectLink:
-    speakeasy-default-template-create-template-direct-link:
-      requestBody:
-        application/json: {"templateId": "233.69"}
-      responses:
-        "200":
-          application/json: {"id": "<id>", "templateId": 736372, "token": "<value>", "createdAt": "1706776113744", "enabled": false, "directTemplateRecipientId": 289992}
-        "400":
-          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
-        "500":
-          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
-  template-deleteTemplateDirectLink:
-    speakeasy-default-template-delete-template-direct-link:
-      requestBody:
-        application/json: {"templateId": "8092.34"}
-      responses:
-        "200":
-          application/json: "<value>"
-        "400":
-          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
-        "500":
-          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
-  template-toggleTemplateDirectLink:
-    speakeasy-default-template-toggle-template-direct-link:
-      requestBody:
-        application/json: {"templateId": "8841.86", "enabled": true}
-      responses:
-        "200":
-          application/json: {"id": "<id>", "templateId": 350034, "token": "<value>", "createdAt": "1710742701884", "enabled": false, "directTemplateRecipientId": 432626}
+          application/json: {"visibility": "EVERYONE", "status": "DRAFT", "source": "DOCUMENT", "id": 529343, "externalId": "<id>", "userId": 382.49, "authOptions": {"globalAccessAuth": "ACCOUNT", "globalActionAuth": "PASSKEY"}, "formValues": {"key": 1071.58, "key1": "<value>", "key2": "<value>"}, "title": "<value>", "documentDataId": "<id>", "createdAt": "1712738977435", "updatedAt": "1737336683234", "completedAt": "<value>", "deletedAt": "<value>", "teamId": 814818, "templateId": 649241, "documentData": {"type": "BYTES", "id": "<id>", "data": "<value>", "initialData": "<value>"}, "documentMeta": {"signingOrder": "SEQUENTIAL", "distributionMethod": "EMAIL", "id": "<id>", "subject": "<value>", "message": "<value>", "timezone": "America/Mazatlan", "password": "_ZKlsa4DHdJlZ71", "dateFormat": "<value>", "documentId": 430384, "redirectUrl": "https://disloyal-haversack.com", "typedSignatureEnabled": true, "language": "<value>", "emailSettings": {"recipientSigningRequest": true, "recipientRemoved": true, "recipientSigned": true, "documentPending": true, "documentCompleted": true, "documentDeleted": true, "ownerDocumentCompleted": true}}, "recipients": [{"role": "VIEWER", "readStatus": "OPENED", "signingStatus": "NOT_SIGNED", "sendStatus": "NOT_SENT", "id": 292530, "documentId": 987418, "templateId": 77227, "email": "Asia.Welch@gmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "ACCOUNT"}, "signingOrder": 5750.99, "rejectionReason": "<value>"}, {"role": "VIEWER", "readStatus": "NOT_OPENED", "signingStatus": "NOT_SIGNED", "sendStatus": "SENT", "id": 115596, "documentId": 220521, "templateId": 62163, "email": "Coty_Parisian91@yahoo.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "PASSKEY"}, "signingOrder": 3064.41, "rejectionReason": "<value>"}], "fields": [{"type": "INITIALS", "id": 9571, "secondaryId": "<id>", "documentId": 569573, "templateId": 217003, "recipientId": 960849, "page": 1861.81, "customText": "<value>", "inserted": false, "fieldMeta": {"type": "number"}}]}
         "400":
           application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
         "500":
@@ -1870,12 +1783,198 @@ examples:
   template-moveTemplateToTeam:
     speakeasy-default-template-move-template-to-team:
       requestBody:
-        application/json: {"templateId": "2502.80", "teamId": "8882.89"}
+        application/json: {"templateId": 8301.72, "teamId": 6724.78}
       responses:
         "200":
-          application/json: {"type": "PUBLIC", "visibility": "ADMIN", "id": 486143, "externalId": "<id>", "title": "<value>", "userId": 984944, "teamId": 500829, "authOptions": {"globalAccessAuth": "ACCOUNT", "globalActionAuth": "TWO_FACTOR_AUTH"}, "templateDocumentDataId": "<id>", "createdAt": "1730466481659", "updatedAt": "1737232036475", "publicTitle": "<value>", "publicDescription": "<value>"}
+          application/json: {"type": "PRIVATE", "visibility": "ADMIN", "id": 634195, "externalId": "<id>", "title": "<value>", "userId": 775043, "teamId": 78073, "authOptions": {"globalAccessAuth": "ACCOUNT", "globalActionAuth": "ACCOUNT"}, "templateDocumentDataId": "<id>", "createdAt": "1706092657518", "updatedAt": "1737268258851", "publicTitle": "<value>", "publicDescription": "<value>"}
         "400":
           application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
         "500":
           application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
+  field-createTemplateField:
+    speakeasy-default-field-create-template-field:
+      requestBody:
+        application/json: {"templateId": 4865.89, "field": {"type": "NUMBER", "recipientId": 4174.58, "pageNumber": 1343.65, "pageX": 690.25, "pageY": 7964.74, "width": 9510.62, "height": 0.86}}
+      responses:
+        "200":
+          application/json: {"type": "FREE_SIGNATURE", "id": 89964, "secondaryId": "<id>", "documentId": 792620, "templateId": 816588, "recipientId": 586220, "page": 7524.38, "customText": "<value>", "inserted": false, "fieldMeta": {"type": "date"}}
+        "400":
+          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
+        "500":
+          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
+  field-createTemplateFields:
+    speakeasy-default-field-create-template-fields:
+      requestBody:
+        application/json: {"templateId": 5158.41, "fields": [{"type": "CHECKBOX", "recipientId": 2516.72, "pageNumber": 2304.17, "pageX": 7760.32, "pageY": 3376.66, "width": 3566.94, "height": 2768.94}, {"type": "NUMBER", "recipientId": 5689.64, "pageNumber": 6483.69, "pageX": 7271.79, "pageY": 1891.56, "width": 7263.21, "height": 5043.41}]}
+      responses:
+        "200":
+          application/json: {"fields": [{"type": "RADIO", "id": 222957, "secondaryId": "<id>", "documentId": 474913, "templateId": 581606, "recipientId": 817193, "page": 6129.81, "customText": "<value>", "inserted": false, "fieldMeta": {"type": "number"}}, {"type": "TEXT", "id": 253057, "secondaryId": "<id>", "documentId": 491806, "templateId": 191040, "recipientId": 291674, "page": 9879.25, "customText": "<value>", "inserted": true, "fieldMeta": {"type": "dropdown"}}, {"type": "SIGNATURE", "id": 43577, "secondaryId": "<id>", "documentId": 501293, "templateId": 42577, "recipientId": 858534, "page": 3847.59, "customText": "<value>", "inserted": false, "fieldMeta": {"type": "number"}}]}
+        "400":
+          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
+        "500":
+          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
+  field-updateTemplateField:
+    speakeasy-default-field-update-template-field:
+      requestBody:
+        application/json: {"templateId": 8574.78, "field": {"type": "TEXT", "id": 3446.2}}
+      responses:
+        "200":
+          application/json: {"type": "DROPDOWN", "id": 627690, "secondaryId": "<id>", "documentId": 488852, "templateId": 984008, "recipientId": 54062, "page": 8965.01, "customText": "<value>", "inserted": true, "fieldMeta": {"type": "email"}}
+        "400":
+          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
+        "500":
+          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
+  field-updateTemplateFields:
+    speakeasy-default-field-update-template-fields:
+      requestBody:
+        application/json: {"templateId": 4057.69, "fields": [{"type": "DATE", "id": 8982.15}, {"type": "NAME", "id": 310.19}]}
+      responses:
+        "200":
+          application/json: {"fields": []}
+        "400":
+          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
+        "500":
+          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
+  field-deleteTemplateField:
+    speakeasy-default-field-delete-template-field:
+      requestBody:
+        application/json: {"fieldId": 5459.07}
+      responses:
+        "200":
+          application/json: {"success": false}
+        "400":
+          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
+        "500":
+          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
+  recipient-createTemplateRecipient:
+    speakeasy-default-recipient-create-template-recipient:
+      requestBody:
+        application/json: {"templateId": 4865.89, "recipient": {"email": "Haylie_Bernhard95@yahoo.com", "name": "<value>", "role": "CC"}}
+      responses:
+        "200":
+          application/json: {"role": "CC", "readStatus": "OPENED", "signingStatus": "REJECTED", "sendStatus": "SENT", "id": 752438, "documentId": 957409, "templateId": 357021, "email": "Ahmed.Ebert32@gmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "ACCOUNT"}, "signingOrder": 1009.66, "rejectionReason": "<value>"}
+        "400":
+          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
+        "500":
+          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
+  recipient-createTemplateRecipients:
+    speakeasy-default-recipient-create-template-recipients:
+      requestBody:
+        application/json: {"templateId": 5158.41, "recipients": [{"email": "Demetrius.Sanford35@hotmail.com", "name": "<value>", "role": "VIEWER"}, {"email": "Lyla50@yahoo.com", "name": "<value>", "role": "APPROVER"}]}
+      responses:
+        "200":
+          application/json: {"recipients": []}
+        "400":
+          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
+        "500":
+          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
+  recipient-updateTemplateRecipient:
+    speakeasy-default-recipient-update-template-recipient:
+      requestBody:
+        application/json: {"templateId": 8574.78, "recipient": {"id": 5971.29}}
+      responses:
+        "200":
+          application/json: {"role": "SIGNER", "readStatus": "OPENED", "signingStatus": "SIGNED", "sendStatus": "NOT_SENT", "id": 984008, "documentId": 54062, "templateId": 896501, "email": "Elvie_Connelly88@yahoo.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "PASSKEY"}, "signingOrder": 7712.03, "rejectionReason": "<value>", "fields": [{"type": "EMAIL", "id": 33980, "secondaryId": "<id>", "documentId": 756247, "templateId": 810877, "recipientId": 439152, "page": 5011.35, "customText": "<value>", "inserted": true, "fieldMeta": {"type": "email"}}, {"type": "NAME", "id": 824679, "secondaryId": "<id>", "documentId": 834574, "templateId": 888006, "recipientId": 711565, "page": 5198.81, "customText": "<value>", "inserted": true, "fieldMeta": {"type": "text"}}]}
+        "400":
+          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
+        "500":
+          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
+  recipient-updateTemplateRecipients:
+    speakeasy-default-recipient-update-template-recipients:
+      requestBody:
+        application/json: {"templateId": 4057.69, "recipients": [{"id": 5359.16}, {"id": 8982.15}]}
+      responses:
+        "200":
+          application/json: {"recipients": [{"role": "CC", "readStatus": "NOT_OPENED", "signingStatus": "REJECTED", "sendStatus": "NOT_SENT", "id": 180205, "documentId": 993155, "templateId": 967004, "email": "Vickie_Koss@hotmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "PASSKEY"}, "signingOrder": 1585.39, "rejectionReason": "<value>", "fields": []}]}
+        "400":
+          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
+        "500":
+          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
+  recipient-deleteTemplateRecipient:
+    speakeasy-default-recipient-delete-template-recipient:
+      requestBody:
+        application/json: {"recipientId": 5459.07}
+      responses:
+        "200":
+          application/json: {"success": false}
+        "400":
+          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
+        "500":
+          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
+  template-createTemplateDirectLink:
+    speakeasy-default-template-create-template-direct-link:
+      requestBody:
+        application/json: {"templateId": 4865.89}
+      responses:
+        "200":
+          application/json: {"id": "<id>", "templateId": 638424, "token": "<value>", "createdAt": "1718968755977", "enabled": true, "directTemplateRecipientId": 69025}
+        "400":
+          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
+        "500":
+          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
+  template-deleteTemplateDirectLink:
+    speakeasy-default-template-delete-template-direct-link:
+      requestBody:
+        application/json: {"templateId": 5459.07}
+      responses:
+        "200":
+          application/json: {"success": false}
+        "400":
+          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
+        "500":
+          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
+  template-toggleTemplateDirectLink:
+    speakeasy-default-template-toggle-template-direct-link:
+      requestBody:
+        application/json: {"templateId": 722.9, "enabled": true}
+      responses:
+        "200":
+          application/json: {"id": "<id>", "templateId": 507380, "token": "<value>", "createdAt": "1730720700813", "enabled": true, "directTemplateRecipientId": 182275}
+        "400":
+          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
+        "500":
+          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
+  field-getTemplateField:
+    speakeasy-default-field-get-template-field:
+      parameters:
+        path:
+          fieldId: 1340.63
+      responses:
+        "200":
+          application/json: {"type": "RADIO", "id": 159009, "secondaryId": "<id>", "documentId": 641133, "templateId": 683076, "recipientId": 810393, "page": 257.11, "customText": "<value>", "inserted": true, "fieldMeta": {"type": "initials"}}
+        "400":
+          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
+        "404":
+          application/json: {"message": "Not found", "code": "NOT_FOUND", "issues": []}
+        "500":
+          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
+  recipient-getDocumentRecipient:
+    speakeasy-default-recipient-get-document-recipient:
+      parameters:
+        path:
+          recipientId: 237.59
+      responses:
+        "200":
+          application/json: {"role": "VIEWER", "readStatus": "NOT_OPENED", "signingStatus": "REJECTED", "sendStatus": "NOT_SENT", "id": 568504, "documentId": 956303, "templateId": 28324, "email": "Esmeralda53@hotmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "TWO_FACTOR_AUTH"}, "signingOrder": 6840.55, "rejectionReason": "<value>", "fields": []}
+        "400":
+          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
+        "404":
+          application/json: {"message": "Not found", "code": "NOT_FOUND", "issues": []}
+        "500":
+          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
+  recipient-getTemplateRecipient:
+    speakeasy-default-recipient-get-template-recipient:
+      parameters:
+        path:
+          recipientId: 9814.04
+      responses:
+        "200":
+          application/json: {"role": "SIGNER", "readStatus": "NOT_OPENED", "signingStatus": "NOT_SIGNED", "sendStatus": "NOT_SENT", "id": 666896, "documentId": 7195, "templateId": 899316, "email": "Aracely.Breitenberg@hotmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": "ACCOUNT", "actionAuth": "TWO_FACTOR_AUTH"}, "signingOrder": 536.73, "rejectionReason": "<value>", "fields": [{"type": "DROPDOWN", "id": 405222, "secondaryId": "<id>", "documentId": 24193, "templateId": 335667, "recipientId": 814195, "page": 3390.21, "customText": "<value>", "inserted": false, "fieldMeta": {"type": "name"}}, {"type": "NAME", "id": 745727, "secondaryId": "<id>", "documentId": 49430, "templateId": 774300, "recipientId": 125009, "page": 809.74, "customText": "<value>", "inserted": true, "fieldMeta": {"type": "dropdown"}}, {"type": "NUMBER", "id": 19321, "secondaryId": "<id>", "documentId": 695264, "templateId": 234684, "recipientId": 688643, "page": 9019.15, "customText": "<value>", "inserted": false, "fieldMeta": {"type": "date"}}]}
+        "400":
+          application/json: {"message": "Invalid input data", "code": "BAD_REQUEST", "issues": []}
+        "404":
+          application/json: {"message": "Not found", "code": "NOT_FOUND", "issues": []}
+        "500":
+          application/json: {"message": "Internal server error", "code": "INTERNAL_SERVER_ERROR", "issues": []}
+examplesVersion: 1.0.0
 generatedTests: {}

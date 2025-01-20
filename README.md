@@ -27,8 +27,6 @@ Documenso v2 beta API: Subject to breaking changes until v2 is fully released.
   * [Standalone functions](#standalone-functions)
   * [Retries](#retries)
   * [Error Handling](#error-handling)
-  * [Server Selection](#server-selection)
-  * [Custom HTTP Client](#custom-http-client)
   * [Debugging](#debugging)
 * [Development](#development)
   * [Maturity](#maturity)
@@ -39,34 +37,30 @@ Documenso v2 beta API: Subject to breaking changes until v2 is fully released.
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
-> [!TIP]
-> To finish publishing your SDK to npm and others you must [run your first generation action](https://www.speakeasy.com/docs/github-setup#step-by-step-guide).
-
-
 The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https://pnpm.io/), [bun](https://bun.sh/) or [yarn](https://classic.yarnpkg.com/en/) package managers.
 
 ### NPM
 
 ```bash
-npm add <UNSET>
+npm add @documenso/sdk-typescript
 ```
 
 ### PNPM
 
 ```bash
-pnpm add <UNSET>
+pnpm add @documenso/sdk-typescript
 ```
 
 ### Bun
 
 ```bash
-bun add <UNSET>
+bun add @documenso/sdk-typescript
 ```
 
 ### Yarn
 
 ```bash
-yarn add <UNSET> zod
+yarn add @documenso/sdk-typescript zod
 
 # Note that Yarn does not install peer dependencies automatically. You will need
 # to install zod as shown above.
@@ -92,7 +86,9 @@ const documenso = new Documenso({
 });
 
 async function run() {
-  const result = await documenso.documents.find({});
+  const result = await documenso.documents.find({
+    orderByDirection: "desc",
+  });
 
   // Handle the result
   console.log(result);
@@ -123,7 +119,9 @@ const documenso = new Documenso({
 });
 
 async function run() {
-  const result = await documenso.documents.find({});
+  const result = await documenso.documents.find({
+    orderByDirection: "desc",
+  });
 
   // Handle the result
   console.log(result);
@@ -153,29 +151,23 @@ run();
 * [redistribute](docs/sdks/documents/README.md#redistribute) - Redistribute document
 * [duplicate](docs/sdks/documents/README.md#duplicate) - Duplicate document
 
-#### [documents.fields](docs/sdks/documensofields/README.md)
+#### [documents.fields](docs/sdks/fields/README.md)
 
-* [create](docs/sdks/documensofields/README.md#create) - Create document field
-* [createMany](docs/sdks/documensofields/README.md#createmany) - Create document fields
-* [update](docs/sdks/documensofields/README.md#update) - Update document field
-* [updateMany](docs/sdks/documensofields/README.md#updatemany) - Update document fields
-* [delete](docs/sdks/documensofields/README.md#delete) - Delete document field
+* [get](docs/sdks/fields/README.md#get) - Get document field
+* [create](docs/sdks/fields/README.md#create) - Create document field
+* [createMany](docs/sdks/fields/README.md#createmany) - Create document fields
+* [update](docs/sdks/fields/README.md#update) - Update document field
+* [updateMany](docs/sdks/fields/README.md#updatemany) - Update document fields
+* [delete](docs/sdks/fields/README.md#delete) - Delete document field
 
-#### [documents.recipients](docs/sdks/documensorecipients/README.md)
+#### [documents.recipients](docs/sdks/recipients/README.md)
 
-* [create](docs/sdks/documensorecipients/README.md#create) - Create document recipient
-* [createMany](docs/sdks/documensorecipients/README.md#createmany) - Create document recipients
-* [update](docs/sdks/documensorecipients/README.md#update) - Update document recipient
-* [updateMany](docs/sdks/documensorecipients/README.md#updatemany) - Update document recipients
-* [delete](docs/sdks/documensorecipients/README.md#delete) - Delete document recipient
-
-### [fields](docs/sdks/fields/README.md)
-
-* [get](docs/sdks/fields/README.md#get) - Get field
-
-### [recipients](docs/sdks/recipients/README.md)
-
-* [get](docs/sdks/recipients/README.md#get) - Get recipient
+* [get](docs/sdks/recipients/README.md#get) - Get document recipient
+* [create](docs/sdks/recipients/README.md#create) - Create document recipient
+* [createMany](docs/sdks/recipients/README.md#createmany) - Create document recipients
+* [update](docs/sdks/recipients/README.md#update) - Update document recipient
+* [updateMany](docs/sdks/recipients/README.md#updatemany) - Update document recipients
+* [delete](docs/sdks/recipients/README.md#delete) - Delete document recipient
 
 ### [templates](docs/sdks/templates/README.md)
 
@@ -193,21 +185,23 @@ run();
 * [delete](docs/sdks/directlink/README.md#delete) - Delete direct link
 * [toggle](docs/sdks/directlink/README.md#toggle) - Toggle direct link
 
-#### [templates.fields](docs/sdks/documensotemplatesfields/README.md)
+#### [templates.fields](docs/sdks/documensofields/README.md)
 
-* [create](docs/sdks/documensotemplatesfields/README.md#create) - Create template field
-* [createMany](docs/sdks/documensotemplatesfields/README.md#createmany) - Create template fields
-* [update](docs/sdks/documensotemplatesfields/README.md#update) - Update template field
-* [updateMany](docs/sdks/documensotemplatesfields/README.md#updatemany) - Update template fields
-* [delete](docs/sdks/documensotemplatesfields/README.md#delete) - Delete template field
+* [create](docs/sdks/documensofields/README.md#create) - Create template field
+* [get](docs/sdks/documensofields/README.md#get) - Get template field
+* [createMany](docs/sdks/documensofields/README.md#createmany) - Create template fields
+* [update](docs/sdks/documensofields/README.md#update) - Update template field
+* [updateMany](docs/sdks/documensofields/README.md#updatemany) - Update template fields
+* [delete](docs/sdks/documensofields/README.md#delete) - Delete template field
 
-#### [templates.recipients](docs/sdks/documensotemplatesrecipients/README.md)
+#### [templates.recipients](docs/sdks/documensorecipients/README.md)
 
-* [create](docs/sdks/documensotemplatesrecipients/README.md#create) - Create template recipient
-* [createMany](docs/sdks/documensotemplatesrecipients/README.md#createmany) - Create template recipients
-* [update](docs/sdks/documensotemplatesrecipients/README.md#update) - Update template recipient
-* [updateMany](docs/sdks/documensotemplatesrecipients/README.md#updatemany) - Update template recipients
-* [delete](docs/sdks/documensotemplatesrecipients/README.md#delete) - Delete template recipient
+* [get](docs/sdks/documensorecipients/README.md#get) - Get template recipient
+* [create](docs/sdks/documensorecipients/README.md#create) - Create template recipient
+* [createMany](docs/sdks/documensorecipients/README.md#createmany) - Create template recipients
+* [update](docs/sdks/documensorecipients/README.md#update) - Update template recipient
+* [updateMany](docs/sdks/documensorecipients/README.md#updatemany) - Update template recipients
+* [delete](docs/sdks/documensorecipients/README.md#delete) - Delete template recipient
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -231,41 +225,43 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`documentsDelete`](docs/sdks/documents/README.md#delete) - Delete document
 - [`documentsDistribute`](docs/sdks/documents/README.md#distribute) - Distribute document
 - [`documentsDuplicate`](docs/sdks/documents/README.md#duplicate) - Duplicate document
-- [`documentsFieldsCreate`](docs/sdks/documensofields/README.md#create) - Create document field
-- [`documentsFieldsCreateMany`](docs/sdks/documensofields/README.md#createmany) - Create document fields
-- [`documentsFieldsDelete`](docs/sdks/documensofields/README.md#delete) - Delete document field
-- [`documentsFieldsUpdate`](docs/sdks/documensofields/README.md#update) - Update document field
-- [`documentsFieldsUpdateMany`](docs/sdks/documensofields/README.md#updatemany) - Update document fields
+- [`documentsFieldsCreate`](docs/sdks/fields/README.md#create) - Create document field
+- [`documentsFieldsCreateMany`](docs/sdks/fields/README.md#createmany) - Create document fields
+- [`documentsFieldsDelete`](docs/sdks/fields/README.md#delete) - Delete document field
+- [`documentsFieldsGet`](docs/sdks/fields/README.md#get) - Get document field
+- [`documentsFieldsUpdate`](docs/sdks/fields/README.md#update) - Update document field
+- [`documentsFieldsUpdateMany`](docs/sdks/fields/README.md#updatemany) - Update document fields
 - [`documentsFind`](docs/sdks/documents/README.md#find) - Find documents
 - [`documentsGet`](docs/sdks/documents/README.md#get) - Get document
 - [`documentsMoveToTeam`](docs/sdks/documents/README.md#movetoteam) - Move document
-- [`documentsRecipientsCreate`](docs/sdks/documensorecipients/README.md#create) - Create document recipient
-- [`documentsRecipientsCreateMany`](docs/sdks/documensorecipients/README.md#createmany) - Create document recipients
-- [`documentsRecipientsDelete`](docs/sdks/documensorecipients/README.md#delete) - Delete document recipient
-- [`documentsRecipientsUpdate`](docs/sdks/documensorecipients/README.md#update) - Update document recipient
-- [`documentsRecipientsUpdateMany`](docs/sdks/documensorecipients/README.md#updatemany) - Update document recipients
+- [`documentsRecipientsCreate`](docs/sdks/recipients/README.md#create) - Create document recipient
+- [`documentsRecipientsCreateMany`](docs/sdks/recipients/README.md#createmany) - Create document recipients
+- [`documentsRecipientsDelete`](docs/sdks/recipients/README.md#delete) - Delete document recipient
+- [`documentsRecipientsGet`](docs/sdks/recipients/README.md#get) - Get document recipient
+- [`documentsRecipientsUpdate`](docs/sdks/recipients/README.md#update) - Update document recipient
+- [`documentsRecipientsUpdateMany`](docs/sdks/recipients/README.md#updatemany) - Update document recipients
 - [`documentsRedistribute`](docs/sdks/documents/README.md#redistribute) - Redistribute document
 - [`documentsUpdate`](docs/sdks/documents/README.md#update) - Update document
-- [`fieldsGet`](docs/sdks/fields/README.md#get) - Get field
-- [`recipientsGet`](docs/sdks/recipients/README.md#get) - Get recipient
 - [`templatesDelete`](docs/sdks/templates/README.md#delete) - Delete template
 - [`templatesDirectLinkCreate`](docs/sdks/directlink/README.md#create) - Create direct link
 - [`templatesDirectLinkDelete`](docs/sdks/directlink/README.md#delete) - Delete direct link
 - [`templatesDirectLinkToggle`](docs/sdks/directlink/README.md#toggle) - Toggle direct link
 - [`templatesDuplicate`](docs/sdks/templates/README.md#duplicate) - Duplicate template
-- [`templatesFieldsCreate`](docs/sdks/documensotemplatesfields/README.md#create) - Create template field
-- [`templatesFieldsCreateMany`](docs/sdks/documensotemplatesfields/README.md#createmany) - Create template fields
-- [`templatesFieldsDelete`](docs/sdks/documensotemplatesfields/README.md#delete) - Delete template field
-- [`templatesFieldsUpdate`](docs/sdks/documensotemplatesfields/README.md#update) - Update template field
-- [`templatesFieldsUpdateMany`](docs/sdks/documensotemplatesfields/README.md#updatemany) - Update template fields
+- [`templatesFieldsCreate`](docs/sdks/documensofields/README.md#create) - Create template field
+- [`templatesFieldsCreateMany`](docs/sdks/documensofields/README.md#createmany) - Create template fields
+- [`templatesFieldsDelete`](docs/sdks/documensofields/README.md#delete) - Delete template field
+- [`templatesFieldsGet`](docs/sdks/documensofields/README.md#get) - Get template field
+- [`templatesFieldsUpdate`](docs/sdks/documensofields/README.md#update) - Update template field
+- [`templatesFieldsUpdateMany`](docs/sdks/documensofields/README.md#updatemany) - Update template fields
 - [`templatesFind`](docs/sdks/templates/README.md#find) - Find templates
 - [`templatesGet`](docs/sdks/templates/README.md#get) - Get template
 - [`templatesMoveToTeam`](docs/sdks/templates/README.md#movetoteam) - Move template
-- [`templatesRecipientsCreate`](docs/sdks/documensotemplatesrecipients/README.md#create) - Create template recipient
-- [`templatesRecipientsCreateMany`](docs/sdks/documensotemplatesrecipients/README.md#createmany) - Create template recipients
-- [`templatesRecipientsDelete`](docs/sdks/documensotemplatesrecipients/README.md#delete) - Delete template recipient
-- [`templatesRecipientsUpdate`](docs/sdks/documensotemplatesrecipients/README.md#update) - Update template recipient
-- [`templatesRecipientsUpdateMany`](docs/sdks/documensotemplatesrecipients/README.md#updatemany) - Update template recipients
+- [`templatesRecipientsCreate`](docs/sdks/documensorecipients/README.md#create) - Create template recipient
+- [`templatesRecipientsCreateMany`](docs/sdks/documensorecipients/README.md#createmany) - Create template recipients
+- [`templatesRecipientsDelete`](docs/sdks/documensorecipients/README.md#delete) - Delete template recipient
+- [`templatesRecipientsGet`](docs/sdks/documensorecipients/README.md#get) - Get template recipient
+- [`templatesRecipientsUpdate`](docs/sdks/documensorecipients/README.md#update) - Update template recipient
+- [`templatesRecipientsUpdateMany`](docs/sdks/documensorecipients/README.md#updatemany) - Update template recipients
 - [`templatesUpdate`](docs/sdks/templates/README.md#update) - Update template
 - [`templatesUse`](docs/sdks/templates/README.md#use) - Use template
 
@@ -286,7 +282,9 @@ const documenso = new Documenso({
 });
 
 async function run() {
-  const result = await documenso.documents.find({}, {
+  const result = await documenso.documents.find({
+    orderByDirection: "desc",
+  }, {
     retries: {
       strategy: "backoff",
       backoff: {
@@ -326,7 +324,9 @@ const documenso = new Documenso({
 });
 
 async function run() {
-  const result = await documenso.documents.find({});
+  const result = await documenso.documents.find({
+    orderByDirection: "desc",
+  });
 
   // Handle the result
   console.log(result);
@@ -367,7 +367,9 @@ const documenso = new Documenso({
 async function run() {
   let result;
   try {
-    result = await documenso.documents.find({});
+    result = await documenso.documents.find({
+      orderByDirection: "desc",
+    });
 
     // Handle the result
     console.log(result);
@@ -421,80 +423,6 @@ In some rare cases, the SDK can fail to get a response from the server or even m
 | UnexpectedClientError                                | Unrecognised or unexpected error                     |
 <!-- End Error Handling [errors] -->
 
-<!-- Start Server Selection [server] -->
-## Server Selection
-
-### Override Server URL Per-Client
-
-The default server can also be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
-```typescript
-import { Documenso } from "@documenso/sdk-typescript";
-
-const documenso = new Documenso({
-  serverURL: "http://localhost:3000/api/v2-beta",
-  apiKey: process.env["DOCUMENSO_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await documenso.documents.find({});
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-
-```
-<!-- End Server Selection [server] -->
-
-<!-- Start Custom HTTP Client [http-client] -->
-## Custom HTTP Client
-
-The TypeScript SDK makes API calls using an `HTTPClient` that wraps the native
-[Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). This
-client is a thin wrapper around `fetch` and provides the ability to attach hooks
-around the request lifecycle that can be used to modify the request or handle
-errors and response.
-
-The `HTTPClient` constructor takes an optional `fetcher` argument that can be
-used to integrate a third-party HTTP client or when writing tests to mock out
-the HTTP client and feed in fixtures.
-
-The following example shows how to use the `"beforeRequest"` hook to to add a
-custom header and a timeout to requests and how to use the `"requestError"` hook
-to log errors:
-
-```typescript
-import { Documenso } from "@documenso/sdk-typescript";
-import { HTTPClient } from "@documenso/sdk-typescript/lib/http";
-
-const httpClient = new HTTPClient({
-  // fetcher takes a function that has the same signature as native `fetch`.
-  fetcher: (request) => {
-    return fetch(request);
-  }
-});
-
-httpClient.addHook("beforeRequest", (request) => {
-  const nextRequest = new Request(request, {
-    signal: request.signal || AbortSignal.timeout(5000)
-  });
-
-  nextRequest.headers.set("x-custom-header", "custom value");
-
-  return nextRequest;
-});
-
-httpClient.addHook("requestError", (error, request) => {
-  console.group("Request Error");
-  console.log("Reason:", `${error}`);
-  console.log("Endpoint:", `${request.method} ${request.url}`);
-  console.groupEnd();
-});
-
-const sdk = new Documenso({ httpClient });
-```
-<!-- End Custom HTTP Client [http-client] -->
 
 <!-- Start Debugging [debug] -->
 ## Debugging

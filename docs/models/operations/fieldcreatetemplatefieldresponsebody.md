@@ -9,12 +9,12 @@ import { FieldCreateTemplateFieldResponseBody } from "@documenso/sdk-typescript/
 
 let value: FieldCreateTemplateFieldResponseBody = {
   type: "SIGNATURE",
-  id: 145841,
+  id: 575753,
   secondaryId: "<id>",
-  documentId: 600185,
-  templateId: 225001,
-  recipientId: 837327,
-  page: 3269.42,
+  documentId: 186130,
+  templateId: 9248,
+  recipientId: 927754,
+  page: 5371.4,
   customText: "<value>",
   inserted: false,
   fieldMeta: {

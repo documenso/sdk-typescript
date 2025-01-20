@@ -6,7 +6,7 @@
 import { TemplateUpdateTemplateRequestBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateUpdateTemplateRequestBody = {
-  templateId: 7998.66,
+  templateId: 7402.45,
 };
 ```
 

@@ -5,7 +5,7 @@
 ```typescript
 import { TemplateGetTemplateByIdType } from "@documenso/sdk-typescript/models/operations";
 
-let value: TemplateGetTemplateByIdType = "PUBLIC";
+let value: TemplateGetTemplateByIdType = "PRIVATE";
 ```
 
 ## Values

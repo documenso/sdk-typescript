@@ -13,20 +13,18 @@ import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 import { DirectLink } from "./directlink.js";
-import { DocumensoTemplatesFields } from "./documensotemplatesfields.js";
-import { DocumensoTemplatesRecipients } from "./documensotemplatesrecipients.js";
+import { DocumensoFields } from "./documensofields.js";
+import { DocumensoRecipients } from "./documensorecipients.js";
 
 export class Templates extends ClientSDK {
-  private _fields?: DocumensoTemplatesFields;
-  get fields(): DocumensoTemplatesFields {
-    return (this._fields ??= new DocumensoTemplatesFields(this._options));
+  private _fields?: DocumensoFields;
+  get fields(): DocumensoFields {
+    return (this._fields ??= new DocumensoFields(this._options));
   }
 
-  private _recipients?: DocumensoTemplatesRecipients;
-  get recipients(): DocumensoTemplatesRecipients {
-    return (this._recipients ??= new DocumensoTemplatesRecipients(
-      this._options,
-    ));
+  private _recipients?: DocumensoRecipients;
+  get recipients(): DocumensoRecipients {
+    return (this._recipients ??= new DocumensoRecipients(this._options));
   }
 
   private _directLink?: DirectLink;
@@ -99,7 +97,7 @@ export class Templates extends ClientSDK {
   async delete(
     request: operations.TemplateDeleteTemplateRequestBody,
     options?: RequestOptions,
-  ): Promise<any> {
+  ): Promise<operations.TemplateDeleteTemplateResponseBody> {
     return unwrapAsync(templatesDelete(
       this,
       request,

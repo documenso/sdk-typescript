@@ -10,17 +10,17 @@ import { FieldUpdateDocumentFieldsResponseBody } from "@documenso/sdk-typescript
 let value: FieldUpdateDocumentFieldsResponseBody = {
   fields: [
     {
-      type: "DATE",
-      id: 83291,
+      type: "FREE_SIGNATURE",
+      id: 264649,
       secondaryId: "<id>",
-      documentId: 51075,
-      templateId: 965517,
-      recipientId: 859003,
-      page: 1520.27,
+      documentId: 975095,
+      templateId: 639463,
+      recipientId: 520678,
+      page: 3979.19,
       customText: "<value>",
       inserted: false,
       fieldMeta: {
-        type: "initials",
+        type: "radio",
       },
     },
   ],

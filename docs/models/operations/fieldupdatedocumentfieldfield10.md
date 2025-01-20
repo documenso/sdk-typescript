@@ -7,7 +7,7 @@ import { FieldUpdateDocumentFieldField10 } from "@documenso/sdk-typescript/model
 
 let value: FieldUpdateDocumentFieldField10 = {
   type: "CHECKBOX",
-  id: 2295.67,
+  id: 7087.71,
 };
 ```
 

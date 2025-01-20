@@ -5,7 +5,7 @@
 ```typescript
 import { FieldUpdateDocumentFieldType } from "@documenso/sdk-typescript/models/operations";
 
-let value: FieldUpdateDocumentFieldType = "INITIALS";
+let value: FieldUpdateDocumentFieldType = "DROPDOWN";
 ```
 
 ## Values

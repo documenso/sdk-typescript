@@ -5,7 +5,7 @@
 ```typescript
 import { TemplateCreateDocumentFromTemplateRole } from "@documenso/sdk-typescript/models/operations";
 
-let value: TemplateCreateDocumentFromTemplateRole = "CC";
+let value: TemplateCreateDocumentFromTemplateRole = "VIEWER";
 ```
 
 ## Values

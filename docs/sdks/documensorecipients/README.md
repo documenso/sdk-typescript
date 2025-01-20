@@ -1,19 +1,20 @@
 # DocumensoRecipients
-(*documents.recipients*)
+(*templates.recipients*)
 
 ## Overview
 
 ### Available Operations
 
-* [create](#create) - Create document recipient
-* [createMany](#createmany) - Create document recipients
-* [update](#update) - Update document recipient
-* [updateMany](#updatemany) - Update document recipients
-* [delete](#delete) - Delete document recipient
+* [get](#get) - Get template recipient
+* [create](#create) - Create template recipient
+* [createMany](#createmany) - Create template recipients
+* [update](#update) - Update template recipient
+* [updateMany](#updatemany) - Update template recipients
+* [delete](#delete) - Delete template recipient
 
-## create
+## get
 
-Create a single recipient for a document.
+Returns a single recipient. If you want to retrieve all the recipients for a template, use the "Get Template" endpoint.
 
 ### Example Usage
 
@@ -25,10 +26,89 @@ const documenso = new Documenso({
 });
 
 async function run() {
-  const result = await documenso.documents.recipients.create({
-    documentId: 5459.23,
+  const result = await documenso.templates.recipients.get({
+    recipientId: 9814.04,
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { DocumensoCore } from "@documenso/sdk-typescript/core.js";
+import { templatesRecipientsGet } from "@documenso/sdk-typescript/funcs/templatesRecipientsGet.js";
+
+// Use `DocumensoCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const documenso = new DocumensoCore({
+  apiKey: process.env["DOCUMENSO_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await templatesRecipientsGet(documenso, {
+    recipientId: 9814.04,
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.RecipientGetTemplateRecipientRequest](../../models/operations/recipientgettemplaterecipientrequest.md)                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.RecipientGetTemplateRecipientResponseBody](../../models/operations/recipientgettemplaterecipientresponsebody.md)\>**
+
+### Errors
+
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ErrorBADREQUEST          | 400                             | application/json                |
+| errors.ErrorNOTFOUND            | 404                             | application/json                |
+| errors.Errorinternalservererror | 500                             | application/json                |
+| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+
+## create
+
+Create a single recipient for a template.
+
+### Example Usage
+
+```typescript
+import { Documenso } from "@documenso/sdk-typescript";
+
+const documenso = new Documenso({
+  apiKey: process.env["DOCUMENSO_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await documenso.templates.recipients.create({
+    templateId: 4865.89,
     recipient: {
-      email: "Saul_Langosh75@yahoo.com",
+      email: "Haylie_Bernhard95@yahoo.com",
       name: "<value>",
       role: "CC",
     },
@@ -47,7 +127,7 @@ The standalone function version of this method:
 
 ```typescript
 import { DocumensoCore } from "@documenso/sdk-typescript/core.js";
-import { documentsRecipientsCreate } from "@documenso/sdk-typescript/funcs/documentsRecipientsCreate.js";
+import { templatesRecipientsCreate } from "@documenso/sdk-typescript/funcs/templatesRecipientsCreate.js";
 
 // Use `DocumensoCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -56,10 +136,10 @@ const documenso = new DocumensoCore({
 });
 
 async function run() {
-  const res = await documentsRecipientsCreate(documenso, {
-    documentId: 5459.23,
+  const res = await templatesRecipientsCreate(documenso, {
+    templateId: 4865.89,
     recipient: {
-      email: "Saul_Langosh75@yahoo.com",
+      email: "Haylie_Bernhard95@yahoo.com",
       name: "<value>",
       role: "CC",
     },
@@ -82,14 +162,14 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.RecipientCreateDocumentRecipientRequestBody](../../models/operations/recipientcreatedocumentrecipientrequestbody.md)                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.RecipientCreateTemplateRecipientRequestBody](../../models/operations/recipientcreatetemplaterecipientrequestbody.md)                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[operations.RecipientCreateDocumentRecipientResponseBody](../../models/operations/recipientcreatedocumentrecipientresponsebody.md)\>**
+**Promise\<[operations.RecipientCreateTemplateRecipientResponseBody](../../models/operations/recipientcreatetemplaterecipientresponsebody.md)\>**
 
 ### Errors
 
@@ -101,7 +181,7 @@ run();
 
 ## createMany
 
-Create multiple recipients for a document.
+Create multiple recipients for a template.
 
 ### Example Usage
 
@@ -113,10 +193,19 @@ const documenso = new Documenso({
 });
 
 async function run() {
-  const result = await documenso.documents.recipients.createMany({
-    documentId: 9895.72,
+  const result = await documenso.templates.recipients.createMany({
+    templateId: 5158.41,
     recipients: [
-
+      {
+        email: "Demetrius.Sanford35@hotmail.com",
+        name: "<value>",
+        role: "VIEWER",
+      },
+      {
+        email: "Lyla50@yahoo.com",
+        name: "<value>",
+        role: "APPROVER",
+      },
     ],
   });
 
@@ -133,7 +222,7 @@ The standalone function version of this method:
 
 ```typescript
 import { DocumensoCore } from "@documenso/sdk-typescript/core.js";
-import { documentsRecipientsCreateMany } from "@documenso/sdk-typescript/funcs/documentsRecipientsCreateMany.js";
+import { templatesRecipientsCreateMany } from "@documenso/sdk-typescript/funcs/templatesRecipientsCreateMany.js";
 
 // Use `DocumensoCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -142,10 +231,19 @@ const documenso = new DocumensoCore({
 });
 
 async function run() {
-  const res = await documentsRecipientsCreateMany(documenso, {
-    documentId: 9895.72,
+  const res = await templatesRecipientsCreateMany(documenso, {
+    templateId: 5158.41,
     recipients: [
-  
+      {
+        email: "Demetrius.Sanford35@hotmail.com",
+        name: "<value>",
+        role: "VIEWER",
+      },
+      {
+        email: "Lyla50@yahoo.com",
+        name: "<value>",
+        role: "APPROVER",
+      },
     ],
   });
 
@@ -166,14 +264,14 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.RecipientCreateDocumentRecipientsRequestBody](../../models/operations/recipientcreatedocumentrecipientsrequestbody.md)                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.RecipientCreateTemplateRecipientsRequestBody](../../models/operations/recipientcreatetemplaterecipientsrequestbody.md)                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[operations.RecipientCreateDocumentRecipientsResponseBody](../../models/operations/recipientcreatedocumentrecipientsresponsebody.md)\>**
+**Promise\<[operations.RecipientCreateTemplateRecipientsResponseBody](../../models/operations/recipientcreatetemplaterecipientsresponsebody.md)\>**
 
 ### Errors
 
@@ -185,7 +283,7 @@ run();
 
 ## update
 
-Update a single recipient for a document.
+Update a single recipient for a template.
 
 ### Example Usage
 
@@ -197,10 +295,10 @@ const documenso = new Documenso({
 });
 
 async function run() {
-  const result = await documenso.documents.recipients.update({
-    documentId: 3856.88,
+  const result = await documenso.templates.recipients.update({
+    templateId: 8574.78,
     recipient: {
-      id: 6008.21,
+      id: 5971.29,
     },
   });
 
@@ -217,7 +315,7 @@ The standalone function version of this method:
 
 ```typescript
 import { DocumensoCore } from "@documenso/sdk-typescript/core.js";
-import { documentsRecipientsUpdate } from "@documenso/sdk-typescript/funcs/documentsRecipientsUpdate.js";
+import { templatesRecipientsUpdate } from "@documenso/sdk-typescript/funcs/templatesRecipientsUpdate.js";
 
 // Use `DocumensoCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -226,10 +324,10 @@ const documenso = new DocumensoCore({
 });
 
 async function run() {
-  const res = await documentsRecipientsUpdate(documenso, {
-    documentId: 3856.88,
+  const res = await templatesRecipientsUpdate(documenso, {
+    templateId: 8574.78,
     recipient: {
-      id: 6008.21,
+      id: 5971.29,
     },
   });
 
@@ -250,14 +348,14 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.RecipientUpdateDocumentRecipientRequestBody](../../models/operations/recipientupdatedocumentrecipientrequestbody.md)                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.RecipientUpdateTemplateRecipientRequestBody](../../models/operations/recipientupdatetemplaterecipientrequestbody.md)                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[operations.RecipientUpdateDocumentRecipientResponseBody](../../models/operations/recipientupdatedocumentrecipientresponsebody.md)\>**
+**Promise\<[operations.RecipientUpdateTemplateRecipientResponseBody](../../models/operations/recipientupdatetemplaterecipientresponsebody.md)\>**
 
 ### Errors
 
@@ -269,7 +367,7 @@ run();
 
 ## updateMany
 
-Update multiple recipients for a document.
+Update multiple recipients for a template.
 
 ### Example Usage
 
@@ -281,10 +379,15 @@ const documenso = new Documenso({
 });
 
 async function run() {
-  const result = await documenso.documents.recipients.updateMany({
-    documentId: 1195.29,
+  const result = await documenso.templates.recipients.updateMany({
+    templateId: 4057.69,
     recipients: [
-
+      {
+        id: 5359.16,
+      },
+      {
+        id: 8982.15,
+      },
     ],
   });
 
@@ -301,7 +404,7 @@ The standalone function version of this method:
 
 ```typescript
 import { DocumensoCore } from "@documenso/sdk-typescript/core.js";
-import { documentsRecipientsUpdateMany } from "@documenso/sdk-typescript/funcs/documentsRecipientsUpdateMany.js";
+import { templatesRecipientsUpdateMany } from "@documenso/sdk-typescript/funcs/templatesRecipientsUpdateMany.js";
 
 // Use `DocumensoCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -310,10 +413,15 @@ const documenso = new DocumensoCore({
 });
 
 async function run() {
-  const res = await documentsRecipientsUpdateMany(documenso, {
-    documentId: 1195.29,
+  const res = await templatesRecipientsUpdateMany(documenso, {
+    templateId: 4057.69,
     recipients: [
-  
+      {
+        id: 5359.16,
+      },
+      {
+        id: 8982.15,
+      },
     ],
   });
 
@@ -334,14 +442,14 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.RecipientUpdateDocumentRecipientsRequestBody](../../models/operations/recipientupdatedocumentrecipientsrequestbody.md)                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.RecipientUpdateTemplateRecipientsRequestBody](../../models/operations/recipientupdatetemplaterecipientsrequestbody.md)                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[operations.RecipientUpdateDocumentRecipientsResponseBody](../../models/operations/recipientupdatedocumentrecipientsresponsebody.md)\>**
+**Promise\<[operations.RecipientUpdateTemplateRecipientsResponseBody](../../models/operations/recipientupdatetemplaterecipientsresponsebody.md)\>**
 
 ### Errors
 
@@ -353,7 +461,7 @@ run();
 
 ## delete
 
-Delete document recipient
+Delete template recipient
 
 ### Example Usage
 
@@ -365,8 +473,8 @@ const documenso = new Documenso({
 });
 
 async function run() {
-  const result = await documenso.documents.recipients.delete({
-    recipientId: 6631.86,
+  const result = await documenso.templates.recipients.delete({
+    recipientId: 5459.07,
   });
 
   // Handle the result
@@ -382,7 +490,7 @@ The standalone function version of this method:
 
 ```typescript
 import { DocumensoCore } from "@documenso/sdk-typescript/core.js";
-import { documentsRecipientsDelete } from "@documenso/sdk-typescript/funcs/documentsRecipientsDelete.js";
+import { templatesRecipientsDelete } from "@documenso/sdk-typescript/funcs/templatesRecipientsDelete.js";
 
 // Use `DocumensoCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -391,8 +499,8 @@ const documenso = new DocumensoCore({
 });
 
 async function run() {
-  const res = await documentsRecipientsDelete(documenso, {
-    recipientId: 6631.86,
+  const res = await templatesRecipientsDelete(documenso, {
+    recipientId: 5459.07,
   });
 
   if (!res.ok) {
@@ -412,14 +520,14 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.RecipientDeleteDocumentRecipientRequestBody](../../models/operations/recipientdeletedocumentrecipientrequestbody.md)                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.RecipientDeleteTemplateRecipientRequestBody](../../models/operations/recipientdeletetemplaterecipientrequestbody.md)                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[any](../../models/.md)\>**
+**Promise\<[operations.RecipientDeleteTemplateRecipientResponseBody](../../models/operations/recipientdeletetemplaterecipientresponsebody.md)\>**
 
 ### Errors
 

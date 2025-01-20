@@ -7,7 +7,7 @@ The language to use for email communications with recipients.
 ```typescript
 import { TemplateUpdateTemplateLanguage } from "@documenso/sdk-typescript/models/operations";
 
-let value: TemplateUpdateTemplateLanguage = "fr";
+let value: TemplateUpdateTemplateLanguage = "de";
 ```
 
 ## Values

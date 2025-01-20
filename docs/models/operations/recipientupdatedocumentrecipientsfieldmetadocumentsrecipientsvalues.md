@@ -7,7 +7,7 @@ import { RecipientUpdateDocumentRecipientsFieldMetaDocumentsRecipientsValues } f
 
 let value: RecipientUpdateDocumentRecipientsFieldMetaDocumentsRecipientsValues =
   {
-    id: 7574.07,
+    id: 3006.51,
     checked: false,
     value: "<value>",
   };

@@ -5,7 +5,7 @@
 ```typescript
 import { TemplateGetTemplateByIdDistributionMethod } from "@documenso/sdk-typescript/models/operations";
 
-let value: TemplateGetTemplateByIdDistributionMethod = "NONE";
+let value: TemplateGetTemplateByIdDistributionMethod = "EMAIL";
 ```
 
 ## Values

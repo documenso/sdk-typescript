@@ -6,17 +6,17 @@
 import { FieldCreateDocumentFieldsDocumentsFieldsFields } from "@documenso/sdk-typescript/models/operations";
 
 let value: FieldCreateDocumentFieldsDocumentsFieldsFields = {
-  type: "DATE",
-  id: 290248,
+  type: "CHECKBOX",
+  id: 213835,
   secondaryId: "<id>",
-  documentId: 304173,
-  templateId: 591065,
-  recipientId: 921719,
-  page: 8052.64,
+  documentId: 771226,
+  templateId: 12171,
+  recipientId: 322829,
+  page: 2295.67,
   customText: "<value>",
   inserted: false,
   fieldMeta: {
-    type: "radio",
+    type: "text",
   },
 };
 ```

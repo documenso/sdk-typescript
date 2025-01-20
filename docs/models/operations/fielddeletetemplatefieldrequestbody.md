@@ -6,7 +6,7 @@
 import { FieldDeleteTemplateFieldRequestBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: FieldDeleteTemplateFieldRequestBody = {
-  fieldId: 4349.55,
+  fieldId: 9736.42,
 };
 ```
 

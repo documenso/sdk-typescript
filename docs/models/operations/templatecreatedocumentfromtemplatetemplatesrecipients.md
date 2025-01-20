@@ -8,12 +8,12 @@ import { TemplateCreateDocumentFromTemplateTemplatesRecipients } from "@documens
 let value: TemplateCreateDocumentFromTemplateTemplatesRecipients = {
   role: "APPROVER",
   readStatus: "OPENED",
-  signingStatus: "REJECTED",
-  sendStatus: "SENT",
-  id: 307532,
-  documentId: 875693,
-  templateId: 42763,
-  email: "Dorian67@gmail.com",
+  signingStatus: "NOT_SIGNED",
+  sendStatus: "NOT_SENT",
+  id: 926027,
+  documentId: 818078,
+  templateId: 614346,
+  email: "Alva_Pacocha85@gmail.com",
   name: "<value>",
   token: "<value>",
   documentDeletedAt: "<value>",
@@ -23,7 +23,7 @@ let value: TemplateCreateDocumentFromTemplateTemplatesRecipients = {
     accessAuth: "ACCOUNT",
     actionAuth: "ACCOUNT",
   },
-  signingOrder: 4151.25,
+  signingOrder: 3390.94,
   rejectionReason: "<value>",
 };
 ```

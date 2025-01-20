@@ -6,17 +6,17 @@
 import { FieldUpdateDocumentFieldsDocumentsFieldsFields } from "@documenso/sdk-typescript/models/operations";
 
 let value: FieldUpdateDocumentFieldsDocumentsFieldsFields = {
-  type: "RADIO",
-  id: 715143,
+  type: "CHECKBOX",
+  id: 152027,
   secondaryId: "<id>",
-  documentId: 558051,
-  templateId: 704948,
-  recipientId: 418637,
-  page: 53.1,
+  documentId: 664,
+  templateId: 941668,
+  recipientId: 278325,
+  page: 1858.97,
   customText: "<value>",
   inserted: false,
   fieldMeta: {
-    type: "initials",
+    type: "radio",
   },
 };
 ```

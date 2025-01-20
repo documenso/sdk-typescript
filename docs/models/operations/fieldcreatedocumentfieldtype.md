@@ -5,7 +5,7 @@
 ```typescript
 import { FieldCreateDocumentFieldType } from "@documenso/sdk-typescript/models/operations";
 
-let value: FieldCreateDocumentFieldType = "SIGNATURE";
+let value: FieldCreateDocumentFieldType = "RADIO";
 ```
 
 ## Values

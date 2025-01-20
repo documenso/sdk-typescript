@@ -7,7 +7,7 @@ import { TemplateMoveTemplateToTeamAuthOptions } from "@documenso/sdk-typescript
 
 let value: TemplateMoveTemplateToTeamAuthOptions = {
   globalAccessAuth: "ACCOUNT",
-  globalActionAuth: "ACCOUNT",
+  globalActionAuth: "TWO_FACTOR_AUTH",
 };
 ```
 

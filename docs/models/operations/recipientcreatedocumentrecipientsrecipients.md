@@ -6,9 +6,9 @@
 import { RecipientCreateDocumentRecipientsRecipients } from "@documenso/sdk-typescript/models/operations";
 
 let value: RecipientCreateDocumentRecipientsRecipients = {
-  email: "Joy55@gmail.com",
+  email: "Hoyt.Walker@yahoo.com",
   name: "<value>",
-  role: "APPROVER",
+  role: "VIEWER",
 };
 ```
 

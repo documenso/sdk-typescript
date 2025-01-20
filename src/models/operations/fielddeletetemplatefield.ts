@@ -11,6 +11,13 @@ export type FieldDeleteTemplateFieldRequestBody = {
   fieldId: number;
 };
 
+/**
+ * Successful response
+ */
+export type FieldDeleteTemplateFieldResponseBody = {
+  success: boolean;
+};
+
 /** @internal */
 export const FieldDeleteTemplateFieldRequestBody$inboundSchema: z.ZodType<
   FieldDeleteTemplateFieldRequestBody,
@@ -67,5 +74,64 @@ export function fieldDeleteTemplateFieldRequestBodyFromJSON(
     (x) =>
       FieldDeleteTemplateFieldRequestBody$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'FieldDeleteTemplateFieldRequestBody' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldDeleteTemplateFieldResponseBody$inboundSchema: z.ZodType<
+  FieldDeleteTemplateFieldResponseBody,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  success: z.boolean(),
+});
+
+/** @internal */
+export type FieldDeleteTemplateFieldResponseBody$Outbound = {
+  success: boolean;
+};
+
+/** @internal */
+export const FieldDeleteTemplateFieldResponseBody$outboundSchema: z.ZodType<
+  FieldDeleteTemplateFieldResponseBody$Outbound,
+  z.ZodTypeDef,
+  FieldDeleteTemplateFieldResponseBody
+> = z.object({
+  success: z.boolean(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldDeleteTemplateFieldResponseBody$ {
+  /** @deprecated use `FieldDeleteTemplateFieldResponseBody$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldDeleteTemplateFieldResponseBody$inboundSchema;
+  /** @deprecated use `FieldDeleteTemplateFieldResponseBody$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldDeleteTemplateFieldResponseBody$outboundSchema;
+  /** @deprecated use `FieldDeleteTemplateFieldResponseBody$Outbound` instead. */
+  export type Outbound = FieldDeleteTemplateFieldResponseBody$Outbound;
+}
+
+export function fieldDeleteTemplateFieldResponseBodyToJSON(
+  fieldDeleteTemplateFieldResponseBody: FieldDeleteTemplateFieldResponseBody,
+): string {
+  return JSON.stringify(
+    FieldDeleteTemplateFieldResponseBody$outboundSchema.parse(
+      fieldDeleteTemplateFieldResponseBody,
+    ),
+  );
+}
+
+export function fieldDeleteTemplateFieldResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<FieldDeleteTemplateFieldResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldDeleteTemplateFieldResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldDeleteTemplateFieldResponseBody' from JSON`,
   );
 }

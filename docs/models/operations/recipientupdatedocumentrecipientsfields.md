@@ -7,16 +7,16 @@ import { RecipientUpdateDocumentRecipientsFields } from "@documenso/sdk-typescri
 
 let value: RecipientUpdateDocumentRecipientsFields = {
   type: "TEXT",
-  id: 185816,
+  id: 473326,
   secondaryId: "<id>",
-  documentId: 104736,
-  templateId: 116558,
-  recipientId: 357639,
-  page: 46.54,
+  documentId: 675126,
+  templateId: 21358,
+  recipientId: 102316,
+  page: 2921.77,
   customText: "<value>",
   inserted: false,
   fieldMeta: {
-    type: "date",
+    type: "dropdown",
   },
 };
 ```

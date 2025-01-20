@@ -7,7 +7,7 @@ The type of authentication required for the recipient to sign the document.
 ```typescript
 import { TemplateFindTemplatesActionAuth } from "@documenso/sdk-typescript/models/operations";
 
-let value: TemplateFindTemplatesActionAuth = "EXPLICIT_NONE";
+let value: TemplateFindTemplatesActionAuth = "PASSKEY";
 ```
 
 ## Values

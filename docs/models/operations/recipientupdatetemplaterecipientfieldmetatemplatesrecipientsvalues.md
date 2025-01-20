@@ -7,7 +7,7 @@ import { RecipientUpdateTemplateRecipientFieldMetaTemplatesRecipientsValues } fr
 
 let value: RecipientUpdateTemplateRecipientFieldMetaTemplatesRecipientsValues =
   {
-    id: 1311.16,
+    id: 2345.5,
     checked: false,
     value: "<value>",
   };

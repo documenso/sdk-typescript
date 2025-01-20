@@ -5,7 +5,7 @@
 ```typescript
 import { RecipientUpdateDocumentRecipientType } from "@documenso/sdk-typescript/models/operations";
 
-let value: RecipientUpdateDocumentRecipientType = "NUMBER";
+let value: RecipientUpdateDocumentRecipientType = "FREE_SIGNATURE";
 ```
 
 ## Values

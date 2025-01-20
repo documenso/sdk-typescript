@@ -7,16 +7,16 @@ import { TemplateFindTemplatesFields } from "@documenso/sdk-typescript/models/op
 
 let value: TemplateFindTemplatesFields = {
   type: "FREE_SIGNATURE",
-  id: 884361,
+  id: 374062,
   secondaryId: "<id>",
-  documentId: 769156,
-  templateId: 711871,
-  recipientId: 53733,
-  page: 3962.23,
+  documentId: 413780,
+  templateId: 686380,
+  recipientId: 295892,
+  page: 3032.92,
   customText: "<value>",
   inserted: false,
   fieldMeta: {
-    type: "name",
+    type: "date",
   },
 };
 ```

@@ -29,7 +29,9 @@ const documenso = new Documenso({
 });
 
 async function run() {
-  const result = await documenso.documents.find({});
+  const result = await documenso.documents.find({
+    orderByDirection: "desc",
+  });
 
   // Handle the result
   console.log(result);
@@ -53,7 +55,9 @@ const documenso = new DocumensoCore({
 });
 
 async function run() {
-  const res = await documentsFind(documenso, {});
+  const res = await documentsFind(documenso, {
+    orderByDirection: "desc",
+  });
 
   if (!res.ok) {
     throw res.error;
@@ -105,7 +109,7 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.documents.get({
-    documentId: 6185.96,
+    documentId: 7003.47,
   });
 
   // Handle the result
@@ -131,7 +135,7 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await documentsGet(documenso, {
-    documentId: 6185.96,
+    documentId: 7003.47,
   });
 
   if (!res.ok) {
@@ -262,7 +266,7 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.documents.update({
-    documentId: 1694.90,
+    documentId: 8574.78,
   });
 
   // Handle the result
@@ -288,7 +292,7 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await documentsUpdate(documenso, {
-    documentId: 1694.90,
+    documentId: 8574.78,
   });
 
   if (!res.ok) {
@@ -340,7 +344,7 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.documents.delete({
-    documentId: 3282.64,
+    documentId: 5459.07,
   });
 
   // Handle the result
@@ -366,7 +370,7 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await documentsDelete(documenso, {
-    documentId: 3282.64,
+    documentId: 5459.07,
   });
 
   if (!res.ok) {
@@ -393,7 +397,7 @@ run();
 
 ### Response
 
-**Promise\<[any](../../models/.md)\>**
+**Promise\<[operations.DocumentDeleteDocumentResponseBody](../../models/operations/documentdeletedocumentresponsebody.md)\>**
 
 ### Errors
 
@@ -418,8 +422,8 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.documents.moveToTeam({
-    documentId: 1709.10,
-    teamId: 5536.69,
+    documentId: 8301.72,
+    teamId: 6724.78,
   });
 
   // Handle the result
@@ -445,8 +449,8 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await documentsMoveToTeam(documenso, {
-    documentId: 1709.10,
-    teamId: 5536.69,
+    documentId: 8301.72,
+    teamId: 6724.78,
   });
 
   if (!res.ok) {
@@ -498,7 +502,7 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.documents.distribute({
-    documentId: 2400.95,
+    documentId: 4115.92,
   });
 
   // Handle the result
@@ -524,7 +528,7 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await documentsDistribute(documenso, {
-    documentId: 2400.95,
+    documentId: 4115.92,
   });
 
   if (!res.ok) {
@@ -576,9 +580,9 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.documents.redistribute({
-    documentId: 5154.74,
+    documentId: 5758.65,
     recipients: [
-      1927.81,
+
     ],
   });
 
@@ -605,9 +609,9 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await documentsRedistribute(documenso, {
-    documentId: 5154.74,
+    documentId: 5758.65,
     recipients: [
-      1927.81,
+  
     ],
   });
 
@@ -635,7 +639,7 @@ run();
 
 ### Response
 
-**Promise\<[any](../../models/.md)\>**
+**Promise\<[operations.DocumentResendDocumentResponseBody](../../models/operations/documentresenddocumentresponsebody.md)\>**
 
 ### Errors
 
@@ -660,7 +664,7 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.documents.duplicate({
-    documentId: 8656.07,
+    documentId: 3523.11,
   });
 
   // Handle the result
@@ -686,7 +690,7 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await documentsDuplicate(documenso, {
-    documentId: 8656.07,
+    documentId: 3523.11,
   });
 
   if (!res.ok) {

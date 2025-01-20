@@ -6,7 +6,7 @@
 import { FieldUpdateDocumentFieldsFieldsValues } from "@documenso/sdk-typescript/models/operations";
 
 let value: FieldUpdateDocumentFieldsFieldsValues = {
-  id: 4714.57,
+  id: 3167.3,
   checked: false,
   value: "<value>",
 };

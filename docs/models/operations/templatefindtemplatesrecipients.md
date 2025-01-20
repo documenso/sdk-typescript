@@ -7,13 +7,13 @@ import { TemplateFindTemplatesRecipients } from "@documenso/sdk-typescript/model
 
 let value: TemplateFindTemplatesRecipients = {
   role: "VIEWER",
-  readStatus: "NOT_OPENED",
-  signingStatus: "NOT_SIGNED",
+  readStatus: "OPENED",
+  signingStatus: "REJECTED",
   sendStatus: "NOT_SENT",
-  id: 823472,
-  documentId: 866135,
-  templateId: 960813,
-  email: "Alvah_Haag@gmail.com",
+  id: 548256,
+  documentId: 543353,
+  templateId: 739633,
+  email: "Duane77@hotmail.com",
   name: "<value>",
   token: "<value>",
   documentDeletedAt: "<value>",
@@ -21,9 +21,9 @@ let value: TemplateFindTemplatesRecipients = {
   signedAt: "<value>",
   authOptions: {
     accessAuth: "ACCOUNT",
-    actionAuth: "TWO_FACTOR_AUTH",
+    actionAuth: "ACCOUNT",
   },
-  signingOrder: 4008.79,
+  signingOrder: 1474,
   rejectionReason: "<value>",
 };
 ```

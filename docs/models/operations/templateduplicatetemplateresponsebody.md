@@ -8,20 +8,20 @@ Successful response
 import { TemplateDuplicateTemplateResponseBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateDuplicateTemplateResponseBody = {
-  type: "PUBLIC",
+  type: "PRIVATE",
   visibility: "MANAGER_AND_ABOVE",
-  id: 919738,
+  id: 713718,
   externalId: "<id>",
   title: "<value>",
-  userId: 960767,
-  teamId: 640565,
+  userId: 915408,
+  teamId: 146583,
   authOptions: {
     globalAccessAuth: "ACCOUNT",
     globalActionAuth: "TWO_FACTOR_AUTH",
   },
   templateDocumentDataId: "<id>",
-  createdAt: "1707091496723",
-  updatedAt: "1737246702596",
+  createdAt: "1718812272893",
+  updatedAt: "1737307196042",
   publicTitle: "<value>",
   publicDescription: "<value>",
 };

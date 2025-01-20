@@ -7,12 +7,12 @@ import { Fields10 } from "@documenso/sdk-typescript/models/operations";
 
 let value: Fields10 = {
   type: "CHECKBOX",
-  recipientId: 2928.88,
-  pageNumber: 7150.53,
-  pageX: 4181.09,
-  pageY: 1729.51,
-  width: 1072.1,
-  height: 8173.39,
+  recipientId: 5156.38,
+  pageNumber: 8890.6,
+  pageX: 7372.79,
+  pageY: 51.52,
+  width: 6941.58,
+  height: 9195.08,
 };
 ```
 

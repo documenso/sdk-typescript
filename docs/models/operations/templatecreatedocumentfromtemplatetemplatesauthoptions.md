@@ -7,7 +7,7 @@ import { TemplateCreateDocumentFromTemplateTemplatesAuthOptions } from "@documen
 
 let value: TemplateCreateDocumentFromTemplateTemplatesAuthOptions = {
   accessAuth: "ACCOUNT",
-  actionAuth: "EXPLICIT_NONE",
+  actionAuth: "ACCOUNT",
 };
 ```
 

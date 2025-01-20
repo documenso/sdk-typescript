@@ -8,12 +8,12 @@
 ```typescript
 const value: operations.FieldCreateTemplateFieldsFields1 = {
   type: "SIGNATURE",
-  recipientId: 7143,
-  pageNumber: 4938.65,
-  pageX: 5818.89,
-  pageY: 1263.67,
-  width: 8768.21,
-  height: 7607.93,
+  recipientId: 5772.84,
+  pageNumber: 1696.78,
+  pageX: 1594.69,
+  pageY: 4170.3,
+  width: 4268.19,
+  height: 2681.09,
 };
 ```
 
@@ -22,12 +22,12 @@ const value: operations.FieldCreateTemplateFieldsFields1 = {
 ```typescript
 const value: operations.FieldCreateTemplateFieldsFields2 = {
   type: "FREE_SIGNATURE",
-  recipientId: 9981.99,
-  pageNumber: 2977.23,
-  pageX: 2270.17,
-  pageY: 1251.61,
-  width: 9642.1,
-  height: 7808.85,
+  recipientId: 1315.96,
+  pageNumber: 392.1,
+  pageX: 252.31,
+  pageY: 2715.5,
+  width: 4618.53,
+  height: 7262.44,
 };
 ```
 
@@ -36,12 +36,12 @@ const value: operations.FieldCreateTemplateFieldsFields2 = {
 ```typescript
 const value: operations.FieldCreateTemplateFieldsFields3 = {
   type: "INITIALS",
-  recipientId: 1663.24,
-  pageNumber: 5526.87,
-  pageX: 4137.68,
-  pageY: 1514.86,
-  width: 1620.73,
-  height: 9634.7,
+  recipientId: 4748.72,
+  pageNumber: 9040.51,
+  pageX: 352.19,
+  pageY: 1806.6,
+  width: 3385.14,
+  height: 5774.96,
 };
 ```
 
@@ -50,12 +50,12 @@ const value: operations.FieldCreateTemplateFieldsFields3 = {
 ```typescript
 const value: operations.FieldCreateTemplateFieldsFields4 = {
   type: "NAME",
-  recipientId: 3049.64,
-  pageNumber: 9414.4,
-  pageX: 756.1,
-  pageY: 4608.03,
-  width: 1296.19,
-  height: 47.87,
+  recipientId: 8527.37,
+  pageNumber: 3502.02,
+  pageX: 2679.88,
+  pageY: 618.89,
+  width: 8213.04,
+  height: 3796.66,
 };
 ```
 
@@ -64,12 +64,12 @@ const value: operations.FieldCreateTemplateFieldsFields4 = {
 ```typescript
 const value: operations.FieldCreateTemplateFieldsFields5 = {
   type: "EMAIL",
-  recipientId: 5537.66,
-  pageNumber: 1138.94,
-  pageX: 7220.25,
-  pageY: 6981.17,
-  width: 1763.33,
-  height: 9417.43,
+  recipientId: 5715.5,
+  pageNumber: 9835.56,
+  pageX: 15.94,
+  pageY: 1454.5,
+  width: 7791.11,
+  height: 8051.28,
 };
 ```
 
@@ -78,12 +78,12 @@ const value: operations.FieldCreateTemplateFieldsFields5 = {
 ```typescript
 const value: operations.FieldCreateTemplateFieldsFields6 = {
   type: "DATE",
-  recipientId: 7210.44,
-  pageNumber: 2979.7,
-  pageX: 7092.34,
-  pageY: 7319.31,
-  width: 3422.26,
-  height: 3755.88,
+  recipientId: 7692.47,
+  pageNumber: 5369.99,
+  pageX: 9788.57,
+  pageY: 3961.84,
+  width: 6019.44,
+  height: 633.69,
 };
 ```
 
@@ -92,12 +92,12 @@ const value: operations.FieldCreateTemplateFieldsFields6 = {
 ```typescript
 const value: operations.FieldCreateTemplateFieldsFields7 = {
   type: "TEXT",
-  recipientId: 3591.06,
-  pageNumber: 6166.19,
-  pageX: 9004.11,
-  pageY: 1731.93,
-  width: 8752,
-  height: 276.53,
+  recipientId: 4098.57,
+  pageNumber: 7225,
+  pageX: 2387.39,
+  pageY: 9438.28,
+  width: 6867.84,
+  height: 2875.75,
 };
 ```
 
@@ -106,12 +106,12 @@ const value: operations.FieldCreateTemplateFieldsFields7 = {
 ```typescript
 const value: operations.FieldCreateTemplateFieldsFields8 = {
   type: "NUMBER",
-  recipientId: 6603.39,
-  pageNumber: 4144.39,
-  pageX: 7912.82,
-  pageY: 7211.98,
-  width: 4801.08,
-  height: 6438.64,
+  recipientId: 7689.99,
+  pageNumber: 831.64,
+  pageX: 9747.75,
+  pageY: 492.85,
+  width: 9334.56,
+  height: 2528.54,
 };
 ```
 
@@ -120,12 +120,12 @@ const value: operations.FieldCreateTemplateFieldsFields8 = {
 ```typescript
 const value: operations.FieldCreateTemplateFieldsFields9 = {
   type: "RADIO",
-  recipientId: 5017.73,
-  pageNumber: 8115.19,
-  pageX: 4760.84,
-  pageY: 5231.56,
-  width: 2505.2,
-  height: 6050.43,
+  recipientId: 7578.24,
+  pageNumber: 0.73,
+  pageX: 2542.4,
+  pageY: 7491.01,
+  width: 5323.36,
+  height: 1149.52,
 };
 ```
 
@@ -134,12 +134,12 @@ const value: operations.FieldCreateTemplateFieldsFields9 = {
 ```typescript
 const value: operations.FieldCreateTemplateFieldsFields10 = {
   type: "CHECKBOX",
-  recipientId: 3029.05,
-  pageNumber: 5772.84,
-  pageX: 1696.78,
-  pageY: 1594.69,
-  width: 4170.3,
-  height: 4268.19,
+  recipientId: 3936.3,
+  pageNumber: 3755.49,
+  pageX: 5681.62,
+  pageY: 6679.77,
+  width: 8408.31,
+  height: 4972.31,
 };
 ```
 
@@ -148,12 +148,12 @@ const value: operations.FieldCreateTemplateFieldsFields10 = {
 ```typescript
 const value: operations.FieldCreateTemplateFieldsFields11 = {
   type: "DROPDOWN",
-  recipientId: 2681.09,
-  pageNumber: 1315.96,
-  pageX: 392.1,
-  pageY: 252.31,
-  width: 2715.5,
-  height: 4618.53,
+  recipientId: 3920.22,
+  pageNumber: 1439.76,
+  pageX: 8048.23,
+  pageY: 7133.71,
+  width: 4086.77,
+  height: 5184.32,
 };
 ```
 

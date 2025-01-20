@@ -5,7 +5,7 @@
 ```typescript
 import { TemplateGetTemplateByIdTemplatesType } from "@documenso/sdk-typescript/models/operations";
 
-let value: TemplateGetTemplateByIdTemplatesType = "S3_PATH";
+let value: TemplateGetTemplateByIdTemplatesType = "BYTES_64";
 ```
 
 ## Values

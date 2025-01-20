@@ -36,7 +36,7 @@ export class DirectLink extends ClientSDK {
   async delete(
     request: operations.TemplateDeleteTemplateDirectLinkRequestBody,
     options?: RequestOptions,
-  ): Promise<any> {
+  ): Promise<operations.TemplateDeleteTemplateDirectLinkResponseBody> {
     return unwrapAsync(templatesDirectLinkDelete(
       this,
       request,

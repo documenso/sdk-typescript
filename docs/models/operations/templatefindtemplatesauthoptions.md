@@ -7,7 +7,7 @@ import { TemplateFindTemplatesAuthOptions } from "@documenso/sdk-typescript/mode
 
 let value: TemplateFindTemplatesAuthOptions = {
   globalAccessAuth: "ACCOUNT",
-  globalActionAuth: "TWO_FACTOR_AUTH",
+  globalActionAuth: "PASSKEY",
 };
 ```
 

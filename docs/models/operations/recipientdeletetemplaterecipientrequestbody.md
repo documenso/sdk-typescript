@@ -6,7 +6,7 @@
 import { RecipientDeleteTemplateRecipientRequestBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: RecipientDeleteTemplateRecipientRequestBody = {
-  recipientId: 9905.4,
+  recipientId: 9504.86,
 };
 ```
 

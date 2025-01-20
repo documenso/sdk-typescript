@@ -5,7 +5,7 @@
 ```typescript
 import { TemplateCreateDocumentFromTemplateType } from "@documenso/sdk-typescript/models/operations";
 
-let value: TemplateCreateDocumentFromTemplateType = "BYTES_64";
+let value: TemplateCreateDocumentFromTemplateType = "BYTES";
 ```
 
 ## Values

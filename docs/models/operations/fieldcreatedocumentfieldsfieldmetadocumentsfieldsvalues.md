@@ -6,7 +6,7 @@
 import { FieldCreateDocumentFieldsFieldMetaDocumentsFieldsValues } from "@documenso/sdk-typescript/models/operations";
 
 let value: FieldCreateDocumentFieldsFieldMetaDocumentsFieldsValues = {
-  id: 9998.09,
+  id: 4923.61,
   checked: false,
   value: "<value>",
 };

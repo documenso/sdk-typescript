@@ -7,12 +7,12 @@ import { Fields7 } from "@documenso/sdk-typescript/models/operations";
 
 let value: Fields7 = {
   type: "TEXT",
-  recipientId: 4835.18,
-  pageNumber: 1403.16,
-  pageX: 3589.95,
-  pageY: 9371.17,
-  width: 9233.06,
-  height: 2828.37,
+  recipientId: 8735.57,
+  pageNumber: 4918.92,
+  pageX: 8989.61,
+  pageY: 1855.18,
+  width: 5326.69,
+  height: 3262.69,
 };
 ```
 

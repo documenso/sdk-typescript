@@ -6,17 +6,17 @@
 import { TemplateCreateDocumentFromTemplateFields } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateCreateDocumentFromTemplateFields = {
-  type: "DROPDOWN",
-  id: 798953,
+  type: "DATE",
+  id: 982927,
   secondaryId: "<id>",
-  documentId: 77992,
-  templateId: 804936,
-  recipientId: 66596,
-  page: 2359.7,
+  documentId: 144058,
+  templateId: 899652,
+  recipientId: 116463,
+  page: 1631.81,
   customText: "<value>",
   inserted: false,
   fieldMeta: {
-    type: "name",
+    type: "radio",
   },
 };
 ```

@@ -6,11 +6,11 @@
 import { FieldUpdateTemplateFieldsRequestBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: FieldUpdateTemplateFieldsRequestBody = {
-  templateId: 5456.29,
+  templateId: 2482.76,
   fields: [
     {
-      type: "DROPDOWN",
-      id: 6803.7,
+      type: "NAME",
+      id: 3184.03,
     },
   ],
 };

@@ -7,12 +7,12 @@ import { FieldCreateTemplateFieldField10 } from "@documenso/sdk-typescript/model
 
 let value: FieldCreateTemplateFieldField10 = {
   type: "CHECKBOX",
-  recipientId: 8184.22,
-  pageNumber: 804.48,
-  pageX: 6012.28,
-  pageY: 8345.87,
-  width: 2379.72,
-  height: 7619.27,
+  recipientId: 9793.25,
+  pageNumber: 726,
+  pageX: 7666.7,
+  pageY: 2663.7,
+  width: 3685.99,
+  height: 2192.79,
 };
 ```
 

@@ -5,7 +5,7 @@
 ```typescript
 import { TemplateGetTemplateByIdVisibility } from "@documenso/sdk-typescript/models/operations";
 
-let value: TemplateGetTemplateByIdVisibility = "EVERYONE";
+let value: TemplateGetTemplateByIdVisibility = "ADMIN";
 ```
 
 ## Values

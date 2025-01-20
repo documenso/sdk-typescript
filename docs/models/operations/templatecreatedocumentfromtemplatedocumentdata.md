@@ -6,7 +6,7 @@
 import { TemplateCreateDocumentFromTemplateDocumentData } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateCreateDocumentFromTemplateDocumentData = {
-  type: "S3_PATH",
+  type: "BYTES_64",
   id: "<id>",
   data: "<value>",
   initialData: "<value>",

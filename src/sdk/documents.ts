@@ -14,18 +14,18 @@ import { documentsUpdate } from "../funcs/documentsUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
-import { DocumensoFields } from "./documensofields.js";
-import { DocumensoRecipients } from "./documensorecipients.js";
+import { Fields } from "./fields.js";
+import { Recipients } from "./recipients.js";
 
 export class Documents extends ClientSDK {
-  private _fields?: DocumensoFields;
-  get fields(): DocumensoFields {
-    return (this._fields ??= new DocumensoFields(this._options));
+  private _fields?: Fields;
+  get fields(): Fields {
+    return (this._fields ??= new Fields(this._options));
   }
 
-  private _recipients?: DocumensoRecipients;
-  get recipients(): DocumensoRecipients {
-    return (this._recipients ??= new DocumensoRecipients(this._options));
+  private _recipients?: Recipients;
+  get recipients(): Recipients {
+    return (this._recipients ??= new Recipients(this._options));
   }
 
   /**
@@ -99,7 +99,7 @@ export class Documents extends ClientSDK {
   async delete(
     request: operations.DocumentDeleteDocumentRequestBody,
     options?: RequestOptions,
-  ): Promise<any> {
+  ): Promise<operations.DocumentDeleteDocumentResponseBody> {
     return unwrapAsync(documentsDelete(
       this,
       request,
@@ -150,7 +150,7 @@ export class Documents extends ClientSDK {
   async redistribute(
     request: operations.DocumentResendDocumentRequestBody,
     options?: RequestOptions,
-  ): Promise<any> {
+  ): Promise<operations.DocumentResendDocumentResponseBody> {
     return unwrapAsync(documentsRedistribute(
       this,
       request,

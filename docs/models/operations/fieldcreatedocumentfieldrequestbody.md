@@ -6,15 +6,15 @@
 import { FieldCreateDocumentFieldRequestBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: FieldCreateDocumentFieldRequestBody = {
-  documentId: 8744,
+  documentId: 2082.53,
   field: {
-    type: "FREE_SIGNATURE",
-    recipientId: 2124.34,
-    pageNumber: 1830.33,
-    pageX: 4030.26,
-    pageY: 7452.33,
-    width: 5269.07,
-    height: 4876.76,
+    type: "DROPDOWN",
+    recipientId: 2153.98,
+    pageNumber: 8583.38,
+    pageX: 8028.94,
+    pageY: 1591.46,
+    width: 6057.12,
+    height: 1156.61,
   },
 };
 ```

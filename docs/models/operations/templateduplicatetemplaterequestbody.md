@@ -6,7 +6,7 @@
 import { TemplateDuplicateTemplateRequestBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateDuplicateTemplateRequestBody = {
-  templateId: 9983.55,
+  templateId: 7403.47,
 };
 ```
 

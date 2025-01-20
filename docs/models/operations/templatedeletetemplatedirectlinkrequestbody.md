@@ -6,7 +6,7 @@
 import { TemplateDeleteTemplateDirectLinkRequestBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateDeleteTemplateDirectLinkRequestBody = {
-  templateId: 8926.4,
+  templateId: 9088.77,
 };
 ```
 

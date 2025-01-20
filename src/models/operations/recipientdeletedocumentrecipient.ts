@@ -11,6 +11,13 @@ export type RecipientDeleteDocumentRecipientRequestBody = {
   recipientId: number;
 };
 
+/**
+ * Successful response
+ */
+export type RecipientDeleteDocumentRecipientResponseBody = {
+  success: boolean;
+};
+
 /** @internal */
 export const RecipientDeleteDocumentRecipientRequestBody$inboundSchema:
   z.ZodType<
@@ -75,5 +82,72 @@ export function recipientDeleteDocumentRecipientRequestBodyFromJSON(
         JSON.parse(x),
       ),
     `Failed to parse 'RecipientDeleteDocumentRecipientRequestBody' from JSON`,
+  );
+}
+
+/** @internal */
+export const RecipientDeleteDocumentRecipientResponseBody$inboundSchema:
+  z.ZodType<
+    RecipientDeleteDocumentRecipientResponseBody,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    success: z.boolean(),
+  });
+
+/** @internal */
+export type RecipientDeleteDocumentRecipientResponseBody$Outbound = {
+  success: boolean;
+};
+
+/** @internal */
+export const RecipientDeleteDocumentRecipientResponseBody$outboundSchema:
+  z.ZodType<
+    RecipientDeleteDocumentRecipientResponseBody$Outbound,
+    z.ZodTypeDef,
+    RecipientDeleteDocumentRecipientResponseBody
+  > = z.object({
+    success: z.boolean(),
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace RecipientDeleteDocumentRecipientResponseBody$ {
+  /** @deprecated use `RecipientDeleteDocumentRecipientResponseBody$inboundSchema` instead. */
+  export const inboundSchema =
+    RecipientDeleteDocumentRecipientResponseBody$inboundSchema;
+  /** @deprecated use `RecipientDeleteDocumentRecipientResponseBody$outboundSchema` instead. */
+  export const outboundSchema =
+    RecipientDeleteDocumentRecipientResponseBody$outboundSchema;
+  /** @deprecated use `RecipientDeleteDocumentRecipientResponseBody$Outbound` instead. */
+  export type Outbound = RecipientDeleteDocumentRecipientResponseBody$Outbound;
+}
+
+export function recipientDeleteDocumentRecipientResponseBodyToJSON(
+  recipientDeleteDocumentRecipientResponseBody:
+    RecipientDeleteDocumentRecipientResponseBody,
+): string {
+  return JSON.stringify(
+    RecipientDeleteDocumentRecipientResponseBody$outboundSchema.parse(
+      recipientDeleteDocumentRecipientResponseBody,
+    ),
+  );
+}
+
+export function recipientDeleteDocumentRecipientResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  RecipientDeleteDocumentRecipientResponseBody,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      RecipientDeleteDocumentRecipientResponseBody$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'RecipientDeleteDocumentRecipientResponseBody' from JSON`,
   );
 }

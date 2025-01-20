@@ -6,7 +6,7 @@
 import { Recipient } from "@documenso/sdk-typescript/models/operations";
 
 let value: Recipient = {
-  email: "Bernardo_Wolf@hotmail.com",
+  email: "Xzavier_Champlin0@hotmail.com",
   name: "<value>",
   role: "APPROVER",
 };

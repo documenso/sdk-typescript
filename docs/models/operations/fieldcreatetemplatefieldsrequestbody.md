@@ -6,16 +6,16 @@
 import { FieldCreateTemplateFieldsRequestBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: FieldCreateTemplateFieldsRequestBody = {
-  templateId: 7262.44,
+  templateId: 6651.83,
   fields: [
     {
-      type: "DATE",
-      recipientId: 9040.51,
-      pageNumber: 352.19,
-      pageX: 1806.6,
-      pageY: 3385.14,
-      width: 5774.96,
-      height: 8527.37,
+      type: "FREE_SIGNATURE",
+      recipientId: 271.97,
+      pageNumber: 3175.04,
+      pageX: 5955.85,
+      pageY: 4866.06,
+      width: 6925.55,
+      height: 8196.9,
     },
   ],
 };

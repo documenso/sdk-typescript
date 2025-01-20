@@ -5,7 +5,7 @@
 ```typescript
 import { RecipientUpdateTemplateRecipientsType } from "@documenso/sdk-typescript/models/operations";
 
-let value: RecipientUpdateTemplateRecipientsType = "CHECKBOX";
+let value: RecipientUpdateTemplateRecipientsType = "NAME";
 ```
 
 ## Values

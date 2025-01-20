@@ -6,14 +6,14 @@
 import { TemplateGetTemplateByIdRecipients } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateGetTemplateByIdRecipients = {
-  role: "SIGNER",
+  role: "APPROVER",
   readStatus: "OPENED",
-  signingStatus: "SIGNED",
-  sendStatus: "SENT",
-  id: 937664,
-  documentId: 305189,
-  templateId: 983434,
-  email: "Jadon_Runte31@hotmail.com",
+  signingStatus: "NOT_SIGNED",
+  sendStatus: "NOT_SENT",
+  id: 112250,
+  documentId: 42364,
+  templateId: 227741,
+  email: "Rodger66@yahoo.com",
   name: "<value>",
   token: "<value>",
   documentDeletedAt: "<value>",
@@ -23,7 +23,7 @@ let value: TemplateGetTemplateByIdRecipients = {
     accessAuth: "ACCOUNT",
     actionAuth: "TWO_FACTOR_AUTH",
   },
-  signingOrder: 8429.74,
+  signingOrder: 9804.67,
   rejectionReason: "<value>",
 };
 ```

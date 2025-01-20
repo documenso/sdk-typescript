@@ -8,17 +8,17 @@ Successful response
 import { FieldUpdateDocumentFieldResponseBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: FieldUpdateDocumentFieldResponseBody = {
-  type: "INITIALS",
-  id: 620500,
+  type: "SIGNATURE",
+  id: 943851,
   secondaryId: "<id>",
-  documentId: 639622,
-  templateId: 948541,
-  recipientId: 778276,
-  page: 8483.46,
+  documentId: 964925,
+  templateId: 719389,
+  recipientId: 349993,
+  page: 2543.82,
   customText: "<value>",
   inserted: false,
   fieldMeta: {
-    type: "text",
+    type: "email",
   },
 };
 ```

@@ -7,12 +7,12 @@ import { FieldCreateTemplateFieldField2 } from "@documenso/sdk-typescript/models
 
 let value: FieldCreateTemplateFieldField2 = {
   type: "FREE_SIGNATURE",
-  recipientId: 2192.79,
-  pageNumber: 7890.38,
-  pageX: 1442.4,
-  pageY: 8400.17,
-  width: 6615.78,
-  height: 590.23,
+  recipientId: 5124.08,
+  pageNumber: 3017.01,
+  pageX: 8618.23,
+  pageY: 8443.27,
+  width: 3154.65,
+  height: 5995.81,
 };
 ```
 

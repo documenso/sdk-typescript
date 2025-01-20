@@ -24,7 +24,7 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.templates.directLink.create({
-    templateId: 233.69,
+    templateId: 4865.89,
   });
 
   // Handle the result
@@ -50,7 +50,7 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await templatesDirectLinkCreate(documenso, {
-    templateId: 233.69,
+    templateId: 4865.89,
   });
 
   if (!res.ok) {
@@ -102,7 +102,7 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.templates.directLink.delete({
-    templateId: 8092.34,
+    templateId: 5459.07,
   });
 
   // Handle the result
@@ -128,7 +128,7 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await templatesDirectLinkDelete(documenso, {
-    templateId: 8092.34,
+    templateId: 5459.07,
   });
 
   if (!res.ok) {
@@ -155,7 +155,7 @@ run();
 
 ### Response
 
-**Promise\<[any](../../models/.md)\>**
+**Promise\<[operations.TemplateDeleteTemplateDirectLinkResponseBody](../../models/operations/templatedeletetemplatedirectlinkresponsebody.md)\>**
 
 ### Errors
 
@@ -180,7 +180,7 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.templates.directLink.toggle({
-    templateId: 8841.86,
+    templateId: 722.9,
     enabled: true,
   });
 
@@ -207,7 +207,7 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await templatesDirectLinkToggle(documenso, {
-    templateId: 8841.86,
+    templateId: 722.9,
     enabled: true,
   });
 

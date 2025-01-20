@@ -6,7 +6,7 @@
 import { RecipientUpdateDocumentRecipientFieldMetaValues } from "@documenso/sdk-typescript/models/operations";
 
 let value: RecipientUpdateDocumentRecipientFieldMetaValues = {
-  id: 1989.91,
+  id: 46.54,
   checked: false,
   value: "<value>",
 };
