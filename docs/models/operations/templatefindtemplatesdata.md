@@ -18,8 +18,8 @@ let value: TemplateFindTemplatesData = {
     globalActionAuth: "PASSKEY",
   },
   templateDocumentDataId: "<id>",
-  createdAt: "1722862173160",
-  updatedAt: "1737336595499",
+  createdAt: "1722863594003",
+  updatedAt: "1737338016343",
   publicTitle: "<value>",
   publicDescription: "<value>",
   team: {

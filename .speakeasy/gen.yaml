@@ -13,7 +13,7 @@ generation:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: true
 typescript:
-  version: 0.1.1
+  version: 0.1.2
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -41,7 +41,7 @@ typescript:
   methodArguments: require-security-and-request
   moduleFormat: commonjs
   outputModelSuffix: output
-  packageName: "@documenso/sdk-typescript"
+  packageName: '@documenso/sdk-typescript'
   responseFormat: flat
   templateVersion: v2
   useIndexModules: true

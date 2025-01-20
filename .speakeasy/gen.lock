@@ -5,8 +5,10 @@ management:
   docVersion: 0.0.0
   speakeasyVersion: 1.469.10
   generationVersion: 2.493.31
-  releaseVersion: 0.1.1
-  configChecksum: e5e857e20b1a8ded6ae8e626c09aa97d
+  releaseVersion: 0.1.2
+  configChecksum: b9cc53548e6012078ebb6189b18868ed
+  repoURL: https://github.com/documenso/sdk-typescript.git
+  installationURL: https://github.com/documenso/sdk-typescript
   published: true
 features:
   typescript:
@@ -14,7 +16,6 @@ features:
     constsAndDefaults: 0.1.11
     core: 3.18.16
     defaultEnabledRetries: 0.1.0
-    devContainers: 2.90.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
     globalSecurity: 2.82.12
@@ -29,9 +30,6 @@ features:
     sdkHooks: 0.2.0
     unions: 2.85.8
 generatedFiles:
-  - .devcontainer/README.md
-  - .devcontainer/devcontainer.json
-  - .devcontainer/setup.sh
   - .eslintrc.cjs
   - .gitattributes
   - .npmignore

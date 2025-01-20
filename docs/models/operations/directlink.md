@@ -9,7 +9,7 @@ let value: DirectLink = {
   id: "<id>",
   templateId: 514767,
   token: "<value>",
-  createdAt: "1710260121777",
+  createdAt: "1710261542647",
   enabled: false,
   directTemplateRecipientId: 712893,
 };

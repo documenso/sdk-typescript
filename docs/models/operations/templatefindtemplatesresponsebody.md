@@ -22,8 +22,8 @@ let value: TemplateFindTemplatesResponseBody = {
         globalActionAuth: "ACCOUNT",
       },
       templateDocumentDataId: "<id>",
-      createdAt: "1715813661601",
-      updatedAt: "1737306632855",
+      createdAt: "1715815082451",
+      updatedAt: "1737308053705",
       publicTitle: "<value>",
       publicDescription: "<value>",
       team: {
