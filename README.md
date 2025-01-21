@@ -1,34 +1,46 @@
-# @documenso/sdk-typescript
+<img src="https://github.com/documenso/documenso/assets/13398220/a643571f-0239-46a6-a73e-6bef38d1228b" alt="Documenso Logo">
 
-Developer-friendly & type-safe Typescript SDK specifically catered to leverage *@documenso/sdk-typescript* API.
+&nbsp;
 
-<div align="left">
+<div align="center">
     <a href="https://www.speakeasy.com/?utm_source=@documenso/sdk-typescript&utm_campaign=typescript"><img src="https://custom-icon-badges.demolab.com/badge/-Built%20By%20Speakeasy-212015?style=for-the-badge&logoColor=FBE331&logo=speakeasy&labelColor=545454" /></a>
     <a href="https://opensource.org/licenses/MIT">
         <img src="https://img.shields.io/badge/License-MIT-blue.svg" style="width: 100px; height: 28px;" />
     </a>
 </div>
 
-<!-- Start Summary [summary] -->
-## Summary
+## Documenso TypeScript SDK
 
-Documenso v2 beta API: Subject to breaking changes until v2 is fully released.
-<!-- End Summary [summary] -->
+A type-safe SDK for seamless integration with Documenso v2 API, providing first-class TypeScript support.
+
+This SDK offers a strongly-typed interface to interact with Documenso's API, enabling you to:
+- Handle document signing workflows with full type safety
+- Leverage autocomplete in your IDE
+- Catch potential errors at compile time
+
+The full Documenso API can be viewed here (**todo**), which includes TypeScript examples.
+
+## ⚠️ Warning
+
+Documenso v2 API and SDKs are currently in beta. There may be to breaking changes.
+
+To keep updated, please follow the discussions and issues here:
+- Discussion -> Todo
+- Breaking change alerts -> Todo
+
+<!-- No Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
-* [@documenso/sdk-typescript](#documensosdk-typescript)
+* [Overview](#documenso-typescript-sdk)
   * [SDK Installation](#sdk-installation)
   * [Requirements](#requirements)
-  * [SDK Example Usage](#sdk-example-usage)
+  * [Document creation example](#document-creation-example)
   * [Authentication](#authentication)
   * [Available Resources and Operations](#available-resources-and-operations)
-  * [Standalone functions](#standalone-functions)
   * [Retries](#retries)
   * [Error Handling](#error-handling)
-  * [Server Selection](#server-selection)
-  * [Custom HTTP Client](#custom-http-client)
   * [Debugging](#debugging)
 * [Development](#development)
   * [Maturity](#maturity)
@@ -75,64 +87,123 @@ yarn add @documenso/sdk-typescript zod
 For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 <!-- End Requirements [requirements] -->
 
-<!-- Start SDK Example Usage [usage] -->
-## SDK Example Usage
-
-### Example
-
-```typescript
-import { Documenso } from "@documenso/sdk-typescript";
-
-const documenso = new Documenso({
-  apiKey: process.env["DOCUMENSO_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await documenso.documents.find({
-    orderByDirection: "desc",
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-
-```
-<!-- End SDK Example Usage [usage] -->
-
-<!-- Start Authentication [security] -->
 ## Authentication
 
-### Per-Client Security Schemes
+To use the SDK, you will need a Documenso API key which can be created [here](https://docs.documenso.com/developers/public-api/authentication#creating-an-api-key
+).
 
-This SDK supports the following security scheme globally:
+```ts
+const documenso = new Documenso({
+  apiKey: process.env["DOCUMENSO_API_KEY"] ?? "",
+});
+```
 
-| Name     | Type   | Scheme  | Environment Variable |
-| -------- | ------ | ------- | -------------------- |
-| `apiKey` | apiKey | API key | `DOCUMENSO_API_KEY`  |
+## Document creation example
 
-To authenticate with the API the `apiKey` parameter must be set when initializing the SDK client instance. For example:
+Currently creating a document involves two steps:
+
+1. Create the document
+2. Upload the PDF
+
+This is a temporary measure, in the near future prior to the full release we will merge these two tasks into one request. 
+
+Here is a full example of the document creation process which you can copy and run.
+
+Note that the function is temporarily called `createV0`, which will be replaced by `create` once we resolve the 2 step workaround.
+
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
+import fs from "fs";
 
 const documenso = new Documenso({
   apiKey: process.env["DOCUMENSO_API_KEY"] ?? "",
 });
 
-async function run() {
-  const result = await documenso.documents.find({
-    orderByDirection: "desc",
+async function uploadFileToPresignedUrl(filePath: string, uploadUrl: string) {
+  const fileBuffer = await fs.promises.readFile(filePath);
+
+  // Make PUT request to pre-signed URL
+  const response = await fetch(uploadUrl, {
+    method: "PUT",
+    body: fileBuffer,
+    headers: {
+      "Content-Type": "application/octet-stream",
+    },
   });
 
-  // Handle the result
-  console.log(result);
+  if (!response.ok) {
+    throw new Error(`Upload failed with status: ${response.status}`);
+  }
 }
 
-run();
+const main = async () => {
+  const createDocumentResponse = await documenso.documents.createV0({
+    title: "Document title",
+    recipients: [
+      {
+        email: "example@documenso.com",
+        name: "Example Doe",
+        role: "SIGNER",
+        fields: [
+          {
+            type: "SIGNATURE",
+            pageNumber: 1,
+            pageX: 10,
+            pageY: 10,
+            width: 10,
+            height: 10,
+          },
+          {
+            type: "INITIALS",
+            pageNumber: 1,
+            pageX: 20,
+            pageY: 20,
+            width: 10,
+            height: 10,
+          },
+        ],
+      },
+      {
+        email: "admin@documenso.com",
+        name: "Admin Doe",
+        role: "APPROVER",
+        fields: [
+          {
+            type: "SIGNATURE",
+            pageNumber: 1,
+            pageX: 10,
+            pageY: 50,
+            width: 10,
+            height: 10,
+          },
+        ],
+      },
+    ],
+    meta: {
+      timezone: "Australia/Melbourne",
+      dateFormat: "MM/dd/yyyy hh:mm a",
+      language: "de",
+      subject: "Email subject",
+      message: "Email message",
+      emailSettings: {
+        recipientRemoved: false,
+      },
+    },
+  });
 
+  const { document, uploadUrl } = createDocumentResponse;
+
+  // Upload the PDF you want attached to the document.
+  // Replace demo.pdf with your file to upload relative to this file.
+  await uploadFileToPresignedUrl("./demo.pdf", uploadUrl);
+
+  return document;
+};
+
+main()
 ```
-<!-- End Authentication [security] -->
+<!-- No SDK Example Usage [usage] -->
+<!-- No Authentication [security] -->
 
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
@@ -208,67 +279,7 @@ run();
 </details>
 <!-- End Available Resources and Operations [operations] -->
 
-<!-- Start Standalone functions [standalone-funcs] -->
-## Standalone functions
-
-All the methods listed above are available as standalone functions. These
-functions are ideal for use in applications running in the browser, serverless
-runtimes or other environments where application bundle size is a primary
-concern. When using a bundler to build your application, all unused
-functionality will be either excluded from the final bundle or tree-shaken away.
-
-To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
-
-<details>
-
-<summary>Available standalone functions</summary>
-
-- [`documentsCreateV0`](docs/sdks/documents/README.md#createv0) - Create document
-- [`documentsDelete`](docs/sdks/documents/README.md#delete) - Delete document
-- [`documentsDistribute`](docs/sdks/documents/README.md#distribute) - Distribute document
-- [`documentsDuplicate`](docs/sdks/documents/README.md#duplicate) - Duplicate document
-- [`documentsFieldsCreate`](docs/sdks/fields/README.md#create) - Create document field
-- [`documentsFieldsCreateMany`](docs/sdks/fields/README.md#createmany) - Create document fields
-- [`documentsFieldsDelete`](docs/sdks/fields/README.md#delete) - Delete document field
-- [`documentsFieldsGet`](docs/sdks/fields/README.md#get) - Get document field
-- [`documentsFieldsUpdate`](docs/sdks/fields/README.md#update) - Update document field
-- [`documentsFieldsUpdateMany`](docs/sdks/fields/README.md#updatemany) - Update document fields
-- [`documentsFind`](docs/sdks/documents/README.md#find) - Find documents
-- [`documentsGet`](docs/sdks/documents/README.md#get) - Get document
-- [`documentsMoveToTeam`](docs/sdks/documents/README.md#movetoteam) - Move document
-- [`documentsRecipientsCreate`](docs/sdks/recipients/README.md#create) - Create document recipient
-- [`documentsRecipientsCreateMany`](docs/sdks/recipients/README.md#createmany) - Create document recipients
-- [`documentsRecipientsDelete`](docs/sdks/recipients/README.md#delete) - Delete document recipient
-- [`documentsRecipientsGet`](docs/sdks/recipients/README.md#get) - Get document recipient
-- [`documentsRecipientsUpdate`](docs/sdks/recipients/README.md#update) - Update document recipient
-- [`documentsRecipientsUpdateMany`](docs/sdks/recipients/README.md#updatemany) - Update document recipients
-- [`documentsRedistribute`](docs/sdks/documents/README.md#redistribute) - Redistribute document
-- [`documentsUpdate`](docs/sdks/documents/README.md#update) - Update document
-- [`templatesDelete`](docs/sdks/templates/README.md#delete) - Delete template
-- [`templatesDirectLinkCreate`](docs/sdks/directlink/README.md#create) - Create direct link
-- [`templatesDirectLinkDelete`](docs/sdks/directlink/README.md#delete) - Delete direct link
-- [`templatesDirectLinkToggle`](docs/sdks/directlink/README.md#toggle) - Toggle direct link
-- [`templatesDuplicate`](docs/sdks/templates/README.md#duplicate) - Duplicate template
-- [`templatesFieldsCreate`](docs/sdks/documensofields/README.md#create) - Create template field
-- [`templatesFieldsCreateMany`](docs/sdks/documensofields/README.md#createmany) - Create template fields
-- [`templatesFieldsDelete`](docs/sdks/documensofields/README.md#delete) - Delete template field
-- [`templatesFieldsGet`](docs/sdks/documensofields/README.md#get) - Get template field
-- [`templatesFieldsUpdate`](docs/sdks/documensofields/README.md#update) - Update template field
-- [`templatesFieldsUpdateMany`](docs/sdks/documensofields/README.md#updatemany) - Update template fields
-- [`templatesFind`](docs/sdks/templates/README.md#find) - Find templates
-- [`templatesGet`](docs/sdks/templates/README.md#get) - Get template
-- [`templatesMoveToTeam`](docs/sdks/templates/README.md#movetoteam) - Move template
-- [`templatesRecipientsCreate`](docs/sdks/documensorecipients/README.md#create) - Create template recipient
-- [`templatesRecipientsCreateMany`](docs/sdks/documensorecipients/README.md#createmany) - Create template recipients
-- [`templatesRecipientsDelete`](docs/sdks/documensorecipients/README.md#delete) - Delete template recipient
-- [`templatesRecipientsGet`](docs/sdks/documensorecipients/README.md#get) - Get template recipient
-- [`templatesRecipientsUpdate`](docs/sdks/documensorecipients/README.md#update) - Update template recipient
-- [`templatesRecipientsUpdateMany`](docs/sdks/documensorecipients/README.md#updatemany) - Update template recipients
-- [`templatesUpdate`](docs/sdks/templates/README.md#update) - Update template
-- [`templatesUse`](docs/sdks/templates/README.md#use) - Use template
-
-</details>
-<!-- End Standalone functions [standalone-funcs] -->
+<!-- No Standalone functions [standalone-funcs] -->
 
 <!-- Start Retries [retries] -->
 ## Retries
@@ -344,21 +355,21 @@ run();
 
 Some methods specify known errors which can be thrown. All the known errors are enumerated in the `models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `find` method may throw the following errors:
 
-| Error Type                      | Status Code | Content Type     |
-| ------------------------------- | ----------- | ---------------- |
-| errors.ErrorBADREQUEST          | 400         | application/json |
-| errors.ErrorNOTFOUND            | 404         | application/json |
-| errors.Errorinternalservererror | 500         | application/json |
-| errors.APIError                 | 4XX, 5XX    | \*/\*            |
+| Error Type                                                | Status Code | Content Type     |
+| --------------------------------------------------------- | ----------- | ---------------- |
+| errors.DocumentFindDocumentsResponseBody                  | 400         | application/json |
+| errors.DocumentFindDocumentsDocumentsResponseBody         | 404         | application/json |
+| errors.DocumentFindDocumentsDocumentsResponseResponseBody | 500         | application/json |
+| errors.APIError                                           | 4XX, 5XX    | \*/\*            |
 
 If the method throws an error and it is not captured by the known errors, it will default to throwing a `APIError`.
 
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 import {
-  ErrorBADREQUEST,
-  Errorinternalservererror,
-  ErrorNOTFOUND,
+  DocumentFindDocumentsDocumentsResponseBody,
+  DocumentFindDocumentsDocumentsResponseResponseBody,
+  DocumentFindDocumentsResponseBody,
   SDKValidationError,
 } from "@documenso/sdk-typescript/models/errors";
 
@@ -385,18 +396,19 @@ async function run() {
         console.error(err.rawValue);
         return;
       }
-      case (err instanceof ErrorBADREQUEST): {
-        // Handle err.data$: ErrorBADREQUESTData
+      case (err instanceof DocumentFindDocumentsResponseBody): {
+        // Handle err.data$: DocumentFindDocumentsResponseBodyData
         console.error(err);
         return;
       }
-      case (err instanceof ErrorNOTFOUND): {
-        // Handle err.data$: ErrorNOTFOUNDData
+      case (err instanceof DocumentFindDocumentsDocumentsResponseBody): {
+        // Handle err.data$: DocumentFindDocumentsDocumentsResponseBodyData
         console.error(err);
         return;
       }
-      case (err instanceof Errorinternalservererror): {
-        // Handle err.data$: ErrorinternalservererrorData
+      case (err
+        instanceof DocumentFindDocumentsDocumentsResponseResponseBody): {
+        // Handle err.data$: DocumentFindDocumentsDocumentsResponseResponseBodyData
         console.error(err);
         return;
       }
@@ -425,83 +437,8 @@ In some rare cases, the SDK can fail to get a response from the server or even m
 | UnexpectedClientError                                | Unrecognised or unexpected error                     |
 <!-- End Error Handling [errors] -->
 
-
-<!-- Start Server Selection [server] -->
-## Server Selection
-
-### Override Server URL Per-Client
-
-The default server can also be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
-```typescript
-import { Documenso } from "@documenso/sdk-typescript";
-
-const documenso = new Documenso({
-  serverURL: "https://app.documenso.com/api/v2-beta",
-  apiKey: process.env["DOCUMENSO_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await documenso.documents.find({
-    orderByDirection: "desc",
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-
-```
-<!-- End Server Selection [server] -->
-
-<!-- Start Custom HTTP Client [http-client] -->
-## Custom HTTP Client
-
-The TypeScript SDK makes API calls using an `HTTPClient` that wraps the native
-[Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). This
-client is a thin wrapper around `fetch` and provides the ability to attach hooks
-around the request lifecycle that can be used to modify the request or handle
-errors and response.
-
-The `HTTPClient` constructor takes an optional `fetcher` argument that can be
-used to integrate a third-party HTTP client or when writing tests to mock out
-the HTTP client and feed in fixtures.
-
-The following example shows how to use the `"beforeRequest"` hook to to add a
-custom header and a timeout to requests and how to use the `"requestError"` hook
-to log errors:
-
-```typescript
-import { Documenso } from "@documenso/sdk-typescript";
-import { HTTPClient } from "@documenso/sdk-typescript/lib/http";
-
-const httpClient = new HTTPClient({
-  // fetcher takes a function that has the same signature as native `fetch`.
-  fetcher: (request) => {
-    return fetch(request);
-  }
-});
-
-httpClient.addHook("beforeRequest", (request) => {
-  const nextRequest = new Request(request, {
-    signal: request.signal || AbortSignal.timeout(5000)
-  });
-
-  nextRequest.headers.set("x-custom-header", "custom value");
-
-  return nextRequest;
-});
-
-httpClient.addHook("requestError", (error, request) => {
-  console.group("Request Error");
-  console.log("Reason:", `${error}`);
-  console.log("Endpoint:", `${request.method} ${request.url}`);
-  console.groupEnd();
-});
-
-const sdk = new Documenso({ httpClient });
-```
-<!-- End Custom HTTP Client [http-client] -->
+<!-- No Server Selection [server] -->
+<!-- No Custom HTTP Client [http-client] -->
 
 <!-- Start Debugging [debug] -->
 ## Debugging
