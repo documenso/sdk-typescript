@@ -30,7 +30,6 @@ To keep updated, please follow the discussions and issues here:
 
 <!-- No Summary [summary] -->
 
-<!-- Start Table of Contents [toc] -->
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
 * [Overview](#documenso-typescript-sdk)
@@ -46,7 +45,7 @@ To keep updated, please follow the discussions and issues here:
   * [Maturity](#maturity)
   * [Contributions](#contributions)
 
-<!-- End Table of Contents [toc] -->
+<!-- No Table of Contents [toc] -->
 
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
