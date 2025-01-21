@@ -11,7 +11,7 @@ let value: TemplateCreateTemplateDirectLinkResponseBody = {
   id: "<id>",
   templateId: 933847,
   token: "<value>",
-  createdAt: "1730236899675",
+  createdAt: "1730287114516",
   enabled: false,
   directTemplateRecipientId: 358861,
 };

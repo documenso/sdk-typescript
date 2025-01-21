@@ -20,8 +20,8 @@ let value: TemplateMoveTemplateToTeamResponseBody = {
     globalActionAuth: "PASSKEY",
   },
   templateDocumentDataId: "<id>",
-  createdAt: "1729782664846",
-  updatedAt: "1737297638859",
+  createdAt: "1729832879703",
+  updatedAt: "1737347853716",
   publicTitle: "<value>",
   publicDescription: "<value>",
 };

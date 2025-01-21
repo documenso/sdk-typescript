@@ -87,12 +87,12 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.ErrorNOTFOUND            | 404                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                                | Status Code                                               | Content Type                                              |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| errors.DocumentFindDocumentsResponseBody                  | 400                                                       | application/json                                          |
+| errors.DocumentFindDocumentsDocumentsResponseBody         | 404                                                       | application/json                                          |
+| errors.DocumentFindDocumentsDocumentsResponseResponseBody | 500                                                       | application/json                                          |
+| errors.APIError                                           | 4XX, 5XX                                                  | \*/\*                                                     |
 
 ## get
 
@@ -166,12 +166,12 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.ErrorNOTFOUND            | 404                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                                             | Status Code                                                            | Content Type                                                           |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| errors.DocumentGetDocumentWithDetailsByIdResponseBody                  | 400                                                                    | application/json                                                       |
+| errors.DocumentGetDocumentWithDetailsByIdDocumentsResponseBody         | 404                                                                    | application/json                                                       |
+| errors.DocumentGetDocumentWithDetailsByIdDocumentsResponseResponseBody | 500                                                                    | application/json                                                       |
+| errors.APIError                                                        | 4XX, 5XX                                                               | \*/\*                                                                  |
 
 ## createV0
 
@@ -245,11 +245,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                                  | Status Code                                                 | Content Type                                                |
+| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
+| errors.DocumentCreateDocumentTemporaryResponseBody          | 400                                                         | application/json                                            |
+| errors.DocumentCreateDocumentTemporaryDocumentsResponseBody | 500                                                         | application/json                                            |
+| errors.APIError                                             | 4XX, 5XX                                                    | \*/\*                                                       |
 
 ## update
 
@@ -323,11 +323,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                                 | Status Code                                                | Content Type                                               |
+| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
+| errors.DocumentSetSettingsForDocumentResponseBody          | 400                                                        | application/json                                           |
+| errors.DocumentSetSettingsForDocumentDocumentsResponseBody | 500                                                        | application/json                                           |
+| errors.APIError                                            | 4XX, 5XX                                                   | \*/\*                                                      |
 
 ## delete
 
@@ -401,11 +401,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                         | Status Code                                        | Content Type                                       |
+| -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
+| errors.DocumentDeleteDocumentResponseBody          | 400                                                | application/json                                   |
+| errors.DocumentDeleteDocumentDocumentsResponseBody | 500                                                | application/json                                   |
+| errors.APIError                                    | 4XX, 5XX                                           | \*/\*                                              |
 
 ## moveToTeam
 
@@ -481,11 +481,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                             | Status Code                                            | Content Type                                           |
+| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
+| errors.DocumentMoveDocumentToTeamResponseBody          | 400                                                    | application/json                                       |
+| errors.DocumentMoveDocumentToTeamDocumentsResponseBody | 500                                                    | application/json                                       |
+| errors.APIError                                        | 4XX, 5XX                                               | \*/\*                                                  |
 
 ## distribute
 
@@ -559,11 +559,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                       | Status Code                                      | Content Type                                     |
+| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
+| errors.DocumentSendDocumentResponseBody          | 400                                              | application/json                                 |
+| errors.DocumentSendDocumentDocumentsResponseBody | 500                                              | application/json                                 |
+| errors.APIError                                  | 4XX, 5XX                                         | \*/\*                                            |
 
 ## redistribute
 
@@ -643,11 +643,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                         | Status Code                                        | Content Type                                       |
+| -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
+| errors.DocumentResendDocumentResponseBody          | 400                                                | application/json                                   |
+| errors.DocumentResendDocumentDocumentsResponseBody | 500                                                | application/json                                   |
+| errors.APIError                                    | 4XX, 5XX                                           | \*/\*                                              |
 
 ## duplicate
 
@@ -721,8 +721,8 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                            | Status Code                                           | Content Type                                          |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| errors.DocumentDuplicateDocumentResponseBody          | 400                                                   | application/json                                      |
+| errors.DocumentDuplicateDocumentDocumentsResponseBody | 500                                                   | application/json                                      |
+| errors.APIError                                       | 4XX, 5XX                                              | \*/\*                                                 |

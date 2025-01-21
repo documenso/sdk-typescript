@@ -344,21 +344,21 @@ run();
 
 Some methods specify known errors which can be thrown. All the known errors are enumerated in the `models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `find` method may throw the following errors:
 
-| Error Type                      | Status Code | Content Type     |
-| ------------------------------- | ----------- | ---------------- |
-| errors.ErrorBADREQUEST          | 400         | application/json |
-| errors.ErrorNOTFOUND            | 404         | application/json |
-| errors.Errorinternalservererror | 500         | application/json |
-| errors.APIError                 | 4XX, 5XX    | \*/\*            |
+| Error Type                                                | Status Code | Content Type     |
+| --------------------------------------------------------- | ----------- | ---------------- |
+| errors.DocumentFindDocumentsResponseBody                  | 400         | application/json |
+| errors.DocumentFindDocumentsDocumentsResponseBody         | 404         | application/json |
+| errors.DocumentFindDocumentsDocumentsResponseResponseBody | 500         | application/json |
+| errors.APIError                                           | 4XX, 5XX    | \*/\*            |
 
 If the method throws an error and it is not captured by the known errors, it will default to throwing a `APIError`.
 
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 import {
-  ErrorBADREQUEST,
-  Errorinternalservererror,
-  ErrorNOTFOUND,
+  DocumentFindDocumentsDocumentsResponseBody,
+  DocumentFindDocumentsDocumentsResponseResponseBody,
+  DocumentFindDocumentsResponseBody,
   SDKValidationError,
 } from "@documenso/sdk-typescript/models/errors";
 
@@ -385,18 +385,19 @@ async function run() {
         console.error(err.rawValue);
         return;
       }
-      case (err instanceof ErrorBADREQUEST): {
-        // Handle err.data$: ErrorBADREQUESTData
+      case (err instanceof DocumentFindDocumentsResponseBody): {
+        // Handle err.data$: DocumentFindDocumentsResponseBodyData
         console.error(err);
         return;
       }
-      case (err instanceof ErrorNOTFOUND): {
-        // Handle err.data$: ErrorNOTFOUNDData
+      case (err instanceof DocumentFindDocumentsDocumentsResponseBody): {
+        // Handle err.data$: DocumentFindDocumentsDocumentsResponseBodyData
         console.error(err);
         return;
       }
-      case (err instanceof Errorinternalservererror): {
-        // Handle err.data$: ErrorinternalservererrorData
+      case (err
+        instanceof DocumentFindDocumentsDocumentsResponseResponseBody): {
+        // Handle err.data$: DocumentFindDocumentsDocumentsResponseResponseBodyData
         console.error(err);
         return;
       }

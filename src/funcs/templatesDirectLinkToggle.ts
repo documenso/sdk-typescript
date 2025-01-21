@@ -36,8 +36,8 @@ export async function templatesDirectLinkToggle(
 ): Promise<
   Result<
     operations.TemplateToggleTemplateDirectLinkResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.TemplateToggleTemplateDirectLinkResponseBody
+    | errors.TemplateToggleTemplateDirectLinkTemplatesDirectLinkResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -115,8 +115,8 @@ export async function templatesDirectLinkToggle(
 
   const [result] = await M.match<
     operations.TemplateToggleTemplateDirectLinkResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.TemplateToggleTemplateDirectLinkResponseBody
+    | errors.TemplateToggleTemplateDirectLinkTemplatesDirectLinkResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -129,8 +129,15 @@ export async function templatesDirectLinkToggle(
       200,
       operations.TemplateToggleTemplateDirectLinkResponseBody$inboundSchema,
     ),
-    M.jsonErr(400, errors.ErrorBADREQUEST$inboundSchema),
-    M.jsonErr(500, errors.Errorinternalservererror$inboundSchema),
+    M.jsonErr(
+      400,
+      errors.TemplateToggleTemplateDirectLinkResponseBody$inboundSchema,
+    ),
+    M.jsonErr(
+      500,
+      errors
+        .TemplateToggleTemplateDirectLinkTemplatesDirectLinkResponseBody$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

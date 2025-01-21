@@ -36,9 +36,9 @@ export async function documentsRecipientsGet(
 ): Promise<
   Result<
     operations.RecipientGetDocumentRecipientResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.ErrorNOTFOUND
-    | errors.Errorinternalservererror
+    | errors.RecipientGetDocumentRecipientResponseBody
+    | errors.RecipientGetDocumentRecipientDocumentsRecipientsResponseBody
+    | errors.RecipientGetDocumentRecipientDocumentsRecipientsResponseResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -123,9 +123,9 @@ export async function documentsRecipientsGet(
 
   const [result] = await M.match<
     operations.RecipientGetDocumentRecipientResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.ErrorNOTFOUND
-    | errors.Errorinternalservererror
+    | errors.RecipientGetDocumentRecipientResponseBody
+    | errors.RecipientGetDocumentRecipientDocumentsRecipientsResponseBody
+    | errors.RecipientGetDocumentRecipientDocumentsRecipientsResponseResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -138,9 +138,20 @@ export async function documentsRecipientsGet(
       200,
       operations.RecipientGetDocumentRecipientResponseBody$inboundSchema,
     ),
-    M.jsonErr(400, errors.ErrorBADREQUEST$inboundSchema),
-    M.jsonErr(404, errors.ErrorNOTFOUND$inboundSchema),
-    M.jsonErr(500, errors.Errorinternalservererror$inboundSchema),
+    M.jsonErr(
+      400,
+      errors.RecipientGetDocumentRecipientResponseBody$inboundSchema,
+    ),
+    M.jsonErr(
+      404,
+      errors
+        .RecipientGetDocumentRecipientDocumentsRecipientsResponseBody$inboundSchema,
+    ),
+    M.jsonErr(
+      500,
+      errors
+        .RecipientGetDocumentRecipientDocumentsRecipientsResponseResponseBody$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

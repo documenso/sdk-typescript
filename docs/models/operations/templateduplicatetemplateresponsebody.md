@@ -20,8 +20,8 @@ let value: TemplateDuplicateTemplateResponseBody = {
     globalActionAuth: "TWO_FACTOR_AUTH",
   },
   templateDocumentDataId: "<id>",
-  createdAt: "1718813693866",
-  updatedAt: "1737308617015",
+  createdAt: "1718863908718",
+  updatedAt: "1737358831867",
   publicTitle: "<value>",
   publicDescription: "<value>",
 };

@@ -33,8 +33,8 @@ export async function documentsUpdate(
 ): Promise<
   Result<
     operations.DocumentSetSettingsForDocumentResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.DocumentSetSettingsForDocumentResponseBody
+    | errors.DocumentSetSettingsForDocumentDocumentsResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -113,8 +113,8 @@ export async function documentsUpdate(
 
   const [result] = await M.match<
     operations.DocumentSetSettingsForDocumentResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.DocumentSetSettingsForDocumentResponseBody
+    | errors.DocumentSetSettingsForDocumentDocumentsResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -127,8 +127,14 @@ export async function documentsUpdate(
       200,
       operations.DocumentSetSettingsForDocumentResponseBody$inboundSchema,
     ),
-    M.jsonErr(400, errors.ErrorBADREQUEST$inboundSchema),
-    M.jsonErr(500, errors.Errorinternalservererror$inboundSchema),
+    M.jsonErr(
+      400,
+      errors.DocumentSetSettingsForDocumentResponseBody$inboundSchema,
+    ),
+    M.jsonErr(
+      500,
+      errors.DocumentSetSettingsForDocumentDocumentsResponseBody$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

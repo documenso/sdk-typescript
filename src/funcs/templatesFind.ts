@@ -36,9 +36,9 @@ export async function templatesFind(
 ): Promise<
   Result<
     operations.TemplateFindTemplatesResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.ErrorNOTFOUND
-    | errors.Errorinternalservererror
+    | errors.TemplateFindTemplatesResponseBody
+    | errors.TemplateFindTemplatesTemplatesResponseBody
+    | errors.TemplateFindTemplatesTemplatesResponseResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -122,9 +122,9 @@ export async function templatesFind(
 
   const [result] = await M.match<
     operations.TemplateFindTemplatesResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.ErrorNOTFOUND
-    | errors.Errorinternalservererror
+    | errors.TemplateFindTemplatesResponseBody
+    | errors.TemplateFindTemplatesTemplatesResponseBody
+    | errors.TemplateFindTemplatesTemplatesResponseResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -134,9 +134,15 @@ export async function templatesFind(
     | ConnectionError
   >(
     M.json(200, operations.TemplateFindTemplatesResponseBody$inboundSchema),
-    M.jsonErr(400, errors.ErrorBADREQUEST$inboundSchema),
-    M.jsonErr(404, errors.ErrorNOTFOUND$inboundSchema),
-    M.jsonErr(500, errors.Errorinternalservererror$inboundSchema),
+    M.jsonErr(400, errors.TemplateFindTemplatesResponseBody$inboundSchema),
+    M.jsonErr(
+      404,
+      errors.TemplateFindTemplatesTemplatesResponseBody$inboundSchema,
+    ),
+    M.jsonErr(
+      500,
+      errors.TemplateFindTemplatesTemplatesResponseResponseBody$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

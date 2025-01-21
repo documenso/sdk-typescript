@@ -36,9 +36,9 @@ export async function templatesRecipientsGet(
 ): Promise<
   Result<
     operations.RecipientGetTemplateRecipientResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.ErrorNOTFOUND
-    | errors.Errorinternalservererror
+    | errors.RecipientGetTemplateRecipientResponseBody
+    | errors.RecipientGetTemplateRecipientTemplatesRecipientsResponseBody
+    | errors.RecipientGetTemplateRecipientTemplatesRecipientsResponseResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -123,9 +123,9 @@ export async function templatesRecipientsGet(
 
   const [result] = await M.match<
     operations.RecipientGetTemplateRecipientResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.ErrorNOTFOUND
-    | errors.Errorinternalservererror
+    | errors.RecipientGetTemplateRecipientResponseBody
+    | errors.RecipientGetTemplateRecipientTemplatesRecipientsResponseBody
+    | errors.RecipientGetTemplateRecipientTemplatesRecipientsResponseResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -138,9 +138,20 @@ export async function templatesRecipientsGet(
       200,
       operations.RecipientGetTemplateRecipientResponseBody$inboundSchema,
     ),
-    M.jsonErr(400, errors.ErrorBADREQUEST$inboundSchema),
-    M.jsonErr(404, errors.ErrorNOTFOUND$inboundSchema),
-    M.jsonErr(500, errors.Errorinternalservererror$inboundSchema),
+    M.jsonErr(
+      400,
+      errors.RecipientGetTemplateRecipientResponseBody$inboundSchema,
+    ),
+    M.jsonErr(
+      404,
+      errors
+        .RecipientGetTemplateRecipientTemplatesRecipientsResponseBody$inboundSchema,
+    ),
+    M.jsonErr(
+      500,
+      errors
+        .RecipientGetTemplateRecipientTemplatesRecipientsResponseResponseBody$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

@@ -36,8 +36,8 @@ export async function templatesDirectLinkDelete(
 ): Promise<
   Result<
     operations.TemplateDeleteTemplateDirectLinkResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.TemplateDeleteTemplateDirectLinkResponseBody
+    | errors.TemplateDeleteTemplateDirectLinkTemplatesDirectLinkResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -115,8 +115,8 @@ export async function templatesDirectLinkDelete(
 
   const [result] = await M.match<
     operations.TemplateDeleteTemplateDirectLinkResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.TemplateDeleteTemplateDirectLinkResponseBody
+    | errors.TemplateDeleteTemplateDirectLinkTemplatesDirectLinkResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -129,8 +129,15 @@ export async function templatesDirectLinkDelete(
       200,
       operations.TemplateDeleteTemplateDirectLinkResponseBody$inboundSchema,
     ),
-    M.jsonErr(400, errors.ErrorBADREQUEST$inboundSchema),
-    M.jsonErr(500, errors.Errorinternalservererror$inboundSchema),
+    M.jsonErr(
+      400,
+      errors.TemplateDeleteTemplateDirectLinkResponseBody$inboundSchema,
+    ),
+    M.jsonErr(
+      500,
+      errors
+        .TemplateDeleteTemplateDirectLinkTemplatesDirectLinkResponseBody$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

@@ -36,8 +36,8 @@ export async function templatesMoveToTeam(
 ): Promise<
   Result<
     operations.TemplateMoveTemplateToTeamResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.TemplateMoveTemplateToTeamResponseBody
+    | errors.TemplateMoveTemplateToTeamTemplatesResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -116,8 +116,8 @@ export async function templatesMoveToTeam(
 
   const [result] = await M.match<
     operations.TemplateMoveTemplateToTeamResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.TemplateMoveTemplateToTeamResponseBody
+    | errors.TemplateMoveTemplateToTeamTemplatesResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -130,8 +130,11 @@ export async function templatesMoveToTeam(
       200,
       operations.TemplateMoveTemplateToTeamResponseBody$inboundSchema,
     ),
-    M.jsonErr(400, errors.ErrorBADREQUEST$inboundSchema),
-    M.jsonErr(500, errors.Errorinternalservererror$inboundSchema),
+    M.jsonErr(400, errors.TemplateMoveTemplateToTeamResponseBody$inboundSchema),
+    M.jsonErr(
+      500,
+      errors.TemplateMoveTemplateToTeamTemplatesResponseBody$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
