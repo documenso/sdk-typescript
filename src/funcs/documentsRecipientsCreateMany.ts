@@ -36,8 +36,8 @@ export async function documentsRecipientsCreateMany(
 ): Promise<
   Result<
     operations.RecipientCreateDocumentRecipientsResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.RecipientCreateDocumentRecipientsResponseBody
+    | errors.RecipientCreateDocumentRecipientsDocumentsRecipientsResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -115,8 +115,8 @@ export async function documentsRecipientsCreateMany(
 
   const [result] = await M.match<
     operations.RecipientCreateDocumentRecipientsResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.RecipientCreateDocumentRecipientsResponseBody
+    | errors.RecipientCreateDocumentRecipientsDocumentsRecipientsResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -129,8 +129,15 @@ export async function documentsRecipientsCreateMany(
       200,
       operations.RecipientCreateDocumentRecipientsResponseBody$inboundSchema,
     ),
-    M.jsonErr(400, errors.ErrorBADREQUEST$inboundSchema),
-    M.jsonErr(500, errors.Errorinternalservererror$inboundSchema),
+    M.jsonErr(
+      400,
+      errors.RecipientCreateDocumentRecipientsResponseBody$inboundSchema,
+    ),
+    M.jsonErr(
+      500,
+      errors
+        .RecipientCreateDocumentRecipientsDocumentsRecipientsResponseBody$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

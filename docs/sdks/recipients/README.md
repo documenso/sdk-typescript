@@ -84,12 +84,12 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.ErrorNOTFOUND            | 404                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                                                  | Status Code                                                                 | Content Type                                                                |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| errors.RecipientGetDocumentRecipientResponseBody                            | 400                                                                         | application/json                                                            |
+| errors.RecipientGetDocumentRecipientDocumentsRecipientsResponseBody         | 404                                                                         | application/json                                                            |
+| errors.RecipientGetDocumentRecipientDocumentsRecipientsResponseResponseBody | 500                                                                         | application/json                                                            |
+| errors.APIError                                                             | 4XX, 5XX                                                                    | \*/\*                                                                       |
 
 ## create
 
@@ -173,11 +173,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                                             | Status Code                                                            | Content Type                                                           |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| errors.RecipientCreateDocumentRecipientResponseBody                    | 400                                                                    | application/json                                                       |
+| errors.RecipientCreateDocumentRecipientDocumentsRecipientsResponseBody | 500                                                                    | application/json                                                       |
+| errors.APIError                                                        | 4XX, 5XX                                                               | \*/\*                                                                  |
 
 ## createMany
 
@@ -275,11 +275,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                                              | Status Code                                                             | Content Type                                                            |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| errors.RecipientCreateDocumentRecipientsResponseBody                    | 400                                                                     | application/json                                                        |
+| errors.RecipientCreateDocumentRecipientsDocumentsRecipientsResponseBody | 500                                                                     | application/json                                                        |
+| errors.APIError                                                         | 4XX, 5XX                                                                | \*/\*                                                                   |
 
 ## update
 
@@ -359,11 +359,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                                             | Status Code                                                            | Content Type                                                           |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| errors.RecipientUpdateDocumentRecipientResponseBody                    | 400                                                                    | application/json                                                       |
+| errors.RecipientUpdateDocumentRecipientDocumentsRecipientsResponseBody | 500                                                                    | application/json                                                       |
+| errors.APIError                                                        | 4XX, 5XX                                                               | \*/\*                                                                  |
 
 ## updateMany
 
@@ -453,11 +453,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                                              | Status Code                                                             | Content Type                                                            |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| errors.RecipientUpdateDocumentRecipientsResponseBody                    | 400                                                                     | application/json                                                        |
+| errors.RecipientUpdateDocumentRecipientsDocumentsRecipientsResponseBody | 500                                                                     | application/json                                                        |
+| errors.APIError                                                         | 4XX, 5XX                                                                | \*/\*                                                                   |
 
 ## delete
 
@@ -531,8 +531,8 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                                             | Status Code                                                            | Content Type                                                           |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| errors.RecipientDeleteDocumentRecipientResponseBody                    | 400                                                                    | application/json                                                       |
+| errors.RecipientDeleteDocumentRecipientDocumentsRecipientsResponseBody | 500                                                                    | application/json                                                       |
+| errors.APIError                                                        | 4XX, 5XX                                                               | \*/\*                                                                  |

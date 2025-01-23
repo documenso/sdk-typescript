@@ -84,12 +84,12 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.ErrorNOTFOUND            | 404                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                                      | Status Code                                                     | Content Type                                                    |
+| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
+| errors.FieldGetDocumentFieldResponseBody                        | 400                                                             | application/json                                                |
+| errors.FieldGetDocumentFieldDocumentsFieldsResponseBody         | 404                                                             | application/json                                                |
+| errors.FieldGetDocumentFieldDocumentsFieldsResponseResponseBody | 500                                                             | application/json                                                |
+| errors.APIError                                                 | 4XX, 5XX                                                        | \*/\*                                                           |
 
 ## create
 
@@ -181,11 +181,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                                 | Status Code                                                | Content Type                                               |
+| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
+| errors.FieldCreateDocumentFieldResponseBody                | 400                                                        | application/json                                           |
+| errors.FieldCreateDocumentFieldDocumentsFieldsResponseBody | 500                                                        | application/json                                           |
+| errors.APIError                                            | 4XX, 5XX                                                   | \*/\*                                                      |
 
 ## createMany
 
@@ -299,11 +299,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                                  | Status Code                                                 | Content Type                                                |
+| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
+| errors.FieldCreateDocumentFieldsResponseBody                | 400                                                         | application/json                                            |
+| errors.FieldCreateDocumentFieldsDocumentsFieldsResponseBody | 500                                                         | application/json                                            |
+| errors.APIError                                             | 4XX, 5XX                                                    | \*/\*                                                       |
 
 ## update
 
@@ -385,11 +385,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                                 | Status Code                                                | Content Type                                               |
+| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
+| errors.FieldUpdateDocumentFieldResponseBody                | 400                                                        | application/json                                           |
+| errors.FieldUpdateDocumentFieldDocumentsFieldsResponseBody | 500                                                        | application/json                                           |
+| errors.APIError                                            | 4XX, 5XX                                                   | \*/\*                                                      |
 
 ## updateMany
 
@@ -483,11 +483,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                                  | Status Code                                                 | Content Type                                                |
+| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
+| errors.FieldUpdateDocumentFieldsResponseBody                | 400                                                         | application/json                                            |
+| errors.FieldUpdateDocumentFieldsDocumentsFieldsResponseBody | 500                                                         | application/json                                            |
+| errors.APIError                                             | 4XX, 5XX                                                    | \*/\*                                                       |
 
 ## delete
 
@@ -561,8 +561,8 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                                 | Status Code                                                | Content Type                                               |
+| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
+| errors.FieldDeleteDocumentFieldResponseBody                | 400                                                        | application/json                                           |
+| errors.FieldDeleteDocumentFieldDocumentsFieldsResponseBody | 500                                                        | application/json                                           |
+| errors.APIError                                            | 4XX, 5XX                                                   | \*/\*                                                      |

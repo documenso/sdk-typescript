@@ -36,8 +36,8 @@ export async function documentsCreateV0(
 ): Promise<
   Result<
     operations.DocumentCreateDocumentTemporaryResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.DocumentCreateDocumentTemporaryResponseBody
+    | errors.DocumentCreateDocumentTemporaryDocumentsResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -115,8 +115,8 @@ export async function documentsCreateV0(
 
   const [result] = await M.match<
     operations.DocumentCreateDocumentTemporaryResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.DocumentCreateDocumentTemporaryResponseBody
+    | errors.DocumentCreateDocumentTemporaryDocumentsResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -129,8 +129,14 @@ export async function documentsCreateV0(
       200,
       operations.DocumentCreateDocumentTemporaryResponseBody$inboundSchema,
     ),
-    M.jsonErr(400, errors.ErrorBADREQUEST$inboundSchema),
-    M.jsonErr(500, errors.Errorinternalservererror$inboundSchema),
+    M.jsonErr(
+      400,
+      errors.DocumentCreateDocumentTemporaryResponseBody$inboundSchema,
+    ),
+    M.jsonErr(
+      500,
+      errors.DocumentCreateDocumentTemporaryDocumentsResponseBody$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

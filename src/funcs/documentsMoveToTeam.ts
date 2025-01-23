@@ -36,8 +36,8 @@ export async function documentsMoveToTeam(
 ): Promise<
   Result<
     operations.DocumentMoveDocumentToTeamResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.DocumentMoveDocumentToTeamResponseBody
+    | errors.DocumentMoveDocumentToTeamDocumentsResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -116,8 +116,8 @@ export async function documentsMoveToTeam(
 
   const [result] = await M.match<
     operations.DocumentMoveDocumentToTeamResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.DocumentMoveDocumentToTeamResponseBody
+    | errors.DocumentMoveDocumentToTeamDocumentsResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -130,8 +130,11 @@ export async function documentsMoveToTeam(
       200,
       operations.DocumentMoveDocumentToTeamResponseBody$inboundSchema,
     ),
-    M.jsonErr(400, errors.ErrorBADREQUEST$inboundSchema),
-    M.jsonErr(500, errors.Errorinternalservererror$inboundSchema),
+    M.jsonErr(400, errors.DocumentMoveDocumentToTeamResponseBody$inboundSchema),
+    M.jsonErr(
+      500,
+      errors.DocumentMoveDocumentToTeamDocumentsResponseBody$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

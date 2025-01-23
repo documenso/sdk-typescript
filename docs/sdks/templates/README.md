@@ -81,12 +81,12 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.ErrorNOTFOUND            | 404                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                                | Status Code                                               | Content Type                                              |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| errors.TemplateFindTemplatesResponseBody                  | 400                                                       | application/json                                          |
+| errors.TemplateFindTemplatesTemplatesResponseBody         | 404                                                       | application/json                                          |
+| errors.TemplateFindTemplatesTemplatesResponseResponseBody | 500                                                       | application/json                                          |
+| errors.APIError                                           | 4XX, 5XX                                                  | \*/\*                                                     |
 
 ## get
 
@@ -160,12 +160,12 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.ErrorNOTFOUND            | 404                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                                  | Status Code                                                 | Content Type                                                |
+| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
+| errors.TemplateGetTemplateByIdResponseBody                  | 400                                                         | application/json                                            |
+| errors.TemplateGetTemplateByIdTemplatesResponseBody         | 404                                                         | application/json                                            |
+| errors.TemplateGetTemplateByIdTemplatesResponseResponseBody | 500                                                         | application/json                                            |
+| errors.APIError                                             | 4XX, 5XX                                                    | \*/\*                                                       |
 
 ## update
 
@@ -239,11 +239,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                         | Status Code                                        | Content Type                                       |
+| -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
+| errors.TemplateUpdateTemplateResponseBody          | 400                                                | application/json                                   |
+| errors.TemplateUpdateTemplateTemplatesResponseBody | 500                                                | application/json                                   |
+| errors.APIError                                    | 4XX, 5XX                                           | \*/\*                                              |
 
 ## duplicate
 
@@ -317,11 +317,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                            | Status Code                                           | Content Type                                          |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| errors.TemplateDuplicateTemplateResponseBody          | 400                                                   | application/json                                      |
+| errors.TemplateDuplicateTemplateTemplatesResponseBody | 500                                                   | application/json                                      |
+| errors.APIError                                       | 4XX, 5XX                                              | \*/\*                                                 |
 
 ## delete
 
@@ -395,11 +395,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                         | Status Code                                        | Content Type                                       |
+| -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
+| errors.TemplateDeleteTemplateResponseBody          | 400                                                | application/json                                   |
+| errors.TemplateDeleteTemplateTemplatesResponseBody | 500                                                | application/json                                   |
+| errors.APIError                                    | 4XX, 5XX                                           | \*/\*                                              |
 
 ## use
 
@@ -493,11 +493,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                                     | Status Code                                                    | Content Type                                                   |
+| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
+| errors.TemplateCreateDocumentFromTemplateResponseBody          | 400                                                            | application/json                                               |
+| errors.TemplateCreateDocumentFromTemplateTemplatesResponseBody | 500                                                            | application/json                                               |
+| errors.APIError                                                | 4XX, 5XX                                                       | \*/\*                                                          |
 
 ## moveToTeam
 
@@ -573,8 +573,8 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                             | Status Code                                            | Content Type                                           |
+| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
+| errors.TemplateMoveTemplateToTeamResponseBody          | 400                                                    | application/json                                       |
+| errors.TemplateMoveTemplateToTeamTemplatesResponseBody | 500                                                    | application/json                                       |
+| errors.APIError                                        | 4XX, 5XX                                               | \*/\*                                                  |

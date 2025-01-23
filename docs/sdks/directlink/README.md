@@ -81,11 +81,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                                             | Status Code                                                            | Content Type                                                           |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| errors.TemplateCreateTemplateDirectLinkResponseBody                    | 400                                                                    | application/json                                                       |
+| errors.TemplateCreateTemplateDirectLinkTemplatesDirectLinkResponseBody | 500                                                                    | application/json                                                       |
+| errors.APIError                                                        | 4XX, 5XX                                                               | \*/\*                                                                  |
 
 ## delete
 
@@ -159,11 +159,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                                             | Status Code                                                            | Content Type                                                           |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| errors.TemplateDeleteTemplateDirectLinkResponseBody                    | 400                                                                    | application/json                                                       |
+| errors.TemplateDeleteTemplateDirectLinkTemplatesDirectLinkResponseBody | 500                                                                    | application/json                                                       |
+| errors.APIError                                                        | 4XX, 5XX                                                               | \*/\*                                                                  |
 
 ## toggle
 
@@ -239,8 +239,8 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorBADREQUEST          | 400                             | application/json                |
-| errors.Errorinternalservererror | 500                             | application/json                |
-| errors.APIError                 | 4XX, 5XX                        | \*/\*                           |
+| Error Type                                                             | Status Code                                                            | Content Type                                                           |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| errors.TemplateToggleTemplateDirectLinkResponseBody                    | 400                                                                    | application/json                                                       |
+| errors.TemplateToggleTemplateDirectLinkTemplatesDirectLinkResponseBody | 500                                                                    | application/json                                                       |
+| errors.APIError                                                        | 4XX, 5XX                                                               | \*/\*                                                                  |

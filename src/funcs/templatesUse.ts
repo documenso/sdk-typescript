@@ -36,8 +36,8 @@ export async function templatesUse(
 ): Promise<
   Result<
     operations.TemplateCreateDocumentFromTemplateResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.TemplateCreateDocumentFromTemplateResponseBody
+    | errors.TemplateCreateDocumentFromTemplateTemplatesResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -115,8 +115,8 @@ export async function templatesUse(
 
   const [result] = await M.match<
     operations.TemplateCreateDocumentFromTemplateResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.TemplateCreateDocumentFromTemplateResponseBody
+    | errors.TemplateCreateDocumentFromTemplateTemplatesResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -129,8 +129,15 @@ export async function templatesUse(
       200,
       operations.TemplateCreateDocumentFromTemplateResponseBody$inboundSchema,
     ),
-    M.jsonErr(400, errors.ErrorBADREQUEST$inboundSchema),
-    M.jsonErr(500, errors.Errorinternalservererror$inboundSchema),
+    M.jsonErr(
+      400,
+      errors.TemplateCreateDocumentFromTemplateResponseBody$inboundSchema,
+    ),
+    M.jsonErr(
+      500,
+      errors
+        .TemplateCreateDocumentFromTemplateTemplatesResponseBody$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

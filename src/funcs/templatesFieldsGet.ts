@@ -36,9 +36,9 @@ export async function templatesFieldsGet(
 ): Promise<
   Result<
     operations.FieldGetTemplateFieldResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.ErrorNOTFOUND
-    | errors.Errorinternalservererror
+    | errors.FieldGetTemplateFieldResponseBody
+    | errors.FieldGetTemplateFieldTemplatesFieldsResponseBody
+    | errors.FieldGetTemplateFieldTemplatesFieldsResponseResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -121,9 +121,9 @@ export async function templatesFieldsGet(
 
   const [result] = await M.match<
     operations.FieldGetTemplateFieldResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.ErrorNOTFOUND
-    | errors.Errorinternalservererror
+    | errors.FieldGetTemplateFieldResponseBody
+    | errors.FieldGetTemplateFieldTemplatesFieldsResponseBody
+    | errors.FieldGetTemplateFieldTemplatesFieldsResponseResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -133,9 +133,16 @@ export async function templatesFieldsGet(
     | ConnectionError
   >(
     M.json(200, operations.FieldGetTemplateFieldResponseBody$inboundSchema),
-    M.jsonErr(400, errors.ErrorBADREQUEST$inboundSchema),
-    M.jsonErr(404, errors.ErrorNOTFOUND$inboundSchema),
-    M.jsonErr(500, errors.Errorinternalservererror$inboundSchema),
+    M.jsonErr(400, errors.FieldGetTemplateFieldResponseBody$inboundSchema),
+    M.jsonErr(
+      404,
+      errors.FieldGetTemplateFieldTemplatesFieldsResponseBody$inboundSchema,
+    ),
+    M.jsonErr(
+      500,
+      errors
+        .FieldGetTemplateFieldTemplatesFieldsResponseResponseBody$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

@@ -36,8 +36,8 @@ export async function documentsFieldsCreate(
 ): Promise<
   Result<
     operations.FieldCreateDocumentFieldResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.FieldCreateDocumentFieldResponseBody
+    | errors.FieldCreateDocumentFieldDocumentsFieldsResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -116,8 +116,8 @@ export async function documentsFieldsCreate(
 
   const [result] = await M.match<
     operations.FieldCreateDocumentFieldResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.FieldCreateDocumentFieldResponseBody
+    | errors.FieldCreateDocumentFieldDocumentsFieldsResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -127,8 +127,11 @@ export async function documentsFieldsCreate(
     | ConnectionError
   >(
     M.json(200, operations.FieldCreateDocumentFieldResponseBody$inboundSchema),
-    M.jsonErr(400, errors.ErrorBADREQUEST$inboundSchema),
-    M.jsonErr(500, errors.Errorinternalservererror$inboundSchema),
+    M.jsonErr(400, errors.FieldCreateDocumentFieldResponseBody$inboundSchema),
+    M.jsonErr(
+      500,
+      errors.FieldCreateDocumentFieldDocumentsFieldsResponseBody$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

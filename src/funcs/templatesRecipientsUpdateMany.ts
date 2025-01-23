@@ -36,8 +36,8 @@ export async function templatesRecipientsUpdateMany(
 ): Promise<
   Result<
     operations.RecipientUpdateTemplateRecipientsResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.RecipientUpdateTemplateRecipientsResponseBody
+    | errors.RecipientUpdateTemplateRecipientsTemplatesRecipientsResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -115,8 +115,8 @@ export async function templatesRecipientsUpdateMany(
 
   const [result] = await M.match<
     operations.RecipientUpdateTemplateRecipientsResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.RecipientUpdateTemplateRecipientsResponseBody
+    | errors.RecipientUpdateTemplateRecipientsTemplatesRecipientsResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -129,8 +129,15 @@ export async function templatesRecipientsUpdateMany(
       200,
       operations.RecipientUpdateTemplateRecipientsResponseBody$inboundSchema,
     ),
-    M.jsonErr(400, errors.ErrorBADREQUEST$inboundSchema),
-    M.jsonErr(500, errors.Errorinternalservererror$inboundSchema),
+    M.jsonErr(
+      400,
+      errors.RecipientUpdateTemplateRecipientsResponseBody$inboundSchema,
+    ),
+    M.jsonErr(
+      500,
+      errors
+        .RecipientUpdateTemplateRecipientsTemplatesRecipientsResponseBody$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

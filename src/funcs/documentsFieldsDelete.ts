@@ -33,8 +33,8 @@ export async function documentsFieldsDelete(
 ): Promise<
   Result<
     operations.FieldDeleteDocumentFieldResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.FieldDeleteDocumentFieldResponseBody
+    | errors.FieldDeleteDocumentFieldDocumentsFieldsResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -113,8 +113,8 @@ export async function documentsFieldsDelete(
 
   const [result] = await M.match<
     operations.FieldDeleteDocumentFieldResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.FieldDeleteDocumentFieldResponseBody
+    | errors.FieldDeleteDocumentFieldDocumentsFieldsResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -124,8 +124,11 @@ export async function documentsFieldsDelete(
     | ConnectionError
   >(
     M.json(200, operations.FieldDeleteDocumentFieldResponseBody$inboundSchema),
-    M.jsonErr(400, errors.ErrorBADREQUEST$inboundSchema),
-    M.jsonErr(500, errors.Errorinternalservererror$inboundSchema),
+    M.jsonErr(400, errors.FieldDeleteDocumentFieldResponseBody$inboundSchema),
+    M.jsonErr(
+      500,
+      errors.FieldDeleteDocumentFieldDocumentsFieldsResponseBody$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

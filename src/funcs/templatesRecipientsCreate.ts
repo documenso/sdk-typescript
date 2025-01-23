@@ -36,8 +36,8 @@ export async function templatesRecipientsCreate(
 ): Promise<
   Result<
     operations.RecipientCreateTemplateRecipientResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.RecipientCreateTemplateRecipientResponseBody
+    | errors.RecipientCreateTemplateRecipientTemplatesRecipientsResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -115,8 +115,8 @@ export async function templatesRecipientsCreate(
 
   const [result] = await M.match<
     operations.RecipientCreateTemplateRecipientResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.RecipientCreateTemplateRecipientResponseBody
+    | errors.RecipientCreateTemplateRecipientTemplatesRecipientsResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -129,8 +129,15 @@ export async function templatesRecipientsCreate(
       200,
       operations.RecipientCreateTemplateRecipientResponseBody$inboundSchema,
     ),
-    M.jsonErr(400, errors.ErrorBADREQUEST$inboundSchema),
-    M.jsonErr(500, errors.Errorinternalservererror$inboundSchema),
+    M.jsonErr(
+      400,
+      errors.RecipientCreateTemplateRecipientResponseBody$inboundSchema,
+    ),
+    M.jsonErr(
+      500,
+      errors
+        .RecipientCreateTemplateRecipientTemplatesRecipientsResponseBody$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

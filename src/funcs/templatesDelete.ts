@@ -33,8 +33,8 @@ export async function templatesDelete(
 ): Promise<
   Result<
     operations.TemplateDeleteTemplateResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.TemplateDeleteTemplateResponseBody
+    | errors.TemplateDeleteTemplateTemplatesResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -111,8 +111,8 @@ export async function templatesDelete(
 
   const [result] = await M.match<
     operations.TemplateDeleteTemplateResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.TemplateDeleteTemplateResponseBody
+    | errors.TemplateDeleteTemplateTemplatesResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -122,8 +122,11 @@ export async function templatesDelete(
     | ConnectionError
   >(
     M.json(200, operations.TemplateDeleteTemplateResponseBody$inboundSchema),
-    M.jsonErr(400, errors.ErrorBADREQUEST$inboundSchema),
-    M.jsonErr(500, errors.Errorinternalservererror$inboundSchema),
+    M.jsonErr(400, errors.TemplateDeleteTemplateResponseBody$inboundSchema),
+    M.jsonErr(
+      500,
+      errors.TemplateDeleteTemplateTemplatesResponseBody$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

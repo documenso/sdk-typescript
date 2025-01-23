@@ -36,8 +36,8 @@ export async function documentsFieldsUpdateMany(
 ): Promise<
   Result<
     operations.FieldUpdateDocumentFieldsResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.FieldUpdateDocumentFieldsResponseBody
+    | errors.FieldUpdateDocumentFieldsDocumentsFieldsResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -116,8 +116,8 @@ export async function documentsFieldsUpdateMany(
 
   const [result] = await M.match<
     operations.FieldUpdateDocumentFieldsResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.FieldUpdateDocumentFieldsResponseBody
+    | errors.FieldUpdateDocumentFieldsDocumentsFieldsResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -127,8 +127,11 @@ export async function documentsFieldsUpdateMany(
     | ConnectionError
   >(
     M.json(200, operations.FieldUpdateDocumentFieldsResponseBody$inboundSchema),
-    M.jsonErr(400, errors.ErrorBADREQUEST$inboundSchema),
-    M.jsonErr(500, errors.Errorinternalservererror$inboundSchema),
+    M.jsonErr(400, errors.FieldUpdateDocumentFieldsResponseBody$inboundSchema),
+    M.jsonErr(
+      500,
+      errors.FieldUpdateDocumentFieldsDocumentsFieldsResponseBody$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
