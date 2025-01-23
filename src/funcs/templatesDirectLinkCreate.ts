@@ -36,8 +36,8 @@ export async function templatesDirectLinkCreate(
 ): Promise<
   Result<
     operations.TemplateCreateTemplateDirectLinkResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.TemplateCreateTemplateDirectLinkResponseBody
+    | errors.TemplateCreateTemplateDirectLinkTemplatesDirectLinkResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -115,8 +115,8 @@ export async function templatesDirectLinkCreate(
 
   const [result] = await M.match<
     operations.TemplateCreateTemplateDirectLinkResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.TemplateCreateTemplateDirectLinkResponseBody
+    | errors.TemplateCreateTemplateDirectLinkTemplatesDirectLinkResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -129,8 +129,15 @@ export async function templatesDirectLinkCreate(
       200,
       operations.TemplateCreateTemplateDirectLinkResponseBody$inboundSchema,
     ),
-    M.jsonErr(400, errors.ErrorBADREQUEST$inboundSchema),
-    M.jsonErr(500, errors.Errorinternalservererror$inboundSchema),
+    M.jsonErr(
+      400,
+      errors.TemplateCreateTemplateDirectLinkResponseBody$inboundSchema,
+    ),
+    M.jsonErr(
+      500,
+      errors
+        .TemplateCreateTemplateDirectLinkTemplatesDirectLinkResponseBody$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

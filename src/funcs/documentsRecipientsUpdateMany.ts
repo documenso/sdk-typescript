@@ -36,8 +36,8 @@ export async function documentsRecipientsUpdateMany(
 ): Promise<
   Result<
     operations.RecipientUpdateDocumentRecipientsResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.RecipientUpdateDocumentRecipientsResponseBody
+    | errors.RecipientUpdateDocumentRecipientsDocumentsRecipientsResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -115,8 +115,8 @@ export async function documentsRecipientsUpdateMany(
 
   const [result] = await M.match<
     operations.RecipientUpdateDocumentRecipientsResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.RecipientUpdateDocumentRecipientsResponseBody
+    | errors.RecipientUpdateDocumentRecipientsDocumentsRecipientsResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -129,8 +129,15 @@ export async function documentsRecipientsUpdateMany(
       200,
       operations.RecipientUpdateDocumentRecipientsResponseBody$inboundSchema,
     ),
-    M.jsonErr(400, errors.ErrorBADREQUEST$inboundSchema),
-    M.jsonErr(500, errors.Errorinternalservererror$inboundSchema),
+    M.jsonErr(
+      400,
+      errors.RecipientUpdateDocumentRecipientsResponseBody$inboundSchema,
+    ),
+    M.jsonErr(
+      500,
+      errors
+        .RecipientUpdateDocumentRecipientsDocumentsRecipientsResponseBody$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

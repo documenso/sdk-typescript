@@ -33,8 +33,8 @@ export async function documentsDuplicate(
 ): Promise<
   Result<
     operations.DocumentDuplicateDocumentResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.DocumentDuplicateDocumentResponseBody
+    | errors.DocumentDuplicateDocumentDocumentsResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -113,8 +113,8 @@ export async function documentsDuplicate(
 
   const [result] = await M.match<
     operations.DocumentDuplicateDocumentResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.DocumentDuplicateDocumentResponseBody
+    | errors.DocumentDuplicateDocumentDocumentsResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -124,8 +124,11 @@ export async function documentsDuplicate(
     | ConnectionError
   >(
     M.json(200, operations.DocumentDuplicateDocumentResponseBody$inboundSchema),
-    M.jsonErr(400, errors.ErrorBADREQUEST$inboundSchema),
-    M.jsonErr(500, errors.Errorinternalservererror$inboundSchema),
+    M.jsonErr(400, errors.DocumentDuplicateDocumentResponseBody$inboundSchema),
+    M.jsonErr(
+      500,
+      errors.DocumentDuplicateDocumentDocumentsResponseBody$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

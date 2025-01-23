@@ -36,8 +36,8 @@ export async function templatesFieldsUpdate(
 ): Promise<
   Result<
     operations.FieldUpdateTemplateFieldResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.FieldUpdateTemplateFieldResponseBody
+    | errors.FieldUpdateTemplateFieldTemplatesFieldsResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -116,8 +116,8 @@ export async function templatesFieldsUpdate(
 
   const [result] = await M.match<
     operations.FieldUpdateTemplateFieldResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.FieldUpdateTemplateFieldResponseBody
+    | errors.FieldUpdateTemplateFieldTemplatesFieldsResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -127,8 +127,11 @@ export async function templatesFieldsUpdate(
     | ConnectionError
   >(
     M.json(200, operations.FieldUpdateTemplateFieldResponseBody$inboundSchema),
-    M.jsonErr(400, errors.ErrorBADREQUEST$inboundSchema),
-    M.jsonErr(500, errors.Errorinternalservererror$inboundSchema),
+    M.jsonErr(400, errors.FieldUpdateTemplateFieldResponseBody$inboundSchema),
+    M.jsonErr(
+      500,
+      errors.FieldUpdateTemplateFieldTemplatesFieldsResponseBody$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

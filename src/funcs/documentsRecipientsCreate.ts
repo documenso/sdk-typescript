@@ -36,8 +36,8 @@ export async function documentsRecipientsCreate(
 ): Promise<
   Result<
     operations.RecipientCreateDocumentRecipientResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.RecipientCreateDocumentRecipientResponseBody
+    | errors.RecipientCreateDocumentRecipientDocumentsRecipientsResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -115,8 +115,8 @@ export async function documentsRecipientsCreate(
 
   const [result] = await M.match<
     operations.RecipientCreateDocumentRecipientResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.RecipientCreateDocumentRecipientResponseBody
+    | errors.RecipientCreateDocumentRecipientDocumentsRecipientsResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -129,8 +129,15 @@ export async function documentsRecipientsCreate(
       200,
       operations.RecipientCreateDocumentRecipientResponseBody$inboundSchema,
     ),
-    M.jsonErr(400, errors.ErrorBADREQUEST$inboundSchema),
-    M.jsonErr(500, errors.Errorinternalservererror$inboundSchema),
+    M.jsonErr(
+      400,
+      errors.RecipientCreateDocumentRecipientResponseBody$inboundSchema,
+    ),
+    M.jsonErr(
+      500,
+      errors
+        .RecipientCreateDocumentRecipientDocumentsRecipientsResponseBody$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

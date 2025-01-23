@@ -33,8 +33,8 @@ export async function templatesDuplicate(
 ): Promise<
   Result<
     operations.TemplateDuplicateTemplateResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.TemplateDuplicateTemplateResponseBody
+    | errors.TemplateDuplicateTemplateTemplatesResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -113,8 +113,8 @@ export async function templatesDuplicate(
 
   const [result] = await M.match<
     operations.TemplateDuplicateTemplateResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.TemplateDuplicateTemplateResponseBody
+    | errors.TemplateDuplicateTemplateTemplatesResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -124,8 +124,11 @@ export async function templatesDuplicate(
     | ConnectionError
   >(
     M.json(200, operations.TemplateDuplicateTemplateResponseBody$inboundSchema),
-    M.jsonErr(400, errors.ErrorBADREQUEST$inboundSchema),
-    M.jsonErr(500, errors.Errorinternalservererror$inboundSchema),
+    M.jsonErr(400, errors.TemplateDuplicateTemplateResponseBody$inboundSchema),
+    M.jsonErr(
+      500,
+      errors.TemplateDuplicateTemplateTemplatesResponseBody$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

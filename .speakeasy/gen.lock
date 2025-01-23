@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 2f28b0c4-e21c-47c4-aada-41da1a74c452
 management:
-  docChecksum: ac84529375cc88bfe1ddded5c9f2c8fa
+  docChecksum: 9f594959166c064df053ece48e49e810
   docVersion: 0.0.0
-  speakeasyVersion: 1.469.10
-  generationVersion: 2.493.31
-  releaseVersion: 0.1.2
-  configChecksum: b9cc53548e6012078ebb6189b18868ed
+  speakeasyVersion: 1.470.1
+  generationVersion: 2.493.34
+  releaseVersion: 0.1.3
+  configChecksum: 2fd293a7c1c3b3f01110894bc2faccc2
   repoURL: https://github.com/documenso/sdk-typescript.git
   installationURL: https://github.com/documenso/sdk-typescript
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.11
-    core: 3.18.16
+    core: 3.18.17
     defaultEnabledRetries: 0.1.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
@@ -38,12 +38,194 @@ generatedFiles:
   - USAGE.md
   - docs/lib/utils/retryconfig.md
   - docs/models/components/security.md
-  - docs/models/errors/errorbadrequest.md
-  - docs/models/errors/errorinternalservererror.md
-  - docs/models/errors/errorinternalservererrorissues.md
-  - docs/models/errors/errornotfound.md
-  - docs/models/errors/errornotfoundissues.md
+  - docs/models/errors/documentcreatedocumenttemporarydocumentsissues.md
+  - docs/models/errors/documentcreatedocumenttemporarydocumentsresponsebody.md
+  - docs/models/errors/documentcreatedocumenttemporaryissues.md
+  - docs/models/errors/documentcreatedocumenttemporaryresponsebody.md
+  - docs/models/errors/documentdeletedocumentdocumentsissues.md
+  - docs/models/errors/documentdeletedocumentdocumentsresponsebody.md
+  - docs/models/errors/documentdeletedocumentissues.md
+  - docs/models/errors/documentdeletedocumentresponsebody.md
+  - docs/models/errors/documentduplicatedocumentdocumentsissues.md
+  - docs/models/errors/documentduplicatedocumentdocumentsresponsebody.md
+  - docs/models/errors/documentduplicatedocumentissues.md
+  - docs/models/errors/documentduplicatedocumentresponsebody.md
+  - docs/models/errors/documentfinddocumentsdocumentsissues.md
+  - docs/models/errors/documentfinddocumentsdocumentsresponsebody.md
+  - docs/models/errors/documentfinddocumentsdocumentsresponseresponsebody.md
+  - docs/models/errors/documentfinddocumentsissues.md
+  - docs/models/errors/documentfinddocumentsresponsebody.md
+  - docs/models/errors/documentgetdocumentwithdetailsbyiddocumentsissues.md
+  - docs/models/errors/documentgetdocumentwithdetailsbyiddocumentsresponsebody.md
+  - docs/models/errors/documentgetdocumentwithdetailsbyiddocumentsresponseissues.md
+  - docs/models/errors/documentgetdocumentwithdetailsbyiddocumentsresponseresponsebody.md
+  - docs/models/errors/documentgetdocumentwithdetailsbyidissues.md
+  - docs/models/errors/documentgetdocumentwithdetailsbyidresponsebody.md
+  - docs/models/errors/documentmovedocumenttoteamdocumentsissues.md
+  - docs/models/errors/documentmovedocumenttoteamdocumentsresponsebody.md
+  - docs/models/errors/documentmovedocumenttoteamissues.md
+  - docs/models/errors/documentmovedocumenttoteamresponsebody.md
+  - docs/models/errors/documentresenddocumentdocumentsissues.md
+  - docs/models/errors/documentresenddocumentdocumentsresponsebody.md
+  - docs/models/errors/documentresenddocumentissues.md
+  - docs/models/errors/documentresenddocumentresponsebody.md
+  - docs/models/errors/documentsenddocumentdocumentsissues.md
+  - docs/models/errors/documentsenddocumentdocumentsresponsebody.md
+  - docs/models/errors/documentsenddocumentissues.md
+  - docs/models/errors/documentsenddocumentresponsebody.md
+  - docs/models/errors/documentsetsettingsfordocumentdocumentsissues.md
+  - docs/models/errors/documentsetsettingsfordocumentdocumentsresponsebody.md
+  - docs/models/errors/documentsetsettingsfordocumentissues.md
+  - docs/models/errors/documentsetsettingsfordocumentresponsebody.md
+  - docs/models/errors/fieldcreatedocumentfielddocumentsfieldsissues.md
+  - docs/models/errors/fieldcreatedocumentfielddocumentsfieldsresponsebody.md
+  - docs/models/errors/fieldcreatedocumentfieldissues.md
+  - docs/models/errors/fieldcreatedocumentfieldresponsebody.md
+  - docs/models/errors/fieldcreatedocumentfieldsdocumentsfieldsissues.md
+  - docs/models/errors/fieldcreatedocumentfieldsdocumentsfieldsresponsebody.md
+  - docs/models/errors/fieldcreatedocumentfieldsissues.md
+  - docs/models/errors/fieldcreatedocumentfieldsresponsebody.md
+  - docs/models/errors/fieldcreatetemplatefieldissues.md
+  - docs/models/errors/fieldcreatetemplatefieldresponsebody.md
+  - docs/models/errors/fieldcreatetemplatefieldsissues.md
+  - docs/models/errors/fieldcreatetemplatefieldsresponsebody.md
+  - docs/models/errors/fieldcreatetemplatefieldstemplatesfieldsissues.md
+  - docs/models/errors/fieldcreatetemplatefieldstemplatesfieldsresponsebody.md
+  - docs/models/errors/fieldcreatetemplatefieldtemplatesfieldsissues.md
+  - docs/models/errors/fieldcreatetemplatefieldtemplatesfieldsresponsebody.md
+  - docs/models/errors/fielddeletedocumentfielddocumentsfieldsissues.md
+  - docs/models/errors/fielddeletedocumentfielddocumentsfieldsresponsebody.md
+  - docs/models/errors/fielddeletedocumentfieldissues.md
+  - docs/models/errors/fielddeletedocumentfieldresponsebody.md
+  - docs/models/errors/fielddeletetemplatefieldissues.md
+  - docs/models/errors/fielddeletetemplatefieldresponsebody.md
+  - docs/models/errors/fielddeletetemplatefieldtemplatesfieldsissues.md
+  - docs/models/errors/fielddeletetemplatefieldtemplatesfieldsresponsebody.md
+  - docs/models/errors/fieldgetdocumentfielddocumentsfieldsissues.md
+  - docs/models/errors/fieldgetdocumentfielddocumentsfieldsresponsebody.md
+  - docs/models/errors/fieldgetdocumentfielddocumentsfieldsresponseissues.md
+  - docs/models/errors/fieldgetdocumentfielddocumentsfieldsresponseresponsebody.md
+  - docs/models/errors/fieldgetdocumentfieldissues.md
+  - docs/models/errors/fieldgetdocumentfieldresponsebody.md
+  - docs/models/errors/fieldgettemplatefieldissues.md
+  - docs/models/errors/fieldgettemplatefieldresponsebody.md
+  - docs/models/errors/fieldgettemplatefieldtemplatesfieldsissues.md
+  - docs/models/errors/fieldgettemplatefieldtemplatesfieldsresponsebody.md
+  - docs/models/errors/fieldgettemplatefieldtemplatesfieldsresponseissues.md
+  - docs/models/errors/fieldgettemplatefieldtemplatesfieldsresponseresponsebody.md
+  - docs/models/errors/fieldupdatedocumentfielddocumentsfieldsissues.md
+  - docs/models/errors/fieldupdatedocumentfielddocumentsfieldsresponsebody.md
+  - docs/models/errors/fieldupdatedocumentfieldissues.md
+  - docs/models/errors/fieldupdatedocumentfieldresponsebody.md
+  - docs/models/errors/fieldupdatedocumentfieldsdocumentsfieldsissues.md
+  - docs/models/errors/fieldupdatedocumentfieldsdocumentsfieldsresponsebody.md
+  - docs/models/errors/fieldupdatedocumentfieldsissues.md
+  - docs/models/errors/fieldupdatedocumentfieldsresponsebody.md
+  - docs/models/errors/fieldupdatetemplatefieldissues.md
+  - docs/models/errors/fieldupdatetemplatefieldresponsebody.md
+  - docs/models/errors/fieldupdatetemplatefieldsissues.md
+  - docs/models/errors/fieldupdatetemplatefieldsresponsebody.md
+  - docs/models/errors/fieldupdatetemplatefieldstemplatesfieldsissues.md
+  - docs/models/errors/fieldupdatetemplatefieldstemplatesfieldsresponsebody.md
+  - docs/models/errors/fieldupdatetemplatefieldtemplatesfieldsissues.md
+  - docs/models/errors/fieldupdatetemplatefieldtemplatesfieldsresponsebody.md
   - docs/models/errors/issues.md
+  - docs/models/errors/recipientcreatedocumentrecipientdocumentsrecipientsissues.md
+  - docs/models/errors/recipientcreatedocumentrecipientdocumentsrecipientsresponsebody.md
+  - docs/models/errors/recipientcreatedocumentrecipientissues.md
+  - docs/models/errors/recipientcreatedocumentrecipientresponsebody.md
+  - docs/models/errors/recipientcreatedocumentrecipientsdocumentsrecipientsissues.md
+  - docs/models/errors/recipientcreatedocumentrecipientsdocumentsrecipientsresponsebody.md
+  - docs/models/errors/recipientcreatedocumentrecipientsissues.md
+  - docs/models/errors/recipientcreatedocumentrecipientsresponsebody.md
+  - docs/models/errors/recipientcreatetemplaterecipientissues.md
+  - docs/models/errors/recipientcreatetemplaterecipientresponsebody.md
+  - docs/models/errors/recipientcreatetemplaterecipientsissues.md
+  - docs/models/errors/recipientcreatetemplaterecipientsresponsebody.md
+  - docs/models/errors/recipientcreatetemplaterecipientstemplatesrecipientsissues.md
+  - docs/models/errors/recipientcreatetemplaterecipientstemplatesrecipientsresponsebody.md
+  - docs/models/errors/recipientcreatetemplaterecipienttemplatesrecipientsissues.md
+  - docs/models/errors/recipientcreatetemplaterecipienttemplatesrecipientsresponsebody.md
+  - docs/models/errors/recipientdeletedocumentrecipientdocumentsrecipientsissues.md
+  - docs/models/errors/recipientdeletedocumentrecipientdocumentsrecipientsresponsebody.md
+  - docs/models/errors/recipientdeletedocumentrecipientissues.md
+  - docs/models/errors/recipientdeletedocumentrecipientresponsebody.md
+  - docs/models/errors/recipientdeletetemplaterecipientissues.md
+  - docs/models/errors/recipientdeletetemplaterecipientresponsebody.md
+  - docs/models/errors/recipientdeletetemplaterecipienttemplatesrecipientsissues.md
+  - docs/models/errors/recipientdeletetemplaterecipienttemplatesrecipientsresponsebody.md
+  - docs/models/errors/recipientgetdocumentrecipientdocumentsrecipientsissues.md
+  - docs/models/errors/recipientgetdocumentrecipientdocumentsrecipientsresponsebody.md
+  - docs/models/errors/recipientgetdocumentrecipientdocumentsrecipientsresponseissues.md
+  - docs/models/errors/recipientgetdocumentrecipientdocumentsrecipientsresponseresponsebody.md
+  - docs/models/errors/recipientgetdocumentrecipientissues.md
+  - docs/models/errors/recipientgetdocumentrecipientresponsebody.md
+  - docs/models/errors/recipientgettemplaterecipientissues.md
+  - docs/models/errors/recipientgettemplaterecipientresponsebody.md
+  - docs/models/errors/recipientgettemplaterecipienttemplatesrecipientsissues.md
+  - docs/models/errors/recipientgettemplaterecipienttemplatesrecipientsresponsebody.md
+  - docs/models/errors/recipientgettemplaterecipienttemplatesrecipientsresponseissues.md
+  - docs/models/errors/recipientgettemplaterecipienttemplatesrecipientsresponseresponsebody.md
+  - docs/models/errors/recipientupdatedocumentrecipientdocumentsrecipientsissues.md
+  - docs/models/errors/recipientupdatedocumentrecipientdocumentsrecipientsresponsebody.md
+  - docs/models/errors/recipientupdatedocumentrecipientissues.md
+  - docs/models/errors/recipientupdatedocumentrecipientresponsebody.md
+  - docs/models/errors/recipientupdatedocumentrecipientsdocumentsrecipientsissues.md
+  - docs/models/errors/recipientupdatedocumentrecipientsdocumentsrecipientsresponsebody.md
+  - docs/models/errors/recipientupdatedocumentrecipientsissues.md
+  - docs/models/errors/recipientupdatedocumentrecipientsresponsebody.md
+  - docs/models/errors/recipientupdatetemplaterecipientissues.md
+  - docs/models/errors/recipientupdatetemplaterecipientresponsebody.md
+  - docs/models/errors/recipientupdatetemplaterecipientsissues.md
+  - docs/models/errors/recipientupdatetemplaterecipientsresponsebody.md
+  - docs/models/errors/recipientupdatetemplaterecipientstemplatesrecipientsissues.md
+  - docs/models/errors/recipientupdatetemplaterecipientstemplatesrecipientsresponsebody.md
+  - docs/models/errors/recipientupdatetemplaterecipienttemplatesrecipientsissues.md
+  - docs/models/errors/recipientupdatetemplaterecipienttemplatesrecipientsresponsebody.md
+  - docs/models/errors/templatecreatedocumentfromtemplateissues.md
+  - docs/models/errors/templatecreatedocumentfromtemplateresponsebody.md
+  - docs/models/errors/templatecreatedocumentfromtemplatetemplatesissues.md
+  - docs/models/errors/templatecreatedocumentfromtemplatetemplatesresponsebody.md
+  - docs/models/errors/templatecreatetemplatedirectlinkissues.md
+  - docs/models/errors/templatecreatetemplatedirectlinkresponsebody.md
+  - docs/models/errors/templatecreatetemplatedirectlinktemplatesdirectlinkissues.md
+  - docs/models/errors/templatecreatetemplatedirectlinktemplatesdirectlinkresponsebody.md
+  - docs/models/errors/templatedeletetemplatedirectlinkissues.md
+  - docs/models/errors/templatedeletetemplatedirectlinkresponsebody.md
+  - docs/models/errors/templatedeletetemplatedirectlinktemplatesdirectlinkissues.md
+  - docs/models/errors/templatedeletetemplatedirectlinktemplatesdirectlinkresponsebody.md
+  - docs/models/errors/templatedeletetemplateissues.md
+  - docs/models/errors/templatedeletetemplateresponsebody.md
+  - docs/models/errors/templatedeletetemplatetemplatesissues.md
+  - docs/models/errors/templatedeletetemplatetemplatesresponsebody.md
+  - docs/models/errors/templateduplicatetemplateissues.md
+  - docs/models/errors/templateduplicatetemplateresponsebody.md
+  - docs/models/errors/templateduplicatetemplatetemplatesissues.md
+  - docs/models/errors/templateduplicatetemplatetemplatesresponsebody.md
+  - docs/models/errors/templatefindtemplatesissues.md
+  - docs/models/errors/templatefindtemplatesresponsebody.md
+  - docs/models/errors/templatefindtemplatestemplatesissues.md
+  - docs/models/errors/templatefindtemplatestemplatesresponsebody.md
+  - docs/models/errors/templatefindtemplatestemplatesresponseissues.md
+  - docs/models/errors/templatefindtemplatestemplatesresponseresponsebody.md
+  - docs/models/errors/templategettemplatebyidissues.md
+  - docs/models/errors/templategettemplatebyidresponsebody.md
+  - docs/models/errors/templategettemplatebyidtemplatesissues.md
+  - docs/models/errors/templategettemplatebyidtemplatesresponsebody.md
+  - docs/models/errors/templategettemplatebyidtemplatesresponseissues.md
+  - docs/models/errors/templategettemplatebyidtemplatesresponseresponsebody.md
+  - docs/models/errors/templatemovetemplatetoteamissues.md
+  - docs/models/errors/templatemovetemplatetoteamresponsebody.md
+  - docs/models/errors/templatemovetemplatetoteamtemplatesissues.md
+  - docs/models/errors/templatemovetemplatetoteamtemplatesresponsebody.md
+  - docs/models/errors/templatetoggletemplatedirectlinkissues.md
+  - docs/models/errors/templatetoggletemplatedirectlinkresponsebody.md
+  - docs/models/errors/templatetoggletemplatedirectlinktemplatesdirectlinkissues.md
+  - docs/models/errors/templatetoggletemplatedirectlinktemplatesdirectlinkresponsebody.md
+  - docs/models/errors/templateupdatetemplateissues.md
+  - docs/models/errors/templateupdatetemplateresponsebody.md
+  - docs/models/errors/templateupdatetemplatetemplatesissues.md
+  - docs/models/errors/templateupdatetemplatetemplatesresponsebody.md
   - docs/models/operations/accessauth.md
   - docs/models/operations/actionauth.md
   - docs/models/operations/authoptions.md
@@ -1411,12 +1593,52 @@ generatedFiles:
   - src/models/components/index.ts
   - src/models/components/security.ts
   - src/models/errors/apierror.ts
-  - src/models/errors/errorbadrequest.ts
-  - src/models/errors/errorinternalservererror.ts
-  - src/models/errors/errornotfound.ts
+  - src/models/errors/documentcreatedocumenttemporary.ts
+  - src/models/errors/documentdeletedocument.ts
+  - src/models/errors/documentduplicatedocument.ts
+  - src/models/errors/documentfinddocuments.ts
+  - src/models/errors/documentgetdocumentwithdetailsbyid.ts
+  - src/models/errors/documentmovedocumenttoteam.ts
+  - src/models/errors/documentresenddocument.ts
+  - src/models/errors/documentsenddocument.ts
+  - src/models/errors/documentsetsettingsfordocument.ts
+  - src/models/errors/fieldcreatedocumentfield.ts
+  - src/models/errors/fieldcreatedocumentfields.ts
+  - src/models/errors/fieldcreatetemplatefield.ts
+  - src/models/errors/fieldcreatetemplatefields.ts
+  - src/models/errors/fielddeletedocumentfield.ts
+  - src/models/errors/fielddeletetemplatefield.ts
+  - src/models/errors/fieldgetdocumentfield.ts
+  - src/models/errors/fieldgettemplatefield.ts
+  - src/models/errors/fieldupdatedocumentfield.ts
+  - src/models/errors/fieldupdatedocumentfields.ts
+  - src/models/errors/fieldupdatetemplatefield.ts
+  - src/models/errors/fieldupdatetemplatefields.ts
   - src/models/errors/httpclienterrors.ts
   - src/models/errors/index.ts
+  - src/models/errors/recipientcreatedocumentrecipient.ts
+  - src/models/errors/recipientcreatedocumentrecipients.ts
+  - src/models/errors/recipientcreatetemplaterecipient.ts
+  - src/models/errors/recipientcreatetemplaterecipients.ts
+  - src/models/errors/recipientdeletedocumentrecipient.ts
+  - src/models/errors/recipientdeletetemplaterecipient.ts
+  - src/models/errors/recipientgetdocumentrecipient.ts
+  - src/models/errors/recipientgettemplaterecipient.ts
+  - src/models/errors/recipientupdatedocumentrecipient.ts
+  - src/models/errors/recipientupdatedocumentrecipients.ts
+  - src/models/errors/recipientupdatetemplaterecipient.ts
+  - src/models/errors/recipientupdatetemplaterecipients.ts
   - src/models/errors/sdkvalidationerror.ts
+  - src/models/errors/templatecreatedocumentfromtemplate.ts
+  - src/models/errors/templatecreatetemplatedirectlink.ts
+  - src/models/errors/templatedeletetemplate.ts
+  - src/models/errors/templatedeletetemplatedirectlink.ts
+  - src/models/errors/templateduplicatetemplate.ts
+  - src/models/errors/templatefindtemplates.ts
+  - src/models/errors/templategettemplatebyid.ts
+  - src/models/errors/templatemovetemplatetoteam.ts
+  - src/models/errors/templatetoggletemplatedirectlink.ts
+  - src/models/errors/templateupdatetemplate.ts
   - src/models/operations/documentcreatedocumenttemporary.ts
   - src/models/operations/documentdeletedocument.ts
   - src/models/operations/documentduplicatedocument.ts

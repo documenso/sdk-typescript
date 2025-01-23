@@ -36,9 +36,9 @@ export async function documentsFind(
 ): Promise<
   Result<
     operations.DocumentFindDocumentsResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.ErrorNOTFOUND
-    | errors.Errorinternalservererror
+    | errors.DocumentFindDocumentsResponseBody
+    | errors.DocumentFindDocumentsDocumentsResponseBody
+    | errors.DocumentFindDocumentsDocumentsResponseResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -126,9 +126,9 @@ export async function documentsFind(
 
   const [result] = await M.match<
     operations.DocumentFindDocumentsResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.ErrorNOTFOUND
-    | errors.Errorinternalservererror
+    | errors.DocumentFindDocumentsResponseBody
+    | errors.DocumentFindDocumentsDocumentsResponseBody
+    | errors.DocumentFindDocumentsDocumentsResponseResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -138,9 +138,15 @@ export async function documentsFind(
     | ConnectionError
   >(
     M.json(200, operations.DocumentFindDocumentsResponseBody$inboundSchema),
-    M.jsonErr(400, errors.ErrorBADREQUEST$inboundSchema),
-    M.jsonErr(404, errors.ErrorNOTFOUND$inboundSchema),
-    M.jsonErr(500, errors.Errorinternalservererror$inboundSchema),
+    M.jsonErr(400, errors.DocumentFindDocumentsResponseBody$inboundSchema),
+    M.jsonErr(
+      404,
+      errors.DocumentFindDocumentsDocumentsResponseBody$inboundSchema,
+    ),
+    M.jsonErr(
+      500,
+      errors.DocumentFindDocumentsDocumentsResponseResponseBody$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });

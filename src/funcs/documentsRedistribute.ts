@@ -36,8 +36,8 @@ export async function documentsRedistribute(
 ): Promise<
   Result<
     operations.DocumentResendDocumentResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.DocumentResendDocumentResponseBody
+    | errors.DocumentResendDocumentDocumentsResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -114,8 +114,8 @@ export async function documentsRedistribute(
 
   const [result] = await M.match<
     operations.DocumentResendDocumentResponseBody,
-    | errors.ErrorBADREQUEST
-    | errors.Errorinternalservererror
+    | errors.DocumentResendDocumentResponseBody
+    | errors.DocumentResendDocumentDocumentsResponseBody
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -125,8 +125,11 @@ export async function documentsRedistribute(
     | ConnectionError
   >(
     M.json(200, operations.DocumentResendDocumentResponseBody$inboundSchema),
-    M.jsonErr(400, errors.ErrorBADREQUEST$inboundSchema),
-    M.jsonErr(500, errors.Errorinternalservererror$inboundSchema),
+    M.jsonErr(400, errors.DocumentResendDocumentResponseBody$inboundSchema),
+    M.jsonErr(
+      500,
+      errors.DocumentResendDocumentDocumentsResponseBody$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
