@@ -24,9 +24,9 @@ The full Documenso API can be viewed here (**todo**), which includes TypeScript 
 
 Documenso v2 API and SDKs are currently in beta. There may be to breaking changes.
 
-To keep updated, please follow the discussions and issues here:
-- Discussion -> Todo
-- Breaking change alerts -> Todo
+To keep updated, please follow the discussions here:
+- [Feedback](https://github.com/documenso/documenso/discussions/1611)
+- [Breaking change alerts](https://github.com/documenso/documenso/discussions/1612)
 
 <!-- No Summary [summary] -->
 
