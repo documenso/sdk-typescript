@@ -18,7 +18,7 @@ This SDK offers a strongly-typed interface to interact with Documenso's API, ena
 - Leverage autocomplete in your IDE
 - Catch potential errors at compile time
 
-The full Documenso API can be viewed here (**todo**), which includes TypeScript examples.
+The full Documenso API can be viewed [here](https://openapi.documenso.com/), which includes TypeScript examples.
 
 ## ⚠️ Warning
 
