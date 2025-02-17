@@ -40,6 +40,7 @@ To keep updated, please follow the discussions here:
   * [Available Resources and Operations](#available-resources-and-operations)
   * [Retries](#retries)
   * [Error Handling](#error-handling)
+  * [Server Selection](#server-selection)
   * [Debugging](#debugging)
 * [Development](#development)
   * [Maturity](#maturity)
@@ -436,7 +437,34 @@ In some rare cases, the SDK can fail to get a response from the server or even m
 | UnexpectedClientError                                | Unrecognised or unexpected error                     |
 <!-- End Error Handling [errors] -->
 
-<!-- No Server Selection [server] -->
+<!-- Start Server Selection [server] -->
+## Server Selection
+
+### Override Server URL Per-Client
+
+The default server can also be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
+
+```typescript
+import { Documenso } from "@documenso/sdk-typescript";
+
+const documenso = new Documenso({
+  serverURL: "https://app.documenso.com/api/v2-beta",
+  apiKey: process.env["DOCUMENSO_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await documenso.documents.find({
+    orderByDirection: "desc",
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+<!-- End Server Selection [server] -->
+
 <!-- No Custom HTTP Client [http-client] -->
 
 <!-- Start Debugging [debug] -->
