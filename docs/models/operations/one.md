@@ -7,11 +7,11 @@ import { One } from "@documenso/sdk-typescript/models/operations";
 
 let value: One = {
   type: "SIGNATURE",
-  pageNumber: 4561.41,
-  pageX: 6832.82,
-  pageY: 6956.26,
-  width: 2835.19,
-  height: 3799.27,
+  pageNumber: 3738.13,
+  pageX: 5876,
+  pageY: 2728.22,
+  width: 3708.53,
+  height: 1970.54,
 };
 ```
 

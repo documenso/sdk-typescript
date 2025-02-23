@@ -52,6 +52,7 @@ export const Role = {
   Signer: "SIGNER",
   Viewer: "VIEWER",
   Approver: "APPROVER",
+  Assistant: "ASSISTANT",
 } as const;
 export type Role = ClosedEnum<typeof Role>;
 
@@ -288,6 +289,17 @@ export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyReci
     typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8FieldMetaType
   >;
 
+export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyTextAlign =
+  {
+    Left: "left",
+    Center: "center",
+    Right: "right",
+  } as const;
+export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyTextAlign =
+  ClosedEnum<
+    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyTextAlign
+  >;
+
 export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMeta =
   {
     label?: string | undefined;
@@ -301,6 +313,9 @@ export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFiel
     minValue?: number | undefined;
     maxValue?: number | undefined;
     fontSize?: number | undefined;
+    textAlign?:
+      | DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyTextAlign
+      | undefined;
   };
 
 export type Eight = {
@@ -349,6 +364,16 @@ export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyReci
     typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7FieldMetaType
   >;
 
+export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestTextAlign = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestTextAlign =
+  ClosedEnum<
+    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestTextAlign
+  >;
+
 export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -359,6 +384,9 @@ export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta = {
   text?: string | undefined;
   characterLimit?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?:
+    | DocumentCreateDocumentTemporaryFieldsDocumentsRequestTextAlign
+    | undefined;
 };
 
 export type Seven = {
@@ -407,6 +435,14 @@ export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyReci
     typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6FieldMetaType
   >;
 
+export const DocumentCreateDocumentTemporaryFieldsDocumentsTextAlign = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type DocumentCreateDocumentTemporaryFieldsDocumentsTextAlign =
+  ClosedEnum<typeof DocumentCreateDocumentTemporaryFieldsDocumentsTextAlign>;
+
 export type DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -415,6 +451,9 @@ export type DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta = {
   type:
     DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6FieldMetaType;
   fontSize?: number | undefined;
+  textAlign?:
+    | DocumentCreateDocumentTemporaryFieldsDocumentsTextAlign
+    | undefined;
 };
 
 export type Six = {
@@ -463,6 +502,15 @@ export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyReci
     typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients5Type
   >;
 
+export const DocumentCreateDocumentTemporaryFieldsTextAlign = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type DocumentCreateDocumentTemporaryFieldsTextAlign = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryFieldsTextAlign
+>;
+
 export type DocumentCreateDocumentTemporaryFieldsFieldMeta = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -471,6 +519,7 @@ export type DocumentCreateDocumentTemporaryFieldsFieldMeta = {
   type:
     DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients5Type;
   fontSize?: number | undefined;
+  textAlign?: DocumentCreateDocumentTemporaryFieldsTextAlign | undefined;
 };
 
 export type Five = {
@@ -514,6 +563,13 @@ export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyType
     typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyType
   >;
 
+export const FieldsTextAlign = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type FieldsTextAlign = ClosedEnum<typeof FieldsTextAlign>;
+
 export type FieldsFieldMeta = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -521,6 +577,7 @@ export type FieldsFieldMeta = {
   readOnly?: boolean | undefined;
   type: DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyType;
   fontSize?: number | undefined;
+  textAlign?: FieldsTextAlign | undefined;
 };
 
 export type Four = {
@@ -562,6 +619,13 @@ export type DocumentCreateDocumentTemporaryFieldsDocumentsType = ClosedEnum<
   typeof DocumentCreateDocumentTemporaryFieldsDocumentsType
 >;
 
+export const TextAlign = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type TextAlign = ClosedEnum<typeof TextAlign>;
+
 export type FieldMeta = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -569,6 +633,7 @@ export type FieldMeta = {
   readOnly?: boolean | undefined;
   type: DocumentCreateDocumentTemporaryFieldsDocumentsType;
   fontSize?: number | undefined;
+  textAlign?: TextAlign | undefined;
 };
 
 export type Three = {
@@ -743,6 +808,8 @@ export const Language = {
   En: "en",
   Fr: "fr",
   Es: "es",
+  It: "it",
+  Pl: "pl",
 } as const;
 /**
  * The language to use for email communications with recipients.
@@ -998,6 +1065,7 @@ export const DocumentCreateDocumentTemporaryRole = {
   Signer: "SIGNER",
   Viewer: "VIEWER",
   Approver: "APPROVER",
+  Assistant: "ASSISTANT",
 } as const;
 export type DocumentCreateDocumentTemporaryRole = ClosedEnum<
   typeof DocumentCreateDocumentTemporaryRole
@@ -1196,6 +1264,17 @@ export type DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200Applicat
     typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType
   >;
 
+export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign =
+  {
+    Left: "left",
+    Center: "center",
+    Right: "right",
+  } as const;
+export type DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign =
+  ClosedEnum<
+    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign
+  >;
+
 export type DocumentCreateDocumentTemporaryFieldMeta6 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -1208,6 +1287,9 @@ export type DocumentCreateDocumentTemporaryFieldMeta6 = {
   minValue?: number | undefined;
   maxValue?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?:
+    | DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign
+    | undefined;
 };
 
 export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONType =
@@ -1217,6 +1299,17 @@ export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200Applica
 export type DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONType =
   ClosedEnum<
     typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONType
+  >;
+
+export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONTextAlign =
+  {
+    Left: "left",
+    Center: "center",
+    Right: "right",
+  } as const;
+export type DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONTextAlign =
+  ClosedEnum<
+    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONTextAlign
   >;
 
 export type DocumentCreateDocumentTemporaryFieldMeta5 = {
@@ -1229,6 +1322,9 @@ export type DocumentCreateDocumentTemporaryFieldMeta5 = {
   text?: string | undefined;
   characterLimit?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?:
+    | DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONTextAlign
+    | undefined;
 };
 
 export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200Type =
@@ -1240,6 +1336,17 @@ export type DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200Type =
     typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200Type
   >;
 
+export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200TextAlign =
+  {
+    Left: "left",
+    Center: "center",
+    Right: "right",
+  } as const;
+export type DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200TextAlign =
+  ClosedEnum<
+    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200TextAlign
+  >;
+
 export type DocumentCreateDocumentTemporaryFieldMeta4 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -1247,6 +1354,9 @@ export type DocumentCreateDocumentTemporaryFieldMeta4 = {
   readOnly?: boolean | undefined;
   type: DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200Type;
   fontSize?: number | undefined;
+  textAlign?:
+    | DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200TextAlign
+    | undefined;
 };
 
 export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseType = {
@@ -1257,6 +1367,17 @@ export type DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseType =
     typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseType
   >;
 
+export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseTextAlign =
+  {
+    Left: "left",
+    Center: "center",
+    Right: "right",
+  } as const;
+export type DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseTextAlign =
+  ClosedEnum<
+    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseTextAlign
+  >;
+
 export type DocumentCreateDocumentTemporaryFieldMeta3 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -1264,6 +1385,9 @@ export type DocumentCreateDocumentTemporaryFieldMeta3 = {
   readOnly?: boolean | undefined;
   type: DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseType;
   fontSize?: number | undefined;
+  textAlign?:
+    | DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseTextAlign
+    | undefined;
 };
 
 export const DocumentCreateDocumentTemporaryFieldMetaDocumentsType = {
@@ -1273,6 +1397,14 @@ export type DocumentCreateDocumentTemporaryFieldMetaDocumentsType = ClosedEnum<
   typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsType
 >;
 
+export const DocumentCreateDocumentTemporaryFieldMetaDocumentsTextAlign = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type DocumentCreateDocumentTemporaryFieldMetaDocumentsTextAlign =
+  ClosedEnum<typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsTextAlign>;
+
 export type DocumentCreateDocumentTemporaryFieldMeta2 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -1280,6 +1412,9 @@ export type DocumentCreateDocumentTemporaryFieldMeta2 = {
   readOnly?: boolean | undefined;
   type: DocumentCreateDocumentTemporaryFieldMetaDocumentsType;
   fontSize?: number | undefined;
+  textAlign?:
+    | DocumentCreateDocumentTemporaryFieldMetaDocumentsTextAlign
+    | undefined;
 };
 
 export const DocumentCreateDocumentTemporaryFieldMetaType = {
@@ -1289,6 +1424,15 @@ export type DocumentCreateDocumentTemporaryFieldMetaType = ClosedEnum<
   typeof DocumentCreateDocumentTemporaryFieldMetaType
 >;
 
+export const DocumentCreateDocumentTemporaryFieldMetaTextAlign = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type DocumentCreateDocumentTemporaryFieldMetaTextAlign = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryFieldMetaTextAlign
+>;
+
 export type DocumentCreateDocumentTemporaryFieldMeta1 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -1296,17 +1440,18 @@ export type DocumentCreateDocumentTemporaryFieldMeta1 = {
   readOnly?: boolean | undefined;
   type: DocumentCreateDocumentTemporaryFieldMetaType;
   fontSize?: number | undefined;
+  textAlign?: DocumentCreateDocumentTemporaryFieldMetaTextAlign | undefined;
 };
 
 export type DocumentCreateDocumentTemporaryFieldMeta =
+  | DocumentCreateDocumentTemporaryFieldMeta7
   | DocumentCreateDocumentTemporaryFieldMeta1
   | DocumentCreateDocumentTemporaryFieldMeta2
   | DocumentCreateDocumentTemporaryFieldMeta3
   | DocumentCreateDocumentTemporaryFieldMeta4
-  | DocumentCreateDocumentTemporaryFieldMeta7
   | DocumentCreateDocumentTemporaryFieldMeta9
-  | DocumentCreateDocumentTemporaryFieldMeta5
   | DocumentCreateDocumentTemporaryFieldMeta8
+  | DocumentCreateDocumentTemporaryFieldMeta5
   | DocumentCreateDocumentTemporaryFieldMeta6;
 
 export type DocumentCreateDocumentTemporaryFields = {
@@ -1327,14 +1472,14 @@ export type DocumentCreateDocumentTemporaryFields = {
   customText: string;
   inserted: boolean;
   fieldMeta:
+    | DocumentCreateDocumentTemporaryFieldMeta7
     | DocumentCreateDocumentTemporaryFieldMeta1
     | DocumentCreateDocumentTemporaryFieldMeta2
     | DocumentCreateDocumentTemporaryFieldMeta3
     | DocumentCreateDocumentTemporaryFieldMeta4
-    | DocumentCreateDocumentTemporaryFieldMeta7
     | DocumentCreateDocumentTemporaryFieldMeta9
-    | DocumentCreateDocumentTemporaryFieldMeta5
     | DocumentCreateDocumentTemporaryFieldMeta8
+    | DocumentCreateDocumentTemporaryFieldMeta5
     | DocumentCreateDocumentTemporaryFieldMeta6
     | null;
 };
@@ -2429,6 +2574,34 @@ export namespace DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBod
 }
 
 /** @internal */
+export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyTextAlign
+  > = z.nativeEnum(
+    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyTextAlign,
+  );
+
+/** @internal */
+export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyTextAlign
+  > =
+    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyTextAlign$ {
+  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyTextAlign$inboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMeta$inboundSchema:
   z.ZodType<
     DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMeta,
@@ -2446,6 +2619,9 @@ export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFie
     minValue: z.number().optional(),
     maxValue: z.number().optional(),
     fontSize: z.number().optional(),
+    textAlign:
+      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyTextAlign$inboundSchema
+        .optional(),
   });
 
 /** @internal */
@@ -2461,6 +2637,7 @@ export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFiel
     minValue?: number | undefined;
     maxValue?: number | undefined;
     fontSize?: number | undefined;
+    textAlign?: string | undefined;
   };
 
 /** @internal */
@@ -2481,6 +2658,9 @@ export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFie
     minValue: z.number().optional(),
     maxValue: z.number().optional(),
     fontSize: z.number().optional(),
+    textAlign:
+      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyTextAlign$outboundSchema
+        .optional(),
   });
 
 /**
@@ -2656,6 +2836,34 @@ export namespace DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBod
 }
 
 /** @internal */
+export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestTextAlign
+  > = z.nativeEnum(
+    DocumentCreateDocumentTemporaryFieldsDocumentsRequestTextAlign,
+  );
+
+/** @internal */
+export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestTextAlign
+  > =
+    DocumentCreateDocumentTemporaryFieldsDocumentsRequestTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentCreateDocumentTemporaryFieldsDocumentsRequestTextAlign$ {
+  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentCreateDocumentTemporaryFieldsDocumentsRequestTextAlign$inboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentCreateDocumentTemporaryFieldsDocumentsRequestTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta$inboundSchema:
   z.ZodType<
     DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta,
@@ -2671,6 +2879,9 @@ export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta$inbo
     text: z.string().optional(),
     characterLimit: z.number().optional(),
     fontSize: z.number().optional(),
+    textAlign:
+      DocumentCreateDocumentTemporaryFieldsDocumentsRequestTextAlign$inboundSchema
+        .optional(),
   });
 
 /** @internal */
@@ -2684,6 +2895,7 @@ export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta$Outbo
     text?: string | undefined;
     characterLimit?: number | undefined;
     fontSize?: number | undefined;
+    textAlign?: string | undefined;
   };
 
 /** @internal */
@@ -2702,6 +2914,9 @@ export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta$outb
     text: z.string().optional(),
     characterLimit: z.number().optional(),
     fontSize: z.number().optional(),
+    textAlign:
+      DocumentCreateDocumentTemporaryFieldsDocumentsRequestTextAlign$outboundSchema
+        .optional(),
   });
 
 /**
@@ -2875,6 +3090,31 @@ export namespace DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBod
 }
 
 /** @internal */
+export const DocumentCreateDocumentTemporaryFieldsDocumentsTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentCreateDocumentTemporaryFieldsDocumentsTextAlign
+  > = z.nativeEnum(DocumentCreateDocumentTemporaryFieldsDocumentsTextAlign);
+
+/** @internal */
+export const DocumentCreateDocumentTemporaryFieldsDocumentsTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentCreateDocumentTemporaryFieldsDocumentsTextAlign
+  > = DocumentCreateDocumentTemporaryFieldsDocumentsTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentCreateDocumentTemporaryFieldsDocumentsTextAlign$ {
+  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentCreateDocumentTemporaryFieldsDocumentsTextAlign$inboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentCreateDocumentTemporaryFieldsDocumentsTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta$inboundSchema:
   z.ZodType<
     DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta,
@@ -2888,6 +3128,9 @@ export const DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta$inboundSche
     type:
       DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6FieldMetaType$inboundSchema,
     fontSize: z.number().optional(),
+    textAlign:
+      DocumentCreateDocumentTemporaryFieldsDocumentsTextAlign$inboundSchema
+        .optional(),
   });
 
 /** @internal */
@@ -2898,6 +3141,7 @@ export type DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -2914,6 +3158,9 @@ export const DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta$outboundSch
     type:
       DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6FieldMetaType$outboundSchema,
     fontSize: z.number().optional(),
+    textAlign:
+      DocumentCreateDocumentTemporaryFieldsDocumentsTextAlign$outboundSchema
+        .optional(),
   });
 
 /**
@@ -3084,6 +3331,29 @@ export namespace DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBod
 }
 
 /** @internal */
+export const DocumentCreateDocumentTemporaryFieldsTextAlign$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryFieldsTextAlign> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryFieldsTextAlign);
+
+/** @internal */
+export const DocumentCreateDocumentTemporaryFieldsTextAlign$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryFieldsTextAlign> =
+    DocumentCreateDocumentTemporaryFieldsTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentCreateDocumentTemporaryFieldsTextAlign$ {
+  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentCreateDocumentTemporaryFieldsTextAlign$inboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentCreateDocumentTemporaryFieldsTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const DocumentCreateDocumentTemporaryFieldsFieldMeta$inboundSchema:
   z.ZodType<
     DocumentCreateDocumentTemporaryFieldsFieldMeta,
@@ -3097,6 +3367,8 @@ export const DocumentCreateDocumentTemporaryFieldsFieldMeta$inboundSchema:
     type:
       DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients5Type$inboundSchema,
     fontSize: z.number().optional(),
+    textAlign: DocumentCreateDocumentTemporaryFieldsTextAlign$inboundSchema
+      .optional(),
   });
 
 /** @internal */
@@ -3107,6 +3379,7 @@ export type DocumentCreateDocumentTemporaryFieldsFieldMeta$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -3123,6 +3396,8 @@ export const DocumentCreateDocumentTemporaryFieldsFieldMeta$outboundSchema:
     type:
       DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients5Type$outboundSchema,
     fontSize: z.number().optional(),
+    textAlign: DocumentCreateDocumentTemporaryFieldsTextAlign$outboundSchema
+      .optional(),
   });
 
 /**
@@ -3292,6 +3567,27 @@ export namespace DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBod
 }
 
 /** @internal */
+export const FieldsTextAlign$inboundSchema: z.ZodNativeEnum<
+  typeof FieldsTextAlign
+> = z.nativeEnum(FieldsTextAlign);
+
+/** @internal */
+export const FieldsTextAlign$outboundSchema: z.ZodNativeEnum<
+  typeof FieldsTextAlign
+> = FieldsTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldsTextAlign$ {
+  /** @deprecated use `FieldsTextAlign$inboundSchema` instead. */
+  export const inboundSchema = FieldsTextAlign$inboundSchema;
+  /** @deprecated use `FieldsTextAlign$outboundSchema` instead. */
+  export const outboundSchema = FieldsTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const FieldsFieldMeta$inboundSchema: z.ZodType<
   FieldsFieldMeta,
   z.ZodTypeDef,
@@ -3304,6 +3600,7 @@ export const FieldsFieldMeta$inboundSchema: z.ZodType<
   type:
     DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyType$inboundSchema,
   fontSize: z.number().optional(),
+  textAlign: FieldsTextAlign$inboundSchema.optional(),
 });
 
 /** @internal */
@@ -3314,6 +3611,7 @@ export type FieldsFieldMeta$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -3329,6 +3627,7 @@ export const FieldsFieldMeta$outboundSchema: z.ZodType<
   type:
     DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyType$outboundSchema,
   fontSize: z.number().optional(),
+  textAlign: FieldsTextAlign$outboundSchema.optional(),
 });
 
 /**
@@ -3471,6 +3770,25 @@ export namespace DocumentCreateDocumentTemporaryFieldsDocumentsType$ {
 }
 
 /** @internal */
+export const TextAlign$inboundSchema: z.ZodNativeEnum<typeof TextAlign> = z
+  .nativeEnum(TextAlign);
+
+/** @internal */
+export const TextAlign$outboundSchema: z.ZodNativeEnum<typeof TextAlign> =
+  TextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TextAlign$ {
+  /** @deprecated use `TextAlign$inboundSchema` instead. */
+  export const inboundSchema = TextAlign$inboundSchema;
+  /** @deprecated use `TextAlign$outboundSchema` instead. */
+  export const outboundSchema = TextAlign$outboundSchema;
+}
+
+/** @internal */
 export const FieldMeta$inboundSchema: z.ZodType<
   FieldMeta,
   z.ZodTypeDef,
@@ -3482,6 +3800,7 @@ export const FieldMeta$inboundSchema: z.ZodType<
   readOnly: z.boolean().optional(),
   type: DocumentCreateDocumentTemporaryFieldsDocumentsType$inboundSchema,
   fontSize: z.number().optional(),
+  textAlign: TextAlign$inboundSchema.optional(),
 });
 
 /** @internal */
@@ -3492,6 +3811,7 @@ export type FieldMeta$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -3506,6 +3826,7 @@ export const FieldMeta$outboundSchema: z.ZodType<
   readOnly: z.boolean().optional(),
   type: DocumentCreateDocumentTemporaryFieldsDocumentsType$outboundSchema,
   fontSize: z.number().optional(),
+  textAlign: TextAlign$outboundSchema.optional(),
 });
 
 /**
@@ -5816,6 +6137,34 @@ export namespace DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200App
 }
 
 /** @internal */
+export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign
+  > = z.nativeEnum(
+    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign,
+  );
+
+/** @internal */
+export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign
+  > =
+    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign$ {
+  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const DocumentCreateDocumentTemporaryFieldMeta6$inboundSchema: z.ZodType<
   DocumentCreateDocumentTemporaryFieldMeta6,
   z.ZodTypeDef,
@@ -5832,6 +6181,9 @@ export const DocumentCreateDocumentTemporaryFieldMeta6$inboundSchema: z.ZodType<
   minValue: z.number().optional(),
   maxValue: z.number().optional(),
   fontSize: z.number().optional(),
+  textAlign:
+    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema
+      .optional(),
 });
 
 /** @internal */
@@ -5846,6 +6198,7 @@ export type DocumentCreateDocumentTemporaryFieldMeta6$Outbound = {
   minValue?: number | undefined;
   maxValue?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -5866,6 +6219,9 @@ export const DocumentCreateDocumentTemporaryFieldMeta6$outboundSchema:
     minValue: z.number().optional(),
     maxValue: z.number().optional(),
     fontSize: z.number().optional(),
+    textAlign:
+      DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign$outboundSchema
+        .optional(),
   });
 
 /**
@@ -5939,6 +6295,34 @@ export namespace DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200App
 }
 
 /** @internal */
+export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONTextAlign
+  > = z.nativeEnum(
+    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONTextAlign,
+  );
+
+/** @internal */
+export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONTextAlign
+  > =
+    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONTextAlign$ {
+  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONTextAlign$inboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const DocumentCreateDocumentTemporaryFieldMeta5$inboundSchema: z.ZodType<
   DocumentCreateDocumentTemporaryFieldMeta5,
   z.ZodTypeDef,
@@ -5953,6 +6337,9 @@ export const DocumentCreateDocumentTemporaryFieldMeta5$inboundSchema: z.ZodType<
   text: z.string().optional(),
   characterLimit: z.number().optional(),
   fontSize: z.number().optional(),
+  textAlign:
+    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONTextAlign$inboundSchema
+      .optional(),
 });
 
 /** @internal */
@@ -5965,6 +6352,7 @@ export type DocumentCreateDocumentTemporaryFieldMeta5$Outbound = {
   text?: string | undefined;
   characterLimit?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -5983,6 +6371,9 @@ export const DocumentCreateDocumentTemporaryFieldMeta5$outboundSchema:
     text: z.string().optional(),
     characterLimit: z.number().optional(),
     fontSize: z.number().optional(),
+    textAlign:
+      DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONTextAlign$outboundSchema
+        .optional(),
   });
 
 /**
@@ -6056,6 +6447,34 @@ export namespace DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200Typ
 }
 
 /** @internal */
+export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200TextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200TextAlign
+  > = z.nativeEnum(
+    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200TextAlign,
+  );
+
+/** @internal */
+export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200TextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200TextAlign
+  > =
+    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200TextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200TextAlign$ {
+  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200TextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200TextAlign$inboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200TextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200TextAlign$outboundSchema;
+}
+
+/** @internal */
 export const DocumentCreateDocumentTemporaryFieldMeta4$inboundSchema: z.ZodType<
   DocumentCreateDocumentTemporaryFieldMeta4,
   z.ZodTypeDef,
@@ -6068,6 +6487,9 @@ export const DocumentCreateDocumentTemporaryFieldMeta4$inboundSchema: z.ZodType<
   type:
     DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200Type$inboundSchema,
   fontSize: z.number().optional(),
+  textAlign:
+    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200TextAlign$inboundSchema
+      .optional(),
 });
 
 /** @internal */
@@ -6078,6 +6500,7 @@ export type DocumentCreateDocumentTemporaryFieldMeta4$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -6094,6 +6517,9 @@ export const DocumentCreateDocumentTemporaryFieldMeta4$outboundSchema:
     type:
       DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200Type$outboundSchema,
     fontSize: z.number().optional(),
+    textAlign:
+      DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200TextAlign$outboundSchema
+        .optional(),
   });
 
 /**
@@ -6167,6 +6593,34 @@ export namespace DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseType$ 
 }
 
 /** @internal */
+export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseTextAlign
+  > = z.nativeEnum(
+    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseTextAlign,
+  );
+
+/** @internal */
+export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseTextAlign
+  > =
+    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseTextAlign$ {
+  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseTextAlign$inboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const DocumentCreateDocumentTemporaryFieldMeta3$inboundSchema: z.ZodType<
   DocumentCreateDocumentTemporaryFieldMeta3,
   z.ZodTypeDef,
@@ -6179,6 +6633,9 @@ export const DocumentCreateDocumentTemporaryFieldMeta3$inboundSchema: z.ZodType<
   type:
     DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseType$inboundSchema,
   fontSize: z.number().optional(),
+  textAlign:
+    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseTextAlign$inboundSchema
+      .optional(),
 });
 
 /** @internal */
@@ -6189,6 +6646,7 @@ export type DocumentCreateDocumentTemporaryFieldMeta3$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -6205,6 +6663,9 @@ export const DocumentCreateDocumentTemporaryFieldMeta3$outboundSchema:
     type:
       DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseType$outboundSchema,
     fontSize: z.number().optional(),
+    textAlign:
+      DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseTextAlign$outboundSchema
+        .optional(),
   });
 
 /**
@@ -6275,6 +6736,31 @@ export namespace DocumentCreateDocumentTemporaryFieldMetaDocumentsType$ {
 }
 
 /** @internal */
+export const DocumentCreateDocumentTemporaryFieldMetaDocumentsTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsTextAlign
+  > = z.nativeEnum(DocumentCreateDocumentTemporaryFieldMetaDocumentsTextAlign);
+
+/** @internal */
+export const DocumentCreateDocumentTemporaryFieldMetaDocumentsTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsTextAlign
+  > = DocumentCreateDocumentTemporaryFieldMetaDocumentsTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentCreateDocumentTemporaryFieldMetaDocumentsTextAlign$ {
+  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentCreateDocumentTemporaryFieldMetaDocumentsTextAlign$inboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentCreateDocumentTemporaryFieldMetaDocumentsTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const DocumentCreateDocumentTemporaryFieldMeta2$inboundSchema: z.ZodType<
   DocumentCreateDocumentTemporaryFieldMeta2,
   z.ZodTypeDef,
@@ -6286,6 +6772,9 @@ export const DocumentCreateDocumentTemporaryFieldMeta2$inboundSchema: z.ZodType<
   readOnly: z.boolean().optional(),
   type: DocumentCreateDocumentTemporaryFieldMetaDocumentsType$inboundSchema,
   fontSize: z.number().optional(),
+  textAlign:
+    DocumentCreateDocumentTemporaryFieldMetaDocumentsTextAlign$inboundSchema
+      .optional(),
 });
 
 /** @internal */
@@ -6296,6 +6785,7 @@ export type DocumentCreateDocumentTemporaryFieldMeta2$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -6311,6 +6801,9 @@ export const DocumentCreateDocumentTemporaryFieldMeta2$outboundSchema:
     readOnly: z.boolean().optional(),
     type: DocumentCreateDocumentTemporaryFieldMetaDocumentsType$outboundSchema,
     fontSize: z.number().optional(),
+    textAlign:
+      DocumentCreateDocumentTemporaryFieldMetaDocumentsTextAlign$outboundSchema
+        .optional(),
   });
 
 /**
@@ -6379,6 +6872,29 @@ export namespace DocumentCreateDocumentTemporaryFieldMetaType$ {
 }
 
 /** @internal */
+export const DocumentCreateDocumentTemporaryFieldMetaTextAlign$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryFieldMetaTextAlign> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryFieldMetaTextAlign);
+
+/** @internal */
+export const DocumentCreateDocumentTemporaryFieldMetaTextAlign$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryFieldMetaTextAlign> =
+    DocumentCreateDocumentTemporaryFieldMetaTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentCreateDocumentTemporaryFieldMetaTextAlign$ {
+  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentCreateDocumentTemporaryFieldMetaTextAlign$inboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentCreateDocumentTemporaryFieldMetaTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const DocumentCreateDocumentTemporaryFieldMeta1$inboundSchema: z.ZodType<
   DocumentCreateDocumentTemporaryFieldMeta1,
   z.ZodTypeDef,
@@ -6390,6 +6906,8 @@ export const DocumentCreateDocumentTemporaryFieldMeta1$inboundSchema: z.ZodType<
   readOnly: z.boolean().optional(),
   type: DocumentCreateDocumentTemporaryFieldMetaType$inboundSchema,
   fontSize: z.number().optional(),
+  textAlign: DocumentCreateDocumentTemporaryFieldMetaTextAlign$inboundSchema
+    .optional(),
 });
 
 /** @internal */
@@ -6400,6 +6918,7 @@ export type DocumentCreateDocumentTemporaryFieldMeta1$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -6415,6 +6934,8 @@ export const DocumentCreateDocumentTemporaryFieldMeta1$outboundSchema:
     readOnly: z.boolean().optional(),
     type: DocumentCreateDocumentTemporaryFieldMetaType$outboundSchema,
     fontSize: z.number().optional(),
+    textAlign: DocumentCreateDocumentTemporaryFieldMetaTextAlign$outboundSchema
+      .optional(),
   });
 
 /**
@@ -6465,27 +6986,27 @@ export const DocumentCreateDocumentTemporaryFieldMeta$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
+  z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta7$inboundSchema),
   z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta1$inboundSchema),
   z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta2$inboundSchema),
   z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta3$inboundSchema),
   z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta4$inboundSchema),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta7$inboundSchema),
   z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta9$inboundSchema),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta5$inboundSchema),
   z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta8$inboundSchema),
+  z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta5$inboundSchema),
   z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta6$inboundSchema),
 ]);
 
 /** @internal */
 export type DocumentCreateDocumentTemporaryFieldMeta$Outbound =
+  | DocumentCreateDocumentTemporaryFieldMeta7$Outbound
   | DocumentCreateDocumentTemporaryFieldMeta1$Outbound
   | DocumentCreateDocumentTemporaryFieldMeta2$Outbound
   | DocumentCreateDocumentTemporaryFieldMeta3$Outbound
   | DocumentCreateDocumentTemporaryFieldMeta4$Outbound
-  | DocumentCreateDocumentTemporaryFieldMeta7$Outbound
   | DocumentCreateDocumentTemporaryFieldMeta9$Outbound
-  | DocumentCreateDocumentTemporaryFieldMeta5$Outbound
   | DocumentCreateDocumentTemporaryFieldMeta8$Outbound
+  | DocumentCreateDocumentTemporaryFieldMeta5$Outbound
   | DocumentCreateDocumentTemporaryFieldMeta6$Outbound;
 
 /** @internal */
@@ -6494,14 +7015,14 @@ export const DocumentCreateDocumentTemporaryFieldMeta$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentCreateDocumentTemporaryFieldMeta
 > = z.union([
+  z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta7$outboundSchema),
   z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta1$outboundSchema),
   z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta2$outboundSchema),
   z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta3$outboundSchema),
   z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta4$outboundSchema),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta7$outboundSchema),
   z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta9$outboundSchema),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta5$outboundSchema),
   z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta8$outboundSchema),
+  z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta5$outboundSchema),
   z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta6$outboundSchema),
 ]);
 
@@ -6568,14 +7089,14 @@ export const DocumentCreateDocumentTemporaryFields$inboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
+      z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta7$inboundSchema),
       z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta1$inboundSchema),
       z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta2$inboundSchema),
       z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta3$inboundSchema),
       z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta4$inboundSchema),
-      z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta7$inboundSchema),
       z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta9$inboundSchema),
-      z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta5$inboundSchema),
       z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta8$inboundSchema),
+      z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta5$inboundSchema),
       z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta6$inboundSchema),
     ]),
   ),
@@ -6597,14 +7118,14 @@ export type DocumentCreateDocumentTemporaryFields$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
+    | DocumentCreateDocumentTemporaryFieldMeta7$Outbound
     | DocumentCreateDocumentTemporaryFieldMeta1$Outbound
     | DocumentCreateDocumentTemporaryFieldMeta2$Outbound
     | DocumentCreateDocumentTemporaryFieldMeta3$Outbound
     | DocumentCreateDocumentTemporaryFieldMeta4$Outbound
-    | DocumentCreateDocumentTemporaryFieldMeta7$Outbound
     | DocumentCreateDocumentTemporaryFieldMeta9$Outbound
-    | DocumentCreateDocumentTemporaryFieldMeta5$Outbound
     | DocumentCreateDocumentTemporaryFieldMeta8$Outbound
+    | DocumentCreateDocumentTemporaryFieldMeta5$Outbound
     | DocumentCreateDocumentTemporaryFieldMeta6$Outbound
     | null;
 };
@@ -6630,14 +7151,14 @@ export const DocumentCreateDocumentTemporaryFields$outboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
+      z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta7$outboundSchema),
       z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta1$outboundSchema),
       z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta2$outboundSchema),
       z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta3$outboundSchema),
       z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta4$outboundSchema),
-      z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta7$outboundSchema),
       z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta9$outboundSchema),
-      z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta5$outboundSchema),
       z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta8$outboundSchema),
+      z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta5$outboundSchema),
       z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta6$outboundSchema),
     ]),
   ),

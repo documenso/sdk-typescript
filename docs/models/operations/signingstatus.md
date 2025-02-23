@@ -5,7 +5,7 @@
 ```typescript
 import { SigningStatus } from "@documenso/sdk-typescript/models/operations";
 
-let value: SigningStatus = "NOT_SIGNED";
+let value: SigningStatus = "SIGNED";
 ```
 
 ## Values

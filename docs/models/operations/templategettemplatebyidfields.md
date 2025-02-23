@@ -6,17 +6,17 @@
 import { TemplateGetTemplateByIdFields } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateGetTemplateByIdFields = {
-  type: "EMAIL",
-  id: 601277,
+  type: "INITIALS",
+  id: 656839,
   secondaryId: "<id>",
-  documentId: 771931,
-  templateId: 413086,
-  recipientId: 710059,
-  page: 7898.7,
+  documentId: 106495,
+  templateId: 650914,
+  recipientId: 827314,
+  page: 6844.99,
   customText: "<value>",
   inserted: false,
   fieldMeta: {
-    type: "email",
+    type: "date",
   },
 };
 ```

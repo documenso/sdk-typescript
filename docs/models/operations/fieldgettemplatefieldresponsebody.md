@@ -8,17 +8,17 @@ Successful response
 import { FieldGetTemplateFieldResponseBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: FieldGetTemplateFieldResponseBody = {
-  type: "FREE_SIGNATURE",
-  id: 381654,
+  type: "RADIO",
+  id: 83164,
   secondaryId: "<id>",
-  documentId: 885523,
-  templateId: 148038,
-  recipientId: 823990,
-  page: 149.76,
+  documentId: 974775,
+  templateId: 49285,
+  recipientId: 933456,
+  page: 2528.54,
   customText: "<value>",
   inserted: false,
   fieldMeta: {
-    type: "text",
+    type: "radio",
   },
 };
 ```

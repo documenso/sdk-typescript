@@ -7,7 +7,7 @@ import { DocumentCreateDocumentTemporaryAuthOptions } from "@documenso/sdk-types
 
 let value: DocumentCreateDocumentTemporaryAuthOptions = {
   globalAccessAuth: "ACCOUNT",
-  globalActionAuth: "TWO_FACTOR_AUTH",
+  globalActionAuth: "ACCOUNT",
 };
 ```
 

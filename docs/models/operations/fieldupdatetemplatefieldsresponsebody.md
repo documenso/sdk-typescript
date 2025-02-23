@@ -11,16 +11,16 @@ let value: FieldUpdateTemplateFieldsResponseBody = {
   fields: [
     {
       type: "DATE",
-      id: 356007,
+      id: 424553,
       secondaryId: "<id>",
-      documentId: 987435,
-      templateId: 13655,
-      recipientId: 612181,
-      page: 7236.23,
+      documentId: 286464,
+      templateId: 501591,
+      recipientId: 879418,
+      page: 2750.06,
       customText: "<value>",
       inserted: false,
       fieldMeta: {
-        type: "email",
+        type: "text",
       },
     },
   ],

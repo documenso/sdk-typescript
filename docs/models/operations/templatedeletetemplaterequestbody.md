@@ -6,7 +6,7 @@
 import { TemplateDeleteTemplateRequestBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateDeleteTemplateRequestBody = {
-  templateId: 9430.63,
+  templateId: 1095.69,
 };
 ```
 

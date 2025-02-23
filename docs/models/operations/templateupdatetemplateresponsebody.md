@@ -9,19 +9,19 @@ import { TemplateUpdateTemplateResponseBody } from "@documenso/sdk-typescript/mo
 
 let value: TemplateUpdateTemplateResponseBody = {
   type: "PRIVATE",
-  visibility: "ADMIN",
-  id: 898826,
+  visibility: "MANAGER_AND_ABOVE",
+  id: 221490,
   externalId: "<id>",
   title: "<value>",
-  userId: 586717,
-  teamId: 588158,
+  userId: 44252,
+  teamId: 431258,
   authOptions: {
     globalAccessAuth: "ACCOUNT",
-    globalActionAuth: "ACCOUNT",
+    globalActionAuth: "TWO_FACTOR_AUTH",
   },
   templateDocumentDataId: "<id>",
-  createdAt: "1737545202340",
-  updatedAt: "1737516637217",
+  createdAt: "1734861181691",
+  updatedAt: "1740257493248",
   publicTitle: "<value>",
   publicDescription: "<value>",
 };

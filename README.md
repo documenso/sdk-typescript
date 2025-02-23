@@ -79,6 +79,61 @@ yarn add @documenso/sdk-typescript zod
 # Note that Yarn does not install peer dependencies automatically. You will need
 # to install zod as shown above.
 ```
+
+
+
+### Model Context Protocol (MCP) Server
+
+This SDK is also an installable MCP server where the various SDK methods are
+exposed as tools that can be invoked by AI applications.
+
+> Node.js v20 or greater is required to run the MCP server.
+
+<details>
+<summary>Claude installation steps</summary>
+
+Add the following server definition to your `claude_desktop_config.json` file:
+
+```json
+{
+  "mcpServers": {
+    "Documenso": {
+      "command": "npx",
+      "args": ["-y", "--package", "@documenso/sdk-typescript", "--", "mcp", "start"],
+      "env": {
+        "DOCUMENSO_API_KEY": "..."
+      }
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary>Cursor installation steps</summary>
+
+Go to `Cursor Settings > Features > MCP Servers > Add new MCP server` and use the following settings:
+
+| Field   | Value |
+| ------- | ----- |
+| Name    | Documenso |
+| Type    | `command` |
+| Command | `npx -y --package @documenso/sdk-typescript -- mcp start` |
+
+Environment variables needed by the server can be passed using the `--env` flag in the command above. This is a repeatable flag so `--env KEY1=value1 --env KEY2=value2` can be used to pass multiple environment variables. 
+
+The available environment variables are:
+
+- `DOCUMENSO_API_KEY`
+
+</details>
+
+For a full list of server arguments, run:
+
+```sh
+npx -y --package @documenso/sdk-typescript -- mcp start --help
+```
 <!-- End SDK Installation [installation] -->
 
 <!-- Start Requirements [requirements] -->
@@ -295,9 +350,7 @@ const documenso = new Documenso({
 });
 
 async function run() {
-  const result = await documenso.documents.find({
-    orderByDirection: "desc",
-  }, {
+  const result = await documenso.documents.find({}, {
     retries: {
       strategy: "backoff",
       backoff: {
@@ -337,9 +390,7 @@ const documenso = new Documenso({
 });
 
 async function run() {
-  const result = await documenso.documents.find({
-    orderByDirection: "desc",
-  });
+  const result = await documenso.documents.find({});
 
   // Handle the result
   console.log(result);
@@ -380,9 +431,7 @@ const documenso = new Documenso({
 async function run() {
   let result;
   try {
-    result = await documenso.documents.find({
-      orderByDirection: "desc",
-    });
+    result = await documenso.documents.find({});
 
     // Handle the result
     console.log(result);
@@ -442,8 +491,7 @@ In some rare cases, the SDK can fail to get a response from the server or even m
 
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
-
+The default server can be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -453,15 +501,14 @@ const documenso = new Documenso({
 });
 
 async function run() {
-  const result = await documenso.documents.find({
-    orderByDirection: "desc",
-  });
+  const result = await documenso.documents.find({});
 
   // Handle the result
   console.log(result);
 }
 
 run();
+
 ```
 <!-- End Server Selection [server] -->
 

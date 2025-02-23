@@ -8,20 +8,20 @@ Successful response
 import { TemplateMoveTemplateToTeamResponseBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateMoveTemplateToTeamResponseBody = {
-  type: "PRIVATE",
-  visibility: "MANAGER_AND_ABOVE",
-  id: 476801,
+  type: "PUBLIC",
+  visibility: "ADMIN",
+  id: 955065,
   externalId: "<id>",
   title: "<value>",
-  userId: 621883,
-  teamId: 528742,
+  userId: 518926,
+  teamId: 870100,
   authOptions: {
     globalAccessAuth: "ACCOUNT",
     globalActionAuth: "PASSKEY",
   },
   templateDocumentDataId: "<id>",
-  createdAt: "1730005691776",
-  updatedAt: "1737520665789",
+  createdAt: "1719743040106",
+  updatedAt: "1740200600224",
   publicTitle: "<value>",
   publicDescription: "<value>",
 };

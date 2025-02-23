@@ -8,12 +8,12 @@
 ```typescript
 const value: operations.Field1 = {
   type: "SIGNATURE",
-  recipientId: 2476.85,
-  pageNumber: 3182.33,
-  pageX: 8587.78,
-  pageY: 4585.03,
-  width: 4445.87,
-  height: 3361.02,
+  recipientId: 4939.58,
+  pageNumber: 7781.72,
+  pageX: 8442.35,
+  pageY: 1390.72,
+  width: 4269.04,
+  height: 8428.55,
 };
 ```
 
@@ -22,12 +22,12 @@ const value: operations.Field1 = {
 ```typescript
 const value: operations.Field2 = {
   type: "FREE_SIGNATURE",
-  recipientId: 8806.79,
-  pageNumber: 9450.27,
-  pageX: 9918.91,
-  pageY: 3767.41,
-  width: 9661.48,
-  height: 7918.8,
+  recipientId: 8180.34,
+  pageNumber: 1024.13,
+  pageX: 1563.83,
+  pageY: 3041.98,
+  width: 753.59,
+  height: 4246.63,
 };
 ```
 
@@ -36,12 +36,12 @@ const value: operations.Field2 = {
 ```typescript
 const value: operations.Field3 = {
   type: "INITIALS",
-  recipientId: 6756.89,
-  pageNumber: 2448.89,
-  pageX: 2164.57,
-  pageY: 1660.47,
-  width: 9227.57,
-  height: 2940.76,
+  recipientId: 1076.17,
+  pageNumber: 5682.18,
+  pageX: 2465.57,
+  pageY: 5964.33,
+  width: 1175.25,
+  height: 9758.84,
 };
 ```
 
@@ -50,12 +50,12 @@ const value: operations.Field3 = {
 ```typescript
 const value: operations.Field4 = {
   type: "NAME",
-  recipientId: 4530.94,
-  pageNumber: 4939.58,
-  pageX: 7781.72,
-  pageY: 8442.35,
-  width: 1390.72,
-  height: 4269.04,
+  recipientId: 9325.62,
+  pageNumber: 3917.97,
+  pageX: 2421.78,
+  pageY: 2503.98,
+  width: 4833.94,
+  height: 399.92,
 };
 ```
 
@@ -64,12 +64,12 @@ const value: operations.Field4 = {
 ```typescript
 const value: operations.Field5 = {
   type: "EMAIL",
-  recipientId: 8428.55,
-  pageNumber: 8180.34,
-  pageX: 1024.13,
-  pageY: 1563.83,
-  width: 3041.98,
-  height: 753.59,
+  recipientId: 6397.05,
+  pageNumber: 4083.03,
+  pageX: 3774.06,
+  pageY: 8093.65,
+  width: 7090.36,
+  height: 9543.34,
 };
 ```
 
@@ -78,12 +78,12 @@ const value: operations.Field5 = {
 ```typescript
 const value: operations.Field6 = {
   type: "DATE",
-  recipientId: 4246.63,
-  pageNumber: 1076.17,
-  pageX: 5682.18,
-  pageY: 2465.57,
-  width: 5964.33,
-  height: 1175.25,
+  recipientId: 3519.36,
+  pageNumber: 8975.43,
+  pageX: 7699.67,
+  pageY: 3574.25,
+  width: 6216.66,
+  height: 2885.7,
 };
 ```
 
@@ -92,12 +92,12 @@ const value: operations.Field6 = {
 ```typescript
 const value: operations.Field7 = {
   type: "TEXT",
-  recipientId: 9758.84,
-  pageNumber: 9325.62,
-  pageX: 3917.97,
-  pageY: 2421.78,
-  width: 2503.98,
-  height: 4833.94,
+  recipientId: 8744,
+  pageNumber: 1124.27,
+  pageX: 2124.34,
+  pageY: 1830.33,
+  width: 4030.26,
+  height: 7452.33,
 };
 ```
 
@@ -106,12 +106,12 @@ const value: operations.Field7 = {
 ```typescript
 const value: operations.Field8 = {
   type: "NUMBER",
-  recipientId: 399.92,
-  pageNumber: 6397.05,
-  pageX: 4083.03,
-  pageY: 3774.06,
-  width: 8093.65,
-  height: 7090.36,
+  recipientId: 5269.07,
+  pageNumber: 4876.76,
+  pageX: 5.45,
+  pageY: 4254.02,
+  width: 635.53,
+  height: 2082.53,
 };
 ```
 
@@ -120,12 +120,12 @@ const value: operations.Field8 = {
 ```typescript
 const value: operations.Field9 = {
   type: "RADIO",
-  recipientId: 9543.34,
-  pageNumber: 3519.36,
-  pageX: 8975.43,
-  pageY: 7699.67,
-  width: 3574.25,
-  height: 6216.66,
+  recipientId: 9323.94,
+  pageNumber: 2153.98,
+  pageX: 8583.38,
+  pageY: 8028.94,
+  width: 1591.46,
+  height: 6057.12,
 };
 ```
 
@@ -134,12 +134,12 @@ const value: operations.Field9 = {
 ```typescript
 const value: operations.Field10 = {
   type: "CHECKBOX",
-  recipientId: 2885.7,
-  pageNumber: 8744,
-  pageX: 1124.27,
-  pageY: 2124.34,
-  width: 1830.33,
-  height: 4030.26,
+  recipientId: 1156.61,
+  pageNumber: 7278.88,
+  pageX: 6374.62,
+  pageY: 8119.39,
+  width: 4793.85,
+  height: 9148.64,
 };
 ```
 
@@ -148,12 +148,12 @@ const value: operations.Field10 = {
 ```typescript
 const value: operations.Field11 = {
   type: "DROPDOWN",
-  recipientId: 7452.33,
-  pageNumber: 5269.07,
-  pageX: 4876.76,
-  pageY: 5.45,
-  width: 4254.02,
-  height: 635.53,
+  recipientId: 493.48,
+  pageNumber: 2928.88,
+  pageX: 7150.53,
+  pageY: 4181.09,
+  width: 1729.51,
+  height: 1072.1,
 };
 ```
 

@@ -10,17 +10,17 @@ import { FieldCreateDocumentFieldsResponseBody } from "@documenso/sdk-typescript
 let value: FieldCreateDocumentFieldsResponseBody = {
   fields: [
     {
-      type: "RADIO",
-      id: 97676,
+      type: "SIGNATURE",
+      id: 943851,
       secondaryId: "<id>",
-      documentId: 514922,
-      templateId: 938412,
-      recipientId: 228646,
-      page: 6771.41,
+      documentId: 964925,
+      templateId: 719389,
+      recipientId: 349993,
+      page: 2543.82,
       customText: "<value>",
       inserted: false,
       fieldMeta: {
-        type: "number",
+        type: "email",
       },
     },
   ],

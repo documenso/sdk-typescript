@@ -151,6 +151,8 @@ export const TemplateUpdateTemplateLanguage = {
   En: "en",
   Fr: "fr",
   Es: "es",
+  It: "it",
+  Pl: "pl",
 } as const;
 /**
  * The language to use for email communications with recipients.

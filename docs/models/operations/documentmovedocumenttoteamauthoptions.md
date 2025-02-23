@@ -7,7 +7,7 @@ import { DocumentMoveDocumentToTeamAuthOptions } from "@documenso/sdk-typescript
 
 let value: DocumentMoveDocumentToTeamAuthOptions = {
   globalAccessAuth: "ACCOUNT",
-  globalActionAuth: "TWO_FACTOR_AUTH",
+  globalActionAuth: "PASSKEY",
 };
 ```
 

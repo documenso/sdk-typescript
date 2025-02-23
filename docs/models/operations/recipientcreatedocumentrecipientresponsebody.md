@@ -8,14 +8,14 @@ Successful response
 import { RecipientCreateDocumentRecipientResponseBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: RecipientCreateDocumentRecipientResponseBody = {
-  role: "SIGNER",
-  readStatus: "OPENED",
+  role: "VIEWER",
+  readStatus: "NOT_OPENED",
   signingStatus: "NOT_SIGNED",
   sendStatus: "SENT",
-  id: 230571,
-  documentId: 268709,
-  templateId: 800256,
-  email: "Emil_Braun75@hotmail.com",
+  id: 567693,
+  documentId: 983000,
+  templateId: 982248,
+  email: "Birdie.Frami75@hotmail.com",
   name: "<value>",
   token: "<value>",
   documentDeletedAt: "<value>",
@@ -23,9 +23,9 @@ let value: RecipientCreateDocumentRecipientResponseBody = {
   signedAt: "<value>",
   authOptions: {
     accessAuth: "ACCOUNT",
-    actionAuth: "PASSKEY",
+    actionAuth: "TWO_FACTOR_AUTH",
   },
-  signingOrder: 8927.08,
+  signingOrder: 1858.16,
   rejectionReason: "<value>",
 };
 ```

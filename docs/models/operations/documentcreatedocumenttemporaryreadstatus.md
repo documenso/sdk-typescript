@@ -5,7 +5,7 @@
 ```typescript
 import { DocumentCreateDocumentTemporaryReadStatus } from "@documenso/sdk-typescript/models/operations";
 
-let value: DocumentCreateDocumentTemporaryReadStatus = "NOT_OPENED";
+let value: DocumentCreateDocumentTemporaryReadStatus = "OPENED";
 ```
 
 ## Values

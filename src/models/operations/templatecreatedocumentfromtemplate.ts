@@ -188,6 +188,7 @@ export const TemplateCreateDocumentFromTemplateRole = {
   Signer: "SIGNER",
   Viewer: "VIEWER",
   Approver: "APPROVER",
+  Assistant: "ASSISTANT",
 } as const;
 export type TemplateCreateDocumentFromTemplateRole = ClosedEnum<
   typeof TemplateCreateDocumentFromTemplateRole
@@ -387,6 +388,17 @@ export type TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200Appli
     typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType
   >;
 
+export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign =
+  {
+    Left: "left",
+    Center: "center",
+    Right: "right",
+  } as const;
+export type TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign =
+  ClosedEnum<
+    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign
+  >;
+
 export type TemplateCreateDocumentFromTemplateFieldMeta6 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -399,6 +411,9 @@ export type TemplateCreateDocumentFromTemplateFieldMeta6 = {
   minValue?: number | undefined;
   maxValue?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?:
+    | TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign
+    | undefined;
 };
 
 export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONType =
@@ -408,6 +423,17 @@ export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200Appl
 export type TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONType =
   ClosedEnum<
     typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONType
+  >;
+
+export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONTextAlign =
+  {
+    Left: "left",
+    Center: "center",
+    Right: "right",
+  } as const;
+export type TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONTextAlign =
+  ClosedEnum<
+    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONTextAlign
   >;
 
 export type TemplateCreateDocumentFromTemplateFieldMeta5 = {
@@ -420,6 +446,9 @@ export type TemplateCreateDocumentFromTemplateFieldMeta5 = {
   text?: string | undefined;
   characterLimit?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?:
+    | TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONTextAlign
+    | undefined;
 };
 
 export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200Type =
@@ -431,6 +460,17 @@ export type TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200Type 
     typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200Type
   >;
 
+export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200TextAlign =
+  {
+    Left: "left",
+    Center: "center",
+    Right: "right",
+  } as const;
+export type TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200TextAlign =
+  ClosedEnum<
+    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200TextAlign
+  >;
+
 export type TemplateCreateDocumentFromTemplateFieldMeta4 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -438,6 +478,9 @@ export type TemplateCreateDocumentFromTemplateFieldMeta4 = {
   readOnly?: boolean | undefined;
   type: TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200Type;
   fontSize?: number | undefined;
+  textAlign?:
+    | TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200TextAlign
+    | undefined;
 };
 
 export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseType =
@@ -449,6 +492,17 @@ export type TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseType =
     typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseType
   >;
 
+export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseTextAlign =
+  {
+    Left: "left",
+    Center: "center",
+    Right: "right",
+  } as const;
+export type TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseTextAlign =
+  ClosedEnum<
+    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseTextAlign
+  >;
+
 export type TemplateCreateDocumentFromTemplateFieldMeta3 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -456,6 +510,9 @@ export type TemplateCreateDocumentFromTemplateFieldMeta3 = {
   readOnly?: boolean | undefined;
   type: TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseType;
   fontSize?: number | undefined;
+  textAlign?:
+    | TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseTextAlign
+    | undefined;
 };
 
 export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesType = {
@@ -464,6 +521,16 @@ export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesType = {
 export type TemplateCreateDocumentFromTemplateFieldMetaTemplatesType =
   ClosedEnum<typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesType>;
 
+export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesTextAlign = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type TemplateCreateDocumentFromTemplateFieldMetaTemplatesTextAlign =
+  ClosedEnum<
+    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesTextAlign
+  >;
+
 export type TemplateCreateDocumentFromTemplateFieldMeta2 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -471,6 +538,9 @@ export type TemplateCreateDocumentFromTemplateFieldMeta2 = {
   readOnly?: boolean | undefined;
   type: TemplateCreateDocumentFromTemplateFieldMetaTemplatesType;
   fontSize?: number | undefined;
+  textAlign?:
+    | TemplateCreateDocumentFromTemplateFieldMetaTemplatesTextAlign
+    | undefined;
 };
 
 export const TemplateCreateDocumentFromTemplateFieldMetaType = {
@@ -480,6 +550,15 @@ export type TemplateCreateDocumentFromTemplateFieldMetaType = ClosedEnum<
   typeof TemplateCreateDocumentFromTemplateFieldMetaType
 >;
 
+export const TemplateCreateDocumentFromTemplateFieldMetaTextAlign = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type TemplateCreateDocumentFromTemplateFieldMetaTextAlign = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateFieldMetaTextAlign
+>;
+
 export type TemplateCreateDocumentFromTemplateFieldMeta1 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -487,17 +566,18 @@ export type TemplateCreateDocumentFromTemplateFieldMeta1 = {
   readOnly?: boolean | undefined;
   type: TemplateCreateDocumentFromTemplateFieldMetaType;
   fontSize?: number | undefined;
+  textAlign?: TemplateCreateDocumentFromTemplateFieldMetaTextAlign | undefined;
 };
 
 export type TemplateCreateDocumentFromTemplateFieldMeta =
+  | TemplateCreateDocumentFromTemplateFieldMeta7
   | TemplateCreateDocumentFromTemplateFieldMeta1
   | TemplateCreateDocumentFromTemplateFieldMeta2
   | TemplateCreateDocumentFromTemplateFieldMeta3
   | TemplateCreateDocumentFromTemplateFieldMeta4
-  | TemplateCreateDocumentFromTemplateFieldMeta7
   | TemplateCreateDocumentFromTemplateFieldMeta9
-  | TemplateCreateDocumentFromTemplateFieldMeta5
   | TemplateCreateDocumentFromTemplateFieldMeta8
+  | TemplateCreateDocumentFromTemplateFieldMeta5
   | TemplateCreateDocumentFromTemplateFieldMeta6;
 
 export type TemplateCreateDocumentFromTemplateFields = {
@@ -518,14 +598,14 @@ export type TemplateCreateDocumentFromTemplateFields = {
   customText: string;
   inserted: boolean;
   fieldMeta:
+    | TemplateCreateDocumentFromTemplateFieldMeta7
     | TemplateCreateDocumentFromTemplateFieldMeta1
     | TemplateCreateDocumentFromTemplateFieldMeta2
     | TemplateCreateDocumentFromTemplateFieldMeta3
     | TemplateCreateDocumentFromTemplateFieldMeta4
-    | TemplateCreateDocumentFromTemplateFieldMeta7
     | TemplateCreateDocumentFromTemplateFieldMeta9
-    | TemplateCreateDocumentFromTemplateFieldMeta5
     | TemplateCreateDocumentFromTemplateFieldMeta8
+    | TemplateCreateDocumentFromTemplateFieldMeta5
     | TemplateCreateDocumentFromTemplateFieldMeta6
     | null;
 };
@@ -2308,6 +2388,34 @@ export namespace TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200
 }
 
 /** @internal */
+export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign
+  > = z.nativeEnum(
+    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign,
+  );
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign
+  > =
+    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const TemplateCreateDocumentFromTemplateFieldMeta6$inboundSchema:
   z.ZodType<
     TemplateCreateDocumentFromTemplateFieldMeta6,
@@ -2325,6 +2433,9 @@ export const TemplateCreateDocumentFromTemplateFieldMeta6$inboundSchema:
     minValue: z.number().optional(),
     maxValue: z.number().optional(),
     fontSize: z.number().optional(),
+    textAlign:
+      TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema
+        .optional(),
   });
 
 /** @internal */
@@ -2339,6 +2450,7 @@ export type TemplateCreateDocumentFromTemplateFieldMeta6$Outbound = {
   minValue?: number | undefined;
   maxValue?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -2359,6 +2471,9 @@ export const TemplateCreateDocumentFromTemplateFieldMeta6$outboundSchema:
     minValue: z.number().optional(),
     maxValue: z.number().optional(),
     fontSize: z.number().optional(),
+    textAlign:
+      TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign$outboundSchema
+        .optional(),
   });
 
 /**
@@ -2432,6 +2547,34 @@ export namespace TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200
 }
 
 /** @internal */
+export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONTextAlign
+  > = z.nativeEnum(
+    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONTextAlign,
+  );
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONTextAlign
+  > =
+    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONTextAlign$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONTextAlign$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const TemplateCreateDocumentFromTemplateFieldMeta5$inboundSchema:
   z.ZodType<
     TemplateCreateDocumentFromTemplateFieldMeta5,
@@ -2447,6 +2590,9 @@ export const TemplateCreateDocumentFromTemplateFieldMeta5$inboundSchema:
     text: z.string().optional(),
     characterLimit: z.number().optional(),
     fontSize: z.number().optional(),
+    textAlign:
+      TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONTextAlign$inboundSchema
+        .optional(),
   });
 
 /** @internal */
@@ -2459,6 +2605,7 @@ export type TemplateCreateDocumentFromTemplateFieldMeta5$Outbound = {
   text?: string | undefined;
   characterLimit?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -2477,6 +2624,9 @@ export const TemplateCreateDocumentFromTemplateFieldMeta5$outboundSchema:
     text: z.string().optional(),
     characterLimit: z.number().optional(),
     fontSize: z.number().optional(),
+    textAlign:
+      TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONTextAlign$outboundSchema
+        .optional(),
   });
 
 /**
@@ -2550,6 +2700,34 @@ export namespace TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200
 }
 
 /** @internal */
+export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200TextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200TextAlign
+  > = z.nativeEnum(
+    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200TextAlign,
+  );
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200TextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200TextAlign
+  > =
+    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200TextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200TextAlign$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200TextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200TextAlign$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200TextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200TextAlign$outboundSchema;
+}
+
+/** @internal */
 export const TemplateCreateDocumentFromTemplateFieldMeta4$inboundSchema:
   z.ZodType<
     TemplateCreateDocumentFromTemplateFieldMeta4,
@@ -2563,6 +2741,9 @@ export const TemplateCreateDocumentFromTemplateFieldMeta4$inboundSchema:
     type:
       TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200Type$inboundSchema,
     fontSize: z.number().optional(),
+    textAlign:
+      TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200TextAlign$inboundSchema
+        .optional(),
   });
 
 /** @internal */
@@ -2573,6 +2754,7 @@ export type TemplateCreateDocumentFromTemplateFieldMeta4$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -2589,6 +2771,9 @@ export const TemplateCreateDocumentFromTemplateFieldMeta4$outboundSchema:
     type:
       TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200Type$outboundSchema,
     fontSize: z.number().optional(),
+    textAlign:
+      TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200TextAlign$outboundSchema
+        .optional(),
   });
 
 /**
@@ -2662,6 +2847,34 @@ export namespace TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseTyp
 }
 
 /** @internal */
+export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseTextAlign
+  > = z.nativeEnum(
+    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseTextAlign,
+  );
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseTextAlign
+  > =
+    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseTextAlign$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseTextAlign$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const TemplateCreateDocumentFromTemplateFieldMeta3$inboundSchema:
   z.ZodType<
     TemplateCreateDocumentFromTemplateFieldMeta3,
@@ -2675,6 +2888,9 @@ export const TemplateCreateDocumentFromTemplateFieldMeta3$inboundSchema:
     type:
       TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseType$inboundSchema,
     fontSize: z.number().optional(),
+    textAlign:
+      TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseTextAlign$inboundSchema
+        .optional(),
   });
 
 /** @internal */
@@ -2685,6 +2901,7 @@ export type TemplateCreateDocumentFromTemplateFieldMeta3$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -2701,6 +2918,9 @@ export const TemplateCreateDocumentFromTemplateFieldMeta3$outboundSchema:
     type:
       TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseType$outboundSchema,
     fontSize: z.number().optional(),
+    textAlign:
+      TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseTextAlign$outboundSchema
+        .optional(),
   });
 
 /**
@@ -2771,6 +2991,34 @@ export namespace TemplateCreateDocumentFromTemplateFieldMetaTemplatesType$ {
 }
 
 /** @internal */
+export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesTextAlign
+  > = z.nativeEnum(
+    TemplateCreateDocumentFromTemplateFieldMetaTemplatesTextAlign,
+  );
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesTextAlign
+  > =
+    TemplateCreateDocumentFromTemplateFieldMetaTemplatesTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateCreateDocumentFromTemplateFieldMetaTemplatesTextAlign$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateCreateDocumentFromTemplateFieldMetaTemplatesTextAlign$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateCreateDocumentFromTemplateFieldMetaTemplatesTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const TemplateCreateDocumentFromTemplateFieldMeta2$inboundSchema:
   z.ZodType<
     TemplateCreateDocumentFromTemplateFieldMeta2,
@@ -2784,6 +3032,9 @@ export const TemplateCreateDocumentFromTemplateFieldMeta2$inboundSchema:
     type:
       TemplateCreateDocumentFromTemplateFieldMetaTemplatesType$inboundSchema,
     fontSize: z.number().optional(),
+    textAlign:
+      TemplateCreateDocumentFromTemplateFieldMetaTemplatesTextAlign$inboundSchema
+        .optional(),
   });
 
 /** @internal */
@@ -2794,6 +3045,7 @@ export type TemplateCreateDocumentFromTemplateFieldMeta2$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -2810,6 +3062,9 @@ export const TemplateCreateDocumentFromTemplateFieldMeta2$outboundSchema:
     type:
       TemplateCreateDocumentFromTemplateFieldMetaTemplatesType$outboundSchema,
     fontSize: z.number().optional(),
+    textAlign:
+      TemplateCreateDocumentFromTemplateFieldMetaTemplatesTextAlign$outboundSchema
+        .optional(),
   });
 
 /**
@@ -2878,6 +3133,29 @@ export namespace TemplateCreateDocumentFromTemplateFieldMetaType$ {
 }
 
 /** @internal */
+export const TemplateCreateDocumentFromTemplateFieldMetaTextAlign$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFieldMetaTextAlign> =
+    z.nativeEnum(TemplateCreateDocumentFromTemplateFieldMetaTextAlign);
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateFieldMetaTextAlign$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFieldMetaTextAlign> =
+    TemplateCreateDocumentFromTemplateFieldMetaTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateCreateDocumentFromTemplateFieldMetaTextAlign$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateCreateDocumentFromTemplateFieldMetaTextAlign$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateCreateDocumentFromTemplateFieldMetaTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const TemplateCreateDocumentFromTemplateFieldMeta1$inboundSchema:
   z.ZodType<
     TemplateCreateDocumentFromTemplateFieldMeta1,
@@ -2890,6 +3168,9 @@ export const TemplateCreateDocumentFromTemplateFieldMeta1$inboundSchema:
     readOnly: z.boolean().optional(),
     type: TemplateCreateDocumentFromTemplateFieldMetaType$inboundSchema,
     fontSize: z.number().optional(),
+    textAlign:
+      TemplateCreateDocumentFromTemplateFieldMetaTextAlign$inboundSchema
+        .optional(),
   });
 
 /** @internal */
@@ -2900,6 +3181,7 @@ export type TemplateCreateDocumentFromTemplateFieldMeta1$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -2915,6 +3197,9 @@ export const TemplateCreateDocumentFromTemplateFieldMeta1$outboundSchema:
     readOnly: z.boolean().optional(),
     type: TemplateCreateDocumentFromTemplateFieldMetaType$outboundSchema,
     fontSize: z.number().optional(),
+    textAlign:
+      TemplateCreateDocumentFromTemplateFieldMetaTextAlign$outboundSchema
+        .optional(),
   });
 
 /**
@@ -2966,27 +3251,27 @@ export const TemplateCreateDocumentFromTemplateFieldMeta$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.union([
+    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta7$inboundSchema),
     z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta1$inboundSchema),
     z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta2$inboundSchema),
     z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta3$inboundSchema),
     z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta4$inboundSchema),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta7$inboundSchema),
     z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta9$inboundSchema),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta5$inboundSchema),
     z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta8$inboundSchema),
+    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta5$inboundSchema),
     z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta6$inboundSchema),
   ]);
 
 /** @internal */
 export type TemplateCreateDocumentFromTemplateFieldMeta$Outbound =
+  | TemplateCreateDocumentFromTemplateFieldMeta7$Outbound
   | TemplateCreateDocumentFromTemplateFieldMeta1$Outbound
   | TemplateCreateDocumentFromTemplateFieldMeta2$Outbound
   | TemplateCreateDocumentFromTemplateFieldMeta3$Outbound
   | TemplateCreateDocumentFromTemplateFieldMeta4$Outbound
-  | TemplateCreateDocumentFromTemplateFieldMeta7$Outbound
   | TemplateCreateDocumentFromTemplateFieldMeta9$Outbound
-  | TemplateCreateDocumentFromTemplateFieldMeta5$Outbound
   | TemplateCreateDocumentFromTemplateFieldMeta8$Outbound
+  | TemplateCreateDocumentFromTemplateFieldMeta5$Outbound
   | TemplateCreateDocumentFromTemplateFieldMeta6$Outbound;
 
 /** @internal */
@@ -2996,14 +3281,14 @@ export const TemplateCreateDocumentFromTemplateFieldMeta$outboundSchema:
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateFieldMeta
   > = z.union([
+    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta7$outboundSchema),
     z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta1$outboundSchema),
     z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta2$outboundSchema),
     z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta3$outboundSchema),
     z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta4$outboundSchema),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta7$outboundSchema),
     z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta9$outboundSchema),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta5$outboundSchema),
     z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta8$outboundSchema),
+    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta5$outboundSchema),
     z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta6$outboundSchema),
   ]);
 
@@ -3070,14 +3355,14 @@ export const TemplateCreateDocumentFromTemplateFields$inboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
+      z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta7$inboundSchema),
       z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta1$inboundSchema),
       z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta2$inboundSchema),
       z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta3$inboundSchema),
       z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta4$inboundSchema),
-      z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta7$inboundSchema),
       z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta9$inboundSchema),
-      z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta5$inboundSchema),
       z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta8$inboundSchema),
+      z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta5$inboundSchema),
       z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta6$inboundSchema),
     ]),
   ),
@@ -3099,14 +3384,14 @@ export type TemplateCreateDocumentFromTemplateFields$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
+    | TemplateCreateDocumentFromTemplateFieldMeta7$Outbound
     | TemplateCreateDocumentFromTemplateFieldMeta1$Outbound
     | TemplateCreateDocumentFromTemplateFieldMeta2$Outbound
     | TemplateCreateDocumentFromTemplateFieldMeta3$Outbound
     | TemplateCreateDocumentFromTemplateFieldMeta4$Outbound
-    | TemplateCreateDocumentFromTemplateFieldMeta7$Outbound
     | TemplateCreateDocumentFromTemplateFieldMeta9$Outbound
-    | TemplateCreateDocumentFromTemplateFieldMeta5$Outbound
     | TemplateCreateDocumentFromTemplateFieldMeta8$Outbound
+    | TemplateCreateDocumentFromTemplateFieldMeta5$Outbound
     | TemplateCreateDocumentFromTemplateFieldMeta6$Outbound
     | null;
 };
@@ -3132,16 +3417,16 @@ export const TemplateCreateDocumentFromTemplateFields$outboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta1$outboundSchema),
+      z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta7$outboundSchema),
       z.lazy(() =>
-        TemplateCreateDocumentFromTemplateFieldMeta2$outboundSchema
+        TemplateCreateDocumentFromTemplateFieldMeta1$outboundSchema
       ),
+      z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta2$outboundSchema),
       z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta3$outboundSchema),
       z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta4$outboundSchema),
-      z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta7$outboundSchema),
       z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta9$outboundSchema),
-      z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta5$outboundSchema),
       z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta8$outboundSchema),
+      z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta5$outboundSchema),
       z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta6$outboundSchema),
     ]),
   ),

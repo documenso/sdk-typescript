@@ -5,7 +5,7 @@
 ```typescript
 import { SigningOrder } from "@documenso/sdk-typescript/models/operations";
 
-let value: SigningOrder = "SEQUENTIAL";
+let value: SigningOrder = "PARALLEL";
 ```
 
 ## Values

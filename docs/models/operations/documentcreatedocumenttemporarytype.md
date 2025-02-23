@@ -5,7 +5,7 @@
 ```typescript
 import { DocumentCreateDocumentTemporaryType } from "@documenso/sdk-typescript/models/operations";
 
-let value: DocumentCreateDocumentTemporaryType = "BYTES_64";
+let value: DocumentCreateDocumentTemporaryType = "S3_PATH";
 ```
 
 ## Values

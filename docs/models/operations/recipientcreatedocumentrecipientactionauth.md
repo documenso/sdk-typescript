@@ -7,7 +7,7 @@ The type of authentication required for the recipient to sign the document.
 ```typescript
 import { RecipientCreateDocumentRecipientActionAuth } from "@documenso/sdk-typescript/models/operations";
 
-let value: RecipientCreateDocumentRecipientActionAuth = "TWO_FACTOR_AUTH";
+let value: RecipientCreateDocumentRecipientActionAuth = "EXPLICIT_NONE";
 ```
 
 ## Values

@@ -13,5 +13,5 @@ let value: TemplateUpdateTemplateLanguage = "de";
 ## Values
 
 ```typescript
-"de" | "en" | "fr" | "es"
+"de" | "en" | "fr" | "es" | "it" | "pl"
 ```

@@ -8,7 +8,7 @@ The type of authentication required for the recipient to sign the document.
 import { RecipientUpdateTemplateRecipientsTemplatesRecipientsActionAuth } from "@documenso/sdk-typescript/models/operations";
 
 let value: RecipientUpdateTemplateRecipientsTemplatesRecipientsActionAuth =
-  "PASSKEY";
+  "EXPLICIT_NONE";
 ```
 
 ## Values

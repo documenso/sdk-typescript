@@ -5,7 +5,7 @@
 ```typescript
 import { TemplateCreateDocumentFromTemplateTemplatesType } from "@documenso/sdk-typescript/models/operations";
 
-let value: TemplateCreateDocumentFromTemplateTemplatesType = "INITIALS";
+let value: TemplateCreateDocumentFromTemplateTemplatesType = "EMAIL";
 ```
 
 ## Values

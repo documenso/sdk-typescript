@@ -6,17 +6,17 @@
 import { DocumentCreateDocumentTemporaryFields } from "@documenso/sdk-typescript/models/operations";
 
 let value: DocumentCreateDocumentTemporaryFields = {
-  type: "INITIALS",
-  id: 502389,
+  type: "EMAIL",
+  id: 70869,
   secondaryId: "<id>",
-  documentId: 942584,
-  templateId: 633998,
-  recipientId: 867290,
-  page: 9402.1,
+  documentId: 292794,
+  templateId: 152354,
+  recipientId: 417486,
+  page: 1312.89,
   customText: "<value>",
   inserted: false,
   fieldMeta: {
-    type: "radio",
+    type: "number",
   },
 };
 ```

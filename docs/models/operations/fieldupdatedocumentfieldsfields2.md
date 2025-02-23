@@ -7,7 +7,7 @@ import { FieldUpdateDocumentFieldsFields2 } from "@documenso/sdk-typescript/mode
 
 let value: FieldUpdateDocumentFieldsFields2 = {
   type: "FREE_SIGNATURE",
-  id: 9692.06,
+  id: 9851.09,
 };
 ```
 

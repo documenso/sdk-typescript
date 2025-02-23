@@ -7,11 +7,11 @@ import { Six } from "@documenso/sdk-typescript/models/operations";
 
 let value: Six = {
   type: "DATE",
-  pageNumber: 9065.56,
-  pageX: 7740.48,
-  pageY: 3331.45,
-  width: 811.01,
-  height: 4072.41,
+  pageNumber: 114.27,
+  pageX: 7705.81,
+  pageY: 1469.46,
+  width: 795.22,
+  height: 896.03,
 };
 ```
 

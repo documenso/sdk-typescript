@@ -5,7 +5,7 @@
 ```typescript
 import { TemplateMoveTemplateToTeamVisibility } from "@documenso/sdk-typescript/models/operations";
 
-let value: TemplateMoveTemplateToTeamVisibility = "EVERYONE";
+let value: TemplateMoveTemplateToTeamVisibility = "MANAGER_AND_ABOVE";
 ```
 
 ## Values

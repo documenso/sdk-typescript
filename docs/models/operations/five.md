@@ -7,11 +7,11 @@ import { Five } from "@documenso/sdk-typescript/models/operations";
 
 let value: Five = {
   type: "EMAIL",
-  pageNumber: 2322.34,
-  pageX: 1324.87,
-  pageY: 534.27,
-  width: 7255.95,
-  height: 114.27,
+  pageNumber: 2453.67,
+  pageX: 4205.39,
+  pageY: 5573.69,
+  width: 8605.52,
+  height: 7270.44,
 };
 ```
 

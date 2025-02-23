@@ -5,7 +5,7 @@
 ```typescript
 import { FieldUpdateDocumentFieldsType } from "@documenso/sdk-typescript/models/operations";
 
-let value: FieldUpdateDocumentFieldsType = "SIGNATURE";
+let value: FieldUpdateDocumentFieldsType = "TEXT";
 ```
 
 ## Values

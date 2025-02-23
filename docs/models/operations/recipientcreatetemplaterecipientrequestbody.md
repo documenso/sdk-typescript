@@ -6,9 +6,9 @@
 import { RecipientCreateTemplateRecipientRequestBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: RecipientCreateTemplateRecipientRequestBody = {
-  templateId: 5846.63,
+  templateId: 2641.25,
   recipient: {
-    email: "Ernesto.Kulas24@gmail.com",
+    email: "Randall.Rohan49@yahoo.com",
     name: "<value>",
     role: "CC",
   },

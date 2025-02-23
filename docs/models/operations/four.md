@@ -7,11 +7,11 @@ import { Four } from "@documenso/sdk-typescript/models/operations";
 
 let value: Four = {
   type: "NAME",
-  pageNumber: 7705.81,
-  pageX: 1469.46,
-  pageY: 795.22,
-  width: 896.03,
-  height: 6720.48,
+  pageNumber: 1314.82,
+  pageX: 553.74,
+  pageY: 3015.98,
+  width: 2621.18,
+  height: 4561.41,
 };
 ```
 

@@ -6,7 +6,7 @@
 import { DocumentCreateDocumentTemporaryDocumentData } from "@documenso/sdk-typescript/models/operations";
 
 let value: DocumentCreateDocumentTemporaryDocumentData = {
-  type: "BYTES_64",
+  type: "S3_PATH",
   id: "<id>",
   data: "<value>",
   initialData: "<value>",
