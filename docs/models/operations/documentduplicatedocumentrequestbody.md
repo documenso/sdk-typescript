@@ -6,7 +6,7 @@
 import { DocumentDuplicateDocumentRequestBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: DocumentDuplicateDocumentRequestBody = {
-  documentId: 5369.23,
+  documentId: 1097.84,
 };
 ```
 

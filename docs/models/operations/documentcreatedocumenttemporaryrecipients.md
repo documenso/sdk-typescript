@@ -6,14 +6,14 @@
 import { DocumentCreateDocumentTemporaryRecipients } from "@documenso/sdk-typescript/models/operations";
 
 let value: DocumentCreateDocumentTemporaryRecipients = {
-  role: "SIGNER",
-  readStatus: "OPENED",
-  signingStatus: "NOT_SIGNED",
+  role: "ASSISTANT",
+  readStatus: "NOT_OPENED",
+  signingStatus: "REJECTED",
   sendStatus: "NOT_SENT",
-  id: 950953,
-  documentId: 233420,
-  templateId: 689768,
-  email: "Morris37@gmail.com",
+  id: 730709,
+  documentId: 881721,
+  templateId: 272437,
+  email: "Garland.Ferry44@yahoo.com",
   name: "<value>",
   token: "<value>",
   documentDeletedAt: "<value>",
@@ -21,9 +21,9 @@ let value: DocumentCreateDocumentTemporaryRecipients = {
   signedAt: "<value>",
   authOptions: {
     accessAuth: "ACCOUNT",
-    actionAuth: "ACCOUNT",
+    actionAuth: "EXPLICIT_NONE",
   },
-  signingOrder: 1718.53,
+  signingOrder: 2377.42,
   rejectionReason: "<value>",
 };
 ```

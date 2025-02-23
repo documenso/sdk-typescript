@@ -7,11 +7,11 @@ import { Nine } from "@documenso/sdk-typescript/models/operations";
 
 let value: Nine = {
   type: "RADIO",
-  pageNumber: 1481.41,
-  pageX: 9818.3,
-  pageY: 4783.7,
-  width: 4973.91,
-  height: 6394.73,
+  pageNumber: 1369,
+  pageX: 8221.18,
+  pageY: 1898.48,
+  width: 5113.19,
+  height: 2243.17,
 };
 ```
 

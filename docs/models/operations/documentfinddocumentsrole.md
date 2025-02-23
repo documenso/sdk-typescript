@@ -5,11 +5,11 @@
 ```typescript
 import { DocumentFindDocumentsRole } from "@documenso/sdk-typescript/models/operations";
 
-let value: DocumentFindDocumentsRole = "APPROVER";
+let value: DocumentFindDocumentsRole = "ASSISTANT";
 ```
 
 ## Values
 
 ```typescript
-"CC" | "SIGNER" | "VIEWER" | "APPROVER"
+"CC" | "SIGNER" | "VIEWER" | "APPROVER" | "ASSISTANT"
 ```

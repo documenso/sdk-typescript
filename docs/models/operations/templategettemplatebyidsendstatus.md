@@ -5,7 +5,7 @@
 ```typescript
 import { TemplateGetTemplateByIdSendStatus } from "@documenso/sdk-typescript/models/operations";
 
-let value: TemplateGetTemplateByIdSendStatus = "NOT_SENT";
+let value: TemplateGetTemplateByIdSendStatus = "SENT";
 ```
 
 ## Values

@@ -6,17 +6,17 @@
 import { DocumentGetDocumentWithDetailsByIdFields } from "@documenso/sdk-typescript/models/operations";
 
 let value: DocumentGetDocumentWithDetailsByIdFields = {
-  type: "INITIALS",
-  id: 254356,
+  type: "EMAIL",
+  id: 179603,
   secondaryId: "<id>",
-  documentId: 58029,
-  templateId: 434417,
-  recipientId: 311796,
-  page: 6963.44,
+  documentId: 24678,
+  templateId: 67249,
+  recipientId: 679393,
+  page: 4536.97,
   customText: "<value>",
   inserted: false,
   fieldMeta: {
-    type: "date",
+    type: "text",
   },
 };
 ```

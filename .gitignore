@@ -1,3 +1,5 @@
+/bin
+/.eslintcache
 /models
 /models/errors
 /types

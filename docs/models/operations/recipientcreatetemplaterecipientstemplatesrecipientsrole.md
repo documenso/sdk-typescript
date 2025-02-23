@@ -5,11 +5,11 @@
 ```typescript
 import { RecipientCreateTemplateRecipientsTemplatesRecipientsRole } from "@documenso/sdk-typescript/models/operations";
 
-let value: RecipientCreateTemplateRecipientsTemplatesRecipientsRole = "SIGNER";
+let value: RecipientCreateTemplateRecipientsTemplatesRecipientsRole = "CC";
 ```
 
 ## Values
 
 ```typescript
-"CC" | "SIGNER" | "VIEWER" | "APPROVER"
+"CC" | "SIGNER" | "VIEWER" | "APPROVER" | "ASSISTANT"
 ```

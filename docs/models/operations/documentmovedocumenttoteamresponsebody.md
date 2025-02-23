@@ -8,12 +8,12 @@ Successful response
 import { DocumentMoveDocumentToTeamResponseBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: DocumentMoveDocumentToTeamResponseBody = {
-  visibility: "MANAGER_AND_ABOVE",
+  visibility: "EVERYONE",
   status: "PENDING",
-  source: "DOCUMENT",
-  id: 684935,
+  source: "TEMPLATE",
+  id: 241557,
   externalId: "<id>",
-  userId: 6567.62,
+  userId: 1690.25,
   authOptions: {
     globalAccessAuth: "ACCOUNT",
     globalActionAuth: "TWO_FACTOR_AUTH",
@@ -23,12 +23,12 @@ let value: DocumentMoveDocumentToTeamResponseBody = {
   },
   title: "<value>",
   documentDataId: "<id>",
-  createdAt: "1721753558987",
-  updatedAt: "1737555471818",
+  createdAt: "1723575719752",
+  updatedAt: "1740193827338",
   completedAt: "<value>",
   deletedAt: "<value>",
-  teamId: 241557,
-  templateId: 169025,
+  teamId: 457059,
+  templateId: 979963,
 };
 ```
 

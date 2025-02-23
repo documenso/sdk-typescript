@@ -5,7 +5,7 @@
 ```typescript
 import { DocumentMoveDocumentToTeamVisibility } from "@documenso/sdk-typescript/models/operations";
 
-let value: DocumentMoveDocumentToTeamVisibility = "EVERYONE";
+let value: DocumentMoveDocumentToTeamVisibility = "MANAGER_AND_ABOVE";
 ```
 
 ## Values

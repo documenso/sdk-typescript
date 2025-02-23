@@ -204,6 +204,17 @@ export type TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONRes
     typeof TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType
   >;
 
+export const TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign =
+  {
+    Left: "left",
+    Center: "center",
+    Right: "right",
+  } as const;
+export type TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign =
+  ClosedEnum<
+    typeof TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign
+  >;
+
 export type TemplateFindTemplatesFieldMeta6 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -216,6 +227,9 @@ export type TemplateFindTemplatesFieldMeta6 = {
   minValue?: number | undefined;
   maxValue?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?:
+    | TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign
+    | undefined;
 };
 
 export const TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONType =
@@ -227,6 +241,17 @@ export type TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONTyp
     typeof TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONType
   >;
 
+export const TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONTextAlign =
+  {
+    Left: "left",
+    Center: "center",
+    Right: "right",
+  } as const;
+export type TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONTextAlign =
+  ClosedEnum<
+    typeof TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONTextAlign
+  >;
+
 export type TemplateFindTemplatesFieldMeta5 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -236,6 +261,9 @@ export type TemplateFindTemplatesFieldMeta5 = {
   text?: string | undefined;
   characterLimit?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?:
+    | TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONTextAlign
+    | undefined;
 };
 
 export const TemplateFindTemplatesFieldMetaTemplatesResponse200Type = {
@@ -245,6 +273,16 @@ export type TemplateFindTemplatesFieldMetaTemplatesResponse200Type = ClosedEnum<
   typeof TemplateFindTemplatesFieldMetaTemplatesResponse200Type
 >;
 
+export const TemplateFindTemplatesFieldMetaTemplatesResponse200TextAlign = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type TemplateFindTemplatesFieldMetaTemplatesResponse200TextAlign =
+  ClosedEnum<
+    typeof TemplateFindTemplatesFieldMetaTemplatesResponse200TextAlign
+  >;
+
 export type TemplateFindTemplatesFieldMeta4 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -252,6 +290,9 @@ export type TemplateFindTemplatesFieldMeta4 = {
   readOnly?: boolean | undefined;
   type: TemplateFindTemplatesFieldMetaTemplatesResponse200Type;
   fontSize?: number | undefined;
+  textAlign?:
+    | TemplateFindTemplatesFieldMetaTemplatesResponse200TextAlign
+    | undefined;
 };
 
 export const TemplateFindTemplatesFieldMetaTemplatesResponseType = {
@@ -261,6 +302,14 @@ export type TemplateFindTemplatesFieldMetaTemplatesResponseType = ClosedEnum<
   typeof TemplateFindTemplatesFieldMetaTemplatesResponseType
 >;
 
+export const TemplateFindTemplatesFieldMetaTemplatesResponseTextAlign = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type TemplateFindTemplatesFieldMetaTemplatesResponseTextAlign =
+  ClosedEnum<typeof TemplateFindTemplatesFieldMetaTemplatesResponseTextAlign>;
+
 export type TemplateFindTemplatesFieldMeta3 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -268,6 +317,9 @@ export type TemplateFindTemplatesFieldMeta3 = {
   readOnly?: boolean | undefined;
   type: TemplateFindTemplatesFieldMetaTemplatesResponseType;
   fontSize?: number | undefined;
+  textAlign?:
+    | TemplateFindTemplatesFieldMetaTemplatesResponseTextAlign
+    | undefined;
 };
 
 export const TemplateFindTemplatesFieldMetaTemplatesType = {
@@ -277,6 +329,15 @@ export type TemplateFindTemplatesFieldMetaTemplatesType = ClosedEnum<
   typeof TemplateFindTemplatesFieldMetaTemplatesType
 >;
 
+export const TemplateFindTemplatesFieldMetaTemplatesTextAlign = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type TemplateFindTemplatesFieldMetaTemplatesTextAlign = ClosedEnum<
+  typeof TemplateFindTemplatesFieldMetaTemplatesTextAlign
+>;
+
 export type TemplateFindTemplatesFieldMeta2 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -284,6 +345,7 @@ export type TemplateFindTemplatesFieldMeta2 = {
   readOnly?: boolean | undefined;
   type: TemplateFindTemplatesFieldMetaTemplatesType;
   fontSize?: number | undefined;
+  textAlign?: TemplateFindTemplatesFieldMetaTemplatesTextAlign | undefined;
 };
 
 export const TemplateFindTemplatesFieldMetaType = {
@@ -293,6 +355,15 @@ export type TemplateFindTemplatesFieldMetaType = ClosedEnum<
   typeof TemplateFindTemplatesFieldMetaType
 >;
 
+export const TemplateFindTemplatesFieldMetaTextAlign = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type TemplateFindTemplatesFieldMetaTextAlign = ClosedEnum<
+  typeof TemplateFindTemplatesFieldMetaTextAlign
+>;
+
 export type TemplateFindTemplatesFieldMeta1 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -300,17 +371,18 @@ export type TemplateFindTemplatesFieldMeta1 = {
   readOnly?: boolean | undefined;
   type: TemplateFindTemplatesFieldMetaType;
   fontSize?: number | undefined;
+  textAlign?: TemplateFindTemplatesFieldMetaTextAlign | undefined;
 };
 
 export type TemplateFindTemplatesFieldMeta =
+  | TemplateFindTemplatesFieldMeta7
   | TemplateFindTemplatesFieldMeta1
   | TemplateFindTemplatesFieldMeta2
   | TemplateFindTemplatesFieldMeta3
   | TemplateFindTemplatesFieldMeta4
-  | TemplateFindTemplatesFieldMeta7
   | TemplateFindTemplatesFieldMeta9
-  | TemplateFindTemplatesFieldMeta5
   | TemplateFindTemplatesFieldMeta8
+  | TemplateFindTemplatesFieldMeta5
   | TemplateFindTemplatesFieldMeta6;
 
 export type TemplateFindTemplatesFields = {
@@ -331,14 +403,14 @@ export type TemplateFindTemplatesFields = {
   customText: string;
   inserted: boolean;
   fieldMeta:
+    | TemplateFindTemplatesFieldMeta7
     | TemplateFindTemplatesFieldMeta1
     | TemplateFindTemplatesFieldMeta2
     | TemplateFindTemplatesFieldMeta3
     | TemplateFindTemplatesFieldMeta4
-    | TemplateFindTemplatesFieldMeta7
     | TemplateFindTemplatesFieldMeta9
-    | TemplateFindTemplatesFieldMeta5
     | TemplateFindTemplatesFieldMeta8
+    | TemplateFindTemplatesFieldMeta5
     | TemplateFindTemplatesFieldMeta6
     | null;
 };
@@ -348,6 +420,7 @@ export const TemplateFindTemplatesRole = {
   Signer: "SIGNER",
   Viewer: "VIEWER",
   Approver: "APPROVER",
+  Assistant: "ASSISTANT",
 } as const;
 export type TemplateFindTemplatesRole = ClosedEnum<
   typeof TemplateFindTemplatesRole
@@ -1399,6 +1472,34 @@ export namespace TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJS
 }
 
 /** @internal */
+export const TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign
+  > = z.nativeEnum(
+    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign,
+  );
+
+/** @internal */
+export const TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign
+  > =
+    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign$ {
+  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const TemplateFindTemplatesFieldMeta6$inboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMeta6,
   z.ZodTypeDef,
@@ -1415,6 +1516,9 @@ export const TemplateFindTemplatesFieldMeta6$inboundSchema: z.ZodType<
   minValue: z.number().optional(),
   maxValue: z.number().optional(),
   fontSize: z.number().optional(),
+  textAlign:
+    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema
+      .optional(),
 });
 
 /** @internal */
@@ -1429,6 +1533,7 @@ export type TemplateFindTemplatesFieldMeta6$Outbound = {
   minValue?: number | undefined;
   maxValue?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -1448,6 +1553,9 @@ export const TemplateFindTemplatesFieldMeta6$outboundSchema: z.ZodType<
   minValue: z.number().optional(),
   maxValue: z.number().optional(),
   fontSize: z.number().optional(),
+  textAlign:
+    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyTextAlign$outboundSchema
+      .optional(),
 });
 
 /**
@@ -1512,6 +1620,34 @@ export namespace TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJS
 }
 
 /** @internal */
+export const TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONTextAlign
+  > = z.nativeEnum(
+    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONTextAlign,
+  );
+
+/** @internal */
+export const TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONTextAlign
+  > =
+    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONTextAlign$ {
+  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONTextAlign$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const TemplateFindTemplatesFieldMeta5$inboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMeta5,
   z.ZodTypeDef,
@@ -1526,6 +1662,9 @@ export const TemplateFindTemplatesFieldMeta5$inboundSchema: z.ZodType<
   text: z.string().optional(),
   characterLimit: z.number().optional(),
   fontSize: z.number().optional(),
+  textAlign:
+    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONTextAlign$inboundSchema
+      .optional(),
 });
 
 /** @internal */
@@ -1538,6 +1677,7 @@ export type TemplateFindTemplatesFieldMeta5$Outbound = {
   text?: string | undefined;
   characterLimit?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -1555,6 +1695,9 @@ export const TemplateFindTemplatesFieldMeta5$outboundSchema: z.ZodType<
   text: z.string().optional(),
   characterLimit: z.number().optional(),
   fontSize: z.number().optional(),
+  textAlign:
+    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONTextAlign$outboundSchema
+      .optional(),
 });
 
 /**
@@ -1616,6 +1759,31 @@ export namespace TemplateFindTemplatesFieldMetaTemplatesResponse200Type$ {
 }
 
 /** @internal */
+export const TemplateFindTemplatesFieldMetaTemplatesResponse200TextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof TemplateFindTemplatesFieldMetaTemplatesResponse200TextAlign
+  > = z.nativeEnum(TemplateFindTemplatesFieldMetaTemplatesResponse200TextAlign);
+
+/** @internal */
+export const TemplateFindTemplatesFieldMetaTemplatesResponse200TextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof TemplateFindTemplatesFieldMetaTemplatesResponse200TextAlign
+  > = TemplateFindTemplatesFieldMetaTemplatesResponse200TextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateFindTemplatesFieldMetaTemplatesResponse200TextAlign$ {
+  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesResponse200TextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateFindTemplatesFieldMetaTemplatesResponse200TextAlign$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesResponse200TextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateFindTemplatesFieldMetaTemplatesResponse200TextAlign$outboundSchema;
+}
+
+/** @internal */
 export const TemplateFindTemplatesFieldMeta4$inboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMeta4,
   z.ZodTypeDef,
@@ -1627,6 +1795,9 @@ export const TemplateFindTemplatesFieldMeta4$inboundSchema: z.ZodType<
   readOnly: z.boolean().optional(),
   type: TemplateFindTemplatesFieldMetaTemplatesResponse200Type$inboundSchema,
   fontSize: z.number().optional(),
+  textAlign:
+    TemplateFindTemplatesFieldMetaTemplatesResponse200TextAlign$inboundSchema
+      .optional(),
 });
 
 /** @internal */
@@ -1637,6 +1808,7 @@ export type TemplateFindTemplatesFieldMeta4$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -1651,6 +1823,9 @@ export const TemplateFindTemplatesFieldMeta4$outboundSchema: z.ZodType<
   readOnly: z.boolean().optional(),
   type: TemplateFindTemplatesFieldMetaTemplatesResponse200Type$outboundSchema,
   fontSize: z.number().optional(),
+  textAlign:
+    TemplateFindTemplatesFieldMetaTemplatesResponse200TextAlign$outboundSchema
+      .optional(),
 });
 
 /**
@@ -1710,6 +1885,31 @@ export namespace TemplateFindTemplatesFieldMetaTemplatesResponseType$ {
 }
 
 /** @internal */
+export const TemplateFindTemplatesFieldMetaTemplatesResponseTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof TemplateFindTemplatesFieldMetaTemplatesResponseTextAlign
+  > = z.nativeEnum(TemplateFindTemplatesFieldMetaTemplatesResponseTextAlign);
+
+/** @internal */
+export const TemplateFindTemplatesFieldMetaTemplatesResponseTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof TemplateFindTemplatesFieldMetaTemplatesResponseTextAlign
+  > = TemplateFindTemplatesFieldMetaTemplatesResponseTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateFindTemplatesFieldMetaTemplatesResponseTextAlign$ {
+  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesResponseTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateFindTemplatesFieldMetaTemplatesResponseTextAlign$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesResponseTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateFindTemplatesFieldMetaTemplatesResponseTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const TemplateFindTemplatesFieldMeta3$inboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMeta3,
   z.ZodTypeDef,
@@ -1721,6 +1921,9 @@ export const TemplateFindTemplatesFieldMeta3$inboundSchema: z.ZodType<
   readOnly: z.boolean().optional(),
   type: TemplateFindTemplatesFieldMetaTemplatesResponseType$inboundSchema,
   fontSize: z.number().optional(),
+  textAlign:
+    TemplateFindTemplatesFieldMetaTemplatesResponseTextAlign$inboundSchema
+      .optional(),
 });
 
 /** @internal */
@@ -1731,6 +1934,7 @@ export type TemplateFindTemplatesFieldMeta3$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -1745,6 +1949,9 @@ export const TemplateFindTemplatesFieldMeta3$outboundSchema: z.ZodType<
   readOnly: z.boolean().optional(),
   type: TemplateFindTemplatesFieldMetaTemplatesResponseType$outboundSchema,
   fontSize: z.number().optional(),
+  textAlign:
+    TemplateFindTemplatesFieldMetaTemplatesResponseTextAlign$outboundSchema
+      .optional(),
 });
 
 /**
@@ -1804,6 +2011,29 @@ export namespace TemplateFindTemplatesFieldMetaTemplatesType$ {
 }
 
 /** @internal */
+export const TemplateFindTemplatesFieldMetaTemplatesTextAlign$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateFindTemplatesFieldMetaTemplatesTextAlign> = z
+    .nativeEnum(TemplateFindTemplatesFieldMetaTemplatesTextAlign);
+
+/** @internal */
+export const TemplateFindTemplatesFieldMetaTemplatesTextAlign$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateFindTemplatesFieldMetaTemplatesTextAlign> =
+    TemplateFindTemplatesFieldMetaTemplatesTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateFindTemplatesFieldMetaTemplatesTextAlign$ {
+  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateFindTemplatesFieldMetaTemplatesTextAlign$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateFindTemplatesFieldMetaTemplatesTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const TemplateFindTemplatesFieldMeta2$inboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMeta2,
   z.ZodTypeDef,
@@ -1815,6 +2045,8 @@ export const TemplateFindTemplatesFieldMeta2$inboundSchema: z.ZodType<
   readOnly: z.boolean().optional(),
   type: TemplateFindTemplatesFieldMetaTemplatesType$inboundSchema,
   fontSize: z.number().optional(),
+  textAlign: TemplateFindTemplatesFieldMetaTemplatesTextAlign$inboundSchema
+    .optional(),
 });
 
 /** @internal */
@@ -1825,6 +2057,7 @@ export type TemplateFindTemplatesFieldMeta2$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -1839,6 +2072,8 @@ export const TemplateFindTemplatesFieldMeta2$outboundSchema: z.ZodType<
   readOnly: z.boolean().optional(),
   type: TemplateFindTemplatesFieldMetaTemplatesType$outboundSchema,
   fontSize: z.number().optional(),
+  textAlign: TemplateFindTemplatesFieldMetaTemplatesTextAlign$outboundSchema
+    .optional(),
 });
 
 /**
@@ -1897,6 +2132,29 @@ export namespace TemplateFindTemplatesFieldMetaType$ {
 }
 
 /** @internal */
+export const TemplateFindTemplatesFieldMetaTextAlign$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateFindTemplatesFieldMetaTextAlign> = z
+    .nativeEnum(TemplateFindTemplatesFieldMetaTextAlign);
+
+/** @internal */
+export const TemplateFindTemplatesFieldMetaTextAlign$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateFindTemplatesFieldMetaTextAlign> =
+    TemplateFindTemplatesFieldMetaTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateFindTemplatesFieldMetaTextAlign$ {
+  /** @deprecated use `TemplateFindTemplatesFieldMetaTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateFindTemplatesFieldMetaTextAlign$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesFieldMetaTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateFindTemplatesFieldMetaTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const TemplateFindTemplatesFieldMeta1$inboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMeta1,
   z.ZodTypeDef,
@@ -1908,6 +2166,7 @@ export const TemplateFindTemplatesFieldMeta1$inboundSchema: z.ZodType<
   readOnly: z.boolean().optional(),
   type: TemplateFindTemplatesFieldMetaType$inboundSchema,
   fontSize: z.number().optional(),
+  textAlign: TemplateFindTemplatesFieldMetaTextAlign$inboundSchema.optional(),
 });
 
 /** @internal */
@@ -1918,6 +2177,7 @@ export type TemplateFindTemplatesFieldMeta1$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -1932,6 +2192,7 @@ export const TemplateFindTemplatesFieldMeta1$outboundSchema: z.ZodType<
   readOnly: z.boolean().optional(),
   type: TemplateFindTemplatesFieldMetaType$outboundSchema,
   fontSize: z.number().optional(),
+  textAlign: TemplateFindTemplatesFieldMetaTextAlign$outboundSchema.optional(),
 });
 
 /**
@@ -1973,27 +2234,27 @@ export const TemplateFindTemplatesFieldMeta$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
+  z.lazy(() => TemplateFindTemplatesFieldMeta7$inboundSchema),
   z.lazy(() => TemplateFindTemplatesFieldMeta1$inboundSchema),
   z.lazy(() => TemplateFindTemplatesFieldMeta2$inboundSchema),
   z.lazy(() => TemplateFindTemplatesFieldMeta3$inboundSchema),
   z.lazy(() => TemplateFindTemplatesFieldMeta4$inboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMeta7$inboundSchema),
   z.lazy(() => TemplateFindTemplatesFieldMeta9$inboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMeta5$inboundSchema),
   z.lazy(() => TemplateFindTemplatesFieldMeta8$inboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMeta5$inboundSchema),
   z.lazy(() => TemplateFindTemplatesFieldMeta6$inboundSchema),
 ]);
 
 /** @internal */
 export type TemplateFindTemplatesFieldMeta$Outbound =
+  | TemplateFindTemplatesFieldMeta7$Outbound
   | TemplateFindTemplatesFieldMeta1$Outbound
   | TemplateFindTemplatesFieldMeta2$Outbound
   | TemplateFindTemplatesFieldMeta3$Outbound
   | TemplateFindTemplatesFieldMeta4$Outbound
-  | TemplateFindTemplatesFieldMeta7$Outbound
   | TemplateFindTemplatesFieldMeta9$Outbound
-  | TemplateFindTemplatesFieldMeta5$Outbound
   | TemplateFindTemplatesFieldMeta8$Outbound
+  | TemplateFindTemplatesFieldMeta5$Outbound
   | TemplateFindTemplatesFieldMeta6$Outbound;
 
 /** @internal */
@@ -2002,14 +2263,14 @@ export const TemplateFindTemplatesFieldMeta$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TemplateFindTemplatesFieldMeta
 > = z.union([
+  z.lazy(() => TemplateFindTemplatesFieldMeta7$outboundSchema),
   z.lazy(() => TemplateFindTemplatesFieldMeta1$outboundSchema),
   z.lazy(() => TemplateFindTemplatesFieldMeta2$outboundSchema),
   z.lazy(() => TemplateFindTemplatesFieldMeta3$outboundSchema),
   z.lazy(() => TemplateFindTemplatesFieldMeta4$outboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMeta7$outboundSchema),
   z.lazy(() => TemplateFindTemplatesFieldMeta9$outboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMeta5$outboundSchema),
   z.lazy(() => TemplateFindTemplatesFieldMeta8$outboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMeta5$outboundSchema),
   z.lazy(() => TemplateFindTemplatesFieldMeta6$outboundSchema),
 ]);
 
@@ -2067,14 +2328,14 @@ export const TemplateFindTemplatesFields$inboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
+      z.lazy(() => TemplateFindTemplatesFieldMeta7$inboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMeta1$inboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMeta2$inboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMeta3$inboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMeta4$inboundSchema),
-      z.lazy(() => TemplateFindTemplatesFieldMeta7$inboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMeta9$inboundSchema),
-      z.lazy(() => TemplateFindTemplatesFieldMeta5$inboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMeta8$inboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMeta5$inboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMeta6$inboundSchema),
     ]),
   ),
@@ -2096,14 +2357,14 @@ export type TemplateFindTemplatesFields$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
+    | TemplateFindTemplatesFieldMeta7$Outbound
     | TemplateFindTemplatesFieldMeta1$Outbound
     | TemplateFindTemplatesFieldMeta2$Outbound
     | TemplateFindTemplatesFieldMeta3$Outbound
     | TemplateFindTemplatesFieldMeta4$Outbound
-    | TemplateFindTemplatesFieldMeta7$Outbound
     | TemplateFindTemplatesFieldMeta9$Outbound
-    | TemplateFindTemplatesFieldMeta5$Outbound
     | TemplateFindTemplatesFieldMeta8$Outbound
+    | TemplateFindTemplatesFieldMeta5$Outbound
     | TemplateFindTemplatesFieldMeta6$Outbound
     | null;
 };
@@ -2129,14 +2390,14 @@ export const TemplateFindTemplatesFields$outboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
+      z.lazy(() => TemplateFindTemplatesFieldMeta7$outboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMeta1$outboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMeta2$outboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMeta3$outboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMeta4$outboundSchema),
-      z.lazy(() => TemplateFindTemplatesFieldMeta7$outboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMeta9$outboundSchema),
-      z.lazy(() => TemplateFindTemplatesFieldMeta5$outboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMeta8$outboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMeta5$outboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMeta6$outboundSchema),
     ]),
   ),

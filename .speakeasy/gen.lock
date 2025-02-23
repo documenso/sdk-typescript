@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 2f28b0c4-e21c-47c4-aada-41da1a74c452
 management:
-  docChecksum: 9f594959166c064df053ece48e49e810
+  docChecksum: 2bae3812cb49c9bab542cac197a7c204
   docVersion: 0.0.0
-  speakeasyVersion: 1.470.1
-  generationVersion: 2.493.34
-  releaseVersion: 0.1.3
-  configChecksum: 2fd293a7c1c3b3f01110894bc2faccc2
+  speakeasyVersion: 1.501.0
+  generationVersion: 2.522.1
+  releaseVersion: 0.2.0
+  configChecksum: 47c7424d6af507cf5fda1d4e5bc9906d
   repoURL: https://github.com/documenso/sdk-typescript.git
   installationURL: https://github.com/documenso/sdk-typescript
   published: true
@@ -14,23 +14,23 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.11
-    core: 3.18.17
+    core: 3.21.1
     defaultEnabledRetries: 0.1.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
-    globalSecurity: 2.82.12
+    globalSecurity: 2.82.13
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.4
     groups: 2.81.2
+    mcpServer: 0.2.0
     nameOverrides: 2.81.2
-    nullables: 0.1.0
+    nullables: 0.1.1
     responseFormat: 0.2.3
     retries: 2.83.0
     sdkHooks: 0.2.0
     unions: 2.85.8
 generatedFiles:
-  - .eslintrc.cjs
   - .gitattributes
   - .npmignore
   - FUNCTIONS.md
@@ -256,13 +256,19 @@ generatedFiles:
   - docs/models/operations/documentcreatedocumenttemporaryfieldmetadocumentsresponse200applicationjsonresponsebodydocumentfields9type.md
   - docs/models/operations/documentcreatedocumenttemporaryfieldmetadocumentsresponse200applicationjsonresponsebodydocumentfieldstype.md
   - docs/models/operations/documentcreatedocumenttemporaryfieldmetadocumentsresponse200applicationjsonresponsebodydocumenttype.md
+  - docs/models/operations/documentcreatedocumenttemporaryfieldmetadocumentsresponse200applicationjsonresponsebodytextalign.md
   - docs/models/operations/documentcreatedocumenttemporaryfieldmetadocumentsresponse200applicationjsonresponsebodytype.md
+  - docs/models/operations/documentcreatedocumenttemporaryfieldmetadocumentsresponse200applicationjsontextalign.md
   - docs/models/operations/documentcreatedocumenttemporaryfieldmetadocumentsresponse200applicationjsontype.md
+  - docs/models/operations/documentcreatedocumenttemporaryfieldmetadocumentsresponse200textalign.md
   - docs/models/operations/documentcreatedocumenttemporaryfieldmetadocumentsresponse200type.md
+  - docs/models/operations/documentcreatedocumenttemporaryfieldmetadocumentsresponsetextalign.md
   - docs/models/operations/documentcreatedocumenttemporaryfieldmetadocumentsresponsetype.md
   - docs/models/operations/documentcreatedocumenttemporaryfieldmetadocumentsresponsevalues.md
+  - docs/models/operations/documentcreatedocumenttemporaryfieldmetadocumentstextalign.md
   - docs/models/operations/documentcreatedocumenttemporaryfieldmetadocumentstype.md
   - docs/models/operations/documentcreatedocumenttemporaryfieldmetadocumentsvalues.md
+  - docs/models/operations/documentcreatedocumenttemporaryfieldmetatextalign.md
   - docs/models/operations/documentcreatedocumenttemporaryfieldmetatype.md
   - docs/models/operations/documentcreatedocumenttemporaryfieldmetavalues.md
   - docs/models/operations/documentcreatedocumenttemporaryfields.md
@@ -286,10 +292,14 @@ generatedFiles:
   - docs/models/operations/documentcreatedocumenttemporaryfieldsdocumentsrequestrequestbodyrecipients9type.md
   - docs/models/operations/documentcreatedocumenttemporaryfieldsdocumentsrequestrequestbodyrecipientsfieldmeta.md
   - docs/models/operations/documentcreatedocumenttemporaryfieldsdocumentsrequestrequestbodyrecipientstype.md
+  - docs/models/operations/documentcreatedocumenttemporaryfieldsdocumentsrequestrequestbodytextalign.md
   - docs/models/operations/documentcreatedocumenttemporaryfieldsdocumentsrequestrequestbodytype.md
+  - docs/models/operations/documentcreatedocumenttemporaryfieldsdocumentsrequesttextalign.md
   - docs/models/operations/documentcreatedocumenttemporaryfieldsdocumentsrequesttype.md
+  - docs/models/operations/documentcreatedocumenttemporaryfieldsdocumentstextalign.md
   - docs/models/operations/documentcreatedocumenttemporaryfieldsdocumentstype.md
   - docs/models/operations/documentcreatedocumenttemporaryfieldsfieldmeta.md
+  - docs/models/operations/documentcreatedocumenttemporaryfieldstextalign.md
   - docs/models/operations/documentcreatedocumenttemporaryfieldstype.md
   - docs/models/operations/documentcreatedocumenttemporaryfieldsvalues.md
   - docs/models/operations/documentcreatedocumenttemporaryformvalues.md
@@ -350,13 +360,19 @@ generatedFiles:
   - docs/models/operations/documentgetdocumentwithdetailsbyidfieldmetadocumentsresponse200applicationjsonresponsebodyfields1type.md
   - docs/models/operations/documentgetdocumentwithdetailsbyidfieldmetadocumentsresponse200applicationjsonresponsebodyfields9type.md
   - docs/models/operations/documentgetdocumentwithdetailsbyidfieldmetadocumentsresponse200applicationjsonresponsebodyfieldstype.md
+  - docs/models/operations/documentgetdocumentwithdetailsbyidfieldmetadocumentsresponse200applicationjsonresponsebodytextalign.md
   - docs/models/operations/documentgetdocumentwithdetailsbyidfieldmetadocumentsresponse200applicationjsonresponsebodytype.md
+  - docs/models/operations/documentgetdocumentwithdetailsbyidfieldmetadocumentsresponse200applicationjsontextalign.md
   - docs/models/operations/documentgetdocumentwithdetailsbyidfieldmetadocumentsresponse200applicationjsontype.md
+  - docs/models/operations/documentgetdocumentwithdetailsbyidfieldmetadocumentsresponse200textalign.md
   - docs/models/operations/documentgetdocumentwithdetailsbyidfieldmetadocumentsresponse200type.md
+  - docs/models/operations/documentgetdocumentwithdetailsbyidfieldmetadocumentsresponsetextalign.md
   - docs/models/operations/documentgetdocumentwithdetailsbyidfieldmetadocumentsresponsetype.md
   - docs/models/operations/documentgetdocumentwithdetailsbyidfieldmetadocumentsresponsevalues.md
+  - docs/models/operations/documentgetdocumentwithdetailsbyidfieldmetadocumentstextalign.md
   - docs/models/operations/documentgetdocumentwithdetailsbyidfieldmetadocumentstype.md
   - docs/models/operations/documentgetdocumentwithdetailsbyidfieldmetadocumentsvalues.md
+  - docs/models/operations/documentgetdocumentwithdetailsbyidfieldmetatextalign.md
   - docs/models/operations/documentgetdocumentwithdetailsbyidfieldmetatype.md
   - docs/models/operations/documentgetdocumentwithdetailsbyidfieldmetavalues.md
   - docs/models/operations/documentgetdocumentwithdetailsbyidfields.md
@@ -451,13 +467,17 @@ generatedFiles:
   - docs/models/operations/fieldcreatedocumentfieldfielddocumentsfieldsrequestrequestbody7type.md
   - docs/models/operations/fieldcreatedocumentfieldfielddocumentsfieldsrequestrequestbody8fieldmeta.md
   - docs/models/operations/fieldcreatedocumentfieldfielddocumentsfieldsrequestrequestbody8fieldmetatype.md
+  - docs/models/operations/fieldcreatedocumentfieldfielddocumentsfieldsrequestrequestbody8textalign.md
   - docs/models/operations/fieldcreatedocumentfieldfielddocumentsfieldsrequestrequestbody8type.md
   - docs/models/operations/fieldcreatedocumentfieldfielddocumentsfieldsrequestrequestbody9fieldmeta.md
   - docs/models/operations/fieldcreatedocumentfieldfielddocumentsfieldsrequestrequestbody9fieldmetatype.md
   - docs/models/operations/fieldcreatedocumentfieldfielddocumentsfieldsrequestrequestbody9type.md
   - docs/models/operations/fieldcreatedocumentfieldfielddocumentsfieldsrequestrequestbodyfieldmeta.md
+  - docs/models/operations/fieldcreatedocumentfieldfielddocumentsfieldsrequestrequestbodytextalign.md
   - docs/models/operations/fieldcreatedocumentfieldfielddocumentsfieldsrequestrequestbodytype.md
+  - docs/models/operations/fieldcreatedocumentfieldfielddocumentsfieldsrequesttextalign.md
   - docs/models/operations/fieldcreatedocumentfieldfielddocumentsfieldsrequesttype.md
+  - docs/models/operations/fieldcreatedocumentfieldfielddocumentsfieldstextalign.md
   - docs/models/operations/fieldcreatedocumentfieldfielddocumentsfieldstype.md
   - docs/models/operations/fieldcreatedocumentfieldfielddocumentsfieldsvalues.md
   - docs/models/operations/fieldcreatedocumentfieldfieldfieldmeta.md
@@ -474,15 +494,22 @@ generatedFiles:
   - docs/models/operations/fieldcreatedocumentfieldfieldmetadocumentsfieldsresponse200applicationjsonresponsebody7type.md
   - docs/models/operations/fieldcreatedocumentfieldfieldmetadocumentsfieldsresponse200applicationjsonresponsebody8type.md
   - docs/models/operations/fieldcreatedocumentfieldfieldmetadocumentsfieldsresponse200applicationjsonresponsebody9type.md
+  - docs/models/operations/fieldcreatedocumentfieldfieldmetadocumentsfieldsresponse200applicationjsonresponsebodytextalign.md
   - docs/models/operations/fieldcreatedocumentfieldfieldmetadocumentsfieldsresponse200applicationjsonresponsebodytype.md
+  - docs/models/operations/fieldcreatedocumentfieldfieldmetadocumentsfieldsresponse200applicationjsontextalign.md
   - docs/models/operations/fieldcreatedocumentfieldfieldmetadocumentsfieldsresponse200applicationjsontype.md
+  - docs/models/operations/fieldcreatedocumentfieldfieldmetadocumentsfieldsresponse200textalign.md
   - docs/models/operations/fieldcreatedocumentfieldfieldmetadocumentsfieldsresponse200type.md
+  - docs/models/operations/fieldcreatedocumentfieldfieldmetadocumentsfieldsresponsetextalign.md
   - docs/models/operations/fieldcreatedocumentfieldfieldmetadocumentsfieldsresponsetype.md
   - docs/models/operations/fieldcreatedocumentfieldfieldmetadocumentsfieldsresponsevalues.md
+  - docs/models/operations/fieldcreatedocumentfieldfieldmetadocumentsfieldstextalign.md
   - docs/models/operations/fieldcreatedocumentfieldfieldmetadocumentsfieldstype.md
   - docs/models/operations/fieldcreatedocumentfieldfieldmetadocumentsfieldsvalues.md
+  - docs/models/operations/fieldcreatedocumentfieldfieldmetatextalign.md
   - docs/models/operations/fieldcreatedocumentfieldfieldmetatype.md
   - docs/models/operations/fieldcreatedocumentfieldfieldmetavalues.md
+  - docs/models/operations/fieldcreatedocumentfieldfieldtextalign.md
   - docs/models/operations/fieldcreatedocumentfieldfieldtype.md
   - docs/models/operations/fieldcreatedocumentfieldfieldvalues.md
   - docs/models/operations/fieldcreatedocumentfieldrequestbody.md
@@ -501,13 +528,19 @@ generatedFiles:
   - docs/models/operations/fieldcreatedocumentfieldsfieldmetadocumentsfieldsresponse200applicationjsonresponsebodyfields8type.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldmetadocumentsfieldsresponse200applicationjsonresponsebodyfields9type.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldmetadocumentsfieldsresponse200applicationjsonresponsebodyfieldstype.md
+  - docs/models/operations/fieldcreatedocumentfieldsfieldmetadocumentsfieldsresponse200applicationjsonresponsebodytextalign.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldmetadocumentsfieldsresponse200applicationjsonresponsebodytype.md
+  - docs/models/operations/fieldcreatedocumentfieldsfieldmetadocumentsfieldsresponse200applicationjsontextalign.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldmetadocumentsfieldsresponse200applicationjsontype.md
+  - docs/models/operations/fieldcreatedocumentfieldsfieldmetadocumentsfieldsresponse200textalign.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldmetadocumentsfieldsresponse200type.md
+  - docs/models/operations/fieldcreatedocumentfieldsfieldmetadocumentsfieldsresponsetextalign.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldmetadocumentsfieldsresponsetype.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldmetadocumentsfieldsresponsevalues.md
+  - docs/models/operations/fieldcreatedocumentfieldsfieldmetadocumentsfieldstextalign.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldmetadocumentsfieldstype.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldmetadocumentsfieldsvalues.md
+  - docs/models/operations/fieldcreatedocumentfieldsfieldmetatextalign.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldmetatype.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldmetavalues.md
   - docs/models/operations/fieldcreatedocumentfieldsfields.md
@@ -527,20 +560,26 @@ generatedFiles:
   - docs/models/operations/fieldcreatedocumentfieldsfieldsdocumentsfieldsrequestrequestbody6type.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldsdocumentsfieldsrequestrequestbody7fieldmeta.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldsdocumentsfieldsrequestrequestbody7fieldmetatype.md
+  - docs/models/operations/fieldcreatedocumentfieldsfieldsdocumentsfieldsrequestrequestbody7textalign.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldsdocumentsfieldsrequestrequestbody7type.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldsdocumentsfieldsrequestrequestbody8fieldmeta.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldsdocumentsfieldsrequestrequestbody8fieldmetatype.md
+  - docs/models/operations/fieldcreatedocumentfieldsfieldsdocumentsfieldsrequestrequestbody8textalign.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldsdocumentsfieldsrequestrequestbody8type.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldsdocumentsfieldsrequestrequestbody9fieldmeta.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldsdocumentsfieldsrequestrequestbody9fieldmetatype.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldsdocumentsfieldsrequestrequestbody9type.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldsdocumentsfieldsrequestrequestbodyfieldmeta.md
+  - docs/models/operations/fieldcreatedocumentfieldsfieldsdocumentsfieldsrequestrequestbodytextalign.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldsdocumentsfieldsrequestrequestbodytype.md
+  - docs/models/operations/fieldcreatedocumentfieldsfieldsdocumentsfieldsrequesttextalign.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldsdocumentsfieldsrequesttype.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldsdocumentsfieldsrequestvalues.md
+  - docs/models/operations/fieldcreatedocumentfieldsfieldsdocumentsfieldstextalign.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldsdocumentsfieldstype.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldsdocumentsfieldsvalues.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldsfieldmeta.md
+  - docs/models/operations/fieldcreatedocumentfieldsfieldstextalign.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldstype.md
   - docs/models/operations/fieldcreatedocumentfieldsfieldsvalues.md
   - docs/models/operations/fieldcreatedocumentfieldsrequestbody.md
@@ -573,13 +612,19 @@ generatedFiles:
   - docs/models/operations/fieldcreatetemplatefieldfieldmetatemplatesfieldsresponse200applicationjsonresponsebody7type.md
   - docs/models/operations/fieldcreatetemplatefieldfieldmetatemplatesfieldsresponse200applicationjsonresponsebody8type.md
   - docs/models/operations/fieldcreatetemplatefieldfieldmetatemplatesfieldsresponse200applicationjsonresponsebody9type.md
+  - docs/models/operations/fieldcreatetemplatefieldfieldmetatemplatesfieldsresponse200applicationjsonresponsebodytextalign.md
   - docs/models/operations/fieldcreatetemplatefieldfieldmetatemplatesfieldsresponse200applicationjsonresponsebodytype.md
+  - docs/models/operations/fieldcreatetemplatefieldfieldmetatemplatesfieldsresponse200applicationjsontextalign.md
   - docs/models/operations/fieldcreatetemplatefieldfieldmetatemplatesfieldsresponse200applicationjsontype.md
+  - docs/models/operations/fieldcreatetemplatefieldfieldmetatemplatesfieldsresponse200textalign.md
   - docs/models/operations/fieldcreatetemplatefieldfieldmetatemplatesfieldsresponse200type.md
+  - docs/models/operations/fieldcreatetemplatefieldfieldmetatemplatesfieldsresponsetextalign.md
   - docs/models/operations/fieldcreatetemplatefieldfieldmetatemplatesfieldsresponsetype.md
   - docs/models/operations/fieldcreatetemplatefieldfieldmetatemplatesfieldsresponsevalues.md
+  - docs/models/operations/fieldcreatetemplatefieldfieldmetatemplatesfieldstextalign.md
   - docs/models/operations/fieldcreatetemplatefieldfieldmetatemplatesfieldstype.md
   - docs/models/operations/fieldcreatetemplatefieldfieldmetatemplatesfieldsvalues.md
+  - docs/models/operations/fieldcreatetemplatefieldfieldmetatextalign.md
   - docs/models/operations/fieldcreatetemplatefieldfieldmetatype.md
   - docs/models/operations/fieldcreatetemplatefieldfieldmetavalues.md
   - docs/models/operations/fieldcreatetemplatefieldfieldtemplatesfieldsfieldmeta.md
@@ -598,19 +643,25 @@ generatedFiles:
   - docs/models/operations/fieldcreatetemplatefieldfieldtemplatesfieldsrequestrequestbody6type.md
   - docs/models/operations/fieldcreatetemplatefieldfieldtemplatesfieldsrequestrequestbody7fieldmeta.md
   - docs/models/operations/fieldcreatetemplatefieldfieldtemplatesfieldsrequestrequestbody7fieldmetatype.md
+  - docs/models/operations/fieldcreatetemplatefieldfieldtemplatesfieldsrequestrequestbody7textalign.md
   - docs/models/operations/fieldcreatetemplatefieldfieldtemplatesfieldsrequestrequestbody7type.md
   - docs/models/operations/fieldcreatetemplatefieldfieldtemplatesfieldsrequestrequestbody8fieldmeta.md
   - docs/models/operations/fieldcreatetemplatefieldfieldtemplatesfieldsrequestrequestbody8fieldmetatype.md
+  - docs/models/operations/fieldcreatetemplatefieldfieldtemplatesfieldsrequestrequestbody8textalign.md
   - docs/models/operations/fieldcreatetemplatefieldfieldtemplatesfieldsrequestrequestbody8type.md
   - docs/models/operations/fieldcreatetemplatefieldfieldtemplatesfieldsrequestrequestbody9fieldmeta.md
   - docs/models/operations/fieldcreatetemplatefieldfieldtemplatesfieldsrequestrequestbody9fieldmetatype.md
   - docs/models/operations/fieldcreatetemplatefieldfieldtemplatesfieldsrequestrequestbody9type.md
   - docs/models/operations/fieldcreatetemplatefieldfieldtemplatesfieldsrequestrequestbodyfieldmeta.md
+  - docs/models/operations/fieldcreatetemplatefieldfieldtemplatesfieldsrequestrequestbodytextalign.md
   - docs/models/operations/fieldcreatetemplatefieldfieldtemplatesfieldsrequestrequestbodytype.md
+  - docs/models/operations/fieldcreatetemplatefieldfieldtemplatesfieldsrequesttextalign.md
   - docs/models/operations/fieldcreatetemplatefieldfieldtemplatesfieldsrequesttype.md
   - docs/models/operations/fieldcreatetemplatefieldfieldtemplatesfieldsrequestvalues.md
+  - docs/models/operations/fieldcreatetemplatefieldfieldtemplatesfieldstextalign.md
   - docs/models/operations/fieldcreatetemplatefieldfieldtemplatesfieldstype.md
   - docs/models/operations/fieldcreatetemplatefieldfieldtemplatesfieldsvalues.md
+  - docs/models/operations/fieldcreatetemplatefieldfieldtextalign.md
   - docs/models/operations/fieldcreatetemplatefieldfieldtype.md
   - docs/models/operations/fieldcreatetemplatefieldfieldvalues.md
   - docs/models/operations/fieldcreatetemplatefieldrequestbody.md
@@ -628,13 +679,19 @@ generatedFiles:
   - docs/models/operations/fieldcreatetemplatefieldsfieldmetatemplatesfieldsresponse200applicationjsonresponsebodyfields8type.md
   - docs/models/operations/fieldcreatetemplatefieldsfieldmetatemplatesfieldsresponse200applicationjsonresponsebodyfields9type.md
   - docs/models/operations/fieldcreatetemplatefieldsfieldmetatemplatesfieldsresponse200applicationjsonresponsebodyfieldstype.md
+  - docs/models/operations/fieldcreatetemplatefieldsfieldmetatemplatesfieldsresponse200applicationjsonresponsebodytextalign.md
   - docs/models/operations/fieldcreatetemplatefieldsfieldmetatemplatesfieldsresponse200applicationjsonresponsebodytype.md
+  - docs/models/operations/fieldcreatetemplatefieldsfieldmetatemplatesfieldsresponse200applicationjsontextalign.md
   - docs/models/operations/fieldcreatetemplatefieldsfieldmetatemplatesfieldsresponse200applicationjsontype.md
+  - docs/models/operations/fieldcreatetemplatefieldsfieldmetatemplatesfieldsresponse200textalign.md
   - docs/models/operations/fieldcreatetemplatefieldsfieldmetatemplatesfieldsresponse200type.md
+  - docs/models/operations/fieldcreatetemplatefieldsfieldmetatemplatesfieldsresponsetextalign.md
   - docs/models/operations/fieldcreatetemplatefieldsfieldmetatemplatesfieldsresponsetype.md
   - docs/models/operations/fieldcreatetemplatefieldsfieldmetatemplatesfieldsresponsevalues.md
+  - docs/models/operations/fieldcreatetemplatefieldsfieldmetatemplatesfieldstextalign.md
   - docs/models/operations/fieldcreatetemplatefieldsfieldmetatemplatesfieldstype.md
   - docs/models/operations/fieldcreatetemplatefieldsfieldmetatemplatesfieldsvalues.md
+  - docs/models/operations/fieldcreatetemplatefieldsfieldmetatextalign.md
   - docs/models/operations/fieldcreatetemplatefieldsfieldmetatype.md
   - docs/models/operations/fieldcreatetemplatefieldsfieldmetavalues.md
   - docs/models/operations/fieldcreatetemplatefieldsfields.md
@@ -666,19 +723,25 @@ generatedFiles:
   - docs/models/operations/fieldcreatetemplatefieldsfieldstemplatesfieldsrequestrequestbody6type.md
   - docs/models/operations/fieldcreatetemplatefieldsfieldstemplatesfieldsrequestrequestbody7fieldmeta.md
   - docs/models/operations/fieldcreatetemplatefieldsfieldstemplatesfieldsrequestrequestbody7fieldmetatype.md
+  - docs/models/operations/fieldcreatetemplatefieldsfieldstemplatesfieldsrequestrequestbody7textalign.md
   - docs/models/operations/fieldcreatetemplatefieldsfieldstemplatesfieldsrequestrequestbody7type.md
   - docs/models/operations/fieldcreatetemplatefieldsfieldstemplatesfieldsrequestrequestbody8fieldmeta.md
   - docs/models/operations/fieldcreatetemplatefieldsfieldstemplatesfieldsrequestrequestbody8fieldmetatype.md
+  - docs/models/operations/fieldcreatetemplatefieldsfieldstemplatesfieldsrequestrequestbody8textalign.md
   - docs/models/operations/fieldcreatetemplatefieldsfieldstemplatesfieldsrequestrequestbody8type.md
   - docs/models/operations/fieldcreatetemplatefieldsfieldstemplatesfieldsrequestrequestbody9fieldmeta.md
   - docs/models/operations/fieldcreatetemplatefieldsfieldstemplatesfieldsrequestrequestbody9fieldmetatype.md
   - docs/models/operations/fieldcreatetemplatefieldsfieldstemplatesfieldsrequestrequestbody9type.md
   - docs/models/operations/fieldcreatetemplatefieldsfieldstemplatesfieldsrequestrequestbodyfieldmeta.md
+  - docs/models/operations/fieldcreatetemplatefieldsfieldstemplatesfieldsrequestrequestbodytextalign.md
   - docs/models/operations/fieldcreatetemplatefieldsfieldstemplatesfieldsrequestrequestbodytype.md
+  - docs/models/operations/fieldcreatetemplatefieldsfieldstemplatesfieldsrequesttextalign.md
   - docs/models/operations/fieldcreatetemplatefieldsfieldstemplatesfieldsrequesttype.md
   - docs/models/operations/fieldcreatetemplatefieldsfieldstemplatesfieldsrequestvalues.md
+  - docs/models/operations/fieldcreatetemplatefieldsfieldstemplatesfieldstextalign.md
   - docs/models/operations/fieldcreatetemplatefieldsfieldstemplatesfieldstype.md
   - docs/models/operations/fieldcreatetemplatefieldsfieldstemplatesfieldsvalues.md
+  - docs/models/operations/fieldcreatetemplatefieldsfieldstextalign.md
   - docs/models/operations/fieldcreatetemplatefieldsfieldstype.md
   - docs/models/operations/fieldcreatetemplatefieldsfieldsvalues.md
   - docs/models/operations/fieldcreatetemplatefieldsrequestbody.md
@@ -695,11 +758,16 @@ generatedFiles:
   - docs/models/operations/fieldgetdocumentfieldfieldmetadocumentsfieldsresponse200applicationjsonresponsebody8type.md
   - docs/models/operations/fieldgetdocumentfieldfieldmetadocumentsfieldsresponse200applicationjsonresponsebody9type.md
   - docs/models/operations/fieldgetdocumentfieldfieldmetadocumentsfieldsresponse200applicationjsonresponsebodytype.md
+  - docs/models/operations/fieldgetdocumentfieldfieldmetadocumentsfieldsresponse200applicationjsontextalign.md
   - docs/models/operations/fieldgetdocumentfieldfieldmetadocumentsfieldsresponse200applicationjsontype.md
+  - docs/models/operations/fieldgetdocumentfieldfieldmetadocumentsfieldsresponse200textalign.md
   - docs/models/operations/fieldgetdocumentfieldfieldmetadocumentsfieldsresponse200type.md
+  - docs/models/operations/fieldgetdocumentfieldfieldmetadocumentsfieldsresponsetextalign.md
   - docs/models/operations/fieldgetdocumentfieldfieldmetadocumentsfieldsresponsetype.md
+  - docs/models/operations/fieldgetdocumentfieldfieldmetadocumentsfieldstextalign.md
   - docs/models/operations/fieldgetdocumentfieldfieldmetadocumentsfieldstype.md
   - docs/models/operations/fieldgetdocumentfieldfieldmetadocumentsfieldsvalues.md
+  - docs/models/operations/fieldgetdocumentfieldfieldmetatextalign.md
   - docs/models/operations/fieldgetdocumentfieldfieldmetatype.md
   - docs/models/operations/fieldgetdocumentfieldfieldmetavalues.md
   - docs/models/operations/fieldgetdocumentfieldrequest.md
@@ -718,13 +786,19 @@ generatedFiles:
   - docs/models/operations/fieldgettemplatefieldfieldmetatemplatesfieldsresponse200applicationjsonresponsebody7type.md
   - docs/models/operations/fieldgettemplatefieldfieldmetatemplatesfieldsresponse200applicationjsonresponsebody8type.md
   - docs/models/operations/fieldgettemplatefieldfieldmetatemplatesfieldsresponse200applicationjsonresponsebody9type.md
+  - docs/models/operations/fieldgettemplatefieldfieldmetatemplatesfieldsresponse200applicationjsonresponsebodytextalign.md
   - docs/models/operations/fieldgettemplatefieldfieldmetatemplatesfieldsresponse200applicationjsonresponsebodytype.md
+  - docs/models/operations/fieldgettemplatefieldfieldmetatemplatesfieldsresponse200applicationjsontextalign.md
   - docs/models/operations/fieldgettemplatefieldfieldmetatemplatesfieldsresponse200applicationjsontype.md
+  - docs/models/operations/fieldgettemplatefieldfieldmetatemplatesfieldsresponse200textalign.md
   - docs/models/operations/fieldgettemplatefieldfieldmetatemplatesfieldsresponse200type.md
+  - docs/models/operations/fieldgettemplatefieldfieldmetatemplatesfieldsresponsetextalign.md
   - docs/models/operations/fieldgettemplatefieldfieldmetatemplatesfieldsresponsetype.md
   - docs/models/operations/fieldgettemplatefieldfieldmetatemplatesfieldsresponsevalues.md
+  - docs/models/operations/fieldgettemplatefieldfieldmetatemplatesfieldstextalign.md
   - docs/models/operations/fieldgettemplatefieldfieldmetatemplatesfieldstype.md
   - docs/models/operations/fieldgettemplatefieldfieldmetatemplatesfieldsvalues.md
+  - docs/models/operations/fieldgettemplatefieldfieldmetatextalign.md
   - docs/models/operations/fieldgettemplatefieldfieldmetatype.md
   - docs/models/operations/fieldgettemplatefieldfieldmetavalues.md
   - docs/models/operations/fieldgettemplatefieldrequest.md
@@ -740,6 +814,7 @@ generatedFiles:
   - docs/models/operations/fieldmeta7.md
   - docs/models/operations/fieldmeta8.md
   - docs/models/operations/fieldmeta9.md
+  - docs/models/operations/fieldmetatextalign.md
   - docs/models/operations/fieldmetatype.md
   - docs/models/operations/fieldmetavalues.md
   - docs/models/operations/fields.md
@@ -755,8 +830,10 @@ generatedFiles:
   - docs/models/operations/fields8.md
   - docs/models/operations/fields9.md
   - docs/models/operations/fieldsfieldmeta.md
+  - docs/models/operations/fieldstextalign.md
   - docs/models/operations/fieldstype.md
   - docs/models/operations/fieldsvalues.md
+  - docs/models/operations/fieldtextalign.md
   - docs/models/operations/fieldtype.md
   - docs/models/operations/fieldupdatedocumentfieldfield.md
   - docs/models/operations/fieldupdatedocumentfieldfield1.md
@@ -786,17 +863,22 @@ generatedFiles:
   - docs/models/operations/fieldupdatedocumentfieldfielddocumentsfieldsrequestrequestbody6type.md
   - docs/models/operations/fieldupdatedocumentfieldfielddocumentsfieldsrequestrequestbody7fieldmeta.md
   - docs/models/operations/fieldupdatedocumentfieldfielddocumentsfieldsrequestrequestbody7fieldmetatype.md
+  - docs/models/operations/fieldupdatedocumentfieldfielddocumentsfieldsrequestrequestbody7textalign.md
   - docs/models/operations/fieldupdatedocumentfieldfielddocumentsfieldsrequestrequestbody7type.md
   - docs/models/operations/fieldupdatedocumentfieldfielddocumentsfieldsrequestrequestbody8fieldmeta.md
   - docs/models/operations/fieldupdatedocumentfieldfielddocumentsfieldsrequestrequestbody8fieldmetatype.md
+  - docs/models/operations/fieldupdatedocumentfieldfielddocumentsfieldsrequestrequestbody8textalign.md
   - docs/models/operations/fieldupdatedocumentfieldfielddocumentsfieldsrequestrequestbody8type.md
   - docs/models/operations/fieldupdatedocumentfieldfielddocumentsfieldsrequestrequestbody9fieldmeta.md
   - docs/models/operations/fieldupdatedocumentfieldfielddocumentsfieldsrequestrequestbody9fieldmetatype.md
   - docs/models/operations/fieldupdatedocumentfieldfielddocumentsfieldsrequestrequestbody9type.md
   - docs/models/operations/fieldupdatedocumentfieldfielddocumentsfieldsrequestrequestbodyfieldmeta.md
+  - docs/models/operations/fieldupdatedocumentfieldfielddocumentsfieldsrequestrequestbodytextalign.md
   - docs/models/operations/fieldupdatedocumentfieldfielddocumentsfieldsrequestrequestbodytype.md
+  - docs/models/operations/fieldupdatedocumentfieldfielddocumentsfieldsrequesttextalign.md
   - docs/models/operations/fieldupdatedocumentfieldfielddocumentsfieldsrequesttype.md
   - docs/models/operations/fieldupdatedocumentfieldfielddocumentsfieldsrequestvalues.md
+  - docs/models/operations/fieldupdatedocumentfieldfielddocumentsfieldstextalign.md
   - docs/models/operations/fieldupdatedocumentfieldfielddocumentsfieldstype.md
   - docs/models/operations/fieldupdatedocumentfieldfielddocumentsfieldsvalues.md
   - docs/models/operations/fieldupdatedocumentfieldfieldfieldmeta.md
@@ -813,15 +895,22 @@ generatedFiles:
   - docs/models/operations/fieldupdatedocumentfieldfieldmetadocumentsfieldsresponse200applicationjsonresponsebody7type.md
   - docs/models/operations/fieldupdatedocumentfieldfieldmetadocumentsfieldsresponse200applicationjsonresponsebody8type.md
   - docs/models/operations/fieldupdatedocumentfieldfieldmetadocumentsfieldsresponse200applicationjsonresponsebody9type.md
+  - docs/models/operations/fieldupdatedocumentfieldfieldmetadocumentsfieldsresponse200applicationjsonresponsebodytextalign.md
   - docs/models/operations/fieldupdatedocumentfieldfieldmetadocumentsfieldsresponse200applicationjsonresponsebodytype.md
+  - docs/models/operations/fieldupdatedocumentfieldfieldmetadocumentsfieldsresponse200applicationjsontextalign.md
   - docs/models/operations/fieldupdatedocumentfieldfieldmetadocumentsfieldsresponse200applicationjsontype.md
+  - docs/models/operations/fieldupdatedocumentfieldfieldmetadocumentsfieldsresponse200textalign.md
   - docs/models/operations/fieldupdatedocumentfieldfieldmetadocumentsfieldsresponse200type.md
+  - docs/models/operations/fieldupdatedocumentfieldfieldmetadocumentsfieldsresponsetextalign.md
   - docs/models/operations/fieldupdatedocumentfieldfieldmetadocumentsfieldsresponsetype.md
   - docs/models/operations/fieldupdatedocumentfieldfieldmetadocumentsfieldsresponsevalues.md
+  - docs/models/operations/fieldupdatedocumentfieldfieldmetadocumentsfieldstextalign.md
   - docs/models/operations/fieldupdatedocumentfieldfieldmetadocumentsfieldstype.md
   - docs/models/operations/fieldupdatedocumentfieldfieldmetadocumentsfieldsvalues.md
+  - docs/models/operations/fieldupdatedocumentfieldfieldmetatextalign.md
   - docs/models/operations/fieldupdatedocumentfieldfieldmetatype.md
   - docs/models/operations/fieldupdatedocumentfieldfieldmetavalues.md
+  - docs/models/operations/fieldupdatedocumentfieldfieldtextalign.md
   - docs/models/operations/fieldupdatedocumentfieldfieldtype.md
   - docs/models/operations/fieldupdatedocumentfieldfieldvalues.md
   - docs/models/operations/fieldupdatedocumentfieldrequestbody.md
@@ -840,13 +929,19 @@ generatedFiles:
   - docs/models/operations/fieldupdatedocumentfieldsfieldmetadocumentsfieldsresponse200applicationjsonresponsebodyfields8type.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldmetadocumentsfieldsresponse200applicationjsonresponsebodyfields9type.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldmetadocumentsfieldsresponse200applicationjsonresponsebodyfieldstype.md
+  - docs/models/operations/fieldupdatedocumentfieldsfieldmetadocumentsfieldsresponse200applicationjsonresponsebodytextalign.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldmetadocumentsfieldsresponse200applicationjsonresponsebodytype.md
+  - docs/models/operations/fieldupdatedocumentfieldsfieldmetadocumentsfieldsresponse200applicationjsontextalign.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldmetadocumentsfieldsresponse200applicationjsontype.md
+  - docs/models/operations/fieldupdatedocumentfieldsfieldmetadocumentsfieldsresponse200textalign.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldmetadocumentsfieldsresponse200type.md
+  - docs/models/operations/fieldupdatedocumentfieldsfieldmetadocumentsfieldsresponsetextalign.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldmetadocumentsfieldsresponsetype.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldmetadocumentsfieldsresponsevalues.md
+  - docs/models/operations/fieldupdatedocumentfieldsfieldmetadocumentsfieldstextalign.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldmetadocumentsfieldstype.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldmetadocumentsfieldsvalues.md
+  - docs/models/operations/fieldupdatedocumentfieldsfieldmetatextalign.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldmetatype.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldmetavalues.md
   - docs/models/operations/fieldupdatedocumentfieldsfields.md
@@ -877,20 +972,26 @@ generatedFiles:
   - docs/models/operations/fieldupdatedocumentfieldsfieldsdocumentsfieldsrequestrequestbody6type.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldsdocumentsfieldsrequestrequestbody7fieldmeta.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldsdocumentsfieldsrequestrequestbody7fieldmetatype.md
+  - docs/models/operations/fieldupdatedocumentfieldsfieldsdocumentsfieldsrequestrequestbody7textalign.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldsdocumentsfieldsrequestrequestbody7type.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldsdocumentsfieldsrequestrequestbody8fieldmeta.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldsdocumentsfieldsrequestrequestbody8fieldmetatype.md
+  - docs/models/operations/fieldupdatedocumentfieldsfieldsdocumentsfieldsrequestrequestbody8textalign.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldsdocumentsfieldsrequestrequestbody8type.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldsdocumentsfieldsrequestrequestbody9fieldmeta.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldsdocumentsfieldsrequestrequestbody9fieldmetatype.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldsdocumentsfieldsrequestrequestbody9type.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldsdocumentsfieldsrequestrequestbodyfieldmeta.md
+  - docs/models/operations/fieldupdatedocumentfieldsfieldsdocumentsfieldsrequestrequestbodytextalign.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldsdocumentsfieldsrequestrequestbodytype.md
+  - docs/models/operations/fieldupdatedocumentfieldsfieldsdocumentsfieldsrequesttextalign.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldsdocumentsfieldsrequesttype.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldsdocumentsfieldsrequestvalues.md
+  - docs/models/operations/fieldupdatedocumentfieldsfieldsdocumentsfieldstextalign.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldsdocumentsfieldstype.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldsdocumentsfieldsvalues.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldsfieldmeta.md
+  - docs/models/operations/fieldupdatedocumentfieldsfieldstextalign.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldstype.md
   - docs/models/operations/fieldupdatedocumentfieldsfieldsvalues.md
   - docs/models/operations/fieldupdatedocumentfieldsrequestbody.md
@@ -923,13 +1024,19 @@ generatedFiles:
   - docs/models/operations/fieldupdatetemplatefieldfieldmetatemplatesfieldsresponse200applicationjsonresponsebody7type.md
   - docs/models/operations/fieldupdatetemplatefieldfieldmetatemplatesfieldsresponse200applicationjsonresponsebody8type.md
   - docs/models/operations/fieldupdatetemplatefieldfieldmetatemplatesfieldsresponse200applicationjsonresponsebody9type.md
+  - docs/models/operations/fieldupdatetemplatefieldfieldmetatemplatesfieldsresponse200applicationjsonresponsebodytextalign.md
   - docs/models/operations/fieldupdatetemplatefieldfieldmetatemplatesfieldsresponse200applicationjsonresponsebodytype.md
+  - docs/models/operations/fieldupdatetemplatefieldfieldmetatemplatesfieldsresponse200applicationjsontextalign.md
   - docs/models/operations/fieldupdatetemplatefieldfieldmetatemplatesfieldsresponse200applicationjsontype.md
+  - docs/models/operations/fieldupdatetemplatefieldfieldmetatemplatesfieldsresponse200textalign.md
   - docs/models/operations/fieldupdatetemplatefieldfieldmetatemplatesfieldsresponse200type.md
+  - docs/models/operations/fieldupdatetemplatefieldfieldmetatemplatesfieldsresponsetextalign.md
   - docs/models/operations/fieldupdatetemplatefieldfieldmetatemplatesfieldsresponsetype.md
   - docs/models/operations/fieldupdatetemplatefieldfieldmetatemplatesfieldsresponsevalues.md
+  - docs/models/operations/fieldupdatetemplatefieldfieldmetatemplatesfieldstextalign.md
   - docs/models/operations/fieldupdatetemplatefieldfieldmetatemplatesfieldstype.md
   - docs/models/operations/fieldupdatetemplatefieldfieldmetatemplatesfieldsvalues.md
+  - docs/models/operations/fieldupdatetemplatefieldfieldmetatextalign.md
   - docs/models/operations/fieldupdatetemplatefieldfieldmetatype.md
   - docs/models/operations/fieldupdatetemplatefieldfieldmetavalues.md
   - docs/models/operations/fieldupdatetemplatefieldfieldtemplatesfieldsfieldmeta.md
@@ -948,19 +1055,25 @@ generatedFiles:
   - docs/models/operations/fieldupdatetemplatefieldfieldtemplatesfieldsrequestrequestbody6type.md
   - docs/models/operations/fieldupdatetemplatefieldfieldtemplatesfieldsrequestrequestbody7fieldmeta.md
   - docs/models/operations/fieldupdatetemplatefieldfieldtemplatesfieldsrequestrequestbody7fieldmetatype.md
+  - docs/models/operations/fieldupdatetemplatefieldfieldtemplatesfieldsrequestrequestbody7textalign.md
   - docs/models/operations/fieldupdatetemplatefieldfieldtemplatesfieldsrequestrequestbody7type.md
   - docs/models/operations/fieldupdatetemplatefieldfieldtemplatesfieldsrequestrequestbody8fieldmeta.md
   - docs/models/operations/fieldupdatetemplatefieldfieldtemplatesfieldsrequestrequestbody8fieldmetatype.md
+  - docs/models/operations/fieldupdatetemplatefieldfieldtemplatesfieldsrequestrequestbody8textalign.md
   - docs/models/operations/fieldupdatetemplatefieldfieldtemplatesfieldsrequestrequestbody8type.md
   - docs/models/operations/fieldupdatetemplatefieldfieldtemplatesfieldsrequestrequestbody9fieldmeta.md
   - docs/models/operations/fieldupdatetemplatefieldfieldtemplatesfieldsrequestrequestbody9fieldmetatype.md
   - docs/models/operations/fieldupdatetemplatefieldfieldtemplatesfieldsrequestrequestbody9type.md
   - docs/models/operations/fieldupdatetemplatefieldfieldtemplatesfieldsrequestrequestbodyfieldmeta.md
+  - docs/models/operations/fieldupdatetemplatefieldfieldtemplatesfieldsrequestrequestbodytextalign.md
   - docs/models/operations/fieldupdatetemplatefieldfieldtemplatesfieldsrequestrequestbodytype.md
+  - docs/models/operations/fieldupdatetemplatefieldfieldtemplatesfieldsrequesttextalign.md
   - docs/models/operations/fieldupdatetemplatefieldfieldtemplatesfieldsrequesttype.md
   - docs/models/operations/fieldupdatetemplatefieldfieldtemplatesfieldsrequestvalues.md
+  - docs/models/operations/fieldupdatetemplatefieldfieldtemplatesfieldstextalign.md
   - docs/models/operations/fieldupdatetemplatefieldfieldtemplatesfieldstype.md
   - docs/models/operations/fieldupdatetemplatefieldfieldtemplatesfieldsvalues.md
+  - docs/models/operations/fieldupdatetemplatefieldfieldtextalign.md
   - docs/models/operations/fieldupdatetemplatefieldfieldtype.md
   - docs/models/operations/fieldupdatetemplatefieldfieldvalues.md
   - docs/models/operations/fieldupdatetemplatefieldrequestbody.md
@@ -978,13 +1091,19 @@ generatedFiles:
   - docs/models/operations/fieldupdatetemplatefieldsfieldmetatemplatesfieldsresponse200applicationjsonresponsebodyfields8type.md
   - docs/models/operations/fieldupdatetemplatefieldsfieldmetatemplatesfieldsresponse200applicationjsonresponsebodyfields9type.md
   - docs/models/operations/fieldupdatetemplatefieldsfieldmetatemplatesfieldsresponse200applicationjsonresponsebodyfieldstype.md
+  - docs/models/operations/fieldupdatetemplatefieldsfieldmetatemplatesfieldsresponse200applicationjsonresponsebodytextalign.md
   - docs/models/operations/fieldupdatetemplatefieldsfieldmetatemplatesfieldsresponse200applicationjsonresponsebodytype.md
+  - docs/models/operations/fieldupdatetemplatefieldsfieldmetatemplatesfieldsresponse200applicationjsontextalign.md
   - docs/models/operations/fieldupdatetemplatefieldsfieldmetatemplatesfieldsresponse200applicationjsontype.md
+  - docs/models/operations/fieldupdatetemplatefieldsfieldmetatemplatesfieldsresponse200textalign.md
   - docs/models/operations/fieldupdatetemplatefieldsfieldmetatemplatesfieldsresponse200type.md
+  - docs/models/operations/fieldupdatetemplatefieldsfieldmetatemplatesfieldsresponsetextalign.md
   - docs/models/operations/fieldupdatetemplatefieldsfieldmetatemplatesfieldsresponsetype.md
   - docs/models/operations/fieldupdatetemplatefieldsfieldmetatemplatesfieldsresponsevalues.md
+  - docs/models/operations/fieldupdatetemplatefieldsfieldmetatemplatesfieldstextalign.md
   - docs/models/operations/fieldupdatetemplatefieldsfieldmetatemplatesfieldstype.md
   - docs/models/operations/fieldupdatetemplatefieldsfieldmetatemplatesfieldsvalues.md
+  - docs/models/operations/fieldupdatetemplatefieldsfieldmetatextalign.md
   - docs/models/operations/fieldupdatetemplatefieldsfieldmetatype.md
   - docs/models/operations/fieldupdatetemplatefieldsfieldmetavalues.md
   - docs/models/operations/fieldupdatetemplatefieldsfields.md
@@ -1016,19 +1135,25 @@ generatedFiles:
   - docs/models/operations/fieldupdatetemplatefieldsfieldstemplatesfieldsrequestrequestbody6type.md
   - docs/models/operations/fieldupdatetemplatefieldsfieldstemplatesfieldsrequestrequestbody7fieldmeta.md
   - docs/models/operations/fieldupdatetemplatefieldsfieldstemplatesfieldsrequestrequestbody7fieldmetatype.md
+  - docs/models/operations/fieldupdatetemplatefieldsfieldstemplatesfieldsrequestrequestbody7textalign.md
   - docs/models/operations/fieldupdatetemplatefieldsfieldstemplatesfieldsrequestrequestbody7type.md
   - docs/models/operations/fieldupdatetemplatefieldsfieldstemplatesfieldsrequestrequestbody8fieldmeta.md
   - docs/models/operations/fieldupdatetemplatefieldsfieldstemplatesfieldsrequestrequestbody8fieldmetatype.md
+  - docs/models/operations/fieldupdatetemplatefieldsfieldstemplatesfieldsrequestrequestbody8textalign.md
   - docs/models/operations/fieldupdatetemplatefieldsfieldstemplatesfieldsrequestrequestbody8type.md
   - docs/models/operations/fieldupdatetemplatefieldsfieldstemplatesfieldsrequestrequestbody9fieldmeta.md
   - docs/models/operations/fieldupdatetemplatefieldsfieldstemplatesfieldsrequestrequestbody9fieldmetatype.md
   - docs/models/operations/fieldupdatetemplatefieldsfieldstemplatesfieldsrequestrequestbody9type.md
   - docs/models/operations/fieldupdatetemplatefieldsfieldstemplatesfieldsrequestrequestbodyfieldmeta.md
+  - docs/models/operations/fieldupdatetemplatefieldsfieldstemplatesfieldsrequestrequestbodytextalign.md
   - docs/models/operations/fieldupdatetemplatefieldsfieldstemplatesfieldsrequestrequestbodytype.md
+  - docs/models/operations/fieldupdatetemplatefieldsfieldstemplatesfieldsrequesttextalign.md
   - docs/models/operations/fieldupdatetemplatefieldsfieldstemplatesfieldsrequesttype.md
   - docs/models/operations/fieldupdatetemplatefieldsfieldstemplatesfieldsrequestvalues.md
+  - docs/models/operations/fieldupdatetemplatefieldsfieldstemplatesfieldstextalign.md
   - docs/models/operations/fieldupdatetemplatefieldsfieldstemplatesfieldstype.md
   - docs/models/operations/fieldupdatetemplatefieldsfieldstemplatesfieldsvalues.md
+  - docs/models/operations/fieldupdatetemplatefieldsfieldstextalign.md
   - docs/models/operations/fieldupdatetemplatefieldsfieldstype.md
   - docs/models/operations/fieldupdatetemplatefieldsfieldsvalues.md
   - docs/models/operations/fieldupdatetemplatefieldsrequestbody.md
@@ -1124,13 +1249,19 @@ generatedFiles:
   - docs/models/operations/recipientgetdocumentrecipientfieldmetadocumentsrecipientsresponse200applicationjsonresponsebodyfields8type.md
   - docs/models/operations/recipientgetdocumentrecipientfieldmetadocumentsrecipientsresponse200applicationjsonresponsebodyfields9type.md
   - docs/models/operations/recipientgetdocumentrecipientfieldmetadocumentsrecipientsresponse200applicationjsonresponsebodyfieldstype.md
+  - docs/models/operations/recipientgetdocumentrecipientfieldmetadocumentsrecipientsresponse200applicationjsonresponsebodytextalign.md
   - docs/models/operations/recipientgetdocumentrecipientfieldmetadocumentsrecipientsresponse200applicationjsonresponsebodytype.md
+  - docs/models/operations/recipientgetdocumentrecipientfieldmetadocumentsrecipientsresponse200applicationjsontextalign.md
   - docs/models/operations/recipientgetdocumentrecipientfieldmetadocumentsrecipientsresponse200applicationjsontype.md
+  - docs/models/operations/recipientgetdocumentrecipientfieldmetadocumentsrecipientsresponse200textalign.md
   - docs/models/operations/recipientgetdocumentrecipientfieldmetadocumentsrecipientsresponse200type.md
+  - docs/models/operations/recipientgetdocumentrecipientfieldmetadocumentsrecipientsresponsetextalign.md
   - docs/models/operations/recipientgetdocumentrecipientfieldmetadocumentsrecipientsresponsetype.md
   - docs/models/operations/recipientgetdocumentrecipientfieldmetadocumentsrecipientsresponsevalues.md
+  - docs/models/operations/recipientgetdocumentrecipientfieldmetadocumentsrecipientstextalign.md
   - docs/models/operations/recipientgetdocumentrecipientfieldmetadocumentsrecipientstype.md
   - docs/models/operations/recipientgetdocumentrecipientfieldmetadocumentsrecipientsvalues.md
+  - docs/models/operations/recipientgetdocumentrecipientfieldmetatextalign.md
   - docs/models/operations/recipientgetdocumentrecipientfieldmetatype.md
   - docs/models/operations/recipientgetdocumentrecipientfieldmetavalues.md
   - docs/models/operations/recipientgetdocumentrecipientfields.md
@@ -1154,13 +1285,19 @@ generatedFiles:
   - docs/models/operations/recipientgettemplaterecipientfieldmetatemplatesrecipientsresponse200applicationjsonresponsebodyfields8type.md
   - docs/models/operations/recipientgettemplaterecipientfieldmetatemplatesrecipientsresponse200applicationjsonresponsebodyfields9type.md
   - docs/models/operations/recipientgettemplaterecipientfieldmetatemplatesrecipientsresponse200applicationjsonresponsebodyfieldstype.md
+  - docs/models/operations/recipientgettemplaterecipientfieldmetatemplatesrecipientsresponse200applicationjsonresponsebodytextalign.md
   - docs/models/operations/recipientgettemplaterecipientfieldmetatemplatesrecipientsresponse200applicationjsonresponsebodytype.md
+  - docs/models/operations/recipientgettemplaterecipientfieldmetatemplatesrecipientsresponse200applicationjsontextalign.md
   - docs/models/operations/recipientgettemplaterecipientfieldmetatemplatesrecipientsresponse200applicationjsontype.md
+  - docs/models/operations/recipientgettemplaterecipientfieldmetatemplatesrecipientsresponse200textalign.md
   - docs/models/operations/recipientgettemplaterecipientfieldmetatemplatesrecipientsresponse200type.md
+  - docs/models/operations/recipientgettemplaterecipientfieldmetatemplatesrecipientsresponsetextalign.md
   - docs/models/operations/recipientgettemplaterecipientfieldmetatemplatesrecipientsresponsetype.md
   - docs/models/operations/recipientgettemplaterecipientfieldmetatemplatesrecipientsresponsevalues.md
+  - docs/models/operations/recipientgettemplaterecipientfieldmetatemplatesrecipientstextalign.md
   - docs/models/operations/recipientgettemplaterecipientfieldmetatemplatesrecipientstype.md
   - docs/models/operations/recipientgettemplaterecipientfieldmetatemplatesrecipientsvalues.md
+  - docs/models/operations/recipientgettemplaterecipientfieldmetatextalign.md
   - docs/models/operations/recipientgettemplaterecipientfieldmetatype.md
   - docs/models/operations/recipientgettemplaterecipientfieldmetavalues.md
   - docs/models/operations/recipientgettemplaterecipientfields.md
@@ -1191,13 +1328,19 @@ generatedFiles:
   - docs/models/operations/recipientupdatedocumentrecipientfieldmetadocumentsrecipientsresponse200applicationjsonresponsebodyfields8type.md
   - docs/models/operations/recipientupdatedocumentrecipientfieldmetadocumentsrecipientsresponse200applicationjsonresponsebodyfields9type.md
   - docs/models/operations/recipientupdatedocumentrecipientfieldmetadocumentsrecipientsresponse200applicationjsonresponsebodyfieldstype.md
+  - docs/models/operations/recipientupdatedocumentrecipientfieldmetadocumentsrecipientsresponse200applicationjsonresponsebodytextalign.md
   - docs/models/operations/recipientupdatedocumentrecipientfieldmetadocumentsrecipientsresponse200applicationjsonresponsebodytype.md
+  - docs/models/operations/recipientupdatedocumentrecipientfieldmetadocumentsrecipientsresponse200applicationjsontextalign.md
   - docs/models/operations/recipientupdatedocumentrecipientfieldmetadocumentsrecipientsresponse200applicationjsontype.md
+  - docs/models/operations/recipientupdatedocumentrecipientfieldmetadocumentsrecipientsresponse200textalign.md
   - docs/models/operations/recipientupdatedocumentrecipientfieldmetadocumentsrecipientsresponse200type.md
+  - docs/models/operations/recipientupdatedocumentrecipientfieldmetadocumentsrecipientsresponsetextalign.md
   - docs/models/operations/recipientupdatedocumentrecipientfieldmetadocumentsrecipientsresponsetype.md
   - docs/models/operations/recipientupdatedocumentrecipientfieldmetadocumentsrecipientsresponsevalues.md
+  - docs/models/operations/recipientupdatedocumentrecipientfieldmetadocumentsrecipientstextalign.md
   - docs/models/operations/recipientupdatedocumentrecipientfieldmetadocumentsrecipientstype.md
   - docs/models/operations/recipientupdatedocumentrecipientfieldmetadocumentsrecipientsvalues.md
+  - docs/models/operations/recipientupdatedocumentrecipientfieldmetatextalign.md
   - docs/models/operations/recipientupdatedocumentrecipientfieldmetatype.md
   - docs/models/operations/recipientupdatedocumentrecipientfieldmetavalues.md
   - docs/models/operations/recipientupdatedocumentrecipientfields.md
@@ -1227,13 +1370,19 @@ generatedFiles:
   - docs/models/operations/recipientupdatedocumentrecipientsfieldmetadocumentsrecipientsresponse200applicationjsonresponsebodyrecipientsfields9type.md
   - docs/models/operations/recipientupdatedocumentrecipientsfieldmetadocumentsrecipientsresponse200applicationjsonresponsebodyrecipientsfieldstype.md
   - docs/models/operations/recipientupdatedocumentrecipientsfieldmetadocumentsrecipientsresponse200applicationjsonresponsebodyrecipientstype.md
+  - docs/models/operations/recipientupdatedocumentrecipientsfieldmetadocumentsrecipientsresponse200applicationjsonresponsebodytextalign.md
   - docs/models/operations/recipientupdatedocumentrecipientsfieldmetadocumentsrecipientsresponse200applicationjsonresponsebodytype.md
+  - docs/models/operations/recipientupdatedocumentrecipientsfieldmetadocumentsrecipientsresponse200applicationjsontextalign.md
   - docs/models/operations/recipientupdatedocumentrecipientsfieldmetadocumentsrecipientsresponse200applicationjsontype.md
+  - docs/models/operations/recipientupdatedocumentrecipientsfieldmetadocumentsrecipientsresponse200textalign.md
   - docs/models/operations/recipientupdatedocumentrecipientsfieldmetadocumentsrecipientsresponse200type.md
+  - docs/models/operations/recipientupdatedocumentrecipientsfieldmetadocumentsrecipientsresponsetextalign.md
   - docs/models/operations/recipientupdatedocumentrecipientsfieldmetadocumentsrecipientsresponsetype.md
   - docs/models/operations/recipientupdatedocumentrecipientsfieldmetadocumentsrecipientsresponsevalues.md
+  - docs/models/operations/recipientupdatedocumentrecipientsfieldmetadocumentsrecipientstextalign.md
   - docs/models/operations/recipientupdatedocumentrecipientsfieldmetadocumentsrecipientstype.md
   - docs/models/operations/recipientupdatedocumentrecipientsfieldmetadocumentsrecipientsvalues.md
+  - docs/models/operations/recipientupdatedocumentrecipientsfieldmetatextalign.md
   - docs/models/operations/recipientupdatedocumentrecipientsfieldmetatype.md
   - docs/models/operations/recipientupdatedocumentrecipientsfieldmetavalues.md
   - docs/models/operations/recipientupdatedocumentrecipientsfields.md
@@ -1263,13 +1412,19 @@ generatedFiles:
   - docs/models/operations/recipientupdatetemplaterecipientfieldmetatemplatesrecipientsresponse200applicationjsonresponsebodyfields8type.md
   - docs/models/operations/recipientupdatetemplaterecipientfieldmetatemplatesrecipientsresponse200applicationjsonresponsebodyfields9type.md
   - docs/models/operations/recipientupdatetemplaterecipientfieldmetatemplatesrecipientsresponse200applicationjsonresponsebodyfieldstype.md
+  - docs/models/operations/recipientupdatetemplaterecipientfieldmetatemplatesrecipientsresponse200applicationjsonresponsebodytextalign.md
   - docs/models/operations/recipientupdatetemplaterecipientfieldmetatemplatesrecipientsresponse200applicationjsonresponsebodytype.md
+  - docs/models/operations/recipientupdatetemplaterecipientfieldmetatemplatesrecipientsresponse200applicationjsontextalign.md
   - docs/models/operations/recipientupdatetemplaterecipientfieldmetatemplatesrecipientsresponse200applicationjsontype.md
+  - docs/models/operations/recipientupdatetemplaterecipientfieldmetatemplatesrecipientsresponse200textalign.md
   - docs/models/operations/recipientupdatetemplaterecipientfieldmetatemplatesrecipientsresponse200type.md
+  - docs/models/operations/recipientupdatetemplaterecipientfieldmetatemplatesrecipientsresponsetextalign.md
   - docs/models/operations/recipientupdatetemplaterecipientfieldmetatemplatesrecipientsresponsetype.md
   - docs/models/operations/recipientupdatetemplaterecipientfieldmetatemplatesrecipientsresponsevalues.md
+  - docs/models/operations/recipientupdatetemplaterecipientfieldmetatemplatesrecipientstextalign.md
   - docs/models/operations/recipientupdatetemplaterecipientfieldmetatemplatesrecipientstype.md
   - docs/models/operations/recipientupdatetemplaterecipientfieldmetatemplatesrecipientsvalues.md
+  - docs/models/operations/recipientupdatetemplaterecipientfieldmetatextalign.md
   - docs/models/operations/recipientupdatetemplaterecipientfieldmetatype.md
   - docs/models/operations/recipientupdatetemplaterecipientfieldmetavalues.md
   - docs/models/operations/recipientupdatetemplaterecipientfields.md
@@ -1295,13 +1450,19 @@ generatedFiles:
   - docs/models/operations/recipientupdatetemplaterecipientsfieldmetatemplatesrecipientsresponse200applicationjsonresponsebodyrecipientsfields9type.md
   - docs/models/operations/recipientupdatetemplaterecipientsfieldmetatemplatesrecipientsresponse200applicationjsonresponsebodyrecipientsfieldstype.md
   - docs/models/operations/recipientupdatetemplaterecipientsfieldmetatemplatesrecipientsresponse200applicationjsonresponsebodyrecipientstype.md
+  - docs/models/operations/recipientupdatetemplaterecipientsfieldmetatemplatesrecipientsresponse200applicationjsonresponsebodytextalign.md
   - docs/models/operations/recipientupdatetemplaterecipientsfieldmetatemplatesrecipientsresponse200applicationjsonresponsebodytype.md
+  - docs/models/operations/recipientupdatetemplaterecipientsfieldmetatemplatesrecipientsresponse200applicationjsontextalign.md
   - docs/models/operations/recipientupdatetemplaterecipientsfieldmetatemplatesrecipientsresponse200applicationjsontype.md
+  - docs/models/operations/recipientupdatetemplaterecipientsfieldmetatemplatesrecipientsresponse200textalign.md
   - docs/models/operations/recipientupdatetemplaterecipientsfieldmetatemplatesrecipientsresponse200type.md
+  - docs/models/operations/recipientupdatetemplaterecipientsfieldmetatemplatesrecipientsresponsetextalign.md
   - docs/models/operations/recipientupdatetemplaterecipientsfieldmetatemplatesrecipientsresponsetype.md
   - docs/models/operations/recipientupdatetemplaterecipientsfieldmetatemplatesrecipientsresponsevalues.md
+  - docs/models/operations/recipientupdatetemplaterecipientsfieldmetatemplatesrecipientstextalign.md
   - docs/models/operations/recipientupdatetemplaterecipientsfieldmetatemplatesrecipientstype.md
   - docs/models/operations/recipientupdatetemplaterecipientsfieldmetatemplatesrecipientsvalues.md
+  - docs/models/operations/recipientupdatetemplaterecipientsfieldmetatextalign.md
   - docs/models/operations/recipientupdatetemplaterecipientsfieldmetatype.md
   - docs/models/operations/recipientupdatetemplaterecipientsfieldmetavalues.md
   - docs/models/operations/recipientupdatetemplaterecipientsfields.md
@@ -1351,13 +1512,19 @@ generatedFiles:
   - docs/models/operations/templatecreatedocumentfromtemplatefieldmetatemplatesresponse200applicationjsonresponsebodyfields8type.md
   - docs/models/operations/templatecreatedocumentfromtemplatefieldmetatemplatesresponse200applicationjsonresponsebodyfields9type.md
   - docs/models/operations/templatecreatedocumentfromtemplatefieldmetatemplatesresponse200applicationjsonresponsebodyfieldstype.md
+  - docs/models/operations/templatecreatedocumentfromtemplatefieldmetatemplatesresponse200applicationjsonresponsebodytextalign.md
   - docs/models/operations/templatecreatedocumentfromtemplatefieldmetatemplatesresponse200applicationjsonresponsebodytype.md
+  - docs/models/operations/templatecreatedocumentfromtemplatefieldmetatemplatesresponse200applicationjsontextalign.md
   - docs/models/operations/templatecreatedocumentfromtemplatefieldmetatemplatesresponse200applicationjsontype.md
+  - docs/models/operations/templatecreatedocumentfromtemplatefieldmetatemplatesresponse200textalign.md
   - docs/models/operations/templatecreatedocumentfromtemplatefieldmetatemplatesresponse200type.md
+  - docs/models/operations/templatecreatedocumentfromtemplatefieldmetatemplatesresponsetextalign.md
   - docs/models/operations/templatecreatedocumentfromtemplatefieldmetatemplatesresponsetype.md
   - docs/models/operations/templatecreatedocumentfromtemplatefieldmetatemplatesresponsevalues.md
+  - docs/models/operations/templatecreatedocumentfromtemplatefieldmetatemplatestextalign.md
   - docs/models/operations/templatecreatedocumentfromtemplatefieldmetatemplatestype.md
   - docs/models/operations/templatecreatedocumentfromtemplatefieldmetatemplatesvalues.md
+  - docs/models/operations/templatecreatedocumentfromtemplatefieldmetatextalign.md
   - docs/models/operations/templatecreatedocumentfromtemplatefieldmetatype.md
   - docs/models/operations/templatecreatedocumentfromtemplatefieldmetavalues.md
   - docs/models/operations/templatecreatedocumentfromtemplatefields.md
@@ -1412,13 +1579,19 @@ generatedFiles:
   - docs/models/operations/templatefindtemplatesfieldmetatemplatesresponse200applicationjsonresponsebodydatafields9type.md
   - docs/models/operations/templatefindtemplatesfieldmetatemplatesresponse200applicationjsonresponsebodydatafieldstype.md
   - docs/models/operations/templatefindtemplatesfieldmetatemplatesresponse200applicationjsonresponsebodydatatype.md
+  - docs/models/operations/templatefindtemplatesfieldmetatemplatesresponse200applicationjsonresponsebodytextalign.md
   - docs/models/operations/templatefindtemplatesfieldmetatemplatesresponse200applicationjsonresponsebodytype.md
+  - docs/models/operations/templatefindtemplatesfieldmetatemplatesresponse200applicationjsontextalign.md
   - docs/models/operations/templatefindtemplatesfieldmetatemplatesresponse200applicationjsontype.md
+  - docs/models/operations/templatefindtemplatesfieldmetatemplatesresponse200textalign.md
   - docs/models/operations/templatefindtemplatesfieldmetatemplatesresponse200type.md
+  - docs/models/operations/templatefindtemplatesfieldmetatemplatesresponsetextalign.md
   - docs/models/operations/templatefindtemplatesfieldmetatemplatesresponsetype.md
   - docs/models/operations/templatefindtemplatesfieldmetatemplatesresponsevalues.md
+  - docs/models/operations/templatefindtemplatesfieldmetatemplatestextalign.md
   - docs/models/operations/templatefindtemplatesfieldmetatemplatestype.md
   - docs/models/operations/templatefindtemplatesfieldmetatemplatesvalues.md
+  - docs/models/operations/templatefindtemplatesfieldmetatextalign.md
   - docs/models/operations/templatefindtemplatesfieldmetatype.md
   - docs/models/operations/templatefindtemplatesfieldmetavalues.md
   - docs/models/operations/templatefindtemplatesfields.md
@@ -1456,13 +1629,19 @@ generatedFiles:
   - docs/models/operations/templategettemplatebyidfieldmetatemplatesresponse200applicationjsonresponsebodyfields8type.md
   - docs/models/operations/templategettemplatebyidfieldmetatemplatesresponse200applicationjsonresponsebodyfields9type.md
   - docs/models/operations/templategettemplatebyidfieldmetatemplatesresponse200applicationjsonresponsebodyfieldstype.md
+  - docs/models/operations/templategettemplatebyidfieldmetatemplatesresponse200applicationjsonresponsebodytextalign.md
   - docs/models/operations/templategettemplatebyidfieldmetatemplatesresponse200applicationjsonresponsebodytype.md
+  - docs/models/operations/templategettemplatebyidfieldmetatemplatesresponse200applicationjsontextalign.md
   - docs/models/operations/templategettemplatebyidfieldmetatemplatesresponse200applicationjsontype.md
+  - docs/models/operations/templategettemplatebyidfieldmetatemplatesresponse200textalign.md
   - docs/models/operations/templategettemplatebyidfieldmetatemplatesresponse200type.md
+  - docs/models/operations/templategettemplatebyidfieldmetatemplatesresponsetextalign.md
   - docs/models/operations/templategettemplatebyidfieldmetatemplatesresponsetype.md
   - docs/models/operations/templategettemplatebyidfieldmetatemplatesresponsevalues.md
+  - docs/models/operations/templategettemplatebyidfieldmetatemplatestextalign.md
   - docs/models/operations/templategettemplatebyidfieldmetatemplatestype.md
   - docs/models/operations/templategettemplatebyidfieldmetatemplatesvalues.md
+  - docs/models/operations/templategettemplatebyidfieldmetatextalign.md
   - docs/models/operations/templategettemplatebyidfieldmetatype.md
   - docs/models/operations/templategettemplatebyidfieldmetavalues.md
   - docs/models/operations/templategettemplatebyidfields.md
@@ -1510,6 +1689,7 @@ generatedFiles:
   - docs/models/operations/templateupdatetemplatetype.md
   - docs/models/operations/templateupdatetemplatevisibility.md
   - docs/models/operations/ten.md
+  - docs/models/operations/textalign.md
   - docs/models/operations/three.md
   - docs/models/operations/two.md
   - docs/models/operations/type.md
@@ -1524,6 +1704,7 @@ generatedFiles:
   - docs/sdks/fields/README.md
   - docs/sdks/recipients/README.md
   - docs/sdks/templates/README.md
+  - eslint.config.mjs
   - jsr.json
   - package.json
   - src/core.ts
@@ -1590,6 +1771,60 @@ generatedFiles:
   - src/lib/sdks.ts
   - src/lib/security.ts
   - src/lib/url.ts
+  - src/mcp-server/build.mts
+  - src/mcp-server/cli.ts
+  - src/mcp-server/cli/start/command.ts
+  - src/mcp-server/cli/start/impl.ts
+  - src/mcp-server/console-logger.ts
+  - src/mcp-server/mcp-server.ts
+  - src/mcp-server/resources.ts
+  - src/mcp-server/scopes.ts
+  - src/mcp-server/server.ts
+  - src/mcp-server/shared.ts
+  - src/mcp-server/tools.ts
+  - src/mcp-server/tools/documentsCreateV0.ts
+  - src/mcp-server/tools/documentsDelete.ts
+  - src/mcp-server/tools/documentsDistribute.ts
+  - src/mcp-server/tools/documentsDuplicate.ts
+  - src/mcp-server/tools/documentsFieldsCreate.ts
+  - src/mcp-server/tools/documentsFieldsCreateMany.ts
+  - src/mcp-server/tools/documentsFieldsDelete.ts
+  - src/mcp-server/tools/documentsFieldsGet.ts
+  - src/mcp-server/tools/documentsFieldsUpdate.ts
+  - src/mcp-server/tools/documentsFieldsUpdateMany.ts
+  - src/mcp-server/tools/documentsFind.ts
+  - src/mcp-server/tools/documentsGet.ts
+  - src/mcp-server/tools/documentsMoveToTeam.ts
+  - src/mcp-server/tools/documentsRecipientsCreate.ts
+  - src/mcp-server/tools/documentsRecipientsCreateMany.ts
+  - src/mcp-server/tools/documentsRecipientsDelete.ts
+  - src/mcp-server/tools/documentsRecipientsGet.ts
+  - src/mcp-server/tools/documentsRecipientsUpdate.ts
+  - src/mcp-server/tools/documentsRecipientsUpdateMany.ts
+  - src/mcp-server/tools/documentsRedistribute.ts
+  - src/mcp-server/tools/documentsUpdate.ts
+  - src/mcp-server/tools/templatesDelete.ts
+  - src/mcp-server/tools/templatesDirectLinkCreate.ts
+  - src/mcp-server/tools/templatesDirectLinkDelete.ts
+  - src/mcp-server/tools/templatesDirectLinkToggle.ts
+  - src/mcp-server/tools/templatesDuplicate.ts
+  - src/mcp-server/tools/templatesFieldsCreate.ts
+  - src/mcp-server/tools/templatesFieldsCreateMany.ts
+  - src/mcp-server/tools/templatesFieldsDelete.ts
+  - src/mcp-server/tools/templatesFieldsGet.ts
+  - src/mcp-server/tools/templatesFieldsUpdate.ts
+  - src/mcp-server/tools/templatesFieldsUpdateMany.ts
+  - src/mcp-server/tools/templatesFind.ts
+  - src/mcp-server/tools/templatesGet.ts
+  - src/mcp-server/tools/templatesMoveToTeam.ts
+  - src/mcp-server/tools/templatesRecipientsCreate.ts
+  - src/mcp-server/tools/templatesRecipientsCreateMany.ts
+  - src/mcp-server/tools/templatesRecipientsDelete.ts
+  - src/mcp-server/tools/templatesRecipientsGet.ts
+  - src/mcp-server/tools/templatesRecipientsUpdate.ts
+  - src/mcp-server/tools/templatesRecipientsUpdateMany.ts
+  - src/mcp-server/tools/templatesUpdate.ts
+  - src/mcp-server/tools/templatesUse.ts
   - src/models/components/index.ts
   - src/models/components/security.ts
   - src/models/errors/apierror.ts
@@ -1692,6 +1927,7 @@ generatedFiles:
   - src/sdk/recipients.ts
   - src/sdk/sdk.ts
   - src/sdk/templates.ts
+  - src/types/async.ts
   - src/types/blobs.ts
   - src/types/constdatetime.ts
   - src/types/enums.ts

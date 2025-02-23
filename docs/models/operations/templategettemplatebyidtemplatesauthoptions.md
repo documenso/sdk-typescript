@@ -7,7 +7,7 @@ import { TemplateGetTemplateByIdTemplatesAuthOptions } from "@documenso/sdk-type
 
 let value: TemplateGetTemplateByIdTemplatesAuthOptions = {
   accessAuth: "ACCOUNT",
-  actionAuth: "PASSKEY",
+  actionAuth: "EXPLICIT_NONE",
 };
 ```
 

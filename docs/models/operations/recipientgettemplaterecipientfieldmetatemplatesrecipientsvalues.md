@@ -6,7 +6,7 @@
 import { RecipientGetTemplateRecipientFieldMetaTemplatesRecipientsValues } from "@documenso/sdk-typescript/models/operations";
 
 let value: RecipientGetTemplateRecipientFieldMetaTemplatesRecipientsValues = {
-  id: 1145.88,
+  id: 844.38,
   checked: false,
   value: "<value>",
 };

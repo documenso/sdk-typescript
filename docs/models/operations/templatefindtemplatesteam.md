@@ -6,8 +6,8 @@
 import { TemplateFindTemplatesTeam } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateFindTemplatesTeam = {
-  id: 237523,
-  url: "https://far-flung-lotion.net/",
+  id: 193236,
+  url: "https://authorized-brief.com",
 };
 ```
 

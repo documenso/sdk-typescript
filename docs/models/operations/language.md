@@ -7,11 +7,11 @@ The language to use for email communications with recipients.
 ```typescript
 import { Language } from "@documenso/sdk-typescript/models/operations";
 
-let value: Language = "en";
+let value: Language = "es";
 ```
 
 ## Values
 
 ```typescript
-"de" | "en" | "fr" | "es"
+"de" | "en" | "fr" | "es" | "it" | "pl"
 ```

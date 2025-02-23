@@ -6,7 +6,7 @@
 import { FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValues } from "@documenso/sdk-typescript/models/operations";
 
 let value: FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValues = {
-  id: 5691.96,
+  id: 5035.28,
   checked: false,
   value: "<value>",
 };

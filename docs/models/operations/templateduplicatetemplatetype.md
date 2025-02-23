@@ -5,7 +5,7 @@
 ```typescript
 import { TemplateDuplicateTemplateType } from "@documenso/sdk-typescript/models/operations";
 
-let value: TemplateDuplicateTemplateType = "PRIVATE";
+let value: TemplateDuplicateTemplateType = "PUBLIC";
 ```
 
 ## Values

@@ -7,11 +7,11 @@ import { Ten } from "@documenso/sdk-typescript/models/operations";
 
 let value: Ten = {
   type: "CHECKBOX",
-  pageNumber: 8742.88,
-  pageX: 2930.2,
-  pageY: 8489.44,
-  width: 6178.77,
-  height: 132.36,
+  pageNumber: 1481.41,
+  pageX: 9818.3,
+  pageY: 4783.7,
+  width: 4973.91,
+  height: 6394.73,
 };
 ```
 

@@ -8,27 +8,27 @@ Successful response
 import { DocumentSetSettingsForDocumentResponseBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: DocumentSetSettingsForDocumentResponseBody = {
-  visibility: "ADMIN",
-  status: "COMPLETED",
-  source: "TEMPLATE_DIRECT_LINK",
-  id: 764562,
+  visibility: "MANAGER_AND_ABOVE",
+  status: "DRAFT",
+  source: "DOCUMENT",
+  id: 241901,
   externalId: "<id>",
-  userId: 6982.49,
+  userId: 4322.81,
   authOptions: {
     globalAccessAuth: "ACCOUNT",
     globalActionAuth: "PASSKEY",
   },
   formValues: {
-    "key": "<value>",
+    "key": 9587.41,
   },
   title: "<value>",
   documentDataId: "<id>",
-  createdAt: "1708030955817",
-  updatedAt: "1737526166953",
+  createdAt: "1712434037918",
+  updatedAt: "1740193064416",
   completedAt: "<value>",
   deletedAt: "<value>",
-  teamId: 432281,
-  templateId: 521996,
+  teamId: 589695,
+  templateId: 745398,
 };
 ```
 

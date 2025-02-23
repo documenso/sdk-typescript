@@ -7,12 +7,12 @@ import { FieldCreateTemplateFieldsFields1 } from "@documenso/sdk-typescript/mode
 
 let value: FieldCreateTemplateFieldsFields1 = {
   type: "SIGNATURE",
-  recipientId: 8115.19,
-  pageNumber: 4760.84,
-  pageX: 5231.56,
-  pageY: 2505.2,
-  width: 6050.43,
-  height: 3029.05,
+  recipientId: 4349.55,
+  pageNumber: 9082.73,
+  pageX: 4090.21,
+  pageY: 3322.49,
+  width: 9895.26,
+  height: 6444.16,
 };
 ```
 

@@ -229,6 +229,17 @@ export type FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8Fie
     typeof FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMetaType
   >;
 
+export const FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8TextAlign =
+  {
+    Left: "left",
+    Center: "center",
+    Right: "right",
+  } as const;
+export type FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8TextAlign =
+  ClosedEnum<
+    typeof FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8TextAlign
+  >;
+
 export type FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMeta =
   {
     label?: string | undefined;
@@ -242,6 +253,9 @@ export type FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8Fie
     minValue?: number | undefined;
     maxValue?: number | undefined;
     fontSize?: number | undefined;
+    textAlign?:
+      | FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8TextAlign
+      | undefined;
   };
 
 export type FieldCreateTemplateFieldsFields8 = {
@@ -293,6 +307,17 @@ export type FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7Fie
     typeof FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMetaType
   >;
 
+export const FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7TextAlign =
+  {
+    Left: "left",
+    Center: "center",
+    Right: "right",
+  } as const;
+export type FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7TextAlign =
+  ClosedEnum<
+    typeof FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7TextAlign
+  >;
+
 export type FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMeta =
   {
     label?: string | undefined;
@@ -304,6 +329,9 @@ export type FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7Fie
     text?: string | undefined;
     characterLimit?: number | undefined;
     fontSize?: number | undefined;
+    textAlign?:
+      | FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7TextAlign
+      | undefined;
   };
 
 export type FieldCreateTemplateFieldsFields7 = {
@@ -355,6 +383,17 @@ export type FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6Fie
     typeof FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6FieldMetaType
   >;
 
+export const FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyTextAlign =
+  {
+    Left: "left",
+    Center: "center",
+    Right: "right",
+  } as const;
+export type FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyTextAlign =
+  ClosedEnum<
+    typeof FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyTextAlign
+  >;
+
 export type FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMeta =
   {
     label?: string | undefined;
@@ -364,6 +403,9 @@ export type FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFiel
     type:
       FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6FieldMetaType;
     fontSize?: number | undefined;
+    textAlign?:
+      | FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyTextAlign
+      | undefined;
   };
 
 export type FieldCreateTemplateFieldsFields6 = {
@@ -415,6 +457,16 @@ export type FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5Fie
     typeof FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5FieldMetaType
   >;
 
+export const FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestTextAlign = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestTextAlign =
+  ClosedEnum<
+    typeof FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestTextAlign
+  >;
+
 export type FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -423,6 +475,9 @@ export type FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta = {
   type:
     FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5FieldMetaType;
   fontSize?: number | undefined;
+  textAlign?:
+    | FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestTextAlign
+    | undefined;
 };
 
 export type FieldCreateTemplateFieldsFields5 = {
@@ -474,6 +529,14 @@ export type FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4Fie
     typeof FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4FieldMetaType
   >;
 
+export const FieldCreateTemplateFieldsFieldsTemplatesFieldsTextAlign = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type FieldCreateTemplateFieldsFieldsTemplatesFieldsTextAlign =
+  ClosedEnum<typeof FieldCreateTemplateFieldsFieldsTemplatesFieldsTextAlign>;
+
 export type FieldCreateTemplateFieldsFieldsTemplatesFieldsFieldMeta = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -482,6 +545,9 @@ export type FieldCreateTemplateFieldsFieldsTemplatesFieldsFieldMeta = {
   type:
     FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4FieldMetaType;
   fontSize?: number | undefined;
+  textAlign?:
+    | FieldCreateTemplateFieldsFieldsTemplatesFieldsTextAlign
+    | undefined;
 };
 
 export type FieldCreateTemplateFieldsFields4 = {
@@ -530,6 +596,15 @@ export type FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyType
     typeof FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyType
   >;
 
+export const FieldCreateTemplateFieldsFieldsTextAlign = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type FieldCreateTemplateFieldsFieldsTextAlign = ClosedEnum<
+  typeof FieldCreateTemplateFieldsFieldsTextAlign
+>;
+
 export type FieldCreateTemplateFieldsFieldsFieldMeta = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -537,6 +612,7 @@ export type FieldCreateTemplateFieldsFieldsFieldMeta = {
   readOnly?: boolean | undefined;
   type: FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyType;
   fontSize?: number | undefined;
+  textAlign?: FieldCreateTemplateFieldsFieldsTextAlign | undefined;
 };
 
 export type FieldCreateTemplateFieldsFields3 = {
@@ -774,6 +850,17 @@ export type FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200Applicat
     typeof FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyType
   >;
 
+export const FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyTextAlign =
+  {
+    Left: "left",
+    Center: "center",
+    Right: "right",
+  } as const;
+export type FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyTextAlign =
+  ClosedEnum<
+    typeof FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyTextAlign
+  >;
+
 export type FieldCreateTemplateFieldsFieldMeta6 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -786,6 +873,9 @@ export type FieldCreateTemplateFieldsFieldMeta6 = {
   minValue?: number | undefined;
   maxValue?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?:
+    | FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyTextAlign
+    | undefined;
 };
 
 export const FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONType =
@@ -795,6 +885,17 @@ export const FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200Applica
 export type FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONType =
   ClosedEnum<
     typeof FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONType
+  >;
+
+export const FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONTextAlign =
+  {
+    Left: "left",
+    Center: "center",
+    Right: "right",
+  } as const;
+export type FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONTextAlign =
+  ClosedEnum<
+    typeof FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONTextAlign
   >;
 
 export type FieldCreateTemplateFieldsFieldMeta5 = {
@@ -807,6 +908,9 @@ export type FieldCreateTemplateFieldsFieldMeta5 = {
   text?: string | undefined;
   characterLimit?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?:
+    | FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONTextAlign
+    | undefined;
 };
 
 export const FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200Type =
@@ -818,6 +922,17 @@ export type FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200Type =
     typeof FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200Type
   >;
 
+export const FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200TextAlign =
+  {
+    Left: "left",
+    Center: "center",
+    Right: "right",
+  } as const;
+export type FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200TextAlign =
+  ClosedEnum<
+    typeof FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200TextAlign
+  >;
+
 export type FieldCreateTemplateFieldsFieldMeta4 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -825,6 +940,9 @@ export type FieldCreateTemplateFieldsFieldMeta4 = {
   readOnly?: boolean | undefined;
   type: FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200Type;
   fontSize?: number | undefined;
+  textAlign?:
+    | FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200TextAlign
+    | undefined;
 };
 
 export const FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponseType = {
@@ -835,6 +953,17 @@ export type FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponseType =
     typeof FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponseType
   >;
 
+export const FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponseTextAlign =
+  {
+    Left: "left",
+    Center: "center",
+    Right: "right",
+  } as const;
+export type FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponseTextAlign =
+  ClosedEnum<
+    typeof FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponseTextAlign
+  >;
+
 export type FieldCreateTemplateFieldsFieldMeta3 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -842,6 +971,9 @@ export type FieldCreateTemplateFieldsFieldMeta3 = {
   readOnly?: boolean | undefined;
   type: FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponseType;
   fontSize?: number | undefined;
+  textAlign?:
+    | FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponseTextAlign
+    | undefined;
 };
 
 export const FieldCreateTemplateFieldsFieldMetaTemplatesFieldsType = {
@@ -851,6 +983,14 @@ export type FieldCreateTemplateFieldsFieldMetaTemplatesFieldsType = ClosedEnum<
   typeof FieldCreateTemplateFieldsFieldMetaTemplatesFieldsType
 >;
 
+export const FieldCreateTemplateFieldsFieldMetaTemplatesFieldsTextAlign = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type FieldCreateTemplateFieldsFieldMetaTemplatesFieldsTextAlign =
+  ClosedEnum<typeof FieldCreateTemplateFieldsFieldMetaTemplatesFieldsTextAlign>;
+
 export type FieldCreateTemplateFieldsFieldMeta2 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -858,6 +998,9 @@ export type FieldCreateTemplateFieldsFieldMeta2 = {
   readOnly?: boolean | undefined;
   type: FieldCreateTemplateFieldsFieldMetaTemplatesFieldsType;
   fontSize?: number | undefined;
+  textAlign?:
+    | FieldCreateTemplateFieldsFieldMetaTemplatesFieldsTextAlign
+    | undefined;
 };
 
 export const FieldCreateTemplateFieldsFieldMetaType = {
@@ -867,6 +1010,15 @@ export type FieldCreateTemplateFieldsFieldMetaType = ClosedEnum<
   typeof FieldCreateTemplateFieldsFieldMetaType
 >;
 
+export const FieldCreateTemplateFieldsFieldMetaTextAlign = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type FieldCreateTemplateFieldsFieldMetaTextAlign = ClosedEnum<
+  typeof FieldCreateTemplateFieldsFieldMetaTextAlign
+>;
+
 export type FieldCreateTemplateFieldsFieldMeta1 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -874,17 +1026,18 @@ export type FieldCreateTemplateFieldsFieldMeta1 = {
   readOnly?: boolean | undefined;
   type: FieldCreateTemplateFieldsFieldMetaType;
   fontSize?: number | undefined;
+  textAlign?: FieldCreateTemplateFieldsFieldMetaTextAlign | undefined;
 };
 
 export type FieldCreateTemplateFieldsFieldMeta =
+  | FieldCreateTemplateFieldsFieldMeta7
   | FieldCreateTemplateFieldsFieldMeta1
   | FieldCreateTemplateFieldsFieldMeta2
   | FieldCreateTemplateFieldsFieldMeta3
   | FieldCreateTemplateFieldsFieldMeta4
-  | FieldCreateTemplateFieldsFieldMeta7
   | FieldCreateTemplateFieldsFieldMeta9
-  | FieldCreateTemplateFieldsFieldMeta5
   | FieldCreateTemplateFieldsFieldMeta8
+  | FieldCreateTemplateFieldsFieldMeta5
   | FieldCreateTemplateFieldsFieldMeta6;
 
 export type FieldCreateTemplateFieldsTemplatesFieldsFields = {
@@ -905,14 +1058,14 @@ export type FieldCreateTemplateFieldsTemplatesFieldsFields = {
   customText: string;
   inserted: boolean;
   fieldMeta:
+    | FieldCreateTemplateFieldsFieldMeta7
     | FieldCreateTemplateFieldsFieldMeta1
     | FieldCreateTemplateFieldsFieldMeta2
     | FieldCreateTemplateFieldsFieldMeta3
     | FieldCreateTemplateFieldsFieldMeta4
-    | FieldCreateTemplateFieldsFieldMeta7
     | FieldCreateTemplateFieldsFieldMeta9
-    | FieldCreateTemplateFieldsFieldMeta5
     | FieldCreateTemplateFieldsFieldMeta8
+    | FieldCreateTemplateFieldsFieldMeta5
     | FieldCreateTemplateFieldsFieldMeta6
     | null;
 };
@@ -1905,6 +2058,34 @@ export namespace FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBod
 }
 
 /** @internal */
+export const FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8TextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8TextAlign
+  > = z.nativeEnum(
+    FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8TextAlign,
+  );
+
+/** @internal */
+export const FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8TextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8TextAlign
+  > =
+    FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8TextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8TextAlign$ {
+  /** @deprecated use `FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8TextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8TextAlign$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8TextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8TextAlign$outboundSchema;
+}
+
+/** @internal */
 export const FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMeta$inboundSchema:
   z.ZodType<
     FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMeta,
@@ -1922,6 +2103,9 @@ export const FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8Fi
     minValue: z.number().optional(),
     maxValue: z.number().optional(),
     fontSize: z.number().optional(),
+    textAlign:
+      FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8TextAlign$inboundSchema
+        .optional(),
   });
 
 /** @internal */
@@ -1937,6 +2121,7 @@ export type FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8Fie
     minValue?: number | undefined;
     maxValue?: number | undefined;
     fontSize?: number | undefined;
+    textAlign?: string | undefined;
   };
 
 /** @internal */
@@ -1957,6 +2142,9 @@ export const FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8Fi
     minValue: z.number().optional(),
     maxValue: z.number().optional(),
     fontSize: z.number().optional(),
+    textAlign:
+      FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8TextAlign$outboundSchema
+        .optional(),
   });
 
 /**
@@ -2144,6 +2332,34 @@ export namespace FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBod
 }
 
 /** @internal */
+export const FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7TextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7TextAlign
+  > = z.nativeEnum(
+    FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7TextAlign,
+  );
+
+/** @internal */
+export const FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7TextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7TextAlign
+  > =
+    FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7TextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7TextAlign$ {
+  /** @deprecated use `FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7TextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7TextAlign$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7TextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7TextAlign$outboundSchema;
+}
+
+/** @internal */
 export const FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMeta$inboundSchema:
   z.ZodType<
     FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMeta,
@@ -2159,6 +2375,9 @@ export const FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7Fi
     text: z.string().optional(),
     characterLimit: z.number().optional(),
     fontSize: z.number().optional(),
+    textAlign:
+      FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7TextAlign$inboundSchema
+        .optional(),
   });
 
 /** @internal */
@@ -2172,6 +2391,7 @@ export type FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7Fie
     text?: string | undefined;
     characterLimit?: number | undefined;
     fontSize?: number | undefined;
+    textAlign?: string | undefined;
   };
 
 /** @internal */
@@ -2190,6 +2410,9 @@ export const FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7Fi
     text: z.string().optional(),
     characterLimit: z.number().optional(),
     fontSize: z.number().optional(),
+    textAlign:
+      FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7TextAlign$outboundSchema
+        .optional(),
   });
 
 /**
@@ -2377,6 +2600,34 @@ export namespace FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBod
 }
 
 /** @internal */
+export const FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyTextAlign
+  > = z.nativeEnum(
+    FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyTextAlign,
+  );
+
+/** @internal */
+export const FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyTextAlign
+  > =
+    FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyTextAlign$ {
+  /** @deprecated use `FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyTextAlign$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMeta$inboundSchema:
   z.ZodType<
     FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMeta,
@@ -2390,6 +2641,9 @@ export const FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFie
     type:
       FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6FieldMetaType$inboundSchema,
     fontSize: z.number().optional(),
+    textAlign:
+      FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyTextAlign$inboundSchema
+        .optional(),
   });
 
 /** @internal */
@@ -2401,6 +2655,7 @@ export type FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFiel
     readOnly?: boolean | undefined;
     type: string;
     fontSize?: number | undefined;
+    textAlign?: string | undefined;
   };
 
 /** @internal */
@@ -2417,6 +2672,9 @@ export const FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFie
     type:
       FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6FieldMetaType$outboundSchema,
     fontSize: z.number().optional(),
+    textAlign:
+      FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyTextAlign$outboundSchema
+        .optional(),
   });
 
 /**
@@ -2604,6 +2862,34 @@ export namespace FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBod
 }
 
 /** @internal */
+export const FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestTextAlign
+  > = z.nativeEnum(
+    FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestTextAlign,
+  );
+
+/** @internal */
+export const FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestTextAlign
+  > =
+    FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestTextAlign$ {
+  /** @deprecated use `FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestTextAlign$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta$inboundSchema:
   z.ZodType<
     FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta,
@@ -2617,6 +2903,9 @@ export const FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta$inbo
     type:
       FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5FieldMetaType$inboundSchema,
     fontSize: z.number().optional(),
+    textAlign:
+      FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestTextAlign$inboundSchema
+        .optional(),
   });
 
 /** @internal */
@@ -2628,6 +2917,7 @@ export type FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta$Outbo
     readOnly?: boolean | undefined;
     type: string;
     fontSize?: number | undefined;
+    textAlign?: string | undefined;
   };
 
 /** @internal */
@@ -2644,6 +2934,9 @@ export const FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta$outb
     type:
       FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5FieldMetaType$outboundSchema,
     fontSize: z.number().optional(),
+    textAlign:
+      FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestTextAlign$outboundSchema
+        .optional(),
   });
 
 /**
@@ -2829,6 +3122,31 @@ export namespace FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBod
 }
 
 /** @internal */
+export const FieldCreateTemplateFieldsFieldsTemplatesFieldsTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof FieldCreateTemplateFieldsFieldsTemplatesFieldsTextAlign
+  > = z.nativeEnum(FieldCreateTemplateFieldsFieldsTemplatesFieldsTextAlign);
+
+/** @internal */
+export const FieldCreateTemplateFieldsFieldsTemplatesFieldsTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof FieldCreateTemplateFieldsFieldsTemplatesFieldsTextAlign
+  > = FieldCreateTemplateFieldsFieldsTemplatesFieldsTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldCreateTemplateFieldsFieldsTemplatesFieldsTextAlign$ {
+  /** @deprecated use `FieldCreateTemplateFieldsFieldsTemplatesFieldsTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldCreateTemplateFieldsFieldsTemplatesFieldsTextAlign$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldsTemplatesFieldsTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldCreateTemplateFieldsFieldsTemplatesFieldsTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const FieldCreateTemplateFieldsFieldsTemplatesFieldsFieldMeta$inboundSchema:
   z.ZodType<
     FieldCreateTemplateFieldsFieldsTemplatesFieldsFieldMeta,
@@ -2842,6 +3160,9 @@ export const FieldCreateTemplateFieldsFieldsTemplatesFieldsFieldMeta$inboundSche
     type:
       FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4FieldMetaType$inboundSchema,
     fontSize: z.number().optional(),
+    textAlign:
+      FieldCreateTemplateFieldsFieldsTemplatesFieldsTextAlign$inboundSchema
+        .optional(),
   });
 
 /** @internal */
@@ -2852,6 +3173,7 @@ export type FieldCreateTemplateFieldsFieldsTemplatesFieldsFieldMeta$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -2868,6 +3190,9 @@ export const FieldCreateTemplateFieldsFieldsTemplatesFieldsFieldMeta$outboundSch
     type:
       FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4FieldMetaType$outboundSchema,
     fontSize: z.number().optional(),
+    textAlign:
+      FieldCreateTemplateFieldsFieldsTemplatesFieldsTextAlign$outboundSchema
+        .optional(),
   });
 
 /**
@@ -3050,6 +3375,29 @@ export namespace FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBod
 }
 
 /** @internal */
+export const FieldCreateTemplateFieldsFieldsTextAlign$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsFieldsTextAlign> = z
+    .nativeEnum(FieldCreateTemplateFieldsFieldsTextAlign);
+
+/** @internal */
+export const FieldCreateTemplateFieldsFieldsTextAlign$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsFieldsTextAlign> =
+    FieldCreateTemplateFieldsFieldsTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldCreateTemplateFieldsFieldsTextAlign$ {
+  /** @deprecated use `FieldCreateTemplateFieldsFieldsTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldCreateTemplateFieldsFieldsTextAlign$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldsTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldCreateTemplateFieldsFieldsTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const FieldCreateTemplateFieldsFieldsFieldMeta$inboundSchema: z.ZodType<
   FieldCreateTemplateFieldsFieldsFieldMeta,
   z.ZodTypeDef,
@@ -3062,6 +3410,7 @@ export const FieldCreateTemplateFieldsFieldsFieldMeta$inboundSchema: z.ZodType<
   type:
     FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyType$inboundSchema,
   fontSize: z.number().optional(),
+  textAlign: FieldCreateTemplateFieldsFieldsTextAlign$inboundSchema.optional(),
 });
 
 /** @internal */
@@ -3072,6 +3421,7 @@ export type FieldCreateTemplateFieldsFieldsFieldMeta$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -3087,6 +3437,7 @@ export const FieldCreateTemplateFieldsFieldsFieldMeta$outboundSchema: z.ZodType<
   type:
     FieldCreateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyType$outboundSchema,
   fontSize: z.number().optional(),
+  textAlign: FieldCreateTemplateFieldsFieldsTextAlign$outboundSchema.optional(),
 });
 
 /**
@@ -4201,6 +4552,34 @@ export namespace FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200App
 }
 
 /** @internal */
+export const FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyTextAlign
+  > = z.nativeEnum(
+    FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyTextAlign,
+  );
+
+/** @internal */
+export const FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyTextAlign
+  > =
+    FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyTextAlign$ {
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const FieldCreateTemplateFieldsFieldMeta6$inboundSchema: z.ZodType<
   FieldCreateTemplateFieldsFieldMeta6,
   z.ZodTypeDef,
@@ -4217,6 +4596,9 @@ export const FieldCreateTemplateFieldsFieldMeta6$inboundSchema: z.ZodType<
   minValue: z.number().optional(),
   maxValue: z.number().optional(),
   fontSize: z.number().optional(),
+  textAlign:
+    FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema
+      .optional(),
 });
 
 /** @internal */
@@ -4231,6 +4613,7 @@ export type FieldCreateTemplateFieldsFieldMeta6$Outbound = {
   minValue?: number | undefined;
   maxValue?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -4250,6 +4633,9 @@ export const FieldCreateTemplateFieldsFieldMeta6$outboundSchema: z.ZodType<
   minValue: z.number().optional(),
   maxValue: z.number().optional(),
   fontSize: z.number().optional(),
+  textAlign:
+    FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyTextAlign$outboundSchema
+      .optional(),
 });
 
 /**
@@ -4317,6 +4703,34 @@ export namespace FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200App
 }
 
 /** @internal */
+export const FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONTextAlign
+  > = z.nativeEnum(
+    FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONTextAlign,
+  );
+
+/** @internal */
+export const FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONTextAlign
+  > =
+    FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONTextAlign$ {
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONTextAlign$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const FieldCreateTemplateFieldsFieldMeta5$inboundSchema: z.ZodType<
   FieldCreateTemplateFieldsFieldMeta5,
   z.ZodTypeDef,
@@ -4331,6 +4745,9 @@ export const FieldCreateTemplateFieldsFieldMeta5$inboundSchema: z.ZodType<
   text: z.string().optional(),
   characterLimit: z.number().optional(),
   fontSize: z.number().optional(),
+  textAlign:
+    FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONTextAlign$inboundSchema
+      .optional(),
 });
 
 /** @internal */
@@ -4343,6 +4760,7 @@ export type FieldCreateTemplateFieldsFieldMeta5$Outbound = {
   text?: string | undefined;
   characterLimit?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -4360,6 +4778,9 @@ export const FieldCreateTemplateFieldsFieldMeta5$outboundSchema: z.ZodType<
   text: z.string().optional(),
   characterLimit: z.number().optional(),
   fontSize: z.number().optional(),
+  textAlign:
+    FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONTextAlign$outboundSchema
+      .optional(),
 });
 
 /**
@@ -4427,6 +4848,34 @@ export namespace FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200Typ
 }
 
 /** @internal */
+export const FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200TextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200TextAlign
+  > = z.nativeEnum(
+    FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200TextAlign,
+  );
+
+/** @internal */
+export const FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200TextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200TextAlign
+  > =
+    FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200TextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200TextAlign$ {
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200TextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200TextAlign$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200TextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200TextAlign$outboundSchema;
+}
+
+/** @internal */
 export const FieldCreateTemplateFieldsFieldMeta4$inboundSchema: z.ZodType<
   FieldCreateTemplateFieldsFieldMeta4,
   z.ZodTypeDef,
@@ -4439,6 +4888,9 @@ export const FieldCreateTemplateFieldsFieldMeta4$inboundSchema: z.ZodType<
   type:
     FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200Type$inboundSchema,
   fontSize: z.number().optional(),
+  textAlign:
+    FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200TextAlign$inboundSchema
+      .optional(),
 });
 
 /** @internal */
@@ -4449,6 +4901,7 @@ export type FieldCreateTemplateFieldsFieldMeta4$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -4464,6 +4917,9 @@ export const FieldCreateTemplateFieldsFieldMeta4$outboundSchema: z.ZodType<
   type:
     FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200Type$outboundSchema,
   fontSize: z.number().optional(),
+  textAlign:
+    FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponse200TextAlign$outboundSchema
+      .optional(),
 });
 
 /**
@@ -4531,6 +4987,34 @@ export namespace FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponseType$ 
 }
 
 /** @internal */
+export const FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponseTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponseTextAlign
+  > = z.nativeEnum(
+    FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponseTextAlign,
+  );
+
+/** @internal */
+export const FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponseTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponseTextAlign
+  > =
+    FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponseTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponseTextAlign$ {
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponseTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponseTextAlign$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponseTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponseTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const FieldCreateTemplateFieldsFieldMeta3$inboundSchema: z.ZodType<
   FieldCreateTemplateFieldsFieldMeta3,
   z.ZodTypeDef,
@@ -4543,6 +5027,9 @@ export const FieldCreateTemplateFieldsFieldMeta3$inboundSchema: z.ZodType<
   type:
     FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponseType$inboundSchema,
   fontSize: z.number().optional(),
+  textAlign:
+    FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponseTextAlign$inboundSchema
+      .optional(),
 });
 
 /** @internal */
@@ -4553,6 +5040,7 @@ export type FieldCreateTemplateFieldsFieldMeta3$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -4568,6 +5056,9 @@ export const FieldCreateTemplateFieldsFieldMeta3$outboundSchema: z.ZodType<
   type:
     FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponseType$outboundSchema,
   fontSize: z.number().optional(),
+  textAlign:
+    FieldCreateTemplateFieldsFieldMetaTemplatesFieldsResponseTextAlign$outboundSchema
+      .optional(),
 });
 
 /**
@@ -4632,6 +5123,31 @@ export namespace FieldCreateTemplateFieldsFieldMetaTemplatesFieldsType$ {
 }
 
 /** @internal */
+export const FieldCreateTemplateFieldsFieldMetaTemplatesFieldsTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof FieldCreateTemplateFieldsFieldMetaTemplatesFieldsTextAlign
+  > = z.nativeEnum(FieldCreateTemplateFieldsFieldMetaTemplatesFieldsTextAlign);
+
+/** @internal */
+export const FieldCreateTemplateFieldsFieldMetaTemplatesFieldsTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof FieldCreateTemplateFieldsFieldMetaTemplatesFieldsTextAlign
+  > = FieldCreateTemplateFieldsFieldMetaTemplatesFieldsTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldCreateTemplateFieldsFieldMetaTemplatesFieldsTextAlign$ {
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaTemplatesFieldsTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldCreateTemplateFieldsFieldMetaTemplatesFieldsTextAlign$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaTemplatesFieldsTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldCreateTemplateFieldsFieldMetaTemplatesFieldsTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const FieldCreateTemplateFieldsFieldMeta2$inboundSchema: z.ZodType<
   FieldCreateTemplateFieldsFieldMeta2,
   z.ZodTypeDef,
@@ -4643,6 +5159,9 @@ export const FieldCreateTemplateFieldsFieldMeta2$inboundSchema: z.ZodType<
   readOnly: z.boolean().optional(),
   type: FieldCreateTemplateFieldsFieldMetaTemplatesFieldsType$inboundSchema,
   fontSize: z.number().optional(),
+  textAlign:
+    FieldCreateTemplateFieldsFieldMetaTemplatesFieldsTextAlign$inboundSchema
+      .optional(),
 });
 
 /** @internal */
@@ -4653,6 +5172,7 @@ export type FieldCreateTemplateFieldsFieldMeta2$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -4667,6 +5187,9 @@ export const FieldCreateTemplateFieldsFieldMeta2$outboundSchema: z.ZodType<
   readOnly: z.boolean().optional(),
   type: FieldCreateTemplateFieldsFieldMetaTemplatesFieldsType$outboundSchema,
   fontSize: z.number().optional(),
+  textAlign:
+    FieldCreateTemplateFieldsFieldMetaTemplatesFieldsTextAlign$outboundSchema
+      .optional(),
 });
 
 /**
@@ -4730,6 +5253,29 @@ export namespace FieldCreateTemplateFieldsFieldMetaType$ {
 }
 
 /** @internal */
+export const FieldCreateTemplateFieldsFieldMetaTextAlign$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsFieldMetaTextAlign> = z
+    .nativeEnum(FieldCreateTemplateFieldsFieldMetaTextAlign);
+
+/** @internal */
+export const FieldCreateTemplateFieldsFieldMetaTextAlign$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsFieldMetaTextAlign> =
+    FieldCreateTemplateFieldsFieldMetaTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldCreateTemplateFieldsFieldMetaTextAlign$ {
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldCreateTemplateFieldsFieldMetaTextAlign$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldCreateTemplateFieldsFieldMetaTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const FieldCreateTemplateFieldsFieldMeta1$inboundSchema: z.ZodType<
   FieldCreateTemplateFieldsFieldMeta1,
   z.ZodTypeDef,
@@ -4741,6 +5287,8 @@ export const FieldCreateTemplateFieldsFieldMeta1$inboundSchema: z.ZodType<
   readOnly: z.boolean().optional(),
   type: FieldCreateTemplateFieldsFieldMetaType$inboundSchema,
   fontSize: z.number().optional(),
+  textAlign: FieldCreateTemplateFieldsFieldMetaTextAlign$inboundSchema
+    .optional(),
 });
 
 /** @internal */
@@ -4751,6 +5299,7 @@ export type FieldCreateTemplateFieldsFieldMeta1$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -4765,6 +5314,8 @@ export const FieldCreateTemplateFieldsFieldMeta1$outboundSchema: z.ZodType<
   readOnly: z.boolean().optional(),
   type: FieldCreateTemplateFieldsFieldMetaType$outboundSchema,
   fontSize: z.number().optional(),
+  textAlign: FieldCreateTemplateFieldsFieldMetaTextAlign$outboundSchema
+    .optional(),
 });
 
 /**
@@ -4809,27 +5360,27 @@ export const FieldCreateTemplateFieldsFieldMeta$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
+  z.lazy(() => FieldCreateTemplateFieldsFieldMeta7$inboundSchema),
   z.lazy(() => FieldCreateTemplateFieldsFieldMeta1$inboundSchema),
   z.lazy(() => FieldCreateTemplateFieldsFieldMeta2$inboundSchema),
   z.lazy(() => FieldCreateTemplateFieldsFieldMeta3$inboundSchema),
   z.lazy(() => FieldCreateTemplateFieldsFieldMeta4$inboundSchema),
-  z.lazy(() => FieldCreateTemplateFieldsFieldMeta7$inboundSchema),
   z.lazy(() => FieldCreateTemplateFieldsFieldMeta9$inboundSchema),
-  z.lazy(() => FieldCreateTemplateFieldsFieldMeta5$inboundSchema),
   z.lazy(() => FieldCreateTemplateFieldsFieldMeta8$inboundSchema),
+  z.lazy(() => FieldCreateTemplateFieldsFieldMeta5$inboundSchema),
   z.lazy(() => FieldCreateTemplateFieldsFieldMeta6$inboundSchema),
 ]);
 
 /** @internal */
 export type FieldCreateTemplateFieldsFieldMeta$Outbound =
+  | FieldCreateTemplateFieldsFieldMeta7$Outbound
   | FieldCreateTemplateFieldsFieldMeta1$Outbound
   | FieldCreateTemplateFieldsFieldMeta2$Outbound
   | FieldCreateTemplateFieldsFieldMeta3$Outbound
   | FieldCreateTemplateFieldsFieldMeta4$Outbound
-  | FieldCreateTemplateFieldsFieldMeta7$Outbound
   | FieldCreateTemplateFieldsFieldMeta9$Outbound
-  | FieldCreateTemplateFieldsFieldMeta5$Outbound
   | FieldCreateTemplateFieldsFieldMeta8$Outbound
+  | FieldCreateTemplateFieldsFieldMeta5$Outbound
   | FieldCreateTemplateFieldsFieldMeta6$Outbound;
 
 /** @internal */
@@ -4838,14 +5389,14 @@ export const FieldCreateTemplateFieldsFieldMeta$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FieldCreateTemplateFieldsFieldMeta
 > = z.union([
+  z.lazy(() => FieldCreateTemplateFieldsFieldMeta7$outboundSchema),
   z.lazy(() => FieldCreateTemplateFieldsFieldMeta1$outboundSchema),
   z.lazy(() => FieldCreateTemplateFieldsFieldMeta2$outboundSchema),
   z.lazy(() => FieldCreateTemplateFieldsFieldMeta3$outboundSchema),
   z.lazy(() => FieldCreateTemplateFieldsFieldMeta4$outboundSchema),
-  z.lazy(() => FieldCreateTemplateFieldsFieldMeta7$outboundSchema),
   z.lazy(() => FieldCreateTemplateFieldsFieldMeta9$outboundSchema),
-  z.lazy(() => FieldCreateTemplateFieldsFieldMeta5$outboundSchema),
   z.lazy(() => FieldCreateTemplateFieldsFieldMeta8$outboundSchema),
+  z.lazy(() => FieldCreateTemplateFieldsFieldMeta5$outboundSchema),
   z.lazy(() => FieldCreateTemplateFieldsFieldMeta6$outboundSchema),
 ]);
 
@@ -4906,14 +5457,14 @@ export const FieldCreateTemplateFieldsTemplatesFieldsFields$inboundSchema:
     inserted: z.boolean(),
     fieldMeta: z.nullable(
       z.union([
+        z.lazy(() => FieldCreateTemplateFieldsFieldMeta7$inboundSchema),
         z.lazy(() => FieldCreateTemplateFieldsFieldMeta1$inboundSchema),
         z.lazy(() => FieldCreateTemplateFieldsFieldMeta2$inboundSchema),
         z.lazy(() => FieldCreateTemplateFieldsFieldMeta3$inboundSchema),
         z.lazy(() => FieldCreateTemplateFieldsFieldMeta4$inboundSchema),
-        z.lazy(() => FieldCreateTemplateFieldsFieldMeta7$inboundSchema),
         z.lazy(() => FieldCreateTemplateFieldsFieldMeta9$inboundSchema),
-        z.lazy(() => FieldCreateTemplateFieldsFieldMeta5$inboundSchema),
         z.lazy(() => FieldCreateTemplateFieldsFieldMeta8$inboundSchema),
+        z.lazy(() => FieldCreateTemplateFieldsFieldMeta5$inboundSchema),
         z.lazy(() => FieldCreateTemplateFieldsFieldMeta6$inboundSchema),
       ]),
     ),
@@ -4935,14 +5486,14 @@ export type FieldCreateTemplateFieldsTemplatesFieldsFields$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
+    | FieldCreateTemplateFieldsFieldMeta7$Outbound
     | FieldCreateTemplateFieldsFieldMeta1$Outbound
     | FieldCreateTemplateFieldsFieldMeta2$Outbound
     | FieldCreateTemplateFieldsFieldMeta3$Outbound
     | FieldCreateTemplateFieldsFieldMeta4$Outbound
-    | FieldCreateTemplateFieldsFieldMeta7$Outbound
     | FieldCreateTemplateFieldsFieldMeta9$Outbound
-    | FieldCreateTemplateFieldsFieldMeta5$Outbound
     | FieldCreateTemplateFieldsFieldMeta8$Outbound
+    | FieldCreateTemplateFieldsFieldMeta5$Outbound
     | FieldCreateTemplateFieldsFieldMeta6$Outbound
     | null;
 };
@@ -4969,14 +5520,14 @@ export const FieldCreateTemplateFieldsTemplatesFieldsFields$outboundSchema:
     inserted: z.boolean(),
     fieldMeta: z.nullable(
       z.union([
+        z.lazy(() => FieldCreateTemplateFieldsFieldMeta7$outboundSchema),
         z.lazy(() => FieldCreateTemplateFieldsFieldMeta1$outboundSchema),
         z.lazy(() => FieldCreateTemplateFieldsFieldMeta2$outboundSchema),
         z.lazy(() => FieldCreateTemplateFieldsFieldMeta3$outboundSchema),
         z.lazy(() => FieldCreateTemplateFieldsFieldMeta4$outboundSchema),
-        z.lazy(() => FieldCreateTemplateFieldsFieldMeta7$outboundSchema),
         z.lazy(() => FieldCreateTemplateFieldsFieldMeta9$outboundSchema),
-        z.lazy(() => FieldCreateTemplateFieldsFieldMeta5$outboundSchema),
         z.lazy(() => FieldCreateTemplateFieldsFieldMeta8$outboundSchema),
+        z.lazy(() => FieldCreateTemplateFieldsFieldMeta5$outboundSchema),
         z.lazy(() => FieldCreateTemplateFieldsFieldMeta6$outboundSchema),
       ]),
     ),
