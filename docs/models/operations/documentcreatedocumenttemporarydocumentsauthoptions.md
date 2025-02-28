@@ -7,7 +7,7 @@ import { DocumentCreateDocumentTemporaryDocumentsAuthOptions } from "@documenso/
 
 let value: DocumentCreateDocumentTemporaryDocumentsAuthOptions = {
   accessAuth: "ACCOUNT",
-  actionAuth: "EXPLICIT_NONE",
+  actionAuth: "ACCOUNT",
 };
 ```
 

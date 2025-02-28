@@ -11,5 +11,5 @@ let value: DocumentGetDocumentWithDetailsByIdRole = "CC";
 ## Values
 
 ```typescript
-"CC" | "SIGNER" | "VIEWER" | "APPROVER"
+"CC" | "SIGNER" | "VIEWER" | "APPROVER" | "ASSISTANT"
 ```

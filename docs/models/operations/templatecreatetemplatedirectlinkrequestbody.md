@@ -6,7 +6,7 @@
 import { TemplateCreateTemplateDirectLinkRequestBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateCreateTemplateDirectLinkRequestBody = {
-  templateId: 351.07,
+  templateId: 1459.48,
 };
 ```
 

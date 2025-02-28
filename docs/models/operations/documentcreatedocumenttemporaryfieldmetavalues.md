@@ -6,7 +6,7 @@
 import { DocumentCreateDocumentTemporaryFieldMetaValues } from "@documenso/sdk-typescript/models/operations";
 
 let value: DocumentCreateDocumentTemporaryFieldMetaValues = {
-  id: 8391.89,
+  id: 6339.98,
   checked: false,
   value: "<value>",
 };

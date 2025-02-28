@@ -5,7 +5,7 @@
 ```typescript
 import { FieldUpdateTemplateFieldsType } from "@documenso/sdk-typescript/models/operations";
 
-let value: FieldUpdateTemplateFieldsType = "RADIO";
+let value: FieldUpdateTemplateFieldsType = "DROPDOWN";
 ```
 
 ## Values

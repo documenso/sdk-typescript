@@ -6,10 +6,10 @@
 import { RecipientUpdateDocumentRecipientsRequestBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: RecipientUpdateDocumentRecipientsRequestBody = {
-  documentId: 8877.01,
+  documentId: 7031.89,
   recipients: [
     {
-      id: 6386.09,
+      id: 9492.8,
     },
   ],
 };

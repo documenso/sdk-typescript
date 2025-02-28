@@ -6,17 +6,17 @@
 import { FieldUpdateTemplateFieldsTemplatesFieldsFields } from "@documenso/sdk-typescript/models/operations";
 
 let value: FieldUpdateTemplateFieldsTemplatesFieldsFields = {
-  type: "CHECKBOX",
-  id: 842935,
+  type: "DATE",
+  id: 478773,
   secondaryId: "<id>",
-  documentId: 414644,
-  templateId: 421273,
-  recipientId: 926266,
-  page: 6617.64,
+  documentId: 243941,
+  templateId: 722151,
+  recipientId: 112788,
+  page: 9904.54,
   customText: "<value>",
   inserted: false,
   fieldMeta: {
-    type: "initials",
+    type: "checkbox",
   },
 };
 ```

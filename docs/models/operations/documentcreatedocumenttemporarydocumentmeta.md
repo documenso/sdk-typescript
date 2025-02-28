@@ -6,16 +6,16 @@
 import { DocumentCreateDocumentTemporaryDocumentMeta } from "@documenso/sdk-typescript/models/operations";
 
 let value: DocumentCreateDocumentTemporaryDocumentMeta = {
-  signingOrder: "PARALLEL",
+  signingOrder: "SEQUENTIAL",
   distributionMethod: "NONE",
   id: "<id>",
   subject: "<value>",
   message: "<value>",
-  timezone: "Africa/Casablanca",
-  password: "I869G0Ok7_8RIUd",
+  timezone: "Pacific/Tahiti",
+  password: "G0Ok7_8RIUdHCox",
   dateFormat: "<value>",
-  documentId: 414857,
-  redirectUrl: "https://surprised-traffic.com/",
+  documentId: 46007,
+  redirectUrl: "https://guilty-simple.org/",
   typedSignatureEnabled: false,
   language: "<value>",
   emailSettings: {},

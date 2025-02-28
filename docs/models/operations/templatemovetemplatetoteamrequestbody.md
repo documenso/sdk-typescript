@@ -6,8 +6,8 @@
 import { TemplateMoveTemplateToTeamRequestBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateMoveTemplateToTeamRequestBody = {
-  templateId: 8871.32,
-  teamId: 1655.45,
+  templateId: 9178.77,
+  teamId: 810.53,
 };
 ```
 

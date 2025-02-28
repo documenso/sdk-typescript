@@ -10,25 +10,25 @@ import { DocumentSendDocumentResponseBody } from "@documenso/sdk-typescript/mode
 let value: DocumentSendDocumentResponseBody = {
   visibility: "MANAGER_AND_ABOVE",
   status: "PENDING",
-  source: "TEMPLATE_DIRECT_LINK",
-  id: 344718,
+  source: "TEMPLATE",
+  id: 70042,
   externalId: "<id>",
-  userId: 7137.67,
+  userId: 8224.07,
   authOptions: {
     globalAccessAuth: "ACCOUNT",
     globalActionAuth: "PASSKEY",
   },
   formValues: {
-    "key": false,
+    "key": 5369.23,
   },
   title: "<value>",
   documentDataId: "<id>",
-  createdAt: "1719671653915",
-  updatedAt: "1737558361540",
+  createdAt: "1712650127819",
+  updatedAt: "1740650716430",
   completedAt: "<value>",
   deletedAt: "<value>",
-  teamId: 70042,
-  templateId: 822407,
+  teamId: 405373,
+  templateId: 321043,
 };
 ```
 

@@ -6,8 +6,8 @@
 import { DocumentMoveDocumentToTeamRequestBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: DocumentMoveDocumentToTeamRequestBody = {
-  documentId: 9587.41,
-  teamId: 1173.2,
+  documentId: 9358.33,
+  teamId: 9834.27,
 };
 ```
 

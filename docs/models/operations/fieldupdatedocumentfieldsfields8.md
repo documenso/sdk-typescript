@@ -7,7 +7,7 @@ import { FieldUpdateDocumentFieldsFields8 } from "@documenso/sdk-typescript/mode
 
 let value: FieldUpdateDocumentFieldsFields8 = {
   type: "NUMBER",
-  id: 7275.44,
+  id: 8850.22,
 };
 ```
 

@@ -21,16 +21,17 @@ import {
 import * as errors from "../models/errors/index.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import * as operations from "../models/operations/index.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
  * Update document
  */
-export async function documentsUpdate(
+export function documentsUpdate(
   client: DocumensoCore,
   request: operations.DocumentSetSettingsForDocumentRequestBody,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     operations.DocumentSetSettingsForDocumentResponseBody,
     | errors.DocumentSetSettingsForDocumentResponseBody
@@ -44,6 +45,34 @@ export async function documentsUpdate(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: DocumensoCore,
+  request: operations.DocumentSetSettingsForDocumentRequestBody,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      operations.DocumentSetSettingsForDocumentResponseBody,
+      | errors.DocumentSetSettingsForDocumentResponseBody
+      | errors.DocumentSetSettingsForDocumentDocumentsResponseBody
+      | APIError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) =>
@@ -53,7 +82,7 @@ export async function documentsUpdate(
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = encodeJSON("body", payload, { explode: true });
@@ -70,6 +99,7 @@ export async function documentsUpdate(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "document-setSettingsForDocument",
     oAuth2Scopes: [],
 
@@ -92,7 +122,7 @@ export async function documentsUpdate(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -103,7 +133,7 @@ export async function documentsUpdate(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -139,8 +169,8 @@ export async function documentsUpdate(
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

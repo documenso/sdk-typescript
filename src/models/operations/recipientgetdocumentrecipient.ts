@@ -17,6 +17,7 @@ export const RecipientGetDocumentRecipientRole = {
   Signer: "SIGNER",
   Viewer: "VIEWER",
   Approver: "APPROVER",
+  Assistant: "ASSISTANT",
 } as const;
 export type RecipientGetDocumentRecipientRole = ClosedEnum<
   typeof RecipientGetDocumentRecipientRole
@@ -190,6 +191,17 @@ export type RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200
     typeof RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONResponseBodyType
   >;
 
+export const RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONResponseBodyTextAlign =
+  {
+    Left: "left",
+    Center: "center",
+    Right: "right",
+  } as const;
+export type RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONResponseBodyTextAlign =
+  ClosedEnum<
+    typeof RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONResponseBodyTextAlign
+  >;
+
 export type RecipientGetDocumentRecipientFieldMeta6 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -202,6 +214,9 @@ export type RecipientGetDocumentRecipientFieldMeta6 = {
   minValue?: number | undefined;
   maxValue?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?:
+    | RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONResponseBodyTextAlign
+    | undefined;
 };
 
 export const RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONType =
@@ -211,6 +226,17 @@ export const RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse20
 export type RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONType =
   ClosedEnum<
     typeof RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONType
+  >;
+
+export const RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONTextAlign =
+  {
+    Left: "left",
+    Center: "center",
+    Right: "right",
+  } as const;
+export type RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONTextAlign =
+  ClosedEnum<
+    typeof RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONTextAlign
   >;
 
 export type RecipientGetDocumentRecipientFieldMeta5 = {
@@ -223,6 +249,9 @@ export type RecipientGetDocumentRecipientFieldMeta5 = {
   text?: string | undefined;
   characterLimit?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?:
+    | RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONTextAlign
+    | undefined;
 };
 
 export const RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200Type =
@@ -234,6 +263,17 @@ export type RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200
     typeof RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200Type
   >;
 
+export const RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200TextAlign =
+  {
+    Left: "left",
+    Center: "center",
+    Right: "right",
+  } as const;
+export type RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200TextAlign =
+  ClosedEnum<
+    typeof RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200TextAlign
+  >;
+
 export type RecipientGetDocumentRecipientFieldMeta4 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -242,6 +282,9 @@ export type RecipientGetDocumentRecipientFieldMeta4 = {
   type:
     RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200Type;
   fontSize?: number | undefined;
+  textAlign?:
+    | RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200TextAlign
+    | undefined;
 };
 
 export const RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponseType =
@@ -253,6 +296,17 @@ export type RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponseTyp
     typeof RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponseType
   >;
 
+export const RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponseTextAlign =
+  {
+    Left: "left",
+    Center: "center",
+    Right: "right",
+  } as const;
+export type RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponseTextAlign =
+  ClosedEnum<
+    typeof RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponseTextAlign
+  >;
+
 export type RecipientGetDocumentRecipientFieldMeta3 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -260,6 +314,9 @@ export type RecipientGetDocumentRecipientFieldMeta3 = {
   readOnly?: boolean | undefined;
   type: RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponseType;
   fontSize?: number | undefined;
+  textAlign?:
+    | RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponseTextAlign
+    | undefined;
 };
 
 export const RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsType = {
@@ -270,6 +327,17 @@ export type RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsType =
     typeof RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsType
   >;
 
+export const RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsTextAlign =
+  {
+    Left: "left",
+    Center: "center",
+    Right: "right",
+  } as const;
+export type RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsTextAlign =
+  ClosedEnum<
+    typeof RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsTextAlign
+  >;
+
 export type RecipientGetDocumentRecipientFieldMeta2 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -277,6 +345,9 @@ export type RecipientGetDocumentRecipientFieldMeta2 = {
   readOnly?: boolean | undefined;
   type: RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsType;
   fontSize?: number | undefined;
+  textAlign?:
+    | RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsTextAlign
+    | undefined;
 };
 
 export const RecipientGetDocumentRecipientFieldMetaType = {
@@ -286,6 +357,15 @@ export type RecipientGetDocumentRecipientFieldMetaType = ClosedEnum<
   typeof RecipientGetDocumentRecipientFieldMetaType
 >;
 
+export const RecipientGetDocumentRecipientFieldMetaTextAlign = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type RecipientGetDocumentRecipientFieldMetaTextAlign = ClosedEnum<
+  typeof RecipientGetDocumentRecipientFieldMetaTextAlign
+>;
+
 export type RecipientGetDocumentRecipientFieldMeta1 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -293,17 +373,18 @@ export type RecipientGetDocumentRecipientFieldMeta1 = {
   readOnly?: boolean | undefined;
   type: RecipientGetDocumentRecipientFieldMetaType;
   fontSize?: number | undefined;
+  textAlign?: RecipientGetDocumentRecipientFieldMetaTextAlign | undefined;
 };
 
 export type RecipientGetDocumentRecipientFieldMeta =
+  | RecipientGetDocumentRecipientFieldMeta7
   | RecipientGetDocumentRecipientFieldMeta1
   | RecipientGetDocumentRecipientFieldMeta2
   | RecipientGetDocumentRecipientFieldMeta3
   | RecipientGetDocumentRecipientFieldMeta4
-  | RecipientGetDocumentRecipientFieldMeta7
   | RecipientGetDocumentRecipientFieldMeta9
-  | RecipientGetDocumentRecipientFieldMeta5
   | RecipientGetDocumentRecipientFieldMeta8
+  | RecipientGetDocumentRecipientFieldMeta5
   | RecipientGetDocumentRecipientFieldMeta6;
 
 export type RecipientGetDocumentRecipientFields = {
@@ -324,14 +405,14 @@ export type RecipientGetDocumentRecipientFields = {
   customText: string;
   inserted: boolean;
   fieldMeta:
+    | RecipientGetDocumentRecipientFieldMeta7
     | RecipientGetDocumentRecipientFieldMeta1
     | RecipientGetDocumentRecipientFieldMeta2
     | RecipientGetDocumentRecipientFieldMeta3
     | RecipientGetDocumentRecipientFieldMeta4
-    | RecipientGetDocumentRecipientFieldMeta7
     | RecipientGetDocumentRecipientFieldMeta9
-    | RecipientGetDocumentRecipientFieldMeta5
     | RecipientGetDocumentRecipientFieldMeta8
+    | RecipientGetDocumentRecipientFieldMeta5
     | RecipientGetDocumentRecipientFieldMeta6
     | null;
 };
@@ -1255,6 +1336,34 @@ export namespace RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsRespon
 }
 
 /** @internal */
+export const RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONResponseBodyTextAlign
+  > = z.nativeEnum(
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONResponseBodyTextAlign,
+  );
+
+/** @internal */
+export const RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONResponseBodyTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONResponseBodyTextAlign
+  > =
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONResponseBodyTextAlign$ {
+  /** @deprecated use `RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema;
+  /** @deprecated use `RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONResponseBodyTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONResponseBodyTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const RecipientGetDocumentRecipientFieldMeta6$inboundSchema: z.ZodType<
   RecipientGetDocumentRecipientFieldMeta6,
   z.ZodTypeDef,
@@ -1271,6 +1380,9 @@ export const RecipientGetDocumentRecipientFieldMeta6$inboundSchema: z.ZodType<
   minValue: z.number().optional(),
   maxValue: z.number().optional(),
   fontSize: z.number().optional(),
+  textAlign:
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema
+      .optional(),
 });
 
 /** @internal */
@@ -1285,6 +1397,7 @@ export type RecipientGetDocumentRecipientFieldMeta6$Outbound = {
   minValue?: number | undefined;
   maxValue?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -1304,6 +1417,9 @@ export const RecipientGetDocumentRecipientFieldMeta6$outboundSchema: z.ZodType<
   minValue: z.number().optional(),
   maxValue: z.number().optional(),
   fontSize: z.number().optional(),
+  textAlign:
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONResponseBodyTextAlign$outboundSchema
+      .optional(),
 });
 
 /**
@@ -1377,6 +1493,34 @@ export namespace RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsRespon
 }
 
 /** @internal */
+export const RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONTextAlign
+  > = z.nativeEnum(
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONTextAlign,
+  );
+
+/** @internal */
+export const RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONTextAlign
+  > =
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONTextAlign$ {
+  /** @deprecated use `RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONTextAlign$inboundSchema;
+  /** @deprecated use `RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const RecipientGetDocumentRecipientFieldMeta5$inboundSchema: z.ZodType<
   RecipientGetDocumentRecipientFieldMeta5,
   z.ZodTypeDef,
@@ -1391,6 +1535,9 @@ export const RecipientGetDocumentRecipientFieldMeta5$inboundSchema: z.ZodType<
   text: z.string().optional(),
   characterLimit: z.number().optional(),
   fontSize: z.number().optional(),
+  textAlign:
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONTextAlign$inboundSchema
+      .optional(),
 });
 
 /** @internal */
@@ -1403,6 +1550,7 @@ export type RecipientGetDocumentRecipientFieldMeta5$Outbound = {
   text?: string | undefined;
   characterLimit?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -1420,6 +1568,9 @@ export const RecipientGetDocumentRecipientFieldMeta5$outboundSchema: z.ZodType<
   text: z.string().optional(),
   characterLimit: z.number().optional(),
   fontSize: z.number().optional(),
+  textAlign:
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200ApplicationJSONTextAlign$outboundSchema
+      .optional(),
 });
 
 /**
@@ -1493,6 +1644,34 @@ export namespace RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsRespon
 }
 
 /** @internal */
+export const RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200TextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200TextAlign
+  > = z.nativeEnum(
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200TextAlign,
+  );
+
+/** @internal */
+export const RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200TextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200TextAlign
+  > =
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200TextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200TextAlign$ {
+  /** @deprecated use `RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200TextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200TextAlign$inboundSchema;
+  /** @deprecated use `RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200TextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200TextAlign$outboundSchema;
+}
+
+/** @internal */
 export const RecipientGetDocumentRecipientFieldMeta4$inboundSchema: z.ZodType<
   RecipientGetDocumentRecipientFieldMeta4,
   z.ZodTypeDef,
@@ -1505,6 +1684,9 @@ export const RecipientGetDocumentRecipientFieldMeta4$inboundSchema: z.ZodType<
   type:
     RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200Type$inboundSchema,
   fontSize: z.number().optional(),
+  textAlign:
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200TextAlign$inboundSchema
+      .optional(),
 });
 
 /** @internal */
@@ -1515,6 +1697,7 @@ export type RecipientGetDocumentRecipientFieldMeta4$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -1530,6 +1713,9 @@ export const RecipientGetDocumentRecipientFieldMeta4$outboundSchema: z.ZodType<
   type:
     RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200Type$outboundSchema,
   fontSize: z.number().optional(),
+  textAlign:
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponse200TextAlign$outboundSchema
+      .optional(),
 });
 
 /**
@@ -1603,6 +1789,34 @@ export namespace RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsRespon
 }
 
 /** @internal */
+export const RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponseTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponseTextAlign
+  > = z.nativeEnum(
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponseTextAlign,
+  );
+
+/** @internal */
+export const RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponseTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponseTextAlign
+  > =
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponseTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponseTextAlign$ {
+  /** @deprecated use `RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponseTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponseTextAlign$inboundSchema;
+  /** @deprecated use `RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponseTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponseTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const RecipientGetDocumentRecipientFieldMeta3$inboundSchema: z.ZodType<
   RecipientGetDocumentRecipientFieldMeta3,
   z.ZodTypeDef,
@@ -1615,6 +1829,9 @@ export const RecipientGetDocumentRecipientFieldMeta3$inboundSchema: z.ZodType<
   type:
     RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponseType$inboundSchema,
   fontSize: z.number().optional(),
+  textAlign:
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponseTextAlign$inboundSchema
+      .optional(),
 });
 
 /** @internal */
@@ -1625,6 +1842,7 @@ export type RecipientGetDocumentRecipientFieldMeta3$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -1640,6 +1858,9 @@ export const RecipientGetDocumentRecipientFieldMeta3$outboundSchema: z.ZodType<
   type:
     RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponseType$outboundSchema,
   fontSize: z.number().optional(),
+  textAlign:
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsResponseTextAlign$outboundSchema
+      .optional(),
 });
 
 /**
@@ -1713,6 +1934,34 @@ export namespace RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsType$ 
 }
 
 /** @internal */
+export const RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsTextAlign
+  > = z.nativeEnum(
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsTextAlign,
+  );
+
+/** @internal */
+export const RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsTextAlign
+  > =
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsTextAlign$ {
+  /** @deprecated use `RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsTextAlign$inboundSchema;
+  /** @deprecated use `RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const RecipientGetDocumentRecipientFieldMeta2$inboundSchema: z.ZodType<
   RecipientGetDocumentRecipientFieldMeta2,
   z.ZodTypeDef,
@@ -1725,6 +1974,9 @@ export const RecipientGetDocumentRecipientFieldMeta2$inboundSchema: z.ZodType<
   type:
     RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsType$inboundSchema,
   fontSize: z.number().optional(),
+  textAlign:
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsTextAlign$inboundSchema
+      .optional(),
 });
 
 /** @internal */
@@ -1735,6 +1987,7 @@ export type RecipientGetDocumentRecipientFieldMeta2$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -1750,6 +2003,9 @@ export const RecipientGetDocumentRecipientFieldMeta2$outboundSchema: z.ZodType<
   type:
     RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsType$outboundSchema,
   fontSize: z.number().optional(),
+  textAlign:
+    RecipientGetDocumentRecipientFieldMetaDocumentsRecipientsTextAlign$outboundSchema
+      .optional(),
 });
 
 /**
@@ -1818,6 +2074,29 @@ export namespace RecipientGetDocumentRecipientFieldMetaType$ {
 }
 
 /** @internal */
+export const RecipientGetDocumentRecipientFieldMetaTextAlign$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientGetDocumentRecipientFieldMetaTextAlign> = z
+    .nativeEnum(RecipientGetDocumentRecipientFieldMetaTextAlign);
+
+/** @internal */
+export const RecipientGetDocumentRecipientFieldMetaTextAlign$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientGetDocumentRecipientFieldMetaTextAlign> =
+    RecipientGetDocumentRecipientFieldMetaTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace RecipientGetDocumentRecipientFieldMetaTextAlign$ {
+  /** @deprecated use `RecipientGetDocumentRecipientFieldMetaTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    RecipientGetDocumentRecipientFieldMetaTextAlign$inboundSchema;
+  /** @deprecated use `RecipientGetDocumentRecipientFieldMetaTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    RecipientGetDocumentRecipientFieldMetaTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const RecipientGetDocumentRecipientFieldMeta1$inboundSchema: z.ZodType<
   RecipientGetDocumentRecipientFieldMeta1,
   z.ZodTypeDef,
@@ -1829,6 +2108,8 @@ export const RecipientGetDocumentRecipientFieldMeta1$inboundSchema: z.ZodType<
   readOnly: z.boolean().optional(),
   type: RecipientGetDocumentRecipientFieldMetaType$inboundSchema,
   fontSize: z.number().optional(),
+  textAlign: RecipientGetDocumentRecipientFieldMetaTextAlign$inboundSchema
+    .optional(),
 });
 
 /** @internal */
@@ -1839,6 +2120,7 @@ export type RecipientGetDocumentRecipientFieldMeta1$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -1853,6 +2135,8 @@ export const RecipientGetDocumentRecipientFieldMeta1$outboundSchema: z.ZodType<
   readOnly: z.boolean().optional(),
   type: RecipientGetDocumentRecipientFieldMetaType$outboundSchema,
   fontSize: z.number().optional(),
+  textAlign: RecipientGetDocumentRecipientFieldMetaTextAlign$outboundSchema
+    .optional(),
 });
 
 /**
@@ -1903,27 +2187,27 @@ export const RecipientGetDocumentRecipientFieldMeta$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
+  z.lazy(() => RecipientGetDocumentRecipientFieldMeta7$inboundSchema),
   z.lazy(() => RecipientGetDocumentRecipientFieldMeta1$inboundSchema),
   z.lazy(() => RecipientGetDocumentRecipientFieldMeta2$inboundSchema),
   z.lazy(() => RecipientGetDocumentRecipientFieldMeta3$inboundSchema),
   z.lazy(() => RecipientGetDocumentRecipientFieldMeta4$inboundSchema),
-  z.lazy(() => RecipientGetDocumentRecipientFieldMeta7$inboundSchema),
   z.lazy(() => RecipientGetDocumentRecipientFieldMeta9$inboundSchema),
-  z.lazy(() => RecipientGetDocumentRecipientFieldMeta5$inboundSchema),
   z.lazy(() => RecipientGetDocumentRecipientFieldMeta8$inboundSchema),
+  z.lazy(() => RecipientGetDocumentRecipientFieldMeta5$inboundSchema),
   z.lazy(() => RecipientGetDocumentRecipientFieldMeta6$inboundSchema),
 ]);
 
 /** @internal */
 export type RecipientGetDocumentRecipientFieldMeta$Outbound =
+  | RecipientGetDocumentRecipientFieldMeta7$Outbound
   | RecipientGetDocumentRecipientFieldMeta1$Outbound
   | RecipientGetDocumentRecipientFieldMeta2$Outbound
   | RecipientGetDocumentRecipientFieldMeta3$Outbound
   | RecipientGetDocumentRecipientFieldMeta4$Outbound
-  | RecipientGetDocumentRecipientFieldMeta7$Outbound
   | RecipientGetDocumentRecipientFieldMeta9$Outbound
-  | RecipientGetDocumentRecipientFieldMeta5$Outbound
   | RecipientGetDocumentRecipientFieldMeta8$Outbound
+  | RecipientGetDocumentRecipientFieldMeta5$Outbound
   | RecipientGetDocumentRecipientFieldMeta6$Outbound;
 
 /** @internal */
@@ -1932,14 +2216,14 @@ export const RecipientGetDocumentRecipientFieldMeta$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   RecipientGetDocumentRecipientFieldMeta
 > = z.union([
+  z.lazy(() => RecipientGetDocumentRecipientFieldMeta7$outboundSchema),
   z.lazy(() => RecipientGetDocumentRecipientFieldMeta1$outboundSchema),
   z.lazy(() => RecipientGetDocumentRecipientFieldMeta2$outboundSchema),
   z.lazy(() => RecipientGetDocumentRecipientFieldMeta3$outboundSchema),
   z.lazy(() => RecipientGetDocumentRecipientFieldMeta4$outboundSchema),
-  z.lazy(() => RecipientGetDocumentRecipientFieldMeta7$outboundSchema),
   z.lazy(() => RecipientGetDocumentRecipientFieldMeta9$outboundSchema),
-  z.lazy(() => RecipientGetDocumentRecipientFieldMeta5$outboundSchema),
   z.lazy(() => RecipientGetDocumentRecipientFieldMeta8$outboundSchema),
+  z.lazy(() => RecipientGetDocumentRecipientFieldMeta5$outboundSchema),
   z.lazy(() => RecipientGetDocumentRecipientFieldMeta6$outboundSchema),
 ]);
 
@@ -2001,14 +2285,14 @@ export const RecipientGetDocumentRecipientFields$inboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
+      z.lazy(() => RecipientGetDocumentRecipientFieldMeta7$inboundSchema),
       z.lazy(() => RecipientGetDocumentRecipientFieldMeta1$inboundSchema),
       z.lazy(() => RecipientGetDocumentRecipientFieldMeta2$inboundSchema),
       z.lazy(() => RecipientGetDocumentRecipientFieldMeta3$inboundSchema),
       z.lazy(() => RecipientGetDocumentRecipientFieldMeta4$inboundSchema),
-      z.lazy(() => RecipientGetDocumentRecipientFieldMeta7$inboundSchema),
       z.lazy(() => RecipientGetDocumentRecipientFieldMeta9$inboundSchema),
-      z.lazy(() => RecipientGetDocumentRecipientFieldMeta5$inboundSchema),
       z.lazy(() => RecipientGetDocumentRecipientFieldMeta8$inboundSchema),
+      z.lazy(() => RecipientGetDocumentRecipientFieldMeta5$inboundSchema),
       z.lazy(() => RecipientGetDocumentRecipientFieldMeta6$inboundSchema),
     ]),
   ),
@@ -2030,14 +2314,14 @@ export type RecipientGetDocumentRecipientFields$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
+    | RecipientGetDocumentRecipientFieldMeta7$Outbound
     | RecipientGetDocumentRecipientFieldMeta1$Outbound
     | RecipientGetDocumentRecipientFieldMeta2$Outbound
     | RecipientGetDocumentRecipientFieldMeta3$Outbound
     | RecipientGetDocumentRecipientFieldMeta4$Outbound
-    | RecipientGetDocumentRecipientFieldMeta7$Outbound
     | RecipientGetDocumentRecipientFieldMeta9$Outbound
-    | RecipientGetDocumentRecipientFieldMeta5$Outbound
     | RecipientGetDocumentRecipientFieldMeta8$Outbound
+    | RecipientGetDocumentRecipientFieldMeta5$Outbound
     | RecipientGetDocumentRecipientFieldMeta6$Outbound
     | null;
 };
@@ -2063,14 +2347,14 @@ export const RecipientGetDocumentRecipientFields$outboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
+      z.lazy(() => RecipientGetDocumentRecipientFieldMeta7$outboundSchema),
       z.lazy(() => RecipientGetDocumentRecipientFieldMeta1$outboundSchema),
       z.lazy(() => RecipientGetDocumentRecipientFieldMeta2$outboundSchema),
       z.lazy(() => RecipientGetDocumentRecipientFieldMeta3$outboundSchema),
       z.lazy(() => RecipientGetDocumentRecipientFieldMeta4$outboundSchema),
-      z.lazy(() => RecipientGetDocumentRecipientFieldMeta7$outboundSchema),
       z.lazy(() => RecipientGetDocumentRecipientFieldMeta9$outboundSchema),
-      z.lazy(() => RecipientGetDocumentRecipientFieldMeta5$outboundSchema),
       z.lazy(() => RecipientGetDocumentRecipientFieldMeta8$outboundSchema),
+      z.lazy(() => RecipientGetDocumentRecipientFieldMeta5$outboundSchema),
       z.lazy(() => RecipientGetDocumentRecipientFieldMeta6$outboundSchema),
     ]),
   ),

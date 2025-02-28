@@ -5,7 +5,7 @@
 ```typescript
 import { FieldCreateTemplateFieldsType } from "@documenso/sdk-typescript/models/operations";
 
-let value: FieldCreateTemplateFieldsType = "DATE";
+let value: FieldCreateTemplateFieldsType = "NUMBER";
 ```
 
 ## Values

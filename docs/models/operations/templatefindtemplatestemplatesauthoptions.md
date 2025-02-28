@@ -7,7 +7,7 @@ import { TemplateFindTemplatesTemplatesAuthOptions } from "@documenso/sdk-typesc
 
 let value: TemplateFindTemplatesTemplatesAuthOptions = {
   accessAuth: "ACCOUNT",
-  actionAuth: "EXPLICIT_NONE",
+  actionAuth: "PASSKEY",
 };
 ```
 

@@ -6,7 +6,7 @@
 import { FieldCreateTemplateFieldFieldTemplatesFieldsValues } from "@documenso/sdk-typescript/models/operations";
 
 let value: FieldCreateTemplateFieldFieldTemplatesFieldsValues = {
-  id: 5439.22,
+  id: 8373.27,
   checked: false,
   value: "<value>",
 };

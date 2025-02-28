@@ -167,6 +167,7 @@ export const DocumentGetDocumentWithDetailsByIdRole = {
   Signer: "SIGNER",
   Viewer: "VIEWER",
   Approver: "APPROVER",
+  Assistant: "ASSISTANT",
 } as const;
 export type DocumentGetDocumentWithDetailsByIdRole = ClosedEnum<
   typeof DocumentGetDocumentWithDetailsByIdRole
@@ -366,6 +367,17 @@ export type DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200Appli
     typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONType
   >;
 
+export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200TextAlign =
+  {
+    Left: "left",
+    Center: "center",
+    Right: "right",
+  } as const;
+export type DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200TextAlign =
+  ClosedEnum<
+    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200TextAlign
+  >;
+
 export type DocumentGetDocumentWithDetailsByIdFieldMeta6 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -378,6 +390,9 @@ export type DocumentGetDocumentWithDetailsByIdFieldMeta6 = {
   minValue?: number | undefined;
   maxValue?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?:
+    | DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200TextAlign
+    | undefined;
 };
 
 export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200Type =
@@ -389,6 +404,17 @@ export type DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200Type 
     typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200Type
   >;
 
+export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseTextAlign =
+  {
+    Left: "left",
+    Center: "center",
+    Right: "right",
+  } as const;
+export type DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseTextAlign =
+  ClosedEnum<
+    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseTextAlign
+  >;
+
 export type DocumentGetDocumentWithDetailsByIdFieldMeta5 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -398,6 +424,9 @@ export type DocumentGetDocumentWithDetailsByIdFieldMeta5 = {
   text?: string | undefined;
   characterLimit?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?:
+    | DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseTextAlign
+    | undefined;
 };
 
 export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseType =
@@ -409,6 +438,16 @@ export type DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseType =
     typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseType
   >;
 
+export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsTextAlign = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsTextAlign =
+  ClosedEnum<
+    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsTextAlign
+  >;
+
 export type DocumentGetDocumentWithDetailsByIdFieldMeta4 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -416,6 +455,9 @@ export type DocumentGetDocumentWithDetailsByIdFieldMeta4 = {
   readOnly?: boolean | undefined;
   type: DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseType;
   fontSize?: number | undefined;
+  textAlign?:
+    | DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsTextAlign
+    | undefined;
 };
 
 export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsType = {
@@ -424,6 +466,15 @@ export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsType = {
 export type DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsType =
   ClosedEnum<typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsType>;
 
+export const DocumentGetDocumentWithDetailsByIdFieldMetaTextAlign = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type DocumentGetDocumentWithDetailsByIdFieldMetaTextAlign = ClosedEnum<
+  typeof DocumentGetDocumentWithDetailsByIdFieldMetaTextAlign
+>;
+
 export type DocumentGetDocumentWithDetailsByIdFieldMeta3 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -431,6 +482,7 @@ export type DocumentGetDocumentWithDetailsByIdFieldMeta3 = {
   readOnly?: boolean | undefined;
   type: DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsType;
   fontSize?: number | undefined;
+  textAlign?: DocumentGetDocumentWithDetailsByIdFieldMetaTextAlign | undefined;
 };
 
 export const DocumentGetDocumentWithDetailsByIdFieldMetaType = {
@@ -440,6 +492,17 @@ export type DocumentGetDocumentWithDetailsByIdFieldMetaType = ClosedEnum<
   typeof DocumentGetDocumentWithDetailsByIdFieldMetaType
 >;
 
+export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign =
+  {
+    Left: "left",
+    Center: "center",
+    Right: "right",
+  } as const;
+export type DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign =
+  ClosedEnum<
+    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign
+  >;
+
 export type DocumentGetDocumentWithDetailsByIdFieldMeta2 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -447,6 +510,9 @@ export type DocumentGetDocumentWithDetailsByIdFieldMeta2 = {
   readOnly?: boolean | undefined;
   type: DocumentGetDocumentWithDetailsByIdFieldMetaType;
   fontSize?: number | undefined;
+  textAlign?:
+    | DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign
+    | undefined;
 };
 
 export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields1Type =
@@ -458,6 +524,17 @@ export type DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200Appli
     typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields1Type
   >;
 
+export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONTextAlign =
+  {
+    Left: "left",
+    Center: "center",
+    Right: "right",
+  } as const;
+export type DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONTextAlign =
+  ClosedEnum<
+    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONTextAlign
+  >;
+
 export type DocumentGetDocumentWithDetailsByIdFieldMeta1 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -466,17 +543,20 @@ export type DocumentGetDocumentWithDetailsByIdFieldMeta1 = {
   type:
     DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields1Type;
   fontSize?: number | undefined;
+  textAlign?:
+    | DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONTextAlign
+    | undefined;
 };
 
 export type DocumentGetDocumentWithDetailsByIdFieldMeta =
+  | DocumentGetDocumentWithDetailsByIdFieldMeta7
   | DocumentGetDocumentWithDetailsByIdFieldMeta1
   | DocumentGetDocumentWithDetailsByIdFieldMeta2
   | DocumentGetDocumentWithDetailsByIdFieldMeta3
   | DocumentGetDocumentWithDetailsByIdFieldMeta4
-  | DocumentGetDocumentWithDetailsByIdFieldMeta7
   | DocumentGetDocumentWithDetailsByIdFieldMeta9
-  | DocumentGetDocumentWithDetailsByIdFieldMeta5
   | DocumentGetDocumentWithDetailsByIdFieldMeta8
+  | DocumentGetDocumentWithDetailsByIdFieldMeta5
   | DocumentGetDocumentWithDetailsByIdFieldMeta6;
 
 export type DocumentGetDocumentWithDetailsByIdFields = {
@@ -497,14 +577,14 @@ export type DocumentGetDocumentWithDetailsByIdFields = {
   customText: string;
   inserted: boolean;
   fieldMeta:
+    | DocumentGetDocumentWithDetailsByIdFieldMeta7
     | DocumentGetDocumentWithDetailsByIdFieldMeta1
     | DocumentGetDocumentWithDetailsByIdFieldMeta2
     | DocumentGetDocumentWithDetailsByIdFieldMeta3
     | DocumentGetDocumentWithDetailsByIdFieldMeta4
-    | DocumentGetDocumentWithDetailsByIdFieldMeta7
     | DocumentGetDocumentWithDetailsByIdFieldMeta9
-    | DocumentGetDocumentWithDetailsByIdFieldMeta5
     | DocumentGetDocumentWithDetailsByIdFieldMeta8
+    | DocumentGetDocumentWithDetailsByIdFieldMeta5
     | DocumentGetDocumentWithDetailsByIdFieldMeta6
     | null;
 };
@@ -2140,6 +2220,34 @@ export namespace DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200
 }
 
 /** @internal */
+export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200TextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200TextAlign
+  > = z.nativeEnum(
+    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200TextAlign,
+  );
+
+/** @internal */
+export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200TextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200TextAlign
+  > =
+    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200TextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200TextAlign$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200TextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200TextAlign$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200TextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200TextAlign$outboundSchema;
+}
+
+/** @internal */
 export const DocumentGetDocumentWithDetailsByIdFieldMeta6$inboundSchema:
   z.ZodType<
     DocumentGetDocumentWithDetailsByIdFieldMeta6,
@@ -2157,6 +2265,9 @@ export const DocumentGetDocumentWithDetailsByIdFieldMeta6$inboundSchema:
     minValue: z.number().optional(),
     maxValue: z.number().optional(),
     fontSize: z.number().optional(),
+    textAlign:
+      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200TextAlign$inboundSchema
+        .optional(),
   });
 
 /** @internal */
@@ -2171,6 +2282,7 @@ export type DocumentGetDocumentWithDetailsByIdFieldMeta6$Outbound = {
   minValue?: number | undefined;
   maxValue?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -2191,6 +2303,9 @@ export const DocumentGetDocumentWithDetailsByIdFieldMeta6$outboundSchema:
     minValue: z.number().optional(),
     maxValue: z.number().optional(),
     fontSize: z.number().optional(),
+    textAlign:
+      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200TextAlign$outboundSchema
+        .optional(),
   });
 
 /**
@@ -2264,6 +2379,34 @@ export namespace DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200
 }
 
 /** @internal */
+export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseTextAlign
+  > = z.nativeEnum(
+    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseTextAlign,
+  );
+
+/** @internal */
+export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseTextAlign
+  > =
+    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseTextAlign$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseTextAlign$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const DocumentGetDocumentWithDetailsByIdFieldMeta5$inboundSchema:
   z.ZodType<
     DocumentGetDocumentWithDetailsByIdFieldMeta5,
@@ -2279,6 +2422,9 @@ export const DocumentGetDocumentWithDetailsByIdFieldMeta5$inboundSchema:
     text: z.string().optional(),
     characterLimit: z.number().optional(),
     fontSize: z.number().optional(),
+    textAlign:
+      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseTextAlign$inboundSchema
+        .optional(),
   });
 
 /** @internal */
@@ -2291,6 +2437,7 @@ export type DocumentGetDocumentWithDetailsByIdFieldMeta5$Outbound = {
   text?: string | undefined;
   characterLimit?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -2309,6 +2456,9 @@ export const DocumentGetDocumentWithDetailsByIdFieldMeta5$outboundSchema:
     text: z.string().optional(),
     characterLimit: z.number().optional(),
     fontSize: z.number().optional(),
+    textAlign:
+      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseTextAlign$outboundSchema
+        .optional(),
   });
 
 /**
@@ -2382,6 +2532,34 @@ export namespace DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseTyp
 }
 
 /** @internal */
+export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsTextAlign
+  > = z.nativeEnum(
+    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsTextAlign,
+  );
+
+/** @internal */
+export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsTextAlign
+  > =
+    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsTextAlign$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsTextAlign$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const DocumentGetDocumentWithDetailsByIdFieldMeta4$inboundSchema:
   z.ZodType<
     DocumentGetDocumentWithDetailsByIdFieldMeta4,
@@ -2395,6 +2573,9 @@ export const DocumentGetDocumentWithDetailsByIdFieldMeta4$inboundSchema:
     type:
       DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseType$inboundSchema,
     fontSize: z.number().optional(),
+    textAlign:
+      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsTextAlign$inboundSchema
+        .optional(),
   });
 
 /** @internal */
@@ -2405,6 +2586,7 @@ export type DocumentGetDocumentWithDetailsByIdFieldMeta4$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -2421,6 +2603,9 @@ export const DocumentGetDocumentWithDetailsByIdFieldMeta4$outboundSchema:
     type:
       DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseType$outboundSchema,
     fontSize: z.number().optional(),
+    textAlign:
+      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsTextAlign$outboundSchema
+        .optional(),
   });
 
 /**
@@ -2491,6 +2676,29 @@ export namespace DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsType$ {
 }
 
 /** @internal */
+export const DocumentGetDocumentWithDetailsByIdFieldMetaTextAlign$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdFieldMetaTextAlign> =
+    z.nativeEnum(DocumentGetDocumentWithDetailsByIdFieldMetaTextAlign);
+
+/** @internal */
+export const DocumentGetDocumentWithDetailsByIdFieldMetaTextAlign$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdFieldMetaTextAlign> =
+    DocumentGetDocumentWithDetailsByIdFieldMetaTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentGetDocumentWithDetailsByIdFieldMetaTextAlign$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentGetDocumentWithDetailsByIdFieldMetaTextAlign$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentGetDocumentWithDetailsByIdFieldMetaTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const DocumentGetDocumentWithDetailsByIdFieldMeta3$inboundSchema:
   z.ZodType<
     DocumentGetDocumentWithDetailsByIdFieldMeta3,
@@ -2504,6 +2712,9 @@ export const DocumentGetDocumentWithDetailsByIdFieldMeta3$inboundSchema:
     type:
       DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsType$inboundSchema,
     fontSize: z.number().optional(),
+    textAlign:
+      DocumentGetDocumentWithDetailsByIdFieldMetaTextAlign$inboundSchema
+        .optional(),
   });
 
 /** @internal */
@@ -2514,6 +2725,7 @@ export type DocumentGetDocumentWithDetailsByIdFieldMeta3$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -2530,6 +2742,9 @@ export const DocumentGetDocumentWithDetailsByIdFieldMeta3$outboundSchema:
     type:
       DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsType$outboundSchema,
     fontSize: z.number().optional(),
+    textAlign:
+      DocumentGetDocumentWithDetailsByIdFieldMetaTextAlign$outboundSchema
+        .optional(),
   });
 
 /**
@@ -2598,6 +2813,34 @@ export namespace DocumentGetDocumentWithDetailsByIdFieldMetaType$ {
 }
 
 /** @internal */
+export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign
+  > = z.nativeEnum(
+    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign,
+  );
+
+/** @internal */
+export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign
+  > =
+    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const DocumentGetDocumentWithDetailsByIdFieldMeta2$inboundSchema:
   z.ZodType<
     DocumentGetDocumentWithDetailsByIdFieldMeta2,
@@ -2610,6 +2853,9 @@ export const DocumentGetDocumentWithDetailsByIdFieldMeta2$inboundSchema:
     readOnly: z.boolean().optional(),
     type: DocumentGetDocumentWithDetailsByIdFieldMetaType$inboundSchema,
     fontSize: z.number().optional(),
+    textAlign:
+      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign$inboundSchema
+        .optional(),
   });
 
 /** @internal */
@@ -2620,6 +2866,7 @@ export type DocumentGetDocumentWithDetailsByIdFieldMeta2$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -2635,6 +2882,9 @@ export const DocumentGetDocumentWithDetailsByIdFieldMeta2$outboundSchema:
     readOnly: z.boolean().optional(),
     type: DocumentGetDocumentWithDetailsByIdFieldMetaType$outboundSchema,
     fontSize: z.number().optional(),
+    textAlign:
+      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyTextAlign$outboundSchema
+        .optional(),
   });
 
 /**
@@ -2708,6 +2958,34 @@ export namespace DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200
 }
 
 /** @internal */
+export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONTextAlign$inboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONTextAlign
+  > = z.nativeEnum(
+    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONTextAlign,
+  );
+
+/** @internal */
+export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONTextAlign$outboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONTextAlign
+  > =
+    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONTextAlign$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONTextAlign$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONTextAlign$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONTextAlign$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONTextAlign$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONTextAlign$outboundSchema;
+}
+
+/** @internal */
 export const DocumentGetDocumentWithDetailsByIdFieldMeta1$inboundSchema:
   z.ZodType<
     DocumentGetDocumentWithDetailsByIdFieldMeta1,
@@ -2721,6 +2999,9 @@ export const DocumentGetDocumentWithDetailsByIdFieldMeta1$inboundSchema:
     type:
       DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields1Type$inboundSchema,
     fontSize: z.number().optional(),
+    textAlign:
+      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONTextAlign$inboundSchema
+        .optional(),
   });
 
 /** @internal */
@@ -2731,6 +3012,7 @@ export type DocumentGetDocumentWithDetailsByIdFieldMeta1$Outbound = {
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
@@ -2747,6 +3029,9 @@ export const DocumentGetDocumentWithDetailsByIdFieldMeta1$outboundSchema:
     type:
       DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields1Type$outboundSchema,
     fontSize: z.number().optional(),
+    textAlign:
+      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONTextAlign$outboundSchema
+        .optional(),
   });
 
 /**
@@ -2798,27 +3083,27 @@ export const DocumentGetDocumentWithDetailsByIdFieldMeta$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.union([
+    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta7$inboundSchema),
     z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta1$inboundSchema),
     z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta2$inboundSchema),
     z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta3$inboundSchema),
     z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta4$inboundSchema),
-    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta7$inboundSchema),
     z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta9$inboundSchema),
-    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta5$inboundSchema),
     z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta8$inboundSchema),
+    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta5$inboundSchema),
     z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta6$inboundSchema),
   ]);
 
 /** @internal */
 export type DocumentGetDocumentWithDetailsByIdFieldMeta$Outbound =
+  | DocumentGetDocumentWithDetailsByIdFieldMeta7$Outbound
   | DocumentGetDocumentWithDetailsByIdFieldMeta1$Outbound
   | DocumentGetDocumentWithDetailsByIdFieldMeta2$Outbound
   | DocumentGetDocumentWithDetailsByIdFieldMeta3$Outbound
   | DocumentGetDocumentWithDetailsByIdFieldMeta4$Outbound
-  | DocumentGetDocumentWithDetailsByIdFieldMeta7$Outbound
   | DocumentGetDocumentWithDetailsByIdFieldMeta9$Outbound
-  | DocumentGetDocumentWithDetailsByIdFieldMeta5$Outbound
   | DocumentGetDocumentWithDetailsByIdFieldMeta8$Outbound
+  | DocumentGetDocumentWithDetailsByIdFieldMeta5$Outbound
   | DocumentGetDocumentWithDetailsByIdFieldMeta6$Outbound;
 
 /** @internal */
@@ -2828,14 +3113,14 @@ export const DocumentGetDocumentWithDetailsByIdFieldMeta$outboundSchema:
     z.ZodTypeDef,
     DocumentGetDocumentWithDetailsByIdFieldMeta
   > = z.union([
+    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta7$outboundSchema),
     z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta1$outboundSchema),
     z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta2$outboundSchema),
     z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta3$outboundSchema),
     z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta4$outboundSchema),
-    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta7$outboundSchema),
     z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta9$outboundSchema),
-    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta5$outboundSchema),
     z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta8$outboundSchema),
+    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta5$outboundSchema),
     z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta6$outboundSchema),
   ]);
 
@@ -2902,14 +3187,14 @@ export const DocumentGetDocumentWithDetailsByIdFields$inboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
+      z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta7$inboundSchema),
       z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta1$inboundSchema),
       z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta2$inboundSchema),
       z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta3$inboundSchema),
       z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta4$inboundSchema),
-      z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta7$inboundSchema),
       z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta9$inboundSchema),
-      z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta5$inboundSchema),
       z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta8$inboundSchema),
+      z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta5$inboundSchema),
       z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta6$inboundSchema),
     ]),
   ),
@@ -2931,14 +3216,14 @@ export type DocumentGetDocumentWithDetailsByIdFields$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
+    | DocumentGetDocumentWithDetailsByIdFieldMeta7$Outbound
     | DocumentGetDocumentWithDetailsByIdFieldMeta1$Outbound
     | DocumentGetDocumentWithDetailsByIdFieldMeta2$Outbound
     | DocumentGetDocumentWithDetailsByIdFieldMeta3$Outbound
     | DocumentGetDocumentWithDetailsByIdFieldMeta4$Outbound
-    | DocumentGetDocumentWithDetailsByIdFieldMeta7$Outbound
     | DocumentGetDocumentWithDetailsByIdFieldMeta9$Outbound
-    | DocumentGetDocumentWithDetailsByIdFieldMeta5$Outbound
     | DocumentGetDocumentWithDetailsByIdFieldMeta8$Outbound
+    | DocumentGetDocumentWithDetailsByIdFieldMeta5$Outbound
     | DocumentGetDocumentWithDetailsByIdFieldMeta6$Outbound
     | null;
 };
@@ -2964,16 +3249,16 @@ export const DocumentGetDocumentWithDetailsByIdFields$outboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta1$outboundSchema),
+      z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta7$outboundSchema),
       z.lazy(() =>
-        DocumentGetDocumentWithDetailsByIdFieldMeta2$outboundSchema
+        DocumentGetDocumentWithDetailsByIdFieldMeta1$outboundSchema
       ),
+      z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta2$outboundSchema),
       z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta3$outboundSchema),
       z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta4$outboundSchema),
-      z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta7$outboundSchema),
       z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta9$outboundSchema),
-      z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta5$outboundSchema),
       z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta8$outboundSchema),
+      z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta5$outboundSchema),
       z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta6$outboundSchema),
     ]),
   ),

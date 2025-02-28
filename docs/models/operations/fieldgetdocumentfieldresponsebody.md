@@ -8,13 +8,13 @@ Successful response
 import { FieldGetDocumentFieldResponseBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: FieldGetDocumentFieldResponseBody = {
-  type: "RADIO",
-  id: 109784,
+  type: "INITIALS",
+  id: 19122,
   secondaryId: "<id>",
-  documentId: 606308,
-  templateId: 703218,
-  recipientId: 634786,
-  page: 9591.43,
+  documentId: 518150,
+  templateId: 842777,
+  recipientId: 373216,
+  page: 2228.64,
   customText: "<value>",
   inserted: false,
   fieldMeta: {

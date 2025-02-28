@@ -7,12 +7,12 @@ import { FieldCreateTemplateFieldField11 } from "@documenso/sdk-typescript/model
 
 let value: FieldCreateTemplateFieldField11 = {
   type: "DROPDOWN",
-  recipientId: 1711.72,
-  pageNumber: 4318.43,
-  pageX: 3207.48,
-  pageY: 741.24,
-  width: 8444.71,
-  height: 7716.03,
+  recipientId: 4131.35,
+  pageNumber: 5228.24,
+  pageX: 444.43,
+  pageY: 1458.41,
+  width: 6001.85,
+  height: 2250.01,
 };
 ```
 

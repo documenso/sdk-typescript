@@ -7,12 +7,12 @@ import { Field11 } from "@documenso/sdk-typescript/models/operations";
 
 let value: Field11 = {
   type: "DROPDOWN",
-  recipientId: 8671.68,
-  pageNumber: 291.9,
-  pageX: 5349.17,
-  pageY: 4042.44,
-  width: 5241.84,
-  height: 3651,
+  recipientId: 853.11,
+  pageNumber: 2213.96,
+  pageX: 1000.14,
+  pageY: 2650.39,
+  width: 661.49,
+  height: 656.04,
 };
 ```
 

@@ -8,17 +8,17 @@ Successful response
 import { FieldUpdateTemplateFieldResponseBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: FieldUpdateTemplateFieldResponseBody = {
-  type: "DROPDOWN",
-  id: 644416,
+  type: "NAME",
+  id: 263079,
   secondaryId: "<id>",
-  documentId: 365998,
-  templateId: 102019,
-  recipientId: 787850,
-  page: 7080.75,
+  documentId: 333507,
+  templateId: 572317,
+  recipientId: 894870,
+  page: 1762.81,
   customText: "<value>",
   inserted: false,
   fieldMeta: {
-    type: "dropdown",
+    type: "email",
   },
 };
 ```

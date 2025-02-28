@@ -8,13 +8,13 @@ Successful response
 import { FieldCreateDocumentFieldResponseBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: FieldCreateDocumentFieldResponseBody = {
-  type: "DATE",
-  id: 914864,
+  type: "DROPDOWN",
+  id: 923306,
   secondaryId: "<id>",
-  documentId: 49348,
-  templateId: 292888,
-  recipientId: 715053,
-  page: 4181.09,
+  documentId: 282837,
+  templateId: 339631,
+  recipientId: 600213,
+  page: 9631.98,
   customText: "<value>",
   inserted: false,
   fieldMeta: {

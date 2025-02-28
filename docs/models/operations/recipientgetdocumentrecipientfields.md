@@ -6,17 +6,17 @@
 import { RecipientGetDocumentRecipientFields } from "@documenso/sdk-typescript/models/operations";
 
 let value: RecipientGetDocumentRecipientFields = {
-  type: "CHECKBOX",
-  id: 100251,
+  type: "RADIO",
+  id: 155978,
   secondaryId: "<id>",
-  documentId: 758985,
-  templateId: 17060,
-  recipientId: 967055,
-  page: 6150.58,
+  documentId: 426002,
+  templateId: 892708,
+  recipientId: 103578,
+  page: 180.96,
   customText: "<value>",
   inserted: false,
   fieldMeta: {
-    type: "text",
+    type: "number",
   },
 };
 ```

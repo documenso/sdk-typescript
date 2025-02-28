@@ -6,7 +6,7 @@
 import { Values } from "@documenso/sdk-typescript/models/operations";
 
 let value: Values = {
-  id: 3472.33,
+  id: 3685.84,
   checked: false,
   value: "<value>",
 };

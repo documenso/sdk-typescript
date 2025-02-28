@@ -6,9 +6,9 @@
 import { DocumentResendDocumentRequestBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: DocumentResendDocumentRequestBody = {
-  documentId: 6534.21,
+  documentId: 299.5,
   recipients: [
-    7263.43,
+    7372.54,
   ],
 };
 ```

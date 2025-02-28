@@ -7,12 +7,12 @@ import { FieldCreateTemplateFieldsFields4 } from "@documenso/sdk-typescript/mode
 
 let value: FieldCreateTemplateFieldsFields4 = {
   type: "NAME",
-  recipientId: 2979.7,
-  pageNumber: 7092.34,
-  pageX: 7319.31,
-  pageY: 3422.26,
-  width: 3755.88,
-  height: 3591.06,
+  recipientId: 9747.24,
+  pageNumber: 6803.7,
+  pageX: 7399.46,
+  pageY: 9669.56,
+  width: 4144.38,
+  height: 3553.8,
 };
 ```
 

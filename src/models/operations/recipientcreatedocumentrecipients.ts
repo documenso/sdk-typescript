@@ -13,6 +13,7 @@ export const RecipientCreateDocumentRecipientsRole = {
   Signer: "SIGNER",
   Viewer: "VIEWER",
   Approver: "APPROVER",
+  Assistant: "ASSISTANT",
 } as const;
 export type RecipientCreateDocumentRecipientsRole = ClosedEnum<
   typeof RecipientCreateDocumentRecipientsRole
@@ -72,6 +73,7 @@ export const RecipientCreateDocumentRecipientsDocumentsRecipientsRole = {
   Signer: "SIGNER",
   Viewer: "VIEWER",
   Approver: "APPROVER",
+  Assistant: "ASSISTANT",
 } as const;
 export type RecipientCreateDocumentRecipientsDocumentsRecipientsRole =
   ClosedEnum<typeof RecipientCreateDocumentRecipientsDocumentsRecipientsRole>;
