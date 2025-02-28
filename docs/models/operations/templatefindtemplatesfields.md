@@ -6,17 +6,17 @@
 import { TemplateFindTemplatesFields } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateFindTemplatesFields = {
-  type: "FREE_SIGNATURE",
-  id: 374062,
+  type: "EMAIL",
+  id: 296128,
   secondaryId: "<id>",
-  documentId: 413780,
-  templateId: 686380,
-  recipientId: 295892,
-  page: 3032.92,
+  documentId: 493407,
+  templateId: 657044,
+  recipientId: 461050,
+  page: 9351.61,
   customText: "<value>",
   inserted: false,
   fieldMeta: {
-    type: "date",
+    type: "checkbox",
   },
 };
 ```

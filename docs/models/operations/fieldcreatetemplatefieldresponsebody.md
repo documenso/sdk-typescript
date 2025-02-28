@@ -8,17 +8,17 @@ Successful response
 import { FieldCreateTemplateFieldResponseBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: FieldCreateTemplateFieldResponseBody = {
-  type: "SIGNATURE",
-  id: 575753,
+  type: "DROPDOWN",
+  id: 1594,
   secondaryId: "<id>",
-  documentId: 186130,
-  templateId: 9248,
-  recipientId: 927754,
-  page: 5371.4,
+  documentId: 145450,
+  templateId: 779111,
+  recipientId: 805128,
+  page: 7692.47,
   customText: "<value>",
   inserted: false,
   fieldMeta: {
-    type: "initials",
+    type: "text",
   },
 };
 ```

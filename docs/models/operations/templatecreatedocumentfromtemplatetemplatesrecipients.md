@@ -6,14 +6,14 @@
 import { TemplateCreateDocumentFromTemplateTemplatesRecipients } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateCreateDocumentFromTemplateTemplatesRecipients = {
-  role: "APPROVER",
+  role: "SIGNER",
   readStatus: "OPENED",
   signingStatus: "NOT_SIGNED",
-  sendStatus: "NOT_SENT",
-  id: 926027,
-  documentId: 818078,
-  templateId: 614346,
-  email: "Alva_Pacocha85@gmail.com",
+  sendStatus: "SENT",
+  id: 84211,
+  documentId: 973894,
+  templateId: 700634,
+  email: "Kenny46@hotmail.com",
   name: "<value>",
   token: "<value>",
   documentDeletedAt: "<value>",
@@ -23,7 +23,7 @@ let value: TemplateCreateDocumentFromTemplateTemplatesRecipients = {
     accessAuth: "ACCOUNT",
     actionAuth: "ACCOUNT",
   },
-  signingOrder: 3390.94,
+  signingOrder: 1711.72,
   rejectionReason: "<value>",
 };
 ```

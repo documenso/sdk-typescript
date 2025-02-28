@@ -7,12 +7,12 @@ import { Fields2 } from "@documenso/sdk-typescript/models/operations";
 
 let value: Fields2 = {
   type: "FREE_SIGNATURE",
-  recipientId: 4014.28,
-  pageNumber: 4166.92,
-  pageX: 8108.39,
-  pageY: 3481.92,
-  width: 2114.55,
-  height: 593.83,
+  recipientId: 2168.7,
+  pageNumber: 9031.5,
+  pageX: 429.24,
+  pageY: 3330.72,
+  width: 997.33,
+  height: 4755.89,
 };
 ```
 

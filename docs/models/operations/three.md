@@ -7,11 +7,11 @@ import { Three } from "@documenso/sdk-typescript/models/operations";
 
 let value: Three = {
   type: "INITIALS",
-  pageNumber: 2453.67,
-  pageX: 4205.39,
-  pageY: 5573.69,
-  width: 8605.52,
-  height: 7270.44,
+  pageNumber: 6956.26,
+  pageX: 2835.19,
+  pageY: 3799.27,
+  width: 1811.51,
+  height: 7885.46,
 };
 ```
 

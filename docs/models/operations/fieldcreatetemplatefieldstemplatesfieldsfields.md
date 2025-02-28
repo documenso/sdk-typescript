@@ -6,17 +6,17 @@
 import { FieldCreateTemplateFieldsTemplatesFieldsFields } from "@documenso/sdk-typescript/models/operations";
 
 let value: FieldCreateTemplateFieldsTemplatesFieldsFields = {
-  type: "TEXT",
-  id: 739938,
+  type: "DROPDOWN",
+  id: 528082,
   secondaryId: "<id>",
-  documentId: 704665,
-  templateId: 968212,
-  recipientId: 295307,
-  page: 7053.07,
+  documentId: 801274,
+  templateId: 50291,
+  recipientId: 420910,
+  page: 2569.75,
   customText: "<value>",
   inserted: false,
   fieldMeta: {
-    type: "date",
+    type: "email",
   },
 };
 ```

@@ -7,11 +7,11 @@ import { DirectLink } from "@documenso/sdk-typescript/models/operations";
 
 let value: DirectLink = {
   id: "<id>",
-  templateId: 514767,
+  templateId: 514480,
   token: "<value>",
-  createdAt: "1710484569571",
+  createdAt: "1726412158233",
   enabled: false,
-  directTemplateRecipientId: 712893,
+  directTemplateRecipientId: 340101,
 };
 ```
 

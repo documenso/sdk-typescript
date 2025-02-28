@@ -6,8 +6,8 @@
 import { TemplateCreateDocumentFromTemplateRecipients } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateCreateDocumentFromTemplateRecipients = {
-  id: 9906.52,
-  email: "Madisyn_OConner@gmail.com",
+  id: 5658.45,
+  email: "Monserrate_Russel3@yahoo.com",
 };
 ```
 

@@ -6,17 +6,17 @@
 import { RecipientUpdateTemplateRecipientFields } from "@documenso/sdk-typescript/models/operations";
 
 let value: RecipientUpdateTemplateRecipientFields = {
-  type: "INITIALS",
-  id: 990540,
+  type: "NUMBER",
+  id: 724331,
   secondaryId: "<id>",
-  documentId: 571498,
-  templateId: 732815,
-  recipientId: 98250,
-  page: 3661.17,
+  documentId: 191571,
+  templateId: 662174,
+  recipientId: 851324,
+  page: 2355.67,
   customText: "<value>",
   inserted: false,
   fieldMeta: {
-    type: "dropdown",
+    type: "radio",
   },
 };
 ```

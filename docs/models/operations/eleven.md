@@ -7,11 +7,11 @@ import { Eleven } from "@documenso/sdk-typescript/models/operations";
 
 let value: Eleven = {
   type: "DROPDOWN",
-  pageNumber: 9615.71,
-  pageX: 2317.01,
-  pageY: 9493.19,
-  width: 9413.78,
-  height: 7992.03,
+  pageNumber: 8742.88,
+  pageX: 2930.2,
+  pageY: 8489.44,
+  width: 6178.77,
+  height: 132.36,
 };
 ```
 

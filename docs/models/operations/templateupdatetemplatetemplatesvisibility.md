@@ -5,7 +5,7 @@
 ```typescript
 import { TemplateUpdateTemplateTemplatesVisibility } from "@documenso/sdk-typescript/models/operations";
 
-let value: TemplateUpdateTemplateTemplatesVisibility = "ADMIN";
+let value: TemplateUpdateTemplateTemplatesVisibility = "EVERYONE";
 ```
 
 ## Values

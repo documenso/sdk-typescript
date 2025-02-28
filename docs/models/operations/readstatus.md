@@ -5,7 +5,7 @@
 ```typescript
 import { ReadStatus } from "@documenso/sdk-typescript/models/operations";
 
-let value: ReadStatus = "OPENED";
+let value: ReadStatus = "NOT_OPENED";
 ```
 
 ## Values

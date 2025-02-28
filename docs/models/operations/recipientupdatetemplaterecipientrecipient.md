@@ -6,7 +6,7 @@
 import { RecipientUpdateTemplateRecipientRecipient } from "@documenso/sdk-typescript/models/operations";
 
 let value: RecipientUpdateTemplateRecipientRecipient = {
-  id: 1127.88,
+  id: 4029.08,
 };
 ```
 

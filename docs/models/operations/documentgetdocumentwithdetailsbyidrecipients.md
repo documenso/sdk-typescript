@@ -6,7 +6,7 @@
 import { DocumentGetDocumentWithDetailsByIdRecipients } from "@documenso/sdk-typescript/models/operations";
 
 let value: DocumentGetDocumentWithDetailsByIdRecipients = {
-  role: "APPROVER",
+  role: "ASSISTANT",
   readStatus: "OPENED",
   signingStatus: "NOT_SIGNED",
   sendStatus: "NOT_SENT",

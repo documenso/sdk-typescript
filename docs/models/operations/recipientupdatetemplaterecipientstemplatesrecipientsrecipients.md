@@ -6,14 +6,14 @@
 import { RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients } from "@documenso/sdk-typescript/models/operations";
 
 let value: RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients = {
-  role: "CC",
+  role: "ASSISTANT",
   readStatus: "NOT_OPENED",
-  signingStatus: "SIGNED",
+  signingStatus: "REJECTED",
   sendStatus: "SENT",
-  id: 264125,
-  documentId: 472429,
-  templateId: 811380,
-  email: "Neoma.Kunze@hotmail.com",
+  id: 526322,
+  documentId: 470732,
+  templateId: 14665,
+  email: "Ryann_Halvorson7@hotmail.com",
   name: "<value>",
   token: "<value>",
   documentDeletedAt: "<value>",
@@ -21,19 +21,19 @@ let value: RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients = {
   signedAt: "<value>",
   authOptions: {
     accessAuth: "ACCOUNT",
-    actionAuth: "TWO_FACTOR_AUTH",
+    actionAuth: "PASSKEY",
   },
-  signingOrder: 5265.84,
+  signingOrder: 2612.19,
   rejectionReason: "<value>",
   fields: [
     {
-      type: "CHECKBOX",
-      id: 830909,
+      type: "EMAIL",
+      id: 454386,
       secondaryId: "<id>",
-      documentId: 31605,
-      templateId: 568419,
-      recipientId: 609161,
-      page: 9615.76,
+      documentId: 976274,
+      templateId: 944260,
+      recipientId: 139730,
+      page: 8825.86,
       customText: "<value>",
       inserted: false,
       fieldMeta: {

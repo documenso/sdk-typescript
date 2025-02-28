@@ -6,7 +6,7 @@
 import { DocumentSetSettingsForDocumentRequestBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: DocumentSetSettingsForDocumentRequestBody = {
-  documentId: 5910.27,
+  documentId: 7214.07,
 };
 ```
 

@@ -6,17 +6,17 @@
 import { RecipientUpdateTemplateRecipientsFields } from "@documenso/sdk-typescript/models/operations";
 
 let value: RecipientUpdateTemplateRecipientsFields = {
-  type: "RADIO",
-  id: 516739,
+  type: "CHECKBOX",
+  id: 506689,
   secondaryId: "<id>",
-  documentId: 777193,
-  templateId: 123179,
-  recipientId: 464490,
-  page: 1182.36,
+  documentId: 115137,
+  templateId: 818739,
+  recipientId: 353214,
+  page: 9830.67,
   customText: "<value>",
   inserted: false,
   fieldMeta: {
-    type: "email",
+    type: "checkbox",
   },
 };
 ```

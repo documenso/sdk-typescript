@@ -5,7 +5,7 @@
 ```typescript
 import { DocumentCreateDocumentTemporaryDocumentsType } from "@documenso/sdk-typescript/models/operations";
 
-let value: DocumentCreateDocumentTemporaryDocumentsType = "EMAIL";
+let value: DocumentCreateDocumentTemporaryDocumentsType = "DATE";
 ```
 
 ## Values

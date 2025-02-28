@@ -6,7 +6,7 @@
 import { DocumentDeleteDocumentRequestBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: DocumentDeleteDocumentRequestBody = {
-  documentId: 7730.84,
+  documentId: 8481.51,
 };
 ```
 

@@ -6,15 +6,15 @@
 import { FieldCreateDocumentFieldRequestBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: FieldCreateDocumentFieldRequestBody = {
-  documentId: 2082.53,
+  documentId: 8173.39,
   field: {
-    type: "DROPDOWN",
-    recipientId: 2153.98,
-    pageNumber: 8583.38,
-    pageX: 8028.94,
-    pageY: 1591.46,
-    width: 6057.12,
-    height: 1156.61,
+    type: "DATE",
+    recipientId: 8822.84,
+    pageNumber: 7332.89,
+    pageX: 4097.26,
+    pageY: 3735.11,
+    width: 5156.38,
+    height: 8890.6,
   },
 };
 ```

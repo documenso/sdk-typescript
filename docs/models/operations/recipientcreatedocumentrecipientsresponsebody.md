@@ -10,14 +10,14 @@ import { RecipientCreateDocumentRecipientsResponseBody } from "@documenso/sdk-ty
 let value: RecipientCreateDocumentRecipientsResponseBody = {
   recipients: [
     {
-      role: "SIGNER",
+      role: "VIEWER",
       readStatus: "OPENED",
       signingStatus: "REJECTED",
-      sendStatus: "NOT_SENT",
-      id: 801075,
-      documentId: 41179,
-      templateId: 816421,
-      email: "Amelia14@hotmail.com",
+      sendStatus: "SENT",
+      id: 300651,
+      documentId: 800799,
+      templateId: 548846,
+      email: "Maria.Brakus98@yahoo.com",
       name: "<value>",
       token: "<value>",
       documentDeletedAt: "<value>",
@@ -25,9 +25,9 @@ let value: RecipientCreateDocumentRecipientsResponseBody = {
       signedAt: "<value>",
       authOptions: {
         accessAuth: "ACCOUNT",
-        actionAuth: "TWO_FACTOR_AUTH",
+        actionAuth: "PASSKEY",
       },
-      signingOrder: 9830,
+      signingOrder: 510.53,
       rejectionReason: "<value>",
     },
   ],

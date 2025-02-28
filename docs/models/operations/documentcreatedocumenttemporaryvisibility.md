@@ -5,7 +5,7 @@
 ```typescript
 import { DocumentCreateDocumentTemporaryVisibility } from "@documenso/sdk-typescript/models/operations";
 
-let value: DocumentCreateDocumentTemporaryVisibility = "MANAGER_AND_ABOVE";
+let value: DocumentCreateDocumentTemporaryVisibility = "EVERYONE";
 ```
 
 ## Values

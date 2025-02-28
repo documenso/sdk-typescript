@@ -7,11 +7,11 @@ The language to use for email communications with recipients.
 ```typescript
 import { DocumentSetSettingsForDocumentLanguage } from "@documenso/sdk-typescript/models/operations";
 
-let value: DocumentSetSettingsForDocumentLanguage = "en";
+let value: DocumentSetSettingsForDocumentLanguage = "fr";
 ```
 
 ## Values
 
 ```typescript
-"de" | "en" | "fr" | "es"
+"de" | "en" | "fr" | "es" | "it" | "pl"
 ```

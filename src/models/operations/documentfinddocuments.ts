@@ -153,6 +153,7 @@ export const DocumentFindDocumentsRole = {
   Signer: "SIGNER",
   Viewer: "VIEWER",
   Approver: "APPROVER",
+  Assistant: "ASSISTANT",
 } as const;
 export type DocumentFindDocumentsRole = ClosedEnum<
   typeof DocumentFindDocumentsRole

@@ -6,11 +6,11 @@
 import { FieldUpdateTemplateFieldsRequestBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: FieldUpdateTemplateFieldsRequestBody = {
-  templateId: 2482.76,
+  templateId: 5802.48,
   fields: [
     {
-      type: "NAME",
-      id: 3184.03,
+      type: "CHECKBOX",
+      id: 4188.92,
     },
   ],
 };

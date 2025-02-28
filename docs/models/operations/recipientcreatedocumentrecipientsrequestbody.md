@@ -6,12 +6,12 @@
 import { RecipientCreateDocumentRecipientsRequestBody } from "@documenso/sdk-typescript/models/operations";
 
 let value: RecipientCreateDocumentRecipientsRequestBody = {
-  documentId: 9838.54,
+  documentId: 1693.12,
   recipients: [
     {
-      email: "Gina72@hotmail.com",
+      email: "Camren51@hotmail.com",
       name: "<value>",
-      role: "VIEWER",
+      role: "SIGNER",
     },
   ],
 };

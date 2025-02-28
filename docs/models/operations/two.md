@@ -7,11 +7,11 @@ import { Two } from "@documenso/sdk-typescript/models/operations";
 
 let value: Two = {
   type: "FREE_SIGNATURE",
-  pageNumber: 2703.28,
-  pageX: 1314.82,
-  pageY: 553.74,
-  width: 3015.98,
-  height: 2621.18,
+  pageNumber: 568.48,
+  pageX: 6969.97,
+  pageY: 7786.96,
+  width: 7774.08,
+  height: 2594.22,
 };
 ```
 
