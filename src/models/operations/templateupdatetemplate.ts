@@ -8,32 +8,32 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export const TemplateUpdateTemplateVisibility = {
+export const TemplateUpdateTemplateRequestVisibility = {
   Everyone: "EVERYONE",
   ManagerAndAbove: "MANAGER_AND_ABOVE",
   Admin: "ADMIN",
 } as const;
-export type TemplateUpdateTemplateVisibility = ClosedEnum<
-  typeof TemplateUpdateTemplateVisibility
+export type TemplateUpdateTemplateRequestVisibility = ClosedEnum<
+  typeof TemplateUpdateTemplateRequestVisibility
 >;
 
 /**
  * The type of authentication required for the recipient to access the document.
  */
-export const TemplateUpdateTemplateGlobalAccessAuth = {
+export const TemplateUpdateTemplateRequestGlobalAccessAuth = {
   Account: "ACCOUNT",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
  */
-export type TemplateUpdateTemplateGlobalAccessAuth = ClosedEnum<
-  typeof TemplateUpdateTemplateGlobalAccessAuth
+export type TemplateUpdateTemplateRequestGlobalAccessAuth = ClosedEnum<
+  typeof TemplateUpdateTemplateRequestGlobalAccessAuth
 >;
 
 /**
  * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
  */
-export const TemplateUpdateTemplateGlobalActionAuth = {
+export const TemplateUpdateTemplateRequestGlobalActionAuth = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
@@ -41,30 +41,36 @@ export const TemplateUpdateTemplateGlobalActionAuth = {
 /**
  * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
  */
-export type TemplateUpdateTemplateGlobalActionAuth = ClosedEnum<
-  typeof TemplateUpdateTemplateGlobalActionAuth
+export type TemplateUpdateTemplateRequestGlobalActionAuth = ClosedEnum<
+  typeof TemplateUpdateTemplateRequestGlobalActionAuth
 >;
 
-export const TemplateUpdateTemplateType = {
+export const TemplateUpdateTemplateDataType = {
   Public: "PUBLIC",
   Private: "PRIVATE",
 } as const;
-export type TemplateUpdateTemplateType = ClosedEnum<
-  typeof TemplateUpdateTemplateType
+export type TemplateUpdateTemplateDataType = ClosedEnum<
+  typeof TemplateUpdateTemplateDataType
 >;
 
 export type TemplateUpdateTemplateData = {
   title?: string | undefined;
   externalId?: string | null | undefined;
-  visibility?: TemplateUpdateTemplateVisibility | undefined;
+  visibility?: TemplateUpdateTemplateRequestVisibility | undefined;
   /**
    * The type of authentication required for the recipient to access the document.
    */
-  globalAccessAuth?: TemplateUpdateTemplateGlobalAccessAuth | null | undefined;
+  globalAccessAuth?:
+    | TemplateUpdateTemplateRequestGlobalAccessAuth
+    | null
+    | undefined;
   /**
    * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
    */
-  globalActionAuth?: TemplateUpdateTemplateGlobalActionAuth | null | undefined;
+  globalActionAuth?:
+    | TemplateUpdateTemplateRequestGlobalActionAuth
+    | null
+    | undefined;
   /**
    * The title of the template that will be displayed to the public. Only applicable for public templates.
    */
@@ -73,7 +79,7 @@ export type TemplateUpdateTemplateData = {
    * The description of the template that will be displayed to the public. Only applicable for public templates.
    */
   publicDescription?: string | undefined;
-  type?: TemplateUpdateTemplateType | undefined;
+  type?: TemplateUpdateTemplateDataType | undefined;
 };
 
 /**
@@ -151,6 +157,8 @@ export const TemplateUpdateTemplateLanguage = {
   En: "en",
   Fr: "fr",
   Es: "es",
+  It: "it",
+  Pl: "pl",
 } as const;
 /**
  * The language to use for email communications with recipients.
@@ -204,46 +212,46 @@ export type TemplateUpdateTemplateMeta = {
   signingOrder?: TemplateUpdateTemplateSigningOrder | undefined;
 };
 
-export type TemplateUpdateTemplateRequestBody = {
+export type TemplateUpdateTemplateRequest = {
   templateId: number;
   data?: TemplateUpdateTemplateData | undefined;
   meta?: TemplateUpdateTemplateMeta | undefined;
 };
 
-export const TemplateUpdateTemplateTemplatesType = {
+export const TemplateUpdateTemplateResponseType = {
   Public: "PUBLIC",
   Private: "PRIVATE",
 } as const;
-export type TemplateUpdateTemplateTemplatesType = ClosedEnum<
-  typeof TemplateUpdateTemplateTemplatesType
+export type TemplateUpdateTemplateResponseType = ClosedEnum<
+  typeof TemplateUpdateTemplateResponseType
 >;
 
-export const TemplateUpdateTemplateTemplatesVisibility = {
+export const TemplateUpdateTemplateResponseVisibility = {
   Everyone: "EVERYONE",
   ManagerAndAbove: "MANAGER_AND_ABOVE",
   Admin: "ADMIN",
 } as const;
-export type TemplateUpdateTemplateTemplatesVisibility = ClosedEnum<
-  typeof TemplateUpdateTemplateTemplatesVisibility
+export type TemplateUpdateTemplateResponseVisibility = ClosedEnum<
+  typeof TemplateUpdateTemplateResponseVisibility
 >;
 
 /**
  * The type of authentication required for the recipient to access the document.
  */
-export const TemplateUpdateTemplateTemplatesGlobalAccessAuth = {
+export const TemplateUpdateTemplateResponseGlobalAccessAuth = {
   Account: "ACCOUNT",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
  */
-export type TemplateUpdateTemplateTemplatesGlobalAccessAuth = ClosedEnum<
-  typeof TemplateUpdateTemplateTemplatesGlobalAccessAuth
+export type TemplateUpdateTemplateResponseGlobalAccessAuth = ClosedEnum<
+  typeof TemplateUpdateTemplateResponseGlobalAccessAuth
 >;
 
 /**
  * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
  */
-export const TemplateUpdateTemplateTemplatesGlobalActionAuth = {
+export const TemplateUpdateTemplateResponseGlobalActionAuth = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
@@ -251,27 +259,27 @@ export const TemplateUpdateTemplateTemplatesGlobalActionAuth = {
 /**
  * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
  */
-export type TemplateUpdateTemplateTemplatesGlobalActionAuth = ClosedEnum<
-  typeof TemplateUpdateTemplateTemplatesGlobalActionAuth
+export type TemplateUpdateTemplateResponseGlobalActionAuth = ClosedEnum<
+  typeof TemplateUpdateTemplateResponseGlobalActionAuth
 >;
 
 export type TemplateUpdateTemplateAuthOptions = {
   /**
    * The type of authentication required for the recipient to access the document.
    */
-  globalAccessAuth: TemplateUpdateTemplateTemplatesGlobalAccessAuth | null;
+  globalAccessAuth: TemplateUpdateTemplateResponseGlobalAccessAuth | null;
   /**
    * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
    */
-  globalActionAuth: TemplateUpdateTemplateTemplatesGlobalActionAuth | null;
+  globalActionAuth: TemplateUpdateTemplateResponseGlobalActionAuth | null;
 };
 
 /**
  * Successful response
  */
-export type TemplateUpdateTemplateResponseBody = {
-  type: TemplateUpdateTemplateTemplatesType;
-  visibility: TemplateUpdateTemplateTemplatesVisibility;
+export type TemplateUpdateTemplateResponse = {
+  type: TemplateUpdateTemplateResponseType;
+  visibility: TemplateUpdateTemplateResponseVisibility;
   id: number;
   externalId: string | null;
   title: string;
@@ -286,93 +294,93 @@ export type TemplateUpdateTemplateResponseBody = {
 };
 
 /** @internal */
-export const TemplateUpdateTemplateVisibility$inboundSchema: z.ZodNativeEnum<
-  typeof TemplateUpdateTemplateVisibility
-> = z.nativeEnum(TemplateUpdateTemplateVisibility);
+export const TemplateUpdateTemplateRequestVisibility$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateRequestVisibility> = z
+    .nativeEnum(TemplateUpdateTemplateRequestVisibility);
 
 /** @internal */
-export const TemplateUpdateTemplateVisibility$outboundSchema: z.ZodNativeEnum<
-  typeof TemplateUpdateTemplateVisibility
-> = TemplateUpdateTemplateVisibility$inboundSchema;
+export const TemplateUpdateTemplateRequestVisibility$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateRequestVisibility> =
+    TemplateUpdateTemplateRequestVisibility$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateUpdateTemplateVisibility$ {
-  /** @deprecated use `TemplateUpdateTemplateVisibility$inboundSchema` instead. */
-  export const inboundSchema = TemplateUpdateTemplateVisibility$inboundSchema;
-  /** @deprecated use `TemplateUpdateTemplateVisibility$outboundSchema` instead. */
-  export const outboundSchema = TemplateUpdateTemplateVisibility$outboundSchema;
-}
-
-/** @internal */
-export const TemplateUpdateTemplateGlobalAccessAuth$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateGlobalAccessAuth> = z.nativeEnum(
-    TemplateUpdateTemplateGlobalAccessAuth,
-  );
-
-/** @internal */
-export const TemplateUpdateTemplateGlobalAccessAuth$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateGlobalAccessAuth> =
-    TemplateUpdateTemplateGlobalAccessAuth$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TemplateUpdateTemplateGlobalAccessAuth$ {
-  /** @deprecated use `TemplateUpdateTemplateGlobalAccessAuth$inboundSchema` instead. */
+export namespace TemplateUpdateTemplateRequestVisibility$ {
+  /** @deprecated use `TemplateUpdateTemplateRequestVisibility$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateUpdateTemplateGlobalAccessAuth$inboundSchema;
-  /** @deprecated use `TemplateUpdateTemplateGlobalAccessAuth$outboundSchema` instead. */
+    TemplateUpdateTemplateRequestVisibility$inboundSchema;
+  /** @deprecated use `TemplateUpdateTemplateRequestVisibility$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateUpdateTemplateGlobalAccessAuth$outboundSchema;
+    TemplateUpdateTemplateRequestVisibility$outboundSchema;
 }
 
 /** @internal */
-export const TemplateUpdateTemplateGlobalActionAuth$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateGlobalActionAuth> = z.nativeEnum(
-    TemplateUpdateTemplateGlobalActionAuth,
-  );
+export const TemplateUpdateTemplateRequestGlobalAccessAuth$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateRequestGlobalAccessAuth> = z
+    .nativeEnum(TemplateUpdateTemplateRequestGlobalAccessAuth);
 
 /** @internal */
-export const TemplateUpdateTemplateGlobalActionAuth$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateGlobalActionAuth> =
-    TemplateUpdateTemplateGlobalActionAuth$inboundSchema;
+export const TemplateUpdateTemplateRequestGlobalAccessAuth$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateRequestGlobalAccessAuth> =
+    TemplateUpdateTemplateRequestGlobalAccessAuth$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateUpdateTemplateGlobalActionAuth$ {
-  /** @deprecated use `TemplateUpdateTemplateGlobalActionAuth$inboundSchema` instead. */
+export namespace TemplateUpdateTemplateRequestGlobalAccessAuth$ {
+  /** @deprecated use `TemplateUpdateTemplateRequestGlobalAccessAuth$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateUpdateTemplateGlobalActionAuth$inboundSchema;
-  /** @deprecated use `TemplateUpdateTemplateGlobalActionAuth$outboundSchema` instead. */
+    TemplateUpdateTemplateRequestGlobalAccessAuth$inboundSchema;
+  /** @deprecated use `TemplateUpdateTemplateRequestGlobalAccessAuth$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateUpdateTemplateGlobalActionAuth$outboundSchema;
+    TemplateUpdateTemplateRequestGlobalAccessAuth$outboundSchema;
 }
 
 /** @internal */
-export const TemplateUpdateTemplateType$inboundSchema: z.ZodNativeEnum<
-  typeof TemplateUpdateTemplateType
-> = z.nativeEnum(TemplateUpdateTemplateType);
+export const TemplateUpdateTemplateRequestGlobalActionAuth$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateRequestGlobalActionAuth> = z
+    .nativeEnum(TemplateUpdateTemplateRequestGlobalActionAuth);
 
 /** @internal */
-export const TemplateUpdateTemplateType$outboundSchema: z.ZodNativeEnum<
-  typeof TemplateUpdateTemplateType
-> = TemplateUpdateTemplateType$inboundSchema;
+export const TemplateUpdateTemplateRequestGlobalActionAuth$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateRequestGlobalActionAuth> =
+    TemplateUpdateTemplateRequestGlobalActionAuth$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateUpdateTemplateType$ {
-  /** @deprecated use `TemplateUpdateTemplateType$inboundSchema` instead. */
-  export const inboundSchema = TemplateUpdateTemplateType$inboundSchema;
-  /** @deprecated use `TemplateUpdateTemplateType$outboundSchema` instead. */
-  export const outboundSchema = TemplateUpdateTemplateType$outboundSchema;
+export namespace TemplateUpdateTemplateRequestGlobalActionAuth$ {
+  /** @deprecated use `TemplateUpdateTemplateRequestGlobalActionAuth$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateUpdateTemplateRequestGlobalActionAuth$inboundSchema;
+  /** @deprecated use `TemplateUpdateTemplateRequestGlobalActionAuth$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateUpdateTemplateRequestGlobalActionAuth$outboundSchema;
+}
+
+/** @internal */
+export const TemplateUpdateTemplateDataType$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateUpdateTemplateDataType
+> = z.nativeEnum(TemplateUpdateTemplateDataType);
+
+/** @internal */
+export const TemplateUpdateTemplateDataType$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateUpdateTemplateDataType
+> = TemplateUpdateTemplateDataType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateUpdateTemplateDataType$ {
+  /** @deprecated use `TemplateUpdateTemplateDataType$inboundSchema` instead. */
+  export const inboundSchema = TemplateUpdateTemplateDataType$inboundSchema;
+  /** @deprecated use `TemplateUpdateTemplateDataType$outboundSchema` instead. */
+  export const outboundSchema = TemplateUpdateTemplateDataType$outboundSchema;
 }
 
 /** @internal */
@@ -383,16 +391,16 @@ export const TemplateUpdateTemplateData$inboundSchema: z.ZodType<
 > = z.object({
   title: z.string().optional(),
   externalId: z.nullable(z.string()).optional(),
-  visibility: TemplateUpdateTemplateVisibility$inboundSchema.optional(),
+  visibility: TemplateUpdateTemplateRequestVisibility$inboundSchema.optional(),
   globalAccessAuth: z.nullable(
-    TemplateUpdateTemplateGlobalAccessAuth$inboundSchema,
+    TemplateUpdateTemplateRequestGlobalAccessAuth$inboundSchema,
   ).optional(),
   globalActionAuth: z.nullable(
-    TemplateUpdateTemplateGlobalActionAuth$inboundSchema,
+    TemplateUpdateTemplateRequestGlobalActionAuth$inboundSchema,
   ).optional(),
   publicTitle: z.string().optional(),
   publicDescription: z.string().optional(),
-  type: TemplateUpdateTemplateType$inboundSchema.optional(),
+  type: TemplateUpdateTemplateDataType$inboundSchema.optional(),
 });
 
 /** @internal */
@@ -415,16 +423,16 @@ export const TemplateUpdateTemplateData$outboundSchema: z.ZodType<
 > = z.object({
   title: z.string().optional(),
   externalId: z.nullable(z.string()).optional(),
-  visibility: TemplateUpdateTemplateVisibility$outboundSchema.optional(),
+  visibility: TemplateUpdateTemplateRequestVisibility$outboundSchema.optional(),
   globalAccessAuth: z.nullable(
-    TemplateUpdateTemplateGlobalAccessAuth$outboundSchema,
+    TemplateUpdateTemplateRequestGlobalAccessAuth$outboundSchema,
   ).optional(),
   globalActionAuth: z.nullable(
-    TemplateUpdateTemplateGlobalActionAuth$outboundSchema,
+    TemplateUpdateTemplateRequestGlobalActionAuth$outboundSchema,
   ).optional(),
   publicTitle: z.string().optional(),
   publicDescription: z.string().optional(),
-  type: TemplateUpdateTemplateType$outboundSchema.optional(),
+  type: TemplateUpdateTemplateDataType$outboundSchema.optional(),
 });
 
 /**
@@ -709,8 +717,8 @@ export function templateUpdateTemplateMetaFromJSON(
 }
 
 /** @internal */
-export const TemplateUpdateTemplateRequestBody$inboundSchema: z.ZodType<
-  TemplateUpdateTemplateRequestBody,
+export const TemplateUpdateTemplateRequest$inboundSchema: z.ZodType<
+  TemplateUpdateTemplateRequest,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -720,17 +728,17 @@ export const TemplateUpdateTemplateRequestBody$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type TemplateUpdateTemplateRequestBody$Outbound = {
+export type TemplateUpdateTemplateRequest$Outbound = {
   templateId: number;
   data?: TemplateUpdateTemplateData$Outbound | undefined;
   meta?: TemplateUpdateTemplateMeta$Outbound | undefined;
 };
 
 /** @internal */
-export const TemplateUpdateTemplateRequestBody$outboundSchema: z.ZodType<
-  TemplateUpdateTemplateRequestBody$Outbound,
+export const TemplateUpdateTemplateRequest$outboundSchema: z.ZodType<
+  TemplateUpdateTemplateRequest$Outbound,
   z.ZodTypeDef,
-  TemplateUpdateTemplateRequestBody
+  TemplateUpdateTemplateRequest
 > = z.object({
   templateId: z.number(),
   data: z.lazy(() => TemplateUpdateTemplateData$outboundSchema).optional(),
@@ -741,126 +749,124 @@ export const TemplateUpdateTemplateRequestBody$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateUpdateTemplateRequestBody$ {
-  /** @deprecated use `TemplateUpdateTemplateRequestBody$inboundSchema` instead. */
-  export const inboundSchema = TemplateUpdateTemplateRequestBody$inboundSchema;
-  /** @deprecated use `TemplateUpdateTemplateRequestBody$outboundSchema` instead. */
-  export const outboundSchema =
-    TemplateUpdateTemplateRequestBody$outboundSchema;
-  /** @deprecated use `TemplateUpdateTemplateRequestBody$Outbound` instead. */
-  export type Outbound = TemplateUpdateTemplateRequestBody$Outbound;
+export namespace TemplateUpdateTemplateRequest$ {
+  /** @deprecated use `TemplateUpdateTemplateRequest$inboundSchema` instead. */
+  export const inboundSchema = TemplateUpdateTemplateRequest$inboundSchema;
+  /** @deprecated use `TemplateUpdateTemplateRequest$outboundSchema` instead. */
+  export const outboundSchema = TemplateUpdateTemplateRequest$outboundSchema;
+  /** @deprecated use `TemplateUpdateTemplateRequest$Outbound` instead. */
+  export type Outbound = TemplateUpdateTemplateRequest$Outbound;
 }
 
-export function templateUpdateTemplateRequestBodyToJSON(
-  templateUpdateTemplateRequestBody: TemplateUpdateTemplateRequestBody,
+export function templateUpdateTemplateRequestToJSON(
+  templateUpdateTemplateRequest: TemplateUpdateTemplateRequest,
 ): string {
   return JSON.stringify(
-    TemplateUpdateTemplateRequestBody$outboundSchema.parse(
-      templateUpdateTemplateRequestBody,
+    TemplateUpdateTemplateRequest$outboundSchema.parse(
+      templateUpdateTemplateRequest,
     ),
   );
 }
 
-export function templateUpdateTemplateRequestBodyFromJSON(
+export function templateUpdateTemplateRequestFromJSON(
   jsonString: string,
-): SafeParseResult<TemplateUpdateTemplateRequestBody, SDKValidationError> {
+): SafeParseResult<TemplateUpdateTemplateRequest, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => TemplateUpdateTemplateRequestBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TemplateUpdateTemplateRequestBody' from JSON`,
+    (x) => TemplateUpdateTemplateRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateUpdateTemplateRequest' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateUpdateTemplateTemplatesType$inboundSchema: z.ZodNativeEnum<
-  typeof TemplateUpdateTemplateTemplatesType
-> = z.nativeEnum(TemplateUpdateTemplateTemplatesType);
+export const TemplateUpdateTemplateResponseType$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateUpdateTemplateResponseType
+> = z.nativeEnum(TemplateUpdateTemplateResponseType);
 
 /** @internal */
-export const TemplateUpdateTemplateTemplatesType$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateTemplatesType> =
-    TemplateUpdateTemplateTemplatesType$inboundSchema;
+export const TemplateUpdateTemplateResponseType$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateUpdateTemplateResponseType
+> = TemplateUpdateTemplateResponseType$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateUpdateTemplateTemplatesType$ {
-  /** @deprecated use `TemplateUpdateTemplateTemplatesType$inboundSchema` instead. */
-  export const inboundSchema =
-    TemplateUpdateTemplateTemplatesType$inboundSchema;
-  /** @deprecated use `TemplateUpdateTemplateTemplatesType$outboundSchema` instead. */
+export namespace TemplateUpdateTemplateResponseType$ {
+  /** @deprecated use `TemplateUpdateTemplateResponseType$inboundSchema` instead. */
+  export const inboundSchema = TemplateUpdateTemplateResponseType$inboundSchema;
+  /** @deprecated use `TemplateUpdateTemplateResponseType$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateUpdateTemplateTemplatesType$outboundSchema;
+    TemplateUpdateTemplateResponseType$outboundSchema;
 }
 
 /** @internal */
-export const TemplateUpdateTemplateTemplatesVisibility$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateTemplatesVisibility> = z
-    .nativeEnum(TemplateUpdateTemplateTemplatesVisibility);
+export const TemplateUpdateTemplateResponseVisibility$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateResponseVisibility> = z
+    .nativeEnum(TemplateUpdateTemplateResponseVisibility);
 
 /** @internal */
-export const TemplateUpdateTemplateTemplatesVisibility$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateTemplatesVisibility> =
-    TemplateUpdateTemplateTemplatesVisibility$inboundSchema;
+export const TemplateUpdateTemplateResponseVisibility$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateResponseVisibility> =
+    TemplateUpdateTemplateResponseVisibility$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateUpdateTemplateTemplatesVisibility$ {
-  /** @deprecated use `TemplateUpdateTemplateTemplatesVisibility$inboundSchema` instead. */
+export namespace TemplateUpdateTemplateResponseVisibility$ {
+  /** @deprecated use `TemplateUpdateTemplateResponseVisibility$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateUpdateTemplateTemplatesVisibility$inboundSchema;
-  /** @deprecated use `TemplateUpdateTemplateTemplatesVisibility$outboundSchema` instead. */
+    TemplateUpdateTemplateResponseVisibility$inboundSchema;
+  /** @deprecated use `TemplateUpdateTemplateResponseVisibility$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateUpdateTemplateTemplatesVisibility$outboundSchema;
+    TemplateUpdateTemplateResponseVisibility$outboundSchema;
 }
 
 /** @internal */
-export const TemplateUpdateTemplateTemplatesGlobalAccessAuth$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateTemplatesGlobalAccessAuth> = z
-    .nativeEnum(TemplateUpdateTemplateTemplatesGlobalAccessAuth);
+export const TemplateUpdateTemplateResponseGlobalAccessAuth$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateResponseGlobalAccessAuth> = z
+    .nativeEnum(TemplateUpdateTemplateResponseGlobalAccessAuth);
 
 /** @internal */
-export const TemplateUpdateTemplateTemplatesGlobalAccessAuth$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateTemplatesGlobalAccessAuth> =
-    TemplateUpdateTemplateTemplatesGlobalAccessAuth$inboundSchema;
+export const TemplateUpdateTemplateResponseGlobalAccessAuth$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateResponseGlobalAccessAuth> =
+    TemplateUpdateTemplateResponseGlobalAccessAuth$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateUpdateTemplateTemplatesGlobalAccessAuth$ {
-  /** @deprecated use `TemplateUpdateTemplateTemplatesGlobalAccessAuth$inboundSchema` instead. */
+export namespace TemplateUpdateTemplateResponseGlobalAccessAuth$ {
+  /** @deprecated use `TemplateUpdateTemplateResponseGlobalAccessAuth$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateUpdateTemplateTemplatesGlobalAccessAuth$inboundSchema;
-  /** @deprecated use `TemplateUpdateTemplateTemplatesGlobalAccessAuth$outboundSchema` instead. */
+    TemplateUpdateTemplateResponseGlobalAccessAuth$inboundSchema;
+  /** @deprecated use `TemplateUpdateTemplateResponseGlobalAccessAuth$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateUpdateTemplateTemplatesGlobalAccessAuth$outboundSchema;
+    TemplateUpdateTemplateResponseGlobalAccessAuth$outboundSchema;
 }
 
 /** @internal */
-export const TemplateUpdateTemplateTemplatesGlobalActionAuth$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateTemplatesGlobalActionAuth> = z
-    .nativeEnum(TemplateUpdateTemplateTemplatesGlobalActionAuth);
+export const TemplateUpdateTemplateResponseGlobalActionAuth$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateResponseGlobalActionAuth> = z
+    .nativeEnum(TemplateUpdateTemplateResponseGlobalActionAuth);
 
 /** @internal */
-export const TemplateUpdateTemplateTemplatesGlobalActionAuth$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateTemplatesGlobalActionAuth> =
-    TemplateUpdateTemplateTemplatesGlobalActionAuth$inboundSchema;
+export const TemplateUpdateTemplateResponseGlobalActionAuth$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateResponseGlobalActionAuth> =
+    TemplateUpdateTemplateResponseGlobalActionAuth$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateUpdateTemplateTemplatesGlobalActionAuth$ {
-  /** @deprecated use `TemplateUpdateTemplateTemplatesGlobalActionAuth$inboundSchema` instead. */
+export namespace TemplateUpdateTemplateResponseGlobalActionAuth$ {
+  /** @deprecated use `TemplateUpdateTemplateResponseGlobalActionAuth$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateUpdateTemplateTemplatesGlobalActionAuth$inboundSchema;
-  /** @deprecated use `TemplateUpdateTemplateTemplatesGlobalActionAuth$outboundSchema` instead. */
+    TemplateUpdateTemplateResponseGlobalActionAuth$inboundSchema;
+  /** @deprecated use `TemplateUpdateTemplateResponseGlobalActionAuth$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateUpdateTemplateTemplatesGlobalActionAuth$outboundSchema;
+    TemplateUpdateTemplateResponseGlobalActionAuth$outboundSchema;
 }
 
 /** @internal */
@@ -870,10 +876,10 @@ export const TemplateUpdateTemplateAuthOptions$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   globalAccessAuth: z.nullable(
-    TemplateUpdateTemplateTemplatesGlobalAccessAuth$inboundSchema,
+    TemplateUpdateTemplateResponseGlobalAccessAuth$inboundSchema,
   ),
   globalActionAuth: z.nullable(
-    TemplateUpdateTemplateTemplatesGlobalActionAuth$inboundSchema,
+    TemplateUpdateTemplateResponseGlobalActionAuth$inboundSchema,
   ),
 });
 
@@ -890,10 +896,10 @@ export const TemplateUpdateTemplateAuthOptions$outboundSchema: z.ZodType<
   TemplateUpdateTemplateAuthOptions
 > = z.object({
   globalAccessAuth: z.nullable(
-    TemplateUpdateTemplateTemplatesGlobalAccessAuth$outboundSchema,
+    TemplateUpdateTemplateResponseGlobalAccessAuth$outboundSchema,
   ),
   globalActionAuth: z.nullable(
-    TemplateUpdateTemplateTemplatesGlobalActionAuth$outboundSchema,
+    TemplateUpdateTemplateResponseGlobalActionAuth$outboundSchema,
   ),
 });
 
@@ -932,18 +938,18 @@ export function templateUpdateTemplateAuthOptionsFromJSON(
 }
 
 /** @internal */
-export const TemplateUpdateTemplateResponseBody$inboundSchema: z.ZodType<
-  TemplateUpdateTemplateResponseBody,
+export const TemplateUpdateTemplateResponse$inboundSchema: z.ZodType<
+  TemplateUpdateTemplateResponse,
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: TemplateUpdateTemplateTemplatesType$inboundSchema,
-  visibility: TemplateUpdateTemplateTemplatesVisibility$inboundSchema,
-  id: z.number().int(),
+  type: TemplateUpdateTemplateResponseType$inboundSchema,
+  visibility: TemplateUpdateTemplateResponseVisibility$inboundSchema,
+  id: z.number(),
   externalId: z.nullable(z.string()),
   title: z.string(),
-  userId: z.number().int(),
-  teamId: z.nullable(z.number().int()),
+  userId: z.number(),
+  teamId: z.nullable(z.number()),
   authOptions: z.nullable(
     z.lazy(() => TemplateUpdateTemplateAuthOptions$inboundSchema),
   ),
@@ -955,7 +961,7 @@ export const TemplateUpdateTemplateResponseBody$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type TemplateUpdateTemplateResponseBody$Outbound = {
+export type TemplateUpdateTemplateResponse$Outbound = {
   type: string;
   visibility: string;
   id: number;
@@ -972,18 +978,18 @@ export type TemplateUpdateTemplateResponseBody$Outbound = {
 };
 
 /** @internal */
-export const TemplateUpdateTemplateResponseBody$outboundSchema: z.ZodType<
-  TemplateUpdateTemplateResponseBody$Outbound,
+export const TemplateUpdateTemplateResponse$outboundSchema: z.ZodType<
+  TemplateUpdateTemplateResponse$Outbound,
   z.ZodTypeDef,
-  TemplateUpdateTemplateResponseBody
+  TemplateUpdateTemplateResponse
 > = z.object({
-  type: TemplateUpdateTemplateTemplatesType$outboundSchema,
-  visibility: TemplateUpdateTemplateTemplatesVisibility$outboundSchema,
-  id: z.number().int(),
+  type: TemplateUpdateTemplateResponseType$outboundSchema,
+  visibility: TemplateUpdateTemplateResponseVisibility$outboundSchema,
+  id: z.number(),
   externalId: z.nullable(z.string()),
   title: z.string(),
-  userId: z.number().int(),
-  teamId: z.nullable(z.number().int()),
+  userId: z.number(),
+  teamId: z.nullable(z.number()),
   authOptions: z.nullable(
     z.lazy(() => TemplateUpdateTemplateAuthOptions$outboundSchema),
   ),
@@ -998,33 +1004,31 @@ export const TemplateUpdateTemplateResponseBody$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateUpdateTemplateResponseBody$ {
-  /** @deprecated use `TemplateUpdateTemplateResponseBody$inboundSchema` instead. */
-  export const inboundSchema = TemplateUpdateTemplateResponseBody$inboundSchema;
-  /** @deprecated use `TemplateUpdateTemplateResponseBody$outboundSchema` instead. */
-  export const outboundSchema =
-    TemplateUpdateTemplateResponseBody$outboundSchema;
-  /** @deprecated use `TemplateUpdateTemplateResponseBody$Outbound` instead. */
-  export type Outbound = TemplateUpdateTemplateResponseBody$Outbound;
+export namespace TemplateUpdateTemplateResponse$ {
+  /** @deprecated use `TemplateUpdateTemplateResponse$inboundSchema` instead. */
+  export const inboundSchema = TemplateUpdateTemplateResponse$inboundSchema;
+  /** @deprecated use `TemplateUpdateTemplateResponse$outboundSchema` instead. */
+  export const outboundSchema = TemplateUpdateTemplateResponse$outboundSchema;
+  /** @deprecated use `TemplateUpdateTemplateResponse$Outbound` instead. */
+  export type Outbound = TemplateUpdateTemplateResponse$Outbound;
 }
 
-export function templateUpdateTemplateResponseBodyToJSON(
-  templateUpdateTemplateResponseBody: TemplateUpdateTemplateResponseBody,
+export function templateUpdateTemplateResponseToJSON(
+  templateUpdateTemplateResponse: TemplateUpdateTemplateResponse,
 ): string {
   return JSON.stringify(
-    TemplateUpdateTemplateResponseBody$outboundSchema.parse(
-      templateUpdateTemplateResponseBody,
+    TemplateUpdateTemplateResponse$outboundSchema.parse(
+      templateUpdateTemplateResponse,
     ),
   );
 }
 
-export function templateUpdateTemplateResponseBodyFromJSON(
+export function templateUpdateTemplateResponseFromJSON(
   jsonString: string,
-): SafeParseResult<TemplateUpdateTemplateResponseBody, SDKValidationError> {
+): SafeParseResult<TemplateUpdateTemplateResponse, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      TemplateUpdateTemplateResponseBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TemplateUpdateTemplateResponseBody' from JSON`,
+    (x) => TemplateUpdateTemplateResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateUpdateTemplateResponse' from JSON`,
   );
 }

@@ -1,0 +1,17 @@
+# DocumentResendDocumentInternalServerErrorIssues
+
+## Example Usage
+
+```typescript
+import { DocumentResendDocumentInternalServerErrorIssues } from "@documenso/sdk-typescript/models/errors";
+
+let value: DocumentResendDocumentInternalServerErrorIssues = {
+  message: "<value>",
+};
+```
+
+## Fields
+
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `message`          | *string*           | :heavy_check_mark: | N/A                |

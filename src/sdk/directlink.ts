@@ -17,9 +17,9 @@ export class DirectLink extends ClientSDK {
    * Create a direct link for a template
    */
   async create(
-    request: operations.TemplateCreateTemplateDirectLinkRequestBody,
+    request: operations.TemplateCreateTemplateDirectLinkRequest,
     options?: RequestOptions,
-  ): Promise<operations.TemplateCreateTemplateDirectLinkResponseBody> {
+  ): Promise<operations.TemplateCreateTemplateDirectLinkResponse> {
     return unwrapAsync(templatesDirectLinkCreate(
       this,
       request,
@@ -34,9 +34,9 @@ export class DirectLink extends ClientSDK {
    * Delete a direct link for a template
    */
   async delete(
-    request: operations.TemplateDeleteTemplateDirectLinkRequestBody,
+    request: operations.TemplateDeleteTemplateDirectLinkRequest,
     options?: RequestOptions,
-  ): Promise<operations.TemplateDeleteTemplateDirectLinkResponseBody> {
+  ): Promise<operations.TemplateDeleteTemplateDirectLinkResponse> {
     return unwrapAsync(templatesDirectLinkDelete(
       this,
       request,
@@ -51,9 +51,9 @@ export class DirectLink extends ClientSDK {
    * Enable or disable a direct link for a template
    */
   async toggle(
-    request: operations.TemplateToggleTemplateDirectLinkRequestBody,
+    request: operations.TemplateToggleTemplateDirectLinkRequest,
     options?: RequestOptions,
-  ): Promise<operations.TemplateToggleTemplateDirectLinkResponseBody> {
+  ): Promise<operations.TemplateToggleTemplateDirectLinkResponse> {
     return unwrapAsync(templatesDirectLinkToggle(
       this,
       request,

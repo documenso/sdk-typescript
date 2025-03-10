@@ -6,44 +6,44 @@
 import { Document } from "@documenso/sdk-typescript/models/operations";
 
 let value: Document = {
-  visibility: "ADMIN",
+  visibility: "MANAGER_AND_ABOVE",
   status: "COMPLETED",
   source: "TEMPLATE_DIRECT_LINK",
-  id: 451822,
+  id: 5468.85,
   externalId: "<id>",
-  userId: 708.69,
+  userId: 2748.23,
   authOptions: {
     globalAccessAuth: "ACCOUNT",
-    globalActionAuth: "ACCOUNT",
+    globalActionAuth: "PASSKEY",
   },
   formValues: {
-    "key": "<value>",
+    "key": 4067.33,
   },
   title: "<value>",
   documentDataId: "<id>",
-  createdAt: "1719221516703",
-  updatedAt: "1737516610071",
+  createdAt: "1727440326944",
+  updatedAt: "1741503057489",
   completedAt: "<value>",
   deletedAt: "<value>",
-  teamId: 604118,
-  templateId: 382808,
+  teamId: 4554.44,
+  templateId: 4017.13,
   documentData: {
-    type: "BYTES_64",
+    type: "S3_PATH",
     id: "<id>",
     data: "<value>",
     initialData: "<value>",
   },
   documentMeta: {
     signingOrder: "SEQUENTIAL",
-    distributionMethod: "NONE",
+    distributionMethod: "EMAIL",
     id: "<id>",
     subject: "<value>",
     message: "<value>",
-    timezone: "America/Hermosillo",
-    password: "YvGULG8QDRhxr9K",
+    timezone: "America/North_Dakota/Center",
+    password: "Rhxr9KBgad4AatT",
     dateFormat: "<value>",
-    documentId: 104627,
-    redirectUrl: "https://shrill-platypus.name/",
+    documentId: 2826.99,
+    redirectUrl: "https://scary-accountability.info/",
     typedSignatureEnabled: false,
     language: "<value>",
     emailSettings: {},
@@ -51,13 +51,13 @@ let value: Document = {
   recipients: [
     {
       role: "VIEWER",
-      readStatus: "NOT_OPENED",
-      signingStatus: "SIGNED",
-      sendStatus: "SENT",
-      id: 879235,
-      documentId: 543678,
-      templateId: 282699,
-      email: "Mercedes_Hintz92@gmail.com",
+      readStatus: "OPENED",
+      signingStatus: "NOT_SIGNED",
+      sendStatus: "NOT_SENT",
+      id: 243.13,
+      documentId: 3426.11,
+      templateId: 6222.31,
+      email: "Cornelius67@gmail.com",
       name: "<value>",
       token: "<value>",
       documentDeletedAt: "<value>",
@@ -65,25 +65,25 @@ let value: Document = {
       signedAt: "<value>",
       authOptions: {
         accessAuth: "ACCOUNT",
-        actionAuth: "PASSKEY",
+        actionAuth: "ACCOUNT",
       },
-      signingOrder: 243.13,
+      signingOrder: 6471.97,
       rejectionReason: "<value>",
     },
   ],
   fields: [
     {
-      type: "NAME",
-      id: 622231,
+      type: "TEXT",
+      id: 5887.4,
       secondaryId: "<id>",
-      documentId: 279068,
-      templateId: 209750,
-      recipientId: 115703,
-      page: 5771.4,
+      documentId: 9627.71,
+      templateId: 168.71,
+      recipientId: 6964.83,
+      page: 8136.79,
       customText: "<value>",
       inserted: false,
       fieldMeta: {
-        type: "radio",
+        type: "text",
       },
     },
   ],
@@ -94,14 +94,14 @@ let value: Document = {
 
 | Field                                                                                                                            | Type                                                                                                                             | Required                                                                                                                         | Description                                                                                                                      |
 | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `visibility`                                                                                                                     | [operations.DocumentCreateDocumentTemporaryVisibility](../../models/operations/documentcreatedocumenttemporaryvisibility.md)     | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
+| `visibility`                                                                                                                     | [operations.DocumentVisibility](../../models/operations/documentvisibility.md)                                                   | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
 | `status`                                                                                                                         | [operations.DocumentCreateDocumentTemporaryStatus](../../models/operations/documentcreatedocumenttemporarystatus.md)             | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
 | `source`                                                                                                                         | [operations.DocumentCreateDocumentTemporarySource](../../models/operations/documentcreatedocumenttemporarysource.md)             | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
 | `id`                                                                                                                             | *number*                                                                                                                         | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
 | `externalId`                                                                                                                     | *string*                                                                                                                         | :heavy_check_mark:                                                                                                               | A custom external ID you can use to identify the document.                                                                       |
 | `userId`                                                                                                                         | *number*                                                                                                                         | :heavy_check_mark:                                                                                                               | The ID of the user that created this document.                                                                                   |
 | `authOptions`                                                                                                                    | [operations.DocumentCreateDocumentTemporaryAuthOptions](../../models/operations/documentcreatedocumenttemporaryauthoptions.md)   | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
-| `formValues`                                                                                                                     | Record<string, *operations.DocumentCreateDocumentTemporaryFormValues*>                                                           | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
+| `formValues`                                                                                                                     | Record<string, *operations.DocumentFormValues*>                                                                                  | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
 | `title`                                                                                                                          | *string*                                                                                                                         | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
 | `documentDataId`                                                                                                                 | *string*                                                                                                                         | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
 | `createdAt`                                                                                                                      | *string*                                                                                                                         | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
@@ -112,5 +112,5 @@ let value: Document = {
 | `templateId`                                                                                                                     | *number*                                                                                                                         | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
 | `documentData`                                                                                                                   | [operations.DocumentCreateDocumentTemporaryDocumentData](../../models/operations/documentcreatedocumenttemporarydocumentdata.md) | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
 | `documentMeta`                                                                                                                   | [operations.DocumentCreateDocumentTemporaryDocumentMeta](../../models/operations/documentcreatedocumenttemporarydocumentmeta.md) | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
-| `recipients`                                                                                                                     | [operations.DocumentCreateDocumentTemporaryRecipients](../../models/operations/documentcreatedocumenttemporaryrecipients.md)[]   | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
-| `fields`                                                                                                                         | [operations.DocumentCreateDocumentTemporaryFields](../../models/operations/documentcreatedocumenttemporaryfields.md)[]           | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
+| `recipients`                                                                                                                     | [operations.DocumentRecipients](../../models/operations/documentrecipients.md)[]                                                 | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
+| `fields`                                                                                                                         | [operations.DocumentFields](../../models/operations/documentfields.md)[]                                                         | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |

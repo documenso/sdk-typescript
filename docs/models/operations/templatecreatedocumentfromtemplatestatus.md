@@ -5,7 +5,7 @@
 ```typescript
 import { TemplateCreateDocumentFromTemplateStatus } from "@documenso/sdk-typescript/models/operations";
 
-let value: TemplateCreateDocumentFromTemplateStatus = "PENDING";
+let value: TemplateCreateDocumentFromTemplateStatus = "DRAFT";
 ```
 
 ## Values

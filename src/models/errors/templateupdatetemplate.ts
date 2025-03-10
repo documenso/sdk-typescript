@@ -7,30 +7,30 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
-export type TemplateUpdateTemplateTemplatesIssues = {
+export type TemplateUpdateTemplateInternalServerErrorIssues = {
   message: string;
 };
 
 /**
  * Internal server error
  */
-export type TemplateUpdateTemplateTemplatesResponseBodyData = {
+export type TemplateUpdateTemplateInternalServerErrorData = {
   message: string;
   code: string;
-  issues?: Array<TemplateUpdateTemplateTemplatesIssues> | undefined;
+  issues?: Array<TemplateUpdateTemplateInternalServerErrorIssues> | undefined;
 };
 
 /**
  * Internal server error
  */
-export class TemplateUpdateTemplateTemplatesResponseBody extends Error {
+export class TemplateUpdateTemplateInternalServerError extends Error {
   code: string;
-  issues?: Array<TemplateUpdateTemplateTemplatesIssues> | undefined;
+  issues?: Array<TemplateUpdateTemplateInternalServerErrorIssues> | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: TemplateUpdateTemplateTemplatesResponseBodyData;
+  data$: TemplateUpdateTemplateInternalServerErrorData;
 
-  constructor(err: TemplateUpdateTemplateTemplatesResponseBodyData) {
+  constructor(err: TemplateUpdateTemplateInternalServerErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -40,34 +40,34 @@ export class TemplateUpdateTemplateTemplatesResponseBody extends Error {
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name = "TemplateUpdateTemplateTemplatesResponseBody";
+    this.name = "TemplateUpdateTemplateInternalServerError";
   }
 }
 
-export type TemplateUpdateTemplateIssues = {
+export type TemplateUpdateTemplateBadRequestIssues = {
   message: string;
 };
 
 /**
  * Invalid input data
  */
-export type TemplateUpdateTemplateResponseBodyData = {
+export type TemplateUpdateTemplateBadRequestErrorData = {
   message: string;
   code: string;
-  issues?: Array<TemplateUpdateTemplateIssues> | undefined;
+  issues?: Array<TemplateUpdateTemplateBadRequestIssues> | undefined;
 };
 
 /**
  * Invalid input data
  */
-export class TemplateUpdateTemplateResponseBody extends Error {
+export class TemplateUpdateTemplateBadRequestError extends Error {
   code: string;
-  issues?: Array<TemplateUpdateTemplateIssues> | undefined;
+  issues?: Array<TemplateUpdateTemplateBadRequestIssues> | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: TemplateUpdateTemplateResponseBodyData;
+  data$: TemplateUpdateTemplateBadRequestErrorData;
 
-  constructor(err: TemplateUpdateTemplateResponseBodyData) {
+  constructor(err: TemplateUpdateTemplateBadRequestErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -77,106 +77,118 @@ export class TemplateUpdateTemplateResponseBody extends Error {
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name = "TemplateUpdateTemplateResponseBody";
+    this.name = "TemplateUpdateTemplateBadRequestError";
   }
 }
 
 /** @internal */
-export const TemplateUpdateTemplateTemplatesIssues$inboundSchema: z.ZodType<
-  TemplateUpdateTemplateTemplatesIssues,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  message: z.string(),
-});
+export const TemplateUpdateTemplateInternalServerErrorIssues$inboundSchema:
+  z.ZodType<
+    TemplateUpdateTemplateInternalServerErrorIssues,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    message: z.string(),
+  });
 
 /** @internal */
-export type TemplateUpdateTemplateTemplatesIssues$Outbound = {
+export type TemplateUpdateTemplateInternalServerErrorIssues$Outbound = {
   message: string;
 };
 
 /** @internal */
-export const TemplateUpdateTemplateTemplatesIssues$outboundSchema: z.ZodType<
-  TemplateUpdateTemplateTemplatesIssues$Outbound,
-  z.ZodTypeDef,
-  TemplateUpdateTemplateTemplatesIssues
-> = z.object({
-  message: z.string(),
-});
+export const TemplateUpdateTemplateInternalServerErrorIssues$outboundSchema:
+  z.ZodType<
+    TemplateUpdateTemplateInternalServerErrorIssues$Outbound,
+    z.ZodTypeDef,
+    TemplateUpdateTemplateInternalServerErrorIssues
+  > = z.object({
+    message: z.string(),
+  });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateUpdateTemplateTemplatesIssues$ {
-  /** @deprecated use `TemplateUpdateTemplateTemplatesIssues$inboundSchema` instead. */
+export namespace TemplateUpdateTemplateInternalServerErrorIssues$ {
+  /** @deprecated use `TemplateUpdateTemplateInternalServerErrorIssues$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateUpdateTemplateTemplatesIssues$inboundSchema;
-  /** @deprecated use `TemplateUpdateTemplateTemplatesIssues$outboundSchema` instead. */
+    TemplateUpdateTemplateInternalServerErrorIssues$inboundSchema;
+  /** @deprecated use `TemplateUpdateTemplateInternalServerErrorIssues$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateUpdateTemplateTemplatesIssues$outboundSchema;
-  /** @deprecated use `TemplateUpdateTemplateTemplatesIssues$Outbound` instead. */
-  export type Outbound = TemplateUpdateTemplateTemplatesIssues$Outbound;
+    TemplateUpdateTemplateInternalServerErrorIssues$outboundSchema;
+  /** @deprecated use `TemplateUpdateTemplateInternalServerErrorIssues$Outbound` instead. */
+  export type Outbound =
+    TemplateUpdateTemplateInternalServerErrorIssues$Outbound;
 }
 
-export function templateUpdateTemplateTemplatesIssuesToJSON(
-  templateUpdateTemplateTemplatesIssues: TemplateUpdateTemplateTemplatesIssues,
+export function templateUpdateTemplateInternalServerErrorIssuesToJSON(
+  templateUpdateTemplateInternalServerErrorIssues:
+    TemplateUpdateTemplateInternalServerErrorIssues,
 ): string {
   return JSON.stringify(
-    TemplateUpdateTemplateTemplatesIssues$outboundSchema.parse(
-      templateUpdateTemplateTemplatesIssues,
+    TemplateUpdateTemplateInternalServerErrorIssues$outboundSchema.parse(
+      templateUpdateTemplateInternalServerErrorIssues,
     ),
   );
 }
 
-export function templateUpdateTemplateTemplatesIssuesFromJSON(
+export function templateUpdateTemplateInternalServerErrorIssuesFromJSON(
   jsonString: string,
-): SafeParseResult<TemplateUpdateTemplateTemplatesIssues, SDKValidationError> {
+): SafeParseResult<
+  TemplateUpdateTemplateInternalServerErrorIssues,
+  SDKValidationError
+> {
   return safeParse(
     jsonString,
     (x) =>
-      TemplateUpdateTemplateTemplatesIssues$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TemplateUpdateTemplateTemplatesIssues' from JSON`,
+      TemplateUpdateTemplateInternalServerErrorIssues$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'TemplateUpdateTemplateInternalServerErrorIssues' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateUpdateTemplateTemplatesResponseBody$inboundSchema:
-  z.ZodType<
-    TemplateUpdateTemplateTemplatesResponseBody,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => TemplateUpdateTemplateTemplatesIssues$inboundSchema),
-    ).optional(),
-  })
-    .transform((v) => {
-      return new TemplateUpdateTemplateTemplatesResponseBody(v);
-    });
+export const TemplateUpdateTemplateInternalServerError$inboundSchema: z.ZodType<
+  TemplateUpdateTemplateInternalServerError,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  message: z.string(),
+  code: z.string(),
+  issues: z.array(
+    z.lazy(() => TemplateUpdateTemplateInternalServerErrorIssues$inboundSchema),
+  ).optional(),
+})
+  .transform((v) => {
+    return new TemplateUpdateTemplateInternalServerError(v);
+  });
 
 /** @internal */
-export type TemplateUpdateTemplateTemplatesResponseBody$Outbound = {
+export type TemplateUpdateTemplateInternalServerError$Outbound = {
   message: string;
   code: string;
-  issues?: Array<TemplateUpdateTemplateTemplatesIssues$Outbound> | undefined;
+  issues?:
+    | Array<TemplateUpdateTemplateInternalServerErrorIssues$Outbound>
+    | undefined;
 };
 
 /** @internal */
-export const TemplateUpdateTemplateTemplatesResponseBody$outboundSchema:
+export const TemplateUpdateTemplateInternalServerError$outboundSchema:
   z.ZodType<
-    TemplateUpdateTemplateTemplatesResponseBody$Outbound,
+    TemplateUpdateTemplateInternalServerError$Outbound,
     z.ZodTypeDef,
-    TemplateUpdateTemplateTemplatesResponseBody
-  > = z.instanceof(TemplateUpdateTemplateTemplatesResponseBody)
+    TemplateUpdateTemplateInternalServerError
+  > = z.instanceof(TemplateUpdateTemplateInternalServerError)
     .transform(v => v.data$)
     .pipe(z.object({
       message: z.string(),
       code: z.string(),
       issues: z.array(
-        z.lazy(() => TemplateUpdateTemplateTemplatesIssues$outboundSchema),
+        z.lazy(() =>
+          TemplateUpdateTemplateInternalServerErrorIssues$outboundSchema
+        ),
       ).optional(),
     }));
 
@@ -184,20 +196,20 @@ export const TemplateUpdateTemplateTemplatesResponseBody$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateUpdateTemplateTemplatesResponseBody$ {
-  /** @deprecated use `TemplateUpdateTemplateTemplatesResponseBody$inboundSchema` instead. */
+export namespace TemplateUpdateTemplateInternalServerError$ {
+  /** @deprecated use `TemplateUpdateTemplateInternalServerError$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateUpdateTemplateTemplatesResponseBody$inboundSchema;
-  /** @deprecated use `TemplateUpdateTemplateTemplatesResponseBody$outboundSchema` instead. */
+    TemplateUpdateTemplateInternalServerError$inboundSchema;
+  /** @deprecated use `TemplateUpdateTemplateInternalServerError$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateUpdateTemplateTemplatesResponseBody$outboundSchema;
-  /** @deprecated use `TemplateUpdateTemplateTemplatesResponseBody$Outbound` instead. */
-  export type Outbound = TemplateUpdateTemplateTemplatesResponseBody$Outbound;
+    TemplateUpdateTemplateInternalServerError$outboundSchema;
+  /** @deprecated use `TemplateUpdateTemplateInternalServerError$Outbound` instead. */
+  export type Outbound = TemplateUpdateTemplateInternalServerError$Outbound;
 }
 
 /** @internal */
-export const TemplateUpdateTemplateIssues$inboundSchema: z.ZodType<
-  TemplateUpdateTemplateIssues,
+export const TemplateUpdateTemplateBadRequestIssues$inboundSchema: z.ZodType<
+  TemplateUpdateTemplateBadRequestIssues,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -205,15 +217,15 @@ export const TemplateUpdateTemplateIssues$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type TemplateUpdateTemplateIssues$Outbound = {
+export type TemplateUpdateTemplateBadRequestIssues$Outbound = {
   message: string;
 };
 
 /** @internal */
-export const TemplateUpdateTemplateIssues$outboundSchema: z.ZodType<
-  TemplateUpdateTemplateIssues$Outbound,
+export const TemplateUpdateTemplateBadRequestIssues$outboundSchema: z.ZodType<
+  TemplateUpdateTemplateBadRequestIssues$Outbound,
   z.ZodTypeDef,
-  TemplateUpdateTemplateIssues
+  TemplateUpdateTemplateBadRequestIssues
 > = z.object({
   message: z.string(),
 });
@@ -222,81 +234,88 @@ export const TemplateUpdateTemplateIssues$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateUpdateTemplateIssues$ {
-  /** @deprecated use `TemplateUpdateTemplateIssues$inboundSchema` instead. */
-  export const inboundSchema = TemplateUpdateTemplateIssues$inboundSchema;
-  /** @deprecated use `TemplateUpdateTemplateIssues$outboundSchema` instead. */
-  export const outboundSchema = TemplateUpdateTemplateIssues$outboundSchema;
-  /** @deprecated use `TemplateUpdateTemplateIssues$Outbound` instead. */
-  export type Outbound = TemplateUpdateTemplateIssues$Outbound;
+export namespace TemplateUpdateTemplateBadRequestIssues$ {
+  /** @deprecated use `TemplateUpdateTemplateBadRequestIssues$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateUpdateTemplateBadRequestIssues$inboundSchema;
+  /** @deprecated use `TemplateUpdateTemplateBadRequestIssues$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateUpdateTemplateBadRequestIssues$outboundSchema;
+  /** @deprecated use `TemplateUpdateTemplateBadRequestIssues$Outbound` instead. */
+  export type Outbound = TemplateUpdateTemplateBadRequestIssues$Outbound;
 }
 
-export function templateUpdateTemplateIssuesToJSON(
-  templateUpdateTemplateIssues: TemplateUpdateTemplateIssues,
+export function templateUpdateTemplateBadRequestIssuesToJSON(
+  templateUpdateTemplateBadRequestIssues:
+    TemplateUpdateTemplateBadRequestIssues,
 ): string {
   return JSON.stringify(
-    TemplateUpdateTemplateIssues$outboundSchema.parse(
-      templateUpdateTemplateIssues,
+    TemplateUpdateTemplateBadRequestIssues$outboundSchema.parse(
+      templateUpdateTemplateBadRequestIssues,
     ),
   );
 }
 
-export function templateUpdateTemplateIssuesFromJSON(
+export function templateUpdateTemplateBadRequestIssuesFromJSON(
   jsonString: string,
-): SafeParseResult<TemplateUpdateTemplateIssues, SDKValidationError> {
+): SafeParseResult<TemplateUpdateTemplateBadRequestIssues, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => TemplateUpdateTemplateIssues$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TemplateUpdateTemplateIssues' from JSON`,
+    (x) =>
+      TemplateUpdateTemplateBadRequestIssues$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateUpdateTemplateBadRequestIssues' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateUpdateTemplateResponseBody$inboundSchema: z.ZodType<
-  TemplateUpdateTemplateResponseBody,
+export const TemplateUpdateTemplateBadRequestError$inboundSchema: z.ZodType<
+  TemplateUpdateTemplateBadRequestError,
   z.ZodTypeDef,
   unknown
 > = z.object({
   message: z.string(),
   code: z.string(),
-  issues: z.array(z.lazy(() => TemplateUpdateTemplateIssues$inboundSchema))
-    .optional(),
+  issues: z.array(
+    z.lazy(() => TemplateUpdateTemplateBadRequestIssues$inboundSchema),
+  ).optional(),
 })
   .transform((v) => {
-    return new TemplateUpdateTemplateResponseBody(v);
+    return new TemplateUpdateTemplateBadRequestError(v);
   });
 
 /** @internal */
-export type TemplateUpdateTemplateResponseBody$Outbound = {
+export type TemplateUpdateTemplateBadRequestError$Outbound = {
   message: string;
   code: string;
-  issues?: Array<TemplateUpdateTemplateIssues$Outbound> | undefined;
+  issues?: Array<TemplateUpdateTemplateBadRequestIssues$Outbound> | undefined;
 };
 
 /** @internal */
-export const TemplateUpdateTemplateResponseBody$outboundSchema: z.ZodType<
-  TemplateUpdateTemplateResponseBody$Outbound,
+export const TemplateUpdateTemplateBadRequestError$outboundSchema: z.ZodType<
+  TemplateUpdateTemplateBadRequestError$Outbound,
   z.ZodTypeDef,
-  TemplateUpdateTemplateResponseBody
-> = z.instanceof(TemplateUpdateTemplateResponseBody)
+  TemplateUpdateTemplateBadRequestError
+> = z.instanceof(TemplateUpdateTemplateBadRequestError)
   .transform(v => v.data$)
   .pipe(z.object({
     message: z.string(),
     code: z.string(),
-    issues: z.array(z.lazy(() => TemplateUpdateTemplateIssues$outboundSchema))
-      .optional(),
+    issues: z.array(
+      z.lazy(() => TemplateUpdateTemplateBadRequestIssues$outboundSchema),
+    ).optional(),
   }));
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateUpdateTemplateResponseBody$ {
-  /** @deprecated use `TemplateUpdateTemplateResponseBody$inboundSchema` instead. */
-  export const inboundSchema = TemplateUpdateTemplateResponseBody$inboundSchema;
-  /** @deprecated use `TemplateUpdateTemplateResponseBody$outboundSchema` instead. */
+export namespace TemplateUpdateTemplateBadRequestError$ {
+  /** @deprecated use `TemplateUpdateTemplateBadRequestError$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateUpdateTemplateBadRequestError$inboundSchema;
+  /** @deprecated use `TemplateUpdateTemplateBadRequestError$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateUpdateTemplateResponseBody$outboundSchema;
-  /** @deprecated use `TemplateUpdateTemplateResponseBody$Outbound` instead. */
-  export type Outbound = TemplateUpdateTemplateResponseBody$Outbound;
+    TemplateUpdateTemplateBadRequestError$outboundSchema;
+  /** @deprecated use `TemplateUpdateTemplateBadRequestError$Outbound` instead. */
+  export type Outbound = TemplateUpdateTemplateBadRequestError$Outbound;
 }

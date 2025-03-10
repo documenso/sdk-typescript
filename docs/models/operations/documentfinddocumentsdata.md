@@ -9,7 +9,7 @@ let value: DocumentFindDocumentsData = {
   visibility: "ADMIN",
   status: "COMPLETED",
   source: "DOCUMENT",
-  id: 128926,
+  id: 1289.26,
   externalId: "<id>",
   userId: 3154.28,
   authOptions: {
@@ -21,14 +21,14 @@ let value: DocumentFindDocumentsData = {
   },
   title: "<value>",
   documentDataId: "<id>",
-  createdAt: "1719887403095",
-  updatedAt: "1737590660717",
+  createdAt: "1723861723224",
+  updatedAt: "1741564980846",
   completedAt: "<value>",
   deletedAt: "<value>",
-  teamId: 102044,
-  templateId: 208876,
+  teamId: 1020.44,
+  templateId: 2088.76,
   user: {
-    id: 161309,
+    id: 1613.09,
     name: "<value>",
     email: "Deon.Frami@yahoo.com",
   },
@@ -38,9 +38,9 @@ let value: DocumentFindDocumentsData = {
       readStatus: "NOT_OPENED",
       signingStatus: "SIGNED",
       sendStatus: "SENT",
-      id: 97101,
-      documentId: 837945,
-      templateId: 96098,
+      id: 971.01,
+      documentId: 8379.45,
+      templateId: 960.98,
       email: "Jane.Moen-Ritchie28@hotmail.com",
       name: "<value>",
       token: "<value>",
@@ -56,7 +56,7 @@ let value: DocumentFindDocumentsData = {
     },
   ],
   team: {
-    id: 317983,
+    id: 3179.83,
     url: "https://better-poppy.name/",
   },
 };
@@ -67,8 +67,8 @@ let value: DocumentFindDocumentsData = {
 | Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
 | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | `visibility`                                                                                               | [operations.DocumentFindDocumentsVisibility](../../models/operations/documentfinddocumentsvisibility.md)   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
-| `status`                                                                                                   | [operations.DocumentFindDocumentsStatus](../../models/operations/documentfinddocumentsstatus.md)           | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
-| `source`                                                                                                   | [operations.DocumentFindDocumentsSource](../../models/operations/documentfinddocumentssource.md)           | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| `status`                                                                                                   | [operations.DataStatus](../../models/operations/datastatus.md)                                             | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| `source`                                                                                                   | [operations.DataSource](../../models/operations/datasource.md)                                             | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
 | `id`                                                                                                       | *number*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
 | `externalId`                                                                                               | *string*                                                                                                   | :heavy_check_mark:                                                                                         | A custom external ID you can use to identify the document.                                                 |
 | `userId`                                                                                                   | *number*                                                                                                   | :heavy_check_mark:                                                                                         | The ID of the user that created this document.                                                             |
@@ -84,4 +84,4 @@ let value: DocumentFindDocumentsData = {
 | `templateId`                                                                                               | *number*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
 | `user`                                                                                                     | [operations.DocumentFindDocumentsUser](../../models/operations/documentfinddocumentsuser.md)               | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
 | `recipients`                                                                                               | [operations.DocumentFindDocumentsRecipients](../../models/operations/documentfinddocumentsrecipients.md)[] | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
-| `team`                                                                                                     | [operations.Team](../../models/operations/team.md)                                                         | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| `team`                                                                                                     | [operations.DocumentFindDocumentsTeam](../../models/operations/documentfinddocumentsteam.md)               | :heavy_check_mark:                                                                                         | N/A                                                                                                        |

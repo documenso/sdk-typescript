@@ -21,20 +21,21 @@ import {
 import * as errors from "../models/errors/index.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import * as operations from "../models/operations/index.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
  * Duplicate document
  */
-export async function documentsDuplicate(
+export function documentsDuplicate(
   client: DocumensoCore,
-  request: operations.DocumentDuplicateDocumentRequestBody,
+  request: operations.DocumentDuplicateDocumentRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
-    operations.DocumentDuplicateDocumentResponseBody,
-    | errors.DocumentDuplicateDocumentResponseBody
-    | errors.DocumentDuplicateDocumentDocumentsResponseBody
+    operations.DocumentDuplicateDocumentResponse,
+    | errors.DocumentDuplicateDocumentBadRequestError
+    | errors.DocumentDuplicateDocumentInternalServerError
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -44,16 +45,42 @@ export async function documentsDuplicate(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: DocumensoCore,
+  request: operations.DocumentDuplicateDocumentRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      operations.DocumentDuplicateDocumentResponse,
+      | errors.DocumentDuplicateDocumentBadRequestError
+      | errors.DocumentDuplicateDocumentInternalServerError
+      | APIError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) =>
-      operations.DocumentDuplicateDocumentRequestBody$outboundSchema.parse(
-        value,
-      ),
+      operations.DocumentDuplicateDocumentRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = encodeJSON("body", payload, { explode: true });
@@ -70,6 +97,7 @@ export async function documentsDuplicate(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "document-duplicateDocument",
     oAuth2Scopes: [],
 
@@ -92,7 +120,7 @@ export async function documentsDuplicate(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -103,7 +131,7 @@ export async function documentsDuplicate(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -112,9 +140,9 @@ export async function documentsDuplicate(
   };
 
   const [result] = await M.match<
-    operations.DocumentDuplicateDocumentResponseBody,
-    | errors.DocumentDuplicateDocumentResponseBody
-    | errors.DocumentDuplicateDocumentDocumentsResponseBody
+    operations.DocumentDuplicateDocumentResponse,
+    | errors.DocumentDuplicateDocumentBadRequestError
+    | errors.DocumentDuplicateDocumentInternalServerError
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -123,18 +151,21 @@ export async function documentsDuplicate(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, operations.DocumentDuplicateDocumentResponseBody$inboundSchema),
-    M.jsonErr(400, errors.DocumentDuplicateDocumentResponseBody$inboundSchema),
+    M.json(200, operations.DocumentDuplicateDocumentResponse$inboundSchema),
+    M.jsonErr(
+      400,
+      errors.DocumentDuplicateDocumentBadRequestError$inboundSchema,
+    ),
     M.jsonErr(
       500,
-      errors.DocumentDuplicateDocumentDocumentsResponseBody$inboundSchema,
+      errors.DocumentDuplicateDocumentInternalServerError$inboundSchema,
     ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

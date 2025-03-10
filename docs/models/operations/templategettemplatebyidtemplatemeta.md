@@ -1,0 +1,39 @@
+# TemplateGetTemplateByIdTemplateMeta
+
+## Example Usage
+
+```typescript
+import { TemplateGetTemplateByIdTemplateMeta } from "@documenso/sdk-typescript/models/operations";
+
+let value: TemplateGetTemplateByIdTemplateMeta = {
+  id: "<id>",
+  subject: "<value>",
+  message: "<value>",
+  timezone: "Europe/San_Marino",
+  dateFormat: "<value>",
+  signingOrder: "PARALLEL",
+  typedSignatureEnabled: false,
+  distributionMethod: "EMAIL",
+  templateId: 9197.38,
+  redirectUrl: "https://profitable-polarisation.com",
+  language: "<value>",
+  emailSettings: {},
+};
+```
+
+## Fields
+
+| Field                                                                                                                        | Type                                                                                                                         | Required                                                                                                                     | Description                                                                                                                  |
+| ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `id`                                                                                                                         | *string*                                                                                                                     | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
+| `subject`                                                                                                                    | *string*                                                                                                                     | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
+| `message`                                                                                                                    | *string*                                                                                                                     | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
+| `timezone`                                                                                                                   | *string*                                                                                                                     | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
+| `dateFormat`                                                                                                                 | *string*                                                                                                                     | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
+| `signingOrder`                                                                                                               | [operations.TemplateGetTemplateByIdSigningOrder](../../models/operations/templategettemplatebyidsigningorder.md)             | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
+| `typedSignatureEnabled`                                                                                                      | *boolean*                                                                                                                    | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
+| `distributionMethod`                                                                                                         | [operations.TemplateGetTemplateByIdDistributionMethod](../../models/operations/templategettemplatebyiddistributionmethod.md) | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
+| `templateId`                                                                                                                 | *number*                                                                                                                     | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
+| `redirectUrl`                                                                                                                | *string*                                                                                                                     | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
+| `language`                                                                                                                   | *string*                                                                                                                     | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
+| `emailSettings`                                                                                                              | [operations.TemplateGetTemplateByIdEmailSettings](../../models/operations/templategettemplatebyidemailsettings.md)           | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |

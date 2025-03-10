@@ -7,30 +7,30 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
-export type FieldDeleteDocumentFieldDocumentsFieldsIssues = {
+export type FieldDeleteDocumentFieldInternalServerErrorIssues = {
   message: string;
 };
 
 /**
  * Internal server error
  */
-export type FieldDeleteDocumentFieldDocumentsFieldsResponseBodyData = {
+export type FieldDeleteDocumentFieldInternalServerErrorData = {
   message: string;
   code: string;
-  issues?: Array<FieldDeleteDocumentFieldDocumentsFieldsIssues> | undefined;
+  issues?: Array<FieldDeleteDocumentFieldInternalServerErrorIssues> | undefined;
 };
 
 /**
  * Internal server error
  */
-export class FieldDeleteDocumentFieldDocumentsFieldsResponseBody extends Error {
+export class FieldDeleteDocumentFieldInternalServerError extends Error {
   code: string;
-  issues?: Array<FieldDeleteDocumentFieldDocumentsFieldsIssues> | undefined;
+  issues?: Array<FieldDeleteDocumentFieldInternalServerErrorIssues> | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: FieldDeleteDocumentFieldDocumentsFieldsResponseBodyData;
+  data$: FieldDeleteDocumentFieldInternalServerErrorData;
 
-  constructor(err: FieldDeleteDocumentFieldDocumentsFieldsResponseBodyData) {
+  constructor(err: FieldDeleteDocumentFieldInternalServerErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -40,34 +40,34 @@ export class FieldDeleteDocumentFieldDocumentsFieldsResponseBody extends Error {
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name = "FieldDeleteDocumentFieldDocumentsFieldsResponseBody";
+    this.name = "FieldDeleteDocumentFieldInternalServerError";
   }
 }
 
-export type FieldDeleteDocumentFieldIssues = {
+export type FieldDeleteDocumentFieldBadRequestIssues = {
   message: string;
 };
 
 /**
  * Invalid input data
  */
-export type FieldDeleteDocumentFieldResponseBodyData = {
+export type FieldDeleteDocumentFieldBadRequestErrorData = {
   message: string;
   code: string;
-  issues?: Array<FieldDeleteDocumentFieldIssues> | undefined;
+  issues?: Array<FieldDeleteDocumentFieldBadRequestIssues> | undefined;
 };
 
 /**
  * Invalid input data
  */
-export class FieldDeleteDocumentFieldResponseBody extends Error {
+export class FieldDeleteDocumentFieldBadRequestError extends Error {
   code: string;
-  issues?: Array<FieldDeleteDocumentFieldIssues> | undefined;
+  issues?: Array<FieldDeleteDocumentFieldBadRequestIssues> | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: FieldDeleteDocumentFieldResponseBodyData;
+  data$: FieldDeleteDocumentFieldBadRequestErrorData;
 
-  constructor(err: FieldDeleteDocumentFieldResponseBodyData) {
+  constructor(err: FieldDeleteDocumentFieldBadRequestErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -77,14 +77,14 @@ export class FieldDeleteDocumentFieldResponseBody extends Error {
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name = "FieldDeleteDocumentFieldResponseBody";
+    this.name = "FieldDeleteDocumentFieldBadRequestError";
   }
 }
 
 /** @internal */
-export const FieldDeleteDocumentFieldDocumentsFieldsIssues$inboundSchema:
+export const FieldDeleteDocumentFieldInternalServerErrorIssues$inboundSchema:
   z.ZodType<
-    FieldDeleteDocumentFieldDocumentsFieldsIssues,
+    FieldDeleteDocumentFieldInternalServerErrorIssues,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -92,16 +92,16 @@ export const FieldDeleteDocumentFieldDocumentsFieldsIssues$inboundSchema:
   });
 
 /** @internal */
-export type FieldDeleteDocumentFieldDocumentsFieldsIssues$Outbound = {
+export type FieldDeleteDocumentFieldInternalServerErrorIssues$Outbound = {
   message: string;
 };
 
 /** @internal */
-export const FieldDeleteDocumentFieldDocumentsFieldsIssues$outboundSchema:
+export const FieldDeleteDocumentFieldInternalServerErrorIssues$outboundSchema:
   z.ZodType<
-    FieldDeleteDocumentFieldDocumentsFieldsIssues$Outbound,
+    FieldDeleteDocumentFieldInternalServerErrorIssues$Outbound,
     z.ZodTypeDef,
-    FieldDeleteDocumentFieldDocumentsFieldsIssues
+    FieldDeleteDocumentFieldInternalServerErrorIssues
   > = z.object({
     message: z.string(),
   });
@@ -110,84 +110,87 @@ export const FieldDeleteDocumentFieldDocumentsFieldsIssues$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldDeleteDocumentFieldDocumentsFieldsIssues$ {
-  /** @deprecated use `FieldDeleteDocumentFieldDocumentsFieldsIssues$inboundSchema` instead. */
+export namespace FieldDeleteDocumentFieldInternalServerErrorIssues$ {
+  /** @deprecated use `FieldDeleteDocumentFieldInternalServerErrorIssues$inboundSchema` instead. */
   export const inboundSchema =
-    FieldDeleteDocumentFieldDocumentsFieldsIssues$inboundSchema;
-  /** @deprecated use `FieldDeleteDocumentFieldDocumentsFieldsIssues$outboundSchema` instead. */
+    FieldDeleteDocumentFieldInternalServerErrorIssues$inboundSchema;
+  /** @deprecated use `FieldDeleteDocumentFieldInternalServerErrorIssues$outboundSchema` instead. */
   export const outboundSchema =
-    FieldDeleteDocumentFieldDocumentsFieldsIssues$outboundSchema;
-  /** @deprecated use `FieldDeleteDocumentFieldDocumentsFieldsIssues$Outbound` instead. */
-  export type Outbound = FieldDeleteDocumentFieldDocumentsFieldsIssues$Outbound;
+    FieldDeleteDocumentFieldInternalServerErrorIssues$outboundSchema;
+  /** @deprecated use `FieldDeleteDocumentFieldInternalServerErrorIssues$Outbound` instead. */
+  export type Outbound =
+    FieldDeleteDocumentFieldInternalServerErrorIssues$Outbound;
 }
 
-export function fieldDeleteDocumentFieldDocumentsFieldsIssuesToJSON(
-  fieldDeleteDocumentFieldDocumentsFieldsIssues:
-    FieldDeleteDocumentFieldDocumentsFieldsIssues,
+export function fieldDeleteDocumentFieldInternalServerErrorIssuesToJSON(
+  fieldDeleteDocumentFieldInternalServerErrorIssues:
+    FieldDeleteDocumentFieldInternalServerErrorIssues,
 ): string {
   return JSON.stringify(
-    FieldDeleteDocumentFieldDocumentsFieldsIssues$outboundSchema.parse(
-      fieldDeleteDocumentFieldDocumentsFieldsIssues,
+    FieldDeleteDocumentFieldInternalServerErrorIssues$outboundSchema.parse(
+      fieldDeleteDocumentFieldInternalServerErrorIssues,
     ),
   );
 }
 
-export function fieldDeleteDocumentFieldDocumentsFieldsIssuesFromJSON(
+export function fieldDeleteDocumentFieldInternalServerErrorIssuesFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  FieldDeleteDocumentFieldDocumentsFieldsIssues,
+  FieldDeleteDocumentFieldInternalServerErrorIssues,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      FieldDeleteDocumentFieldDocumentsFieldsIssues$inboundSchema.parse(
+      FieldDeleteDocumentFieldInternalServerErrorIssues$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'FieldDeleteDocumentFieldDocumentsFieldsIssues' from JSON`,
+    `Failed to parse 'FieldDeleteDocumentFieldInternalServerErrorIssues' from JSON`,
   );
 }
 
 /** @internal */
-export const FieldDeleteDocumentFieldDocumentsFieldsResponseBody$inboundSchema:
+export const FieldDeleteDocumentFieldInternalServerError$inboundSchema:
   z.ZodType<
-    FieldDeleteDocumentFieldDocumentsFieldsResponseBody,
+    FieldDeleteDocumentFieldInternalServerError,
     z.ZodTypeDef,
     unknown
   > = z.object({
     message: z.string(),
     code: z.string(),
     issues: z.array(
-      z.lazy(() => FieldDeleteDocumentFieldDocumentsFieldsIssues$inboundSchema),
+      z.lazy(() =>
+        FieldDeleteDocumentFieldInternalServerErrorIssues$inboundSchema
+      ),
     ).optional(),
   })
     .transform((v) => {
-      return new FieldDeleteDocumentFieldDocumentsFieldsResponseBody(v);
+      return new FieldDeleteDocumentFieldInternalServerError(v);
     });
 
 /** @internal */
-export type FieldDeleteDocumentFieldDocumentsFieldsResponseBody$Outbound = {
+export type FieldDeleteDocumentFieldInternalServerError$Outbound = {
   message: string;
   code: string;
   issues?:
-    | Array<FieldDeleteDocumentFieldDocumentsFieldsIssues$Outbound>
+    | Array<FieldDeleteDocumentFieldInternalServerErrorIssues$Outbound>
     | undefined;
 };
 
 /** @internal */
-export const FieldDeleteDocumentFieldDocumentsFieldsResponseBody$outboundSchema:
+export const FieldDeleteDocumentFieldInternalServerError$outboundSchema:
   z.ZodType<
-    FieldDeleteDocumentFieldDocumentsFieldsResponseBody$Outbound,
+    FieldDeleteDocumentFieldInternalServerError$Outbound,
     z.ZodTypeDef,
-    FieldDeleteDocumentFieldDocumentsFieldsResponseBody
-  > = z.instanceof(FieldDeleteDocumentFieldDocumentsFieldsResponseBody)
+    FieldDeleteDocumentFieldInternalServerError
+  > = z.instanceof(FieldDeleteDocumentFieldInternalServerError)
     .transform(v => v.data$)
     .pipe(z.object({
       message: z.string(),
       code: z.string(),
       issues: z.array(
         z.lazy(() =>
-          FieldDeleteDocumentFieldDocumentsFieldsIssues$outboundSchema
+          FieldDeleteDocumentFieldInternalServerErrorIssues$outboundSchema
         ),
       ).optional(),
     }));
@@ -196,21 +199,20 @@ export const FieldDeleteDocumentFieldDocumentsFieldsResponseBody$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldDeleteDocumentFieldDocumentsFieldsResponseBody$ {
-  /** @deprecated use `FieldDeleteDocumentFieldDocumentsFieldsResponseBody$inboundSchema` instead. */
+export namespace FieldDeleteDocumentFieldInternalServerError$ {
+  /** @deprecated use `FieldDeleteDocumentFieldInternalServerError$inboundSchema` instead. */
   export const inboundSchema =
-    FieldDeleteDocumentFieldDocumentsFieldsResponseBody$inboundSchema;
-  /** @deprecated use `FieldDeleteDocumentFieldDocumentsFieldsResponseBody$outboundSchema` instead. */
+    FieldDeleteDocumentFieldInternalServerError$inboundSchema;
+  /** @deprecated use `FieldDeleteDocumentFieldInternalServerError$outboundSchema` instead. */
   export const outboundSchema =
-    FieldDeleteDocumentFieldDocumentsFieldsResponseBody$outboundSchema;
-  /** @deprecated use `FieldDeleteDocumentFieldDocumentsFieldsResponseBody$Outbound` instead. */
-  export type Outbound =
-    FieldDeleteDocumentFieldDocumentsFieldsResponseBody$Outbound;
+    FieldDeleteDocumentFieldInternalServerError$outboundSchema;
+  /** @deprecated use `FieldDeleteDocumentFieldInternalServerError$Outbound` instead. */
+  export type Outbound = FieldDeleteDocumentFieldInternalServerError$Outbound;
 }
 
 /** @internal */
-export const FieldDeleteDocumentFieldIssues$inboundSchema: z.ZodType<
-  FieldDeleteDocumentFieldIssues,
+export const FieldDeleteDocumentFieldBadRequestIssues$inboundSchema: z.ZodType<
+  FieldDeleteDocumentFieldBadRequestIssues,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -218,15 +220,15 @@ export const FieldDeleteDocumentFieldIssues$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type FieldDeleteDocumentFieldIssues$Outbound = {
+export type FieldDeleteDocumentFieldBadRequestIssues$Outbound = {
   message: string;
 };
 
 /** @internal */
-export const FieldDeleteDocumentFieldIssues$outboundSchema: z.ZodType<
-  FieldDeleteDocumentFieldIssues$Outbound,
+export const FieldDeleteDocumentFieldBadRequestIssues$outboundSchema: z.ZodType<
+  FieldDeleteDocumentFieldBadRequestIssues$Outbound,
   z.ZodTypeDef,
-  FieldDeleteDocumentFieldIssues
+  FieldDeleteDocumentFieldBadRequestIssues
 > = z.object({
   message: z.string(),
 });
@@ -235,82 +237,93 @@ export const FieldDeleteDocumentFieldIssues$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldDeleteDocumentFieldIssues$ {
-  /** @deprecated use `FieldDeleteDocumentFieldIssues$inboundSchema` instead. */
-  export const inboundSchema = FieldDeleteDocumentFieldIssues$inboundSchema;
-  /** @deprecated use `FieldDeleteDocumentFieldIssues$outboundSchema` instead. */
-  export const outboundSchema = FieldDeleteDocumentFieldIssues$outboundSchema;
-  /** @deprecated use `FieldDeleteDocumentFieldIssues$Outbound` instead. */
-  export type Outbound = FieldDeleteDocumentFieldIssues$Outbound;
+export namespace FieldDeleteDocumentFieldBadRequestIssues$ {
+  /** @deprecated use `FieldDeleteDocumentFieldBadRequestIssues$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldDeleteDocumentFieldBadRequestIssues$inboundSchema;
+  /** @deprecated use `FieldDeleteDocumentFieldBadRequestIssues$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldDeleteDocumentFieldBadRequestIssues$outboundSchema;
+  /** @deprecated use `FieldDeleteDocumentFieldBadRequestIssues$Outbound` instead. */
+  export type Outbound = FieldDeleteDocumentFieldBadRequestIssues$Outbound;
 }
 
-export function fieldDeleteDocumentFieldIssuesToJSON(
-  fieldDeleteDocumentFieldIssues: FieldDeleteDocumentFieldIssues,
+export function fieldDeleteDocumentFieldBadRequestIssuesToJSON(
+  fieldDeleteDocumentFieldBadRequestIssues:
+    FieldDeleteDocumentFieldBadRequestIssues,
 ): string {
   return JSON.stringify(
-    FieldDeleteDocumentFieldIssues$outboundSchema.parse(
-      fieldDeleteDocumentFieldIssues,
+    FieldDeleteDocumentFieldBadRequestIssues$outboundSchema.parse(
+      fieldDeleteDocumentFieldBadRequestIssues,
     ),
   );
 }
 
-export function fieldDeleteDocumentFieldIssuesFromJSON(
+export function fieldDeleteDocumentFieldBadRequestIssuesFromJSON(
   jsonString: string,
-): SafeParseResult<FieldDeleteDocumentFieldIssues, SDKValidationError> {
+): SafeParseResult<
+  FieldDeleteDocumentFieldBadRequestIssues,
+  SDKValidationError
+> {
   return safeParse(
     jsonString,
-    (x) => FieldDeleteDocumentFieldIssues$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldDeleteDocumentFieldIssues' from JSON`,
+    (x) =>
+      FieldDeleteDocumentFieldBadRequestIssues$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'FieldDeleteDocumentFieldBadRequestIssues' from JSON`,
   );
 }
 
 /** @internal */
-export const FieldDeleteDocumentFieldResponseBody$inboundSchema: z.ZodType<
-  FieldDeleteDocumentFieldResponseBody,
+export const FieldDeleteDocumentFieldBadRequestError$inboundSchema: z.ZodType<
+  FieldDeleteDocumentFieldBadRequestError,
   z.ZodTypeDef,
   unknown
 > = z.object({
   message: z.string(),
   code: z.string(),
-  issues: z.array(z.lazy(() => FieldDeleteDocumentFieldIssues$inboundSchema))
-    .optional(),
+  issues: z.array(
+    z.lazy(() => FieldDeleteDocumentFieldBadRequestIssues$inboundSchema),
+  ).optional(),
 })
   .transform((v) => {
-    return new FieldDeleteDocumentFieldResponseBody(v);
+    return new FieldDeleteDocumentFieldBadRequestError(v);
   });
 
 /** @internal */
-export type FieldDeleteDocumentFieldResponseBody$Outbound = {
+export type FieldDeleteDocumentFieldBadRequestError$Outbound = {
   message: string;
   code: string;
-  issues?: Array<FieldDeleteDocumentFieldIssues$Outbound> | undefined;
+  issues?: Array<FieldDeleteDocumentFieldBadRequestIssues$Outbound> | undefined;
 };
 
 /** @internal */
-export const FieldDeleteDocumentFieldResponseBody$outboundSchema: z.ZodType<
-  FieldDeleteDocumentFieldResponseBody$Outbound,
+export const FieldDeleteDocumentFieldBadRequestError$outboundSchema: z.ZodType<
+  FieldDeleteDocumentFieldBadRequestError$Outbound,
   z.ZodTypeDef,
-  FieldDeleteDocumentFieldResponseBody
-> = z.instanceof(FieldDeleteDocumentFieldResponseBody)
+  FieldDeleteDocumentFieldBadRequestError
+> = z.instanceof(FieldDeleteDocumentFieldBadRequestError)
   .transform(v => v.data$)
   .pipe(z.object({
     message: z.string(),
     code: z.string(),
-    issues: z.array(z.lazy(() => FieldDeleteDocumentFieldIssues$outboundSchema))
-      .optional(),
+    issues: z.array(
+      z.lazy(() => FieldDeleteDocumentFieldBadRequestIssues$outboundSchema),
+    ).optional(),
   }));
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldDeleteDocumentFieldResponseBody$ {
-  /** @deprecated use `FieldDeleteDocumentFieldResponseBody$inboundSchema` instead. */
+export namespace FieldDeleteDocumentFieldBadRequestError$ {
+  /** @deprecated use `FieldDeleteDocumentFieldBadRequestError$inboundSchema` instead. */
   export const inboundSchema =
-    FieldDeleteDocumentFieldResponseBody$inboundSchema;
-  /** @deprecated use `FieldDeleteDocumentFieldResponseBody$outboundSchema` instead. */
+    FieldDeleteDocumentFieldBadRequestError$inboundSchema;
+  /** @deprecated use `FieldDeleteDocumentFieldBadRequestError$outboundSchema` instead. */
   export const outboundSchema =
-    FieldDeleteDocumentFieldResponseBody$outboundSchema;
-  /** @deprecated use `FieldDeleteDocumentFieldResponseBody$Outbound` instead. */
-  export type Outbound = FieldDeleteDocumentFieldResponseBody$Outbound;
+    FieldDeleteDocumentFieldBadRequestError$outboundSchema;
+  /** @deprecated use `FieldDeleteDocumentFieldBadRequestError$Outbound` instead. */
+  export type Outbound = FieldDeleteDocumentFieldBadRequestError$Outbound;
 }

@@ -7,147 +7,143 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type RecipientDeleteDocumentRecipientRequestBody = {
+export type RecipientDeleteDocumentRecipientRequest = {
   recipientId: number;
 };
 
 /**
  * Successful response
  */
-export type RecipientDeleteDocumentRecipientResponseBody = {
+export type RecipientDeleteDocumentRecipientResponse = {
   success: boolean;
 };
 
 /** @internal */
-export const RecipientDeleteDocumentRecipientRequestBody$inboundSchema:
-  z.ZodType<
-    RecipientDeleteDocumentRecipientRequestBody,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    recipientId: z.number(),
-  });
+export const RecipientDeleteDocumentRecipientRequest$inboundSchema: z.ZodType<
+  RecipientDeleteDocumentRecipientRequest,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  recipientId: z.number(),
+});
 
 /** @internal */
-export type RecipientDeleteDocumentRecipientRequestBody$Outbound = {
+export type RecipientDeleteDocumentRecipientRequest$Outbound = {
   recipientId: number;
 };
 
 /** @internal */
-export const RecipientDeleteDocumentRecipientRequestBody$outboundSchema:
-  z.ZodType<
-    RecipientDeleteDocumentRecipientRequestBody$Outbound,
-    z.ZodTypeDef,
-    RecipientDeleteDocumentRecipientRequestBody
-  > = z.object({
-    recipientId: z.number(),
-  });
+export const RecipientDeleteDocumentRecipientRequest$outboundSchema: z.ZodType<
+  RecipientDeleteDocumentRecipientRequest$Outbound,
+  z.ZodTypeDef,
+  RecipientDeleteDocumentRecipientRequest
+> = z.object({
+  recipientId: z.number(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientDeleteDocumentRecipientRequestBody$ {
-  /** @deprecated use `RecipientDeleteDocumentRecipientRequestBody$inboundSchema` instead. */
+export namespace RecipientDeleteDocumentRecipientRequest$ {
+  /** @deprecated use `RecipientDeleteDocumentRecipientRequest$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientDeleteDocumentRecipientRequestBody$inboundSchema;
-  /** @deprecated use `RecipientDeleteDocumentRecipientRequestBody$outboundSchema` instead. */
+    RecipientDeleteDocumentRecipientRequest$inboundSchema;
+  /** @deprecated use `RecipientDeleteDocumentRecipientRequest$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientDeleteDocumentRecipientRequestBody$outboundSchema;
-  /** @deprecated use `RecipientDeleteDocumentRecipientRequestBody$Outbound` instead. */
-  export type Outbound = RecipientDeleteDocumentRecipientRequestBody$Outbound;
+    RecipientDeleteDocumentRecipientRequest$outboundSchema;
+  /** @deprecated use `RecipientDeleteDocumentRecipientRequest$Outbound` instead. */
+  export type Outbound = RecipientDeleteDocumentRecipientRequest$Outbound;
 }
 
-export function recipientDeleteDocumentRecipientRequestBodyToJSON(
-  recipientDeleteDocumentRecipientRequestBody:
-    RecipientDeleteDocumentRecipientRequestBody,
+export function recipientDeleteDocumentRecipientRequestToJSON(
+  recipientDeleteDocumentRecipientRequest:
+    RecipientDeleteDocumentRecipientRequest,
 ): string {
   return JSON.stringify(
-    RecipientDeleteDocumentRecipientRequestBody$outboundSchema.parse(
-      recipientDeleteDocumentRecipientRequestBody,
+    RecipientDeleteDocumentRecipientRequest$outboundSchema.parse(
+      recipientDeleteDocumentRecipientRequest,
     ),
   );
 }
 
-export function recipientDeleteDocumentRecipientRequestBodyFromJSON(
+export function recipientDeleteDocumentRecipientRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  RecipientDeleteDocumentRecipientRequestBody,
+  RecipientDeleteDocumentRecipientRequest,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      RecipientDeleteDocumentRecipientRequestBody$inboundSchema.parse(
+      RecipientDeleteDocumentRecipientRequest$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'RecipientDeleteDocumentRecipientRequestBody' from JSON`,
+    `Failed to parse 'RecipientDeleteDocumentRecipientRequest' from JSON`,
   );
 }
 
 /** @internal */
-export const RecipientDeleteDocumentRecipientResponseBody$inboundSchema:
-  z.ZodType<
-    RecipientDeleteDocumentRecipientResponseBody,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    success: z.boolean(),
-  });
+export const RecipientDeleteDocumentRecipientResponse$inboundSchema: z.ZodType<
+  RecipientDeleteDocumentRecipientResponse,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  success: z.boolean(),
+});
 
 /** @internal */
-export type RecipientDeleteDocumentRecipientResponseBody$Outbound = {
+export type RecipientDeleteDocumentRecipientResponse$Outbound = {
   success: boolean;
 };
 
 /** @internal */
-export const RecipientDeleteDocumentRecipientResponseBody$outboundSchema:
-  z.ZodType<
-    RecipientDeleteDocumentRecipientResponseBody$Outbound,
-    z.ZodTypeDef,
-    RecipientDeleteDocumentRecipientResponseBody
-  > = z.object({
-    success: z.boolean(),
-  });
+export const RecipientDeleteDocumentRecipientResponse$outboundSchema: z.ZodType<
+  RecipientDeleteDocumentRecipientResponse$Outbound,
+  z.ZodTypeDef,
+  RecipientDeleteDocumentRecipientResponse
+> = z.object({
+  success: z.boolean(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientDeleteDocumentRecipientResponseBody$ {
-  /** @deprecated use `RecipientDeleteDocumentRecipientResponseBody$inboundSchema` instead. */
+export namespace RecipientDeleteDocumentRecipientResponse$ {
+  /** @deprecated use `RecipientDeleteDocumentRecipientResponse$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientDeleteDocumentRecipientResponseBody$inboundSchema;
-  /** @deprecated use `RecipientDeleteDocumentRecipientResponseBody$outboundSchema` instead. */
+    RecipientDeleteDocumentRecipientResponse$inboundSchema;
+  /** @deprecated use `RecipientDeleteDocumentRecipientResponse$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientDeleteDocumentRecipientResponseBody$outboundSchema;
-  /** @deprecated use `RecipientDeleteDocumentRecipientResponseBody$Outbound` instead. */
-  export type Outbound = RecipientDeleteDocumentRecipientResponseBody$Outbound;
+    RecipientDeleteDocumentRecipientResponse$outboundSchema;
+  /** @deprecated use `RecipientDeleteDocumentRecipientResponse$Outbound` instead. */
+  export type Outbound = RecipientDeleteDocumentRecipientResponse$Outbound;
 }
 
-export function recipientDeleteDocumentRecipientResponseBodyToJSON(
-  recipientDeleteDocumentRecipientResponseBody:
-    RecipientDeleteDocumentRecipientResponseBody,
+export function recipientDeleteDocumentRecipientResponseToJSON(
+  recipientDeleteDocumentRecipientResponse:
+    RecipientDeleteDocumentRecipientResponse,
 ): string {
   return JSON.stringify(
-    RecipientDeleteDocumentRecipientResponseBody$outboundSchema.parse(
-      recipientDeleteDocumentRecipientResponseBody,
+    RecipientDeleteDocumentRecipientResponse$outboundSchema.parse(
+      recipientDeleteDocumentRecipientResponse,
     ),
   );
 }
 
-export function recipientDeleteDocumentRecipientResponseBodyFromJSON(
+export function recipientDeleteDocumentRecipientResponseFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  RecipientDeleteDocumentRecipientResponseBody,
+  RecipientDeleteDocumentRecipientResponse,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      RecipientDeleteDocumentRecipientResponseBody$inboundSchema.parse(
+      RecipientDeleteDocumentRecipientResponse$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'RecipientDeleteDocumentRecipientResponseBody' from JSON`,
+    `Failed to parse 'RecipientDeleteDocumentRecipientResponse' from JSON`,
   );
 }

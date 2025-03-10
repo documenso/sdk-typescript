@@ -1,0 +1,22 @@
+# RecipientUpdateDocumentRecipientRadio
+
+## Example Usage
+
+```typescript
+import { RecipientUpdateDocumentRecipientRadio } from "@documenso/sdk-typescript/models/operations";
+
+let value: RecipientUpdateDocumentRecipientRadio = {
+  type: "radio",
+};
+```
+
+## Fields
+
+| Field                                                                                                                              | Type                                                                                                                               | Required                                                                                                                           | Description                                                                                                                        |
+| ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `label`                                                                                                                            | *string*                                                                                                                           | :heavy_minus_sign:                                                                                                                 | N/A                                                                                                                                |
+| `placeholder`                                                                                                                      | *string*                                                                                                                           | :heavy_minus_sign:                                                                                                                 | N/A                                                                                                                                |
+| `required`                                                                                                                         | *boolean*                                                                                                                          | :heavy_minus_sign:                                                                                                                 | N/A                                                                                                                                |
+| `readOnly`                                                                                                                         | *boolean*                                                                                                                          | :heavy_minus_sign:                                                                                                                 | N/A                                                                                                                                |
+| `type`                                                                                                                             | [operations.RecipientUpdateDocumentRecipientTypeRadio](../../models/operations/recipientupdatedocumentrecipienttyperadio.md)       | :heavy_check_mark:                                                                                                                 | N/A                                                                                                                                |
+| `values`                                                                                                                           | [operations.RecipientUpdateDocumentRecipientValuesRadio](../../models/operations/recipientupdatedocumentrecipientvaluesradio.md)[] | :heavy_minus_sign:                                                                                                                 | N/A                                                                                                                                |

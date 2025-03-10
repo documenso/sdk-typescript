@@ -7,30 +7,30 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
-export type DocumentSendDocumentDocumentsIssues = {
+export type DocumentSendDocumentInternalServerErrorIssues = {
   message: string;
 };
 
 /**
  * Internal server error
  */
-export type DocumentSendDocumentDocumentsResponseBodyData = {
+export type DocumentSendDocumentInternalServerErrorData = {
   message: string;
   code: string;
-  issues?: Array<DocumentSendDocumentDocumentsIssues> | undefined;
+  issues?: Array<DocumentSendDocumentInternalServerErrorIssues> | undefined;
 };
 
 /**
  * Internal server error
  */
-export class DocumentSendDocumentDocumentsResponseBody extends Error {
+export class DocumentSendDocumentInternalServerError extends Error {
   code: string;
-  issues?: Array<DocumentSendDocumentDocumentsIssues> | undefined;
+  issues?: Array<DocumentSendDocumentInternalServerErrorIssues> | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: DocumentSendDocumentDocumentsResponseBodyData;
+  data$: DocumentSendDocumentInternalServerErrorData;
 
-  constructor(err: DocumentSendDocumentDocumentsResponseBodyData) {
+  constructor(err: DocumentSendDocumentInternalServerErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -40,34 +40,34 @@ export class DocumentSendDocumentDocumentsResponseBody extends Error {
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name = "DocumentSendDocumentDocumentsResponseBody";
+    this.name = "DocumentSendDocumentInternalServerError";
   }
 }
 
-export type DocumentSendDocumentIssues = {
+export type DocumentSendDocumentBadRequestIssues = {
   message: string;
 };
 
 /**
  * Invalid input data
  */
-export type DocumentSendDocumentResponseBodyData = {
+export type DocumentSendDocumentBadRequestErrorData = {
   message: string;
   code: string;
-  issues?: Array<DocumentSendDocumentIssues> | undefined;
+  issues?: Array<DocumentSendDocumentBadRequestIssues> | undefined;
 };
 
 /**
  * Invalid input data
  */
-export class DocumentSendDocumentResponseBody extends Error {
+export class DocumentSendDocumentBadRequestError extends Error {
   code: string;
-  issues?: Array<DocumentSendDocumentIssues> | undefined;
+  issues?: Array<DocumentSendDocumentBadRequestIssues> | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: DocumentSendDocumentResponseBodyData;
+  data$: DocumentSendDocumentBadRequestErrorData;
 
-  constructor(err: DocumentSendDocumentResponseBodyData) {
+  constructor(err: DocumentSendDocumentBadRequestErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -77,222 +77,242 @@ export class DocumentSendDocumentResponseBody extends Error {
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name = "DocumentSendDocumentResponseBody";
+    this.name = "DocumentSendDocumentBadRequestError";
   }
 }
 
 /** @internal */
-export const DocumentSendDocumentDocumentsIssues$inboundSchema: z.ZodType<
-  DocumentSendDocumentDocumentsIssues,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  message: z.string(),
-});
+export const DocumentSendDocumentInternalServerErrorIssues$inboundSchema:
+  z.ZodType<
+    DocumentSendDocumentInternalServerErrorIssues,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    message: z.string(),
+  });
 
 /** @internal */
-export type DocumentSendDocumentDocumentsIssues$Outbound = {
+export type DocumentSendDocumentInternalServerErrorIssues$Outbound = {
   message: string;
 };
 
 /** @internal */
-export const DocumentSendDocumentDocumentsIssues$outboundSchema: z.ZodType<
-  DocumentSendDocumentDocumentsIssues$Outbound,
-  z.ZodTypeDef,
-  DocumentSendDocumentDocumentsIssues
-> = z.object({
-  message: z.string(),
-});
+export const DocumentSendDocumentInternalServerErrorIssues$outboundSchema:
+  z.ZodType<
+    DocumentSendDocumentInternalServerErrorIssues$Outbound,
+    z.ZodTypeDef,
+    DocumentSendDocumentInternalServerErrorIssues
+  > = z.object({
+    message: z.string(),
+  });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentSendDocumentDocumentsIssues$ {
-  /** @deprecated use `DocumentSendDocumentDocumentsIssues$inboundSchema` instead. */
+export namespace DocumentSendDocumentInternalServerErrorIssues$ {
+  /** @deprecated use `DocumentSendDocumentInternalServerErrorIssues$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentSendDocumentDocumentsIssues$inboundSchema;
-  /** @deprecated use `DocumentSendDocumentDocumentsIssues$outboundSchema` instead. */
+    DocumentSendDocumentInternalServerErrorIssues$inboundSchema;
+  /** @deprecated use `DocumentSendDocumentInternalServerErrorIssues$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentSendDocumentDocumentsIssues$outboundSchema;
-  /** @deprecated use `DocumentSendDocumentDocumentsIssues$Outbound` instead. */
-  export type Outbound = DocumentSendDocumentDocumentsIssues$Outbound;
+    DocumentSendDocumentInternalServerErrorIssues$outboundSchema;
+  /** @deprecated use `DocumentSendDocumentInternalServerErrorIssues$Outbound` instead. */
+  export type Outbound = DocumentSendDocumentInternalServerErrorIssues$Outbound;
 }
 
-export function documentSendDocumentDocumentsIssuesToJSON(
-  documentSendDocumentDocumentsIssues: DocumentSendDocumentDocumentsIssues,
+export function documentSendDocumentInternalServerErrorIssuesToJSON(
+  documentSendDocumentInternalServerErrorIssues:
+    DocumentSendDocumentInternalServerErrorIssues,
 ): string {
   return JSON.stringify(
-    DocumentSendDocumentDocumentsIssues$outboundSchema.parse(
-      documentSendDocumentDocumentsIssues,
+    DocumentSendDocumentInternalServerErrorIssues$outboundSchema.parse(
+      documentSendDocumentInternalServerErrorIssues,
     ),
   );
 }
 
-export function documentSendDocumentDocumentsIssuesFromJSON(
+export function documentSendDocumentInternalServerErrorIssuesFromJSON(
   jsonString: string,
-): SafeParseResult<DocumentSendDocumentDocumentsIssues, SDKValidationError> {
+): SafeParseResult<
+  DocumentSendDocumentInternalServerErrorIssues,
+  SDKValidationError
+> {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentSendDocumentDocumentsIssues$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DocumentSendDocumentDocumentsIssues' from JSON`,
+      DocumentSendDocumentInternalServerErrorIssues$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'DocumentSendDocumentInternalServerErrorIssues' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentSendDocumentDocumentsResponseBody$inboundSchema: z.ZodType<
-  DocumentSendDocumentDocumentsResponseBody,
+export const DocumentSendDocumentInternalServerError$inboundSchema: z.ZodType<
+  DocumentSendDocumentInternalServerError,
   z.ZodTypeDef,
   unknown
 > = z.object({
   message: z.string(),
   code: z.string(),
   issues: z.array(
-    z.lazy(() => DocumentSendDocumentDocumentsIssues$inboundSchema),
+    z.lazy(() => DocumentSendDocumentInternalServerErrorIssues$inboundSchema),
   ).optional(),
 })
   .transform((v) => {
-    return new DocumentSendDocumentDocumentsResponseBody(v);
+    return new DocumentSendDocumentInternalServerError(v);
   });
 
 /** @internal */
-export type DocumentSendDocumentDocumentsResponseBody$Outbound = {
+export type DocumentSendDocumentInternalServerError$Outbound = {
   message: string;
   code: string;
-  issues?: Array<DocumentSendDocumentDocumentsIssues$Outbound> | undefined;
+  issues?:
+    | Array<DocumentSendDocumentInternalServerErrorIssues$Outbound>
+    | undefined;
 };
 
 /** @internal */
-export const DocumentSendDocumentDocumentsResponseBody$outboundSchema:
-  z.ZodType<
-    DocumentSendDocumentDocumentsResponseBody$Outbound,
-    z.ZodTypeDef,
-    DocumentSendDocumentDocumentsResponseBody
-  > = z.instanceof(DocumentSendDocumentDocumentsResponseBody)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() => DocumentSendDocumentDocumentsIssues$outboundSchema),
-      ).optional(),
-    }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DocumentSendDocumentDocumentsResponseBody$ {
-  /** @deprecated use `DocumentSendDocumentDocumentsResponseBody$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentSendDocumentDocumentsResponseBody$inboundSchema;
-  /** @deprecated use `DocumentSendDocumentDocumentsResponseBody$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentSendDocumentDocumentsResponseBody$outboundSchema;
-  /** @deprecated use `DocumentSendDocumentDocumentsResponseBody$Outbound` instead. */
-  export type Outbound = DocumentSendDocumentDocumentsResponseBody$Outbound;
-}
-
-/** @internal */
-export const DocumentSendDocumentIssues$inboundSchema: z.ZodType<
-  DocumentSendDocumentIssues,
+export const DocumentSendDocumentInternalServerError$outboundSchema: z.ZodType<
+  DocumentSendDocumentInternalServerError$Outbound,
   z.ZodTypeDef,
-  unknown
-> = z.object({
-  message: z.string(),
-});
-
-/** @internal */
-export type DocumentSendDocumentIssues$Outbound = {
-  message: string;
-};
-
-/** @internal */
-export const DocumentSendDocumentIssues$outboundSchema: z.ZodType<
-  DocumentSendDocumentIssues$Outbound,
-  z.ZodTypeDef,
-  DocumentSendDocumentIssues
-> = z.object({
-  message: z.string(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DocumentSendDocumentIssues$ {
-  /** @deprecated use `DocumentSendDocumentIssues$inboundSchema` instead. */
-  export const inboundSchema = DocumentSendDocumentIssues$inboundSchema;
-  /** @deprecated use `DocumentSendDocumentIssues$outboundSchema` instead. */
-  export const outboundSchema = DocumentSendDocumentIssues$outboundSchema;
-  /** @deprecated use `DocumentSendDocumentIssues$Outbound` instead. */
-  export type Outbound = DocumentSendDocumentIssues$Outbound;
-}
-
-export function documentSendDocumentIssuesToJSON(
-  documentSendDocumentIssues: DocumentSendDocumentIssues,
-): string {
-  return JSON.stringify(
-    DocumentSendDocumentIssues$outboundSchema.parse(documentSendDocumentIssues),
-  );
-}
-
-export function documentSendDocumentIssuesFromJSON(
-  jsonString: string,
-): SafeParseResult<DocumentSendDocumentIssues, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => DocumentSendDocumentIssues$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DocumentSendDocumentIssues' from JSON`,
-  );
-}
-
-/** @internal */
-export const DocumentSendDocumentResponseBody$inboundSchema: z.ZodType<
-  DocumentSendDocumentResponseBody,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(z.lazy(() => DocumentSendDocumentIssues$inboundSchema))
-    .optional(),
-})
-  .transform((v) => {
-    return new DocumentSendDocumentResponseBody(v);
-  });
-
-/** @internal */
-export type DocumentSendDocumentResponseBody$Outbound = {
-  message: string;
-  code: string;
-  issues?: Array<DocumentSendDocumentIssues$Outbound> | undefined;
-};
-
-/** @internal */
-export const DocumentSendDocumentResponseBody$outboundSchema: z.ZodType<
-  DocumentSendDocumentResponseBody$Outbound,
-  z.ZodTypeDef,
-  DocumentSendDocumentResponseBody
-> = z.instanceof(DocumentSendDocumentResponseBody)
+  DocumentSendDocumentInternalServerError
+> = z.instanceof(DocumentSendDocumentInternalServerError)
   .transform(v => v.data$)
   .pipe(z.object({
     message: z.string(),
     code: z.string(),
-    issues: z.array(z.lazy(() => DocumentSendDocumentIssues$outboundSchema))
-      .optional(),
+    issues: z.array(
+      z.lazy(() =>
+        DocumentSendDocumentInternalServerErrorIssues$outboundSchema
+      ),
+    ).optional(),
   }));
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentSendDocumentResponseBody$ {
-  /** @deprecated use `DocumentSendDocumentResponseBody$inboundSchema` instead. */
-  export const inboundSchema = DocumentSendDocumentResponseBody$inboundSchema;
-  /** @deprecated use `DocumentSendDocumentResponseBody$outboundSchema` instead. */
-  export const outboundSchema = DocumentSendDocumentResponseBody$outboundSchema;
-  /** @deprecated use `DocumentSendDocumentResponseBody$Outbound` instead. */
-  export type Outbound = DocumentSendDocumentResponseBody$Outbound;
+export namespace DocumentSendDocumentInternalServerError$ {
+  /** @deprecated use `DocumentSendDocumentInternalServerError$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentSendDocumentInternalServerError$inboundSchema;
+  /** @deprecated use `DocumentSendDocumentInternalServerError$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentSendDocumentInternalServerError$outboundSchema;
+  /** @deprecated use `DocumentSendDocumentInternalServerError$Outbound` instead. */
+  export type Outbound = DocumentSendDocumentInternalServerError$Outbound;
+}
+
+/** @internal */
+export const DocumentSendDocumentBadRequestIssues$inboundSchema: z.ZodType<
+  DocumentSendDocumentBadRequestIssues,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  message: z.string(),
+});
+
+/** @internal */
+export type DocumentSendDocumentBadRequestIssues$Outbound = {
+  message: string;
+};
+
+/** @internal */
+export const DocumentSendDocumentBadRequestIssues$outboundSchema: z.ZodType<
+  DocumentSendDocumentBadRequestIssues$Outbound,
+  z.ZodTypeDef,
+  DocumentSendDocumentBadRequestIssues
+> = z.object({
+  message: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentSendDocumentBadRequestIssues$ {
+  /** @deprecated use `DocumentSendDocumentBadRequestIssues$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentSendDocumentBadRequestIssues$inboundSchema;
+  /** @deprecated use `DocumentSendDocumentBadRequestIssues$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentSendDocumentBadRequestIssues$outboundSchema;
+  /** @deprecated use `DocumentSendDocumentBadRequestIssues$Outbound` instead. */
+  export type Outbound = DocumentSendDocumentBadRequestIssues$Outbound;
+}
+
+export function documentSendDocumentBadRequestIssuesToJSON(
+  documentSendDocumentBadRequestIssues: DocumentSendDocumentBadRequestIssues,
+): string {
+  return JSON.stringify(
+    DocumentSendDocumentBadRequestIssues$outboundSchema.parse(
+      documentSendDocumentBadRequestIssues,
+    ),
+  );
+}
+
+export function documentSendDocumentBadRequestIssuesFromJSON(
+  jsonString: string,
+): SafeParseResult<DocumentSendDocumentBadRequestIssues, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      DocumentSendDocumentBadRequestIssues$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentSendDocumentBadRequestIssues' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentSendDocumentBadRequestError$inboundSchema: z.ZodType<
+  DocumentSendDocumentBadRequestError,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  message: z.string(),
+  code: z.string(),
+  issues: z.array(
+    z.lazy(() => DocumentSendDocumentBadRequestIssues$inboundSchema),
+  ).optional(),
+})
+  .transform((v) => {
+    return new DocumentSendDocumentBadRequestError(v);
+  });
+
+/** @internal */
+export type DocumentSendDocumentBadRequestError$Outbound = {
+  message: string;
+  code: string;
+  issues?: Array<DocumentSendDocumentBadRequestIssues$Outbound> | undefined;
+};
+
+/** @internal */
+export const DocumentSendDocumentBadRequestError$outboundSchema: z.ZodType<
+  DocumentSendDocumentBadRequestError$Outbound,
+  z.ZodTypeDef,
+  DocumentSendDocumentBadRequestError
+> = z.instanceof(DocumentSendDocumentBadRequestError)
+  .transform(v => v.data$)
+  .pipe(z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => DocumentSendDocumentBadRequestIssues$outboundSchema),
+    ).optional(),
+  }));
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentSendDocumentBadRequestError$ {
+  /** @deprecated use `DocumentSendDocumentBadRequestError$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentSendDocumentBadRequestError$inboundSchema;
+  /** @deprecated use `DocumentSendDocumentBadRequestError$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentSendDocumentBadRequestError$outboundSchema;
+  /** @deprecated use `DocumentSendDocumentBadRequestError$Outbound` instead. */
+  export type Outbound = DocumentSendDocumentBadRequestError$Outbound;
 }

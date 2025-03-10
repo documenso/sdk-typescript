@@ -7,20 +7,20 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type DocumentDeleteDocumentRequestBody = {
+export type DocumentDeleteDocumentRequest = {
   documentId: number;
 };
 
 /**
  * Successful response
  */
-export type DocumentDeleteDocumentResponseBody = {
+export type DocumentDeleteDocumentResponse = {
   success: boolean;
 };
 
 /** @internal */
-export const DocumentDeleteDocumentRequestBody$inboundSchema: z.ZodType<
-  DocumentDeleteDocumentRequestBody,
+export const DocumentDeleteDocumentRequest$inboundSchema: z.ZodType<
+  DocumentDeleteDocumentRequest,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -28,15 +28,15 @@ export const DocumentDeleteDocumentRequestBody$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type DocumentDeleteDocumentRequestBody$Outbound = {
+export type DocumentDeleteDocumentRequest$Outbound = {
   documentId: number;
 };
 
 /** @internal */
-export const DocumentDeleteDocumentRequestBody$outboundSchema: z.ZodType<
-  DocumentDeleteDocumentRequestBody$Outbound,
+export const DocumentDeleteDocumentRequest$outboundSchema: z.ZodType<
+  DocumentDeleteDocumentRequest$Outbound,
   z.ZodTypeDef,
-  DocumentDeleteDocumentRequestBody
+  DocumentDeleteDocumentRequest
 > = z.object({
   documentId: z.number(),
 });
@@ -45,39 +45,38 @@ export const DocumentDeleteDocumentRequestBody$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentDeleteDocumentRequestBody$ {
-  /** @deprecated use `DocumentDeleteDocumentRequestBody$inboundSchema` instead. */
-  export const inboundSchema = DocumentDeleteDocumentRequestBody$inboundSchema;
-  /** @deprecated use `DocumentDeleteDocumentRequestBody$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentDeleteDocumentRequestBody$outboundSchema;
-  /** @deprecated use `DocumentDeleteDocumentRequestBody$Outbound` instead. */
-  export type Outbound = DocumentDeleteDocumentRequestBody$Outbound;
+export namespace DocumentDeleteDocumentRequest$ {
+  /** @deprecated use `DocumentDeleteDocumentRequest$inboundSchema` instead. */
+  export const inboundSchema = DocumentDeleteDocumentRequest$inboundSchema;
+  /** @deprecated use `DocumentDeleteDocumentRequest$outboundSchema` instead. */
+  export const outboundSchema = DocumentDeleteDocumentRequest$outboundSchema;
+  /** @deprecated use `DocumentDeleteDocumentRequest$Outbound` instead. */
+  export type Outbound = DocumentDeleteDocumentRequest$Outbound;
 }
 
-export function documentDeleteDocumentRequestBodyToJSON(
-  documentDeleteDocumentRequestBody: DocumentDeleteDocumentRequestBody,
+export function documentDeleteDocumentRequestToJSON(
+  documentDeleteDocumentRequest: DocumentDeleteDocumentRequest,
 ): string {
   return JSON.stringify(
-    DocumentDeleteDocumentRequestBody$outboundSchema.parse(
-      documentDeleteDocumentRequestBody,
+    DocumentDeleteDocumentRequest$outboundSchema.parse(
+      documentDeleteDocumentRequest,
     ),
   );
 }
 
-export function documentDeleteDocumentRequestBodyFromJSON(
+export function documentDeleteDocumentRequestFromJSON(
   jsonString: string,
-): SafeParseResult<DocumentDeleteDocumentRequestBody, SDKValidationError> {
+): SafeParseResult<DocumentDeleteDocumentRequest, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => DocumentDeleteDocumentRequestBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DocumentDeleteDocumentRequestBody' from JSON`,
+    (x) => DocumentDeleteDocumentRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentDeleteDocumentRequest' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentDeleteDocumentResponseBody$inboundSchema: z.ZodType<
-  DocumentDeleteDocumentResponseBody,
+export const DocumentDeleteDocumentResponse$inboundSchema: z.ZodType<
+  DocumentDeleteDocumentResponse,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -85,15 +84,15 @@ export const DocumentDeleteDocumentResponseBody$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type DocumentDeleteDocumentResponseBody$Outbound = {
+export type DocumentDeleteDocumentResponse$Outbound = {
   success: boolean;
 };
 
 /** @internal */
-export const DocumentDeleteDocumentResponseBody$outboundSchema: z.ZodType<
-  DocumentDeleteDocumentResponseBody$Outbound,
+export const DocumentDeleteDocumentResponse$outboundSchema: z.ZodType<
+  DocumentDeleteDocumentResponse$Outbound,
   z.ZodTypeDef,
-  DocumentDeleteDocumentResponseBody
+  DocumentDeleteDocumentResponse
 > = z.object({
   success: z.boolean(),
 });
@@ -102,33 +101,31 @@ export const DocumentDeleteDocumentResponseBody$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentDeleteDocumentResponseBody$ {
-  /** @deprecated use `DocumentDeleteDocumentResponseBody$inboundSchema` instead. */
-  export const inboundSchema = DocumentDeleteDocumentResponseBody$inboundSchema;
-  /** @deprecated use `DocumentDeleteDocumentResponseBody$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentDeleteDocumentResponseBody$outboundSchema;
-  /** @deprecated use `DocumentDeleteDocumentResponseBody$Outbound` instead. */
-  export type Outbound = DocumentDeleteDocumentResponseBody$Outbound;
+export namespace DocumentDeleteDocumentResponse$ {
+  /** @deprecated use `DocumentDeleteDocumentResponse$inboundSchema` instead. */
+  export const inboundSchema = DocumentDeleteDocumentResponse$inboundSchema;
+  /** @deprecated use `DocumentDeleteDocumentResponse$outboundSchema` instead. */
+  export const outboundSchema = DocumentDeleteDocumentResponse$outboundSchema;
+  /** @deprecated use `DocumentDeleteDocumentResponse$Outbound` instead. */
+  export type Outbound = DocumentDeleteDocumentResponse$Outbound;
 }
 
-export function documentDeleteDocumentResponseBodyToJSON(
-  documentDeleteDocumentResponseBody: DocumentDeleteDocumentResponseBody,
+export function documentDeleteDocumentResponseToJSON(
+  documentDeleteDocumentResponse: DocumentDeleteDocumentResponse,
 ): string {
   return JSON.stringify(
-    DocumentDeleteDocumentResponseBody$outboundSchema.parse(
-      documentDeleteDocumentResponseBody,
+    DocumentDeleteDocumentResponse$outboundSchema.parse(
+      documentDeleteDocumentResponse,
     ),
   );
 }
 
-export function documentDeleteDocumentResponseBodyFromJSON(
+export function documentDeleteDocumentResponseFromJSON(
   jsonString: string,
-): SafeParseResult<DocumentDeleteDocumentResponseBody, SDKValidationError> {
+): SafeParseResult<DocumentDeleteDocumentResponse, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      DocumentDeleteDocumentResponseBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DocumentDeleteDocumentResponseBody' from JSON`,
+    (x) => DocumentDeleteDocumentResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentDeleteDocumentResponse' from JSON`,
   );
 }

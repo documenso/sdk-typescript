@@ -1,0 +1,17 @@
+# FieldUpdateDocumentFieldsInternalServerErrorIssues
+
+## Example Usage
+
+```typescript
+import { FieldUpdateDocumentFieldsInternalServerErrorIssues } from "@documenso/sdk-typescript/models/errors";
+
+let value: FieldUpdateDocumentFieldsInternalServerErrorIssues = {
+  message: "<value>",
+};
+```
+
+## Fields
+
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `message`          | *string*           | :heavy_check_mark: | N/A                |

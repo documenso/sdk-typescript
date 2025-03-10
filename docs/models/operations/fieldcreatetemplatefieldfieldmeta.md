@@ -3,74 +3,74 @@
 
 ## Supported Types
 
-### `operations.FieldCreateTemplateFieldFieldMeta1`
+### `operations.FieldCreateTemplateFieldResponseInitials`
 
 ```typescript
-const value: operations.FieldCreateTemplateFieldFieldMeta1 = {
+const value: operations.FieldCreateTemplateFieldResponseInitials = {
   type: "initials",
 };
 ```
 
-### `operations.FieldCreateTemplateFieldFieldMeta2`
+### `operations.FieldCreateTemplateFieldResponseName`
 
 ```typescript
-const value: operations.FieldCreateTemplateFieldFieldMeta2 = {
+const value: operations.FieldCreateTemplateFieldResponseName = {
   type: "name",
 };
 ```
 
-### `operations.FieldCreateTemplateFieldFieldMeta3`
+### `operations.FieldCreateTemplateFieldResponseEmail`
 
 ```typescript
-const value: operations.FieldCreateTemplateFieldFieldMeta3 = {
+const value: operations.FieldCreateTemplateFieldResponseEmail = {
   type: "email",
 };
 ```
 
-### `operations.FieldCreateTemplateFieldFieldMeta4`
+### `operations.FieldCreateTemplateFieldResponseDate`
 
 ```typescript
-const value: operations.FieldCreateTemplateFieldFieldMeta4 = {
+const value: operations.FieldCreateTemplateFieldResponseDate = {
   type: "date",
 };
 ```
 
-### `operations.FieldCreateTemplateFieldFieldMeta5`
+### `operations.FieldCreateTemplateFieldResponseText`
 
 ```typescript
-const value: operations.FieldCreateTemplateFieldFieldMeta5 = {
+const value: operations.FieldCreateTemplateFieldResponseText = {
   type: "text",
 };
 ```
 
-### `operations.FieldCreateTemplateFieldFieldMeta6`
+### `operations.FieldCreateTemplateFieldResponseNumber`
 
 ```typescript
-const value: operations.FieldCreateTemplateFieldFieldMeta6 = {
+const value: operations.FieldCreateTemplateFieldResponseNumber = {
   type: "number",
 };
 ```
 
-### `operations.FieldCreateTemplateFieldFieldMeta7`
+### `operations.FieldCreateTemplateFieldResponseRadio`
 
 ```typescript
-const value: operations.FieldCreateTemplateFieldFieldMeta7 = {
+const value: operations.FieldCreateTemplateFieldResponseRadio = {
   type: "radio",
 };
 ```
 
-### `operations.FieldCreateTemplateFieldFieldMeta8`
+### `operations.FieldCreateTemplateFieldResponseCheckbox`
 
 ```typescript
-const value: operations.FieldCreateTemplateFieldFieldMeta8 = {
+const value: operations.FieldCreateTemplateFieldResponseCheckbox = {
   type: "checkbox",
 };
 ```
 
-### `operations.FieldCreateTemplateFieldFieldMeta9`
+### `operations.FieldCreateTemplateFieldResponseDropdown`
 
 ```typescript
-const value: operations.FieldCreateTemplateFieldFieldMeta9 = {
+const value: operations.FieldCreateTemplateFieldResponseDropdown = {
   type: "dropdown",
 };
 ```

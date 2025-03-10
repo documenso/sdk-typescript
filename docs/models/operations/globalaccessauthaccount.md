@@ -1,0 +1,17 @@
+# GlobalAccessAuthAccount
+
+The type of authentication required for the recipient to access the document.
+
+## Example Usage
+
+```typescript
+import { GlobalAccessAuthAccount } from "@documenso/sdk-typescript/models/operations";
+
+let value: GlobalAccessAuthAccount = "ACCOUNT";
+```
+
+## Values
+
+```typescript
+"ACCOUNT"
+```

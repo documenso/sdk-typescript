@@ -1,0 +1,30 @@
+# FieldCreateDocumentFieldFieldCheckbox
+
+## Example Usage
+
+```typescript
+import { FieldCreateDocumentFieldFieldCheckbox } from "@documenso/sdk-typescript/models/operations";
+
+let value: FieldCreateDocumentFieldFieldCheckbox = {
+  type: "CHECKBOX",
+  recipientId: 1621.2,
+  pageNumber: 5596.82,
+  pageX: 7734.56,
+  pageY: 4564.1,
+  width: 1533.69,
+  height: 1995.96,
+};
+```
+
+## Fields
+
+| Field                                                                                                                                  | Type                                                                                                                                   | Required                                                                                                                               | Description                                                                                                                            |
+| -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`                                                                                                                                 | [operations.FieldCreateDocumentFieldFieldTypeCheckbox](../../models/operations/fieldcreatedocumentfieldfieldtypecheckbox.md)           | :heavy_check_mark:                                                                                                                     | N/A                                                                                                                                    |
+| `fieldMeta`                                                                                                                            | [operations.FieldCreateDocumentFieldFieldFieldMetaCheckbox](../../models/operations/fieldcreatedocumentfieldfieldfieldmetacheckbox.md) | :heavy_minus_sign:                                                                                                                     | N/A                                                                                                                                    |
+| `recipientId`                                                                                                                          | *number*                                                                                                                               | :heavy_check_mark:                                                                                                                     | The ID of the recipient to create the field for.                                                                                       |
+| `pageNumber`                                                                                                                           | *number*                                                                                                                               | :heavy_check_mark:                                                                                                                     | The page number the field will be on.                                                                                                  |
+| `pageX`                                                                                                                                | *number*                                                                                                                               | :heavy_check_mark:                                                                                                                     | The X coordinate of where the field will be placed.                                                                                    |
+| `pageY`                                                                                                                                | *number*                                                                                                                               | :heavy_check_mark:                                                                                                                     | The Y coordinate of where the field will be placed.                                                                                    |
+| `width`                                                                                                                                | *number*                                                                                                                               | :heavy_check_mark:                                                                                                                     | The width of the field.                                                                                                                |
+| `height`                                                                                                                               | *number*                                                                                                                               | :heavy_check_mark:                                                                                                                     | The height of the field.                                                                                                               |

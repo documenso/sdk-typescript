@@ -3,74 +3,74 @@
 
 ## Supported Types
 
-### `operations.FieldCreateDocumentFieldFieldMeta1`
+### `operations.FieldCreateDocumentFieldResponseInitials`
 
 ```typescript
-const value: operations.FieldCreateDocumentFieldFieldMeta1 = {
+const value: operations.FieldCreateDocumentFieldResponseInitials = {
   type: "initials",
 };
 ```
 
-### `operations.FieldCreateDocumentFieldFieldMeta2`
+### `operations.FieldCreateDocumentFieldResponseName`
 
 ```typescript
-const value: operations.FieldCreateDocumentFieldFieldMeta2 = {
+const value: operations.FieldCreateDocumentFieldResponseName = {
   type: "name",
 };
 ```
 
-### `operations.FieldCreateDocumentFieldFieldMeta3`
+### `operations.FieldCreateDocumentFieldResponseEmail`
 
 ```typescript
-const value: operations.FieldCreateDocumentFieldFieldMeta3 = {
+const value: operations.FieldCreateDocumentFieldResponseEmail = {
   type: "email",
 };
 ```
 
-### `operations.FieldCreateDocumentFieldFieldMeta4`
+### `operations.FieldCreateDocumentFieldResponseDate`
 
 ```typescript
-const value: operations.FieldCreateDocumentFieldFieldMeta4 = {
+const value: operations.FieldCreateDocumentFieldResponseDate = {
   type: "date",
 };
 ```
 
-### `operations.FieldCreateDocumentFieldFieldMeta5`
+### `operations.FieldCreateDocumentFieldResponseText`
 
 ```typescript
-const value: operations.FieldCreateDocumentFieldFieldMeta5 = {
+const value: operations.FieldCreateDocumentFieldResponseText = {
   type: "text",
 };
 ```
 
-### `operations.FieldCreateDocumentFieldFieldMeta6`
+### `operations.FieldCreateDocumentFieldResponseNumber`
 
 ```typescript
-const value: operations.FieldCreateDocumentFieldFieldMeta6 = {
+const value: operations.FieldCreateDocumentFieldResponseNumber = {
   type: "number",
 };
 ```
 
-### `operations.FieldCreateDocumentFieldFieldMeta7`
+### `operations.FieldCreateDocumentFieldResponseRadio`
 
 ```typescript
-const value: operations.FieldCreateDocumentFieldFieldMeta7 = {
+const value: operations.FieldCreateDocumentFieldResponseRadio = {
   type: "radio",
 };
 ```
 
-### `operations.FieldCreateDocumentFieldFieldMeta8`
+### `operations.FieldCreateDocumentFieldResponseCheckbox`
 
 ```typescript
-const value: operations.FieldCreateDocumentFieldFieldMeta8 = {
+const value: operations.FieldCreateDocumentFieldResponseCheckbox = {
   type: "checkbox",
 };
 ```
 
-### `operations.FieldCreateDocumentFieldFieldMeta9`
+### `operations.FieldCreateDocumentFieldResponseDropdown`
 
 ```typescript
-const value: operations.FieldCreateDocumentFieldFieldMeta9 = {
+const value: operations.FieldCreateDocumentFieldResponseDropdown = {
   type: "dropdown",
 };
 ```

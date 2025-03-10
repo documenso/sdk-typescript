@@ -7,7 +7,7 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type TemplateToggleTemplateDirectLinkRequestBody = {
+export type TemplateToggleTemplateDirectLinkRequest = {
   templateId: number;
   enabled: boolean;
 };
@@ -15,7 +15,7 @@ export type TemplateToggleTemplateDirectLinkRequestBody = {
 /**
  * Successful response
  */
-export type TemplateToggleTemplateDirectLinkResponseBody = {
+export type TemplateToggleTemplateDirectLinkResponse = {
   id: string;
   templateId: number;
   token: string;
@@ -25,92 +25,89 @@ export type TemplateToggleTemplateDirectLinkResponseBody = {
 };
 
 /** @internal */
-export const TemplateToggleTemplateDirectLinkRequestBody$inboundSchema:
-  z.ZodType<
-    TemplateToggleTemplateDirectLinkRequestBody,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    templateId: z.number(),
-    enabled: z.boolean(),
-  });
+export const TemplateToggleTemplateDirectLinkRequest$inboundSchema: z.ZodType<
+  TemplateToggleTemplateDirectLinkRequest,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  templateId: z.number(),
+  enabled: z.boolean(),
+});
 
 /** @internal */
-export type TemplateToggleTemplateDirectLinkRequestBody$Outbound = {
+export type TemplateToggleTemplateDirectLinkRequest$Outbound = {
   templateId: number;
   enabled: boolean;
 };
 
 /** @internal */
-export const TemplateToggleTemplateDirectLinkRequestBody$outboundSchema:
-  z.ZodType<
-    TemplateToggleTemplateDirectLinkRequestBody$Outbound,
-    z.ZodTypeDef,
-    TemplateToggleTemplateDirectLinkRequestBody
-  > = z.object({
-    templateId: z.number(),
-    enabled: z.boolean(),
-  });
+export const TemplateToggleTemplateDirectLinkRequest$outboundSchema: z.ZodType<
+  TemplateToggleTemplateDirectLinkRequest$Outbound,
+  z.ZodTypeDef,
+  TemplateToggleTemplateDirectLinkRequest
+> = z.object({
+  templateId: z.number(),
+  enabled: z.boolean(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateToggleTemplateDirectLinkRequestBody$ {
-  /** @deprecated use `TemplateToggleTemplateDirectLinkRequestBody$inboundSchema` instead. */
+export namespace TemplateToggleTemplateDirectLinkRequest$ {
+  /** @deprecated use `TemplateToggleTemplateDirectLinkRequest$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateToggleTemplateDirectLinkRequestBody$inboundSchema;
-  /** @deprecated use `TemplateToggleTemplateDirectLinkRequestBody$outboundSchema` instead. */
+    TemplateToggleTemplateDirectLinkRequest$inboundSchema;
+  /** @deprecated use `TemplateToggleTemplateDirectLinkRequest$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateToggleTemplateDirectLinkRequestBody$outboundSchema;
-  /** @deprecated use `TemplateToggleTemplateDirectLinkRequestBody$Outbound` instead. */
-  export type Outbound = TemplateToggleTemplateDirectLinkRequestBody$Outbound;
+    TemplateToggleTemplateDirectLinkRequest$outboundSchema;
+  /** @deprecated use `TemplateToggleTemplateDirectLinkRequest$Outbound` instead. */
+  export type Outbound = TemplateToggleTemplateDirectLinkRequest$Outbound;
 }
 
-export function templateToggleTemplateDirectLinkRequestBodyToJSON(
-  templateToggleTemplateDirectLinkRequestBody:
-    TemplateToggleTemplateDirectLinkRequestBody,
+export function templateToggleTemplateDirectLinkRequestToJSON(
+  templateToggleTemplateDirectLinkRequest:
+    TemplateToggleTemplateDirectLinkRequest,
 ): string {
   return JSON.stringify(
-    TemplateToggleTemplateDirectLinkRequestBody$outboundSchema.parse(
-      templateToggleTemplateDirectLinkRequestBody,
+    TemplateToggleTemplateDirectLinkRequest$outboundSchema.parse(
+      templateToggleTemplateDirectLinkRequest,
     ),
   );
 }
 
-export function templateToggleTemplateDirectLinkRequestBodyFromJSON(
+export function templateToggleTemplateDirectLinkRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  TemplateToggleTemplateDirectLinkRequestBody,
+  TemplateToggleTemplateDirectLinkRequest,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      TemplateToggleTemplateDirectLinkRequestBody$inboundSchema.parse(
+      TemplateToggleTemplateDirectLinkRequest$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'TemplateToggleTemplateDirectLinkRequestBody' from JSON`,
+    `Failed to parse 'TemplateToggleTemplateDirectLinkRequest' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateToggleTemplateDirectLinkResponseBody$inboundSchema:
-  z.ZodType<
-    TemplateToggleTemplateDirectLinkResponseBody,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    id: z.string(),
-    templateId: z.number().int(),
-    token: z.string(),
-    createdAt: z.string(),
-    enabled: z.boolean(),
-    directTemplateRecipientId: z.number().int(),
-  });
+export const TemplateToggleTemplateDirectLinkResponse$inboundSchema: z.ZodType<
+  TemplateToggleTemplateDirectLinkResponse,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.string(),
+  templateId: z.number(),
+  token: z.string(),
+  createdAt: z.string(),
+  enabled: z.boolean(),
+  directTemplateRecipientId: z.number(),
+});
 
 /** @internal */
-export type TemplateToggleTemplateDirectLinkResponseBody$Outbound = {
+export type TemplateToggleTemplateDirectLinkResponse$Outbound = {
   id: string;
   templateId: number;
   token: string;
@@ -120,58 +117,57 @@ export type TemplateToggleTemplateDirectLinkResponseBody$Outbound = {
 };
 
 /** @internal */
-export const TemplateToggleTemplateDirectLinkResponseBody$outboundSchema:
-  z.ZodType<
-    TemplateToggleTemplateDirectLinkResponseBody$Outbound,
-    z.ZodTypeDef,
-    TemplateToggleTemplateDirectLinkResponseBody
-  > = z.object({
-    id: z.string(),
-    templateId: z.number().int(),
-    token: z.string(),
-    createdAt: z.string(),
-    enabled: z.boolean(),
-    directTemplateRecipientId: z.number().int(),
-  });
+export const TemplateToggleTemplateDirectLinkResponse$outboundSchema: z.ZodType<
+  TemplateToggleTemplateDirectLinkResponse$Outbound,
+  z.ZodTypeDef,
+  TemplateToggleTemplateDirectLinkResponse
+> = z.object({
+  id: z.string(),
+  templateId: z.number(),
+  token: z.string(),
+  createdAt: z.string(),
+  enabled: z.boolean(),
+  directTemplateRecipientId: z.number(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateToggleTemplateDirectLinkResponseBody$ {
-  /** @deprecated use `TemplateToggleTemplateDirectLinkResponseBody$inboundSchema` instead. */
+export namespace TemplateToggleTemplateDirectLinkResponse$ {
+  /** @deprecated use `TemplateToggleTemplateDirectLinkResponse$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateToggleTemplateDirectLinkResponseBody$inboundSchema;
-  /** @deprecated use `TemplateToggleTemplateDirectLinkResponseBody$outboundSchema` instead. */
+    TemplateToggleTemplateDirectLinkResponse$inboundSchema;
+  /** @deprecated use `TemplateToggleTemplateDirectLinkResponse$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateToggleTemplateDirectLinkResponseBody$outboundSchema;
-  /** @deprecated use `TemplateToggleTemplateDirectLinkResponseBody$Outbound` instead. */
-  export type Outbound = TemplateToggleTemplateDirectLinkResponseBody$Outbound;
+    TemplateToggleTemplateDirectLinkResponse$outboundSchema;
+  /** @deprecated use `TemplateToggleTemplateDirectLinkResponse$Outbound` instead. */
+  export type Outbound = TemplateToggleTemplateDirectLinkResponse$Outbound;
 }
 
-export function templateToggleTemplateDirectLinkResponseBodyToJSON(
-  templateToggleTemplateDirectLinkResponseBody:
-    TemplateToggleTemplateDirectLinkResponseBody,
+export function templateToggleTemplateDirectLinkResponseToJSON(
+  templateToggleTemplateDirectLinkResponse:
+    TemplateToggleTemplateDirectLinkResponse,
 ): string {
   return JSON.stringify(
-    TemplateToggleTemplateDirectLinkResponseBody$outboundSchema.parse(
-      templateToggleTemplateDirectLinkResponseBody,
+    TemplateToggleTemplateDirectLinkResponse$outboundSchema.parse(
+      templateToggleTemplateDirectLinkResponse,
     ),
   );
 }
 
-export function templateToggleTemplateDirectLinkResponseBodyFromJSON(
+export function templateToggleTemplateDirectLinkResponseFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  TemplateToggleTemplateDirectLinkResponseBody,
+  TemplateToggleTemplateDirectLinkResponse,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      TemplateToggleTemplateDirectLinkResponseBody$inboundSchema.parse(
+      TemplateToggleTemplateDirectLinkResponse$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'TemplateToggleTemplateDirectLinkResponseBody' from JSON`,
+    `Failed to parse 'TemplateToggleTemplateDirectLinkResponse' from JSON`,
   );
 }

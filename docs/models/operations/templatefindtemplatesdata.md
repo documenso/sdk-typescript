@@ -6,52 +6,52 @@
 import { TemplateFindTemplatesData } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateFindTemplatesData = {
-  type: "PUBLIC",
-  visibility: "ADMIN",
-  id: 30192,
+  type: "PRIVATE",
+  visibility: "EVERYONE",
+  id: 1964.51,
   externalId: "<id>",
   title: "<value>",
-  userId: 873320,
-  teamId: 444479,
+  userId: 6715.28,
+  teamId: 8429.74,
   authOptions: {
     globalAccessAuth: "ACCOUNT",
-    globalActionAuth: "PASSKEY",
+    globalActionAuth: "ACCOUNT",
   },
   templateDocumentDataId: "<id>",
-  createdAt: "1723086620945",
-  updatedAt: "1737561043284",
+  createdAt: "1730301435733",
+  updatedAt: "1741517852918",
   publicTitle: "<value>",
   publicDescription: "<value>",
   team: {
-    id: 344856,
-    url: "https://glass-colonialism.name/",
+    id: 8980.88,
+    url: "https://liquid-lawmaker.com/",
   },
   fields: [
     {
-      type: "NAME",
-      id: 958068,
+      type: "NUMBER",
+      id: 8304.77,
       secondaryId: "<id>",
-      documentId: 965735,
-      templateId: 620126,
-      recipientId: 617497,
-      page: 9853.79,
+      documentId: 579.09,
+      templateId: 2913.89,
+      recipientId: 380.44,
+      page: 9565.45,
       customText: "<value>",
       inserted: false,
       fieldMeta: {
-        type: "checkbox",
+        type: "radio",
       },
     },
   ],
   recipients: [
     {
-      role: "APPROVER",
-      readStatus: "NOT_OPENED",
-      signingStatus: "SIGNED",
+      role: "ASSISTANT",
+      readStatus: "OPENED",
+      signingStatus: "REJECTED",
       sendStatus: "NOT_SENT",
-      id: 487148,
-      documentId: 990369,
-      templateId: 912151,
-      email: "Albina.Lind@gmail.com",
+      id: 3538.19,
+      documentId: 3782.68,
+      templateId: 6578.62,
+      email: "Stephan.Bartell-Dickinson4@yahoo.com",
       name: "<value>",
       token: "<value>",
       documentDeletedAt: "<value>",
@@ -59,9 +59,9 @@ let value: TemplateFindTemplatesData = {
       signedAt: "<value>",
       authOptions: {
         accessAuth: "ACCOUNT",
-        actionAuth: "ACCOUNT",
+        actionAuth: "PASSKEY",
       },
-      signingOrder: 2596,
+      signingOrder: 8369.91,
       rejectionReason: "<value>",
     },
   ],
@@ -80,7 +80,7 @@ let value: TemplateFindTemplatesData = {
 
 | Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
 | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `type`                                                                                                       | [operations.TemplateFindTemplatesType](../../models/operations/templatefindtemplatestype.md)                 | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| `type`                                                                                                       | [operations.TemplateFindTemplatesDataType](../../models/operations/templatefindtemplatesdatatype.md)         | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `visibility`                                                                                                 | [operations.TemplateFindTemplatesVisibility](../../models/operations/templatefindtemplatesvisibility.md)     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `id`                                                                                                         | *number*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `externalId`                                                                                                 | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |

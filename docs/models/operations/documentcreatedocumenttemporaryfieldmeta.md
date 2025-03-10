@@ -3,74 +3,74 @@
 
 ## Supported Types
 
-### `operations.DocumentCreateDocumentTemporaryFieldMeta1`
+### `operations.DocumentInitials`
 
 ```typescript
-const value: operations.DocumentCreateDocumentTemporaryFieldMeta1 = {
+const value: operations.DocumentInitials = {
   type: "initials",
 };
 ```
 
-### `operations.DocumentCreateDocumentTemporaryFieldMeta2`
+### `operations.DocumentName`
 
 ```typescript
-const value: operations.DocumentCreateDocumentTemporaryFieldMeta2 = {
+const value: operations.DocumentName = {
   type: "name",
 };
 ```
 
-### `operations.DocumentCreateDocumentTemporaryFieldMeta3`
+### `operations.DocumentEmail`
 
 ```typescript
-const value: operations.DocumentCreateDocumentTemporaryFieldMeta3 = {
+const value: operations.DocumentEmail = {
   type: "email",
 };
 ```
 
-### `operations.DocumentCreateDocumentTemporaryFieldMeta4`
+### `operations.DocumentDate`
 
 ```typescript
-const value: operations.DocumentCreateDocumentTemporaryFieldMeta4 = {
+const value: operations.DocumentDate = {
   type: "date",
 };
 ```
 
-### `operations.DocumentCreateDocumentTemporaryFieldMeta5`
+### `operations.DocumentText`
 
 ```typescript
-const value: operations.DocumentCreateDocumentTemporaryFieldMeta5 = {
+const value: operations.DocumentText = {
   type: "text",
 };
 ```
 
-### `operations.DocumentCreateDocumentTemporaryFieldMeta6`
+### `operations.DocumentNumber`
 
 ```typescript
-const value: operations.DocumentCreateDocumentTemporaryFieldMeta6 = {
+const value: operations.DocumentNumber = {
   type: "number",
 };
 ```
 
-### `operations.DocumentCreateDocumentTemporaryFieldMeta7`
+### `operations.DocumentRadio`
 
 ```typescript
-const value: operations.DocumentCreateDocumentTemporaryFieldMeta7 = {
+const value: operations.DocumentRadio = {
   type: "radio",
 };
 ```
 
-### `operations.DocumentCreateDocumentTemporaryFieldMeta8`
+### `operations.DocumentCheckbox`
 
 ```typescript
-const value: operations.DocumentCreateDocumentTemporaryFieldMeta8 = {
+const value: operations.DocumentCheckbox = {
   type: "checkbox",
 };
 ```
 
-### `operations.DocumentCreateDocumentTemporaryFieldMeta9`
+### `operations.DocumentDropdown`
 
 ```typescript
-const value: operations.DocumentCreateDocumentTemporaryFieldMeta9 = {
+const value: operations.DocumentDropdown = {
   type: "dropdown",
 };
 ```

@@ -21,21 +21,22 @@ import {
 import * as errors from "../models/errors/index.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import * as operations from "../models/operations/index.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
  * Get template
  */
-export async function templatesGet(
+export function templatesGet(
   client: DocumensoCore,
   request: operations.TemplateGetTemplateByIdRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
-    operations.TemplateGetTemplateByIdResponseBody,
-    | errors.TemplateGetTemplateByIdResponseBody
-    | errors.TemplateGetTemplateByIdTemplatesResponseBody
-    | errors.TemplateGetTemplateByIdTemplatesResponseResponseBody
+    operations.TemplateGetTemplateByIdResponse,
+    | errors.TemplateGetTemplateByIdBadRequestError
+    | errors.TemplateGetTemplateByIdNotFoundError
+    | errors.TemplateGetTemplateByIdInternalServerError
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -45,6 +46,35 @@ export async function templatesGet(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: DocumensoCore,
+  request: operations.TemplateGetTemplateByIdRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      operations.TemplateGetTemplateByIdResponse,
+      | errors.TemplateGetTemplateByIdBadRequestError
+      | errors.TemplateGetTemplateByIdNotFoundError
+      | errors.TemplateGetTemplateByIdInternalServerError
+      | APIError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) =>
@@ -52,7 +82,7 @@ export async function templatesGet(
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = null;
@@ -75,6 +105,7 @@ export async function templatesGet(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "template-getTemplateById",
     oAuth2Scopes: [],
 
@@ -97,7 +128,7 @@ export async function templatesGet(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -108,7 +139,7 @@ export async function templatesGet(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -117,10 +148,10 @@ export async function templatesGet(
   };
 
   const [result] = await M.match<
-    operations.TemplateGetTemplateByIdResponseBody,
-    | errors.TemplateGetTemplateByIdResponseBody
-    | errors.TemplateGetTemplateByIdTemplatesResponseBody
-    | errors.TemplateGetTemplateByIdTemplatesResponseResponseBody
+    operations.TemplateGetTemplateByIdResponse,
+    | errors.TemplateGetTemplateByIdBadRequestError
+    | errors.TemplateGetTemplateByIdNotFoundError
+    | errors.TemplateGetTemplateByIdInternalServerError
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -129,22 +160,19 @@ export async function templatesGet(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, operations.TemplateGetTemplateByIdResponseBody$inboundSchema),
-    M.jsonErr(400, errors.TemplateGetTemplateByIdResponseBody$inboundSchema),
-    M.jsonErr(
-      404,
-      errors.TemplateGetTemplateByIdTemplatesResponseBody$inboundSchema,
-    ),
+    M.json(200, operations.TemplateGetTemplateByIdResponse$inboundSchema),
+    M.jsonErr(400, errors.TemplateGetTemplateByIdBadRequestError$inboundSchema),
+    M.jsonErr(404, errors.TemplateGetTemplateByIdNotFoundError$inboundSchema),
     M.jsonErr(
       500,
-      errors.TemplateGetTemplateByIdTemplatesResponseResponseBody$inboundSchema,
+      errors.TemplateGetTemplateByIdInternalServerError$inboundSchema,
     ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

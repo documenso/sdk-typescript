@@ -7,30 +7,34 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
-export type DocumentSetSettingsForDocumentDocumentsIssues = {
+export type DocumentSetSettingsForDocumentInternalServerErrorIssues = {
   message: string;
 };
 
 /**
  * Internal server error
  */
-export type DocumentSetSettingsForDocumentDocumentsResponseBodyData = {
+export type DocumentSetSettingsForDocumentInternalServerErrorData = {
   message: string;
   code: string;
-  issues?: Array<DocumentSetSettingsForDocumentDocumentsIssues> | undefined;
+  issues?:
+    | Array<DocumentSetSettingsForDocumentInternalServerErrorIssues>
+    | undefined;
 };
 
 /**
  * Internal server error
  */
-export class DocumentSetSettingsForDocumentDocumentsResponseBody extends Error {
+export class DocumentSetSettingsForDocumentInternalServerError extends Error {
   code: string;
-  issues?: Array<DocumentSetSettingsForDocumentDocumentsIssues> | undefined;
+  issues?:
+    | Array<DocumentSetSettingsForDocumentInternalServerErrorIssues>
+    | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: DocumentSetSettingsForDocumentDocumentsResponseBodyData;
+  data$: DocumentSetSettingsForDocumentInternalServerErrorData;
 
-  constructor(err: DocumentSetSettingsForDocumentDocumentsResponseBodyData) {
+  constructor(err: DocumentSetSettingsForDocumentInternalServerErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -40,34 +44,34 @@ export class DocumentSetSettingsForDocumentDocumentsResponseBody extends Error {
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name = "DocumentSetSettingsForDocumentDocumentsResponseBody";
+    this.name = "DocumentSetSettingsForDocumentInternalServerError";
   }
 }
 
-export type DocumentSetSettingsForDocumentIssues = {
+export type DocumentSetSettingsForDocumentBadRequestIssues = {
   message: string;
 };
 
 /**
  * Invalid input data
  */
-export type DocumentSetSettingsForDocumentResponseBodyData = {
+export type DocumentSetSettingsForDocumentBadRequestErrorData = {
   message: string;
   code: string;
-  issues?: Array<DocumentSetSettingsForDocumentIssues> | undefined;
+  issues?: Array<DocumentSetSettingsForDocumentBadRequestIssues> | undefined;
 };
 
 /**
  * Invalid input data
  */
-export class DocumentSetSettingsForDocumentResponseBody extends Error {
+export class DocumentSetSettingsForDocumentBadRequestError extends Error {
   code: string;
-  issues?: Array<DocumentSetSettingsForDocumentIssues> | undefined;
+  issues?: Array<DocumentSetSettingsForDocumentBadRequestIssues> | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: DocumentSetSettingsForDocumentResponseBodyData;
+  data$: DocumentSetSettingsForDocumentBadRequestErrorData;
 
-  constructor(err: DocumentSetSettingsForDocumentResponseBodyData) {
+  constructor(err: DocumentSetSettingsForDocumentBadRequestErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -77,14 +81,14 @@ export class DocumentSetSettingsForDocumentResponseBody extends Error {
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name = "DocumentSetSettingsForDocumentResponseBody";
+    this.name = "DocumentSetSettingsForDocumentBadRequestError";
   }
 }
 
 /** @internal */
-export const DocumentSetSettingsForDocumentDocumentsIssues$inboundSchema:
+export const DocumentSetSettingsForDocumentInternalServerErrorIssues$inboundSchema:
   z.ZodType<
-    DocumentSetSettingsForDocumentDocumentsIssues,
+    DocumentSetSettingsForDocumentInternalServerErrorIssues,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -92,16 +96,16 @@ export const DocumentSetSettingsForDocumentDocumentsIssues$inboundSchema:
   });
 
 /** @internal */
-export type DocumentSetSettingsForDocumentDocumentsIssues$Outbound = {
+export type DocumentSetSettingsForDocumentInternalServerErrorIssues$Outbound = {
   message: string;
 };
 
 /** @internal */
-export const DocumentSetSettingsForDocumentDocumentsIssues$outboundSchema:
+export const DocumentSetSettingsForDocumentInternalServerErrorIssues$outboundSchema:
   z.ZodType<
-    DocumentSetSettingsForDocumentDocumentsIssues$Outbound,
+    DocumentSetSettingsForDocumentInternalServerErrorIssues$Outbound,
     z.ZodTypeDef,
-    DocumentSetSettingsForDocumentDocumentsIssues
+    DocumentSetSettingsForDocumentInternalServerErrorIssues
   > = z.object({
     message: z.string(),
   });
@@ -110,84 +114,85 @@ export const DocumentSetSettingsForDocumentDocumentsIssues$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentSetSettingsForDocumentDocumentsIssues$ {
-  /** @deprecated use `DocumentSetSettingsForDocumentDocumentsIssues$inboundSchema` instead. */
+export namespace DocumentSetSettingsForDocumentInternalServerErrorIssues$ {
+  /** @deprecated use `DocumentSetSettingsForDocumentInternalServerErrorIssues$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentSetSettingsForDocumentDocumentsIssues$inboundSchema;
-  /** @deprecated use `DocumentSetSettingsForDocumentDocumentsIssues$outboundSchema` instead. */
+    DocumentSetSettingsForDocumentInternalServerErrorIssues$inboundSchema;
+  /** @deprecated use `DocumentSetSettingsForDocumentInternalServerErrorIssues$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentSetSettingsForDocumentDocumentsIssues$outboundSchema;
-  /** @deprecated use `DocumentSetSettingsForDocumentDocumentsIssues$Outbound` instead. */
-  export type Outbound = DocumentSetSettingsForDocumentDocumentsIssues$Outbound;
+    DocumentSetSettingsForDocumentInternalServerErrorIssues$outboundSchema;
+  /** @deprecated use `DocumentSetSettingsForDocumentInternalServerErrorIssues$Outbound` instead. */
+  export type Outbound =
+    DocumentSetSettingsForDocumentInternalServerErrorIssues$Outbound;
 }
 
-export function documentSetSettingsForDocumentDocumentsIssuesToJSON(
-  documentSetSettingsForDocumentDocumentsIssues:
-    DocumentSetSettingsForDocumentDocumentsIssues,
+export function documentSetSettingsForDocumentInternalServerErrorIssuesToJSON(
+  documentSetSettingsForDocumentInternalServerErrorIssues:
+    DocumentSetSettingsForDocumentInternalServerErrorIssues,
 ): string {
   return JSON.stringify(
-    DocumentSetSettingsForDocumentDocumentsIssues$outboundSchema.parse(
-      documentSetSettingsForDocumentDocumentsIssues,
-    ),
+    DocumentSetSettingsForDocumentInternalServerErrorIssues$outboundSchema
+      .parse(documentSetSettingsForDocumentInternalServerErrorIssues),
   );
 }
 
-export function documentSetSettingsForDocumentDocumentsIssuesFromJSON(
+export function documentSetSettingsForDocumentInternalServerErrorIssuesFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  DocumentSetSettingsForDocumentDocumentsIssues,
+  DocumentSetSettingsForDocumentInternalServerErrorIssues,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentSetSettingsForDocumentDocumentsIssues$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DocumentSetSettingsForDocumentDocumentsIssues' from JSON`,
+      DocumentSetSettingsForDocumentInternalServerErrorIssues$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'DocumentSetSettingsForDocumentInternalServerErrorIssues' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentSetSettingsForDocumentDocumentsResponseBody$inboundSchema:
+export const DocumentSetSettingsForDocumentInternalServerError$inboundSchema:
   z.ZodType<
-    DocumentSetSettingsForDocumentDocumentsResponseBody,
+    DocumentSetSettingsForDocumentInternalServerError,
     z.ZodTypeDef,
     unknown
   > = z.object({
     message: z.string(),
     code: z.string(),
     issues: z.array(
-      z.lazy(() => DocumentSetSettingsForDocumentDocumentsIssues$inboundSchema),
+      z.lazy(() =>
+        DocumentSetSettingsForDocumentInternalServerErrorIssues$inboundSchema
+      ),
     ).optional(),
   })
     .transform((v) => {
-      return new DocumentSetSettingsForDocumentDocumentsResponseBody(v);
+      return new DocumentSetSettingsForDocumentInternalServerError(v);
     });
 
 /** @internal */
-export type DocumentSetSettingsForDocumentDocumentsResponseBody$Outbound = {
+export type DocumentSetSettingsForDocumentInternalServerError$Outbound = {
   message: string;
   code: string;
   issues?:
-    | Array<DocumentSetSettingsForDocumentDocumentsIssues$Outbound>
+    | Array<DocumentSetSettingsForDocumentInternalServerErrorIssues$Outbound>
     | undefined;
 };
 
 /** @internal */
-export const DocumentSetSettingsForDocumentDocumentsResponseBody$outboundSchema:
+export const DocumentSetSettingsForDocumentInternalServerError$outboundSchema:
   z.ZodType<
-    DocumentSetSettingsForDocumentDocumentsResponseBody$Outbound,
+    DocumentSetSettingsForDocumentInternalServerError$Outbound,
     z.ZodTypeDef,
-    DocumentSetSettingsForDocumentDocumentsResponseBody
-  > = z.instanceof(DocumentSetSettingsForDocumentDocumentsResponseBody)
+    DocumentSetSettingsForDocumentInternalServerError
+  > = z.instanceof(DocumentSetSettingsForDocumentInternalServerError)
     .transform(v => v.data$)
     .pipe(z.object({
       message: z.string(),
       code: z.string(),
       issues: z.array(
         z.lazy(() =>
-          DocumentSetSettingsForDocumentDocumentsIssues$outboundSchema
+          DocumentSetSettingsForDocumentInternalServerErrorIssues$outboundSchema
         ),
       ).optional(),
     }));
@@ -196,111 +201,129 @@ export const DocumentSetSettingsForDocumentDocumentsResponseBody$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentSetSettingsForDocumentDocumentsResponseBody$ {
-  /** @deprecated use `DocumentSetSettingsForDocumentDocumentsResponseBody$inboundSchema` instead. */
+export namespace DocumentSetSettingsForDocumentInternalServerError$ {
+  /** @deprecated use `DocumentSetSettingsForDocumentInternalServerError$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentSetSettingsForDocumentDocumentsResponseBody$inboundSchema;
-  /** @deprecated use `DocumentSetSettingsForDocumentDocumentsResponseBody$outboundSchema` instead. */
+    DocumentSetSettingsForDocumentInternalServerError$inboundSchema;
+  /** @deprecated use `DocumentSetSettingsForDocumentInternalServerError$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentSetSettingsForDocumentDocumentsResponseBody$outboundSchema;
-  /** @deprecated use `DocumentSetSettingsForDocumentDocumentsResponseBody$Outbound` instead. */
+    DocumentSetSettingsForDocumentInternalServerError$outboundSchema;
+  /** @deprecated use `DocumentSetSettingsForDocumentInternalServerError$Outbound` instead. */
   export type Outbound =
-    DocumentSetSettingsForDocumentDocumentsResponseBody$Outbound;
+    DocumentSetSettingsForDocumentInternalServerError$Outbound;
 }
 
 /** @internal */
-export const DocumentSetSettingsForDocumentIssues$inboundSchema: z.ZodType<
-  DocumentSetSettingsForDocumentIssues,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  message: z.string(),
-});
+export const DocumentSetSettingsForDocumentBadRequestIssues$inboundSchema:
+  z.ZodType<
+    DocumentSetSettingsForDocumentBadRequestIssues,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    message: z.string(),
+  });
 
 /** @internal */
-export type DocumentSetSettingsForDocumentIssues$Outbound = {
+export type DocumentSetSettingsForDocumentBadRequestIssues$Outbound = {
   message: string;
 };
 
 /** @internal */
-export const DocumentSetSettingsForDocumentIssues$outboundSchema: z.ZodType<
-  DocumentSetSettingsForDocumentIssues$Outbound,
-  z.ZodTypeDef,
-  DocumentSetSettingsForDocumentIssues
-> = z.object({
-  message: z.string(),
-});
+export const DocumentSetSettingsForDocumentBadRequestIssues$outboundSchema:
+  z.ZodType<
+    DocumentSetSettingsForDocumentBadRequestIssues$Outbound,
+    z.ZodTypeDef,
+    DocumentSetSettingsForDocumentBadRequestIssues
+  > = z.object({
+    message: z.string(),
+  });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentSetSettingsForDocumentIssues$ {
-  /** @deprecated use `DocumentSetSettingsForDocumentIssues$inboundSchema` instead. */
+export namespace DocumentSetSettingsForDocumentBadRequestIssues$ {
+  /** @deprecated use `DocumentSetSettingsForDocumentBadRequestIssues$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentSetSettingsForDocumentIssues$inboundSchema;
-  /** @deprecated use `DocumentSetSettingsForDocumentIssues$outboundSchema` instead. */
+    DocumentSetSettingsForDocumentBadRequestIssues$inboundSchema;
+  /** @deprecated use `DocumentSetSettingsForDocumentBadRequestIssues$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentSetSettingsForDocumentIssues$outboundSchema;
-  /** @deprecated use `DocumentSetSettingsForDocumentIssues$Outbound` instead. */
-  export type Outbound = DocumentSetSettingsForDocumentIssues$Outbound;
+    DocumentSetSettingsForDocumentBadRequestIssues$outboundSchema;
+  /** @deprecated use `DocumentSetSettingsForDocumentBadRequestIssues$Outbound` instead. */
+  export type Outbound =
+    DocumentSetSettingsForDocumentBadRequestIssues$Outbound;
 }
 
-export function documentSetSettingsForDocumentIssuesToJSON(
-  documentSetSettingsForDocumentIssues: DocumentSetSettingsForDocumentIssues,
+export function documentSetSettingsForDocumentBadRequestIssuesToJSON(
+  documentSetSettingsForDocumentBadRequestIssues:
+    DocumentSetSettingsForDocumentBadRequestIssues,
 ): string {
   return JSON.stringify(
-    DocumentSetSettingsForDocumentIssues$outboundSchema.parse(
-      documentSetSettingsForDocumentIssues,
+    DocumentSetSettingsForDocumentBadRequestIssues$outboundSchema.parse(
+      documentSetSettingsForDocumentBadRequestIssues,
     ),
   );
 }
 
-export function documentSetSettingsForDocumentIssuesFromJSON(
+export function documentSetSettingsForDocumentBadRequestIssuesFromJSON(
   jsonString: string,
-): SafeParseResult<DocumentSetSettingsForDocumentIssues, SDKValidationError> {
+): SafeParseResult<
+  DocumentSetSettingsForDocumentBadRequestIssues,
+  SDKValidationError
+> {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentSetSettingsForDocumentIssues$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DocumentSetSettingsForDocumentIssues' from JSON`,
+      DocumentSetSettingsForDocumentBadRequestIssues$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'DocumentSetSettingsForDocumentBadRequestIssues' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentSetSettingsForDocumentResponseBody$inboundSchema:
-  z.ZodType<DocumentSetSettingsForDocumentResponseBody, z.ZodTypeDef, unknown> =
-    z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() => DocumentSetSettingsForDocumentIssues$inboundSchema),
-      ).optional(),
-    })
-      .transform((v) => {
-        return new DocumentSetSettingsForDocumentResponseBody(v);
-      });
+export const DocumentSetSettingsForDocumentBadRequestError$inboundSchema:
+  z.ZodType<
+    DocumentSetSettingsForDocumentBadRequestError,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() =>
+        DocumentSetSettingsForDocumentBadRequestIssues$inboundSchema
+      ),
+    ).optional(),
+  })
+    .transform((v) => {
+      return new DocumentSetSettingsForDocumentBadRequestError(v);
+    });
 
 /** @internal */
-export type DocumentSetSettingsForDocumentResponseBody$Outbound = {
+export type DocumentSetSettingsForDocumentBadRequestError$Outbound = {
   message: string;
   code: string;
-  issues?: Array<DocumentSetSettingsForDocumentIssues$Outbound> | undefined;
+  issues?:
+    | Array<DocumentSetSettingsForDocumentBadRequestIssues$Outbound>
+    | undefined;
 };
 
 /** @internal */
-export const DocumentSetSettingsForDocumentResponseBody$outboundSchema:
+export const DocumentSetSettingsForDocumentBadRequestError$outboundSchema:
   z.ZodType<
-    DocumentSetSettingsForDocumentResponseBody$Outbound,
+    DocumentSetSettingsForDocumentBadRequestError$Outbound,
     z.ZodTypeDef,
-    DocumentSetSettingsForDocumentResponseBody
-  > = z.instanceof(DocumentSetSettingsForDocumentResponseBody)
+    DocumentSetSettingsForDocumentBadRequestError
+  > = z.instanceof(DocumentSetSettingsForDocumentBadRequestError)
     .transform(v => v.data$)
     .pipe(z.object({
       message: z.string(),
       code: z.string(),
       issues: z.array(
-        z.lazy(() => DocumentSetSettingsForDocumentIssues$outboundSchema),
+        z.lazy(() =>
+          DocumentSetSettingsForDocumentBadRequestIssues$outboundSchema
+        ),
       ).optional(),
     }));
 
@@ -308,13 +331,13 @@ export const DocumentSetSettingsForDocumentResponseBody$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentSetSettingsForDocumentResponseBody$ {
-  /** @deprecated use `DocumentSetSettingsForDocumentResponseBody$inboundSchema` instead. */
+export namespace DocumentSetSettingsForDocumentBadRequestError$ {
+  /** @deprecated use `DocumentSetSettingsForDocumentBadRequestError$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentSetSettingsForDocumentResponseBody$inboundSchema;
-  /** @deprecated use `DocumentSetSettingsForDocumentResponseBody$outboundSchema` instead. */
+    DocumentSetSettingsForDocumentBadRequestError$inboundSchema;
+  /** @deprecated use `DocumentSetSettingsForDocumentBadRequestError$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentSetSettingsForDocumentResponseBody$outboundSchema;
-  /** @deprecated use `DocumentSetSettingsForDocumentResponseBody$Outbound` instead. */
-  export type Outbound = DocumentSetSettingsForDocumentResponseBody$Outbound;
+    DocumentSetSettingsForDocumentBadRequestError$outboundSchema;
+  /** @deprecated use `DocumentSetSettingsForDocumentBadRequestError$Outbound` instead. */
+  export type Outbound = DocumentSetSettingsForDocumentBadRequestError$Outbound;
 }

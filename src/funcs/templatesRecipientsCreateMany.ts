@@ -21,6 +21,7 @@ import {
 import * as errors from "../models/errors/index.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import * as operations from "../models/operations/index.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -29,15 +30,15 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Create multiple recipients for a template.
  */
-export async function templatesRecipientsCreateMany(
+export function templatesRecipientsCreateMany(
   client: DocumensoCore,
-  request: operations.RecipientCreateTemplateRecipientsRequestBody,
+  request: operations.RecipientCreateTemplateRecipientsRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
-    operations.RecipientCreateTemplateRecipientsResponseBody,
-    | errors.RecipientCreateTemplateRecipientsResponseBody
-    | errors.RecipientCreateTemplateRecipientsTemplatesRecipientsResponseBody
+    operations.RecipientCreateTemplateRecipientsResponse,
+    | errors.RecipientCreateTemplateRecipientsBadRequestError
+    | errors.RecipientCreateTemplateRecipientsInternalServerError
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -47,15 +48,44 @@ export async function templatesRecipientsCreateMany(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: DocumensoCore,
+  request: operations.RecipientCreateTemplateRecipientsRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      operations.RecipientCreateTemplateRecipientsResponse,
+      | errors.RecipientCreateTemplateRecipientsBadRequestError
+      | errors.RecipientCreateTemplateRecipientsInternalServerError
+      | APIError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) =>
-      operations.RecipientCreateTemplateRecipientsRequestBody$outboundSchema
-        .parse(value),
+      operations.RecipientCreateTemplateRecipientsRequest$outboundSchema.parse(
+        value,
+      ),
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = encodeJSON("body", payload, { explode: true });
@@ -72,6 +102,7 @@ export async function templatesRecipientsCreateMany(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "recipient-createTemplateRecipients",
     oAuth2Scopes: [],
 
@@ -94,7 +125,7 @@ export async function templatesRecipientsCreateMany(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -105,7 +136,7 @@ export async function templatesRecipientsCreateMany(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -114,9 +145,9 @@ export async function templatesRecipientsCreateMany(
   };
 
   const [result] = await M.match<
-    operations.RecipientCreateTemplateRecipientsResponseBody,
-    | errors.RecipientCreateTemplateRecipientsResponseBody
-    | errors.RecipientCreateTemplateRecipientsTemplatesRecipientsResponseBody
+    operations.RecipientCreateTemplateRecipientsResponse,
+    | errors.RecipientCreateTemplateRecipientsBadRequestError
+    | errors.RecipientCreateTemplateRecipientsInternalServerError
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -127,23 +158,22 @@ export async function templatesRecipientsCreateMany(
   >(
     M.json(
       200,
-      operations.RecipientCreateTemplateRecipientsResponseBody$inboundSchema,
+      operations.RecipientCreateTemplateRecipientsResponse$inboundSchema,
     ),
     M.jsonErr(
       400,
-      errors.RecipientCreateTemplateRecipientsResponseBody$inboundSchema,
+      errors.RecipientCreateTemplateRecipientsBadRequestError$inboundSchema,
     ),
     M.jsonErr(
       500,
-      errors
-        .RecipientCreateTemplateRecipientsTemplatesRecipientsResponseBody$inboundSchema,
+      errors.RecipientCreateTemplateRecipientsInternalServerError$inboundSchema,
     ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

@@ -1,0 +1,23 @@
+# TemplateGetTemplateByIdEmail
+
+## Example Usage
+
+```typescript
+import { TemplateGetTemplateByIdEmail } from "@documenso/sdk-typescript/models/operations";
+
+let value: TemplateGetTemplateByIdEmail = {
+  type: "email",
+};
+```
+
+## Fields
+
+| Field                                                                                                                | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
+| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `label`                                                                                                              | *string*                                                                                                             | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `placeholder`                                                                                                        | *string*                                                                                                             | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `required`                                                                                                           | *boolean*                                                                                                            | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `readOnly`                                                                                                           | *boolean*                                                                                                            | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `type`                                                                                                               | [operations.TemplateGetTemplateByIdTypeEmail](../../models/operations/templategettemplatebyidtypeemail.md)           | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
+| `fontSize`                                                                                                           | *number*                                                                                                             | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `textAlign`                                                                                                          | [operations.TemplateGetTemplateByIdTextAlignEmail](../../models/operations/templategettemplatebyidtextalignemail.md) | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |

@@ -7,7 +7,7 @@ The distribution method to use when sending the document to the recipients.
 ```typescript
 import { DocumentSendDocumentDistributionMethod } from "@documenso/sdk-typescript/models/operations";
 
-let value: DocumentSendDocumentDistributionMethod = "EMAIL";
+let value: DocumentSendDocumentDistributionMethod = "NONE";
 ```
 
 ## Values

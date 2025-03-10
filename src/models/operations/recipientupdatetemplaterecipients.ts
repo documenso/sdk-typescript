@@ -8,33 +8,34 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export const RecipientUpdateTemplateRecipientsRole = {
+export const RecipientUpdateTemplateRecipientsRequestRole = {
   Cc: "CC",
   Signer: "SIGNER",
   Viewer: "VIEWER",
   Approver: "APPROVER",
+  Assistant: "ASSISTANT",
 } as const;
-export type RecipientUpdateTemplateRecipientsRole = ClosedEnum<
-  typeof RecipientUpdateTemplateRecipientsRole
+export type RecipientUpdateTemplateRecipientsRequestRole = ClosedEnum<
+  typeof RecipientUpdateTemplateRecipientsRequestRole
 >;
 
 /**
  * The type of authentication required for the recipient to access the document.
  */
-export const RecipientUpdateTemplateRecipientsAccessAuth = {
+export const RecipientUpdateTemplateRecipientsRequestAccessAuth = {
   Account: "ACCOUNT",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
  */
-export type RecipientUpdateTemplateRecipientsAccessAuth = ClosedEnum<
-  typeof RecipientUpdateTemplateRecipientsAccessAuth
+export type RecipientUpdateTemplateRecipientsRequestAccessAuth = ClosedEnum<
+  typeof RecipientUpdateTemplateRecipientsRequestAccessAuth
 >;
 
 /**
  * The type of authentication required for the recipient to sign the document.
  */
-export const RecipientUpdateTemplateRecipientsActionAuth = {
+export const RecipientUpdateTemplateRecipientsRequestActionAuth = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
@@ -43,42 +44,50 @@ export const RecipientUpdateTemplateRecipientsActionAuth = {
 /**
  * The type of authentication required for the recipient to sign the document.
  */
-export type RecipientUpdateTemplateRecipientsActionAuth = ClosedEnum<
-  typeof RecipientUpdateTemplateRecipientsActionAuth
+export type RecipientUpdateTemplateRecipientsRequestActionAuth = ClosedEnum<
+  typeof RecipientUpdateTemplateRecipientsRequestActionAuth
 >;
 
-export type RecipientUpdateTemplateRecipientsRecipients = {
+export type RecipientUpdateTemplateRecipientsRequestRecipients = {
   /**
    * The ID of the recipient to update.
    */
   id: number;
   email?: string | undefined;
   name?: string | undefined;
-  role?: RecipientUpdateTemplateRecipientsRole | undefined;
+  role?: RecipientUpdateTemplateRecipientsRequestRole | undefined;
   signingOrder?: number | undefined;
   /**
    * The type of authentication required for the recipient to access the document.
    */
-  accessAuth?: RecipientUpdateTemplateRecipientsAccessAuth | null | undefined;
+  accessAuth?:
+    | RecipientUpdateTemplateRecipientsRequestAccessAuth
+    | null
+    | undefined;
   /**
    * The type of authentication required for the recipient to sign the document.
    */
-  actionAuth?: RecipientUpdateTemplateRecipientsActionAuth | null | undefined;
+  actionAuth?:
+    | RecipientUpdateTemplateRecipientsRequestActionAuth
+    | null
+    | undefined;
 };
 
-export type RecipientUpdateTemplateRecipientsRequestBody = {
+export type RecipientUpdateTemplateRecipientsRequest = {
   templateId: number;
-  recipients: Array<RecipientUpdateTemplateRecipientsRecipients>;
+  recipients: Array<RecipientUpdateTemplateRecipientsRequestRecipients>;
 };
 
-export const RecipientUpdateTemplateRecipientsTemplatesRecipientsRole = {
+export const RecipientUpdateTemplateRecipientsResponseRole = {
   Cc: "CC",
   Signer: "SIGNER",
   Viewer: "VIEWER",
   Approver: "APPROVER",
+  Assistant: "ASSISTANT",
 } as const;
-export type RecipientUpdateTemplateRecipientsTemplatesRecipientsRole =
-  ClosedEnum<typeof RecipientUpdateTemplateRecipientsTemplatesRecipientsRole>;
+export type RecipientUpdateTemplateRecipientsResponseRole = ClosedEnum<
+  typeof RecipientUpdateTemplateRecipientsResponseRole
+>;
 
 export const RecipientUpdateTemplateRecipientsReadStatus = {
   NotOpened: "NOT_OPENED",
@@ -108,21 +117,20 @@ export type RecipientUpdateTemplateRecipientsSendStatus = ClosedEnum<
 /**
  * The type of authentication required for the recipient to access the document.
  */
-export const RecipientUpdateTemplateRecipientsTemplatesRecipientsAccessAuth = {
+export const RecipientUpdateTemplateRecipientsResponseAccessAuth = {
   Account: "ACCOUNT",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
  */
-export type RecipientUpdateTemplateRecipientsTemplatesRecipientsAccessAuth =
-  ClosedEnum<
-    typeof RecipientUpdateTemplateRecipientsTemplatesRecipientsAccessAuth
-  >;
+export type RecipientUpdateTemplateRecipientsResponseAccessAuth = ClosedEnum<
+  typeof RecipientUpdateTemplateRecipientsResponseAccessAuth
+>;
 
 /**
  * The type of authentication required for the recipient to sign the document.
  */
-export const RecipientUpdateTemplateRecipientsTemplatesRecipientsActionAuth = {
+export const RecipientUpdateTemplateRecipientsResponseActionAuth = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
@@ -131,24 +139,19 @@ export const RecipientUpdateTemplateRecipientsTemplatesRecipientsActionAuth = {
 /**
  * The type of authentication required for the recipient to sign the document.
  */
-export type RecipientUpdateTemplateRecipientsTemplatesRecipientsActionAuth =
-  ClosedEnum<
-    typeof RecipientUpdateTemplateRecipientsTemplatesRecipientsActionAuth
-  >;
+export type RecipientUpdateTemplateRecipientsResponseActionAuth = ClosedEnum<
+  typeof RecipientUpdateTemplateRecipientsResponseActionAuth
+>;
 
 export type RecipientUpdateTemplateRecipientsAuthOptions = {
   /**
    * The type of authentication required for the recipient to access the document.
    */
-  accessAuth:
-    | RecipientUpdateTemplateRecipientsTemplatesRecipientsAccessAuth
-    | null;
+  accessAuth: RecipientUpdateTemplateRecipientsResponseAccessAuth | null;
   /**
    * The type of authentication required for the recipient to sign the document.
    */
-  actionAuth:
-    | RecipientUpdateTemplateRecipientsTemplatesRecipientsActionAuth
-    | null;
+  actionAuth: RecipientUpdateTemplateRecipientsResponseActionAuth | null;
 };
 
 export const RecipientUpdateTemplateRecipientsType = {
@@ -168,216 +171,245 @@ export type RecipientUpdateTemplateRecipientsType = ClosedEnum<
   typeof RecipientUpdateTemplateRecipientsType
 >;
 
-export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFields9Type =
-  {
-    Dropdown: "dropdown",
-  } as const;
-export type RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFields9Type =
-  ClosedEnum<
-    typeof RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFields9Type
-  >;
+export const RecipientUpdateTemplateRecipientsTypeDropdown = {
+  Dropdown: "dropdown",
+} as const;
+export type RecipientUpdateTemplateRecipientsTypeDropdown = ClosedEnum<
+  typeof RecipientUpdateTemplateRecipientsTypeDropdown
+>;
 
-export type RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseValues =
-  {
-    value: string;
-  };
+export type RecipientUpdateTemplateRecipientsValuesDropdown = {
+  value: string;
+};
 
-export type RecipientUpdateTemplateRecipientsFieldMeta9 = {
+export type RecipientUpdateTemplateRecipientsDropdown = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFields9Type;
-  values?:
-    | Array<
-      RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseValues
-    >
-    | undefined;
+  type: RecipientUpdateTemplateRecipientsTypeDropdown;
+  values?: Array<RecipientUpdateTemplateRecipientsValuesDropdown> | undefined;
   defaultValue?: string | undefined;
 };
 
-export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFieldsType =
-  {
-    Checkbox: "checkbox",
-  } as const;
-export type RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFieldsType =
-  ClosedEnum<
-    typeof RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFieldsType
-  >;
+export const RecipientUpdateTemplateRecipientsTypeCheckbox = {
+  Checkbox: "checkbox",
+} as const;
+export type RecipientUpdateTemplateRecipientsTypeCheckbox = ClosedEnum<
+  typeof RecipientUpdateTemplateRecipientsTypeCheckbox
+>;
 
-export type RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsValues =
-  {
-    id: number;
-    checked: boolean;
-    value: string;
-  };
-
-export type RecipientUpdateTemplateRecipientsFieldMeta8 = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  type:
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFieldsType;
-  values?:
-    | Array<RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsValues>
-    | undefined;
-  validationRule?: string | undefined;
-  validationLength?: number | undefined;
-};
-
-export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsType =
-  {
-    Radio: "radio",
-  } as const;
-export type RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsType =
-  ClosedEnum<
-    typeof RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsType
-  >;
-
-export type RecipientUpdateTemplateRecipientsFieldMetaValues = {
+export type RecipientUpdateTemplateRecipientsValuesCheckbox = {
   id: number;
   checked: boolean;
   value: string;
 };
 
-export type RecipientUpdateTemplateRecipientsFieldMeta7 = {
+export type RecipientUpdateTemplateRecipientsCheckbox = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsType;
-  values?: Array<RecipientUpdateTemplateRecipientsFieldMetaValues> | undefined;
+  type: RecipientUpdateTemplateRecipientsTypeCheckbox;
+  values?: Array<RecipientUpdateTemplateRecipientsValuesCheckbox> | undefined;
+  validationRule?: string | undefined;
+  validationLength?: number | undefined;
 };
 
-export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyType =
-  {
-    Number: "number",
-  } as const;
-export type RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyType =
-  ClosedEnum<
-    typeof RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyType
-  >;
+export const RecipientUpdateTemplateRecipientsTypeRadio = {
+  Radio: "radio",
+} as const;
+export type RecipientUpdateTemplateRecipientsTypeRadio = ClosedEnum<
+  typeof RecipientUpdateTemplateRecipientsTypeRadio
+>;
 
-export type RecipientUpdateTemplateRecipientsFieldMeta6 = {
+export type RecipientUpdateTemplateRecipientsValuesRadio = {
+  id: number;
+  checked: boolean;
+  value: string;
+};
+
+export type RecipientUpdateTemplateRecipientsRadio = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyType;
+  type: RecipientUpdateTemplateRecipientsTypeRadio;
+  values?: Array<RecipientUpdateTemplateRecipientsValuesRadio> | undefined;
+};
+
+export const RecipientUpdateTemplateRecipientsTypeNumber = {
+  Number: "number",
+} as const;
+export type RecipientUpdateTemplateRecipientsTypeNumber = ClosedEnum<
+  typeof RecipientUpdateTemplateRecipientsTypeNumber
+>;
+
+export const RecipientUpdateTemplateRecipientsTextAlignNumber = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type RecipientUpdateTemplateRecipientsTextAlignNumber = ClosedEnum<
+  typeof RecipientUpdateTemplateRecipientsTextAlignNumber
+>;
+
+export type RecipientUpdateTemplateRecipientsNumber = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: RecipientUpdateTemplateRecipientsTypeNumber;
   numberFormat?: string | undefined;
   value?: string | undefined;
   minValue?: number | undefined;
   maxValue?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: RecipientUpdateTemplateRecipientsTextAlignNumber | undefined;
 };
 
-export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONType =
-  {
-    Text: "text",
-  } as const;
-export type RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONType =
-  ClosedEnum<
-    typeof RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONType
-  >;
+export const RecipientUpdateTemplateRecipientsTypeText = {
+  Text: "text",
+} as const;
+export type RecipientUpdateTemplateRecipientsTypeText = ClosedEnum<
+  typeof RecipientUpdateTemplateRecipientsTypeText
+>;
 
-export type RecipientUpdateTemplateRecipientsFieldMeta5 = {
+export const RecipientUpdateTemplateRecipientsTextAlignText = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type RecipientUpdateTemplateRecipientsTextAlignText = ClosedEnum<
+  typeof RecipientUpdateTemplateRecipientsTextAlignText
+>;
+
+export type RecipientUpdateTemplateRecipientsText = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONType;
+  type: RecipientUpdateTemplateRecipientsTypeText;
   text?: string | undefined;
   characterLimit?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: RecipientUpdateTemplateRecipientsTextAlignText | undefined;
 };
 
-export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200Type =
-  {
-    Date: "date",
-  } as const;
-export type RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200Type =
-  ClosedEnum<
-    typeof RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200Type
-  >;
-
-export type RecipientUpdateTemplateRecipientsFieldMeta4 = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  type:
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200Type;
-  fontSize?: number | undefined;
-};
-
-export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseType =
-  {
-    Email: "email",
-  } as const;
-export type RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseType =
-  ClosedEnum<
-    typeof RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseType
-  >;
-
-export type RecipientUpdateTemplateRecipientsFieldMeta3 = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  type:
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseType;
-  fontSize?: number | undefined;
-};
-
-export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsType =
-  {
-    Name: "name",
-  } as const;
-export type RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsType =
-  ClosedEnum<
-    typeof RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsType
-  >;
-
-export type RecipientUpdateTemplateRecipientsFieldMeta2 = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  type: RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsType;
-  fontSize?: number | undefined;
-};
-
-export const RecipientUpdateTemplateRecipientsFieldMetaType = {
-  Initials: "initials",
+export const RecipientUpdateTemplateRecipientsTypeDate = {
+  Date: "date",
 } as const;
-export type RecipientUpdateTemplateRecipientsFieldMetaType = ClosedEnum<
-  typeof RecipientUpdateTemplateRecipientsFieldMetaType
+export type RecipientUpdateTemplateRecipientsTypeDate = ClosedEnum<
+  typeof RecipientUpdateTemplateRecipientsTypeDate
 >;
 
-export type RecipientUpdateTemplateRecipientsFieldMeta1 = {
+export const RecipientUpdateTemplateRecipientsTextAlignDate = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type RecipientUpdateTemplateRecipientsTextAlignDate = ClosedEnum<
+  typeof RecipientUpdateTemplateRecipientsTextAlignDate
+>;
+
+export type RecipientUpdateTemplateRecipientsDate = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: RecipientUpdateTemplateRecipientsFieldMetaType;
+  type: RecipientUpdateTemplateRecipientsTypeDate;
   fontSize?: number | undefined;
+  textAlign?: RecipientUpdateTemplateRecipientsTextAlignDate | undefined;
+};
+
+export const RecipientUpdateTemplateRecipientsTypeEmail = {
+  Email: "email",
+} as const;
+export type RecipientUpdateTemplateRecipientsTypeEmail = ClosedEnum<
+  typeof RecipientUpdateTemplateRecipientsTypeEmail
+>;
+
+export const RecipientUpdateTemplateRecipientsTextAlignEmail = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type RecipientUpdateTemplateRecipientsTextAlignEmail = ClosedEnum<
+  typeof RecipientUpdateTemplateRecipientsTextAlignEmail
+>;
+
+export type RecipientUpdateTemplateRecipientsEmail = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: RecipientUpdateTemplateRecipientsTypeEmail;
+  fontSize?: number | undefined;
+  textAlign?: RecipientUpdateTemplateRecipientsTextAlignEmail | undefined;
+};
+
+export const RecipientUpdateTemplateRecipientsTypeName = {
+  Name: "name",
+} as const;
+export type RecipientUpdateTemplateRecipientsTypeName = ClosedEnum<
+  typeof RecipientUpdateTemplateRecipientsTypeName
+>;
+
+export const RecipientUpdateTemplateRecipientsTextAlignName = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type RecipientUpdateTemplateRecipientsTextAlignName = ClosedEnum<
+  typeof RecipientUpdateTemplateRecipientsTextAlignName
+>;
+
+export type RecipientUpdateTemplateRecipientsName = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: RecipientUpdateTemplateRecipientsTypeName;
+  fontSize?: number | undefined;
+  textAlign?: RecipientUpdateTemplateRecipientsTextAlignName | undefined;
+};
+
+export const RecipientUpdateTemplateRecipientsTypeInitials = {
+  Initials: "initials",
+} as const;
+export type RecipientUpdateTemplateRecipientsTypeInitials = ClosedEnum<
+  typeof RecipientUpdateTemplateRecipientsTypeInitials
+>;
+
+export const RecipientUpdateTemplateRecipientsTextAlignInitials = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type RecipientUpdateTemplateRecipientsTextAlignInitials = ClosedEnum<
+  typeof RecipientUpdateTemplateRecipientsTextAlignInitials
+>;
+
+export type RecipientUpdateTemplateRecipientsInitials = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: RecipientUpdateTemplateRecipientsTypeInitials;
+  fontSize?: number | undefined;
+  textAlign?: RecipientUpdateTemplateRecipientsTextAlignInitials | undefined;
 };
 
 export type RecipientUpdateTemplateRecipientsFieldMeta =
-  | RecipientUpdateTemplateRecipientsFieldMeta1
-  | RecipientUpdateTemplateRecipientsFieldMeta2
-  | RecipientUpdateTemplateRecipientsFieldMeta3
-  | RecipientUpdateTemplateRecipientsFieldMeta4
-  | RecipientUpdateTemplateRecipientsFieldMeta7
-  | RecipientUpdateTemplateRecipientsFieldMeta9
-  | RecipientUpdateTemplateRecipientsFieldMeta5
-  | RecipientUpdateTemplateRecipientsFieldMeta8
-  | RecipientUpdateTemplateRecipientsFieldMeta6;
+  | RecipientUpdateTemplateRecipientsRadio
+  | RecipientUpdateTemplateRecipientsInitials
+  | RecipientUpdateTemplateRecipientsName
+  | RecipientUpdateTemplateRecipientsEmail
+  | RecipientUpdateTemplateRecipientsDate
+  | RecipientUpdateTemplateRecipientsDropdown
+  | RecipientUpdateTemplateRecipientsCheckbox
+  | RecipientUpdateTemplateRecipientsText
+  | RecipientUpdateTemplateRecipientsNumber;
 
 export type RecipientUpdateTemplateRecipientsFields = {
   type: RecipientUpdateTemplateRecipientsType;
@@ -397,20 +429,20 @@ export type RecipientUpdateTemplateRecipientsFields = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | RecipientUpdateTemplateRecipientsFieldMeta1
-    | RecipientUpdateTemplateRecipientsFieldMeta2
-    | RecipientUpdateTemplateRecipientsFieldMeta3
-    | RecipientUpdateTemplateRecipientsFieldMeta4
-    | RecipientUpdateTemplateRecipientsFieldMeta7
-    | RecipientUpdateTemplateRecipientsFieldMeta9
-    | RecipientUpdateTemplateRecipientsFieldMeta5
-    | RecipientUpdateTemplateRecipientsFieldMeta8
-    | RecipientUpdateTemplateRecipientsFieldMeta6
+    | RecipientUpdateTemplateRecipientsRadio
+    | RecipientUpdateTemplateRecipientsInitials
+    | RecipientUpdateTemplateRecipientsName
+    | RecipientUpdateTemplateRecipientsEmail
+    | RecipientUpdateTemplateRecipientsDate
+    | RecipientUpdateTemplateRecipientsDropdown
+    | RecipientUpdateTemplateRecipientsCheckbox
+    | RecipientUpdateTemplateRecipientsText
+    | RecipientUpdateTemplateRecipientsNumber
     | null;
 };
 
-export type RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients = {
-  role: RecipientUpdateTemplateRecipientsTemplatesRecipientsRole;
+export type RecipientUpdateTemplateRecipientsResponseRecipients = {
+  role: RecipientUpdateTemplateRecipientsResponseRole;
   readStatus: RecipientUpdateTemplateRecipientsReadStatus;
   signingStatus: RecipientUpdateTemplateRecipientsSigningStatus;
   sendStatus: RecipientUpdateTemplateRecipientsSendStatus;
@@ -435,104 +467,101 @@ export type RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients = {
 /**
  * Successful response
  */
-export type RecipientUpdateTemplateRecipientsResponseBody = {
-  recipients: Array<
-    RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients
-  >;
+export type RecipientUpdateTemplateRecipientsResponse = {
+  recipients: Array<RecipientUpdateTemplateRecipientsResponseRecipients>;
 };
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsRole$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsRole> = z.nativeEnum(
-    RecipientUpdateTemplateRecipientsRole,
-  );
+export const RecipientUpdateTemplateRecipientsRequestRole$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsRequestRole> = z
+    .nativeEnum(RecipientUpdateTemplateRecipientsRequestRole);
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsRole$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsRole> =
-    RecipientUpdateTemplateRecipientsRole$inboundSchema;
+export const RecipientUpdateTemplateRecipientsRequestRole$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsRequestRole> =
+    RecipientUpdateTemplateRecipientsRequestRole$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateTemplateRecipientsRole$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsRole$inboundSchema` instead. */
+export namespace RecipientUpdateTemplateRecipientsRequestRole$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsRequestRole$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateTemplateRecipientsRole$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsRole$outboundSchema` instead. */
+    RecipientUpdateTemplateRecipientsRequestRole$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsRequestRole$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateTemplateRecipientsRole$outboundSchema;
+    RecipientUpdateTemplateRecipientsRequestRole$outboundSchema;
 }
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsAccessAuth$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsAccessAuth> = z
-    .nativeEnum(RecipientUpdateTemplateRecipientsAccessAuth);
+export const RecipientUpdateTemplateRecipientsRequestAccessAuth$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsRequestAccessAuth> = z
+    .nativeEnum(RecipientUpdateTemplateRecipientsRequestAccessAuth);
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsAccessAuth$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsAccessAuth> =
-    RecipientUpdateTemplateRecipientsAccessAuth$inboundSchema;
+export const RecipientUpdateTemplateRecipientsRequestAccessAuth$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsRequestAccessAuth> =
+    RecipientUpdateTemplateRecipientsRequestAccessAuth$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateTemplateRecipientsAccessAuth$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsAccessAuth$inboundSchema` instead. */
+export namespace RecipientUpdateTemplateRecipientsRequestAccessAuth$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsRequestAccessAuth$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateTemplateRecipientsAccessAuth$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsAccessAuth$outboundSchema` instead. */
+    RecipientUpdateTemplateRecipientsRequestAccessAuth$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsRequestAccessAuth$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateTemplateRecipientsAccessAuth$outboundSchema;
+    RecipientUpdateTemplateRecipientsRequestAccessAuth$outboundSchema;
 }
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsActionAuth$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsActionAuth> = z
-    .nativeEnum(RecipientUpdateTemplateRecipientsActionAuth);
+export const RecipientUpdateTemplateRecipientsRequestActionAuth$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsRequestActionAuth> = z
+    .nativeEnum(RecipientUpdateTemplateRecipientsRequestActionAuth);
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsActionAuth$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsActionAuth> =
-    RecipientUpdateTemplateRecipientsActionAuth$inboundSchema;
+export const RecipientUpdateTemplateRecipientsRequestActionAuth$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsRequestActionAuth> =
+    RecipientUpdateTemplateRecipientsRequestActionAuth$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateTemplateRecipientsActionAuth$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsActionAuth$inboundSchema` instead. */
+export namespace RecipientUpdateTemplateRecipientsRequestActionAuth$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsRequestActionAuth$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateTemplateRecipientsActionAuth$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsActionAuth$outboundSchema` instead. */
+    RecipientUpdateTemplateRecipientsRequestActionAuth$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsRequestActionAuth$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateTemplateRecipientsActionAuth$outboundSchema;
+    RecipientUpdateTemplateRecipientsRequestActionAuth$outboundSchema;
 }
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsRecipients$inboundSchema:
+export const RecipientUpdateTemplateRecipientsRequestRecipients$inboundSchema:
   z.ZodType<
-    RecipientUpdateTemplateRecipientsRecipients,
+    RecipientUpdateTemplateRecipientsRequestRecipients,
     z.ZodTypeDef,
     unknown
   > = z.object({
     id: z.number(),
     email: z.string().optional(),
     name: z.string().optional(),
-    role: RecipientUpdateTemplateRecipientsRole$inboundSchema.optional(),
+    role: RecipientUpdateTemplateRecipientsRequestRole$inboundSchema.optional(),
     signingOrder: z.number().optional(),
     accessAuth: z.nullable(
-      RecipientUpdateTemplateRecipientsAccessAuth$inboundSchema,
+      RecipientUpdateTemplateRecipientsRequestAccessAuth$inboundSchema,
     ).optional(),
     actionAuth: z.nullable(
-      RecipientUpdateTemplateRecipientsActionAuth$inboundSchema,
+      RecipientUpdateTemplateRecipientsRequestActionAuth$inboundSchema,
     ).optional(),
   });
 
 /** @internal */
-export type RecipientUpdateTemplateRecipientsRecipients$Outbound = {
+export type RecipientUpdateTemplateRecipientsRequestRecipients$Outbound = {
   id: number;
   email?: string | undefined;
   name?: string | undefined;
@@ -543,22 +572,23 @@ export type RecipientUpdateTemplateRecipientsRecipients$Outbound = {
 };
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsRecipients$outboundSchema:
+export const RecipientUpdateTemplateRecipientsRequestRecipients$outboundSchema:
   z.ZodType<
-    RecipientUpdateTemplateRecipientsRecipients$Outbound,
+    RecipientUpdateTemplateRecipientsRequestRecipients$Outbound,
     z.ZodTypeDef,
-    RecipientUpdateTemplateRecipientsRecipients
+    RecipientUpdateTemplateRecipientsRequestRecipients
   > = z.object({
     id: z.number(),
     email: z.string().optional(),
     name: z.string().optional(),
-    role: RecipientUpdateTemplateRecipientsRole$outboundSchema.optional(),
+    role: RecipientUpdateTemplateRecipientsRequestRole$outboundSchema
+      .optional(),
     signingOrder: z.number().optional(),
     accessAuth: z.nullable(
-      RecipientUpdateTemplateRecipientsAccessAuth$outboundSchema,
+      RecipientUpdateTemplateRecipientsRequestAccessAuth$outboundSchema,
     ).optional(),
     actionAuth: z.nullable(
-      RecipientUpdateTemplateRecipientsActionAuth$outboundSchema,
+      RecipientUpdateTemplateRecipientsRequestActionAuth$outboundSchema,
     ).optional(),
   });
 
@@ -566,141 +596,144 @@ export const RecipientUpdateTemplateRecipientsRecipients$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateTemplateRecipientsRecipients$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsRecipients$inboundSchema` instead. */
+export namespace RecipientUpdateTemplateRecipientsRequestRecipients$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsRequestRecipients$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateTemplateRecipientsRecipients$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsRecipients$outboundSchema` instead. */
+    RecipientUpdateTemplateRecipientsRequestRecipients$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsRequestRecipients$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateTemplateRecipientsRecipients$outboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsRecipients$Outbound` instead. */
-  export type Outbound = RecipientUpdateTemplateRecipientsRecipients$Outbound;
+    RecipientUpdateTemplateRecipientsRequestRecipients$outboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsRequestRecipients$Outbound` instead. */
+  export type Outbound =
+    RecipientUpdateTemplateRecipientsRequestRecipients$Outbound;
 }
 
-export function recipientUpdateTemplateRecipientsRecipientsToJSON(
-  recipientUpdateTemplateRecipientsRecipients:
-    RecipientUpdateTemplateRecipientsRecipients,
+export function recipientUpdateTemplateRecipientsRequestRecipientsToJSON(
+  recipientUpdateTemplateRecipientsRequestRecipients:
+    RecipientUpdateTemplateRecipientsRequestRecipients,
 ): string {
   return JSON.stringify(
-    RecipientUpdateTemplateRecipientsRecipients$outboundSchema.parse(
-      recipientUpdateTemplateRecipientsRecipients,
+    RecipientUpdateTemplateRecipientsRequestRecipients$outboundSchema.parse(
+      recipientUpdateTemplateRecipientsRequestRecipients,
     ),
   );
 }
 
-export function recipientUpdateTemplateRecipientsRecipientsFromJSON(
+export function recipientUpdateTemplateRecipientsRequestRecipientsFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  RecipientUpdateTemplateRecipientsRecipients,
+  RecipientUpdateTemplateRecipientsRequestRecipients,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      RecipientUpdateTemplateRecipientsRecipients$inboundSchema.parse(
+      RecipientUpdateTemplateRecipientsRequestRecipients$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'RecipientUpdateTemplateRecipientsRecipients' from JSON`,
+    `Failed to parse 'RecipientUpdateTemplateRecipientsRequestRecipients' from JSON`,
   );
 }
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsRequestBody$inboundSchema:
-  z.ZodType<
-    RecipientUpdateTemplateRecipientsRequestBody,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    templateId: z.number(),
-    recipients: z.array(
-      z.lazy(() => RecipientUpdateTemplateRecipientsRecipients$inboundSchema),
+export const RecipientUpdateTemplateRecipientsRequest$inboundSchema: z.ZodType<
+  RecipientUpdateTemplateRecipientsRequest,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  templateId: z.number(),
+  recipients: z.array(
+    z.lazy(() =>
+      RecipientUpdateTemplateRecipientsRequestRecipients$inboundSchema
     ),
-  });
+  ),
+});
 
 /** @internal */
-export type RecipientUpdateTemplateRecipientsRequestBody$Outbound = {
+export type RecipientUpdateTemplateRecipientsRequest$Outbound = {
   templateId: number;
-  recipients: Array<RecipientUpdateTemplateRecipientsRecipients$Outbound>;
+  recipients: Array<
+    RecipientUpdateTemplateRecipientsRequestRecipients$Outbound
+  >;
 };
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsRequestBody$outboundSchema:
-  z.ZodType<
-    RecipientUpdateTemplateRecipientsRequestBody$Outbound,
-    z.ZodTypeDef,
-    RecipientUpdateTemplateRecipientsRequestBody
-  > = z.object({
-    templateId: z.number(),
-    recipients: z.array(
-      z.lazy(() => RecipientUpdateTemplateRecipientsRecipients$outboundSchema),
+export const RecipientUpdateTemplateRecipientsRequest$outboundSchema: z.ZodType<
+  RecipientUpdateTemplateRecipientsRequest$Outbound,
+  z.ZodTypeDef,
+  RecipientUpdateTemplateRecipientsRequest
+> = z.object({
+  templateId: z.number(),
+  recipients: z.array(
+    z.lazy(() =>
+      RecipientUpdateTemplateRecipientsRequestRecipients$outboundSchema
     ),
-  });
+  ),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateTemplateRecipientsRequestBody$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsRequestBody$inboundSchema` instead. */
+export namespace RecipientUpdateTemplateRecipientsRequest$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsRequest$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateTemplateRecipientsRequestBody$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsRequestBody$outboundSchema` instead. */
+    RecipientUpdateTemplateRecipientsRequest$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsRequest$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateTemplateRecipientsRequestBody$outboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsRequestBody$Outbound` instead. */
-  export type Outbound = RecipientUpdateTemplateRecipientsRequestBody$Outbound;
+    RecipientUpdateTemplateRecipientsRequest$outboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsRequest$Outbound` instead. */
+  export type Outbound = RecipientUpdateTemplateRecipientsRequest$Outbound;
 }
 
-export function recipientUpdateTemplateRecipientsRequestBodyToJSON(
-  recipientUpdateTemplateRecipientsRequestBody:
-    RecipientUpdateTemplateRecipientsRequestBody,
+export function recipientUpdateTemplateRecipientsRequestToJSON(
+  recipientUpdateTemplateRecipientsRequest:
+    RecipientUpdateTemplateRecipientsRequest,
 ): string {
   return JSON.stringify(
-    RecipientUpdateTemplateRecipientsRequestBody$outboundSchema.parse(
-      recipientUpdateTemplateRecipientsRequestBody,
+    RecipientUpdateTemplateRecipientsRequest$outboundSchema.parse(
+      recipientUpdateTemplateRecipientsRequest,
     ),
   );
 }
 
-export function recipientUpdateTemplateRecipientsRequestBodyFromJSON(
+export function recipientUpdateTemplateRecipientsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  RecipientUpdateTemplateRecipientsRequestBody,
+  RecipientUpdateTemplateRecipientsRequest,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      RecipientUpdateTemplateRecipientsRequestBody$inboundSchema.parse(
+      RecipientUpdateTemplateRecipientsRequest$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'RecipientUpdateTemplateRecipientsRequestBody' from JSON`,
+    `Failed to parse 'RecipientUpdateTemplateRecipientsRequest' from JSON`,
   );
 }
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsTemplatesRecipientsRole$inboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientUpdateTemplateRecipientsTemplatesRecipientsRole
-  > = z.nativeEnum(RecipientUpdateTemplateRecipientsTemplatesRecipientsRole);
+export const RecipientUpdateTemplateRecipientsResponseRole$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsResponseRole> = z
+    .nativeEnum(RecipientUpdateTemplateRecipientsResponseRole);
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsTemplatesRecipientsRole$outboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientUpdateTemplateRecipientsTemplatesRecipientsRole
-  > = RecipientUpdateTemplateRecipientsTemplatesRecipientsRole$inboundSchema;
+export const RecipientUpdateTemplateRecipientsResponseRole$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsResponseRole> =
+    RecipientUpdateTemplateRecipientsResponseRole$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateTemplateRecipientsTemplatesRecipientsRole$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsTemplatesRecipientsRole$inboundSchema` instead. */
+export namespace RecipientUpdateTemplateRecipientsResponseRole$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsResponseRole$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateTemplateRecipientsTemplatesRecipientsRole$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsTemplatesRecipientsRole$outboundSchema` instead. */
+    RecipientUpdateTemplateRecipientsResponseRole$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsResponseRole$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateTemplateRecipientsTemplatesRecipientsRole$outboundSchema;
+    RecipientUpdateTemplateRecipientsResponseRole$outboundSchema;
 }
 
 /** @internal */
@@ -773,59 +806,49 @@ export namespace RecipientUpdateTemplateRecipientsSendStatus$ {
 }
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsTemplatesRecipientsAccessAuth$inboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientUpdateTemplateRecipientsTemplatesRecipientsAccessAuth
-  > = z.nativeEnum(
-    RecipientUpdateTemplateRecipientsTemplatesRecipientsAccessAuth,
-  );
+export const RecipientUpdateTemplateRecipientsResponseAccessAuth$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsResponseAccessAuth> =
+    z.nativeEnum(RecipientUpdateTemplateRecipientsResponseAccessAuth);
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsTemplatesRecipientsAccessAuth$outboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientUpdateTemplateRecipientsTemplatesRecipientsAccessAuth
-  > =
-    RecipientUpdateTemplateRecipientsTemplatesRecipientsAccessAuth$inboundSchema;
+export const RecipientUpdateTemplateRecipientsResponseAccessAuth$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsResponseAccessAuth> =
+    RecipientUpdateTemplateRecipientsResponseAccessAuth$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateTemplateRecipientsTemplatesRecipientsAccessAuth$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsTemplatesRecipientsAccessAuth$inboundSchema` instead. */
+export namespace RecipientUpdateTemplateRecipientsResponseAccessAuth$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsResponseAccessAuth$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateTemplateRecipientsTemplatesRecipientsAccessAuth$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsTemplatesRecipientsAccessAuth$outboundSchema` instead. */
+    RecipientUpdateTemplateRecipientsResponseAccessAuth$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsResponseAccessAuth$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateTemplateRecipientsTemplatesRecipientsAccessAuth$outboundSchema;
+    RecipientUpdateTemplateRecipientsResponseAccessAuth$outboundSchema;
 }
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsTemplatesRecipientsActionAuth$inboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientUpdateTemplateRecipientsTemplatesRecipientsActionAuth
-  > = z.nativeEnum(
-    RecipientUpdateTemplateRecipientsTemplatesRecipientsActionAuth,
-  );
+export const RecipientUpdateTemplateRecipientsResponseActionAuth$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsResponseActionAuth> =
+    z.nativeEnum(RecipientUpdateTemplateRecipientsResponseActionAuth);
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsTemplatesRecipientsActionAuth$outboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientUpdateTemplateRecipientsTemplatesRecipientsActionAuth
-  > =
-    RecipientUpdateTemplateRecipientsTemplatesRecipientsActionAuth$inboundSchema;
+export const RecipientUpdateTemplateRecipientsResponseActionAuth$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsResponseActionAuth> =
+    RecipientUpdateTemplateRecipientsResponseActionAuth$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateTemplateRecipientsTemplatesRecipientsActionAuth$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsTemplatesRecipientsActionAuth$inboundSchema` instead. */
+export namespace RecipientUpdateTemplateRecipientsResponseActionAuth$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsResponseActionAuth$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateTemplateRecipientsTemplatesRecipientsActionAuth$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsTemplatesRecipientsActionAuth$outboundSchema` instead. */
+    RecipientUpdateTemplateRecipientsResponseActionAuth$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsResponseActionAuth$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateTemplateRecipientsTemplatesRecipientsActionAuth$outboundSchema;
+    RecipientUpdateTemplateRecipientsResponseActionAuth$outboundSchema;
 }
 
 /** @internal */
@@ -836,10 +859,10 @@ export const RecipientUpdateTemplateRecipientsAuthOptions$inboundSchema:
     unknown
   > = z.object({
     accessAuth: z.nullable(
-      RecipientUpdateTemplateRecipientsTemplatesRecipientsAccessAuth$inboundSchema,
+      RecipientUpdateTemplateRecipientsResponseAccessAuth$inboundSchema,
     ),
     actionAuth: z.nullable(
-      RecipientUpdateTemplateRecipientsTemplatesRecipientsActionAuth$inboundSchema,
+      RecipientUpdateTemplateRecipientsResponseActionAuth$inboundSchema,
     ),
   });
 
@@ -857,10 +880,10 @@ export const RecipientUpdateTemplateRecipientsAuthOptions$outboundSchema:
     RecipientUpdateTemplateRecipientsAuthOptions
   > = z.object({
     accessAuth: z.nullable(
-      RecipientUpdateTemplateRecipientsTemplatesRecipientsAccessAuth$outboundSchema,
+      RecipientUpdateTemplateRecipientsResponseAccessAuth$outboundSchema,
     ),
     actionAuth: z.nullable(
-      RecipientUpdateTemplateRecipientsTemplatesRecipientsActionAuth$outboundSchema,
+      RecipientUpdateTemplateRecipientsResponseActionAuth$outboundSchema,
     ),
   });
 
@@ -931,37 +954,32 @@ export namespace RecipientUpdateTemplateRecipientsType$ {
 }
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFields9Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFields9Type
-  > = z.nativeEnum(
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFields9Type,
-  );
+export const RecipientUpdateTemplateRecipientsTypeDropdown$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTypeDropdown> = z
+    .nativeEnum(RecipientUpdateTemplateRecipientsTypeDropdown);
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFields9Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFields9Type
-  > =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFields9Type$inboundSchema;
+export const RecipientUpdateTemplateRecipientsTypeDropdown$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTypeDropdown> =
+    RecipientUpdateTemplateRecipientsTypeDropdown$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFields9Type$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFields9Type$inboundSchema` instead. */
+export namespace RecipientUpdateTemplateRecipientsTypeDropdown$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTypeDropdown$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFields9Type$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFields9Type$outboundSchema` instead. */
+    RecipientUpdateTemplateRecipientsTypeDropdown$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTypeDropdown$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFields9Type$outboundSchema;
+    RecipientUpdateTemplateRecipientsTypeDropdown$outboundSchema;
 }
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseValues$inboundSchema:
+export const RecipientUpdateTemplateRecipientsValuesDropdown$inboundSchema:
   z.ZodType<
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseValues,
+    RecipientUpdateTemplateRecipientsValuesDropdown,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -969,17 +987,16 @@ export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsRespon
   });
 
 /** @internal */
-export type RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseValues$Outbound =
-  {
-    value: string;
-  };
+export type RecipientUpdateTemplateRecipientsValuesDropdown$Outbound = {
+  value: string;
+};
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseValues$outboundSchema:
+export const RecipientUpdateTemplateRecipientsValuesDropdown$outboundSchema:
   z.ZodType<
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseValues$Outbound,
+    RecipientUpdateTemplateRecipientsValuesDropdown$Outbound,
     z.ZodTypeDef,
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseValues
+    RecipientUpdateTemplateRecipientsValuesDropdown
   > = z.object({
     value: z.string(),
   });
@@ -988,97 +1005,90 @@ export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsRespon
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseValues$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseValues$inboundSchema` instead. */
+export namespace RecipientUpdateTemplateRecipientsValuesDropdown$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsValuesDropdown$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseValues$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseValues$outboundSchema` instead. */
+    RecipientUpdateTemplateRecipientsValuesDropdown$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsValuesDropdown$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseValues$outboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseValues$Outbound` instead. */
+    RecipientUpdateTemplateRecipientsValuesDropdown$outboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsValuesDropdown$Outbound` instead. */
   export type Outbound =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseValues$Outbound;
+    RecipientUpdateTemplateRecipientsValuesDropdown$Outbound;
 }
 
-export function recipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseValuesToJSON(
-  recipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseValues:
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseValues,
+export function recipientUpdateTemplateRecipientsValuesDropdownToJSON(
+  recipientUpdateTemplateRecipientsValuesDropdown:
+    RecipientUpdateTemplateRecipientsValuesDropdown,
 ): string {
   return JSON.stringify(
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseValues$outboundSchema
-      .parse(
-        recipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseValues,
-      ),
+    RecipientUpdateTemplateRecipientsValuesDropdown$outboundSchema.parse(
+      recipientUpdateTemplateRecipientsValuesDropdown,
+    ),
   );
 }
 
-export function recipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseValuesFromJSON(
+export function recipientUpdateTemplateRecipientsValuesDropdownFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseValues,
+  RecipientUpdateTemplateRecipientsValuesDropdown,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseValues$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseValues' from JSON`,
+      RecipientUpdateTemplateRecipientsValuesDropdown$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'RecipientUpdateTemplateRecipientsValuesDropdown' from JSON`,
   );
 }
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMeta9$inboundSchema:
-  z.ZodType<
-    RecipientUpdateTemplateRecipientsFieldMeta9,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFields9Type$inboundSchema,
-    values: z.array(
-      z.lazy(() =>
-        RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseValues$inboundSchema
-      ),
-    ).optional(),
-    defaultValue: z.string().optional(),
-  });
+export const RecipientUpdateTemplateRecipientsDropdown$inboundSchema: z.ZodType<
+  RecipientUpdateTemplateRecipientsDropdown,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: RecipientUpdateTemplateRecipientsTypeDropdown$inboundSchema,
+  values: z.array(
+    z.lazy(() => RecipientUpdateTemplateRecipientsValuesDropdown$inboundSchema),
+  ).optional(),
+  defaultValue: z.string().optional(),
+});
 
 /** @internal */
-export type RecipientUpdateTemplateRecipientsFieldMeta9$Outbound = {
+export type RecipientUpdateTemplateRecipientsDropdown$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
   values?:
-    | Array<
-      RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseValues$Outbound
-    >
+    | Array<RecipientUpdateTemplateRecipientsValuesDropdown$Outbound>
     | undefined;
   defaultValue?: string | undefined;
 };
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMeta9$outboundSchema:
+export const RecipientUpdateTemplateRecipientsDropdown$outboundSchema:
   z.ZodType<
-    RecipientUpdateTemplateRecipientsFieldMeta9$Outbound,
+    RecipientUpdateTemplateRecipientsDropdown$Outbound,
     z.ZodTypeDef,
-    RecipientUpdateTemplateRecipientsFieldMeta9
+    RecipientUpdateTemplateRecipientsDropdown
   > = z.object({
     label: z.string().optional(),
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type:
-      RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFields9Type$outboundSchema,
+    type: RecipientUpdateTemplateRecipientsTypeDropdown$outboundSchema,
     values: z.array(
       z.lazy(() =>
-        RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseValues$outboundSchema
+        RecipientUpdateTemplateRecipientsValuesDropdown$outboundSchema
       ),
     ).optional(),
     defaultValue: z.string().optional(),
@@ -1088,76 +1098,71 @@ export const RecipientUpdateTemplateRecipientsFieldMeta9$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateTemplateRecipientsFieldMeta9$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMeta9$inboundSchema` instead. */
+export namespace RecipientUpdateTemplateRecipientsDropdown$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsDropdown$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMeta9$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMeta9$outboundSchema` instead. */
+    RecipientUpdateTemplateRecipientsDropdown$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsDropdown$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMeta9$outboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMeta9$Outbound` instead. */
-  export type Outbound = RecipientUpdateTemplateRecipientsFieldMeta9$Outbound;
+    RecipientUpdateTemplateRecipientsDropdown$outboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsDropdown$Outbound` instead. */
+  export type Outbound = RecipientUpdateTemplateRecipientsDropdown$Outbound;
 }
 
-export function recipientUpdateTemplateRecipientsFieldMeta9ToJSON(
-  recipientUpdateTemplateRecipientsFieldMeta9:
-    RecipientUpdateTemplateRecipientsFieldMeta9,
+export function recipientUpdateTemplateRecipientsDropdownToJSON(
+  recipientUpdateTemplateRecipientsDropdown:
+    RecipientUpdateTemplateRecipientsDropdown,
 ): string {
   return JSON.stringify(
-    RecipientUpdateTemplateRecipientsFieldMeta9$outboundSchema.parse(
-      recipientUpdateTemplateRecipientsFieldMeta9,
+    RecipientUpdateTemplateRecipientsDropdown$outboundSchema.parse(
+      recipientUpdateTemplateRecipientsDropdown,
     ),
   );
 }
 
-export function recipientUpdateTemplateRecipientsFieldMeta9FromJSON(
+export function recipientUpdateTemplateRecipientsDropdownFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  RecipientUpdateTemplateRecipientsFieldMeta9,
+  RecipientUpdateTemplateRecipientsDropdown,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      RecipientUpdateTemplateRecipientsFieldMeta9$inboundSchema.parse(
+      RecipientUpdateTemplateRecipientsDropdown$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'RecipientUpdateTemplateRecipientsFieldMeta9' from JSON`,
+    `Failed to parse 'RecipientUpdateTemplateRecipientsDropdown' from JSON`,
   );
 }
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFieldsType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFieldsType
-  > = z.nativeEnum(
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFieldsType,
-  );
+export const RecipientUpdateTemplateRecipientsTypeCheckbox$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTypeCheckbox> = z
+    .nativeEnum(RecipientUpdateTemplateRecipientsTypeCheckbox);
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFieldsType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFieldsType
-  > =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFieldsType$inboundSchema;
+export const RecipientUpdateTemplateRecipientsTypeCheckbox$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTypeCheckbox> =
+    RecipientUpdateTemplateRecipientsTypeCheckbox$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFieldsType$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFieldsType$inboundSchema` instead. */
+export namespace RecipientUpdateTemplateRecipientsTypeCheckbox$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTypeCheckbox$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFieldsType$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFieldsType$outboundSchema` instead. */
+    RecipientUpdateTemplateRecipientsTypeCheckbox$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTypeCheckbox$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFieldsType$outboundSchema;
+    RecipientUpdateTemplateRecipientsTypeCheckbox$outboundSchema;
 }
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsValues$inboundSchema:
+export const RecipientUpdateTemplateRecipientsValuesCheckbox$inboundSchema:
   z.ZodType<
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsValues,
+    RecipientUpdateTemplateRecipientsValuesCheckbox,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -1167,223 +1172,18 @@ export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsValues
   });
 
 /** @internal */
-export type RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsValues$Outbound =
-  {
-    id: number;
-    checked: boolean;
-    value: string;
-  };
-
-/** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsValues$outboundSchema:
-  z.ZodType<
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsValues$Outbound,
-    z.ZodTypeDef,
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsValues
-  > = z.object({
-    id: z.number(),
-    checked: z.boolean(),
-    value: z.string(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsValues$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsValues$inboundSchema` instead. */
-  export const inboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsValues$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsValues$outboundSchema` instead. */
-  export const outboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsValues$outboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsValues$Outbound` instead. */
-  export type Outbound =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsValues$Outbound;
-}
-
-export function recipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsValuesToJSON(
-  recipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsValues:
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsValues,
-): string {
-  return JSON.stringify(
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsValues$outboundSchema
-      .parse(
-        recipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsValues,
-      ),
-  );
-}
-
-export function recipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsValuesFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsValues,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsValues$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsValues' from JSON`,
-  );
-}
-
-/** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMeta8$inboundSchema:
-  z.ZodType<
-    RecipientUpdateTemplateRecipientsFieldMeta8,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFieldsType$inboundSchema,
-    values: z.array(
-      z.lazy(() =>
-        RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsValues$inboundSchema
-      ),
-    ).optional(),
-    validationRule: z.string().optional(),
-    validationLength: z.number().optional(),
-  });
-
-/** @internal */
-export type RecipientUpdateTemplateRecipientsFieldMeta8$Outbound = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  type: string;
-  values?:
-    | Array<
-      RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsValues$Outbound
-    >
-    | undefined;
-  validationRule?: string | undefined;
-  validationLength?: number | undefined;
-};
-
-/** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMeta8$outboundSchema:
-  z.ZodType<
-    RecipientUpdateTemplateRecipientsFieldMeta8$Outbound,
-    z.ZodTypeDef,
-    RecipientUpdateTemplateRecipientsFieldMeta8
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsFieldsType$outboundSchema,
-    values: z.array(
-      z.lazy(() =>
-        RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsValues$outboundSchema
-      ),
-    ).optional(),
-    validationRule: z.string().optional(),
-    validationLength: z.number().optional(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RecipientUpdateTemplateRecipientsFieldMeta8$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMeta8$inboundSchema` instead. */
-  export const inboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMeta8$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMeta8$outboundSchema` instead. */
-  export const outboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMeta8$outboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMeta8$Outbound` instead. */
-  export type Outbound = RecipientUpdateTemplateRecipientsFieldMeta8$Outbound;
-}
-
-export function recipientUpdateTemplateRecipientsFieldMeta8ToJSON(
-  recipientUpdateTemplateRecipientsFieldMeta8:
-    RecipientUpdateTemplateRecipientsFieldMeta8,
-): string {
-  return JSON.stringify(
-    RecipientUpdateTemplateRecipientsFieldMeta8$outboundSchema.parse(
-      recipientUpdateTemplateRecipientsFieldMeta8,
-    ),
-  );
-}
-
-export function recipientUpdateTemplateRecipientsFieldMeta8FromJSON(
-  jsonString: string,
-): SafeParseResult<
-  RecipientUpdateTemplateRecipientsFieldMeta8,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      RecipientUpdateTemplateRecipientsFieldMeta8$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'RecipientUpdateTemplateRecipientsFieldMeta8' from JSON`,
-  );
-}
-
-/** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsType
-  > = z.nativeEnum(
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsType,
-  );
-
-/** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsType
-  > =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsType$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsType$inboundSchema` instead. */
-  export const inboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsType$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsType$outboundSchema` instead. */
-  export const outboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsType$outboundSchema;
-}
-
-/** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMetaValues$inboundSchema:
-  z.ZodType<
-    RecipientUpdateTemplateRecipientsFieldMetaValues,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    id: z.number(),
-    checked: z.boolean(),
-    value: z.string(),
-  });
-
-/** @internal */
-export type RecipientUpdateTemplateRecipientsFieldMetaValues$Outbound = {
+export type RecipientUpdateTemplateRecipientsValuesCheckbox$Outbound = {
   id: number;
   checked: boolean;
   value: string;
 };
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMetaValues$outboundSchema:
+export const RecipientUpdateTemplateRecipientsValuesCheckbox$outboundSchema:
   z.ZodType<
-    RecipientUpdateTemplateRecipientsFieldMetaValues$Outbound,
+    RecipientUpdateTemplateRecipientsValuesCheckbox$Outbound,
     z.ZodTypeDef,
-    RecipientUpdateTemplateRecipientsFieldMetaValues
+    RecipientUpdateTemplateRecipientsValuesCheckbox
   > = z.object({
     id: z.number(),
     checked: z.boolean(),
@@ -1394,189 +1194,385 @@ export const RecipientUpdateTemplateRecipientsFieldMetaValues$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateTemplateRecipientsFieldMetaValues$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMetaValues$inboundSchema` instead. */
+export namespace RecipientUpdateTemplateRecipientsValuesCheckbox$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsValuesCheckbox$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMetaValues$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMetaValues$outboundSchema` instead. */
+    RecipientUpdateTemplateRecipientsValuesCheckbox$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsValuesCheckbox$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMetaValues$outboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMetaValues$Outbound` instead. */
+    RecipientUpdateTemplateRecipientsValuesCheckbox$outboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsValuesCheckbox$Outbound` instead. */
   export type Outbound =
-    RecipientUpdateTemplateRecipientsFieldMetaValues$Outbound;
+    RecipientUpdateTemplateRecipientsValuesCheckbox$Outbound;
 }
 
-export function recipientUpdateTemplateRecipientsFieldMetaValuesToJSON(
-  recipientUpdateTemplateRecipientsFieldMetaValues:
-    RecipientUpdateTemplateRecipientsFieldMetaValues,
+export function recipientUpdateTemplateRecipientsValuesCheckboxToJSON(
+  recipientUpdateTemplateRecipientsValuesCheckbox:
+    RecipientUpdateTemplateRecipientsValuesCheckbox,
 ): string {
   return JSON.stringify(
-    RecipientUpdateTemplateRecipientsFieldMetaValues$outboundSchema.parse(
-      recipientUpdateTemplateRecipientsFieldMetaValues,
+    RecipientUpdateTemplateRecipientsValuesCheckbox$outboundSchema.parse(
+      recipientUpdateTemplateRecipientsValuesCheckbox,
     ),
   );
 }
 
-export function recipientUpdateTemplateRecipientsFieldMetaValuesFromJSON(
+export function recipientUpdateTemplateRecipientsValuesCheckboxFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  RecipientUpdateTemplateRecipientsFieldMetaValues,
+  RecipientUpdateTemplateRecipientsValuesCheckbox,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      RecipientUpdateTemplateRecipientsFieldMetaValues$inboundSchema.parse(
+      RecipientUpdateTemplateRecipientsValuesCheckbox$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'RecipientUpdateTemplateRecipientsFieldMetaValues' from JSON`,
+    `Failed to parse 'RecipientUpdateTemplateRecipientsValuesCheckbox' from JSON`,
   );
 }
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMeta7$inboundSchema:
-  z.ZodType<
-    RecipientUpdateTemplateRecipientsFieldMeta7,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsType$inboundSchema,
-    values: z.array(
-      z.lazy(() =>
-        RecipientUpdateTemplateRecipientsFieldMetaValues$inboundSchema
-      ),
-    ).optional(),
-  });
+export const RecipientUpdateTemplateRecipientsCheckbox$inboundSchema: z.ZodType<
+  RecipientUpdateTemplateRecipientsCheckbox,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: RecipientUpdateTemplateRecipientsTypeCheckbox$inboundSchema,
+  values: z.array(
+    z.lazy(() => RecipientUpdateTemplateRecipientsValuesCheckbox$inboundSchema),
+  ).optional(),
+  validationRule: z.string().optional(),
+  validationLength: z.number().optional(),
+});
 
 /** @internal */
-export type RecipientUpdateTemplateRecipientsFieldMeta7$Outbound = {
+export type RecipientUpdateTemplateRecipientsCheckbox$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
   values?:
-    | Array<RecipientUpdateTemplateRecipientsFieldMetaValues$Outbound>
+    | Array<RecipientUpdateTemplateRecipientsValuesCheckbox$Outbound>
     | undefined;
+  validationRule?: string | undefined;
+  validationLength?: number | undefined;
 };
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMeta7$outboundSchema:
+export const RecipientUpdateTemplateRecipientsCheckbox$outboundSchema:
   z.ZodType<
-    RecipientUpdateTemplateRecipientsFieldMeta7$Outbound,
+    RecipientUpdateTemplateRecipientsCheckbox$Outbound,
     z.ZodTypeDef,
-    RecipientUpdateTemplateRecipientsFieldMeta7
+    RecipientUpdateTemplateRecipientsCheckbox
   > = z.object({
     label: z.string().optional(),
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type:
-      RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyRecipientsType$outboundSchema,
+    type: RecipientUpdateTemplateRecipientsTypeCheckbox$outboundSchema,
     values: z.array(
       z.lazy(() =>
-        RecipientUpdateTemplateRecipientsFieldMetaValues$outboundSchema
+        RecipientUpdateTemplateRecipientsValuesCheckbox$outboundSchema
       ),
     ).optional(),
+    validationRule: z.string().optional(),
+    validationLength: z.number().optional(),
   });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateTemplateRecipientsFieldMeta7$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMeta7$inboundSchema` instead. */
+export namespace RecipientUpdateTemplateRecipientsCheckbox$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsCheckbox$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMeta7$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMeta7$outboundSchema` instead. */
+    RecipientUpdateTemplateRecipientsCheckbox$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsCheckbox$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMeta7$outboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMeta7$Outbound` instead. */
-  export type Outbound = RecipientUpdateTemplateRecipientsFieldMeta7$Outbound;
+    RecipientUpdateTemplateRecipientsCheckbox$outboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsCheckbox$Outbound` instead. */
+  export type Outbound = RecipientUpdateTemplateRecipientsCheckbox$Outbound;
 }
 
-export function recipientUpdateTemplateRecipientsFieldMeta7ToJSON(
-  recipientUpdateTemplateRecipientsFieldMeta7:
-    RecipientUpdateTemplateRecipientsFieldMeta7,
+export function recipientUpdateTemplateRecipientsCheckboxToJSON(
+  recipientUpdateTemplateRecipientsCheckbox:
+    RecipientUpdateTemplateRecipientsCheckbox,
 ): string {
   return JSON.stringify(
-    RecipientUpdateTemplateRecipientsFieldMeta7$outboundSchema.parse(
-      recipientUpdateTemplateRecipientsFieldMeta7,
+    RecipientUpdateTemplateRecipientsCheckbox$outboundSchema.parse(
+      recipientUpdateTemplateRecipientsCheckbox,
     ),
   );
 }
 
-export function recipientUpdateTemplateRecipientsFieldMeta7FromJSON(
+export function recipientUpdateTemplateRecipientsCheckboxFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  RecipientUpdateTemplateRecipientsFieldMeta7,
+  RecipientUpdateTemplateRecipientsCheckbox,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      RecipientUpdateTemplateRecipientsFieldMeta7$inboundSchema.parse(
+      RecipientUpdateTemplateRecipientsCheckbox$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'RecipientUpdateTemplateRecipientsFieldMeta7' from JSON`,
+    `Failed to parse 'RecipientUpdateTemplateRecipientsCheckbox' from JSON`,
   );
 }
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyType
-  > = z.nativeEnum(
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyType,
-  );
+export const RecipientUpdateTemplateRecipientsTypeRadio$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTypeRadio> = z
+    .nativeEnum(RecipientUpdateTemplateRecipientsTypeRadio);
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyType
-  > =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyType$inboundSchema;
+export const RecipientUpdateTemplateRecipientsTypeRadio$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTypeRadio> =
+    RecipientUpdateTemplateRecipientsTypeRadio$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyType$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyType$inboundSchema` instead. */
+export namespace RecipientUpdateTemplateRecipientsTypeRadio$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTypeRadio$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyType$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyType$outboundSchema` instead. */
+    RecipientUpdateTemplateRecipientsTypeRadio$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTypeRadio$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyType$outboundSchema;
+    RecipientUpdateTemplateRecipientsTypeRadio$outboundSchema;
 }
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMeta6$inboundSchema:
+export const RecipientUpdateTemplateRecipientsValuesRadio$inboundSchema:
   z.ZodType<
-    RecipientUpdateTemplateRecipientsFieldMeta6,
+    RecipientUpdateTemplateRecipientsValuesRadio,
     z.ZodTypeDef,
     unknown
   > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyType$inboundSchema,
-    numberFormat: z.string().optional(),
-    value: z.string().optional(),
-    minValue: z.number().optional(),
-    maxValue: z.number().optional(),
-    fontSize: z.number().optional(),
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
   });
 
 /** @internal */
-export type RecipientUpdateTemplateRecipientsFieldMeta6$Outbound = {
+export type RecipientUpdateTemplateRecipientsValuesRadio$Outbound = {
+  id: number;
+  checked: boolean;
+  value: string;
+};
+
+/** @internal */
+export const RecipientUpdateTemplateRecipientsValuesRadio$outboundSchema:
+  z.ZodType<
+    RecipientUpdateTemplateRecipientsValuesRadio$Outbound,
+    z.ZodTypeDef,
+    RecipientUpdateTemplateRecipientsValuesRadio
+  > = z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace RecipientUpdateTemplateRecipientsValuesRadio$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsValuesRadio$inboundSchema` instead. */
+  export const inboundSchema =
+    RecipientUpdateTemplateRecipientsValuesRadio$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsValuesRadio$outboundSchema` instead. */
+  export const outboundSchema =
+    RecipientUpdateTemplateRecipientsValuesRadio$outboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsValuesRadio$Outbound` instead. */
+  export type Outbound = RecipientUpdateTemplateRecipientsValuesRadio$Outbound;
+}
+
+export function recipientUpdateTemplateRecipientsValuesRadioToJSON(
+  recipientUpdateTemplateRecipientsValuesRadio:
+    RecipientUpdateTemplateRecipientsValuesRadio,
+): string {
+  return JSON.stringify(
+    RecipientUpdateTemplateRecipientsValuesRadio$outboundSchema.parse(
+      recipientUpdateTemplateRecipientsValuesRadio,
+    ),
+  );
+}
+
+export function recipientUpdateTemplateRecipientsValuesRadioFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  RecipientUpdateTemplateRecipientsValuesRadio,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      RecipientUpdateTemplateRecipientsValuesRadio$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'RecipientUpdateTemplateRecipientsValuesRadio' from JSON`,
+  );
+}
+
+/** @internal */
+export const RecipientUpdateTemplateRecipientsRadio$inboundSchema: z.ZodType<
+  RecipientUpdateTemplateRecipientsRadio,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: RecipientUpdateTemplateRecipientsTypeRadio$inboundSchema,
+  values: z.array(
+    z.lazy(() => RecipientUpdateTemplateRecipientsValuesRadio$inboundSchema),
+  ).optional(),
+});
+
+/** @internal */
+export type RecipientUpdateTemplateRecipientsRadio$Outbound = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: string;
+  values?:
+    | Array<RecipientUpdateTemplateRecipientsValuesRadio$Outbound>
+    | undefined;
+};
+
+/** @internal */
+export const RecipientUpdateTemplateRecipientsRadio$outboundSchema: z.ZodType<
+  RecipientUpdateTemplateRecipientsRadio$Outbound,
+  z.ZodTypeDef,
+  RecipientUpdateTemplateRecipientsRadio
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: RecipientUpdateTemplateRecipientsTypeRadio$outboundSchema,
+  values: z.array(
+    z.lazy(() => RecipientUpdateTemplateRecipientsValuesRadio$outboundSchema),
+  ).optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace RecipientUpdateTemplateRecipientsRadio$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsRadio$inboundSchema` instead. */
+  export const inboundSchema =
+    RecipientUpdateTemplateRecipientsRadio$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsRadio$outboundSchema` instead. */
+  export const outboundSchema =
+    RecipientUpdateTemplateRecipientsRadio$outboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsRadio$Outbound` instead. */
+  export type Outbound = RecipientUpdateTemplateRecipientsRadio$Outbound;
+}
+
+export function recipientUpdateTemplateRecipientsRadioToJSON(
+  recipientUpdateTemplateRecipientsRadio:
+    RecipientUpdateTemplateRecipientsRadio,
+): string {
+  return JSON.stringify(
+    RecipientUpdateTemplateRecipientsRadio$outboundSchema.parse(
+      recipientUpdateTemplateRecipientsRadio,
+    ),
+  );
+}
+
+export function recipientUpdateTemplateRecipientsRadioFromJSON(
+  jsonString: string,
+): SafeParseResult<RecipientUpdateTemplateRecipientsRadio, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      RecipientUpdateTemplateRecipientsRadio$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RecipientUpdateTemplateRecipientsRadio' from JSON`,
+  );
+}
+
+/** @internal */
+export const RecipientUpdateTemplateRecipientsTypeNumber$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTypeNumber> = z
+    .nativeEnum(RecipientUpdateTemplateRecipientsTypeNumber);
+
+/** @internal */
+export const RecipientUpdateTemplateRecipientsTypeNumber$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTypeNumber> =
+    RecipientUpdateTemplateRecipientsTypeNumber$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace RecipientUpdateTemplateRecipientsTypeNumber$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTypeNumber$inboundSchema` instead. */
+  export const inboundSchema =
+    RecipientUpdateTemplateRecipientsTypeNumber$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTypeNumber$outboundSchema` instead. */
+  export const outboundSchema =
+    RecipientUpdateTemplateRecipientsTypeNumber$outboundSchema;
+}
+
+/** @internal */
+export const RecipientUpdateTemplateRecipientsTextAlignNumber$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTextAlignNumber> = z
+    .nativeEnum(RecipientUpdateTemplateRecipientsTextAlignNumber);
+
+/** @internal */
+export const RecipientUpdateTemplateRecipientsTextAlignNumber$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTextAlignNumber> =
+    RecipientUpdateTemplateRecipientsTextAlignNumber$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace RecipientUpdateTemplateRecipientsTextAlignNumber$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTextAlignNumber$inboundSchema` instead. */
+  export const inboundSchema =
+    RecipientUpdateTemplateRecipientsTextAlignNumber$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTextAlignNumber$outboundSchema` instead. */
+  export const outboundSchema =
+    RecipientUpdateTemplateRecipientsTextAlignNumber$outboundSchema;
+}
+
+/** @internal */
+export const RecipientUpdateTemplateRecipientsNumber$inboundSchema: z.ZodType<
+  RecipientUpdateTemplateRecipientsNumber,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: RecipientUpdateTemplateRecipientsTypeNumber$inboundSchema,
+  numberFormat: z.string().optional(),
+  value: z.string().optional(),
+  minValue: z.number().optional(),
+  maxValue: z.number().optional(),
+  fontSize: z.number().optional(),
+  textAlign: RecipientUpdateTemplateRecipientsTextAlignNumber$inboundSchema
+    .optional(),
+});
+
+/** @internal */
+export type RecipientUpdateTemplateRecipientsNumber$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -1587,118 +1583,137 @@ export type RecipientUpdateTemplateRecipientsFieldMeta6$Outbound = {
   minValue?: number | undefined;
   maxValue?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMeta6$outboundSchema:
-  z.ZodType<
-    RecipientUpdateTemplateRecipientsFieldMeta6$Outbound,
-    z.ZodTypeDef,
-    RecipientUpdateTemplateRecipientsFieldMeta6
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONResponseBodyType$outboundSchema,
-    numberFormat: z.string().optional(),
-    value: z.string().optional(),
-    minValue: z.number().optional(),
-    maxValue: z.number().optional(),
-    fontSize: z.number().optional(),
-  });
+export const RecipientUpdateTemplateRecipientsNumber$outboundSchema: z.ZodType<
+  RecipientUpdateTemplateRecipientsNumber$Outbound,
+  z.ZodTypeDef,
+  RecipientUpdateTemplateRecipientsNumber
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: RecipientUpdateTemplateRecipientsTypeNumber$outboundSchema,
+  numberFormat: z.string().optional(),
+  value: z.string().optional(),
+  minValue: z.number().optional(),
+  maxValue: z.number().optional(),
+  fontSize: z.number().optional(),
+  textAlign: RecipientUpdateTemplateRecipientsTextAlignNumber$outboundSchema
+    .optional(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateTemplateRecipientsFieldMeta6$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMeta6$inboundSchema` instead. */
+export namespace RecipientUpdateTemplateRecipientsNumber$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsNumber$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMeta6$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMeta6$outboundSchema` instead. */
+    RecipientUpdateTemplateRecipientsNumber$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsNumber$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMeta6$outboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMeta6$Outbound` instead. */
-  export type Outbound = RecipientUpdateTemplateRecipientsFieldMeta6$Outbound;
+    RecipientUpdateTemplateRecipientsNumber$outboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsNumber$Outbound` instead. */
+  export type Outbound = RecipientUpdateTemplateRecipientsNumber$Outbound;
 }
 
-export function recipientUpdateTemplateRecipientsFieldMeta6ToJSON(
-  recipientUpdateTemplateRecipientsFieldMeta6:
-    RecipientUpdateTemplateRecipientsFieldMeta6,
+export function recipientUpdateTemplateRecipientsNumberToJSON(
+  recipientUpdateTemplateRecipientsNumber:
+    RecipientUpdateTemplateRecipientsNumber,
 ): string {
   return JSON.stringify(
-    RecipientUpdateTemplateRecipientsFieldMeta6$outboundSchema.parse(
-      recipientUpdateTemplateRecipientsFieldMeta6,
+    RecipientUpdateTemplateRecipientsNumber$outboundSchema.parse(
+      recipientUpdateTemplateRecipientsNumber,
     ),
   );
 }
 
-export function recipientUpdateTemplateRecipientsFieldMeta6FromJSON(
+export function recipientUpdateTemplateRecipientsNumberFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  RecipientUpdateTemplateRecipientsFieldMeta6,
+  RecipientUpdateTemplateRecipientsNumber,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      RecipientUpdateTemplateRecipientsFieldMeta6$inboundSchema.parse(
+      RecipientUpdateTemplateRecipientsNumber$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'RecipientUpdateTemplateRecipientsFieldMeta6' from JSON`,
+    `Failed to parse 'RecipientUpdateTemplateRecipientsNumber' from JSON`,
   );
 }
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONType
-  > = z.nativeEnum(
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONType,
-  );
+export const RecipientUpdateTemplateRecipientsTypeText$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTypeText> = z
+    .nativeEnum(RecipientUpdateTemplateRecipientsTypeText);
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONType
-  > =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONType$inboundSchema;
+export const RecipientUpdateTemplateRecipientsTypeText$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTypeText> =
+    RecipientUpdateTemplateRecipientsTypeText$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONType$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONType$inboundSchema` instead. */
+export namespace RecipientUpdateTemplateRecipientsTypeText$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTypeText$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONType$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONType$outboundSchema` instead. */
+    RecipientUpdateTemplateRecipientsTypeText$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTypeText$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONType$outboundSchema;
+    RecipientUpdateTemplateRecipientsTypeText$outboundSchema;
 }
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMeta5$inboundSchema:
-  z.ZodType<
-    RecipientUpdateTemplateRecipientsFieldMeta5,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONType$inboundSchema,
-    text: z.string().optional(),
-    characterLimit: z.number().optional(),
-    fontSize: z.number().optional(),
-  });
+export const RecipientUpdateTemplateRecipientsTextAlignText$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTextAlignText> = z
+    .nativeEnum(RecipientUpdateTemplateRecipientsTextAlignText);
 
 /** @internal */
-export type RecipientUpdateTemplateRecipientsFieldMeta5$Outbound = {
+export const RecipientUpdateTemplateRecipientsTextAlignText$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTextAlignText> =
+    RecipientUpdateTemplateRecipientsTextAlignText$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace RecipientUpdateTemplateRecipientsTextAlignText$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTextAlignText$inboundSchema` instead. */
+  export const inboundSchema =
+    RecipientUpdateTemplateRecipientsTextAlignText$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTextAlignText$outboundSchema` instead. */
+  export const outboundSchema =
+    RecipientUpdateTemplateRecipientsTextAlignText$outboundSchema;
+}
+
+/** @internal */
+export const RecipientUpdateTemplateRecipientsText$inboundSchema: z.ZodType<
+  RecipientUpdateTemplateRecipientsText,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: RecipientUpdateTemplateRecipientsTypeText$inboundSchema,
+  text: z.string().optional(),
+  characterLimit: z.number().optional(),
+  fontSize: z.number().optional(),
+  textAlign: RecipientUpdateTemplateRecipientsTextAlignText$inboundSchema
+    .optional(),
+});
+
+/** @internal */
+export type RecipientUpdateTemplateRecipientsText$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -1707,506 +1722,568 @@ export type RecipientUpdateTemplateRecipientsFieldMeta5$Outbound = {
   text?: string | undefined;
   characterLimit?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMeta5$outboundSchema:
-  z.ZodType<
-    RecipientUpdateTemplateRecipientsFieldMeta5$Outbound,
-    z.ZodTypeDef,
-    RecipientUpdateTemplateRecipientsFieldMeta5
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200ApplicationJSONType$outboundSchema,
-    text: z.string().optional(),
-    characterLimit: z.number().optional(),
-    fontSize: z.number().optional(),
-  });
+export const RecipientUpdateTemplateRecipientsText$outboundSchema: z.ZodType<
+  RecipientUpdateTemplateRecipientsText$Outbound,
+  z.ZodTypeDef,
+  RecipientUpdateTemplateRecipientsText
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: RecipientUpdateTemplateRecipientsTypeText$outboundSchema,
+  text: z.string().optional(),
+  characterLimit: z.number().optional(),
+  fontSize: z.number().optional(),
+  textAlign: RecipientUpdateTemplateRecipientsTextAlignText$outboundSchema
+    .optional(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateTemplateRecipientsFieldMeta5$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMeta5$inboundSchema` instead. */
+export namespace RecipientUpdateTemplateRecipientsText$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsText$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMeta5$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMeta5$outboundSchema` instead. */
+    RecipientUpdateTemplateRecipientsText$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsText$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMeta5$outboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMeta5$Outbound` instead. */
-  export type Outbound = RecipientUpdateTemplateRecipientsFieldMeta5$Outbound;
+    RecipientUpdateTemplateRecipientsText$outboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsText$Outbound` instead. */
+  export type Outbound = RecipientUpdateTemplateRecipientsText$Outbound;
 }
 
-export function recipientUpdateTemplateRecipientsFieldMeta5ToJSON(
-  recipientUpdateTemplateRecipientsFieldMeta5:
-    RecipientUpdateTemplateRecipientsFieldMeta5,
+export function recipientUpdateTemplateRecipientsTextToJSON(
+  recipientUpdateTemplateRecipientsText: RecipientUpdateTemplateRecipientsText,
 ): string {
   return JSON.stringify(
-    RecipientUpdateTemplateRecipientsFieldMeta5$outboundSchema.parse(
-      recipientUpdateTemplateRecipientsFieldMeta5,
+    RecipientUpdateTemplateRecipientsText$outboundSchema.parse(
+      recipientUpdateTemplateRecipientsText,
     ),
   );
 }
 
-export function recipientUpdateTemplateRecipientsFieldMeta5FromJSON(
+export function recipientUpdateTemplateRecipientsTextFromJSON(
   jsonString: string,
-): SafeParseResult<
-  RecipientUpdateTemplateRecipientsFieldMeta5,
-  SDKValidationError
-> {
+): SafeParseResult<RecipientUpdateTemplateRecipientsText, SDKValidationError> {
   return safeParse(
     jsonString,
     (x) =>
-      RecipientUpdateTemplateRecipientsFieldMeta5$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'RecipientUpdateTemplateRecipientsFieldMeta5' from JSON`,
+      RecipientUpdateTemplateRecipientsText$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RecipientUpdateTemplateRecipientsText' from JSON`,
   );
 }
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200Type
-  > = z.nativeEnum(
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200Type,
-  );
+export const RecipientUpdateTemplateRecipientsTypeDate$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTypeDate> = z
+    .nativeEnum(RecipientUpdateTemplateRecipientsTypeDate);
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200Type
-  > =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200Type$inboundSchema;
+export const RecipientUpdateTemplateRecipientsTypeDate$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTypeDate> =
+    RecipientUpdateTemplateRecipientsTypeDate$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200Type$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200Type$inboundSchema` instead. */
+export namespace RecipientUpdateTemplateRecipientsTypeDate$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTypeDate$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200Type$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200Type$outboundSchema` instead. */
+    RecipientUpdateTemplateRecipientsTypeDate$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTypeDate$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200Type$outboundSchema;
+    RecipientUpdateTemplateRecipientsTypeDate$outboundSchema;
 }
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMeta4$inboundSchema:
-  z.ZodType<
-    RecipientUpdateTemplateRecipientsFieldMeta4,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200Type$inboundSchema,
-    fontSize: z.number().optional(),
-  });
+export const RecipientUpdateTemplateRecipientsTextAlignDate$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTextAlignDate> = z
+    .nativeEnum(RecipientUpdateTemplateRecipientsTextAlignDate);
 
 /** @internal */
-export type RecipientUpdateTemplateRecipientsFieldMeta4$Outbound = {
+export const RecipientUpdateTemplateRecipientsTextAlignDate$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTextAlignDate> =
+    RecipientUpdateTemplateRecipientsTextAlignDate$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace RecipientUpdateTemplateRecipientsTextAlignDate$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTextAlignDate$inboundSchema` instead. */
+  export const inboundSchema =
+    RecipientUpdateTemplateRecipientsTextAlignDate$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTextAlignDate$outboundSchema` instead. */
+  export const outboundSchema =
+    RecipientUpdateTemplateRecipientsTextAlignDate$outboundSchema;
+}
+
+/** @internal */
+export const RecipientUpdateTemplateRecipientsDate$inboundSchema: z.ZodType<
+  RecipientUpdateTemplateRecipientsDate,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: RecipientUpdateTemplateRecipientsTypeDate$inboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: RecipientUpdateTemplateRecipientsTextAlignDate$inboundSchema
+    .optional(),
+});
+
+/** @internal */
+export type RecipientUpdateTemplateRecipientsDate$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMeta4$outboundSchema:
-  z.ZodType<
-    RecipientUpdateTemplateRecipientsFieldMeta4$Outbound,
-    z.ZodTypeDef,
-    RecipientUpdateTemplateRecipientsFieldMeta4
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponse200Type$outboundSchema,
-    fontSize: z.number().optional(),
-  });
+export const RecipientUpdateTemplateRecipientsDate$outboundSchema: z.ZodType<
+  RecipientUpdateTemplateRecipientsDate$Outbound,
+  z.ZodTypeDef,
+  RecipientUpdateTemplateRecipientsDate
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: RecipientUpdateTemplateRecipientsTypeDate$outboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: RecipientUpdateTemplateRecipientsTextAlignDate$outboundSchema
+    .optional(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateTemplateRecipientsFieldMeta4$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMeta4$inboundSchema` instead. */
+export namespace RecipientUpdateTemplateRecipientsDate$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsDate$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMeta4$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMeta4$outboundSchema` instead. */
+    RecipientUpdateTemplateRecipientsDate$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsDate$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMeta4$outboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMeta4$Outbound` instead. */
-  export type Outbound = RecipientUpdateTemplateRecipientsFieldMeta4$Outbound;
+    RecipientUpdateTemplateRecipientsDate$outboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsDate$Outbound` instead. */
+  export type Outbound = RecipientUpdateTemplateRecipientsDate$Outbound;
 }
 
-export function recipientUpdateTemplateRecipientsFieldMeta4ToJSON(
-  recipientUpdateTemplateRecipientsFieldMeta4:
-    RecipientUpdateTemplateRecipientsFieldMeta4,
+export function recipientUpdateTemplateRecipientsDateToJSON(
+  recipientUpdateTemplateRecipientsDate: RecipientUpdateTemplateRecipientsDate,
 ): string {
   return JSON.stringify(
-    RecipientUpdateTemplateRecipientsFieldMeta4$outboundSchema.parse(
-      recipientUpdateTemplateRecipientsFieldMeta4,
+    RecipientUpdateTemplateRecipientsDate$outboundSchema.parse(
+      recipientUpdateTemplateRecipientsDate,
     ),
   );
 }
 
-export function recipientUpdateTemplateRecipientsFieldMeta4FromJSON(
+export function recipientUpdateTemplateRecipientsDateFromJSON(
   jsonString: string,
-): SafeParseResult<
-  RecipientUpdateTemplateRecipientsFieldMeta4,
-  SDKValidationError
-> {
+): SafeParseResult<RecipientUpdateTemplateRecipientsDate, SDKValidationError> {
   return safeParse(
     jsonString,
     (x) =>
-      RecipientUpdateTemplateRecipientsFieldMeta4$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'RecipientUpdateTemplateRecipientsFieldMeta4' from JSON`,
+      RecipientUpdateTemplateRecipientsDate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RecipientUpdateTemplateRecipientsDate' from JSON`,
   );
 }
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseType
-  > = z.nativeEnum(
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseType,
-  );
+export const RecipientUpdateTemplateRecipientsTypeEmail$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTypeEmail> = z
+    .nativeEnum(RecipientUpdateTemplateRecipientsTypeEmail);
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseType
-  > =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseType$inboundSchema;
+export const RecipientUpdateTemplateRecipientsTypeEmail$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTypeEmail> =
+    RecipientUpdateTemplateRecipientsTypeEmail$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseType$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseType$inboundSchema` instead. */
+export namespace RecipientUpdateTemplateRecipientsTypeEmail$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTypeEmail$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseType$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseType$outboundSchema` instead. */
+    RecipientUpdateTemplateRecipientsTypeEmail$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTypeEmail$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseType$outboundSchema;
+    RecipientUpdateTemplateRecipientsTypeEmail$outboundSchema;
 }
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMeta3$inboundSchema:
-  z.ZodType<
-    RecipientUpdateTemplateRecipientsFieldMeta3,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseType$inboundSchema,
-    fontSize: z.number().optional(),
-  });
+export const RecipientUpdateTemplateRecipientsTextAlignEmail$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTextAlignEmail> = z
+    .nativeEnum(RecipientUpdateTemplateRecipientsTextAlignEmail);
 
 /** @internal */
-export type RecipientUpdateTemplateRecipientsFieldMeta3$Outbound = {
+export const RecipientUpdateTemplateRecipientsTextAlignEmail$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTextAlignEmail> =
+    RecipientUpdateTemplateRecipientsTextAlignEmail$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace RecipientUpdateTemplateRecipientsTextAlignEmail$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTextAlignEmail$inboundSchema` instead. */
+  export const inboundSchema =
+    RecipientUpdateTemplateRecipientsTextAlignEmail$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTextAlignEmail$outboundSchema` instead. */
+  export const outboundSchema =
+    RecipientUpdateTemplateRecipientsTextAlignEmail$outboundSchema;
+}
+
+/** @internal */
+export const RecipientUpdateTemplateRecipientsEmail$inboundSchema: z.ZodType<
+  RecipientUpdateTemplateRecipientsEmail,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: RecipientUpdateTemplateRecipientsTypeEmail$inboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: RecipientUpdateTemplateRecipientsTextAlignEmail$inboundSchema
+    .optional(),
+});
+
+/** @internal */
+export type RecipientUpdateTemplateRecipientsEmail$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMeta3$outboundSchema:
-  z.ZodType<
-    RecipientUpdateTemplateRecipientsFieldMeta3$Outbound,
-    z.ZodTypeDef,
-    RecipientUpdateTemplateRecipientsFieldMeta3
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsResponseType$outboundSchema,
-    fontSize: z.number().optional(),
-  });
+export const RecipientUpdateTemplateRecipientsEmail$outboundSchema: z.ZodType<
+  RecipientUpdateTemplateRecipientsEmail$Outbound,
+  z.ZodTypeDef,
+  RecipientUpdateTemplateRecipientsEmail
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: RecipientUpdateTemplateRecipientsTypeEmail$outboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: RecipientUpdateTemplateRecipientsTextAlignEmail$outboundSchema
+    .optional(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateTemplateRecipientsFieldMeta3$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMeta3$inboundSchema` instead. */
+export namespace RecipientUpdateTemplateRecipientsEmail$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsEmail$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMeta3$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMeta3$outboundSchema` instead. */
+    RecipientUpdateTemplateRecipientsEmail$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsEmail$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMeta3$outboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMeta3$Outbound` instead. */
-  export type Outbound = RecipientUpdateTemplateRecipientsFieldMeta3$Outbound;
+    RecipientUpdateTemplateRecipientsEmail$outboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsEmail$Outbound` instead. */
+  export type Outbound = RecipientUpdateTemplateRecipientsEmail$Outbound;
 }
 
-export function recipientUpdateTemplateRecipientsFieldMeta3ToJSON(
-  recipientUpdateTemplateRecipientsFieldMeta3:
-    RecipientUpdateTemplateRecipientsFieldMeta3,
+export function recipientUpdateTemplateRecipientsEmailToJSON(
+  recipientUpdateTemplateRecipientsEmail:
+    RecipientUpdateTemplateRecipientsEmail,
 ): string {
   return JSON.stringify(
-    RecipientUpdateTemplateRecipientsFieldMeta3$outboundSchema.parse(
-      recipientUpdateTemplateRecipientsFieldMeta3,
+    RecipientUpdateTemplateRecipientsEmail$outboundSchema.parse(
+      recipientUpdateTemplateRecipientsEmail,
     ),
   );
 }
 
-export function recipientUpdateTemplateRecipientsFieldMeta3FromJSON(
+export function recipientUpdateTemplateRecipientsEmailFromJSON(
   jsonString: string,
-): SafeParseResult<
-  RecipientUpdateTemplateRecipientsFieldMeta3,
-  SDKValidationError
-> {
+): SafeParseResult<RecipientUpdateTemplateRecipientsEmail, SDKValidationError> {
   return safeParse(
     jsonString,
     (x) =>
-      RecipientUpdateTemplateRecipientsFieldMeta3$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'RecipientUpdateTemplateRecipientsFieldMeta3' from JSON`,
+      RecipientUpdateTemplateRecipientsEmail$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RecipientUpdateTemplateRecipientsEmail' from JSON`,
   );
 }
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsType
-  > = z.nativeEnum(
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsType,
-  );
+export const RecipientUpdateTemplateRecipientsTypeName$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTypeName> = z
+    .nativeEnum(RecipientUpdateTemplateRecipientsTypeName);
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsType
-  > =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsType$inboundSchema;
+export const RecipientUpdateTemplateRecipientsTypeName$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTypeName> =
+    RecipientUpdateTemplateRecipientsTypeName$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsType$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsType$inboundSchema` instead. */
+export namespace RecipientUpdateTemplateRecipientsTypeName$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTypeName$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsType$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsType$outboundSchema` instead. */
+    RecipientUpdateTemplateRecipientsTypeName$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTypeName$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsType$outboundSchema;
+    RecipientUpdateTemplateRecipientsTypeName$outboundSchema;
 }
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMeta2$inboundSchema:
-  z.ZodType<
-    RecipientUpdateTemplateRecipientsFieldMeta2,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsType$inboundSchema,
-    fontSize: z.number().optional(),
-  });
+export const RecipientUpdateTemplateRecipientsTextAlignName$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTextAlignName> = z
+    .nativeEnum(RecipientUpdateTemplateRecipientsTextAlignName);
 
 /** @internal */
-export type RecipientUpdateTemplateRecipientsFieldMeta2$Outbound = {
+export const RecipientUpdateTemplateRecipientsTextAlignName$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTextAlignName> =
+    RecipientUpdateTemplateRecipientsTextAlignName$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace RecipientUpdateTemplateRecipientsTextAlignName$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTextAlignName$inboundSchema` instead. */
+  export const inboundSchema =
+    RecipientUpdateTemplateRecipientsTextAlignName$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTextAlignName$outboundSchema` instead. */
+  export const outboundSchema =
+    RecipientUpdateTemplateRecipientsTextAlignName$outboundSchema;
+}
+
+/** @internal */
+export const RecipientUpdateTemplateRecipientsName$inboundSchema: z.ZodType<
+  RecipientUpdateTemplateRecipientsName,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: RecipientUpdateTemplateRecipientsTypeName$inboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: RecipientUpdateTemplateRecipientsTextAlignName$inboundSchema
+    .optional(),
+});
+
+/** @internal */
+export type RecipientUpdateTemplateRecipientsName$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMeta2$outboundSchema:
-  z.ZodType<
-    RecipientUpdateTemplateRecipientsFieldMeta2$Outbound,
-    z.ZodTypeDef,
-    RecipientUpdateTemplateRecipientsFieldMeta2
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      RecipientUpdateTemplateRecipientsFieldMetaTemplatesRecipientsType$outboundSchema,
-    fontSize: z.number().optional(),
-  });
+export const RecipientUpdateTemplateRecipientsName$outboundSchema: z.ZodType<
+  RecipientUpdateTemplateRecipientsName$Outbound,
+  z.ZodTypeDef,
+  RecipientUpdateTemplateRecipientsName
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: RecipientUpdateTemplateRecipientsTypeName$outboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: RecipientUpdateTemplateRecipientsTextAlignName$outboundSchema
+    .optional(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateTemplateRecipientsFieldMeta2$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMeta2$inboundSchema` instead. */
+export namespace RecipientUpdateTemplateRecipientsName$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsName$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMeta2$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMeta2$outboundSchema` instead. */
+    RecipientUpdateTemplateRecipientsName$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsName$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMeta2$outboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMeta2$Outbound` instead. */
-  export type Outbound = RecipientUpdateTemplateRecipientsFieldMeta2$Outbound;
+    RecipientUpdateTemplateRecipientsName$outboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsName$Outbound` instead. */
+  export type Outbound = RecipientUpdateTemplateRecipientsName$Outbound;
 }
 
-export function recipientUpdateTemplateRecipientsFieldMeta2ToJSON(
-  recipientUpdateTemplateRecipientsFieldMeta2:
-    RecipientUpdateTemplateRecipientsFieldMeta2,
+export function recipientUpdateTemplateRecipientsNameToJSON(
+  recipientUpdateTemplateRecipientsName: RecipientUpdateTemplateRecipientsName,
 ): string {
   return JSON.stringify(
-    RecipientUpdateTemplateRecipientsFieldMeta2$outboundSchema.parse(
-      recipientUpdateTemplateRecipientsFieldMeta2,
+    RecipientUpdateTemplateRecipientsName$outboundSchema.parse(
+      recipientUpdateTemplateRecipientsName,
     ),
   );
 }
 
-export function recipientUpdateTemplateRecipientsFieldMeta2FromJSON(
+export function recipientUpdateTemplateRecipientsNameFromJSON(
   jsonString: string,
-): SafeParseResult<
-  RecipientUpdateTemplateRecipientsFieldMeta2,
-  SDKValidationError
-> {
+): SafeParseResult<RecipientUpdateTemplateRecipientsName, SDKValidationError> {
   return safeParse(
     jsonString,
     (x) =>
-      RecipientUpdateTemplateRecipientsFieldMeta2$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'RecipientUpdateTemplateRecipientsFieldMeta2' from JSON`,
+      RecipientUpdateTemplateRecipientsName$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RecipientUpdateTemplateRecipientsName' from JSON`,
   );
 }
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMetaType$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsFieldMetaType> = z
-    .nativeEnum(RecipientUpdateTemplateRecipientsFieldMetaType);
+export const RecipientUpdateTemplateRecipientsTypeInitials$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTypeInitials> = z
+    .nativeEnum(RecipientUpdateTemplateRecipientsTypeInitials);
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMetaType$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsFieldMetaType> =
-    RecipientUpdateTemplateRecipientsFieldMetaType$inboundSchema;
+export const RecipientUpdateTemplateRecipientsTypeInitials$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTypeInitials> =
+    RecipientUpdateTemplateRecipientsTypeInitials$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateTemplateRecipientsFieldMetaType$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMetaType$inboundSchema` instead. */
+export namespace RecipientUpdateTemplateRecipientsTypeInitials$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTypeInitials$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMetaType$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMetaType$outboundSchema` instead. */
+    RecipientUpdateTemplateRecipientsTypeInitials$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTypeInitials$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMetaType$outboundSchema;
+    RecipientUpdateTemplateRecipientsTypeInitials$outboundSchema;
 }
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMeta1$inboundSchema:
-  z.ZodType<
-    RecipientUpdateTemplateRecipientsFieldMeta1,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type: RecipientUpdateTemplateRecipientsFieldMetaType$inboundSchema,
-    fontSize: z.number().optional(),
-  });
+export const RecipientUpdateTemplateRecipientsTextAlignInitials$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTextAlignInitials> = z
+    .nativeEnum(RecipientUpdateTemplateRecipientsTextAlignInitials);
 
 /** @internal */
-export type RecipientUpdateTemplateRecipientsFieldMeta1$Outbound = {
+export const RecipientUpdateTemplateRecipientsTextAlignInitials$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsTextAlignInitials> =
+    RecipientUpdateTemplateRecipientsTextAlignInitials$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace RecipientUpdateTemplateRecipientsTextAlignInitials$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTextAlignInitials$inboundSchema` instead. */
+  export const inboundSchema =
+    RecipientUpdateTemplateRecipientsTextAlignInitials$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsTextAlignInitials$outboundSchema` instead. */
+  export const outboundSchema =
+    RecipientUpdateTemplateRecipientsTextAlignInitials$outboundSchema;
+}
+
+/** @internal */
+export const RecipientUpdateTemplateRecipientsInitials$inboundSchema: z.ZodType<
+  RecipientUpdateTemplateRecipientsInitials,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: RecipientUpdateTemplateRecipientsTypeInitials$inboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: RecipientUpdateTemplateRecipientsTextAlignInitials$inboundSchema
+    .optional(),
+});
+
+/** @internal */
+export type RecipientUpdateTemplateRecipientsInitials$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsFieldMeta1$outboundSchema:
+export const RecipientUpdateTemplateRecipientsInitials$outboundSchema:
   z.ZodType<
-    RecipientUpdateTemplateRecipientsFieldMeta1$Outbound,
+    RecipientUpdateTemplateRecipientsInitials$Outbound,
     z.ZodTypeDef,
-    RecipientUpdateTemplateRecipientsFieldMeta1
+    RecipientUpdateTemplateRecipientsInitials
   > = z.object({
     label: z.string().optional(),
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type: RecipientUpdateTemplateRecipientsFieldMetaType$outboundSchema,
+    type: RecipientUpdateTemplateRecipientsTypeInitials$outboundSchema,
     fontSize: z.number().optional(),
+    textAlign: RecipientUpdateTemplateRecipientsTextAlignInitials$outboundSchema
+      .optional(),
   });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateTemplateRecipientsFieldMeta1$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMeta1$inboundSchema` instead. */
+export namespace RecipientUpdateTemplateRecipientsInitials$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsInitials$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMeta1$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMeta1$outboundSchema` instead. */
+    RecipientUpdateTemplateRecipientsInitials$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsInitials$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateTemplateRecipientsFieldMeta1$outboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsFieldMeta1$Outbound` instead. */
-  export type Outbound = RecipientUpdateTemplateRecipientsFieldMeta1$Outbound;
+    RecipientUpdateTemplateRecipientsInitials$outboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsInitials$Outbound` instead. */
+  export type Outbound = RecipientUpdateTemplateRecipientsInitials$Outbound;
 }
 
-export function recipientUpdateTemplateRecipientsFieldMeta1ToJSON(
-  recipientUpdateTemplateRecipientsFieldMeta1:
-    RecipientUpdateTemplateRecipientsFieldMeta1,
+export function recipientUpdateTemplateRecipientsInitialsToJSON(
+  recipientUpdateTemplateRecipientsInitials:
+    RecipientUpdateTemplateRecipientsInitials,
 ): string {
   return JSON.stringify(
-    RecipientUpdateTemplateRecipientsFieldMeta1$outboundSchema.parse(
-      recipientUpdateTemplateRecipientsFieldMeta1,
+    RecipientUpdateTemplateRecipientsInitials$outboundSchema.parse(
+      recipientUpdateTemplateRecipientsInitials,
     ),
   );
 }
 
-export function recipientUpdateTemplateRecipientsFieldMeta1FromJSON(
+export function recipientUpdateTemplateRecipientsInitialsFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  RecipientUpdateTemplateRecipientsFieldMeta1,
+  RecipientUpdateTemplateRecipientsInitials,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      RecipientUpdateTemplateRecipientsFieldMeta1$inboundSchema.parse(
+      RecipientUpdateTemplateRecipientsInitials$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'RecipientUpdateTemplateRecipientsFieldMeta1' from JSON`,
+    `Failed to parse 'RecipientUpdateTemplateRecipientsInitials' from JSON`,
   );
 }
 
@@ -2214,28 +2291,28 @@ export function recipientUpdateTemplateRecipientsFieldMeta1FromJSON(
 export const RecipientUpdateTemplateRecipientsFieldMeta$inboundSchema:
   z.ZodType<RecipientUpdateTemplateRecipientsFieldMeta, z.ZodTypeDef, unknown> =
     z.union([
-      z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta1$inboundSchema),
-      z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta2$inboundSchema),
-      z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta3$inboundSchema),
-      z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta4$inboundSchema),
-      z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta7$inboundSchema),
-      z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta9$inboundSchema),
-      z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta5$inboundSchema),
-      z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta8$inboundSchema),
-      z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta6$inboundSchema),
+      z.lazy(() => RecipientUpdateTemplateRecipientsRadio$inboundSchema),
+      z.lazy(() => RecipientUpdateTemplateRecipientsInitials$inboundSchema),
+      z.lazy(() => RecipientUpdateTemplateRecipientsName$inboundSchema),
+      z.lazy(() => RecipientUpdateTemplateRecipientsEmail$inboundSchema),
+      z.lazy(() => RecipientUpdateTemplateRecipientsDate$inboundSchema),
+      z.lazy(() => RecipientUpdateTemplateRecipientsDropdown$inboundSchema),
+      z.lazy(() => RecipientUpdateTemplateRecipientsCheckbox$inboundSchema),
+      z.lazy(() => RecipientUpdateTemplateRecipientsText$inboundSchema),
+      z.lazy(() => RecipientUpdateTemplateRecipientsNumber$inboundSchema),
     ]);
 
 /** @internal */
 export type RecipientUpdateTemplateRecipientsFieldMeta$Outbound =
-  | RecipientUpdateTemplateRecipientsFieldMeta1$Outbound
-  | RecipientUpdateTemplateRecipientsFieldMeta2$Outbound
-  | RecipientUpdateTemplateRecipientsFieldMeta3$Outbound
-  | RecipientUpdateTemplateRecipientsFieldMeta4$Outbound
-  | RecipientUpdateTemplateRecipientsFieldMeta7$Outbound
-  | RecipientUpdateTemplateRecipientsFieldMeta9$Outbound
-  | RecipientUpdateTemplateRecipientsFieldMeta5$Outbound
-  | RecipientUpdateTemplateRecipientsFieldMeta8$Outbound
-  | RecipientUpdateTemplateRecipientsFieldMeta6$Outbound;
+  | RecipientUpdateTemplateRecipientsRadio$Outbound
+  | RecipientUpdateTemplateRecipientsInitials$Outbound
+  | RecipientUpdateTemplateRecipientsName$Outbound
+  | RecipientUpdateTemplateRecipientsEmail$Outbound
+  | RecipientUpdateTemplateRecipientsDate$Outbound
+  | RecipientUpdateTemplateRecipientsDropdown$Outbound
+  | RecipientUpdateTemplateRecipientsCheckbox$Outbound
+  | RecipientUpdateTemplateRecipientsText$Outbound
+  | RecipientUpdateTemplateRecipientsNumber$Outbound;
 
 /** @internal */
 export const RecipientUpdateTemplateRecipientsFieldMeta$outboundSchema:
@@ -2244,15 +2321,15 @@ export const RecipientUpdateTemplateRecipientsFieldMeta$outboundSchema:
     z.ZodTypeDef,
     RecipientUpdateTemplateRecipientsFieldMeta
   > = z.union([
-    z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta1$outboundSchema),
-    z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta2$outboundSchema),
-    z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta3$outboundSchema),
-    z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta4$outboundSchema),
-    z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta7$outboundSchema),
-    z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta9$outboundSchema),
-    z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta5$outboundSchema),
-    z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta8$outboundSchema),
-    z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta6$outboundSchema),
+    z.lazy(() => RecipientUpdateTemplateRecipientsRadio$outboundSchema),
+    z.lazy(() => RecipientUpdateTemplateRecipientsInitials$outboundSchema),
+    z.lazy(() => RecipientUpdateTemplateRecipientsName$outboundSchema),
+    z.lazy(() => RecipientUpdateTemplateRecipientsEmail$outboundSchema),
+    z.lazy(() => RecipientUpdateTemplateRecipientsDate$outboundSchema),
+    z.lazy(() => RecipientUpdateTemplateRecipientsDropdown$outboundSchema),
+    z.lazy(() => RecipientUpdateTemplateRecipientsCheckbox$outboundSchema),
+    z.lazy(() => RecipientUpdateTemplateRecipientsText$outboundSchema),
+    z.lazy(() => RecipientUpdateTemplateRecipientsNumber$outboundSchema),
   ]);
 
 /**
@@ -2304,11 +2381,11 @@ export const RecipientUpdateTemplateRecipientsFields$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: RecipientUpdateTemplateRecipientsType$inboundSchema,
-  id: z.number().int(),
+  id: z.number(),
   secondaryId: z.string(),
-  documentId: z.nullable(z.number().int()),
-  templateId: z.nullable(z.number().int()),
-  recipientId: z.number().int(),
+  documentId: z.nullable(z.number()),
+  templateId: z.nullable(z.number()),
+  recipientId: z.number(),
   page: z.number(),
   positionX: z.any().optional(),
   positionY: z.any().optional(),
@@ -2318,15 +2395,15 @@ export const RecipientUpdateTemplateRecipientsFields$inboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta1$inboundSchema),
-      z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta2$inboundSchema),
-      z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta3$inboundSchema),
-      z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta4$inboundSchema),
-      z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta7$inboundSchema),
-      z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta9$inboundSchema),
-      z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta5$inboundSchema),
-      z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta8$inboundSchema),
-      z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta6$inboundSchema),
+      z.lazy(() => RecipientUpdateTemplateRecipientsRadio$inboundSchema),
+      z.lazy(() => RecipientUpdateTemplateRecipientsInitials$inboundSchema),
+      z.lazy(() => RecipientUpdateTemplateRecipientsName$inboundSchema),
+      z.lazy(() => RecipientUpdateTemplateRecipientsEmail$inboundSchema),
+      z.lazy(() => RecipientUpdateTemplateRecipientsDate$inboundSchema),
+      z.lazy(() => RecipientUpdateTemplateRecipientsDropdown$inboundSchema),
+      z.lazy(() => RecipientUpdateTemplateRecipientsCheckbox$inboundSchema),
+      z.lazy(() => RecipientUpdateTemplateRecipientsText$inboundSchema),
+      z.lazy(() => RecipientUpdateTemplateRecipientsNumber$inboundSchema),
     ]),
   ),
 });
@@ -2347,15 +2424,15 @@ export type RecipientUpdateTemplateRecipientsFields$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | RecipientUpdateTemplateRecipientsFieldMeta1$Outbound
-    | RecipientUpdateTemplateRecipientsFieldMeta2$Outbound
-    | RecipientUpdateTemplateRecipientsFieldMeta3$Outbound
-    | RecipientUpdateTemplateRecipientsFieldMeta4$Outbound
-    | RecipientUpdateTemplateRecipientsFieldMeta7$Outbound
-    | RecipientUpdateTemplateRecipientsFieldMeta9$Outbound
-    | RecipientUpdateTemplateRecipientsFieldMeta5$Outbound
-    | RecipientUpdateTemplateRecipientsFieldMeta8$Outbound
-    | RecipientUpdateTemplateRecipientsFieldMeta6$Outbound
+    | RecipientUpdateTemplateRecipientsRadio$Outbound
+    | RecipientUpdateTemplateRecipientsInitials$Outbound
+    | RecipientUpdateTemplateRecipientsName$Outbound
+    | RecipientUpdateTemplateRecipientsEmail$Outbound
+    | RecipientUpdateTemplateRecipientsDate$Outbound
+    | RecipientUpdateTemplateRecipientsDropdown$Outbound
+    | RecipientUpdateTemplateRecipientsCheckbox$Outbound
+    | RecipientUpdateTemplateRecipientsText$Outbound
+    | RecipientUpdateTemplateRecipientsNumber$Outbound
     | null;
 };
 
@@ -2366,11 +2443,11 @@ export const RecipientUpdateTemplateRecipientsFields$outboundSchema: z.ZodType<
   RecipientUpdateTemplateRecipientsFields
 > = z.object({
   type: RecipientUpdateTemplateRecipientsType$outboundSchema,
-  id: z.number().int(),
+  id: z.number(),
   secondaryId: z.string(),
-  documentId: z.nullable(z.number().int()),
-  templateId: z.nullable(z.number().int()),
-  recipientId: z.number().int(),
+  documentId: z.nullable(z.number()),
+  templateId: z.nullable(z.number()),
+  recipientId: z.number(),
   page: z.number(),
   positionX: z.any().optional(),
   positionY: z.any().optional(),
@@ -2380,15 +2457,15 @@ export const RecipientUpdateTemplateRecipientsFields$outboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta1$outboundSchema),
-      z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta2$outboundSchema),
-      z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta3$outboundSchema),
-      z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta4$outboundSchema),
-      z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta7$outboundSchema),
-      z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta9$outboundSchema),
-      z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta5$outboundSchema),
-      z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta8$outboundSchema),
-      z.lazy(() => RecipientUpdateTemplateRecipientsFieldMeta6$outboundSchema),
+      z.lazy(() => RecipientUpdateTemplateRecipientsRadio$outboundSchema),
+      z.lazy(() => RecipientUpdateTemplateRecipientsInitials$outboundSchema),
+      z.lazy(() => RecipientUpdateTemplateRecipientsName$outboundSchema),
+      z.lazy(() => RecipientUpdateTemplateRecipientsEmail$outboundSchema),
+      z.lazy(() => RecipientUpdateTemplateRecipientsDate$outboundSchema),
+      z.lazy(() => RecipientUpdateTemplateRecipientsDropdown$outboundSchema),
+      z.lazy(() => RecipientUpdateTemplateRecipientsCheckbox$outboundSchema),
+      z.lazy(() => RecipientUpdateTemplateRecipientsText$outboundSchema),
+      z.lazy(() => RecipientUpdateTemplateRecipientsNumber$outboundSchema),
     ]),
   ),
 });
@@ -2436,20 +2513,19 @@ export function recipientUpdateTemplateRecipientsFieldsFromJSON(
 }
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients$inboundSchema:
+export const RecipientUpdateTemplateRecipientsResponseRecipients$inboundSchema:
   z.ZodType<
-    RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients,
+    RecipientUpdateTemplateRecipientsResponseRecipients,
     z.ZodTypeDef,
     unknown
   > = z.object({
-    role:
-      RecipientUpdateTemplateRecipientsTemplatesRecipientsRole$inboundSchema,
+    role: RecipientUpdateTemplateRecipientsResponseRole$inboundSchema,
     readStatus: RecipientUpdateTemplateRecipientsReadStatus$inboundSchema,
     signingStatus: RecipientUpdateTemplateRecipientsSigningStatus$inboundSchema,
     sendStatus: RecipientUpdateTemplateRecipientsSendStatus$inboundSchema,
-    id: z.number().int(),
-    documentId: z.nullable(z.number().int()),
-    templateId: z.nullable(z.number().int()),
+    id: z.number(),
+    documentId: z.nullable(z.number()),
+    templateId: z.nullable(z.number()),
     email: z.string(),
     name: z.string(),
     token: z.string(),
@@ -2467,43 +2543,41 @@ export const RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients$inbo
   });
 
 /** @internal */
-export type RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients$Outbound =
-  {
-    role: string;
-    readStatus: string;
-    signingStatus: string;
-    sendStatus: string;
-    id: number;
-    documentId: number | null;
-    templateId: number | null;
-    email: string;
-    name: string;
-    token: string;
-    documentDeletedAt: string | null;
-    expired: string | null;
-    signedAt: string | null;
-    authOptions: RecipientUpdateTemplateRecipientsAuthOptions$Outbound | null;
-    signingOrder: number | null;
-    rejectionReason: string | null;
-    fields: Array<RecipientUpdateTemplateRecipientsFields$Outbound>;
-  };
+export type RecipientUpdateTemplateRecipientsResponseRecipients$Outbound = {
+  role: string;
+  readStatus: string;
+  signingStatus: string;
+  sendStatus: string;
+  id: number;
+  documentId: number | null;
+  templateId: number | null;
+  email: string;
+  name: string;
+  token: string;
+  documentDeletedAt: string | null;
+  expired: string | null;
+  signedAt: string | null;
+  authOptions: RecipientUpdateTemplateRecipientsAuthOptions$Outbound | null;
+  signingOrder: number | null;
+  rejectionReason: string | null;
+  fields: Array<RecipientUpdateTemplateRecipientsFields$Outbound>;
+};
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients$outboundSchema:
+export const RecipientUpdateTemplateRecipientsResponseRecipients$outboundSchema:
   z.ZodType<
-    RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients$Outbound,
+    RecipientUpdateTemplateRecipientsResponseRecipients$Outbound,
     z.ZodTypeDef,
-    RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients
+    RecipientUpdateTemplateRecipientsResponseRecipients
   > = z.object({
-    role:
-      RecipientUpdateTemplateRecipientsTemplatesRecipientsRole$outboundSchema,
+    role: RecipientUpdateTemplateRecipientsResponseRole$outboundSchema,
     readStatus: RecipientUpdateTemplateRecipientsReadStatus$outboundSchema,
     signingStatus:
       RecipientUpdateTemplateRecipientsSigningStatus$outboundSchema,
     sendStatus: RecipientUpdateTemplateRecipientsSendStatus$outboundSchema,
-    id: z.number().int(),
-    documentId: z.nullable(z.number().int()),
-    templateId: z.nullable(z.number().int()),
+    id: z.number(),
+    documentId: z.nullable(z.number()),
+    templateId: z.nullable(z.number()),
     email: z.string(),
     name: z.string(),
     token: z.string(),
@@ -2524,74 +2598,75 @@ export const RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients$outb
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients$inboundSchema` instead. */
+export namespace RecipientUpdateTemplateRecipientsResponseRecipients$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsResponseRecipients$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients$outboundSchema` instead. */
+    RecipientUpdateTemplateRecipientsResponseRecipients$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsResponseRecipients$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients$outboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients$Outbound` instead. */
+    RecipientUpdateTemplateRecipientsResponseRecipients$outboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsResponseRecipients$Outbound` instead. */
   export type Outbound =
-    RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients$Outbound;
+    RecipientUpdateTemplateRecipientsResponseRecipients$Outbound;
 }
 
-export function recipientUpdateTemplateRecipientsTemplatesRecipientsRecipientsToJSON(
-  recipientUpdateTemplateRecipientsTemplatesRecipientsRecipients:
-    RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients,
+export function recipientUpdateTemplateRecipientsResponseRecipientsToJSON(
+  recipientUpdateTemplateRecipientsResponseRecipients:
+    RecipientUpdateTemplateRecipientsResponseRecipients,
 ): string {
   return JSON.stringify(
-    RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients$outboundSchema
-      .parse(recipientUpdateTemplateRecipientsTemplatesRecipientsRecipients),
+    RecipientUpdateTemplateRecipientsResponseRecipients$outboundSchema.parse(
+      recipientUpdateTemplateRecipientsResponseRecipients,
+    ),
   );
 }
 
-export function recipientUpdateTemplateRecipientsTemplatesRecipientsRecipientsFromJSON(
+export function recipientUpdateTemplateRecipientsResponseRecipientsFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients,
+  RecipientUpdateTemplateRecipientsResponseRecipients,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients' from JSON`,
+      RecipientUpdateTemplateRecipientsResponseRecipients$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'RecipientUpdateTemplateRecipientsResponseRecipients' from JSON`,
   );
 }
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsResponseBody$inboundSchema:
-  z.ZodType<
-    RecipientUpdateTemplateRecipientsResponseBody,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    recipients: z.array(
-      z.lazy(() =>
-        RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients$inboundSchema
-      ),
+export const RecipientUpdateTemplateRecipientsResponse$inboundSchema: z.ZodType<
+  RecipientUpdateTemplateRecipientsResponse,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  recipients: z.array(
+    z.lazy(() =>
+      RecipientUpdateTemplateRecipientsResponseRecipients$inboundSchema
     ),
-  });
+  ),
+});
 
 /** @internal */
-export type RecipientUpdateTemplateRecipientsResponseBody$Outbound = {
+export type RecipientUpdateTemplateRecipientsResponse$Outbound = {
   recipients: Array<
-    RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients$Outbound
+    RecipientUpdateTemplateRecipientsResponseRecipients$Outbound
   >;
 };
 
 /** @internal */
-export const RecipientUpdateTemplateRecipientsResponseBody$outboundSchema:
+export const RecipientUpdateTemplateRecipientsResponse$outboundSchema:
   z.ZodType<
-    RecipientUpdateTemplateRecipientsResponseBody$Outbound,
+    RecipientUpdateTemplateRecipientsResponse$Outbound,
     z.ZodTypeDef,
-    RecipientUpdateTemplateRecipientsResponseBody
+    RecipientUpdateTemplateRecipientsResponse
   > = z.object({
     recipients: z.array(
       z.lazy(() =>
-        RecipientUpdateTemplateRecipientsTemplatesRecipientsRecipients$outboundSchema
+        RecipientUpdateTemplateRecipientsResponseRecipients$outboundSchema
       ),
     ),
   });
@@ -2600,40 +2675,40 @@ export const RecipientUpdateTemplateRecipientsResponseBody$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateTemplateRecipientsResponseBody$ {
-  /** @deprecated use `RecipientUpdateTemplateRecipientsResponseBody$inboundSchema` instead. */
+export namespace RecipientUpdateTemplateRecipientsResponse$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsResponse$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateTemplateRecipientsResponseBody$inboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsResponseBody$outboundSchema` instead. */
+    RecipientUpdateTemplateRecipientsResponse$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsResponse$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateTemplateRecipientsResponseBody$outboundSchema;
-  /** @deprecated use `RecipientUpdateTemplateRecipientsResponseBody$Outbound` instead. */
-  export type Outbound = RecipientUpdateTemplateRecipientsResponseBody$Outbound;
+    RecipientUpdateTemplateRecipientsResponse$outboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsResponse$Outbound` instead. */
+  export type Outbound = RecipientUpdateTemplateRecipientsResponse$Outbound;
 }
 
-export function recipientUpdateTemplateRecipientsResponseBodyToJSON(
-  recipientUpdateTemplateRecipientsResponseBody:
-    RecipientUpdateTemplateRecipientsResponseBody,
+export function recipientUpdateTemplateRecipientsResponseToJSON(
+  recipientUpdateTemplateRecipientsResponse:
+    RecipientUpdateTemplateRecipientsResponse,
 ): string {
   return JSON.stringify(
-    RecipientUpdateTemplateRecipientsResponseBody$outboundSchema.parse(
-      recipientUpdateTemplateRecipientsResponseBody,
+    RecipientUpdateTemplateRecipientsResponse$outboundSchema.parse(
+      recipientUpdateTemplateRecipientsResponse,
     ),
   );
 }
 
-export function recipientUpdateTemplateRecipientsResponseBodyFromJSON(
+export function recipientUpdateTemplateRecipientsResponseFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  RecipientUpdateTemplateRecipientsResponseBody,
+  RecipientUpdateTemplateRecipientsResponse,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      RecipientUpdateTemplateRecipientsResponseBody$inboundSchema.parse(
+      RecipientUpdateTemplateRecipientsResponse$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'RecipientUpdateTemplateRecipientsResponseBody' from JSON`,
+    `Failed to parse 'RecipientUpdateTemplateRecipientsResponse' from JSON`,
   );
 }

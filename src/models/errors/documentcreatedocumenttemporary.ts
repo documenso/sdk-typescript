@@ -7,32 +7,34 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
-export type DocumentCreateDocumentTemporaryDocumentsIssues = {
+export type DocumentCreateDocumentTemporaryInternalServerErrorIssues = {
   message: string;
 };
 
 /**
  * Internal server error
  */
-export type DocumentCreateDocumentTemporaryDocumentsResponseBodyData = {
+export type DocumentCreateDocumentTemporaryInternalServerErrorData = {
   message: string;
   code: string;
-  issues?: Array<DocumentCreateDocumentTemporaryDocumentsIssues> | undefined;
+  issues?:
+    | Array<DocumentCreateDocumentTemporaryInternalServerErrorIssues>
+    | undefined;
 };
 
 /**
  * Internal server error
  */
-export class DocumentCreateDocumentTemporaryDocumentsResponseBody
-  extends Error
-{
+export class DocumentCreateDocumentTemporaryInternalServerError extends Error {
   code: string;
-  issues?: Array<DocumentCreateDocumentTemporaryDocumentsIssues> | undefined;
+  issues?:
+    | Array<DocumentCreateDocumentTemporaryInternalServerErrorIssues>
+    | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: DocumentCreateDocumentTemporaryDocumentsResponseBodyData;
+  data$: DocumentCreateDocumentTemporaryInternalServerErrorData;
 
-  constructor(err: DocumentCreateDocumentTemporaryDocumentsResponseBodyData) {
+  constructor(err: DocumentCreateDocumentTemporaryInternalServerErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -42,34 +44,34 @@ export class DocumentCreateDocumentTemporaryDocumentsResponseBody
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name = "DocumentCreateDocumentTemporaryDocumentsResponseBody";
+    this.name = "DocumentCreateDocumentTemporaryInternalServerError";
   }
 }
 
-export type DocumentCreateDocumentTemporaryIssues = {
+export type DocumentCreateDocumentTemporaryBadRequestIssues = {
   message: string;
 };
 
 /**
  * Invalid input data
  */
-export type DocumentCreateDocumentTemporaryResponseBodyData = {
+export type DocumentCreateDocumentTemporaryBadRequestErrorData = {
   message: string;
   code: string;
-  issues?: Array<DocumentCreateDocumentTemporaryIssues> | undefined;
+  issues?: Array<DocumentCreateDocumentTemporaryBadRequestIssues> | undefined;
 };
 
 /**
  * Invalid input data
  */
-export class DocumentCreateDocumentTemporaryResponseBody extends Error {
+export class DocumentCreateDocumentTemporaryBadRequestError extends Error {
   code: string;
-  issues?: Array<DocumentCreateDocumentTemporaryIssues> | undefined;
+  issues?: Array<DocumentCreateDocumentTemporaryBadRequestIssues> | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: DocumentCreateDocumentTemporaryResponseBodyData;
+  data$: DocumentCreateDocumentTemporaryBadRequestErrorData;
 
-  constructor(err: DocumentCreateDocumentTemporaryResponseBodyData) {
+  constructor(err: DocumentCreateDocumentTemporaryBadRequestErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -79,14 +81,14 @@ export class DocumentCreateDocumentTemporaryResponseBody extends Error {
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name = "DocumentCreateDocumentTemporaryResponseBody";
+    this.name = "DocumentCreateDocumentTemporaryBadRequestError";
   }
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryDocumentsIssues$inboundSchema:
+export const DocumentCreateDocumentTemporaryInternalServerErrorIssues$inboundSchema:
   z.ZodType<
-    DocumentCreateDocumentTemporaryDocumentsIssues,
+    DocumentCreateDocumentTemporaryInternalServerErrorIssues,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -94,16 +96,17 @@ export const DocumentCreateDocumentTemporaryDocumentsIssues$inboundSchema:
   });
 
 /** @internal */
-export type DocumentCreateDocumentTemporaryDocumentsIssues$Outbound = {
-  message: string;
-};
+export type DocumentCreateDocumentTemporaryInternalServerErrorIssues$Outbound =
+  {
+    message: string;
+  };
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryDocumentsIssues$outboundSchema:
+export const DocumentCreateDocumentTemporaryInternalServerErrorIssues$outboundSchema:
   z.ZodType<
-    DocumentCreateDocumentTemporaryDocumentsIssues$Outbound,
+    DocumentCreateDocumentTemporaryInternalServerErrorIssues$Outbound,
     z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryDocumentsIssues
+    DocumentCreateDocumentTemporaryInternalServerErrorIssues
   > = z.object({
     message: z.string(),
   });
@@ -112,49 +115,47 @@ export const DocumentCreateDocumentTemporaryDocumentsIssues$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryDocumentsIssues$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryDocumentsIssues$inboundSchema` instead. */
+export namespace DocumentCreateDocumentTemporaryInternalServerErrorIssues$ {
+  /** @deprecated use `DocumentCreateDocumentTemporaryInternalServerErrorIssues$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentCreateDocumentTemporaryDocumentsIssues$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryDocumentsIssues$outboundSchema` instead. */
+    DocumentCreateDocumentTemporaryInternalServerErrorIssues$inboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryInternalServerErrorIssues$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentCreateDocumentTemporaryDocumentsIssues$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryDocumentsIssues$Outbound` instead. */
+    DocumentCreateDocumentTemporaryInternalServerErrorIssues$outboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryInternalServerErrorIssues$Outbound` instead. */
   export type Outbound =
-    DocumentCreateDocumentTemporaryDocumentsIssues$Outbound;
+    DocumentCreateDocumentTemporaryInternalServerErrorIssues$Outbound;
 }
 
-export function documentCreateDocumentTemporaryDocumentsIssuesToJSON(
-  documentCreateDocumentTemporaryDocumentsIssues:
-    DocumentCreateDocumentTemporaryDocumentsIssues,
+export function documentCreateDocumentTemporaryInternalServerErrorIssuesToJSON(
+  documentCreateDocumentTemporaryInternalServerErrorIssues:
+    DocumentCreateDocumentTemporaryInternalServerErrorIssues,
 ): string {
   return JSON.stringify(
-    DocumentCreateDocumentTemporaryDocumentsIssues$outboundSchema.parse(
-      documentCreateDocumentTemporaryDocumentsIssues,
-    ),
+    DocumentCreateDocumentTemporaryInternalServerErrorIssues$outboundSchema
+      .parse(documentCreateDocumentTemporaryInternalServerErrorIssues),
   );
 }
 
-export function documentCreateDocumentTemporaryDocumentsIssuesFromJSON(
+export function documentCreateDocumentTemporaryInternalServerErrorIssuesFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  DocumentCreateDocumentTemporaryDocumentsIssues,
+  DocumentCreateDocumentTemporaryInternalServerErrorIssues,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentCreateDocumentTemporaryDocumentsIssues$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DocumentCreateDocumentTemporaryDocumentsIssues' from JSON`,
+      DocumentCreateDocumentTemporaryInternalServerErrorIssues$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'DocumentCreateDocumentTemporaryInternalServerErrorIssues' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryDocumentsResponseBody$inboundSchema:
+export const DocumentCreateDocumentTemporaryInternalServerError$inboundSchema:
   z.ZodType<
-    DocumentCreateDocumentTemporaryDocumentsResponseBody,
+    DocumentCreateDocumentTemporaryInternalServerError,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -162,37 +163,37 @@ export const DocumentCreateDocumentTemporaryDocumentsResponseBody$inboundSchema:
     code: z.string(),
     issues: z.array(
       z.lazy(() =>
-        DocumentCreateDocumentTemporaryDocumentsIssues$inboundSchema
+        DocumentCreateDocumentTemporaryInternalServerErrorIssues$inboundSchema
       ),
     ).optional(),
   })
     .transform((v) => {
-      return new DocumentCreateDocumentTemporaryDocumentsResponseBody(v);
+      return new DocumentCreateDocumentTemporaryInternalServerError(v);
     });
 
 /** @internal */
-export type DocumentCreateDocumentTemporaryDocumentsResponseBody$Outbound = {
+export type DocumentCreateDocumentTemporaryInternalServerError$Outbound = {
   message: string;
   code: string;
   issues?:
-    | Array<DocumentCreateDocumentTemporaryDocumentsIssues$Outbound>
+    | Array<DocumentCreateDocumentTemporaryInternalServerErrorIssues$Outbound>
     | undefined;
 };
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryDocumentsResponseBody$outboundSchema:
+export const DocumentCreateDocumentTemporaryInternalServerError$outboundSchema:
   z.ZodType<
-    DocumentCreateDocumentTemporaryDocumentsResponseBody$Outbound,
+    DocumentCreateDocumentTemporaryInternalServerError$Outbound,
     z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryDocumentsResponseBody
-  > = z.instanceof(DocumentCreateDocumentTemporaryDocumentsResponseBody)
+    DocumentCreateDocumentTemporaryInternalServerError
+  > = z.instanceof(DocumentCreateDocumentTemporaryInternalServerError)
     .transform(v => v.data$)
     .pipe(z.object({
       message: z.string(),
       code: z.string(),
       issues: z.array(
         z.lazy(() =>
-          DocumentCreateDocumentTemporaryDocumentsIssues$outboundSchema
+          DocumentCreateDocumentTemporaryInternalServerErrorIssues$outboundSchema
         ),
       ).optional(),
     }));
@@ -201,114 +202,129 @@ export const DocumentCreateDocumentTemporaryDocumentsResponseBody$outboundSchema
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryDocumentsResponseBody$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryDocumentsResponseBody$inboundSchema` instead. */
+export namespace DocumentCreateDocumentTemporaryInternalServerError$ {
+  /** @deprecated use `DocumentCreateDocumentTemporaryInternalServerError$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentCreateDocumentTemporaryDocumentsResponseBody$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryDocumentsResponseBody$outboundSchema` instead. */
+    DocumentCreateDocumentTemporaryInternalServerError$inboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryInternalServerError$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentCreateDocumentTemporaryDocumentsResponseBody$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryDocumentsResponseBody$Outbound` instead. */
+    DocumentCreateDocumentTemporaryInternalServerError$outboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryInternalServerError$Outbound` instead. */
   export type Outbound =
-    DocumentCreateDocumentTemporaryDocumentsResponseBody$Outbound;
+    DocumentCreateDocumentTemporaryInternalServerError$Outbound;
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryIssues$inboundSchema: z.ZodType<
-  DocumentCreateDocumentTemporaryIssues,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  message: z.string(),
-});
+export const DocumentCreateDocumentTemporaryBadRequestIssues$inboundSchema:
+  z.ZodType<
+    DocumentCreateDocumentTemporaryBadRequestIssues,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    message: z.string(),
+  });
 
 /** @internal */
-export type DocumentCreateDocumentTemporaryIssues$Outbound = {
+export type DocumentCreateDocumentTemporaryBadRequestIssues$Outbound = {
   message: string;
 };
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryIssues$outboundSchema: z.ZodType<
-  DocumentCreateDocumentTemporaryIssues$Outbound,
-  z.ZodTypeDef,
-  DocumentCreateDocumentTemporaryIssues
-> = z.object({
-  message: z.string(),
-});
+export const DocumentCreateDocumentTemporaryBadRequestIssues$outboundSchema:
+  z.ZodType<
+    DocumentCreateDocumentTemporaryBadRequestIssues$Outbound,
+    z.ZodTypeDef,
+    DocumentCreateDocumentTemporaryBadRequestIssues
+  > = z.object({
+    message: z.string(),
+  });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryIssues$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryIssues$inboundSchema` instead. */
+export namespace DocumentCreateDocumentTemporaryBadRequestIssues$ {
+  /** @deprecated use `DocumentCreateDocumentTemporaryBadRequestIssues$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentCreateDocumentTemporaryIssues$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryIssues$outboundSchema` instead. */
+    DocumentCreateDocumentTemporaryBadRequestIssues$inboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryBadRequestIssues$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentCreateDocumentTemporaryIssues$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryIssues$Outbound` instead. */
-  export type Outbound = DocumentCreateDocumentTemporaryIssues$Outbound;
+    DocumentCreateDocumentTemporaryBadRequestIssues$outboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryBadRequestIssues$Outbound` instead. */
+  export type Outbound =
+    DocumentCreateDocumentTemporaryBadRequestIssues$Outbound;
 }
 
-export function documentCreateDocumentTemporaryIssuesToJSON(
-  documentCreateDocumentTemporaryIssues: DocumentCreateDocumentTemporaryIssues,
+export function documentCreateDocumentTemporaryBadRequestIssuesToJSON(
+  documentCreateDocumentTemporaryBadRequestIssues:
+    DocumentCreateDocumentTemporaryBadRequestIssues,
 ): string {
   return JSON.stringify(
-    DocumentCreateDocumentTemporaryIssues$outboundSchema.parse(
-      documentCreateDocumentTemporaryIssues,
+    DocumentCreateDocumentTemporaryBadRequestIssues$outboundSchema.parse(
+      documentCreateDocumentTemporaryBadRequestIssues,
     ),
   );
 }
 
-export function documentCreateDocumentTemporaryIssuesFromJSON(
+export function documentCreateDocumentTemporaryBadRequestIssuesFromJSON(
   jsonString: string,
-): SafeParseResult<DocumentCreateDocumentTemporaryIssues, SDKValidationError> {
+): SafeParseResult<
+  DocumentCreateDocumentTemporaryBadRequestIssues,
+  SDKValidationError
+> {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentCreateDocumentTemporaryIssues$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DocumentCreateDocumentTemporaryIssues' from JSON`,
+      DocumentCreateDocumentTemporaryBadRequestIssues$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'DocumentCreateDocumentTemporaryBadRequestIssues' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryResponseBody$inboundSchema:
+export const DocumentCreateDocumentTemporaryBadRequestError$inboundSchema:
   z.ZodType<
-    DocumentCreateDocumentTemporaryResponseBody,
+    DocumentCreateDocumentTemporaryBadRequestError,
     z.ZodTypeDef,
     unknown
   > = z.object({
     message: z.string(),
     code: z.string(),
     issues: z.array(
-      z.lazy(() => DocumentCreateDocumentTemporaryIssues$inboundSchema),
+      z.lazy(() =>
+        DocumentCreateDocumentTemporaryBadRequestIssues$inboundSchema
+      ),
     ).optional(),
   })
     .transform((v) => {
-      return new DocumentCreateDocumentTemporaryResponseBody(v);
+      return new DocumentCreateDocumentTemporaryBadRequestError(v);
     });
 
 /** @internal */
-export type DocumentCreateDocumentTemporaryResponseBody$Outbound = {
+export type DocumentCreateDocumentTemporaryBadRequestError$Outbound = {
   message: string;
   code: string;
-  issues?: Array<DocumentCreateDocumentTemporaryIssues$Outbound> | undefined;
+  issues?:
+    | Array<DocumentCreateDocumentTemporaryBadRequestIssues$Outbound>
+    | undefined;
 };
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryResponseBody$outboundSchema:
+export const DocumentCreateDocumentTemporaryBadRequestError$outboundSchema:
   z.ZodType<
-    DocumentCreateDocumentTemporaryResponseBody$Outbound,
+    DocumentCreateDocumentTemporaryBadRequestError$Outbound,
     z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryResponseBody
-  > = z.instanceof(DocumentCreateDocumentTemporaryResponseBody)
+    DocumentCreateDocumentTemporaryBadRequestError
+  > = z.instanceof(DocumentCreateDocumentTemporaryBadRequestError)
     .transform(v => v.data$)
     .pipe(z.object({
       message: z.string(),
       code: z.string(),
       issues: z.array(
-        z.lazy(() => DocumentCreateDocumentTemporaryIssues$outboundSchema),
+        z.lazy(() =>
+          DocumentCreateDocumentTemporaryBadRequestIssues$outboundSchema
+        ),
       ).optional(),
     }));
 
@@ -316,13 +332,14 @@ export const DocumentCreateDocumentTemporaryResponseBody$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryResponseBody$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryResponseBody$inboundSchema` instead. */
+export namespace DocumentCreateDocumentTemporaryBadRequestError$ {
+  /** @deprecated use `DocumentCreateDocumentTemporaryBadRequestError$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentCreateDocumentTemporaryResponseBody$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryResponseBody$outboundSchema` instead. */
+    DocumentCreateDocumentTemporaryBadRequestError$inboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryBadRequestError$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentCreateDocumentTemporaryResponseBody$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryResponseBody$Outbound` instead. */
-  export type Outbound = DocumentCreateDocumentTemporaryResponseBody$Outbound;
+    DocumentCreateDocumentTemporaryBadRequestError$outboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryBadRequestError$Outbound` instead. */
+  export type Outbound =
+    DocumentCreateDocumentTemporaryBadRequestError$Outbound;
 }

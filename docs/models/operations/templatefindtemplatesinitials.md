@@ -1,0 +1,23 @@
+# TemplateFindTemplatesInitials
+
+## Example Usage
+
+```typescript
+import { TemplateFindTemplatesInitials } from "@documenso/sdk-typescript/models/operations";
+
+let value: TemplateFindTemplatesInitials = {
+  type: "initials",
+};
+```
+
+## Fields
+
+| Field                                                                                                                  | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `label`                                                                                                                | *string*                                                                                                               | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `placeholder`                                                                                                          | *string*                                                                                                               | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `required`                                                                                                             | *boolean*                                                                                                              | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `readOnly`                                                                                                             | *boolean*                                                                                                              | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `type`                                                                                                                 | [operations.TemplateFindTemplatesTypeInitials](../../models/operations/templatefindtemplatestypeinitials.md)           | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
+| `fontSize`                                                                                                             | *number*                                                                                                               | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `textAlign`                                                                                                            | [operations.TemplateFindTemplatesTextAlignInitials](../../models/operations/templatefindtemplatestextaligninitials.md) | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |

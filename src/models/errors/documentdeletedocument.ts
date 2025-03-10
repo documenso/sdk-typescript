@@ -7,30 +7,30 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
-export type DocumentDeleteDocumentDocumentsIssues = {
+export type DocumentDeleteDocumentInternalServerErrorIssues = {
   message: string;
 };
 
 /**
  * Internal server error
  */
-export type DocumentDeleteDocumentDocumentsResponseBodyData = {
+export type DocumentDeleteDocumentInternalServerErrorData = {
   message: string;
   code: string;
-  issues?: Array<DocumentDeleteDocumentDocumentsIssues> | undefined;
+  issues?: Array<DocumentDeleteDocumentInternalServerErrorIssues> | undefined;
 };
 
 /**
  * Internal server error
  */
-export class DocumentDeleteDocumentDocumentsResponseBody extends Error {
+export class DocumentDeleteDocumentInternalServerError extends Error {
   code: string;
-  issues?: Array<DocumentDeleteDocumentDocumentsIssues> | undefined;
+  issues?: Array<DocumentDeleteDocumentInternalServerErrorIssues> | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: DocumentDeleteDocumentDocumentsResponseBodyData;
+  data$: DocumentDeleteDocumentInternalServerErrorData;
 
-  constructor(err: DocumentDeleteDocumentDocumentsResponseBodyData) {
+  constructor(err: DocumentDeleteDocumentInternalServerErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -40,34 +40,34 @@ export class DocumentDeleteDocumentDocumentsResponseBody extends Error {
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name = "DocumentDeleteDocumentDocumentsResponseBody";
+    this.name = "DocumentDeleteDocumentInternalServerError";
   }
 }
 
-export type DocumentDeleteDocumentIssues = {
+export type DocumentDeleteDocumentBadRequestIssues = {
   message: string;
 };
 
 /**
  * Invalid input data
  */
-export type DocumentDeleteDocumentResponseBodyData = {
+export type DocumentDeleteDocumentBadRequestErrorData = {
   message: string;
   code: string;
-  issues?: Array<DocumentDeleteDocumentIssues> | undefined;
+  issues?: Array<DocumentDeleteDocumentBadRequestIssues> | undefined;
 };
 
 /**
  * Invalid input data
  */
-export class DocumentDeleteDocumentResponseBody extends Error {
+export class DocumentDeleteDocumentBadRequestError extends Error {
   code: string;
-  issues?: Array<DocumentDeleteDocumentIssues> | undefined;
+  issues?: Array<DocumentDeleteDocumentBadRequestIssues> | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: DocumentDeleteDocumentResponseBodyData;
+  data$: DocumentDeleteDocumentBadRequestErrorData;
 
-  constructor(err: DocumentDeleteDocumentResponseBodyData) {
+  constructor(err: DocumentDeleteDocumentBadRequestErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -77,106 +77,118 @@ export class DocumentDeleteDocumentResponseBody extends Error {
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name = "DocumentDeleteDocumentResponseBody";
+    this.name = "DocumentDeleteDocumentBadRequestError";
   }
 }
 
 /** @internal */
-export const DocumentDeleteDocumentDocumentsIssues$inboundSchema: z.ZodType<
-  DocumentDeleteDocumentDocumentsIssues,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  message: z.string(),
-});
+export const DocumentDeleteDocumentInternalServerErrorIssues$inboundSchema:
+  z.ZodType<
+    DocumentDeleteDocumentInternalServerErrorIssues,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    message: z.string(),
+  });
 
 /** @internal */
-export type DocumentDeleteDocumentDocumentsIssues$Outbound = {
+export type DocumentDeleteDocumentInternalServerErrorIssues$Outbound = {
   message: string;
 };
 
 /** @internal */
-export const DocumentDeleteDocumentDocumentsIssues$outboundSchema: z.ZodType<
-  DocumentDeleteDocumentDocumentsIssues$Outbound,
-  z.ZodTypeDef,
-  DocumentDeleteDocumentDocumentsIssues
-> = z.object({
-  message: z.string(),
-});
+export const DocumentDeleteDocumentInternalServerErrorIssues$outboundSchema:
+  z.ZodType<
+    DocumentDeleteDocumentInternalServerErrorIssues$Outbound,
+    z.ZodTypeDef,
+    DocumentDeleteDocumentInternalServerErrorIssues
+  > = z.object({
+    message: z.string(),
+  });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentDeleteDocumentDocumentsIssues$ {
-  /** @deprecated use `DocumentDeleteDocumentDocumentsIssues$inboundSchema` instead. */
+export namespace DocumentDeleteDocumentInternalServerErrorIssues$ {
+  /** @deprecated use `DocumentDeleteDocumentInternalServerErrorIssues$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentDeleteDocumentDocumentsIssues$inboundSchema;
-  /** @deprecated use `DocumentDeleteDocumentDocumentsIssues$outboundSchema` instead. */
+    DocumentDeleteDocumentInternalServerErrorIssues$inboundSchema;
+  /** @deprecated use `DocumentDeleteDocumentInternalServerErrorIssues$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentDeleteDocumentDocumentsIssues$outboundSchema;
-  /** @deprecated use `DocumentDeleteDocumentDocumentsIssues$Outbound` instead. */
-  export type Outbound = DocumentDeleteDocumentDocumentsIssues$Outbound;
+    DocumentDeleteDocumentInternalServerErrorIssues$outboundSchema;
+  /** @deprecated use `DocumentDeleteDocumentInternalServerErrorIssues$Outbound` instead. */
+  export type Outbound =
+    DocumentDeleteDocumentInternalServerErrorIssues$Outbound;
 }
 
-export function documentDeleteDocumentDocumentsIssuesToJSON(
-  documentDeleteDocumentDocumentsIssues: DocumentDeleteDocumentDocumentsIssues,
+export function documentDeleteDocumentInternalServerErrorIssuesToJSON(
+  documentDeleteDocumentInternalServerErrorIssues:
+    DocumentDeleteDocumentInternalServerErrorIssues,
 ): string {
   return JSON.stringify(
-    DocumentDeleteDocumentDocumentsIssues$outboundSchema.parse(
-      documentDeleteDocumentDocumentsIssues,
+    DocumentDeleteDocumentInternalServerErrorIssues$outboundSchema.parse(
+      documentDeleteDocumentInternalServerErrorIssues,
     ),
   );
 }
 
-export function documentDeleteDocumentDocumentsIssuesFromJSON(
+export function documentDeleteDocumentInternalServerErrorIssuesFromJSON(
   jsonString: string,
-): SafeParseResult<DocumentDeleteDocumentDocumentsIssues, SDKValidationError> {
+): SafeParseResult<
+  DocumentDeleteDocumentInternalServerErrorIssues,
+  SDKValidationError
+> {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentDeleteDocumentDocumentsIssues$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DocumentDeleteDocumentDocumentsIssues' from JSON`,
+      DocumentDeleteDocumentInternalServerErrorIssues$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'DocumentDeleteDocumentInternalServerErrorIssues' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentDeleteDocumentDocumentsResponseBody$inboundSchema:
-  z.ZodType<
-    DocumentDeleteDocumentDocumentsResponseBody,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => DocumentDeleteDocumentDocumentsIssues$inboundSchema),
-    ).optional(),
-  })
-    .transform((v) => {
-      return new DocumentDeleteDocumentDocumentsResponseBody(v);
-    });
+export const DocumentDeleteDocumentInternalServerError$inboundSchema: z.ZodType<
+  DocumentDeleteDocumentInternalServerError,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  message: z.string(),
+  code: z.string(),
+  issues: z.array(
+    z.lazy(() => DocumentDeleteDocumentInternalServerErrorIssues$inboundSchema),
+  ).optional(),
+})
+  .transform((v) => {
+    return new DocumentDeleteDocumentInternalServerError(v);
+  });
 
 /** @internal */
-export type DocumentDeleteDocumentDocumentsResponseBody$Outbound = {
+export type DocumentDeleteDocumentInternalServerError$Outbound = {
   message: string;
   code: string;
-  issues?: Array<DocumentDeleteDocumentDocumentsIssues$Outbound> | undefined;
+  issues?:
+    | Array<DocumentDeleteDocumentInternalServerErrorIssues$Outbound>
+    | undefined;
 };
 
 /** @internal */
-export const DocumentDeleteDocumentDocumentsResponseBody$outboundSchema:
+export const DocumentDeleteDocumentInternalServerError$outboundSchema:
   z.ZodType<
-    DocumentDeleteDocumentDocumentsResponseBody$Outbound,
+    DocumentDeleteDocumentInternalServerError$Outbound,
     z.ZodTypeDef,
-    DocumentDeleteDocumentDocumentsResponseBody
-  > = z.instanceof(DocumentDeleteDocumentDocumentsResponseBody)
+    DocumentDeleteDocumentInternalServerError
+  > = z.instanceof(DocumentDeleteDocumentInternalServerError)
     .transform(v => v.data$)
     .pipe(z.object({
       message: z.string(),
       code: z.string(),
       issues: z.array(
-        z.lazy(() => DocumentDeleteDocumentDocumentsIssues$outboundSchema),
+        z.lazy(() =>
+          DocumentDeleteDocumentInternalServerErrorIssues$outboundSchema
+        ),
       ).optional(),
     }));
 
@@ -184,20 +196,20 @@ export const DocumentDeleteDocumentDocumentsResponseBody$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentDeleteDocumentDocumentsResponseBody$ {
-  /** @deprecated use `DocumentDeleteDocumentDocumentsResponseBody$inboundSchema` instead. */
+export namespace DocumentDeleteDocumentInternalServerError$ {
+  /** @deprecated use `DocumentDeleteDocumentInternalServerError$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentDeleteDocumentDocumentsResponseBody$inboundSchema;
-  /** @deprecated use `DocumentDeleteDocumentDocumentsResponseBody$outboundSchema` instead. */
+    DocumentDeleteDocumentInternalServerError$inboundSchema;
+  /** @deprecated use `DocumentDeleteDocumentInternalServerError$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentDeleteDocumentDocumentsResponseBody$outboundSchema;
-  /** @deprecated use `DocumentDeleteDocumentDocumentsResponseBody$Outbound` instead. */
-  export type Outbound = DocumentDeleteDocumentDocumentsResponseBody$Outbound;
+    DocumentDeleteDocumentInternalServerError$outboundSchema;
+  /** @deprecated use `DocumentDeleteDocumentInternalServerError$Outbound` instead. */
+  export type Outbound = DocumentDeleteDocumentInternalServerError$Outbound;
 }
 
 /** @internal */
-export const DocumentDeleteDocumentIssues$inboundSchema: z.ZodType<
-  DocumentDeleteDocumentIssues,
+export const DocumentDeleteDocumentBadRequestIssues$inboundSchema: z.ZodType<
+  DocumentDeleteDocumentBadRequestIssues,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -205,15 +217,15 @@ export const DocumentDeleteDocumentIssues$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type DocumentDeleteDocumentIssues$Outbound = {
+export type DocumentDeleteDocumentBadRequestIssues$Outbound = {
   message: string;
 };
 
 /** @internal */
-export const DocumentDeleteDocumentIssues$outboundSchema: z.ZodType<
-  DocumentDeleteDocumentIssues$Outbound,
+export const DocumentDeleteDocumentBadRequestIssues$outboundSchema: z.ZodType<
+  DocumentDeleteDocumentBadRequestIssues$Outbound,
   z.ZodTypeDef,
-  DocumentDeleteDocumentIssues
+  DocumentDeleteDocumentBadRequestIssues
 > = z.object({
   message: z.string(),
 });
@@ -222,81 +234,88 @@ export const DocumentDeleteDocumentIssues$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentDeleteDocumentIssues$ {
-  /** @deprecated use `DocumentDeleteDocumentIssues$inboundSchema` instead. */
-  export const inboundSchema = DocumentDeleteDocumentIssues$inboundSchema;
-  /** @deprecated use `DocumentDeleteDocumentIssues$outboundSchema` instead. */
-  export const outboundSchema = DocumentDeleteDocumentIssues$outboundSchema;
-  /** @deprecated use `DocumentDeleteDocumentIssues$Outbound` instead. */
-  export type Outbound = DocumentDeleteDocumentIssues$Outbound;
+export namespace DocumentDeleteDocumentBadRequestIssues$ {
+  /** @deprecated use `DocumentDeleteDocumentBadRequestIssues$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentDeleteDocumentBadRequestIssues$inboundSchema;
+  /** @deprecated use `DocumentDeleteDocumentBadRequestIssues$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentDeleteDocumentBadRequestIssues$outboundSchema;
+  /** @deprecated use `DocumentDeleteDocumentBadRequestIssues$Outbound` instead. */
+  export type Outbound = DocumentDeleteDocumentBadRequestIssues$Outbound;
 }
 
-export function documentDeleteDocumentIssuesToJSON(
-  documentDeleteDocumentIssues: DocumentDeleteDocumentIssues,
+export function documentDeleteDocumentBadRequestIssuesToJSON(
+  documentDeleteDocumentBadRequestIssues:
+    DocumentDeleteDocumentBadRequestIssues,
 ): string {
   return JSON.stringify(
-    DocumentDeleteDocumentIssues$outboundSchema.parse(
-      documentDeleteDocumentIssues,
+    DocumentDeleteDocumentBadRequestIssues$outboundSchema.parse(
+      documentDeleteDocumentBadRequestIssues,
     ),
   );
 }
 
-export function documentDeleteDocumentIssuesFromJSON(
+export function documentDeleteDocumentBadRequestIssuesFromJSON(
   jsonString: string,
-): SafeParseResult<DocumentDeleteDocumentIssues, SDKValidationError> {
+): SafeParseResult<DocumentDeleteDocumentBadRequestIssues, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => DocumentDeleteDocumentIssues$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DocumentDeleteDocumentIssues' from JSON`,
+    (x) =>
+      DocumentDeleteDocumentBadRequestIssues$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentDeleteDocumentBadRequestIssues' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentDeleteDocumentResponseBody$inboundSchema: z.ZodType<
-  DocumentDeleteDocumentResponseBody,
+export const DocumentDeleteDocumentBadRequestError$inboundSchema: z.ZodType<
+  DocumentDeleteDocumentBadRequestError,
   z.ZodTypeDef,
   unknown
 > = z.object({
   message: z.string(),
   code: z.string(),
-  issues: z.array(z.lazy(() => DocumentDeleteDocumentIssues$inboundSchema))
-    .optional(),
+  issues: z.array(
+    z.lazy(() => DocumentDeleteDocumentBadRequestIssues$inboundSchema),
+  ).optional(),
 })
   .transform((v) => {
-    return new DocumentDeleteDocumentResponseBody(v);
+    return new DocumentDeleteDocumentBadRequestError(v);
   });
 
 /** @internal */
-export type DocumentDeleteDocumentResponseBody$Outbound = {
+export type DocumentDeleteDocumentBadRequestError$Outbound = {
   message: string;
   code: string;
-  issues?: Array<DocumentDeleteDocumentIssues$Outbound> | undefined;
+  issues?: Array<DocumentDeleteDocumentBadRequestIssues$Outbound> | undefined;
 };
 
 /** @internal */
-export const DocumentDeleteDocumentResponseBody$outboundSchema: z.ZodType<
-  DocumentDeleteDocumentResponseBody$Outbound,
+export const DocumentDeleteDocumentBadRequestError$outboundSchema: z.ZodType<
+  DocumentDeleteDocumentBadRequestError$Outbound,
   z.ZodTypeDef,
-  DocumentDeleteDocumentResponseBody
-> = z.instanceof(DocumentDeleteDocumentResponseBody)
+  DocumentDeleteDocumentBadRequestError
+> = z.instanceof(DocumentDeleteDocumentBadRequestError)
   .transform(v => v.data$)
   .pipe(z.object({
     message: z.string(),
     code: z.string(),
-    issues: z.array(z.lazy(() => DocumentDeleteDocumentIssues$outboundSchema))
-      .optional(),
+    issues: z.array(
+      z.lazy(() => DocumentDeleteDocumentBadRequestIssues$outboundSchema),
+    ).optional(),
   }));
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentDeleteDocumentResponseBody$ {
-  /** @deprecated use `DocumentDeleteDocumentResponseBody$inboundSchema` instead. */
-  export const inboundSchema = DocumentDeleteDocumentResponseBody$inboundSchema;
-  /** @deprecated use `DocumentDeleteDocumentResponseBody$outboundSchema` instead. */
+export namespace DocumentDeleteDocumentBadRequestError$ {
+  /** @deprecated use `DocumentDeleteDocumentBadRequestError$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentDeleteDocumentBadRequestError$inboundSchema;
+  /** @deprecated use `DocumentDeleteDocumentBadRequestError$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentDeleteDocumentResponseBody$outboundSchema;
-  /** @deprecated use `DocumentDeleteDocumentResponseBody$Outbound` instead. */
-  export type Outbound = DocumentDeleteDocumentResponseBody$Outbound;
+    DocumentDeleteDocumentBadRequestError$outboundSchema;
+  /** @deprecated use `DocumentDeleteDocumentBadRequestError$Outbound` instead. */
+  export type Outbound = DocumentDeleteDocumentBadRequestError$Outbound;
 }

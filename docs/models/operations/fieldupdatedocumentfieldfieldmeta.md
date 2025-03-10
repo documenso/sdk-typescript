@@ -3,74 +3,74 @@
 
 ## Supported Types
 
-### `operations.FieldUpdateDocumentFieldFieldMeta1`
+### `operations.FieldUpdateDocumentFieldResponseInitials`
 
 ```typescript
-const value: operations.FieldUpdateDocumentFieldFieldMeta1 = {
+const value: operations.FieldUpdateDocumentFieldResponseInitials = {
   type: "initials",
 };
 ```
 
-### `operations.FieldUpdateDocumentFieldFieldMeta2`
+### `operations.FieldUpdateDocumentFieldResponseName`
 
 ```typescript
-const value: operations.FieldUpdateDocumentFieldFieldMeta2 = {
+const value: operations.FieldUpdateDocumentFieldResponseName = {
   type: "name",
 };
 ```
 
-### `operations.FieldUpdateDocumentFieldFieldMeta3`
+### `operations.FieldUpdateDocumentFieldResponseEmail`
 
 ```typescript
-const value: operations.FieldUpdateDocumentFieldFieldMeta3 = {
+const value: operations.FieldUpdateDocumentFieldResponseEmail = {
   type: "email",
 };
 ```
 
-### `operations.FieldUpdateDocumentFieldFieldMeta4`
+### `operations.FieldUpdateDocumentFieldResponseDate`
 
 ```typescript
-const value: operations.FieldUpdateDocumentFieldFieldMeta4 = {
+const value: operations.FieldUpdateDocumentFieldResponseDate = {
   type: "date",
 };
 ```
 
-### `operations.FieldUpdateDocumentFieldFieldMeta5`
+### `operations.FieldUpdateDocumentFieldResponseText`
 
 ```typescript
-const value: operations.FieldUpdateDocumentFieldFieldMeta5 = {
+const value: operations.FieldUpdateDocumentFieldResponseText = {
   type: "text",
 };
 ```
 
-### `operations.FieldUpdateDocumentFieldFieldMeta6`
+### `operations.FieldUpdateDocumentFieldResponseNumber`
 
 ```typescript
-const value: operations.FieldUpdateDocumentFieldFieldMeta6 = {
+const value: operations.FieldUpdateDocumentFieldResponseNumber = {
   type: "number",
 };
 ```
 
-### `operations.FieldUpdateDocumentFieldFieldMeta7`
+### `operations.FieldUpdateDocumentFieldResponseRadio`
 
 ```typescript
-const value: operations.FieldUpdateDocumentFieldFieldMeta7 = {
+const value: operations.FieldUpdateDocumentFieldResponseRadio = {
   type: "radio",
 };
 ```
 
-### `operations.FieldUpdateDocumentFieldFieldMeta8`
+### `operations.FieldUpdateDocumentFieldResponseCheckbox`
 
 ```typescript
-const value: operations.FieldUpdateDocumentFieldFieldMeta8 = {
+const value: operations.FieldUpdateDocumentFieldResponseCheckbox = {
   type: "checkbox",
 };
 ```
 
-### `operations.FieldUpdateDocumentFieldFieldMeta9`
+### `operations.FieldUpdateDocumentFieldResponseDropdown`
 
 ```typescript
-const value: operations.FieldUpdateDocumentFieldFieldMeta9 = {
+const value: operations.FieldUpdateDocumentFieldResponseDropdown = {
   type: "dropdown",
 };
 ```

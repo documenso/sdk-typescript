@@ -1,0 +1,41 @@
+# FieldUpdateDocumentFieldsResponseFields
+
+## Example Usage
+
+```typescript
+import { FieldUpdateDocumentFieldsResponseFields } from "@documenso/sdk-typescript/models/operations";
+
+let value: FieldUpdateDocumentFieldsResponseFields = {
+  type: "TEXT",
+  id: 20.64,
+  secondaryId: "<id>",
+  documentId: 1989.11,
+  templateId: 9561.24,
+  recipientId: 3304.4,
+  page: 6383.9,
+  customText: "<value>",
+  inserted: false,
+  fieldMeta: {
+    type: "email",
+  },
+};
+```
+
+## Fields
+
+| Field                                                                                                                | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
+| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `type`                                                                                                               | [operations.FieldUpdateDocumentFieldsResponseType](../../models/operations/fieldupdatedocumentfieldsresponsetype.md) | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
+| `id`                                                                                                                 | *number*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
+| `secondaryId`                                                                                                        | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
+| `documentId`                                                                                                         | *number*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
+| `templateId`                                                                                                         | *number*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
+| `recipientId`                                                                                                        | *number*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
+| `page`                                                                                                               | *number*                                                                                                             | :heavy_check_mark:                                                                                                   | The page number of the field on the document. Starts from 1.                                                         |
+| `positionX`                                                                                                          | *any*                                                                                                                | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `positionY`                                                                                                          | *any*                                                                                                                | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `width`                                                                                                              | *any*                                                                                                                | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `height`                                                                                                             | *any*                                                                                                                | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `customText`                                                                                                         | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
+| `inserted`                                                                                                           | *boolean*                                                                                                            | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
+| `fieldMeta`                                                                                                          | *operations.FieldUpdateDocumentFieldsFieldMeta*                                                                      | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |

@@ -3,74 +3,74 @@
 
 ## Supported Types
 
-### `operations.RecipientUpdateTemplateRecipientsFieldMeta1`
+### `operations.RecipientUpdateTemplateRecipientsInitials`
 
 ```typescript
-const value: operations.RecipientUpdateTemplateRecipientsFieldMeta1 = {
+const value: operations.RecipientUpdateTemplateRecipientsInitials = {
   type: "initials",
 };
 ```
 
-### `operations.RecipientUpdateTemplateRecipientsFieldMeta2`
+### `operations.RecipientUpdateTemplateRecipientsName`
 
 ```typescript
-const value: operations.RecipientUpdateTemplateRecipientsFieldMeta2 = {
+const value: operations.RecipientUpdateTemplateRecipientsName = {
   type: "name",
 };
 ```
 
-### `operations.RecipientUpdateTemplateRecipientsFieldMeta3`
+### `operations.RecipientUpdateTemplateRecipientsEmail`
 
 ```typescript
-const value: operations.RecipientUpdateTemplateRecipientsFieldMeta3 = {
+const value: operations.RecipientUpdateTemplateRecipientsEmail = {
   type: "email",
 };
 ```
 
-### `operations.RecipientUpdateTemplateRecipientsFieldMeta4`
+### `operations.RecipientUpdateTemplateRecipientsDate`
 
 ```typescript
-const value: operations.RecipientUpdateTemplateRecipientsFieldMeta4 = {
+const value: operations.RecipientUpdateTemplateRecipientsDate = {
   type: "date",
 };
 ```
 
-### `operations.RecipientUpdateTemplateRecipientsFieldMeta5`
+### `operations.RecipientUpdateTemplateRecipientsText`
 
 ```typescript
-const value: operations.RecipientUpdateTemplateRecipientsFieldMeta5 = {
+const value: operations.RecipientUpdateTemplateRecipientsText = {
   type: "text",
 };
 ```
 
-### `operations.RecipientUpdateTemplateRecipientsFieldMeta6`
+### `operations.RecipientUpdateTemplateRecipientsNumber`
 
 ```typescript
-const value: operations.RecipientUpdateTemplateRecipientsFieldMeta6 = {
+const value: operations.RecipientUpdateTemplateRecipientsNumber = {
   type: "number",
 };
 ```
 
-### `operations.RecipientUpdateTemplateRecipientsFieldMeta7`
+### `operations.RecipientUpdateTemplateRecipientsRadio`
 
 ```typescript
-const value: operations.RecipientUpdateTemplateRecipientsFieldMeta7 = {
+const value: operations.RecipientUpdateTemplateRecipientsRadio = {
   type: "radio",
 };
 ```
 
-### `operations.RecipientUpdateTemplateRecipientsFieldMeta8`
+### `operations.RecipientUpdateTemplateRecipientsCheckbox`
 
 ```typescript
-const value: operations.RecipientUpdateTemplateRecipientsFieldMeta8 = {
+const value: operations.RecipientUpdateTemplateRecipientsCheckbox = {
   type: "checkbox",
 };
 ```
 
-### `operations.RecipientUpdateTemplateRecipientsFieldMeta9`
+### `operations.RecipientUpdateTemplateRecipientsDropdown`
 
 ```typescript
-const value: operations.RecipientUpdateTemplateRecipientsFieldMeta9 = {
+const value: operations.RecipientUpdateTemplateRecipientsDropdown = {
   type: "dropdown",
 };
 ```

@@ -3,74 +3,74 @@
 
 ## Supported Types
 
-### `operations.FieldGetTemplateFieldFieldMeta1`
+### `operations.FieldGetTemplateFieldInitials`
 
 ```typescript
-const value: operations.FieldGetTemplateFieldFieldMeta1 = {
+const value: operations.FieldGetTemplateFieldInitials = {
   type: "initials",
 };
 ```
 
-### `operations.FieldGetTemplateFieldFieldMeta2`
+### `operations.FieldGetTemplateFieldName`
 
 ```typescript
-const value: operations.FieldGetTemplateFieldFieldMeta2 = {
+const value: operations.FieldGetTemplateFieldName = {
   type: "name",
 };
 ```
 
-### `operations.FieldGetTemplateFieldFieldMeta3`
+### `operations.FieldGetTemplateFieldEmail`
 
 ```typescript
-const value: operations.FieldGetTemplateFieldFieldMeta3 = {
+const value: operations.FieldGetTemplateFieldEmail = {
   type: "email",
 };
 ```
 
-### `operations.FieldGetTemplateFieldFieldMeta4`
+### `operations.FieldGetTemplateFieldDate`
 
 ```typescript
-const value: operations.FieldGetTemplateFieldFieldMeta4 = {
+const value: operations.FieldGetTemplateFieldDate = {
   type: "date",
 };
 ```
 
-### `operations.FieldGetTemplateFieldFieldMeta5`
+### `operations.FieldGetTemplateFieldText`
 
 ```typescript
-const value: operations.FieldGetTemplateFieldFieldMeta5 = {
+const value: operations.FieldGetTemplateFieldText = {
   type: "text",
 };
 ```
 
-### `operations.FieldGetTemplateFieldFieldMeta6`
+### `operations.FieldGetTemplateFieldNumber`
 
 ```typescript
-const value: operations.FieldGetTemplateFieldFieldMeta6 = {
+const value: operations.FieldGetTemplateFieldNumber = {
   type: "number",
 };
 ```
 
-### `operations.FieldGetTemplateFieldFieldMeta7`
+### `operations.FieldGetTemplateFieldRadio`
 
 ```typescript
-const value: operations.FieldGetTemplateFieldFieldMeta7 = {
+const value: operations.FieldGetTemplateFieldRadio = {
   type: "radio",
 };
 ```
 
-### `operations.FieldGetTemplateFieldFieldMeta8`
+### `operations.FieldGetTemplateFieldCheckbox`
 
 ```typescript
-const value: operations.FieldGetTemplateFieldFieldMeta8 = {
+const value: operations.FieldGetTemplateFieldCheckbox = {
   type: "checkbox",
 };
 ```
 
-### `operations.FieldGetTemplateFieldFieldMeta9`
+### `operations.FieldGetTemplateFieldDropdown`
 
 ```typescript
-const value: operations.FieldGetTemplateFieldFieldMeta9 = {
+const value: operations.FieldGetTemplateFieldDropdown = {
   type: "dropdown",
 };
 ```

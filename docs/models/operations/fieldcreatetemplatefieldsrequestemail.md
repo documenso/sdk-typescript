@@ -1,0 +1,30 @@
+# FieldCreateTemplateFieldsRequestEmail
+
+## Example Usage
+
+```typescript
+import { FieldCreateTemplateFieldsRequestEmail } from "@documenso/sdk-typescript/models/operations";
+
+let value: FieldCreateTemplateFieldsRequestEmail = {
+  type: "EMAIL",
+  recipientId: 7399.46,
+  pageNumber: 9669.56,
+  pageX: 4144.38,
+  pageY: 3553.8,
+  width: 438.62,
+  height: 1842.04,
+};
+```
+
+## Fields
+
+| Field                                                                                                                                  | Type                                                                                                                                   | Required                                                                                                                               | Description                                                                                                                            |
+| -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`                                                                                                                                 | [operations.FieldCreateTemplateFieldsRequestTypeEmail](../../models/operations/fieldcreatetemplatefieldsrequesttypeemail.md)           | :heavy_check_mark:                                                                                                                     | N/A                                                                                                                                    |
+| `fieldMeta`                                                                                                                            | [operations.FieldCreateTemplateFieldsRequestFieldMetaEmail](../../models/operations/fieldcreatetemplatefieldsrequestfieldmetaemail.md) | :heavy_minus_sign:                                                                                                                     | N/A                                                                                                                                    |
+| `recipientId`                                                                                                                          | *number*                                                                                                                               | :heavy_check_mark:                                                                                                                     | The ID of the recipient to create the field for.                                                                                       |
+| `pageNumber`                                                                                                                           | *number*                                                                                                                               | :heavy_check_mark:                                                                                                                     | The page number the field will be on.                                                                                                  |
+| `pageX`                                                                                                                                | *number*                                                                                                                               | :heavy_check_mark:                                                                                                                     | The X coordinate of where the field will be placed.                                                                                    |
+| `pageY`                                                                                                                                | *number*                                                                                                                               | :heavy_check_mark:                                                                                                                     | The Y coordinate of where the field will be placed.                                                                                    |
+| `width`                                                                                                                                | *number*                                                                                                                               | :heavy_check_mark:                                                                                                                     | The width of the field.                                                                                                                |
+| `height`                                                                                                                               | *number*                                                                                                                               | :heavy_check_mark:                                                                                                                     | The height of the field.                                                                                                               |
