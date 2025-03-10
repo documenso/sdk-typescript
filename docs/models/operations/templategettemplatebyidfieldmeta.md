@@ -3,74 +3,74 @@
 
 ## Supported Types
 
-### `operations.TemplateGetTemplateByIdFieldMeta1`
+### `operations.TemplateGetTemplateByIdInitials`
 
 ```typescript
-const value: operations.TemplateGetTemplateByIdFieldMeta1 = {
+const value: operations.TemplateGetTemplateByIdInitials = {
   type: "initials",
 };
 ```
 
-### `operations.TemplateGetTemplateByIdFieldMeta2`
+### `operations.TemplateGetTemplateByIdName`
 
 ```typescript
-const value: operations.TemplateGetTemplateByIdFieldMeta2 = {
+const value: operations.TemplateGetTemplateByIdName = {
   type: "name",
 };
 ```
 
-### `operations.TemplateGetTemplateByIdFieldMeta3`
+### `operations.TemplateGetTemplateByIdEmail`
 
 ```typescript
-const value: operations.TemplateGetTemplateByIdFieldMeta3 = {
+const value: operations.TemplateGetTemplateByIdEmail = {
   type: "email",
 };
 ```
 
-### `operations.TemplateGetTemplateByIdFieldMeta4`
+### `operations.TemplateGetTemplateByIdDate`
 
 ```typescript
-const value: operations.TemplateGetTemplateByIdFieldMeta4 = {
+const value: operations.TemplateGetTemplateByIdDate = {
   type: "date",
 };
 ```
 
-### `operations.TemplateGetTemplateByIdFieldMeta5`
+### `operations.TemplateGetTemplateByIdText`
 
 ```typescript
-const value: operations.TemplateGetTemplateByIdFieldMeta5 = {
+const value: operations.TemplateGetTemplateByIdText = {
   type: "text",
 };
 ```
 
-### `operations.TemplateGetTemplateByIdFieldMeta6`
+### `operations.TemplateGetTemplateByIdNumber`
 
 ```typescript
-const value: operations.TemplateGetTemplateByIdFieldMeta6 = {
+const value: operations.TemplateGetTemplateByIdNumber = {
   type: "number",
 };
 ```
 
-### `operations.TemplateGetTemplateByIdFieldMeta7`
+### `operations.TemplateGetTemplateByIdRadio`
 
 ```typescript
-const value: operations.TemplateGetTemplateByIdFieldMeta7 = {
+const value: operations.TemplateGetTemplateByIdRadio = {
   type: "radio",
 };
 ```
 
-### `operations.TemplateGetTemplateByIdFieldMeta8`
+### `operations.TemplateGetTemplateByIdCheckbox`
 
 ```typescript
-const value: operations.TemplateGetTemplateByIdFieldMeta8 = {
+const value: operations.TemplateGetTemplateByIdCheckbox = {
   type: "checkbox",
 };
 ```
 
-### `operations.TemplateGetTemplateByIdFieldMeta9`
+### `operations.TemplateGetTemplateByIdDropdown`
 
 ```typescript
-const value: operations.TemplateGetTemplateByIdFieldMeta9 = {
+const value: operations.TemplateGetTemplateByIdDropdown = {
   type: "dropdown",
 };
 ```

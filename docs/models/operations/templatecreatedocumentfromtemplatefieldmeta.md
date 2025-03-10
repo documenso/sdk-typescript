@@ -3,74 +3,74 @@
 
 ## Supported Types
 
-### `operations.TemplateCreateDocumentFromTemplateFieldMeta1`
+### `operations.TemplateCreateDocumentFromTemplateInitials`
 
 ```typescript
-const value: operations.TemplateCreateDocumentFromTemplateFieldMeta1 = {
+const value: operations.TemplateCreateDocumentFromTemplateInitials = {
   type: "initials",
 };
 ```
 
-### `operations.TemplateCreateDocumentFromTemplateFieldMeta2`
+### `operations.TemplateCreateDocumentFromTemplateName`
 
 ```typescript
-const value: operations.TemplateCreateDocumentFromTemplateFieldMeta2 = {
+const value: operations.TemplateCreateDocumentFromTemplateName = {
   type: "name",
 };
 ```
 
-### `operations.TemplateCreateDocumentFromTemplateFieldMeta3`
+### `operations.TemplateCreateDocumentFromTemplateEmail`
 
 ```typescript
-const value: operations.TemplateCreateDocumentFromTemplateFieldMeta3 = {
+const value: operations.TemplateCreateDocumentFromTemplateEmail = {
   type: "email",
 };
 ```
 
-### `operations.TemplateCreateDocumentFromTemplateFieldMeta4`
+### `operations.TemplateCreateDocumentFromTemplateDate`
 
 ```typescript
-const value: operations.TemplateCreateDocumentFromTemplateFieldMeta4 = {
+const value: operations.TemplateCreateDocumentFromTemplateDate = {
   type: "date",
 };
 ```
 
-### `operations.TemplateCreateDocumentFromTemplateFieldMeta5`
+### `operations.TemplateCreateDocumentFromTemplateResponseText`
 
 ```typescript
-const value: operations.TemplateCreateDocumentFromTemplateFieldMeta5 = {
+const value: operations.TemplateCreateDocumentFromTemplateResponseText = {
   type: "text",
 };
 ```
 
-### `operations.TemplateCreateDocumentFromTemplateFieldMeta6`
+### `operations.TemplateCreateDocumentFromTemplateResponseNumber`
 
 ```typescript
-const value: operations.TemplateCreateDocumentFromTemplateFieldMeta6 = {
+const value: operations.TemplateCreateDocumentFromTemplateResponseNumber = {
   type: "number",
 };
 ```
 
-### `operations.TemplateCreateDocumentFromTemplateFieldMeta7`
+### `operations.TemplateCreateDocumentFromTemplateResponseRadio`
 
 ```typescript
-const value: operations.TemplateCreateDocumentFromTemplateFieldMeta7 = {
+const value: operations.TemplateCreateDocumentFromTemplateResponseRadio = {
   type: "radio",
 };
 ```
 
-### `operations.TemplateCreateDocumentFromTemplateFieldMeta8`
+### `operations.TemplateCreateDocumentFromTemplateResponseCheckbox`
 
 ```typescript
-const value: operations.TemplateCreateDocumentFromTemplateFieldMeta8 = {
+const value: operations.TemplateCreateDocumentFromTemplateResponseCheckbox = {
   type: "checkbox",
 };
 ```
 
-### `operations.TemplateCreateDocumentFromTemplateFieldMeta9`
+### `operations.TemplateCreateDocumentFromTemplateResponseDropdown`
 
 ```typescript
-const value: operations.TemplateCreateDocumentFromTemplateFieldMeta9 = {
+const value: operations.TemplateCreateDocumentFromTemplateResponseDropdown = {
   type: "dropdown",
 };
 ```

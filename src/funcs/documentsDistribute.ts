@@ -21,6 +21,7 @@ import {
 import * as errors from "../models/errors/index.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import * as operations from "../models/operations/index.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -29,15 +30,15 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Send the document out to recipients based on your distribution method
  */
-export async function documentsDistribute(
+export function documentsDistribute(
   client: DocumensoCore,
-  request: operations.DocumentSendDocumentRequestBody,
+  request: operations.DocumentSendDocumentRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
-    operations.DocumentSendDocumentResponseBody,
-    | errors.DocumentSendDocumentResponseBody
-    | errors.DocumentSendDocumentDocumentsResponseBody
+    operations.DocumentSendDocumentResponse,
+    | errors.DocumentSendDocumentBadRequestError
+    | errors.DocumentSendDocumentInternalServerError
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -47,14 +48,42 @@ export async function documentsDistribute(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: DocumensoCore,
+  request: operations.DocumentSendDocumentRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      operations.DocumentSendDocumentResponse,
+      | errors.DocumentSendDocumentBadRequestError
+      | errors.DocumentSendDocumentInternalServerError
+      | APIError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) =>
-      operations.DocumentSendDocumentRequestBody$outboundSchema.parse(value),
+      operations.DocumentSendDocumentRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = encodeJSON("body", payload, { explode: true });
@@ -71,6 +100,7 @@ export async function documentsDistribute(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "document-sendDocument",
     oAuth2Scopes: [],
 
@@ -93,7 +123,7 @@ export async function documentsDistribute(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -104,7 +134,7 @@ export async function documentsDistribute(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -113,9 +143,9 @@ export async function documentsDistribute(
   };
 
   const [result] = await M.match<
-    operations.DocumentSendDocumentResponseBody,
-    | errors.DocumentSendDocumentResponseBody
-    | errors.DocumentSendDocumentDocumentsResponseBody
+    operations.DocumentSendDocumentResponse,
+    | errors.DocumentSendDocumentBadRequestError
+    | errors.DocumentSendDocumentInternalServerError
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -124,18 +154,18 @@ export async function documentsDistribute(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, operations.DocumentSendDocumentResponseBody$inboundSchema),
-    M.jsonErr(400, errors.DocumentSendDocumentResponseBody$inboundSchema),
+    M.json(200, operations.DocumentSendDocumentResponse$inboundSchema),
+    M.jsonErr(400, errors.DocumentSendDocumentBadRequestError$inboundSchema),
     M.jsonErr(
       500,
-      errors.DocumentSendDocumentDocumentsResponseBody$inboundSchema,
+      errors.DocumentSendDocumentInternalServerError$inboundSchema,
     ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

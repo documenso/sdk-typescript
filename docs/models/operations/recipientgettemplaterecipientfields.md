@@ -6,17 +6,17 @@
 import { RecipientGetTemplateRecipientFields } from "@documenso/sdk-typescript/models/operations";
 
 let value: RecipientGetTemplateRecipientFields = {
-  type: "TEXT",
-  id: 955913,
+  type: "DROPDOWN",
+  id: 4498.61,
   secondaryId: "<id>",
-  documentId: 585051,
-  templateId: 967401,
-  recipientId: 961607,
-  page: 6502,
+  documentId: 2271.29,
+  templateId: 2916.66,
+  recipientId: 7763.34,
+  page: 2733.49,
   customText: "<value>",
   inserted: false,
   fieldMeta: {
-    type: "text",
+    type: "date",
   },
 };
 ```

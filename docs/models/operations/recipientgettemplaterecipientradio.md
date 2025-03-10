@@ -1,0 +1,22 @@
+# RecipientGetTemplateRecipientRadio
+
+## Example Usage
+
+```typescript
+import { RecipientGetTemplateRecipientRadio } from "@documenso/sdk-typescript/models/operations";
+
+let value: RecipientGetTemplateRecipientRadio = {
+  type: "radio",
+};
+```
+
+## Fields
+
+| Field                                                                                                                        | Type                                                                                                                         | Required                                                                                                                     | Description                                                                                                                  |
+| ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `label`                                                                                                                      | *string*                                                                                                                     | :heavy_minus_sign:                                                                                                           | N/A                                                                                                                          |
+| `placeholder`                                                                                                                | *string*                                                                                                                     | :heavy_minus_sign:                                                                                                           | N/A                                                                                                                          |
+| `required`                                                                                                                   | *boolean*                                                                                                                    | :heavy_minus_sign:                                                                                                           | N/A                                                                                                                          |
+| `readOnly`                                                                                                                   | *boolean*                                                                                                                    | :heavy_minus_sign:                                                                                                           | N/A                                                                                                                          |
+| `type`                                                                                                                       | [operations.RecipientGetTemplateRecipientTypeRadio](../../models/operations/recipientgettemplaterecipienttyperadio.md)       | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
+| `values`                                                                                                                     | [operations.RecipientGetTemplateRecipientValuesRadio](../../models/operations/recipientgettemplaterecipientvaluesradio.md)[] | :heavy_minus_sign:                                                                                                           | N/A                                                                                                                          |

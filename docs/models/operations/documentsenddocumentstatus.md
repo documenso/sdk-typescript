@@ -5,7 +5,7 @@
 ```typescript
 import { DocumentSendDocumentStatus } from "@documenso/sdk-typescript/models/operations";
 
-let value: DocumentSendDocumentStatus = "COMPLETED";
+let value: DocumentSendDocumentStatus = "PENDING";
 ```
 
 ## Values

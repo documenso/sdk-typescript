@@ -7,147 +7,143 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type TemplateDeleteTemplateDirectLinkRequestBody = {
+export type TemplateDeleteTemplateDirectLinkRequest = {
   templateId: number;
 };
 
 /**
  * Successful response
  */
-export type TemplateDeleteTemplateDirectLinkResponseBody = {
+export type TemplateDeleteTemplateDirectLinkResponse = {
   success: boolean;
 };
 
 /** @internal */
-export const TemplateDeleteTemplateDirectLinkRequestBody$inboundSchema:
-  z.ZodType<
-    TemplateDeleteTemplateDirectLinkRequestBody,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    templateId: z.number(),
-  });
+export const TemplateDeleteTemplateDirectLinkRequest$inboundSchema: z.ZodType<
+  TemplateDeleteTemplateDirectLinkRequest,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  templateId: z.number(),
+});
 
 /** @internal */
-export type TemplateDeleteTemplateDirectLinkRequestBody$Outbound = {
+export type TemplateDeleteTemplateDirectLinkRequest$Outbound = {
   templateId: number;
 };
 
 /** @internal */
-export const TemplateDeleteTemplateDirectLinkRequestBody$outboundSchema:
-  z.ZodType<
-    TemplateDeleteTemplateDirectLinkRequestBody$Outbound,
-    z.ZodTypeDef,
-    TemplateDeleteTemplateDirectLinkRequestBody
-  > = z.object({
-    templateId: z.number(),
-  });
+export const TemplateDeleteTemplateDirectLinkRequest$outboundSchema: z.ZodType<
+  TemplateDeleteTemplateDirectLinkRequest$Outbound,
+  z.ZodTypeDef,
+  TemplateDeleteTemplateDirectLinkRequest
+> = z.object({
+  templateId: z.number(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateDeleteTemplateDirectLinkRequestBody$ {
-  /** @deprecated use `TemplateDeleteTemplateDirectLinkRequestBody$inboundSchema` instead. */
+export namespace TemplateDeleteTemplateDirectLinkRequest$ {
+  /** @deprecated use `TemplateDeleteTemplateDirectLinkRequest$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateDeleteTemplateDirectLinkRequestBody$inboundSchema;
-  /** @deprecated use `TemplateDeleteTemplateDirectLinkRequestBody$outboundSchema` instead. */
+    TemplateDeleteTemplateDirectLinkRequest$inboundSchema;
+  /** @deprecated use `TemplateDeleteTemplateDirectLinkRequest$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateDeleteTemplateDirectLinkRequestBody$outboundSchema;
-  /** @deprecated use `TemplateDeleteTemplateDirectLinkRequestBody$Outbound` instead. */
-  export type Outbound = TemplateDeleteTemplateDirectLinkRequestBody$Outbound;
+    TemplateDeleteTemplateDirectLinkRequest$outboundSchema;
+  /** @deprecated use `TemplateDeleteTemplateDirectLinkRequest$Outbound` instead. */
+  export type Outbound = TemplateDeleteTemplateDirectLinkRequest$Outbound;
 }
 
-export function templateDeleteTemplateDirectLinkRequestBodyToJSON(
-  templateDeleteTemplateDirectLinkRequestBody:
-    TemplateDeleteTemplateDirectLinkRequestBody,
+export function templateDeleteTemplateDirectLinkRequestToJSON(
+  templateDeleteTemplateDirectLinkRequest:
+    TemplateDeleteTemplateDirectLinkRequest,
 ): string {
   return JSON.stringify(
-    TemplateDeleteTemplateDirectLinkRequestBody$outboundSchema.parse(
-      templateDeleteTemplateDirectLinkRequestBody,
+    TemplateDeleteTemplateDirectLinkRequest$outboundSchema.parse(
+      templateDeleteTemplateDirectLinkRequest,
     ),
   );
 }
 
-export function templateDeleteTemplateDirectLinkRequestBodyFromJSON(
+export function templateDeleteTemplateDirectLinkRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  TemplateDeleteTemplateDirectLinkRequestBody,
+  TemplateDeleteTemplateDirectLinkRequest,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      TemplateDeleteTemplateDirectLinkRequestBody$inboundSchema.parse(
+      TemplateDeleteTemplateDirectLinkRequest$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'TemplateDeleteTemplateDirectLinkRequestBody' from JSON`,
+    `Failed to parse 'TemplateDeleteTemplateDirectLinkRequest' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateDeleteTemplateDirectLinkResponseBody$inboundSchema:
-  z.ZodType<
-    TemplateDeleteTemplateDirectLinkResponseBody,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    success: z.boolean(),
-  });
+export const TemplateDeleteTemplateDirectLinkResponse$inboundSchema: z.ZodType<
+  TemplateDeleteTemplateDirectLinkResponse,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  success: z.boolean(),
+});
 
 /** @internal */
-export type TemplateDeleteTemplateDirectLinkResponseBody$Outbound = {
+export type TemplateDeleteTemplateDirectLinkResponse$Outbound = {
   success: boolean;
 };
 
 /** @internal */
-export const TemplateDeleteTemplateDirectLinkResponseBody$outboundSchema:
-  z.ZodType<
-    TemplateDeleteTemplateDirectLinkResponseBody$Outbound,
-    z.ZodTypeDef,
-    TemplateDeleteTemplateDirectLinkResponseBody
-  > = z.object({
-    success: z.boolean(),
-  });
+export const TemplateDeleteTemplateDirectLinkResponse$outboundSchema: z.ZodType<
+  TemplateDeleteTemplateDirectLinkResponse$Outbound,
+  z.ZodTypeDef,
+  TemplateDeleteTemplateDirectLinkResponse
+> = z.object({
+  success: z.boolean(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateDeleteTemplateDirectLinkResponseBody$ {
-  /** @deprecated use `TemplateDeleteTemplateDirectLinkResponseBody$inboundSchema` instead. */
+export namespace TemplateDeleteTemplateDirectLinkResponse$ {
+  /** @deprecated use `TemplateDeleteTemplateDirectLinkResponse$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateDeleteTemplateDirectLinkResponseBody$inboundSchema;
-  /** @deprecated use `TemplateDeleteTemplateDirectLinkResponseBody$outboundSchema` instead. */
+    TemplateDeleteTemplateDirectLinkResponse$inboundSchema;
+  /** @deprecated use `TemplateDeleteTemplateDirectLinkResponse$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateDeleteTemplateDirectLinkResponseBody$outboundSchema;
-  /** @deprecated use `TemplateDeleteTemplateDirectLinkResponseBody$Outbound` instead. */
-  export type Outbound = TemplateDeleteTemplateDirectLinkResponseBody$Outbound;
+    TemplateDeleteTemplateDirectLinkResponse$outboundSchema;
+  /** @deprecated use `TemplateDeleteTemplateDirectLinkResponse$Outbound` instead. */
+  export type Outbound = TemplateDeleteTemplateDirectLinkResponse$Outbound;
 }
 
-export function templateDeleteTemplateDirectLinkResponseBodyToJSON(
-  templateDeleteTemplateDirectLinkResponseBody:
-    TemplateDeleteTemplateDirectLinkResponseBody,
+export function templateDeleteTemplateDirectLinkResponseToJSON(
+  templateDeleteTemplateDirectLinkResponse:
+    TemplateDeleteTemplateDirectLinkResponse,
 ): string {
   return JSON.stringify(
-    TemplateDeleteTemplateDirectLinkResponseBody$outboundSchema.parse(
-      templateDeleteTemplateDirectLinkResponseBody,
+    TemplateDeleteTemplateDirectLinkResponse$outboundSchema.parse(
+      templateDeleteTemplateDirectLinkResponse,
     ),
   );
 }
 
-export function templateDeleteTemplateDirectLinkResponseBodyFromJSON(
+export function templateDeleteTemplateDirectLinkResponseFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  TemplateDeleteTemplateDirectLinkResponseBody,
+  TemplateDeleteTemplateDirectLinkResponse,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      TemplateDeleteTemplateDirectLinkResponseBody$inboundSchema.parse(
+      TemplateDeleteTemplateDirectLinkResponse$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'TemplateDeleteTemplateDirectLinkResponseBody' from JSON`,
+    `Failed to parse 'TemplateDeleteTemplateDirectLinkResponse' from JSON`,
   );
 }

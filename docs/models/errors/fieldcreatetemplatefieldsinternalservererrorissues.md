@@ -1,0 +1,17 @@
+# FieldCreateTemplateFieldsInternalServerErrorIssues
+
+## Example Usage
+
+```typescript
+import { FieldCreateTemplateFieldsInternalServerErrorIssues } from "@documenso/sdk-typescript/models/errors";
+
+let value: FieldCreateTemplateFieldsInternalServerErrorIssues = {
+  message: "<value>",
+};
+```
+
+## Fields
+
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `message`          | *string*           | :heavy_check_mark: | N/A                |

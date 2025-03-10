@@ -7,39 +7,36 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
-export type RecipientCreateTemplateRecipientsTemplatesRecipientsIssues = {
+export type RecipientCreateTemplateRecipientsInternalServerErrorIssues = {
   message: string;
 };
 
 /**
  * Internal server error
  */
-export type RecipientCreateTemplateRecipientsTemplatesRecipientsResponseBodyData =
-  {
-    message: string;
-    code: string;
-    issues?:
-      | Array<RecipientCreateTemplateRecipientsTemplatesRecipientsIssues>
-      | undefined;
-  };
+export type RecipientCreateTemplateRecipientsInternalServerErrorData = {
+  message: string;
+  code: string;
+  issues?:
+    | Array<RecipientCreateTemplateRecipientsInternalServerErrorIssues>
+    | undefined;
+};
 
 /**
  * Internal server error
  */
-export class RecipientCreateTemplateRecipientsTemplatesRecipientsResponseBody
+export class RecipientCreateTemplateRecipientsInternalServerError
   extends Error
 {
   code: string;
   issues?:
-    | Array<RecipientCreateTemplateRecipientsTemplatesRecipientsIssues>
+    | Array<RecipientCreateTemplateRecipientsInternalServerErrorIssues>
     | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: RecipientCreateTemplateRecipientsTemplatesRecipientsResponseBodyData;
+  data$: RecipientCreateTemplateRecipientsInternalServerErrorData;
 
-  constructor(
-    err: RecipientCreateTemplateRecipientsTemplatesRecipientsResponseBodyData,
-  ) {
+  constructor(err: RecipientCreateTemplateRecipientsInternalServerErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -49,35 +46,34 @@ export class RecipientCreateTemplateRecipientsTemplatesRecipientsResponseBody
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name =
-      "RecipientCreateTemplateRecipientsTemplatesRecipientsResponseBody";
+    this.name = "RecipientCreateTemplateRecipientsInternalServerError";
   }
 }
 
-export type RecipientCreateTemplateRecipientsIssues = {
+export type RecipientCreateTemplateRecipientsBadRequestIssues = {
   message: string;
 };
 
 /**
  * Invalid input data
  */
-export type RecipientCreateTemplateRecipientsResponseBodyData = {
+export type RecipientCreateTemplateRecipientsBadRequestErrorData = {
   message: string;
   code: string;
-  issues?: Array<RecipientCreateTemplateRecipientsIssues> | undefined;
+  issues?: Array<RecipientCreateTemplateRecipientsBadRequestIssues> | undefined;
 };
 
 /**
  * Invalid input data
  */
-export class RecipientCreateTemplateRecipientsResponseBody extends Error {
+export class RecipientCreateTemplateRecipientsBadRequestError extends Error {
   code: string;
-  issues?: Array<RecipientCreateTemplateRecipientsIssues> | undefined;
+  issues?: Array<RecipientCreateTemplateRecipientsBadRequestIssues> | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: RecipientCreateTemplateRecipientsResponseBodyData;
+  data$: RecipientCreateTemplateRecipientsBadRequestErrorData;
 
-  constructor(err: RecipientCreateTemplateRecipientsResponseBodyData) {
+  constructor(err: RecipientCreateTemplateRecipientsBadRequestErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -87,14 +83,14 @@ export class RecipientCreateTemplateRecipientsResponseBody extends Error {
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name = "RecipientCreateTemplateRecipientsResponseBody";
+    this.name = "RecipientCreateTemplateRecipientsBadRequestError";
   }
 }
 
 /** @internal */
-export const RecipientCreateTemplateRecipientsTemplatesRecipientsIssues$inboundSchema:
+export const RecipientCreateTemplateRecipientsInternalServerErrorIssues$inboundSchema:
   z.ZodType<
-    RecipientCreateTemplateRecipientsTemplatesRecipientsIssues,
+    RecipientCreateTemplateRecipientsInternalServerErrorIssues,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -102,17 +98,17 @@ export const RecipientCreateTemplateRecipientsTemplatesRecipientsIssues$inboundS
   });
 
 /** @internal */
-export type RecipientCreateTemplateRecipientsTemplatesRecipientsIssues$Outbound =
+export type RecipientCreateTemplateRecipientsInternalServerErrorIssues$Outbound =
   {
     message: string;
   };
 
 /** @internal */
-export const RecipientCreateTemplateRecipientsTemplatesRecipientsIssues$outboundSchema:
+export const RecipientCreateTemplateRecipientsInternalServerErrorIssues$outboundSchema:
   z.ZodType<
-    RecipientCreateTemplateRecipientsTemplatesRecipientsIssues$Outbound,
+    RecipientCreateTemplateRecipientsInternalServerErrorIssues$Outbound,
     z.ZodTypeDef,
-    RecipientCreateTemplateRecipientsTemplatesRecipientsIssues
+    RecipientCreateTemplateRecipientsInternalServerErrorIssues
   > = z.object({
     message: z.string(),
   });
@@ -121,47 +117,47 @@ export const RecipientCreateTemplateRecipientsTemplatesRecipientsIssues$outbound
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientCreateTemplateRecipientsTemplatesRecipientsIssues$ {
-  /** @deprecated use `RecipientCreateTemplateRecipientsTemplatesRecipientsIssues$inboundSchema` instead. */
+export namespace RecipientCreateTemplateRecipientsInternalServerErrorIssues$ {
+  /** @deprecated use `RecipientCreateTemplateRecipientsInternalServerErrorIssues$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientCreateTemplateRecipientsTemplatesRecipientsIssues$inboundSchema;
-  /** @deprecated use `RecipientCreateTemplateRecipientsTemplatesRecipientsIssues$outboundSchema` instead. */
+    RecipientCreateTemplateRecipientsInternalServerErrorIssues$inboundSchema;
+  /** @deprecated use `RecipientCreateTemplateRecipientsInternalServerErrorIssues$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientCreateTemplateRecipientsTemplatesRecipientsIssues$outboundSchema;
-  /** @deprecated use `RecipientCreateTemplateRecipientsTemplatesRecipientsIssues$Outbound` instead. */
+    RecipientCreateTemplateRecipientsInternalServerErrorIssues$outboundSchema;
+  /** @deprecated use `RecipientCreateTemplateRecipientsInternalServerErrorIssues$Outbound` instead. */
   export type Outbound =
-    RecipientCreateTemplateRecipientsTemplatesRecipientsIssues$Outbound;
+    RecipientCreateTemplateRecipientsInternalServerErrorIssues$Outbound;
 }
 
-export function recipientCreateTemplateRecipientsTemplatesRecipientsIssuesToJSON(
-  recipientCreateTemplateRecipientsTemplatesRecipientsIssues:
-    RecipientCreateTemplateRecipientsTemplatesRecipientsIssues,
+export function recipientCreateTemplateRecipientsInternalServerErrorIssuesToJSON(
+  recipientCreateTemplateRecipientsInternalServerErrorIssues:
+    RecipientCreateTemplateRecipientsInternalServerErrorIssues,
 ): string {
   return JSON.stringify(
-    RecipientCreateTemplateRecipientsTemplatesRecipientsIssues$outboundSchema
-      .parse(recipientCreateTemplateRecipientsTemplatesRecipientsIssues),
+    RecipientCreateTemplateRecipientsInternalServerErrorIssues$outboundSchema
+      .parse(recipientCreateTemplateRecipientsInternalServerErrorIssues),
   );
 }
 
-export function recipientCreateTemplateRecipientsTemplatesRecipientsIssuesFromJSON(
+export function recipientCreateTemplateRecipientsInternalServerErrorIssuesFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  RecipientCreateTemplateRecipientsTemplatesRecipientsIssues,
+  RecipientCreateTemplateRecipientsInternalServerErrorIssues,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      RecipientCreateTemplateRecipientsTemplatesRecipientsIssues$inboundSchema
+      RecipientCreateTemplateRecipientsInternalServerErrorIssues$inboundSchema
         .parse(JSON.parse(x)),
-    `Failed to parse 'RecipientCreateTemplateRecipientsTemplatesRecipientsIssues' from JSON`,
+    `Failed to parse 'RecipientCreateTemplateRecipientsInternalServerErrorIssues' from JSON`,
   );
 }
 
 /** @internal */
-export const RecipientCreateTemplateRecipientsTemplatesRecipientsResponseBody$inboundSchema:
+export const RecipientCreateTemplateRecipientsInternalServerError$inboundSchema:
   z.ZodType<
-    RecipientCreateTemplateRecipientsTemplatesRecipientsResponseBody,
+    RecipientCreateTemplateRecipientsInternalServerError,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -169,44 +165,37 @@ export const RecipientCreateTemplateRecipientsTemplatesRecipientsResponseBody$in
     code: z.string(),
     issues: z.array(
       z.lazy(() =>
-        RecipientCreateTemplateRecipientsTemplatesRecipientsIssues$inboundSchema
+        RecipientCreateTemplateRecipientsInternalServerErrorIssues$inboundSchema
       ),
     ).optional(),
   })
     .transform((v) => {
-      return new RecipientCreateTemplateRecipientsTemplatesRecipientsResponseBody(
-        v,
-      );
+      return new RecipientCreateTemplateRecipientsInternalServerError(v);
     });
 
 /** @internal */
-export type RecipientCreateTemplateRecipientsTemplatesRecipientsResponseBody$Outbound =
-  {
-    message: string;
-    code: string;
-    issues?:
-      | Array<
-        RecipientCreateTemplateRecipientsTemplatesRecipientsIssues$Outbound
-      >
-      | undefined;
-  };
+export type RecipientCreateTemplateRecipientsInternalServerError$Outbound = {
+  message: string;
+  code: string;
+  issues?:
+    | Array<RecipientCreateTemplateRecipientsInternalServerErrorIssues$Outbound>
+    | undefined;
+};
 
 /** @internal */
-export const RecipientCreateTemplateRecipientsTemplatesRecipientsResponseBody$outboundSchema:
+export const RecipientCreateTemplateRecipientsInternalServerError$outboundSchema:
   z.ZodType<
-    RecipientCreateTemplateRecipientsTemplatesRecipientsResponseBody$Outbound,
+    RecipientCreateTemplateRecipientsInternalServerError$Outbound,
     z.ZodTypeDef,
-    RecipientCreateTemplateRecipientsTemplatesRecipientsResponseBody
-  > = z.instanceof(
-    RecipientCreateTemplateRecipientsTemplatesRecipientsResponseBody,
-  )
+    RecipientCreateTemplateRecipientsInternalServerError
+  > = z.instanceof(RecipientCreateTemplateRecipientsInternalServerError)
     .transform(v => v.data$)
     .pipe(z.object({
       message: z.string(),
       code: z.string(),
       issues: z.array(
         z.lazy(() =>
-          RecipientCreateTemplateRecipientsTemplatesRecipientsIssues$outboundSchema
+          RecipientCreateTemplateRecipientsInternalServerErrorIssues$outboundSchema
         ),
       ).optional(),
     }));
@@ -215,120 +204,129 @@ export const RecipientCreateTemplateRecipientsTemplatesRecipientsResponseBody$ou
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientCreateTemplateRecipientsTemplatesRecipientsResponseBody$ {
-  /** @deprecated use `RecipientCreateTemplateRecipientsTemplatesRecipientsResponseBody$inboundSchema` instead. */
+export namespace RecipientCreateTemplateRecipientsInternalServerError$ {
+  /** @deprecated use `RecipientCreateTemplateRecipientsInternalServerError$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientCreateTemplateRecipientsTemplatesRecipientsResponseBody$inboundSchema;
-  /** @deprecated use `RecipientCreateTemplateRecipientsTemplatesRecipientsResponseBody$outboundSchema` instead. */
+    RecipientCreateTemplateRecipientsInternalServerError$inboundSchema;
+  /** @deprecated use `RecipientCreateTemplateRecipientsInternalServerError$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientCreateTemplateRecipientsTemplatesRecipientsResponseBody$outboundSchema;
-  /** @deprecated use `RecipientCreateTemplateRecipientsTemplatesRecipientsResponseBody$Outbound` instead. */
+    RecipientCreateTemplateRecipientsInternalServerError$outboundSchema;
+  /** @deprecated use `RecipientCreateTemplateRecipientsInternalServerError$Outbound` instead. */
   export type Outbound =
-    RecipientCreateTemplateRecipientsTemplatesRecipientsResponseBody$Outbound;
+    RecipientCreateTemplateRecipientsInternalServerError$Outbound;
 }
 
 /** @internal */
-export const RecipientCreateTemplateRecipientsIssues$inboundSchema: z.ZodType<
-  RecipientCreateTemplateRecipientsIssues,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  message: z.string(),
-});
+export const RecipientCreateTemplateRecipientsBadRequestIssues$inboundSchema:
+  z.ZodType<
+    RecipientCreateTemplateRecipientsBadRequestIssues,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    message: z.string(),
+  });
 
 /** @internal */
-export type RecipientCreateTemplateRecipientsIssues$Outbound = {
+export type RecipientCreateTemplateRecipientsBadRequestIssues$Outbound = {
   message: string;
 };
 
 /** @internal */
-export const RecipientCreateTemplateRecipientsIssues$outboundSchema: z.ZodType<
-  RecipientCreateTemplateRecipientsIssues$Outbound,
-  z.ZodTypeDef,
-  RecipientCreateTemplateRecipientsIssues
-> = z.object({
-  message: z.string(),
-});
+export const RecipientCreateTemplateRecipientsBadRequestIssues$outboundSchema:
+  z.ZodType<
+    RecipientCreateTemplateRecipientsBadRequestIssues$Outbound,
+    z.ZodTypeDef,
+    RecipientCreateTemplateRecipientsBadRequestIssues
+  > = z.object({
+    message: z.string(),
+  });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientCreateTemplateRecipientsIssues$ {
-  /** @deprecated use `RecipientCreateTemplateRecipientsIssues$inboundSchema` instead. */
+export namespace RecipientCreateTemplateRecipientsBadRequestIssues$ {
+  /** @deprecated use `RecipientCreateTemplateRecipientsBadRequestIssues$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientCreateTemplateRecipientsIssues$inboundSchema;
-  /** @deprecated use `RecipientCreateTemplateRecipientsIssues$outboundSchema` instead. */
+    RecipientCreateTemplateRecipientsBadRequestIssues$inboundSchema;
+  /** @deprecated use `RecipientCreateTemplateRecipientsBadRequestIssues$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientCreateTemplateRecipientsIssues$outboundSchema;
-  /** @deprecated use `RecipientCreateTemplateRecipientsIssues$Outbound` instead. */
-  export type Outbound = RecipientCreateTemplateRecipientsIssues$Outbound;
+    RecipientCreateTemplateRecipientsBadRequestIssues$outboundSchema;
+  /** @deprecated use `RecipientCreateTemplateRecipientsBadRequestIssues$Outbound` instead. */
+  export type Outbound =
+    RecipientCreateTemplateRecipientsBadRequestIssues$Outbound;
 }
 
-export function recipientCreateTemplateRecipientsIssuesToJSON(
-  recipientCreateTemplateRecipientsIssues:
-    RecipientCreateTemplateRecipientsIssues,
+export function recipientCreateTemplateRecipientsBadRequestIssuesToJSON(
+  recipientCreateTemplateRecipientsBadRequestIssues:
+    RecipientCreateTemplateRecipientsBadRequestIssues,
 ): string {
   return JSON.stringify(
-    RecipientCreateTemplateRecipientsIssues$outboundSchema.parse(
-      recipientCreateTemplateRecipientsIssues,
+    RecipientCreateTemplateRecipientsBadRequestIssues$outboundSchema.parse(
+      recipientCreateTemplateRecipientsBadRequestIssues,
     ),
   );
 }
 
-export function recipientCreateTemplateRecipientsIssuesFromJSON(
+export function recipientCreateTemplateRecipientsBadRequestIssuesFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  RecipientCreateTemplateRecipientsIssues,
+  RecipientCreateTemplateRecipientsBadRequestIssues,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      RecipientCreateTemplateRecipientsIssues$inboundSchema.parse(
+      RecipientCreateTemplateRecipientsBadRequestIssues$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'RecipientCreateTemplateRecipientsIssues' from JSON`,
+    `Failed to parse 'RecipientCreateTemplateRecipientsBadRequestIssues' from JSON`,
   );
 }
 
 /** @internal */
-export const RecipientCreateTemplateRecipientsResponseBody$inboundSchema:
+export const RecipientCreateTemplateRecipientsBadRequestError$inboundSchema:
   z.ZodType<
-    RecipientCreateTemplateRecipientsResponseBody,
+    RecipientCreateTemplateRecipientsBadRequestError,
     z.ZodTypeDef,
     unknown
   > = z.object({
     message: z.string(),
     code: z.string(),
     issues: z.array(
-      z.lazy(() => RecipientCreateTemplateRecipientsIssues$inboundSchema),
+      z.lazy(() =>
+        RecipientCreateTemplateRecipientsBadRequestIssues$inboundSchema
+      ),
     ).optional(),
   })
     .transform((v) => {
-      return new RecipientCreateTemplateRecipientsResponseBody(v);
+      return new RecipientCreateTemplateRecipientsBadRequestError(v);
     });
 
 /** @internal */
-export type RecipientCreateTemplateRecipientsResponseBody$Outbound = {
+export type RecipientCreateTemplateRecipientsBadRequestError$Outbound = {
   message: string;
   code: string;
-  issues?: Array<RecipientCreateTemplateRecipientsIssues$Outbound> | undefined;
+  issues?:
+    | Array<RecipientCreateTemplateRecipientsBadRequestIssues$Outbound>
+    | undefined;
 };
 
 /** @internal */
-export const RecipientCreateTemplateRecipientsResponseBody$outboundSchema:
+export const RecipientCreateTemplateRecipientsBadRequestError$outboundSchema:
   z.ZodType<
-    RecipientCreateTemplateRecipientsResponseBody$Outbound,
+    RecipientCreateTemplateRecipientsBadRequestError$Outbound,
     z.ZodTypeDef,
-    RecipientCreateTemplateRecipientsResponseBody
-  > = z.instanceof(RecipientCreateTemplateRecipientsResponseBody)
+    RecipientCreateTemplateRecipientsBadRequestError
+  > = z.instanceof(RecipientCreateTemplateRecipientsBadRequestError)
     .transform(v => v.data$)
     .pipe(z.object({
       message: z.string(),
       code: z.string(),
       issues: z.array(
-        z.lazy(() => RecipientCreateTemplateRecipientsIssues$outboundSchema),
+        z.lazy(() =>
+          RecipientCreateTemplateRecipientsBadRequestIssues$outboundSchema
+        ),
       ).optional(),
     }));
 
@@ -336,13 +334,14 @@ export const RecipientCreateTemplateRecipientsResponseBody$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientCreateTemplateRecipientsResponseBody$ {
-  /** @deprecated use `RecipientCreateTemplateRecipientsResponseBody$inboundSchema` instead. */
+export namespace RecipientCreateTemplateRecipientsBadRequestError$ {
+  /** @deprecated use `RecipientCreateTemplateRecipientsBadRequestError$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientCreateTemplateRecipientsResponseBody$inboundSchema;
-  /** @deprecated use `RecipientCreateTemplateRecipientsResponseBody$outboundSchema` instead. */
+    RecipientCreateTemplateRecipientsBadRequestError$inboundSchema;
+  /** @deprecated use `RecipientCreateTemplateRecipientsBadRequestError$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientCreateTemplateRecipientsResponseBody$outboundSchema;
-  /** @deprecated use `RecipientCreateTemplateRecipientsResponseBody$Outbound` instead. */
-  export type Outbound = RecipientCreateTemplateRecipientsResponseBody$Outbound;
+    RecipientCreateTemplateRecipientsBadRequestError$outboundSchema;
+  /** @deprecated use `RecipientCreateTemplateRecipientsBadRequestError$Outbound` instead. */
+  export type Outbound =
+    RecipientCreateTemplateRecipientsBadRequestError$Outbound;
 }

@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 /**
  * The visibility of the document.
  */
-export const DocumentSetSettingsForDocumentVisibility = {
+export const DocumentSetSettingsForDocumentRequestVisibility = {
   Everyone: "EVERYONE",
   ManagerAndAbove: "MANAGER_AND_ABOVE",
   Admin: "ADMIN",
@@ -19,27 +19,27 @@ export const DocumentSetSettingsForDocumentVisibility = {
 /**
  * The visibility of the document.
  */
-export type DocumentSetSettingsForDocumentVisibility = ClosedEnum<
-  typeof DocumentSetSettingsForDocumentVisibility
+export type DocumentSetSettingsForDocumentRequestVisibility = ClosedEnum<
+  typeof DocumentSetSettingsForDocumentRequestVisibility
 >;
 
 /**
  * The type of authentication required for the recipient to access the document.
  */
-export const DocumentSetSettingsForDocumentGlobalAccessAuth = {
+export const DocumentSetSettingsForDocumentRequestGlobalAccessAuth = {
   Account: "ACCOUNT",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
  */
-export type DocumentSetSettingsForDocumentGlobalAccessAuth = ClosedEnum<
-  typeof DocumentSetSettingsForDocumentGlobalAccessAuth
+export type DocumentSetSettingsForDocumentRequestGlobalAccessAuth = ClosedEnum<
+  typeof DocumentSetSettingsForDocumentRequestGlobalAccessAuth
 >;
 
 /**
  * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
  */
-export const DocumentSetSettingsForDocumentGlobalActionAuth = {
+export const DocumentSetSettingsForDocumentRequestGlobalActionAuth = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
@@ -47,11 +47,11 @@ export const DocumentSetSettingsForDocumentGlobalActionAuth = {
 /**
  * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
  */
-export type DocumentSetSettingsForDocumentGlobalActionAuth = ClosedEnum<
-  typeof DocumentSetSettingsForDocumentGlobalActionAuth
+export type DocumentSetSettingsForDocumentRequestGlobalActionAuth = ClosedEnum<
+  typeof DocumentSetSettingsForDocumentRequestGlobalActionAuth
 >;
 
-export type Data = {
+export type DocumentSetSettingsForDocumentData = {
   /**
    * The title of the document.
    */
@@ -63,19 +63,19 @@ export type Data = {
   /**
    * The visibility of the document.
    */
-  visibility?: DocumentSetSettingsForDocumentVisibility | undefined;
+  visibility?: DocumentSetSettingsForDocumentRequestVisibility | undefined;
   /**
    * The type of authentication required for the recipient to access the document.
    */
   globalAccessAuth?:
-    | DocumentSetSettingsForDocumentGlobalAccessAuth
+    | DocumentSetSettingsForDocumentRequestGlobalAccessAuth
     | null
     | undefined;
   /**
    * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
    */
   globalActionAuth?:
-    | DocumentSetSettingsForDocumentGlobalActionAuth
+    | DocumentSetSettingsForDocumentRequestGlobalActionAuth
     | null
     | undefined;
 };
@@ -132,6 +132,8 @@ export const DocumentSetSettingsForDocumentLanguage = {
   En: "en",
   Fr: "fr",
   Es: "es",
+  It: "it",
+  Pl: "pl",
 } as const;
 /**
  * The language to use for email communications with recipients.
@@ -210,19 +212,19 @@ export type DocumentSetSettingsForDocumentMeta = {
   emailSettings?: DocumentSetSettingsForDocumentEmailSettings | undefined;
 };
 
-export type DocumentSetSettingsForDocumentRequestBody = {
+export type DocumentSetSettingsForDocumentRequest = {
   documentId: number;
-  data?: Data | undefined;
+  data?: DocumentSetSettingsForDocumentData | undefined;
   meta?: DocumentSetSettingsForDocumentMeta | undefined;
 };
 
-export const DocumentSetSettingsForDocumentDocumentsVisibility = {
+export const DocumentSetSettingsForDocumentResponseVisibility = {
   Everyone: "EVERYONE",
   ManagerAndAbove: "MANAGER_AND_ABOVE",
   Admin: "ADMIN",
 } as const;
-export type DocumentSetSettingsForDocumentDocumentsVisibility = ClosedEnum<
-  typeof DocumentSetSettingsForDocumentDocumentsVisibility
+export type DocumentSetSettingsForDocumentResponseVisibility = ClosedEnum<
+  typeof DocumentSetSettingsForDocumentResponseVisibility
 >;
 
 export const DocumentSetSettingsForDocumentStatus = {
@@ -246,19 +248,20 @@ export type DocumentSetSettingsForDocumentSource = ClosedEnum<
 /**
  * The type of authentication required for the recipient to access the document.
  */
-export const DocumentSetSettingsForDocumentDocumentsGlobalAccessAuth = {
+export const DocumentSetSettingsForDocumentResponseGlobalAccessAuth = {
   Account: "ACCOUNT",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
  */
-export type DocumentSetSettingsForDocumentDocumentsGlobalAccessAuth =
-  ClosedEnum<typeof DocumentSetSettingsForDocumentDocumentsGlobalAccessAuth>;
+export type DocumentSetSettingsForDocumentResponseGlobalAccessAuth = ClosedEnum<
+  typeof DocumentSetSettingsForDocumentResponseGlobalAccessAuth
+>;
 
 /**
  * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
  */
-export const DocumentSetSettingsForDocumentDocumentsGlobalActionAuth = {
+export const DocumentSetSettingsForDocumentResponseGlobalActionAuth = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
@@ -266,21 +269,22 @@ export const DocumentSetSettingsForDocumentDocumentsGlobalActionAuth = {
 /**
  * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
  */
-export type DocumentSetSettingsForDocumentDocumentsGlobalActionAuth =
-  ClosedEnum<typeof DocumentSetSettingsForDocumentDocumentsGlobalActionAuth>;
+export type DocumentSetSettingsForDocumentResponseGlobalActionAuth = ClosedEnum<
+  typeof DocumentSetSettingsForDocumentResponseGlobalActionAuth
+>;
 
 export type DocumentSetSettingsForDocumentAuthOptions = {
   /**
    * The type of authentication required for the recipient to access the document.
    */
   globalAccessAuth:
-    | DocumentSetSettingsForDocumentDocumentsGlobalAccessAuth
+    | DocumentSetSettingsForDocumentResponseGlobalAccessAuth
     | null;
   /**
    * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
    */
   globalActionAuth:
-    | DocumentSetSettingsForDocumentDocumentsGlobalActionAuth
+    | DocumentSetSettingsForDocumentResponseGlobalActionAuth
     | null;
 };
 
@@ -292,8 +296,8 @@ export type DocumentSetSettingsForDocumentFormValues =
 /**
  * Successful response
  */
-export type DocumentSetSettingsForDocumentResponseBody = {
-  visibility: DocumentSetSettingsForDocumentDocumentsVisibility;
+export type DocumentSetSettingsForDocumentResponse = {
+  visibility: DocumentSetSettingsForDocumentResponseVisibility;
   status: DocumentSetSettingsForDocumentStatus;
   source: DocumentSetSettingsForDocumentSource;
   id: number;
@@ -318,91 +322,98 @@ export type DocumentSetSettingsForDocumentResponseBody = {
 };
 
 /** @internal */
-export const DocumentSetSettingsForDocumentVisibility$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentSetSettingsForDocumentVisibility> = z
-    .nativeEnum(DocumentSetSettingsForDocumentVisibility);
+export const DocumentSetSettingsForDocumentRequestVisibility$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentSetSettingsForDocumentRequestVisibility> = z
+    .nativeEnum(DocumentSetSettingsForDocumentRequestVisibility);
 
 /** @internal */
-export const DocumentSetSettingsForDocumentVisibility$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentSetSettingsForDocumentVisibility> =
-    DocumentSetSettingsForDocumentVisibility$inboundSchema;
+export const DocumentSetSettingsForDocumentRequestVisibility$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentSetSettingsForDocumentRequestVisibility> =
+    DocumentSetSettingsForDocumentRequestVisibility$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentSetSettingsForDocumentVisibility$ {
-  /** @deprecated use `DocumentSetSettingsForDocumentVisibility$inboundSchema` instead. */
+export namespace DocumentSetSettingsForDocumentRequestVisibility$ {
+  /** @deprecated use `DocumentSetSettingsForDocumentRequestVisibility$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentSetSettingsForDocumentVisibility$inboundSchema;
-  /** @deprecated use `DocumentSetSettingsForDocumentVisibility$outboundSchema` instead. */
+    DocumentSetSettingsForDocumentRequestVisibility$inboundSchema;
+  /** @deprecated use `DocumentSetSettingsForDocumentRequestVisibility$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentSetSettingsForDocumentVisibility$outboundSchema;
+    DocumentSetSettingsForDocumentRequestVisibility$outboundSchema;
 }
 
 /** @internal */
-export const DocumentSetSettingsForDocumentGlobalAccessAuth$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentSetSettingsForDocumentGlobalAccessAuth> = z
-    .nativeEnum(DocumentSetSettingsForDocumentGlobalAccessAuth);
+export const DocumentSetSettingsForDocumentRequestGlobalAccessAuth$inboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentSetSettingsForDocumentRequestGlobalAccessAuth
+  > = z.nativeEnum(DocumentSetSettingsForDocumentRequestGlobalAccessAuth);
 
 /** @internal */
-export const DocumentSetSettingsForDocumentGlobalAccessAuth$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentSetSettingsForDocumentGlobalAccessAuth> =
-    DocumentSetSettingsForDocumentGlobalAccessAuth$inboundSchema;
+export const DocumentSetSettingsForDocumentRequestGlobalAccessAuth$outboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentSetSettingsForDocumentRequestGlobalAccessAuth
+  > = DocumentSetSettingsForDocumentRequestGlobalAccessAuth$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentSetSettingsForDocumentGlobalAccessAuth$ {
-  /** @deprecated use `DocumentSetSettingsForDocumentGlobalAccessAuth$inboundSchema` instead. */
+export namespace DocumentSetSettingsForDocumentRequestGlobalAccessAuth$ {
+  /** @deprecated use `DocumentSetSettingsForDocumentRequestGlobalAccessAuth$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentSetSettingsForDocumentGlobalAccessAuth$inboundSchema;
-  /** @deprecated use `DocumentSetSettingsForDocumentGlobalAccessAuth$outboundSchema` instead. */
+    DocumentSetSettingsForDocumentRequestGlobalAccessAuth$inboundSchema;
+  /** @deprecated use `DocumentSetSettingsForDocumentRequestGlobalAccessAuth$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentSetSettingsForDocumentGlobalAccessAuth$outboundSchema;
+    DocumentSetSettingsForDocumentRequestGlobalAccessAuth$outboundSchema;
 }
 
 /** @internal */
-export const DocumentSetSettingsForDocumentGlobalActionAuth$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentSetSettingsForDocumentGlobalActionAuth> = z
-    .nativeEnum(DocumentSetSettingsForDocumentGlobalActionAuth);
+export const DocumentSetSettingsForDocumentRequestGlobalActionAuth$inboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentSetSettingsForDocumentRequestGlobalActionAuth
+  > = z.nativeEnum(DocumentSetSettingsForDocumentRequestGlobalActionAuth);
 
 /** @internal */
-export const DocumentSetSettingsForDocumentGlobalActionAuth$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentSetSettingsForDocumentGlobalActionAuth> =
-    DocumentSetSettingsForDocumentGlobalActionAuth$inboundSchema;
+export const DocumentSetSettingsForDocumentRequestGlobalActionAuth$outboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentSetSettingsForDocumentRequestGlobalActionAuth
+  > = DocumentSetSettingsForDocumentRequestGlobalActionAuth$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentSetSettingsForDocumentGlobalActionAuth$ {
-  /** @deprecated use `DocumentSetSettingsForDocumentGlobalActionAuth$inboundSchema` instead. */
+export namespace DocumentSetSettingsForDocumentRequestGlobalActionAuth$ {
+  /** @deprecated use `DocumentSetSettingsForDocumentRequestGlobalActionAuth$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentSetSettingsForDocumentGlobalActionAuth$inboundSchema;
-  /** @deprecated use `DocumentSetSettingsForDocumentGlobalActionAuth$outboundSchema` instead. */
+    DocumentSetSettingsForDocumentRequestGlobalActionAuth$inboundSchema;
+  /** @deprecated use `DocumentSetSettingsForDocumentRequestGlobalActionAuth$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentSetSettingsForDocumentGlobalActionAuth$outboundSchema;
+    DocumentSetSettingsForDocumentRequestGlobalActionAuth$outboundSchema;
 }
 
 /** @internal */
-export const Data$inboundSchema: z.ZodType<Data, z.ZodTypeDef, unknown> = z
-  .object({
-    title: z.string().optional(),
-    externalId: z.nullable(z.string()).optional(),
-    visibility: DocumentSetSettingsForDocumentVisibility$inboundSchema
-      .optional(),
-    globalAccessAuth: z.nullable(
-      DocumentSetSettingsForDocumentGlobalAccessAuth$inboundSchema,
-    ).optional(),
-    globalActionAuth: z.nullable(
-      DocumentSetSettingsForDocumentGlobalActionAuth$inboundSchema,
-    ).optional(),
-  });
+export const DocumentSetSettingsForDocumentData$inboundSchema: z.ZodType<
+  DocumentSetSettingsForDocumentData,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  title: z.string().optional(),
+  externalId: z.nullable(z.string()).optional(),
+  visibility: DocumentSetSettingsForDocumentRequestVisibility$inboundSchema
+    .optional(),
+  globalAccessAuth: z.nullable(
+    DocumentSetSettingsForDocumentRequestGlobalAccessAuth$inboundSchema,
+  ).optional(),
+  globalActionAuth: z.nullable(
+    DocumentSetSettingsForDocumentRequestGlobalActionAuth$inboundSchema,
+  ).optional(),
+});
 
 /** @internal */
-export type Data$Outbound = {
+export type DocumentSetSettingsForDocumentData$Outbound = {
   title?: string | undefined;
   externalId?: string | null | undefined;
   visibility?: string | undefined;
@@ -411,44 +422,55 @@ export type Data$Outbound = {
 };
 
 /** @internal */
-export const Data$outboundSchema: z.ZodType<Data$Outbound, z.ZodTypeDef, Data> =
-  z.object({
-    title: z.string().optional(),
-    externalId: z.nullable(z.string()).optional(),
-    visibility: DocumentSetSettingsForDocumentVisibility$outboundSchema
-      .optional(),
-    globalAccessAuth: z.nullable(
-      DocumentSetSettingsForDocumentGlobalAccessAuth$outboundSchema,
-    ).optional(),
-    globalActionAuth: z.nullable(
-      DocumentSetSettingsForDocumentGlobalActionAuth$outboundSchema,
-    ).optional(),
-  });
+export const DocumentSetSettingsForDocumentData$outboundSchema: z.ZodType<
+  DocumentSetSettingsForDocumentData$Outbound,
+  z.ZodTypeDef,
+  DocumentSetSettingsForDocumentData
+> = z.object({
+  title: z.string().optional(),
+  externalId: z.nullable(z.string()).optional(),
+  visibility: DocumentSetSettingsForDocumentRequestVisibility$outboundSchema
+    .optional(),
+  globalAccessAuth: z.nullable(
+    DocumentSetSettingsForDocumentRequestGlobalAccessAuth$outboundSchema,
+  ).optional(),
+  globalActionAuth: z.nullable(
+    DocumentSetSettingsForDocumentRequestGlobalActionAuth$outboundSchema,
+  ).optional(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Data$ {
-  /** @deprecated use `Data$inboundSchema` instead. */
-  export const inboundSchema = Data$inboundSchema;
-  /** @deprecated use `Data$outboundSchema` instead. */
-  export const outboundSchema = Data$outboundSchema;
-  /** @deprecated use `Data$Outbound` instead. */
-  export type Outbound = Data$Outbound;
+export namespace DocumentSetSettingsForDocumentData$ {
+  /** @deprecated use `DocumentSetSettingsForDocumentData$inboundSchema` instead. */
+  export const inboundSchema = DocumentSetSettingsForDocumentData$inboundSchema;
+  /** @deprecated use `DocumentSetSettingsForDocumentData$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentSetSettingsForDocumentData$outboundSchema;
+  /** @deprecated use `DocumentSetSettingsForDocumentData$Outbound` instead. */
+  export type Outbound = DocumentSetSettingsForDocumentData$Outbound;
 }
 
-export function dataToJSON(data: Data): string {
-  return JSON.stringify(Data$outboundSchema.parse(data));
+export function documentSetSettingsForDocumentDataToJSON(
+  documentSetSettingsForDocumentData: DocumentSetSettingsForDocumentData,
+): string {
+  return JSON.stringify(
+    DocumentSetSettingsForDocumentData$outboundSchema.parse(
+      documentSetSettingsForDocumentData,
+    ),
+  );
 }
 
-export function dataFromJSON(
+export function documentSetSettingsForDocumentDataFromJSON(
   jsonString: string,
-): SafeParseResult<Data, SDKValidationError> {
+): SafeParseResult<DocumentSetSettingsForDocumentData, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Data$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Data' from JSON`,
+    (x) =>
+      DocumentSetSettingsForDocumentData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentSetSettingsForDocumentData' from JSON`,
   );
 }
 
@@ -727,100 +749,95 @@ export function documentSetSettingsForDocumentMetaFromJSON(
 }
 
 /** @internal */
-export const DocumentSetSettingsForDocumentRequestBody$inboundSchema: z.ZodType<
-  DocumentSetSettingsForDocumentRequestBody,
+export const DocumentSetSettingsForDocumentRequest$inboundSchema: z.ZodType<
+  DocumentSetSettingsForDocumentRequest,
   z.ZodTypeDef,
   unknown
 > = z.object({
   documentId: z.number(),
-  data: z.lazy(() => Data$inboundSchema).optional(),
+  data: z.lazy(() => DocumentSetSettingsForDocumentData$inboundSchema)
+    .optional(),
   meta: z.lazy(() => DocumentSetSettingsForDocumentMeta$inboundSchema)
     .optional(),
 });
 
 /** @internal */
-export type DocumentSetSettingsForDocumentRequestBody$Outbound = {
+export type DocumentSetSettingsForDocumentRequest$Outbound = {
   documentId: number;
-  data?: Data$Outbound | undefined;
+  data?: DocumentSetSettingsForDocumentData$Outbound | undefined;
   meta?: DocumentSetSettingsForDocumentMeta$Outbound | undefined;
 };
 
 /** @internal */
-export const DocumentSetSettingsForDocumentRequestBody$outboundSchema:
-  z.ZodType<
-    DocumentSetSettingsForDocumentRequestBody$Outbound,
-    z.ZodTypeDef,
-    DocumentSetSettingsForDocumentRequestBody
-  > = z.object({
-    documentId: z.number(),
-    data: z.lazy(() => Data$outboundSchema).optional(),
-    meta: z.lazy(() => DocumentSetSettingsForDocumentMeta$outboundSchema)
-      .optional(),
-  });
+export const DocumentSetSettingsForDocumentRequest$outboundSchema: z.ZodType<
+  DocumentSetSettingsForDocumentRequest$Outbound,
+  z.ZodTypeDef,
+  DocumentSetSettingsForDocumentRequest
+> = z.object({
+  documentId: z.number(),
+  data: z.lazy(() => DocumentSetSettingsForDocumentData$outboundSchema)
+    .optional(),
+  meta: z.lazy(() => DocumentSetSettingsForDocumentMeta$outboundSchema)
+    .optional(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentSetSettingsForDocumentRequestBody$ {
-  /** @deprecated use `DocumentSetSettingsForDocumentRequestBody$inboundSchema` instead. */
+export namespace DocumentSetSettingsForDocumentRequest$ {
+  /** @deprecated use `DocumentSetSettingsForDocumentRequest$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentSetSettingsForDocumentRequestBody$inboundSchema;
-  /** @deprecated use `DocumentSetSettingsForDocumentRequestBody$outboundSchema` instead. */
+    DocumentSetSettingsForDocumentRequest$inboundSchema;
+  /** @deprecated use `DocumentSetSettingsForDocumentRequest$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentSetSettingsForDocumentRequestBody$outboundSchema;
-  /** @deprecated use `DocumentSetSettingsForDocumentRequestBody$Outbound` instead. */
-  export type Outbound = DocumentSetSettingsForDocumentRequestBody$Outbound;
+    DocumentSetSettingsForDocumentRequest$outboundSchema;
+  /** @deprecated use `DocumentSetSettingsForDocumentRequest$Outbound` instead. */
+  export type Outbound = DocumentSetSettingsForDocumentRequest$Outbound;
 }
 
-export function documentSetSettingsForDocumentRequestBodyToJSON(
-  documentSetSettingsForDocumentRequestBody:
-    DocumentSetSettingsForDocumentRequestBody,
+export function documentSetSettingsForDocumentRequestToJSON(
+  documentSetSettingsForDocumentRequest: DocumentSetSettingsForDocumentRequest,
 ): string {
   return JSON.stringify(
-    DocumentSetSettingsForDocumentRequestBody$outboundSchema.parse(
-      documentSetSettingsForDocumentRequestBody,
+    DocumentSetSettingsForDocumentRequest$outboundSchema.parse(
+      documentSetSettingsForDocumentRequest,
     ),
   );
 }
 
-export function documentSetSettingsForDocumentRequestBodyFromJSON(
+export function documentSetSettingsForDocumentRequestFromJSON(
   jsonString: string,
-): SafeParseResult<
-  DocumentSetSettingsForDocumentRequestBody,
-  SDKValidationError
-> {
+): SafeParseResult<DocumentSetSettingsForDocumentRequest, SDKValidationError> {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentSetSettingsForDocumentRequestBody$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DocumentSetSettingsForDocumentRequestBody' from JSON`,
+      DocumentSetSettingsForDocumentRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentSetSettingsForDocumentRequest' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentSetSettingsForDocumentDocumentsVisibility$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentSetSettingsForDocumentDocumentsVisibility> = z
-    .nativeEnum(DocumentSetSettingsForDocumentDocumentsVisibility);
+export const DocumentSetSettingsForDocumentResponseVisibility$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentSetSettingsForDocumentResponseVisibility> = z
+    .nativeEnum(DocumentSetSettingsForDocumentResponseVisibility);
 
 /** @internal */
-export const DocumentSetSettingsForDocumentDocumentsVisibility$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentSetSettingsForDocumentDocumentsVisibility> =
-    DocumentSetSettingsForDocumentDocumentsVisibility$inboundSchema;
+export const DocumentSetSettingsForDocumentResponseVisibility$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentSetSettingsForDocumentResponseVisibility> =
+    DocumentSetSettingsForDocumentResponseVisibility$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentSetSettingsForDocumentDocumentsVisibility$ {
-  /** @deprecated use `DocumentSetSettingsForDocumentDocumentsVisibility$inboundSchema` instead. */
+export namespace DocumentSetSettingsForDocumentResponseVisibility$ {
+  /** @deprecated use `DocumentSetSettingsForDocumentResponseVisibility$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentSetSettingsForDocumentDocumentsVisibility$inboundSchema;
-  /** @deprecated use `DocumentSetSettingsForDocumentDocumentsVisibility$outboundSchema` instead. */
+    DocumentSetSettingsForDocumentResponseVisibility$inboundSchema;
+  /** @deprecated use `DocumentSetSettingsForDocumentResponseVisibility$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentSetSettingsForDocumentDocumentsVisibility$outboundSchema;
+    DocumentSetSettingsForDocumentResponseVisibility$outboundSchema;
 }
 
 /** @internal */
@@ -872,53 +889,53 @@ export namespace DocumentSetSettingsForDocumentSource$ {
 }
 
 /** @internal */
-export const DocumentSetSettingsForDocumentDocumentsGlobalAccessAuth$inboundSchema:
+export const DocumentSetSettingsForDocumentResponseGlobalAccessAuth$inboundSchema:
   z.ZodNativeEnum<
-    typeof DocumentSetSettingsForDocumentDocumentsGlobalAccessAuth
-  > = z.nativeEnum(DocumentSetSettingsForDocumentDocumentsGlobalAccessAuth);
+    typeof DocumentSetSettingsForDocumentResponseGlobalAccessAuth
+  > = z.nativeEnum(DocumentSetSettingsForDocumentResponseGlobalAccessAuth);
 
 /** @internal */
-export const DocumentSetSettingsForDocumentDocumentsGlobalAccessAuth$outboundSchema:
+export const DocumentSetSettingsForDocumentResponseGlobalAccessAuth$outboundSchema:
   z.ZodNativeEnum<
-    typeof DocumentSetSettingsForDocumentDocumentsGlobalAccessAuth
-  > = DocumentSetSettingsForDocumentDocumentsGlobalAccessAuth$inboundSchema;
+    typeof DocumentSetSettingsForDocumentResponseGlobalAccessAuth
+  > = DocumentSetSettingsForDocumentResponseGlobalAccessAuth$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentSetSettingsForDocumentDocumentsGlobalAccessAuth$ {
-  /** @deprecated use `DocumentSetSettingsForDocumentDocumentsGlobalAccessAuth$inboundSchema` instead. */
+export namespace DocumentSetSettingsForDocumentResponseGlobalAccessAuth$ {
+  /** @deprecated use `DocumentSetSettingsForDocumentResponseGlobalAccessAuth$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentSetSettingsForDocumentDocumentsGlobalAccessAuth$inboundSchema;
-  /** @deprecated use `DocumentSetSettingsForDocumentDocumentsGlobalAccessAuth$outboundSchema` instead. */
+    DocumentSetSettingsForDocumentResponseGlobalAccessAuth$inboundSchema;
+  /** @deprecated use `DocumentSetSettingsForDocumentResponseGlobalAccessAuth$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentSetSettingsForDocumentDocumentsGlobalAccessAuth$outboundSchema;
+    DocumentSetSettingsForDocumentResponseGlobalAccessAuth$outboundSchema;
 }
 
 /** @internal */
-export const DocumentSetSettingsForDocumentDocumentsGlobalActionAuth$inboundSchema:
+export const DocumentSetSettingsForDocumentResponseGlobalActionAuth$inboundSchema:
   z.ZodNativeEnum<
-    typeof DocumentSetSettingsForDocumentDocumentsGlobalActionAuth
-  > = z.nativeEnum(DocumentSetSettingsForDocumentDocumentsGlobalActionAuth);
+    typeof DocumentSetSettingsForDocumentResponseGlobalActionAuth
+  > = z.nativeEnum(DocumentSetSettingsForDocumentResponseGlobalActionAuth);
 
 /** @internal */
-export const DocumentSetSettingsForDocumentDocumentsGlobalActionAuth$outboundSchema:
+export const DocumentSetSettingsForDocumentResponseGlobalActionAuth$outboundSchema:
   z.ZodNativeEnum<
-    typeof DocumentSetSettingsForDocumentDocumentsGlobalActionAuth
-  > = DocumentSetSettingsForDocumentDocumentsGlobalActionAuth$inboundSchema;
+    typeof DocumentSetSettingsForDocumentResponseGlobalActionAuth
+  > = DocumentSetSettingsForDocumentResponseGlobalActionAuth$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentSetSettingsForDocumentDocumentsGlobalActionAuth$ {
-  /** @deprecated use `DocumentSetSettingsForDocumentDocumentsGlobalActionAuth$inboundSchema` instead. */
+export namespace DocumentSetSettingsForDocumentResponseGlobalActionAuth$ {
+  /** @deprecated use `DocumentSetSettingsForDocumentResponseGlobalActionAuth$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentSetSettingsForDocumentDocumentsGlobalActionAuth$inboundSchema;
-  /** @deprecated use `DocumentSetSettingsForDocumentDocumentsGlobalActionAuth$outboundSchema` instead. */
+    DocumentSetSettingsForDocumentResponseGlobalActionAuth$inboundSchema;
+  /** @deprecated use `DocumentSetSettingsForDocumentResponseGlobalActionAuth$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentSetSettingsForDocumentDocumentsGlobalActionAuth$outboundSchema;
+    DocumentSetSettingsForDocumentResponseGlobalActionAuth$outboundSchema;
 }
 
 /** @internal */
@@ -928,10 +945,10 @@ export const DocumentSetSettingsForDocumentAuthOptions$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   globalAccessAuth: z.nullable(
-    DocumentSetSettingsForDocumentDocumentsGlobalAccessAuth$inboundSchema,
+    DocumentSetSettingsForDocumentResponseGlobalAccessAuth$inboundSchema,
   ),
   globalActionAuth: z.nullable(
-    DocumentSetSettingsForDocumentDocumentsGlobalActionAuth$inboundSchema,
+    DocumentSetSettingsForDocumentResponseGlobalActionAuth$inboundSchema,
   ),
 });
 
@@ -949,10 +966,10 @@ export const DocumentSetSettingsForDocumentAuthOptions$outboundSchema:
     DocumentSetSettingsForDocumentAuthOptions
   > = z.object({
     globalAccessAuth: z.nullable(
-      DocumentSetSettingsForDocumentDocumentsGlobalAccessAuth$outboundSchema,
+      DocumentSetSettingsForDocumentResponseGlobalAccessAuth$outboundSchema,
     ),
     globalActionAuth: z.nullable(
-      DocumentSetSettingsForDocumentDocumentsGlobalActionAuth$outboundSchema,
+      DocumentSetSettingsForDocumentResponseGlobalActionAuth$outboundSchema,
     ),
   });
 
@@ -1061,34 +1078,35 @@ export function documentSetSettingsForDocumentFormValuesFromJSON(
 }
 
 /** @internal */
-export const DocumentSetSettingsForDocumentResponseBody$inboundSchema:
-  z.ZodType<DocumentSetSettingsForDocumentResponseBody, z.ZodTypeDef, unknown> =
-    z.object({
-      visibility:
-        DocumentSetSettingsForDocumentDocumentsVisibility$inboundSchema,
-      status: DocumentSetSettingsForDocumentStatus$inboundSchema,
-      source: DocumentSetSettingsForDocumentSource$inboundSchema,
-      id: z.number().int(),
-      externalId: z.nullable(z.string()),
-      userId: z.number(),
-      authOptions: z.nullable(
-        z.lazy(() => DocumentSetSettingsForDocumentAuthOptions$inboundSchema),
-      ),
-      formValues: z.nullable(
-        z.record(z.union([z.string(), z.boolean(), z.number()])),
-      ),
-      title: z.string(),
-      documentDataId: z.string(),
-      createdAt: z.string(),
-      updatedAt: z.string(),
-      completedAt: z.nullable(z.string()),
-      deletedAt: z.nullable(z.string()),
-      teamId: z.nullable(z.number().int()),
-      templateId: z.nullable(z.number().int()),
-    });
+export const DocumentSetSettingsForDocumentResponse$inboundSchema: z.ZodType<
+  DocumentSetSettingsForDocumentResponse,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  visibility: DocumentSetSettingsForDocumentResponseVisibility$inboundSchema,
+  status: DocumentSetSettingsForDocumentStatus$inboundSchema,
+  source: DocumentSetSettingsForDocumentSource$inboundSchema,
+  id: z.number(),
+  externalId: z.nullable(z.string()),
+  userId: z.number(),
+  authOptions: z.nullable(
+    z.lazy(() => DocumentSetSettingsForDocumentAuthOptions$inboundSchema),
+  ),
+  formValues: z.nullable(
+    z.record(z.union([z.string(), z.boolean(), z.number()])),
+  ),
+  title: z.string(),
+  documentDataId: z.string(),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+  completedAt: z.nullable(z.string()),
+  deletedAt: z.nullable(z.string()),
+  teamId: z.nullable(z.number()),
+  templateId: z.nullable(z.number()),
+});
 
 /** @internal */
-export type DocumentSetSettingsForDocumentResponseBody$Outbound = {
+export type DocumentSetSettingsForDocumentResponse$Outbound = {
   visibility: string;
   status: string;
   source: string;
@@ -1108,73 +1126,66 @@ export type DocumentSetSettingsForDocumentResponseBody$Outbound = {
 };
 
 /** @internal */
-export const DocumentSetSettingsForDocumentResponseBody$outboundSchema:
-  z.ZodType<
-    DocumentSetSettingsForDocumentResponseBody$Outbound,
-    z.ZodTypeDef,
-    DocumentSetSettingsForDocumentResponseBody
-  > = z.object({
-    visibility:
-      DocumentSetSettingsForDocumentDocumentsVisibility$outboundSchema,
-    status: DocumentSetSettingsForDocumentStatus$outboundSchema,
-    source: DocumentSetSettingsForDocumentSource$outboundSchema,
-    id: z.number().int(),
-    externalId: z.nullable(z.string()),
-    userId: z.number(),
-    authOptions: z.nullable(
-      z.lazy(() => DocumentSetSettingsForDocumentAuthOptions$outboundSchema),
-    ),
-    formValues: z.nullable(
-      z.record(z.union([z.string(), z.boolean(), z.number()])),
-    ),
-    title: z.string(),
-    documentDataId: z.string(),
-    createdAt: z.string(),
-    updatedAt: z.string(),
-    completedAt: z.nullable(z.string()),
-    deletedAt: z.nullable(z.string()),
-    teamId: z.nullable(z.number().int()),
-    templateId: z.nullable(z.number().int()),
-  });
+export const DocumentSetSettingsForDocumentResponse$outboundSchema: z.ZodType<
+  DocumentSetSettingsForDocumentResponse$Outbound,
+  z.ZodTypeDef,
+  DocumentSetSettingsForDocumentResponse
+> = z.object({
+  visibility: DocumentSetSettingsForDocumentResponseVisibility$outboundSchema,
+  status: DocumentSetSettingsForDocumentStatus$outboundSchema,
+  source: DocumentSetSettingsForDocumentSource$outboundSchema,
+  id: z.number(),
+  externalId: z.nullable(z.string()),
+  userId: z.number(),
+  authOptions: z.nullable(
+    z.lazy(() => DocumentSetSettingsForDocumentAuthOptions$outboundSchema),
+  ),
+  formValues: z.nullable(
+    z.record(z.union([z.string(), z.boolean(), z.number()])),
+  ),
+  title: z.string(),
+  documentDataId: z.string(),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+  completedAt: z.nullable(z.string()),
+  deletedAt: z.nullable(z.string()),
+  teamId: z.nullable(z.number()),
+  templateId: z.nullable(z.number()),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentSetSettingsForDocumentResponseBody$ {
-  /** @deprecated use `DocumentSetSettingsForDocumentResponseBody$inboundSchema` instead. */
+export namespace DocumentSetSettingsForDocumentResponse$ {
+  /** @deprecated use `DocumentSetSettingsForDocumentResponse$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentSetSettingsForDocumentResponseBody$inboundSchema;
-  /** @deprecated use `DocumentSetSettingsForDocumentResponseBody$outboundSchema` instead. */
+    DocumentSetSettingsForDocumentResponse$inboundSchema;
+  /** @deprecated use `DocumentSetSettingsForDocumentResponse$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentSetSettingsForDocumentResponseBody$outboundSchema;
-  /** @deprecated use `DocumentSetSettingsForDocumentResponseBody$Outbound` instead. */
-  export type Outbound = DocumentSetSettingsForDocumentResponseBody$Outbound;
+    DocumentSetSettingsForDocumentResponse$outboundSchema;
+  /** @deprecated use `DocumentSetSettingsForDocumentResponse$Outbound` instead. */
+  export type Outbound = DocumentSetSettingsForDocumentResponse$Outbound;
 }
 
-export function documentSetSettingsForDocumentResponseBodyToJSON(
-  documentSetSettingsForDocumentResponseBody:
-    DocumentSetSettingsForDocumentResponseBody,
+export function documentSetSettingsForDocumentResponseToJSON(
+  documentSetSettingsForDocumentResponse:
+    DocumentSetSettingsForDocumentResponse,
 ): string {
   return JSON.stringify(
-    DocumentSetSettingsForDocumentResponseBody$outboundSchema.parse(
-      documentSetSettingsForDocumentResponseBody,
+    DocumentSetSettingsForDocumentResponse$outboundSchema.parse(
+      documentSetSettingsForDocumentResponse,
     ),
   );
 }
 
-export function documentSetSettingsForDocumentResponseBodyFromJSON(
+export function documentSetSettingsForDocumentResponseFromJSON(
   jsonString: string,
-): SafeParseResult<
-  DocumentSetSettingsForDocumentResponseBody,
-  SDKValidationError
-> {
+): SafeParseResult<DocumentSetSettingsForDocumentResponse, SDKValidationError> {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentSetSettingsForDocumentResponseBody$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DocumentSetSettingsForDocumentResponseBody' from JSON`,
+      DocumentSetSettingsForDocumentResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentSetSettingsForDocumentResponse' from JSON`,
   );
 }

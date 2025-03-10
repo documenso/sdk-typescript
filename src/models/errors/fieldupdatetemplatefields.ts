@@ -7,32 +7,34 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
-export type FieldUpdateTemplateFieldsTemplatesFieldsIssues = {
+export type FieldUpdateTemplateFieldsInternalServerErrorIssues = {
   message: string;
 };
 
 /**
  * Internal server error
  */
-export type FieldUpdateTemplateFieldsTemplatesFieldsResponseBodyData = {
+export type FieldUpdateTemplateFieldsInternalServerErrorData = {
   message: string;
   code: string;
-  issues?: Array<FieldUpdateTemplateFieldsTemplatesFieldsIssues> | undefined;
+  issues?:
+    | Array<FieldUpdateTemplateFieldsInternalServerErrorIssues>
+    | undefined;
 };
 
 /**
  * Internal server error
  */
-export class FieldUpdateTemplateFieldsTemplatesFieldsResponseBody
-  extends Error
-{
+export class FieldUpdateTemplateFieldsInternalServerError extends Error {
   code: string;
-  issues?: Array<FieldUpdateTemplateFieldsTemplatesFieldsIssues> | undefined;
+  issues?:
+    | Array<FieldUpdateTemplateFieldsInternalServerErrorIssues>
+    | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: FieldUpdateTemplateFieldsTemplatesFieldsResponseBodyData;
+  data$: FieldUpdateTemplateFieldsInternalServerErrorData;
 
-  constructor(err: FieldUpdateTemplateFieldsTemplatesFieldsResponseBodyData) {
+  constructor(err: FieldUpdateTemplateFieldsInternalServerErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -42,34 +44,34 @@ export class FieldUpdateTemplateFieldsTemplatesFieldsResponseBody
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name = "FieldUpdateTemplateFieldsTemplatesFieldsResponseBody";
+    this.name = "FieldUpdateTemplateFieldsInternalServerError";
   }
 }
 
-export type FieldUpdateTemplateFieldsIssues = {
+export type FieldUpdateTemplateFieldsBadRequestIssues = {
   message: string;
 };
 
 /**
  * Invalid input data
  */
-export type FieldUpdateTemplateFieldsResponseBodyData = {
+export type FieldUpdateTemplateFieldsBadRequestErrorData = {
   message: string;
   code: string;
-  issues?: Array<FieldUpdateTemplateFieldsIssues> | undefined;
+  issues?: Array<FieldUpdateTemplateFieldsBadRequestIssues> | undefined;
 };
 
 /**
  * Invalid input data
  */
-export class FieldUpdateTemplateFieldsResponseBody extends Error {
+export class FieldUpdateTemplateFieldsBadRequestError extends Error {
   code: string;
-  issues?: Array<FieldUpdateTemplateFieldsIssues> | undefined;
+  issues?: Array<FieldUpdateTemplateFieldsBadRequestIssues> | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: FieldUpdateTemplateFieldsResponseBodyData;
+  data$: FieldUpdateTemplateFieldsBadRequestErrorData;
 
-  constructor(err: FieldUpdateTemplateFieldsResponseBodyData) {
+  constructor(err: FieldUpdateTemplateFieldsBadRequestErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -79,14 +81,14 @@ export class FieldUpdateTemplateFieldsResponseBody extends Error {
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name = "FieldUpdateTemplateFieldsResponseBody";
+    this.name = "FieldUpdateTemplateFieldsBadRequestError";
   }
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldsTemplatesFieldsIssues$inboundSchema:
+export const FieldUpdateTemplateFieldsInternalServerErrorIssues$inboundSchema:
   z.ZodType<
-    FieldUpdateTemplateFieldsTemplatesFieldsIssues,
+    FieldUpdateTemplateFieldsInternalServerErrorIssues,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -94,16 +96,16 @@ export const FieldUpdateTemplateFieldsTemplatesFieldsIssues$inboundSchema:
   });
 
 /** @internal */
-export type FieldUpdateTemplateFieldsTemplatesFieldsIssues$Outbound = {
+export type FieldUpdateTemplateFieldsInternalServerErrorIssues$Outbound = {
   message: string;
 };
 
 /** @internal */
-export const FieldUpdateTemplateFieldsTemplatesFieldsIssues$outboundSchema:
+export const FieldUpdateTemplateFieldsInternalServerErrorIssues$outboundSchema:
   z.ZodType<
-    FieldUpdateTemplateFieldsTemplatesFieldsIssues$Outbound,
+    FieldUpdateTemplateFieldsInternalServerErrorIssues$Outbound,
     z.ZodTypeDef,
-    FieldUpdateTemplateFieldsTemplatesFieldsIssues
+    FieldUpdateTemplateFieldsInternalServerErrorIssues
   > = z.object({
     message: z.string(),
   });
@@ -112,49 +114,49 @@ export const FieldUpdateTemplateFieldsTemplatesFieldsIssues$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldUpdateTemplateFieldsTemplatesFieldsIssues$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsTemplatesFieldsIssues$inboundSchema` instead. */
+export namespace FieldUpdateTemplateFieldsInternalServerErrorIssues$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsInternalServerErrorIssues$inboundSchema` instead. */
   export const inboundSchema =
-    FieldUpdateTemplateFieldsTemplatesFieldsIssues$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsTemplatesFieldsIssues$outboundSchema` instead. */
+    FieldUpdateTemplateFieldsInternalServerErrorIssues$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsInternalServerErrorIssues$outboundSchema` instead. */
   export const outboundSchema =
-    FieldUpdateTemplateFieldsTemplatesFieldsIssues$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsTemplatesFieldsIssues$Outbound` instead. */
+    FieldUpdateTemplateFieldsInternalServerErrorIssues$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsInternalServerErrorIssues$Outbound` instead. */
   export type Outbound =
-    FieldUpdateTemplateFieldsTemplatesFieldsIssues$Outbound;
+    FieldUpdateTemplateFieldsInternalServerErrorIssues$Outbound;
 }
 
-export function fieldUpdateTemplateFieldsTemplatesFieldsIssuesToJSON(
-  fieldUpdateTemplateFieldsTemplatesFieldsIssues:
-    FieldUpdateTemplateFieldsTemplatesFieldsIssues,
+export function fieldUpdateTemplateFieldsInternalServerErrorIssuesToJSON(
+  fieldUpdateTemplateFieldsInternalServerErrorIssues:
+    FieldUpdateTemplateFieldsInternalServerErrorIssues,
 ): string {
   return JSON.stringify(
-    FieldUpdateTemplateFieldsTemplatesFieldsIssues$outboundSchema.parse(
-      fieldUpdateTemplateFieldsTemplatesFieldsIssues,
+    FieldUpdateTemplateFieldsInternalServerErrorIssues$outboundSchema.parse(
+      fieldUpdateTemplateFieldsInternalServerErrorIssues,
     ),
   );
 }
 
-export function fieldUpdateTemplateFieldsTemplatesFieldsIssuesFromJSON(
+export function fieldUpdateTemplateFieldsInternalServerErrorIssuesFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  FieldUpdateTemplateFieldsTemplatesFieldsIssues,
+  FieldUpdateTemplateFieldsInternalServerErrorIssues,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      FieldUpdateTemplateFieldsTemplatesFieldsIssues$inboundSchema.parse(
+      FieldUpdateTemplateFieldsInternalServerErrorIssues$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'FieldUpdateTemplateFieldsTemplatesFieldsIssues' from JSON`,
+    `Failed to parse 'FieldUpdateTemplateFieldsInternalServerErrorIssues' from JSON`,
   );
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldsTemplatesFieldsResponseBody$inboundSchema:
+export const FieldUpdateTemplateFieldsInternalServerError$inboundSchema:
   z.ZodType<
-    FieldUpdateTemplateFieldsTemplatesFieldsResponseBody,
+    FieldUpdateTemplateFieldsInternalServerError,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -162,37 +164,37 @@ export const FieldUpdateTemplateFieldsTemplatesFieldsResponseBody$inboundSchema:
     code: z.string(),
     issues: z.array(
       z.lazy(() =>
-        FieldUpdateTemplateFieldsTemplatesFieldsIssues$inboundSchema
+        FieldUpdateTemplateFieldsInternalServerErrorIssues$inboundSchema
       ),
     ).optional(),
   })
     .transform((v) => {
-      return new FieldUpdateTemplateFieldsTemplatesFieldsResponseBody(v);
+      return new FieldUpdateTemplateFieldsInternalServerError(v);
     });
 
 /** @internal */
-export type FieldUpdateTemplateFieldsTemplatesFieldsResponseBody$Outbound = {
+export type FieldUpdateTemplateFieldsInternalServerError$Outbound = {
   message: string;
   code: string;
   issues?:
-    | Array<FieldUpdateTemplateFieldsTemplatesFieldsIssues$Outbound>
+    | Array<FieldUpdateTemplateFieldsInternalServerErrorIssues$Outbound>
     | undefined;
 };
 
 /** @internal */
-export const FieldUpdateTemplateFieldsTemplatesFieldsResponseBody$outboundSchema:
+export const FieldUpdateTemplateFieldsInternalServerError$outboundSchema:
   z.ZodType<
-    FieldUpdateTemplateFieldsTemplatesFieldsResponseBody$Outbound,
+    FieldUpdateTemplateFieldsInternalServerError$Outbound,
     z.ZodTypeDef,
-    FieldUpdateTemplateFieldsTemplatesFieldsResponseBody
-  > = z.instanceof(FieldUpdateTemplateFieldsTemplatesFieldsResponseBody)
+    FieldUpdateTemplateFieldsInternalServerError
+  > = z.instanceof(FieldUpdateTemplateFieldsInternalServerError)
     .transform(v => v.data$)
     .pipe(z.object({
       message: z.string(),
       code: z.string(),
       issues: z.array(
         z.lazy(() =>
-          FieldUpdateTemplateFieldsTemplatesFieldsIssues$outboundSchema
+          FieldUpdateTemplateFieldsInternalServerErrorIssues$outboundSchema
         ),
       ).optional(),
     }));
@@ -201,21 +203,20 @@ export const FieldUpdateTemplateFieldsTemplatesFieldsResponseBody$outboundSchema
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldUpdateTemplateFieldsTemplatesFieldsResponseBody$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsTemplatesFieldsResponseBody$inboundSchema` instead. */
+export namespace FieldUpdateTemplateFieldsInternalServerError$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsInternalServerError$inboundSchema` instead. */
   export const inboundSchema =
-    FieldUpdateTemplateFieldsTemplatesFieldsResponseBody$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsTemplatesFieldsResponseBody$outboundSchema` instead. */
+    FieldUpdateTemplateFieldsInternalServerError$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsInternalServerError$outboundSchema` instead. */
   export const outboundSchema =
-    FieldUpdateTemplateFieldsTemplatesFieldsResponseBody$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsTemplatesFieldsResponseBody$Outbound` instead. */
-  export type Outbound =
-    FieldUpdateTemplateFieldsTemplatesFieldsResponseBody$Outbound;
+    FieldUpdateTemplateFieldsInternalServerError$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsInternalServerError$Outbound` instead. */
+  export type Outbound = FieldUpdateTemplateFieldsInternalServerError$Outbound;
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldsIssues$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsIssues,
+export const FieldUpdateTemplateFieldsBadRequestIssues$inboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsBadRequestIssues,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -223,86 +224,99 @@ export const FieldUpdateTemplateFieldsIssues$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type FieldUpdateTemplateFieldsIssues$Outbound = {
+export type FieldUpdateTemplateFieldsBadRequestIssues$Outbound = {
   message: string;
 };
 
 /** @internal */
-export const FieldUpdateTemplateFieldsIssues$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsIssues$Outbound,
-  z.ZodTypeDef,
-  FieldUpdateTemplateFieldsIssues
-> = z.object({
-  message: z.string(),
-});
+export const FieldUpdateTemplateFieldsBadRequestIssues$outboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsBadRequestIssues$Outbound,
+    z.ZodTypeDef,
+    FieldUpdateTemplateFieldsBadRequestIssues
+  > = z.object({
+    message: z.string(),
+  });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldUpdateTemplateFieldsIssues$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsIssues$inboundSchema` instead. */
-  export const inboundSchema = FieldUpdateTemplateFieldsIssues$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsIssues$outboundSchema` instead. */
-  export const outboundSchema = FieldUpdateTemplateFieldsIssues$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsIssues$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsIssues$Outbound;
+export namespace FieldUpdateTemplateFieldsBadRequestIssues$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsBadRequestIssues$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsBadRequestIssues$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsBadRequestIssues$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsBadRequestIssues$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsBadRequestIssues$Outbound` instead. */
+  export type Outbound = FieldUpdateTemplateFieldsBadRequestIssues$Outbound;
 }
 
-export function fieldUpdateTemplateFieldsIssuesToJSON(
-  fieldUpdateTemplateFieldsIssues: FieldUpdateTemplateFieldsIssues,
+export function fieldUpdateTemplateFieldsBadRequestIssuesToJSON(
+  fieldUpdateTemplateFieldsBadRequestIssues:
+    FieldUpdateTemplateFieldsBadRequestIssues,
 ): string {
   return JSON.stringify(
-    FieldUpdateTemplateFieldsIssues$outboundSchema.parse(
-      fieldUpdateTemplateFieldsIssues,
+    FieldUpdateTemplateFieldsBadRequestIssues$outboundSchema.parse(
+      fieldUpdateTemplateFieldsBadRequestIssues,
     ),
   );
 }
 
-export function fieldUpdateTemplateFieldsIssuesFromJSON(
+export function fieldUpdateTemplateFieldsBadRequestIssuesFromJSON(
   jsonString: string,
-): SafeParseResult<FieldUpdateTemplateFieldsIssues, SDKValidationError> {
+): SafeParseResult<
+  FieldUpdateTemplateFieldsBadRequestIssues,
+  SDKValidationError
+> {
   return safeParse(
     jsonString,
-    (x) => FieldUpdateTemplateFieldsIssues$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsIssues' from JSON`,
+    (x) =>
+      FieldUpdateTemplateFieldsBadRequestIssues$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'FieldUpdateTemplateFieldsBadRequestIssues' from JSON`,
   );
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldsResponseBody$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsResponseBody,
+export const FieldUpdateTemplateFieldsBadRequestError$inboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsBadRequestError,
   z.ZodTypeDef,
   unknown
 > = z.object({
   message: z.string(),
   code: z.string(),
-  issues: z.array(z.lazy(() => FieldUpdateTemplateFieldsIssues$inboundSchema))
-    .optional(),
+  issues: z.array(
+    z.lazy(() => FieldUpdateTemplateFieldsBadRequestIssues$inboundSchema),
+  ).optional(),
 })
   .transform((v) => {
-    return new FieldUpdateTemplateFieldsResponseBody(v);
+    return new FieldUpdateTemplateFieldsBadRequestError(v);
   });
 
 /** @internal */
-export type FieldUpdateTemplateFieldsResponseBody$Outbound = {
+export type FieldUpdateTemplateFieldsBadRequestError$Outbound = {
   message: string;
   code: string;
-  issues?: Array<FieldUpdateTemplateFieldsIssues$Outbound> | undefined;
+  issues?:
+    | Array<FieldUpdateTemplateFieldsBadRequestIssues$Outbound>
+    | undefined;
 };
 
 /** @internal */
-export const FieldUpdateTemplateFieldsResponseBody$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsResponseBody$Outbound,
+export const FieldUpdateTemplateFieldsBadRequestError$outboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsBadRequestError$Outbound,
   z.ZodTypeDef,
-  FieldUpdateTemplateFieldsResponseBody
-> = z.instanceof(FieldUpdateTemplateFieldsResponseBody)
+  FieldUpdateTemplateFieldsBadRequestError
+> = z.instanceof(FieldUpdateTemplateFieldsBadRequestError)
   .transform(v => v.data$)
   .pipe(z.object({
     message: z.string(),
     code: z.string(),
     issues: z.array(
-      z.lazy(() => FieldUpdateTemplateFieldsIssues$outboundSchema),
+      z.lazy(() => FieldUpdateTemplateFieldsBadRequestIssues$outboundSchema),
     ).optional(),
   }));
 
@@ -310,13 +324,13 @@ export const FieldUpdateTemplateFieldsResponseBody$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldUpdateTemplateFieldsResponseBody$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsResponseBody$inboundSchema` instead. */
+export namespace FieldUpdateTemplateFieldsBadRequestError$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsBadRequestError$inboundSchema` instead. */
   export const inboundSchema =
-    FieldUpdateTemplateFieldsResponseBody$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsResponseBody$outboundSchema` instead. */
+    FieldUpdateTemplateFieldsBadRequestError$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsBadRequestError$outboundSchema` instead. */
   export const outboundSchema =
-    FieldUpdateTemplateFieldsResponseBody$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsResponseBody$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsResponseBody$Outbound;
+    FieldUpdateTemplateFieldsBadRequestError$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsBadRequestError$Outbound` instead. */
+  export type Outbound = FieldUpdateTemplateFieldsBadRequestError$Outbound;
 }

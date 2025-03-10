@@ -3,74 +3,74 @@
 
 ## Supported Types
 
-### `operations.RecipientGetTemplateRecipientFieldMeta1`
+### `operations.RecipientGetTemplateRecipientInitials`
 
 ```typescript
-const value: operations.RecipientGetTemplateRecipientFieldMeta1 = {
+const value: operations.RecipientGetTemplateRecipientInitials = {
   type: "initials",
 };
 ```
 
-### `operations.RecipientGetTemplateRecipientFieldMeta2`
+### `operations.RecipientGetTemplateRecipientName`
 
 ```typescript
-const value: operations.RecipientGetTemplateRecipientFieldMeta2 = {
+const value: operations.RecipientGetTemplateRecipientName = {
   type: "name",
 };
 ```
 
-### `operations.RecipientGetTemplateRecipientFieldMeta3`
+### `operations.RecipientGetTemplateRecipientEmail`
 
 ```typescript
-const value: operations.RecipientGetTemplateRecipientFieldMeta3 = {
+const value: operations.RecipientGetTemplateRecipientEmail = {
   type: "email",
 };
 ```
 
-### `operations.RecipientGetTemplateRecipientFieldMeta4`
+### `operations.RecipientGetTemplateRecipientDate`
 
 ```typescript
-const value: operations.RecipientGetTemplateRecipientFieldMeta4 = {
+const value: operations.RecipientGetTemplateRecipientDate = {
   type: "date",
 };
 ```
 
-### `operations.RecipientGetTemplateRecipientFieldMeta5`
+### `operations.RecipientGetTemplateRecipientText`
 
 ```typescript
-const value: operations.RecipientGetTemplateRecipientFieldMeta5 = {
+const value: operations.RecipientGetTemplateRecipientText = {
   type: "text",
 };
 ```
 
-### `operations.RecipientGetTemplateRecipientFieldMeta6`
+### `operations.RecipientGetTemplateRecipientNumber`
 
 ```typescript
-const value: operations.RecipientGetTemplateRecipientFieldMeta6 = {
+const value: operations.RecipientGetTemplateRecipientNumber = {
   type: "number",
 };
 ```
 
-### `operations.RecipientGetTemplateRecipientFieldMeta7`
+### `operations.RecipientGetTemplateRecipientRadio`
 
 ```typescript
-const value: operations.RecipientGetTemplateRecipientFieldMeta7 = {
+const value: operations.RecipientGetTemplateRecipientRadio = {
   type: "radio",
 };
 ```
 
-### `operations.RecipientGetTemplateRecipientFieldMeta8`
+### `operations.RecipientGetTemplateRecipientCheckbox`
 
 ```typescript
-const value: operations.RecipientGetTemplateRecipientFieldMeta8 = {
+const value: operations.RecipientGetTemplateRecipientCheckbox = {
   type: "checkbox",
 };
 ```
 
-### `operations.RecipientGetTemplateRecipientFieldMeta9`
+### `operations.RecipientGetTemplateRecipientDropdown`
 
 ```typescript
-const value: operations.RecipientGetTemplateRecipientFieldMeta9 = {
+const value: operations.RecipientGetTemplateRecipientDropdown = {
   type: "dropdown",
 };
 ```

@@ -3,74 +3,74 @@
 
 ## Supported Types
 
-### `operations.FieldUpdateDocumentFieldsFieldMeta1`
+### `operations.FieldUpdateDocumentFieldsResponseInitials`
 
 ```typescript
-const value: operations.FieldUpdateDocumentFieldsFieldMeta1 = {
+const value: operations.FieldUpdateDocumentFieldsResponseInitials = {
   type: "initials",
 };
 ```
 
-### `operations.FieldUpdateDocumentFieldsFieldMeta2`
+### `operations.FieldUpdateDocumentFieldsResponseName`
 
 ```typescript
-const value: operations.FieldUpdateDocumentFieldsFieldMeta2 = {
+const value: operations.FieldUpdateDocumentFieldsResponseName = {
   type: "name",
 };
 ```
 
-### `operations.FieldUpdateDocumentFieldsFieldMeta3`
+### `operations.FieldUpdateDocumentFieldsResponseEmail`
 
 ```typescript
-const value: operations.FieldUpdateDocumentFieldsFieldMeta3 = {
+const value: operations.FieldUpdateDocumentFieldsResponseEmail = {
   type: "email",
 };
 ```
 
-### `operations.FieldUpdateDocumentFieldsFieldMeta4`
+### `operations.FieldUpdateDocumentFieldsResponseDate`
 
 ```typescript
-const value: operations.FieldUpdateDocumentFieldsFieldMeta4 = {
+const value: operations.FieldUpdateDocumentFieldsResponseDate = {
   type: "date",
 };
 ```
 
-### `operations.FieldUpdateDocumentFieldsFieldMeta5`
+### `operations.FieldUpdateDocumentFieldsResponseText`
 
 ```typescript
-const value: operations.FieldUpdateDocumentFieldsFieldMeta5 = {
+const value: operations.FieldUpdateDocumentFieldsResponseText = {
   type: "text",
 };
 ```
 
-### `operations.FieldUpdateDocumentFieldsFieldMeta6`
+### `operations.FieldUpdateDocumentFieldsResponseNumber`
 
 ```typescript
-const value: operations.FieldUpdateDocumentFieldsFieldMeta6 = {
+const value: operations.FieldUpdateDocumentFieldsResponseNumber = {
   type: "number",
 };
 ```
 
-### `operations.FieldUpdateDocumentFieldsFieldMeta7`
+### `operations.FieldUpdateDocumentFieldsResponseRadio`
 
 ```typescript
-const value: operations.FieldUpdateDocumentFieldsFieldMeta7 = {
+const value: operations.FieldUpdateDocumentFieldsResponseRadio = {
   type: "radio",
 };
 ```
 
-### `operations.FieldUpdateDocumentFieldsFieldMeta8`
+### `operations.FieldUpdateDocumentFieldsResponseCheckbox`
 
 ```typescript
-const value: operations.FieldUpdateDocumentFieldsFieldMeta8 = {
+const value: operations.FieldUpdateDocumentFieldsResponseCheckbox = {
   type: "checkbox",
 };
 ```
 
-### `operations.FieldUpdateDocumentFieldsFieldMeta9`
+### `operations.FieldUpdateDocumentFieldsResponseDropdown`
 
 ```typescript
-const value: operations.FieldUpdateDocumentFieldsFieldMeta9 = {
+const value: operations.FieldUpdateDocumentFieldsResponseDropdown = {
   type: "dropdown",
 };
 ```

@@ -3,74 +3,74 @@
 
 ## Supported Types
 
-### `operations.RecipientUpdateDocumentRecipientFieldMeta1`
+### `operations.RecipientUpdateDocumentRecipientInitials`
 
 ```typescript
-const value: operations.RecipientUpdateDocumentRecipientFieldMeta1 = {
+const value: operations.RecipientUpdateDocumentRecipientInitials = {
   type: "initials",
 };
 ```
 
-### `operations.RecipientUpdateDocumentRecipientFieldMeta2`
+### `operations.RecipientUpdateDocumentRecipientName`
 
 ```typescript
-const value: operations.RecipientUpdateDocumentRecipientFieldMeta2 = {
+const value: operations.RecipientUpdateDocumentRecipientName = {
   type: "name",
 };
 ```
 
-### `operations.RecipientUpdateDocumentRecipientFieldMeta3`
+### `operations.RecipientUpdateDocumentRecipientEmail`
 
 ```typescript
-const value: operations.RecipientUpdateDocumentRecipientFieldMeta3 = {
+const value: operations.RecipientUpdateDocumentRecipientEmail = {
   type: "email",
 };
 ```
 
-### `operations.RecipientUpdateDocumentRecipientFieldMeta4`
+### `operations.RecipientUpdateDocumentRecipientDate`
 
 ```typescript
-const value: operations.RecipientUpdateDocumentRecipientFieldMeta4 = {
+const value: operations.RecipientUpdateDocumentRecipientDate = {
   type: "date",
 };
 ```
 
-### `operations.RecipientUpdateDocumentRecipientFieldMeta5`
+### `operations.RecipientUpdateDocumentRecipientText`
 
 ```typescript
-const value: operations.RecipientUpdateDocumentRecipientFieldMeta5 = {
+const value: operations.RecipientUpdateDocumentRecipientText = {
   type: "text",
 };
 ```
 
-### `operations.RecipientUpdateDocumentRecipientFieldMeta6`
+### `operations.RecipientUpdateDocumentRecipientNumber`
 
 ```typescript
-const value: operations.RecipientUpdateDocumentRecipientFieldMeta6 = {
+const value: operations.RecipientUpdateDocumentRecipientNumber = {
   type: "number",
 };
 ```
 
-### `operations.RecipientUpdateDocumentRecipientFieldMeta7`
+### `operations.RecipientUpdateDocumentRecipientRadio`
 
 ```typescript
-const value: operations.RecipientUpdateDocumentRecipientFieldMeta7 = {
+const value: operations.RecipientUpdateDocumentRecipientRadio = {
   type: "radio",
 };
 ```
 
-### `operations.RecipientUpdateDocumentRecipientFieldMeta8`
+### `operations.RecipientUpdateDocumentRecipientCheckbox`
 
 ```typescript
-const value: operations.RecipientUpdateDocumentRecipientFieldMeta8 = {
+const value: operations.RecipientUpdateDocumentRecipientCheckbox = {
   type: "checkbox",
 };
 ```
 
-### `operations.RecipientUpdateDocumentRecipientFieldMeta9`
+### `operations.RecipientUpdateDocumentRecipientDropdown`
 
 ```typescript
-const value: operations.RecipientUpdateDocumentRecipientFieldMeta9 = {
+const value: operations.RecipientUpdateDocumentRecipientDropdown = {
   type: "dropdown",
 };
 ```

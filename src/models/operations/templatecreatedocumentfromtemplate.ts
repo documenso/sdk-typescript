@@ -8,7 +8,7 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type TemplateCreateDocumentFromTemplateRecipients = {
+export type TemplateCreateDocumentFromTemplateRequestRecipients = {
   /**
    * The ID of the recipient in the template.
    */
@@ -17,12 +17,87 @@ export type TemplateCreateDocumentFromTemplateRecipients = {
   name?: string | undefined;
 };
 
-export type TemplateCreateDocumentFromTemplateRequestBody = {
+export const PrefillFieldsTypeDropdown = {
+  Dropdown: "dropdown",
+} as const;
+export type PrefillFieldsTypeDropdown = ClosedEnum<
+  typeof PrefillFieldsTypeDropdown
+>;
+
+export type PrefillFieldsDropdown = {
+  type: PrefillFieldsTypeDropdown;
+  label?: string | undefined;
+  value?: string | undefined;
+  id: number;
+};
+
+export const PrefillFieldsTypeCheckbox = {
+  Checkbox: "checkbox",
+} as const;
+export type PrefillFieldsTypeCheckbox = ClosedEnum<
+  typeof PrefillFieldsTypeCheckbox
+>;
+
+export type PrefillFieldsCheckbox = {
+  type: PrefillFieldsTypeCheckbox;
+  label?: string | undefined;
+  value?: Array<string> | undefined;
+  id: number;
+};
+
+export const PrefillFieldsTypeRadio = {
+  Radio: "radio",
+} as const;
+export type PrefillFieldsTypeRadio = ClosedEnum<typeof PrefillFieldsTypeRadio>;
+
+export type PrefillFieldsRadio = {
+  type: PrefillFieldsTypeRadio;
+  label?: string | undefined;
+  value?: string | undefined;
+  id: number;
+};
+
+export const PrefillFieldsTypeNumber = {
+  Number: "number",
+} as const;
+export type PrefillFieldsTypeNumber = ClosedEnum<
+  typeof PrefillFieldsTypeNumber
+>;
+
+export type PrefillFieldsNumber = {
+  type: PrefillFieldsTypeNumber;
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  value?: string | undefined;
+  id: number;
+};
+
+export const PrefillFieldsTypeText = {
+  Text: "text",
+} as const;
+export type PrefillFieldsTypeText = ClosedEnum<typeof PrefillFieldsTypeText>;
+
+export type PrefillFieldsText = {
+  type: PrefillFieldsTypeText;
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  value?: string | undefined;
+  id: number;
+};
+
+export type PrefillFields =
+  | PrefillFieldsRadio
+  | PrefillFieldsCheckbox
+  | PrefillFieldsDropdown
+  | PrefillFieldsText
+  | PrefillFieldsNumber;
+
+export type TemplateCreateDocumentFromTemplateRequest = {
   templateId: number;
   /**
    * The information of the recipients to create the document with.
    */
-  recipients: Array<TemplateCreateDocumentFromTemplateRecipients>;
+  recipients: Array<TemplateCreateDocumentFromTemplateRequestRecipients>;
   /**
    * Whether to create the document as pending and distribute it to recipients.
    */
@@ -31,6 +106,15 @@ export type TemplateCreateDocumentFromTemplateRequestBody = {
    * The data ID of an alternative PDF to use when creating the document. If not provided, the PDF attached to the template will be used.
    */
   customDocumentDataId?: string | undefined;
+  prefillFields?:
+    | Array<
+      | PrefillFieldsRadio
+      | PrefillFieldsCheckbox
+      | PrefillFieldsDropdown
+      | PrefillFieldsText
+      | PrefillFieldsNumber
+    >
+    | undefined;
 };
 
 export const TemplateCreateDocumentFromTemplateVisibility = {
@@ -104,17 +188,17 @@ export type TemplateCreateDocumentFromTemplateFormValues =
   | boolean
   | number;
 
-export const TemplateCreateDocumentFromTemplateType = {
+export const TemplateCreateDocumentFromTemplateDocumentDataType = {
   S3Path: "S3_PATH",
   Bytes: "BYTES",
   Bytes64: "BYTES_64",
 } as const;
-export type TemplateCreateDocumentFromTemplateType = ClosedEnum<
-  typeof TemplateCreateDocumentFromTemplateType
+export type TemplateCreateDocumentFromTemplateDocumentDataType = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateDocumentDataType
 >;
 
 export type TemplateCreateDocumentFromTemplateDocumentData = {
-  type: TemplateCreateDocumentFromTemplateType;
+  type: TemplateCreateDocumentFromTemplateDocumentDataType;
   id: string;
   data: string;
   initialData: string;
@@ -188,6 +272,7 @@ export const TemplateCreateDocumentFromTemplateRole = {
   Signer: "SIGNER",
   Viewer: "VIEWER",
   Approver: "APPROVER",
+  Assistant: "ASSISTANT",
 } as const;
 export type TemplateCreateDocumentFromTemplateRole = ClosedEnum<
   typeof TemplateCreateDocumentFromTemplateRole
@@ -247,7 +332,7 @@ export type TemplateCreateDocumentFromTemplateActionAuth = ClosedEnum<
   typeof TemplateCreateDocumentFromTemplateActionAuth
 >;
 
-export type TemplateCreateDocumentFromTemplateTemplatesAuthOptions = {
+export type TemplateCreateDocumentFromTemplateRecipientsAuthOptions = {
   /**
    * The type of authentication required for the recipient to access the document.
    */
@@ -258,7 +343,7 @@ export type TemplateCreateDocumentFromTemplateTemplatesAuthOptions = {
   actionAuth: TemplateCreateDocumentFromTemplateActionAuth | null;
 };
 
-export type TemplateCreateDocumentFromTemplateTemplatesRecipients = {
+export type TemplateCreateDocumentFromTemplateResponseRecipients = {
   role: TemplateCreateDocumentFromTemplateRole;
   readStatus: TemplateCreateDocumentFromTemplateReadStatus;
   signingStatus: TemplateCreateDocumentFromTemplateSigningStatus;
@@ -272,7 +357,7 @@ export type TemplateCreateDocumentFromTemplateTemplatesRecipients = {
   documentDeletedAt: string | null;
   expired: string | null;
   signedAt: string | null;
-  authOptions: TemplateCreateDocumentFromTemplateTemplatesAuthOptions | null;
+  authOptions: TemplateCreateDocumentFromTemplateRecipientsAuthOptions | null;
   /**
    * The order in which the recipient should sign the document. Only works if the document is set to sequential signing.
    */
@@ -280,7 +365,7 @@ export type TemplateCreateDocumentFromTemplateTemplatesRecipients = {
   rejectionReason: string | null;
 };
 
-export const TemplateCreateDocumentFromTemplateTemplatesType = {
+export const TemplateCreateDocumentFromTemplateFieldsType = {
   Signature: "SIGNATURE",
   FreeSignature: "FREE_SIGNATURE",
   Initials: "INITIALS",
@@ -293,215 +378,252 @@ export const TemplateCreateDocumentFromTemplateTemplatesType = {
   Checkbox: "CHECKBOX",
   Dropdown: "DROPDOWN",
 } as const;
-export type TemplateCreateDocumentFromTemplateTemplatesType = ClosedEnum<
-  typeof TemplateCreateDocumentFromTemplateTemplatesType
+export type TemplateCreateDocumentFromTemplateFieldsType = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateFieldsType
 >;
 
-export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields9Type =
-  {
-    Dropdown: "dropdown",
-  } as const;
-export type TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields9Type =
-  ClosedEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields9Type
-  >;
+export const TemplateCreateDocumentFromTemplateResponseTypeDropdown = {
+  Dropdown: "dropdown",
+} as const;
+export type TemplateCreateDocumentFromTemplateResponseTypeDropdown = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateResponseTypeDropdown
+>;
 
-export type TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseValues =
-  {
-    value: string;
-  };
+export type TemplateCreateDocumentFromTemplateValuesDropdown = {
+  value: string;
+};
 
-export type TemplateCreateDocumentFromTemplateFieldMeta9 = {
+export type TemplateCreateDocumentFromTemplateResponseDropdown = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields9Type;
-  values?:
-    | Array<TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseValues>
-    | undefined;
+  type: TemplateCreateDocumentFromTemplateResponseTypeDropdown;
+  values?: Array<TemplateCreateDocumentFromTemplateValuesDropdown> | undefined;
   defaultValue?: string | undefined;
 };
 
-export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields8Type =
-  {
-    Checkbox: "checkbox",
-  } as const;
-export type TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields8Type =
-  ClosedEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields8Type
-  >;
+export const TemplateCreateDocumentFromTemplateResponseTypeCheckbox = {
+  Checkbox: "checkbox",
+} as const;
+export type TemplateCreateDocumentFromTemplateResponseTypeCheckbox = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateResponseTypeCheckbox
+>;
 
-export type TemplateCreateDocumentFromTemplateFieldMetaTemplatesValues = {
+export type TemplateCreateDocumentFromTemplateValuesCheckbox = {
   id: number;
   checked: boolean;
   value: string;
 };
 
-export type TemplateCreateDocumentFromTemplateFieldMeta8 = {
+export type TemplateCreateDocumentFromTemplateResponseCheckbox = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields8Type;
-  values?:
-    | Array<TemplateCreateDocumentFromTemplateFieldMetaTemplatesValues>
-    | undefined;
+  type: TemplateCreateDocumentFromTemplateResponseTypeCheckbox;
+  values?: Array<TemplateCreateDocumentFromTemplateValuesCheckbox> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
 };
 
-export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFieldsType =
-  {
-    Radio: "radio",
-  } as const;
-export type TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFieldsType =
-  ClosedEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFieldsType
-  >;
+export const TemplateCreateDocumentFromTemplateResponseTypeRadio = {
+  Radio: "radio",
+} as const;
+export type TemplateCreateDocumentFromTemplateResponseTypeRadio = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateResponseTypeRadio
+>;
 
-export type TemplateCreateDocumentFromTemplateFieldMetaValues = {
+export type TemplateCreateDocumentFromTemplateValuesRadio = {
   id: number;
   checked: boolean;
   value: string;
 };
 
-export type TemplateCreateDocumentFromTemplateFieldMeta7 = {
+export type TemplateCreateDocumentFromTemplateResponseRadio = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFieldsType;
-  values?: Array<TemplateCreateDocumentFromTemplateFieldMetaValues> | undefined;
+  type: TemplateCreateDocumentFromTemplateResponseTypeRadio;
+  values?: Array<TemplateCreateDocumentFromTemplateValuesRadio> | undefined;
 };
 
-export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType =
-  {
-    Number: "number",
-  } as const;
-export type TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType =
-  ClosedEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType
-  >;
+export const TemplateCreateDocumentFromTemplateResponseTypeNumber = {
+  Number: "number",
+} as const;
+export type TemplateCreateDocumentFromTemplateResponseTypeNumber = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateResponseTypeNumber
+>;
 
-export type TemplateCreateDocumentFromTemplateFieldMeta6 = {
+export const TemplateCreateDocumentFromTemplateTextAlignNumber = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type TemplateCreateDocumentFromTemplateTextAlignNumber = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateTextAlignNumber
+>;
+
+export type TemplateCreateDocumentFromTemplateResponseNumber = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType;
+  type: TemplateCreateDocumentFromTemplateResponseTypeNumber;
   numberFormat?: string | undefined;
   value?: string | undefined;
   minValue?: number | undefined;
   maxValue?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: TemplateCreateDocumentFromTemplateTextAlignNumber | undefined;
 };
 
-export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONType =
-  {
-    Text: "text",
-  } as const;
-export type TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONType =
-  ClosedEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONType
-  >;
+export const TemplateCreateDocumentFromTemplateResponseTypeText = {
+  Text: "text",
+} as const;
+export type TemplateCreateDocumentFromTemplateResponseTypeText = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateResponseTypeText
+>;
 
-export type TemplateCreateDocumentFromTemplateFieldMeta5 = {
+export const TemplateCreateDocumentFromTemplateTextAlignText = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type TemplateCreateDocumentFromTemplateTextAlignText = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateTextAlignText
+>;
+
+export type TemplateCreateDocumentFromTemplateResponseText = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONType;
+  type: TemplateCreateDocumentFromTemplateResponseTypeText;
   text?: string | undefined;
   characterLimit?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: TemplateCreateDocumentFromTemplateTextAlignText | undefined;
 };
 
-export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200Type =
-  {
-    Date: "date",
-  } as const;
-export type TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200Type =
-  ClosedEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200Type
-  >;
-
-export type TemplateCreateDocumentFromTemplateFieldMeta4 = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  type: TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200Type;
-  fontSize?: number | undefined;
-};
-
-export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseType =
-  {
-    Email: "email",
-  } as const;
-export type TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseType =
-  ClosedEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseType
-  >;
-
-export type TemplateCreateDocumentFromTemplateFieldMeta3 = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  type: TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseType;
-  fontSize?: number | undefined;
-};
-
-export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesType = {
-  Name: "name",
+export const TemplateCreateDocumentFromTemplateTypeDate = {
+  Date: "date",
 } as const;
-export type TemplateCreateDocumentFromTemplateFieldMetaTemplatesType =
-  ClosedEnum<typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesType>;
-
-export type TemplateCreateDocumentFromTemplateFieldMeta2 = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  type: TemplateCreateDocumentFromTemplateFieldMetaTemplatesType;
-  fontSize?: number | undefined;
-};
-
-export const TemplateCreateDocumentFromTemplateFieldMetaType = {
-  Initials: "initials",
-} as const;
-export type TemplateCreateDocumentFromTemplateFieldMetaType = ClosedEnum<
-  typeof TemplateCreateDocumentFromTemplateFieldMetaType
+export type TemplateCreateDocumentFromTemplateTypeDate = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateTypeDate
 >;
 
-export type TemplateCreateDocumentFromTemplateFieldMeta1 = {
+export const TemplateCreateDocumentFromTemplateTextAlignDate = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type TemplateCreateDocumentFromTemplateTextAlignDate = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateTextAlignDate
+>;
+
+export type TemplateCreateDocumentFromTemplateDate = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: TemplateCreateDocumentFromTemplateFieldMetaType;
+  type: TemplateCreateDocumentFromTemplateTypeDate;
   fontSize?: number | undefined;
+  textAlign?: TemplateCreateDocumentFromTemplateTextAlignDate | undefined;
+};
+
+export const TemplateCreateDocumentFromTemplateTypeEmail = {
+  Email: "email",
+} as const;
+export type TemplateCreateDocumentFromTemplateTypeEmail = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateTypeEmail
+>;
+
+export const TemplateCreateDocumentFromTemplateTextAlignEmail = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type TemplateCreateDocumentFromTemplateTextAlignEmail = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateTextAlignEmail
+>;
+
+export type TemplateCreateDocumentFromTemplateEmail = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: TemplateCreateDocumentFromTemplateTypeEmail;
+  fontSize?: number | undefined;
+  textAlign?: TemplateCreateDocumentFromTemplateTextAlignEmail | undefined;
+};
+
+export const TemplateCreateDocumentFromTemplateTypeName = {
+  Name: "name",
+} as const;
+export type TemplateCreateDocumentFromTemplateTypeName = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateTypeName
+>;
+
+export const TemplateCreateDocumentFromTemplateTextAlignName = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type TemplateCreateDocumentFromTemplateTextAlignName = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateTextAlignName
+>;
+
+export type TemplateCreateDocumentFromTemplateName = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: TemplateCreateDocumentFromTemplateTypeName;
+  fontSize?: number | undefined;
+  textAlign?: TemplateCreateDocumentFromTemplateTextAlignName | undefined;
+};
+
+export const TemplateCreateDocumentFromTemplateTypeInitials = {
+  Initials: "initials",
+} as const;
+export type TemplateCreateDocumentFromTemplateTypeInitials = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateTypeInitials
+>;
+
+export const TemplateCreateDocumentFromTemplateTextAlignInitials = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type TemplateCreateDocumentFromTemplateTextAlignInitials = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateTextAlignInitials
+>;
+
+export type TemplateCreateDocumentFromTemplateInitials = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: TemplateCreateDocumentFromTemplateTypeInitials;
+  fontSize?: number | undefined;
+  textAlign?: TemplateCreateDocumentFromTemplateTextAlignInitials | undefined;
 };
 
 export type TemplateCreateDocumentFromTemplateFieldMeta =
-  | TemplateCreateDocumentFromTemplateFieldMeta1
-  | TemplateCreateDocumentFromTemplateFieldMeta2
-  | TemplateCreateDocumentFromTemplateFieldMeta3
-  | TemplateCreateDocumentFromTemplateFieldMeta4
-  | TemplateCreateDocumentFromTemplateFieldMeta7
-  | TemplateCreateDocumentFromTemplateFieldMeta9
-  | TemplateCreateDocumentFromTemplateFieldMeta5
-  | TemplateCreateDocumentFromTemplateFieldMeta8
-  | TemplateCreateDocumentFromTemplateFieldMeta6;
+  | TemplateCreateDocumentFromTemplateResponseRadio
+  | TemplateCreateDocumentFromTemplateInitials
+  | TemplateCreateDocumentFromTemplateName
+  | TemplateCreateDocumentFromTemplateEmail
+  | TemplateCreateDocumentFromTemplateDate
+  | TemplateCreateDocumentFromTemplateResponseDropdown
+  | TemplateCreateDocumentFromTemplateResponseCheckbox
+  | TemplateCreateDocumentFromTemplateResponseText
+  | TemplateCreateDocumentFromTemplateResponseNumber;
 
 export type TemplateCreateDocumentFromTemplateFields = {
-  type: TemplateCreateDocumentFromTemplateTemplatesType;
+  type: TemplateCreateDocumentFromTemplateFieldsType;
   id: number;
   secondaryId: string;
   documentId: number | null;
@@ -518,22 +640,22 @@ export type TemplateCreateDocumentFromTemplateFields = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | TemplateCreateDocumentFromTemplateFieldMeta1
-    | TemplateCreateDocumentFromTemplateFieldMeta2
-    | TemplateCreateDocumentFromTemplateFieldMeta3
-    | TemplateCreateDocumentFromTemplateFieldMeta4
-    | TemplateCreateDocumentFromTemplateFieldMeta7
-    | TemplateCreateDocumentFromTemplateFieldMeta9
-    | TemplateCreateDocumentFromTemplateFieldMeta5
-    | TemplateCreateDocumentFromTemplateFieldMeta8
-    | TemplateCreateDocumentFromTemplateFieldMeta6
+    | TemplateCreateDocumentFromTemplateResponseRadio
+    | TemplateCreateDocumentFromTemplateInitials
+    | TemplateCreateDocumentFromTemplateName
+    | TemplateCreateDocumentFromTemplateEmail
+    | TemplateCreateDocumentFromTemplateDate
+    | TemplateCreateDocumentFromTemplateResponseDropdown
+    | TemplateCreateDocumentFromTemplateResponseCheckbox
+    | TemplateCreateDocumentFromTemplateResponseText
+    | TemplateCreateDocumentFromTemplateResponseNumber
     | null;
 };
 
 /**
  * Successful response
  */
-export type TemplateCreateDocumentFromTemplateResponseBody = {
+export type TemplateCreateDocumentFromTemplateResponse = {
   visibility: TemplateCreateDocumentFromTemplateVisibility;
   status: TemplateCreateDocumentFromTemplateStatus;
   source: TemplateCreateDocumentFromTemplateSource;
@@ -558,14 +680,14 @@ export type TemplateCreateDocumentFromTemplateResponseBody = {
   templateId: number | null;
   documentData: TemplateCreateDocumentFromTemplateDocumentData;
   documentMeta: TemplateCreateDocumentFromTemplateDocumentMeta | null;
-  recipients: Array<TemplateCreateDocumentFromTemplateTemplatesRecipients>;
+  recipients: Array<TemplateCreateDocumentFromTemplateResponseRecipients>;
   fields: Array<TemplateCreateDocumentFromTemplateFields>;
 };
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateRecipients$inboundSchema:
+export const TemplateCreateDocumentFromTemplateRequestRecipients$inboundSchema:
   z.ZodType<
-    TemplateCreateDocumentFromTemplateRecipients,
+    TemplateCreateDocumentFromTemplateRequestRecipients,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -575,18 +697,18 @@ export const TemplateCreateDocumentFromTemplateRecipients$inboundSchema:
   });
 
 /** @internal */
-export type TemplateCreateDocumentFromTemplateRecipients$Outbound = {
+export type TemplateCreateDocumentFromTemplateRequestRecipients$Outbound = {
   id: number;
   email: string;
   name?: string | undefined;
 };
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateRecipients$outboundSchema:
+export const TemplateCreateDocumentFromTemplateRequestRecipients$outboundSchema:
   z.ZodType<
-    TemplateCreateDocumentFromTemplateRecipients$Outbound,
+    TemplateCreateDocumentFromTemplateRequestRecipients$Outbound,
     z.ZodTypeDef,
-    TemplateCreateDocumentFromTemplateRecipients
+    TemplateCreateDocumentFromTemplateRequestRecipients
   > = z.object({
     id: z.number(),
     email: z.string(),
@@ -597,121 +719,641 @@ export const TemplateCreateDocumentFromTemplateRecipients$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateDocumentFromTemplateRecipients$ {
-  /** @deprecated use `TemplateCreateDocumentFromTemplateRecipients$inboundSchema` instead. */
+export namespace TemplateCreateDocumentFromTemplateRequestRecipients$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateRequestRecipients$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateDocumentFromTemplateRecipients$inboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateRecipients$outboundSchema` instead. */
+    TemplateCreateDocumentFromTemplateRequestRecipients$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateRequestRecipients$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateDocumentFromTemplateRecipients$outboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateRecipients$Outbound` instead. */
-  export type Outbound = TemplateCreateDocumentFromTemplateRecipients$Outbound;
+    TemplateCreateDocumentFromTemplateRequestRecipients$outboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateRequestRecipients$Outbound` instead. */
+  export type Outbound =
+    TemplateCreateDocumentFromTemplateRequestRecipients$Outbound;
 }
 
-export function templateCreateDocumentFromTemplateRecipientsToJSON(
-  templateCreateDocumentFromTemplateRecipients:
-    TemplateCreateDocumentFromTemplateRecipients,
+export function templateCreateDocumentFromTemplateRequestRecipientsToJSON(
+  templateCreateDocumentFromTemplateRequestRecipients:
+    TemplateCreateDocumentFromTemplateRequestRecipients,
 ): string {
   return JSON.stringify(
-    TemplateCreateDocumentFromTemplateRecipients$outboundSchema.parse(
-      templateCreateDocumentFromTemplateRecipients,
+    TemplateCreateDocumentFromTemplateRequestRecipients$outboundSchema.parse(
+      templateCreateDocumentFromTemplateRequestRecipients,
     ),
   );
 }
 
-export function templateCreateDocumentFromTemplateRecipientsFromJSON(
+export function templateCreateDocumentFromTemplateRequestRecipientsFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  TemplateCreateDocumentFromTemplateRecipients,
+  TemplateCreateDocumentFromTemplateRequestRecipients,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      TemplateCreateDocumentFromTemplateRecipients$inboundSchema.parse(
+      TemplateCreateDocumentFromTemplateRequestRecipients$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'TemplateCreateDocumentFromTemplateRecipients' from JSON`,
+    `Failed to parse 'TemplateCreateDocumentFromTemplateRequestRecipients' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateRequestBody$inboundSchema:
-  z.ZodType<
-    TemplateCreateDocumentFromTemplateRequestBody,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    templateId: z.number(),
-    recipients: z.array(
-      z.lazy(() => TemplateCreateDocumentFromTemplateRecipients$inboundSchema),
-    ),
-    distributeDocument: z.boolean().optional(),
-    customDocumentDataId: z.string().optional(),
-  });
+export const PrefillFieldsTypeDropdown$inboundSchema: z.ZodNativeEnum<
+  typeof PrefillFieldsTypeDropdown
+> = z.nativeEnum(PrefillFieldsTypeDropdown);
 
 /** @internal */
-export type TemplateCreateDocumentFromTemplateRequestBody$Outbound = {
-  templateId: number;
-  recipients: Array<TemplateCreateDocumentFromTemplateRecipients$Outbound>;
-  distributeDocument?: boolean | undefined;
-  customDocumentDataId?: string | undefined;
+export const PrefillFieldsTypeDropdown$outboundSchema: z.ZodNativeEnum<
+  typeof PrefillFieldsTypeDropdown
+> = PrefillFieldsTypeDropdown$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace PrefillFieldsTypeDropdown$ {
+  /** @deprecated use `PrefillFieldsTypeDropdown$inboundSchema` instead. */
+  export const inboundSchema = PrefillFieldsTypeDropdown$inboundSchema;
+  /** @deprecated use `PrefillFieldsTypeDropdown$outboundSchema` instead. */
+  export const outboundSchema = PrefillFieldsTypeDropdown$outboundSchema;
+}
+
+/** @internal */
+export const PrefillFieldsDropdown$inboundSchema: z.ZodType<
+  PrefillFieldsDropdown,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: PrefillFieldsTypeDropdown$inboundSchema,
+  label: z.string().optional(),
+  value: z.string().optional(),
+  id: z.number(),
+});
+
+/** @internal */
+export type PrefillFieldsDropdown$Outbound = {
+  type: string;
+  label?: string | undefined;
+  value?: string | undefined;
+  id: number;
 };
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateRequestBody$outboundSchema:
+export const PrefillFieldsDropdown$outboundSchema: z.ZodType<
+  PrefillFieldsDropdown$Outbound,
+  z.ZodTypeDef,
+  PrefillFieldsDropdown
+> = z.object({
+  type: PrefillFieldsTypeDropdown$outboundSchema,
+  label: z.string().optional(),
+  value: z.string().optional(),
+  id: z.number(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace PrefillFieldsDropdown$ {
+  /** @deprecated use `PrefillFieldsDropdown$inboundSchema` instead. */
+  export const inboundSchema = PrefillFieldsDropdown$inboundSchema;
+  /** @deprecated use `PrefillFieldsDropdown$outboundSchema` instead. */
+  export const outboundSchema = PrefillFieldsDropdown$outboundSchema;
+  /** @deprecated use `PrefillFieldsDropdown$Outbound` instead. */
+  export type Outbound = PrefillFieldsDropdown$Outbound;
+}
+
+export function prefillFieldsDropdownToJSON(
+  prefillFieldsDropdown: PrefillFieldsDropdown,
+): string {
+  return JSON.stringify(
+    PrefillFieldsDropdown$outboundSchema.parse(prefillFieldsDropdown),
+  );
+}
+
+export function prefillFieldsDropdownFromJSON(
+  jsonString: string,
+): SafeParseResult<PrefillFieldsDropdown, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PrefillFieldsDropdown$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PrefillFieldsDropdown' from JSON`,
+  );
+}
+
+/** @internal */
+export const PrefillFieldsTypeCheckbox$inboundSchema: z.ZodNativeEnum<
+  typeof PrefillFieldsTypeCheckbox
+> = z.nativeEnum(PrefillFieldsTypeCheckbox);
+
+/** @internal */
+export const PrefillFieldsTypeCheckbox$outboundSchema: z.ZodNativeEnum<
+  typeof PrefillFieldsTypeCheckbox
+> = PrefillFieldsTypeCheckbox$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace PrefillFieldsTypeCheckbox$ {
+  /** @deprecated use `PrefillFieldsTypeCheckbox$inboundSchema` instead. */
+  export const inboundSchema = PrefillFieldsTypeCheckbox$inboundSchema;
+  /** @deprecated use `PrefillFieldsTypeCheckbox$outboundSchema` instead. */
+  export const outboundSchema = PrefillFieldsTypeCheckbox$outboundSchema;
+}
+
+/** @internal */
+export const PrefillFieldsCheckbox$inboundSchema: z.ZodType<
+  PrefillFieldsCheckbox,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: PrefillFieldsTypeCheckbox$inboundSchema,
+  label: z.string().optional(),
+  value: z.array(z.string()).optional(),
+  id: z.number(),
+});
+
+/** @internal */
+export type PrefillFieldsCheckbox$Outbound = {
+  type: string;
+  label?: string | undefined;
+  value?: Array<string> | undefined;
+  id: number;
+};
+
+/** @internal */
+export const PrefillFieldsCheckbox$outboundSchema: z.ZodType<
+  PrefillFieldsCheckbox$Outbound,
+  z.ZodTypeDef,
+  PrefillFieldsCheckbox
+> = z.object({
+  type: PrefillFieldsTypeCheckbox$outboundSchema,
+  label: z.string().optional(),
+  value: z.array(z.string()).optional(),
+  id: z.number(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace PrefillFieldsCheckbox$ {
+  /** @deprecated use `PrefillFieldsCheckbox$inboundSchema` instead. */
+  export const inboundSchema = PrefillFieldsCheckbox$inboundSchema;
+  /** @deprecated use `PrefillFieldsCheckbox$outboundSchema` instead. */
+  export const outboundSchema = PrefillFieldsCheckbox$outboundSchema;
+  /** @deprecated use `PrefillFieldsCheckbox$Outbound` instead. */
+  export type Outbound = PrefillFieldsCheckbox$Outbound;
+}
+
+export function prefillFieldsCheckboxToJSON(
+  prefillFieldsCheckbox: PrefillFieldsCheckbox,
+): string {
+  return JSON.stringify(
+    PrefillFieldsCheckbox$outboundSchema.parse(prefillFieldsCheckbox),
+  );
+}
+
+export function prefillFieldsCheckboxFromJSON(
+  jsonString: string,
+): SafeParseResult<PrefillFieldsCheckbox, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PrefillFieldsCheckbox$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PrefillFieldsCheckbox' from JSON`,
+  );
+}
+
+/** @internal */
+export const PrefillFieldsTypeRadio$inboundSchema: z.ZodNativeEnum<
+  typeof PrefillFieldsTypeRadio
+> = z.nativeEnum(PrefillFieldsTypeRadio);
+
+/** @internal */
+export const PrefillFieldsTypeRadio$outboundSchema: z.ZodNativeEnum<
+  typeof PrefillFieldsTypeRadio
+> = PrefillFieldsTypeRadio$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace PrefillFieldsTypeRadio$ {
+  /** @deprecated use `PrefillFieldsTypeRadio$inboundSchema` instead. */
+  export const inboundSchema = PrefillFieldsTypeRadio$inboundSchema;
+  /** @deprecated use `PrefillFieldsTypeRadio$outboundSchema` instead. */
+  export const outboundSchema = PrefillFieldsTypeRadio$outboundSchema;
+}
+
+/** @internal */
+export const PrefillFieldsRadio$inboundSchema: z.ZodType<
+  PrefillFieldsRadio,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: PrefillFieldsTypeRadio$inboundSchema,
+  label: z.string().optional(),
+  value: z.string().optional(),
+  id: z.number(),
+});
+
+/** @internal */
+export type PrefillFieldsRadio$Outbound = {
+  type: string;
+  label?: string | undefined;
+  value?: string | undefined;
+  id: number;
+};
+
+/** @internal */
+export const PrefillFieldsRadio$outboundSchema: z.ZodType<
+  PrefillFieldsRadio$Outbound,
+  z.ZodTypeDef,
+  PrefillFieldsRadio
+> = z.object({
+  type: PrefillFieldsTypeRadio$outboundSchema,
+  label: z.string().optional(),
+  value: z.string().optional(),
+  id: z.number(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace PrefillFieldsRadio$ {
+  /** @deprecated use `PrefillFieldsRadio$inboundSchema` instead. */
+  export const inboundSchema = PrefillFieldsRadio$inboundSchema;
+  /** @deprecated use `PrefillFieldsRadio$outboundSchema` instead. */
+  export const outboundSchema = PrefillFieldsRadio$outboundSchema;
+  /** @deprecated use `PrefillFieldsRadio$Outbound` instead. */
+  export type Outbound = PrefillFieldsRadio$Outbound;
+}
+
+export function prefillFieldsRadioToJSON(
+  prefillFieldsRadio: PrefillFieldsRadio,
+): string {
+  return JSON.stringify(
+    PrefillFieldsRadio$outboundSchema.parse(prefillFieldsRadio),
+  );
+}
+
+export function prefillFieldsRadioFromJSON(
+  jsonString: string,
+): SafeParseResult<PrefillFieldsRadio, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PrefillFieldsRadio$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PrefillFieldsRadio' from JSON`,
+  );
+}
+
+/** @internal */
+export const PrefillFieldsTypeNumber$inboundSchema: z.ZodNativeEnum<
+  typeof PrefillFieldsTypeNumber
+> = z.nativeEnum(PrefillFieldsTypeNumber);
+
+/** @internal */
+export const PrefillFieldsTypeNumber$outboundSchema: z.ZodNativeEnum<
+  typeof PrefillFieldsTypeNumber
+> = PrefillFieldsTypeNumber$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace PrefillFieldsTypeNumber$ {
+  /** @deprecated use `PrefillFieldsTypeNumber$inboundSchema` instead. */
+  export const inboundSchema = PrefillFieldsTypeNumber$inboundSchema;
+  /** @deprecated use `PrefillFieldsTypeNumber$outboundSchema` instead. */
+  export const outboundSchema = PrefillFieldsTypeNumber$outboundSchema;
+}
+
+/** @internal */
+export const PrefillFieldsNumber$inboundSchema: z.ZodType<
+  PrefillFieldsNumber,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: PrefillFieldsTypeNumber$inboundSchema,
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  value: z.string().optional(),
+  id: z.number(),
+});
+
+/** @internal */
+export type PrefillFieldsNumber$Outbound = {
+  type: string;
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  value?: string | undefined;
+  id: number;
+};
+
+/** @internal */
+export const PrefillFieldsNumber$outboundSchema: z.ZodType<
+  PrefillFieldsNumber$Outbound,
+  z.ZodTypeDef,
+  PrefillFieldsNumber
+> = z.object({
+  type: PrefillFieldsTypeNumber$outboundSchema,
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  value: z.string().optional(),
+  id: z.number(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace PrefillFieldsNumber$ {
+  /** @deprecated use `PrefillFieldsNumber$inboundSchema` instead. */
+  export const inboundSchema = PrefillFieldsNumber$inboundSchema;
+  /** @deprecated use `PrefillFieldsNumber$outboundSchema` instead. */
+  export const outboundSchema = PrefillFieldsNumber$outboundSchema;
+  /** @deprecated use `PrefillFieldsNumber$Outbound` instead. */
+  export type Outbound = PrefillFieldsNumber$Outbound;
+}
+
+export function prefillFieldsNumberToJSON(
+  prefillFieldsNumber: PrefillFieldsNumber,
+): string {
+  return JSON.stringify(
+    PrefillFieldsNumber$outboundSchema.parse(prefillFieldsNumber),
+  );
+}
+
+export function prefillFieldsNumberFromJSON(
+  jsonString: string,
+): SafeParseResult<PrefillFieldsNumber, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PrefillFieldsNumber$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PrefillFieldsNumber' from JSON`,
+  );
+}
+
+/** @internal */
+export const PrefillFieldsTypeText$inboundSchema: z.ZodNativeEnum<
+  typeof PrefillFieldsTypeText
+> = z.nativeEnum(PrefillFieldsTypeText);
+
+/** @internal */
+export const PrefillFieldsTypeText$outboundSchema: z.ZodNativeEnum<
+  typeof PrefillFieldsTypeText
+> = PrefillFieldsTypeText$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace PrefillFieldsTypeText$ {
+  /** @deprecated use `PrefillFieldsTypeText$inboundSchema` instead. */
+  export const inboundSchema = PrefillFieldsTypeText$inboundSchema;
+  /** @deprecated use `PrefillFieldsTypeText$outboundSchema` instead. */
+  export const outboundSchema = PrefillFieldsTypeText$outboundSchema;
+}
+
+/** @internal */
+export const PrefillFieldsText$inboundSchema: z.ZodType<
+  PrefillFieldsText,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: PrefillFieldsTypeText$inboundSchema,
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  value: z.string().optional(),
+  id: z.number(),
+});
+
+/** @internal */
+export type PrefillFieldsText$Outbound = {
+  type: string;
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  value?: string | undefined;
+  id: number;
+};
+
+/** @internal */
+export const PrefillFieldsText$outboundSchema: z.ZodType<
+  PrefillFieldsText$Outbound,
+  z.ZodTypeDef,
+  PrefillFieldsText
+> = z.object({
+  type: PrefillFieldsTypeText$outboundSchema,
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  value: z.string().optional(),
+  id: z.number(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace PrefillFieldsText$ {
+  /** @deprecated use `PrefillFieldsText$inboundSchema` instead. */
+  export const inboundSchema = PrefillFieldsText$inboundSchema;
+  /** @deprecated use `PrefillFieldsText$outboundSchema` instead. */
+  export const outboundSchema = PrefillFieldsText$outboundSchema;
+  /** @deprecated use `PrefillFieldsText$Outbound` instead. */
+  export type Outbound = PrefillFieldsText$Outbound;
+}
+
+export function prefillFieldsTextToJSON(
+  prefillFieldsText: PrefillFieldsText,
+): string {
+  return JSON.stringify(
+    PrefillFieldsText$outboundSchema.parse(prefillFieldsText),
+  );
+}
+
+export function prefillFieldsTextFromJSON(
+  jsonString: string,
+): SafeParseResult<PrefillFieldsText, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PrefillFieldsText$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PrefillFieldsText' from JSON`,
+  );
+}
+
+/** @internal */
+export const PrefillFields$inboundSchema: z.ZodType<
+  PrefillFields,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  z.lazy(() => PrefillFieldsRadio$inboundSchema),
+  z.lazy(() => PrefillFieldsCheckbox$inboundSchema),
+  z.lazy(() => PrefillFieldsDropdown$inboundSchema),
+  z.lazy(() => PrefillFieldsText$inboundSchema),
+  z.lazy(() => PrefillFieldsNumber$inboundSchema),
+]);
+
+/** @internal */
+export type PrefillFields$Outbound =
+  | PrefillFieldsRadio$Outbound
+  | PrefillFieldsCheckbox$Outbound
+  | PrefillFieldsDropdown$Outbound
+  | PrefillFieldsText$Outbound
+  | PrefillFieldsNumber$Outbound;
+
+/** @internal */
+export const PrefillFields$outboundSchema: z.ZodType<
+  PrefillFields$Outbound,
+  z.ZodTypeDef,
+  PrefillFields
+> = z.union([
+  z.lazy(() => PrefillFieldsRadio$outboundSchema),
+  z.lazy(() => PrefillFieldsCheckbox$outboundSchema),
+  z.lazy(() => PrefillFieldsDropdown$outboundSchema),
+  z.lazy(() => PrefillFieldsText$outboundSchema),
+  z.lazy(() => PrefillFieldsNumber$outboundSchema),
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace PrefillFields$ {
+  /** @deprecated use `PrefillFields$inboundSchema` instead. */
+  export const inboundSchema = PrefillFields$inboundSchema;
+  /** @deprecated use `PrefillFields$outboundSchema` instead. */
+  export const outboundSchema = PrefillFields$outboundSchema;
+  /** @deprecated use `PrefillFields$Outbound` instead. */
+  export type Outbound = PrefillFields$Outbound;
+}
+
+export function prefillFieldsToJSON(prefillFields: PrefillFields): string {
+  return JSON.stringify(PrefillFields$outboundSchema.parse(prefillFields));
+}
+
+export function prefillFieldsFromJSON(
+  jsonString: string,
+): SafeParseResult<PrefillFields, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PrefillFields$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PrefillFields' from JSON`,
+  );
+}
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateRequest$inboundSchema: z.ZodType<
+  TemplateCreateDocumentFromTemplateRequest,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  templateId: z.number(),
+  recipients: z.array(
+    z.lazy(() =>
+      TemplateCreateDocumentFromTemplateRequestRecipients$inboundSchema
+    ),
+  ),
+  distributeDocument: z.boolean().optional(),
+  customDocumentDataId: z.string().optional(),
+  prefillFields: z.array(
+    z.union([
+      z.lazy(() => PrefillFieldsRadio$inboundSchema),
+      z.lazy(() => PrefillFieldsCheckbox$inboundSchema),
+      z.lazy(() => PrefillFieldsDropdown$inboundSchema),
+      z.lazy(() => PrefillFieldsText$inboundSchema),
+      z.lazy(() => PrefillFieldsNumber$inboundSchema),
+    ]),
+  ).optional(),
+});
+
+/** @internal */
+export type TemplateCreateDocumentFromTemplateRequest$Outbound = {
+  templateId: number;
+  recipients: Array<
+    TemplateCreateDocumentFromTemplateRequestRecipients$Outbound
+  >;
+  distributeDocument?: boolean | undefined;
+  customDocumentDataId?: string | undefined;
+  prefillFields?:
+    | Array<
+      | PrefillFieldsRadio$Outbound
+      | PrefillFieldsCheckbox$Outbound
+      | PrefillFieldsDropdown$Outbound
+      | PrefillFieldsText$Outbound
+      | PrefillFieldsNumber$Outbound
+    >
+    | undefined;
+};
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateRequest$outboundSchema:
   z.ZodType<
-    TemplateCreateDocumentFromTemplateRequestBody$Outbound,
+    TemplateCreateDocumentFromTemplateRequest$Outbound,
     z.ZodTypeDef,
-    TemplateCreateDocumentFromTemplateRequestBody
+    TemplateCreateDocumentFromTemplateRequest
   > = z.object({
     templateId: z.number(),
     recipients: z.array(
-      z.lazy(() => TemplateCreateDocumentFromTemplateRecipients$outboundSchema),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateRequestRecipients$outboundSchema
+      ),
     ),
     distributeDocument: z.boolean().optional(),
     customDocumentDataId: z.string().optional(),
+    prefillFields: z.array(
+      z.union([
+        z.lazy(() => PrefillFieldsRadio$outboundSchema),
+        z.lazy(() => PrefillFieldsCheckbox$outboundSchema),
+        z.lazy(() => PrefillFieldsDropdown$outboundSchema),
+        z.lazy(() => PrefillFieldsText$outboundSchema),
+        z.lazy(() => PrefillFieldsNumber$outboundSchema),
+      ]),
+    ).optional(),
   });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateDocumentFromTemplateRequestBody$ {
-  /** @deprecated use `TemplateCreateDocumentFromTemplateRequestBody$inboundSchema` instead. */
+export namespace TemplateCreateDocumentFromTemplateRequest$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateRequest$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateDocumentFromTemplateRequestBody$inboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateRequestBody$outboundSchema` instead. */
+    TemplateCreateDocumentFromTemplateRequest$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateRequest$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateDocumentFromTemplateRequestBody$outboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateRequestBody$Outbound` instead. */
-  export type Outbound = TemplateCreateDocumentFromTemplateRequestBody$Outbound;
+    TemplateCreateDocumentFromTemplateRequest$outboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateRequest$Outbound` instead. */
+  export type Outbound = TemplateCreateDocumentFromTemplateRequest$Outbound;
 }
 
-export function templateCreateDocumentFromTemplateRequestBodyToJSON(
-  templateCreateDocumentFromTemplateRequestBody:
-    TemplateCreateDocumentFromTemplateRequestBody,
+export function templateCreateDocumentFromTemplateRequestToJSON(
+  templateCreateDocumentFromTemplateRequest:
+    TemplateCreateDocumentFromTemplateRequest,
 ): string {
   return JSON.stringify(
-    TemplateCreateDocumentFromTemplateRequestBody$outboundSchema.parse(
-      templateCreateDocumentFromTemplateRequestBody,
+    TemplateCreateDocumentFromTemplateRequest$outboundSchema.parse(
+      templateCreateDocumentFromTemplateRequest,
     ),
   );
 }
 
-export function templateCreateDocumentFromTemplateRequestBodyFromJSON(
+export function templateCreateDocumentFromTemplateRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  TemplateCreateDocumentFromTemplateRequestBody,
+  TemplateCreateDocumentFromTemplateRequest,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      TemplateCreateDocumentFromTemplateRequestBody$inboundSchema.parse(
+      TemplateCreateDocumentFromTemplateRequest$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'TemplateCreateDocumentFromTemplateRequestBody' from JSON`,
+    `Failed to parse 'TemplateCreateDocumentFromTemplateRequest' from JSON`,
   );
 }
 
@@ -973,27 +1615,26 @@ export function templateCreateDocumentFromTemplateFormValuesFromJSON(
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateType$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateType> = z.nativeEnum(
-    TemplateCreateDocumentFromTemplateType,
-  );
+export const TemplateCreateDocumentFromTemplateDocumentDataType$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateDocumentDataType> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateDocumentDataType);
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateType$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateType> =
-    TemplateCreateDocumentFromTemplateType$inboundSchema;
+export const TemplateCreateDocumentFromTemplateDocumentDataType$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateDocumentDataType> =
+    TemplateCreateDocumentFromTemplateDocumentDataType$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateDocumentFromTemplateType$ {
-  /** @deprecated use `TemplateCreateDocumentFromTemplateType$inboundSchema` instead. */
+export namespace TemplateCreateDocumentFromTemplateDocumentDataType$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateDocumentDataType$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateDocumentFromTemplateType$inboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateType$outboundSchema` instead. */
+    TemplateCreateDocumentFromTemplateDocumentDataType$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateDocumentDataType$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateDocumentFromTemplateType$outboundSchema;
+    TemplateCreateDocumentFromTemplateDocumentDataType$outboundSchema;
 }
 
 /** @internal */
@@ -1003,7 +1644,7 @@ export const TemplateCreateDocumentFromTemplateDocumentData$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({
-    type: TemplateCreateDocumentFromTemplateType$inboundSchema,
+    type: TemplateCreateDocumentFromTemplateDocumentDataType$inboundSchema,
     id: z.string(),
     data: z.string(),
     initialData: z.string(),
@@ -1024,7 +1665,7 @@ export const TemplateCreateDocumentFromTemplateDocumentData$outboundSchema:
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateDocumentData
   > = z.object({
-    type: TemplateCreateDocumentFromTemplateType$outboundSchema,
+    type: TemplateCreateDocumentFromTemplateDocumentDataType$outboundSchema,
     id: z.string(),
     data: z.string(),
     initialData: z.string(),
@@ -1221,7 +1862,7 @@ export const TemplateCreateDocumentFromTemplateDocumentMeta$inboundSchema:
     timezone: z.nullable(z.string()),
     password: z.nullable(z.string()),
     dateFormat: z.nullable(z.string()),
-    documentId: z.number().int(),
+    documentId: z.number(),
     redirectUrl: z.nullable(z.string()),
     typedSignatureEnabled: z.boolean(),
     language: z.string(),
@@ -1267,7 +1908,7 @@ export const TemplateCreateDocumentFromTemplateDocumentMeta$outboundSchema:
     timezone: z.nullable(z.string()),
     password: z.nullable(z.string()),
     dateFormat: z.nullable(z.string()),
-    documentId: z.number().int(),
+    documentId: z.number(),
     redirectUrl: z.nullable(z.string()),
     typedSignatureEnabled: z.boolean(),
     language: z.string(),
@@ -1461,9 +2102,9 @@ export namespace TemplateCreateDocumentFromTemplateActionAuth$ {
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateTemplatesAuthOptions$inboundSchema:
+export const TemplateCreateDocumentFromTemplateRecipientsAuthOptions$inboundSchema:
   z.ZodType<
-    TemplateCreateDocumentFromTemplateTemplatesAuthOptions,
+    TemplateCreateDocumentFromTemplateRecipientsAuthOptions,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -1476,17 +2117,17 @@ export const TemplateCreateDocumentFromTemplateTemplatesAuthOptions$inboundSchem
   });
 
 /** @internal */
-export type TemplateCreateDocumentFromTemplateTemplatesAuthOptions$Outbound = {
+export type TemplateCreateDocumentFromTemplateRecipientsAuthOptions$Outbound = {
   accessAuth: string | null;
   actionAuth: string | null;
 };
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateTemplatesAuthOptions$outboundSchema:
+export const TemplateCreateDocumentFromTemplateRecipientsAuthOptions$outboundSchema:
   z.ZodType<
-    TemplateCreateDocumentFromTemplateTemplatesAuthOptions$Outbound,
+    TemplateCreateDocumentFromTemplateRecipientsAuthOptions$Outbound,
     z.ZodTypeDef,
-    TemplateCreateDocumentFromTemplateTemplatesAuthOptions
+    TemplateCreateDocumentFromTemplateRecipientsAuthOptions
   > = z.object({
     accessAuth: z.nullable(
       TemplateCreateDocumentFromTemplateAccessAuth$outboundSchema,
@@ -1500,48 +2141,47 @@ export const TemplateCreateDocumentFromTemplateTemplatesAuthOptions$outboundSche
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateDocumentFromTemplateTemplatesAuthOptions$ {
-  /** @deprecated use `TemplateCreateDocumentFromTemplateTemplatesAuthOptions$inboundSchema` instead. */
+export namespace TemplateCreateDocumentFromTemplateRecipientsAuthOptions$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateRecipientsAuthOptions$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateDocumentFromTemplateTemplatesAuthOptions$inboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateTemplatesAuthOptions$outboundSchema` instead. */
+    TemplateCreateDocumentFromTemplateRecipientsAuthOptions$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateRecipientsAuthOptions$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateDocumentFromTemplateTemplatesAuthOptions$outboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateTemplatesAuthOptions$Outbound` instead. */
+    TemplateCreateDocumentFromTemplateRecipientsAuthOptions$outboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateRecipientsAuthOptions$Outbound` instead. */
   export type Outbound =
-    TemplateCreateDocumentFromTemplateTemplatesAuthOptions$Outbound;
+    TemplateCreateDocumentFromTemplateRecipientsAuthOptions$Outbound;
 }
 
-export function templateCreateDocumentFromTemplateTemplatesAuthOptionsToJSON(
-  templateCreateDocumentFromTemplateTemplatesAuthOptions:
-    TemplateCreateDocumentFromTemplateTemplatesAuthOptions,
+export function templateCreateDocumentFromTemplateRecipientsAuthOptionsToJSON(
+  templateCreateDocumentFromTemplateRecipientsAuthOptions:
+    TemplateCreateDocumentFromTemplateRecipientsAuthOptions,
 ): string {
   return JSON.stringify(
-    TemplateCreateDocumentFromTemplateTemplatesAuthOptions$outboundSchema.parse(
-      templateCreateDocumentFromTemplateTemplatesAuthOptions,
-    ),
+    TemplateCreateDocumentFromTemplateRecipientsAuthOptions$outboundSchema
+      .parse(templateCreateDocumentFromTemplateRecipientsAuthOptions),
   );
 }
 
-export function templateCreateDocumentFromTemplateTemplatesAuthOptionsFromJSON(
+export function templateCreateDocumentFromTemplateRecipientsAuthOptionsFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  TemplateCreateDocumentFromTemplateTemplatesAuthOptions,
+  TemplateCreateDocumentFromTemplateRecipientsAuthOptions,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      TemplateCreateDocumentFromTemplateTemplatesAuthOptions$inboundSchema
+      TemplateCreateDocumentFromTemplateRecipientsAuthOptions$inboundSchema
         .parse(JSON.parse(x)),
-    `Failed to parse 'TemplateCreateDocumentFromTemplateTemplatesAuthOptions' from JSON`,
+    `Failed to parse 'TemplateCreateDocumentFromTemplateRecipientsAuthOptions' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateTemplatesRecipients$inboundSchema:
+export const TemplateCreateDocumentFromTemplateResponseRecipients$inboundSchema:
   z.ZodType<
-    TemplateCreateDocumentFromTemplateTemplatesRecipients,
+    TemplateCreateDocumentFromTemplateResponseRecipients,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -1550,9 +2190,9 @@ export const TemplateCreateDocumentFromTemplateTemplatesRecipients$inboundSchema
     signingStatus:
       TemplateCreateDocumentFromTemplateSigningStatus$inboundSchema,
     sendStatus: TemplateCreateDocumentFromTemplateSendStatus$inboundSchema,
-    id: z.number().int(),
-    documentId: z.nullable(z.number().int()),
-    templateId: z.nullable(z.number().int()),
+    id: z.number(),
+    documentId: z.nullable(z.number()),
+    templateId: z.nullable(z.number()),
     email: z.string(),
     name: z.string(),
     token: z.string(),
@@ -1561,7 +2201,7 @@ export const TemplateCreateDocumentFromTemplateTemplatesRecipients$inboundSchema
     signedAt: z.nullable(z.string()),
     authOptions: z.nullable(
       z.lazy(() =>
-        TemplateCreateDocumentFromTemplateTemplatesAuthOptions$inboundSchema
+        TemplateCreateDocumentFromTemplateRecipientsAuthOptions$inboundSchema
       ),
     ),
     signingOrder: z.nullable(z.number()),
@@ -1569,7 +2209,7 @@ export const TemplateCreateDocumentFromTemplateTemplatesRecipients$inboundSchema
   });
 
 /** @internal */
-export type TemplateCreateDocumentFromTemplateTemplatesRecipients$Outbound = {
+export type TemplateCreateDocumentFromTemplateResponseRecipients$Outbound = {
   role: string;
   readStatus: string;
   signingStatus: string;
@@ -1584,27 +2224,27 @@ export type TemplateCreateDocumentFromTemplateTemplatesRecipients$Outbound = {
   expired: string | null;
   signedAt: string | null;
   authOptions:
-    | TemplateCreateDocumentFromTemplateTemplatesAuthOptions$Outbound
+    | TemplateCreateDocumentFromTemplateRecipientsAuthOptions$Outbound
     | null;
   signingOrder: number | null;
   rejectionReason: string | null;
 };
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateTemplatesRecipients$outboundSchema:
+export const TemplateCreateDocumentFromTemplateResponseRecipients$outboundSchema:
   z.ZodType<
-    TemplateCreateDocumentFromTemplateTemplatesRecipients$Outbound,
+    TemplateCreateDocumentFromTemplateResponseRecipients$Outbound,
     z.ZodTypeDef,
-    TemplateCreateDocumentFromTemplateTemplatesRecipients
+    TemplateCreateDocumentFromTemplateResponseRecipients
   > = z.object({
     role: TemplateCreateDocumentFromTemplateRole$outboundSchema,
     readStatus: TemplateCreateDocumentFromTemplateReadStatus$outboundSchema,
     signingStatus:
       TemplateCreateDocumentFromTemplateSigningStatus$outboundSchema,
     sendStatus: TemplateCreateDocumentFromTemplateSendStatus$outboundSchema,
-    id: z.number().int(),
-    documentId: z.nullable(z.number().int()),
-    templateId: z.nullable(z.number().int()),
+    id: z.number(),
+    documentId: z.nullable(z.number()),
+    templateId: z.nullable(z.number()),
     email: z.string(),
     name: z.string(),
     token: z.string(),
@@ -1613,7 +2253,7 @@ export const TemplateCreateDocumentFromTemplateTemplatesRecipients$outboundSchem
     signedAt: z.nullable(z.string()),
     authOptions: z.nullable(
       z.lazy(() =>
-        TemplateCreateDocumentFromTemplateTemplatesAuthOptions$outboundSchema
+        TemplateCreateDocumentFromTemplateRecipientsAuthOptions$outboundSchema
       ),
     ),
     signingOrder: z.nullable(z.number()),
@@ -1624,100 +2264,97 @@ export const TemplateCreateDocumentFromTemplateTemplatesRecipients$outboundSchem
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateDocumentFromTemplateTemplatesRecipients$ {
-  /** @deprecated use `TemplateCreateDocumentFromTemplateTemplatesRecipients$inboundSchema` instead. */
+export namespace TemplateCreateDocumentFromTemplateResponseRecipients$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseRecipients$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateDocumentFromTemplateTemplatesRecipients$inboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateTemplatesRecipients$outboundSchema` instead. */
+    TemplateCreateDocumentFromTemplateResponseRecipients$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseRecipients$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateDocumentFromTemplateTemplatesRecipients$outboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateTemplatesRecipients$Outbound` instead. */
+    TemplateCreateDocumentFromTemplateResponseRecipients$outboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseRecipients$Outbound` instead. */
   export type Outbound =
-    TemplateCreateDocumentFromTemplateTemplatesRecipients$Outbound;
+    TemplateCreateDocumentFromTemplateResponseRecipients$Outbound;
 }
 
-export function templateCreateDocumentFromTemplateTemplatesRecipientsToJSON(
-  templateCreateDocumentFromTemplateTemplatesRecipients:
-    TemplateCreateDocumentFromTemplateTemplatesRecipients,
+export function templateCreateDocumentFromTemplateResponseRecipientsToJSON(
+  templateCreateDocumentFromTemplateResponseRecipients:
+    TemplateCreateDocumentFromTemplateResponseRecipients,
 ): string {
   return JSON.stringify(
-    TemplateCreateDocumentFromTemplateTemplatesRecipients$outboundSchema.parse(
-      templateCreateDocumentFromTemplateTemplatesRecipients,
+    TemplateCreateDocumentFromTemplateResponseRecipients$outboundSchema.parse(
+      templateCreateDocumentFromTemplateResponseRecipients,
     ),
   );
 }
 
-export function templateCreateDocumentFromTemplateTemplatesRecipientsFromJSON(
+export function templateCreateDocumentFromTemplateResponseRecipientsFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  TemplateCreateDocumentFromTemplateTemplatesRecipients,
+  TemplateCreateDocumentFromTemplateResponseRecipients,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      TemplateCreateDocumentFromTemplateTemplatesRecipients$inboundSchema.parse(
+      TemplateCreateDocumentFromTemplateResponseRecipients$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'TemplateCreateDocumentFromTemplateTemplatesRecipients' from JSON`,
+    `Failed to parse 'TemplateCreateDocumentFromTemplateResponseRecipients' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateTemplatesType$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTemplatesType> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateTemplatesType);
+export const TemplateCreateDocumentFromTemplateFieldsType$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFieldsType> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateFieldsType);
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateTemplatesType$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTemplatesType> =
-    TemplateCreateDocumentFromTemplateTemplatesType$inboundSchema;
+export const TemplateCreateDocumentFromTemplateFieldsType$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFieldsType> =
+    TemplateCreateDocumentFromTemplateFieldsType$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateDocumentFromTemplateTemplatesType$ {
-  /** @deprecated use `TemplateCreateDocumentFromTemplateTemplatesType$inboundSchema` instead. */
+export namespace TemplateCreateDocumentFromTemplateFieldsType$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldsType$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateDocumentFromTemplateTemplatesType$inboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateTemplatesType$outboundSchema` instead. */
+    TemplateCreateDocumentFromTemplateFieldsType$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldsType$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateDocumentFromTemplateTemplatesType$outboundSchema;
+    TemplateCreateDocumentFromTemplateFieldsType$outboundSchema;
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields9Type$inboundSchema:
+export const TemplateCreateDocumentFromTemplateResponseTypeDropdown$inboundSchema:
   z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields9Type
-  > = z.nativeEnum(
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields9Type,
-  );
+    typeof TemplateCreateDocumentFromTemplateResponseTypeDropdown
+  > = z.nativeEnum(TemplateCreateDocumentFromTemplateResponseTypeDropdown);
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields9Type$outboundSchema:
+export const TemplateCreateDocumentFromTemplateResponseTypeDropdown$outboundSchema:
   z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields9Type
-  > =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields9Type$inboundSchema;
+    typeof TemplateCreateDocumentFromTemplateResponseTypeDropdown
+  > = TemplateCreateDocumentFromTemplateResponseTypeDropdown$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields9Type$ {
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields9Type$inboundSchema` instead. */
+export namespace TemplateCreateDocumentFromTemplateResponseTypeDropdown$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseTypeDropdown$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields9Type$inboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields9Type$outboundSchema` instead. */
+    TemplateCreateDocumentFromTemplateResponseTypeDropdown$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseTypeDropdown$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields9Type$outboundSchema;
+    TemplateCreateDocumentFromTemplateResponseTypeDropdown$outboundSchema;
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseValues$inboundSchema:
+export const TemplateCreateDocumentFromTemplateValuesDropdown$inboundSchema:
   z.ZodType<
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseValues,
+    TemplateCreateDocumentFromTemplateValuesDropdown,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -1725,17 +2362,16 @@ export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseValues$
   });
 
 /** @internal */
-export type TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseValues$Outbound =
-  {
-    value: string;
-  };
+export type TemplateCreateDocumentFromTemplateValuesDropdown$Outbound = {
+  value: string;
+};
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseValues$outboundSchema:
+export const TemplateCreateDocumentFromTemplateValuesDropdown$outboundSchema:
   z.ZodType<
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseValues$Outbound,
+    TemplateCreateDocumentFromTemplateValuesDropdown$Outbound,
     z.ZodTypeDef,
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseValues
+    TemplateCreateDocumentFromTemplateValuesDropdown
   > = z.object({
     value: z.string(),
   });
@@ -1744,49 +2380,49 @@ export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseValues$
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseValues$ {
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseValues$inboundSchema` instead. */
+export namespace TemplateCreateDocumentFromTemplateValuesDropdown$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateValuesDropdown$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseValues$inboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseValues$outboundSchema` instead. */
+    TemplateCreateDocumentFromTemplateValuesDropdown$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateValuesDropdown$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseValues$outboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseValues$Outbound` instead. */
+    TemplateCreateDocumentFromTemplateValuesDropdown$outboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateValuesDropdown$Outbound` instead. */
   export type Outbound =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseValues$Outbound;
+    TemplateCreateDocumentFromTemplateValuesDropdown$Outbound;
 }
 
-export function templateCreateDocumentFromTemplateFieldMetaTemplatesResponseValuesToJSON(
-  templateCreateDocumentFromTemplateFieldMetaTemplatesResponseValues:
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseValues,
+export function templateCreateDocumentFromTemplateValuesDropdownToJSON(
+  templateCreateDocumentFromTemplateValuesDropdown:
+    TemplateCreateDocumentFromTemplateValuesDropdown,
 ): string {
   return JSON.stringify(
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseValues$outboundSchema
-      .parse(
-        templateCreateDocumentFromTemplateFieldMetaTemplatesResponseValues,
-      ),
+    TemplateCreateDocumentFromTemplateValuesDropdown$outboundSchema.parse(
+      templateCreateDocumentFromTemplateValuesDropdown,
+    ),
   );
 }
 
-export function templateCreateDocumentFromTemplateFieldMetaTemplatesResponseValuesFromJSON(
+export function templateCreateDocumentFromTemplateValuesDropdownFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseValues,
+  TemplateCreateDocumentFromTemplateValuesDropdown,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseValues$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseValues' from JSON`,
+      TemplateCreateDocumentFromTemplateValuesDropdown$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'TemplateCreateDocumentFromTemplateValuesDropdown' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMeta9$inboundSchema:
+export const TemplateCreateDocumentFromTemplateResponseDropdown$inboundSchema:
   z.ZodType<
-    TemplateCreateDocumentFromTemplateFieldMeta9,
+    TemplateCreateDocumentFromTemplateResponseDropdown,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -1794,47 +2430,43 @@ export const TemplateCreateDocumentFromTemplateFieldMeta9$inboundSchema:
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type:
-      TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields9Type$inboundSchema,
+    type: TemplateCreateDocumentFromTemplateResponseTypeDropdown$inboundSchema,
     values: z.array(
       z.lazy(() =>
-        TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseValues$inboundSchema
+        TemplateCreateDocumentFromTemplateValuesDropdown$inboundSchema
       ),
     ).optional(),
     defaultValue: z.string().optional(),
   });
 
 /** @internal */
-export type TemplateCreateDocumentFromTemplateFieldMeta9$Outbound = {
+export type TemplateCreateDocumentFromTemplateResponseDropdown$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
   values?:
-    | Array<
-      TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseValues$Outbound
-    >
+    | Array<TemplateCreateDocumentFromTemplateValuesDropdown$Outbound>
     | undefined;
   defaultValue?: string | undefined;
 };
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMeta9$outboundSchema:
+export const TemplateCreateDocumentFromTemplateResponseDropdown$outboundSchema:
   z.ZodType<
-    TemplateCreateDocumentFromTemplateFieldMeta9$Outbound,
+    TemplateCreateDocumentFromTemplateResponseDropdown$Outbound,
     z.ZodTypeDef,
-    TemplateCreateDocumentFromTemplateFieldMeta9
+    TemplateCreateDocumentFromTemplateResponseDropdown
   > = z.object({
     label: z.string().optional(),
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type:
-      TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields9Type$outboundSchema,
+    type: TemplateCreateDocumentFromTemplateResponseTypeDropdown$outboundSchema,
     values: z.array(
       z.lazy(() =>
-        TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseValues$outboundSchema
+        TemplateCreateDocumentFromTemplateValuesDropdown$outboundSchema
       ),
     ).optional(),
     defaultValue: z.string().optional(),
@@ -1844,277 +2476,74 @@ export const TemplateCreateDocumentFromTemplateFieldMeta9$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateDocumentFromTemplateFieldMeta9$ {
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMeta9$inboundSchema` instead. */
+export namespace TemplateCreateDocumentFromTemplateResponseDropdown$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseDropdown$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMeta9$inboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMeta9$outboundSchema` instead. */
+    TemplateCreateDocumentFromTemplateResponseDropdown$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseDropdown$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMeta9$outboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMeta9$Outbound` instead. */
-  export type Outbound = TemplateCreateDocumentFromTemplateFieldMeta9$Outbound;
-}
-
-export function templateCreateDocumentFromTemplateFieldMeta9ToJSON(
-  templateCreateDocumentFromTemplateFieldMeta9:
-    TemplateCreateDocumentFromTemplateFieldMeta9,
-): string {
-  return JSON.stringify(
-    TemplateCreateDocumentFromTemplateFieldMeta9$outboundSchema.parse(
-      templateCreateDocumentFromTemplateFieldMeta9,
-    ),
-  );
-}
-
-export function templateCreateDocumentFromTemplateFieldMeta9FromJSON(
-  jsonString: string,
-): SafeParseResult<
-  TemplateCreateDocumentFromTemplateFieldMeta9,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      TemplateCreateDocumentFromTemplateFieldMeta9$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'TemplateCreateDocumentFromTemplateFieldMeta9' from JSON`,
-  );
-}
-
-/** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields8Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields8Type
-  > = z.nativeEnum(
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields8Type,
-  );
-
-/** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields8Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields8Type
-  > =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields8Type$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields8Type$ {
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields8Type$inboundSchema` instead. */
-  export const inboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields8Type$inboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields8Type$outboundSchema` instead. */
-  export const outboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields8Type$outboundSchema;
-}
-
-/** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesValues$inboundSchema:
-  z.ZodType<
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesValues,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    id: z.number(),
-    checked: z.boolean(),
-    value: z.string(),
-  });
-
-/** @internal */
-export type TemplateCreateDocumentFromTemplateFieldMetaTemplatesValues$Outbound =
-  {
-    id: number;
-    checked: boolean;
-    value: string;
-  };
-
-/** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesValues$outboundSchema:
-  z.ZodType<
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesValues$Outbound,
-    z.ZodTypeDef,
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesValues
-  > = z.object({
-    id: z.number(),
-    checked: z.boolean(),
-    value: z.string(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TemplateCreateDocumentFromTemplateFieldMetaTemplatesValues$ {
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesValues$inboundSchema` instead. */
-  export const inboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesValues$inboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesValues$outboundSchema` instead. */
-  export const outboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesValues$outboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesValues$Outbound` instead. */
+    TemplateCreateDocumentFromTemplateResponseDropdown$outboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseDropdown$Outbound` instead. */
   export type Outbound =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesValues$Outbound;
+    TemplateCreateDocumentFromTemplateResponseDropdown$Outbound;
 }
 
-export function templateCreateDocumentFromTemplateFieldMetaTemplatesValuesToJSON(
-  templateCreateDocumentFromTemplateFieldMetaTemplatesValues:
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesValues,
+export function templateCreateDocumentFromTemplateResponseDropdownToJSON(
+  templateCreateDocumentFromTemplateResponseDropdown:
+    TemplateCreateDocumentFromTemplateResponseDropdown,
 ): string {
   return JSON.stringify(
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesValues$outboundSchema
-      .parse(templateCreateDocumentFromTemplateFieldMetaTemplatesValues),
-  );
-}
-
-export function templateCreateDocumentFromTemplateFieldMetaTemplatesValuesFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  TemplateCreateDocumentFromTemplateFieldMetaTemplatesValues,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      TemplateCreateDocumentFromTemplateFieldMetaTemplatesValues$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'TemplateCreateDocumentFromTemplateFieldMetaTemplatesValues' from JSON`,
-  );
-}
-
-/** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMeta8$inboundSchema:
-  z.ZodType<
-    TemplateCreateDocumentFromTemplateFieldMeta8,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields8Type$inboundSchema,
-    values: z.array(
-      z.lazy(() =>
-        TemplateCreateDocumentFromTemplateFieldMetaTemplatesValues$inboundSchema
-      ),
-    ).optional(),
-    validationRule: z.string().optional(),
-    validationLength: z.number().optional(),
-  });
-
-/** @internal */
-export type TemplateCreateDocumentFromTemplateFieldMeta8$Outbound = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  type: string;
-  values?:
-    | Array<TemplateCreateDocumentFromTemplateFieldMetaTemplatesValues$Outbound>
-    | undefined;
-  validationRule?: string | undefined;
-  validationLength?: number | undefined;
-};
-
-/** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMeta8$outboundSchema:
-  z.ZodType<
-    TemplateCreateDocumentFromTemplateFieldMeta8$Outbound,
-    z.ZodTypeDef,
-    TemplateCreateDocumentFromTemplateFieldMeta8
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFields8Type$outboundSchema,
-    values: z.array(
-      z.lazy(() =>
-        TemplateCreateDocumentFromTemplateFieldMetaTemplatesValues$outboundSchema
-      ),
-    ).optional(),
-    validationRule: z.string().optional(),
-    validationLength: z.number().optional(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TemplateCreateDocumentFromTemplateFieldMeta8$ {
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMeta8$inboundSchema` instead. */
-  export const inboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMeta8$inboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMeta8$outboundSchema` instead. */
-  export const outboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMeta8$outboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMeta8$Outbound` instead. */
-  export type Outbound = TemplateCreateDocumentFromTemplateFieldMeta8$Outbound;
-}
-
-export function templateCreateDocumentFromTemplateFieldMeta8ToJSON(
-  templateCreateDocumentFromTemplateFieldMeta8:
-    TemplateCreateDocumentFromTemplateFieldMeta8,
-): string {
-  return JSON.stringify(
-    TemplateCreateDocumentFromTemplateFieldMeta8$outboundSchema.parse(
-      templateCreateDocumentFromTemplateFieldMeta8,
+    TemplateCreateDocumentFromTemplateResponseDropdown$outboundSchema.parse(
+      templateCreateDocumentFromTemplateResponseDropdown,
     ),
   );
 }
 
-export function templateCreateDocumentFromTemplateFieldMeta8FromJSON(
+export function templateCreateDocumentFromTemplateResponseDropdownFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  TemplateCreateDocumentFromTemplateFieldMeta8,
+  TemplateCreateDocumentFromTemplateResponseDropdown,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      TemplateCreateDocumentFromTemplateFieldMeta8$inboundSchema.parse(
+      TemplateCreateDocumentFromTemplateResponseDropdown$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'TemplateCreateDocumentFromTemplateFieldMeta8' from JSON`,
+    `Failed to parse 'TemplateCreateDocumentFromTemplateResponseDropdown' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFieldsType$inboundSchema:
+export const TemplateCreateDocumentFromTemplateResponseTypeCheckbox$inboundSchema:
   z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFieldsType
-  > = z.nativeEnum(
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFieldsType,
-  );
+    typeof TemplateCreateDocumentFromTemplateResponseTypeCheckbox
+  > = z.nativeEnum(TemplateCreateDocumentFromTemplateResponseTypeCheckbox);
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFieldsType$outboundSchema:
+export const TemplateCreateDocumentFromTemplateResponseTypeCheckbox$outboundSchema:
   z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFieldsType
-  > =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFieldsType$inboundSchema;
+    typeof TemplateCreateDocumentFromTemplateResponseTypeCheckbox
+  > = TemplateCreateDocumentFromTemplateResponseTypeCheckbox$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFieldsType$ {
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFieldsType$inboundSchema` instead. */
+export namespace TemplateCreateDocumentFromTemplateResponseTypeCheckbox$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseTypeCheckbox$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFieldsType$inboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFieldsType$outboundSchema` instead. */
+    TemplateCreateDocumentFromTemplateResponseTypeCheckbox$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseTypeCheckbox$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFieldsType$outboundSchema;
+    TemplateCreateDocumentFromTemplateResponseTypeCheckbox$outboundSchema;
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaValues$inboundSchema:
+export const TemplateCreateDocumentFromTemplateValuesCheckbox$inboundSchema:
   z.ZodType<
-    TemplateCreateDocumentFromTemplateFieldMetaValues,
+    TemplateCreateDocumentFromTemplateValuesCheckbox,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -2124,18 +2553,18 @@ export const TemplateCreateDocumentFromTemplateFieldMetaValues$inboundSchema:
   });
 
 /** @internal */
-export type TemplateCreateDocumentFromTemplateFieldMetaValues$Outbound = {
+export type TemplateCreateDocumentFromTemplateValuesCheckbox$Outbound = {
   id: number;
   checked: boolean;
   value: string;
 };
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaValues$outboundSchema:
+export const TemplateCreateDocumentFromTemplateValuesCheckbox$outboundSchema:
   z.ZodType<
-    TemplateCreateDocumentFromTemplateFieldMetaValues$Outbound,
+    TemplateCreateDocumentFromTemplateValuesCheckbox$Outbound,
     z.ZodTypeDef,
-    TemplateCreateDocumentFromTemplateFieldMetaValues
+    TemplateCreateDocumentFromTemplateValuesCheckbox
   > = z.object({
     id: z.number(),
     checked: z.boolean(),
@@ -2146,49 +2575,49 @@ export const TemplateCreateDocumentFromTemplateFieldMetaValues$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateDocumentFromTemplateFieldMetaValues$ {
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaValues$inboundSchema` instead. */
+export namespace TemplateCreateDocumentFromTemplateValuesCheckbox$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateValuesCheckbox$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMetaValues$inboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaValues$outboundSchema` instead. */
+    TemplateCreateDocumentFromTemplateValuesCheckbox$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateValuesCheckbox$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMetaValues$outboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaValues$Outbound` instead. */
+    TemplateCreateDocumentFromTemplateValuesCheckbox$outboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateValuesCheckbox$Outbound` instead. */
   export type Outbound =
-    TemplateCreateDocumentFromTemplateFieldMetaValues$Outbound;
+    TemplateCreateDocumentFromTemplateValuesCheckbox$Outbound;
 }
 
-export function templateCreateDocumentFromTemplateFieldMetaValuesToJSON(
-  templateCreateDocumentFromTemplateFieldMetaValues:
-    TemplateCreateDocumentFromTemplateFieldMetaValues,
+export function templateCreateDocumentFromTemplateValuesCheckboxToJSON(
+  templateCreateDocumentFromTemplateValuesCheckbox:
+    TemplateCreateDocumentFromTemplateValuesCheckbox,
 ): string {
   return JSON.stringify(
-    TemplateCreateDocumentFromTemplateFieldMetaValues$outboundSchema.parse(
-      templateCreateDocumentFromTemplateFieldMetaValues,
+    TemplateCreateDocumentFromTemplateValuesCheckbox$outboundSchema.parse(
+      templateCreateDocumentFromTemplateValuesCheckbox,
     ),
   );
 }
 
-export function templateCreateDocumentFromTemplateFieldMetaValuesFromJSON(
+export function templateCreateDocumentFromTemplateValuesCheckboxFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  TemplateCreateDocumentFromTemplateFieldMetaValues,
+  TemplateCreateDocumentFromTemplateValuesCheckbox,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      TemplateCreateDocumentFromTemplateFieldMetaValues$inboundSchema.parse(
+      TemplateCreateDocumentFromTemplateValuesCheckbox$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'TemplateCreateDocumentFromTemplateFieldMetaValues' from JSON`,
+    `Failed to parse 'TemplateCreateDocumentFromTemplateValuesCheckbox' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMeta7$inboundSchema:
+export const TemplateCreateDocumentFromTemplateResponseCheckbox$inboundSchema:
   z.ZodType<
-    TemplateCreateDocumentFromTemplateFieldMeta7,
+    TemplateCreateDocumentFromTemplateResponseCheckbox,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -2196,43 +2625,234 @@ export const TemplateCreateDocumentFromTemplateFieldMeta7$inboundSchema:
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type:
-      TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFieldsType$inboundSchema,
+    type: TemplateCreateDocumentFromTemplateResponseTypeCheckbox$inboundSchema,
     values: z.array(
       z.lazy(() =>
-        TemplateCreateDocumentFromTemplateFieldMetaValues$inboundSchema
+        TemplateCreateDocumentFromTemplateValuesCheckbox$inboundSchema
       ),
     ).optional(),
+    validationRule: z.string().optional(),
+    validationLength: z.number().optional(),
   });
 
 /** @internal */
-export type TemplateCreateDocumentFromTemplateFieldMeta7$Outbound = {
+export type TemplateCreateDocumentFromTemplateResponseCheckbox$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
   values?:
-    | Array<TemplateCreateDocumentFromTemplateFieldMetaValues$Outbound>
+    | Array<TemplateCreateDocumentFromTemplateValuesCheckbox$Outbound>
     | undefined;
+  validationRule?: string | undefined;
+  validationLength?: number | undefined;
 };
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMeta7$outboundSchema:
+export const TemplateCreateDocumentFromTemplateResponseCheckbox$outboundSchema:
   z.ZodType<
-    TemplateCreateDocumentFromTemplateFieldMeta7$Outbound,
+    TemplateCreateDocumentFromTemplateResponseCheckbox$Outbound,
     z.ZodTypeDef,
-    TemplateCreateDocumentFromTemplateFieldMeta7
+    TemplateCreateDocumentFromTemplateResponseCheckbox
   > = z.object({
     label: z.string().optional(),
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type:
-      TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyFieldsType$outboundSchema,
+    type: TemplateCreateDocumentFromTemplateResponseTypeCheckbox$outboundSchema,
     values: z.array(
       z.lazy(() =>
-        TemplateCreateDocumentFromTemplateFieldMetaValues$outboundSchema
+        TemplateCreateDocumentFromTemplateValuesCheckbox$outboundSchema
+      ),
+    ).optional(),
+    validationRule: z.string().optional(),
+    validationLength: z.number().optional(),
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateCreateDocumentFromTemplateResponseCheckbox$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseCheckbox$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateCreateDocumentFromTemplateResponseCheckbox$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseCheckbox$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateCreateDocumentFromTemplateResponseCheckbox$outboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseCheckbox$Outbound` instead. */
+  export type Outbound =
+    TemplateCreateDocumentFromTemplateResponseCheckbox$Outbound;
+}
+
+export function templateCreateDocumentFromTemplateResponseCheckboxToJSON(
+  templateCreateDocumentFromTemplateResponseCheckbox:
+    TemplateCreateDocumentFromTemplateResponseCheckbox,
+): string {
+  return JSON.stringify(
+    TemplateCreateDocumentFromTemplateResponseCheckbox$outboundSchema.parse(
+      templateCreateDocumentFromTemplateResponseCheckbox,
+    ),
+  );
+}
+
+export function templateCreateDocumentFromTemplateResponseCheckboxFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  TemplateCreateDocumentFromTemplateResponseCheckbox,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      TemplateCreateDocumentFromTemplateResponseCheckbox$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'TemplateCreateDocumentFromTemplateResponseCheckbox' from JSON`,
+  );
+}
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateResponseTypeRadio$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateResponseTypeRadio> =
+    z.nativeEnum(TemplateCreateDocumentFromTemplateResponseTypeRadio);
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateResponseTypeRadio$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateResponseTypeRadio> =
+    TemplateCreateDocumentFromTemplateResponseTypeRadio$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateCreateDocumentFromTemplateResponseTypeRadio$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseTypeRadio$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateCreateDocumentFromTemplateResponseTypeRadio$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseTypeRadio$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateCreateDocumentFromTemplateResponseTypeRadio$outboundSchema;
+}
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateValuesRadio$inboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateValuesRadio,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  });
+
+/** @internal */
+export type TemplateCreateDocumentFromTemplateValuesRadio$Outbound = {
+  id: number;
+  checked: boolean;
+  value: string;
+};
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateValuesRadio$outboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateValuesRadio$Outbound,
+    z.ZodTypeDef,
+    TemplateCreateDocumentFromTemplateValuesRadio
+  > = z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateCreateDocumentFromTemplateValuesRadio$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateValuesRadio$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateCreateDocumentFromTemplateValuesRadio$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateValuesRadio$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateCreateDocumentFromTemplateValuesRadio$outboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateValuesRadio$Outbound` instead. */
+  export type Outbound = TemplateCreateDocumentFromTemplateValuesRadio$Outbound;
+}
+
+export function templateCreateDocumentFromTemplateValuesRadioToJSON(
+  templateCreateDocumentFromTemplateValuesRadio:
+    TemplateCreateDocumentFromTemplateValuesRadio,
+): string {
+  return JSON.stringify(
+    TemplateCreateDocumentFromTemplateValuesRadio$outboundSchema.parse(
+      templateCreateDocumentFromTemplateValuesRadio,
+    ),
+  );
+}
+
+export function templateCreateDocumentFromTemplateValuesRadioFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  TemplateCreateDocumentFromTemplateValuesRadio,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      TemplateCreateDocumentFromTemplateValuesRadio$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'TemplateCreateDocumentFromTemplateValuesRadio' from JSON`,
+  );
+}
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateResponseRadio$inboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateResponseRadio,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: TemplateCreateDocumentFromTemplateResponseTypeRadio$inboundSchema,
+    values: z.array(
+      z.lazy(() => TemplateCreateDocumentFromTemplateValuesRadio$inboundSchema),
+    ).optional(),
+  });
+
+/** @internal */
+export type TemplateCreateDocumentFromTemplateResponseRadio$Outbound = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: string;
+  values?:
+    | Array<TemplateCreateDocumentFromTemplateValuesRadio$Outbound>
+    | undefined;
+};
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateResponseRadio$outboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateResponseRadio$Outbound,
+    z.ZodTypeDef,
+    TemplateCreateDocumentFromTemplateResponseRadio
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: TemplateCreateDocumentFromTemplateResponseTypeRadio$outboundSchema,
+    values: z.array(
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateValuesRadio$outboundSchema
       ),
     ).optional(),
   });
@@ -2241,76 +2861,95 @@ export const TemplateCreateDocumentFromTemplateFieldMeta7$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateDocumentFromTemplateFieldMeta7$ {
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMeta7$inboundSchema` instead. */
+export namespace TemplateCreateDocumentFromTemplateResponseRadio$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseRadio$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMeta7$inboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMeta7$outboundSchema` instead. */
+    TemplateCreateDocumentFromTemplateResponseRadio$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseRadio$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMeta7$outboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMeta7$Outbound` instead. */
-  export type Outbound = TemplateCreateDocumentFromTemplateFieldMeta7$Outbound;
+    TemplateCreateDocumentFromTemplateResponseRadio$outboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseRadio$Outbound` instead. */
+  export type Outbound =
+    TemplateCreateDocumentFromTemplateResponseRadio$Outbound;
 }
 
-export function templateCreateDocumentFromTemplateFieldMeta7ToJSON(
-  templateCreateDocumentFromTemplateFieldMeta7:
-    TemplateCreateDocumentFromTemplateFieldMeta7,
+export function templateCreateDocumentFromTemplateResponseRadioToJSON(
+  templateCreateDocumentFromTemplateResponseRadio:
+    TemplateCreateDocumentFromTemplateResponseRadio,
 ): string {
   return JSON.stringify(
-    TemplateCreateDocumentFromTemplateFieldMeta7$outboundSchema.parse(
-      templateCreateDocumentFromTemplateFieldMeta7,
+    TemplateCreateDocumentFromTemplateResponseRadio$outboundSchema.parse(
+      templateCreateDocumentFromTemplateResponseRadio,
     ),
   );
 }
 
-export function templateCreateDocumentFromTemplateFieldMeta7FromJSON(
+export function templateCreateDocumentFromTemplateResponseRadioFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  TemplateCreateDocumentFromTemplateFieldMeta7,
+  TemplateCreateDocumentFromTemplateResponseRadio,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      TemplateCreateDocumentFromTemplateFieldMeta7$inboundSchema.parse(
+      TemplateCreateDocumentFromTemplateResponseRadio$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'TemplateCreateDocumentFromTemplateFieldMeta7' from JSON`,
+    `Failed to parse 'TemplateCreateDocumentFromTemplateResponseRadio' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType
-  > = z.nativeEnum(
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType,
-  );
+export const TemplateCreateDocumentFromTemplateResponseTypeNumber$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateResponseTypeNumber> =
+    z.nativeEnum(TemplateCreateDocumentFromTemplateResponseTypeNumber);
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType
-  > =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType$inboundSchema;
+export const TemplateCreateDocumentFromTemplateResponseTypeNumber$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateResponseTypeNumber> =
+    TemplateCreateDocumentFromTemplateResponseTypeNumber$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType$ {
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType$inboundSchema` instead. */
+export namespace TemplateCreateDocumentFromTemplateResponseTypeNumber$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseTypeNumber$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType$inboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType$outboundSchema` instead. */
+    TemplateCreateDocumentFromTemplateResponseTypeNumber$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseTypeNumber$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType$outboundSchema;
+    TemplateCreateDocumentFromTemplateResponseTypeNumber$outboundSchema;
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMeta6$inboundSchema:
+export const TemplateCreateDocumentFromTemplateTextAlignNumber$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlignNumber> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateTextAlignNumber);
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateTextAlignNumber$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlignNumber> =
+    TemplateCreateDocumentFromTemplateTextAlignNumber$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateCreateDocumentFromTemplateTextAlignNumber$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateTextAlignNumber$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateCreateDocumentFromTemplateTextAlignNumber$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateTextAlignNumber$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateCreateDocumentFromTemplateTextAlignNumber$outboundSchema;
+}
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateResponseNumber$inboundSchema:
   z.ZodType<
-    TemplateCreateDocumentFromTemplateFieldMeta6,
+    TemplateCreateDocumentFromTemplateResponseNumber,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -2318,17 +2957,18 @@ export const TemplateCreateDocumentFromTemplateFieldMeta6$inboundSchema:
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type:
-      TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType$inboundSchema,
+    type: TemplateCreateDocumentFromTemplateResponseTypeNumber$inboundSchema,
     numberFormat: z.string().optional(),
     value: z.string().optional(),
     minValue: z.number().optional(),
     maxValue: z.number().optional(),
     fontSize: z.number().optional(),
+    textAlign: TemplateCreateDocumentFromTemplateTextAlignNumber$inboundSchema
+      .optional(),
   });
 
 /** @internal */
-export type TemplateCreateDocumentFromTemplateFieldMeta6$Outbound = {
+export type TemplateCreateDocumentFromTemplateResponseNumber$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -2339,102 +2979,123 @@ export type TemplateCreateDocumentFromTemplateFieldMeta6$Outbound = {
   minValue?: number | undefined;
   maxValue?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMeta6$outboundSchema:
+export const TemplateCreateDocumentFromTemplateResponseNumber$outboundSchema:
   z.ZodType<
-    TemplateCreateDocumentFromTemplateFieldMeta6$Outbound,
+    TemplateCreateDocumentFromTemplateResponseNumber$Outbound,
     z.ZodTypeDef,
-    TemplateCreateDocumentFromTemplateFieldMeta6
+    TemplateCreateDocumentFromTemplateResponseNumber
   > = z.object({
     label: z.string().optional(),
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type:
-      TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType$outboundSchema,
+    type: TemplateCreateDocumentFromTemplateResponseTypeNumber$outboundSchema,
     numberFormat: z.string().optional(),
     value: z.string().optional(),
     minValue: z.number().optional(),
     maxValue: z.number().optional(),
     fontSize: z.number().optional(),
+    textAlign: TemplateCreateDocumentFromTemplateTextAlignNumber$outboundSchema
+      .optional(),
   });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateDocumentFromTemplateFieldMeta6$ {
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMeta6$inboundSchema` instead. */
+export namespace TemplateCreateDocumentFromTemplateResponseNumber$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseNumber$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMeta6$inboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMeta6$outboundSchema` instead. */
+    TemplateCreateDocumentFromTemplateResponseNumber$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseNumber$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMeta6$outboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMeta6$Outbound` instead. */
-  export type Outbound = TemplateCreateDocumentFromTemplateFieldMeta6$Outbound;
+    TemplateCreateDocumentFromTemplateResponseNumber$outboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseNumber$Outbound` instead. */
+  export type Outbound =
+    TemplateCreateDocumentFromTemplateResponseNumber$Outbound;
 }
 
-export function templateCreateDocumentFromTemplateFieldMeta6ToJSON(
-  templateCreateDocumentFromTemplateFieldMeta6:
-    TemplateCreateDocumentFromTemplateFieldMeta6,
+export function templateCreateDocumentFromTemplateResponseNumberToJSON(
+  templateCreateDocumentFromTemplateResponseNumber:
+    TemplateCreateDocumentFromTemplateResponseNumber,
 ): string {
   return JSON.stringify(
-    TemplateCreateDocumentFromTemplateFieldMeta6$outboundSchema.parse(
-      templateCreateDocumentFromTemplateFieldMeta6,
+    TemplateCreateDocumentFromTemplateResponseNumber$outboundSchema.parse(
+      templateCreateDocumentFromTemplateResponseNumber,
     ),
   );
 }
 
-export function templateCreateDocumentFromTemplateFieldMeta6FromJSON(
+export function templateCreateDocumentFromTemplateResponseNumberFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  TemplateCreateDocumentFromTemplateFieldMeta6,
+  TemplateCreateDocumentFromTemplateResponseNumber,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      TemplateCreateDocumentFromTemplateFieldMeta6$inboundSchema.parse(
+      TemplateCreateDocumentFromTemplateResponseNumber$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'TemplateCreateDocumentFromTemplateFieldMeta6' from JSON`,
+    `Failed to parse 'TemplateCreateDocumentFromTemplateResponseNumber' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONType
-  > = z.nativeEnum(
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONType,
-  );
+export const TemplateCreateDocumentFromTemplateResponseTypeText$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateResponseTypeText> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateResponseTypeText);
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONType
-  > =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONType$inboundSchema;
+export const TemplateCreateDocumentFromTemplateResponseTypeText$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateResponseTypeText> =
+    TemplateCreateDocumentFromTemplateResponseTypeText$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONType$ {
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONType$inboundSchema` instead. */
+export namespace TemplateCreateDocumentFromTemplateResponseTypeText$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseTypeText$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONType$inboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONType$outboundSchema` instead. */
+    TemplateCreateDocumentFromTemplateResponseTypeText$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseTypeText$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONType$outboundSchema;
+    TemplateCreateDocumentFromTemplateResponseTypeText$outboundSchema;
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMeta5$inboundSchema:
+export const TemplateCreateDocumentFromTemplateTextAlignText$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlignText> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateTextAlignText);
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateTextAlignText$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlignText> =
+    TemplateCreateDocumentFromTemplateTextAlignText$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateCreateDocumentFromTemplateTextAlignText$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateTextAlignText$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateCreateDocumentFromTemplateTextAlignText$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateTextAlignText$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateCreateDocumentFromTemplateTextAlignText$outboundSchema;
+}
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateResponseText$inboundSchema:
   z.ZodType<
-    TemplateCreateDocumentFromTemplateFieldMeta5,
+    TemplateCreateDocumentFromTemplateResponseText,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -2442,15 +3103,16 @@ export const TemplateCreateDocumentFromTemplateFieldMeta5$inboundSchema:
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type:
-      TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONType$inboundSchema,
+    type: TemplateCreateDocumentFromTemplateResponseTypeText$inboundSchema,
     text: z.string().optional(),
     characterLimit: z.number().optional(),
     fontSize: z.number().optional(),
+    textAlign: TemplateCreateDocumentFromTemplateTextAlignText$inboundSchema
+      .optional(),
   });
 
 /** @internal */
-export type TemplateCreateDocumentFromTemplateFieldMeta5$Outbound = {
+export type TemplateCreateDocumentFromTemplateResponseText$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -2459,503 +3121,583 @@ export type TemplateCreateDocumentFromTemplateFieldMeta5$Outbound = {
   text?: string | undefined;
   characterLimit?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMeta5$outboundSchema:
+export const TemplateCreateDocumentFromTemplateResponseText$outboundSchema:
   z.ZodType<
-    TemplateCreateDocumentFromTemplateFieldMeta5$Outbound,
+    TemplateCreateDocumentFromTemplateResponseText$Outbound,
     z.ZodTypeDef,
-    TemplateCreateDocumentFromTemplateFieldMeta5
+    TemplateCreateDocumentFromTemplateResponseText
   > = z.object({
     label: z.string().optional(),
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type:
-      TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200ApplicationJSONType$outboundSchema,
+    type: TemplateCreateDocumentFromTemplateResponseTypeText$outboundSchema,
     text: z.string().optional(),
     characterLimit: z.number().optional(),
     fontSize: z.number().optional(),
+    textAlign: TemplateCreateDocumentFromTemplateTextAlignText$outboundSchema
+      .optional(),
   });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateDocumentFromTemplateFieldMeta5$ {
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMeta5$inboundSchema` instead. */
+export namespace TemplateCreateDocumentFromTemplateResponseText$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseText$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMeta5$inboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMeta5$outboundSchema` instead. */
+    TemplateCreateDocumentFromTemplateResponseText$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseText$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMeta5$outboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMeta5$Outbound` instead. */
-  export type Outbound = TemplateCreateDocumentFromTemplateFieldMeta5$Outbound;
+    TemplateCreateDocumentFromTemplateResponseText$outboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseText$Outbound` instead. */
+  export type Outbound =
+    TemplateCreateDocumentFromTemplateResponseText$Outbound;
 }
 
-export function templateCreateDocumentFromTemplateFieldMeta5ToJSON(
-  templateCreateDocumentFromTemplateFieldMeta5:
-    TemplateCreateDocumentFromTemplateFieldMeta5,
+export function templateCreateDocumentFromTemplateResponseTextToJSON(
+  templateCreateDocumentFromTemplateResponseText:
+    TemplateCreateDocumentFromTemplateResponseText,
 ): string {
   return JSON.stringify(
-    TemplateCreateDocumentFromTemplateFieldMeta5$outboundSchema.parse(
-      templateCreateDocumentFromTemplateFieldMeta5,
+    TemplateCreateDocumentFromTemplateResponseText$outboundSchema.parse(
+      templateCreateDocumentFromTemplateResponseText,
     ),
   );
 }
 
-export function templateCreateDocumentFromTemplateFieldMeta5FromJSON(
+export function templateCreateDocumentFromTemplateResponseTextFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  TemplateCreateDocumentFromTemplateFieldMeta5,
+  TemplateCreateDocumentFromTemplateResponseText,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      TemplateCreateDocumentFromTemplateFieldMeta5$inboundSchema.parse(
+      TemplateCreateDocumentFromTemplateResponseText$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'TemplateCreateDocumentFromTemplateFieldMeta5' from JSON`,
+    `Failed to parse 'TemplateCreateDocumentFromTemplateResponseText' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200Type
-  > = z.nativeEnum(
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200Type,
-  );
+export const TemplateCreateDocumentFromTemplateTypeDate$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTypeDate> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateTypeDate);
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200Type
-  > =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200Type$inboundSchema;
+export const TemplateCreateDocumentFromTemplateTypeDate$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTypeDate> =
+    TemplateCreateDocumentFromTemplateTypeDate$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200Type$ {
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200Type$inboundSchema` instead. */
+export namespace TemplateCreateDocumentFromTemplateTypeDate$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateTypeDate$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200Type$inboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200Type$outboundSchema` instead. */
+    TemplateCreateDocumentFromTemplateTypeDate$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateTypeDate$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200Type$outboundSchema;
+    TemplateCreateDocumentFromTemplateTypeDate$outboundSchema;
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMeta4$inboundSchema:
-  z.ZodType<
-    TemplateCreateDocumentFromTemplateFieldMeta4,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200Type$inboundSchema,
-    fontSize: z.number().optional(),
-  });
+export const TemplateCreateDocumentFromTemplateTextAlignDate$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlignDate> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateTextAlignDate);
 
 /** @internal */
-export type TemplateCreateDocumentFromTemplateFieldMeta4$Outbound = {
+export const TemplateCreateDocumentFromTemplateTextAlignDate$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlignDate> =
+    TemplateCreateDocumentFromTemplateTextAlignDate$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateCreateDocumentFromTemplateTextAlignDate$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateTextAlignDate$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateCreateDocumentFromTemplateTextAlignDate$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateTextAlignDate$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateCreateDocumentFromTemplateTextAlignDate$outboundSchema;
+}
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateDate$inboundSchema: z.ZodType<
+  TemplateCreateDocumentFromTemplateDate,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: TemplateCreateDocumentFromTemplateTypeDate$inboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: TemplateCreateDocumentFromTemplateTextAlignDate$inboundSchema
+    .optional(),
+});
+
+/** @internal */
+export type TemplateCreateDocumentFromTemplateDate$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMeta4$outboundSchema:
-  z.ZodType<
-    TemplateCreateDocumentFromTemplateFieldMeta4$Outbound,
-    z.ZodTypeDef,
-    TemplateCreateDocumentFromTemplateFieldMeta4
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponse200Type$outboundSchema,
-    fontSize: z.number().optional(),
-  });
+export const TemplateCreateDocumentFromTemplateDate$outboundSchema: z.ZodType<
+  TemplateCreateDocumentFromTemplateDate$Outbound,
+  z.ZodTypeDef,
+  TemplateCreateDocumentFromTemplateDate
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: TemplateCreateDocumentFromTemplateTypeDate$outboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: TemplateCreateDocumentFromTemplateTextAlignDate$outboundSchema
+    .optional(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateDocumentFromTemplateFieldMeta4$ {
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMeta4$inboundSchema` instead. */
+export namespace TemplateCreateDocumentFromTemplateDate$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateDate$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMeta4$inboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMeta4$outboundSchema` instead. */
+    TemplateCreateDocumentFromTemplateDate$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateDate$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMeta4$outboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMeta4$Outbound` instead. */
-  export type Outbound = TemplateCreateDocumentFromTemplateFieldMeta4$Outbound;
+    TemplateCreateDocumentFromTemplateDate$outboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateDate$Outbound` instead. */
+  export type Outbound = TemplateCreateDocumentFromTemplateDate$Outbound;
 }
 
-export function templateCreateDocumentFromTemplateFieldMeta4ToJSON(
-  templateCreateDocumentFromTemplateFieldMeta4:
-    TemplateCreateDocumentFromTemplateFieldMeta4,
+export function templateCreateDocumentFromTemplateDateToJSON(
+  templateCreateDocumentFromTemplateDate:
+    TemplateCreateDocumentFromTemplateDate,
 ): string {
   return JSON.stringify(
-    TemplateCreateDocumentFromTemplateFieldMeta4$outboundSchema.parse(
-      templateCreateDocumentFromTemplateFieldMeta4,
+    TemplateCreateDocumentFromTemplateDate$outboundSchema.parse(
+      templateCreateDocumentFromTemplateDate,
     ),
   );
 }
 
-export function templateCreateDocumentFromTemplateFieldMeta4FromJSON(
+export function templateCreateDocumentFromTemplateDateFromJSON(
   jsonString: string,
-): SafeParseResult<
-  TemplateCreateDocumentFromTemplateFieldMeta4,
-  SDKValidationError
-> {
+): SafeParseResult<TemplateCreateDocumentFromTemplateDate, SDKValidationError> {
   return safeParse(
     jsonString,
     (x) =>
-      TemplateCreateDocumentFromTemplateFieldMeta4$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'TemplateCreateDocumentFromTemplateFieldMeta4' from JSON`,
+      TemplateCreateDocumentFromTemplateDate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateCreateDocumentFromTemplateDate' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseType
-  > = z.nativeEnum(
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseType,
-  );
+export const TemplateCreateDocumentFromTemplateTypeEmail$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTypeEmail> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateTypeEmail);
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseType
-  > =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseType$inboundSchema;
+export const TemplateCreateDocumentFromTemplateTypeEmail$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTypeEmail> =
+    TemplateCreateDocumentFromTemplateTypeEmail$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseType$ {
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseType$inboundSchema` instead. */
+export namespace TemplateCreateDocumentFromTemplateTypeEmail$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateTypeEmail$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseType$inboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseType$outboundSchema` instead. */
+    TemplateCreateDocumentFromTemplateTypeEmail$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateTypeEmail$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseType$outboundSchema;
+    TemplateCreateDocumentFromTemplateTypeEmail$outboundSchema;
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMeta3$inboundSchema:
-  z.ZodType<
-    TemplateCreateDocumentFromTemplateFieldMeta3,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseType$inboundSchema,
-    fontSize: z.number().optional(),
-  });
+export const TemplateCreateDocumentFromTemplateTextAlignEmail$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlignEmail> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateTextAlignEmail);
 
 /** @internal */
-export type TemplateCreateDocumentFromTemplateFieldMeta3$Outbound = {
+export const TemplateCreateDocumentFromTemplateTextAlignEmail$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlignEmail> =
+    TemplateCreateDocumentFromTemplateTextAlignEmail$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateCreateDocumentFromTemplateTextAlignEmail$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateTextAlignEmail$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateCreateDocumentFromTemplateTextAlignEmail$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateTextAlignEmail$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateCreateDocumentFromTemplateTextAlignEmail$outboundSchema;
+}
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateEmail$inboundSchema: z.ZodType<
+  TemplateCreateDocumentFromTemplateEmail,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: TemplateCreateDocumentFromTemplateTypeEmail$inboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: TemplateCreateDocumentFromTemplateTextAlignEmail$inboundSchema
+    .optional(),
+});
+
+/** @internal */
+export type TemplateCreateDocumentFromTemplateEmail$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMeta3$outboundSchema:
-  z.ZodType<
-    TemplateCreateDocumentFromTemplateFieldMeta3$Outbound,
-    z.ZodTypeDef,
-    TemplateCreateDocumentFromTemplateFieldMeta3
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      TemplateCreateDocumentFromTemplateFieldMetaTemplatesResponseType$outboundSchema,
-    fontSize: z.number().optional(),
-  });
+export const TemplateCreateDocumentFromTemplateEmail$outboundSchema: z.ZodType<
+  TemplateCreateDocumentFromTemplateEmail$Outbound,
+  z.ZodTypeDef,
+  TemplateCreateDocumentFromTemplateEmail
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: TemplateCreateDocumentFromTemplateTypeEmail$outboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: TemplateCreateDocumentFromTemplateTextAlignEmail$outboundSchema
+    .optional(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateDocumentFromTemplateFieldMeta3$ {
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMeta3$inboundSchema` instead. */
+export namespace TemplateCreateDocumentFromTemplateEmail$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateEmail$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMeta3$inboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMeta3$outboundSchema` instead. */
+    TemplateCreateDocumentFromTemplateEmail$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateEmail$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMeta3$outboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMeta3$Outbound` instead. */
-  export type Outbound = TemplateCreateDocumentFromTemplateFieldMeta3$Outbound;
+    TemplateCreateDocumentFromTemplateEmail$outboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateEmail$Outbound` instead. */
+  export type Outbound = TemplateCreateDocumentFromTemplateEmail$Outbound;
 }
 
-export function templateCreateDocumentFromTemplateFieldMeta3ToJSON(
-  templateCreateDocumentFromTemplateFieldMeta3:
-    TemplateCreateDocumentFromTemplateFieldMeta3,
+export function templateCreateDocumentFromTemplateEmailToJSON(
+  templateCreateDocumentFromTemplateEmail:
+    TemplateCreateDocumentFromTemplateEmail,
 ): string {
   return JSON.stringify(
-    TemplateCreateDocumentFromTemplateFieldMeta3$outboundSchema.parse(
-      templateCreateDocumentFromTemplateFieldMeta3,
+    TemplateCreateDocumentFromTemplateEmail$outboundSchema.parse(
+      templateCreateDocumentFromTemplateEmail,
     ),
   );
 }
 
-export function templateCreateDocumentFromTemplateFieldMeta3FromJSON(
+export function templateCreateDocumentFromTemplateEmailFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  TemplateCreateDocumentFromTemplateFieldMeta3,
+  TemplateCreateDocumentFromTemplateEmail,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      TemplateCreateDocumentFromTemplateFieldMeta3$inboundSchema.parse(
+      TemplateCreateDocumentFromTemplateEmail$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'TemplateCreateDocumentFromTemplateFieldMeta3' from JSON`,
+    `Failed to parse 'TemplateCreateDocumentFromTemplateEmail' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesType
-  > = z.nativeEnum(TemplateCreateDocumentFromTemplateFieldMetaTemplatesType);
+export const TemplateCreateDocumentFromTemplateTypeName$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTypeName> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateTypeName);
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTemplatesType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTemplatesType
-  > = TemplateCreateDocumentFromTemplateFieldMetaTemplatesType$inboundSchema;
+export const TemplateCreateDocumentFromTemplateTypeName$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTypeName> =
+    TemplateCreateDocumentFromTemplateTypeName$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateDocumentFromTemplateFieldMetaTemplatesType$ {
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesType$inboundSchema` instead. */
+export namespace TemplateCreateDocumentFromTemplateTypeName$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateTypeName$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesType$inboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaTemplatesType$outboundSchema` instead. */
+    TemplateCreateDocumentFromTemplateTypeName$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateTypeName$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMetaTemplatesType$outboundSchema;
+    TemplateCreateDocumentFromTemplateTypeName$outboundSchema;
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMeta2$inboundSchema:
-  z.ZodType<
-    TemplateCreateDocumentFromTemplateFieldMeta2,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      TemplateCreateDocumentFromTemplateFieldMetaTemplatesType$inboundSchema,
-    fontSize: z.number().optional(),
-  });
+export const TemplateCreateDocumentFromTemplateTextAlignName$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlignName> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateTextAlignName);
 
 /** @internal */
-export type TemplateCreateDocumentFromTemplateFieldMeta2$Outbound = {
+export const TemplateCreateDocumentFromTemplateTextAlignName$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlignName> =
+    TemplateCreateDocumentFromTemplateTextAlignName$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateCreateDocumentFromTemplateTextAlignName$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateTextAlignName$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateCreateDocumentFromTemplateTextAlignName$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateTextAlignName$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateCreateDocumentFromTemplateTextAlignName$outboundSchema;
+}
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateName$inboundSchema: z.ZodType<
+  TemplateCreateDocumentFromTemplateName,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: TemplateCreateDocumentFromTemplateTypeName$inboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: TemplateCreateDocumentFromTemplateTextAlignName$inboundSchema
+    .optional(),
+});
+
+/** @internal */
+export type TemplateCreateDocumentFromTemplateName$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMeta2$outboundSchema:
-  z.ZodType<
-    TemplateCreateDocumentFromTemplateFieldMeta2$Outbound,
-    z.ZodTypeDef,
-    TemplateCreateDocumentFromTemplateFieldMeta2
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      TemplateCreateDocumentFromTemplateFieldMetaTemplatesType$outboundSchema,
-    fontSize: z.number().optional(),
-  });
+export const TemplateCreateDocumentFromTemplateName$outboundSchema: z.ZodType<
+  TemplateCreateDocumentFromTemplateName$Outbound,
+  z.ZodTypeDef,
+  TemplateCreateDocumentFromTemplateName
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: TemplateCreateDocumentFromTemplateTypeName$outboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: TemplateCreateDocumentFromTemplateTextAlignName$outboundSchema
+    .optional(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateDocumentFromTemplateFieldMeta2$ {
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMeta2$inboundSchema` instead. */
+export namespace TemplateCreateDocumentFromTemplateName$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateName$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMeta2$inboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMeta2$outboundSchema` instead. */
+    TemplateCreateDocumentFromTemplateName$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateName$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMeta2$outboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMeta2$Outbound` instead. */
-  export type Outbound = TemplateCreateDocumentFromTemplateFieldMeta2$Outbound;
+    TemplateCreateDocumentFromTemplateName$outboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateName$Outbound` instead. */
+  export type Outbound = TemplateCreateDocumentFromTemplateName$Outbound;
 }
 
-export function templateCreateDocumentFromTemplateFieldMeta2ToJSON(
-  templateCreateDocumentFromTemplateFieldMeta2:
-    TemplateCreateDocumentFromTemplateFieldMeta2,
+export function templateCreateDocumentFromTemplateNameToJSON(
+  templateCreateDocumentFromTemplateName:
+    TemplateCreateDocumentFromTemplateName,
 ): string {
   return JSON.stringify(
-    TemplateCreateDocumentFromTemplateFieldMeta2$outboundSchema.parse(
-      templateCreateDocumentFromTemplateFieldMeta2,
+    TemplateCreateDocumentFromTemplateName$outboundSchema.parse(
+      templateCreateDocumentFromTemplateName,
     ),
   );
 }
 
-export function templateCreateDocumentFromTemplateFieldMeta2FromJSON(
+export function templateCreateDocumentFromTemplateNameFromJSON(
   jsonString: string,
-): SafeParseResult<
-  TemplateCreateDocumentFromTemplateFieldMeta2,
-  SDKValidationError
-> {
+): SafeParseResult<TemplateCreateDocumentFromTemplateName, SDKValidationError> {
   return safeParse(
     jsonString,
     (x) =>
-      TemplateCreateDocumentFromTemplateFieldMeta2$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'TemplateCreateDocumentFromTemplateFieldMeta2' from JSON`,
+      TemplateCreateDocumentFromTemplateName$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateCreateDocumentFromTemplateName' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaType$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFieldMetaType> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateFieldMetaType);
+export const TemplateCreateDocumentFromTemplateTypeInitials$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTypeInitials> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateTypeInitials);
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaType$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFieldMetaType> =
-    TemplateCreateDocumentFromTemplateFieldMetaType$inboundSchema;
+export const TemplateCreateDocumentFromTemplateTypeInitials$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTypeInitials> =
+    TemplateCreateDocumentFromTemplateTypeInitials$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateDocumentFromTemplateFieldMetaType$ {
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaType$inboundSchema` instead. */
+export namespace TemplateCreateDocumentFromTemplateTypeInitials$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateTypeInitials$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMetaType$inboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMetaType$outboundSchema` instead. */
+    TemplateCreateDocumentFromTemplateTypeInitials$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateTypeInitials$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMetaType$outboundSchema;
+    TemplateCreateDocumentFromTemplateTypeInitials$outboundSchema;
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMeta1$inboundSchema:
-  z.ZodType<
-    TemplateCreateDocumentFromTemplateFieldMeta1,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type: TemplateCreateDocumentFromTemplateFieldMetaType$inboundSchema,
-    fontSize: z.number().optional(),
-  });
+export const TemplateCreateDocumentFromTemplateTextAlignInitials$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlignInitials> =
+    z.nativeEnum(TemplateCreateDocumentFromTemplateTextAlignInitials);
 
 /** @internal */
-export type TemplateCreateDocumentFromTemplateFieldMeta1$Outbound = {
+export const TemplateCreateDocumentFromTemplateTextAlignInitials$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlignInitials> =
+    TemplateCreateDocumentFromTemplateTextAlignInitials$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateCreateDocumentFromTemplateTextAlignInitials$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateTextAlignInitials$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateCreateDocumentFromTemplateTextAlignInitials$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateTextAlignInitials$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateCreateDocumentFromTemplateTextAlignInitials$outboundSchema;
+}
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateInitials$inboundSchema:
+  z.ZodType<TemplateCreateDocumentFromTemplateInitials, z.ZodTypeDef, unknown> =
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      type: TemplateCreateDocumentFromTemplateTypeInitials$inboundSchema,
+      fontSize: z.number().optional(),
+      textAlign:
+        TemplateCreateDocumentFromTemplateTextAlignInitials$inboundSchema
+          .optional(),
+    });
+
+/** @internal */
+export type TemplateCreateDocumentFromTemplateInitials$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMeta1$outboundSchema:
+export const TemplateCreateDocumentFromTemplateInitials$outboundSchema:
   z.ZodType<
-    TemplateCreateDocumentFromTemplateFieldMeta1$Outbound,
+    TemplateCreateDocumentFromTemplateInitials$Outbound,
     z.ZodTypeDef,
-    TemplateCreateDocumentFromTemplateFieldMeta1
+    TemplateCreateDocumentFromTemplateInitials
   > = z.object({
     label: z.string().optional(),
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type: TemplateCreateDocumentFromTemplateFieldMetaType$outboundSchema,
+    type: TemplateCreateDocumentFromTemplateTypeInitials$outboundSchema,
     fontSize: z.number().optional(),
+    textAlign:
+      TemplateCreateDocumentFromTemplateTextAlignInitials$outboundSchema
+        .optional(),
   });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateDocumentFromTemplateFieldMeta1$ {
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMeta1$inboundSchema` instead. */
+export namespace TemplateCreateDocumentFromTemplateInitials$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateInitials$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMeta1$inboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMeta1$outboundSchema` instead. */
+    TemplateCreateDocumentFromTemplateInitials$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateInitials$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateDocumentFromTemplateFieldMeta1$outboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateFieldMeta1$Outbound` instead. */
-  export type Outbound = TemplateCreateDocumentFromTemplateFieldMeta1$Outbound;
+    TemplateCreateDocumentFromTemplateInitials$outboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateInitials$Outbound` instead. */
+  export type Outbound = TemplateCreateDocumentFromTemplateInitials$Outbound;
 }
 
-export function templateCreateDocumentFromTemplateFieldMeta1ToJSON(
-  templateCreateDocumentFromTemplateFieldMeta1:
-    TemplateCreateDocumentFromTemplateFieldMeta1,
+export function templateCreateDocumentFromTemplateInitialsToJSON(
+  templateCreateDocumentFromTemplateInitials:
+    TemplateCreateDocumentFromTemplateInitials,
 ): string {
   return JSON.stringify(
-    TemplateCreateDocumentFromTemplateFieldMeta1$outboundSchema.parse(
-      templateCreateDocumentFromTemplateFieldMeta1,
+    TemplateCreateDocumentFromTemplateInitials$outboundSchema.parse(
+      templateCreateDocumentFromTemplateInitials,
     ),
   );
 }
 
-export function templateCreateDocumentFromTemplateFieldMeta1FromJSON(
+export function templateCreateDocumentFromTemplateInitialsFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  TemplateCreateDocumentFromTemplateFieldMeta1,
+  TemplateCreateDocumentFromTemplateInitials,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      TemplateCreateDocumentFromTemplateFieldMeta1$inboundSchema.parse(
+      TemplateCreateDocumentFromTemplateInitials$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'TemplateCreateDocumentFromTemplateFieldMeta1' from JSON`,
+    `Failed to parse 'TemplateCreateDocumentFromTemplateInitials' from JSON`,
   );
 }
 
@@ -2966,28 +3708,34 @@ export const TemplateCreateDocumentFromTemplateFieldMeta$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.union([
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta1$inboundSchema),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta2$inboundSchema),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta3$inboundSchema),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta4$inboundSchema),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta7$inboundSchema),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta9$inboundSchema),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta5$inboundSchema),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta8$inboundSchema),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta6$inboundSchema),
+    z.lazy(() => TemplateCreateDocumentFromTemplateResponseRadio$inboundSchema),
+    z.lazy(() => TemplateCreateDocumentFromTemplateInitials$inboundSchema),
+    z.lazy(() => TemplateCreateDocumentFromTemplateName$inboundSchema),
+    z.lazy(() => TemplateCreateDocumentFromTemplateEmail$inboundSchema),
+    z.lazy(() => TemplateCreateDocumentFromTemplateDate$inboundSchema),
+    z.lazy(() =>
+      TemplateCreateDocumentFromTemplateResponseDropdown$inboundSchema
+    ),
+    z.lazy(() =>
+      TemplateCreateDocumentFromTemplateResponseCheckbox$inboundSchema
+    ),
+    z.lazy(() => TemplateCreateDocumentFromTemplateResponseText$inboundSchema),
+    z.lazy(() =>
+      TemplateCreateDocumentFromTemplateResponseNumber$inboundSchema
+    ),
   ]);
 
 /** @internal */
 export type TemplateCreateDocumentFromTemplateFieldMeta$Outbound =
-  | TemplateCreateDocumentFromTemplateFieldMeta1$Outbound
-  | TemplateCreateDocumentFromTemplateFieldMeta2$Outbound
-  | TemplateCreateDocumentFromTemplateFieldMeta3$Outbound
-  | TemplateCreateDocumentFromTemplateFieldMeta4$Outbound
-  | TemplateCreateDocumentFromTemplateFieldMeta7$Outbound
-  | TemplateCreateDocumentFromTemplateFieldMeta9$Outbound
-  | TemplateCreateDocumentFromTemplateFieldMeta5$Outbound
-  | TemplateCreateDocumentFromTemplateFieldMeta8$Outbound
-  | TemplateCreateDocumentFromTemplateFieldMeta6$Outbound;
+  | TemplateCreateDocumentFromTemplateResponseRadio$Outbound
+  | TemplateCreateDocumentFromTemplateInitials$Outbound
+  | TemplateCreateDocumentFromTemplateName$Outbound
+  | TemplateCreateDocumentFromTemplateEmail$Outbound
+  | TemplateCreateDocumentFromTemplateDate$Outbound
+  | TemplateCreateDocumentFromTemplateResponseDropdown$Outbound
+  | TemplateCreateDocumentFromTemplateResponseCheckbox$Outbound
+  | TemplateCreateDocumentFromTemplateResponseText$Outbound
+  | TemplateCreateDocumentFromTemplateResponseNumber$Outbound;
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateFieldMeta$outboundSchema:
@@ -2996,15 +3744,23 @@ export const TemplateCreateDocumentFromTemplateFieldMeta$outboundSchema:
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateFieldMeta
   > = z.union([
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta1$outboundSchema),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta2$outboundSchema),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta3$outboundSchema),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta4$outboundSchema),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta7$outboundSchema),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta9$outboundSchema),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta5$outboundSchema),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta8$outboundSchema),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta6$outboundSchema),
+    z.lazy(() =>
+      TemplateCreateDocumentFromTemplateResponseRadio$outboundSchema
+    ),
+    z.lazy(() => TemplateCreateDocumentFromTemplateInitials$outboundSchema),
+    z.lazy(() => TemplateCreateDocumentFromTemplateName$outboundSchema),
+    z.lazy(() => TemplateCreateDocumentFromTemplateEmail$outboundSchema),
+    z.lazy(() => TemplateCreateDocumentFromTemplateDate$outboundSchema),
+    z.lazy(() =>
+      TemplateCreateDocumentFromTemplateResponseDropdown$outboundSchema
+    ),
+    z.lazy(() =>
+      TemplateCreateDocumentFromTemplateResponseCheckbox$outboundSchema
+    ),
+    z.lazy(() => TemplateCreateDocumentFromTemplateResponseText$outboundSchema),
+    z.lazy(() =>
+      TemplateCreateDocumentFromTemplateResponseNumber$outboundSchema
+    ),
   ]);
 
 /**
@@ -3055,12 +3811,12 @@ export const TemplateCreateDocumentFromTemplateFields$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: TemplateCreateDocumentFromTemplateTemplatesType$inboundSchema,
-  id: z.number().int(),
+  type: TemplateCreateDocumentFromTemplateFieldsType$inboundSchema,
+  id: z.number(),
   secondaryId: z.string(),
-  documentId: z.nullable(z.number().int()),
-  templateId: z.nullable(z.number().int()),
-  recipientId: z.number().int(),
+  documentId: z.nullable(z.number()),
+  templateId: z.nullable(z.number()),
+  recipientId: z.number(),
   page: z.number(),
   positionX: z.any().optional(),
   positionY: z.any().optional(),
@@ -3070,15 +3826,25 @@ export const TemplateCreateDocumentFromTemplateFields$inboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta1$inboundSchema),
-      z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta2$inboundSchema),
-      z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta3$inboundSchema),
-      z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta4$inboundSchema),
-      z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta7$inboundSchema),
-      z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta9$inboundSchema),
-      z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta5$inboundSchema),
-      z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta8$inboundSchema),
-      z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta6$inboundSchema),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateResponseRadio$inboundSchema
+      ),
+      z.lazy(() => TemplateCreateDocumentFromTemplateInitials$inboundSchema),
+      z.lazy(() => TemplateCreateDocumentFromTemplateName$inboundSchema),
+      z.lazy(() => TemplateCreateDocumentFromTemplateEmail$inboundSchema),
+      z.lazy(() => TemplateCreateDocumentFromTemplateDate$inboundSchema),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateResponseDropdown$inboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateResponseCheckbox$inboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateResponseText$inboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateResponseNumber$inboundSchema
+      ),
     ]),
   ),
 });
@@ -3099,15 +3865,15 @@ export type TemplateCreateDocumentFromTemplateFields$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | TemplateCreateDocumentFromTemplateFieldMeta1$Outbound
-    | TemplateCreateDocumentFromTemplateFieldMeta2$Outbound
-    | TemplateCreateDocumentFromTemplateFieldMeta3$Outbound
-    | TemplateCreateDocumentFromTemplateFieldMeta4$Outbound
-    | TemplateCreateDocumentFromTemplateFieldMeta7$Outbound
-    | TemplateCreateDocumentFromTemplateFieldMeta9$Outbound
-    | TemplateCreateDocumentFromTemplateFieldMeta5$Outbound
-    | TemplateCreateDocumentFromTemplateFieldMeta8$Outbound
-    | TemplateCreateDocumentFromTemplateFieldMeta6$Outbound
+    | TemplateCreateDocumentFromTemplateResponseRadio$Outbound
+    | TemplateCreateDocumentFromTemplateInitials$Outbound
+    | TemplateCreateDocumentFromTemplateName$Outbound
+    | TemplateCreateDocumentFromTemplateEmail$Outbound
+    | TemplateCreateDocumentFromTemplateDate$Outbound
+    | TemplateCreateDocumentFromTemplateResponseDropdown$Outbound
+    | TemplateCreateDocumentFromTemplateResponseCheckbox$Outbound
+    | TemplateCreateDocumentFromTemplateResponseText$Outbound
+    | TemplateCreateDocumentFromTemplateResponseNumber$Outbound
     | null;
 };
 
@@ -3117,12 +3883,12 @@ export const TemplateCreateDocumentFromTemplateFields$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TemplateCreateDocumentFromTemplateFields
 > = z.object({
-  type: TemplateCreateDocumentFromTemplateTemplatesType$outboundSchema,
-  id: z.number().int(),
+  type: TemplateCreateDocumentFromTemplateFieldsType$outboundSchema,
+  id: z.number(),
   secondaryId: z.string(),
-  documentId: z.nullable(z.number().int()),
-  templateId: z.nullable(z.number().int()),
-  recipientId: z.number().int(),
+  documentId: z.nullable(z.number()),
+  templateId: z.nullable(z.number()),
+  recipientId: z.number(),
   page: z.number(),
   positionX: z.any().optional(),
   positionY: z.any().optional(),
@@ -3132,17 +3898,25 @@ export const TemplateCreateDocumentFromTemplateFields$outboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta1$outboundSchema),
       z.lazy(() =>
-        TemplateCreateDocumentFromTemplateFieldMeta2$outboundSchema
+        TemplateCreateDocumentFromTemplateResponseRadio$outboundSchema
       ),
-      z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta3$outboundSchema),
-      z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta4$outboundSchema),
-      z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta7$outboundSchema),
-      z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta9$outboundSchema),
-      z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta5$outboundSchema),
-      z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta8$outboundSchema),
-      z.lazy(() => TemplateCreateDocumentFromTemplateFieldMeta6$outboundSchema),
+      z.lazy(() => TemplateCreateDocumentFromTemplateInitials$outboundSchema),
+      z.lazy(() => TemplateCreateDocumentFromTemplateName$outboundSchema),
+      z.lazy(() => TemplateCreateDocumentFromTemplateEmail$outboundSchema),
+      z.lazy(() => TemplateCreateDocumentFromTemplateDate$outboundSchema),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateResponseDropdown$outboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateResponseCheckbox$outboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateResponseText$outboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateResponseNumber$outboundSchema
+      ),
     ]),
   ),
 });
@@ -3190,52 +3964,51 @@ export function templateCreateDocumentFromTemplateFieldsFromJSON(
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateResponseBody$inboundSchema:
-  z.ZodType<
-    TemplateCreateDocumentFromTemplateResponseBody,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    visibility: TemplateCreateDocumentFromTemplateVisibility$inboundSchema,
-    status: TemplateCreateDocumentFromTemplateStatus$inboundSchema,
-    source: TemplateCreateDocumentFromTemplateSource$inboundSchema,
-    id: z.number().int(),
-    externalId: z.nullable(z.string()),
-    userId: z.number(),
-    authOptions: z.nullable(
-      z.lazy(() => TemplateCreateDocumentFromTemplateAuthOptions$inboundSchema),
-    ),
-    formValues: z.nullable(
-      z.record(z.union([z.string(), z.boolean(), z.number()])),
-    ),
-    title: z.string(),
-    documentDataId: z.string(),
-    createdAt: z.string(),
-    updatedAt: z.string(),
-    completedAt: z.nullable(z.string()),
-    deletedAt: z.nullable(z.string()),
-    teamId: z.nullable(z.number().int()),
-    templateId: z.nullable(z.number().int()),
-    documentData: z.lazy(() =>
-      TemplateCreateDocumentFromTemplateDocumentData$inboundSchema
-    ),
-    documentMeta: z.nullable(
-      z.lazy(() =>
-        TemplateCreateDocumentFromTemplateDocumentMeta$inboundSchema
+export const TemplateCreateDocumentFromTemplateResponse$inboundSchema:
+  z.ZodType<TemplateCreateDocumentFromTemplateResponse, z.ZodTypeDef, unknown> =
+    z.object({
+      visibility: TemplateCreateDocumentFromTemplateVisibility$inboundSchema,
+      status: TemplateCreateDocumentFromTemplateStatus$inboundSchema,
+      source: TemplateCreateDocumentFromTemplateSource$inboundSchema,
+      id: z.number(),
+      externalId: z.nullable(z.string()),
+      userId: z.number(),
+      authOptions: z.nullable(
+        z.lazy(() =>
+          TemplateCreateDocumentFromTemplateAuthOptions$inboundSchema
+        ),
       ),
-    ),
-    recipients: z.array(
-      z.lazy(() =>
-        TemplateCreateDocumentFromTemplateTemplatesRecipients$inboundSchema
+      formValues: z.nullable(
+        z.record(z.union([z.string(), z.boolean(), z.number()])),
       ),
-    ),
-    fields: z.array(
-      z.lazy(() => TemplateCreateDocumentFromTemplateFields$inboundSchema),
-    ),
-  });
+      title: z.string(),
+      documentDataId: z.string(),
+      createdAt: z.string(),
+      updatedAt: z.string(),
+      completedAt: z.nullable(z.string()),
+      deletedAt: z.nullable(z.string()),
+      teamId: z.nullable(z.number()),
+      templateId: z.nullable(z.number()),
+      documentData: z.lazy(() =>
+        TemplateCreateDocumentFromTemplateDocumentData$inboundSchema
+      ),
+      documentMeta: z.nullable(
+        z.lazy(() =>
+          TemplateCreateDocumentFromTemplateDocumentMeta$inboundSchema
+        ),
+      ),
+      recipients: z.array(
+        z.lazy(() =>
+          TemplateCreateDocumentFromTemplateResponseRecipients$inboundSchema
+        ),
+      ),
+      fields: z.array(
+        z.lazy(() => TemplateCreateDocumentFromTemplateFields$inboundSchema),
+      ),
+    });
 
 /** @internal */
-export type TemplateCreateDocumentFromTemplateResponseBody$Outbound = {
+export type TemplateCreateDocumentFromTemplateResponse$Outbound = {
   visibility: string;
   status: string;
   source: string;
@@ -3255,22 +4028,22 @@ export type TemplateCreateDocumentFromTemplateResponseBody$Outbound = {
   documentData: TemplateCreateDocumentFromTemplateDocumentData$Outbound;
   documentMeta: TemplateCreateDocumentFromTemplateDocumentMeta$Outbound | null;
   recipients: Array<
-    TemplateCreateDocumentFromTemplateTemplatesRecipients$Outbound
+    TemplateCreateDocumentFromTemplateResponseRecipients$Outbound
   >;
   fields: Array<TemplateCreateDocumentFromTemplateFields$Outbound>;
 };
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateResponseBody$outboundSchema:
+export const TemplateCreateDocumentFromTemplateResponse$outboundSchema:
   z.ZodType<
-    TemplateCreateDocumentFromTemplateResponseBody$Outbound,
+    TemplateCreateDocumentFromTemplateResponse$Outbound,
     z.ZodTypeDef,
-    TemplateCreateDocumentFromTemplateResponseBody
+    TemplateCreateDocumentFromTemplateResponse
   > = z.object({
     visibility: TemplateCreateDocumentFromTemplateVisibility$outboundSchema,
     status: TemplateCreateDocumentFromTemplateStatus$outboundSchema,
     source: TemplateCreateDocumentFromTemplateSource$outboundSchema,
-    id: z.number().int(),
+    id: z.number(),
     externalId: z.nullable(z.string()),
     userId: z.number(),
     authOptions: z.nullable(
@@ -3287,8 +4060,8 @@ export const TemplateCreateDocumentFromTemplateResponseBody$outboundSchema:
     updatedAt: z.string(),
     completedAt: z.nullable(z.string()),
     deletedAt: z.nullable(z.string()),
-    teamId: z.nullable(z.number().int()),
-    templateId: z.nullable(z.number().int()),
+    teamId: z.nullable(z.number()),
+    templateId: z.nullable(z.number()),
     documentData: z.lazy(() =>
       TemplateCreateDocumentFromTemplateDocumentData$outboundSchema
     ),
@@ -3299,7 +4072,7 @@ export const TemplateCreateDocumentFromTemplateResponseBody$outboundSchema:
     ),
     recipients: z.array(
       z.lazy(() =>
-        TemplateCreateDocumentFromTemplateTemplatesRecipients$outboundSchema
+        TemplateCreateDocumentFromTemplateResponseRecipients$outboundSchema
       ),
     ),
     fields: z.array(
@@ -3311,41 +4084,40 @@ export const TemplateCreateDocumentFromTemplateResponseBody$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateDocumentFromTemplateResponseBody$ {
-  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseBody$inboundSchema` instead. */
+export namespace TemplateCreateDocumentFromTemplateResponse$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponse$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateDocumentFromTemplateResponseBody$inboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseBody$outboundSchema` instead. */
+    TemplateCreateDocumentFromTemplateResponse$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponse$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateDocumentFromTemplateResponseBody$outboundSchema;
-  /** @deprecated use `TemplateCreateDocumentFromTemplateResponseBody$Outbound` instead. */
-  export type Outbound =
-    TemplateCreateDocumentFromTemplateResponseBody$Outbound;
+    TemplateCreateDocumentFromTemplateResponse$outboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateResponse$Outbound` instead. */
+  export type Outbound = TemplateCreateDocumentFromTemplateResponse$Outbound;
 }
 
-export function templateCreateDocumentFromTemplateResponseBodyToJSON(
-  templateCreateDocumentFromTemplateResponseBody:
-    TemplateCreateDocumentFromTemplateResponseBody,
+export function templateCreateDocumentFromTemplateResponseToJSON(
+  templateCreateDocumentFromTemplateResponse:
+    TemplateCreateDocumentFromTemplateResponse,
 ): string {
   return JSON.stringify(
-    TemplateCreateDocumentFromTemplateResponseBody$outboundSchema.parse(
-      templateCreateDocumentFromTemplateResponseBody,
+    TemplateCreateDocumentFromTemplateResponse$outboundSchema.parse(
+      templateCreateDocumentFromTemplateResponse,
     ),
   );
 }
 
-export function templateCreateDocumentFromTemplateResponseBodyFromJSON(
+export function templateCreateDocumentFromTemplateResponseFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  TemplateCreateDocumentFromTemplateResponseBody,
+  TemplateCreateDocumentFromTemplateResponse,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      TemplateCreateDocumentFromTemplateResponseBody$inboundSchema.parse(
+      TemplateCreateDocumentFromTemplateResponse$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'TemplateCreateDocumentFromTemplateResponseBody' from JSON`,
+    `Failed to parse 'TemplateCreateDocumentFromTemplateResponse' from JSON`,
   );
 }

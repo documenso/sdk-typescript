@@ -3,74 +3,74 @@
 
 ## Supported Types
 
-### `operations.TemplateFindTemplatesFieldMeta1`
+### `operations.TemplateFindTemplatesInitials`
 
 ```typescript
-const value: operations.TemplateFindTemplatesFieldMeta1 = {
+const value: operations.TemplateFindTemplatesInitials = {
   type: "initials",
 };
 ```
 
-### `operations.TemplateFindTemplatesFieldMeta2`
+### `operations.TemplateFindTemplatesName`
 
 ```typescript
-const value: operations.TemplateFindTemplatesFieldMeta2 = {
+const value: operations.TemplateFindTemplatesName = {
   type: "name",
 };
 ```
 
-### `operations.TemplateFindTemplatesFieldMeta3`
+### `operations.TemplateFindTemplatesEmail`
 
 ```typescript
-const value: operations.TemplateFindTemplatesFieldMeta3 = {
+const value: operations.TemplateFindTemplatesEmail = {
   type: "email",
 };
 ```
 
-### `operations.TemplateFindTemplatesFieldMeta4`
+### `operations.TemplateFindTemplatesDate`
 
 ```typescript
-const value: operations.TemplateFindTemplatesFieldMeta4 = {
+const value: operations.TemplateFindTemplatesDate = {
   type: "date",
 };
 ```
 
-### `operations.TemplateFindTemplatesFieldMeta5`
+### `operations.TemplateFindTemplatesText`
 
 ```typescript
-const value: operations.TemplateFindTemplatesFieldMeta5 = {
+const value: operations.TemplateFindTemplatesText = {
   type: "text",
 };
 ```
 
-### `operations.TemplateFindTemplatesFieldMeta6`
+### `operations.TemplateFindTemplatesNumber`
 
 ```typescript
-const value: operations.TemplateFindTemplatesFieldMeta6 = {
+const value: operations.TemplateFindTemplatesNumber = {
   type: "number",
 };
 ```
 
-### `operations.TemplateFindTemplatesFieldMeta7`
+### `operations.TemplateFindTemplatesRadio`
 
 ```typescript
-const value: operations.TemplateFindTemplatesFieldMeta7 = {
+const value: operations.TemplateFindTemplatesRadio = {
   type: "radio",
 };
 ```
 
-### `operations.TemplateFindTemplatesFieldMeta8`
+### `operations.TemplateFindTemplatesCheckbox`
 
 ```typescript
-const value: operations.TemplateFindTemplatesFieldMeta8 = {
+const value: operations.TemplateFindTemplatesCheckbox = {
   type: "checkbox",
 };
 ```
 
-### `operations.TemplateFindTemplatesFieldMeta9`
+### `operations.TemplateFindTemplatesDropdown`
 
 ```typescript
-const value: operations.TemplateFindTemplatesFieldMeta9 = {
+const value: operations.TemplateFindTemplatesDropdown = {
   type: "dropdown",
 };
 ```

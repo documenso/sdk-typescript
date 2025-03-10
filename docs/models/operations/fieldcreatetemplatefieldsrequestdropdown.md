@@ -1,0 +1,30 @@
+# FieldCreateTemplateFieldsRequestDropdown
+
+## Example Usage
+
+```typescript
+import { FieldCreateTemplateFieldsRequestDropdown } from "@documenso/sdk-typescript/models/operations";
+
+let value: FieldCreateTemplateFieldsRequestDropdown = {
+  type: "DROPDOWN",
+  recipientId: 8408.31,
+  pageNumber: 4972.31,
+  pageX: 3920.22,
+  pageY: 1439.76,
+  width: 8048.23,
+  height: 7133.71,
+};
+```
+
+## Fields
+
+| Field                                                                                                                                        | Type                                                                                                                                         | Required                                                                                                                                     | Description                                                                                                                                  |
+| -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`                                                                                                                                       | [operations.FieldCreateTemplateFieldsRequestTypeDropdown](../../models/operations/fieldcreatetemplatefieldsrequesttypedropdown.md)           | :heavy_check_mark:                                                                                                                           | N/A                                                                                                                                          |
+| `fieldMeta`                                                                                                                                  | [operations.FieldCreateTemplateFieldsRequestFieldMetaDropdown](../../models/operations/fieldcreatetemplatefieldsrequestfieldmetadropdown.md) | :heavy_minus_sign:                                                                                                                           | N/A                                                                                                                                          |
+| `recipientId`                                                                                                                                | *number*                                                                                                                                     | :heavy_check_mark:                                                                                                                           | The ID of the recipient to create the field for.                                                                                             |
+| `pageNumber`                                                                                                                                 | *number*                                                                                                                                     | :heavy_check_mark:                                                                                                                           | The page number the field will be on.                                                                                                        |
+| `pageX`                                                                                                                                      | *number*                                                                                                                                     | :heavy_check_mark:                                                                                                                           | The X coordinate of where the field will be placed.                                                                                          |
+| `pageY`                                                                                                                                      | *number*                                                                                                                                     | :heavy_check_mark:                                                                                                                           | The Y coordinate of where the field will be placed.                                                                                          |
+| `width`                                                                                                                                      | *number*                                                                                                                                     | :heavy_check_mark:                                                                                                                           | The width of the field.                                                                                                                      |
+| `height`                                                                                                                                     | *number*                                                                                                                                     | :heavy_check_mark:                                                                                                                           | The height of the field.                                                                                                                     |

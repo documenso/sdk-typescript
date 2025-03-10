@@ -7,30 +7,34 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
-export type DocumentMoveDocumentToTeamDocumentsIssues = {
+export type DocumentMoveDocumentToTeamInternalServerErrorIssues = {
   message: string;
 };
 
 /**
  * Internal server error
  */
-export type DocumentMoveDocumentToTeamDocumentsResponseBodyData = {
+export type DocumentMoveDocumentToTeamInternalServerErrorData = {
   message: string;
   code: string;
-  issues?: Array<DocumentMoveDocumentToTeamDocumentsIssues> | undefined;
+  issues?:
+    | Array<DocumentMoveDocumentToTeamInternalServerErrorIssues>
+    | undefined;
 };
 
 /**
  * Internal server error
  */
-export class DocumentMoveDocumentToTeamDocumentsResponseBody extends Error {
+export class DocumentMoveDocumentToTeamInternalServerError extends Error {
   code: string;
-  issues?: Array<DocumentMoveDocumentToTeamDocumentsIssues> | undefined;
+  issues?:
+    | Array<DocumentMoveDocumentToTeamInternalServerErrorIssues>
+    | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: DocumentMoveDocumentToTeamDocumentsResponseBodyData;
+  data$: DocumentMoveDocumentToTeamInternalServerErrorData;
 
-  constructor(err: DocumentMoveDocumentToTeamDocumentsResponseBodyData) {
+  constructor(err: DocumentMoveDocumentToTeamInternalServerErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -40,34 +44,34 @@ export class DocumentMoveDocumentToTeamDocumentsResponseBody extends Error {
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name = "DocumentMoveDocumentToTeamDocumentsResponseBody";
+    this.name = "DocumentMoveDocumentToTeamInternalServerError";
   }
 }
 
-export type DocumentMoveDocumentToTeamIssues = {
+export type DocumentMoveDocumentToTeamBadRequestIssues = {
   message: string;
 };
 
 /**
  * Invalid input data
  */
-export type DocumentMoveDocumentToTeamResponseBodyData = {
+export type DocumentMoveDocumentToTeamBadRequestErrorData = {
   message: string;
   code: string;
-  issues?: Array<DocumentMoveDocumentToTeamIssues> | undefined;
+  issues?: Array<DocumentMoveDocumentToTeamBadRequestIssues> | undefined;
 };
 
 /**
  * Invalid input data
  */
-export class DocumentMoveDocumentToTeamResponseBody extends Error {
+export class DocumentMoveDocumentToTeamBadRequestError extends Error {
   code: string;
-  issues?: Array<DocumentMoveDocumentToTeamIssues> | undefined;
+  issues?: Array<DocumentMoveDocumentToTeamBadRequestIssues> | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: DocumentMoveDocumentToTeamResponseBodyData;
+  data$: DocumentMoveDocumentToTeamBadRequestErrorData;
 
-  constructor(err: DocumentMoveDocumentToTeamResponseBodyData) {
+  constructor(err: DocumentMoveDocumentToTeamBadRequestErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -77,30 +81,31 @@ export class DocumentMoveDocumentToTeamResponseBody extends Error {
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name = "DocumentMoveDocumentToTeamResponseBody";
+    this.name = "DocumentMoveDocumentToTeamBadRequestError";
   }
 }
 
 /** @internal */
-export const DocumentMoveDocumentToTeamDocumentsIssues$inboundSchema: z.ZodType<
-  DocumentMoveDocumentToTeamDocumentsIssues,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  message: z.string(),
-});
-
-/** @internal */
-export type DocumentMoveDocumentToTeamDocumentsIssues$Outbound = {
-  message: string;
-};
-
-/** @internal */
-export const DocumentMoveDocumentToTeamDocumentsIssues$outboundSchema:
+export const DocumentMoveDocumentToTeamInternalServerErrorIssues$inboundSchema:
   z.ZodType<
-    DocumentMoveDocumentToTeamDocumentsIssues$Outbound,
+    DocumentMoveDocumentToTeamInternalServerErrorIssues,
     z.ZodTypeDef,
-    DocumentMoveDocumentToTeamDocumentsIssues
+    unknown
+  > = z.object({
+    message: z.string(),
+  });
+
+/** @internal */
+export type DocumentMoveDocumentToTeamInternalServerErrorIssues$Outbound = {
+  message: string;
+};
+
+/** @internal */
+export const DocumentMoveDocumentToTeamInternalServerErrorIssues$outboundSchema:
+  z.ZodType<
+    DocumentMoveDocumentToTeamInternalServerErrorIssues$Outbound,
+    z.ZodTypeDef,
+    DocumentMoveDocumentToTeamInternalServerErrorIssues
   > = z.object({
     message: z.string(),
   });
@@ -109,83 +114,88 @@ export const DocumentMoveDocumentToTeamDocumentsIssues$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentMoveDocumentToTeamDocumentsIssues$ {
-  /** @deprecated use `DocumentMoveDocumentToTeamDocumentsIssues$inboundSchema` instead. */
+export namespace DocumentMoveDocumentToTeamInternalServerErrorIssues$ {
+  /** @deprecated use `DocumentMoveDocumentToTeamInternalServerErrorIssues$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentMoveDocumentToTeamDocumentsIssues$inboundSchema;
-  /** @deprecated use `DocumentMoveDocumentToTeamDocumentsIssues$outboundSchema` instead. */
+    DocumentMoveDocumentToTeamInternalServerErrorIssues$inboundSchema;
+  /** @deprecated use `DocumentMoveDocumentToTeamInternalServerErrorIssues$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentMoveDocumentToTeamDocumentsIssues$outboundSchema;
-  /** @deprecated use `DocumentMoveDocumentToTeamDocumentsIssues$Outbound` instead. */
-  export type Outbound = DocumentMoveDocumentToTeamDocumentsIssues$Outbound;
+    DocumentMoveDocumentToTeamInternalServerErrorIssues$outboundSchema;
+  /** @deprecated use `DocumentMoveDocumentToTeamInternalServerErrorIssues$Outbound` instead. */
+  export type Outbound =
+    DocumentMoveDocumentToTeamInternalServerErrorIssues$Outbound;
 }
 
-export function documentMoveDocumentToTeamDocumentsIssuesToJSON(
-  documentMoveDocumentToTeamDocumentsIssues:
-    DocumentMoveDocumentToTeamDocumentsIssues,
+export function documentMoveDocumentToTeamInternalServerErrorIssuesToJSON(
+  documentMoveDocumentToTeamInternalServerErrorIssues:
+    DocumentMoveDocumentToTeamInternalServerErrorIssues,
 ): string {
   return JSON.stringify(
-    DocumentMoveDocumentToTeamDocumentsIssues$outboundSchema.parse(
-      documentMoveDocumentToTeamDocumentsIssues,
+    DocumentMoveDocumentToTeamInternalServerErrorIssues$outboundSchema.parse(
+      documentMoveDocumentToTeamInternalServerErrorIssues,
     ),
   );
 }
 
-export function documentMoveDocumentToTeamDocumentsIssuesFromJSON(
+export function documentMoveDocumentToTeamInternalServerErrorIssuesFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  DocumentMoveDocumentToTeamDocumentsIssues,
+  DocumentMoveDocumentToTeamInternalServerErrorIssues,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentMoveDocumentToTeamDocumentsIssues$inboundSchema.parse(
+      DocumentMoveDocumentToTeamInternalServerErrorIssues$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'DocumentMoveDocumentToTeamDocumentsIssues' from JSON`,
+    `Failed to parse 'DocumentMoveDocumentToTeamInternalServerErrorIssues' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentMoveDocumentToTeamDocumentsResponseBody$inboundSchema:
+export const DocumentMoveDocumentToTeamInternalServerError$inboundSchema:
   z.ZodType<
-    DocumentMoveDocumentToTeamDocumentsResponseBody,
+    DocumentMoveDocumentToTeamInternalServerError,
     z.ZodTypeDef,
     unknown
   > = z.object({
     message: z.string(),
     code: z.string(),
     issues: z.array(
-      z.lazy(() => DocumentMoveDocumentToTeamDocumentsIssues$inboundSchema),
+      z.lazy(() =>
+        DocumentMoveDocumentToTeamInternalServerErrorIssues$inboundSchema
+      ),
     ).optional(),
   })
     .transform((v) => {
-      return new DocumentMoveDocumentToTeamDocumentsResponseBody(v);
+      return new DocumentMoveDocumentToTeamInternalServerError(v);
     });
 
 /** @internal */
-export type DocumentMoveDocumentToTeamDocumentsResponseBody$Outbound = {
+export type DocumentMoveDocumentToTeamInternalServerError$Outbound = {
   message: string;
   code: string;
   issues?:
-    | Array<DocumentMoveDocumentToTeamDocumentsIssues$Outbound>
+    | Array<DocumentMoveDocumentToTeamInternalServerErrorIssues$Outbound>
     | undefined;
 };
 
 /** @internal */
-export const DocumentMoveDocumentToTeamDocumentsResponseBody$outboundSchema:
+export const DocumentMoveDocumentToTeamInternalServerError$outboundSchema:
   z.ZodType<
-    DocumentMoveDocumentToTeamDocumentsResponseBody$Outbound,
+    DocumentMoveDocumentToTeamInternalServerError$Outbound,
     z.ZodTypeDef,
-    DocumentMoveDocumentToTeamDocumentsResponseBody
-  > = z.instanceof(DocumentMoveDocumentToTeamDocumentsResponseBody)
+    DocumentMoveDocumentToTeamInternalServerError
+  > = z.instanceof(DocumentMoveDocumentToTeamInternalServerError)
     .transform(v => v.data$)
     .pipe(z.object({
       message: z.string(),
       code: z.string(),
       issues: z.array(
-        z.lazy(() => DocumentMoveDocumentToTeamDocumentsIssues$outboundSchema),
+        z.lazy(() =>
+          DocumentMoveDocumentToTeamInternalServerErrorIssues$outboundSchema
+        ),
       ).optional(),
     }));
 
@@ -193,122 +203,133 @@ export const DocumentMoveDocumentToTeamDocumentsResponseBody$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentMoveDocumentToTeamDocumentsResponseBody$ {
-  /** @deprecated use `DocumentMoveDocumentToTeamDocumentsResponseBody$inboundSchema` instead. */
+export namespace DocumentMoveDocumentToTeamInternalServerError$ {
+  /** @deprecated use `DocumentMoveDocumentToTeamInternalServerError$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentMoveDocumentToTeamDocumentsResponseBody$inboundSchema;
-  /** @deprecated use `DocumentMoveDocumentToTeamDocumentsResponseBody$outboundSchema` instead. */
+    DocumentMoveDocumentToTeamInternalServerError$inboundSchema;
+  /** @deprecated use `DocumentMoveDocumentToTeamInternalServerError$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentMoveDocumentToTeamDocumentsResponseBody$outboundSchema;
-  /** @deprecated use `DocumentMoveDocumentToTeamDocumentsResponseBody$Outbound` instead. */
-  export type Outbound =
-    DocumentMoveDocumentToTeamDocumentsResponseBody$Outbound;
+    DocumentMoveDocumentToTeamInternalServerError$outboundSchema;
+  /** @deprecated use `DocumentMoveDocumentToTeamInternalServerError$Outbound` instead. */
+  export type Outbound = DocumentMoveDocumentToTeamInternalServerError$Outbound;
 }
 
 /** @internal */
-export const DocumentMoveDocumentToTeamIssues$inboundSchema: z.ZodType<
-  DocumentMoveDocumentToTeamIssues,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  message: z.string(),
-});
+export const DocumentMoveDocumentToTeamBadRequestIssues$inboundSchema:
+  z.ZodType<DocumentMoveDocumentToTeamBadRequestIssues, z.ZodTypeDef, unknown> =
+    z.object({
+      message: z.string(),
+    });
 
 /** @internal */
-export type DocumentMoveDocumentToTeamIssues$Outbound = {
+export type DocumentMoveDocumentToTeamBadRequestIssues$Outbound = {
   message: string;
 };
 
 /** @internal */
-export const DocumentMoveDocumentToTeamIssues$outboundSchema: z.ZodType<
-  DocumentMoveDocumentToTeamIssues$Outbound,
-  z.ZodTypeDef,
-  DocumentMoveDocumentToTeamIssues
-> = z.object({
-  message: z.string(),
-});
+export const DocumentMoveDocumentToTeamBadRequestIssues$outboundSchema:
+  z.ZodType<
+    DocumentMoveDocumentToTeamBadRequestIssues$Outbound,
+    z.ZodTypeDef,
+    DocumentMoveDocumentToTeamBadRequestIssues
+  > = z.object({
+    message: z.string(),
+  });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentMoveDocumentToTeamIssues$ {
-  /** @deprecated use `DocumentMoveDocumentToTeamIssues$inboundSchema` instead. */
-  export const inboundSchema = DocumentMoveDocumentToTeamIssues$inboundSchema;
-  /** @deprecated use `DocumentMoveDocumentToTeamIssues$outboundSchema` instead. */
-  export const outboundSchema = DocumentMoveDocumentToTeamIssues$outboundSchema;
-  /** @deprecated use `DocumentMoveDocumentToTeamIssues$Outbound` instead. */
-  export type Outbound = DocumentMoveDocumentToTeamIssues$Outbound;
+export namespace DocumentMoveDocumentToTeamBadRequestIssues$ {
+  /** @deprecated use `DocumentMoveDocumentToTeamBadRequestIssues$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentMoveDocumentToTeamBadRequestIssues$inboundSchema;
+  /** @deprecated use `DocumentMoveDocumentToTeamBadRequestIssues$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentMoveDocumentToTeamBadRequestIssues$outboundSchema;
+  /** @deprecated use `DocumentMoveDocumentToTeamBadRequestIssues$Outbound` instead. */
+  export type Outbound = DocumentMoveDocumentToTeamBadRequestIssues$Outbound;
 }
 
-export function documentMoveDocumentToTeamIssuesToJSON(
-  documentMoveDocumentToTeamIssues: DocumentMoveDocumentToTeamIssues,
+export function documentMoveDocumentToTeamBadRequestIssuesToJSON(
+  documentMoveDocumentToTeamBadRequestIssues:
+    DocumentMoveDocumentToTeamBadRequestIssues,
 ): string {
   return JSON.stringify(
-    DocumentMoveDocumentToTeamIssues$outboundSchema.parse(
-      documentMoveDocumentToTeamIssues,
+    DocumentMoveDocumentToTeamBadRequestIssues$outboundSchema.parse(
+      documentMoveDocumentToTeamBadRequestIssues,
     ),
   );
 }
 
-export function documentMoveDocumentToTeamIssuesFromJSON(
+export function documentMoveDocumentToTeamBadRequestIssuesFromJSON(
   jsonString: string,
-): SafeParseResult<DocumentMoveDocumentToTeamIssues, SDKValidationError> {
+): SafeParseResult<
+  DocumentMoveDocumentToTeamBadRequestIssues,
+  SDKValidationError
+> {
   return safeParse(
     jsonString,
-    (x) => DocumentMoveDocumentToTeamIssues$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DocumentMoveDocumentToTeamIssues' from JSON`,
+    (x) =>
+      DocumentMoveDocumentToTeamBadRequestIssues$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'DocumentMoveDocumentToTeamBadRequestIssues' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentMoveDocumentToTeamResponseBody$inboundSchema: z.ZodType<
-  DocumentMoveDocumentToTeamResponseBody,
+export const DocumentMoveDocumentToTeamBadRequestError$inboundSchema: z.ZodType<
+  DocumentMoveDocumentToTeamBadRequestError,
   z.ZodTypeDef,
   unknown
 > = z.object({
   message: z.string(),
   code: z.string(),
-  issues: z.array(z.lazy(() => DocumentMoveDocumentToTeamIssues$inboundSchema))
-    .optional(),
+  issues: z.array(
+    z.lazy(() => DocumentMoveDocumentToTeamBadRequestIssues$inboundSchema),
+  ).optional(),
 })
   .transform((v) => {
-    return new DocumentMoveDocumentToTeamResponseBody(v);
+    return new DocumentMoveDocumentToTeamBadRequestError(v);
   });
 
 /** @internal */
-export type DocumentMoveDocumentToTeamResponseBody$Outbound = {
+export type DocumentMoveDocumentToTeamBadRequestError$Outbound = {
   message: string;
   code: string;
-  issues?: Array<DocumentMoveDocumentToTeamIssues$Outbound> | undefined;
+  issues?:
+    | Array<DocumentMoveDocumentToTeamBadRequestIssues$Outbound>
+    | undefined;
 };
 
 /** @internal */
-export const DocumentMoveDocumentToTeamResponseBody$outboundSchema: z.ZodType<
-  DocumentMoveDocumentToTeamResponseBody$Outbound,
-  z.ZodTypeDef,
-  DocumentMoveDocumentToTeamResponseBody
-> = z.instanceof(DocumentMoveDocumentToTeamResponseBody)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => DocumentMoveDocumentToTeamIssues$outboundSchema),
-    ).optional(),
-  }));
+export const DocumentMoveDocumentToTeamBadRequestError$outboundSchema:
+  z.ZodType<
+    DocumentMoveDocumentToTeamBadRequestError$Outbound,
+    z.ZodTypeDef,
+    DocumentMoveDocumentToTeamBadRequestError
+  > = z.instanceof(DocumentMoveDocumentToTeamBadRequestError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => DocumentMoveDocumentToTeamBadRequestIssues$outboundSchema),
+      ).optional(),
+    }));
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentMoveDocumentToTeamResponseBody$ {
-  /** @deprecated use `DocumentMoveDocumentToTeamResponseBody$inboundSchema` instead. */
+export namespace DocumentMoveDocumentToTeamBadRequestError$ {
+  /** @deprecated use `DocumentMoveDocumentToTeamBadRequestError$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentMoveDocumentToTeamResponseBody$inboundSchema;
-  /** @deprecated use `DocumentMoveDocumentToTeamResponseBody$outboundSchema` instead. */
+    DocumentMoveDocumentToTeamBadRequestError$inboundSchema;
+  /** @deprecated use `DocumentMoveDocumentToTeamBadRequestError$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentMoveDocumentToTeamResponseBody$outboundSchema;
-  /** @deprecated use `DocumentMoveDocumentToTeamResponseBody$Outbound` instead. */
-  export type Outbound = DocumentMoveDocumentToTeamResponseBody$Outbound;
+    DocumentMoveDocumentToTeamBadRequestError$outboundSchema;
+  /** @deprecated use `DocumentMoveDocumentToTeamBadRequestError$Outbound` instead. */
+  export type Outbound = DocumentMoveDocumentToTeamBadRequestError$Outbound;
 }

@@ -1,0 +1,30 @@
+# FieldCreateTemplateFieldFieldRadio
+
+## Example Usage
+
+```typescript
+import { FieldCreateTemplateFieldFieldRadio } from "@documenso/sdk-typescript/models/operations";
+
+let value: FieldCreateTemplateFieldFieldRadio = {
+  type: "RADIO",
+  recipientId: 8019.58,
+  pageNumber: 263.21,
+  pageX: 7188.79,
+  pageY: 8256.81,
+  width: 7468.34,
+  height: 5123.49,
+};
+```
+
+## Fields
+
+| Field                                                                                                                            | Type                                                                                                                             | Required                                                                                                                         | Description                                                                                                                      |
+| -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `type`                                                                                                                           | [operations.FieldCreateTemplateFieldFieldTypeRadio](../../models/operations/fieldcreatetemplatefieldfieldtyperadio.md)           | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
+| `fieldMeta`                                                                                                                      | [operations.FieldCreateTemplateFieldFieldFieldMetaRadio](../../models/operations/fieldcreatetemplatefieldfieldfieldmetaradio.md) | :heavy_minus_sign:                                                                                                               | N/A                                                                                                                              |
+| `recipientId`                                                                                                                    | *number*                                                                                                                         | :heavy_check_mark:                                                                                                               | The ID of the recipient to create the field for.                                                                                 |
+| `pageNumber`                                                                                                                     | *number*                                                                                                                         | :heavy_check_mark:                                                                                                               | The page number the field will be on.                                                                                            |
+| `pageX`                                                                                                                          | *number*                                                                                                                         | :heavy_check_mark:                                                                                                               | The X coordinate of where the field will be placed.                                                                              |
+| `pageY`                                                                                                                          | *number*                                                                                                                         | :heavy_check_mark:                                                                                                               | The Y coordinate of where the field will be placed.                                                                              |
+| `width`                                                                                                                          | *number*                                                                                                                         | :heavy_check_mark:                                                                                                               | The width of the field.                                                                                                          |
+| `height`                                                                                                                         | *number*                                                                                                                         | :heavy_check_mark:                                                                                                               | The height of the field.                                                                                                         |

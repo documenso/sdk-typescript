@@ -1,0 +1,22 @@
+# FieldCreateTemplateFieldResponseRadio
+
+## Example Usage
+
+```typescript
+import { FieldCreateTemplateFieldResponseRadio } from "@documenso/sdk-typescript/models/operations";
+
+let value: FieldCreateTemplateFieldResponseRadio = {
+  type: "radio",
+};
+```
+
+## Fields
+
+| Field                                                                                                                              | Type                                                                                                                               | Required                                                                                                                           | Description                                                                                                                        |
+| ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `label`                                                                                                                            | *string*                                                                                                                           | :heavy_minus_sign:                                                                                                                 | N/A                                                                                                                                |
+| `placeholder`                                                                                                                      | *string*                                                                                                                           | :heavy_minus_sign:                                                                                                                 | N/A                                                                                                                                |
+| `required`                                                                                                                         | *boolean*                                                                                                                          | :heavy_minus_sign:                                                                                                                 | N/A                                                                                                                                |
+| `readOnly`                                                                                                                         | *boolean*                                                                                                                          | :heavy_minus_sign:                                                                                                                 | N/A                                                                                                                                |
+| `type`                                                                                                                             | [operations.FieldCreateTemplateFieldResponseTypeRadio](../../models/operations/fieldcreatetemplatefieldresponsetyperadio.md)       | :heavy_check_mark:                                                                                                                 | N/A                                                                                                                                |
+| `values`                                                                                                                           | [operations.FieldCreateTemplateFieldResponseValuesRadio](../../models/operations/fieldcreatetemplatefieldresponsevaluesradio.md)[] | :heavy_minus_sign:                                                                                                                 | N/A                                                                                                                                |

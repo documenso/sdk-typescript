@@ -5,7 +5,7 @@
 ```typescript
 import { DocumentCreateDocumentTemporarySigningStatus } from "@documenso/sdk-typescript/models/operations";
 
-let value: DocumentCreateDocumentTemporarySigningStatus = "REJECTED";
+let value: DocumentCreateDocumentTemporarySigningStatus = "NOT_SIGNED";
 ```
 
 ## Values

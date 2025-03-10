@@ -1,0 +1,30 @@
+# FieldCreateTemplateFieldsRequestInitials
+
+## Example Usage
+
+```typescript
+import { FieldCreateTemplateFieldsRequestInitials } from "@documenso/sdk-typescript/models/operations";
+
+let value: FieldCreateTemplateFieldsRequestInitials = {
+  type: "INITIALS",
+  recipientId: 7083.6,
+  pageNumber: 3927.59,
+  pageX: 292.7,
+  pageY: 4349.55,
+  width: 9082.73,
+  height: 4090.21,
+};
+```
+
+## Fields
+
+| Field                                                                                                                                        | Type                                                                                                                                         | Required                                                                                                                                     | Description                                                                                                                                  |
+| -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`                                                                                                                                       | [operations.FieldCreateTemplateFieldsRequestTypeInitials](../../models/operations/fieldcreatetemplatefieldsrequesttypeinitials.md)           | :heavy_check_mark:                                                                                                                           | N/A                                                                                                                                          |
+| `fieldMeta`                                                                                                                                  | [operations.FieldCreateTemplateFieldsRequestFieldMetaInitials](../../models/operations/fieldcreatetemplatefieldsrequestfieldmetainitials.md) | :heavy_minus_sign:                                                                                                                           | N/A                                                                                                                                          |
+| `recipientId`                                                                                                                                | *number*                                                                                                                                     | :heavy_check_mark:                                                                                                                           | The ID of the recipient to create the field for.                                                                                             |
+| `pageNumber`                                                                                                                                 | *number*                                                                                                                                     | :heavy_check_mark:                                                                                                                           | The page number the field will be on.                                                                                                        |
+| `pageX`                                                                                                                                      | *number*                                                                                                                                     | :heavy_check_mark:                                                                                                                           | The X coordinate of where the field will be placed.                                                                                          |
+| `pageY`                                                                                                                                      | *number*                                                                                                                                     | :heavy_check_mark:                                                                                                                           | The Y coordinate of where the field will be placed.                                                                                          |
+| `width`                                                                                                                                      | *number*                                                                                                                                     | :heavy_check_mark:                                                                                                                           | The width of the field.                                                                                                                      |
+| `height`                                                                                                                                     | *number*                                                                                                                                     | :heavy_check_mark:                                                                                                                           | The height of the field.                                                                                                                     |

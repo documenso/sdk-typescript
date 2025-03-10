@@ -7,32 +7,30 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
-export type TemplateGetTemplateByIdTemplatesResponseIssues = {
+export type TemplateGetTemplateByIdInternalServerErrorIssues = {
   message: string;
 };
 
 /**
  * Internal server error
  */
-export type TemplateGetTemplateByIdTemplatesResponseResponseBodyData = {
+export type TemplateGetTemplateByIdInternalServerErrorData = {
   message: string;
   code: string;
-  issues?: Array<TemplateGetTemplateByIdTemplatesResponseIssues> | undefined;
+  issues?: Array<TemplateGetTemplateByIdInternalServerErrorIssues> | undefined;
 };
 
 /**
  * Internal server error
  */
-export class TemplateGetTemplateByIdTemplatesResponseResponseBody
-  extends Error
-{
+export class TemplateGetTemplateByIdInternalServerError extends Error {
   code: string;
-  issues?: Array<TemplateGetTemplateByIdTemplatesResponseIssues> | undefined;
+  issues?: Array<TemplateGetTemplateByIdInternalServerErrorIssues> | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: TemplateGetTemplateByIdTemplatesResponseResponseBodyData;
+  data$: TemplateGetTemplateByIdInternalServerErrorData;
 
-  constructor(err: TemplateGetTemplateByIdTemplatesResponseResponseBodyData) {
+  constructor(err: TemplateGetTemplateByIdInternalServerErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -42,34 +40,34 @@ export class TemplateGetTemplateByIdTemplatesResponseResponseBody
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name = "TemplateGetTemplateByIdTemplatesResponseResponseBody";
+    this.name = "TemplateGetTemplateByIdInternalServerError";
   }
 }
 
-export type TemplateGetTemplateByIdTemplatesIssues = {
+export type TemplateGetTemplateByIdNotFoundIssues = {
   message: string;
 };
 
 /**
  * Not found
  */
-export type TemplateGetTemplateByIdTemplatesResponseBodyData = {
+export type TemplateGetTemplateByIdNotFoundErrorData = {
   message: string;
   code: string;
-  issues?: Array<TemplateGetTemplateByIdTemplatesIssues> | undefined;
+  issues?: Array<TemplateGetTemplateByIdNotFoundIssues> | undefined;
 };
 
 /**
  * Not found
  */
-export class TemplateGetTemplateByIdTemplatesResponseBody extends Error {
+export class TemplateGetTemplateByIdNotFoundError extends Error {
   code: string;
-  issues?: Array<TemplateGetTemplateByIdTemplatesIssues> | undefined;
+  issues?: Array<TemplateGetTemplateByIdNotFoundIssues> | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: TemplateGetTemplateByIdTemplatesResponseBodyData;
+  data$: TemplateGetTemplateByIdNotFoundErrorData;
 
-  constructor(err: TemplateGetTemplateByIdTemplatesResponseBodyData) {
+  constructor(err: TemplateGetTemplateByIdNotFoundErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -79,34 +77,34 @@ export class TemplateGetTemplateByIdTemplatesResponseBody extends Error {
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name = "TemplateGetTemplateByIdTemplatesResponseBody";
+    this.name = "TemplateGetTemplateByIdNotFoundError";
   }
 }
 
-export type TemplateGetTemplateByIdIssues = {
+export type TemplateGetTemplateByIdBadRequestIssues = {
   message: string;
 };
 
 /**
  * Invalid input data
  */
-export type TemplateGetTemplateByIdResponseBodyData = {
+export type TemplateGetTemplateByIdBadRequestErrorData = {
   message: string;
   code: string;
-  issues?: Array<TemplateGetTemplateByIdIssues> | undefined;
+  issues?: Array<TemplateGetTemplateByIdBadRequestIssues> | undefined;
 };
 
 /**
  * Invalid input data
  */
-export class TemplateGetTemplateByIdResponseBody extends Error {
+export class TemplateGetTemplateByIdBadRequestError extends Error {
   code: string;
-  issues?: Array<TemplateGetTemplateByIdIssues> | undefined;
+  issues?: Array<TemplateGetTemplateByIdBadRequestIssues> | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: TemplateGetTemplateByIdResponseBodyData;
+  data$: TemplateGetTemplateByIdBadRequestErrorData;
 
-  constructor(err: TemplateGetTemplateByIdResponseBodyData) {
+  constructor(err: TemplateGetTemplateByIdBadRequestErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -116,14 +114,14 @@ export class TemplateGetTemplateByIdResponseBody extends Error {
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name = "TemplateGetTemplateByIdResponseBody";
+    this.name = "TemplateGetTemplateByIdBadRequestError";
   }
 }
 
 /** @internal */
-export const TemplateGetTemplateByIdTemplatesResponseIssues$inboundSchema:
+export const TemplateGetTemplateByIdInternalServerErrorIssues$inboundSchema:
   z.ZodType<
-    TemplateGetTemplateByIdTemplatesResponseIssues,
+    TemplateGetTemplateByIdInternalServerErrorIssues,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -131,16 +129,16 @@ export const TemplateGetTemplateByIdTemplatesResponseIssues$inboundSchema:
   });
 
 /** @internal */
-export type TemplateGetTemplateByIdTemplatesResponseIssues$Outbound = {
+export type TemplateGetTemplateByIdInternalServerErrorIssues$Outbound = {
   message: string;
 };
 
 /** @internal */
-export const TemplateGetTemplateByIdTemplatesResponseIssues$outboundSchema:
+export const TemplateGetTemplateByIdInternalServerErrorIssues$outboundSchema:
   z.ZodType<
-    TemplateGetTemplateByIdTemplatesResponseIssues$Outbound,
+    TemplateGetTemplateByIdInternalServerErrorIssues$Outbound,
     z.ZodTypeDef,
-    TemplateGetTemplateByIdTemplatesResponseIssues
+    TemplateGetTemplateByIdInternalServerErrorIssues
   > = z.object({
     message: z.string(),
   });
@@ -149,87 +147,84 @@ export const TemplateGetTemplateByIdTemplatesResponseIssues$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateGetTemplateByIdTemplatesResponseIssues$ {
-  /** @deprecated use `TemplateGetTemplateByIdTemplatesResponseIssues$inboundSchema` instead. */
+export namespace TemplateGetTemplateByIdInternalServerErrorIssues$ {
+  /** @deprecated use `TemplateGetTemplateByIdInternalServerErrorIssues$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateGetTemplateByIdTemplatesResponseIssues$inboundSchema;
-  /** @deprecated use `TemplateGetTemplateByIdTemplatesResponseIssues$outboundSchema` instead. */
+    TemplateGetTemplateByIdInternalServerErrorIssues$inboundSchema;
+  /** @deprecated use `TemplateGetTemplateByIdInternalServerErrorIssues$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateGetTemplateByIdTemplatesResponseIssues$outboundSchema;
-  /** @deprecated use `TemplateGetTemplateByIdTemplatesResponseIssues$Outbound` instead. */
+    TemplateGetTemplateByIdInternalServerErrorIssues$outboundSchema;
+  /** @deprecated use `TemplateGetTemplateByIdInternalServerErrorIssues$Outbound` instead. */
   export type Outbound =
-    TemplateGetTemplateByIdTemplatesResponseIssues$Outbound;
+    TemplateGetTemplateByIdInternalServerErrorIssues$Outbound;
 }
 
-export function templateGetTemplateByIdTemplatesResponseIssuesToJSON(
-  templateGetTemplateByIdTemplatesResponseIssues:
-    TemplateGetTemplateByIdTemplatesResponseIssues,
+export function templateGetTemplateByIdInternalServerErrorIssuesToJSON(
+  templateGetTemplateByIdInternalServerErrorIssues:
+    TemplateGetTemplateByIdInternalServerErrorIssues,
 ): string {
   return JSON.stringify(
-    TemplateGetTemplateByIdTemplatesResponseIssues$outboundSchema.parse(
-      templateGetTemplateByIdTemplatesResponseIssues,
+    TemplateGetTemplateByIdInternalServerErrorIssues$outboundSchema.parse(
+      templateGetTemplateByIdInternalServerErrorIssues,
     ),
   );
 }
 
-export function templateGetTemplateByIdTemplatesResponseIssuesFromJSON(
+export function templateGetTemplateByIdInternalServerErrorIssuesFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  TemplateGetTemplateByIdTemplatesResponseIssues,
+  TemplateGetTemplateByIdInternalServerErrorIssues,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      TemplateGetTemplateByIdTemplatesResponseIssues$inboundSchema.parse(
+      TemplateGetTemplateByIdInternalServerErrorIssues$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'TemplateGetTemplateByIdTemplatesResponseIssues' from JSON`,
+    `Failed to parse 'TemplateGetTemplateByIdInternalServerErrorIssues' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateGetTemplateByIdTemplatesResponseResponseBody$inboundSchema:
-  z.ZodType<
-    TemplateGetTemplateByIdTemplatesResponseResponseBody,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
-        TemplateGetTemplateByIdTemplatesResponseIssues$inboundSchema
-      ),
-    ).optional(),
-  })
-    .transform((v) => {
-      return new TemplateGetTemplateByIdTemplatesResponseResponseBody(v);
-    });
+export const TemplateGetTemplateByIdInternalServerError$inboundSchema:
+  z.ZodType<TemplateGetTemplateByIdInternalServerError, z.ZodTypeDef, unknown> =
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() =>
+          TemplateGetTemplateByIdInternalServerErrorIssues$inboundSchema
+        ),
+      ).optional(),
+    })
+      .transform((v) => {
+        return new TemplateGetTemplateByIdInternalServerError(v);
+      });
 
 /** @internal */
-export type TemplateGetTemplateByIdTemplatesResponseResponseBody$Outbound = {
+export type TemplateGetTemplateByIdInternalServerError$Outbound = {
   message: string;
   code: string;
   issues?:
-    | Array<TemplateGetTemplateByIdTemplatesResponseIssues$Outbound>
+    | Array<TemplateGetTemplateByIdInternalServerErrorIssues$Outbound>
     | undefined;
 };
 
 /** @internal */
-export const TemplateGetTemplateByIdTemplatesResponseResponseBody$outboundSchema:
+export const TemplateGetTemplateByIdInternalServerError$outboundSchema:
   z.ZodType<
-    TemplateGetTemplateByIdTemplatesResponseResponseBody$Outbound,
+    TemplateGetTemplateByIdInternalServerError$Outbound,
     z.ZodTypeDef,
-    TemplateGetTemplateByIdTemplatesResponseResponseBody
-  > = z.instanceof(TemplateGetTemplateByIdTemplatesResponseResponseBody)
+    TemplateGetTemplateByIdInternalServerError
+  > = z.instanceof(TemplateGetTemplateByIdInternalServerError)
     .transform(v => v.data$)
     .pipe(z.object({
       message: z.string(),
       code: z.string(),
       issues: z.array(
         z.lazy(() =>
-          TemplateGetTemplateByIdTemplatesResponseIssues$outboundSchema
+          TemplateGetTemplateByIdInternalServerErrorIssues$outboundSchema
         ),
       ).optional(),
     }));
@@ -238,21 +233,20 @@ export const TemplateGetTemplateByIdTemplatesResponseResponseBody$outboundSchema
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateGetTemplateByIdTemplatesResponseResponseBody$ {
-  /** @deprecated use `TemplateGetTemplateByIdTemplatesResponseResponseBody$inboundSchema` instead. */
+export namespace TemplateGetTemplateByIdInternalServerError$ {
+  /** @deprecated use `TemplateGetTemplateByIdInternalServerError$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateGetTemplateByIdTemplatesResponseResponseBody$inboundSchema;
-  /** @deprecated use `TemplateGetTemplateByIdTemplatesResponseResponseBody$outboundSchema` instead. */
+    TemplateGetTemplateByIdInternalServerError$inboundSchema;
+  /** @deprecated use `TemplateGetTemplateByIdInternalServerError$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateGetTemplateByIdTemplatesResponseResponseBody$outboundSchema;
-  /** @deprecated use `TemplateGetTemplateByIdTemplatesResponseResponseBody$Outbound` instead. */
-  export type Outbound =
-    TemplateGetTemplateByIdTemplatesResponseResponseBody$Outbound;
+    TemplateGetTemplateByIdInternalServerError$outboundSchema;
+  /** @deprecated use `TemplateGetTemplateByIdInternalServerError$Outbound` instead. */
+  export type Outbound = TemplateGetTemplateByIdInternalServerError$Outbound;
 }
 
 /** @internal */
-export const TemplateGetTemplateByIdTemplatesIssues$inboundSchema: z.ZodType<
-  TemplateGetTemplateByIdTemplatesIssues,
+export const TemplateGetTemplateByIdNotFoundIssues$inboundSchema: z.ZodType<
+  TemplateGetTemplateByIdNotFoundIssues,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -260,15 +254,15 @@ export const TemplateGetTemplateByIdTemplatesIssues$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type TemplateGetTemplateByIdTemplatesIssues$Outbound = {
+export type TemplateGetTemplateByIdNotFoundIssues$Outbound = {
   message: string;
 };
 
 /** @internal */
-export const TemplateGetTemplateByIdTemplatesIssues$outboundSchema: z.ZodType<
-  TemplateGetTemplateByIdTemplatesIssues$Outbound,
+export const TemplateGetTemplateByIdNotFoundIssues$outboundSchema: z.ZodType<
+  TemplateGetTemplateByIdNotFoundIssues$Outbound,
   z.ZodTypeDef,
-  TemplateGetTemplateByIdTemplatesIssues
+  TemplateGetTemplateByIdNotFoundIssues
 > = z.object({
   message: z.string(),
 });
@@ -277,197 +271,205 @@ export const TemplateGetTemplateByIdTemplatesIssues$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateGetTemplateByIdTemplatesIssues$ {
-  /** @deprecated use `TemplateGetTemplateByIdTemplatesIssues$inboundSchema` instead. */
+export namespace TemplateGetTemplateByIdNotFoundIssues$ {
+  /** @deprecated use `TemplateGetTemplateByIdNotFoundIssues$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateGetTemplateByIdTemplatesIssues$inboundSchema;
-  /** @deprecated use `TemplateGetTemplateByIdTemplatesIssues$outboundSchema` instead. */
+    TemplateGetTemplateByIdNotFoundIssues$inboundSchema;
+  /** @deprecated use `TemplateGetTemplateByIdNotFoundIssues$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateGetTemplateByIdTemplatesIssues$outboundSchema;
-  /** @deprecated use `TemplateGetTemplateByIdTemplatesIssues$Outbound` instead. */
-  export type Outbound = TemplateGetTemplateByIdTemplatesIssues$Outbound;
+    TemplateGetTemplateByIdNotFoundIssues$outboundSchema;
+  /** @deprecated use `TemplateGetTemplateByIdNotFoundIssues$Outbound` instead. */
+  export type Outbound = TemplateGetTemplateByIdNotFoundIssues$Outbound;
 }
 
-export function templateGetTemplateByIdTemplatesIssuesToJSON(
-  templateGetTemplateByIdTemplatesIssues:
-    TemplateGetTemplateByIdTemplatesIssues,
+export function templateGetTemplateByIdNotFoundIssuesToJSON(
+  templateGetTemplateByIdNotFoundIssues: TemplateGetTemplateByIdNotFoundIssues,
 ): string {
   return JSON.stringify(
-    TemplateGetTemplateByIdTemplatesIssues$outboundSchema.parse(
-      templateGetTemplateByIdTemplatesIssues,
+    TemplateGetTemplateByIdNotFoundIssues$outboundSchema.parse(
+      templateGetTemplateByIdNotFoundIssues,
     ),
   );
 }
 
-export function templateGetTemplateByIdTemplatesIssuesFromJSON(
+export function templateGetTemplateByIdNotFoundIssuesFromJSON(
   jsonString: string,
-): SafeParseResult<TemplateGetTemplateByIdTemplatesIssues, SDKValidationError> {
+): SafeParseResult<TemplateGetTemplateByIdNotFoundIssues, SDKValidationError> {
   return safeParse(
     jsonString,
     (x) =>
-      TemplateGetTemplateByIdTemplatesIssues$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TemplateGetTemplateByIdTemplatesIssues' from JSON`,
+      TemplateGetTemplateByIdNotFoundIssues$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateGetTemplateByIdNotFoundIssues' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateGetTemplateByIdTemplatesResponseBody$inboundSchema:
-  z.ZodType<
-    TemplateGetTemplateByIdTemplatesResponseBody,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => TemplateGetTemplateByIdTemplatesIssues$inboundSchema),
-    ).optional(),
-  })
-    .transform((v) => {
-      return new TemplateGetTemplateByIdTemplatesResponseBody(v);
-    });
-
-/** @internal */
-export type TemplateGetTemplateByIdTemplatesResponseBody$Outbound = {
-  message: string;
-  code: string;
-  issues?: Array<TemplateGetTemplateByIdTemplatesIssues$Outbound> | undefined;
-};
-
-/** @internal */
-export const TemplateGetTemplateByIdTemplatesResponseBody$outboundSchema:
-  z.ZodType<
-    TemplateGetTemplateByIdTemplatesResponseBody$Outbound,
-    z.ZodTypeDef,
-    TemplateGetTemplateByIdTemplatesResponseBody
-  > = z.instanceof(TemplateGetTemplateByIdTemplatesResponseBody)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() => TemplateGetTemplateByIdTemplatesIssues$outboundSchema),
-      ).optional(),
-    }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TemplateGetTemplateByIdTemplatesResponseBody$ {
-  /** @deprecated use `TemplateGetTemplateByIdTemplatesResponseBody$inboundSchema` instead. */
-  export const inboundSchema =
-    TemplateGetTemplateByIdTemplatesResponseBody$inboundSchema;
-  /** @deprecated use `TemplateGetTemplateByIdTemplatesResponseBody$outboundSchema` instead. */
-  export const outboundSchema =
-    TemplateGetTemplateByIdTemplatesResponseBody$outboundSchema;
-  /** @deprecated use `TemplateGetTemplateByIdTemplatesResponseBody$Outbound` instead. */
-  export type Outbound = TemplateGetTemplateByIdTemplatesResponseBody$Outbound;
-}
-
-/** @internal */
-export const TemplateGetTemplateByIdIssues$inboundSchema: z.ZodType<
-  TemplateGetTemplateByIdIssues,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  message: z.string(),
-});
-
-/** @internal */
-export type TemplateGetTemplateByIdIssues$Outbound = {
-  message: string;
-};
-
-/** @internal */
-export const TemplateGetTemplateByIdIssues$outboundSchema: z.ZodType<
-  TemplateGetTemplateByIdIssues$Outbound,
-  z.ZodTypeDef,
-  TemplateGetTemplateByIdIssues
-> = z.object({
-  message: z.string(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TemplateGetTemplateByIdIssues$ {
-  /** @deprecated use `TemplateGetTemplateByIdIssues$inboundSchema` instead. */
-  export const inboundSchema = TemplateGetTemplateByIdIssues$inboundSchema;
-  /** @deprecated use `TemplateGetTemplateByIdIssues$outboundSchema` instead. */
-  export const outboundSchema = TemplateGetTemplateByIdIssues$outboundSchema;
-  /** @deprecated use `TemplateGetTemplateByIdIssues$Outbound` instead. */
-  export type Outbound = TemplateGetTemplateByIdIssues$Outbound;
-}
-
-export function templateGetTemplateByIdIssuesToJSON(
-  templateGetTemplateByIdIssues: TemplateGetTemplateByIdIssues,
-): string {
-  return JSON.stringify(
-    TemplateGetTemplateByIdIssues$outboundSchema.parse(
-      templateGetTemplateByIdIssues,
-    ),
-  );
-}
-
-export function templateGetTemplateByIdIssuesFromJSON(
-  jsonString: string,
-): SafeParseResult<TemplateGetTemplateByIdIssues, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => TemplateGetTemplateByIdIssues$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TemplateGetTemplateByIdIssues' from JSON`,
-  );
-}
-
-/** @internal */
-export const TemplateGetTemplateByIdResponseBody$inboundSchema: z.ZodType<
-  TemplateGetTemplateByIdResponseBody,
+export const TemplateGetTemplateByIdNotFoundError$inboundSchema: z.ZodType<
+  TemplateGetTemplateByIdNotFoundError,
   z.ZodTypeDef,
   unknown
 > = z.object({
   message: z.string(),
   code: z.string(),
-  issues: z.array(z.lazy(() => TemplateGetTemplateByIdIssues$inboundSchema))
-    .optional(),
+  issues: z.array(
+    z.lazy(() => TemplateGetTemplateByIdNotFoundIssues$inboundSchema),
+  ).optional(),
 })
   .transform((v) => {
-    return new TemplateGetTemplateByIdResponseBody(v);
+    return new TemplateGetTemplateByIdNotFoundError(v);
   });
 
 /** @internal */
-export type TemplateGetTemplateByIdResponseBody$Outbound = {
+export type TemplateGetTemplateByIdNotFoundError$Outbound = {
   message: string;
   code: string;
-  issues?: Array<TemplateGetTemplateByIdIssues$Outbound> | undefined;
+  issues?: Array<TemplateGetTemplateByIdNotFoundIssues$Outbound> | undefined;
 };
 
 /** @internal */
-export const TemplateGetTemplateByIdResponseBody$outboundSchema: z.ZodType<
-  TemplateGetTemplateByIdResponseBody$Outbound,
+export const TemplateGetTemplateByIdNotFoundError$outboundSchema: z.ZodType<
+  TemplateGetTemplateByIdNotFoundError$Outbound,
   z.ZodTypeDef,
-  TemplateGetTemplateByIdResponseBody
-> = z.instanceof(TemplateGetTemplateByIdResponseBody)
+  TemplateGetTemplateByIdNotFoundError
+> = z.instanceof(TemplateGetTemplateByIdNotFoundError)
   .transform(v => v.data$)
   .pipe(z.object({
     message: z.string(),
     code: z.string(),
-    issues: z.array(z.lazy(() => TemplateGetTemplateByIdIssues$outboundSchema))
-      .optional(),
+    issues: z.array(
+      z.lazy(() => TemplateGetTemplateByIdNotFoundIssues$outboundSchema),
+    ).optional(),
   }));
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateGetTemplateByIdResponseBody$ {
-  /** @deprecated use `TemplateGetTemplateByIdResponseBody$inboundSchema` instead. */
+export namespace TemplateGetTemplateByIdNotFoundError$ {
+  /** @deprecated use `TemplateGetTemplateByIdNotFoundError$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateGetTemplateByIdResponseBody$inboundSchema;
-  /** @deprecated use `TemplateGetTemplateByIdResponseBody$outboundSchema` instead. */
+    TemplateGetTemplateByIdNotFoundError$inboundSchema;
+  /** @deprecated use `TemplateGetTemplateByIdNotFoundError$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateGetTemplateByIdResponseBody$outboundSchema;
-  /** @deprecated use `TemplateGetTemplateByIdResponseBody$Outbound` instead. */
-  export type Outbound = TemplateGetTemplateByIdResponseBody$Outbound;
+    TemplateGetTemplateByIdNotFoundError$outboundSchema;
+  /** @deprecated use `TemplateGetTemplateByIdNotFoundError$Outbound` instead. */
+  export type Outbound = TemplateGetTemplateByIdNotFoundError$Outbound;
+}
+
+/** @internal */
+export const TemplateGetTemplateByIdBadRequestIssues$inboundSchema: z.ZodType<
+  TemplateGetTemplateByIdBadRequestIssues,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  message: z.string(),
+});
+
+/** @internal */
+export type TemplateGetTemplateByIdBadRequestIssues$Outbound = {
+  message: string;
+};
+
+/** @internal */
+export const TemplateGetTemplateByIdBadRequestIssues$outboundSchema: z.ZodType<
+  TemplateGetTemplateByIdBadRequestIssues$Outbound,
+  z.ZodTypeDef,
+  TemplateGetTemplateByIdBadRequestIssues
+> = z.object({
+  message: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateGetTemplateByIdBadRequestIssues$ {
+  /** @deprecated use `TemplateGetTemplateByIdBadRequestIssues$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateGetTemplateByIdBadRequestIssues$inboundSchema;
+  /** @deprecated use `TemplateGetTemplateByIdBadRequestIssues$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateGetTemplateByIdBadRequestIssues$outboundSchema;
+  /** @deprecated use `TemplateGetTemplateByIdBadRequestIssues$Outbound` instead. */
+  export type Outbound = TemplateGetTemplateByIdBadRequestIssues$Outbound;
+}
+
+export function templateGetTemplateByIdBadRequestIssuesToJSON(
+  templateGetTemplateByIdBadRequestIssues:
+    TemplateGetTemplateByIdBadRequestIssues,
+): string {
+  return JSON.stringify(
+    TemplateGetTemplateByIdBadRequestIssues$outboundSchema.parse(
+      templateGetTemplateByIdBadRequestIssues,
+    ),
+  );
+}
+
+export function templateGetTemplateByIdBadRequestIssuesFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  TemplateGetTemplateByIdBadRequestIssues,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      TemplateGetTemplateByIdBadRequestIssues$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'TemplateGetTemplateByIdBadRequestIssues' from JSON`,
+  );
+}
+
+/** @internal */
+export const TemplateGetTemplateByIdBadRequestError$inboundSchema: z.ZodType<
+  TemplateGetTemplateByIdBadRequestError,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  message: z.string(),
+  code: z.string(),
+  issues: z.array(
+    z.lazy(() => TemplateGetTemplateByIdBadRequestIssues$inboundSchema),
+  ).optional(),
+})
+  .transform((v) => {
+    return new TemplateGetTemplateByIdBadRequestError(v);
+  });
+
+/** @internal */
+export type TemplateGetTemplateByIdBadRequestError$Outbound = {
+  message: string;
+  code: string;
+  issues?: Array<TemplateGetTemplateByIdBadRequestIssues$Outbound> | undefined;
+};
+
+/** @internal */
+export const TemplateGetTemplateByIdBadRequestError$outboundSchema: z.ZodType<
+  TemplateGetTemplateByIdBadRequestError$Outbound,
+  z.ZodTypeDef,
+  TemplateGetTemplateByIdBadRequestError
+> = z.instanceof(TemplateGetTemplateByIdBadRequestError)
+  .transform(v => v.data$)
+  .pipe(z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => TemplateGetTemplateByIdBadRequestIssues$outboundSchema),
+    ).optional(),
+  }));
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateGetTemplateByIdBadRequestError$ {
+  /** @deprecated use `TemplateGetTemplateByIdBadRequestError$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateGetTemplateByIdBadRequestError$inboundSchema;
+  /** @deprecated use `TemplateGetTemplateByIdBadRequestError$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateGetTemplateByIdBadRequestError$outboundSchema;
+  /** @deprecated use `TemplateGetTemplateByIdBadRequestError$Outbound` instead. */
+  export type Outbound = TemplateGetTemplateByIdBadRequestError$Outbound;
 }

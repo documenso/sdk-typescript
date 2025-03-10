@@ -21,6 +21,7 @@ import {
 import * as errors from "../models/errors/index.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import * as operations from "../models/operations/index.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -29,15 +30,15 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Move a template to a team
  */
-export async function templatesMoveToTeam(
+export function templatesMoveToTeam(
   client: DocumensoCore,
-  request: operations.TemplateMoveTemplateToTeamRequestBody,
+  request: operations.TemplateMoveTemplateToTeamRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
-    operations.TemplateMoveTemplateToTeamResponseBody,
-    | errors.TemplateMoveTemplateToTeamResponseBody
-    | errors.TemplateMoveTemplateToTeamTemplatesResponseBody
+    operations.TemplateMoveTemplateToTeamResponse,
+    | errors.TemplateMoveTemplateToTeamBadRequestError
+    | errors.TemplateMoveTemplateToTeamInternalServerError
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -47,16 +48,42 @@ export async function templatesMoveToTeam(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: DocumensoCore,
+  request: operations.TemplateMoveTemplateToTeamRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      operations.TemplateMoveTemplateToTeamResponse,
+      | errors.TemplateMoveTemplateToTeamBadRequestError
+      | errors.TemplateMoveTemplateToTeamInternalServerError
+      | APIError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) =>
-      operations.TemplateMoveTemplateToTeamRequestBody$outboundSchema.parse(
-        value,
-      ),
+      operations.TemplateMoveTemplateToTeamRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = encodeJSON("body", payload, { explode: true });
@@ -73,6 +100,7 @@ export async function templatesMoveToTeam(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "template-moveTemplateToTeam",
     oAuth2Scopes: [],
 
@@ -95,7 +123,7 @@ export async function templatesMoveToTeam(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -106,7 +134,7 @@ export async function templatesMoveToTeam(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -115,9 +143,9 @@ export async function templatesMoveToTeam(
   };
 
   const [result] = await M.match<
-    operations.TemplateMoveTemplateToTeamResponseBody,
-    | errors.TemplateMoveTemplateToTeamResponseBody
-    | errors.TemplateMoveTemplateToTeamTemplatesResponseBody
+    operations.TemplateMoveTemplateToTeamResponse,
+    | errors.TemplateMoveTemplateToTeamBadRequestError
+    | errors.TemplateMoveTemplateToTeamInternalServerError
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -126,21 +154,21 @@ export async function templatesMoveToTeam(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(
-      200,
-      operations.TemplateMoveTemplateToTeamResponseBody$inboundSchema,
+    M.json(200, operations.TemplateMoveTemplateToTeamResponse$inboundSchema),
+    M.jsonErr(
+      400,
+      errors.TemplateMoveTemplateToTeamBadRequestError$inboundSchema,
     ),
-    M.jsonErr(400, errors.TemplateMoveTemplateToTeamResponseBody$inboundSchema),
     M.jsonErr(
       500,
-      errors.TemplateMoveTemplateToTeamTemplatesResponseBody$inboundSchema,
+      errors.TemplateMoveTemplateToTeamInternalServerError$inboundSchema,
     ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

@@ -3,74 +3,74 @@
 
 ## Supported Types
 
-### `operations.DocumentGetDocumentWithDetailsByIdFieldMeta1`
+### `operations.DocumentGetDocumentWithDetailsByIdInitials`
 
 ```typescript
-const value: operations.DocumentGetDocumentWithDetailsByIdFieldMeta1 = {
+const value: operations.DocumentGetDocumentWithDetailsByIdInitials = {
   type: "initials",
 };
 ```
 
-### `operations.DocumentGetDocumentWithDetailsByIdFieldMeta2`
+### `operations.DocumentGetDocumentWithDetailsByIdName`
 
 ```typescript
-const value: operations.DocumentGetDocumentWithDetailsByIdFieldMeta2 = {
+const value: operations.DocumentGetDocumentWithDetailsByIdName = {
   type: "name",
 };
 ```
 
-### `operations.DocumentGetDocumentWithDetailsByIdFieldMeta3`
+### `operations.DocumentGetDocumentWithDetailsByIdEmail`
 
 ```typescript
-const value: operations.DocumentGetDocumentWithDetailsByIdFieldMeta3 = {
+const value: operations.DocumentGetDocumentWithDetailsByIdEmail = {
   type: "email",
 };
 ```
 
-### `operations.DocumentGetDocumentWithDetailsByIdFieldMeta4`
+### `operations.DocumentGetDocumentWithDetailsByIdDate`
 
 ```typescript
-const value: operations.DocumentGetDocumentWithDetailsByIdFieldMeta4 = {
+const value: operations.DocumentGetDocumentWithDetailsByIdDate = {
   type: "date",
 };
 ```
 
-### `operations.DocumentGetDocumentWithDetailsByIdFieldMeta5`
+### `operations.DocumentGetDocumentWithDetailsByIdText`
 
 ```typescript
-const value: operations.DocumentGetDocumentWithDetailsByIdFieldMeta5 = {
+const value: operations.DocumentGetDocumentWithDetailsByIdText = {
   type: "text",
 };
 ```
 
-### `operations.DocumentGetDocumentWithDetailsByIdFieldMeta6`
+### `operations.DocumentGetDocumentWithDetailsByIdNumber`
 
 ```typescript
-const value: operations.DocumentGetDocumentWithDetailsByIdFieldMeta6 = {
+const value: operations.DocumentGetDocumentWithDetailsByIdNumber = {
   type: "number",
 };
 ```
 
-### `operations.DocumentGetDocumentWithDetailsByIdFieldMeta7`
+### `operations.DocumentGetDocumentWithDetailsByIdRadio`
 
 ```typescript
-const value: operations.DocumentGetDocumentWithDetailsByIdFieldMeta7 = {
+const value: operations.DocumentGetDocumentWithDetailsByIdRadio = {
   type: "radio",
 };
 ```
 
-### `operations.DocumentGetDocumentWithDetailsByIdFieldMeta8`
+### `operations.DocumentGetDocumentWithDetailsByIdCheckbox`
 
 ```typescript
-const value: operations.DocumentGetDocumentWithDetailsByIdFieldMeta8 = {
+const value: operations.DocumentGetDocumentWithDetailsByIdCheckbox = {
   type: "checkbox",
 };
 ```
 
-### `operations.DocumentGetDocumentWithDetailsByIdFieldMeta9`
+### `operations.DocumentGetDocumentWithDetailsByIdDropdown`
 
 ```typescript
-const value: operations.DocumentGetDocumentWithDetailsByIdFieldMeta9 = {
+const value: operations.DocumentGetDocumentWithDetailsByIdDropdown = {
   type: "dropdown",
 };
 ```

@@ -7,7 +7,7 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type DocumentResendDocumentRequestBody = {
+export type DocumentResendDocumentRequest = {
   documentId: number;
   /**
    * The IDs of the recipients to redistribute the document to.
@@ -18,13 +18,13 @@ export type DocumentResendDocumentRequestBody = {
 /**
  * Successful response
  */
-export type DocumentResendDocumentResponseBody = {
+export type DocumentResendDocumentResponse = {
   success: boolean;
 };
 
 /** @internal */
-export const DocumentResendDocumentRequestBody$inboundSchema: z.ZodType<
-  DocumentResendDocumentRequestBody,
+export const DocumentResendDocumentRequest$inboundSchema: z.ZodType<
+  DocumentResendDocumentRequest,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -33,16 +33,16 @@ export const DocumentResendDocumentRequestBody$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type DocumentResendDocumentRequestBody$Outbound = {
+export type DocumentResendDocumentRequest$Outbound = {
   documentId: number;
   recipients: Array<number>;
 };
 
 /** @internal */
-export const DocumentResendDocumentRequestBody$outboundSchema: z.ZodType<
-  DocumentResendDocumentRequestBody$Outbound,
+export const DocumentResendDocumentRequest$outboundSchema: z.ZodType<
+  DocumentResendDocumentRequest$Outbound,
   z.ZodTypeDef,
-  DocumentResendDocumentRequestBody
+  DocumentResendDocumentRequest
 > = z.object({
   documentId: z.number(),
   recipients: z.array(z.number()),
@@ -52,39 +52,38 @@ export const DocumentResendDocumentRequestBody$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentResendDocumentRequestBody$ {
-  /** @deprecated use `DocumentResendDocumentRequestBody$inboundSchema` instead. */
-  export const inboundSchema = DocumentResendDocumentRequestBody$inboundSchema;
-  /** @deprecated use `DocumentResendDocumentRequestBody$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentResendDocumentRequestBody$outboundSchema;
-  /** @deprecated use `DocumentResendDocumentRequestBody$Outbound` instead. */
-  export type Outbound = DocumentResendDocumentRequestBody$Outbound;
+export namespace DocumentResendDocumentRequest$ {
+  /** @deprecated use `DocumentResendDocumentRequest$inboundSchema` instead. */
+  export const inboundSchema = DocumentResendDocumentRequest$inboundSchema;
+  /** @deprecated use `DocumentResendDocumentRequest$outboundSchema` instead. */
+  export const outboundSchema = DocumentResendDocumentRequest$outboundSchema;
+  /** @deprecated use `DocumentResendDocumentRequest$Outbound` instead. */
+  export type Outbound = DocumentResendDocumentRequest$Outbound;
 }
 
-export function documentResendDocumentRequestBodyToJSON(
-  documentResendDocumentRequestBody: DocumentResendDocumentRequestBody,
+export function documentResendDocumentRequestToJSON(
+  documentResendDocumentRequest: DocumentResendDocumentRequest,
 ): string {
   return JSON.stringify(
-    DocumentResendDocumentRequestBody$outboundSchema.parse(
-      documentResendDocumentRequestBody,
+    DocumentResendDocumentRequest$outboundSchema.parse(
+      documentResendDocumentRequest,
     ),
   );
 }
 
-export function documentResendDocumentRequestBodyFromJSON(
+export function documentResendDocumentRequestFromJSON(
   jsonString: string,
-): SafeParseResult<DocumentResendDocumentRequestBody, SDKValidationError> {
+): SafeParseResult<DocumentResendDocumentRequest, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => DocumentResendDocumentRequestBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DocumentResendDocumentRequestBody' from JSON`,
+    (x) => DocumentResendDocumentRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentResendDocumentRequest' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentResendDocumentResponseBody$inboundSchema: z.ZodType<
-  DocumentResendDocumentResponseBody,
+export const DocumentResendDocumentResponse$inboundSchema: z.ZodType<
+  DocumentResendDocumentResponse,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -92,15 +91,15 @@ export const DocumentResendDocumentResponseBody$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type DocumentResendDocumentResponseBody$Outbound = {
+export type DocumentResendDocumentResponse$Outbound = {
   success: boolean;
 };
 
 /** @internal */
-export const DocumentResendDocumentResponseBody$outboundSchema: z.ZodType<
-  DocumentResendDocumentResponseBody$Outbound,
+export const DocumentResendDocumentResponse$outboundSchema: z.ZodType<
+  DocumentResendDocumentResponse$Outbound,
   z.ZodTypeDef,
-  DocumentResendDocumentResponseBody
+  DocumentResendDocumentResponse
 > = z.object({
   success: z.boolean(),
 });
@@ -109,33 +108,31 @@ export const DocumentResendDocumentResponseBody$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentResendDocumentResponseBody$ {
-  /** @deprecated use `DocumentResendDocumentResponseBody$inboundSchema` instead. */
-  export const inboundSchema = DocumentResendDocumentResponseBody$inboundSchema;
-  /** @deprecated use `DocumentResendDocumentResponseBody$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentResendDocumentResponseBody$outboundSchema;
-  /** @deprecated use `DocumentResendDocumentResponseBody$Outbound` instead. */
-  export type Outbound = DocumentResendDocumentResponseBody$Outbound;
+export namespace DocumentResendDocumentResponse$ {
+  /** @deprecated use `DocumentResendDocumentResponse$inboundSchema` instead. */
+  export const inboundSchema = DocumentResendDocumentResponse$inboundSchema;
+  /** @deprecated use `DocumentResendDocumentResponse$outboundSchema` instead. */
+  export const outboundSchema = DocumentResendDocumentResponse$outboundSchema;
+  /** @deprecated use `DocumentResendDocumentResponse$Outbound` instead. */
+  export type Outbound = DocumentResendDocumentResponse$Outbound;
 }
 
-export function documentResendDocumentResponseBodyToJSON(
-  documentResendDocumentResponseBody: DocumentResendDocumentResponseBody,
+export function documentResendDocumentResponseToJSON(
+  documentResendDocumentResponse: DocumentResendDocumentResponse,
 ): string {
   return JSON.stringify(
-    DocumentResendDocumentResponseBody$outboundSchema.parse(
-      documentResendDocumentResponseBody,
+    DocumentResendDocumentResponse$outboundSchema.parse(
+      documentResendDocumentResponse,
     ),
   );
 }
 
-export function documentResendDocumentResponseBodyFromJSON(
+export function documentResendDocumentResponseFromJSON(
   jsonString: string,
-): SafeParseResult<DocumentResendDocumentResponseBody, SDKValidationError> {
+): SafeParseResult<DocumentResendDocumentResponse, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      DocumentResendDocumentResponseBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DocumentResendDocumentResponseBody' from JSON`,
+    (x) => DocumentResendDocumentResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentResendDocumentResponse' from JSON`,
   );
 }

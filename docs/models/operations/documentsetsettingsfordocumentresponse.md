@@ -1,0 +1,54 @@
+# DocumentSetSettingsForDocumentResponse
+
+Successful response
+
+## Example Usage
+
+```typescript
+import { DocumentSetSettingsForDocumentResponse } from "@documenso/sdk-typescript/models/operations";
+
+let value: DocumentSetSettingsForDocumentResponse = {
+  visibility: "MANAGER_AND_ABOVE",
+  status: "DRAFT",
+  source: "DOCUMENT",
+  id: 2419.01,
+  externalId: "<id>",
+  userId: 4322.81,
+  authOptions: {
+    globalAccessAuth: "ACCOUNT",
+    globalActionAuth: "PASSKEY",
+  },
+  formValues: {
+    "key": 9587.41,
+  },
+  title: "<value>",
+  documentDataId: "<id>",
+  createdAt: "1713729805597",
+  updatedAt: "1741488832095",
+  completedAt: "<value>",
+  deletedAt: "<value>",
+  teamId: 5896.95,
+  templateId: 7453.98,
+};
+```
+
+## Fields
+
+| Field                                                                                                                                      | Type                                                                                                                                       | Required                                                                                                                                   | Description                                                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `visibility`                                                                                                                               | [operations.DocumentSetSettingsForDocumentResponseVisibility](../../models/operations/documentsetsettingsfordocumentresponsevisibility.md) | :heavy_check_mark:                                                                                                                         | N/A                                                                                                                                        |
+| `status`                                                                                                                                   | [operations.DocumentSetSettingsForDocumentStatus](../../models/operations/documentsetsettingsfordocumentstatus.md)                         | :heavy_check_mark:                                                                                                                         | N/A                                                                                                                                        |
+| `source`                                                                                                                                   | [operations.DocumentSetSettingsForDocumentSource](../../models/operations/documentsetsettingsfordocumentsource.md)                         | :heavy_check_mark:                                                                                                                         | N/A                                                                                                                                        |
+| `id`                                                                                                                                       | *number*                                                                                                                                   | :heavy_check_mark:                                                                                                                         | N/A                                                                                                                                        |
+| `externalId`                                                                                                                               | *string*                                                                                                                                   | :heavy_check_mark:                                                                                                                         | A custom external ID you can use to identify the document.                                                                                 |
+| `userId`                                                                                                                                   | *number*                                                                                                                                   | :heavy_check_mark:                                                                                                                         | The ID of the user that created this document.                                                                                             |
+| `authOptions`                                                                                                                              | [operations.DocumentSetSettingsForDocumentAuthOptions](../../models/operations/documentsetsettingsfordocumentauthoptions.md)               | :heavy_check_mark:                                                                                                                         | N/A                                                                                                                                        |
+| `formValues`                                                                                                                               | Record<string, *operations.DocumentSetSettingsForDocumentFormValues*>                                                                      | :heavy_check_mark:                                                                                                                         | N/A                                                                                                                                        |
+| `title`                                                                                                                                    | *string*                                                                                                                                   | :heavy_check_mark:                                                                                                                         | N/A                                                                                                                                        |
+| `documentDataId`                                                                                                                           | *string*                                                                                                                                   | :heavy_check_mark:                                                                                                                         | N/A                                                                                                                                        |
+| `createdAt`                                                                                                                                | *string*                                                                                                                                   | :heavy_check_mark:                                                                                                                         | N/A                                                                                                                                        |
+| `updatedAt`                                                                                                                                | *string*                                                                                                                                   | :heavy_check_mark:                                                                                                                         | N/A                                                                                                                                        |
+| `completedAt`                                                                                                                              | *string*                                                                                                                                   | :heavy_check_mark:                                                                                                                         | N/A                                                                                                                                        |
+| `deletedAt`                                                                                                                                | *string*                                                                                                                                   | :heavy_check_mark:                                                                                                                         | N/A                                                                                                                                        |
+| `teamId`                                                                                                                                   | *number*                                                                                                                                   | :heavy_check_mark:                                                                                                                         | N/A                                                                                                                                        |
+| `templateId`                                                                                                                               | *number*                                                                                                                                   | :heavy_check_mark:                                                                                                                         | N/A                                                                                                                                        |

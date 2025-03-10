@@ -1,0 +1,23 @@
+# FieldGetTemplateFieldDate
+
+## Example Usage
+
+```typescript
+import { FieldGetTemplateFieldDate } from "@documenso/sdk-typescript/models/operations";
+
+let value: FieldGetTemplateFieldDate = {
+  type: "date",
+};
+```
+
+## Fields
+
+| Field                                                                                                          | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `label`                                                                                                        | *string*                                                                                                       | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |
+| `placeholder`                                                                                                  | *string*                                                                                                       | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |
+| `required`                                                                                                     | *boolean*                                                                                                      | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |
+| `readOnly`                                                                                                     | *boolean*                                                                                                      | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |
+| `type`                                                                                                         | [operations.FieldGetTemplateFieldTypeDate](../../models/operations/fieldgettemplatefieldtypedate.md)           | :heavy_check_mark:                                                                                             | N/A                                                                                                            |
+| `fontSize`                                                                                                     | *number*                                                                                                       | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |
+| `textAlign`                                                                                                    | [operations.FieldGetTemplateFieldTextAlignDate](../../models/operations/fieldgettemplatefieldtextaligndate.md) | :heavy_minus_sign:                                                                                             | N/A                                                                                                            |

@@ -3,74 +3,74 @@
 
 ## Supported Types
 
-### `operations.FieldMeta1`
+### `operations.FieldGetDocumentFieldInitials`
 
 ```typescript
-const value: operations.FieldMeta1 = {
+const value: operations.FieldGetDocumentFieldInitials = {
   type: "initials",
 };
 ```
 
-### `operations.FieldMeta2`
+### `operations.FieldGetDocumentFieldName`
 
 ```typescript
-const value: operations.FieldMeta2 = {
+const value: operations.FieldGetDocumentFieldName = {
   type: "name",
 };
 ```
 
-### `operations.FieldMeta3`
+### `operations.FieldGetDocumentFieldEmail`
 
 ```typescript
-const value: operations.FieldMeta3 = {
+const value: operations.FieldGetDocumentFieldEmail = {
   type: "email",
 };
 ```
 
-### `operations.FieldMeta4`
+### `operations.FieldGetDocumentFieldDate`
 
 ```typescript
-const value: operations.FieldMeta4 = {
+const value: operations.FieldGetDocumentFieldDate = {
   type: "date",
 };
 ```
 
-### `operations.FieldMeta5`
+### `operations.FieldGetDocumentFieldText`
 
 ```typescript
-const value: operations.FieldMeta5 = {
+const value: operations.FieldGetDocumentFieldText = {
   type: "text",
 };
 ```
 
-### `operations.FieldMeta6`
+### `operations.FieldGetDocumentFieldNumber`
 
 ```typescript
-const value: operations.FieldMeta6 = {
+const value: operations.FieldGetDocumentFieldNumber = {
   type: "number",
 };
 ```
 
-### `operations.FieldMeta7`
+### `operations.FieldGetDocumentFieldRadio`
 
 ```typescript
-const value: operations.FieldMeta7 = {
+const value: operations.FieldGetDocumentFieldRadio = {
   type: "radio",
 };
 ```
 
-### `operations.FieldMeta8`
+### `operations.FieldGetDocumentFieldCheckbox`
 
 ```typescript
-const value: operations.FieldMeta8 = {
+const value: operations.FieldGetDocumentFieldCheckbox = {
   type: "checkbox",
 };
 ```
 
-### `operations.FieldMeta9`
+### `operations.FieldGetDocumentFieldDropdown`
 
 ```typescript
-const value: operations.FieldMeta9 = {
+const value: operations.FieldGetDocumentFieldDropdown = {
   type: "dropdown",
 };
 ```
