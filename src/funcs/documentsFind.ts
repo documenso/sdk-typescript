@@ -21,6 +21,7 @@ import {
 import * as errors from "../models/errors/index.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import * as operations from "../models/operations/index.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -29,16 +30,16 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Find documents based on a search criteria
  */
-export async function documentsFind(
+export function documentsFind(
   client: DocumensoCore,
   request: operations.DocumentFindDocumentsRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
-    operations.DocumentFindDocumentsResponseBody,
-    | errors.DocumentFindDocumentsResponseBody
-    | errors.DocumentFindDocumentsDocumentsResponseBody
-    | errors.DocumentFindDocumentsDocumentsResponseResponseBody
+    operations.DocumentFindDocumentsResponse,
+    | errors.DocumentFindDocumentsBadRequestError
+    | errors.DocumentFindDocumentsNotFoundError
+    | errors.DocumentFindDocumentsInternalServerError
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -48,6 +49,35 @@ export async function documentsFind(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: DocumensoCore,
+  request: operations.DocumentFindDocumentsRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      operations.DocumentFindDocumentsResponse,
+      | errors.DocumentFindDocumentsBadRequestError
+      | errors.DocumentFindDocumentsNotFoundError
+      | errors.DocumentFindDocumentsInternalServerError
+      | APIError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) =>
@@ -55,7 +85,7 @@ export async function documentsFind(
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = null;
@@ -82,6 +112,7 @@ export async function documentsFind(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "document-findDocuments",
     oAuth2Scopes: [],
 
@@ -105,7 +136,7 @@ export async function documentsFind(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -116,7 +147,7 @@ export async function documentsFind(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -125,10 +156,10 @@ export async function documentsFind(
   };
 
   const [result] = await M.match<
-    operations.DocumentFindDocumentsResponseBody,
-    | errors.DocumentFindDocumentsResponseBody
-    | errors.DocumentFindDocumentsDocumentsResponseBody
-    | errors.DocumentFindDocumentsDocumentsResponseResponseBody
+    operations.DocumentFindDocumentsResponse,
+    | errors.DocumentFindDocumentsBadRequestError
+    | errors.DocumentFindDocumentsNotFoundError
+    | errors.DocumentFindDocumentsInternalServerError
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -137,22 +168,19 @@ export async function documentsFind(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, operations.DocumentFindDocumentsResponseBody$inboundSchema),
-    M.jsonErr(400, errors.DocumentFindDocumentsResponseBody$inboundSchema),
-    M.jsonErr(
-      404,
-      errors.DocumentFindDocumentsDocumentsResponseBody$inboundSchema,
-    ),
+    M.json(200, operations.DocumentFindDocumentsResponse$inboundSchema),
+    M.jsonErr(400, errors.DocumentFindDocumentsBadRequestError$inboundSchema),
+    M.jsonErr(404, errors.DocumentFindDocumentsNotFoundError$inboundSchema),
     M.jsonErr(
       500,
-      errors.DocumentFindDocumentsDocumentsResponseResponseBody$inboundSchema,
+      errors.DocumentFindDocumentsInternalServerError$inboundSchema,
     ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

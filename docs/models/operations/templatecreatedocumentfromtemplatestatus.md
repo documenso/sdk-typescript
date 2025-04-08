@@ -11,5 +11,5 @@ let value: TemplateCreateDocumentFromTemplateStatus = "PENDING";
 ## Values
 
 ```typescript
-"DRAFT" | "PENDING" | "COMPLETED"
+"DRAFT" | "PENDING" | "COMPLETED" | "REJECTED"
 ```

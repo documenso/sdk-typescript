@@ -5,7 +5,7 @@
 ```typescript
 import { DocumentGetDocumentWithDetailsByIdReadStatus } from "@documenso/sdk-typescript/models/operations";
 
-let value: DocumentGetDocumentWithDetailsByIdReadStatus = "NOT_OPENED";
+let value: DocumentGetDocumentWithDetailsByIdReadStatus = "OPENED";
 ```
 
 ## Values

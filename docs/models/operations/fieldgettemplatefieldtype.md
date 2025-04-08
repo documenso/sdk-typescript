@@ -5,7 +5,7 @@
 ```typescript
 import { FieldGetTemplateFieldType } from "@documenso/sdk-typescript/models/operations";
 
-let value: FieldGetTemplateFieldType = "DROPDOWN";
+let value: FieldGetTemplateFieldType = "CHECKBOX";
 ```
 
 ## Values

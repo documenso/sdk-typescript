@@ -79,6 +79,91 @@ yarn add @documenso/sdk-typescript zod
 # Note that Yarn does not install peer dependencies automatically. You will need
 # to install zod as shown above.
 ```
+
+
+
+### Model Context Protocol (MCP) Server
+
+This SDK is also an installable MCP server where the various SDK methods are
+exposed as tools that can be invoked by AI applications.
+
+> Node.js v20 or greater is required to run the MCP server from npm.
+
+<details>
+<summary>Claude installation steps</summary>
+
+Add the following server definition to your `claude_desktop_config.json` file:
+
+```json
+{
+  "mcpServers": {
+    "Documenso": {
+      "command": "npx",
+      "args": [
+        "-y", "--package", "@documenso/sdk-typescript",
+        "--",
+        "mcp", "start",
+        "--api-key", "..."
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary>Cursor installation steps</summary>
+
+Create a `.cursor/mcp.json` file in your project root with the following content:
+
+```json
+{
+  "mcpServers": {
+    "Documenso": {
+      "command": "npx",
+      "args": [
+        "-y", "--package", "@documenso/sdk-typescript",
+        "--",
+        "mcp", "start",
+        "--api-key", "..."
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+You can also run MCP servers as a standalone binary with no additional dependencies. You must pull these binaries from available Github releases:
+
+```bash
+curl -L -o mcp-server \
+    https://github.com/{org}/{repo}/releases/download/{tag}/mcp-server-bun-darwin-arm64 && \
+chmod +x mcp-server
+```
+
+If the repo is a private repo you must add your Github PAT to download a release `-H "Authorization: Bearer {GITHUB_PAT}"`.
+
+
+```json
+{
+  "mcpServers": {
+    "Todos": {
+      "command": "./DOWNLOAD/PATH/mcp-server",
+      "args": [
+        "start"
+      ]
+    }
+  }
+}
+```
+
+For a full list of server arguments, run:
+
+```sh
+npx -y --package @documenso/sdk-typescript -- mcp start --help
+```
 <!-- End SDK Installation [installation] -->
 
 <!-- Start Requirements [requirements] -->
@@ -224,23 +309,23 @@ main()
 * [redistribute](docs/sdks/documents/README.md#redistribute) - Redistribute document
 * [duplicate](docs/sdks/documents/README.md#duplicate) - Duplicate document
 
-#### [documents.fields](docs/sdks/fields/README.md)
+#### [documents.fields](docs/sdks/documentsfields/README.md)
 
-* [get](docs/sdks/fields/README.md#get) - Get document field
-* [create](docs/sdks/fields/README.md#create) - Create document field
-* [createMany](docs/sdks/fields/README.md#createmany) - Create document fields
-* [update](docs/sdks/fields/README.md#update) - Update document field
-* [updateMany](docs/sdks/fields/README.md#updatemany) - Update document fields
-* [delete](docs/sdks/fields/README.md#delete) - Delete document field
+* [get](docs/sdks/documentsfields/README.md#get) - Get document field
+* [create](docs/sdks/documentsfields/README.md#create) - Create document field
+* [createMany](docs/sdks/documentsfields/README.md#createmany) - Create document fields
+* [update](docs/sdks/documentsfields/README.md#update) - Update document field
+* [updateMany](docs/sdks/documentsfields/README.md#updatemany) - Update document fields
+* [delete](docs/sdks/documentsfields/README.md#delete) - Delete document field
 
-#### [documents.recipients](docs/sdks/recipients/README.md)
+#### [documents.recipients](docs/sdks/documentsrecipients/README.md)
 
-* [get](docs/sdks/recipients/README.md#get) - Get document recipient
-* [create](docs/sdks/recipients/README.md#create) - Create document recipient
-* [createMany](docs/sdks/recipients/README.md#createmany) - Create document recipients
-* [update](docs/sdks/recipients/README.md#update) - Update document recipient
-* [updateMany](docs/sdks/recipients/README.md#updatemany) - Update document recipients
-* [delete](docs/sdks/recipients/README.md#delete) - Delete document recipient
+* [get](docs/sdks/documentsrecipients/README.md#get) - Get document recipient
+* [create](docs/sdks/documentsrecipients/README.md#create) - Create document recipient
+* [createMany](docs/sdks/documentsrecipients/README.md#createmany) - Create document recipients
+* [update](docs/sdks/documentsrecipients/README.md#update) - Update document recipient
+* [updateMany](docs/sdks/documentsrecipients/README.md#updatemany) - Update document recipients
+* [delete](docs/sdks/documentsrecipients/README.md#delete) - Delete document recipient
 
 ### [templates](docs/sdks/templates/README.md)
 
@@ -258,23 +343,23 @@ main()
 * [delete](docs/sdks/directlink/README.md#delete) - Delete direct link
 * [toggle](docs/sdks/directlink/README.md#toggle) - Toggle direct link
 
-#### [templates.fields](docs/sdks/documensofields/README.md)
+#### [templates.fields](docs/sdks/templatesfields/README.md)
 
-* [create](docs/sdks/documensofields/README.md#create) - Create template field
-* [get](docs/sdks/documensofields/README.md#get) - Get template field
-* [createMany](docs/sdks/documensofields/README.md#createmany) - Create template fields
-* [update](docs/sdks/documensofields/README.md#update) - Update template field
-* [updateMany](docs/sdks/documensofields/README.md#updatemany) - Update template fields
-* [delete](docs/sdks/documensofields/README.md#delete) - Delete template field
+* [create](docs/sdks/templatesfields/README.md#create) - Create template field
+* [get](docs/sdks/templatesfields/README.md#get) - Get template field
+* [createMany](docs/sdks/templatesfields/README.md#createmany) - Create template fields
+* [update](docs/sdks/templatesfields/README.md#update) - Update template field
+* [updateMany](docs/sdks/templatesfields/README.md#updatemany) - Update template fields
+* [delete](docs/sdks/templatesfields/README.md#delete) - Delete template field
 
-#### [templates.recipients](docs/sdks/documensorecipients/README.md)
+#### [templates.recipients](docs/sdks/templatesrecipients/README.md)
 
-* [get](docs/sdks/documensorecipients/README.md#get) - Get template recipient
-* [create](docs/sdks/documensorecipients/README.md#create) - Create template recipient
-* [createMany](docs/sdks/documensorecipients/README.md#createmany) - Create template recipients
-* [update](docs/sdks/documensorecipients/README.md#update) - Update template recipient
-* [updateMany](docs/sdks/documensorecipients/README.md#updatemany) - Update template recipients
-* [delete](docs/sdks/documensorecipients/README.md#delete) - Delete template recipient
+* [get](docs/sdks/templatesrecipients/README.md#get) - Get template recipient
+* [create](docs/sdks/templatesrecipients/README.md#create) - Create template recipient
+* [createMany](docs/sdks/templatesrecipients/README.md#createmany) - Create template recipients
+* [update](docs/sdks/templatesrecipients/README.md#update) - Update template recipient
+* [updateMany](docs/sdks/templatesrecipients/README.md#updatemany) - Update template recipients
+* [delete](docs/sdks/templatesrecipients/README.md#delete) - Delete template recipient
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -295,9 +380,7 @@ const documenso = new Documenso({
 });
 
 async function run() {
-  const result = await documenso.documents.find({
-    orderByDirection: "desc",
-  }, {
+  const result = await documenso.documents.find({}, {
     retries: {
       strategy: "backoff",
       backoff: {
@@ -337,9 +420,7 @@ const documenso = new Documenso({
 });
 
 async function run() {
-  const result = await documenso.documents.find({
-    orderByDirection: "desc",
-  });
+  const result = await documenso.documents.find({});
 
   // Handle the result
   console.log(result);
@@ -355,21 +436,21 @@ run();
 
 Some methods specify known errors which can be thrown. All the known errors are enumerated in the `models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `find` method may throw the following errors:
 
-| Error Type                                                | Status Code | Content Type     |
-| --------------------------------------------------------- | ----------- | ---------------- |
-| errors.DocumentFindDocumentsResponseBody                  | 400         | application/json |
-| errors.DocumentFindDocumentsDocumentsResponseBody         | 404         | application/json |
-| errors.DocumentFindDocumentsDocumentsResponseResponseBody | 500         | application/json |
-| errors.APIError                                           | 4XX, 5XX    | \*/\*            |
+| Error Type                                      | Status Code | Content Type     |
+| ----------------------------------------------- | ----------- | ---------------- |
+| errors.DocumentFindDocumentsBadRequestError     | 400         | application/json |
+| errors.DocumentFindDocumentsNotFoundError       | 404         | application/json |
+| errors.DocumentFindDocumentsInternalServerError | 500         | application/json |
+| errors.APIError                                 | 4XX, 5XX    | \*/\*            |
 
 If the method throws an error and it is not captured by the known errors, it will default to throwing a `APIError`.
 
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 import {
-  DocumentFindDocumentsDocumentsResponseBody,
-  DocumentFindDocumentsDocumentsResponseResponseBody,
-  DocumentFindDocumentsResponseBody,
+  DocumentFindDocumentsBadRequestError,
+  DocumentFindDocumentsInternalServerError,
+  DocumentFindDocumentsNotFoundError,
   SDKValidationError,
 } from "@documenso/sdk-typescript/models/errors";
 
@@ -380,9 +461,7 @@ const documenso = new Documenso({
 async function run() {
   let result;
   try {
-    result = await documenso.documents.find({
-      orderByDirection: "desc",
-    });
+    result = await documenso.documents.find({});
 
     // Handle the result
     console.log(result);
@@ -396,19 +475,18 @@ async function run() {
         console.error(err.rawValue);
         return;
       }
-      case (err instanceof DocumentFindDocumentsResponseBody): {
-        // Handle err.data$: DocumentFindDocumentsResponseBodyData
+      case (err instanceof DocumentFindDocumentsBadRequestError): {
+        // Handle err.data$: DocumentFindDocumentsBadRequestErrorData
         console.error(err);
         return;
       }
-      case (err instanceof DocumentFindDocumentsDocumentsResponseBody): {
-        // Handle err.data$: DocumentFindDocumentsDocumentsResponseBodyData
+      case (err instanceof DocumentFindDocumentsNotFoundError): {
+        // Handle err.data$: DocumentFindDocumentsNotFoundErrorData
         console.error(err);
         return;
       }
-      case (err
-        instanceof DocumentFindDocumentsDocumentsResponseResponseBody): {
-        // Handle err.data$: DocumentFindDocumentsDocumentsResponseResponseBodyData
+      case (err instanceof DocumentFindDocumentsInternalServerError): {
+        // Handle err.data$: DocumentFindDocumentsInternalServerErrorData
         console.error(err);
         return;
       }
@@ -442,8 +520,7 @@ In some rare cases, the SDK can fail to get a response from the server or even m
 
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
-
+The default server can be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -453,15 +530,14 @@ const documenso = new Documenso({
 });
 
 async function run() {
-  const result = await documenso.documents.find({
-    orderByDirection: "desc",
-  });
+  const result = await documenso.documents.find({});
 
   // Handle the result
   console.log(result);
 }
 
 run();
+
 ```
 <!-- End Server Selection [server] -->
 

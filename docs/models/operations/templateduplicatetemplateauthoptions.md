@@ -7,7 +7,7 @@ import { TemplateDuplicateTemplateAuthOptions } from "@documenso/sdk-typescript/
 
 let value: TemplateDuplicateTemplateAuthOptions = {
   globalAccessAuth: "ACCOUNT",
-  globalActionAuth: "ACCOUNT",
+  globalActionAuth: "TWO_FACTOR_AUTH",
 };
 ```
 

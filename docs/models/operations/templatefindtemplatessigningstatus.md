@@ -5,7 +5,7 @@
 ```typescript
 import { TemplateFindTemplatesSigningStatus } from "@documenso/sdk-typescript/models/operations";
 
-let value: TemplateFindTemplatesSigningStatus = "NOT_SIGNED";
+let value: TemplateFindTemplatesSigningStatus = "SIGNED";
 ```
 
 ## Values

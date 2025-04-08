@@ -5,7 +5,7 @@
 ```typescript
 import { RecipientGetDocumentRecipientType } from "@documenso/sdk-typescript/models/operations";
 
-let value: RecipientGetDocumentRecipientType = "NAME";
+let value: RecipientGetDocumentRecipientType = "EMAIL";
 ```
 
 ## Values

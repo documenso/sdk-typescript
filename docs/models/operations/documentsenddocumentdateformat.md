@@ -7,7 +7,7 @@ The date format to use for date fields and signing the document.
 ```typescript
 import { DocumentSendDocumentDateFormat } from "@documenso/sdk-typescript/models/operations";
 
-let value: DocumentSendDocumentDateFormat = "EEEE, MMMM dd, yyyy hh:mm a";
+let value: DocumentSendDocumentDateFormat = "dd/MM/yyyy hh:mm a";
 ```
 
 ## Values

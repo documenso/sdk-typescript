@@ -21,6 +21,7 @@ import {
 import * as errors from "../models/errors/index.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import * as operations from "../models/operations/index.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -29,15 +30,15 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Update multiple recipients for a template.
  */
-export async function templatesRecipientsUpdateMany(
+export function templatesRecipientsUpdateMany(
   client: DocumensoCore,
-  request: operations.RecipientUpdateTemplateRecipientsRequestBody,
+  request: operations.RecipientUpdateTemplateRecipientsRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
-    operations.RecipientUpdateTemplateRecipientsResponseBody,
-    | errors.RecipientUpdateTemplateRecipientsResponseBody
-    | errors.RecipientUpdateTemplateRecipientsTemplatesRecipientsResponseBody
+    operations.RecipientUpdateTemplateRecipientsResponse,
+    | errors.RecipientUpdateTemplateRecipientsBadRequestError
+    | errors.RecipientUpdateTemplateRecipientsInternalServerError
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -47,15 +48,44 @@ export async function templatesRecipientsUpdateMany(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: DocumensoCore,
+  request: operations.RecipientUpdateTemplateRecipientsRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      operations.RecipientUpdateTemplateRecipientsResponse,
+      | errors.RecipientUpdateTemplateRecipientsBadRequestError
+      | errors.RecipientUpdateTemplateRecipientsInternalServerError
+      | APIError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) =>
-      operations.RecipientUpdateTemplateRecipientsRequestBody$outboundSchema
-        .parse(value),
+      operations.RecipientUpdateTemplateRecipientsRequest$outboundSchema.parse(
+        value,
+      ),
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = encodeJSON("body", payload, { explode: true });
@@ -72,6 +102,7 @@ export async function templatesRecipientsUpdateMany(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "recipient-updateTemplateRecipients",
     oAuth2Scopes: [],
 
@@ -94,7 +125,7 @@ export async function templatesRecipientsUpdateMany(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -105,7 +136,7 @@ export async function templatesRecipientsUpdateMany(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -114,9 +145,9 @@ export async function templatesRecipientsUpdateMany(
   };
 
   const [result] = await M.match<
-    operations.RecipientUpdateTemplateRecipientsResponseBody,
-    | errors.RecipientUpdateTemplateRecipientsResponseBody
-    | errors.RecipientUpdateTemplateRecipientsTemplatesRecipientsResponseBody
+    operations.RecipientUpdateTemplateRecipientsResponse,
+    | errors.RecipientUpdateTemplateRecipientsBadRequestError
+    | errors.RecipientUpdateTemplateRecipientsInternalServerError
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -127,23 +158,22 @@ export async function templatesRecipientsUpdateMany(
   >(
     M.json(
       200,
-      operations.RecipientUpdateTemplateRecipientsResponseBody$inboundSchema,
+      operations.RecipientUpdateTemplateRecipientsResponse$inboundSchema,
     ),
     M.jsonErr(
       400,
-      errors.RecipientUpdateTemplateRecipientsResponseBody$inboundSchema,
+      errors.RecipientUpdateTemplateRecipientsBadRequestError$inboundSchema,
     ),
     M.jsonErr(
       500,
-      errors
-        .RecipientUpdateTemplateRecipientsTemplatesRecipientsResponseBody$inboundSchema,
+      errors.RecipientUpdateTemplateRecipientsInternalServerError$inboundSchema,
     ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 /**
  * Filter documents by how it was created.
  */
-export const Source = {
+export const QueryParamSource = {
   Document: "DOCUMENT",
   Template: "TEMPLATE",
   TemplateDirectLink: "TEMPLATE_DIRECT_LINK",
@@ -19,20 +19,21 @@ export const Source = {
 /**
  * Filter documents by how it was created.
  */
-export type Source = ClosedEnum<typeof Source>;
+export type QueryParamSource = ClosedEnum<typeof QueryParamSource>;
 
 /**
  * Filter documents by the current status
  */
-export const Status = {
+export const QueryParamStatus = {
   Draft: "DRAFT",
   Pending: "PENDING",
   Completed: "COMPLETED",
+  Rejected: "REJECTED",
 } as const;
 /**
  * Filter documents by the current status
  */
-export type Status = ClosedEnum<typeof Status>;
+export type QueryParamStatus = ClosedEnum<typeof QueryParamStatus>;
 
 export const OrderByColumn = {
   CreatedAt: "createdAt",
@@ -65,11 +66,11 @@ export type DocumentFindDocumentsRequest = {
   /**
    * Filter documents by how it was created.
    */
-  source?: Source | undefined;
+  source?: QueryParamSource | undefined;
   /**
    * Filter documents by the current status
    */
-  status?: Status | undefined;
+  status?: QueryParamStatus | undefined;
   orderByColumn?: OrderByColumn | undefined;
   orderByDirection?: OrderByDirection | undefined;
 };
@@ -83,23 +84,20 @@ export type DocumentFindDocumentsVisibility = ClosedEnum<
   typeof DocumentFindDocumentsVisibility
 >;
 
-export const DocumentFindDocumentsStatus = {
+export const DataStatus = {
   Draft: "DRAFT",
   Pending: "PENDING",
   Completed: "COMPLETED",
+  Rejected: "REJECTED",
 } as const;
-export type DocumentFindDocumentsStatus = ClosedEnum<
-  typeof DocumentFindDocumentsStatus
->;
+export type DataStatus = ClosedEnum<typeof DataStatus>;
 
-export const DocumentFindDocumentsSource = {
+export const DataSource = {
   Document: "DOCUMENT",
   Template: "TEMPLATE",
   TemplateDirectLink: "TEMPLATE_DIRECT_LINK",
 } as const;
-export type DocumentFindDocumentsSource = ClosedEnum<
-  typeof DocumentFindDocumentsSource
->;
+export type DataSource = ClosedEnum<typeof DataSource>;
 
 /**
  * The type of authentication required for the recipient to access the document.
@@ -153,6 +151,7 @@ export const DocumentFindDocumentsRole = {
   Signer: "SIGNER",
   Viewer: "VIEWER",
   Approver: "APPROVER",
+  Assistant: "ASSISTANT",
 } as const;
 export type DocumentFindDocumentsRole = ClosedEnum<
   typeof DocumentFindDocumentsRole
@@ -212,7 +211,7 @@ export type DocumentFindDocumentsActionAuth = ClosedEnum<
   typeof DocumentFindDocumentsActionAuth
 >;
 
-export type DocumentFindDocumentsDocumentsAuthOptions = {
+export type DocumentFindDocumentsRecipientAuthOptions = {
   /**
    * The type of authentication required for the recipient to access the document.
    */
@@ -223,7 +222,7 @@ export type DocumentFindDocumentsDocumentsAuthOptions = {
   actionAuth: DocumentFindDocumentsActionAuth | null;
 };
 
-export type DocumentFindDocumentsRecipients = {
+export type DocumentFindDocumentsRecipient = {
   role: DocumentFindDocumentsRole;
   readStatus: DocumentFindDocumentsReadStatus;
   signingStatus: DocumentFindDocumentsSigningStatus;
@@ -237,7 +236,7 @@ export type DocumentFindDocumentsRecipients = {
   documentDeletedAt: string | null;
   expired: string | null;
   signedAt: string | null;
-  authOptions: DocumentFindDocumentsDocumentsAuthOptions | null;
+  authOptions: DocumentFindDocumentsRecipientAuthOptions | null;
   /**
    * The order in which the recipient should sign the document. Only works if the document is set to sequential signing.
    */
@@ -245,15 +244,15 @@ export type DocumentFindDocumentsRecipients = {
   rejectionReason: string | null;
 };
 
-export type Team = {
+export type DocumentFindDocumentsTeam = {
   id: number;
   url: string;
 };
 
 export type DocumentFindDocumentsData = {
   visibility: DocumentFindDocumentsVisibility;
-  status: DocumentFindDocumentsStatus;
-  source: DocumentFindDocumentsSource;
+  status: DataStatus;
+  source: DataSource;
   id: number;
   /**
    * A custom external ID you can use to identify the document.
@@ -274,14 +273,14 @@ export type DocumentFindDocumentsData = {
   teamId: number | null;
   templateId: number | null;
   user: DocumentFindDocumentsUser;
-  recipients: Array<DocumentFindDocumentsRecipients>;
-  team: Team | null;
+  recipients: Array<DocumentFindDocumentsRecipient>;
+  team: DocumentFindDocumentsTeam | null;
 };
 
 /**
  * Successful response
  */
-export type DocumentFindDocumentsResponseBody = {
+export type DocumentFindDocumentsResponse = {
   data: Array<DocumentFindDocumentsData>;
   /**
    * The total number of items.
@@ -302,41 +301,45 @@ export type DocumentFindDocumentsResponseBody = {
 };
 
 /** @internal */
-export const Source$inboundSchema: z.ZodNativeEnum<typeof Source> = z
-  .nativeEnum(Source);
+export const QueryParamSource$inboundSchema: z.ZodNativeEnum<
+  typeof QueryParamSource
+> = z.nativeEnum(QueryParamSource);
 
 /** @internal */
-export const Source$outboundSchema: z.ZodNativeEnum<typeof Source> =
-  Source$inboundSchema;
+export const QueryParamSource$outboundSchema: z.ZodNativeEnum<
+  typeof QueryParamSource
+> = QueryParamSource$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Source$ {
-  /** @deprecated use `Source$inboundSchema` instead. */
-  export const inboundSchema = Source$inboundSchema;
-  /** @deprecated use `Source$outboundSchema` instead. */
-  export const outboundSchema = Source$outboundSchema;
+export namespace QueryParamSource$ {
+  /** @deprecated use `QueryParamSource$inboundSchema` instead. */
+  export const inboundSchema = QueryParamSource$inboundSchema;
+  /** @deprecated use `QueryParamSource$outboundSchema` instead. */
+  export const outboundSchema = QueryParamSource$outboundSchema;
 }
 
 /** @internal */
-export const Status$inboundSchema: z.ZodNativeEnum<typeof Status> = z
-  .nativeEnum(Status);
+export const QueryParamStatus$inboundSchema: z.ZodNativeEnum<
+  typeof QueryParamStatus
+> = z.nativeEnum(QueryParamStatus);
 
 /** @internal */
-export const Status$outboundSchema: z.ZodNativeEnum<typeof Status> =
-  Status$inboundSchema;
+export const QueryParamStatus$outboundSchema: z.ZodNativeEnum<
+  typeof QueryParamStatus
+> = QueryParamStatus$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Status$ {
-  /** @deprecated use `Status$inboundSchema` instead. */
-  export const inboundSchema = Status$inboundSchema;
-  /** @deprecated use `Status$outboundSchema` instead. */
-  export const outboundSchema = Status$outboundSchema;
+export namespace QueryParamStatus$ {
+  /** @deprecated use `QueryParamStatus$inboundSchema` instead. */
+  export const inboundSchema = QueryParamStatus$inboundSchema;
+  /** @deprecated use `QueryParamStatus$outboundSchema` instead. */
+  export const outboundSchema = QueryParamStatus$outboundSchema;
 }
 
 /** @internal */
@@ -391,8 +394,8 @@ export const DocumentFindDocumentsRequest$inboundSchema: z.ZodType<
   page: z.number().optional(),
   perPage: z.number().optional(),
   templateId: z.number().optional(),
-  source: Source$inboundSchema.optional(),
-  status: Status$inboundSchema.optional(),
+  source: QueryParamSource$inboundSchema.optional(),
+  status: QueryParamStatus$inboundSchema.optional(),
   orderByColumn: OrderByColumn$inboundSchema.optional(),
   orderByDirection: OrderByDirection$inboundSchema.default("desc"),
 });
@@ -419,8 +422,8 @@ export const DocumentFindDocumentsRequest$outboundSchema: z.ZodType<
   page: z.number().optional(),
   perPage: z.number().optional(),
   templateId: z.number().optional(),
-  source: Source$outboundSchema.optional(),
-  status: Status$outboundSchema.optional(),
+  source: QueryParamSource$outboundSchema.optional(),
+  status: QueryParamStatus$outboundSchema.optional(),
   orderByColumn: OrderByColumn$outboundSchema.optional(),
   orderByDirection: OrderByDirection$outboundSchema.default("desc"),
 });
@@ -480,45 +483,41 @@ export namespace DocumentFindDocumentsVisibility$ {
 }
 
 /** @internal */
-export const DocumentFindDocumentsStatus$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentFindDocumentsStatus
-> = z.nativeEnum(DocumentFindDocumentsStatus);
+export const DataStatus$inboundSchema: z.ZodNativeEnum<typeof DataStatus> = z
+  .nativeEnum(DataStatus);
 
 /** @internal */
-export const DocumentFindDocumentsStatus$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentFindDocumentsStatus
-> = DocumentFindDocumentsStatus$inboundSchema;
+export const DataStatus$outboundSchema: z.ZodNativeEnum<typeof DataStatus> =
+  DataStatus$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentFindDocumentsStatus$ {
-  /** @deprecated use `DocumentFindDocumentsStatus$inboundSchema` instead. */
-  export const inboundSchema = DocumentFindDocumentsStatus$inboundSchema;
-  /** @deprecated use `DocumentFindDocumentsStatus$outboundSchema` instead. */
-  export const outboundSchema = DocumentFindDocumentsStatus$outboundSchema;
+export namespace DataStatus$ {
+  /** @deprecated use `DataStatus$inboundSchema` instead. */
+  export const inboundSchema = DataStatus$inboundSchema;
+  /** @deprecated use `DataStatus$outboundSchema` instead. */
+  export const outboundSchema = DataStatus$outboundSchema;
 }
 
 /** @internal */
-export const DocumentFindDocumentsSource$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentFindDocumentsSource
-> = z.nativeEnum(DocumentFindDocumentsSource);
+export const DataSource$inboundSchema: z.ZodNativeEnum<typeof DataSource> = z
+  .nativeEnum(DataSource);
 
 /** @internal */
-export const DocumentFindDocumentsSource$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentFindDocumentsSource
-> = DocumentFindDocumentsSource$inboundSchema;
+export const DataSource$outboundSchema: z.ZodNativeEnum<typeof DataSource> =
+  DataSource$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentFindDocumentsSource$ {
-  /** @deprecated use `DocumentFindDocumentsSource$inboundSchema` instead. */
-  export const inboundSchema = DocumentFindDocumentsSource$inboundSchema;
-  /** @deprecated use `DocumentFindDocumentsSource$outboundSchema` instead. */
-  export const outboundSchema = DocumentFindDocumentsSource$outboundSchema;
+export namespace DataSource$ {
+  /** @deprecated use `DataSource$inboundSchema` instead. */
+  export const inboundSchema = DataSource$inboundSchema;
+  /** @deprecated use `DataSource$outboundSchema` instead. */
+  export const outboundSchema = DataSource$outboundSchema;
 }
 
 /** @internal */
@@ -695,7 +694,7 @@ export const DocumentFindDocumentsUser$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.number().int(),
+  id: z.number(),
   name: z.nullable(z.string()),
   email: z.string(),
 });
@@ -713,7 +712,7 @@ export const DocumentFindDocumentsUser$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentFindDocumentsUser
 > = z.object({
-  id: z.number().int(),
+  id: z.number(),
   name: z.nullable(z.string()),
   email: z.string(),
 });
@@ -877,8 +876,8 @@ export namespace DocumentFindDocumentsActionAuth$ {
 }
 
 /** @internal */
-export const DocumentFindDocumentsDocumentsAuthOptions$inboundSchema: z.ZodType<
-  DocumentFindDocumentsDocumentsAuthOptions,
+export const DocumentFindDocumentsRecipientAuthOptions$inboundSchema: z.ZodType<
+  DocumentFindDocumentsRecipientAuthOptions,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -887,17 +886,17 @@ export const DocumentFindDocumentsDocumentsAuthOptions$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type DocumentFindDocumentsDocumentsAuthOptions$Outbound = {
+export type DocumentFindDocumentsRecipientAuthOptions$Outbound = {
   accessAuth: string | null;
   actionAuth: string | null;
 };
 
 /** @internal */
-export const DocumentFindDocumentsDocumentsAuthOptions$outboundSchema:
+export const DocumentFindDocumentsRecipientAuthOptions$outboundSchema:
   z.ZodType<
-    DocumentFindDocumentsDocumentsAuthOptions$Outbound,
+    DocumentFindDocumentsRecipientAuthOptions$Outbound,
     z.ZodTypeDef,
-    DocumentFindDocumentsDocumentsAuthOptions
+    DocumentFindDocumentsRecipientAuthOptions
   > = z.object({
     accessAuth: z.nullable(DocumentFindDocumentsAccessAuth$outboundSchema),
     actionAuth: z.nullable(DocumentFindDocumentsActionAuth$outboundSchema),
@@ -907,47 +906,47 @@ export const DocumentFindDocumentsDocumentsAuthOptions$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentFindDocumentsDocumentsAuthOptions$ {
-  /** @deprecated use `DocumentFindDocumentsDocumentsAuthOptions$inboundSchema` instead. */
+export namespace DocumentFindDocumentsRecipientAuthOptions$ {
+  /** @deprecated use `DocumentFindDocumentsRecipientAuthOptions$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentFindDocumentsDocumentsAuthOptions$inboundSchema;
-  /** @deprecated use `DocumentFindDocumentsDocumentsAuthOptions$outboundSchema` instead. */
+    DocumentFindDocumentsRecipientAuthOptions$inboundSchema;
+  /** @deprecated use `DocumentFindDocumentsRecipientAuthOptions$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentFindDocumentsDocumentsAuthOptions$outboundSchema;
-  /** @deprecated use `DocumentFindDocumentsDocumentsAuthOptions$Outbound` instead. */
-  export type Outbound = DocumentFindDocumentsDocumentsAuthOptions$Outbound;
+    DocumentFindDocumentsRecipientAuthOptions$outboundSchema;
+  /** @deprecated use `DocumentFindDocumentsRecipientAuthOptions$Outbound` instead. */
+  export type Outbound = DocumentFindDocumentsRecipientAuthOptions$Outbound;
 }
 
-export function documentFindDocumentsDocumentsAuthOptionsToJSON(
-  documentFindDocumentsDocumentsAuthOptions:
-    DocumentFindDocumentsDocumentsAuthOptions,
+export function documentFindDocumentsRecipientAuthOptionsToJSON(
+  documentFindDocumentsRecipientAuthOptions:
+    DocumentFindDocumentsRecipientAuthOptions,
 ): string {
   return JSON.stringify(
-    DocumentFindDocumentsDocumentsAuthOptions$outboundSchema.parse(
-      documentFindDocumentsDocumentsAuthOptions,
+    DocumentFindDocumentsRecipientAuthOptions$outboundSchema.parse(
+      documentFindDocumentsRecipientAuthOptions,
     ),
   );
 }
 
-export function documentFindDocumentsDocumentsAuthOptionsFromJSON(
+export function documentFindDocumentsRecipientAuthOptionsFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  DocumentFindDocumentsDocumentsAuthOptions,
+  DocumentFindDocumentsRecipientAuthOptions,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentFindDocumentsDocumentsAuthOptions$inboundSchema.parse(
+      DocumentFindDocumentsRecipientAuthOptions$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'DocumentFindDocumentsDocumentsAuthOptions' from JSON`,
+    `Failed to parse 'DocumentFindDocumentsRecipientAuthOptions' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentFindDocumentsRecipients$inboundSchema: z.ZodType<
-  DocumentFindDocumentsRecipients,
+export const DocumentFindDocumentsRecipient$inboundSchema: z.ZodType<
+  DocumentFindDocumentsRecipient,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -955,9 +954,9 @@ export const DocumentFindDocumentsRecipients$inboundSchema: z.ZodType<
   readStatus: DocumentFindDocumentsReadStatus$inboundSchema,
   signingStatus: DocumentFindDocumentsSigningStatus$inboundSchema,
   sendStatus: DocumentFindDocumentsSendStatus$inboundSchema,
-  id: z.number().int(),
-  documentId: z.nullable(z.number().int()),
-  templateId: z.nullable(z.number().int()),
+  id: z.number(),
+  documentId: z.nullable(z.number()),
+  templateId: z.nullable(z.number()),
   email: z.string(),
   name: z.string(),
   token: z.string(),
@@ -965,14 +964,14 @@ export const DocumentFindDocumentsRecipients$inboundSchema: z.ZodType<
   expired: z.nullable(z.string()),
   signedAt: z.nullable(z.string()),
   authOptions: z.nullable(
-    z.lazy(() => DocumentFindDocumentsDocumentsAuthOptions$inboundSchema),
+    z.lazy(() => DocumentFindDocumentsRecipientAuthOptions$inboundSchema),
   ),
   signingOrder: z.nullable(z.number()),
   rejectionReason: z.nullable(z.string()),
 });
 
 /** @internal */
-export type DocumentFindDocumentsRecipients$Outbound = {
+export type DocumentFindDocumentsRecipient$Outbound = {
   role: string;
   readStatus: string;
   signingStatus: string;
@@ -986,24 +985,24 @@ export type DocumentFindDocumentsRecipients$Outbound = {
   documentDeletedAt: string | null;
   expired: string | null;
   signedAt: string | null;
-  authOptions: DocumentFindDocumentsDocumentsAuthOptions$Outbound | null;
+  authOptions: DocumentFindDocumentsRecipientAuthOptions$Outbound | null;
   signingOrder: number | null;
   rejectionReason: string | null;
 };
 
 /** @internal */
-export const DocumentFindDocumentsRecipients$outboundSchema: z.ZodType<
-  DocumentFindDocumentsRecipients$Outbound,
+export const DocumentFindDocumentsRecipient$outboundSchema: z.ZodType<
+  DocumentFindDocumentsRecipient$Outbound,
   z.ZodTypeDef,
-  DocumentFindDocumentsRecipients
+  DocumentFindDocumentsRecipient
 > = z.object({
   role: DocumentFindDocumentsRole$outboundSchema,
   readStatus: DocumentFindDocumentsReadStatus$outboundSchema,
   signingStatus: DocumentFindDocumentsSigningStatus$outboundSchema,
   sendStatus: DocumentFindDocumentsSendStatus$outboundSchema,
-  id: z.number().int(),
-  documentId: z.nullable(z.number().int()),
-  templateId: z.nullable(z.number().int()),
+  id: z.number(),
+  documentId: z.nullable(z.number()),
+  templateId: z.nullable(z.number()),
   email: z.string(),
   name: z.string(),
   token: z.string(),
@@ -1011,7 +1010,7 @@ export const DocumentFindDocumentsRecipients$outboundSchema: z.ZodType<
   expired: z.nullable(z.string()),
   signedAt: z.nullable(z.string()),
   authOptions: z.nullable(
-    z.lazy(() => DocumentFindDocumentsDocumentsAuthOptions$outboundSchema),
+    z.lazy(() => DocumentFindDocumentsRecipientAuthOptions$outboundSchema),
   ),
   signingOrder: z.nullable(z.number()),
   rejectionReason: z.nullable(z.string()),
@@ -1021,79 +1020,89 @@ export const DocumentFindDocumentsRecipients$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentFindDocumentsRecipients$ {
-  /** @deprecated use `DocumentFindDocumentsRecipients$inboundSchema` instead. */
-  export const inboundSchema = DocumentFindDocumentsRecipients$inboundSchema;
-  /** @deprecated use `DocumentFindDocumentsRecipients$outboundSchema` instead. */
-  export const outboundSchema = DocumentFindDocumentsRecipients$outboundSchema;
-  /** @deprecated use `DocumentFindDocumentsRecipients$Outbound` instead. */
-  export type Outbound = DocumentFindDocumentsRecipients$Outbound;
+export namespace DocumentFindDocumentsRecipient$ {
+  /** @deprecated use `DocumentFindDocumentsRecipient$inboundSchema` instead. */
+  export const inboundSchema = DocumentFindDocumentsRecipient$inboundSchema;
+  /** @deprecated use `DocumentFindDocumentsRecipient$outboundSchema` instead. */
+  export const outboundSchema = DocumentFindDocumentsRecipient$outboundSchema;
+  /** @deprecated use `DocumentFindDocumentsRecipient$Outbound` instead. */
+  export type Outbound = DocumentFindDocumentsRecipient$Outbound;
 }
 
-export function documentFindDocumentsRecipientsToJSON(
-  documentFindDocumentsRecipients: DocumentFindDocumentsRecipients,
+export function documentFindDocumentsRecipientToJSON(
+  documentFindDocumentsRecipient: DocumentFindDocumentsRecipient,
 ): string {
   return JSON.stringify(
-    DocumentFindDocumentsRecipients$outboundSchema.parse(
-      documentFindDocumentsRecipients,
+    DocumentFindDocumentsRecipient$outboundSchema.parse(
+      documentFindDocumentsRecipient,
     ),
   );
 }
 
-export function documentFindDocumentsRecipientsFromJSON(
+export function documentFindDocumentsRecipientFromJSON(
   jsonString: string,
-): SafeParseResult<DocumentFindDocumentsRecipients, SDKValidationError> {
+): SafeParseResult<DocumentFindDocumentsRecipient, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => DocumentFindDocumentsRecipients$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DocumentFindDocumentsRecipients' from JSON`,
+    (x) => DocumentFindDocumentsRecipient$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentFindDocumentsRecipient' from JSON`,
   );
 }
 
 /** @internal */
-export const Team$inboundSchema: z.ZodType<Team, z.ZodTypeDef, unknown> = z
-  .object({
-    id: z.number().int(),
-    url: z.string(),
-  });
+export const DocumentFindDocumentsTeam$inboundSchema: z.ZodType<
+  DocumentFindDocumentsTeam,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.number(),
+  url: z.string(),
+});
 
 /** @internal */
-export type Team$Outbound = {
+export type DocumentFindDocumentsTeam$Outbound = {
   id: number;
   url: string;
 };
 
 /** @internal */
-export const Team$outboundSchema: z.ZodType<Team$Outbound, z.ZodTypeDef, Team> =
-  z.object({
-    id: z.number().int(),
-    url: z.string(),
-  });
+export const DocumentFindDocumentsTeam$outboundSchema: z.ZodType<
+  DocumentFindDocumentsTeam$Outbound,
+  z.ZodTypeDef,
+  DocumentFindDocumentsTeam
+> = z.object({
+  id: z.number(),
+  url: z.string(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Team$ {
-  /** @deprecated use `Team$inboundSchema` instead. */
-  export const inboundSchema = Team$inboundSchema;
-  /** @deprecated use `Team$outboundSchema` instead. */
-  export const outboundSchema = Team$outboundSchema;
-  /** @deprecated use `Team$Outbound` instead. */
-  export type Outbound = Team$Outbound;
+export namespace DocumentFindDocumentsTeam$ {
+  /** @deprecated use `DocumentFindDocumentsTeam$inboundSchema` instead. */
+  export const inboundSchema = DocumentFindDocumentsTeam$inboundSchema;
+  /** @deprecated use `DocumentFindDocumentsTeam$outboundSchema` instead. */
+  export const outboundSchema = DocumentFindDocumentsTeam$outboundSchema;
+  /** @deprecated use `DocumentFindDocumentsTeam$Outbound` instead. */
+  export type Outbound = DocumentFindDocumentsTeam$Outbound;
 }
 
-export function teamToJSON(team: Team): string {
-  return JSON.stringify(Team$outboundSchema.parse(team));
+export function documentFindDocumentsTeamToJSON(
+  documentFindDocumentsTeam: DocumentFindDocumentsTeam,
+): string {
+  return JSON.stringify(
+    DocumentFindDocumentsTeam$outboundSchema.parse(documentFindDocumentsTeam),
+  );
 }
 
-export function teamFromJSON(
+export function documentFindDocumentsTeamFromJSON(
   jsonString: string,
-): SafeParseResult<Team, SDKValidationError> {
+): SafeParseResult<DocumentFindDocumentsTeam, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Team$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Team' from JSON`,
+    (x) => DocumentFindDocumentsTeam$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentFindDocumentsTeam' from JSON`,
   );
 }
 
@@ -1104,9 +1113,9 @@ export const DocumentFindDocumentsData$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   visibility: DocumentFindDocumentsVisibility$inboundSchema,
-  status: DocumentFindDocumentsStatus$inboundSchema,
-  source: DocumentFindDocumentsSource$inboundSchema,
-  id: z.number().int(),
+  status: DataStatus$inboundSchema,
+  source: DataSource$inboundSchema,
+  id: z.number(),
   externalId: z.nullable(z.string()),
   userId: z.number(),
   authOptions: z.nullable(
@@ -1121,13 +1130,13 @@ export const DocumentFindDocumentsData$inboundSchema: z.ZodType<
   updatedAt: z.string(),
   completedAt: z.nullable(z.string()),
   deletedAt: z.nullable(z.string()),
-  teamId: z.nullable(z.number().int()),
-  templateId: z.nullable(z.number().int()),
+  teamId: z.nullable(z.number()),
+  templateId: z.nullable(z.number()),
   user: z.lazy(() => DocumentFindDocumentsUser$inboundSchema),
   recipients: z.array(
-    z.lazy(() => DocumentFindDocumentsRecipients$inboundSchema),
+    z.lazy(() => DocumentFindDocumentsRecipient$inboundSchema),
   ),
-  team: z.nullable(z.lazy(() => Team$inboundSchema)),
+  team: z.nullable(z.lazy(() => DocumentFindDocumentsTeam$inboundSchema)),
 });
 
 /** @internal */
@@ -1149,8 +1158,8 @@ export type DocumentFindDocumentsData$Outbound = {
   teamId: number | null;
   templateId: number | null;
   user: DocumentFindDocumentsUser$Outbound;
-  recipients: Array<DocumentFindDocumentsRecipients$Outbound>;
-  team: Team$Outbound | null;
+  recipients: Array<DocumentFindDocumentsRecipient$Outbound>;
+  team: DocumentFindDocumentsTeam$Outbound | null;
 };
 
 /** @internal */
@@ -1160,9 +1169,9 @@ export const DocumentFindDocumentsData$outboundSchema: z.ZodType<
   DocumentFindDocumentsData
 > = z.object({
   visibility: DocumentFindDocumentsVisibility$outboundSchema,
-  status: DocumentFindDocumentsStatus$outboundSchema,
-  source: DocumentFindDocumentsSource$outboundSchema,
-  id: z.number().int(),
+  status: DataStatus$outboundSchema,
+  source: DataSource$outboundSchema,
+  id: z.number(),
   externalId: z.nullable(z.string()),
   userId: z.number(),
   authOptions: z.nullable(
@@ -1177,13 +1186,13 @@ export const DocumentFindDocumentsData$outboundSchema: z.ZodType<
   updatedAt: z.string(),
   completedAt: z.nullable(z.string()),
   deletedAt: z.nullable(z.string()),
-  teamId: z.nullable(z.number().int()),
-  templateId: z.nullable(z.number().int()),
+  teamId: z.nullable(z.number()),
+  templateId: z.nullable(z.number()),
   user: z.lazy(() => DocumentFindDocumentsUser$outboundSchema),
   recipients: z.array(
-    z.lazy(() => DocumentFindDocumentsRecipients$outboundSchema),
+    z.lazy(() => DocumentFindDocumentsRecipient$outboundSchema),
   ),
-  team: z.nullable(z.lazy(() => Team$outboundSchema)),
+  team: z.nullable(z.lazy(() => DocumentFindDocumentsTeam$outboundSchema)),
 });
 
 /**
@@ -1218,8 +1227,8 @@ export function documentFindDocumentsDataFromJSON(
 }
 
 /** @internal */
-export const DocumentFindDocumentsResponseBody$inboundSchema: z.ZodType<
-  DocumentFindDocumentsResponseBody,
+export const DocumentFindDocumentsResponse$inboundSchema: z.ZodType<
+  DocumentFindDocumentsResponse,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -1231,7 +1240,7 @@ export const DocumentFindDocumentsResponseBody$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type DocumentFindDocumentsResponseBody$Outbound = {
+export type DocumentFindDocumentsResponse$Outbound = {
   data: Array<DocumentFindDocumentsData$Outbound>;
   count: number;
   currentPage: number;
@@ -1240,10 +1249,10 @@ export type DocumentFindDocumentsResponseBody$Outbound = {
 };
 
 /** @internal */
-export const DocumentFindDocumentsResponseBody$outboundSchema: z.ZodType<
-  DocumentFindDocumentsResponseBody$Outbound,
+export const DocumentFindDocumentsResponse$outboundSchema: z.ZodType<
+  DocumentFindDocumentsResponse$Outbound,
   z.ZodTypeDef,
-  DocumentFindDocumentsResponseBody
+  DocumentFindDocumentsResponse
 > = z.object({
   data: z.array(z.lazy(() => DocumentFindDocumentsData$outboundSchema)),
   count: z.number(),
@@ -1256,32 +1265,31 @@ export const DocumentFindDocumentsResponseBody$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentFindDocumentsResponseBody$ {
-  /** @deprecated use `DocumentFindDocumentsResponseBody$inboundSchema` instead. */
-  export const inboundSchema = DocumentFindDocumentsResponseBody$inboundSchema;
-  /** @deprecated use `DocumentFindDocumentsResponseBody$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentFindDocumentsResponseBody$outboundSchema;
-  /** @deprecated use `DocumentFindDocumentsResponseBody$Outbound` instead. */
-  export type Outbound = DocumentFindDocumentsResponseBody$Outbound;
+export namespace DocumentFindDocumentsResponse$ {
+  /** @deprecated use `DocumentFindDocumentsResponse$inboundSchema` instead. */
+  export const inboundSchema = DocumentFindDocumentsResponse$inboundSchema;
+  /** @deprecated use `DocumentFindDocumentsResponse$outboundSchema` instead. */
+  export const outboundSchema = DocumentFindDocumentsResponse$outboundSchema;
+  /** @deprecated use `DocumentFindDocumentsResponse$Outbound` instead. */
+  export type Outbound = DocumentFindDocumentsResponse$Outbound;
 }
 
-export function documentFindDocumentsResponseBodyToJSON(
-  documentFindDocumentsResponseBody: DocumentFindDocumentsResponseBody,
+export function documentFindDocumentsResponseToJSON(
+  documentFindDocumentsResponse: DocumentFindDocumentsResponse,
 ): string {
   return JSON.stringify(
-    DocumentFindDocumentsResponseBody$outboundSchema.parse(
-      documentFindDocumentsResponseBody,
+    DocumentFindDocumentsResponse$outboundSchema.parse(
+      documentFindDocumentsResponse,
     ),
   );
 }
 
-export function documentFindDocumentsResponseBodyFromJSON(
+export function documentFindDocumentsResponseFromJSON(
   jsonString: string,
-): SafeParseResult<DocumentFindDocumentsResponseBody, SDKValidationError> {
+): SafeParseResult<DocumentFindDocumentsResponse, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => DocumentFindDocumentsResponseBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DocumentFindDocumentsResponseBody' from JSON`,
+    (x) => DocumentFindDocumentsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentFindDocumentsResponse' from JSON`,
   );
 }

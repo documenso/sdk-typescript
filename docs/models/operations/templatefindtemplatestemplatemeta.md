@@ -6,8 +6,8 @@
 import { TemplateFindTemplatesTemplateMeta } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateFindTemplatesTemplateMeta = {
-  signingOrder: "SEQUENTIAL",
-  distributionMethod: "EMAIL",
+  signingOrder: "PARALLEL",
+  distributionMethod: "NONE",
 };
 ```
 

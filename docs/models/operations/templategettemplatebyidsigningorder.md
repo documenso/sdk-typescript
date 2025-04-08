@@ -5,7 +5,7 @@
 ```typescript
 import { TemplateGetTemplateByIdSigningOrder } from "@documenso/sdk-typescript/models/operations";
 
-let value: TemplateGetTemplateByIdSigningOrder = "PARALLEL";
+let value: TemplateGetTemplateByIdSigningOrder = "SEQUENTIAL";
 ```
 
 ## Values

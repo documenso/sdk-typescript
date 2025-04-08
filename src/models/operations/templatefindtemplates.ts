@@ -39,12 +39,12 @@ export type TemplateFindTemplatesRequest = {
   type?: QueryParamType | undefined;
 };
 
-export const TemplateFindTemplatesType = {
+export const TemplateFindTemplatesDataType = {
   Public: "PUBLIC",
   Private: "PRIVATE",
 } as const;
-export type TemplateFindTemplatesType = ClosedEnum<
-  typeof TemplateFindTemplatesType
+export type TemplateFindTemplatesDataType = ClosedEnum<
+  typeof TemplateFindTemplatesDataType
 >;
 
 export const TemplateFindTemplatesVisibility = {
@@ -100,7 +100,7 @@ export type TemplateFindTemplatesTeam = {
   url: string;
 };
 
-export const TemplateFindTemplatesTemplatesType = {
+export const TemplateFindTemplatesFieldType = {
   Signature: "SIGNATURE",
   FreeSignature: "FREE_SIGNATURE",
   Initials: "INITIALS",
@@ -113,208 +113,252 @@ export const TemplateFindTemplatesTemplatesType = {
   Checkbox: "CHECKBOX",
   Dropdown: "DROPDOWN",
 } as const;
-export type TemplateFindTemplatesTemplatesType = ClosedEnum<
-  typeof TemplateFindTemplatesTemplatesType
+export type TemplateFindTemplatesFieldType = ClosedEnum<
+  typeof TemplateFindTemplatesFieldType
 >;
 
-export const TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFields9Type =
-  {
-    Dropdown: "dropdown",
-  } as const;
-export type TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFields9Type =
-  ClosedEnum<
-    typeof TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFields9Type
-  >;
+export const TemplateFindTemplatesTypeDropdown = {
+  Dropdown: "dropdown",
+} as const;
+export type TemplateFindTemplatesTypeDropdown = ClosedEnum<
+  typeof TemplateFindTemplatesTypeDropdown
+>;
 
-export type TemplateFindTemplatesFieldMetaTemplatesResponseValues = {
+export type TemplateFindTemplatesValue3 = {
   value: string;
 };
 
-export type TemplateFindTemplatesFieldMeta9 = {
+export type TemplateFindTemplatesFieldMetaDropdown = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFields9Type;
-  values?:
-    | Array<TemplateFindTemplatesFieldMetaTemplatesResponseValues>
-    | undefined;
+  type: TemplateFindTemplatesTypeDropdown;
+  values?: Array<TemplateFindTemplatesValue3> | undefined;
   defaultValue?: string | undefined;
 };
 
-export const TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFieldsType =
-  {
-    Checkbox: "checkbox",
-  } as const;
-export type TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFieldsType =
-  ClosedEnum<
-    typeof TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFieldsType
-  >;
+export const TemplateFindTemplatesTypeCheckbox = {
+  Checkbox: "checkbox",
+} as const;
+export type TemplateFindTemplatesTypeCheckbox = ClosedEnum<
+  typeof TemplateFindTemplatesTypeCheckbox
+>;
 
-export type TemplateFindTemplatesFieldMetaTemplatesValues = {
+export type TemplateFindTemplatesValue2 = {
   id: number;
   checked: boolean;
   value: string;
 };
 
-export type TemplateFindTemplatesFieldMeta8 = {
+export type TemplateFindTemplatesFieldMetaCheckbox = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFieldsType;
-  values?: Array<TemplateFindTemplatesFieldMetaTemplatesValues> | undefined;
+  type: TemplateFindTemplatesTypeCheckbox;
+  values?: Array<TemplateFindTemplatesValue2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
 };
 
-export const TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataType =
-  {
-    Radio: "radio",
-  } as const;
-export type TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataType =
-  ClosedEnum<
-    typeof TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataType
-  >;
+export const TemplateFindTemplatesTypeRadio = {
+  Radio: "radio",
+} as const;
+export type TemplateFindTemplatesTypeRadio = ClosedEnum<
+  typeof TemplateFindTemplatesTypeRadio
+>;
 
-export type TemplateFindTemplatesFieldMetaValues = {
+export type TemplateFindTemplatesValue1 = {
   id: number;
   checked: boolean;
   value: string;
 };
 
-export type TemplateFindTemplatesFieldMeta7 = {
+export type TemplateFindTemplatesFieldMetaRadio = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataType;
-  values?: Array<TemplateFindTemplatesFieldMetaValues> | undefined;
+  type: TemplateFindTemplatesTypeRadio;
+  values?: Array<TemplateFindTemplatesValue1> | undefined;
 };
 
-export const TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType =
-  {
-    Number: "number",
-  } as const;
-export type TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType =
-  ClosedEnum<
-    typeof TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType
-  >;
+export const TemplateFindTemplatesTypeNumber = {
+  Number: "number",
+} as const;
+export type TemplateFindTemplatesTypeNumber = ClosedEnum<
+  typeof TemplateFindTemplatesTypeNumber
+>;
 
-export type TemplateFindTemplatesFieldMeta6 = {
+export const TemplateFindTemplatesTextAlign6 = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type TemplateFindTemplatesTextAlign6 = ClosedEnum<
+  typeof TemplateFindTemplatesTextAlign6
+>;
+
+export type TemplateFindTemplatesFieldMetaNumber = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType;
+  type: TemplateFindTemplatesTypeNumber;
   numberFormat?: string | undefined;
   value?: string | undefined;
   minValue?: number | undefined;
   maxValue?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: TemplateFindTemplatesTextAlign6 | undefined;
 };
 
-export const TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONType =
-  {
-    Text: "text",
-  } as const;
-export type TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONType =
-  ClosedEnum<
-    typeof TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONType
-  >;
+export const TemplateFindTemplatesTypeText = {
+  Text: "text",
+} as const;
+export type TemplateFindTemplatesTypeText = ClosedEnum<
+  typeof TemplateFindTemplatesTypeText
+>;
 
-export type TemplateFindTemplatesFieldMeta5 = {
+export const TemplateFindTemplatesTextAlign5 = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type TemplateFindTemplatesTextAlign5 = ClosedEnum<
+  typeof TemplateFindTemplatesTextAlign5
+>;
+
+export type TemplateFindTemplatesFieldMetaText = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONType;
+  type: TemplateFindTemplatesTypeText;
   text?: string | undefined;
   characterLimit?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: TemplateFindTemplatesTextAlign5 | undefined;
 };
 
-export const TemplateFindTemplatesFieldMetaTemplatesResponse200Type = {
+export const TemplateFindTemplatesTypeDate = {
   Date: "date",
 } as const;
-export type TemplateFindTemplatesFieldMetaTemplatesResponse200Type = ClosedEnum<
-  typeof TemplateFindTemplatesFieldMetaTemplatesResponse200Type
+export type TemplateFindTemplatesTypeDate = ClosedEnum<
+  typeof TemplateFindTemplatesTypeDate
 >;
 
-export type TemplateFindTemplatesFieldMeta4 = {
+export const TemplateFindTemplatesTextAlign4 = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type TemplateFindTemplatesTextAlign4 = ClosedEnum<
+  typeof TemplateFindTemplatesTextAlign4
+>;
+
+export type TemplateFindTemplatesFieldMetaDate = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: TemplateFindTemplatesFieldMetaTemplatesResponse200Type;
+  type: TemplateFindTemplatesTypeDate;
   fontSize?: number | undefined;
+  textAlign?: TemplateFindTemplatesTextAlign4 | undefined;
 };
 
-export const TemplateFindTemplatesFieldMetaTemplatesResponseType = {
+export const TemplateFindTemplatesTypeEmail = {
   Email: "email",
 } as const;
-export type TemplateFindTemplatesFieldMetaTemplatesResponseType = ClosedEnum<
-  typeof TemplateFindTemplatesFieldMetaTemplatesResponseType
+export type TemplateFindTemplatesTypeEmail = ClosedEnum<
+  typeof TemplateFindTemplatesTypeEmail
 >;
 
-export type TemplateFindTemplatesFieldMeta3 = {
+export const TemplateFindTemplatesTextAlign3 = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type TemplateFindTemplatesTextAlign3 = ClosedEnum<
+  typeof TemplateFindTemplatesTextAlign3
+>;
+
+export type TemplateFindTemplatesFieldMetaEmail = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: TemplateFindTemplatesFieldMetaTemplatesResponseType;
+  type: TemplateFindTemplatesTypeEmail;
   fontSize?: number | undefined;
+  textAlign?: TemplateFindTemplatesTextAlign3 | undefined;
 };
 
-export const TemplateFindTemplatesFieldMetaTemplatesType = {
+export const TemplateFindTemplatesTypeName = {
   Name: "name",
 } as const;
-export type TemplateFindTemplatesFieldMetaTemplatesType = ClosedEnum<
-  typeof TemplateFindTemplatesFieldMetaTemplatesType
+export type TemplateFindTemplatesTypeName = ClosedEnum<
+  typeof TemplateFindTemplatesTypeName
 >;
 
-export type TemplateFindTemplatesFieldMeta2 = {
+export const TemplateFindTemplatesTextAlign2 = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type TemplateFindTemplatesTextAlign2 = ClosedEnum<
+  typeof TemplateFindTemplatesTextAlign2
+>;
+
+export type TemplateFindTemplatesFieldMetaName = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: TemplateFindTemplatesFieldMetaTemplatesType;
+  type: TemplateFindTemplatesTypeName;
   fontSize?: number | undefined;
+  textAlign?: TemplateFindTemplatesTextAlign2 | undefined;
 };
 
-export const TemplateFindTemplatesFieldMetaType = {
+export const TemplateFindTemplatesTypeInitials = {
   Initials: "initials",
 } as const;
-export type TemplateFindTemplatesFieldMetaType = ClosedEnum<
-  typeof TemplateFindTemplatesFieldMetaType
+export type TemplateFindTemplatesTypeInitials = ClosedEnum<
+  typeof TemplateFindTemplatesTypeInitials
 >;
 
-export type TemplateFindTemplatesFieldMeta1 = {
+export const TemplateFindTemplatesTextAlign1 = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type TemplateFindTemplatesTextAlign1 = ClosedEnum<
+  typeof TemplateFindTemplatesTextAlign1
+>;
+
+export type TemplateFindTemplatesFieldMetaInitials = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: TemplateFindTemplatesFieldMetaType;
+  type: TemplateFindTemplatesTypeInitials;
   fontSize?: number | undefined;
+  textAlign?: TemplateFindTemplatesTextAlign1 | undefined;
 };
 
-export type TemplateFindTemplatesFieldMeta =
-  | TemplateFindTemplatesFieldMeta1
-  | TemplateFindTemplatesFieldMeta2
-  | TemplateFindTemplatesFieldMeta3
-  | TemplateFindTemplatesFieldMeta4
-  | TemplateFindTemplatesFieldMeta7
-  | TemplateFindTemplatesFieldMeta9
-  | TemplateFindTemplatesFieldMeta5
-  | TemplateFindTemplatesFieldMeta8
-  | TemplateFindTemplatesFieldMeta6;
+export type TemplateFindTemplatesFieldMetaUnion =
+  | TemplateFindTemplatesFieldMetaRadio
+  | TemplateFindTemplatesFieldMetaInitials
+  | TemplateFindTemplatesFieldMetaName
+  | TemplateFindTemplatesFieldMetaEmail
+  | TemplateFindTemplatesFieldMetaDate
+  | TemplateFindTemplatesFieldMetaDropdown
+  | TemplateFindTemplatesFieldMetaCheckbox
+  | TemplateFindTemplatesFieldMetaText
+  | TemplateFindTemplatesFieldMetaNumber;
 
-export type TemplateFindTemplatesFields = {
-  type: TemplateFindTemplatesTemplatesType;
+export type TemplateFindTemplatesField = {
+  type: TemplateFindTemplatesFieldType;
   id: number;
   secondaryId: string;
   documentId: number | null;
@@ -331,15 +375,15 @@ export type TemplateFindTemplatesFields = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | TemplateFindTemplatesFieldMeta1
-    | TemplateFindTemplatesFieldMeta2
-    | TemplateFindTemplatesFieldMeta3
-    | TemplateFindTemplatesFieldMeta4
-    | TemplateFindTemplatesFieldMeta7
-    | TemplateFindTemplatesFieldMeta9
-    | TemplateFindTemplatesFieldMeta5
-    | TemplateFindTemplatesFieldMeta8
-    | TemplateFindTemplatesFieldMeta6
+    | TemplateFindTemplatesFieldMetaRadio
+    | TemplateFindTemplatesFieldMetaInitials
+    | TemplateFindTemplatesFieldMetaName
+    | TemplateFindTemplatesFieldMetaEmail
+    | TemplateFindTemplatesFieldMetaDate
+    | TemplateFindTemplatesFieldMetaDropdown
+    | TemplateFindTemplatesFieldMetaCheckbox
+    | TemplateFindTemplatesFieldMetaText
+    | TemplateFindTemplatesFieldMetaNumber
     | null;
 };
 
@@ -348,6 +392,7 @@ export const TemplateFindTemplatesRole = {
   Signer: "SIGNER",
   Viewer: "VIEWER",
   Approver: "APPROVER",
+  Assistant: "ASSISTANT",
 } as const;
 export type TemplateFindTemplatesRole = ClosedEnum<
   typeof TemplateFindTemplatesRole
@@ -407,7 +452,7 @@ export type TemplateFindTemplatesActionAuth = ClosedEnum<
   typeof TemplateFindTemplatesActionAuth
 >;
 
-export type TemplateFindTemplatesTemplatesAuthOptions = {
+export type TemplateFindTemplatesRecipientAuthOptions = {
   /**
    * The type of authentication required for the recipient to access the document.
    */
@@ -418,7 +463,7 @@ export type TemplateFindTemplatesTemplatesAuthOptions = {
   actionAuth: TemplateFindTemplatesActionAuth | null;
 };
 
-export type TemplateFindTemplatesRecipients = {
+export type TemplateFindTemplatesRecipient = {
   role: TemplateFindTemplatesRole;
   readStatus: TemplateFindTemplatesReadStatus;
   signingStatus: TemplateFindTemplatesSigningStatus;
@@ -432,7 +477,7 @@ export type TemplateFindTemplatesRecipients = {
   documentDeletedAt: string | null;
   expired: string | null;
   signedAt: string | null;
-  authOptions: TemplateFindTemplatesTemplatesAuthOptions | null;
+  authOptions: TemplateFindTemplatesRecipientAuthOptions | null;
   /**
    * The order in which the recipient should sign the document. Only works if the document is set to sequential signing.
    */
@@ -467,7 +512,7 @@ export type TemplateFindTemplatesDirectLink = {
 };
 
 export type TemplateFindTemplatesData = {
-  type: TemplateFindTemplatesType;
+  type: TemplateFindTemplatesDataType;
   visibility: TemplateFindTemplatesVisibility;
   id: number;
   externalId: string | null;
@@ -481,8 +526,8 @@ export type TemplateFindTemplatesData = {
   publicTitle: string;
   publicDescription: string;
   team: TemplateFindTemplatesTeam | null;
-  fields: Array<TemplateFindTemplatesFields>;
-  recipients: Array<TemplateFindTemplatesRecipients>;
+  fields: Array<TemplateFindTemplatesField>;
+  recipients: Array<TemplateFindTemplatesRecipient>;
   templateMeta: TemplateFindTemplatesTemplateMeta | null;
   directLink: TemplateFindTemplatesDirectLink | null;
 };
@@ -490,7 +535,7 @@ export type TemplateFindTemplatesData = {
 /**
  * Successful response
  */
-export type TemplateFindTemplatesResponseBody = {
+export type TemplateFindTemplatesResponse = {
   data: Array<TemplateFindTemplatesData>;
   /**
    * The total number of items.
@@ -597,24 +642,24 @@ export function templateFindTemplatesRequestFromJSON(
 }
 
 /** @internal */
-export const TemplateFindTemplatesType$inboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesType
-> = z.nativeEnum(TemplateFindTemplatesType);
+export const TemplateFindTemplatesDataType$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesDataType
+> = z.nativeEnum(TemplateFindTemplatesDataType);
 
 /** @internal */
-export const TemplateFindTemplatesType$outboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesType
-> = TemplateFindTemplatesType$inboundSchema;
+export const TemplateFindTemplatesDataType$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesDataType
+> = TemplateFindTemplatesDataType$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateFindTemplatesType$ {
-  /** @deprecated use `TemplateFindTemplatesType$inboundSchema` instead. */
-  export const inboundSchema = TemplateFindTemplatesType$inboundSchema;
-  /** @deprecated use `TemplateFindTemplatesType$outboundSchema` instead. */
-  export const outboundSchema = TemplateFindTemplatesType$outboundSchema;
+export namespace TemplateFindTemplatesDataType$ {
+  /** @deprecated use `TemplateFindTemplatesDataType$inboundSchema` instead. */
+  export const inboundSchema = TemplateFindTemplatesDataType$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesDataType$outboundSchema` instead. */
+  export const outboundSchema = TemplateFindTemplatesDataType$outboundSchema;
 }
 
 /** @internal */
@@ -759,7 +804,7 @@ export const TemplateFindTemplatesTeam$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.number().int(),
+  id: z.number(),
   url: z.string(),
 });
 
@@ -775,7 +820,7 @@ export const TemplateFindTemplatesTeam$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TemplateFindTemplatesTeam
 > = z.object({
-  id: z.number().int(),
+  id: z.number(),
   url: z.string(),
 });
 
@@ -811,126 +856,107 @@ export function templateFindTemplatesTeamFromJSON(
 }
 
 /** @internal */
-export const TemplateFindTemplatesTemplatesType$inboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesTemplatesType
-> = z.nativeEnum(TemplateFindTemplatesTemplatesType);
+export const TemplateFindTemplatesFieldType$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesFieldType
+> = z.nativeEnum(TemplateFindTemplatesFieldType);
 
 /** @internal */
-export const TemplateFindTemplatesTemplatesType$outboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesTemplatesType
-> = TemplateFindTemplatesTemplatesType$inboundSchema;
+export const TemplateFindTemplatesFieldType$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesFieldType
+> = TemplateFindTemplatesFieldType$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateFindTemplatesTemplatesType$ {
-  /** @deprecated use `TemplateFindTemplatesTemplatesType$inboundSchema` instead. */
-  export const inboundSchema = TemplateFindTemplatesTemplatesType$inboundSchema;
-  /** @deprecated use `TemplateFindTemplatesTemplatesType$outboundSchema` instead. */
-  export const outboundSchema =
-    TemplateFindTemplatesTemplatesType$outboundSchema;
+export namespace TemplateFindTemplatesFieldType$ {
+  /** @deprecated use `TemplateFindTemplatesFieldType$inboundSchema` instead. */
+  export const inboundSchema = TemplateFindTemplatesFieldType$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesFieldType$outboundSchema` instead. */
+  export const outboundSchema = TemplateFindTemplatesFieldType$outboundSchema;
 }
 
 /** @internal */
-export const TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFields9Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFields9Type
-  > = z.nativeEnum(
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFields9Type,
-  );
+export const TemplateFindTemplatesTypeDropdown$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTypeDropdown
+> = z.nativeEnum(TemplateFindTemplatesTypeDropdown);
 
 /** @internal */
-export const TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFields9Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFields9Type
-  > =
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFields9Type$inboundSchema;
+export const TemplateFindTemplatesTypeDropdown$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTypeDropdown
+> = TemplateFindTemplatesTypeDropdown$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFields9Type$ {
-  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFields9Type$inboundSchema` instead. */
-  export const inboundSchema =
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFields9Type$inboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFields9Type$outboundSchema` instead. */
+export namespace TemplateFindTemplatesTypeDropdown$ {
+  /** @deprecated use `TemplateFindTemplatesTypeDropdown$inboundSchema` instead. */
+  export const inboundSchema = TemplateFindTemplatesTypeDropdown$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesTypeDropdown$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFields9Type$outboundSchema;
+    TemplateFindTemplatesTypeDropdown$outboundSchema;
 }
 
 /** @internal */
-export const TemplateFindTemplatesFieldMetaTemplatesResponseValues$inboundSchema:
-  z.ZodType<
-    TemplateFindTemplatesFieldMetaTemplatesResponseValues,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    value: z.string(),
-  });
+export const TemplateFindTemplatesValue3$inboundSchema: z.ZodType<
+  TemplateFindTemplatesValue3,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  value: z.string(),
+});
 
 /** @internal */
-export type TemplateFindTemplatesFieldMetaTemplatesResponseValues$Outbound = {
+export type TemplateFindTemplatesValue3$Outbound = {
   value: string;
 };
 
 /** @internal */
-export const TemplateFindTemplatesFieldMetaTemplatesResponseValues$outboundSchema:
-  z.ZodType<
-    TemplateFindTemplatesFieldMetaTemplatesResponseValues$Outbound,
-    z.ZodTypeDef,
-    TemplateFindTemplatesFieldMetaTemplatesResponseValues
-  > = z.object({
-    value: z.string(),
-  });
+export const TemplateFindTemplatesValue3$outboundSchema: z.ZodType<
+  TemplateFindTemplatesValue3$Outbound,
+  z.ZodTypeDef,
+  TemplateFindTemplatesValue3
+> = z.object({
+  value: z.string(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateFindTemplatesFieldMetaTemplatesResponseValues$ {
-  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesResponseValues$inboundSchema` instead. */
-  export const inboundSchema =
-    TemplateFindTemplatesFieldMetaTemplatesResponseValues$inboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesResponseValues$outboundSchema` instead. */
-  export const outboundSchema =
-    TemplateFindTemplatesFieldMetaTemplatesResponseValues$outboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesResponseValues$Outbound` instead. */
-  export type Outbound =
-    TemplateFindTemplatesFieldMetaTemplatesResponseValues$Outbound;
+export namespace TemplateFindTemplatesValue3$ {
+  /** @deprecated use `TemplateFindTemplatesValue3$inboundSchema` instead. */
+  export const inboundSchema = TemplateFindTemplatesValue3$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesValue3$outboundSchema` instead. */
+  export const outboundSchema = TemplateFindTemplatesValue3$outboundSchema;
+  /** @deprecated use `TemplateFindTemplatesValue3$Outbound` instead. */
+  export type Outbound = TemplateFindTemplatesValue3$Outbound;
 }
 
-export function templateFindTemplatesFieldMetaTemplatesResponseValuesToJSON(
-  templateFindTemplatesFieldMetaTemplatesResponseValues:
-    TemplateFindTemplatesFieldMetaTemplatesResponseValues,
+export function templateFindTemplatesValue3ToJSON(
+  templateFindTemplatesValue3: TemplateFindTemplatesValue3,
 ): string {
   return JSON.stringify(
-    TemplateFindTemplatesFieldMetaTemplatesResponseValues$outboundSchema.parse(
-      templateFindTemplatesFieldMetaTemplatesResponseValues,
+    TemplateFindTemplatesValue3$outboundSchema.parse(
+      templateFindTemplatesValue3,
     ),
   );
 }
 
-export function templateFindTemplatesFieldMetaTemplatesResponseValuesFromJSON(
+export function templateFindTemplatesValue3FromJSON(
   jsonString: string,
-): SafeParseResult<
-  TemplateFindTemplatesFieldMetaTemplatesResponseValues,
-  SDKValidationError
-> {
+): SafeParseResult<TemplateFindTemplatesValue3, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      TemplateFindTemplatesFieldMetaTemplatesResponseValues$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'TemplateFindTemplatesFieldMetaTemplatesResponseValues' from JSON`,
+    (x) => TemplateFindTemplatesValue3$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateFindTemplatesValue3' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateFindTemplatesFieldMeta9$inboundSchema: z.ZodType<
-  TemplateFindTemplatesFieldMeta9,
+export const TemplateFindTemplatesFieldMetaDropdown$inboundSchema: z.ZodType<
+  TemplateFindTemplatesFieldMetaDropdown,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -938,46 +964,36 @@ export const TemplateFindTemplatesFieldMeta9$inboundSchema: z.ZodType<
   placeholder: z.string().optional(),
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
-  type:
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFields9Type$inboundSchema,
-  values: z.array(
-    z.lazy(() =>
-      TemplateFindTemplatesFieldMetaTemplatesResponseValues$inboundSchema
-    ),
-  ).optional(),
+  type: TemplateFindTemplatesTypeDropdown$inboundSchema,
+  values: z.array(z.lazy(() => TemplateFindTemplatesValue3$inboundSchema))
+    .optional(),
   defaultValue: z.string().optional(),
 });
 
 /** @internal */
-export type TemplateFindTemplatesFieldMeta9$Outbound = {
+export type TemplateFindTemplatesFieldMetaDropdown$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
-  values?:
-    | Array<TemplateFindTemplatesFieldMetaTemplatesResponseValues$Outbound>
-    | undefined;
+  values?: Array<TemplateFindTemplatesValue3$Outbound> | undefined;
   defaultValue?: string | undefined;
 };
 
 /** @internal */
-export const TemplateFindTemplatesFieldMeta9$outboundSchema: z.ZodType<
-  TemplateFindTemplatesFieldMeta9$Outbound,
+export const TemplateFindTemplatesFieldMetaDropdown$outboundSchema: z.ZodType<
+  TemplateFindTemplatesFieldMetaDropdown$Outbound,
   z.ZodTypeDef,
-  TemplateFindTemplatesFieldMeta9
+  TemplateFindTemplatesFieldMetaDropdown
 > = z.object({
   label: z.string().optional(),
   placeholder: z.string().optional(),
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
-  type:
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFields9Type$outboundSchema,
-  values: z.array(
-    z.lazy(() =>
-      TemplateFindTemplatesFieldMetaTemplatesResponseValues$outboundSchema
-    ),
-  ).optional(),
+  type: TemplateFindTemplatesTypeDropdown$outboundSchema,
+  values: z.array(z.lazy(() => TemplateFindTemplatesValue3$outboundSchema))
+    .optional(),
   defaultValue: z.string().optional(),
 });
 
@@ -985,139 +1001,126 @@ export const TemplateFindTemplatesFieldMeta9$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateFindTemplatesFieldMeta9$ {
-  /** @deprecated use `TemplateFindTemplatesFieldMeta9$inboundSchema` instead. */
-  export const inboundSchema = TemplateFindTemplatesFieldMeta9$inboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMeta9$outboundSchema` instead. */
-  export const outboundSchema = TemplateFindTemplatesFieldMeta9$outboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMeta9$Outbound` instead. */
-  export type Outbound = TemplateFindTemplatesFieldMeta9$Outbound;
+export namespace TemplateFindTemplatesFieldMetaDropdown$ {
+  /** @deprecated use `TemplateFindTemplatesFieldMetaDropdown$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateFindTemplatesFieldMetaDropdown$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesFieldMetaDropdown$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateFindTemplatesFieldMetaDropdown$outboundSchema;
+  /** @deprecated use `TemplateFindTemplatesFieldMetaDropdown$Outbound` instead. */
+  export type Outbound = TemplateFindTemplatesFieldMetaDropdown$Outbound;
 }
 
-export function templateFindTemplatesFieldMeta9ToJSON(
-  templateFindTemplatesFieldMeta9: TemplateFindTemplatesFieldMeta9,
+export function templateFindTemplatesFieldMetaDropdownToJSON(
+  templateFindTemplatesFieldMetaDropdown:
+    TemplateFindTemplatesFieldMetaDropdown,
 ): string {
   return JSON.stringify(
-    TemplateFindTemplatesFieldMeta9$outboundSchema.parse(
-      templateFindTemplatesFieldMeta9,
+    TemplateFindTemplatesFieldMetaDropdown$outboundSchema.parse(
+      templateFindTemplatesFieldMetaDropdown,
     ),
   );
 }
 
-export function templateFindTemplatesFieldMeta9FromJSON(
+export function templateFindTemplatesFieldMetaDropdownFromJSON(
   jsonString: string,
-): SafeParseResult<TemplateFindTemplatesFieldMeta9, SDKValidationError> {
+): SafeParseResult<TemplateFindTemplatesFieldMetaDropdown, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => TemplateFindTemplatesFieldMeta9$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TemplateFindTemplatesFieldMeta9' from JSON`,
+    (x) =>
+      TemplateFindTemplatesFieldMetaDropdown$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateFindTemplatesFieldMetaDropdown' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFieldsType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFieldsType
-  > = z.nativeEnum(
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFieldsType,
-  );
+export const TemplateFindTemplatesTypeCheckbox$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTypeCheckbox
+> = z.nativeEnum(TemplateFindTemplatesTypeCheckbox);
 
 /** @internal */
-export const TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFieldsType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFieldsType
-  > =
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFieldsType$inboundSchema;
+export const TemplateFindTemplatesTypeCheckbox$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTypeCheckbox
+> = TemplateFindTemplatesTypeCheckbox$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFieldsType$ {
-  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFieldsType$inboundSchema` instead. */
-  export const inboundSchema =
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFieldsType$inboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFieldsType$outboundSchema` instead. */
+export namespace TemplateFindTemplatesTypeCheckbox$ {
+  /** @deprecated use `TemplateFindTemplatesTypeCheckbox$inboundSchema` instead. */
+  export const inboundSchema = TemplateFindTemplatesTypeCheckbox$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesTypeCheckbox$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFieldsType$outboundSchema;
+    TemplateFindTemplatesTypeCheckbox$outboundSchema;
 }
 
 /** @internal */
-export const TemplateFindTemplatesFieldMetaTemplatesValues$inboundSchema:
-  z.ZodType<
-    TemplateFindTemplatesFieldMetaTemplatesValues,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    id: z.number(),
-    checked: z.boolean(),
-    value: z.string(),
-  });
+export const TemplateFindTemplatesValue2$inboundSchema: z.ZodType<
+  TemplateFindTemplatesValue2,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.number(),
+  checked: z.boolean(),
+  value: z.string(),
+});
 
 /** @internal */
-export type TemplateFindTemplatesFieldMetaTemplatesValues$Outbound = {
+export type TemplateFindTemplatesValue2$Outbound = {
   id: number;
   checked: boolean;
   value: string;
 };
 
 /** @internal */
-export const TemplateFindTemplatesFieldMetaTemplatesValues$outboundSchema:
-  z.ZodType<
-    TemplateFindTemplatesFieldMetaTemplatesValues$Outbound,
-    z.ZodTypeDef,
-    TemplateFindTemplatesFieldMetaTemplatesValues
-  > = z.object({
-    id: z.number(),
-    checked: z.boolean(),
-    value: z.string(),
-  });
+export const TemplateFindTemplatesValue2$outboundSchema: z.ZodType<
+  TemplateFindTemplatesValue2$Outbound,
+  z.ZodTypeDef,
+  TemplateFindTemplatesValue2
+> = z.object({
+  id: z.number(),
+  checked: z.boolean(),
+  value: z.string(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateFindTemplatesFieldMetaTemplatesValues$ {
-  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesValues$inboundSchema` instead. */
-  export const inboundSchema =
-    TemplateFindTemplatesFieldMetaTemplatesValues$inboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesValues$outboundSchema` instead. */
-  export const outboundSchema =
-    TemplateFindTemplatesFieldMetaTemplatesValues$outboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesValues$Outbound` instead. */
-  export type Outbound = TemplateFindTemplatesFieldMetaTemplatesValues$Outbound;
+export namespace TemplateFindTemplatesValue2$ {
+  /** @deprecated use `TemplateFindTemplatesValue2$inboundSchema` instead. */
+  export const inboundSchema = TemplateFindTemplatesValue2$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesValue2$outboundSchema` instead. */
+  export const outboundSchema = TemplateFindTemplatesValue2$outboundSchema;
+  /** @deprecated use `TemplateFindTemplatesValue2$Outbound` instead. */
+  export type Outbound = TemplateFindTemplatesValue2$Outbound;
 }
 
-export function templateFindTemplatesFieldMetaTemplatesValuesToJSON(
-  templateFindTemplatesFieldMetaTemplatesValues:
-    TemplateFindTemplatesFieldMetaTemplatesValues,
+export function templateFindTemplatesValue2ToJSON(
+  templateFindTemplatesValue2: TemplateFindTemplatesValue2,
 ): string {
   return JSON.stringify(
-    TemplateFindTemplatesFieldMetaTemplatesValues$outboundSchema.parse(
-      templateFindTemplatesFieldMetaTemplatesValues,
+    TemplateFindTemplatesValue2$outboundSchema.parse(
+      templateFindTemplatesValue2,
     ),
   );
 }
 
-export function templateFindTemplatesFieldMetaTemplatesValuesFromJSON(
+export function templateFindTemplatesValue2FromJSON(
   jsonString: string,
-): SafeParseResult<
-  TemplateFindTemplatesFieldMetaTemplatesValues,
-  SDKValidationError
-> {
+): SafeParseResult<TemplateFindTemplatesValue2, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      TemplateFindTemplatesFieldMetaTemplatesValues$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'TemplateFindTemplatesFieldMetaTemplatesValues' from JSON`,
+    (x) => TemplateFindTemplatesValue2$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateFindTemplatesValue2' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateFindTemplatesFieldMeta8$inboundSchema: z.ZodType<
-  TemplateFindTemplatesFieldMeta8,
+export const TemplateFindTemplatesFieldMetaCheckbox$inboundSchema: z.ZodType<
+  TemplateFindTemplatesFieldMetaCheckbox,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -1125,44 +1128,38 @@ export const TemplateFindTemplatesFieldMeta8$inboundSchema: z.ZodType<
   placeholder: z.string().optional(),
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
-  type:
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFieldsType$inboundSchema,
-  values: z.array(
-    z.lazy(() => TemplateFindTemplatesFieldMetaTemplatesValues$inboundSchema),
-  ).optional(),
+  type: TemplateFindTemplatesTypeCheckbox$inboundSchema,
+  values: z.array(z.lazy(() => TemplateFindTemplatesValue2$inboundSchema))
+    .optional(),
   validationRule: z.string().optional(),
   validationLength: z.number().optional(),
 });
 
 /** @internal */
-export type TemplateFindTemplatesFieldMeta8$Outbound = {
+export type TemplateFindTemplatesFieldMetaCheckbox$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
-  values?:
-    | Array<TemplateFindTemplatesFieldMetaTemplatesValues$Outbound>
-    | undefined;
+  values?: Array<TemplateFindTemplatesValue2$Outbound> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
 };
 
 /** @internal */
-export const TemplateFindTemplatesFieldMeta8$outboundSchema: z.ZodType<
-  TemplateFindTemplatesFieldMeta8$Outbound,
+export const TemplateFindTemplatesFieldMetaCheckbox$outboundSchema: z.ZodType<
+  TemplateFindTemplatesFieldMetaCheckbox$Outbound,
   z.ZodTypeDef,
-  TemplateFindTemplatesFieldMeta8
+  TemplateFindTemplatesFieldMetaCheckbox
 > = z.object({
   label: z.string().optional(),
   placeholder: z.string().optional(),
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
-  type:
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataFieldsType$outboundSchema,
-  values: z.array(
-    z.lazy(() => TemplateFindTemplatesFieldMetaTemplatesValues$outboundSchema),
-  ).optional(),
+  type: TemplateFindTemplatesTypeCheckbox$outboundSchema,
+  values: z.array(z.lazy(() => TemplateFindTemplatesValue2$outboundSchema))
+    .optional(),
   validationRule: z.string().optional(),
   validationLength: z.number().optional(),
 });
@@ -1171,66 +1168,63 @@ export const TemplateFindTemplatesFieldMeta8$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateFindTemplatesFieldMeta8$ {
-  /** @deprecated use `TemplateFindTemplatesFieldMeta8$inboundSchema` instead. */
-  export const inboundSchema = TemplateFindTemplatesFieldMeta8$inboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMeta8$outboundSchema` instead. */
-  export const outboundSchema = TemplateFindTemplatesFieldMeta8$outboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMeta8$Outbound` instead. */
-  export type Outbound = TemplateFindTemplatesFieldMeta8$Outbound;
+export namespace TemplateFindTemplatesFieldMetaCheckbox$ {
+  /** @deprecated use `TemplateFindTemplatesFieldMetaCheckbox$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateFindTemplatesFieldMetaCheckbox$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesFieldMetaCheckbox$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateFindTemplatesFieldMetaCheckbox$outboundSchema;
+  /** @deprecated use `TemplateFindTemplatesFieldMetaCheckbox$Outbound` instead. */
+  export type Outbound = TemplateFindTemplatesFieldMetaCheckbox$Outbound;
 }
 
-export function templateFindTemplatesFieldMeta8ToJSON(
-  templateFindTemplatesFieldMeta8: TemplateFindTemplatesFieldMeta8,
+export function templateFindTemplatesFieldMetaCheckboxToJSON(
+  templateFindTemplatesFieldMetaCheckbox:
+    TemplateFindTemplatesFieldMetaCheckbox,
 ): string {
   return JSON.stringify(
-    TemplateFindTemplatesFieldMeta8$outboundSchema.parse(
-      templateFindTemplatesFieldMeta8,
+    TemplateFindTemplatesFieldMetaCheckbox$outboundSchema.parse(
+      templateFindTemplatesFieldMetaCheckbox,
     ),
   );
 }
 
-export function templateFindTemplatesFieldMeta8FromJSON(
+export function templateFindTemplatesFieldMetaCheckboxFromJSON(
   jsonString: string,
-): SafeParseResult<TemplateFindTemplatesFieldMeta8, SDKValidationError> {
+): SafeParseResult<TemplateFindTemplatesFieldMetaCheckbox, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => TemplateFindTemplatesFieldMeta8$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TemplateFindTemplatesFieldMeta8' from JSON`,
+    (x) =>
+      TemplateFindTemplatesFieldMetaCheckbox$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateFindTemplatesFieldMetaCheckbox' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataType
-  > = z.nativeEnum(
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataType,
-  );
+export const TemplateFindTemplatesTypeRadio$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTypeRadio
+> = z.nativeEnum(TemplateFindTemplatesTypeRadio);
 
 /** @internal */
-export const TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataType
-  > =
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataType$inboundSchema;
+export const TemplateFindTemplatesTypeRadio$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTypeRadio
+> = TemplateFindTemplatesTypeRadio$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataType$ {
-  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataType$inboundSchema` instead. */
-  export const inboundSchema =
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataType$inboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataType$outboundSchema` instead. */
-  export const outboundSchema =
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataType$outboundSchema;
+export namespace TemplateFindTemplatesTypeRadio$ {
+  /** @deprecated use `TemplateFindTemplatesTypeRadio$inboundSchema` instead. */
+  export const inboundSchema = TemplateFindTemplatesTypeRadio$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesTypeRadio$outboundSchema` instead. */
+  export const outboundSchema = TemplateFindTemplatesTypeRadio$outboundSchema;
 }
 
 /** @internal */
-export const TemplateFindTemplatesFieldMetaValues$inboundSchema: z.ZodType<
-  TemplateFindTemplatesFieldMetaValues,
+export const TemplateFindTemplatesValue1$inboundSchema: z.ZodType<
+  TemplateFindTemplatesValue1,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -1240,17 +1234,17 @@ export const TemplateFindTemplatesFieldMetaValues$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type TemplateFindTemplatesFieldMetaValues$Outbound = {
+export type TemplateFindTemplatesValue1$Outbound = {
   id: number;
   checked: boolean;
   value: string;
 };
 
 /** @internal */
-export const TemplateFindTemplatesFieldMetaValues$outboundSchema: z.ZodType<
-  TemplateFindTemplatesFieldMetaValues$Outbound,
+export const TemplateFindTemplatesValue1$outboundSchema: z.ZodType<
+  TemplateFindTemplatesValue1$Outbound,
   z.ZodTypeDef,
-  TemplateFindTemplatesFieldMetaValues
+  TemplateFindTemplatesValue1
 > = z.object({
   id: z.number(),
   checked: z.boolean(),
@@ -1261,41 +1255,38 @@ export const TemplateFindTemplatesFieldMetaValues$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateFindTemplatesFieldMetaValues$ {
-  /** @deprecated use `TemplateFindTemplatesFieldMetaValues$inboundSchema` instead. */
-  export const inboundSchema =
-    TemplateFindTemplatesFieldMetaValues$inboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMetaValues$outboundSchema` instead. */
-  export const outboundSchema =
-    TemplateFindTemplatesFieldMetaValues$outboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMetaValues$Outbound` instead. */
-  export type Outbound = TemplateFindTemplatesFieldMetaValues$Outbound;
+export namespace TemplateFindTemplatesValue1$ {
+  /** @deprecated use `TemplateFindTemplatesValue1$inboundSchema` instead. */
+  export const inboundSchema = TemplateFindTemplatesValue1$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesValue1$outboundSchema` instead. */
+  export const outboundSchema = TemplateFindTemplatesValue1$outboundSchema;
+  /** @deprecated use `TemplateFindTemplatesValue1$Outbound` instead. */
+  export type Outbound = TemplateFindTemplatesValue1$Outbound;
 }
 
-export function templateFindTemplatesFieldMetaValuesToJSON(
-  templateFindTemplatesFieldMetaValues: TemplateFindTemplatesFieldMetaValues,
+export function templateFindTemplatesValue1ToJSON(
+  templateFindTemplatesValue1: TemplateFindTemplatesValue1,
 ): string {
   return JSON.stringify(
-    TemplateFindTemplatesFieldMetaValues$outboundSchema.parse(
-      templateFindTemplatesFieldMetaValues,
+    TemplateFindTemplatesValue1$outboundSchema.parse(
+      templateFindTemplatesValue1,
     ),
   );
 }
 
-export function templateFindTemplatesFieldMetaValuesFromJSON(
+export function templateFindTemplatesValue1FromJSON(
   jsonString: string,
-): SafeParseResult<TemplateFindTemplatesFieldMetaValues, SDKValidationError> {
+): SafeParseResult<TemplateFindTemplatesValue1, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      TemplateFindTemplatesFieldMetaValues$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TemplateFindTemplatesFieldMetaValues' from JSON`,
+    (x) => TemplateFindTemplatesValue1$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateFindTemplatesValue1' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateFindTemplatesFieldMeta7$inboundSchema: z.ZodType<
-  TemplateFindTemplatesFieldMeta7,
+export const TemplateFindTemplatesFieldMetaRadio$inboundSchema: z.ZodType<
+  TemplateFindTemplatesFieldMetaRadio,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -1303,104 +1294,117 @@ export const TemplateFindTemplatesFieldMeta7$inboundSchema: z.ZodType<
   placeholder: z.string().optional(),
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
-  type:
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataType$inboundSchema,
-  values: z.array(
-    z.lazy(() => TemplateFindTemplatesFieldMetaValues$inboundSchema),
-  ).optional(),
+  type: TemplateFindTemplatesTypeRadio$inboundSchema,
+  values: z.array(z.lazy(() => TemplateFindTemplatesValue1$inboundSchema))
+    .optional(),
 });
 
 /** @internal */
-export type TemplateFindTemplatesFieldMeta7$Outbound = {
+export type TemplateFindTemplatesFieldMetaRadio$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
-  values?: Array<TemplateFindTemplatesFieldMetaValues$Outbound> | undefined;
+  values?: Array<TemplateFindTemplatesValue1$Outbound> | undefined;
 };
 
 /** @internal */
-export const TemplateFindTemplatesFieldMeta7$outboundSchema: z.ZodType<
-  TemplateFindTemplatesFieldMeta7$Outbound,
+export const TemplateFindTemplatesFieldMetaRadio$outboundSchema: z.ZodType<
+  TemplateFindTemplatesFieldMetaRadio$Outbound,
   z.ZodTypeDef,
-  TemplateFindTemplatesFieldMeta7
+  TemplateFindTemplatesFieldMetaRadio
 > = z.object({
   label: z.string().optional(),
   placeholder: z.string().optional(),
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
-  type:
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyDataType$outboundSchema,
-  values: z.array(
-    z.lazy(() => TemplateFindTemplatesFieldMetaValues$outboundSchema),
-  ).optional(),
+  type: TemplateFindTemplatesTypeRadio$outboundSchema,
+  values: z.array(z.lazy(() => TemplateFindTemplatesValue1$outboundSchema))
+    .optional(),
 });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateFindTemplatesFieldMeta7$ {
-  /** @deprecated use `TemplateFindTemplatesFieldMeta7$inboundSchema` instead. */
-  export const inboundSchema = TemplateFindTemplatesFieldMeta7$inboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMeta7$outboundSchema` instead. */
-  export const outboundSchema = TemplateFindTemplatesFieldMeta7$outboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMeta7$Outbound` instead. */
-  export type Outbound = TemplateFindTemplatesFieldMeta7$Outbound;
+export namespace TemplateFindTemplatesFieldMetaRadio$ {
+  /** @deprecated use `TemplateFindTemplatesFieldMetaRadio$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateFindTemplatesFieldMetaRadio$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesFieldMetaRadio$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateFindTemplatesFieldMetaRadio$outboundSchema;
+  /** @deprecated use `TemplateFindTemplatesFieldMetaRadio$Outbound` instead. */
+  export type Outbound = TemplateFindTemplatesFieldMetaRadio$Outbound;
 }
 
-export function templateFindTemplatesFieldMeta7ToJSON(
-  templateFindTemplatesFieldMeta7: TemplateFindTemplatesFieldMeta7,
+export function templateFindTemplatesFieldMetaRadioToJSON(
+  templateFindTemplatesFieldMetaRadio: TemplateFindTemplatesFieldMetaRadio,
 ): string {
   return JSON.stringify(
-    TemplateFindTemplatesFieldMeta7$outboundSchema.parse(
-      templateFindTemplatesFieldMeta7,
+    TemplateFindTemplatesFieldMetaRadio$outboundSchema.parse(
+      templateFindTemplatesFieldMetaRadio,
     ),
   );
 }
 
-export function templateFindTemplatesFieldMeta7FromJSON(
+export function templateFindTemplatesFieldMetaRadioFromJSON(
   jsonString: string,
-): SafeParseResult<TemplateFindTemplatesFieldMeta7, SDKValidationError> {
+): SafeParseResult<TemplateFindTemplatesFieldMetaRadio, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => TemplateFindTemplatesFieldMeta7$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TemplateFindTemplatesFieldMeta7' from JSON`,
+    (x) =>
+      TemplateFindTemplatesFieldMetaRadio$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateFindTemplatesFieldMetaRadio' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType
-  > = z.nativeEnum(
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType,
-  );
+export const TemplateFindTemplatesTypeNumber$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTypeNumber
+> = z.nativeEnum(TemplateFindTemplatesTypeNumber);
 
 /** @internal */
-export const TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType
-  > =
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType$inboundSchema;
+export const TemplateFindTemplatesTypeNumber$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTypeNumber
+> = TemplateFindTemplatesTypeNumber$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType$ {
-  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType$inboundSchema` instead. */
-  export const inboundSchema =
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType$inboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType$outboundSchema` instead. */
-  export const outboundSchema =
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType$outboundSchema;
+export namespace TemplateFindTemplatesTypeNumber$ {
+  /** @deprecated use `TemplateFindTemplatesTypeNumber$inboundSchema` instead. */
+  export const inboundSchema = TemplateFindTemplatesTypeNumber$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesTypeNumber$outboundSchema` instead. */
+  export const outboundSchema = TemplateFindTemplatesTypeNumber$outboundSchema;
 }
 
 /** @internal */
-export const TemplateFindTemplatesFieldMeta6$inboundSchema: z.ZodType<
-  TemplateFindTemplatesFieldMeta6,
+export const TemplateFindTemplatesTextAlign6$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTextAlign6
+> = z.nativeEnum(TemplateFindTemplatesTextAlign6);
+
+/** @internal */
+export const TemplateFindTemplatesTextAlign6$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTextAlign6
+> = TemplateFindTemplatesTextAlign6$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateFindTemplatesTextAlign6$ {
+  /** @deprecated use `TemplateFindTemplatesTextAlign6$inboundSchema` instead. */
+  export const inboundSchema = TemplateFindTemplatesTextAlign6$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesTextAlign6$outboundSchema` instead. */
+  export const outboundSchema = TemplateFindTemplatesTextAlign6$outboundSchema;
+}
+
+/** @internal */
+export const TemplateFindTemplatesFieldMetaNumber$inboundSchema: z.ZodType<
+  TemplateFindTemplatesFieldMetaNumber,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -1408,17 +1412,17 @@ export const TemplateFindTemplatesFieldMeta6$inboundSchema: z.ZodType<
   placeholder: z.string().optional(),
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
-  type:
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType$inboundSchema,
+  type: TemplateFindTemplatesTypeNumber$inboundSchema,
   numberFormat: z.string().optional(),
   value: z.string().optional(),
   minValue: z.number().optional(),
   maxValue: z.number().optional(),
   fontSize: z.number().optional(),
+  textAlign: TemplateFindTemplatesTextAlign6$inboundSchema.optional(),
 });
 
 /** @internal */
-export type TemplateFindTemplatesFieldMeta6$Outbound = {
+export type TemplateFindTemplatesFieldMetaNumber$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -1429,91 +1433,109 @@ export type TemplateFindTemplatesFieldMeta6$Outbound = {
   minValue?: number | undefined;
   maxValue?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const TemplateFindTemplatesFieldMeta6$outboundSchema: z.ZodType<
-  TemplateFindTemplatesFieldMeta6$Outbound,
+export const TemplateFindTemplatesFieldMetaNumber$outboundSchema: z.ZodType<
+  TemplateFindTemplatesFieldMetaNumber$Outbound,
   z.ZodTypeDef,
-  TemplateFindTemplatesFieldMeta6
+  TemplateFindTemplatesFieldMetaNumber
 > = z.object({
   label: z.string().optional(),
   placeholder: z.string().optional(),
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
-  type:
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONResponseBodyType$outboundSchema,
+  type: TemplateFindTemplatesTypeNumber$outboundSchema,
   numberFormat: z.string().optional(),
   value: z.string().optional(),
   minValue: z.number().optional(),
   maxValue: z.number().optional(),
   fontSize: z.number().optional(),
+  textAlign: TemplateFindTemplatesTextAlign6$outboundSchema.optional(),
 });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateFindTemplatesFieldMeta6$ {
-  /** @deprecated use `TemplateFindTemplatesFieldMeta6$inboundSchema` instead. */
-  export const inboundSchema = TemplateFindTemplatesFieldMeta6$inboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMeta6$outboundSchema` instead. */
-  export const outboundSchema = TemplateFindTemplatesFieldMeta6$outboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMeta6$Outbound` instead. */
-  export type Outbound = TemplateFindTemplatesFieldMeta6$Outbound;
+export namespace TemplateFindTemplatesFieldMetaNumber$ {
+  /** @deprecated use `TemplateFindTemplatesFieldMetaNumber$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateFindTemplatesFieldMetaNumber$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesFieldMetaNumber$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateFindTemplatesFieldMetaNumber$outboundSchema;
+  /** @deprecated use `TemplateFindTemplatesFieldMetaNumber$Outbound` instead. */
+  export type Outbound = TemplateFindTemplatesFieldMetaNumber$Outbound;
 }
 
-export function templateFindTemplatesFieldMeta6ToJSON(
-  templateFindTemplatesFieldMeta6: TemplateFindTemplatesFieldMeta6,
+export function templateFindTemplatesFieldMetaNumberToJSON(
+  templateFindTemplatesFieldMetaNumber: TemplateFindTemplatesFieldMetaNumber,
 ): string {
   return JSON.stringify(
-    TemplateFindTemplatesFieldMeta6$outboundSchema.parse(
-      templateFindTemplatesFieldMeta6,
+    TemplateFindTemplatesFieldMetaNumber$outboundSchema.parse(
+      templateFindTemplatesFieldMetaNumber,
     ),
   );
 }
 
-export function templateFindTemplatesFieldMeta6FromJSON(
+export function templateFindTemplatesFieldMetaNumberFromJSON(
   jsonString: string,
-): SafeParseResult<TemplateFindTemplatesFieldMeta6, SDKValidationError> {
+): SafeParseResult<TemplateFindTemplatesFieldMetaNumber, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => TemplateFindTemplatesFieldMeta6$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TemplateFindTemplatesFieldMeta6' from JSON`,
+    (x) =>
+      TemplateFindTemplatesFieldMetaNumber$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateFindTemplatesFieldMetaNumber' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONType
-  > = z.nativeEnum(
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONType,
-  );
+export const TemplateFindTemplatesTypeText$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTypeText
+> = z.nativeEnum(TemplateFindTemplatesTypeText);
 
 /** @internal */
-export const TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONType
-  > =
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONType$inboundSchema;
+export const TemplateFindTemplatesTypeText$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTypeText
+> = TemplateFindTemplatesTypeText$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONType$ {
-  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONType$inboundSchema` instead. */
-  export const inboundSchema =
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONType$inboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONType$outboundSchema` instead. */
-  export const outboundSchema =
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONType$outboundSchema;
+export namespace TemplateFindTemplatesTypeText$ {
+  /** @deprecated use `TemplateFindTemplatesTypeText$inboundSchema` instead. */
+  export const inboundSchema = TemplateFindTemplatesTypeText$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesTypeText$outboundSchema` instead. */
+  export const outboundSchema = TemplateFindTemplatesTypeText$outboundSchema;
 }
 
 /** @internal */
-export const TemplateFindTemplatesFieldMeta5$inboundSchema: z.ZodType<
-  TemplateFindTemplatesFieldMeta5,
+export const TemplateFindTemplatesTextAlign5$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTextAlign5
+> = z.nativeEnum(TemplateFindTemplatesTextAlign5);
+
+/** @internal */
+export const TemplateFindTemplatesTextAlign5$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTextAlign5
+> = TemplateFindTemplatesTextAlign5$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateFindTemplatesTextAlign5$ {
+  /** @deprecated use `TemplateFindTemplatesTextAlign5$inboundSchema` instead. */
+  export const inboundSchema = TemplateFindTemplatesTextAlign5$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesTextAlign5$outboundSchema` instead. */
+  export const outboundSchema = TemplateFindTemplatesTextAlign5$outboundSchema;
+}
+
+/** @internal */
+export const TemplateFindTemplatesFieldMetaText$inboundSchema: z.ZodType<
+  TemplateFindTemplatesFieldMetaText,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -1521,15 +1543,15 @@ export const TemplateFindTemplatesFieldMeta5$inboundSchema: z.ZodType<
   placeholder: z.string().optional(),
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
-  type:
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONType$inboundSchema,
+  type: TemplateFindTemplatesTypeText$inboundSchema,
   text: z.string().optional(),
   characterLimit: z.number().optional(),
   fontSize: z.number().optional(),
+  textAlign: TemplateFindTemplatesTextAlign5$inboundSchema.optional(),
 });
 
 /** @internal */
-export type TemplateFindTemplatesFieldMeta5$Outbound = {
+export type TemplateFindTemplatesFieldMetaText$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -1538,86 +1560,343 @@ export type TemplateFindTemplatesFieldMeta5$Outbound = {
   text?: string | undefined;
   characterLimit?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const TemplateFindTemplatesFieldMeta5$outboundSchema: z.ZodType<
-  TemplateFindTemplatesFieldMeta5$Outbound,
+export const TemplateFindTemplatesFieldMetaText$outboundSchema: z.ZodType<
+  TemplateFindTemplatesFieldMetaText$Outbound,
   z.ZodTypeDef,
-  TemplateFindTemplatesFieldMeta5
+  TemplateFindTemplatesFieldMetaText
 > = z.object({
   label: z.string().optional(),
   placeholder: z.string().optional(),
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
-  type:
-    TemplateFindTemplatesFieldMetaTemplatesResponse200ApplicationJSONType$outboundSchema,
+  type: TemplateFindTemplatesTypeText$outboundSchema,
   text: z.string().optional(),
   characterLimit: z.number().optional(),
   fontSize: z.number().optional(),
+  textAlign: TemplateFindTemplatesTextAlign5$outboundSchema.optional(),
 });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateFindTemplatesFieldMeta5$ {
-  /** @deprecated use `TemplateFindTemplatesFieldMeta5$inboundSchema` instead. */
-  export const inboundSchema = TemplateFindTemplatesFieldMeta5$inboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMeta5$outboundSchema` instead. */
-  export const outboundSchema = TemplateFindTemplatesFieldMeta5$outboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMeta5$Outbound` instead. */
-  export type Outbound = TemplateFindTemplatesFieldMeta5$Outbound;
+export namespace TemplateFindTemplatesFieldMetaText$ {
+  /** @deprecated use `TemplateFindTemplatesFieldMetaText$inboundSchema` instead. */
+  export const inboundSchema = TemplateFindTemplatesFieldMetaText$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesFieldMetaText$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateFindTemplatesFieldMetaText$outboundSchema;
+  /** @deprecated use `TemplateFindTemplatesFieldMetaText$Outbound` instead. */
+  export type Outbound = TemplateFindTemplatesFieldMetaText$Outbound;
 }
 
-export function templateFindTemplatesFieldMeta5ToJSON(
-  templateFindTemplatesFieldMeta5: TemplateFindTemplatesFieldMeta5,
+export function templateFindTemplatesFieldMetaTextToJSON(
+  templateFindTemplatesFieldMetaText: TemplateFindTemplatesFieldMetaText,
 ): string {
   return JSON.stringify(
-    TemplateFindTemplatesFieldMeta5$outboundSchema.parse(
-      templateFindTemplatesFieldMeta5,
+    TemplateFindTemplatesFieldMetaText$outboundSchema.parse(
+      templateFindTemplatesFieldMetaText,
     ),
   );
 }
 
-export function templateFindTemplatesFieldMeta5FromJSON(
+export function templateFindTemplatesFieldMetaTextFromJSON(
   jsonString: string,
-): SafeParseResult<TemplateFindTemplatesFieldMeta5, SDKValidationError> {
+): SafeParseResult<TemplateFindTemplatesFieldMetaText, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => TemplateFindTemplatesFieldMeta5$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TemplateFindTemplatesFieldMeta5' from JSON`,
+    (x) =>
+      TemplateFindTemplatesFieldMetaText$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateFindTemplatesFieldMetaText' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateFindTemplatesFieldMetaTemplatesResponse200Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateFindTemplatesFieldMetaTemplatesResponse200Type
-  > = z.nativeEnum(TemplateFindTemplatesFieldMetaTemplatesResponse200Type);
+export const TemplateFindTemplatesTypeDate$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTypeDate
+> = z.nativeEnum(TemplateFindTemplatesTypeDate);
 
 /** @internal */
-export const TemplateFindTemplatesFieldMetaTemplatesResponse200Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateFindTemplatesFieldMetaTemplatesResponse200Type
-  > = TemplateFindTemplatesFieldMetaTemplatesResponse200Type$inboundSchema;
+export const TemplateFindTemplatesTypeDate$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTypeDate
+> = TemplateFindTemplatesTypeDate$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateFindTemplatesFieldMetaTemplatesResponse200Type$ {
-  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesResponse200Type$inboundSchema` instead. */
+export namespace TemplateFindTemplatesTypeDate$ {
+  /** @deprecated use `TemplateFindTemplatesTypeDate$inboundSchema` instead. */
+  export const inboundSchema = TemplateFindTemplatesTypeDate$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesTypeDate$outboundSchema` instead. */
+  export const outboundSchema = TemplateFindTemplatesTypeDate$outboundSchema;
+}
+
+/** @internal */
+export const TemplateFindTemplatesTextAlign4$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTextAlign4
+> = z.nativeEnum(TemplateFindTemplatesTextAlign4);
+
+/** @internal */
+export const TemplateFindTemplatesTextAlign4$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTextAlign4
+> = TemplateFindTemplatesTextAlign4$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateFindTemplatesTextAlign4$ {
+  /** @deprecated use `TemplateFindTemplatesTextAlign4$inboundSchema` instead. */
+  export const inboundSchema = TemplateFindTemplatesTextAlign4$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesTextAlign4$outboundSchema` instead. */
+  export const outboundSchema = TemplateFindTemplatesTextAlign4$outboundSchema;
+}
+
+/** @internal */
+export const TemplateFindTemplatesFieldMetaDate$inboundSchema: z.ZodType<
+  TemplateFindTemplatesFieldMetaDate,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: TemplateFindTemplatesTypeDate$inboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: TemplateFindTemplatesTextAlign4$inboundSchema.optional(),
+});
+
+/** @internal */
+export type TemplateFindTemplatesFieldMetaDate$Outbound = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: string;
+  fontSize?: number | undefined;
+  textAlign?: string | undefined;
+};
+
+/** @internal */
+export const TemplateFindTemplatesFieldMetaDate$outboundSchema: z.ZodType<
+  TemplateFindTemplatesFieldMetaDate$Outbound,
+  z.ZodTypeDef,
+  TemplateFindTemplatesFieldMetaDate
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: TemplateFindTemplatesTypeDate$outboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: TemplateFindTemplatesTextAlign4$outboundSchema.optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateFindTemplatesFieldMetaDate$ {
+  /** @deprecated use `TemplateFindTemplatesFieldMetaDate$inboundSchema` instead. */
+  export const inboundSchema = TemplateFindTemplatesFieldMetaDate$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesFieldMetaDate$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateFindTemplatesFieldMetaDate$outboundSchema;
+  /** @deprecated use `TemplateFindTemplatesFieldMetaDate$Outbound` instead. */
+  export type Outbound = TemplateFindTemplatesFieldMetaDate$Outbound;
+}
+
+export function templateFindTemplatesFieldMetaDateToJSON(
+  templateFindTemplatesFieldMetaDate: TemplateFindTemplatesFieldMetaDate,
+): string {
+  return JSON.stringify(
+    TemplateFindTemplatesFieldMetaDate$outboundSchema.parse(
+      templateFindTemplatesFieldMetaDate,
+    ),
+  );
+}
+
+export function templateFindTemplatesFieldMetaDateFromJSON(
+  jsonString: string,
+): SafeParseResult<TemplateFindTemplatesFieldMetaDate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      TemplateFindTemplatesFieldMetaDate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateFindTemplatesFieldMetaDate' from JSON`,
+  );
+}
+
+/** @internal */
+export const TemplateFindTemplatesTypeEmail$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTypeEmail
+> = z.nativeEnum(TemplateFindTemplatesTypeEmail);
+
+/** @internal */
+export const TemplateFindTemplatesTypeEmail$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTypeEmail
+> = TemplateFindTemplatesTypeEmail$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateFindTemplatesTypeEmail$ {
+  /** @deprecated use `TemplateFindTemplatesTypeEmail$inboundSchema` instead. */
+  export const inboundSchema = TemplateFindTemplatesTypeEmail$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesTypeEmail$outboundSchema` instead. */
+  export const outboundSchema = TemplateFindTemplatesTypeEmail$outboundSchema;
+}
+
+/** @internal */
+export const TemplateFindTemplatesTextAlign3$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTextAlign3
+> = z.nativeEnum(TemplateFindTemplatesTextAlign3);
+
+/** @internal */
+export const TemplateFindTemplatesTextAlign3$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTextAlign3
+> = TemplateFindTemplatesTextAlign3$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateFindTemplatesTextAlign3$ {
+  /** @deprecated use `TemplateFindTemplatesTextAlign3$inboundSchema` instead. */
+  export const inboundSchema = TemplateFindTemplatesTextAlign3$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesTextAlign3$outboundSchema` instead. */
+  export const outboundSchema = TemplateFindTemplatesTextAlign3$outboundSchema;
+}
+
+/** @internal */
+export const TemplateFindTemplatesFieldMetaEmail$inboundSchema: z.ZodType<
+  TemplateFindTemplatesFieldMetaEmail,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: TemplateFindTemplatesTypeEmail$inboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: TemplateFindTemplatesTextAlign3$inboundSchema.optional(),
+});
+
+/** @internal */
+export type TemplateFindTemplatesFieldMetaEmail$Outbound = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: string;
+  fontSize?: number | undefined;
+  textAlign?: string | undefined;
+};
+
+/** @internal */
+export const TemplateFindTemplatesFieldMetaEmail$outboundSchema: z.ZodType<
+  TemplateFindTemplatesFieldMetaEmail$Outbound,
+  z.ZodTypeDef,
+  TemplateFindTemplatesFieldMetaEmail
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: TemplateFindTemplatesTypeEmail$outboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: TemplateFindTemplatesTextAlign3$outboundSchema.optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateFindTemplatesFieldMetaEmail$ {
+  /** @deprecated use `TemplateFindTemplatesFieldMetaEmail$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateFindTemplatesFieldMetaTemplatesResponse200Type$inboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesResponse200Type$outboundSchema` instead. */
+    TemplateFindTemplatesFieldMetaEmail$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesFieldMetaEmail$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateFindTemplatesFieldMetaTemplatesResponse200Type$outboundSchema;
+    TemplateFindTemplatesFieldMetaEmail$outboundSchema;
+  /** @deprecated use `TemplateFindTemplatesFieldMetaEmail$Outbound` instead. */
+  export type Outbound = TemplateFindTemplatesFieldMetaEmail$Outbound;
+}
+
+export function templateFindTemplatesFieldMetaEmailToJSON(
+  templateFindTemplatesFieldMetaEmail: TemplateFindTemplatesFieldMetaEmail,
+): string {
+  return JSON.stringify(
+    TemplateFindTemplatesFieldMetaEmail$outboundSchema.parse(
+      templateFindTemplatesFieldMetaEmail,
+    ),
+  );
+}
+
+export function templateFindTemplatesFieldMetaEmailFromJSON(
+  jsonString: string,
+): SafeParseResult<TemplateFindTemplatesFieldMetaEmail, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      TemplateFindTemplatesFieldMetaEmail$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateFindTemplatesFieldMetaEmail' from JSON`,
+  );
 }
 
 /** @internal */
-export const TemplateFindTemplatesFieldMeta4$inboundSchema: z.ZodType<
-  TemplateFindTemplatesFieldMeta4,
+export const TemplateFindTemplatesTypeName$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTypeName
+> = z.nativeEnum(TemplateFindTemplatesTypeName);
+
+/** @internal */
+export const TemplateFindTemplatesTypeName$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTypeName
+> = TemplateFindTemplatesTypeName$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateFindTemplatesTypeName$ {
+  /** @deprecated use `TemplateFindTemplatesTypeName$inboundSchema` instead. */
+  export const inboundSchema = TemplateFindTemplatesTypeName$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesTypeName$outboundSchema` instead. */
+  export const outboundSchema = TemplateFindTemplatesTypeName$outboundSchema;
+}
+
+/** @internal */
+export const TemplateFindTemplatesTextAlign2$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTextAlign2
+> = z.nativeEnum(TemplateFindTemplatesTextAlign2);
+
+/** @internal */
+export const TemplateFindTemplatesTextAlign2$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTextAlign2
+> = TemplateFindTemplatesTextAlign2$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateFindTemplatesTextAlign2$ {
+  /** @deprecated use `TemplateFindTemplatesTextAlign2$inboundSchema` instead. */
+  export const inboundSchema = TemplateFindTemplatesTextAlign2$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesTextAlign2$outboundSchema` instead. */
+  export const outboundSchema = TemplateFindTemplatesTextAlign2$outboundSchema;
+}
+
+/** @internal */
+export const TemplateFindTemplatesFieldMetaName$inboundSchema: z.ZodType<
+  TemplateFindTemplatesFieldMetaName,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -1625,439 +1904,287 @@ export const TemplateFindTemplatesFieldMeta4$inboundSchema: z.ZodType<
   placeholder: z.string().optional(),
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
-  type: TemplateFindTemplatesFieldMetaTemplatesResponse200Type$inboundSchema,
+  type: TemplateFindTemplatesTypeName$inboundSchema,
   fontSize: z.number().optional(),
+  textAlign: TemplateFindTemplatesTextAlign2$inboundSchema.optional(),
 });
 
 /** @internal */
-export type TemplateFindTemplatesFieldMeta4$Outbound = {
+export type TemplateFindTemplatesFieldMetaName$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const TemplateFindTemplatesFieldMeta4$outboundSchema: z.ZodType<
-  TemplateFindTemplatesFieldMeta4$Outbound,
+export const TemplateFindTemplatesFieldMetaName$outboundSchema: z.ZodType<
+  TemplateFindTemplatesFieldMetaName$Outbound,
   z.ZodTypeDef,
-  TemplateFindTemplatesFieldMeta4
+  TemplateFindTemplatesFieldMetaName
 > = z.object({
   label: z.string().optional(),
   placeholder: z.string().optional(),
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
-  type: TemplateFindTemplatesFieldMetaTemplatesResponse200Type$outboundSchema,
+  type: TemplateFindTemplatesTypeName$outboundSchema,
   fontSize: z.number().optional(),
+  textAlign: TemplateFindTemplatesTextAlign2$outboundSchema.optional(),
 });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateFindTemplatesFieldMeta4$ {
-  /** @deprecated use `TemplateFindTemplatesFieldMeta4$inboundSchema` instead. */
-  export const inboundSchema = TemplateFindTemplatesFieldMeta4$inboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMeta4$outboundSchema` instead. */
-  export const outboundSchema = TemplateFindTemplatesFieldMeta4$outboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMeta4$Outbound` instead. */
-  export type Outbound = TemplateFindTemplatesFieldMeta4$Outbound;
+export namespace TemplateFindTemplatesFieldMetaName$ {
+  /** @deprecated use `TemplateFindTemplatesFieldMetaName$inboundSchema` instead. */
+  export const inboundSchema = TemplateFindTemplatesFieldMetaName$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesFieldMetaName$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateFindTemplatesFieldMetaName$outboundSchema;
+  /** @deprecated use `TemplateFindTemplatesFieldMetaName$Outbound` instead. */
+  export type Outbound = TemplateFindTemplatesFieldMetaName$Outbound;
 }
 
-export function templateFindTemplatesFieldMeta4ToJSON(
-  templateFindTemplatesFieldMeta4: TemplateFindTemplatesFieldMeta4,
+export function templateFindTemplatesFieldMetaNameToJSON(
+  templateFindTemplatesFieldMetaName: TemplateFindTemplatesFieldMetaName,
 ): string {
   return JSON.stringify(
-    TemplateFindTemplatesFieldMeta4$outboundSchema.parse(
-      templateFindTemplatesFieldMeta4,
+    TemplateFindTemplatesFieldMetaName$outboundSchema.parse(
+      templateFindTemplatesFieldMetaName,
     ),
   );
 }
 
-export function templateFindTemplatesFieldMeta4FromJSON(
+export function templateFindTemplatesFieldMetaNameFromJSON(
   jsonString: string,
-): SafeParseResult<TemplateFindTemplatesFieldMeta4, SDKValidationError> {
+): SafeParseResult<TemplateFindTemplatesFieldMetaName, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => TemplateFindTemplatesFieldMeta4$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TemplateFindTemplatesFieldMeta4' from JSON`,
+    (x) =>
+      TemplateFindTemplatesFieldMetaName$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateFindTemplatesFieldMetaName' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateFindTemplatesFieldMetaTemplatesResponseType$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateFindTemplatesFieldMetaTemplatesResponseType> =
-    z.nativeEnum(TemplateFindTemplatesFieldMetaTemplatesResponseType);
+export const TemplateFindTemplatesTypeInitials$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTypeInitials
+> = z.nativeEnum(TemplateFindTemplatesTypeInitials);
 
 /** @internal */
-export const TemplateFindTemplatesFieldMetaTemplatesResponseType$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateFindTemplatesFieldMetaTemplatesResponseType> =
-    TemplateFindTemplatesFieldMetaTemplatesResponseType$inboundSchema;
+export const TemplateFindTemplatesTypeInitials$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTypeInitials
+> = TemplateFindTemplatesTypeInitials$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateFindTemplatesFieldMetaTemplatesResponseType$ {
-  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesResponseType$inboundSchema` instead. */
+export namespace TemplateFindTemplatesTypeInitials$ {
+  /** @deprecated use `TemplateFindTemplatesTypeInitials$inboundSchema` instead. */
+  export const inboundSchema = TemplateFindTemplatesTypeInitials$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesTypeInitials$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateFindTemplatesTypeInitials$outboundSchema;
+}
+
+/** @internal */
+export const TemplateFindTemplatesTextAlign1$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTextAlign1
+> = z.nativeEnum(TemplateFindTemplatesTextAlign1);
+
+/** @internal */
+export const TemplateFindTemplatesTextAlign1$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesTextAlign1
+> = TemplateFindTemplatesTextAlign1$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateFindTemplatesTextAlign1$ {
+  /** @deprecated use `TemplateFindTemplatesTextAlign1$inboundSchema` instead. */
+  export const inboundSchema = TemplateFindTemplatesTextAlign1$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesTextAlign1$outboundSchema` instead. */
+  export const outboundSchema = TemplateFindTemplatesTextAlign1$outboundSchema;
+}
+
+/** @internal */
+export const TemplateFindTemplatesFieldMetaInitials$inboundSchema: z.ZodType<
+  TemplateFindTemplatesFieldMetaInitials,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: TemplateFindTemplatesTypeInitials$inboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: TemplateFindTemplatesTextAlign1$inboundSchema.optional(),
+});
+
+/** @internal */
+export type TemplateFindTemplatesFieldMetaInitials$Outbound = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: string;
+  fontSize?: number | undefined;
+  textAlign?: string | undefined;
+};
+
+/** @internal */
+export const TemplateFindTemplatesFieldMetaInitials$outboundSchema: z.ZodType<
+  TemplateFindTemplatesFieldMetaInitials$Outbound,
+  z.ZodTypeDef,
+  TemplateFindTemplatesFieldMetaInitials
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: TemplateFindTemplatesTypeInitials$outboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: TemplateFindTemplatesTextAlign1$outboundSchema.optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateFindTemplatesFieldMetaInitials$ {
+  /** @deprecated use `TemplateFindTemplatesFieldMetaInitials$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateFindTemplatesFieldMetaTemplatesResponseType$inboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesResponseType$outboundSchema` instead. */
+    TemplateFindTemplatesFieldMetaInitials$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesFieldMetaInitials$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateFindTemplatesFieldMetaTemplatesResponseType$outboundSchema;
+    TemplateFindTemplatesFieldMetaInitials$outboundSchema;
+  /** @deprecated use `TemplateFindTemplatesFieldMetaInitials$Outbound` instead. */
+  export type Outbound = TemplateFindTemplatesFieldMetaInitials$Outbound;
 }
 
-/** @internal */
-export const TemplateFindTemplatesFieldMeta3$inboundSchema: z.ZodType<
-  TemplateFindTemplatesFieldMeta3,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  type: TemplateFindTemplatesFieldMetaTemplatesResponseType$inboundSchema,
-  fontSize: z.number().optional(),
-});
-
-/** @internal */
-export type TemplateFindTemplatesFieldMeta3$Outbound = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  type: string;
-  fontSize?: number | undefined;
-};
-
-/** @internal */
-export const TemplateFindTemplatesFieldMeta3$outboundSchema: z.ZodType<
-  TemplateFindTemplatesFieldMeta3$Outbound,
-  z.ZodTypeDef,
-  TemplateFindTemplatesFieldMeta3
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  type: TemplateFindTemplatesFieldMetaTemplatesResponseType$outboundSchema,
-  fontSize: z.number().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TemplateFindTemplatesFieldMeta3$ {
-  /** @deprecated use `TemplateFindTemplatesFieldMeta3$inboundSchema` instead. */
-  export const inboundSchema = TemplateFindTemplatesFieldMeta3$inboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMeta3$outboundSchema` instead. */
-  export const outboundSchema = TemplateFindTemplatesFieldMeta3$outboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMeta3$Outbound` instead. */
-  export type Outbound = TemplateFindTemplatesFieldMeta3$Outbound;
-}
-
-export function templateFindTemplatesFieldMeta3ToJSON(
-  templateFindTemplatesFieldMeta3: TemplateFindTemplatesFieldMeta3,
+export function templateFindTemplatesFieldMetaInitialsToJSON(
+  templateFindTemplatesFieldMetaInitials:
+    TemplateFindTemplatesFieldMetaInitials,
 ): string {
   return JSON.stringify(
-    TemplateFindTemplatesFieldMeta3$outboundSchema.parse(
-      templateFindTemplatesFieldMeta3,
+    TemplateFindTemplatesFieldMetaInitials$outboundSchema.parse(
+      templateFindTemplatesFieldMetaInitials,
     ),
   );
 }
 
-export function templateFindTemplatesFieldMeta3FromJSON(
+export function templateFindTemplatesFieldMetaInitialsFromJSON(
   jsonString: string,
-): SafeParseResult<TemplateFindTemplatesFieldMeta3, SDKValidationError> {
+): SafeParseResult<TemplateFindTemplatesFieldMetaInitials, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => TemplateFindTemplatesFieldMeta3$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TemplateFindTemplatesFieldMeta3' from JSON`,
+    (x) =>
+      TemplateFindTemplatesFieldMetaInitials$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateFindTemplatesFieldMetaInitials' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateFindTemplatesFieldMetaTemplatesType$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateFindTemplatesFieldMetaTemplatesType> = z
-    .nativeEnum(TemplateFindTemplatesFieldMetaTemplatesType);
-
-/** @internal */
-export const TemplateFindTemplatesFieldMetaTemplatesType$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateFindTemplatesFieldMetaTemplatesType> =
-    TemplateFindTemplatesFieldMetaTemplatesType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TemplateFindTemplatesFieldMetaTemplatesType$ {
-  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesType$inboundSchema` instead. */
-  export const inboundSchema =
-    TemplateFindTemplatesFieldMetaTemplatesType$inboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMetaTemplatesType$outboundSchema` instead. */
-  export const outboundSchema =
-    TemplateFindTemplatesFieldMetaTemplatesType$outboundSchema;
-}
-
-/** @internal */
-export const TemplateFindTemplatesFieldMeta2$inboundSchema: z.ZodType<
-  TemplateFindTemplatesFieldMeta2,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  type: TemplateFindTemplatesFieldMetaTemplatesType$inboundSchema,
-  fontSize: z.number().optional(),
-});
-
-/** @internal */
-export type TemplateFindTemplatesFieldMeta2$Outbound = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  type: string;
-  fontSize?: number | undefined;
-};
-
-/** @internal */
-export const TemplateFindTemplatesFieldMeta2$outboundSchema: z.ZodType<
-  TemplateFindTemplatesFieldMeta2$Outbound,
-  z.ZodTypeDef,
-  TemplateFindTemplatesFieldMeta2
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  type: TemplateFindTemplatesFieldMetaTemplatesType$outboundSchema,
-  fontSize: z.number().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TemplateFindTemplatesFieldMeta2$ {
-  /** @deprecated use `TemplateFindTemplatesFieldMeta2$inboundSchema` instead. */
-  export const inboundSchema = TemplateFindTemplatesFieldMeta2$inboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMeta2$outboundSchema` instead. */
-  export const outboundSchema = TemplateFindTemplatesFieldMeta2$outboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMeta2$Outbound` instead. */
-  export type Outbound = TemplateFindTemplatesFieldMeta2$Outbound;
-}
-
-export function templateFindTemplatesFieldMeta2ToJSON(
-  templateFindTemplatesFieldMeta2: TemplateFindTemplatesFieldMeta2,
-): string {
-  return JSON.stringify(
-    TemplateFindTemplatesFieldMeta2$outboundSchema.parse(
-      templateFindTemplatesFieldMeta2,
-    ),
-  );
-}
-
-export function templateFindTemplatesFieldMeta2FromJSON(
-  jsonString: string,
-): SafeParseResult<TemplateFindTemplatesFieldMeta2, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => TemplateFindTemplatesFieldMeta2$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TemplateFindTemplatesFieldMeta2' from JSON`,
-  );
-}
-
-/** @internal */
-export const TemplateFindTemplatesFieldMetaType$inboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesFieldMetaType
-> = z.nativeEnum(TemplateFindTemplatesFieldMetaType);
-
-/** @internal */
-export const TemplateFindTemplatesFieldMetaType$outboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesFieldMetaType
-> = TemplateFindTemplatesFieldMetaType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TemplateFindTemplatesFieldMetaType$ {
-  /** @deprecated use `TemplateFindTemplatesFieldMetaType$inboundSchema` instead. */
-  export const inboundSchema = TemplateFindTemplatesFieldMetaType$inboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMetaType$outboundSchema` instead. */
-  export const outboundSchema =
-    TemplateFindTemplatesFieldMetaType$outboundSchema;
-}
-
-/** @internal */
-export const TemplateFindTemplatesFieldMeta1$inboundSchema: z.ZodType<
-  TemplateFindTemplatesFieldMeta1,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  type: TemplateFindTemplatesFieldMetaType$inboundSchema,
-  fontSize: z.number().optional(),
-});
-
-/** @internal */
-export type TemplateFindTemplatesFieldMeta1$Outbound = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  type: string;
-  fontSize?: number | undefined;
-};
-
-/** @internal */
-export const TemplateFindTemplatesFieldMeta1$outboundSchema: z.ZodType<
-  TemplateFindTemplatesFieldMeta1$Outbound,
-  z.ZodTypeDef,
-  TemplateFindTemplatesFieldMeta1
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  type: TemplateFindTemplatesFieldMetaType$outboundSchema,
-  fontSize: z.number().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TemplateFindTemplatesFieldMeta1$ {
-  /** @deprecated use `TemplateFindTemplatesFieldMeta1$inboundSchema` instead. */
-  export const inboundSchema = TemplateFindTemplatesFieldMeta1$inboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMeta1$outboundSchema` instead. */
-  export const outboundSchema = TemplateFindTemplatesFieldMeta1$outboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMeta1$Outbound` instead. */
-  export type Outbound = TemplateFindTemplatesFieldMeta1$Outbound;
-}
-
-export function templateFindTemplatesFieldMeta1ToJSON(
-  templateFindTemplatesFieldMeta1: TemplateFindTemplatesFieldMeta1,
-): string {
-  return JSON.stringify(
-    TemplateFindTemplatesFieldMeta1$outboundSchema.parse(
-      templateFindTemplatesFieldMeta1,
-    ),
-  );
-}
-
-export function templateFindTemplatesFieldMeta1FromJSON(
-  jsonString: string,
-): SafeParseResult<TemplateFindTemplatesFieldMeta1, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => TemplateFindTemplatesFieldMeta1$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TemplateFindTemplatesFieldMeta1' from JSON`,
-  );
-}
-
-/** @internal */
-export const TemplateFindTemplatesFieldMeta$inboundSchema: z.ZodType<
-  TemplateFindTemplatesFieldMeta,
+export const TemplateFindTemplatesFieldMetaUnion$inboundSchema: z.ZodType<
+  TemplateFindTemplatesFieldMetaUnion,
   z.ZodTypeDef,
   unknown
 > = z.union([
-  z.lazy(() => TemplateFindTemplatesFieldMeta1$inboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMeta2$inboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMeta3$inboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMeta4$inboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMeta7$inboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMeta9$inboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMeta5$inboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMeta8$inboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMeta6$inboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaRadio$inboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaInitials$inboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaName$inboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaEmail$inboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaDate$inboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaDropdown$inboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaCheckbox$inboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaText$inboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaNumber$inboundSchema),
 ]);
 
 /** @internal */
-export type TemplateFindTemplatesFieldMeta$Outbound =
-  | TemplateFindTemplatesFieldMeta1$Outbound
-  | TemplateFindTemplatesFieldMeta2$Outbound
-  | TemplateFindTemplatesFieldMeta3$Outbound
-  | TemplateFindTemplatesFieldMeta4$Outbound
-  | TemplateFindTemplatesFieldMeta7$Outbound
-  | TemplateFindTemplatesFieldMeta9$Outbound
-  | TemplateFindTemplatesFieldMeta5$Outbound
-  | TemplateFindTemplatesFieldMeta8$Outbound
-  | TemplateFindTemplatesFieldMeta6$Outbound;
+export type TemplateFindTemplatesFieldMetaUnion$Outbound =
+  | TemplateFindTemplatesFieldMetaRadio$Outbound
+  | TemplateFindTemplatesFieldMetaInitials$Outbound
+  | TemplateFindTemplatesFieldMetaName$Outbound
+  | TemplateFindTemplatesFieldMetaEmail$Outbound
+  | TemplateFindTemplatesFieldMetaDate$Outbound
+  | TemplateFindTemplatesFieldMetaDropdown$Outbound
+  | TemplateFindTemplatesFieldMetaCheckbox$Outbound
+  | TemplateFindTemplatesFieldMetaText$Outbound
+  | TemplateFindTemplatesFieldMetaNumber$Outbound;
 
 /** @internal */
-export const TemplateFindTemplatesFieldMeta$outboundSchema: z.ZodType<
-  TemplateFindTemplatesFieldMeta$Outbound,
+export const TemplateFindTemplatesFieldMetaUnion$outboundSchema: z.ZodType<
+  TemplateFindTemplatesFieldMetaUnion$Outbound,
   z.ZodTypeDef,
-  TemplateFindTemplatesFieldMeta
+  TemplateFindTemplatesFieldMetaUnion
 > = z.union([
-  z.lazy(() => TemplateFindTemplatesFieldMeta1$outboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMeta2$outboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMeta3$outboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMeta4$outboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMeta7$outboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMeta9$outboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMeta5$outboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMeta8$outboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMeta6$outboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaRadio$outboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaInitials$outboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaName$outboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaEmail$outboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaDate$outboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaDropdown$outboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaCheckbox$outboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaText$outboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaNumber$outboundSchema),
 ]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateFindTemplatesFieldMeta$ {
-  /** @deprecated use `TemplateFindTemplatesFieldMeta$inboundSchema` instead. */
-  export const inboundSchema = TemplateFindTemplatesFieldMeta$inboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMeta$outboundSchema` instead. */
-  export const outboundSchema = TemplateFindTemplatesFieldMeta$outboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFieldMeta$Outbound` instead. */
-  export type Outbound = TemplateFindTemplatesFieldMeta$Outbound;
+export namespace TemplateFindTemplatesFieldMetaUnion$ {
+  /** @deprecated use `TemplateFindTemplatesFieldMetaUnion$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateFindTemplatesFieldMetaUnion$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesFieldMetaUnion$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateFindTemplatesFieldMetaUnion$outboundSchema;
+  /** @deprecated use `TemplateFindTemplatesFieldMetaUnion$Outbound` instead. */
+  export type Outbound = TemplateFindTemplatesFieldMetaUnion$Outbound;
 }
 
-export function templateFindTemplatesFieldMetaToJSON(
-  templateFindTemplatesFieldMeta: TemplateFindTemplatesFieldMeta,
+export function templateFindTemplatesFieldMetaUnionToJSON(
+  templateFindTemplatesFieldMetaUnion: TemplateFindTemplatesFieldMetaUnion,
 ): string {
   return JSON.stringify(
-    TemplateFindTemplatesFieldMeta$outboundSchema.parse(
-      templateFindTemplatesFieldMeta,
+    TemplateFindTemplatesFieldMetaUnion$outboundSchema.parse(
+      templateFindTemplatesFieldMetaUnion,
     ),
   );
 }
 
-export function templateFindTemplatesFieldMetaFromJSON(
+export function templateFindTemplatesFieldMetaUnionFromJSON(
   jsonString: string,
-): SafeParseResult<TemplateFindTemplatesFieldMeta, SDKValidationError> {
+): SafeParseResult<TemplateFindTemplatesFieldMetaUnion, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => TemplateFindTemplatesFieldMeta$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TemplateFindTemplatesFieldMeta' from JSON`,
+    (x) =>
+      TemplateFindTemplatesFieldMetaUnion$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateFindTemplatesFieldMetaUnion' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateFindTemplatesFields$inboundSchema: z.ZodType<
-  TemplateFindTemplatesFields,
+export const TemplateFindTemplatesField$inboundSchema: z.ZodType<
+  TemplateFindTemplatesField,
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: TemplateFindTemplatesTemplatesType$inboundSchema,
-  id: z.number().int(),
+  type: TemplateFindTemplatesFieldType$inboundSchema,
+  id: z.number(),
   secondaryId: z.string(),
-  documentId: z.nullable(z.number().int()),
-  templateId: z.nullable(z.number().int()),
-  recipientId: z.number().int(),
+  documentId: z.nullable(z.number()),
+  templateId: z.nullable(z.number()),
+  recipientId: z.number(),
   page: z.number(),
   positionX: z.any().optional(),
   positionY: z.any().optional(),
@@ -2067,21 +2194,21 @@ export const TemplateFindTemplatesFields$inboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() => TemplateFindTemplatesFieldMeta1$inboundSchema),
-      z.lazy(() => TemplateFindTemplatesFieldMeta2$inboundSchema),
-      z.lazy(() => TemplateFindTemplatesFieldMeta3$inboundSchema),
-      z.lazy(() => TemplateFindTemplatesFieldMeta4$inboundSchema),
-      z.lazy(() => TemplateFindTemplatesFieldMeta7$inboundSchema),
-      z.lazy(() => TemplateFindTemplatesFieldMeta9$inboundSchema),
-      z.lazy(() => TemplateFindTemplatesFieldMeta5$inboundSchema),
-      z.lazy(() => TemplateFindTemplatesFieldMeta8$inboundSchema),
-      z.lazy(() => TemplateFindTemplatesFieldMeta6$inboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaRadio$inboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaInitials$inboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaName$inboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaEmail$inboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaDate$inboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaDropdown$inboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaCheckbox$inboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaText$inboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaNumber$inboundSchema),
     ]),
   ),
 });
 
 /** @internal */
-export type TemplateFindTemplatesFields$Outbound = {
+export type TemplateFindTemplatesField$Outbound = {
   type: string;
   id: number;
   secondaryId: string;
@@ -2096,30 +2223,30 @@ export type TemplateFindTemplatesFields$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | TemplateFindTemplatesFieldMeta1$Outbound
-    | TemplateFindTemplatesFieldMeta2$Outbound
-    | TemplateFindTemplatesFieldMeta3$Outbound
-    | TemplateFindTemplatesFieldMeta4$Outbound
-    | TemplateFindTemplatesFieldMeta7$Outbound
-    | TemplateFindTemplatesFieldMeta9$Outbound
-    | TemplateFindTemplatesFieldMeta5$Outbound
-    | TemplateFindTemplatesFieldMeta8$Outbound
-    | TemplateFindTemplatesFieldMeta6$Outbound
+    | TemplateFindTemplatesFieldMetaRadio$Outbound
+    | TemplateFindTemplatesFieldMetaInitials$Outbound
+    | TemplateFindTemplatesFieldMetaName$Outbound
+    | TemplateFindTemplatesFieldMetaEmail$Outbound
+    | TemplateFindTemplatesFieldMetaDate$Outbound
+    | TemplateFindTemplatesFieldMetaDropdown$Outbound
+    | TemplateFindTemplatesFieldMetaCheckbox$Outbound
+    | TemplateFindTemplatesFieldMetaText$Outbound
+    | TemplateFindTemplatesFieldMetaNumber$Outbound
     | null;
 };
 
 /** @internal */
-export const TemplateFindTemplatesFields$outboundSchema: z.ZodType<
-  TemplateFindTemplatesFields$Outbound,
+export const TemplateFindTemplatesField$outboundSchema: z.ZodType<
+  TemplateFindTemplatesField$Outbound,
   z.ZodTypeDef,
-  TemplateFindTemplatesFields
+  TemplateFindTemplatesField
 > = z.object({
-  type: TemplateFindTemplatesTemplatesType$outboundSchema,
-  id: z.number().int(),
+  type: TemplateFindTemplatesFieldType$outboundSchema,
+  id: z.number(),
   secondaryId: z.string(),
-  documentId: z.nullable(z.number().int()),
-  templateId: z.nullable(z.number().int()),
-  recipientId: z.number().int(),
+  documentId: z.nullable(z.number()),
+  templateId: z.nullable(z.number()),
+  recipientId: z.number(),
   page: z.number(),
   positionX: z.any().optional(),
   positionY: z.any().optional(),
@@ -2129,15 +2256,15 @@ export const TemplateFindTemplatesFields$outboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() => TemplateFindTemplatesFieldMeta1$outboundSchema),
-      z.lazy(() => TemplateFindTemplatesFieldMeta2$outboundSchema),
-      z.lazy(() => TemplateFindTemplatesFieldMeta3$outboundSchema),
-      z.lazy(() => TemplateFindTemplatesFieldMeta4$outboundSchema),
-      z.lazy(() => TemplateFindTemplatesFieldMeta7$outboundSchema),
-      z.lazy(() => TemplateFindTemplatesFieldMeta9$outboundSchema),
-      z.lazy(() => TemplateFindTemplatesFieldMeta5$outboundSchema),
-      z.lazy(() => TemplateFindTemplatesFieldMeta8$outboundSchema),
-      z.lazy(() => TemplateFindTemplatesFieldMeta6$outboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaRadio$outboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaInitials$outboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaName$outboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaEmail$outboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaDate$outboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaDropdown$outboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaCheckbox$outboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaText$outboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaNumber$outboundSchema),
     ]),
   ),
 });
@@ -2146,32 +2273,30 @@ export const TemplateFindTemplatesFields$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateFindTemplatesFields$ {
-  /** @deprecated use `TemplateFindTemplatesFields$inboundSchema` instead. */
-  export const inboundSchema = TemplateFindTemplatesFields$inboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFields$outboundSchema` instead. */
-  export const outboundSchema = TemplateFindTemplatesFields$outboundSchema;
-  /** @deprecated use `TemplateFindTemplatesFields$Outbound` instead. */
-  export type Outbound = TemplateFindTemplatesFields$Outbound;
+export namespace TemplateFindTemplatesField$ {
+  /** @deprecated use `TemplateFindTemplatesField$inboundSchema` instead. */
+  export const inboundSchema = TemplateFindTemplatesField$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesField$outboundSchema` instead. */
+  export const outboundSchema = TemplateFindTemplatesField$outboundSchema;
+  /** @deprecated use `TemplateFindTemplatesField$Outbound` instead. */
+  export type Outbound = TemplateFindTemplatesField$Outbound;
 }
 
-export function templateFindTemplatesFieldsToJSON(
-  templateFindTemplatesFields: TemplateFindTemplatesFields,
+export function templateFindTemplatesFieldToJSON(
+  templateFindTemplatesField: TemplateFindTemplatesField,
 ): string {
   return JSON.stringify(
-    TemplateFindTemplatesFields$outboundSchema.parse(
-      templateFindTemplatesFields,
-    ),
+    TemplateFindTemplatesField$outboundSchema.parse(templateFindTemplatesField),
   );
 }
 
-export function templateFindTemplatesFieldsFromJSON(
+export function templateFindTemplatesFieldFromJSON(
   jsonString: string,
-): SafeParseResult<TemplateFindTemplatesFields, SDKValidationError> {
+): SafeParseResult<TemplateFindTemplatesField, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => TemplateFindTemplatesFields$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TemplateFindTemplatesFields' from JSON`,
+    (x) => TemplateFindTemplatesField$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateFindTemplatesField' from JSON`,
   );
 }
 
@@ -2303,8 +2428,8 @@ export namespace TemplateFindTemplatesActionAuth$ {
 }
 
 /** @internal */
-export const TemplateFindTemplatesTemplatesAuthOptions$inboundSchema: z.ZodType<
-  TemplateFindTemplatesTemplatesAuthOptions,
+export const TemplateFindTemplatesRecipientAuthOptions$inboundSchema: z.ZodType<
+  TemplateFindTemplatesRecipientAuthOptions,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -2313,17 +2438,17 @@ export const TemplateFindTemplatesTemplatesAuthOptions$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type TemplateFindTemplatesTemplatesAuthOptions$Outbound = {
+export type TemplateFindTemplatesRecipientAuthOptions$Outbound = {
   accessAuth: string | null;
   actionAuth: string | null;
 };
 
 /** @internal */
-export const TemplateFindTemplatesTemplatesAuthOptions$outboundSchema:
+export const TemplateFindTemplatesRecipientAuthOptions$outboundSchema:
   z.ZodType<
-    TemplateFindTemplatesTemplatesAuthOptions$Outbound,
+    TemplateFindTemplatesRecipientAuthOptions$Outbound,
     z.ZodTypeDef,
-    TemplateFindTemplatesTemplatesAuthOptions
+    TemplateFindTemplatesRecipientAuthOptions
   > = z.object({
     accessAuth: z.nullable(TemplateFindTemplatesAccessAuth$outboundSchema),
     actionAuth: z.nullable(TemplateFindTemplatesActionAuth$outboundSchema),
@@ -2333,47 +2458,47 @@ export const TemplateFindTemplatesTemplatesAuthOptions$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateFindTemplatesTemplatesAuthOptions$ {
-  /** @deprecated use `TemplateFindTemplatesTemplatesAuthOptions$inboundSchema` instead. */
+export namespace TemplateFindTemplatesRecipientAuthOptions$ {
+  /** @deprecated use `TemplateFindTemplatesRecipientAuthOptions$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateFindTemplatesTemplatesAuthOptions$inboundSchema;
-  /** @deprecated use `TemplateFindTemplatesTemplatesAuthOptions$outboundSchema` instead. */
+    TemplateFindTemplatesRecipientAuthOptions$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesRecipientAuthOptions$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateFindTemplatesTemplatesAuthOptions$outboundSchema;
-  /** @deprecated use `TemplateFindTemplatesTemplatesAuthOptions$Outbound` instead. */
-  export type Outbound = TemplateFindTemplatesTemplatesAuthOptions$Outbound;
+    TemplateFindTemplatesRecipientAuthOptions$outboundSchema;
+  /** @deprecated use `TemplateFindTemplatesRecipientAuthOptions$Outbound` instead. */
+  export type Outbound = TemplateFindTemplatesRecipientAuthOptions$Outbound;
 }
 
-export function templateFindTemplatesTemplatesAuthOptionsToJSON(
-  templateFindTemplatesTemplatesAuthOptions:
-    TemplateFindTemplatesTemplatesAuthOptions,
+export function templateFindTemplatesRecipientAuthOptionsToJSON(
+  templateFindTemplatesRecipientAuthOptions:
+    TemplateFindTemplatesRecipientAuthOptions,
 ): string {
   return JSON.stringify(
-    TemplateFindTemplatesTemplatesAuthOptions$outboundSchema.parse(
-      templateFindTemplatesTemplatesAuthOptions,
+    TemplateFindTemplatesRecipientAuthOptions$outboundSchema.parse(
+      templateFindTemplatesRecipientAuthOptions,
     ),
   );
 }
 
-export function templateFindTemplatesTemplatesAuthOptionsFromJSON(
+export function templateFindTemplatesRecipientAuthOptionsFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  TemplateFindTemplatesTemplatesAuthOptions,
+  TemplateFindTemplatesRecipientAuthOptions,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      TemplateFindTemplatesTemplatesAuthOptions$inboundSchema.parse(
+      TemplateFindTemplatesRecipientAuthOptions$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'TemplateFindTemplatesTemplatesAuthOptions' from JSON`,
+    `Failed to parse 'TemplateFindTemplatesRecipientAuthOptions' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateFindTemplatesRecipients$inboundSchema: z.ZodType<
-  TemplateFindTemplatesRecipients,
+export const TemplateFindTemplatesRecipient$inboundSchema: z.ZodType<
+  TemplateFindTemplatesRecipient,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -2381,9 +2506,9 @@ export const TemplateFindTemplatesRecipients$inboundSchema: z.ZodType<
   readStatus: TemplateFindTemplatesReadStatus$inboundSchema,
   signingStatus: TemplateFindTemplatesSigningStatus$inboundSchema,
   sendStatus: TemplateFindTemplatesSendStatus$inboundSchema,
-  id: z.number().int(),
-  documentId: z.nullable(z.number().int()),
-  templateId: z.nullable(z.number().int()),
+  id: z.number(),
+  documentId: z.nullable(z.number()),
+  templateId: z.nullable(z.number()),
   email: z.string(),
   name: z.string(),
   token: z.string(),
@@ -2391,14 +2516,14 @@ export const TemplateFindTemplatesRecipients$inboundSchema: z.ZodType<
   expired: z.nullable(z.string()),
   signedAt: z.nullable(z.string()),
   authOptions: z.nullable(
-    z.lazy(() => TemplateFindTemplatesTemplatesAuthOptions$inboundSchema),
+    z.lazy(() => TemplateFindTemplatesRecipientAuthOptions$inboundSchema),
   ),
   signingOrder: z.nullable(z.number()),
   rejectionReason: z.nullable(z.string()),
 });
 
 /** @internal */
-export type TemplateFindTemplatesRecipients$Outbound = {
+export type TemplateFindTemplatesRecipient$Outbound = {
   role: string;
   readStatus: string;
   signingStatus: string;
@@ -2412,24 +2537,24 @@ export type TemplateFindTemplatesRecipients$Outbound = {
   documentDeletedAt: string | null;
   expired: string | null;
   signedAt: string | null;
-  authOptions: TemplateFindTemplatesTemplatesAuthOptions$Outbound | null;
+  authOptions: TemplateFindTemplatesRecipientAuthOptions$Outbound | null;
   signingOrder: number | null;
   rejectionReason: string | null;
 };
 
 /** @internal */
-export const TemplateFindTemplatesRecipients$outboundSchema: z.ZodType<
-  TemplateFindTemplatesRecipients$Outbound,
+export const TemplateFindTemplatesRecipient$outboundSchema: z.ZodType<
+  TemplateFindTemplatesRecipient$Outbound,
   z.ZodTypeDef,
-  TemplateFindTemplatesRecipients
+  TemplateFindTemplatesRecipient
 > = z.object({
   role: TemplateFindTemplatesRole$outboundSchema,
   readStatus: TemplateFindTemplatesReadStatus$outboundSchema,
   signingStatus: TemplateFindTemplatesSigningStatus$outboundSchema,
   sendStatus: TemplateFindTemplatesSendStatus$outboundSchema,
-  id: z.number().int(),
-  documentId: z.nullable(z.number().int()),
-  templateId: z.nullable(z.number().int()),
+  id: z.number(),
+  documentId: z.nullable(z.number()),
+  templateId: z.nullable(z.number()),
   email: z.string(),
   name: z.string(),
   token: z.string(),
@@ -2437,7 +2562,7 @@ export const TemplateFindTemplatesRecipients$outboundSchema: z.ZodType<
   expired: z.nullable(z.string()),
   signedAt: z.nullable(z.string()),
   authOptions: z.nullable(
-    z.lazy(() => TemplateFindTemplatesTemplatesAuthOptions$outboundSchema),
+    z.lazy(() => TemplateFindTemplatesRecipientAuthOptions$outboundSchema),
   ),
   signingOrder: z.nullable(z.number()),
   rejectionReason: z.nullable(z.string()),
@@ -2447,32 +2572,32 @@ export const TemplateFindTemplatesRecipients$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateFindTemplatesRecipients$ {
-  /** @deprecated use `TemplateFindTemplatesRecipients$inboundSchema` instead. */
-  export const inboundSchema = TemplateFindTemplatesRecipients$inboundSchema;
-  /** @deprecated use `TemplateFindTemplatesRecipients$outboundSchema` instead. */
-  export const outboundSchema = TemplateFindTemplatesRecipients$outboundSchema;
-  /** @deprecated use `TemplateFindTemplatesRecipients$Outbound` instead. */
-  export type Outbound = TemplateFindTemplatesRecipients$Outbound;
+export namespace TemplateFindTemplatesRecipient$ {
+  /** @deprecated use `TemplateFindTemplatesRecipient$inboundSchema` instead. */
+  export const inboundSchema = TemplateFindTemplatesRecipient$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesRecipient$outboundSchema` instead. */
+  export const outboundSchema = TemplateFindTemplatesRecipient$outboundSchema;
+  /** @deprecated use `TemplateFindTemplatesRecipient$Outbound` instead. */
+  export type Outbound = TemplateFindTemplatesRecipient$Outbound;
 }
 
-export function templateFindTemplatesRecipientsToJSON(
-  templateFindTemplatesRecipients: TemplateFindTemplatesRecipients,
+export function templateFindTemplatesRecipientToJSON(
+  templateFindTemplatesRecipient: TemplateFindTemplatesRecipient,
 ): string {
   return JSON.stringify(
-    TemplateFindTemplatesRecipients$outboundSchema.parse(
-      templateFindTemplatesRecipients,
+    TemplateFindTemplatesRecipient$outboundSchema.parse(
+      templateFindTemplatesRecipient,
     ),
   );
 }
 
-export function templateFindTemplatesRecipientsFromJSON(
+export function templateFindTemplatesRecipientFromJSON(
   jsonString: string,
-): SafeParseResult<TemplateFindTemplatesRecipients, SDKValidationError> {
+): SafeParseResult<TemplateFindTemplatesRecipient, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => TemplateFindTemplatesRecipients$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TemplateFindTemplatesRecipients' from JSON`,
+    (x) => TemplateFindTemplatesRecipient$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateFindTemplatesRecipient' from JSON`,
   );
 }
 
@@ -2646,13 +2771,13 @@ export const TemplateFindTemplatesData$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: TemplateFindTemplatesType$inboundSchema,
+  type: TemplateFindTemplatesDataType$inboundSchema,
   visibility: TemplateFindTemplatesVisibility$inboundSchema,
-  id: z.number().int(),
+  id: z.number(),
   externalId: z.nullable(z.string()),
   title: z.string(),
-  userId: z.number().int(),
-  teamId: z.nullable(z.number().int()),
+  userId: z.number(),
+  teamId: z.nullable(z.number()),
   authOptions: z.nullable(
     z.lazy(() => TemplateFindTemplatesAuthOptions$inboundSchema),
   ),
@@ -2662,9 +2787,9 @@ export const TemplateFindTemplatesData$inboundSchema: z.ZodType<
   publicTitle: z.string(),
   publicDescription: z.string(),
   team: z.nullable(z.lazy(() => TemplateFindTemplatesTeam$inboundSchema)),
-  fields: z.array(z.lazy(() => TemplateFindTemplatesFields$inboundSchema)),
+  fields: z.array(z.lazy(() => TemplateFindTemplatesField$inboundSchema)),
   recipients: z.array(
-    z.lazy(() => TemplateFindTemplatesRecipients$inboundSchema),
+    z.lazy(() => TemplateFindTemplatesRecipient$inboundSchema),
   ),
   templateMeta: z.nullable(
     z.lazy(() => TemplateFindTemplatesTemplateMeta$inboundSchema),
@@ -2690,8 +2815,8 @@ export type TemplateFindTemplatesData$Outbound = {
   publicTitle: string;
   publicDescription: string;
   team: TemplateFindTemplatesTeam$Outbound | null;
-  fields: Array<TemplateFindTemplatesFields$Outbound>;
-  recipients: Array<TemplateFindTemplatesRecipients$Outbound>;
+  fields: Array<TemplateFindTemplatesField$Outbound>;
+  recipients: Array<TemplateFindTemplatesRecipient$Outbound>;
   templateMeta: TemplateFindTemplatesTemplateMeta$Outbound | null;
   directLink: TemplateFindTemplatesDirectLink$Outbound | null;
 };
@@ -2702,13 +2827,13 @@ export const TemplateFindTemplatesData$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TemplateFindTemplatesData
 > = z.object({
-  type: TemplateFindTemplatesType$outboundSchema,
+  type: TemplateFindTemplatesDataType$outboundSchema,
   visibility: TemplateFindTemplatesVisibility$outboundSchema,
-  id: z.number().int(),
+  id: z.number(),
   externalId: z.nullable(z.string()),
   title: z.string(),
-  userId: z.number().int(),
-  teamId: z.nullable(z.number().int()),
+  userId: z.number(),
+  teamId: z.nullable(z.number()),
   authOptions: z.nullable(
     z.lazy(() => TemplateFindTemplatesAuthOptions$outboundSchema),
   ),
@@ -2718,9 +2843,9 @@ export const TemplateFindTemplatesData$outboundSchema: z.ZodType<
   publicTitle: z.string(),
   publicDescription: z.string(),
   team: z.nullable(z.lazy(() => TemplateFindTemplatesTeam$outboundSchema)),
-  fields: z.array(z.lazy(() => TemplateFindTemplatesFields$outboundSchema)),
+  fields: z.array(z.lazy(() => TemplateFindTemplatesField$outboundSchema)),
   recipients: z.array(
-    z.lazy(() => TemplateFindTemplatesRecipients$outboundSchema),
+    z.lazy(() => TemplateFindTemplatesRecipient$outboundSchema),
   ),
   templateMeta: z.nullable(
     z.lazy(() => TemplateFindTemplatesTemplateMeta$outboundSchema),
@@ -2762,8 +2887,8 @@ export function templateFindTemplatesDataFromJSON(
 }
 
 /** @internal */
-export const TemplateFindTemplatesResponseBody$inboundSchema: z.ZodType<
-  TemplateFindTemplatesResponseBody,
+export const TemplateFindTemplatesResponse$inboundSchema: z.ZodType<
+  TemplateFindTemplatesResponse,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -2775,7 +2900,7 @@ export const TemplateFindTemplatesResponseBody$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type TemplateFindTemplatesResponseBody$Outbound = {
+export type TemplateFindTemplatesResponse$Outbound = {
   data: Array<TemplateFindTemplatesData$Outbound>;
   count: number;
   currentPage: number;
@@ -2784,10 +2909,10 @@ export type TemplateFindTemplatesResponseBody$Outbound = {
 };
 
 /** @internal */
-export const TemplateFindTemplatesResponseBody$outboundSchema: z.ZodType<
-  TemplateFindTemplatesResponseBody$Outbound,
+export const TemplateFindTemplatesResponse$outboundSchema: z.ZodType<
+  TemplateFindTemplatesResponse$Outbound,
   z.ZodTypeDef,
-  TemplateFindTemplatesResponseBody
+  TemplateFindTemplatesResponse
 > = z.object({
   data: z.array(z.lazy(() => TemplateFindTemplatesData$outboundSchema)),
   count: z.number(),
@@ -2800,32 +2925,31 @@ export const TemplateFindTemplatesResponseBody$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateFindTemplatesResponseBody$ {
-  /** @deprecated use `TemplateFindTemplatesResponseBody$inboundSchema` instead. */
-  export const inboundSchema = TemplateFindTemplatesResponseBody$inboundSchema;
-  /** @deprecated use `TemplateFindTemplatesResponseBody$outboundSchema` instead. */
-  export const outboundSchema =
-    TemplateFindTemplatesResponseBody$outboundSchema;
-  /** @deprecated use `TemplateFindTemplatesResponseBody$Outbound` instead. */
-  export type Outbound = TemplateFindTemplatesResponseBody$Outbound;
+export namespace TemplateFindTemplatesResponse$ {
+  /** @deprecated use `TemplateFindTemplatesResponse$inboundSchema` instead. */
+  export const inboundSchema = TemplateFindTemplatesResponse$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesResponse$outboundSchema` instead. */
+  export const outboundSchema = TemplateFindTemplatesResponse$outboundSchema;
+  /** @deprecated use `TemplateFindTemplatesResponse$Outbound` instead. */
+  export type Outbound = TemplateFindTemplatesResponse$Outbound;
 }
 
-export function templateFindTemplatesResponseBodyToJSON(
-  templateFindTemplatesResponseBody: TemplateFindTemplatesResponseBody,
+export function templateFindTemplatesResponseToJSON(
+  templateFindTemplatesResponse: TemplateFindTemplatesResponse,
 ): string {
   return JSON.stringify(
-    TemplateFindTemplatesResponseBody$outboundSchema.parse(
-      templateFindTemplatesResponseBody,
+    TemplateFindTemplatesResponse$outboundSchema.parse(
+      templateFindTemplatesResponse,
     ),
   );
 }
 
-export function templateFindTemplatesResponseBodyFromJSON(
+export function templateFindTemplatesResponseFromJSON(
   jsonString: string,
-): SafeParseResult<TemplateFindTemplatesResponseBody, SDKValidationError> {
+): SafeParseResult<TemplateFindTemplatesResponse, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => TemplateFindTemplatesResponseBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TemplateFindTemplatesResponseBody' from JSON`,
+    (x) => TemplateFindTemplatesResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateFindTemplatesResponse' from JSON`,
   );
 }

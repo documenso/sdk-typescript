@@ -8,7 +8,7 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type TemplateDuplicateTemplateRequestBody = {
+export type TemplateDuplicateTemplateRequest = {
   templateId: number;
 };
 
@@ -71,7 +71,7 @@ export type TemplateDuplicateTemplateAuthOptions = {
 /**
  * Successful response
  */
-export type TemplateDuplicateTemplateResponseBody = {
+export type TemplateDuplicateTemplateResponse = {
   type: TemplateDuplicateTemplateType;
   visibility: TemplateDuplicateTemplateVisibility;
   id: number;
@@ -88,8 +88,8 @@ export type TemplateDuplicateTemplateResponseBody = {
 };
 
 /** @internal */
-export const TemplateDuplicateTemplateRequestBody$inboundSchema: z.ZodType<
-  TemplateDuplicateTemplateRequestBody,
+export const TemplateDuplicateTemplateRequest$inboundSchema: z.ZodType<
+  TemplateDuplicateTemplateRequest,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -97,15 +97,15 @@ export const TemplateDuplicateTemplateRequestBody$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type TemplateDuplicateTemplateRequestBody$Outbound = {
+export type TemplateDuplicateTemplateRequest$Outbound = {
   templateId: number;
 };
 
 /** @internal */
-export const TemplateDuplicateTemplateRequestBody$outboundSchema: z.ZodType<
-  TemplateDuplicateTemplateRequestBody$Outbound,
+export const TemplateDuplicateTemplateRequest$outboundSchema: z.ZodType<
+  TemplateDuplicateTemplateRequest$Outbound,
   z.ZodTypeDef,
-  TemplateDuplicateTemplateRequestBody
+  TemplateDuplicateTemplateRequest
 > = z.object({
   templateId: z.number(),
 });
@@ -114,35 +114,32 @@ export const TemplateDuplicateTemplateRequestBody$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateDuplicateTemplateRequestBody$ {
-  /** @deprecated use `TemplateDuplicateTemplateRequestBody$inboundSchema` instead. */
-  export const inboundSchema =
-    TemplateDuplicateTemplateRequestBody$inboundSchema;
-  /** @deprecated use `TemplateDuplicateTemplateRequestBody$outboundSchema` instead. */
-  export const outboundSchema =
-    TemplateDuplicateTemplateRequestBody$outboundSchema;
-  /** @deprecated use `TemplateDuplicateTemplateRequestBody$Outbound` instead. */
-  export type Outbound = TemplateDuplicateTemplateRequestBody$Outbound;
+export namespace TemplateDuplicateTemplateRequest$ {
+  /** @deprecated use `TemplateDuplicateTemplateRequest$inboundSchema` instead. */
+  export const inboundSchema = TemplateDuplicateTemplateRequest$inboundSchema;
+  /** @deprecated use `TemplateDuplicateTemplateRequest$outboundSchema` instead. */
+  export const outboundSchema = TemplateDuplicateTemplateRequest$outboundSchema;
+  /** @deprecated use `TemplateDuplicateTemplateRequest$Outbound` instead. */
+  export type Outbound = TemplateDuplicateTemplateRequest$Outbound;
 }
 
-export function templateDuplicateTemplateRequestBodyToJSON(
-  templateDuplicateTemplateRequestBody: TemplateDuplicateTemplateRequestBody,
+export function templateDuplicateTemplateRequestToJSON(
+  templateDuplicateTemplateRequest: TemplateDuplicateTemplateRequest,
 ): string {
   return JSON.stringify(
-    TemplateDuplicateTemplateRequestBody$outboundSchema.parse(
-      templateDuplicateTemplateRequestBody,
+    TemplateDuplicateTemplateRequest$outboundSchema.parse(
+      templateDuplicateTemplateRequest,
     ),
   );
 }
 
-export function templateDuplicateTemplateRequestBodyFromJSON(
+export function templateDuplicateTemplateRequestFromJSON(
   jsonString: string,
-): SafeParseResult<TemplateDuplicateTemplateRequestBody, SDKValidationError> {
+): SafeParseResult<TemplateDuplicateTemplateRequest, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      TemplateDuplicateTemplateRequestBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TemplateDuplicateTemplateRequestBody' from JSON`,
+    (x) => TemplateDuplicateTemplateRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateDuplicateTemplateRequest' from JSON`,
   );
 }
 
@@ -307,18 +304,18 @@ export function templateDuplicateTemplateAuthOptionsFromJSON(
 }
 
 /** @internal */
-export const TemplateDuplicateTemplateResponseBody$inboundSchema: z.ZodType<
-  TemplateDuplicateTemplateResponseBody,
+export const TemplateDuplicateTemplateResponse$inboundSchema: z.ZodType<
+  TemplateDuplicateTemplateResponse,
   z.ZodTypeDef,
   unknown
 > = z.object({
   type: TemplateDuplicateTemplateType$inboundSchema,
   visibility: TemplateDuplicateTemplateVisibility$inboundSchema,
-  id: z.number().int(),
+  id: z.number(),
   externalId: z.nullable(z.string()),
   title: z.string(),
-  userId: z.number().int(),
-  teamId: z.nullable(z.number().int()),
+  userId: z.number(),
+  teamId: z.nullable(z.number()),
   authOptions: z.nullable(
     z.lazy(() => TemplateDuplicateTemplateAuthOptions$inboundSchema),
   ),
@@ -330,7 +327,7 @@ export const TemplateDuplicateTemplateResponseBody$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type TemplateDuplicateTemplateResponseBody$Outbound = {
+export type TemplateDuplicateTemplateResponse$Outbound = {
   type: string;
   visibility: string;
   id: number;
@@ -347,18 +344,18 @@ export type TemplateDuplicateTemplateResponseBody$Outbound = {
 };
 
 /** @internal */
-export const TemplateDuplicateTemplateResponseBody$outboundSchema: z.ZodType<
-  TemplateDuplicateTemplateResponseBody$Outbound,
+export const TemplateDuplicateTemplateResponse$outboundSchema: z.ZodType<
+  TemplateDuplicateTemplateResponse$Outbound,
   z.ZodTypeDef,
-  TemplateDuplicateTemplateResponseBody
+  TemplateDuplicateTemplateResponse
 > = z.object({
   type: TemplateDuplicateTemplateType$outboundSchema,
   visibility: TemplateDuplicateTemplateVisibility$outboundSchema,
-  id: z.number().int(),
+  id: z.number(),
   externalId: z.nullable(z.string()),
   title: z.string(),
-  userId: z.number().int(),
-  teamId: z.nullable(z.number().int()),
+  userId: z.number(),
+  teamId: z.nullable(z.number()),
   authOptions: z.nullable(
     z.lazy(() => TemplateDuplicateTemplateAuthOptions$outboundSchema),
   ),
@@ -373,34 +370,32 @@ export const TemplateDuplicateTemplateResponseBody$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateDuplicateTemplateResponseBody$ {
-  /** @deprecated use `TemplateDuplicateTemplateResponseBody$inboundSchema` instead. */
-  export const inboundSchema =
-    TemplateDuplicateTemplateResponseBody$inboundSchema;
-  /** @deprecated use `TemplateDuplicateTemplateResponseBody$outboundSchema` instead. */
+export namespace TemplateDuplicateTemplateResponse$ {
+  /** @deprecated use `TemplateDuplicateTemplateResponse$inboundSchema` instead. */
+  export const inboundSchema = TemplateDuplicateTemplateResponse$inboundSchema;
+  /** @deprecated use `TemplateDuplicateTemplateResponse$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateDuplicateTemplateResponseBody$outboundSchema;
-  /** @deprecated use `TemplateDuplicateTemplateResponseBody$Outbound` instead. */
-  export type Outbound = TemplateDuplicateTemplateResponseBody$Outbound;
+    TemplateDuplicateTemplateResponse$outboundSchema;
+  /** @deprecated use `TemplateDuplicateTemplateResponse$Outbound` instead. */
+  export type Outbound = TemplateDuplicateTemplateResponse$Outbound;
 }
 
-export function templateDuplicateTemplateResponseBodyToJSON(
-  templateDuplicateTemplateResponseBody: TemplateDuplicateTemplateResponseBody,
+export function templateDuplicateTemplateResponseToJSON(
+  templateDuplicateTemplateResponse: TemplateDuplicateTemplateResponse,
 ): string {
   return JSON.stringify(
-    TemplateDuplicateTemplateResponseBody$outboundSchema.parse(
-      templateDuplicateTemplateResponseBody,
+    TemplateDuplicateTemplateResponse$outboundSchema.parse(
+      templateDuplicateTemplateResponse,
     ),
   );
 }
 
-export function templateDuplicateTemplateResponseBodyFromJSON(
+export function templateDuplicateTemplateResponseFromJSON(
   jsonString: string,
-): SafeParseResult<TemplateDuplicateTemplateResponseBody, SDKValidationError> {
+): SafeParseResult<TemplateDuplicateTemplateResponse, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      TemplateDuplicateTemplateResponseBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TemplateDuplicateTemplateResponseBody' from JSON`,
+    (x) => TemplateDuplicateTemplateResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateDuplicateTemplateResponse' from JSON`,
   );
 }

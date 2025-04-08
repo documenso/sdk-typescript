@@ -21,6 +21,7 @@ import {
 import * as errors from "../models/errors/index.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import * as operations from "../models/operations/index.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
@@ -29,15 +30,15 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Update multiple fields for a document.
  */
-export async function documentsFieldsUpdateMany(
+export function documentsFieldsUpdateMany(
   client: DocumensoCore,
-  request: operations.FieldUpdateDocumentFieldsRequestBody,
+  request: operations.FieldUpdateDocumentFieldsRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
-    operations.FieldUpdateDocumentFieldsResponseBody,
-    | errors.FieldUpdateDocumentFieldsResponseBody
-    | errors.FieldUpdateDocumentFieldsDocumentsFieldsResponseBody
+    operations.FieldUpdateDocumentFieldsResponse,
+    | errors.FieldUpdateDocumentFieldsBadRequestError
+    | errors.FieldUpdateDocumentFieldsInternalServerError
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -47,16 +48,42 @@ export async function documentsFieldsUpdateMany(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: DocumensoCore,
+  request: operations.FieldUpdateDocumentFieldsRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      operations.FieldUpdateDocumentFieldsResponse,
+      | errors.FieldUpdateDocumentFieldsBadRequestError
+      | errors.FieldUpdateDocumentFieldsInternalServerError
+      | APIError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) =>
-      operations.FieldUpdateDocumentFieldsRequestBody$outboundSchema.parse(
-        value,
-      ),
+      operations.FieldUpdateDocumentFieldsRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = encodeJSON("body", payload, { explode: true });
@@ -73,6 +100,7 @@ export async function documentsFieldsUpdateMany(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "field-updateDocumentFields",
     oAuth2Scopes: [],
 
@@ -95,7 +123,7 @@ export async function documentsFieldsUpdateMany(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -106,7 +134,7 @@ export async function documentsFieldsUpdateMany(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -115,9 +143,9 @@ export async function documentsFieldsUpdateMany(
   };
 
   const [result] = await M.match<
-    operations.FieldUpdateDocumentFieldsResponseBody,
-    | errors.FieldUpdateDocumentFieldsResponseBody
-    | errors.FieldUpdateDocumentFieldsDocumentsFieldsResponseBody
+    operations.FieldUpdateDocumentFieldsResponse,
+    | errors.FieldUpdateDocumentFieldsBadRequestError
+    | errors.FieldUpdateDocumentFieldsInternalServerError
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -126,18 +154,21 @@ export async function documentsFieldsUpdateMany(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, operations.FieldUpdateDocumentFieldsResponseBody$inboundSchema),
-    M.jsonErr(400, errors.FieldUpdateDocumentFieldsResponseBody$inboundSchema),
+    M.json(200, operations.FieldUpdateDocumentFieldsResponse$inboundSchema),
+    M.jsonErr(
+      400,
+      errors.FieldUpdateDocumentFieldsBadRequestError$inboundSchema,
+    ),
     M.jsonErr(
       500,
-      errors.FieldUpdateDocumentFieldsDocumentsFieldsResponseBody$inboundSchema,
+      errors.FieldUpdateDocumentFieldsInternalServerError$inboundSchema,
     ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

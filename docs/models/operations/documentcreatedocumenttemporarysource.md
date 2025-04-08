@@ -5,7 +5,7 @@
 ```typescript
 import { DocumentCreateDocumentTemporarySource } from "@documenso/sdk-typescript/models/operations";
 
-let value: DocumentCreateDocumentTemporarySource = "DOCUMENT";
+let value: DocumentCreateDocumentTemporarySource = "TEMPLATE_DIRECT_LINK";
 ```
 
 ## Values

@@ -25,6 +25,7 @@ export const DocumentGetDocumentWithDetailsByIdStatus = {
   Draft: "DRAFT",
   Pending: "PENDING",
   Completed: "COMPLETED",
+  Rejected: "REJECTED",
 } as const;
 export type DocumentGetDocumentWithDetailsByIdStatus = ClosedEnum<
   typeof DocumentGetDocumentWithDetailsByIdStatus
@@ -67,7 +68,7 @@ export type DocumentGetDocumentWithDetailsByIdGlobalActionAuth = ClosedEnum<
   typeof DocumentGetDocumentWithDetailsByIdGlobalActionAuth
 >;
 
-export type AuthOptions = {
+export type DocumentGetDocumentWithDetailsByIdAuthOptions = {
   /**
    * The type of authentication required for the recipient to access the document.
    */
@@ -83,17 +84,17 @@ export type DocumentGetDocumentWithDetailsByIdFormValues =
   | boolean
   | number;
 
-export const DocumentGetDocumentWithDetailsByIdDocumentsType = {
+export const DocumentGetDocumentWithDetailsByIdDocumentDataType = {
   S3Path: "S3_PATH",
   Bytes: "BYTES",
   Bytes64: "BYTES_64",
 } as const;
-export type DocumentGetDocumentWithDetailsByIdDocumentsType = ClosedEnum<
-  typeof DocumentGetDocumentWithDetailsByIdDocumentsType
+export type DocumentGetDocumentWithDetailsByIdDocumentDataType = ClosedEnum<
+  typeof DocumentGetDocumentWithDetailsByIdDocumentDataType
 >;
 
-export type DocumentData = {
-  type: DocumentGetDocumentWithDetailsByIdDocumentsType;
+export type DocumentGetDocumentWithDetailsByIdDocumentData = {
+  type: DocumentGetDocumentWithDetailsByIdDocumentDataType;
   id: string;
   data: string;
   initialData: string;
@@ -146,7 +147,7 @@ export type DocumentGetDocumentWithDetailsByIdEmailSettings = {
   ownerDocumentCompleted?: boolean | undefined;
 };
 
-export type DocumentMeta = {
+export type DocumentGetDocumentWithDetailsByIdDocumentMeta = {
   signingOrder: DocumentGetDocumentWithDetailsByIdSigningOrder;
   distributionMethod: DocumentGetDocumentWithDetailsByIdDistributionMethod;
   id: string;
@@ -158,6 +159,9 @@ export type DocumentMeta = {
   documentId: number;
   redirectUrl: string | null;
   typedSignatureEnabled: boolean;
+  uploadSignatureEnabled: boolean;
+  drawSignatureEnabled: boolean;
+  allowDictateNextSigner: boolean;
   language: string;
   emailSettings: DocumentGetDocumentWithDetailsByIdEmailSettings | null;
 };
@@ -167,6 +171,7 @@ export const DocumentGetDocumentWithDetailsByIdRole = {
   Signer: "SIGNER",
   Viewer: "VIEWER",
   Approver: "APPROVER",
+  Assistant: "ASSISTANT",
 } as const;
 export type DocumentGetDocumentWithDetailsByIdRole = ClosedEnum<
   typeof DocumentGetDocumentWithDetailsByIdRole
@@ -226,7 +231,7 @@ export type DocumentGetDocumentWithDetailsByIdActionAuth = ClosedEnum<
   typeof DocumentGetDocumentWithDetailsByIdActionAuth
 >;
 
-export type DocumentGetDocumentWithDetailsByIdAuthOptions = {
+export type DocumentGetDocumentWithDetailsByIdRecipientAuthOptions = {
   /**
    * The type of authentication required for the recipient to access the document.
    */
@@ -237,7 +242,7 @@ export type DocumentGetDocumentWithDetailsByIdAuthOptions = {
   actionAuth: DocumentGetDocumentWithDetailsByIdActionAuth | null;
 };
 
-export type DocumentGetDocumentWithDetailsByIdRecipients = {
+export type DocumentGetDocumentWithDetailsByIdRecipient = {
   role: DocumentGetDocumentWithDetailsByIdRole;
   readStatus: DocumentGetDocumentWithDetailsByIdReadStatus;
   signingStatus: DocumentGetDocumentWithDetailsByIdSigningStatus;
@@ -251,7 +256,7 @@ export type DocumentGetDocumentWithDetailsByIdRecipients = {
   documentDeletedAt: string | null;
   expired: string | null;
   signedAt: string | null;
-  authOptions: DocumentGetDocumentWithDetailsByIdAuthOptions | null;
+  authOptions: DocumentGetDocumentWithDetailsByIdRecipientAuthOptions | null;
   /**
    * The order in which the recipient should sign the document. Only works if the document is set to sequential signing.
    */
@@ -259,7 +264,7 @@ export type DocumentGetDocumentWithDetailsByIdRecipients = {
   rejectionReason: string | null;
 };
 
-export const DocumentGetDocumentWithDetailsByIdType = {
+export const DocumentGetDocumentWithDetailsByIdFieldType = {
   Signature: "SIGNATURE",
   FreeSignature: "FREE_SIGNATURE",
   Initials: "INITIALS",
@@ -272,215 +277,252 @@ export const DocumentGetDocumentWithDetailsByIdType = {
   Checkbox: "CHECKBOX",
   Dropdown: "DROPDOWN",
 } as const;
-export type DocumentGetDocumentWithDetailsByIdType = ClosedEnum<
-  typeof DocumentGetDocumentWithDetailsByIdType
+export type DocumentGetDocumentWithDetailsByIdFieldType = ClosedEnum<
+  typeof DocumentGetDocumentWithDetailsByIdFieldType
 >;
 
-export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields9Type =
-  {
-    Dropdown: "dropdown",
-  } as const;
-export type DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields9Type =
-  ClosedEnum<
-    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields9Type
-  >;
+export const DocumentGetDocumentWithDetailsByIdTypeDropdown = {
+  Dropdown: "dropdown",
+} as const;
+export type DocumentGetDocumentWithDetailsByIdTypeDropdown = ClosedEnum<
+  typeof DocumentGetDocumentWithDetailsByIdTypeDropdown
+>;
 
-export type DocumentGetDocumentWithDetailsByIdFieldMetaValues = {
+export type DocumentGetDocumentWithDetailsByIdValue3 = {
   value: string;
 };
 
-export type DocumentGetDocumentWithDetailsByIdFieldMeta9 = {
+export type DocumentGetDocumentWithDetailsByIdFieldMetaDropdown = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields9Type;
-  values?: Array<DocumentGetDocumentWithDetailsByIdFieldMetaValues> | undefined;
+  type: DocumentGetDocumentWithDetailsByIdTypeDropdown;
+  values?: Array<DocumentGetDocumentWithDetailsByIdValue3> | undefined;
   defaultValue?: string | undefined;
 };
 
-export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFieldsType =
-  {
-    Checkbox: "checkbox",
-  } as const;
-export type DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFieldsType =
-  ClosedEnum<
-    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFieldsType
-  >;
+export const DocumentGetDocumentWithDetailsByIdTypeCheckbox = {
+  Checkbox: "checkbox",
+} as const;
+export type DocumentGetDocumentWithDetailsByIdTypeCheckbox = ClosedEnum<
+  typeof DocumentGetDocumentWithDetailsByIdTypeCheckbox
+>;
 
-export type DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseValues =
-  {
-    id: number;
-    checked: boolean;
-    value: string;
-  };
-
-export type DocumentGetDocumentWithDetailsByIdFieldMeta8 = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  type:
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFieldsType;
-  values?:
-    | Array<DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseValues>
-    | undefined;
-  validationRule?: string | undefined;
-  validationLength?: number | undefined;
-};
-
-export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType =
-  {
-    Radio: "radio",
-  } as const;
-export type DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType =
-  ClosedEnum<
-    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType
-  >;
-
-export type DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsValues = {
+export type DocumentGetDocumentWithDetailsByIdValue2 = {
   id: number;
   checked: boolean;
   value: string;
 };
 
-export type DocumentGetDocumentWithDetailsByIdFieldMeta7 = {
+export type DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType;
-  values?:
-    | Array<DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsValues>
-    | undefined;
+  type: DocumentGetDocumentWithDetailsByIdTypeCheckbox;
+  values?: Array<DocumentGetDocumentWithDetailsByIdValue2> | undefined;
+  validationRule?: string | undefined;
+  validationLength?: number | undefined;
 };
 
-export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONType =
-  {
-    Number: "number",
-  } as const;
-export type DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONType =
-  ClosedEnum<
-    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONType
-  >;
+export const DocumentGetDocumentWithDetailsByIdTypeRadio = {
+  Radio: "radio",
+} as const;
+export type DocumentGetDocumentWithDetailsByIdTypeRadio = ClosedEnum<
+  typeof DocumentGetDocumentWithDetailsByIdTypeRadio
+>;
 
-export type DocumentGetDocumentWithDetailsByIdFieldMeta6 = {
+export type DocumentGetDocumentWithDetailsByIdValue1 = {
+  id: number;
+  checked: boolean;
+  value: string;
+};
+
+export type DocumentGetDocumentWithDetailsByIdFieldMetaRadio = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONType;
+  type: DocumentGetDocumentWithDetailsByIdTypeRadio;
+  values?: Array<DocumentGetDocumentWithDetailsByIdValue1> | undefined;
+};
+
+export const DocumentGetDocumentWithDetailsByIdTypeNumber = {
+  Number: "number",
+} as const;
+export type DocumentGetDocumentWithDetailsByIdTypeNumber = ClosedEnum<
+  typeof DocumentGetDocumentWithDetailsByIdTypeNumber
+>;
+
+export const DocumentGetDocumentWithDetailsByIdTextAlign6 = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type DocumentGetDocumentWithDetailsByIdTextAlign6 = ClosedEnum<
+  typeof DocumentGetDocumentWithDetailsByIdTextAlign6
+>;
+
+export type DocumentGetDocumentWithDetailsByIdFieldMetaNumber = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: DocumentGetDocumentWithDetailsByIdTypeNumber;
   numberFormat?: string | undefined;
   value?: string | undefined;
   minValue?: number | undefined;
   maxValue?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: DocumentGetDocumentWithDetailsByIdTextAlign6 | undefined;
 };
 
-export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200Type =
-  {
-    Text: "text",
-  } as const;
-export type DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200Type =
-  ClosedEnum<
-    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200Type
-  >;
+export const DocumentGetDocumentWithDetailsByIdTypeText = {
+  Text: "text",
+} as const;
+export type DocumentGetDocumentWithDetailsByIdTypeText = ClosedEnum<
+  typeof DocumentGetDocumentWithDetailsByIdTypeText
+>;
 
-export type DocumentGetDocumentWithDetailsByIdFieldMeta5 = {
+export const DocumentGetDocumentWithDetailsByIdTextAlign5 = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type DocumentGetDocumentWithDetailsByIdTextAlign5 = ClosedEnum<
+  typeof DocumentGetDocumentWithDetailsByIdTextAlign5
+>;
+
+export type DocumentGetDocumentWithDetailsByIdFieldMetaText = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200Type;
+  type: DocumentGetDocumentWithDetailsByIdTypeText;
   text?: string | undefined;
   characterLimit?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: DocumentGetDocumentWithDetailsByIdTextAlign5 | undefined;
 };
 
-export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseType =
-  {
-    Date: "date",
-  } as const;
-export type DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseType =
-  ClosedEnum<
-    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseType
-  >;
-
-export type DocumentGetDocumentWithDetailsByIdFieldMeta4 = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  type: DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseType;
-  fontSize?: number | undefined;
-};
-
-export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsType = {
-  Email: "email",
+export const DocumentGetDocumentWithDetailsByIdTypeDate = {
+  Date: "date",
 } as const;
-export type DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsType =
-  ClosedEnum<typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsType>;
-
-export type DocumentGetDocumentWithDetailsByIdFieldMeta3 = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  type: DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsType;
-  fontSize?: number | undefined;
-};
-
-export const DocumentGetDocumentWithDetailsByIdFieldMetaType = {
-  Name: "name",
-} as const;
-export type DocumentGetDocumentWithDetailsByIdFieldMetaType = ClosedEnum<
-  typeof DocumentGetDocumentWithDetailsByIdFieldMetaType
+export type DocumentGetDocumentWithDetailsByIdTypeDate = ClosedEnum<
+  typeof DocumentGetDocumentWithDetailsByIdTypeDate
 >;
 
-export type DocumentGetDocumentWithDetailsByIdFieldMeta2 = {
+export const DocumentGetDocumentWithDetailsByIdTextAlign4 = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type DocumentGetDocumentWithDetailsByIdTextAlign4 = ClosedEnum<
+  typeof DocumentGetDocumentWithDetailsByIdTextAlign4
+>;
+
+export type DocumentGetDocumentWithDetailsByIdFieldMetaDate = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: DocumentGetDocumentWithDetailsByIdFieldMetaType;
+  type: DocumentGetDocumentWithDetailsByIdTypeDate;
   fontSize?: number | undefined;
+  textAlign?: DocumentGetDocumentWithDetailsByIdTextAlign4 | undefined;
 };
 
-export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields1Type =
-  {
-    Initials: "initials",
-  } as const;
-export type DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields1Type =
-  ClosedEnum<
-    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields1Type
-  >;
+export const DocumentGetDocumentWithDetailsByIdTypeEmail = {
+  Email: "email",
+} as const;
+export type DocumentGetDocumentWithDetailsByIdTypeEmail = ClosedEnum<
+  typeof DocumentGetDocumentWithDetailsByIdTypeEmail
+>;
 
-export type DocumentGetDocumentWithDetailsByIdFieldMeta1 = {
+export const DocumentGetDocumentWithDetailsByIdTextAlign3 = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type DocumentGetDocumentWithDetailsByIdTextAlign3 = ClosedEnum<
+  typeof DocumentGetDocumentWithDetailsByIdTextAlign3
+>;
+
+export type DocumentGetDocumentWithDetailsByIdFieldMetaEmail = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields1Type;
+  type: DocumentGetDocumentWithDetailsByIdTypeEmail;
   fontSize?: number | undefined;
+  textAlign?: DocumentGetDocumentWithDetailsByIdTextAlign3 | undefined;
 };
 
-export type DocumentGetDocumentWithDetailsByIdFieldMeta =
-  | DocumentGetDocumentWithDetailsByIdFieldMeta1
-  | DocumentGetDocumentWithDetailsByIdFieldMeta2
-  | DocumentGetDocumentWithDetailsByIdFieldMeta3
-  | DocumentGetDocumentWithDetailsByIdFieldMeta4
-  | DocumentGetDocumentWithDetailsByIdFieldMeta7
-  | DocumentGetDocumentWithDetailsByIdFieldMeta9
-  | DocumentGetDocumentWithDetailsByIdFieldMeta5
-  | DocumentGetDocumentWithDetailsByIdFieldMeta8
-  | DocumentGetDocumentWithDetailsByIdFieldMeta6;
+export const DocumentGetDocumentWithDetailsByIdTypeName = {
+  Name: "name",
+} as const;
+export type DocumentGetDocumentWithDetailsByIdTypeName = ClosedEnum<
+  typeof DocumentGetDocumentWithDetailsByIdTypeName
+>;
 
-export type DocumentGetDocumentWithDetailsByIdFields = {
-  type: DocumentGetDocumentWithDetailsByIdType;
+export const DocumentGetDocumentWithDetailsByIdTextAlign2 = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type DocumentGetDocumentWithDetailsByIdTextAlign2 = ClosedEnum<
+  typeof DocumentGetDocumentWithDetailsByIdTextAlign2
+>;
+
+export type DocumentGetDocumentWithDetailsByIdFieldMetaName = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: DocumentGetDocumentWithDetailsByIdTypeName;
+  fontSize?: number | undefined;
+  textAlign?: DocumentGetDocumentWithDetailsByIdTextAlign2 | undefined;
+};
+
+export const DocumentGetDocumentWithDetailsByIdTypeInitials = {
+  Initials: "initials",
+} as const;
+export type DocumentGetDocumentWithDetailsByIdTypeInitials = ClosedEnum<
+  typeof DocumentGetDocumentWithDetailsByIdTypeInitials
+>;
+
+export const DocumentGetDocumentWithDetailsByIdTextAlign1 = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type DocumentGetDocumentWithDetailsByIdTextAlign1 = ClosedEnum<
+  typeof DocumentGetDocumentWithDetailsByIdTextAlign1
+>;
+
+export type DocumentGetDocumentWithDetailsByIdFieldMetaInitials = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: DocumentGetDocumentWithDetailsByIdTypeInitials;
+  fontSize?: number | undefined;
+  textAlign?: DocumentGetDocumentWithDetailsByIdTextAlign1 | undefined;
+};
+
+export type DocumentGetDocumentWithDetailsByIdFieldMetaUnion =
+  | DocumentGetDocumentWithDetailsByIdFieldMetaRadio
+  | DocumentGetDocumentWithDetailsByIdFieldMetaInitials
+  | DocumentGetDocumentWithDetailsByIdFieldMetaName
+  | DocumentGetDocumentWithDetailsByIdFieldMetaEmail
+  | DocumentGetDocumentWithDetailsByIdFieldMetaDate
+  | DocumentGetDocumentWithDetailsByIdFieldMetaDropdown
+  | DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox
+  | DocumentGetDocumentWithDetailsByIdFieldMetaText
+  | DocumentGetDocumentWithDetailsByIdFieldMetaNumber;
+
+export type DocumentGetDocumentWithDetailsByIdField = {
+  type: DocumentGetDocumentWithDetailsByIdFieldType;
   id: number;
   secondaryId: string;
   documentId: number | null;
@@ -497,22 +539,22 @@ export type DocumentGetDocumentWithDetailsByIdFields = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | DocumentGetDocumentWithDetailsByIdFieldMeta1
-    | DocumentGetDocumentWithDetailsByIdFieldMeta2
-    | DocumentGetDocumentWithDetailsByIdFieldMeta3
-    | DocumentGetDocumentWithDetailsByIdFieldMeta4
-    | DocumentGetDocumentWithDetailsByIdFieldMeta7
-    | DocumentGetDocumentWithDetailsByIdFieldMeta9
-    | DocumentGetDocumentWithDetailsByIdFieldMeta5
-    | DocumentGetDocumentWithDetailsByIdFieldMeta8
-    | DocumentGetDocumentWithDetailsByIdFieldMeta6
+    | DocumentGetDocumentWithDetailsByIdFieldMetaRadio
+    | DocumentGetDocumentWithDetailsByIdFieldMetaInitials
+    | DocumentGetDocumentWithDetailsByIdFieldMetaName
+    | DocumentGetDocumentWithDetailsByIdFieldMetaEmail
+    | DocumentGetDocumentWithDetailsByIdFieldMetaDate
+    | DocumentGetDocumentWithDetailsByIdFieldMetaDropdown
+    | DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox
+    | DocumentGetDocumentWithDetailsByIdFieldMetaText
+    | DocumentGetDocumentWithDetailsByIdFieldMetaNumber
     | null;
 };
 
 /**
  * Successful response
  */
-export type DocumentGetDocumentWithDetailsByIdResponseBody = {
+export type DocumentGetDocumentWithDetailsByIdResponse = {
   visibility: DocumentGetDocumentWithDetailsByIdVisibility;
   status: DocumentGetDocumentWithDetailsByIdStatus;
   source: DocumentGetDocumentWithDetailsByIdSource;
@@ -525,7 +567,7 @@ export type DocumentGetDocumentWithDetailsByIdResponseBody = {
    * The ID of the user that created this document.
    */
   userId: number;
-  authOptions: AuthOptions | null;
+  authOptions: DocumentGetDocumentWithDetailsByIdAuthOptions | null;
   formValues: { [k: string]: string | boolean | number } | null;
   title: string;
   documentDataId: string;
@@ -535,10 +577,10 @@ export type DocumentGetDocumentWithDetailsByIdResponseBody = {
   deletedAt: string | null;
   teamId: number | null;
   templateId: number | null;
-  documentData: DocumentData;
-  documentMeta: DocumentMeta | null;
-  recipients: Array<DocumentGetDocumentWithDetailsByIdRecipients>;
-  fields: Array<DocumentGetDocumentWithDetailsByIdFields>;
+  documentData: DocumentGetDocumentWithDetailsByIdDocumentData;
+  documentMeta: DocumentGetDocumentWithDetailsByIdDocumentMeta | null;
+  recipients: Array<DocumentGetDocumentWithDetailsByIdRecipient>;
+  fields: Array<DocumentGetDocumentWithDetailsByIdField>;
 };
 
 /** @internal */
@@ -723,63 +765,80 @@ export namespace DocumentGetDocumentWithDetailsByIdGlobalActionAuth$ {
 }
 
 /** @internal */
-export const AuthOptions$inboundSchema: z.ZodType<
-  AuthOptions,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  globalAccessAuth: z.nullable(
-    DocumentGetDocumentWithDetailsByIdGlobalAccessAuth$inboundSchema,
-  ),
-  globalActionAuth: z.nullable(
-    DocumentGetDocumentWithDetailsByIdGlobalActionAuth$inboundSchema,
-  ),
-});
+export const DocumentGetDocumentWithDetailsByIdAuthOptions$inboundSchema:
+  z.ZodType<
+    DocumentGetDocumentWithDetailsByIdAuthOptions,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    globalAccessAuth: z.nullable(
+      DocumentGetDocumentWithDetailsByIdGlobalAccessAuth$inboundSchema,
+    ),
+    globalActionAuth: z.nullable(
+      DocumentGetDocumentWithDetailsByIdGlobalActionAuth$inboundSchema,
+    ),
+  });
 
 /** @internal */
-export type AuthOptions$Outbound = {
+export type DocumentGetDocumentWithDetailsByIdAuthOptions$Outbound = {
   globalAccessAuth: string | null;
   globalActionAuth: string | null;
 };
 
 /** @internal */
-export const AuthOptions$outboundSchema: z.ZodType<
-  AuthOptions$Outbound,
-  z.ZodTypeDef,
-  AuthOptions
-> = z.object({
-  globalAccessAuth: z.nullable(
-    DocumentGetDocumentWithDetailsByIdGlobalAccessAuth$outboundSchema,
-  ),
-  globalActionAuth: z.nullable(
-    DocumentGetDocumentWithDetailsByIdGlobalActionAuth$outboundSchema,
-  ),
-});
+export const DocumentGetDocumentWithDetailsByIdAuthOptions$outboundSchema:
+  z.ZodType<
+    DocumentGetDocumentWithDetailsByIdAuthOptions$Outbound,
+    z.ZodTypeDef,
+    DocumentGetDocumentWithDetailsByIdAuthOptions
+  > = z.object({
+    globalAccessAuth: z.nullable(
+      DocumentGetDocumentWithDetailsByIdGlobalAccessAuth$outboundSchema,
+    ),
+    globalActionAuth: z.nullable(
+      DocumentGetDocumentWithDetailsByIdGlobalActionAuth$outboundSchema,
+    ),
+  });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace AuthOptions$ {
-  /** @deprecated use `AuthOptions$inboundSchema` instead. */
-  export const inboundSchema = AuthOptions$inboundSchema;
-  /** @deprecated use `AuthOptions$outboundSchema` instead. */
-  export const outboundSchema = AuthOptions$outboundSchema;
-  /** @deprecated use `AuthOptions$Outbound` instead. */
-  export type Outbound = AuthOptions$Outbound;
+export namespace DocumentGetDocumentWithDetailsByIdAuthOptions$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdAuthOptions$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentGetDocumentWithDetailsByIdAuthOptions$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdAuthOptions$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentGetDocumentWithDetailsByIdAuthOptions$outboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdAuthOptions$Outbound` instead. */
+  export type Outbound = DocumentGetDocumentWithDetailsByIdAuthOptions$Outbound;
 }
 
-export function authOptionsToJSON(authOptions: AuthOptions): string {
-  return JSON.stringify(AuthOptions$outboundSchema.parse(authOptions));
+export function documentGetDocumentWithDetailsByIdAuthOptionsToJSON(
+  documentGetDocumentWithDetailsByIdAuthOptions:
+    DocumentGetDocumentWithDetailsByIdAuthOptions,
+): string {
+  return JSON.stringify(
+    DocumentGetDocumentWithDetailsByIdAuthOptions$outboundSchema.parse(
+      documentGetDocumentWithDetailsByIdAuthOptions,
+    ),
+  );
 }
 
-export function authOptionsFromJSON(
+export function documentGetDocumentWithDetailsByIdAuthOptionsFromJSON(
   jsonString: string,
-): SafeParseResult<AuthOptions, SDKValidationError> {
+): SafeParseResult<
+  DocumentGetDocumentWithDetailsByIdAuthOptions,
+  SDKValidationError
+> {
   return safeParse(
     jsonString,
-    (x) => AuthOptions$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'AuthOptions' from JSON`,
+    (x) =>
+      DocumentGetDocumentWithDetailsByIdAuthOptions$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'DocumentGetDocumentWithDetailsByIdAuthOptions' from JSON`,
   );
 }
 
@@ -848,42 +907,43 @@ export function documentGetDocumentWithDetailsByIdFormValuesFromJSON(
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdDocumentsType$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdDocumentsType> = z
-    .nativeEnum(DocumentGetDocumentWithDetailsByIdDocumentsType);
+export const DocumentGetDocumentWithDetailsByIdDocumentDataType$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdDocumentDataType> = z
+    .nativeEnum(DocumentGetDocumentWithDetailsByIdDocumentDataType);
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdDocumentsType$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdDocumentsType> =
-    DocumentGetDocumentWithDetailsByIdDocumentsType$inboundSchema;
+export const DocumentGetDocumentWithDetailsByIdDocumentDataType$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdDocumentDataType> =
+    DocumentGetDocumentWithDetailsByIdDocumentDataType$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdDocumentsType$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdDocumentsType$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdDocumentDataType$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdDocumentDataType$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdDocumentsType$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdDocumentsType$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdDocumentDataType$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdDocumentDataType$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdDocumentsType$outboundSchema;
+    DocumentGetDocumentWithDetailsByIdDocumentDataType$outboundSchema;
 }
 
 /** @internal */
-export const DocumentData$inboundSchema: z.ZodType<
-  DocumentData,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  type: DocumentGetDocumentWithDetailsByIdDocumentsType$inboundSchema,
-  id: z.string(),
-  data: z.string(),
-  initialData: z.string(),
-});
+export const DocumentGetDocumentWithDetailsByIdDocumentData$inboundSchema:
+  z.ZodType<
+    DocumentGetDocumentWithDetailsByIdDocumentData,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    type: DocumentGetDocumentWithDetailsByIdDocumentDataType$inboundSchema,
+    id: z.string(),
+    data: z.string(),
+    initialData: z.string(),
+  });
 
 /** @internal */
-export type DocumentData$Outbound = {
+export type DocumentGetDocumentWithDetailsByIdDocumentData$Outbound = {
   type: string;
   id: string;
   data: string;
@@ -891,41 +951,58 @@ export type DocumentData$Outbound = {
 };
 
 /** @internal */
-export const DocumentData$outboundSchema: z.ZodType<
-  DocumentData$Outbound,
-  z.ZodTypeDef,
-  DocumentData
-> = z.object({
-  type: DocumentGetDocumentWithDetailsByIdDocumentsType$outboundSchema,
-  id: z.string(),
-  data: z.string(),
-  initialData: z.string(),
-});
+export const DocumentGetDocumentWithDetailsByIdDocumentData$outboundSchema:
+  z.ZodType<
+    DocumentGetDocumentWithDetailsByIdDocumentData$Outbound,
+    z.ZodTypeDef,
+    DocumentGetDocumentWithDetailsByIdDocumentData
+  > = z.object({
+    type: DocumentGetDocumentWithDetailsByIdDocumentDataType$outboundSchema,
+    id: z.string(),
+    data: z.string(),
+    initialData: z.string(),
+  });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentData$ {
-  /** @deprecated use `DocumentData$inboundSchema` instead. */
-  export const inboundSchema = DocumentData$inboundSchema;
-  /** @deprecated use `DocumentData$outboundSchema` instead. */
-  export const outboundSchema = DocumentData$outboundSchema;
-  /** @deprecated use `DocumentData$Outbound` instead. */
-  export type Outbound = DocumentData$Outbound;
+export namespace DocumentGetDocumentWithDetailsByIdDocumentData$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdDocumentData$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentGetDocumentWithDetailsByIdDocumentData$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdDocumentData$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentGetDocumentWithDetailsByIdDocumentData$outboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdDocumentData$Outbound` instead. */
+  export type Outbound =
+    DocumentGetDocumentWithDetailsByIdDocumentData$Outbound;
 }
 
-export function documentDataToJSON(documentData: DocumentData): string {
-  return JSON.stringify(DocumentData$outboundSchema.parse(documentData));
+export function documentGetDocumentWithDetailsByIdDocumentDataToJSON(
+  documentGetDocumentWithDetailsByIdDocumentData:
+    DocumentGetDocumentWithDetailsByIdDocumentData,
+): string {
+  return JSON.stringify(
+    DocumentGetDocumentWithDetailsByIdDocumentData$outboundSchema.parse(
+      documentGetDocumentWithDetailsByIdDocumentData,
+    ),
+  );
 }
 
-export function documentDataFromJSON(
+export function documentGetDocumentWithDetailsByIdDocumentDataFromJSON(
   jsonString: string,
-): SafeParseResult<DocumentData, SDKValidationError> {
+): SafeParseResult<
+  DocumentGetDocumentWithDetailsByIdDocumentData,
+  SDKValidationError
+> {
   return safeParse(
     jsonString,
-    (x) => DocumentData$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DocumentData' from JSON`,
+    (x) =>
+      DocumentGetDocumentWithDetailsByIdDocumentData$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'DocumentGetDocumentWithDetailsByIdDocumentData' from JSON`,
   );
 }
 
@@ -1062,31 +1139,37 @@ export function documentGetDocumentWithDetailsByIdEmailSettingsFromJSON(
 }
 
 /** @internal */
-export const DocumentMeta$inboundSchema: z.ZodType<
-  DocumentMeta,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  signingOrder: DocumentGetDocumentWithDetailsByIdSigningOrder$inboundSchema,
-  distributionMethod:
-    DocumentGetDocumentWithDetailsByIdDistributionMethod$inboundSchema,
-  id: z.string(),
-  subject: z.nullable(z.string()),
-  message: z.nullable(z.string()),
-  timezone: z.nullable(z.string()),
-  password: z.nullable(z.string()),
-  dateFormat: z.nullable(z.string()),
-  documentId: z.number().int(),
-  redirectUrl: z.nullable(z.string()),
-  typedSignatureEnabled: z.boolean(),
-  language: z.string(),
-  emailSettings: z.nullable(
-    z.lazy(() => DocumentGetDocumentWithDetailsByIdEmailSettings$inboundSchema),
-  ),
-});
+export const DocumentGetDocumentWithDetailsByIdDocumentMeta$inboundSchema:
+  z.ZodType<
+    DocumentGetDocumentWithDetailsByIdDocumentMeta,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    signingOrder: DocumentGetDocumentWithDetailsByIdSigningOrder$inboundSchema,
+    distributionMethod:
+      DocumentGetDocumentWithDetailsByIdDistributionMethod$inboundSchema,
+    id: z.string(),
+    subject: z.nullable(z.string()),
+    message: z.nullable(z.string()),
+    timezone: z.nullable(z.string()),
+    password: z.nullable(z.string()),
+    dateFormat: z.nullable(z.string()),
+    documentId: z.number(),
+    redirectUrl: z.nullable(z.string()),
+    typedSignatureEnabled: z.boolean(),
+    uploadSignatureEnabled: z.boolean(),
+    drawSignatureEnabled: z.boolean(),
+    allowDictateNextSigner: z.boolean(),
+    language: z.string(),
+    emailSettings: z.nullable(
+      z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdEmailSettings$inboundSchema
+      ),
+    ),
+  });
 
 /** @internal */
-export type DocumentMeta$Outbound = {
+export type DocumentGetDocumentWithDetailsByIdDocumentMeta$Outbound = {
   signingOrder: string;
   distributionMethod: string;
   id: string;
@@ -1098,6 +1181,9 @@ export type DocumentMeta$Outbound = {
   documentId: number;
   redirectUrl: string | null;
   typedSignatureEnabled: boolean;
+  uploadSignatureEnabled: boolean;
+  drawSignatureEnabled: boolean;
+  allowDictateNextSigner: boolean;
   language: string;
   emailSettings:
     | DocumentGetDocumentWithDetailsByIdEmailSettings$Outbound
@@ -1105,55 +1191,75 @@ export type DocumentMeta$Outbound = {
 };
 
 /** @internal */
-export const DocumentMeta$outboundSchema: z.ZodType<
-  DocumentMeta$Outbound,
-  z.ZodTypeDef,
-  DocumentMeta
-> = z.object({
-  signingOrder: DocumentGetDocumentWithDetailsByIdSigningOrder$outboundSchema,
-  distributionMethod:
-    DocumentGetDocumentWithDetailsByIdDistributionMethod$outboundSchema,
-  id: z.string(),
-  subject: z.nullable(z.string()),
-  message: z.nullable(z.string()),
-  timezone: z.nullable(z.string()),
-  password: z.nullable(z.string()),
-  dateFormat: z.nullable(z.string()),
-  documentId: z.number().int(),
-  redirectUrl: z.nullable(z.string()),
-  typedSignatureEnabled: z.boolean(),
-  language: z.string(),
-  emailSettings: z.nullable(
-    z.lazy(() =>
-      DocumentGetDocumentWithDetailsByIdEmailSettings$outboundSchema
+export const DocumentGetDocumentWithDetailsByIdDocumentMeta$outboundSchema:
+  z.ZodType<
+    DocumentGetDocumentWithDetailsByIdDocumentMeta$Outbound,
+    z.ZodTypeDef,
+    DocumentGetDocumentWithDetailsByIdDocumentMeta
+  > = z.object({
+    signingOrder: DocumentGetDocumentWithDetailsByIdSigningOrder$outboundSchema,
+    distributionMethod:
+      DocumentGetDocumentWithDetailsByIdDistributionMethod$outboundSchema,
+    id: z.string(),
+    subject: z.nullable(z.string()),
+    message: z.nullable(z.string()),
+    timezone: z.nullable(z.string()),
+    password: z.nullable(z.string()),
+    dateFormat: z.nullable(z.string()),
+    documentId: z.number(),
+    redirectUrl: z.nullable(z.string()),
+    typedSignatureEnabled: z.boolean(),
+    uploadSignatureEnabled: z.boolean(),
+    drawSignatureEnabled: z.boolean(),
+    allowDictateNextSigner: z.boolean(),
+    language: z.string(),
+    emailSettings: z.nullable(
+      z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdEmailSettings$outboundSchema
+      ),
     ),
-  ),
-});
+  });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentMeta$ {
-  /** @deprecated use `DocumentMeta$inboundSchema` instead. */
-  export const inboundSchema = DocumentMeta$inboundSchema;
-  /** @deprecated use `DocumentMeta$outboundSchema` instead. */
-  export const outboundSchema = DocumentMeta$outboundSchema;
-  /** @deprecated use `DocumentMeta$Outbound` instead. */
-  export type Outbound = DocumentMeta$Outbound;
+export namespace DocumentGetDocumentWithDetailsByIdDocumentMeta$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdDocumentMeta$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentGetDocumentWithDetailsByIdDocumentMeta$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdDocumentMeta$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentGetDocumentWithDetailsByIdDocumentMeta$outboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdDocumentMeta$Outbound` instead. */
+  export type Outbound =
+    DocumentGetDocumentWithDetailsByIdDocumentMeta$Outbound;
 }
 
-export function documentMetaToJSON(documentMeta: DocumentMeta): string {
-  return JSON.stringify(DocumentMeta$outboundSchema.parse(documentMeta));
+export function documentGetDocumentWithDetailsByIdDocumentMetaToJSON(
+  documentGetDocumentWithDetailsByIdDocumentMeta:
+    DocumentGetDocumentWithDetailsByIdDocumentMeta,
+): string {
+  return JSON.stringify(
+    DocumentGetDocumentWithDetailsByIdDocumentMeta$outboundSchema.parse(
+      documentGetDocumentWithDetailsByIdDocumentMeta,
+    ),
+  );
 }
 
-export function documentMetaFromJSON(
+export function documentGetDocumentWithDetailsByIdDocumentMetaFromJSON(
   jsonString: string,
-): SafeParseResult<DocumentMeta, SDKValidationError> {
+): SafeParseResult<
+  DocumentGetDocumentWithDetailsByIdDocumentMeta,
+  SDKValidationError
+> {
   return safeParse(
     jsonString,
-    (x) => DocumentMeta$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DocumentMeta' from JSON`,
+    (x) =>
+      DocumentGetDocumentWithDetailsByIdDocumentMeta$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'DocumentGetDocumentWithDetailsByIdDocumentMeta' from JSON`,
   );
 }
 
@@ -1297,9 +1403,9 @@ export namespace DocumentGetDocumentWithDetailsByIdActionAuth$ {
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdAuthOptions$inboundSchema:
+export const DocumentGetDocumentWithDetailsByIdRecipientAuthOptions$inboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdAuthOptions,
+    DocumentGetDocumentWithDetailsByIdRecipientAuthOptions,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -1312,17 +1418,17 @@ export const DocumentGetDocumentWithDetailsByIdAuthOptions$inboundSchema:
   });
 
 /** @internal */
-export type DocumentGetDocumentWithDetailsByIdAuthOptions$Outbound = {
+export type DocumentGetDocumentWithDetailsByIdRecipientAuthOptions$Outbound = {
   accessAuth: string | null;
   actionAuth: string | null;
 };
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdAuthOptions$outboundSchema:
+export const DocumentGetDocumentWithDetailsByIdRecipientAuthOptions$outboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdAuthOptions$Outbound,
+    DocumentGetDocumentWithDetailsByIdRecipientAuthOptions$Outbound,
     z.ZodTypeDef,
-    DocumentGetDocumentWithDetailsByIdAuthOptions
+    DocumentGetDocumentWithDetailsByIdRecipientAuthOptions
   > = z.object({
     accessAuth: z.nullable(
       DocumentGetDocumentWithDetailsByIdAccessAuth$outboundSchema,
@@ -1336,48 +1442,48 @@ export const DocumentGetDocumentWithDetailsByIdAuthOptions$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdAuthOptions$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdAuthOptions$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdRecipientAuthOptions$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdRecipientAuthOptions$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdAuthOptions$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdAuthOptions$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdRecipientAuthOptions$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdRecipientAuthOptions$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdAuthOptions$outboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdAuthOptions$Outbound` instead. */
-  export type Outbound = DocumentGetDocumentWithDetailsByIdAuthOptions$Outbound;
+    DocumentGetDocumentWithDetailsByIdRecipientAuthOptions$outboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdRecipientAuthOptions$Outbound` instead. */
+  export type Outbound =
+    DocumentGetDocumentWithDetailsByIdRecipientAuthOptions$Outbound;
 }
 
-export function documentGetDocumentWithDetailsByIdAuthOptionsToJSON(
-  documentGetDocumentWithDetailsByIdAuthOptions:
-    DocumentGetDocumentWithDetailsByIdAuthOptions,
+export function documentGetDocumentWithDetailsByIdRecipientAuthOptionsToJSON(
+  documentGetDocumentWithDetailsByIdRecipientAuthOptions:
+    DocumentGetDocumentWithDetailsByIdRecipientAuthOptions,
 ): string {
   return JSON.stringify(
-    DocumentGetDocumentWithDetailsByIdAuthOptions$outboundSchema.parse(
-      documentGetDocumentWithDetailsByIdAuthOptions,
+    DocumentGetDocumentWithDetailsByIdRecipientAuthOptions$outboundSchema.parse(
+      documentGetDocumentWithDetailsByIdRecipientAuthOptions,
     ),
   );
 }
 
-export function documentGetDocumentWithDetailsByIdAuthOptionsFromJSON(
+export function documentGetDocumentWithDetailsByIdRecipientAuthOptionsFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  DocumentGetDocumentWithDetailsByIdAuthOptions,
+  DocumentGetDocumentWithDetailsByIdRecipientAuthOptions,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentGetDocumentWithDetailsByIdAuthOptions$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DocumentGetDocumentWithDetailsByIdAuthOptions' from JSON`,
+      DocumentGetDocumentWithDetailsByIdRecipientAuthOptions$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'DocumentGetDocumentWithDetailsByIdRecipientAuthOptions' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdRecipients$inboundSchema:
+export const DocumentGetDocumentWithDetailsByIdRecipient$inboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdRecipients,
+    DocumentGetDocumentWithDetailsByIdRecipient,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -1386,9 +1492,9 @@ export const DocumentGetDocumentWithDetailsByIdRecipients$inboundSchema:
     signingStatus:
       DocumentGetDocumentWithDetailsByIdSigningStatus$inboundSchema,
     sendStatus: DocumentGetDocumentWithDetailsByIdSendStatus$inboundSchema,
-    id: z.number().int(),
-    documentId: z.nullable(z.number().int()),
-    templateId: z.nullable(z.number().int()),
+    id: z.number(),
+    documentId: z.nullable(z.number()),
+    templateId: z.nullable(z.number()),
     email: z.string(),
     name: z.string(),
     token: z.string(),
@@ -1396,14 +1502,16 @@ export const DocumentGetDocumentWithDetailsByIdRecipients$inboundSchema:
     expired: z.nullable(z.string()),
     signedAt: z.nullable(z.string()),
     authOptions: z.nullable(
-      z.lazy(() => DocumentGetDocumentWithDetailsByIdAuthOptions$inboundSchema),
+      z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdRecipientAuthOptions$inboundSchema
+      ),
     ),
     signingOrder: z.nullable(z.number()),
     rejectionReason: z.nullable(z.string()),
   });
 
 /** @internal */
-export type DocumentGetDocumentWithDetailsByIdRecipients$Outbound = {
+export type DocumentGetDocumentWithDetailsByIdRecipient$Outbound = {
   role: string;
   readStatus: string;
   signingStatus: string;
@@ -1417,26 +1525,28 @@ export type DocumentGetDocumentWithDetailsByIdRecipients$Outbound = {
   documentDeletedAt: string | null;
   expired: string | null;
   signedAt: string | null;
-  authOptions: DocumentGetDocumentWithDetailsByIdAuthOptions$Outbound | null;
+  authOptions:
+    | DocumentGetDocumentWithDetailsByIdRecipientAuthOptions$Outbound
+    | null;
   signingOrder: number | null;
   rejectionReason: string | null;
 };
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdRecipients$outboundSchema:
+export const DocumentGetDocumentWithDetailsByIdRecipient$outboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdRecipients$Outbound,
+    DocumentGetDocumentWithDetailsByIdRecipient$Outbound,
     z.ZodTypeDef,
-    DocumentGetDocumentWithDetailsByIdRecipients
+    DocumentGetDocumentWithDetailsByIdRecipient
   > = z.object({
     role: DocumentGetDocumentWithDetailsByIdRole$outboundSchema,
     readStatus: DocumentGetDocumentWithDetailsByIdReadStatus$outboundSchema,
     signingStatus:
       DocumentGetDocumentWithDetailsByIdSigningStatus$outboundSchema,
     sendStatus: DocumentGetDocumentWithDetailsByIdSendStatus$outboundSchema,
-    id: z.number().int(),
-    documentId: z.nullable(z.number().int()),
-    templateId: z.nullable(z.number().int()),
+    id: z.number(),
+    documentId: z.nullable(z.number()),
+    templateId: z.nullable(z.number()),
     email: z.string(),
     name: z.string(),
     token: z.string(),
@@ -1445,7 +1555,7 @@ export const DocumentGetDocumentWithDetailsByIdRecipients$outboundSchema:
     signedAt: z.nullable(z.string()),
     authOptions: z.nullable(
       z.lazy(() =>
-        DocumentGetDocumentWithDetailsByIdAuthOptions$outboundSchema
+        DocumentGetDocumentWithDetailsByIdRecipientAuthOptions$outboundSchema
       ),
     ),
     signingOrder: z.nullable(z.number()),
@@ -1456,168 +1566,159 @@ export const DocumentGetDocumentWithDetailsByIdRecipients$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdRecipients$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdRecipients$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdRecipient$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdRecipient$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdRecipients$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdRecipients$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdRecipient$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdRecipient$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdRecipients$outboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdRecipients$Outbound` instead. */
-  export type Outbound = DocumentGetDocumentWithDetailsByIdRecipients$Outbound;
+    DocumentGetDocumentWithDetailsByIdRecipient$outboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdRecipient$Outbound` instead. */
+  export type Outbound = DocumentGetDocumentWithDetailsByIdRecipient$Outbound;
 }
 
-export function documentGetDocumentWithDetailsByIdRecipientsToJSON(
-  documentGetDocumentWithDetailsByIdRecipients:
-    DocumentGetDocumentWithDetailsByIdRecipients,
+export function documentGetDocumentWithDetailsByIdRecipientToJSON(
+  documentGetDocumentWithDetailsByIdRecipient:
+    DocumentGetDocumentWithDetailsByIdRecipient,
 ): string {
   return JSON.stringify(
-    DocumentGetDocumentWithDetailsByIdRecipients$outboundSchema.parse(
-      documentGetDocumentWithDetailsByIdRecipients,
+    DocumentGetDocumentWithDetailsByIdRecipient$outboundSchema.parse(
+      documentGetDocumentWithDetailsByIdRecipient,
     ),
   );
 }
 
-export function documentGetDocumentWithDetailsByIdRecipientsFromJSON(
+export function documentGetDocumentWithDetailsByIdRecipientFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  DocumentGetDocumentWithDetailsByIdRecipients,
+  DocumentGetDocumentWithDetailsByIdRecipient,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentGetDocumentWithDetailsByIdRecipients$inboundSchema.parse(
+      DocumentGetDocumentWithDetailsByIdRecipient$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'DocumentGetDocumentWithDetailsByIdRecipients' from JSON`,
+    `Failed to parse 'DocumentGetDocumentWithDetailsByIdRecipient' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdType$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdType> = z.nativeEnum(
-    DocumentGetDocumentWithDetailsByIdType,
-  );
+export const DocumentGetDocumentWithDetailsByIdFieldType$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdFieldType> = z
+    .nativeEnum(DocumentGetDocumentWithDetailsByIdFieldType);
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdType$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdType> =
-    DocumentGetDocumentWithDetailsByIdType$inboundSchema;
+export const DocumentGetDocumentWithDetailsByIdFieldType$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdFieldType> =
+    DocumentGetDocumentWithDetailsByIdFieldType$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdType$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdType$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdFieldType$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldType$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdType$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdType$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdFieldType$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldType$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdType$outboundSchema;
+    DocumentGetDocumentWithDetailsByIdFieldType$outboundSchema;
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields9Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields9Type
-  > = z.nativeEnum(
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields9Type,
-  );
+export const DocumentGetDocumentWithDetailsByIdTypeDropdown$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTypeDropdown> = z
+    .nativeEnum(DocumentGetDocumentWithDetailsByIdTypeDropdown);
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields9Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields9Type
-  > =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields9Type$inboundSchema;
+export const DocumentGetDocumentWithDetailsByIdTypeDropdown$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTypeDropdown> =
+    DocumentGetDocumentWithDetailsByIdTypeDropdown$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields9Type$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields9Type$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdTypeDropdown$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTypeDropdown$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields9Type$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields9Type$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdTypeDropdown$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTypeDropdown$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields9Type$outboundSchema;
+    DocumentGetDocumentWithDetailsByIdTypeDropdown$outboundSchema;
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMetaValues$inboundSchema:
-  z.ZodType<
-    DocumentGetDocumentWithDetailsByIdFieldMetaValues,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    value: z.string(),
-  });
+export const DocumentGetDocumentWithDetailsByIdValue3$inboundSchema: z.ZodType<
+  DocumentGetDocumentWithDetailsByIdValue3,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  value: z.string(),
+});
 
 /** @internal */
-export type DocumentGetDocumentWithDetailsByIdFieldMetaValues$Outbound = {
+export type DocumentGetDocumentWithDetailsByIdValue3$Outbound = {
   value: string;
 };
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMetaValues$outboundSchema:
-  z.ZodType<
-    DocumentGetDocumentWithDetailsByIdFieldMetaValues$Outbound,
-    z.ZodTypeDef,
-    DocumentGetDocumentWithDetailsByIdFieldMetaValues
-  > = z.object({
-    value: z.string(),
-  });
+export const DocumentGetDocumentWithDetailsByIdValue3$outboundSchema: z.ZodType<
+  DocumentGetDocumentWithDetailsByIdValue3$Outbound,
+  z.ZodTypeDef,
+  DocumentGetDocumentWithDetailsByIdValue3
+> = z.object({
+  value: z.string(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdFieldMetaValues$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaValues$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdValue3$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdValue3$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMetaValues$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaValues$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdValue3$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdValue3$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMetaValues$outboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaValues$Outbound` instead. */
-  export type Outbound =
-    DocumentGetDocumentWithDetailsByIdFieldMetaValues$Outbound;
+    DocumentGetDocumentWithDetailsByIdValue3$outboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdValue3$Outbound` instead. */
+  export type Outbound = DocumentGetDocumentWithDetailsByIdValue3$Outbound;
 }
 
-export function documentGetDocumentWithDetailsByIdFieldMetaValuesToJSON(
-  documentGetDocumentWithDetailsByIdFieldMetaValues:
-    DocumentGetDocumentWithDetailsByIdFieldMetaValues,
+export function documentGetDocumentWithDetailsByIdValue3ToJSON(
+  documentGetDocumentWithDetailsByIdValue3:
+    DocumentGetDocumentWithDetailsByIdValue3,
 ): string {
   return JSON.stringify(
-    DocumentGetDocumentWithDetailsByIdFieldMetaValues$outboundSchema.parse(
-      documentGetDocumentWithDetailsByIdFieldMetaValues,
+    DocumentGetDocumentWithDetailsByIdValue3$outboundSchema.parse(
+      documentGetDocumentWithDetailsByIdValue3,
     ),
   );
 }
 
-export function documentGetDocumentWithDetailsByIdFieldMetaValuesFromJSON(
+export function documentGetDocumentWithDetailsByIdValue3FromJSON(
   jsonString: string,
 ): SafeParseResult<
-  DocumentGetDocumentWithDetailsByIdFieldMetaValues,
+  DocumentGetDocumentWithDetailsByIdValue3,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentGetDocumentWithDetailsByIdFieldMetaValues$inboundSchema.parse(
+      DocumentGetDocumentWithDetailsByIdValue3$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'DocumentGetDocumentWithDetailsByIdFieldMetaValues' from JSON`,
+    `Failed to parse 'DocumentGetDocumentWithDetailsByIdValue3' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMeta9$inboundSchema:
+export const DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$inboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdFieldMeta9,
+    DocumentGetDocumentWithDetailsByIdFieldMetaDropdown,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -1625,46 +1726,38 @@ export const DocumentGetDocumentWithDetailsByIdFieldMeta9$inboundSchema:
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type:
-      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields9Type$inboundSchema,
+    type: DocumentGetDocumentWithDetailsByIdTypeDropdown$inboundSchema,
     values: z.array(
-      z.lazy(() =>
-        DocumentGetDocumentWithDetailsByIdFieldMetaValues$inboundSchema
-      ),
+      z.lazy(() => DocumentGetDocumentWithDetailsByIdValue3$inboundSchema),
     ).optional(),
     defaultValue: z.string().optional(),
   });
 
 /** @internal */
-export type DocumentGetDocumentWithDetailsByIdFieldMeta9$Outbound = {
+export type DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
-  values?:
-    | Array<DocumentGetDocumentWithDetailsByIdFieldMetaValues$Outbound>
-    | undefined;
+  values?: Array<DocumentGetDocumentWithDetailsByIdValue3$Outbound> | undefined;
   defaultValue?: string | undefined;
 };
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMeta9$outboundSchema:
+export const DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$outboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdFieldMeta9$Outbound,
+    DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$Outbound,
     z.ZodTypeDef,
-    DocumentGetDocumentWithDetailsByIdFieldMeta9
+    DocumentGetDocumentWithDetailsByIdFieldMetaDropdown
   > = z.object({
     label: z.string().optional(),
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type:
-      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields9Type$outboundSchema,
+    type: DocumentGetDocumentWithDetailsByIdTypeDropdown$outboundSchema,
     values: z.array(
-      z.lazy(() =>
-        DocumentGetDocumentWithDetailsByIdFieldMetaValues$outboundSchema
-      ),
+      z.lazy(() => DocumentGetDocumentWithDetailsByIdValue3$outboundSchema),
     ).optional(),
     defaultValue: z.string().optional(),
   });
@@ -1673,151 +1766,143 @@ export const DocumentGetDocumentWithDetailsByIdFieldMeta9$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdFieldMeta9$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta9$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMeta9$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta9$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMeta9$outboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta9$Outbound` instead. */
-  export type Outbound = DocumentGetDocumentWithDetailsByIdFieldMeta9$Outbound;
+    DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$outboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$Outbound` instead. */
+  export type Outbound =
+    DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$Outbound;
 }
 
-export function documentGetDocumentWithDetailsByIdFieldMeta9ToJSON(
-  documentGetDocumentWithDetailsByIdFieldMeta9:
-    DocumentGetDocumentWithDetailsByIdFieldMeta9,
+export function documentGetDocumentWithDetailsByIdFieldMetaDropdownToJSON(
+  documentGetDocumentWithDetailsByIdFieldMetaDropdown:
+    DocumentGetDocumentWithDetailsByIdFieldMetaDropdown,
 ): string {
   return JSON.stringify(
-    DocumentGetDocumentWithDetailsByIdFieldMeta9$outboundSchema.parse(
-      documentGetDocumentWithDetailsByIdFieldMeta9,
+    DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$outboundSchema.parse(
+      documentGetDocumentWithDetailsByIdFieldMetaDropdown,
     ),
   );
 }
 
-export function documentGetDocumentWithDetailsByIdFieldMeta9FromJSON(
+export function documentGetDocumentWithDetailsByIdFieldMetaDropdownFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  DocumentGetDocumentWithDetailsByIdFieldMeta9,
+  DocumentGetDocumentWithDetailsByIdFieldMetaDropdown,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentGetDocumentWithDetailsByIdFieldMeta9$inboundSchema.parse(
+      DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'DocumentGetDocumentWithDetailsByIdFieldMeta9' from JSON`,
+    `Failed to parse 'DocumentGetDocumentWithDetailsByIdFieldMetaDropdown' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFieldsType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFieldsType
-  > = z.nativeEnum(
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFieldsType,
-  );
+export const DocumentGetDocumentWithDetailsByIdTypeCheckbox$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTypeCheckbox> = z
+    .nativeEnum(DocumentGetDocumentWithDetailsByIdTypeCheckbox);
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFieldsType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFieldsType
-  > =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFieldsType$inboundSchema;
+export const DocumentGetDocumentWithDetailsByIdTypeCheckbox$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTypeCheckbox> =
+    DocumentGetDocumentWithDetailsByIdTypeCheckbox$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFieldsType$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFieldsType$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdTypeCheckbox$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTypeCheckbox$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFieldsType$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFieldsType$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdTypeCheckbox$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTypeCheckbox$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFieldsType$outboundSchema;
+    DocumentGetDocumentWithDetailsByIdTypeCheckbox$outboundSchema;
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseValues$inboundSchema:
-  z.ZodType<
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseValues,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    id: z.number(),
-    checked: z.boolean(),
-    value: z.string(),
-  });
+export const DocumentGetDocumentWithDetailsByIdValue2$inboundSchema: z.ZodType<
+  DocumentGetDocumentWithDetailsByIdValue2,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.number(),
+  checked: z.boolean(),
+  value: z.string(),
+});
 
 /** @internal */
-export type DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseValues$Outbound =
-  {
-    id: number;
-    checked: boolean;
-    value: string;
-  };
+export type DocumentGetDocumentWithDetailsByIdValue2$Outbound = {
+  id: number;
+  checked: boolean;
+  value: string;
+};
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseValues$outboundSchema:
-  z.ZodType<
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseValues$Outbound,
-    z.ZodTypeDef,
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseValues
-  > = z.object({
-    id: z.number(),
-    checked: z.boolean(),
-    value: z.string(),
-  });
+export const DocumentGetDocumentWithDetailsByIdValue2$outboundSchema: z.ZodType<
+  DocumentGetDocumentWithDetailsByIdValue2$Outbound,
+  z.ZodTypeDef,
+  DocumentGetDocumentWithDetailsByIdValue2
+> = z.object({
+  id: z.number(),
+  checked: z.boolean(),
+  value: z.string(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseValues$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseValues$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdValue2$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdValue2$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseValues$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseValues$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdValue2$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdValue2$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseValues$outboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseValues$Outbound` instead. */
-  export type Outbound =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseValues$Outbound;
+    DocumentGetDocumentWithDetailsByIdValue2$outboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdValue2$Outbound` instead. */
+  export type Outbound = DocumentGetDocumentWithDetailsByIdValue2$Outbound;
 }
 
-export function documentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseValuesToJSON(
-  documentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseValues:
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseValues,
+export function documentGetDocumentWithDetailsByIdValue2ToJSON(
+  documentGetDocumentWithDetailsByIdValue2:
+    DocumentGetDocumentWithDetailsByIdValue2,
 ): string {
   return JSON.stringify(
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseValues$outboundSchema
-      .parse(
-        documentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseValues,
-      ),
+    DocumentGetDocumentWithDetailsByIdValue2$outboundSchema.parse(
+      documentGetDocumentWithDetailsByIdValue2,
+    ),
   );
 }
 
-export function documentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseValuesFromJSON(
+export function documentGetDocumentWithDetailsByIdValue2FromJSON(
   jsonString: string,
 ): SafeParseResult<
-  DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseValues,
+  DocumentGetDocumentWithDetailsByIdValue2,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseValues$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseValues' from JSON`,
+      DocumentGetDocumentWithDetailsByIdValue2$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'DocumentGetDocumentWithDetailsByIdValue2' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMeta8$inboundSchema:
+export const DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox$inboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdFieldMeta8,
+    DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -1825,50 +1910,40 @@ export const DocumentGetDocumentWithDetailsByIdFieldMeta8$inboundSchema:
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type:
-      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFieldsType$inboundSchema,
+    type: DocumentGetDocumentWithDetailsByIdTypeCheckbox$inboundSchema,
     values: z.array(
-      z.lazy(() =>
-        DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseValues$inboundSchema
-      ),
+      z.lazy(() => DocumentGetDocumentWithDetailsByIdValue2$inboundSchema),
     ).optional(),
     validationRule: z.string().optional(),
     validationLength: z.number().optional(),
   });
 
 /** @internal */
-export type DocumentGetDocumentWithDetailsByIdFieldMeta8$Outbound = {
+export type DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
-  values?:
-    | Array<
-      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseValues$Outbound
-    >
-    | undefined;
+  values?: Array<DocumentGetDocumentWithDetailsByIdValue2$Outbound> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
 };
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMeta8$outboundSchema:
+export const DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox$outboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdFieldMeta8$Outbound,
+    DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox$Outbound,
     z.ZodTypeDef,
-    DocumentGetDocumentWithDetailsByIdFieldMeta8
+    DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox
   > = z.object({
     label: z.string().optional(),
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type:
-      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFieldsType$outboundSchema,
+    type: DocumentGetDocumentWithDetailsByIdTypeCheckbox$outboundSchema,
     values: z.array(
-      z.lazy(() =>
-        DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseValues$outboundSchema
-      ),
+      z.lazy(() => DocumentGetDocumentWithDetailsByIdValue2$outboundSchema),
     ).optional(),
     validationRule: z.string().optional(),
     validationLength: z.number().optional(),
@@ -1878,149 +1953,143 @@ export const DocumentGetDocumentWithDetailsByIdFieldMeta8$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdFieldMeta8$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta8$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMeta8$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta8$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMeta8$outboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta8$Outbound` instead. */
-  export type Outbound = DocumentGetDocumentWithDetailsByIdFieldMeta8$Outbound;
+    DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox$outboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox$Outbound` instead. */
+  export type Outbound =
+    DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox$Outbound;
 }
 
-export function documentGetDocumentWithDetailsByIdFieldMeta8ToJSON(
-  documentGetDocumentWithDetailsByIdFieldMeta8:
-    DocumentGetDocumentWithDetailsByIdFieldMeta8,
+export function documentGetDocumentWithDetailsByIdFieldMetaCheckboxToJSON(
+  documentGetDocumentWithDetailsByIdFieldMetaCheckbox:
+    DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox,
 ): string {
   return JSON.stringify(
-    DocumentGetDocumentWithDetailsByIdFieldMeta8$outboundSchema.parse(
-      documentGetDocumentWithDetailsByIdFieldMeta8,
+    DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox$outboundSchema.parse(
+      documentGetDocumentWithDetailsByIdFieldMetaCheckbox,
     ),
   );
 }
 
-export function documentGetDocumentWithDetailsByIdFieldMeta8FromJSON(
+export function documentGetDocumentWithDetailsByIdFieldMetaCheckboxFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  DocumentGetDocumentWithDetailsByIdFieldMeta8,
+  DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentGetDocumentWithDetailsByIdFieldMeta8$inboundSchema.parse(
+      DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'DocumentGetDocumentWithDetailsByIdFieldMeta8' from JSON`,
+    `Failed to parse 'DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType
-  > = z.nativeEnum(
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType,
-  );
+export const DocumentGetDocumentWithDetailsByIdTypeRadio$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTypeRadio> = z
+    .nativeEnum(DocumentGetDocumentWithDetailsByIdTypeRadio);
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType
-  > =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType$inboundSchema;
+export const DocumentGetDocumentWithDetailsByIdTypeRadio$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTypeRadio> =
+    DocumentGetDocumentWithDetailsByIdTypeRadio$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdTypeRadio$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTypeRadio$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdTypeRadio$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTypeRadio$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType$outboundSchema;
+    DocumentGetDocumentWithDetailsByIdTypeRadio$outboundSchema;
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsValues$inboundSchema:
-  z.ZodType<
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsValues,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    id: z.number(),
-    checked: z.boolean(),
-    value: z.string(),
-  });
+export const DocumentGetDocumentWithDetailsByIdValue1$inboundSchema: z.ZodType<
+  DocumentGetDocumentWithDetailsByIdValue1,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.number(),
+  checked: z.boolean(),
+  value: z.string(),
+});
 
 /** @internal */
-export type DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsValues$Outbound =
-  {
-    id: number;
-    checked: boolean;
-    value: string;
-  };
+export type DocumentGetDocumentWithDetailsByIdValue1$Outbound = {
+  id: number;
+  checked: boolean;
+  value: string;
+};
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsValues$outboundSchema:
-  z.ZodType<
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsValues$Outbound,
-    z.ZodTypeDef,
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsValues
-  > = z.object({
-    id: z.number(),
-    checked: z.boolean(),
-    value: z.string(),
-  });
+export const DocumentGetDocumentWithDetailsByIdValue1$outboundSchema: z.ZodType<
+  DocumentGetDocumentWithDetailsByIdValue1$Outbound,
+  z.ZodTypeDef,
+  DocumentGetDocumentWithDetailsByIdValue1
+> = z.object({
+  id: z.number(),
+  checked: z.boolean(),
+  value: z.string(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsValues$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsValues$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdValue1$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdValue1$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsValues$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsValues$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdValue1$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdValue1$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsValues$outboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsValues$Outbound` instead. */
-  export type Outbound =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsValues$Outbound;
+    DocumentGetDocumentWithDetailsByIdValue1$outboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdValue1$Outbound` instead. */
+  export type Outbound = DocumentGetDocumentWithDetailsByIdValue1$Outbound;
 }
 
-export function documentGetDocumentWithDetailsByIdFieldMetaDocumentsValuesToJSON(
-  documentGetDocumentWithDetailsByIdFieldMetaDocumentsValues:
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsValues,
+export function documentGetDocumentWithDetailsByIdValue1ToJSON(
+  documentGetDocumentWithDetailsByIdValue1:
+    DocumentGetDocumentWithDetailsByIdValue1,
 ): string {
   return JSON.stringify(
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsValues$outboundSchema
-      .parse(documentGetDocumentWithDetailsByIdFieldMetaDocumentsValues),
+    DocumentGetDocumentWithDetailsByIdValue1$outboundSchema.parse(
+      documentGetDocumentWithDetailsByIdValue1,
+    ),
   );
 }
 
-export function documentGetDocumentWithDetailsByIdFieldMetaDocumentsValuesFromJSON(
+export function documentGetDocumentWithDetailsByIdValue1FromJSON(
   jsonString: string,
 ): SafeParseResult<
-  DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsValues,
+  DocumentGetDocumentWithDetailsByIdValue1,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsValues$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsValues' from JSON`,
+      DocumentGetDocumentWithDetailsByIdValue1$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'DocumentGetDocumentWithDetailsByIdValue1' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMeta7$inboundSchema:
+export const DocumentGetDocumentWithDetailsByIdFieldMetaRadio$inboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdFieldMeta7,
+    DocumentGetDocumentWithDetailsByIdFieldMetaRadio,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -2028,44 +2097,36 @@ export const DocumentGetDocumentWithDetailsByIdFieldMeta7$inboundSchema:
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type:
-      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType$inboundSchema,
+    type: DocumentGetDocumentWithDetailsByIdTypeRadio$inboundSchema,
     values: z.array(
-      z.lazy(() =>
-        DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsValues$inboundSchema
-      ),
+      z.lazy(() => DocumentGetDocumentWithDetailsByIdValue1$inboundSchema),
     ).optional(),
   });
 
 /** @internal */
-export type DocumentGetDocumentWithDetailsByIdFieldMeta7$Outbound = {
+export type DocumentGetDocumentWithDetailsByIdFieldMetaRadio$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
-  values?:
-    | Array<DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsValues$Outbound>
-    | undefined;
+  values?: Array<DocumentGetDocumentWithDetailsByIdValue1$Outbound> | undefined;
 };
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMeta7$outboundSchema:
+export const DocumentGetDocumentWithDetailsByIdFieldMetaRadio$outboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdFieldMeta7$Outbound,
+    DocumentGetDocumentWithDetailsByIdFieldMetaRadio$Outbound,
     z.ZodTypeDef,
-    DocumentGetDocumentWithDetailsByIdFieldMeta7
+    DocumentGetDocumentWithDetailsByIdFieldMetaRadio
   > = z.object({
     label: z.string().optional(),
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type:
-      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType$outboundSchema,
+    type: DocumentGetDocumentWithDetailsByIdTypeRadio$outboundSchema,
     values: z.array(
-      z.lazy(() =>
-        DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsValues$outboundSchema
-      ),
+      z.lazy(() => DocumentGetDocumentWithDetailsByIdValue1$outboundSchema),
     ).optional(),
   });
 
@@ -2073,76 +2134,95 @@ export const DocumentGetDocumentWithDetailsByIdFieldMeta7$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdFieldMeta7$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta7$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdFieldMetaRadio$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaRadio$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMeta7$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta7$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdFieldMetaRadio$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaRadio$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMeta7$outboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta7$Outbound` instead. */
-  export type Outbound = DocumentGetDocumentWithDetailsByIdFieldMeta7$Outbound;
+    DocumentGetDocumentWithDetailsByIdFieldMetaRadio$outboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaRadio$Outbound` instead. */
+  export type Outbound =
+    DocumentGetDocumentWithDetailsByIdFieldMetaRadio$Outbound;
 }
 
-export function documentGetDocumentWithDetailsByIdFieldMeta7ToJSON(
-  documentGetDocumentWithDetailsByIdFieldMeta7:
-    DocumentGetDocumentWithDetailsByIdFieldMeta7,
+export function documentGetDocumentWithDetailsByIdFieldMetaRadioToJSON(
+  documentGetDocumentWithDetailsByIdFieldMetaRadio:
+    DocumentGetDocumentWithDetailsByIdFieldMetaRadio,
 ): string {
   return JSON.stringify(
-    DocumentGetDocumentWithDetailsByIdFieldMeta7$outboundSchema.parse(
-      documentGetDocumentWithDetailsByIdFieldMeta7,
+    DocumentGetDocumentWithDetailsByIdFieldMetaRadio$outboundSchema.parse(
+      documentGetDocumentWithDetailsByIdFieldMetaRadio,
     ),
   );
 }
 
-export function documentGetDocumentWithDetailsByIdFieldMeta7FromJSON(
+export function documentGetDocumentWithDetailsByIdFieldMetaRadioFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  DocumentGetDocumentWithDetailsByIdFieldMeta7,
+  DocumentGetDocumentWithDetailsByIdFieldMetaRadio,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentGetDocumentWithDetailsByIdFieldMeta7$inboundSchema.parse(
+      DocumentGetDocumentWithDetailsByIdFieldMetaRadio$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'DocumentGetDocumentWithDetailsByIdFieldMeta7' from JSON`,
+    `Failed to parse 'DocumentGetDocumentWithDetailsByIdFieldMetaRadio' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONType
-  > = z.nativeEnum(
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONType,
-  );
+export const DocumentGetDocumentWithDetailsByIdTypeNumber$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTypeNumber> = z
+    .nativeEnum(DocumentGetDocumentWithDetailsByIdTypeNumber);
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONType
-  > =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONType$inboundSchema;
+export const DocumentGetDocumentWithDetailsByIdTypeNumber$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTypeNumber> =
+    DocumentGetDocumentWithDetailsByIdTypeNumber$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONType$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONType$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdTypeNumber$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTypeNumber$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONType$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONType$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdTypeNumber$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTypeNumber$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONType$outboundSchema;
+    DocumentGetDocumentWithDetailsByIdTypeNumber$outboundSchema;
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMeta6$inboundSchema:
+export const DocumentGetDocumentWithDetailsByIdTextAlign6$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTextAlign6> = z
+    .nativeEnum(DocumentGetDocumentWithDetailsByIdTextAlign6);
+
+/** @internal */
+export const DocumentGetDocumentWithDetailsByIdTextAlign6$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTextAlign6> =
+    DocumentGetDocumentWithDetailsByIdTextAlign6$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentGetDocumentWithDetailsByIdTextAlign6$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTextAlign6$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentGetDocumentWithDetailsByIdTextAlign6$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTextAlign6$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentGetDocumentWithDetailsByIdTextAlign6$outboundSchema;
+}
+
+/** @internal */
+export const DocumentGetDocumentWithDetailsByIdFieldMetaNumber$inboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdFieldMeta6,
+    DocumentGetDocumentWithDetailsByIdFieldMetaNumber,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -2150,17 +2230,18 @@ export const DocumentGetDocumentWithDetailsByIdFieldMeta6$inboundSchema:
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type:
-      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONType$inboundSchema,
+    type: DocumentGetDocumentWithDetailsByIdTypeNumber$inboundSchema,
     numberFormat: z.string().optional(),
     value: z.string().optional(),
     minValue: z.number().optional(),
     maxValue: z.number().optional(),
     fontSize: z.number().optional(),
+    textAlign: DocumentGetDocumentWithDetailsByIdTextAlign6$inboundSchema
+      .optional(),
   });
 
 /** @internal */
-export type DocumentGetDocumentWithDetailsByIdFieldMeta6$Outbound = {
+export type DocumentGetDocumentWithDetailsByIdFieldMetaNumber$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -2171,102 +2252,123 @@ export type DocumentGetDocumentWithDetailsByIdFieldMeta6$Outbound = {
   minValue?: number | undefined;
   maxValue?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMeta6$outboundSchema:
+export const DocumentGetDocumentWithDetailsByIdFieldMetaNumber$outboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdFieldMeta6$Outbound,
+    DocumentGetDocumentWithDetailsByIdFieldMetaNumber$Outbound,
     z.ZodTypeDef,
-    DocumentGetDocumentWithDetailsByIdFieldMeta6
+    DocumentGetDocumentWithDetailsByIdFieldMetaNumber
   > = z.object({
     label: z.string().optional(),
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type:
-      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONType$outboundSchema,
+    type: DocumentGetDocumentWithDetailsByIdTypeNumber$outboundSchema,
     numberFormat: z.string().optional(),
     value: z.string().optional(),
     minValue: z.number().optional(),
     maxValue: z.number().optional(),
     fontSize: z.number().optional(),
+    textAlign: DocumentGetDocumentWithDetailsByIdTextAlign6$outboundSchema
+      .optional(),
   });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdFieldMeta6$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta6$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdFieldMetaNumber$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaNumber$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMeta6$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta6$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdFieldMetaNumber$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaNumber$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMeta6$outboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta6$Outbound` instead. */
-  export type Outbound = DocumentGetDocumentWithDetailsByIdFieldMeta6$Outbound;
+    DocumentGetDocumentWithDetailsByIdFieldMetaNumber$outboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaNumber$Outbound` instead. */
+  export type Outbound =
+    DocumentGetDocumentWithDetailsByIdFieldMetaNumber$Outbound;
 }
 
-export function documentGetDocumentWithDetailsByIdFieldMeta6ToJSON(
-  documentGetDocumentWithDetailsByIdFieldMeta6:
-    DocumentGetDocumentWithDetailsByIdFieldMeta6,
+export function documentGetDocumentWithDetailsByIdFieldMetaNumberToJSON(
+  documentGetDocumentWithDetailsByIdFieldMetaNumber:
+    DocumentGetDocumentWithDetailsByIdFieldMetaNumber,
 ): string {
   return JSON.stringify(
-    DocumentGetDocumentWithDetailsByIdFieldMeta6$outboundSchema.parse(
-      documentGetDocumentWithDetailsByIdFieldMeta6,
+    DocumentGetDocumentWithDetailsByIdFieldMetaNumber$outboundSchema.parse(
+      documentGetDocumentWithDetailsByIdFieldMetaNumber,
     ),
   );
 }
 
-export function documentGetDocumentWithDetailsByIdFieldMeta6FromJSON(
+export function documentGetDocumentWithDetailsByIdFieldMetaNumberFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  DocumentGetDocumentWithDetailsByIdFieldMeta6,
+  DocumentGetDocumentWithDetailsByIdFieldMetaNumber,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentGetDocumentWithDetailsByIdFieldMeta6$inboundSchema.parse(
+      DocumentGetDocumentWithDetailsByIdFieldMetaNumber$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'DocumentGetDocumentWithDetailsByIdFieldMeta6' from JSON`,
+    `Failed to parse 'DocumentGetDocumentWithDetailsByIdFieldMetaNumber' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200Type
-  > = z.nativeEnum(
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200Type,
-  );
+export const DocumentGetDocumentWithDetailsByIdTypeText$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTypeText> = z
+    .nativeEnum(DocumentGetDocumentWithDetailsByIdTypeText);
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200Type
-  > =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200Type$inboundSchema;
+export const DocumentGetDocumentWithDetailsByIdTypeText$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTypeText> =
+    DocumentGetDocumentWithDetailsByIdTypeText$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200Type$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200Type$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdTypeText$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTypeText$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200Type$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200Type$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdTypeText$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTypeText$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200Type$outboundSchema;
+    DocumentGetDocumentWithDetailsByIdTypeText$outboundSchema;
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMeta5$inboundSchema:
+export const DocumentGetDocumentWithDetailsByIdTextAlign5$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTextAlign5> = z
+    .nativeEnum(DocumentGetDocumentWithDetailsByIdTextAlign5);
+
+/** @internal */
+export const DocumentGetDocumentWithDetailsByIdTextAlign5$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTextAlign5> =
+    DocumentGetDocumentWithDetailsByIdTextAlign5$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentGetDocumentWithDetailsByIdTextAlign5$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTextAlign5$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentGetDocumentWithDetailsByIdTextAlign5$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTextAlign5$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentGetDocumentWithDetailsByIdTextAlign5$outboundSchema;
+}
+
+/** @internal */
+export const DocumentGetDocumentWithDetailsByIdFieldMetaText$inboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdFieldMeta5,
+    DocumentGetDocumentWithDetailsByIdFieldMetaText,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -2274,15 +2376,16 @@ export const DocumentGetDocumentWithDetailsByIdFieldMeta5$inboundSchema:
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type:
-      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200Type$inboundSchema,
+    type: DocumentGetDocumentWithDetailsByIdTypeText$inboundSchema,
     text: z.string().optional(),
     characterLimit: z.number().optional(),
     fontSize: z.number().optional(),
+    textAlign: DocumentGetDocumentWithDetailsByIdTextAlign5$inboundSchema
+      .optional(),
   });
 
 /** @internal */
-export type DocumentGetDocumentWithDetailsByIdFieldMeta5$Outbound = {
+export type DocumentGetDocumentWithDetailsByIdFieldMetaText$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -2291,100 +2394,121 @@ export type DocumentGetDocumentWithDetailsByIdFieldMeta5$Outbound = {
   text?: string | undefined;
   characterLimit?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMeta5$outboundSchema:
+export const DocumentGetDocumentWithDetailsByIdFieldMetaText$outboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdFieldMeta5$Outbound,
+    DocumentGetDocumentWithDetailsByIdFieldMetaText$Outbound,
     z.ZodTypeDef,
-    DocumentGetDocumentWithDetailsByIdFieldMeta5
+    DocumentGetDocumentWithDetailsByIdFieldMetaText
   > = z.object({
     label: z.string().optional(),
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type:
-      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200Type$outboundSchema,
+    type: DocumentGetDocumentWithDetailsByIdTypeText$outboundSchema,
     text: z.string().optional(),
     characterLimit: z.number().optional(),
     fontSize: z.number().optional(),
+    textAlign: DocumentGetDocumentWithDetailsByIdTextAlign5$outboundSchema
+      .optional(),
   });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdFieldMeta5$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta5$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdFieldMetaText$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaText$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMeta5$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta5$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdFieldMetaText$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaText$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMeta5$outboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta5$Outbound` instead. */
-  export type Outbound = DocumentGetDocumentWithDetailsByIdFieldMeta5$Outbound;
+    DocumentGetDocumentWithDetailsByIdFieldMetaText$outboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaText$Outbound` instead. */
+  export type Outbound =
+    DocumentGetDocumentWithDetailsByIdFieldMetaText$Outbound;
 }
 
-export function documentGetDocumentWithDetailsByIdFieldMeta5ToJSON(
-  documentGetDocumentWithDetailsByIdFieldMeta5:
-    DocumentGetDocumentWithDetailsByIdFieldMeta5,
+export function documentGetDocumentWithDetailsByIdFieldMetaTextToJSON(
+  documentGetDocumentWithDetailsByIdFieldMetaText:
+    DocumentGetDocumentWithDetailsByIdFieldMetaText,
 ): string {
   return JSON.stringify(
-    DocumentGetDocumentWithDetailsByIdFieldMeta5$outboundSchema.parse(
-      documentGetDocumentWithDetailsByIdFieldMeta5,
+    DocumentGetDocumentWithDetailsByIdFieldMetaText$outboundSchema.parse(
+      documentGetDocumentWithDetailsByIdFieldMetaText,
     ),
   );
 }
 
-export function documentGetDocumentWithDetailsByIdFieldMeta5FromJSON(
+export function documentGetDocumentWithDetailsByIdFieldMetaTextFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  DocumentGetDocumentWithDetailsByIdFieldMeta5,
+  DocumentGetDocumentWithDetailsByIdFieldMetaText,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentGetDocumentWithDetailsByIdFieldMeta5$inboundSchema.parse(
+      DocumentGetDocumentWithDetailsByIdFieldMetaText$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'DocumentGetDocumentWithDetailsByIdFieldMeta5' from JSON`,
+    `Failed to parse 'DocumentGetDocumentWithDetailsByIdFieldMetaText' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseType
-  > = z.nativeEnum(
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseType,
-  );
+export const DocumentGetDocumentWithDetailsByIdTypeDate$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTypeDate> = z
+    .nativeEnum(DocumentGetDocumentWithDetailsByIdTypeDate);
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseType
-  > =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseType$inboundSchema;
+export const DocumentGetDocumentWithDetailsByIdTypeDate$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTypeDate> =
+    DocumentGetDocumentWithDetailsByIdTypeDate$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseType$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseType$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdTypeDate$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTypeDate$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseType$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseType$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdTypeDate$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTypeDate$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseType$outboundSchema;
+    DocumentGetDocumentWithDetailsByIdTypeDate$outboundSchema;
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMeta4$inboundSchema:
+export const DocumentGetDocumentWithDetailsByIdTextAlign4$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTextAlign4> = z
+    .nativeEnum(DocumentGetDocumentWithDetailsByIdTextAlign4);
+
+/** @internal */
+export const DocumentGetDocumentWithDetailsByIdTextAlign4$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTextAlign4> =
+    DocumentGetDocumentWithDetailsByIdTextAlign4$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentGetDocumentWithDetailsByIdTextAlign4$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTextAlign4$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentGetDocumentWithDetailsByIdTextAlign4$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTextAlign4$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentGetDocumentWithDetailsByIdTextAlign4$outboundSchema;
+}
+
+/** @internal */
+export const DocumentGetDocumentWithDetailsByIdFieldMetaDate$inboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdFieldMeta4,
+    DocumentGetDocumentWithDetailsByIdFieldMetaDate,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -2392,108 +2516,133 @@ export const DocumentGetDocumentWithDetailsByIdFieldMeta4$inboundSchema:
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type:
-      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseType$inboundSchema,
+    type: DocumentGetDocumentWithDetailsByIdTypeDate$inboundSchema,
     fontSize: z.number().optional(),
+    textAlign: DocumentGetDocumentWithDetailsByIdTextAlign4$inboundSchema
+      .optional(),
   });
 
 /** @internal */
-export type DocumentGetDocumentWithDetailsByIdFieldMeta4$Outbound = {
+export type DocumentGetDocumentWithDetailsByIdFieldMetaDate$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMeta4$outboundSchema:
+export const DocumentGetDocumentWithDetailsByIdFieldMetaDate$outboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdFieldMeta4$Outbound,
+    DocumentGetDocumentWithDetailsByIdFieldMetaDate$Outbound,
     z.ZodTypeDef,
-    DocumentGetDocumentWithDetailsByIdFieldMeta4
+    DocumentGetDocumentWithDetailsByIdFieldMetaDate
   > = z.object({
     label: z.string().optional(),
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type:
-      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponseType$outboundSchema,
+    type: DocumentGetDocumentWithDetailsByIdTypeDate$outboundSchema,
     fontSize: z.number().optional(),
+    textAlign: DocumentGetDocumentWithDetailsByIdTextAlign4$outboundSchema
+      .optional(),
   });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdFieldMeta4$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta4$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdFieldMetaDate$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDate$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMeta4$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta4$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdFieldMetaDate$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDate$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMeta4$outboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta4$Outbound` instead. */
-  export type Outbound = DocumentGetDocumentWithDetailsByIdFieldMeta4$Outbound;
+    DocumentGetDocumentWithDetailsByIdFieldMetaDate$outboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDate$Outbound` instead. */
+  export type Outbound =
+    DocumentGetDocumentWithDetailsByIdFieldMetaDate$Outbound;
 }
 
-export function documentGetDocumentWithDetailsByIdFieldMeta4ToJSON(
-  documentGetDocumentWithDetailsByIdFieldMeta4:
-    DocumentGetDocumentWithDetailsByIdFieldMeta4,
+export function documentGetDocumentWithDetailsByIdFieldMetaDateToJSON(
+  documentGetDocumentWithDetailsByIdFieldMetaDate:
+    DocumentGetDocumentWithDetailsByIdFieldMetaDate,
 ): string {
   return JSON.stringify(
-    DocumentGetDocumentWithDetailsByIdFieldMeta4$outboundSchema.parse(
-      documentGetDocumentWithDetailsByIdFieldMeta4,
+    DocumentGetDocumentWithDetailsByIdFieldMetaDate$outboundSchema.parse(
+      documentGetDocumentWithDetailsByIdFieldMetaDate,
     ),
   );
 }
 
-export function documentGetDocumentWithDetailsByIdFieldMeta4FromJSON(
+export function documentGetDocumentWithDetailsByIdFieldMetaDateFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  DocumentGetDocumentWithDetailsByIdFieldMeta4,
+  DocumentGetDocumentWithDetailsByIdFieldMetaDate,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentGetDocumentWithDetailsByIdFieldMeta4$inboundSchema.parse(
+      DocumentGetDocumentWithDetailsByIdFieldMetaDate$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'DocumentGetDocumentWithDetailsByIdFieldMeta4' from JSON`,
+    `Failed to parse 'DocumentGetDocumentWithDetailsByIdFieldMetaDate' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsType
-  > = z.nativeEnum(DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsType);
+export const DocumentGetDocumentWithDetailsByIdTypeEmail$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTypeEmail> = z
+    .nativeEnum(DocumentGetDocumentWithDetailsByIdTypeEmail);
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsType
-  > = DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsType$inboundSchema;
+export const DocumentGetDocumentWithDetailsByIdTypeEmail$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTypeEmail> =
+    DocumentGetDocumentWithDetailsByIdTypeEmail$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsType$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsType$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdTypeEmail$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTypeEmail$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsType$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsType$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdTypeEmail$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTypeEmail$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsType$outboundSchema;
+    DocumentGetDocumentWithDetailsByIdTypeEmail$outboundSchema;
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMeta3$inboundSchema:
+export const DocumentGetDocumentWithDetailsByIdTextAlign3$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTextAlign3> = z
+    .nativeEnum(DocumentGetDocumentWithDetailsByIdTextAlign3);
+
+/** @internal */
+export const DocumentGetDocumentWithDetailsByIdTextAlign3$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTextAlign3> =
+    DocumentGetDocumentWithDetailsByIdTextAlign3$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentGetDocumentWithDetailsByIdTextAlign3$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTextAlign3$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentGetDocumentWithDetailsByIdTextAlign3$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTextAlign3$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentGetDocumentWithDetailsByIdTextAlign3$outboundSchema;
+}
+
+/** @internal */
+export const DocumentGetDocumentWithDetailsByIdFieldMetaEmail$inboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdFieldMeta3,
+    DocumentGetDocumentWithDetailsByIdFieldMetaEmail,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -2501,106 +2650,133 @@ export const DocumentGetDocumentWithDetailsByIdFieldMeta3$inboundSchema:
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type:
-      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsType$inboundSchema,
+    type: DocumentGetDocumentWithDetailsByIdTypeEmail$inboundSchema,
     fontSize: z.number().optional(),
+    textAlign: DocumentGetDocumentWithDetailsByIdTextAlign3$inboundSchema
+      .optional(),
   });
 
 /** @internal */
-export type DocumentGetDocumentWithDetailsByIdFieldMeta3$Outbound = {
+export type DocumentGetDocumentWithDetailsByIdFieldMetaEmail$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMeta3$outboundSchema:
+export const DocumentGetDocumentWithDetailsByIdFieldMetaEmail$outboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdFieldMeta3$Outbound,
+    DocumentGetDocumentWithDetailsByIdFieldMetaEmail$Outbound,
     z.ZodTypeDef,
-    DocumentGetDocumentWithDetailsByIdFieldMeta3
+    DocumentGetDocumentWithDetailsByIdFieldMetaEmail
   > = z.object({
     label: z.string().optional(),
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type:
-      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsType$outboundSchema,
+    type: DocumentGetDocumentWithDetailsByIdTypeEmail$outboundSchema,
     fontSize: z.number().optional(),
+    textAlign: DocumentGetDocumentWithDetailsByIdTextAlign3$outboundSchema
+      .optional(),
   });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdFieldMeta3$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta3$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdFieldMetaEmail$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaEmail$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMeta3$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta3$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdFieldMetaEmail$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaEmail$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMeta3$outboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta3$Outbound` instead. */
-  export type Outbound = DocumentGetDocumentWithDetailsByIdFieldMeta3$Outbound;
+    DocumentGetDocumentWithDetailsByIdFieldMetaEmail$outboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaEmail$Outbound` instead. */
+  export type Outbound =
+    DocumentGetDocumentWithDetailsByIdFieldMetaEmail$Outbound;
 }
 
-export function documentGetDocumentWithDetailsByIdFieldMeta3ToJSON(
-  documentGetDocumentWithDetailsByIdFieldMeta3:
-    DocumentGetDocumentWithDetailsByIdFieldMeta3,
+export function documentGetDocumentWithDetailsByIdFieldMetaEmailToJSON(
+  documentGetDocumentWithDetailsByIdFieldMetaEmail:
+    DocumentGetDocumentWithDetailsByIdFieldMetaEmail,
 ): string {
   return JSON.stringify(
-    DocumentGetDocumentWithDetailsByIdFieldMeta3$outboundSchema.parse(
-      documentGetDocumentWithDetailsByIdFieldMeta3,
+    DocumentGetDocumentWithDetailsByIdFieldMetaEmail$outboundSchema.parse(
+      documentGetDocumentWithDetailsByIdFieldMetaEmail,
     ),
   );
 }
 
-export function documentGetDocumentWithDetailsByIdFieldMeta3FromJSON(
+export function documentGetDocumentWithDetailsByIdFieldMetaEmailFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  DocumentGetDocumentWithDetailsByIdFieldMeta3,
+  DocumentGetDocumentWithDetailsByIdFieldMetaEmail,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentGetDocumentWithDetailsByIdFieldMeta3$inboundSchema.parse(
+      DocumentGetDocumentWithDetailsByIdFieldMetaEmail$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'DocumentGetDocumentWithDetailsByIdFieldMeta3' from JSON`,
+    `Failed to parse 'DocumentGetDocumentWithDetailsByIdFieldMetaEmail' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMetaType$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdFieldMetaType> = z
-    .nativeEnum(DocumentGetDocumentWithDetailsByIdFieldMetaType);
+export const DocumentGetDocumentWithDetailsByIdTypeName$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTypeName> = z
+    .nativeEnum(DocumentGetDocumentWithDetailsByIdTypeName);
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMetaType$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdFieldMetaType> =
-    DocumentGetDocumentWithDetailsByIdFieldMetaType$inboundSchema;
+export const DocumentGetDocumentWithDetailsByIdTypeName$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTypeName> =
+    DocumentGetDocumentWithDetailsByIdTypeName$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdFieldMetaType$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaType$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdTypeName$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTypeName$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMetaType$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaType$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdTypeName$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTypeName$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMetaType$outboundSchema;
+    DocumentGetDocumentWithDetailsByIdTypeName$outboundSchema;
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMeta2$inboundSchema:
+export const DocumentGetDocumentWithDetailsByIdTextAlign2$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTextAlign2> = z
+    .nativeEnum(DocumentGetDocumentWithDetailsByIdTextAlign2);
+
+/** @internal */
+export const DocumentGetDocumentWithDetailsByIdTextAlign2$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTextAlign2> =
+    DocumentGetDocumentWithDetailsByIdTextAlign2$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentGetDocumentWithDetailsByIdTextAlign2$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTextAlign2$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentGetDocumentWithDetailsByIdTextAlign2$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTextAlign2$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentGetDocumentWithDetailsByIdTextAlign2$outboundSchema;
+}
+
+/** @internal */
+export const DocumentGetDocumentWithDetailsByIdFieldMetaName$inboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdFieldMeta2,
+    DocumentGetDocumentWithDetailsByIdFieldMetaName,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -2608,109 +2784,133 @@ export const DocumentGetDocumentWithDetailsByIdFieldMeta2$inboundSchema:
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type: DocumentGetDocumentWithDetailsByIdFieldMetaType$inboundSchema,
+    type: DocumentGetDocumentWithDetailsByIdTypeName$inboundSchema,
     fontSize: z.number().optional(),
+    textAlign: DocumentGetDocumentWithDetailsByIdTextAlign2$inboundSchema
+      .optional(),
   });
 
 /** @internal */
-export type DocumentGetDocumentWithDetailsByIdFieldMeta2$Outbound = {
+export type DocumentGetDocumentWithDetailsByIdFieldMetaName$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMeta2$outboundSchema:
+export const DocumentGetDocumentWithDetailsByIdFieldMetaName$outboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdFieldMeta2$Outbound,
+    DocumentGetDocumentWithDetailsByIdFieldMetaName$Outbound,
     z.ZodTypeDef,
-    DocumentGetDocumentWithDetailsByIdFieldMeta2
+    DocumentGetDocumentWithDetailsByIdFieldMetaName
   > = z.object({
     label: z.string().optional(),
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type: DocumentGetDocumentWithDetailsByIdFieldMetaType$outboundSchema,
+    type: DocumentGetDocumentWithDetailsByIdTypeName$outboundSchema,
     fontSize: z.number().optional(),
+    textAlign: DocumentGetDocumentWithDetailsByIdTextAlign2$outboundSchema
+      .optional(),
   });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdFieldMeta2$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta2$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdFieldMetaName$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaName$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMeta2$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta2$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdFieldMetaName$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaName$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMeta2$outboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta2$Outbound` instead. */
-  export type Outbound = DocumentGetDocumentWithDetailsByIdFieldMeta2$Outbound;
+    DocumentGetDocumentWithDetailsByIdFieldMetaName$outboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaName$Outbound` instead. */
+  export type Outbound =
+    DocumentGetDocumentWithDetailsByIdFieldMetaName$Outbound;
 }
 
-export function documentGetDocumentWithDetailsByIdFieldMeta2ToJSON(
-  documentGetDocumentWithDetailsByIdFieldMeta2:
-    DocumentGetDocumentWithDetailsByIdFieldMeta2,
+export function documentGetDocumentWithDetailsByIdFieldMetaNameToJSON(
+  documentGetDocumentWithDetailsByIdFieldMetaName:
+    DocumentGetDocumentWithDetailsByIdFieldMetaName,
 ): string {
   return JSON.stringify(
-    DocumentGetDocumentWithDetailsByIdFieldMeta2$outboundSchema.parse(
-      documentGetDocumentWithDetailsByIdFieldMeta2,
+    DocumentGetDocumentWithDetailsByIdFieldMetaName$outboundSchema.parse(
+      documentGetDocumentWithDetailsByIdFieldMetaName,
     ),
   );
 }
 
-export function documentGetDocumentWithDetailsByIdFieldMeta2FromJSON(
+export function documentGetDocumentWithDetailsByIdFieldMetaNameFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  DocumentGetDocumentWithDetailsByIdFieldMeta2,
+  DocumentGetDocumentWithDetailsByIdFieldMetaName,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentGetDocumentWithDetailsByIdFieldMeta2$inboundSchema.parse(
+      DocumentGetDocumentWithDetailsByIdFieldMetaName$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'DocumentGetDocumentWithDetailsByIdFieldMeta2' from JSON`,
+    `Failed to parse 'DocumentGetDocumentWithDetailsByIdFieldMetaName' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields1Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields1Type
-  > = z.nativeEnum(
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields1Type,
-  );
+export const DocumentGetDocumentWithDetailsByIdTypeInitials$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTypeInitials> = z
+    .nativeEnum(DocumentGetDocumentWithDetailsByIdTypeInitials);
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields1Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields1Type
-  > =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields1Type$inboundSchema;
+export const DocumentGetDocumentWithDetailsByIdTypeInitials$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTypeInitials> =
+    DocumentGetDocumentWithDetailsByIdTypeInitials$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields1Type$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields1Type$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdTypeInitials$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTypeInitials$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields1Type$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields1Type$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdTypeInitials$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTypeInitials$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields1Type$outboundSchema;
+    DocumentGetDocumentWithDetailsByIdTypeInitials$outboundSchema;
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMeta1$inboundSchema:
+export const DocumentGetDocumentWithDetailsByIdTextAlign1$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTextAlign1> = z
+    .nativeEnum(DocumentGetDocumentWithDetailsByIdTextAlign1);
+
+/** @internal */
+export const DocumentGetDocumentWithDetailsByIdTextAlign1$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdTextAlign1> =
+    DocumentGetDocumentWithDetailsByIdTextAlign1$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentGetDocumentWithDetailsByIdTextAlign1$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTextAlign1$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentGetDocumentWithDetailsByIdTextAlign1$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdTextAlign1$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentGetDocumentWithDetailsByIdTextAlign1$outboundSchema;
+}
+
+/** @internal */
+export const DocumentGetDocumentWithDetailsByIdFieldMetaInitials$inboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdFieldMeta1,
+    DocumentGetDocumentWithDetailsByIdFieldMetaInitials,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -2718,181 +2918,216 @@ export const DocumentGetDocumentWithDetailsByIdFieldMeta1$inboundSchema:
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type:
-      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields1Type$inboundSchema,
+    type: DocumentGetDocumentWithDetailsByIdTypeInitials$inboundSchema,
     fontSize: z.number().optional(),
+    textAlign: DocumentGetDocumentWithDetailsByIdTextAlign1$inboundSchema
+      .optional(),
   });
 
 /** @internal */
-export type DocumentGetDocumentWithDetailsByIdFieldMeta1$Outbound = {
+export type DocumentGetDocumentWithDetailsByIdFieldMetaInitials$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMeta1$outboundSchema:
+export const DocumentGetDocumentWithDetailsByIdFieldMetaInitials$outboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdFieldMeta1$Outbound,
+    DocumentGetDocumentWithDetailsByIdFieldMetaInitials$Outbound,
     z.ZodTypeDef,
-    DocumentGetDocumentWithDetailsByIdFieldMeta1
+    DocumentGetDocumentWithDetailsByIdFieldMetaInitials
   > = z.object({
     label: z.string().optional(),
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type:
-      DocumentGetDocumentWithDetailsByIdFieldMetaDocumentsResponse200ApplicationJSONResponseBodyFields1Type$outboundSchema,
+    type: DocumentGetDocumentWithDetailsByIdTypeInitials$outboundSchema,
     fontSize: z.number().optional(),
+    textAlign: DocumentGetDocumentWithDetailsByIdTextAlign1$outboundSchema
+      .optional(),
   });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdFieldMeta1$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta1$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdFieldMetaInitials$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaInitials$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMeta1$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta1$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdFieldMetaInitials$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaInitials$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMeta1$outboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta1$Outbound` instead. */
-  export type Outbound = DocumentGetDocumentWithDetailsByIdFieldMeta1$Outbound;
+    DocumentGetDocumentWithDetailsByIdFieldMetaInitials$outboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaInitials$Outbound` instead. */
+  export type Outbound =
+    DocumentGetDocumentWithDetailsByIdFieldMetaInitials$Outbound;
 }
 
-export function documentGetDocumentWithDetailsByIdFieldMeta1ToJSON(
-  documentGetDocumentWithDetailsByIdFieldMeta1:
-    DocumentGetDocumentWithDetailsByIdFieldMeta1,
+export function documentGetDocumentWithDetailsByIdFieldMetaInitialsToJSON(
+  documentGetDocumentWithDetailsByIdFieldMetaInitials:
+    DocumentGetDocumentWithDetailsByIdFieldMetaInitials,
 ): string {
   return JSON.stringify(
-    DocumentGetDocumentWithDetailsByIdFieldMeta1$outboundSchema.parse(
-      documentGetDocumentWithDetailsByIdFieldMeta1,
+    DocumentGetDocumentWithDetailsByIdFieldMetaInitials$outboundSchema.parse(
+      documentGetDocumentWithDetailsByIdFieldMetaInitials,
     ),
   );
 }
 
-export function documentGetDocumentWithDetailsByIdFieldMeta1FromJSON(
+export function documentGetDocumentWithDetailsByIdFieldMetaInitialsFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  DocumentGetDocumentWithDetailsByIdFieldMeta1,
+  DocumentGetDocumentWithDetailsByIdFieldMetaInitials,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentGetDocumentWithDetailsByIdFieldMeta1$inboundSchema.parse(
+      DocumentGetDocumentWithDetailsByIdFieldMetaInitials$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'DocumentGetDocumentWithDetailsByIdFieldMeta1' from JSON`,
+    `Failed to parse 'DocumentGetDocumentWithDetailsByIdFieldMetaInitials' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMeta$inboundSchema:
+export const DocumentGetDocumentWithDetailsByIdFieldMetaUnion$inboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdFieldMeta,
+    DocumentGetDocumentWithDetailsByIdFieldMetaUnion,
     z.ZodTypeDef,
     unknown
   > = z.union([
-    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta1$inboundSchema),
-    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta2$inboundSchema),
-    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta3$inboundSchema),
-    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta4$inboundSchema),
-    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta7$inboundSchema),
-    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta9$inboundSchema),
-    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta5$inboundSchema),
-    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta8$inboundSchema),
-    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta6$inboundSchema),
+    z.lazy(() =>
+      DocumentGetDocumentWithDetailsByIdFieldMetaRadio$inboundSchema
+    ),
+    z.lazy(() =>
+      DocumentGetDocumentWithDetailsByIdFieldMetaInitials$inboundSchema
+    ),
+    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMetaName$inboundSchema),
+    z.lazy(() =>
+      DocumentGetDocumentWithDetailsByIdFieldMetaEmail$inboundSchema
+    ),
+    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMetaDate$inboundSchema),
+    z.lazy(() =>
+      DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$inboundSchema
+    ),
+    z.lazy(() =>
+      DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox$inboundSchema
+    ),
+    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMetaText$inboundSchema),
+    z.lazy(() =>
+      DocumentGetDocumentWithDetailsByIdFieldMetaNumber$inboundSchema
+    ),
   ]);
 
 /** @internal */
-export type DocumentGetDocumentWithDetailsByIdFieldMeta$Outbound =
-  | DocumentGetDocumentWithDetailsByIdFieldMeta1$Outbound
-  | DocumentGetDocumentWithDetailsByIdFieldMeta2$Outbound
-  | DocumentGetDocumentWithDetailsByIdFieldMeta3$Outbound
-  | DocumentGetDocumentWithDetailsByIdFieldMeta4$Outbound
-  | DocumentGetDocumentWithDetailsByIdFieldMeta7$Outbound
-  | DocumentGetDocumentWithDetailsByIdFieldMeta9$Outbound
-  | DocumentGetDocumentWithDetailsByIdFieldMeta5$Outbound
-  | DocumentGetDocumentWithDetailsByIdFieldMeta8$Outbound
-  | DocumentGetDocumentWithDetailsByIdFieldMeta6$Outbound;
+export type DocumentGetDocumentWithDetailsByIdFieldMetaUnion$Outbound =
+  | DocumentGetDocumentWithDetailsByIdFieldMetaRadio$Outbound
+  | DocumentGetDocumentWithDetailsByIdFieldMetaInitials$Outbound
+  | DocumentGetDocumentWithDetailsByIdFieldMetaName$Outbound
+  | DocumentGetDocumentWithDetailsByIdFieldMetaEmail$Outbound
+  | DocumentGetDocumentWithDetailsByIdFieldMetaDate$Outbound
+  | DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$Outbound
+  | DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox$Outbound
+  | DocumentGetDocumentWithDetailsByIdFieldMetaText$Outbound
+  | DocumentGetDocumentWithDetailsByIdFieldMetaNumber$Outbound;
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFieldMeta$outboundSchema:
+export const DocumentGetDocumentWithDetailsByIdFieldMetaUnion$outboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdFieldMeta$Outbound,
+    DocumentGetDocumentWithDetailsByIdFieldMetaUnion$Outbound,
     z.ZodTypeDef,
-    DocumentGetDocumentWithDetailsByIdFieldMeta
+    DocumentGetDocumentWithDetailsByIdFieldMetaUnion
   > = z.union([
-    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta1$outboundSchema),
-    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta2$outboundSchema),
-    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta3$outboundSchema),
-    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta4$outboundSchema),
-    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta7$outboundSchema),
-    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta9$outboundSchema),
-    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta5$outboundSchema),
-    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta8$outboundSchema),
-    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta6$outboundSchema),
+    z.lazy(() =>
+      DocumentGetDocumentWithDetailsByIdFieldMetaRadio$outboundSchema
+    ),
+    z.lazy(() =>
+      DocumentGetDocumentWithDetailsByIdFieldMetaInitials$outboundSchema
+    ),
+    z.lazy(() =>
+      DocumentGetDocumentWithDetailsByIdFieldMetaName$outboundSchema
+    ),
+    z.lazy(() =>
+      DocumentGetDocumentWithDetailsByIdFieldMetaEmail$outboundSchema
+    ),
+    z.lazy(() =>
+      DocumentGetDocumentWithDetailsByIdFieldMetaDate$outboundSchema
+    ),
+    z.lazy(() =>
+      DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$outboundSchema
+    ),
+    z.lazy(() =>
+      DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox$outboundSchema
+    ),
+    z.lazy(() =>
+      DocumentGetDocumentWithDetailsByIdFieldMetaText$outboundSchema
+    ),
+    z.lazy(() =>
+      DocumentGetDocumentWithDetailsByIdFieldMetaNumber$outboundSchema
+    ),
   ]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdFieldMeta$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdFieldMetaUnion$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaUnion$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMeta$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdFieldMetaUnion$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaUnion$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdFieldMeta$outboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMeta$Outbound` instead. */
-  export type Outbound = DocumentGetDocumentWithDetailsByIdFieldMeta$Outbound;
+    DocumentGetDocumentWithDetailsByIdFieldMetaUnion$outboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFieldMetaUnion$Outbound` instead. */
+  export type Outbound =
+    DocumentGetDocumentWithDetailsByIdFieldMetaUnion$Outbound;
 }
 
-export function documentGetDocumentWithDetailsByIdFieldMetaToJSON(
-  documentGetDocumentWithDetailsByIdFieldMeta:
-    DocumentGetDocumentWithDetailsByIdFieldMeta,
+export function documentGetDocumentWithDetailsByIdFieldMetaUnionToJSON(
+  documentGetDocumentWithDetailsByIdFieldMetaUnion:
+    DocumentGetDocumentWithDetailsByIdFieldMetaUnion,
 ): string {
   return JSON.stringify(
-    DocumentGetDocumentWithDetailsByIdFieldMeta$outboundSchema.parse(
-      documentGetDocumentWithDetailsByIdFieldMeta,
+    DocumentGetDocumentWithDetailsByIdFieldMetaUnion$outboundSchema.parse(
+      documentGetDocumentWithDetailsByIdFieldMetaUnion,
     ),
   );
 }
 
-export function documentGetDocumentWithDetailsByIdFieldMetaFromJSON(
+export function documentGetDocumentWithDetailsByIdFieldMetaUnionFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  DocumentGetDocumentWithDetailsByIdFieldMeta,
+  DocumentGetDocumentWithDetailsByIdFieldMetaUnion,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentGetDocumentWithDetailsByIdFieldMeta$inboundSchema.parse(
+      DocumentGetDocumentWithDetailsByIdFieldMetaUnion$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'DocumentGetDocumentWithDetailsByIdFieldMeta' from JSON`,
+    `Failed to parse 'DocumentGetDocumentWithDetailsByIdFieldMetaUnion' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFields$inboundSchema: z.ZodType<
-  DocumentGetDocumentWithDetailsByIdFields,
+export const DocumentGetDocumentWithDetailsByIdField$inboundSchema: z.ZodType<
+  DocumentGetDocumentWithDetailsByIdField,
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: DocumentGetDocumentWithDetailsByIdType$inboundSchema,
-  id: z.number().int(),
+  type: DocumentGetDocumentWithDetailsByIdFieldType$inboundSchema,
+  id: z.number(),
   secondaryId: z.string(),
-  documentId: z.nullable(z.number().int()),
-  templateId: z.nullable(z.number().int()),
-  recipientId: z.number().int(),
+  documentId: z.nullable(z.number()),
+  templateId: z.nullable(z.number()),
+  recipientId: z.number(),
   page: z.number(),
   positionX: z.any().optional(),
   positionY: z.any().optional(),
@@ -2902,21 +3137,39 @@ export const DocumentGetDocumentWithDetailsByIdFields$inboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta1$inboundSchema),
-      z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta2$inboundSchema),
-      z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta3$inboundSchema),
-      z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta4$inboundSchema),
-      z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta7$inboundSchema),
-      z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta9$inboundSchema),
-      z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta5$inboundSchema),
-      z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta8$inboundSchema),
-      z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta6$inboundSchema),
+      z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdFieldMetaRadio$inboundSchema
+      ),
+      z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdFieldMetaInitials$inboundSchema
+      ),
+      z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdFieldMetaName$inboundSchema
+      ),
+      z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdFieldMetaEmail$inboundSchema
+      ),
+      z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdFieldMetaDate$inboundSchema
+      ),
+      z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$inboundSchema
+      ),
+      z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox$inboundSchema
+      ),
+      z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdFieldMetaText$inboundSchema
+      ),
+      z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdFieldMetaNumber$inboundSchema
+      ),
     ]),
   ),
 });
 
 /** @internal */
-export type DocumentGetDocumentWithDetailsByIdFields$Outbound = {
+export type DocumentGetDocumentWithDetailsByIdField$Outbound = {
   type: string;
   id: number;
   secondaryId: string;
@@ -2931,30 +3184,30 @@ export type DocumentGetDocumentWithDetailsByIdFields$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | DocumentGetDocumentWithDetailsByIdFieldMeta1$Outbound
-    | DocumentGetDocumentWithDetailsByIdFieldMeta2$Outbound
-    | DocumentGetDocumentWithDetailsByIdFieldMeta3$Outbound
-    | DocumentGetDocumentWithDetailsByIdFieldMeta4$Outbound
-    | DocumentGetDocumentWithDetailsByIdFieldMeta7$Outbound
-    | DocumentGetDocumentWithDetailsByIdFieldMeta9$Outbound
-    | DocumentGetDocumentWithDetailsByIdFieldMeta5$Outbound
-    | DocumentGetDocumentWithDetailsByIdFieldMeta8$Outbound
-    | DocumentGetDocumentWithDetailsByIdFieldMeta6$Outbound
+    | DocumentGetDocumentWithDetailsByIdFieldMetaRadio$Outbound
+    | DocumentGetDocumentWithDetailsByIdFieldMetaInitials$Outbound
+    | DocumentGetDocumentWithDetailsByIdFieldMetaName$Outbound
+    | DocumentGetDocumentWithDetailsByIdFieldMetaEmail$Outbound
+    | DocumentGetDocumentWithDetailsByIdFieldMetaDate$Outbound
+    | DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$Outbound
+    | DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox$Outbound
+    | DocumentGetDocumentWithDetailsByIdFieldMetaText$Outbound
+    | DocumentGetDocumentWithDetailsByIdFieldMetaNumber$Outbound
     | null;
 };
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdFields$outboundSchema: z.ZodType<
-  DocumentGetDocumentWithDetailsByIdFields$Outbound,
+export const DocumentGetDocumentWithDetailsByIdField$outboundSchema: z.ZodType<
+  DocumentGetDocumentWithDetailsByIdField$Outbound,
   z.ZodTypeDef,
-  DocumentGetDocumentWithDetailsByIdFields
+  DocumentGetDocumentWithDetailsByIdField
 > = z.object({
-  type: DocumentGetDocumentWithDetailsByIdType$outboundSchema,
-  id: z.number().int(),
+  type: DocumentGetDocumentWithDetailsByIdFieldType$outboundSchema,
+  id: z.number(),
   secondaryId: z.string(),
-  documentId: z.nullable(z.number().int()),
-  templateId: z.nullable(z.number().int()),
-  recipientId: z.number().int(),
+  documentId: z.nullable(z.number()),
+  templateId: z.nullable(z.number()),
+  recipientId: z.number(),
   page: z.number(),
   positionX: z.any().optional(),
   positionY: z.any().optional(),
@@ -2964,17 +3217,33 @@ export const DocumentGetDocumentWithDetailsByIdFields$outboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta1$outboundSchema),
       z.lazy(() =>
-        DocumentGetDocumentWithDetailsByIdFieldMeta2$outboundSchema
+        DocumentGetDocumentWithDetailsByIdFieldMetaRadio$outboundSchema
       ),
-      z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta3$outboundSchema),
-      z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta4$outboundSchema),
-      z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta7$outboundSchema),
-      z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta9$outboundSchema),
-      z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta5$outboundSchema),
-      z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta8$outboundSchema),
-      z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMeta6$outboundSchema),
+      z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdFieldMetaInitials$outboundSchema
+      ),
+      z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdFieldMetaName$outboundSchema
+      ),
+      z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdFieldMetaEmail$outboundSchema
+      ),
+      z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdFieldMetaDate$outboundSchema
+      ),
+      z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$outboundSchema
+      ),
+      z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox$outboundSchema
+      ),
+      z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdFieldMetaText$outboundSchema
+      ),
+      z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdFieldMetaNumber$outboundSchema
+      ),
     ]),
   ),
 });
@@ -2983,88 +3252,95 @@ export const DocumentGetDocumentWithDetailsByIdFields$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdFields$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFields$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdField$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdField$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdFields$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFields$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdField$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdField$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdFields$outboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFields$Outbound` instead. */
-  export type Outbound = DocumentGetDocumentWithDetailsByIdFields$Outbound;
+    DocumentGetDocumentWithDetailsByIdField$outboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdField$Outbound` instead. */
+  export type Outbound = DocumentGetDocumentWithDetailsByIdField$Outbound;
 }
 
-export function documentGetDocumentWithDetailsByIdFieldsToJSON(
-  documentGetDocumentWithDetailsByIdFields:
-    DocumentGetDocumentWithDetailsByIdFields,
+export function documentGetDocumentWithDetailsByIdFieldToJSON(
+  documentGetDocumentWithDetailsByIdField:
+    DocumentGetDocumentWithDetailsByIdField,
 ): string {
   return JSON.stringify(
-    DocumentGetDocumentWithDetailsByIdFields$outboundSchema.parse(
-      documentGetDocumentWithDetailsByIdFields,
+    DocumentGetDocumentWithDetailsByIdField$outboundSchema.parse(
+      documentGetDocumentWithDetailsByIdField,
     ),
   );
 }
 
-export function documentGetDocumentWithDetailsByIdFieldsFromJSON(
+export function documentGetDocumentWithDetailsByIdFieldFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  DocumentGetDocumentWithDetailsByIdFields,
+  DocumentGetDocumentWithDetailsByIdField,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentGetDocumentWithDetailsByIdFields$inboundSchema.parse(
+      DocumentGetDocumentWithDetailsByIdField$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'DocumentGetDocumentWithDetailsByIdFields' from JSON`,
+    `Failed to parse 'DocumentGetDocumentWithDetailsByIdField' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdResponseBody$inboundSchema:
-  z.ZodType<
-    DocumentGetDocumentWithDetailsByIdResponseBody,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    visibility: DocumentGetDocumentWithDetailsByIdVisibility$inboundSchema,
-    status: DocumentGetDocumentWithDetailsByIdStatus$inboundSchema,
-    source: DocumentGetDocumentWithDetailsByIdSource$inboundSchema,
-    id: z.number().int(),
-    externalId: z.nullable(z.string()),
-    userId: z.number(),
-    authOptions: z.nullable(z.lazy(() => AuthOptions$inboundSchema)),
-    formValues: z.nullable(
-      z.record(z.union([z.string(), z.boolean(), z.number()])),
-    ),
-    title: z.string(),
-    documentDataId: z.string(),
-    createdAt: z.string(),
-    updatedAt: z.string(),
-    completedAt: z.nullable(z.string()),
-    deletedAt: z.nullable(z.string()),
-    teamId: z.nullable(z.number().int()),
-    templateId: z.nullable(z.number().int()),
-    documentData: z.lazy(() => DocumentData$inboundSchema),
-    documentMeta: z.nullable(z.lazy(() => DocumentMeta$inboundSchema)),
-    recipients: z.array(
-      z.lazy(() => DocumentGetDocumentWithDetailsByIdRecipients$inboundSchema),
-    ),
-    fields: z.array(
-      z.lazy(() => DocumentGetDocumentWithDetailsByIdFields$inboundSchema),
-    ),
-  });
+export const DocumentGetDocumentWithDetailsByIdResponse$inboundSchema:
+  z.ZodType<DocumentGetDocumentWithDetailsByIdResponse, z.ZodTypeDef, unknown> =
+    z.object({
+      visibility: DocumentGetDocumentWithDetailsByIdVisibility$inboundSchema,
+      status: DocumentGetDocumentWithDetailsByIdStatus$inboundSchema,
+      source: DocumentGetDocumentWithDetailsByIdSource$inboundSchema,
+      id: z.number(),
+      externalId: z.nullable(z.string()),
+      userId: z.number(),
+      authOptions: z.nullable(
+        z.lazy(() =>
+          DocumentGetDocumentWithDetailsByIdAuthOptions$inboundSchema
+        ),
+      ),
+      formValues: z.nullable(
+        z.record(z.union([z.string(), z.boolean(), z.number()])),
+      ),
+      title: z.string(),
+      documentDataId: z.string(),
+      createdAt: z.string(),
+      updatedAt: z.string(),
+      completedAt: z.nullable(z.string()),
+      deletedAt: z.nullable(z.string()),
+      teamId: z.nullable(z.number()),
+      templateId: z.nullable(z.number()),
+      documentData: z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdDocumentData$inboundSchema
+      ),
+      documentMeta: z.nullable(
+        z.lazy(() =>
+          DocumentGetDocumentWithDetailsByIdDocumentMeta$inboundSchema
+        ),
+      ),
+      recipients: z.array(
+        z.lazy(() => DocumentGetDocumentWithDetailsByIdRecipient$inboundSchema),
+      ),
+      fields: z.array(
+        z.lazy(() => DocumentGetDocumentWithDetailsByIdField$inboundSchema),
+      ),
+    });
 
 /** @internal */
-export type DocumentGetDocumentWithDetailsByIdResponseBody$Outbound = {
+export type DocumentGetDocumentWithDetailsByIdResponse$Outbound = {
   visibility: string;
   status: string;
   source: string;
   id: number;
   externalId: string | null;
   userId: number;
-  authOptions: AuthOptions$Outbound | null;
+  authOptions: DocumentGetDocumentWithDetailsByIdAuthOptions$Outbound | null;
   formValues: { [k: string]: string | boolean | number } | null;
   title: string;
   documentDataId: string;
@@ -3074,26 +3350,30 @@ export type DocumentGetDocumentWithDetailsByIdResponseBody$Outbound = {
   deletedAt: string | null;
   teamId: number | null;
   templateId: number | null;
-  documentData: DocumentData$Outbound;
-  documentMeta: DocumentMeta$Outbound | null;
-  recipients: Array<DocumentGetDocumentWithDetailsByIdRecipients$Outbound>;
-  fields: Array<DocumentGetDocumentWithDetailsByIdFields$Outbound>;
+  documentData: DocumentGetDocumentWithDetailsByIdDocumentData$Outbound;
+  documentMeta: DocumentGetDocumentWithDetailsByIdDocumentMeta$Outbound | null;
+  recipients: Array<DocumentGetDocumentWithDetailsByIdRecipient$Outbound>;
+  fields: Array<DocumentGetDocumentWithDetailsByIdField$Outbound>;
 };
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdResponseBody$outboundSchema:
+export const DocumentGetDocumentWithDetailsByIdResponse$outboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdResponseBody$Outbound,
+    DocumentGetDocumentWithDetailsByIdResponse$Outbound,
     z.ZodTypeDef,
-    DocumentGetDocumentWithDetailsByIdResponseBody
+    DocumentGetDocumentWithDetailsByIdResponse
   > = z.object({
     visibility: DocumentGetDocumentWithDetailsByIdVisibility$outboundSchema,
     status: DocumentGetDocumentWithDetailsByIdStatus$outboundSchema,
     source: DocumentGetDocumentWithDetailsByIdSource$outboundSchema,
-    id: z.number().int(),
+    id: z.number(),
     externalId: z.nullable(z.string()),
     userId: z.number(),
-    authOptions: z.nullable(z.lazy(() => AuthOptions$outboundSchema)),
+    authOptions: z.nullable(
+      z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdAuthOptions$outboundSchema
+      ),
+    ),
     formValues: z.nullable(
       z.record(z.union([z.string(), z.boolean(), z.number()])),
     ),
@@ -3103,15 +3383,21 @@ export const DocumentGetDocumentWithDetailsByIdResponseBody$outboundSchema:
     updatedAt: z.string(),
     completedAt: z.nullable(z.string()),
     deletedAt: z.nullable(z.string()),
-    teamId: z.nullable(z.number().int()),
-    templateId: z.nullable(z.number().int()),
-    documentData: z.lazy(() => DocumentData$outboundSchema),
-    documentMeta: z.nullable(z.lazy(() => DocumentMeta$outboundSchema)),
+    teamId: z.nullable(z.number()),
+    templateId: z.nullable(z.number()),
+    documentData: z.lazy(() =>
+      DocumentGetDocumentWithDetailsByIdDocumentData$outboundSchema
+    ),
+    documentMeta: z.nullable(
+      z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdDocumentMeta$outboundSchema
+      ),
+    ),
     recipients: z.array(
-      z.lazy(() => DocumentGetDocumentWithDetailsByIdRecipients$outboundSchema),
+      z.lazy(() => DocumentGetDocumentWithDetailsByIdRecipient$outboundSchema),
     ),
     fields: z.array(
-      z.lazy(() => DocumentGetDocumentWithDetailsByIdFields$outboundSchema),
+      z.lazy(() => DocumentGetDocumentWithDetailsByIdField$outboundSchema),
     ),
   });
 
@@ -3119,41 +3405,40 @@ export const DocumentGetDocumentWithDetailsByIdResponseBody$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdResponseBody$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdResponseBody$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdResponse$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdResponse$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdResponseBody$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdResponseBody$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdResponse$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdResponse$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdResponseBody$outboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdResponseBody$Outbound` instead. */
-  export type Outbound =
-    DocumentGetDocumentWithDetailsByIdResponseBody$Outbound;
+    DocumentGetDocumentWithDetailsByIdResponse$outboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdResponse$Outbound` instead. */
+  export type Outbound = DocumentGetDocumentWithDetailsByIdResponse$Outbound;
 }
 
-export function documentGetDocumentWithDetailsByIdResponseBodyToJSON(
-  documentGetDocumentWithDetailsByIdResponseBody:
-    DocumentGetDocumentWithDetailsByIdResponseBody,
+export function documentGetDocumentWithDetailsByIdResponseToJSON(
+  documentGetDocumentWithDetailsByIdResponse:
+    DocumentGetDocumentWithDetailsByIdResponse,
 ): string {
   return JSON.stringify(
-    DocumentGetDocumentWithDetailsByIdResponseBody$outboundSchema.parse(
-      documentGetDocumentWithDetailsByIdResponseBody,
+    DocumentGetDocumentWithDetailsByIdResponse$outboundSchema.parse(
+      documentGetDocumentWithDetailsByIdResponse,
     ),
   );
 }
 
-export function documentGetDocumentWithDetailsByIdResponseBodyFromJSON(
+export function documentGetDocumentWithDetailsByIdResponseFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  DocumentGetDocumentWithDetailsByIdResponseBody,
+  DocumentGetDocumentWithDetailsByIdResponse,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentGetDocumentWithDetailsByIdResponseBody$inboundSchema.parse(
+      DocumentGetDocumentWithDetailsByIdResponse$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'DocumentGetDocumentWithDetailsByIdResponseBody' from JSON`,
+    `Failed to parse 'DocumentGetDocumentWithDetailsByIdResponse' from JSON`,
   );
 }

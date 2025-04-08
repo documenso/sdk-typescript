@@ -1,0 +1,22 @@
+# FieldCreateDocumentFieldFieldMetaRadioResponse
+
+## Example Usage
+
+```typescript
+import { FieldCreateDocumentFieldFieldMetaRadioResponse } from "@documenso/sdk-typescript/models/operations";
+
+let value: FieldCreateDocumentFieldFieldMetaRadioResponse = {
+  type: "radio",
+};
+```
+
+## Fields
+
+| Field                                                                                                                          | Type                                                                                                                           | Required                                                                                                                       | Description                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| `label`                                                                                                                        | *string*                                                                                                                       | :heavy_minus_sign:                                                                                                             | N/A                                                                                                                            |
+| `placeholder`                                                                                                                  | *string*                                                                                                                       | :heavy_minus_sign:                                                                                                             | N/A                                                                                                                            |
+| `required`                                                                                                                     | *boolean*                                                                                                                      | :heavy_minus_sign:                                                                                                             | N/A                                                                                                                            |
+| `readOnly`                                                                                                                     | *boolean*                                                                                                                      | :heavy_minus_sign:                                                                                                             | N/A                                                                                                                            |
+| `type`                                                                                                                         | [operations.FieldCreateDocumentFieldFieldMetaTypeRadio](../../models/operations/fieldcreatedocumentfieldfieldmetatyperadio.md) | :heavy_check_mark:                                                                                                             | N/A                                                                                                                            |
+| `values`                                                                                                                       | [operations.FieldCreateDocumentFieldValueResponse1](../../models/operations/fieldcreatedocumentfieldvalueresponse1.md)[]       | :heavy_minus_sign:                                                                                                             | N/A                                                                                                                            |

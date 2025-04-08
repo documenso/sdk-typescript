@@ -5,7 +5,7 @@
 ```typescript
 import { TemplateCreateDocumentFromTemplateReadStatus } from "@documenso/sdk-typescript/models/operations";
 
-let value: TemplateCreateDocumentFromTemplateReadStatus = "NOT_OPENED";
+let value: TemplateCreateDocumentFromTemplateReadStatus = "OPENED";
 ```
 
 ## Values

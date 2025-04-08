@@ -5,7 +5,7 @@
 ```typescript
 import { DocumentFindDocumentsSigningStatus } from "@documenso/sdk-typescript/models/operations";
 
-let value: DocumentFindDocumentsSigningStatus = "REJECTED";
+let value: DocumentFindDocumentsSigningStatus = "SIGNED";
 ```
 
 ## Values

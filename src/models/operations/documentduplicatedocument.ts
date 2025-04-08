@@ -7,20 +7,20 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type DocumentDuplicateDocumentRequestBody = {
+export type DocumentDuplicateDocumentRequest = {
   documentId: number;
 };
 
 /**
  * Successful response
  */
-export type DocumentDuplicateDocumentResponseBody = {
+export type DocumentDuplicateDocumentResponse = {
   documentId: number;
 };
 
 /** @internal */
-export const DocumentDuplicateDocumentRequestBody$inboundSchema: z.ZodType<
-  DocumentDuplicateDocumentRequestBody,
+export const DocumentDuplicateDocumentRequest$inboundSchema: z.ZodType<
+  DocumentDuplicateDocumentRequest,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -28,15 +28,15 @@ export const DocumentDuplicateDocumentRequestBody$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type DocumentDuplicateDocumentRequestBody$Outbound = {
+export type DocumentDuplicateDocumentRequest$Outbound = {
   documentId: number;
 };
 
 /** @internal */
-export const DocumentDuplicateDocumentRequestBody$outboundSchema: z.ZodType<
-  DocumentDuplicateDocumentRequestBody$Outbound,
+export const DocumentDuplicateDocumentRequest$outboundSchema: z.ZodType<
+  DocumentDuplicateDocumentRequest$Outbound,
   z.ZodTypeDef,
-  DocumentDuplicateDocumentRequestBody
+  DocumentDuplicateDocumentRequest
 > = z.object({
   documentId: z.number(),
 });
@@ -45,41 +45,38 @@ export const DocumentDuplicateDocumentRequestBody$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentDuplicateDocumentRequestBody$ {
-  /** @deprecated use `DocumentDuplicateDocumentRequestBody$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentDuplicateDocumentRequestBody$inboundSchema;
-  /** @deprecated use `DocumentDuplicateDocumentRequestBody$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentDuplicateDocumentRequestBody$outboundSchema;
-  /** @deprecated use `DocumentDuplicateDocumentRequestBody$Outbound` instead. */
-  export type Outbound = DocumentDuplicateDocumentRequestBody$Outbound;
+export namespace DocumentDuplicateDocumentRequest$ {
+  /** @deprecated use `DocumentDuplicateDocumentRequest$inboundSchema` instead. */
+  export const inboundSchema = DocumentDuplicateDocumentRequest$inboundSchema;
+  /** @deprecated use `DocumentDuplicateDocumentRequest$outboundSchema` instead. */
+  export const outboundSchema = DocumentDuplicateDocumentRequest$outboundSchema;
+  /** @deprecated use `DocumentDuplicateDocumentRequest$Outbound` instead. */
+  export type Outbound = DocumentDuplicateDocumentRequest$Outbound;
 }
 
-export function documentDuplicateDocumentRequestBodyToJSON(
-  documentDuplicateDocumentRequestBody: DocumentDuplicateDocumentRequestBody,
+export function documentDuplicateDocumentRequestToJSON(
+  documentDuplicateDocumentRequest: DocumentDuplicateDocumentRequest,
 ): string {
   return JSON.stringify(
-    DocumentDuplicateDocumentRequestBody$outboundSchema.parse(
-      documentDuplicateDocumentRequestBody,
+    DocumentDuplicateDocumentRequest$outboundSchema.parse(
+      documentDuplicateDocumentRequest,
     ),
   );
 }
 
-export function documentDuplicateDocumentRequestBodyFromJSON(
+export function documentDuplicateDocumentRequestFromJSON(
   jsonString: string,
-): SafeParseResult<DocumentDuplicateDocumentRequestBody, SDKValidationError> {
+): SafeParseResult<DocumentDuplicateDocumentRequest, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      DocumentDuplicateDocumentRequestBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DocumentDuplicateDocumentRequestBody' from JSON`,
+    (x) => DocumentDuplicateDocumentRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentDuplicateDocumentRequest' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentDuplicateDocumentResponseBody$inboundSchema: z.ZodType<
-  DocumentDuplicateDocumentResponseBody,
+export const DocumentDuplicateDocumentResponse$inboundSchema: z.ZodType<
+  DocumentDuplicateDocumentResponse,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -87,15 +84,15 @@ export const DocumentDuplicateDocumentResponseBody$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type DocumentDuplicateDocumentResponseBody$Outbound = {
+export type DocumentDuplicateDocumentResponse$Outbound = {
   documentId: number;
 };
 
 /** @internal */
-export const DocumentDuplicateDocumentResponseBody$outboundSchema: z.ZodType<
-  DocumentDuplicateDocumentResponseBody$Outbound,
+export const DocumentDuplicateDocumentResponse$outboundSchema: z.ZodType<
+  DocumentDuplicateDocumentResponse$Outbound,
   z.ZodTypeDef,
-  DocumentDuplicateDocumentResponseBody
+  DocumentDuplicateDocumentResponse
 > = z.object({
   documentId: z.number(),
 });
@@ -104,34 +101,32 @@ export const DocumentDuplicateDocumentResponseBody$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentDuplicateDocumentResponseBody$ {
-  /** @deprecated use `DocumentDuplicateDocumentResponseBody$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentDuplicateDocumentResponseBody$inboundSchema;
-  /** @deprecated use `DocumentDuplicateDocumentResponseBody$outboundSchema` instead. */
+export namespace DocumentDuplicateDocumentResponse$ {
+  /** @deprecated use `DocumentDuplicateDocumentResponse$inboundSchema` instead. */
+  export const inboundSchema = DocumentDuplicateDocumentResponse$inboundSchema;
+  /** @deprecated use `DocumentDuplicateDocumentResponse$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentDuplicateDocumentResponseBody$outboundSchema;
-  /** @deprecated use `DocumentDuplicateDocumentResponseBody$Outbound` instead. */
-  export type Outbound = DocumentDuplicateDocumentResponseBody$Outbound;
+    DocumentDuplicateDocumentResponse$outboundSchema;
+  /** @deprecated use `DocumentDuplicateDocumentResponse$Outbound` instead. */
+  export type Outbound = DocumentDuplicateDocumentResponse$Outbound;
 }
 
-export function documentDuplicateDocumentResponseBodyToJSON(
-  documentDuplicateDocumentResponseBody: DocumentDuplicateDocumentResponseBody,
+export function documentDuplicateDocumentResponseToJSON(
+  documentDuplicateDocumentResponse: DocumentDuplicateDocumentResponse,
 ): string {
   return JSON.stringify(
-    DocumentDuplicateDocumentResponseBody$outboundSchema.parse(
-      documentDuplicateDocumentResponseBody,
+    DocumentDuplicateDocumentResponse$outboundSchema.parse(
+      documentDuplicateDocumentResponse,
     ),
   );
 }
 
-export function documentDuplicateDocumentResponseBodyFromJSON(
+export function documentDuplicateDocumentResponseFromJSON(
   jsonString: string,
-): SafeParseResult<DocumentDuplicateDocumentResponseBody, SDKValidationError> {
+): SafeParseResult<DocumentDuplicateDocumentResponse, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      DocumentDuplicateDocumentResponseBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DocumentDuplicateDocumentResponseBody' from JSON`,
+    (x) => DocumentDuplicateDocumentResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentDuplicateDocumentResponse' from JSON`,
   );
 }

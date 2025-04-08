@@ -6,7 +6,7 @@
 import { DocumentGetDocumentWithDetailsByIdRequest } from "@documenso/sdk-typescript/models/operations";
 
 let value: DocumentGetDocumentWithDetailsByIdRequest = {
-  documentId: 6180.16,
+  documentId: 4635.53,
 };
 ```
 

@@ -1,0 +1,27 @@
+# FieldMetaDocumentNumber
+
+## Example Usage
+
+```typescript
+import { FieldMetaDocumentNumber } from "@documenso/sdk-typescript/models/operations";
+
+let value: FieldMetaDocumentNumber = {
+  type: "number",
+};
+```
+
+## Fields
+
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `label`                                                                        | *string*                                                                       | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `placeholder`                                                                  | *string*                                                                       | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `required`                                                                     | *boolean*                                                                      | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `readOnly`                                                                     | *boolean*                                                                      | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `type`                                                                         | [operations.DocumentTypeNumber](../../models/operations/documenttypenumber.md) | :heavy_check_mark:                                                             | N/A                                                                            |
+| `numberFormat`                                                                 | *string*                                                                       | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `value`                                                                        | *string*                                                                       | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `minValue`                                                                     | *number*                                                                       | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `maxValue`                                                                     | *number*                                                                       | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `fontSize`                                                                     | *number*                                                                       | :heavy_minus_sign:                                                             | N/A                                                                            |
+| `textAlign`                                                                    | [operations.DocumentTextAlign6](../../models/operations/documenttextalign6.md) | :heavy_minus_sign:                                                             | N/A                                                                            |

@@ -1,0 +1,24 @@
+# FieldGetTemplateFieldFieldMetaCheckbox
+
+## Example Usage
+
+```typescript
+import { FieldGetTemplateFieldFieldMetaCheckbox } from "@documenso/sdk-typescript/models/operations";
+
+let value: FieldGetTemplateFieldFieldMetaCheckbox = {
+  type: "checkbox",
+};
+```
+
+## Fields
+
+| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `label`                                                                                                      | *string*                                                                                                     | :heavy_minus_sign:                                                                                           | N/A                                                                                                          |
+| `placeholder`                                                                                                | *string*                                                                                                     | :heavy_minus_sign:                                                                                           | N/A                                                                                                          |
+| `required`                                                                                                   | *boolean*                                                                                                    | :heavy_minus_sign:                                                                                           | N/A                                                                                                          |
+| `readOnly`                                                                                                   | *boolean*                                                                                                    | :heavy_minus_sign:                                                                                           | N/A                                                                                                          |
+| `type`                                                                                                       | [operations.FieldGetTemplateFieldTypeCheckbox](../../models/operations/fieldgettemplatefieldtypecheckbox.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| `values`                                                                                                     | [operations.FieldGetTemplateFieldValue2](../../models/operations/fieldgettemplatefieldvalue2.md)[]           | :heavy_minus_sign:                                                                                           | N/A                                                                                                          |
+| `validationRule`                                                                                             | *string*                                                                                                     | :heavy_minus_sign:                                                                                           | N/A                                                                                                          |
+| `validationLength`                                                                                           | *number*                                                                                                     | :heavy_minus_sign:                                                                                           | N/A                                                                                                          |

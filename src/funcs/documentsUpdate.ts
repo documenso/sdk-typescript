@@ -21,20 +21,21 @@ import {
 import * as errors from "../models/errors/index.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import * as operations from "../models/operations/index.js";
+import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
  * Update document
  */
-export async function documentsUpdate(
+export function documentsUpdate(
   client: DocumensoCore,
-  request: operations.DocumentSetSettingsForDocumentRequestBody,
+  request: operations.DocumentUpdateDocumentRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
-    operations.DocumentSetSettingsForDocumentResponseBody,
-    | errors.DocumentSetSettingsForDocumentResponseBody
-    | errors.DocumentSetSettingsForDocumentDocumentsResponseBody
+    operations.DocumentUpdateDocumentResponse,
+    | errors.DocumentUpdateDocumentBadRequestError
+    | errors.DocumentUpdateDocumentInternalServerError
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -44,16 +45,42 @@ export async function documentsUpdate(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: DocumensoCore,
+  request: operations.DocumentUpdateDocumentRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      operations.DocumentUpdateDocumentResponse,
+      | errors.DocumentUpdateDocumentBadRequestError
+      | errors.DocumentUpdateDocumentInternalServerError
+      | APIError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) =>
-      operations.DocumentSetSettingsForDocumentRequestBody$outboundSchema.parse(
-        value,
-      ),
+      operations.DocumentUpdateDocumentRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = encodeJSON("body", payload, { explode: true });
@@ -70,7 +97,8 @@ export async function documentsUpdate(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
-    operationID: "document-setSettingsForDocument",
+    baseURL: options?.serverURL ?? client._baseURL ?? "",
+    operationID: "document-updateDocument",
     oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,
@@ -92,7 +120,7 @@ export async function documentsUpdate(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -103,7 +131,7 @@ export async function documentsUpdate(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -112,9 +140,9 @@ export async function documentsUpdate(
   };
 
   const [result] = await M.match<
-    operations.DocumentSetSettingsForDocumentResponseBody,
-    | errors.DocumentSetSettingsForDocumentResponseBody
-    | errors.DocumentSetSettingsForDocumentDocumentsResponseBody
+    operations.DocumentUpdateDocumentResponse,
+    | errors.DocumentUpdateDocumentBadRequestError
+    | errors.DocumentUpdateDocumentInternalServerError
     | APIError
     | SDKValidationError
     | UnexpectedClientError
@@ -123,24 +151,18 @@ export async function documentsUpdate(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(
-      200,
-      operations.DocumentSetSettingsForDocumentResponseBody$inboundSchema,
-    ),
-    M.jsonErr(
-      400,
-      errors.DocumentSetSettingsForDocumentResponseBody$inboundSchema,
-    ),
+    M.json(200, operations.DocumentUpdateDocumentResponse$inboundSchema),
+    M.jsonErr(400, errors.DocumentUpdateDocumentBadRequestError$inboundSchema),
     M.jsonErr(
       500,
-      errors.DocumentSetSettingsForDocumentDocumentsResponseBody$inboundSchema,
+      errors.DocumentUpdateDocumentInternalServerError$inboundSchema,
     ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

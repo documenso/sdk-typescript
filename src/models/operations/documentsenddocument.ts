@@ -52,6 +52,8 @@ export const DocumentSendDocumentLanguage = {
   En: "en",
   Fr: "fr",
   Es: "es",
+  It: "it",
+  Pl: "pl",
 } as const;
 /**
  * The language to use for email communications with recipients.
@@ -123,7 +125,7 @@ export type DocumentSendDocumentMeta = {
   emailSettings?: DocumentSendDocumentEmailSettings | undefined;
 };
 
-export type DocumentSendDocumentRequestBody = {
+export type DocumentSendDocumentRequest = {
   /**
    * The ID of the document to send.
    */
@@ -144,6 +146,7 @@ export const DocumentSendDocumentStatus = {
   Draft: "DRAFT",
   Pending: "PENDING",
   Completed: "COMPLETED",
+  Rejected: "REJECTED",
 } as const;
 export type DocumentSendDocumentStatus = ClosedEnum<
   typeof DocumentSendDocumentStatus
@@ -202,7 +205,7 @@ export type DocumentSendDocumentFormValues = string | boolean | number;
 /**
  * Successful response
  */
-export type DocumentSendDocumentResponseBody = {
+export type DocumentSendDocumentResponse = {
   visibility: DocumentSendDocumentVisibility;
   status: DocumentSendDocumentStatus;
   source: DocumentSendDocumentSource;
@@ -448,8 +451,8 @@ export function documentSendDocumentMetaFromJSON(
 }
 
 /** @internal */
-export const DocumentSendDocumentRequestBody$inboundSchema: z.ZodType<
-  DocumentSendDocumentRequestBody,
+export const DocumentSendDocumentRequest$inboundSchema: z.ZodType<
+  DocumentSendDocumentRequest,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -458,16 +461,16 @@ export const DocumentSendDocumentRequestBody$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type DocumentSendDocumentRequestBody$Outbound = {
+export type DocumentSendDocumentRequest$Outbound = {
   documentId: number;
   meta?: DocumentSendDocumentMeta$Outbound | undefined;
 };
 
 /** @internal */
-export const DocumentSendDocumentRequestBody$outboundSchema: z.ZodType<
-  DocumentSendDocumentRequestBody$Outbound,
+export const DocumentSendDocumentRequest$outboundSchema: z.ZodType<
+  DocumentSendDocumentRequest$Outbound,
   z.ZodTypeDef,
-  DocumentSendDocumentRequestBody
+  DocumentSendDocumentRequest
 > = z.object({
   documentId: z.number(),
   meta: z.lazy(() => DocumentSendDocumentMeta$outboundSchema).optional(),
@@ -477,32 +480,32 @@ export const DocumentSendDocumentRequestBody$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentSendDocumentRequestBody$ {
-  /** @deprecated use `DocumentSendDocumentRequestBody$inboundSchema` instead. */
-  export const inboundSchema = DocumentSendDocumentRequestBody$inboundSchema;
-  /** @deprecated use `DocumentSendDocumentRequestBody$outboundSchema` instead. */
-  export const outboundSchema = DocumentSendDocumentRequestBody$outboundSchema;
-  /** @deprecated use `DocumentSendDocumentRequestBody$Outbound` instead. */
-  export type Outbound = DocumentSendDocumentRequestBody$Outbound;
+export namespace DocumentSendDocumentRequest$ {
+  /** @deprecated use `DocumentSendDocumentRequest$inboundSchema` instead. */
+  export const inboundSchema = DocumentSendDocumentRequest$inboundSchema;
+  /** @deprecated use `DocumentSendDocumentRequest$outboundSchema` instead. */
+  export const outboundSchema = DocumentSendDocumentRequest$outboundSchema;
+  /** @deprecated use `DocumentSendDocumentRequest$Outbound` instead. */
+  export type Outbound = DocumentSendDocumentRequest$Outbound;
 }
 
-export function documentSendDocumentRequestBodyToJSON(
-  documentSendDocumentRequestBody: DocumentSendDocumentRequestBody,
+export function documentSendDocumentRequestToJSON(
+  documentSendDocumentRequest: DocumentSendDocumentRequest,
 ): string {
   return JSON.stringify(
-    DocumentSendDocumentRequestBody$outboundSchema.parse(
-      documentSendDocumentRequestBody,
+    DocumentSendDocumentRequest$outboundSchema.parse(
+      documentSendDocumentRequest,
     ),
   );
 }
 
-export function documentSendDocumentRequestBodyFromJSON(
+export function documentSendDocumentRequestFromJSON(
   jsonString: string,
-): SafeParseResult<DocumentSendDocumentRequestBody, SDKValidationError> {
+): SafeParseResult<DocumentSendDocumentRequest, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => DocumentSendDocumentRequestBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DocumentSendDocumentRequestBody' from JSON`,
+    (x) => DocumentSendDocumentRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentSendDocumentRequest' from JSON`,
   );
 }
 
@@ -735,15 +738,15 @@ export function documentSendDocumentFormValuesFromJSON(
 }
 
 /** @internal */
-export const DocumentSendDocumentResponseBody$inboundSchema: z.ZodType<
-  DocumentSendDocumentResponseBody,
+export const DocumentSendDocumentResponse$inboundSchema: z.ZodType<
+  DocumentSendDocumentResponse,
   z.ZodTypeDef,
   unknown
 > = z.object({
   visibility: DocumentSendDocumentVisibility$inboundSchema,
   status: DocumentSendDocumentStatus$inboundSchema,
   source: DocumentSendDocumentSource$inboundSchema,
-  id: z.number().int(),
+  id: z.number(),
   externalId: z.nullable(z.string()),
   userId: z.number(),
   authOptions: z.nullable(
@@ -758,12 +761,12 @@ export const DocumentSendDocumentResponseBody$inboundSchema: z.ZodType<
   updatedAt: z.string(),
   completedAt: z.nullable(z.string()),
   deletedAt: z.nullable(z.string()),
-  teamId: z.nullable(z.number().int()),
-  templateId: z.nullable(z.number().int()),
+  teamId: z.nullable(z.number()),
+  templateId: z.nullable(z.number()),
 });
 
 /** @internal */
-export type DocumentSendDocumentResponseBody$Outbound = {
+export type DocumentSendDocumentResponse$Outbound = {
   visibility: string;
   status: string;
   source: string;
@@ -783,15 +786,15 @@ export type DocumentSendDocumentResponseBody$Outbound = {
 };
 
 /** @internal */
-export const DocumentSendDocumentResponseBody$outboundSchema: z.ZodType<
-  DocumentSendDocumentResponseBody$Outbound,
+export const DocumentSendDocumentResponse$outboundSchema: z.ZodType<
+  DocumentSendDocumentResponse$Outbound,
   z.ZodTypeDef,
-  DocumentSendDocumentResponseBody
+  DocumentSendDocumentResponse
 > = z.object({
   visibility: DocumentSendDocumentVisibility$outboundSchema,
   status: DocumentSendDocumentStatus$outboundSchema,
   source: DocumentSendDocumentSource$outboundSchema,
-  id: z.number().int(),
+  id: z.number(),
   externalId: z.nullable(z.string()),
   userId: z.number(),
   authOptions: z.nullable(
@@ -806,39 +809,39 @@ export const DocumentSendDocumentResponseBody$outboundSchema: z.ZodType<
   updatedAt: z.string(),
   completedAt: z.nullable(z.string()),
   deletedAt: z.nullable(z.string()),
-  teamId: z.nullable(z.number().int()),
-  templateId: z.nullable(z.number().int()),
+  teamId: z.nullable(z.number()),
+  templateId: z.nullable(z.number()),
 });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentSendDocumentResponseBody$ {
-  /** @deprecated use `DocumentSendDocumentResponseBody$inboundSchema` instead. */
-  export const inboundSchema = DocumentSendDocumentResponseBody$inboundSchema;
-  /** @deprecated use `DocumentSendDocumentResponseBody$outboundSchema` instead. */
-  export const outboundSchema = DocumentSendDocumentResponseBody$outboundSchema;
-  /** @deprecated use `DocumentSendDocumentResponseBody$Outbound` instead. */
-  export type Outbound = DocumentSendDocumentResponseBody$Outbound;
+export namespace DocumentSendDocumentResponse$ {
+  /** @deprecated use `DocumentSendDocumentResponse$inboundSchema` instead. */
+  export const inboundSchema = DocumentSendDocumentResponse$inboundSchema;
+  /** @deprecated use `DocumentSendDocumentResponse$outboundSchema` instead. */
+  export const outboundSchema = DocumentSendDocumentResponse$outboundSchema;
+  /** @deprecated use `DocumentSendDocumentResponse$Outbound` instead. */
+  export type Outbound = DocumentSendDocumentResponse$Outbound;
 }
 
-export function documentSendDocumentResponseBodyToJSON(
-  documentSendDocumentResponseBody: DocumentSendDocumentResponseBody,
+export function documentSendDocumentResponseToJSON(
+  documentSendDocumentResponse: DocumentSendDocumentResponse,
 ): string {
   return JSON.stringify(
-    DocumentSendDocumentResponseBody$outboundSchema.parse(
-      documentSendDocumentResponseBody,
+    DocumentSendDocumentResponse$outboundSchema.parse(
+      documentSendDocumentResponse,
     ),
   );
 }
 
-export function documentSendDocumentResponseBodyFromJSON(
+export function documentSendDocumentResponseFromJSON(
   jsonString: string,
-): SafeParseResult<DocumentSendDocumentResponseBody, SDKValidationError> {
+): SafeParseResult<DocumentSendDocumentResponse, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => DocumentSendDocumentResponseBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DocumentSendDocumentResponseBody' from JSON`,
+    (x) => DocumentSendDocumentResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentSendDocumentResponse' from JSON`,
   );
 }

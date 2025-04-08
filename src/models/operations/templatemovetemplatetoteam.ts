@@ -8,7 +8,7 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type TemplateMoveTemplateToTeamRequestBody = {
+export type TemplateMoveTemplateToTeamRequest = {
   /**
    * The ID of the template to move to.
    */
@@ -78,7 +78,7 @@ export type TemplateMoveTemplateToTeamAuthOptions = {
 /**
  * Successful response
  */
-export type TemplateMoveTemplateToTeamResponseBody = {
+export type TemplateMoveTemplateToTeamResponse = {
   type: TemplateMoveTemplateToTeamType;
   visibility: TemplateMoveTemplateToTeamVisibility;
   id: number;
@@ -95,8 +95,8 @@ export type TemplateMoveTemplateToTeamResponseBody = {
 };
 
 /** @internal */
-export const TemplateMoveTemplateToTeamRequestBody$inboundSchema: z.ZodType<
-  TemplateMoveTemplateToTeamRequestBody,
+export const TemplateMoveTemplateToTeamRequest$inboundSchema: z.ZodType<
+  TemplateMoveTemplateToTeamRequest,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -105,16 +105,16 @@ export const TemplateMoveTemplateToTeamRequestBody$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type TemplateMoveTemplateToTeamRequestBody$Outbound = {
+export type TemplateMoveTemplateToTeamRequest$Outbound = {
   templateId: number;
   teamId: number;
 };
 
 /** @internal */
-export const TemplateMoveTemplateToTeamRequestBody$outboundSchema: z.ZodType<
-  TemplateMoveTemplateToTeamRequestBody$Outbound,
+export const TemplateMoveTemplateToTeamRequest$outboundSchema: z.ZodType<
+  TemplateMoveTemplateToTeamRequest$Outbound,
   z.ZodTypeDef,
-  TemplateMoveTemplateToTeamRequestBody
+  TemplateMoveTemplateToTeamRequest
 > = z.object({
   templateId: z.number(),
   teamId: z.number(),
@@ -124,35 +124,33 @@ export const TemplateMoveTemplateToTeamRequestBody$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateMoveTemplateToTeamRequestBody$ {
-  /** @deprecated use `TemplateMoveTemplateToTeamRequestBody$inboundSchema` instead. */
-  export const inboundSchema =
-    TemplateMoveTemplateToTeamRequestBody$inboundSchema;
-  /** @deprecated use `TemplateMoveTemplateToTeamRequestBody$outboundSchema` instead. */
+export namespace TemplateMoveTemplateToTeamRequest$ {
+  /** @deprecated use `TemplateMoveTemplateToTeamRequest$inboundSchema` instead. */
+  export const inboundSchema = TemplateMoveTemplateToTeamRequest$inboundSchema;
+  /** @deprecated use `TemplateMoveTemplateToTeamRequest$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateMoveTemplateToTeamRequestBody$outboundSchema;
-  /** @deprecated use `TemplateMoveTemplateToTeamRequestBody$Outbound` instead. */
-  export type Outbound = TemplateMoveTemplateToTeamRequestBody$Outbound;
+    TemplateMoveTemplateToTeamRequest$outboundSchema;
+  /** @deprecated use `TemplateMoveTemplateToTeamRequest$Outbound` instead. */
+  export type Outbound = TemplateMoveTemplateToTeamRequest$Outbound;
 }
 
-export function templateMoveTemplateToTeamRequestBodyToJSON(
-  templateMoveTemplateToTeamRequestBody: TemplateMoveTemplateToTeamRequestBody,
+export function templateMoveTemplateToTeamRequestToJSON(
+  templateMoveTemplateToTeamRequest: TemplateMoveTemplateToTeamRequest,
 ): string {
   return JSON.stringify(
-    TemplateMoveTemplateToTeamRequestBody$outboundSchema.parse(
-      templateMoveTemplateToTeamRequestBody,
+    TemplateMoveTemplateToTeamRequest$outboundSchema.parse(
+      templateMoveTemplateToTeamRequest,
     ),
   );
 }
 
-export function templateMoveTemplateToTeamRequestBodyFromJSON(
+export function templateMoveTemplateToTeamRequestFromJSON(
   jsonString: string,
-): SafeParseResult<TemplateMoveTemplateToTeamRequestBody, SDKValidationError> {
+): SafeParseResult<TemplateMoveTemplateToTeamRequest, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      TemplateMoveTemplateToTeamRequestBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TemplateMoveTemplateToTeamRequestBody' from JSON`,
+    (x) => TemplateMoveTemplateToTeamRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateMoveTemplateToTeamRequest' from JSON`,
   );
 }
 
@@ -318,18 +316,18 @@ export function templateMoveTemplateToTeamAuthOptionsFromJSON(
 }
 
 /** @internal */
-export const TemplateMoveTemplateToTeamResponseBody$inboundSchema: z.ZodType<
-  TemplateMoveTemplateToTeamResponseBody,
+export const TemplateMoveTemplateToTeamResponse$inboundSchema: z.ZodType<
+  TemplateMoveTemplateToTeamResponse,
   z.ZodTypeDef,
   unknown
 > = z.object({
   type: TemplateMoveTemplateToTeamType$inboundSchema,
   visibility: TemplateMoveTemplateToTeamVisibility$inboundSchema,
-  id: z.number().int(),
+  id: z.number(),
   externalId: z.nullable(z.string()),
   title: z.string(),
-  userId: z.number().int(),
-  teamId: z.nullable(z.number().int()),
+  userId: z.number(),
+  teamId: z.nullable(z.number()),
   authOptions: z.nullable(
     z.lazy(() => TemplateMoveTemplateToTeamAuthOptions$inboundSchema),
   ),
@@ -341,7 +339,7 @@ export const TemplateMoveTemplateToTeamResponseBody$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type TemplateMoveTemplateToTeamResponseBody$Outbound = {
+export type TemplateMoveTemplateToTeamResponse$Outbound = {
   type: string;
   visibility: string;
   id: number;
@@ -358,18 +356,18 @@ export type TemplateMoveTemplateToTeamResponseBody$Outbound = {
 };
 
 /** @internal */
-export const TemplateMoveTemplateToTeamResponseBody$outboundSchema: z.ZodType<
-  TemplateMoveTemplateToTeamResponseBody$Outbound,
+export const TemplateMoveTemplateToTeamResponse$outboundSchema: z.ZodType<
+  TemplateMoveTemplateToTeamResponse$Outbound,
   z.ZodTypeDef,
-  TemplateMoveTemplateToTeamResponseBody
+  TemplateMoveTemplateToTeamResponse
 > = z.object({
   type: TemplateMoveTemplateToTeamType$outboundSchema,
   visibility: TemplateMoveTemplateToTeamVisibility$outboundSchema,
-  id: z.number().int(),
+  id: z.number(),
   externalId: z.nullable(z.string()),
   title: z.string(),
-  userId: z.number().int(),
-  teamId: z.nullable(z.number().int()),
+  userId: z.number(),
+  teamId: z.nullable(z.number()),
   authOptions: z.nullable(
     z.lazy(() => TemplateMoveTemplateToTeamAuthOptions$outboundSchema),
   ),
@@ -384,35 +382,33 @@ export const TemplateMoveTemplateToTeamResponseBody$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateMoveTemplateToTeamResponseBody$ {
-  /** @deprecated use `TemplateMoveTemplateToTeamResponseBody$inboundSchema` instead. */
-  export const inboundSchema =
-    TemplateMoveTemplateToTeamResponseBody$inboundSchema;
-  /** @deprecated use `TemplateMoveTemplateToTeamResponseBody$outboundSchema` instead. */
+export namespace TemplateMoveTemplateToTeamResponse$ {
+  /** @deprecated use `TemplateMoveTemplateToTeamResponse$inboundSchema` instead. */
+  export const inboundSchema = TemplateMoveTemplateToTeamResponse$inboundSchema;
+  /** @deprecated use `TemplateMoveTemplateToTeamResponse$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateMoveTemplateToTeamResponseBody$outboundSchema;
-  /** @deprecated use `TemplateMoveTemplateToTeamResponseBody$Outbound` instead. */
-  export type Outbound = TemplateMoveTemplateToTeamResponseBody$Outbound;
+    TemplateMoveTemplateToTeamResponse$outboundSchema;
+  /** @deprecated use `TemplateMoveTemplateToTeamResponse$Outbound` instead. */
+  export type Outbound = TemplateMoveTemplateToTeamResponse$Outbound;
 }
 
-export function templateMoveTemplateToTeamResponseBodyToJSON(
-  templateMoveTemplateToTeamResponseBody:
-    TemplateMoveTemplateToTeamResponseBody,
+export function templateMoveTemplateToTeamResponseToJSON(
+  templateMoveTemplateToTeamResponse: TemplateMoveTemplateToTeamResponse,
 ): string {
   return JSON.stringify(
-    TemplateMoveTemplateToTeamResponseBody$outboundSchema.parse(
-      templateMoveTemplateToTeamResponseBody,
+    TemplateMoveTemplateToTeamResponse$outboundSchema.parse(
+      templateMoveTemplateToTeamResponse,
     ),
   );
 }
 
-export function templateMoveTemplateToTeamResponseBodyFromJSON(
+export function templateMoveTemplateToTeamResponseFromJSON(
   jsonString: string,
-): SafeParseResult<TemplateMoveTemplateToTeamResponseBody, SDKValidationError> {
+): SafeParseResult<TemplateMoveTemplateToTeamResponse, SDKValidationError> {
   return safeParse(
     jsonString,
     (x) =>
-      TemplateMoveTemplateToTeamResponseBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TemplateMoveTemplateToTeamResponseBody' from JSON`,
+      TemplateMoveTemplateToTeamResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateMoveTemplateToTeamResponse' from JSON`,
   );
 }

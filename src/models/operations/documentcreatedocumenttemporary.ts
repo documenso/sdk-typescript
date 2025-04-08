@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 /**
  * The visibility of the document.
  */
-export const Visibility = {
+export const VisibilityAccount = {
   Everyone: "EVERYONE",
   ManagerAndAbove: "MANAGER_AND_ABOVE",
   Admin: "ADMIN",
@@ -19,23 +19,25 @@ export const Visibility = {
 /**
  * The visibility of the document.
  */
-export type Visibility = ClosedEnum<typeof Visibility>;
+export type VisibilityAccount = ClosedEnum<typeof VisibilityAccount>;
 
 /**
  * The type of authentication required for the recipient to access the document.
  */
-export const GlobalAccessAuth = {
+export const DocumentCreateDocumentTemporaryGlobalAccessAuthRequest = {
   Account: "ACCOUNT",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
  */
-export type GlobalAccessAuth = ClosedEnum<typeof GlobalAccessAuth>;
+export type DocumentCreateDocumentTemporaryGlobalAccessAuthRequest = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryGlobalAccessAuthRequest
+>;
 
 /**
  * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
  */
-export const GlobalActionAuth = {
+export const GlobalActionAuthAccount = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
@@ -43,33 +45,38 @@ export const GlobalActionAuth = {
 /**
  * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
  */
-export type GlobalActionAuth = ClosedEnum<typeof GlobalActionAuth>;
+export type GlobalActionAuthAccount = ClosedEnum<
+  typeof GlobalActionAuthAccount
+>;
 
-export type FormValues = string | boolean | number;
+export type FormValuesRequest = string | boolean | number;
 
-export const Role = {
+export const RoleAccount = {
   Cc: "CC",
   Signer: "SIGNER",
   Viewer: "VIEWER",
   Approver: "APPROVER",
+  Assistant: "ASSISTANT",
 } as const;
-export type Role = ClosedEnum<typeof Role>;
+export type RoleAccount = ClosedEnum<typeof RoleAccount>;
 
 /**
  * The type of authentication required for the recipient to access the document.
  */
-export const AccessAuth = {
+export const DocumentCreateDocumentTemporaryAccessAuthRequest = {
   Account: "ACCOUNT",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
  */
-export type AccessAuth = ClosedEnum<typeof AccessAuth>;
+export type DocumentCreateDocumentTemporaryAccessAuthRequest = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryAccessAuthRequest
+>;
 
 /**
  * The type of authentication required for the recipient to sign the document.
  */
-export const ActionAuth = {
+export const ActionAuthAccount = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
@@ -78,295 +85,247 @@ export const ActionAuth = {
 /**
  * The type of authentication required for the recipient to sign the document.
  */
-export type ActionAuth = ClosedEnum<typeof ActionAuth>;
+export type ActionAuthAccount = ClosedEnum<typeof ActionAuthAccount>;
 
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11Type =
-  {
-    Dropdown: "DROPDOWN",
-  } as const;
-export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11Type =
-  ClosedEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11Type
-  >;
+export const TypeAccountDropdown1 = {
+  Dropdown: "DROPDOWN",
+} as const;
+export type TypeAccountDropdown1 = ClosedEnum<typeof TypeAccountDropdown1>;
 
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMetaType =
-  {
-    Dropdown: "dropdown",
-  } as const;
-export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMetaType =
-  ClosedEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMetaType
-  >;
+export const TypeAccountDropdown2 = {
+  Dropdown: "dropdown",
+} as const;
+export type TypeAccountDropdown2 = ClosedEnum<typeof TypeAccountDropdown2>;
 
-export type DocumentCreateDocumentTemporaryFieldsValues = {
+export type ValueAccountDropdown = {
   value: string;
 };
 
-export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMeta =
-  {
-    label?: string | undefined;
-    placeholder?: string | undefined;
-    required?: boolean | undefined;
-    readOnly?: boolean | undefined;
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMetaType;
-    values?: Array<DocumentCreateDocumentTemporaryFieldsValues> | undefined;
-    defaultValue?: string | undefined;
-  };
-
-export type Eleven = {
-  type:
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11Type;
-  fieldMeta?:
-    | DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMeta
-    | undefined;
-  /**
-   * The page number the field will be on.
-   */
-  pageNumber: number;
-  /**
-   * The X coordinate of where the field will be placed.
-   */
-  pageX: number;
-  /**
-   * The Y coordinate of where the field will be placed.
-   */
-  pageY: number;
-  /**
-   * The width of the field.
-   */
-  width: number;
-  /**
-   * The height of the field.
-   */
-  height: number;
-};
-
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10Type =
-  {
-    Checkbox: "CHECKBOX",
-  } as const;
-export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10Type =
-  ClosedEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10Type
-  >;
-
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMetaType =
-  {
-    Checkbox: "checkbox",
-  } as const;
-export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMetaType =
-  ClosedEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMetaType
-  >;
-
-export type FieldsValues = {
-  id: number;
-  checked: boolean;
-  value: string;
-};
-
-export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMeta =
-  {
-    label?: string | undefined;
-    placeholder?: string | undefined;
-    required?: boolean | undefined;
-    readOnly?: boolean | undefined;
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMetaType;
-    values?: Array<FieldsValues> | undefined;
-    validationRule?: string | undefined;
-    validationLength?: number | undefined;
-  };
-
-export type Ten = {
-  type:
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10Type;
-  fieldMeta?:
-    | DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMeta
-    | undefined;
-  /**
-   * The page number the field will be on.
-   */
-  pageNumber: number;
-  /**
-   * The X coordinate of where the field will be placed.
-   */
-  pageX: number;
-  /**
-   * The Y coordinate of where the field will be placed.
-   */
-  pageY: number;
-  /**
-   * The width of the field.
-   */
-  width: number;
-  /**
-   * The height of the field.
-   */
-  height: number;
-};
-
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9Type =
-  {
-    Radio: "RADIO",
-  } as const;
-export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9Type =
-  ClosedEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9Type
-  >;
-
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9FieldMetaType =
-  {
-    Radio: "radio",
-  } as const;
-export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9FieldMetaType =
-  ClosedEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9FieldMetaType
-  >;
-
-export type Values = {
-  id: number;
-  checked: boolean;
-  value: string;
-};
-
-export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsFieldMeta =
-  {
-    label?: string | undefined;
-    placeholder?: string | undefined;
-    required?: boolean | undefined;
-    readOnly?: boolean | undefined;
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9FieldMetaType;
-    values?: Array<Values> | undefined;
-  };
-
-export type Nine = {
-  type:
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9Type;
-  fieldMeta?:
-    | DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsFieldMeta
-    | undefined;
-  /**
-   * The page number the field will be on.
-   */
-  pageNumber: number;
-  /**
-   * The X coordinate of where the field will be placed.
-   */
-  pageX: number;
-  /**
-   * The Y coordinate of where the field will be placed.
-   */
-  pageY: number;
-  /**
-   * The width of the field.
-   */
-  width: number;
-  /**
-   * The height of the field.
-   */
-  height: number;
-};
-
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8Type =
-  {
-    Number: "NUMBER",
-  } as const;
-export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8Type =
-  ClosedEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8Type
-  >;
-
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8FieldMetaType =
-  {
-    Number: "number",
-  } as const;
-export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8FieldMetaType =
-  ClosedEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8FieldMetaType
-  >;
-
-export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMeta =
-  {
-    label?: string | undefined;
-    placeholder?: string | undefined;
-    required?: boolean | undefined;
-    readOnly?: boolean | undefined;
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8FieldMetaType;
-    numberFormat?: string | undefined;
-    value?: string | undefined;
-    minValue?: number | undefined;
-    maxValue?: number | undefined;
-    fontSize?: number | undefined;
-  };
-
-export type Eight = {
-  type:
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8Type;
-  fieldMeta?:
-    | DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMeta
-    | undefined;
-  /**
-   * The page number the field will be on.
-   */
-  pageNumber: number;
-  /**
-   * The X coordinate of where the field will be placed.
-   */
-  pageX: number;
-  /**
-   * The Y coordinate of where the field will be placed.
-   */
-  pageY: number;
-  /**
-   * The width of the field.
-   */
-  width: number;
-  /**
-   * The height of the field.
-   */
-  height: number;
-};
-
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7Type =
-  {
-    Text: "TEXT",
-  } as const;
-export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7Type =
-  ClosedEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7Type
-  >;
-
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7FieldMetaType =
-  {
-    Text: "text",
-  } as const;
-export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7FieldMetaType =
-  ClosedEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7FieldMetaType
-  >;
-
-export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta = {
+export type FieldMetaAccountDropdown = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7FieldMetaType;
+  type: TypeAccountDropdown2;
+  values?: Array<ValueAccountDropdown> | undefined;
+  defaultValue?: string | undefined;
+};
+
+export type FieldAccountDropdown = {
+  type: TypeAccountDropdown1;
+  fieldMeta?: FieldMetaAccountDropdown | undefined;
+  /**
+   * The page number the field will be on.
+   */
+  pageNumber: number;
+  /**
+   * The X coordinate of where the field will be placed.
+   */
+  pageX: number;
+  /**
+   * The Y coordinate of where the field will be placed.
+   */
+  pageY: number;
+  /**
+   * The width of the field.
+   */
+  width: number;
+  /**
+   * The height of the field.
+   */
+  height: number;
+};
+
+export const TypeAccountCheckbox1 = {
+  Checkbox: "CHECKBOX",
+} as const;
+export type TypeAccountCheckbox1 = ClosedEnum<typeof TypeAccountCheckbox1>;
+
+export const TypeAccountCheckbox2 = {
+  Checkbox: "checkbox",
+} as const;
+export type TypeAccountCheckbox2 = ClosedEnum<typeof TypeAccountCheckbox2>;
+
+export type ValueAccountCheckbox = {
+  id: number;
+  checked: boolean;
+  value: string;
+};
+
+export type FieldMetaAccountCheckbox = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: TypeAccountCheckbox2;
+  values?: Array<ValueAccountCheckbox> | undefined;
+  validationRule?: string | undefined;
+  validationLength?: number | undefined;
+};
+
+export type FieldAccountCheckbox = {
+  type: TypeAccountCheckbox1;
+  fieldMeta?: FieldMetaAccountCheckbox | undefined;
+  /**
+   * The page number the field will be on.
+   */
+  pageNumber: number;
+  /**
+   * The X coordinate of where the field will be placed.
+   */
+  pageX: number;
+  /**
+   * The Y coordinate of where the field will be placed.
+   */
+  pageY: number;
+  /**
+   * The width of the field.
+   */
+  width: number;
+  /**
+   * The height of the field.
+   */
+  height: number;
+};
+
+export const TypeAccountRadio1 = {
+  Radio: "RADIO",
+} as const;
+export type TypeAccountRadio1 = ClosedEnum<typeof TypeAccountRadio1>;
+
+export const TypeAccountRadio2 = {
+  Radio: "radio",
+} as const;
+export type TypeAccountRadio2 = ClosedEnum<typeof TypeAccountRadio2>;
+
+export type ValueAccountRadio = {
+  id: number;
+  checked: boolean;
+  value: string;
+};
+
+export type FieldMetaAccountRadio = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: TypeAccountRadio2;
+  values?: Array<ValueAccountRadio> | undefined;
+};
+
+export type FieldAccountRadio = {
+  type: TypeAccountRadio1;
+  fieldMeta?: FieldMetaAccountRadio | undefined;
+  /**
+   * The page number the field will be on.
+   */
+  pageNumber: number;
+  /**
+   * The X coordinate of where the field will be placed.
+   */
+  pageX: number;
+  /**
+   * The Y coordinate of where the field will be placed.
+   */
+  pageY: number;
+  /**
+   * The width of the field.
+   */
+  width: number;
+  /**
+   * The height of the field.
+   */
+  height: number;
+};
+
+export const TypeAccountNumber1 = {
+  Number: "NUMBER",
+} as const;
+export type TypeAccountNumber1 = ClosedEnum<typeof TypeAccountNumber1>;
+
+export const TypeAccountNumber2 = {
+  Number: "number",
+} as const;
+export type TypeAccountNumber2 = ClosedEnum<typeof TypeAccountNumber2>;
+
+export const TextAlignAccountNumber = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type TextAlignAccountNumber = ClosedEnum<typeof TextAlignAccountNumber>;
+
+export type FieldMetaAccountNumber = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: TypeAccountNumber2;
+  numberFormat?: string | undefined;
+  value?: string | undefined;
+  minValue?: number | undefined;
+  maxValue?: number | undefined;
+  fontSize?: number | undefined;
+  textAlign?: TextAlignAccountNumber | undefined;
+};
+
+export type FieldAccountNumber = {
+  type: TypeAccountNumber1;
+  fieldMeta?: FieldMetaAccountNumber | undefined;
+  /**
+   * The page number the field will be on.
+   */
+  pageNumber: number;
+  /**
+   * The X coordinate of where the field will be placed.
+   */
+  pageX: number;
+  /**
+   * The Y coordinate of where the field will be placed.
+   */
+  pageY: number;
+  /**
+   * The width of the field.
+   */
+  width: number;
+  /**
+   * The height of the field.
+   */
+  height: number;
+};
+
+export const TypeAccountText1 = {
+  Text: "TEXT",
+} as const;
+export type TypeAccountText1 = ClosedEnum<typeof TypeAccountText1>;
+
+export const TypeAccountText2 = {
+  Text: "text",
+} as const;
+export type TypeAccountText2 = ClosedEnum<typeof TypeAccountText2>;
+
+export const TextAlignAccountText = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type TextAlignAccountText = ClosedEnum<typeof TextAlignAccountText>;
+
+export type FieldMetaAccountText = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: TypeAccountText2;
   text?: string | undefined;
   characterLimit?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: TextAlignAccountText | undefined;
 };
 
-export type Seven = {
-  type:
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7Type;
-  fieldMeta?:
-    | DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta
-    | undefined;
+export type FieldAccountText = {
+  type: TypeAccountText1;
+  fieldMeta?: FieldMetaAccountText | undefined;
   /**
    * The page number the field will be on.
    */
@@ -389,40 +348,36 @@ export type Seven = {
   height: number;
 };
 
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6Type =
-  {
-    Date: "DATE",
-  } as const;
-export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6Type =
-  ClosedEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6Type
-  >;
+export const TypeAccountDate1 = {
+  Date: "DATE",
+} as const;
+export type TypeAccountDate1 = ClosedEnum<typeof TypeAccountDate1>;
 
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6FieldMetaType =
-  {
-    Date: "date",
-  } as const;
-export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6FieldMetaType =
-  ClosedEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6FieldMetaType
-  >;
+export const TypeAccountDate2 = {
+  Date: "date",
+} as const;
+export type TypeAccountDate2 = ClosedEnum<typeof TypeAccountDate2>;
 
-export type DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta = {
+export const TextAlignAccountDate = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type TextAlignAccountDate = ClosedEnum<typeof TextAlignAccountDate>;
+
+export type FieldMetaAccountDate = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6FieldMetaType;
+  type: TypeAccountDate2;
   fontSize?: number | undefined;
+  textAlign?: TextAlignAccountDate | undefined;
 };
 
-export type Six = {
-  type:
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6Type;
-  fieldMeta?:
-    | DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta
-    | undefined;
+export type FieldAccountDate = {
+  type: TypeAccountDate1;
+  fieldMeta?: FieldMetaAccountDate | undefined;
   /**
    * The page number the field will be on.
    */
@@ -445,38 +400,36 @@ export type Six = {
   height: number;
 };
 
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsType =
-  {
-    Email: "EMAIL",
-  } as const;
-export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsType =
-  ClosedEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsType
-  >;
+export const TypeAccountEmail1 = {
+  Email: "EMAIL",
+} as const;
+export type TypeAccountEmail1 = ClosedEnum<typeof TypeAccountEmail1>;
 
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients5Type =
-  {
-    Email: "email",
-  } as const;
-export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients5Type =
-  ClosedEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients5Type
-  >;
+export const TypeAccountEmail2 = {
+  Email: "email",
+} as const;
+export type TypeAccountEmail2 = ClosedEnum<typeof TypeAccountEmail2>;
 
-export type DocumentCreateDocumentTemporaryFieldsFieldMeta = {
+export const TextAlignAccountEmail = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type TextAlignAccountEmail = ClosedEnum<typeof TextAlignAccountEmail>;
+
+export type FieldMetaAccountEmail = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients5Type;
+  type: TypeAccountEmail2;
   fontSize?: number | undefined;
+  textAlign?: TextAlignAccountEmail | undefined;
 };
 
-export type Five = {
-  type:
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsType;
-  fieldMeta?: DocumentCreateDocumentTemporaryFieldsFieldMeta | undefined;
+export type FieldAccountEmail = {
+  type: TypeAccountEmail1;
+  fieldMeta?: FieldMetaAccountEmail | undefined;
   /**
    * The page number the field will be on.
    */
@@ -499,33 +452,36 @@ export type Five = {
   height: number;
 };
 
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestType = {
+export const TypeAccountName1 = {
   Name: "NAME",
 } as const;
-export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestType =
-  ClosedEnum<typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestType>;
+export type TypeAccountName1 = ClosedEnum<typeof TypeAccountName1>;
 
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyType =
-  {
-    Name: "name",
-  } as const;
-export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyType =
-  ClosedEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyType
-  >;
+export const TypeAccountName2 = {
+  Name: "name",
+} as const;
+export type TypeAccountName2 = ClosedEnum<typeof TypeAccountName2>;
 
-export type FieldsFieldMeta = {
+export const TextAlignAccountName = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type TextAlignAccountName = ClosedEnum<typeof TextAlignAccountName>;
+
+export type FieldMetaAccountName = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyType;
+  type: TypeAccountName2;
   fontSize?: number | undefined;
+  textAlign?: TextAlignAccountName | undefined;
 };
 
-export type Four = {
-  type: DocumentCreateDocumentTemporaryFieldsDocumentsRequestType;
-  fieldMeta?: FieldsFieldMeta | undefined;
+export type FieldAccountName = {
+  type: TypeAccountName1;
+  fieldMeta?: FieldMetaAccountName | undefined;
   /**
    * The page number the field will be on.
    */
@@ -548,32 +504,38 @@ export type Four = {
   height: number;
 };
 
-export const DocumentCreateDocumentTemporaryFieldsType = {
+export const TypeAccountInitials1 = {
   Initials: "INITIALS",
 } as const;
-export type DocumentCreateDocumentTemporaryFieldsType = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryFieldsType
->;
+export type TypeAccountInitials1 = ClosedEnum<typeof TypeAccountInitials1>;
 
-export const DocumentCreateDocumentTemporaryFieldsDocumentsType = {
+export const TypeAccountInitials2 = {
   Initials: "initials",
 } as const;
-export type DocumentCreateDocumentTemporaryFieldsDocumentsType = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryFieldsDocumentsType
+export type TypeAccountInitials2 = ClosedEnum<typeof TypeAccountInitials2>;
+
+export const TextAlignAccountInitials = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type TextAlignAccountInitials = ClosedEnum<
+  typeof TextAlignAccountInitials
 >;
 
-export type FieldMeta = {
+export type FieldMetaAccountInitials = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: DocumentCreateDocumentTemporaryFieldsDocumentsType;
+  type: TypeAccountInitials2;
   fontSize?: number | undefined;
+  textAlign?: TextAlignAccountInitials | undefined;
 };
 
-export type Three = {
-  type: DocumentCreateDocumentTemporaryFieldsType;
-  fieldMeta?: FieldMeta | undefined;
+export type FieldAccountInitials = {
+  type: TypeAccountInitials1;
+  fieldMeta?: FieldMetaAccountInitials | undefined;
   /**
    * The page number the field will be on.
    */
@@ -596,13 +558,15 @@ export type Three = {
   height: number;
 };
 
-export const FieldsType = {
+export const TypeAccountFreeSignature = {
   FreeSignature: "FREE_SIGNATURE",
 } as const;
-export type FieldsType = ClosedEnum<typeof FieldsType>;
+export type TypeAccountFreeSignature = ClosedEnum<
+  typeof TypeAccountFreeSignature
+>;
 
-export type Two = {
-  type: FieldsType;
+export type FieldAccountFreeSignature = {
+  type: TypeAccountFreeSignature;
   /**
    * The page number the field will be on.
    */
@@ -625,13 +589,13 @@ export type Two = {
   height: number;
 };
 
-export const Type = {
+export const TypeAccountSignature = {
   Signature: "SIGNATURE",
 } as const;
-export type Type = ClosedEnum<typeof Type>;
+export type TypeAccountSignature = ClosedEnum<typeof TypeAccountSignature>;
 
-export type One = {
-  type: Type;
+export type FieldAccountSignature = {
+  type: TypeAccountSignature;
   /**
    * The page number the field will be on.
    */
@@ -654,45 +618,48 @@ export type One = {
   height: number;
 };
 
-export type Fields =
-  | One
-  | Two
-  | Three
-  | Four
-  | Five
-  | Six
-  | Seven
-  | Eight
-  | Nine
-  | Ten
-  | Eleven;
+export type FieldAccountUnion =
+  | FieldAccountSignature
+  | FieldAccountFreeSignature
+  | FieldAccountInitials
+  | FieldAccountName
+  | FieldAccountEmail
+  | FieldAccountDate
+  | FieldAccountText
+  | FieldAccountNumber
+  | FieldAccountRadio
+  | FieldAccountCheckbox
+  | FieldAccountDropdown;
 
-export type Recipients = {
+export type RecipientAccount = {
   email: string;
   name: string;
-  role: Role;
+  role: RoleAccount;
   signingOrder?: number | undefined;
   /**
    * The type of authentication required for the recipient to access the document.
    */
-  accessAuth?: AccessAuth | null | undefined;
+  accessAuth?:
+    | DocumentCreateDocumentTemporaryAccessAuthRequest
+    | null
+    | undefined;
   /**
    * The type of authentication required for the recipient to sign the document.
    */
-  actionAuth?: ActionAuth | null | undefined;
+  actionAuth?: ActionAuthAccount | null | undefined;
   fields?:
     | Array<
-      | One
-      | Two
-      | Three
-      | Four
-      | Five
-      | Six
-      | Seven
-      | Eight
-      | Nine
-      | Ten
-      | Eleven
+      | FieldAccountSignature
+      | FieldAccountFreeSignature
+      | FieldAccountInitials
+      | FieldAccountName
+      | FieldAccountEmail
+      | FieldAccountDate
+      | FieldAccountText
+      | FieldAccountNumber
+      | FieldAccountRadio
+      | FieldAccountCheckbox
+      | FieldAccountDropdown
     >
     | undefined;
 };
@@ -700,7 +667,7 @@ export type Recipients = {
 /**
  * The date format to use for date fields and signing the document.
  */
-export const DateFormat = {
+export const DocumentCreateDocumentTemporaryDateFormat = {
   YyyyMMDdHhMMA: "yyyy-MM-dd hh:mm a",
   YyyyMMDd: "yyyy-MM-dd",
   DdMMYyyyHhMMA: "dd/MM/yyyy hh:mm a",
@@ -715,41 +682,49 @@ export const DateFormat = {
 /**
  * The date format to use for date fields and signing the document.
  */
-export type DateFormat = ClosedEnum<typeof DateFormat>;
+export type DocumentCreateDocumentTemporaryDateFormat = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryDateFormat
+>;
 
 /**
  * The distribution method to use when sending the document to the recipients.
  */
-export const DistributionMethod = {
+export const DistributionMethodAccount = {
   Email: "EMAIL",
   None: "NONE",
 } as const;
 /**
  * The distribution method to use when sending the document to the recipients.
  */
-export type DistributionMethod = ClosedEnum<typeof DistributionMethod>;
+export type DistributionMethodAccount = ClosedEnum<
+  typeof DistributionMethodAccount
+>;
 
-export const SigningOrder = {
+export const SigningOrderAccount = {
   Parallel: "PARALLEL",
   Sequential: "SEQUENTIAL",
 } as const;
-export type SigningOrder = ClosedEnum<typeof SigningOrder>;
+export type SigningOrderAccount = ClosedEnum<typeof SigningOrderAccount>;
 
 /**
  * The language to use for email communications with recipients.
  */
-export const Language = {
+export const DocumentCreateDocumentTemporaryLanguage = {
   De: "de",
   En: "en",
   Fr: "fr",
   Es: "es",
+  It: "it",
+  Pl: "pl",
 } as const;
 /**
  * The language to use for email communications with recipients.
  */
-export type Language = ClosedEnum<typeof Language>;
+export type DocumentCreateDocumentTemporaryLanguage = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryLanguage
+>;
 
-export type EmailSettings = {
+export type EmailSettingsAccount = {
   /**
    * Whether to send an email to all recipients that the document is ready for them to sign.
    */
@@ -780,7 +755,7 @@ export type EmailSettings = {
   ownerDocumentCompleted?: boolean | undefined;
 };
 
-export type Meta = {
+export type DocumentCreateDocumentTemporaryMeta = {
   /**
    * The subject of the email that will be sent to the recipients.
    */
@@ -796,12 +771,12 @@ export type Meta = {
   /**
    * The date format to use for date fields and signing the document.
    */
-  dateFormat?: DateFormat | undefined;
+  dateFormat?: DocumentCreateDocumentTemporaryDateFormat | undefined;
   /**
    * The distribution method to use when sending the document to the recipients.
    */
-  distributionMethod?: DistributionMethod | undefined;
-  signingOrder?: SigningOrder | undefined;
+  distributionMethod?: DistributionMethodAccount | undefined;
+  signingOrder?: SigningOrderAccount | undefined;
   /**
    * The URL to which the recipient should be redirected after signing the document.
    */
@@ -809,15 +784,23 @@ export type Meta = {
   /**
    * The language to use for email communications with recipients.
    */
-  language?: Language | undefined;
+  language?: DocumentCreateDocumentTemporaryLanguage | undefined;
   /**
    * Whether to allow recipients to sign using a typed signature.
    */
   typedSignatureEnabled?: boolean | undefined;
-  emailSettings?: EmailSettings | undefined;
+  /**
+   * Whether to allow recipients to sign using a draw signature.
+   */
+  drawSignatureEnabled?: boolean | undefined;
+  /**
+   * Whether to allow recipients to sign using an uploaded signature.
+   */
+  uploadSignatureEnabled?: boolean | undefined;
+  emailSettings?: EmailSettingsAccount | undefined;
 };
 
-export type DocumentCreateDocumentTemporaryRequestBody = {
+export type DocumentCreateDocumentTemporaryRequest = {
   /**
    * The title of the document.
    */
@@ -829,33 +812,34 @@ export type DocumentCreateDocumentTemporaryRequestBody = {
   /**
    * The visibility of the document.
    */
-  visibility?: Visibility | undefined;
+  visibility?: VisibilityAccount | undefined;
   /**
    * The type of authentication required for the recipient to access the document.
    */
-  globalAccessAuth?: GlobalAccessAuth | undefined;
+  globalAccessAuth?:
+    | DocumentCreateDocumentTemporaryGlobalAccessAuthRequest
+    | undefined;
   /**
    * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
    */
-  globalActionAuth?: GlobalActionAuth | undefined;
+  globalActionAuth?: GlobalActionAuthAccount | undefined;
   formValues?: { [k: string]: string | boolean | number } | undefined;
-  recipients?: Array<Recipients> | undefined;
-  meta?: Meta | undefined;
+  recipients?: Array<RecipientAccount> | undefined;
+  meta?: DocumentCreateDocumentTemporaryMeta | undefined;
 };
 
-export const DocumentCreateDocumentTemporaryVisibility = {
+export const DocumentVisibility = {
   Everyone: "EVERYONE",
   ManagerAndAbove: "MANAGER_AND_ABOVE",
   Admin: "ADMIN",
 } as const;
-export type DocumentCreateDocumentTemporaryVisibility = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryVisibility
->;
+export type DocumentVisibility = ClosedEnum<typeof DocumentVisibility>;
 
 export const DocumentCreateDocumentTemporaryStatus = {
   Draft: "DRAFT",
   Pending: "PENDING",
   Completed: "COMPLETED",
+  Rejected: "REJECTED",
 } as const;
 export type DocumentCreateDocumentTemporaryStatus = ClosedEnum<
   typeof DocumentCreateDocumentTemporaryStatus
@@ -873,20 +857,20 @@ export type DocumentCreateDocumentTemporarySource = ClosedEnum<
 /**
  * The type of authentication required for the recipient to access the document.
  */
-export const DocumentCreateDocumentTemporaryGlobalAccessAuth = {
+export const DocumentGlobalAccessAuth = {
   Account: "ACCOUNT",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
  */
-export type DocumentCreateDocumentTemporaryGlobalAccessAuth = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryGlobalAccessAuth
+export type DocumentGlobalAccessAuth = ClosedEnum<
+  typeof DocumentGlobalAccessAuth
 >;
 
 /**
  * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
  */
-export const DocumentCreateDocumentTemporaryGlobalActionAuth = {
+export const DocumentGlobalActionAuth = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
@@ -894,59 +878,54 @@ export const DocumentCreateDocumentTemporaryGlobalActionAuth = {
 /**
  * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
  */
-export type DocumentCreateDocumentTemporaryGlobalActionAuth = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryGlobalActionAuth
+export type DocumentGlobalActionAuth = ClosedEnum<
+  typeof DocumentGlobalActionAuth
 >;
 
 export type DocumentCreateDocumentTemporaryAuthOptions = {
   /**
    * The type of authentication required for the recipient to access the document.
    */
-  globalAccessAuth: DocumentCreateDocumentTemporaryGlobalAccessAuth | null;
+  globalAccessAuth: DocumentGlobalAccessAuth | null;
   /**
    * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
    */
-  globalActionAuth: DocumentCreateDocumentTemporaryGlobalActionAuth | null;
+  globalActionAuth: DocumentGlobalActionAuth | null;
 };
 
-export type DocumentCreateDocumentTemporaryFormValues =
-  | string
-  | boolean
-  | number;
+export type DocumentFormValues = string | boolean | number;
 
-export const DocumentCreateDocumentTemporaryType = {
+export const DocumentDocumentDataType = {
   S3Path: "S3_PATH",
   Bytes: "BYTES",
   Bytes64: "BYTES_64",
 } as const;
-export type DocumentCreateDocumentTemporaryType = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryType
+export type DocumentDocumentDataType = ClosedEnum<
+  typeof DocumentDocumentDataType
 >;
 
 export type DocumentCreateDocumentTemporaryDocumentData = {
-  type: DocumentCreateDocumentTemporaryType;
+  type: DocumentDocumentDataType;
   id: string;
   data: string;
   initialData: string;
 };
 
-export const DocumentCreateDocumentTemporarySigningOrder = {
+export const DocumentSigningOrder = {
   Parallel: "PARALLEL",
   Sequential: "SEQUENTIAL",
 } as const;
-export type DocumentCreateDocumentTemporarySigningOrder = ClosedEnum<
-  typeof DocumentCreateDocumentTemporarySigningOrder
->;
+export type DocumentSigningOrder = ClosedEnum<typeof DocumentSigningOrder>;
 
-export const DocumentCreateDocumentTemporaryDistributionMethod = {
+export const DocumentDistributionMethod = {
   Email: "EMAIL",
   None: "NONE",
 } as const;
-export type DocumentCreateDocumentTemporaryDistributionMethod = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryDistributionMethod
+export type DocumentDistributionMethod = ClosedEnum<
+  typeof DocumentDistributionMethod
 >;
 
-export type DocumentCreateDocumentTemporaryEmailSettings = {
+export type DocumentEmailSettings = {
   /**
    * Whether to send an email to all recipients that the document is ready for them to sign.
    */
@@ -978,8 +957,8 @@ export type DocumentCreateDocumentTemporaryEmailSettings = {
 };
 
 export type DocumentCreateDocumentTemporaryDocumentMeta = {
-  signingOrder: DocumentCreateDocumentTemporarySigningOrder;
-  distributionMethod: DocumentCreateDocumentTemporaryDistributionMethod;
+  signingOrder: DocumentSigningOrder;
+  distributionMethod: DocumentDistributionMethod;
   id: string;
   subject: string | null;
   message: string | null;
@@ -989,19 +968,21 @@ export type DocumentCreateDocumentTemporaryDocumentMeta = {
   documentId: number;
   redirectUrl: string | null;
   typedSignatureEnabled: boolean;
+  uploadSignatureEnabled: boolean;
+  drawSignatureEnabled: boolean;
+  allowDictateNextSigner: boolean;
   language: string;
-  emailSettings: DocumentCreateDocumentTemporaryEmailSettings | null;
+  emailSettings: DocumentEmailSettings | null;
 };
 
-export const DocumentCreateDocumentTemporaryRole = {
+export const DocumentRole = {
   Cc: "CC",
   Signer: "SIGNER",
   Viewer: "VIEWER",
   Approver: "APPROVER",
+  Assistant: "ASSISTANT",
 } as const;
-export type DocumentCreateDocumentTemporaryRole = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryRole
->;
+export type DocumentRole = ClosedEnum<typeof DocumentRole>;
 
 export const DocumentCreateDocumentTemporaryReadStatus = {
   NotOpened: "NOT_OPENED",
@@ -1031,20 +1012,18 @@ export type DocumentCreateDocumentTemporarySendStatus = ClosedEnum<
 /**
  * The type of authentication required for the recipient to access the document.
  */
-export const DocumentCreateDocumentTemporaryAccessAuth = {
+export const DocumentAccessAuth = {
   Account: "ACCOUNT",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
  */
-export type DocumentCreateDocumentTemporaryAccessAuth = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryAccessAuth
->;
+export type DocumentAccessAuth = ClosedEnum<typeof DocumentAccessAuth>;
 
 /**
  * The type of authentication required for the recipient to sign the document.
  */
-export const DocumentCreateDocumentTemporaryActionAuth = {
+export const DocumentActionAuth = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
@@ -1053,23 +1032,21 @@ export const DocumentCreateDocumentTemporaryActionAuth = {
 /**
  * The type of authentication required for the recipient to sign the document.
  */
-export type DocumentCreateDocumentTemporaryActionAuth = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryActionAuth
->;
+export type DocumentActionAuth = ClosedEnum<typeof DocumentActionAuth>;
 
-export type DocumentCreateDocumentTemporaryDocumentsAuthOptions = {
+export type DocumentCreateDocumentTemporaryRecipientAuthOptions = {
   /**
    * The type of authentication required for the recipient to access the document.
    */
-  accessAuth: DocumentCreateDocumentTemporaryAccessAuth | null;
+  accessAuth: DocumentAccessAuth | null;
   /**
    * The type of authentication required for the recipient to sign the document.
    */
-  actionAuth: DocumentCreateDocumentTemporaryActionAuth | null;
+  actionAuth: DocumentActionAuth | null;
 };
 
-export type DocumentCreateDocumentTemporaryRecipients = {
-  role: DocumentCreateDocumentTemporaryRole;
+export type DocumentRecipient = {
+  role: DocumentRole;
   readStatus: DocumentCreateDocumentTemporaryReadStatus;
   signingStatus: DocumentCreateDocumentTemporarySigningStatus;
   sendStatus: DocumentCreateDocumentTemporarySendStatus;
@@ -1082,7 +1059,7 @@ export type DocumentCreateDocumentTemporaryRecipients = {
   documentDeletedAt: string | null;
   expired: string | null;
   signedAt: string | null;
-  authOptions: DocumentCreateDocumentTemporaryDocumentsAuthOptions | null;
+  authOptions: DocumentCreateDocumentTemporaryRecipientAuthOptions | null;
   /**
    * The order in which the recipient should sign the document. Only works if the document is set to sequential signing.
    */
@@ -1090,7 +1067,7 @@ export type DocumentCreateDocumentTemporaryRecipients = {
   rejectionReason: string | null;
 };
 
-export const DocumentCreateDocumentTemporaryDocumentsType = {
+export const DocumentFieldType = {
   Signature: "SIGNATURE",
   FreeSignature: "FREE_SIGNATURE",
   Initials: "INITIALS",
@@ -1103,214 +1080,220 @@ export const DocumentCreateDocumentTemporaryDocumentsType = {
   Checkbox: "CHECKBOX",
   Dropdown: "DROPDOWN",
 } as const;
-export type DocumentCreateDocumentTemporaryDocumentsType = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryDocumentsType
->;
+export type DocumentFieldType = ClosedEnum<typeof DocumentFieldType>;
 
-export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFields9Type =
-  {
-    Dropdown: "dropdown",
-  } as const;
-export type DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFields9Type =
-  ClosedEnum<
-    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFields9Type
-  >;
+export const DocumentTypeDropdown = {
+  Dropdown: "dropdown",
+} as const;
+export type DocumentTypeDropdown = ClosedEnum<typeof DocumentTypeDropdown>;
 
-export type DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseValues = {
+export type DocumentValue3 = {
   value: string;
 };
 
-export type DocumentCreateDocumentTemporaryFieldMeta9 = {
+export type FieldMetaDocumentDropdown = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFields9Type;
-  values?:
-    | Array<DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseValues>
-    | undefined;
+  type: DocumentTypeDropdown;
+  values?: Array<DocumentValue3> | undefined;
   defaultValue?: string | undefined;
 };
 
-export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFieldsType =
-  {
-    Checkbox: "checkbox",
-  } as const;
-export type DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFieldsType =
-  ClosedEnum<
-    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFieldsType
-  >;
+export const DocumentTypeCheckbox = {
+  Checkbox: "checkbox",
+} as const;
+export type DocumentTypeCheckbox = ClosedEnum<typeof DocumentTypeCheckbox>;
 
-export type DocumentCreateDocumentTemporaryFieldMetaDocumentsValues = {
+export type DocumentValue2 = {
   id: number;
   checked: boolean;
   value: string;
 };
 
-export type DocumentCreateDocumentTemporaryFieldMeta8 = {
+export type FieldMetaDocumentCheckbox = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFieldsType;
-  values?:
-    | Array<DocumentCreateDocumentTemporaryFieldMetaDocumentsValues>
-    | undefined;
+  type: DocumentTypeCheckbox;
+  values?: Array<DocumentValue2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
 };
 
-export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentType =
-  {
-    Radio: "radio",
-  } as const;
-export type DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentType =
-  ClosedEnum<
-    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentType
-  >;
+export const DocumentTypeRadio = {
+  Radio: "radio",
+} as const;
+export type DocumentTypeRadio = ClosedEnum<typeof DocumentTypeRadio>;
 
-export type DocumentCreateDocumentTemporaryFieldMetaValues = {
+export type DocumentValue1 = {
   id: number;
   checked: boolean;
   value: string;
 };
 
-export type DocumentCreateDocumentTemporaryFieldMeta7 = {
+export type FieldMetaDocumentRadio = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentType;
-  values?: Array<DocumentCreateDocumentTemporaryFieldMetaValues> | undefined;
+  type: DocumentTypeRadio;
+  values?: Array<DocumentValue1> | undefined;
 };
 
-export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType =
-  {
-    Number: "number",
-  } as const;
-export type DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType =
-  ClosedEnum<
-    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType
-  >;
+export const DocumentTypeNumber = {
+  Number: "number",
+} as const;
+export type DocumentTypeNumber = ClosedEnum<typeof DocumentTypeNumber>;
 
-export type DocumentCreateDocumentTemporaryFieldMeta6 = {
+export const DocumentTextAlign6 = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type DocumentTextAlign6 = ClosedEnum<typeof DocumentTextAlign6>;
+
+export type FieldMetaDocumentNumber = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType;
+  type: DocumentTypeNumber;
   numberFormat?: string | undefined;
   value?: string | undefined;
   minValue?: number | undefined;
   maxValue?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: DocumentTextAlign6 | undefined;
 };
 
-export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONType =
-  {
-    Text: "text",
-  } as const;
-export type DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONType =
-  ClosedEnum<
-    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONType
-  >;
+export const DocumentTypeText = {
+  Text: "text",
+} as const;
+export type DocumentTypeText = ClosedEnum<typeof DocumentTypeText>;
 
-export type DocumentCreateDocumentTemporaryFieldMeta5 = {
+export const DocumentTextAlign5 = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type DocumentTextAlign5 = ClosedEnum<typeof DocumentTextAlign5>;
+
+export type FieldMetaDocumentText = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONType;
+  type: DocumentTypeText;
   text?: string | undefined;
   characterLimit?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: DocumentTextAlign5 | undefined;
 };
 
-export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200Type =
-  {
-    Date: "date",
-  } as const;
-export type DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200Type =
-  ClosedEnum<
-    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200Type
-  >;
+export const DocumentTypeDate = {
+  Date: "date",
+} as const;
+export type DocumentTypeDate = ClosedEnum<typeof DocumentTypeDate>;
 
-export type DocumentCreateDocumentTemporaryFieldMeta4 = {
+export const DocumentTextAlign4 = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type DocumentTextAlign4 = ClosedEnum<typeof DocumentTextAlign4>;
+
+export type FieldMetaDocumentDate = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200Type;
+  type: DocumentTypeDate;
   fontSize?: number | undefined;
+  textAlign?: DocumentTextAlign4 | undefined;
 };
 
-export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseType = {
+export const DocumentTypeEmail = {
   Email: "email",
 } as const;
-export type DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseType =
-  ClosedEnum<
-    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseType
-  >;
+export type DocumentTypeEmail = ClosedEnum<typeof DocumentTypeEmail>;
 
-export type DocumentCreateDocumentTemporaryFieldMeta3 = {
+export const DocumentTextAlign3 = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type DocumentTextAlign3 = ClosedEnum<typeof DocumentTextAlign3>;
+
+export type FieldMetaDocumentEmail = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseType;
+  type: DocumentTypeEmail;
   fontSize?: number | undefined;
+  textAlign?: DocumentTextAlign3 | undefined;
 };
 
-export const DocumentCreateDocumentTemporaryFieldMetaDocumentsType = {
+export const DocumentTypeName = {
   Name: "name",
 } as const;
-export type DocumentCreateDocumentTemporaryFieldMetaDocumentsType = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsType
->;
+export type DocumentTypeName = ClosedEnum<typeof DocumentTypeName>;
 
-export type DocumentCreateDocumentTemporaryFieldMeta2 = {
+export const DocumentTextAlign2 = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type DocumentTextAlign2 = ClosedEnum<typeof DocumentTextAlign2>;
+
+export type FieldMetaDocumentName = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: DocumentCreateDocumentTemporaryFieldMetaDocumentsType;
+  type: DocumentTypeName;
   fontSize?: number | undefined;
+  textAlign?: DocumentTextAlign2 | undefined;
 };
 
-export const DocumentCreateDocumentTemporaryFieldMetaType = {
+export const DocumentTypeInitials = {
   Initials: "initials",
 } as const;
-export type DocumentCreateDocumentTemporaryFieldMetaType = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryFieldMetaType
->;
+export type DocumentTypeInitials = ClosedEnum<typeof DocumentTypeInitials>;
 
-export type DocumentCreateDocumentTemporaryFieldMeta1 = {
+export const DocumentTextAlign1 = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type DocumentTextAlign1 = ClosedEnum<typeof DocumentTextAlign1>;
+
+export type FieldMetaDocumentInitials = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: DocumentCreateDocumentTemporaryFieldMetaType;
+  type: DocumentTypeInitials;
   fontSize?: number | undefined;
+  textAlign?: DocumentTextAlign1 | undefined;
 };
 
-export type DocumentCreateDocumentTemporaryFieldMeta =
-  | DocumentCreateDocumentTemporaryFieldMeta1
-  | DocumentCreateDocumentTemporaryFieldMeta2
-  | DocumentCreateDocumentTemporaryFieldMeta3
-  | DocumentCreateDocumentTemporaryFieldMeta4
-  | DocumentCreateDocumentTemporaryFieldMeta7
-  | DocumentCreateDocumentTemporaryFieldMeta9
-  | DocumentCreateDocumentTemporaryFieldMeta5
-  | DocumentCreateDocumentTemporaryFieldMeta8
-  | DocumentCreateDocumentTemporaryFieldMeta6;
+export type DocumentFieldMetaUnion =
+  | FieldMetaDocumentRadio
+  | FieldMetaDocumentInitials
+  | FieldMetaDocumentName
+  | FieldMetaDocumentEmail
+  | FieldMetaDocumentDate
+  | FieldMetaDocumentDropdown
+  | FieldMetaDocumentCheckbox
+  | FieldMetaDocumentText
+  | FieldMetaDocumentNumber;
 
-export type DocumentCreateDocumentTemporaryFields = {
-  type: DocumentCreateDocumentTemporaryDocumentsType;
+export type DocumentField = {
+  type: DocumentFieldType;
   id: number;
   secondaryId: string;
   documentId: number | null;
@@ -1327,20 +1310,20 @@ export type DocumentCreateDocumentTemporaryFields = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | DocumentCreateDocumentTemporaryFieldMeta1
-    | DocumentCreateDocumentTemporaryFieldMeta2
-    | DocumentCreateDocumentTemporaryFieldMeta3
-    | DocumentCreateDocumentTemporaryFieldMeta4
-    | DocumentCreateDocumentTemporaryFieldMeta7
-    | DocumentCreateDocumentTemporaryFieldMeta9
-    | DocumentCreateDocumentTemporaryFieldMeta5
-    | DocumentCreateDocumentTemporaryFieldMeta8
-    | DocumentCreateDocumentTemporaryFieldMeta6
+    | FieldMetaDocumentRadio
+    | FieldMetaDocumentInitials
+    | FieldMetaDocumentName
+    | FieldMetaDocumentEmail
+    | FieldMetaDocumentDate
+    | FieldMetaDocumentDropdown
+    | FieldMetaDocumentCheckbox
+    | FieldMetaDocumentText
+    | FieldMetaDocumentNumber
     | null;
 };
 
 export type Document = {
-  visibility: DocumentCreateDocumentTemporaryVisibility;
+  visibility: DocumentVisibility;
   status: DocumentCreateDocumentTemporaryStatus;
   source: DocumentCreateDocumentTemporarySource;
   id: number;
@@ -1364,14 +1347,14 @@ export type Document = {
   templateId: number | null;
   documentData: DocumentCreateDocumentTemporaryDocumentData;
   documentMeta: DocumentCreateDocumentTemporaryDocumentMeta | null;
-  recipients: Array<DocumentCreateDocumentTemporaryRecipients>;
-  fields: Array<DocumentCreateDocumentTemporaryFields>;
+  recipients: Array<DocumentRecipient>;
+  fields: Array<DocumentField>;
 };
 
 /**
  * Successful response
  */
-export type DocumentCreateDocumentTemporaryResponseBody = {
+export type DocumentCreateDocumentTemporaryResponse = {
   document: Document;
   /**
    * The URL to upload the document PDF to. Use a PUT request with the file via form-data
@@ -1380,407 +1363,370 @@ export type DocumentCreateDocumentTemporaryResponseBody = {
 };
 
 /** @internal */
-export const Visibility$inboundSchema: z.ZodNativeEnum<typeof Visibility> = z
-  .nativeEnum(Visibility);
+export const VisibilityAccount$inboundSchema: z.ZodNativeEnum<
+  typeof VisibilityAccount
+> = z.nativeEnum(VisibilityAccount);
 
 /** @internal */
-export const Visibility$outboundSchema: z.ZodNativeEnum<typeof Visibility> =
-  Visibility$inboundSchema;
+export const VisibilityAccount$outboundSchema: z.ZodNativeEnum<
+  typeof VisibilityAccount
+> = VisibilityAccount$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Visibility$ {
-  /** @deprecated use `Visibility$inboundSchema` instead. */
-  export const inboundSchema = Visibility$inboundSchema;
-  /** @deprecated use `Visibility$outboundSchema` instead. */
-  export const outboundSchema = Visibility$outboundSchema;
+export namespace VisibilityAccount$ {
+  /** @deprecated use `VisibilityAccount$inboundSchema` instead. */
+  export const inboundSchema = VisibilityAccount$inboundSchema;
+  /** @deprecated use `VisibilityAccount$outboundSchema` instead. */
+  export const outboundSchema = VisibilityAccount$outboundSchema;
 }
 
 /** @internal */
-export const GlobalAccessAuth$inboundSchema: z.ZodNativeEnum<
-  typeof GlobalAccessAuth
-> = z.nativeEnum(GlobalAccessAuth);
+export const DocumentCreateDocumentTemporaryGlobalAccessAuthRequest$inboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentCreateDocumentTemporaryGlobalAccessAuthRequest
+  > = z.nativeEnum(DocumentCreateDocumentTemporaryGlobalAccessAuthRequest);
 
 /** @internal */
-export const GlobalAccessAuth$outboundSchema: z.ZodNativeEnum<
-  typeof GlobalAccessAuth
-> = GlobalAccessAuth$inboundSchema;
+export const DocumentCreateDocumentTemporaryGlobalAccessAuthRequest$outboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentCreateDocumentTemporaryGlobalAccessAuthRequest
+  > = DocumentCreateDocumentTemporaryGlobalAccessAuthRequest$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GlobalAccessAuth$ {
-  /** @deprecated use `GlobalAccessAuth$inboundSchema` instead. */
-  export const inboundSchema = GlobalAccessAuth$inboundSchema;
-  /** @deprecated use `GlobalAccessAuth$outboundSchema` instead. */
-  export const outboundSchema = GlobalAccessAuth$outboundSchema;
+export namespace DocumentCreateDocumentTemporaryGlobalAccessAuthRequest$ {
+  /** @deprecated use `DocumentCreateDocumentTemporaryGlobalAccessAuthRequest$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentCreateDocumentTemporaryGlobalAccessAuthRequest$inboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryGlobalAccessAuthRequest$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentCreateDocumentTemporaryGlobalAccessAuthRequest$outboundSchema;
 }
 
 /** @internal */
-export const GlobalActionAuth$inboundSchema: z.ZodNativeEnum<
-  typeof GlobalActionAuth
-> = z.nativeEnum(GlobalActionAuth);
+export const GlobalActionAuthAccount$inboundSchema: z.ZodNativeEnum<
+  typeof GlobalActionAuthAccount
+> = z.nativeEnum(GlobalActionAuthAccount);
 
 /** @internal */
-export const GlobalActionAuth$outboundSchema: z.ZodNativeEnum<
-  typeof GlobalActionAuth
-> = GlobalActionAuth$inboundSchema;
+export const GlobalActionAuthAccount$outboundSchema: z.ZodNativeEnum<
+  typeof GlobalActionAuthAccount
+> = GlobalActionAuthAccount$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GlobalActionAuth$ {
-  /** @deprecated use `GlobalActionAuth$inboundSchema` instead. */
-  export const inboundSchema = GlobalActionAuth$inboundSchema;
-  /** @deprecated use `GlobalActionAuth$outboundSchema` instead. */
-  export const outboundSchema = GlobalActionAuth$outboundSchema;
+export namespace GlobalActionAuthAccount$ {
+  /** @deprecated use `GlobalActionAuthAccount$inboundSchema` instead. */
+  export const inboundSchema = GlobalActionAuthAccount$inboundSchema;
+  /** @deprecated use `GlobalActionAuthAccount$outboundSchema` instead. */
+  export const outboundSchema = GlobalActionAuthAccount$outboundSchema;
 }
 
 /** @internal */
-export const FormValues$inboundSchema: z.ZodType<
-  FormValues,
+export const FormValuesRequest$inboundSchema: z.ZodType<
+  FormValuesRequest,
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.boolean(), z.number()]);
 
 /** @internal */
-export type FormValues$Outbound = string | boolean | number;
+export type FormValuesRequest$Outbound = string | boolean | number;
 
 /** @internal */
-export const FormValues$outboundSchema: z.ZodType<
-  FormValues$Outbound,
+export const FormValuesRequest$outboundSchema: z.ZodType<
+  FormValuesRequest$Outbound,
   z.ZodTypeDef,
-  FormValues
+  FormValuesRequest
 > = z.union([z.string(), z.boolean(), z.number()]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FormValues$ {
-  /** @deprecated use `FormValues$inboundSchema` instead. */
-  export const inboundSchema = FormValues$inboundSchema;
-  /** @deprecated use `FormValues$outboundSchema` instead. */
-  export const outboundSchema = FormValues$outboundSchema;
-  /** @deprecated use `FormValues$Outbound` instead. */
-  export type Outbound = FormValues$Outbound;
+export namespace FormValuesRequest$ {
+  /** @deprecated use `FormValuesRequest$inboundSchema` instead. */
+  export const inboundSchema = FormValuesRequest$inboundSchema;
+  /** @deprecated use `FormValuesRequest$outboundSchema` instead. */
+  export const outboundSchema = FormValuesRequest$outboundSchema;
+  /** @deprecated use `FormValuesRequest$Outbound` instead. */
+  export type Outbound = FormValuesRequest$Outbound;
 }
 
-export function formValuesToJSON(formValues: FormValues): string {
-  return JSON.stringify(FormValues$outboundSchema.parse(formValues));
+export function formValuesRequestToJSON(
+  formValuesRequest: FormValuesRequest,
+): string {
+  return JSON.stringify(
+    FormValuesRequest$outboundSchema.parse(formValuesRequest),
+  );
 }
 
-export function formValuesFromJSON(
+export function formValuesRequestFromJSON(
   jsonString: string,
-): SafeParseResult<FormValues, SDKValidationError> {
+): SafeParseResult<FormValuesRequest, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => FormValues$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FormValues' from JSON`,
+    (x) => FormValuesRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FormValuesRequest' from JSON`,
   );
 }
 
 /** @internal */
-export const Role$inboundSchema: z.ZodNativeEnum<typeof Role> = z.nativeEnum(
-  Role,
-);
+export const RoleAccount$inboundSchema: z.ZodNativeEnum<typeof RoleAccount> = z
+  .nativeEnum(RoleAccount);
 
 /** @internal */
-export const Role$outboundSchema: z.ZodNativeEnum<typeof Role> =
-  Role$inboundSchema;
+export const RoleAccount$outboundSchema: z.ZodNativeEnum<typeof RoleAccount> =
+  RoleAccount$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Role$ {
-  /** @deprecated use `Role$inboundSchema` instead. */
-  export const inboundSchema = Role$inboundSchema;
-  /** @deprecated use `Role$outboundSchema` instead. */
-  export const outboundSchema = Role$outboundSchema;
+export namespace RoleAccount$ {
+  /** @deprecated use `RoleAccount$inboundSchema` instead. */
+  export const inboundSchema = RoleAccount$inboundSchema;
+  /** @deprecated use `RoleAccount$outboundSchema` instead. */
+  export const outboundSchema = RoleAccount$outboundSchema;
 }
 
 /** @internal */
-export const AccessAuth$inboundSchema: z.ZodNativeEnum<typeof AccessAuth> = z
-  .nativeEnum(AccessAuth);
+export const DocumentCreateDocumentTemporaryAccessAuthRequest$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryAccessAuthRequest> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryAccessAuthRequest);
 
 /** @internal */
-export const AccessAuth$outboundSchema: z.ZodNativeEnum<typeof AccessAuth> =
-  AccessAuth$inboundSchema;
+export const DocumentCreateDocumentTemporaryAccessAuthRequest$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryAccessAuthRequest> =
+    DocumentCreateDocumentTemporaryAccessAuthRequest$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace AccessAuth$ {
-  /** @deprecated use `AccessAuth$inboundSchema` instead. */
-  export const inboundSchema = AccessAuth$inboundSchema;
-  /** @deprecated use `AccessAuth$outboundSchema` instead. */
-  export const outboundSchema = AccessAuth$outboundSchema;
-}
-
-/** @internal */
-export const ActionAuth$inboundSchema: z.ZodNativeEnum<typeof ActionAuth> = z
-  .nativeEnum(ActionAuth);
-
-/** @internal */
-export const ActionAuth$outboundSchema: z.ZodNativeEnum<typeof ActionAuth> =
-  ActionAuth$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ActionAuth$ {
-  /** @deprecated use `ActionAuth$inboundSchema` instead. */
-  export const inboundSchema = ActionAuth$inboundSchema;
-  /** @deprecated use `ActionAuth$outboundSchema` instead. */
-  export const outboundSchema = ActionAuth$outboundSchema;
-}
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11Type
-  > = z.nativeEnum(
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11Type,
-  );
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11Type
-  > =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11Type$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11Type$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11Type$inboundSchema` instead. */
+export namespace DocumentCreateDocumentTemporaryAccessAuthRequest$ {
+  /** @deprecated use `DocumentCreateDocumentTemporaryAccessAuthRequest$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11Type$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11Type$outboundSchema` instead. */
+    DocumentCreateDocumentTemporaryAccessAuthRequest$inboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryAccessAuthRequest$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11Type$outboundSchema;
+    DocumentCreateDocumentTemporaryAccessAuthRequest$outboundSchema;
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMetaType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMetaType
-  > = z.nativeEnum(
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMetaType,
-  );
+export const ActionAuthAccount$inboundSchema: z.ZodNativeEnum<
+  typeof ActionAuthAccount
+> = z.nativeEnum(ActionAuthAccount);
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMetaType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMetaType
-  > =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMetaType$inboundSchema;
+export const ActionAuthAccount$outboundSchema: z.ZodNativeEnum<
+  typeof ActionAuthAccount
+> = ActionAuthAccount$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMetaType$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMetaType$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMetaType$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMetaType$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMetaType$outboundSchema;
+export namespace ActionAuthAccount$ {
+  /** @deprecated use `ActionAuthAccount$inboundSchema` instead. */
+  export const inboundSchema = ActionAuthAccount$inboundSchema;
+  /** @deprecated use `ActionAuthAccount$outboundSchema` instead. */
+  export const outboundSchema = ActionAuthAccount$outboundSchema;
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldsValues$inboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldsValues,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    value: z.string(),
-  });
+export const TypeAccountDropdown1$inboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountDropdown1
+> = z.nativeEnum(TypeAccountDropdown1);
 
 /** @internal */
-export type DocumentCreateDocumentTemporaryFieldsValues$Outbound = {
+export const TypeAccountDropdown1$outboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountDropdown1
+> = TypeAccountDropdown1$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TypeAccountDropdown1$ {
+  /** @deprecated use `TypeAccountDropdown1$inboundSchema` instead. */
+  export const inboundSchema = TypeAccountDropdown1$inboundSchema;
+  /** @deprecated use `TypeAccountDropdown1$outboundSchema` instead. */
+  export const outboundSchema = TypeAccountDropdown1$outboundSchema;
+}
+
+/** @internal */
+export const TypeAccountDropdown2$inboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountDropdown2
+> = z.nativeEnum(TypeAccountDropdown2);
+
+/** @internal */
+export const TypeAccountDropdown2$outboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountDropdown2
+> = TypeAccountDropdown2$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TypeAccountDropdown2$ {
+  /** @deprecated use `TypeAccountDropdown2$inboundSchema` instead. */
+  export const inboundSchema = TypeAccountDropdown2$inboundSchema;
+  /** @deprecated use `TypeAccountDropdown2$outboundSchema` instead. */
+  export const outboundSchema = TypeAccountDropdown2$outboundSchema;
+}
+
+/** @internal */
+export const ValueAccountDropdown$inboundSchema: z.ZodType<
+  ValueAccountDropdown,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  value: z.string(),
+});
+
+/** @internal */
+export type ValueAccountDropdown$Outbound = {
   value: string;
 };
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldsValues$outboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldsValues$Outbound,
-    z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryFieldsValues
-  > = z.object({
-    value: z.string(),
-  });
+export const ValueAccountDropdown$outboundSchema: z.ZodType<
+  ValueAccountDropdown$Outbound,
+  z.ZodTypeDef,
+  ValueAccountDropdown
+> = z.object({
+  value: z.string(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldsValues$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsValues$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldsValues$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsValues$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldsValues$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsValues$Outbound` instead. */
-  export type Outbound = DocumentCreateDocumentTemporaryFieldsValues$Outbound;
+export namespace ValueAccountDropdown$ {
+  /** @deprecated use `ValueAccountDropdown$inboundSchema` instead. */
+  export const inboundSchema = ValueAccountDropdown$inboundSchema;
+  /** @deprecated use `ValueAccountDropdown$outboundSchema` instead. */
+  export const outboundSchema = ValueAccountDropdown$outboundSchema;
+  /** @deprecated use `ValueAccountDropdown$Outbound` instead. */
+  export type Outbound = ValueAccountDropdown$Outbound;
 }
 
-export function documentCreateDocumentTemporaryFieldsValuesToJSON(
-  documentCreateDocumentTemporaryFieldsValues:
-    DocumentCreateDocumentTemporaryFieldsValues,
+export function valueAccountDropdownToJSON(
+  valueAccountDropdown: ValueAccountDropdown,
 ): string {
   return JSON.stringify(
-    DocumentCreateDocumentTemporaryFieldsValues$outboundSchema.parse(
-      documentCreateDocumentTemporaryFieldsValues,
-    ),
+    ValueAccountDropdown$outboundSchema.parse(valueAccountDropdown),
   );
 }
 
-export function documentCreateDocumentTemporaryFieldsValuesFromJSON(
+export function valueAccountDropdownFromJSON(
   jsonString: string,
-): SafeParseResult<
-  DocumentCreateDocumentTemporaryFieldsValues,
-  SDKValidationError
-> {
+): SafeParseResult<ValueAccountDropdown, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      DocumentCreateDocumentTemporaryFieldsValues$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DocumentCreateDocumentTemporaryFieldsValues' from JSON`,
+    (x) => ValueAccountDropdown$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ValueAccountDropdown' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMeta$inboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMeta,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMetaType$inboundSchema,
-    values: z.array(
-      z.lazy(() => DocumentCreateDocumentTemporaryFieldsValues$inboundSchema),
-    ).optional(),
-    defaultValue: z.string().optional(),
-  });
+export const FieldMetaAccountDropdown$inboundSchema: z.ZodType<
+  FieldMetaAccountDropdown,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: TypeAccountDropdown2$inboundSchema,
+  values: z.array(z.lazy(() => ValueAccountDropdown$inboundSchema)).optional(),
+  defaultValue: z.string().optional(),
+});
 
 /** @internal */
-export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMeta$Outbound =
-  {
-    label?: string | undefined;
-    placeholder?: string | undefined;
-    required?: boolean | undefined;
-    readOnly?: boolean | undefined;
-    type: string;
-    values?:
-      | Array<DocumentCreateDocumentTemporaryFieldsValues$Outbound>
-      | undefined;
-    defaultValue?: string | undefined;
-  };
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMeta$outboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMeta$Outbound,
-    z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMeta
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMetaType$outboundSchema,
-    values: z.array(
-      z.lazy(() => DocumentCreateDocumentTemporaryFieldsValues$outboundSchema),
-    ).optional(),
-    defaultValue: z.string().optional(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMeta$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMeta$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMeta$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMeta$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMeta$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMeta$Outbound` instead. */
-  export type Outbound =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMeta$Outbound;
-}
-
-export function documentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMetaToJSON(
-  documentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMeta:
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMeta,
-): string {
-  return JSON.stringify(
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMeta$outboundSchema
-      .parse(
-        documentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMeta,
-      ),
-  );
-}
-
-export function documentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMetaFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMeta,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMeta$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMeta' from JSON`,
-  );
-}
-
-/** @internal */
-export const Eleven$inboundSchema: z.ZodType<Eleven, z.ZodTypeDef, unknown> = z
-  .object({
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11Type$inboundSchema,
-    fieldMeta: z.lazy(() =>
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMeta$inboundSchema
-    ).optional(),
-    pageNumber: z.number(),
-    pageX: z.number(),
-    pageY: z.number(),
-    width: z.number(),
-    height: z.number(),
-  });
-
-/** @internal */
-export type Eleven$Outbound = {
+export type FieldMetaAccountDropdown$Outbound = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
   type: string;
-  fieldMeta?:
-    | DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMeta$Outbound
-    | undefined;
+  values?: Array<ValueAccountDropdown$Outbound> | undefined;
+  defaultValue?: string | undefined;
+};
+
+/** @internal */
+export const FieldMetaAccountDropdown$outboundSchema: z.ZodType<
+  FieldMetaAccountDropdown$Outbound,
+  z.ZodTypeDef,
+  FieldMetaAccountDropdown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: TypeAccountDropdown2$outboundSchema,
+  values: z.array(z.lazy(() => ValueAccountDropdown$outboundSchema)).optional(),
+  defaultValue: z.string().optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldMetaAccountDropdown$ {
+  /** @deprecated use `FieldMetaAccountDropdown$inboundSchema` instead. */
+  export const inboundSchema = FieldMetaAccountDropdown$inboundSchema;
+  /** @deprecated use `FieldMetaAccountDropdown$outboundSchema` instead. */
+  export const outboundSchema = FieldMetaAccountDropdown$outboundSchema;
+  /** @deprecated use `FieldMetaAccountDropdown$Outbound` instead. */
+  export type Outbound = FieldMetaAccountDropdown$Outbound;
+}
+
+export function fieldMetaAccountDropdownToJSON(
+  fieldMetaAccountDropdown: FieldMetaAccountDropdown,
+): string {
+  return JSON.stringify(
+    FieldMetaAccountDropdown$outboundSchema.parse(fieldMetaAccountDropdown),
+  );
+}
+
+export function fieldMetaAccountDropdownFromJSON(
+  jsonString: string,
+): SafeParseResult<FieldMetaAccountDropdown, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => FieldMetaAccountDropdown$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldMetaAccountDropdown' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldAccountDropdown$inboundSchema: z.ZodType<
+  FieldAccountDropdown,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: TypeAccountDropdown1$inboundSchema,
+  fieldMeta: z.lazy(() => FieldMetaAccountDropdown$inboundSchema).optional(),
+  pageNumber: z.number(),
+  pageX: z.number(),
+  pageY: z.number(),
+  width: z.number(),
+  height: z.number(),
+});
+
+/** @internal */
+export type FieldAccountDropdown$Outbound = {
+  type: string;
+  fieldMeta?: FieldMetaAccountDropdown$Outbound | undefined;
   pageNumber: number;
   pageX: number;
   pageY: number;
@@ -1789,16 +1735,13 @@ export type Eleven$Outbound = {
 };
 
 /** @internal */
-export const Eleven$outboundSchema: z.ZodType<
-  Eleven$Outbound,
+export const FieldAccountDropdown$outboundSchema: z.ZodType<
+  FieldAccountDropdown$Outbound,
   z.ZodTypeDef,
-  Eleven
+  FieldAccountDropdown
 > = z.object({
-  type:
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11Type$outboundSchema,
-  fieldMeta: z.lazy(() =>
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients11FieldMeta$outboundSchema
-  ).optional(),
+  type: TypeAccountDropdown1$outboundSchema,
+  fieldMeta: z.lazy(() => FieldMetaAccountDropdown$outboundSchema).optional(),
   pageNumber: z.number(),
   pageX: z.number(),
   pageY: z.number(),
@@ -1810,88 +1753,78 @@ export const Eleven$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Eleven$ {
-  /** @deprecated use `Eleven$inboundSchema` instead. */
-  export const inboundSchema = Eleven$inboundSchema;
-  /** @deprecated use `Eleven$outboundSchema` instead. */
-  export const outboundSchema = Eleven$outboundSchema;
-  /** @deprecated use `Eleven$Outbound` instead. */
-  export type Outbound = Eleven$Outbound;
+export namespace FieldAccountDropdown$ {
+  /** @deprecated use `FieldAccountDropdown$inboundSchema` instead. */
+  export const inboundSchema = FieldAccountDropdown$inboundSchema;
+  /** @deprecated use `FieldAccountDropdown$outboundSchema` instead. */
+  export const outboundSchema = FieldAccountDropdown$outboundSchema;
+  /** @deprecated use `FieldAccountDropdown$Outbound` instead. */
+  export type Outbound = FieldAccountDropdown$Outbound;
 }
 
-export function elevenToJSON(eleven: Eleven): string {
-  return JSON.stringify(Eleven$outboundSchema.parse(eleven));
+export function fieldAccountDropdownToJSON(
+  fieldAccountDropdown: FieldAccountDropdown,
+): string {
+  return JSON.stringify(
+    FieldAccountDropdown$outboundSchema.parse(fieldAccountDropdown),
+  );
 }
 
-export function elevenFromJSON(
+export function fieldAccountDropdownFromJSON(
   jsonString: string,
-): SafeParseResult<Eleven, SDKValidationError> {
+): SafeParseResult<FieldAccountDropdown, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Eleven$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Eleven' from JSON`,
+    (x) => FieldAccountDropdown$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldAccountDropdown' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10Type
-  > = z.nativeEnum(
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10Type,
-  );
+export const TypeAccountCheckbox1$inboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountCheckbox1
+> = z.nativeEnum(TypeAccountCheckbox1);
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10Type
-  > =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10Type$inboundSchema;
+export const TypeAccountCheckbox1$outboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountCheckbox1
+> = TypeAccountCheckbox1$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10Type$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10Type$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10Type$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10Type$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10Type$outboundSchema;
+export namespace TypeAccountCheckbox1$ {
+  /** @deprecated use `TypeAccountCheckbox1$inboundSchema` instead. */
+  export const inboundSchema = TypeAccountCheckbox1$inboundSchema;
+  /** @deprecated use `TypeAccountCheckbox1$outboundSchema` instead. */
+  export const outboundSchema = TypeAccountCheckbox1$outboundSchema;
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMetaType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMetaType
-  > = z.nativeEnum(
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMetaType,
-  );
+export const TypeAccountCheckbox2$inboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountCheckbox2
+> = z.nativeEnum(TypeAccountCheckbox2);
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMetaType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMetaType
-  > =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMetaType$inboundSchema;
+export const TypeAccountCheckbox2$outboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountCheckbox2
+> = TypeAccountCheckbox2$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMetaType$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMetaType$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMetaType$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMetaType$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMetaType$outboundSchema;
+export namespace TypeAccountCheckbox2$ {
+  /** @deprecated use `TypeAccountCheckbox2$inboundSchema` instead. */
+  export const inboundSchema = TypeAccountCheckbox2$inboundSchema;
+  /** @deprecated use `TypeAccountCheckbox2$outboundSchema` instead. */
+  export const outboundSchema = TypeAccountCheckbox2$outboundSchema;
 }
 
 /** @internal */
-export const FieldsValues$inboundSchema: z.ZodType<
-  FieldsValues,
+export const ValueAccountCheckbox$inboundSchema: z.ZodType<
+  ValueAccountCheckbox,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -1901,17 +1834,17 @@ export const FieldsValues$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type FieldsValues$Outbound = {
+export type ValueAccountCheckbox$Outbound = {
   id: number;
   checked: boolean;
   value: string;
 };
 
 /** @internal */
-export const FieldsValues$outboundSchema: z.ZodType<
-  FieldsValues$Outbound,
+export const ValueAccountCheckbox$outboundSchema: z.ZodType<
+  ValueAccountCheckbox$Outbound,
   z.ZodTypeDef,
-  FieldsValues
+  ValueAccountCheckbox
 > = z.object({
   id: z.number(),
   checked: z.boolean(),
@@ -1922,142 +1855,127 @@ export const FieldsValues$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldsValues$ {
-  /** @deprecated use `FieldsValues$inboundSchema` instead. */
-  export const inboundSchema = FieldsValues$inboundSchema;
-  /** @deprecated use `FieldsValues$outboundSchema` instead. */
-  export const outboundSchema = FieldsValues$outboundSchema;
-  /** @deprecated use `FieldsValues$Outbound` instead. */
-  export type Outbound = FieldsValues$Outbound;
+export namespace ValueAccountCheckbox$ {
+  /** @deprecated use `ValueAccountCheckbox$inboundSchema` instead. */
+  export const inboundSchema = ValueAccountCheckbox$inboundSchema;
+  /** @deprecated use `ValueAccountCheckbox$outboundSchema` instead. */
+  export const outboundSchema = ValueAccountCheckbox$outboundSchema;
+  /** @deprecated use `ValueAccountCheckbox$Outbound` instead. */
+  export type Outbound = ValueAccountCheckbox$Outbound;
 }
 
-export function fieldsValuesToJSON(fieldsValues: FieldsValues): string {
-  return JSON.stringify(FieldsValues$outboundSchema.parse(fieldsValues));
+export function valueAccountCheckboxToJSON(
+  valueAccountCheckbox: ValueAccountCheckbox,
+): string {
+  return JSON.stringify(
+    ValueAccountCheckbox$outboundSchema.parse(valueAccountCheckbox),
+  );
 }
 
-export function fieldsValuesFromJSON(
+export function valueAccountCheckboxFromJSON(
   jsonString: string,
-): SafeParseResult<FieldsValues, SDKValidationError> {
+): SafeParseResult<ValueAccountCheckbox, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => FieldsValues$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldsValues' from JSON`,
+    (x) => ValueAccountCheckbox$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ValueAccountCheckbox' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMeta$inboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMeta,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMetaType$inboundSchema,
-    values: z.array(z.lazy(() => FieldsValues$inboundSchema)).optional(),
-    validationRule: z.string().optional(),
-    validationLength: z.number().optional(),
-  });
+export const FieldMetaAccountCheckbox$inboundSchema: z.ZodType<
+  FieldMetaAccountCheckbox,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: TypeAccountCheckbox2$inboundSchema,
+  values: z.array(z.lazy(() => ValueAccountCheckbox$inboundSchema)).optional(),
+  validationRule: z.string().optional(),
+  validationLength: z.number().optional(),
+});
 
 /** @internal */
-export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMeta$Outbound =
-  {
-    label?: string | undefined;
-    placeholder?: string | undefined;
-    required?: boolean | undefined;
-    readOnly?: boolean | undefined;
-    type: string;
-    values?: Array<FieldsValues$Outbound> | undefined;
-    validationRule?: string | undefined;
-    validationLength?: number | undefined;
-  };
+export type FieldMetaAccountCheckbox$Outbound = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: string;
+  values?: Array<ValueAccountCheckbox$Outbound> | undefined;
+  validationRule?: string | undefined;
+  validationLength?: number | undefined;
+};
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMeta$outboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMeta$Outbound,
-    z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMeta
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMetaType$outboundSchema,
-    values: z.array(z.lazy(() => FieldsValues$outboundSchema)).optional(),
-    validationRule: z.string().optional(),
-    validationLength: z.number().optional(),
-  });
+export const FieldMetaAccountCheckbox$outboundSchema: z.ZodType<
+  FieldMetaAccountCheckbox$Outbound,
+  z.ZodTypeDef,
+  FieldMetaAccountCheckbox
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: TypeAccountCheckbox2$outboundSchema,
+  values: z.array(z.lazy(() => ValueAccountCheckbox$outboundSchema)).optional(),
+  validationRule: z.string().optional(),
+  validationLength: z.number().optional(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMeta$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMeta$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMeta$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMeta$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMeta$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMeta$Outbound` instead. */
-  export type Outbound =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMeta$Outbound;
+export namespace FieldMetaAccountCheckbox$ {
+  /** @deprecated use `FieldMetaAccountCheckbox$inboundSchema` instead. */
+  export const inboundSchema = FieldMetaAccountCheckbox$inboundSchema;
+  /** @deprecated use `FieldMetaAccountCheckbox$outboundSchema` instead. */
+  export const outboundSchema = FieldMetaAccountCheckbox$outboundSchema;
+  /** @deprecated use `FieldMetaAccountCheckbox$Outbound` instead. */
+  export type Outbound = FieldMetaAccountCheckbox$Outbound;
 }
 
-export function documentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMetaToJSON(
-  documentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMeta:
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMeta,
+export function fieldMetaAccountCheckboxToJSON(
+  fieldMetaAccountCheckbox: FieldMetaAccountCheckbox,
 ): string {
   return JSON.stringify(
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMeta$outboundSchema
-      .parse(
-        documentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMeta,
-      ),
+    FieldMetaAccountCheckbox$outboundSchema.parse(fieldMetaAccountCheckbox),
   );
 }
 
-export function documentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMetaFromJSON(
+export function fieldMetaAccountCheckboxFromJSON(
   jsonString: string,
-): SafeParseResult<
-  DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMeta,
-  SDKValidationError
-> {
+): SafeParseResult<FieldMetaAccountCheckbox, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMeta$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMeta' from JSON`,
+    (x) => FieldMetaAccountCheckbox$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldMetaAccountCheckbox' from JSON`,
   );
 }
 
 /** @internal */
-export const Ten$inboundSchema: z.ZodType<Ten, z.ZodTypeDef, unknown> = z
-  .object({
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10Type$inboundSchema,
-    fieldMeta: z.lazy(() =>
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMeta$inboundSchema
-    ).optional(),
-    pageNumber: z.number(),
-    pageX: z.number(),
-    pageY: z.number(),
-    width: z.number(),
-    height: z.number(),
-  });
+export const FieldAccountCheckbox$inboundSchema: z.ZodType<
+  FieldAccountCheckbox,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: TypeAccountCheckbox1$inboundSchema,
+  fieldMeta: z.lazy(() => FieldMetaAccountCheckbox$inboundSchema).optional(),
+  pageNumber: z.number(),
+  pageX: z.number(),
+  pageY: z.number(),
+  width: z.number(),
+  height: z.number(),
+});
 
 /** @internal */
-export type Ten$Outbound = {
+export type FieldAccountCheckbox$Outbound = {
   type: string;
-  fieldMeta?:
-    | DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMeta$Outbound
-    | undefined;
+  fieldMeta?: FieldMetaAccountCheckbox$Outbound | undefined;
   pageNumber: number;
   pageX: number;
   pageY: number;
@@ -2066,123 +1984,116 @@ export type Ten$Outbound = {
 };
 
 /** @internal */
-export const Ten$outboundSchema: z.ZodType<Ten$Outbound, z.ZodTypeDef, Ten> = z
-  .object({
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10Type$outboundSchema,
-    fieldMeta: z.lazy(() =>
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients10FieldMeta$outboundSchema
-    ).optional(),
-    pageNumber: z.number(),
-    pageX: z.number(),
-    pageY: z.number(),
-    width: z.number(),
-    height: z.number(),
-  });
+export const FieldAccountCheckbox$outboundSchema: z.ZodType<
+  FieldAccountCheckbox$Outbound,
+  z.ZodTypeDef,
+  FieldAccountCheckbox
+> = z.object({
+  type: TypeAccountCheckbox1$outboundSchema,
+  fieldMeta: z.lazy(() => FieldMetaAccountCheckbox$outboundSchema).optional(),
+  pageNumber: z.number(),
+  pageX: z.number(),
+  pageY: z.number(),
+  width: z.number(),
+  height: z.number(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Ten$ {
-  /** @deprecated use `Ten$inboundSchema` instead. */
-  export const inboundSchema = Ten$inboundSchema;
-  /** @deprecated use `Ten$outboundSchema` instead. */
-  export const outboundSchema = Ten$outboundSchema;
-  /** @deprecated use `Ten$Outbound` instead. */
-  export type Outbound = Ten$Outbound;
+export namespace FieldAccountCheckbox$ {
+  /** @deprecated use `FieldAccountCheckbox$inboundSchema` instead. */
+  export const inboundSchema = FieldAccountCheckbox$inboundSchema;
+  /** @deprecated use `FieldAccountCheckbox$outboundSchema` instead. */
+  export const outboundSchema = FieldAccountCheckbox$outboundSchema;
+  /** @deprecated use `FieldAccountCheckbox$Outbound` instead. */
+  export type Outbound = FieldAccountCheckbox$Outbound;
 }
 
-export function tenToJSON(ten: Ten): string {
-  return JSON.stringify(Ten$outboundSchema.parse(ten));
+export function fieldAccountCheckboxToJSON(
+  fieldAccountCheckbox: FieldAccountCheckbox,
+): string {
+  return JSON.stringify(
+    FieldAccountCheckbox$outboundSchema.parse(fieldAccountCheckbox),
+  );
 }
 
-export function tenFromJSON(
+export function fieldAccountCheckboxFromJSON(
   jsonString: string,
-): SafeParseResult<Ten, SDKValidationError> {
+): SafeParseResult<FieldAccountCheckbox, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Ten$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Ten' from JSON`,
+    (x) => FieldAccountCheckbox$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldAccountCheckbox' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9Type
-  > = z.nativeEnum(
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9Type,
-  );
+export const TypeAccountRadio1$inboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountRadio1
+> = z.nativeEnum(TypeAccountRadio1);
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9Type
-  > =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9Type$inboundSchema;
+export const TypeAccountRadio1$outboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountRadio1
+> = TypeAccountRadio1$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9Type$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9Type$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9Type$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9Type$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9Type$outboundSchema;
+export namespace TypeAccountRadio1$ {
+  /** @deprecated use `TypeAccountRadio1$inboundSchema` instead. */
+  export const inboundSchema = TypeAccountRadio1$inboundSchema;
+  /** @deprecated use `TypeAccountRadio1$outboundSchema` instead. */
+  export const outboundSchema = TypeAccountRadio1$outboundSchema;
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9FieldMetaType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9FieldMetaType
-  > = z.nativeEnum(
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9FieldMetaType,
-  );
+export const TypeAccountRadio2$inboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountRadio2
+> = z.nativeEnum(TypeAccountRadio2);
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9FieldMetaType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9FieldMetaType
-  > =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9FieldMetaType$inboundSchema;
+export const TypeAccountRadio2$outboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountRadio2
+> = TypeAccountRadio2$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9FieldMetaType$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9FieldMetaType$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9FieldMetaType$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9FieldMetaType$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9FieldMetaType$outboundSchema;
+export namespace TypeAccountRadio2$ {
+  /** @deprecated use `TypeAccountRadio2$inboundSchema` instead. */
+  export const inboundSchema = TypeAccountRadio2$inboundSchema;
+  /** @deprecated use `TypeAccountRadio2$outboundSchema` instead. */
+  export const outboundSchema = TypeAccountRadio2$outboundSchema;
 }
 
 /** @internal */
-export const Values$inboundSchema: z.ZodType<Values, z.ZodTypeDef, unknown> = z
-  .object({
-    id: z.number(),
-    checked: z.boolean(),
-    value: z.string(),
-  });
+export const ValueAccountRadio$inboundSchema: z.ZodType<
+  ValueAccountRadio,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.number(),
+  checked: z.boolean(),
+  value: z.string(),
+});
 
 /** @internal */
-export type Values$Outbound = {
+export type ValueAccountRadio$Outbound = {
   id: number;
   checked: boolean;
   value: string;
 };
 
 /** @internal */
-export const Values$outboundSchema: z.ZodType<
-  Values$Outbound,
+export const ValueAccountRadio$outboundSchema: z.ZodType<
+  ValueAccountRadio$Outbound,
   z.ZodTypeDef,
-  Values
+  ValueAccountRadio
 > = z.object({
   id: z.number(),
   checked: z.boolean(),
@@ -2193,1107 +2104,36 @@ export const Values$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Values$ {
-  /** @deprecated use `Values$inboundSchema` instead. */
-  export const inboundSchema = Values$inboundSchema;
-  /** @deprecated use `Values$outboundSchema` instead. */
-  export const outboundSchema = Values$outboundSchema;
-  /** @deprecated use `Values$Outbound` instead. */
-  export type Outbound = Values$Outbound;
+export namespace ValueAccountRadio$ {
+  /** @deprecated use `ValueAccountRadio$inboundSchema` instead. */
+  export const inboundSchema = ValueAccountRadio$inboundSchema;
+  /** @deprecated use `ValueAccountRadio$outboundSchema` instead. */
+  export const outboundSchema = ValueAccountRadio$outboundSchema;
+  /** @deprecated use `ValueAccountRadio$Outbound` instead. */
+  export type Outbound = ValueAccountRadio$Outbound;
 }
 
-export function valuesToJSON(values: Values): string {
-  return JSON.stringify(Values$outboundSchema.parse(values));
-}
-
-export function valuesFromJSON(
-  jsonString: string,
-): SafeParseResult<Values, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Values$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Values' from JSON`,
-  );
-}
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsFieldMeta$inboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsFieldMeta,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9FieldMetaType$inboundSchema,
-    values: z.array(z.lazy(() => Values$inboundSchema)).optional(),
-  });
-
-/** @internal */
-export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsFieldMeta$Outbound =
-  {
-    label?: string | undefined;
-    placeholder?: string | undefined;
-    required?: boolean | undefined;
-    readOnly?: boolean | undefined;
-    type: string;
-    values?: Array<Values$Outbound> | undefined;
-  };
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsFieldMeta$outboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsFieldMeta$Outbound,
-    z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsFieldMeta
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9FieldMetaType$outboundSchema,
-    values: z.array(z.lazy(() => Values$outboundSchema)).optional(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsFieldMeta$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsFieldMeta$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsFieldMeta$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsFieldMeta$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsFieldMeta$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsFieldMeta$Outbound` instead. */
-  export type Outbound =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsFieldMeta$Outbound;
-}
-
-export function documentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsFieldMetaToJSON(
-  documentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsFieldMeta:
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsFieldMeta,
+export function valueAccountRadioToJSON(
+  valueAccountRadio: ValueAccountRadio,
 ): string {
   return JSON.stringify(
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsFieldMeta$outboundSchema
-      .parse(
-        documentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsFieldMeta,
-      ),
+    ValueAccountRadio$outboundSchema.parse(valueAccountRadio),
   );
 }
 
-export function documentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsFieldMetaFromJSON(
+export function valueAccountRadioFromJSON(
   jsonString: string,
-): SafeParseResult<
-  DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsFieldMeta,
-  SDKValidationError
-> {
+): SafeParseResult<ValueAccountRadio, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsFieldMeta$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsFieldMeta' from JSON`,
+    (x) => ValueAccountRadio$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ValueAccountRadio' from JSON`,
   );
 }
 
 /** @internal */
-export const Nine$inboundSchema: z.ZodType<Nine, z.ZodTypeDef, unknown> = z
-  .object({
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9Type$inboundSchema,
-    fieldMeta: z.lazy(() =>
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsFieldMeta$inboundSchema
-    ).optional(),
-    pageNumber: z.number(),
-    pageX: z.number(),
-    pageY: z.number(),
-    width: z.number(),
-    height: z.number(),
-  });
-
-/** @internal */
-export type Nine$Outbound = {
-  type: string;
-  fieldMeta?:
-    | DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsFieldMeta$Outbound
-    | undefined;
-  pageNumber: number;
-  pageX: number;
-  pageY: number;
-  width: number;
-  height: number;
-};
-
-/** @internal */
-export const Nine$outboundSchema: z.ZodType<Nine$Outbound, z.ZodTypeDef, Nine> =
-  z.object({
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients9Type$outboundSchema,
-    fieldMeta: z.lazy(() =>
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsFieldMeta$outboundSchema
-    ).optional(),
-    pageNumber: z.number(),
-    pageX: z.number(),
-    pageY: z.number(),
-    width: z.number(),
-    height: z.number(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Nine$ {
-  /** @deprecated use `Nine$inboundSchema` instead. */
-  export const inboundSchema = Nine$inboundSchema;
-  /** @deprecated use `Nine$outboundSchema` instead. */
-  export const outboundSchema = Nine$outboundSchema;
-  /** @deprecated use `Nine$Outbound` instead. */
-  export type Outbound = Nine$Outbound;
-}
-
-export function nineToJSON(nine: Nine): string {
-  return JSON.stringify(Nine$outboundSchema.parse(nine));
-}
-
-export function nineFromJSON(
-  jsonString: string,
-): SafeParseResult<Nine, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Nine$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Nine' from JSON`,
-  );
-}
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8Type
-  > = z.nativeEnum(
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8Type,
-  );
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8Type
-  > =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8Type$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8Type$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8Type$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8Type$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8Type$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8Type$outboundSchema;
-}
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8FieldMetaType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8FieldMetaType
-  > = z.nativeEnum(
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8FieldMetaType,
-  );
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8FieldMetaType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8FieldMetaType
-  > =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8FieldMetaType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8FieldMetaType$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8FieldMetaType$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8FieldMetaType$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8FieldMetaType$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8FieldMetaType$outboundSchema;
-}
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMeta$inboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMeta,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8FieldMetaType$inboundSchema,
-    numberFormat: z.string().optional(),
-    value: z.string().optional(),
-    minValue: z.number().optional(),
-    maxValue: z.number().optional(),
-    fontSize: z.number().optional(),
-  });
-
-/** @internal */
-export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMeta$Outbound =
-  {
-    label?: string | undefined;
-    placeholder?: string | undefined;
-    required?: boolean | undefined;
-    readOnly?: boolean | undefined;
-    type: string;
-    numberFormat?: string | undefined;
-    value?: string | undefined;
-    minValue?: number | undefined;
-    maxValue?: number | undefined;
-    fontSize?: number | undefined;
-  };
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMeta$outboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMeta$Outbound,
-    z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMeta
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8FieldMetaType$outboundSchema,
-    numberFormat: z.string().optional(),
-    value: z.string().optional(),
-    minValue: z.number().optional(),
-    maxValue: z.number().optional(),
-    fontSize: z.number().optional(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMeta$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMeta$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMeta$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMeta$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMeta$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMeta$Outbound` instead. */
-  export type Outbound =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMeta$Outbound;
-}
-
-export function documentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMetaToJSON(
-  documentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMeta:
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMeta,
-): string {
-  return JSON.stringify(
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMeta$outboundSchema
-      .parse(
-        documentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMeta,
-      ),
-  );
-}
-
-export function documentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMetaFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMeta,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMeta$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMeta' from JSON`,
-  );
-}
-
-/** @internal */
-export const Eight$inboundSchema: z.ZodType<Eight, z.ZodTypeDef, unknown> = z
-  .object({
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8Type$inboundSchema,
-    fieldMeta: z.lazy(() =>
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMeta$inboundSchema
-    ).optional(),
-    pageNumber: z.number(),
-    pageX: z.number(),
-    pageY: z.number(),
-    width: z.number(),
-    height: z.number(),
-  });
-
-/** @internal */
-export type Eight$Outbound = {
-  type: string;
-  fieldMeta?:
-    | DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMeta$Outbound
-    | undefined;
-  pageNumber: number;
-  pageX: number;
-  pageY: number;
-  width: number;
-  height: number;
-};
-
-/** @internal */
-export const Eight$outboundSchema: z.ZodType<
-  Eight$Outbound,
-  z.ZodTypeDef,
-  Eight
-> = z.object({
-  type:
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients8Type$outboundSchema,
-  fieldMeta: z.lazy(() =>
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyFieldMeta$outboundSchema
-  ).optional(),
-  pageNumber: z.number(),
-  pageX: z.number(),
-  pageY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Eight$ {
-  /** @deprecated use `Eight$inboundSchema` instead. */
-  export const inboundSchema = Eight$inboundSchema;
-  /** @deprecated use `Eight$outboundSchema` instead. */
-  export const outboundSchema = Eight$outboundSchema;
-  /** @deprecated use `Eight$Outbound` instead. */
-  export type Outbound = Eight$Outbound;
-}
-
-export function eightToJSON(eight: Eight): string {
-  return JSON.stringify(Eight$outboundSchema.parse(eight));
-}
-
-export function eightFromJSON(
-  jsonString: string,
-): SafeParseResult<Eight, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Eight$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Eight' from JSON`,
-  );
-}
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7Type
-  > = z.nativeEnum(
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7Type,
-  );
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7Type
-  > =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7Type$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7Type$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7Type$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7Type$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7Type$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7Type$outboundSchema;
-}
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7FieldMetaType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7FieldMetaType
-  > = z.nativeEnum(
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7FieldMetaType,
-  );
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7FieldMetaType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7FieldMetaType
-  > =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7FieldMetaType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7FieldMetaType$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7FieldMetaType$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7FieldMetaType$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7FieldMetaType$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7FieldMetaType$outboundSchema;
-}
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta$inboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7FieldMetaType$inboundSchema,
-    text: z.string().optional(),
-    characterLimit: z.number().optional(),
-    fontSize: z.number().optional(),
-  });
-
-/** @internal */
-export type DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta$Outbound =
-  {
-    label?: string | undefined;
-    placeholder?: string | undefined;
-    required?: boolean | undefined;
-    readOnly?: boolean | undefined;
-    type: string;
-    text?: string | undefined;
-    characterLimit?: number | undefined;
-    fontSize?: number | undefined;
-  };
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta$outboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta$Outbound,
-    z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7FieldMetaType$outboundSchema,
-    text: z.string().optional(),
-    characterLimit: z.number().optional(),
-    fontSize: z.number().optional(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta$Outbound` instead. */
-  export type Outbound =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta$Outbound;
-}
-
-export function documentCreateDocumentTemporaryFieldsDocumentsRequestFieldMetaToJSON(
-  documentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta:
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta,
-): string {
-  return JSON.stringify(
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta$outboundSchema
-      .parse(documentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta),
-  );
-}
-
-export function documentCreateDocumentTemporaryFieldsDocumentsRequestFieldMetaFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta' from JSON`,
-  );
-}
-
-/** @internal */
-export const Seven$inboundSchema: z.ZodType<Seven, z.ZodTypeDef, unknown> = z
-  .object({
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7Type$inboundSchema,
-    fieldMeta: z.lazy(() =>
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta$inboundSchema
-    ).optional(),
-    pageNumber: z.number(),
-    pageX: z.number(),
-    pageY: z.number(),
-    width: z.number(),
-    height: z.number(),
-  });
-
-/** @internal */
-export type Seven$Outbound = {
-  type: string;
-  fieldMeta?:
-    | DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta$Outbound
-    | undefined;
-  pageNumber: number;
-  pageX: number;
-  pageY: number;
-  width: number;
-  height: number;
-};
-
-/** @internal */
-export const Seven$outboundSchema: z.ZodType<
-  Seven$Outbound,
-  z.ZodTypeDef,
-  Seven
-> = z.object({
-  type:
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients7Type$outboundSchema,
-  fieldMeta: z.lazy(() =>
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestFieldMeta$outboundSchema
-  ).optional(),
-  pageNumber: z.number(),
-  pageX: z.number(),
-  pageY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Seven$ {
-  /** @deprecated use `Seven$inboundSchema` instead. */
-  export const inboundSchema = Seven$inboundSchema;
-  /** @deprecated use `Seven$outboundSchema` instead. */
-  export const outboundSchema = Seven$outboundSchema;
-  /** @deprecated use `Seven$Outbound` instead. */
-  export type Outbound = Seven$Outbound;
-}
-
-export function sevenToJSON(seven: Seven): string {
-  return JSON.stringify(Seven$outboundSchema.parse(seven));
-}
-
-export function sevenFromJSON(
-  jsonString: string,
-): SafeParseResult<Seven, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Seven$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Seven' from JSON`,
-  );
-}
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6Type
-  > = z.nativeEnum(
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6Type,
-  );
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6Type
-  > =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6Type$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6Type$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6Type$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6Type$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6Type$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6Type$outboundSchema;
-}
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6FieldMetaType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6FieldMetaType
-  > = z.nativeEnum(
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6FieldMetaType,
-  );
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6FieldMetaType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6FieldMetaType
-  > =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6FieldMetaType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6FieldMetaType$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6FieldMetaType$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6FieldMetaType$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6FieldMetaType$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6FieldMetaType$outboundSchema;
-}
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta$inboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6FieldMetaType$inboundSchema,
-    fontSize: z.number().optional(),
-  });
-
-/** @internal */
-export type DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta$Outbound = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  type: string;
-  fontSize?: number | undefined;
-};
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta$outboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta$Outbound,
-    z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6FieldMetaType$outboundSchema,
-    fontSize: z.number().optional(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta$Outbound` instead. */
-  export type Outbound =
-    DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta$Outbound;
-}
-
-export function documentCreateDocumentTemporaryFieldsDocumentsFieldMetaToJSON(
-  documentCreateDocumentTemporaryFieldsDocumentsFieldMeta:
-    DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta,
-): string {
-  return JSON.stringify(
-    DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta$outboundSchema
-      .parse(documentCreateDocumentTemporaryFieldsDocumentsFieldMeta),
-  );
-}
-
-export function documentCreateDocumentTemporaryFieldsDocumentsFieldMetaFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta' from JSON`,
-  );
-}
-
-/** @internal */
-export const Six$inboundSchema: z.ZodType<Six, z.ZodTypeDef, unknown> = z
-  .object({
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6Type$inboundSchema,
-    fieldMeta: z.lazy(() =>
-      DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta$inboundSchema
-    ).optional(),
-    pageNumber: z.number(),
-    pageX: z.number(),
-    pageY: z.number(),
-    width: z.number(),
-    height: z.number(),
-  });
-
-/** @internal */
-export type Six$Outbound = {
-  type: string;
-  fieldMeta?:
-    | DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta$Outbound
-    | undefined;
-  pageNumber: number;
-  pageX: number;
-  pageY: number;
-  width: number;
-  height: number;
-};
-
-/** @internal */
-export const Six$outboundSchema: z.ZodType<Six$Outbound, z.ZodTypeDef, Six> = z
-  .object({
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients6Type$outboundSchema,
-    fieldMeta: z.lazy(() =>
-      DocumentCreateDocumentTemporaryFieldsDocumentsFieldMeta$outboundSchema
-    ).optional(),
-    pageNumber: z.number(),
-    pageX: z.number(),
-    pageY: z.number(),
-    width: z.number(),
-    height: z.number(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Six$ {
-  /** @deprecated use `Six$inboundSchema` instead. */
-  export const inboundSchema = Six$inboundSchema;
-  /** @deprecated use `Six$outboundSchema` instead. */
-  export const outboundSchema = Six$outboundSchema;
-  /** @deprecated use `Six$Outbound` instead. */
-  export type Outbound = Six$Outbound;
-}
-
-export function sixToJSON(six: Six): string {
-  return JSON.stringify(Six$outboundSchema.parse(six));
-}
-
-export function sixFromJSON(
-  jsonString: string,
-): SafeParseResult<Six, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Six$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Six' from JSON`,
-  );
-}
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsType
-  > = z.nativeEnum(
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsType,
-  );
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsType
-  > =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsType$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsType$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsType$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsType$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsType$outboundSchema;
-}
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients5Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients5Type
-  > = z.nativeEnum(
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients5Type,
-  );
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients5Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients5Type
-  > =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients5Type$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients5Type$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients5Type$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients5Type$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients5Type$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients5Type$outboundSchema;
-}
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsFieldMeta$inboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldsFieldMeta,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients5Type$inboundSchema,
-    fontSize: z.number().optional(),
-  });
-
-/** @internal */
-export type DocumentCreateDocumentTemporaryFieldsFieldMeta$Outbound = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  type: string;
-  fontSize?: number | undefined;
-};
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsFieldMeta$outboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldsFieldMeta$Outbound,
-    z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryFieldsFieldMeta
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipients5Type$outboundSchema,
-    fontSize: z.number().optional(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DocumentCreateDocumentTemporaryFieldsFieldMeta$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsFieldMeta$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldsFieldMeta$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsFieldMeta$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldsFieldMeta$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsFieldMeta$Outbound` instead. */
-  export type Outbound =
-    DocumentCreateDocumentTemporaryFieldsFieldMeta$Outbound;
-}
-
-export function documentCreateDocumentTemporaryFieldsFieldMetaToJSON(
-  documentCreateDocumentTemporaryFieldsFieldMeta:
-    DocumentCreateDocumentTemporaryFieldsFieldMeta,
-): string {
-  return JSON.stringify(
-    DocumentCreateDocumentTemporaryFieldsFieldMeta$outboundSchema.parse(
-      documentCreateDocumentTemporaryFieldsFieldMeta,
-    ),
-  );
-}
-
-export function documentCreateDocumentTemporaryFieldsFieldMetaFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  DocumentCreateDocumentTemporaryFieldsFieldMeta,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      DocumentCreateDocumentTemporaryFieldsFieldMeta$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DocumentCreateDocumentTemporaryFieldsFieldMeta' from JSON`,
-  );
-}
-
-/** @internal */
-export const Five$inboundSchema: z.ZodType<Five, z.ZodTypeDef, unknown> = z
-  .object({
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsType$inboundSchema,
-    fieldMeta: z.lazy(() =>
-      DocumentCreateDocumentTemporaryFieldsFieldMeta$inboundSchema
-    ).optional(),
-    pageNumber: z.number(),
-    pageX: z.number(),
-    pageY: z.number(),
-    width: z.number(),
-    height: z.number(),
-  });
-
-/** @internal */
-export type Five$Outbound = {
-  type: string;
-  fieldMeta?:
-    | DocumentCreateDocumentTemporaryFieldsFieldMeta$Outbound
-    | undefined;
-  pageNumber: number;
-  pageX: number;
-  pageY: number;
-  width: number;
-  height: number;
-};
-
-/** @internal */
-export const Five$outboundSchema: z.ZodType<Five$Outbound, z.ZodTypeDef, Five> =
-  z.object({
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyRecipientsType$outboundSchema,
-    fieldMeta: z.lazy(() =>
-      DocumentCreateDocumentTemporaryFieldsFieldMeta$outboundSchema
-    ).optional(),
-    pageNumber: z.number(),
-    pageX: z.number(),
-    pageY: z.number(),
-    width: z.number(),
-    height: z.number(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Five$ {
-  /** @deprecated use `Five$inboundSchema` instead. */
-  export const inboundSchema = Five$inboundSchema;
-  /** @deprecated use `Five$outboundSchema` instead. */
-  export const outboundSchema = Five$outboundSchema;
-  /** @deprecated use `Five$Outbound` instead. */
-  export type Outbound = Five$Outbound;
-}
-
-export function fiveToJSON(five: Five): string {
-  return JSON.stringify(Five$outboundSchema.parse(five));
-}
-
-export function fiveFromJSON(
-  jsonString: string,
-): SafeParseResult<Five, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Five$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Five' from JSON`,
-  );
-}
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestType
-  > = z.nativeEnum(DocumentCreateDocumentTemporaryFieldsDocumentsRequestType);
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestType
-  > = DocumentCreateDocumentTemporaryFieldsDocumentsRequestType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DocumentCreateDocumentTemporaryFieldsDocumentsRequestType$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestType$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestType$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestType$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestType$outboundSchema;
-}
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyType
-  > = z.nativeEnum(
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyType,
-  );
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyType
-  > =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyType$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyType$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyType$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyType$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyType$outboundSchema;
-}
-
-/** @internal */
-export const FieldsFieldMeta$inboundSchema: z.ZodType<
-  FieldsFieldMeta,
+export const FieldMetaAccountRadio$inboundSchema: z.ZodType<
+  FieldMetaAccountRadio,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -3301,256 +2141,84 @@ export const FieldsFieldMeta$inboundSchema: z.ZodType<
   placeholder: z.string().optional(),
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
-  type:
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyType$inboundSchema,
-  fontSize: z.number().optional(),
+  type: TypeAccountRadio2$inboundSchema,
+  values: z.array(z.lazy(() => ValueAccountRadio$inboundSchema)).optional(),
 });
 
 /** @internal */
-export type FieldsFieldMeta$Outbound = {
+export type FieldMetaAccountRadio$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
-  fontSize?: number | undefined;
+  values?: Array<ValueAccountRadio$Outbound> | undefined;
 };
 
 /** @internal */
-export const FieldsFieldMeta$outboundSchema: z.ZodType<
-  FieldsFieldMeta$Outbound,
+export const FieldMetaAccountRadio$outboundSchema: z.ZodType<
+  FieldMetaAccountRadio$Outbound,
   z.ZodTypeDef,
-  FieldsFieldMeta
+  FieldMetaAccountRadio
 > = z.object({
   label: z.string().optional(),
   placeholder: z.string().optional(),
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
-  type:
-    DocumentCreateDocumentTemporaryFieldsDocumentsRequestRequestBodyType$outboundSchema,
-  fontSize: z.number().optional(),
+  type: TypeAccountRadio2$outboundSchema,
+  values: z.array(z.lazy(() => ValueAccountRadio$outboundSchema)).optional(),
 });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldsFieldMeta$ {
-  /** @deprecated use `FieldsFieldMeta$inboundSchema` instead. */
-  export const inboundSchema = FieldsFieldMeta$inboundSchema;
-  /** @deprecated use `FieldsFieldMeta$outboundSchema` instead. */
-  export const outboundSchema = FieldsFieldMeta$outboundSchema;
-  /** @deprecated use `FieldsFieldMeta$Outbound` instead. */
-  export type Outbound = FieldsFieldMeta$Outbound;
+export namespace FieldMetaAccountRadio$ {
+  /** @deprecated use `FieldMetaAccountRadio$inboundSchema` instead. */
+  export const inboundSchema = FieldMetaAccountRadio$inboundSchema;
+  /** @deprecated use `FieldMetaAccountRadio$outboundSchema` instead. */
+  export const outboundSchema = FieldMetaAccountRadio$outboundSchema;
+  /** @deprecated use `FieldMetaAccountRadio$Outbound` instead. */
+  export type Outbound = FieldMetaAccountRadio$Outbound;
 }
 
-export function fieldsFieldMetaToJSON(
-  fieldsFieldMeta: FieldsFieldMeta,
+export function fieldMetaAccountRadioToJSON(
+  fieldMetaAccountRadio: FieldMetaAccountRadio,
 ): string {
-  return JSON.stringify(FieldsFieldMeta$outboundSchema.parse(fieldsFieldMeta));
+  return JSON.stringify(
+    FieldMetaAccountRadio$outboundSchema.parse(fieldMetaAccountRadio),
+  );
 }
 
-export function fieldsFieldMetaFromJSON(
+export function fieldMetaAccountRadioFromJSON(
   jsonString: string,
-): SafeParseResult<FieldsFieldMeta, SDKValidationError> {
+): SafeParseResult<FieldMetaAccountRadio, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => FieldsFieldMeta$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldsFieldMeta' from JSON`,
+    (x) => FieldMetaAccountRadio$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldMetaAccountRadio' from JSON`,
   );
 }
 
 /** @internal */
-export const Four$inboundSchema: z.ZodType<Four, z.ZodTypeDef, unknown> = z
-  .object({
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestType$inboundSchema,
-    fieldMeta: z.lazy(() => FieldsFieldMeta$inboundSchema).optional(),
-    pageNumber: z.number(),
-    pageX: z.number(),
-    pageY: z.number(),
-    width: z.number(),
-    height: z.number(),
-  });
-
-/** @internal */
-export type Four$Outbound = {
-  type: string;
-  fieldMeta?: FieldsFieldMeta$Outbound | undefined;
-  pageNumber: number;
-  pageX: number;
-  pageY: number;
-  width: number;
-  height: number;
-};
-
-/** @internal */
-export const Four$outboundSchema: z.ZodType<Four$Outbound, z.ZodTypeDef, Four> =
-  z.object({
-    type:
-      DocumentCreateDocumentTemporaryFieldsDocumentsRequestType$outboundSchema,
-    fieldMeta: z.lazy(() => FieldsFieldMeta$outboundSchema).optional(),
-    pageNumber: z.number(),
-    pageX: z.number(),
-    pageY: z.number(),
-    width: z.number(),
-    height: z.number(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Four$ {
-  /** @deprecated use `Four$inboundSchema` instead. */
-  export const inboundSchema = Four$inboundSchema;
-  /** @deprecated use `Four$outboundSchema` instead. */
-  export const outboundSchema = Four$outboundSchema;
-  /** @deprecated use `Four$Outbound` instead. */
-  export type Outbound = Four$Outbound;
-}
-
-export function fourToJSON(four: Four): string {
-  return JSON.stringify(Four$outboundSchema.parse(four));
-}
-
-export function fourFromJSON(
-  jsonString: string,
-): SafeParseResult<Four, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Four$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Four' from JSON`,
-  );
-}
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsType$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryFieldsType> = z
-    .nativeEnum(DocumentCreateDocumentTemporaryFieldsType);
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsType$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryFieldsType> =
-    DocumentCreateDocumentTemporaryFieldsType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DocumentCreateDocumentTemporaryFieldsType$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsType$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldsType$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsType$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldsType$outboundSchema;
-}
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsType$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryFieldsDocumentsType> = z
-    .nativeEnum(DocumentCreateDocumentTemporaryFieldsDocumentsType);
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryFieldsDocumentsType$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryFieldsDocumentsType> =
-    DocumentCreateDocumentTemporaryFieldsDocumentsType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DocumentCreateDocumentTemporaryFieldsDocumentsType$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsType$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsType$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldsDocumentsType$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldsDocumentsType$outboundSchema;
-}
-
-/** @internal */
-export const FieldMeta$inboundSchema: z.ZodType<
-  FieldMeta,
+export const FieldAccountRadio$inboundSchema: z.ZodType<
+  FieldAccountRadio,
   z.ZodTypeDef,
   unknown
 > = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  type: DocumentCreateDocumentTemporaryFieldsDocumentsType$inboundSchema,
-  fontSize: z.number().optional(),
+  type: TypeAccountRadio1$inboundSchema,
+  fieldMeta: z.lazy(() => FieldMetaAccountRadio$inboundSchema).optional(),
+  pageNumber: z.number(),
+  pageX: z.number(),
+  pageY: z.number(),
+  width: z.number(),
+  height: z.number(),
 });
 
 /** @internal */
-export type FieldMeta$Outbound = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
+export type FieldAccountRadio$Outbound = {
   type: string;
-  fontSize?: number | undefined;
-};
-
-/** @internal */
-export const FieldMeta$outboundSchema: z.ZodType<
-  FieldMeta$Outbound,
-  z.ZodTypeDef,
-  FieldMeta
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  type: DocumentCreateDocumentTemporaryFieldsDocumentsType$outboundSchema,
-  fontSize: z.number().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldMeta$ {
-  /** @deprecated use `FieldMeta$inboundSchema` instead. */
-  export const inboundSchema = FieldMeta$inboundSchema;
-  /** @deprecated use `FieldMeta$outboundSchema` instead. */
-  export const outboundSchema = FieldMeta$outboundSchema;
-  /** @deprecated use `FieldMeta$Outbound` instead. */
-  export type Outbound = FieldMeta$Outbound;
-}
-
-export function fieldMetaToJSON(fieldMeta: FieldMeta): string {
-  return JSON.stringify(FieldMeta$outboundSchema.parse(fieldMeta));
-}
-
-export function fieldMetaFromJSON(
-  jsonString: string,
-): SafeParseResult<FieldMeta, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => FieldMeta$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldMeta' from JSON`,
-  );
-}
-
-/** @internal */
-export const Three$inboundSchema: z.ZodType<Three, z.ZodTypeDef, unknown> = z
-  .object({
-    type: DocumentCreateDocumentTemporaryFieldsType$inboundSchema,
-    fieldMeta: z.lazy(() => FieldMeta$inboundSchema).optional(),
-    pageNumber: z.number(),
-    pageX: z.number(),
-    pageY: z.number(),
-    width: z.number(),
-    height: z.number(),
-  });
-
-/** @internal */
-export type Three$Outbound = {
-  type: string;
-  fieldMeta?: FieldMeta$Outbound | undefined;
+  fieldMeta?: FieldMetaAccountRadio$Outbound | undefined;
   pageNumber: number;
   pageX: number;
   pageY: number;
@@ -3559,13 +2227,13 @@ export type Three$Outbound = {
 };
 
 /** @internal */
-export const Three$outboundSchema: z.ZodType<
-  Three$Outbound,
+export const FieldAccountRadio$outboundSchema: z.ZodType<
+  FieldAccountRadio$Outbound,
   z.ZodTypeDef,
-  Three
+  FieldAccountRadio
 > = z.object({
-  type: DocumentCreateDocumentTemporaryFieldsType$outboundSchema,
-  fieldMeta: z.lazy(() => FieldMeta$outboundSchema).optional(),
+  type: TypeAccountRadio1$outboundSchema,
+  fieldMeta: z.lazy(() => FieldMetaAccountRadio$outboundSchema).optional(),
   pageNumber: z.number(),
   pageX: z.number(),
   pageY: z.number(),
@@ -3577,293 +2245,1589 @@ export const Three$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Three$ {
-  /** @deprecated use `Three$inboundSchema` instead. */
-  export const inboundSchema = Three$inboundSchema;
-  /** @deprecated use `Three$outboundSchema` instead. */
-  export const outboundSchema = Three$outboundSchema;
-  /** @deprecated use `Three$Outbound` instead. */
-  export type Outbound = Three$Outbound;
+export namespace FieldAccountRadio$ {
+  /** @deprecated use `FieldAccountRadio$inboundSchema` instead. */
+  export const inboundSchema = FieldAccountRadio$inboundSchema;
+  /** @deprecated use `FieldAccountRadio$outboundSchema` instead. */
+  export const outboundSchema = FieldAccountRadio$outboundSchema;
+  /** @deprecated use `FieldAccountRadio$Outbound` instead. */
+  export type Outbound = FieldAccountRadio$Outbound;
 }
 
-export function threeToJSON(three: Three): string {
-  return JSON.stringify(Three$outboundSchema.parse(three));
+export function fieldAccountRadioToJSON(
+  fieldAccountRadio: FieldAccountRadio,
+): string {
+  return JSON.stringify(
+    FieldAccountRadio$outboundSchema.parse(fieldAccountRadio),
+  );
 }
 
-export function threeFromJSON(
+export function fieldAccountRadioFromJSON(
   jsonString: string,
-): SafeParseResult<Three, SDKValidationError> {
+): SafeParseResult<FieldAccountRadio, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Three$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Three' from JSON`,
+    (x) => FieldAccountRadio$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldAccountRadio' from JSON`,
   );
 }
 
 /** @internal */
-export const FieldsType$inboundSchema: z.ZodNativeEnum<typeof FieldsType> = z
-  .nativeEnum(FieldsType);
+export const TypeAccountNumber1$inboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountNumber1
+> = z.nativeEnum(TypeAccountNumber1);
 
 /** @internal */
-export const FieldsType$outboundSchema: z.ZodNativeEnum<typeof FieldsType> =
-  FieldsType$inboundSchema;
+export const TypeAccountNumber1$outboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountNumber1
+> = TypeAccountNumber1$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldsType$ {
-  /** @deprecated use `FieldsType$inboundSchema` instead. */
-  export const inboundSchema = FieldsType$inboundSchema;
-  /** @deprecated use `FieldsType$outboundSchema` instead. */
-  export const outboundSchema = FieldsType$outboundSchema;
+export namespace TypeAccountNumber1$ {
+  /** @deprecated use `TypeAccountNumber1$inboundSchema` instead. */
+  export const inboundSchema = TypeAccountNumber1$inboundSchema;
+  /** @deprecated use `TypeAccountNumber1$outboundSchema` instead. */
+  export const outboundSchema = TypeAccountNumber1$outboundSchema;
 }
 
 /** @internal */
-export const Two$inboundSchema: z.ZodType<Two, z.ZodTypeDef, unknown> = z
-  .object({
-    type: FieldsType$inboundSchema,
-    pageNumber: z.number(),
-    pageX: z.number(),
-    pageY: z.number(),
-    width: z.number(),
-    height: z.number(),
-  });
+export const TypeAccountNumber2$inboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountNumber2
+> = z.nativeEnum(TypeAccountNumber2);
 
 /** @internal */
-export type Two$Outbound = {
-  type: string;
-  pageNumber: number;
-  pageX: number;
-  pageY: number;
-  width: number;
-  height: number;
-};
-
-/** @internal */
-export const Two$outboundSchema: z.ZodType<Two$Outbound, z.ZodTypeDef, Two> = z
-  .object({
-    type: FieldsType$outboundSchema,
-    pageNumber: z.number(),
-    pageX: z.number(),
-    pageY: z.number(),
-    width: z.number(),
-    height: z.number(),
-  });
+export const TypeAccountNumber2$outboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountNumber2
+> = TypeAccountNumber2$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Two$ {
-  /** @deprecated use `Two$inboundSchema` instead. */
-  export const inboundSchema = Two$inboundSchema;
-  /** @deprecated use `Two$outboundSchema` instead. */
-  export const outboundSchema = Two$outboundSchema;
-  /** @deprecated use `Two$Outbound` instead. */
-  export type Outbound = Two$Outbound;
-}
-
-export function twoToJSON(two: Two): string {
-  return JSON.stringify(Two$outboundSchema.parse(two));
-}
-
-export function twoFromJSON(
-  jsonString: string,
-): SafeParseResult<Two, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Two$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Two' from JSON`,
-  );
+export namespace TypeAccountNumber2$ {
+  /** @deprecated use `TypeAccountNumber2$inboundSchema` instead. */
+  export const inboundSchema = TypeAccountNumber2$inboundSchema;
+  /** @deprecated use `TypeAccountNumber2$outboundSchema` instead. */
+  export const outboundSchema = TypeAccountNumber2$outboundSchema;
 }
 
 /** @internal */
-export const Type$inboundSchema: z.ZodNativeEnum<typeof Type> = z.nativeEnum(
-  Type,
-);
+export const TextAlignAccountNumber$inboundSchema: z.ZodNativeEnum<
+  typeof TextAlignAccountNumber
+> = z.nativeEnum(TextAlignAccountNumber);
 
 /** @internal */
-export const Type$outboundSchema: z.ZodNativeEnum<typeof Type> =
-  Type$inboundSchema;
+export const TextAlignAccountNumber$outboundSchema: z.ZodNativeEnum<
+  typeof TextAlignAccountNumber
+> = TextAlignAccountNumber$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Type$ {
-  /** @deprecated use `Type$inboundSchema` instead. */
-  export const inboundSchema = Type$inboundSchema;
-  /** @deprecated use `Type$outboundSchema` instead. */
-  export const outboundSchema = Type$outboundSchema;
+export namespace TextAlignAccountNumber$ {
+  /** @deprecated use `TextAlignAccountNumber$inboundSchema` instead. */
+  export const inboundSchema = TextAlignAccountNumber$inboundSchema;
+  /** @deprecated use `TextAlignAccountNumber$outboundSchema` instead. */
+  export const outboundSchema = TextAlignAccountNumber$outboundSchema;
 }
 
 /** @internal */
-export const One$inboundSchema: z.ZodType<One, z.ZodTypeDef, unknown> = z
-  .object({
-    type: Type$inboundSchema,
-    pageNumber: z.number(),
-    pageX: z.number(),
-    pageY: z.number(),
-    width: z.number(),
-    height: z.number(),
-  });
-
-/** @internal */
-export type One$Outbound = {
-  type: string;
-  pageNumber: number;
-  pageX: number;
-  pageY: number;
-  width: number;
-  height: number;
-};
-
-/** @internal */
-export const One$outboundSchema: z.ZodType<One$Outbound, z.ZodTypeDef, One> = z
-  .object({
-    type: Type$outboundSchema,
-    pageNumber: z.number(),
-    pageX: z.number(),
-    pageY: z.number(),
-    width: z.number(),
-    height: z.number(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace One$ {
-  /** @deprecated use `One$inboundSchema` instead. */
-  export const inboundSchema = One$inboundSchema;
-  /** @deprecated use `One$outboundSchema` instead. */
-  export const outboundSchema = One$outboundSchema;
-  /** @deprecated use `One$Outbound` instead. */
-  export type Outbound = One$Outbound;
-}
-
-export function oneToJSON(one: One): string {
-  return JSON.stringify(One$outboundSchema.parse(one));
-}
-
-export function oneFromJSON(
-  jsonString: string,
-): SafeParseResult<One, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => One$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'One' from JSON`,
-  );
-}
-
-/** @internal */
-export const Fields$inboundSchema: z.ZodType<Fields, z.ZodTypeDef, unknown> = z
-  .union([
-    z.lazy(() => One$inboundSchema),
-    z.lazy(() => Two$inboundSchema),
-    z.lazy(() => Three$inboundSchema),
-    z.lazy(() => Four$inboundSchema),
-    z.lazy(() => Five$inboundSchema),
-    z.lazy(() => Six$inboundSchema),
-    z.lazy(() => Seven$inboundSchema),
-    z.lazy(() => Eight$inboundSchema),
-    z.lazy(() => Nine$inboundSchema),
-    z.lazy(() => Ten$inboundSchema),
-    z.lazy(() => Eleven$inboundSchema),
-  ]);
-
-/** @internal */
-export type Fields$Outbound =
-  | One$Outbound
-  | Two$Outbound
-  | Three$Outbound
-  | Four$Outbound
-  | Five$Outbound
-  | Six$Outbound
-  | Seven$Outbound
-  | Eight$Outbound
-  | Nine$Outbound
-  | Ten$Outbound
-  | Eleven$Outbound;
-
-/** @internal */
-export const Fields$outboundSchema: z.ZodType<
-  Fields$Outbound,
+export const FieldMetaAccountNumber$inboundSchema: z.ZodType<
+  FieldMetaAccountNumber,
   z.ZodTypeDef,
-  Fields
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: TypeAccountNumber2$inboundSchema,
+  numberFormat: z.string().optional(),
+  value: z.string().optional(),
+  minValue: z.number().optional(),
+  maxValue: z.number().optional(),
+  fontSize: z.number().optional(),
+  textAlign: TextAlignAccountNumber$inboundSchema.optional(),
+});
+
+/** @internal */
+export type FieldMetaAccountNumber$Outbound = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: string;
+  numberFormat?: string | undefined;
+  value?: string | undefined;
+  minValue?: number | undefined;
+  maxValue?: number | undefined;
+  fontSize?: number | undefined;
+  textAlign?: string | undefined;
+};
+
+/** @internal */
+export const FieldMetaAccountNumber$outboundSchema: z.ZodType<
+  FieldMetaAccountNumber$Outbound,
+  z.ZodTypeDef,
+  FieldMetaAccountNumber
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: TypeAccountNumber2$outboundSchema,
+  numberFormat: z.string().optional(),
+  value: z.string().optional(),
+  minValue: z.number().optional(),
+  maxValue: z.number().optional(),
+  fontSize: z.number().optional(),
+  textAlign: TextAlignAccountNumber$outboundSchema.optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldMetaAccountNumber$ {
+  /** @deprecated use `FieldMetaAccountNumber$inboundSchema` instead. */
+  export const inboundSchema = FieldMetaAccountNumber$inboundSchema;
+  /** @deprecated use `FieldMetaAccountNumber$outboundSchema` instead. */
+  export const outboundSchema = FieldMetaAccountNumber$outboundSchema;
+  /** @deprecated use `FieldMetaAccountNumber$Outbound` instead. */
+  export type Outbound = FieldMetaAccountNumber$Outbound;
+}
+
+export function fieldMetaAccountNumberToJSON(
+  fieldMetaAccountNumber: FieldMetaAccountNumber,
+): string {
+  return JSON.stringify(
+    FieldMetaAccountNumber$outboundSchema.parse(fieldMetaAccountNumber),
+  );
+}
+
+export function fieldMetaAccountNumberFromJSON(
+  jsonString: string,
+): SafeParseResult<FieldMetaAccountNumber, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => FieldMetaAccountNumber$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldMetaAccountNumber' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldAccountNumber$inboundSchema: z.ZodType<
+  FieldAccountNumber,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: TypeAccountNumber1$inboundSchema,
+  fieldMeta: z.lazy(() => FieldMetaAccountNumber$inboundSchema).optional(),
+  pageNumber: z.number(),
+  pageX: z.number(),
+  pageY: z.number(),
+  width: z.number(),
+  height: z.number(),
+});
+
+/** @internal */
+export type FieldAccountNumber$Outbound = {
+  type: string;
+  fieldMeta?: FieldMetaAccountNumber$Outbound | undefined;
+  pageNumber: number;
+  pageX: number;
+  pageY: number;
+  width: number;
+  height: number;
+};
+
+/** @internal */
+export const FieldAccountNumber$outboundSchema: z.ZodType<
+  FieldAccountNumber$Outbound,
+  z.ZodTypeDef,
+  FieldAccountNumber
+> = z.object({
+  type: TypeAccountNumber1$outboundSchema,
+  fieldMeta: z.lazy(() => FieldMetaAccountNumber$outboundSchema).optional(),
+  pageNumber: z.number(),
+  pageX: z.number(),
+  pageY: z.number(),
+  width: z.number(),
+  height: z.number(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldAccountNumber$ {
+  /** @deprecated use `FieldAccountNumber$inboundSchema` instead. */
+  export const inboundSchema = FieldAccountNumber$inboundSchema;
+  /** @deprecated use `FieldAccountNumber$outboundSchema` instead. */
+  export const outboundSchema = FieldAccountNumber$outboundSchema;
+  /** @deprecated use `FieldAccountNumber$Outbound` instead. */
+  export type Outbound = FieldAccountNumber$Outbound;
+}
+
+export function fieldAccountNumberToJSON(
+  fieldAccountNumber: FieldAccountNumber,
+): string {
+  return JSON.stringify(
+    FieldAccountNumber$outboundSchema.parse(fieldAccountNumber),
+  );
+}
+
+export function fieldAccountNumberFromJSON(
+  jsonString: string,
+): SafeParseResult<FieldAccountNumber, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => FieldAccountNumber$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldAccountNumber' from JSON`,
+  );
+}
+
+/** @internal */
+export const TypeAccountText1$inboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountText1
+> = z.nativeEnum(TypeAccountText1);
+
+/** @internal */
+export const TypeAccountText1$outboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountText1
+> = TypeAccountText1$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TypeAccountText1$ {
+  /** @deprecated use `TypeAccountText1$inboundSchema` instead. */
+  export const inboundSchema = TypeAccountText1$inboundSchema;
+  /** @deprecated use `TypeAccountText1$outboundSchema` instead. */
+  export const outboundSchema = TypeAccountText1$outboundSchema;
+}
+
+/** @internal */
+export const TypeAccountText2$inboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountText2
+> = z.nativeEnum(TypeAccountText2);
+
+/** @internal */
+export const TypeAccountText2$outboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountText2
+> = TypeAccountText2$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TypeAccountText2$ {
+  /** @deprecated use `TypeAccountText2$inboundSchema` instead. */
+  export const inboundSchema = TypeAccountText2$inboundSchema;
+  /** @deprecated use `TypeAccountText2$outboundSchema` instead. */
+  export const outboundSchema = TypeAccountText2$outboundSchema;
+}
+
+/** @internal */
+export const TextAlignAccountText$inboundSchema: z.ZodNativeEnum<
+  typeof TextAlignAccountText
+> = z.nativeEnum(TextAlignAccountText);
+
+/** @internal */
+export const TextAlignAccountText$outboundSchema: z.ZodNativeEnum<
+  typeof TextAlignAccountText
+> = TextAlignAccountText$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TextAlignAccountText$ {
+  /** @deprecated use `TextAlignAccountText$inboundSchema` instead. */
+  export const inboundSchema = TextAlignAccountText$inboundSchema;
+  /** @deprecated use `TextAlignAccountText$outboundSchema` instead. */
+  export const outboundSchema = TextAlignAccountText$outboundSchema;
+}
+
+/** @internal */
+export const FieldMetaAccountText$inboundSchema: z.ZodType<
+  FieldMetaAccountText,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: TypeAccountText2$inboundSchema,
+  text: z.string().optional(),
+  characterLimit: z.number().optional(),
+  fontSize: z.number().optional(),
+  textAlign: TextAlignAccountText$inboundSchema.optional(),
+});
+
+/** @internal */
+export type FieldMetaAccountText$Outbound = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: string;
+  text?: string | undefined;
+  characterLimit?: number | undefined;
+  fontSize?: number | undefined;
+  textAlign?: string | undefined;
+};
+
+/** @internal */
+export const FieldMetaAccountText$outboundSchema: z.ZodType<
+  FieldMetaAccountText$Outbound,
+  z.ZodTypeDef,
+  FieldMetaAccountText
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: TypeAccountText2$outboundSchema,
+  text: z.string().optional(),
+  characterLimit: z.number().optional(),
+  fontSize: z.number().optional(),
+  textAlign: TextAlignAccountText$outboundSchema.optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldMetaAccountText$ {
+  /** @deprecated use `FieldMetaAccountText$inboundSchema` instead. */
+  export const inboundSchema = FieldMetaAccountText$inboundSchema;
+  /** @deprecated use `FieldMetaAccountText$outboundSchema` instead. */
+  export const outboundSchema = FieldMetaAccountText$outboundSchema;
+  /** @deprecated use `FieldMetaAccountText$Outbound` instead. */
+  export type Outbound = FieldMetaAccountText$Outbound;
+}
+
+export function fieldMetaAccountTextToJSON(
+  fieldMetaAccountText: FieldMetaAccountText,
+): string {
+  return JSON.stringify(
+    FieldMetaAccountText$outboundSchema.parse(fieldMetaAccountText),
+  );
+}
+
+export function fieldMetaAccountTextFromJSON(
+  jsonString: string,
+): SafeParseResult<FieldMetaAccountText, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => FieldMetaAccountText$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldMetaAccountText' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldAccountText$inboundSchema: z.ZodType<
+  FieldAccountText,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: TypeAccountText1$inboundSchema,
+  fieldMeta: z.lazy(() => FieldMetaAccountText$inboundSchema).optional(),
+  pageNumber: z.number(),
+  pageX: z.number(),
+  pageY: z.number(),
+  width: z.number(),
+  height: z.number(),
+});
+
+/** @internal */
+export type FieldAccountText$Outbound = {
+  type: string;
+  fieldMeta?: FieldMetaAccountText$Outbound | undefined;
+  pageNumber: number;
+  pageX: number;
+  pageY: number;
+  width: number;
+  height: number;
+};
+
+/** @internal */
+export const FieldAccountText$outboundSchema: z.ZodType<
+  FieldAccountText$Outbound,
+  z.ZodTypeDef,
+  FieldAccountText
+> = z.object({
+  type: TypeAccountText1$outboundSchema,
+  fieldMeta: z.lazy(() => FieldMetaAccountText$outboundSchema).optional(),
+  pageNumber: z.number(),
+  pageX: z.number(),
+  pageY: z.number(),
+  width: z.number(),
+  height: z.number(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldAccountText$ {
+  /** @deprecated use `FieldAccountText$inboundSchema` instead. */
+  export const inboundSchema = FieldAccountText$inboundSchema;
+  /** @deprecated use `FieldAccountText$outboundSchema` instead. */
+  export const outboundSchema = FieldAccountText$outboundSchema;
+  /** @deprecated use `FieldAccountText$Outbound` instead. */
+  export type Outbound = FieldAccountText$Outbound;
+}
+
+export function fieldAccountTextToJSON(
+  fieldAccountText: FieldAccountText,
+): string {
+  return JSON.stringify(
+    FieldAccountText$outboundSchema.parse(fieldAccountText),
+  );
+}
+
+export function fieldAccountTextFromJSON(
+  jsonString: string,
+): SafeParseResult<FieldAccountText, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => FieldAccountText$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldAccountText' from JSON`,
+  );
+}
+
+/** @internal */
+export const TypeAccountDate1$inboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountDate1
+> = z.nativeEnum(TypeAccountDate1);
+
+/** @internal */
+export const TypeAccountDate1$outboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountDate1
+> = TypeAccountDate1$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TypeAccountDate1$ {
+  /** @deprecated use `TypeAccountDate1$inboundSchema` instead. */
+  export const inboundSchema = TypeAccountDate1$inboundSchema;
+  /** @deprecated use `TypeAccountDate1$outboundSchema` instead. */
+  export const outboundSchema = TypeAccountDate1$outboundSchema;
+}
+
+/** @internal */
+export const TypeAccountDate2$inboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountDate2
+> = z.nativeEnum(TypeAccountDate2);
+
+/** @internal */
+export const TypeAccountDate2$outboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountDate2
+> = TypeAccountDate2$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TypeAccountDate2$ {
+  /** @deprecated use `TypeAccountDate2$inboundSchema` instead. */
+  export const inboundSchema = TypeAccountDate2$inboundSchema;
+  /** @deprecated use `TypeAccountDate2$outboundSchema` instead. */
+  export const outboundSchema = TypeAccountDate2$outboundSchema;
+}
+
+/** @internal */
+export const TextAlignAccountDate$inboundSchema: z.ZodNativeEnum<
+  typeof TextAlignAccountDate
+> = z.nativeEnum(TextAlignAccountDate);
+
+/** @internal */
+export const TextAlignAccountDate$outboundSchema: z.ZodNativeEnum<
+  typeof TextAlignAccountDate
+> = TextAlignAccountDate$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TextAlignAccountDate$ {
+  /** @deprecated use `TextAlignAccountDate$inboundSchema` instead. */
+  export const inboundSchema = TextAlignAccountDate$inboundSchema;
+  /** @deprecated use `TextAlignAccountDate$outboundSchema` instead. */
+  export const outboundSchema = TextAlignAccountDate$outboundSchema;
+}
+
+/** @internal */
+export const FieldMetaAccountDate$inboundSchema: z.ZodType<
+  FieldMetaAccountDate,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: TypeAccountDate2$inboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: TextAlignAccountDate$inboundSchema.optional(),
+});
+
+/** @internal */
+export type FieldMetaAccountDate$Outbound = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: string;
+  fontSize?: number | undefined;
+  textAlign?: string | undefined;
+};
+
+/** @internal */
+export const FieldMetaAccountDate$outboundSchema: z.ZodType<
+  FieldMetaAccountDate$Outbound,
+  z.ZodTypeDef,
+  FieldMetaAccountDate
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: TypeAccountDate2$outboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: TextAlignAccountDate$outboundSchema.optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldMetaAccountDate$ {
+  /** @deprecated use `FieldMetaAccountDate$inboundSchema` instead. */
+  export const inboundSchema = FieldMetaAccountDate$inboundSchema;
+  /** @deprecated use `FieldMetaAccountDate$outboundSchema` instead. */
+  export const outboundSchema = FieldMetaAccountDate$outboundSchema;
+  /** @deprecated use `FieldMetaAccountDate$Outbound` instead. */
+  export type Outbound = FieldMetaAccountDate$Outbound;
+}
+
+export function fieldMetaAccountDateToJSON(
+  fieldMetaAccountDate: FieldMetaAccountDate,
+): string {
+  return JSON.stringify(
+    FieldMetaAccountDate$outboundSchema.parse(fieldMetaAccountDate),
+  );
+}
+
+export function fieldMetaAccountDateFromJSON(
+  jsonString: string,
+): SafeParseResult<FieldMetaAccountDate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => FieldMetaAccountDate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldMetaAccountDate' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldAccountDate$inboundSchema: z.ZodType<
+  FieldAccountDate,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: TypeAccountDate1$inboundSchema,
+  fieldMeta: z.lazy(() => FieldMetaAccountDate$inboundSchema).optional(),
+  pageNumber: z.number(),
+  pageX: z.number(),
+  pageY: z.number(),
+  width: z.number(),
+  height: z.number(),
+});
+
+/** @internal */
+export type FieldAccountDate$Outbound = {
+  type: string;
+  fieldMeta?: FieldMetaAccountDate$Outbound | undefined;
+  pageNumber: number;
+  pageX: number;
+  pageY: number;
+  width: number;
+  height: number;
+};
+
+/** @internal */
+export const FieldAccountDate$outboundSchema: z.ZodType<
+  FieldAccountDate$Outbound,
+  z.ZodTypeDef,
+  FieldAccountDate
+> = z.object({
+  type: TypeAccountDate1$outboundSchema,
+  fieldMeta: z.lazy(() => FieldMetaAccountDate$outboundSchema).optional(),
+  pageNumber: z.number(),
+  pageX: z.number(),
+  pageY: z.number(),
+  width: z.number(),
+  height: z.number(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldAccountDate$ {
+  /** @deprecated use `FieldAccountDate$inboundSchema` instead. */
+  export const inboundSchema = FieldAccountDate$inboundSchema;
+  /** @deprecated use `FieldAccountDate$outboundSchema` instead. */
+  export const outboundSchema = FieldAccountDate$outboundSchema;
+  /** @deprecated use `FieldAccountDate$Outbound` instead. */
+  export type Outbound = FieldAccountDate$Outbound;
+}
+
+export function fieldAccountDateToJSON(
+  fieldAccountDate: FieldAccountDate,
+): string {
+  return JSON.stringify(
+    FieldAccountDate$outboundSchema.parse(fieldAccountDate),
+  );
+}
+
+export function fieldAccountDateFromJSON(
+  jsonString: string,
+): SafeParseResult<FieldAccountDate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => FieldAccountDate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldAccountDate' from JSON`,
+  );
+}
+
+/** @internal */
+export const TypeAccountEmail1$inboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountEmail1
+> = z.nativeEnum(TypeAccountEmail1);
+
+/** @internal */
+export const TypeAccountEmail1$outboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountEmail1
+> = TypeAccountEmail1$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TypeAccountEmail1$ {
+  /** @deprecated use `TypeAccountEmail1$inboundSchema` instead. */
+  export const inboundSchema = TypeAccountEmail1$inboundSchema;
+  /** @deprecated use `TypeAccountEmail1$outboundSchema` instead. */
+  export const outboundSchema = TypeAccountEmail1$outboundSchema;
+}
+
+/** @internal */
+export const TypeAccountEmail2$inboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountEmail2
+> = z.nativeEnum(TypeAccountEmail2);
+
+/** @internal */
+export const TypeAccountEmail2$outboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountEmail2
+> = TypeAccountEmail2$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TypeAccountEmail2$ {
+  /** @deprecated use `TypeAccountEmail2$inboundSchema` instead. */
+  export const inboundSchema = TypeAccountEmail2$inboundSchema;
+  /** @deprecated use `TypeAccountEmail2$outboundSchema` instead. */
+  export const outboundSchema = TypeAccountEmail2$outboundSchema;
+}
+
+/** @internal */
+export const TextAlignAccountEmail$inboundSchema: z.ZodNativeEnum<
+  typeof TextAlignAccountEmail
+> = z.nativeEnum(TextAlignAccountEmail);
+
+/** @internal */
+export const TextAlignAccountEmail$outboundSchema: z.ZodNativeEnum<
+  typeof TextAlignAccountEmail
+> = TextAlignAccountEmail$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TextAlignAccountEmail$ {
+  /** @deprecated use `TextAlignAccountEmail$inboundSchema` instead. */
+  export const inboundSchema = TextAlignAccountEmail$inboundSchema;
+  /** @deprecated use `TextAlignAccountEmail$outboundSchema` instead. */
+  export const outboundSchema = TextAlignAccountEmail$outboundSchema;
+}
+
+/** @internal */
+export const FieldMetaAccountEmail$inboundSchema: z.ZodType<
+  FieldMetaAccountEmail,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: TypeAccountEmail2$inboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: TextAlignAccountEmail$inboundSchema.optional(),
+});
+
+/** @internal */
+export type FieldMetaAccountEmail$Outbound = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: string;
+  fontSize?: number | undefined;
+  textAlign?: string | undefined;
+};
+
+/** @internal */
+export const FieldMetaAccountEmail$outboundSchema: z.ZodType<
+  FieldMetaAccountEmail$Outbound,
+  z.ZodTypeDef,
+  FieldMetaAccountEmail
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: TypeAccountEmail2$outboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: TextAlignAccountEmail$outboundSchema.optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldMetaAccountEmail$ {
+  /** @deprecated use `FieldMetaAccountEmail$inboundSchema` instead. */
+  export const inboundSchema = FieldMetaAccountEmail$inboundSchema;
+  /** @deprecated use `FieldMetaAccountEmail$outboundSchema` instead. */
+  export const outboundSchema = FieldMetaAccountEmail$outboundSchema;
+  /** @deprecated use `FieldMetaAccountEmail$Outbound` instead. */
+  export type Outbound = FieldMetaAccountEmail$Outbound;
+}
+
+export function fieldMetaAccountEmailToJSON(
+  fieldMetaAccountEmail: FieldMetaAccountEmail,
+): string {
+  return JSON.stringify(
+    FieldMetaAccountEmail$outboundSchema.parse(fieldMetaAccountEmail),
+  );
+}
+
+export function fieldMetaAccountEmailFromJSON(
+  jsonString: string,
+): SafeParseResult<FieldMetaAccountEmail, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => FieldMetaAccountEmail$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldMetaAccountEmail' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldAccountEmail$inboundSchema: z.ZodType<
+  FieldAccountEmail,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: TypeAccountEmail1$inboundSchema,
+  fieldMeta: z.lazy(() => FieldMetaAccountEmail$inboundSchema).optional(),
+  pageNumber: z.number(),
+  pageX: z.number(),
+  pageY: z.number(),
+  width: z.number(),
+  height: z.number(),
+});
+
+/** @internal */
+export type FieldAccountEmail$Outbound = {
+  type: string;
+  fieldMeta?: FieldMetaAccountEmail$Outbound | undefined;
+  pageNumber: number;
+  pageX: number;
+  pageY: number;
+  width: number;
+  height: number;
+};
+
+/** @internal */
+export const FieldAccountEmail$outboundSchema: z.ZodType<
+  FieldAccountEmail$Outbound,
+  z.ZodTypeDef,
+  FieldAccountEmail
+> = z.object({
+  type: TypeAccountEmail1$outboundSchema,
+  fieldMeta: z.lazy(() => FieldMetaAccountEmail$outboundSchema).optional(),
+  pageNumber: z.number(),
+  pageX: z.number(),
+  pageY: z.number(),
+  width: z.number(),
+  height: z.number(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldAccountEmail$ {
+  /** @deprecated use `FieldAccountEmail$inboundSchema` instead. */
+  export const inboundSchema = FieldAccountEmail$inboundSchema;
+  /** @deprecated use `FieldAccountEmail$outboundSchema` instead. */
+  export const outboundSchema = FieldAccountEmail$outboundSchema;
+  /** @deprecated use `FieldAccountEmail$Outbound` instead. */
+  export type Outbound = FieldAccountEmail$Outbound;
+}
+
+export function fieldAccountEmailToJSON(
+  fieldAccountEmail: FieldAccountEmail,
+): string {
+  return JSON.stringify(
+    FieldAccountEmail$outboundSchema.parse(fieldAccountEmail),
+  );
+}
+
+export function fieldAccountEmailFromJSON(
+  jsonString: string,
+): SafeParseResult<FieldAccountEmail, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => FieldAccountEmail$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldAccountEmail' from JSON`,
+  );
+}
+
+/** @internal */
+export const TypeAccountName1$inboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountName1
+> = z.nativeEnum(TypeAccountName1);
+
+/** @internal */
+export const TypeAccountName1$outboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountName1
+> = TypeAccountName1$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TypeAccountName1$ {
+  /** @deprecated use `TypeAccountName1$inboundSchema` instead. */
+  export const inboundSchema = TypeAccountName1$inboundSchema;
+  /** @deprecated use `TypeAccountName1$outboundSchema` instead. */
+  export const outboundSchema = TypeAccountName1$outboundSchema;
+}
+
+/** @internal */
+export const TypeAccountName2$inboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountName2
+> = z.nativeEnum(TypeAccountName2);
+
+/** @internal */
+export const TypeAccountName2$outboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountName2
+> = TypeAccountName2$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TypeAccountName2$ {
+  /** @deprecated use `TypeAccountName2$inboundSchema` instead. */
+  export const inboundSchema = TypeAccountName2$inboundSchema;
+  /** @deprecated use `TypeAccountName2$outboundSchema` instead. */
+  export const outboundSchema = TypeAccountName2$outboundSchema;
+}
+
+/** @internal */
+export const TextAlignAccountName$inboundSchema: z.ZodNativeEnum<
+  typeof TextAlignAccountName
+> = z.nativeEnum(TextAlignAccountName);
+
+/** @internal */
+export const TextAlignAccountName$outboundSchema: z.ZodNativeEnum<
+  typeof TextAlignAccountName
+> = TextAlignAccountName$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TextAlignAccountName$ {
+  /** @deprecated use `TextAlignAccountName$inboundSchema` instead. */
+  export const inboundSchema = TextAlignAccountName$inboundSchema;
+  /** @deprecated use `TextAlignAccountName$outboundSchema` instead. */
+  export const outboundSchema = TextAlignAccountName$outboundSchema;
+}
+
+/** @internal */
+export const FieldMetaAccountName$inboundSchema: z.ZodType<
+  FieldMetaAccountName,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: TypeAccountName2$inboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: TextAlignAccountName$inboundSchema.optional(),
+});
+
+/** @internal */
+export type FieldMetaAccountName$Outbound = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: string;
+  fontSize?: number | undefined;
+  textAlign?: string | undefined;
+};
+
+/** @internal */
+export const FieldMetaAccountName$outboundSchema: z.ZodType<
+  FieldMetaAccountName$Outbound,
+  z.ZodTypeDef,
+  FieldMetaAccountName
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: TypeAccountName2$outboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: TextAlignAccountName$outboundSchema.optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldMetaAccountName$ {
+  /** @deprecated use `FieldMetaAccountName$inboundSchema` instead. */
+  export const inboundSchema = FieldMetaAccountName$inboundSchema;
+  /** @deprecated use `FieldMetaAccountName$outboundSchema` instead. */
+  export const outboundSchema = FieldMetaAccountName$outboundSchema;
+  /** @deprecated use `FieldMetaAccountName$Outbound` instead. */
+  export type Outbound = FieldMetaAccountName$Outbound;
+}
+
+export function fieldMetaAccountNameToJSON(
+  fieldMetaAccountName: FieldMetaAccountName,
+): string {
+  return JSON.stringify(
+    FieldMetaAccountName$outboundSchema.parse(fieldMetaAccountName),
+  );
+}
+
+export function fieldMetaAccountNameFromJSON(
+  jsonString: string,
+): SafeParseResult<FieldMetaAccountName, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => FieldMetaAccountName$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldMetaAccountName' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldAccountName$inboundSchema: z.ZodType<
+  FieldAccountName,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: TypeAccountName1$inboundSchema,
+  fieldMeta: z.lazy(() => FieldMetaAccountName$inboundSchema).optional(),
+  pageNumber: z.number(),
+  pageX: z.number(),
+  pageY: z.number(),
+  width: z.number(),
+  height: z.number(),
+});
+
+/** @internal */
+export type FieldAccountName$Outbound = {
+  type: string;
+  fieldMeta?: FieldMetaAccountName$Outbound | undefined;
+  pageNumber: number;
+  pageX: number;
+  pageY: number;
+  width: number;
+  height: number;
+};
+
+/** @internal */
+export const FieldAccountName$outboundSchema: z.ZodType<
+  FieldAccountName$Outbound,
+  z.ZodTypeDef,
+  FieldAccountName
+> = z.object({
+  type: TypeAccountName1$outboundSchema,
+  fieldMeta: z.lazy(() => FieldMetaAccountName$outboundSchema).optional(),
+  pageNumber: z.number(),
+  pageX: z.number(),
+  pageY: z.number(),
+  width: z.number(),
+  height: z.number(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldAccountName$ {
+  /** @deprecated use `FieldAccountName$inboundSchema` instead. */
+  export const inboundSchema = FieldAccountName$inboundSchema;
+  /** @deprecated use `FieldAccountName$outboundSchema` instead. */
+  export const outboundSchema = FieldAccountName$outboundSchema;
+  /** @deprecated use `FieldAccountName$Outbound` instead. */
+  export type Outbound = FieldAccountName$Outbound;
+}
+
+export function fieldAccountNameToJSON(
+  fieldAccountName: FieldAccountName,
+): string {
+  return JSON.stringify(
+    FieldAccountName$outboundSchema.parse(fieldAccountName),
+  );
+}
+
+export function fieldAccountNameFromJSON(
+  jsonString: string,
+): SafeParseResult<FieldAccountName, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => FieldAccountName$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldAccountName' from JSON`,
+  );
+}
+
+/** @internal */
+export const TypeAccountInitials1$inboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountInitials1
+> = z.nativeEnum(TypeAccountInitials1);
+
+/** @internal */
+export const TypeAccountInitials1$outboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountInitials1
+> = TypeAccountInitials1$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TypeAccountInitials1$ {
+  /** @deprecated use `TypeAccountInitials1$inboundSchema` instead. */
+  export const inboundSchema = TypeAccountInitials1$inboundSchema;
+  /** @deprecated use `TypeAccountInitials1$outboundSchema` instead. */
+  export const outboundSchema = TypeAccountInitials1$outboundSchema;
+}
+
+/** @internal */
+export const TypeAccountInitials2$inboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountInitials2
+> = z.nativeEnum(TypeAccountInitials2);
+
+/** @internal */
+export const TypeAccountInitials2$outboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountInitials2
+> = TypeAccountInitials2$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TypeAccountInitials2$ {
+  /** @deprecated use `TypeAccountInitials2$inboundSchema` instead. */
+  export const inboundSchema = TypeAccountInitials2$inboundSchema;
+  /** @deprecated use `TypeAccountInitials2$outboundSchema` instead. */
+  export const outboundSchema = TypeAccountInitials2$outboundSchema;
+}
+
+/** @internal */
+export const TextAlignAccountInitials$inboundSchema: z.ZodNativeEnum<
+  typeof TextAlignAccountInitials
+> = z.nativeEnum(TextAlignAccountInitials);
+
+/** @internal */
+export const TextAlignAccountInitials$outboundSchema: z.ZodNativeEnum<
+  typeof TextAlignAccountInitials
+> = TextAlignAccountInitials$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TextAlignAccountInitials$ {
+  /** @deprecated use `TextAlignAccountInitials$inboundSchema` instead. */
+  export const inboundSchema = TextAlignAccountInitials$inboundSchema;
+  /** @deprecated use `TextAlignAccountInitials$outboundSchema` instead. */
+  export const outboundSchema = TextAlignAccountInitials$outboundSchema;
+}
+
+/** @internal */
+export const FieldMetaAccountInitials$inboundSchema: z.ZodType<
+  FieldMetaAccountInitials,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: TypeAccountInitials2$inboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: TextAlignAccountInitials$inboundSchema.optional(),
+});
+
+/** @internal */
+export type FieldMetaAccountInitials$Outbound = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: string;
+  fontSize?: number | undefined;
+  textAlign?: string | undefined;
+};
+
+/** @internal */
+export const FieldMetaAccountInitials$outboundSchema: z.ZodType<
+  FieldMetaAccountInitials$Outbound,
+  z.ZodTypeDef,
+  FieldMetaAccountInitials
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: TypeAccountInitials2$outboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: TextAlignAccountInitials$outboundSchema.optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldMetaAccountInitials$ {
+  /** @deprecated use `FieldMetaAccountInitials$inboundSchema` instead. */
+  export const inboundSchema = FieldMetaAccountInitials$inboundSchema;
+  /** @deprecated use `FieldMetaAccountInitials$outboundSchema` instead. */
+  export const outboundSchema = FieldMetaAccountInitials$outboundSchema;
+  /** @deprecated use `FieldMetaAccountInitials$Outbound` instead. */
+  export type Outbound = FieldMetaAccountInitials$Outbound;
+}
+
+export function fieldMetaAccountInitialsToJSON(
+  fieldMetaAccountInitials: FieldMetaAccountInitials,
+): string {
+  return JSON.stringify(
+    FieldMetaAccountInitials$outboundSchema.parse(fieldMetaAccountInitials),
+  );
+}
+
+export function fieldMetaAccountInitialsFromJSON(
+  jsonString: string,
+): SafeParseResult<FieldMetaAccountInitials, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => FieldMetaAccountInitials$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldMetaAccountInitials' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldAccountInitials$inboundSchema: z.ZodType<
+  FieldAccountInitials,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: TypeAccountInitials1$inboundSchema,
+  fieldMeta: z.lazy(() => FieldMetaAccountInitials$inboundSchema).optional(),
+  pageNumber: z.number(),
+  pageX: z.number(),
+  pageY: z.number(),
+  width: z.number(),
+  height: z.number(),
+});
+
+/** @internal */
+export type FieldAccountInitials$Outbound = {
+  type: string;
+  fieldMeta?: FieldMetaAccountInitials$Outbound | undefined;
+  pageNumber: number;
+  pageX: number;
+  pageY: number;
+  width: number;
+  height: number;
+};
+
+/** @internal */
+export const FieldAccountInitials$outboundSchema: z.ZodType<
+  FieldAccountInitials$Outbound,
+  z.ZodTypeDef,
+  FieldAccountInitials
+> = z.object({
+  type: TypeAccountInitials1$outboundSchema,
+  fieldMeta: z.lazy(() => FieldMetaAccountInitials$outboundSchema).optional(),
+  pageNumber: z.number(),
+  pageX: z.number(),
+  pageY: z.number(),
+  width: z.number(),
+  height: z.number(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldAccountInitials$ {
+  /** @deprecated use `FieldAccountInitials$inboundSchema` instead. */
+  export const inboundSchema = FieldAccountInitials$inboundSchema;
+  /** @deprecated use `FieldAccountInitials$outboundSchema` instead. */
+  export const outboundSchema = FieldAccountInitials$outboundSchema;
+  /** @deprecated use `FieldAccountInitials$Outbound` instead. */
+  export type Outbound = FieldAccountInitials$Outbound;
+}
+
+export function fieldAccountInitialsToJSON(
+  fieldAccountInitials: FieldAccountInitials,
+): string {
+  return JSON.stringify(
+    FieldAccountInitials$outboundSchema.parse(fieldAccountInitials),
+  );
+}
+
+export function fieldAccountInitialsFromJSON(
+  jsonString: string,
+): SafeParseResult<FieldAccountInitials, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => FieldAccountInitials$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldAccountInitials' from JSON`,
+  );
+}
+
+/** @internal */
+export const TypeAccountFreeSignature$inboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountFreeSignature
+> = z.nativeEnum(TypeAccountFreeSignature);
+
+/** @internal */
+export const TypeAccountFreeSignature$outboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountFreeSignature
+> = TypeAccountFreeSignature$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TypeAccountFreeSignature$ {
+  /** @deprecated use `TypeAccountFreeSignature$inboundSchema` instead. */
+  export const inboundSchema = TypeAccountFreeSignature$inboundSchema;
+  /** @deprecated use `TypeAccountFreeSignature$outboundSchema` instead. */
+  export const outboundSchema = TypeAccountFreeSignature$outboundSchema;
+}
+
+/** @internal */
+export const FieldAccountFreeSignature$inboundSchema: z.ZodType<
+  FieldAccountFreeSignature,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: TypeAccountFreeSignature$inboundSchema,
+  pageNumber: z.number(),
+  pageX: z.number(),
+  pageY: z.number(),
+  width: z.number(),
+  height: z.number(),
+});
+
+/** @internal */
+export type FieldAccountFreeSignature$Outbound = {
+  type: string;
+  pageNumber: number;
+  pageX: number;
+  pageY: number;
+  width: number;
+  height: number;
+};
+
+/** @internal */
+export const FieldAccountFreeSignature$outboundSchema: z.ZodType<
+  FieldAccountFreeSignature$Outbound,
+  z.ZodTypeDef,
+  FieldAccountFreeSignature
+> = z.object({
+  type: TypeAccountFreeSignature$outboundSchema,
+  pageNumber: z.number(),
+  pageX: z.number(),
+  pageY: z.number(),
+  width: z.number(),
+  height: z.number(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldAccountFreeSignature$ {
+  /** @deprecated use `FieldAccountFreeSignature$inboundSchema` instead. */
+  export const inboundSchema = FieldAccountFreeSignature$inboundSchema;
+  /** @deprecated use `FieldAccountFreeSignature$outboundSchema` instead. */
+  export const outboundSchema = FieldAccountFreeSignature$outboundSchema;
+  /** @deprecated use `FieldAccountFreeSignature$Outbound` instead. */
+  export type Outbound = FieldAccountFreeSignature$Outbound;
+}
+
+export function fieldAccountFreeSignatureToJSON(
+  fieldAccountFreeSignature: FieldAccountFreeSignature,
+): string {
+  return JSON.stringify(
+    FieldAccountFreeSignature$outboundSchema.parse(fieldAccountFreeSignature),
+  );
+}
+
+export function fieldAccountFreeSignatureFromJSON(
+  jsonString: string,
+): SafeParseResult<FieldAccountFreeSignature, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => FieldAccountFreeSignature$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldAccountFreeSignature' from JSON`,
+  );
+}
+
+/** @internal */
+export const TypeAccountSignature$inboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountSignature
+> = z.nativeEnum(TypeAccountSignature);
+
+/** @internal */
+export const TypeAccountSignature$outboundSchema: z.ZodNativeEnum<
+  typeof TypeAccountSignature
+> = TypeAccountSignature$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TypeAccountSignature$ {
+  /** @deprecated use `TypeAccountSignature$inboundSchema` instead. */
+  export const inboundSchema = TypeAccountSignature$inboundSchema;
+  /** @deprecated use `TypeAccountSignature$outboundSchema` instead. */
+  export const outboundSchema = TypeAccountSignature$outboundSchema;
+}
+
+/** @internal */
+export const FieldAccountSignature$inboundSchema: z.ZodType<
+  FieldAccountSignature,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: TypeAccountSignature$inboundSchema,
+  pageNumber: z.number(),
+  pageX: z.number(),
+  pageY: z.number(),
+  width: z.number(),
+  height: z.number(),
+});
+
+/** @internal */
+export type FieldAccountSignature$Outbound = {
+  type: string;
+  pageNumber: number;
+  pageX: number;
+  pageY: number;
+  width: number;
+  height: number;
+};
+
+/** @internal */
+export const FieldAccountSignature$outboundSchema: z.ZodType<
+  FieldAccountSignature$Outbound,
+  z.ZodTypeDef,
+  FieldAccountSignature
+> = z.object({
+  type: TypeAccountSignature$outboundSchema,
+  pageNumber: z.number(),
+  pageX: z.number(),
+  pageY: z.number(),
+  width: z.number(),
+  height: z.number(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldAccountSignature$ {
+  /** @deprecated use `FieldAccountSignature$inboundSchema` instead. */
+  export const inboundSchema = FieldAccountSignature$inboundSchema;
+  /** @deprecated use `FieldAccountSignature$outboundSchema` instead. */
+  export const outboundSchema = FieldAccountSignature$outboundSchema;
+  /** @deprecated use `FieldAccountSignature$Outbound` instead. */
+  export type Outbound = FieldAccountSignature$Outbound;
+}
+
+export function fieldAccountSignatureToJSON(
+  fieldAccountSignature: FieldAccountSignature,
+): string {
+  return JSON.stringify(
+    FieldAccountSignature$outboundSchema.parse(fieldAccountSignature),
+  );
+}
+
+export function fieldAccountSignatureFromJSON(
+  jsonString: string,
+): SafeParseResult<FieldAccountSignature, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => FieldAccountSignature$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldAccountSignature' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldAccountUnion$inboundSchema: z.ZodType<
+  FieldAccountUnion,
+  z.ZodTypeDef,
+  unknown
 > = z.union([
-  z.lazy(() => One$outboundSchema),
-  z.lazy(() => Two$outboundSchema),
-  z.lazy(() => Three$outboundSchema),
-  z.lazy(() => Four$outboundSchema),
-  z.lazy(() => Five$outboundSchema),
-  z.lazy(() => Six$outboundSchema),
-  z.lazy(() => Seven$outboundSchema),
-  z.lazy(() => Eight$outboundSchema),
-  z.lazy(() => Nine$outboundSchema),
-  z.lazy(() => Ten$outboundSchema),
-  z.lazy(() => Eleven$outboundSchema),
+  z.lazy(() => FieldAccountSignature$inboundSchema),
+  z.lazy(() => FieldAccountFreeSignature$inboundSchema),
+  z.lazy(() => FieldAccountInitials$inboundSchema),
+  z.lazy(() => FieldAccountName$inboundSchema),
+  z.lazy(() => FieldAccountEmail$inboundSchema),
+  z.lazy(() => FieldAccountDate$inboundSchema),
+  z.lazy(() => FieldAccountText$inboundSchema),
+  z.lazy(() => FieldAccountNumber$inboundSchema),
+  z.lazy(() => FieldAccountRadio$inboundSchema),
+  z.lazy(() => FieldAccountCheckbox$inboundSchema),
+  z.lazy(() => FieldAccountDropdown$inboundSchema),
+]);
+
+/** @internal */
+export type FieldAccountUnion$Outbound =
+  | FieldAccountSignature$Outbound
+  | FieldAccountFreeSignature$Outbound
+  | FieldAccountInitials$Outbound
+  | FieldAccountName$Outbound
+  | FieldAccountEmail$Outbound
+  | FieldAccountDate$Outbound
+  | FieldAccountText$Outbound
+  | FieldAccountNumber$Outbound
+  | FieldAccountRadio$Outbound
+  | FieldAccountCheckbox$Outbound
+  | FieldAccountDropdown$Outbound;
+
+/** @internal */
+export const FieldAccountUnion$outboundSchema: z.ZodType<
+  FieldAccountUnion$Outbound,
+  z.ZodTypeDef,
+  FieldAccountUnion
+> = z.union([
+  z.lazy(() => FieldAccountSignature$outboundSchema),
+  z.lazy(() => FieldAccountFreeSignature$outboundSchema),
+  z.lazy(() => FieldAccountInitials$outboundSchema),
+  z.lazy(() => FieldAccountName$outboundSchema),
+  z.lazy(() => FieldAccountEmail$outboundSchema),
+  z.lazy(() => FieldAccountDate$outboundSchema),
+  z.lazy(() => FieldAccountText$outboundSchema),
+  z.lazy(() => FieldAccountNumber$outboundSchema),
+  z.lazy(() => FieldAccountRadio$outboundSchema),
+  z.lazy(() => FieldAccountCheckbox$outboundSchema),
+  z.lazy(() => FieldAccountDropdown$outboundSchema),
 ]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Fields$ {
-  /** @deprecated use `Fields$inboundSchema` instead. */
-  export const inboundSchema = Fields$inboundSchema;
-  /** @deprecated use `Fields$outboundSchema` instead. */
-  export const outboundSchema = Fields$outboundSchema;
-  /** @deprecated use `Fields$Outbound` instead. */
-  export type Outbound = Fields$Outbound;
+export namespace FieldAccountUnion$ {
+  /** @deprecated use `FieldAccountUnion$inboundSchema` instead. */
+  export const inboundSchema = FieldAccountUnion$inboundSchema;
+  /** @deprecated use `FieldAccountUnion$outboundSchema` instead. */
+  export const outboundSchema = FieldAccountUnion$outboundSchema;
+  /** @deprecated use `FieldAccountUnion$Outbound` instead. */
+  export type Outbound = FieldAccountUnion$Outbound;
 }
 
-export function fieldsToJSON(fields: Fields): string {
-  return JSON.stringify(Fields$outboundSchema.parse(fields));
+export function fieldAccountUnionToJSON(
+  fieldAccountUnion: FieldAccountUnion,
+): string {
+  return JSON.stringify(
+    FieldAccountUnion$outboundSchema.parse(fieldAccountUnion),
+  );
 }
 
-export function fieldsFromJSON(
+export function fieldAccountUnionFromJSON(
   jsonString: string,
-): SafeParseResult<Fields, SDKValidationError> {
+): SafeParseResult<FieldAccountUnion, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Fields$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Fields' from JSON`,
+    (x) => FieldAccountUnion$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldAccountUnion' from JSON`,
   );
 }
 
 /** @internal */
-export const Recipients$inboundSchema: z.ZodType<
-  Recipients,
+export const RecipientAccount$inboundSchema: z.ZodType<
+  RecipientAccount,
   z.ZodTypeDef,
   unknown
 > = z.object({
   email: z.string(),
   name: z.string(),
-  role: Role$inboundSchema,
+  role: RoleAccount$inboundSchema,
   signingOrder: z.number().optional(),
-  accessAuth: z.nullable(AccessAuth$inboundSchema).optional(),
-  actionAuth: z.nullable(ActionAuth$inboundSchema).optional(),
+  accessAuth: z.nullable(
+    DocumentCreateDocumentTemporaryAccessAuthRequest$inboundSchema,
+  ).optional(),
+  actionAuth: z.nullable(ActionAuthAccount$inboundSchema).optional(),
   fields: z.array(
     z.union([
-      z.lazy(() => One$inboundSchema),
-      z.lazy(() => Two$inboundSchema),
-      z.lazy(() => Three$inboundSchema),
-      z.lazy(() => Four$inboundSchema),
-      z.lazy(() => Five$inboundSchema),
-      z.lazy(() => Six$inboundSchema),
-      z.lazy(() => Seven$inboundSchema),
-      z.lazy(() => Eight$inboundSchema),
-      z.lazy(() => Nine$inboundSchema),
-      z.lazy(() => Ten$inboundSchema),
-      z.lazy(() => Eleven$inboundSchema),
+      z.lazy(() => FieldAccountSignature$inboundSchema),
+      z.lazy(() => FieldAccountFreeSignature$inboundSchema),
+      z.lazy(() => FieldAccountInitials$inboundSchema),
+      z.lazy(() => FieldAccountName$inboundSchema),
+      z.lazy(() => FieldAccountEmail$inboundSchema),
+      z.lazy(() => FieldAccountDate$inboundSchema),
+      z.lazy(() => FieldAccountText$inboundSchema),
+      z.lazy(() => FieldAccountNumber$inboundSchema),
+      z.lazy(() => FieldAccountRadio$inboundSchema),
+      z.lazy(() => FieldAccountCheckbox$inboundSchema),
+      z.lazy(() => FieldAccountDropdown$inboundSchema),
     ]),
   ).optional(),
 });
 
 /** @internal */
-export type Recipients$Outbound = {
+export type RecipientAccount$Outbound = {
   email: string;
   name: string;
   role: string;
@@ -3872,46 +3836,48 @@ export type Recipients$Outbound = {
   actionAuth?: string | null | undefined;
   fields?:
     | Array<
-      | One$Outbound
-      | Two$Outbound
-      | Three$Outbound
-      | Four$Outbound
-      | Five$Outbound
-      | Six$Outbound
-      | Seven$Outbound
-      | Eight$Outbound
-      | Nine$Outbound
-      | Ten$Outbound
-      | Eleven$Outbound
+      | FieldAccountSignature$Outbound
+      | FieldAccountFreeSignature$Outbound
+      | FieldAccountInitials$Outbound
+      | FieldAccountName$Outbound
+      | FieldAccountEmail$Outbound
+      | FieldAccountDate$Outbound
+      | FieldAccountText$Outbound
+      | FieldAccountNumber$Outbound
+      | FieldAccountRadio$Outbound
+      | FieldAccountCheckbox$Outbound
+      | FieldAccountDropdown$Outbound
     >
     | undefined;
 };
 
 /** @internal */
-export const Recipients$outboundSchema: z.ZodType<
-  Recipients$Outbound,
+export const RecipientAccount$outboundSchema: z.ZodType<
+  RecipientAccount$Outbound,
   z.ZodTypeDef,
-  Recipients
+  RecipientAccount
 > = z.object({
   email: z.string(),
   name: z.string(),
-  role: Role$outboundSchema,
+  role: RoleAccount$outboundSchema,
   signingOrder: z.number().optional(),
-  accessAuth: z.nullable(AccessAuth$outboundSchema).optional(),
-  actionAuth: z.nullable(ActionAuth$outboundSchema).optional(),
+  accessAuth: z.nullable(
+    DocumentCreateDocumentTemporaryAccessAuthRequest$outboundSchema,
+  ).optional(),
+  actionAuth: z.nullable(ActionAuthAccount$outboundSchema).optional(),
   fields: z.array(
     z.union([
-      z.lazy(() => One$outboundSchema),
-      z.lazy(() => Two$outboundSchema),
-      z.lazy(() => Three$outboundSchema),
-      z.lazy(() => Four$outboundSchema),
-      z.lazy(() => Five$outboundSchema),
-      z.lazy(() => Six$outboundSchema),
-      z.lazy(() => Seven$outboundSchema),
-      z.lazy(() => Eight$outboundSchema),
-      z.lazy(() => Nine$outboundSchema),
-      z.lazy(() => Ten$outboundSchema),
-      z.lazy(() => Eleven$outboundSchema),
+      z.lazy(() => FieldAccountSignature$outboundSchema),
+      z.lazy(() => FieldAccountFreeSignature$outboundSchema),
+      z.lazy(() => FieldAccountInitials$outboundSchema),
+      z.lazy(() => FieldAccountName$outboundSchema),
+      z.lazy(() => FieldAccountEmail$outboundSchema),
+      z.lazy(() => FieldAccountDate$outboundSchema),
+      z.lazy(() => FieldAccountText$outboundSchema),
+      z.lazy(() => FieldAccountNumber$outboundSchema),
+      z.lazy(() => FieldAccountRadio$outboundSchema),
+      z.lazy(() => FieldAccountCheckbox$outboundSchema),
+      z.lazy(() => FieldAccountDropdown$outboundSchema),
     ]),
   ).optional(),
 });
@@ -3920,110 +3886,124 @@ export const Recipients$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Recipients$ {
-  /** @deprecated use `Recipients$inboundSchema` instead. */
-  export const inboundSchema = Recipients$inboundSchema;
-  /** @deprecated use `Recipients$outboundSchema` instead. */
-  export const outboundSchema = Recipients$outboundSchema;
-  /** @deprecated use `Recipients$Outbound` instead. */
-  export type Outbound = Recipients$Outbound;
+export namespace RecipientAccount$ {
+  /** @deprecated use `RecipientAccount$inboundSchema` instead. */
+  export const inboundSchema = RecipientAccount$inboundSchema;
+  /** @deprecated use `RecipientAccount$outboundSchema` instead. */
+  export const outboundSchema = RecipientAccount$outboundSchema;
+  /** @deprecated use `RecipientAccount$Outbound` instead. */
+  export type Outbound = RecipientAccount$Outbound;
 }
 
-export function recipientsToJSON(recipients: Recipients): string {
-  return JSON.stringify(Recipients$outboundSchema.parse(recipients));
+export function recipientAccountToJSON(
+  recipientAccount: RecipientAccount,
+): string {
+  return JSON.stringify(
+    RecipientAccount$outboundSchema.parse(recipientAccount),
+  );
 }
 
-export function recipientsFromJSON(
+export function recipientAccountFromJSON(
   jsonString: string,
-): SafeParseResult<Recipients, SDKValidationError> {
+): SafeParseResult<RecipientAccount, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Recipients$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Recipients' from JSON`,
+    (x) => RecipientAccount$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RecipientAccount' from JSON`,
   );
 }
 
 /** @internal */
-export const DateFormat$inboundSchema: z.ZodNativeEnum<typeof DateFormat> = z
-  .nativeEnum(DateFormat);
+export const DocumentCreateDocumentTemporaryDateFormat$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryDateFormat> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryDateFormat);
 
 /** @internal */
-export const DateFormat$outboundSchema: z.ZodNativeEnum<typeof DateFormat> =
-  DateFormat$inboundSchema;
+export const DocumentCreateDocumentTemporaryDateFormat$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryDateFormat> =
+    DocumentCreateDocumentTemporaryDateFormat$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DateFormat$ {
-  /** @deprecated use `DateFormat$inboundSchema` instead. */
-  export const inboundSchema = DateFormat$inboundSchema;
-  /** @deprecated use `DateFormat$outboundSchema` instead. */
-  export const outboundSchema = DateFormat$outboundSchema;
+export namespace DocumentCreateDocumentTemporaryDateFormat$ {
+  /** @deprecated use `DocumentCreateDocumentTemporaryDateFormat$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentCreateDocumentTemporaryDateFormat$inboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryDateFormat$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentCreateDocumentTemporaryDateFormat$outboundSchema;
 }
 
 /** @internal */
-export const DistributionMethod$inboundSchema: z.ZodNativeEnum<
-  typeof DistributionMethod
-> = z.nativeEnum(DistributionMethod);
+export const DistributionMethodAccount$inboundSchema: z.ZodNativeEnum<
+  typeof DistributionMethodAccount
+> = z.nativeEnum(DistributionMethodAccount);
 
 /** @internal */
-export const DistributionMethod$outboundSchema: z.ZodNativeEnum<
-  typeof DistributionMethod
-> = DistributionMethod$inboundSchema;
+export const DistributionMethodAccount$outboundSchema: z.ZodNativeEnum<
+  typeof DistributionMethodAccount
+> = DistributionMethodAccount$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DistributionMethod$ {
-  /** @deprecated use `DistributionMethod$inboundSchema` instead. */
-  export const inboundSchema = DistributionMethod$inboundSchema;
-  /** @deprecated use `DistributionMethod$outboundSchema` instead. */
-  export const outboundSchema = DistributionMethod$outboundSchema;
+export namespace DistributionMethodAccount$ {
+  /** @deprecated use `DistributionMethodAccount$inboundSchema` instead. */
+  export const inboundSchema = DistributionMethodAccount$inboundSchema;
+  /** @deprecated use `DistributionMethodAccount$outboundSchema` instead. */
+  export const outboundSchema = DistributionMethodAccount$outboundSchema;
 }
 
 /** @internal */
-export const SigningOrder$inboundSchema: z.ZodNativeEnum<typeof SigningOrder> =
-  z.nativeEnum(SigningOrder);
+export const SigningOrderAccount$inboundSchema: z.ZodNativeEnum<
+  typeof SigningOrderAccount
+> = z.nativeEnum(SigningOrderAccount);
 
 /** @internal */
-export const SigningOrder$outboundSchema: z.ZodNativeEnum<typeof SigningOrder> =
-  SigningOrder$inboundSchema;
+export const SigningOrderAccount$outboundSchema: z.ZodNativeEnum<
+  typeof SigningOrderAccount
+> = SigningOrderAccount$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace SigningOrder$ {
-  /** @deprecated use `SigningOrder$inboundSchema` instead. */
-  export const inboundSchema = SigningOrder$inboundSchema;
-  /** @deprecated use `SigningOrder$outboundSchema` instead. */
-  export const outboundSchema = SigningOrder$outboundSchema;
+export namespace SigningOrderAccount$ {
+  /** @deprecated use `SigningOrderAccount$inboundSchema` instead. */
+  export const inboundSchema = SigningOrderAccount$inboundSchema;
+  /** @deprecated use `SigningOrderAccount$outboundSchema` instead. */
+  export const outboundSchema = SigningOrderAccount$outboundSchema;
 }
 
 /** @internal */
-export const Language$inboundSchema: z.ZodNativeEnum<typeof Language> = z
-  .nativeEnum(Language);
+export const DocumentCreateDocumentTemporaryLanguage$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryLanguage> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryLanguage);
 
 /** @internal */
-export const Language$outboundSchema: z.ZodNativeEnum<typeof Language> =
-  Language$inboundSchema;
+export const DocumentCreateDocumentTemporaryLanguage$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryLanguage> =
+    DocumentCreateDocumentTemporaryLanguage$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Language$ {
-  /** @deprecated use `Language$inboundSchema` instead. */
-  export const inboundSchema = Language$inboundSchema;
-  /** @deprecated use `Language$outboundSchema` instead. */
-  export const outboundSchema = Language$outboundSchema;
+export namespace DocumentCreateDocumentTemporaryLanguage$ {
+  /** @deprecated use `DocumentCreateDocumentTemporaryLanguage$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentCreateDocumentTemporaryLanguage$inboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryLanguage$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentCreateDocumentTemporaryLanguage$outboundSchema;
 }
 
 /** @internal */
-export const EmailSettings$inboundSchema: z.ZodType<
-  EmailSettings,
+export const EmailSettingsAccount$inboundSchema: z.ZodType<
+  EmailSettingsAccount,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -4037,7 +4017,7 @@ export const EmailSettings$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type EmailSettings$Outbound = {
+export type EmailSettingsAccount$Outbound = {
   recipientSigningRequest: boolean;
   recipientRemoved: boolean;
   recipientSigned: boolean;
@@ -4048,10 +4028,10 @@ export type EmailSettings$Outbound = {
 };
 
 /** @internal */
-export const EmailSettings$outboundSchema: z.ZodType<
-  EmailSettings$Outbound,
+export const EmailSettingsAccount$outboundSchema: z.ZodType<
+  EmailSettingsAccount$Outbound,
   z.ZodTypeDef,
-  EmailSettings
+  EmailSettingsAccount
 > = z.object({
   recipientSigningRequest: z.boolean().default(true),
   recipientRemoved: z.boolean().default(true),
@@ -4066,46 +4046,56 @@ export const EmailSettings$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace EmailSettings$ {
-  /** @deprecated use `EmailSettings$inboundSchema` instead. */
-  export const inboundSchema = EmailSettings$inboundSchema;
-  /** @deprecated use `EmailSettings$outboundSchema` instead. */
-  export const outboundSchema = EmailSettings$outboundSchema;
-  /** @deprecated use `EmailSettings$Outbound` instead. */
-  export type Outbound = EmailSettings$Outbound;
+export namespace EmailSettingsAccount$ {
+  /** @deprecated use `EmailSettingsAccount$inboundSchema` instead. */
+  export const inboundSchema = EmailSettingsAccount$inboundSchema;
+  /** @deprecated use `EmailSettingsAccount$outboundSchema` instead. */
+  export const outboundSchema = EmailSettingsAccount$outboundSchema;
+  /** @deprecated use `EmailSettingsAccount$Outbound` instead. */
+  export type Outbound = EmailSettingsAccount$Outbound;
 }
 
-export function emailSettingsToJSON(emailSettings: EmailSettings): string {
-  return JSON.stringify(EmailSettings$outboundSchema.parse(emailSettings));
+export function emailSettingsAccountToJSON(
+  emailSettingsAccount: EmailSettingsAccount,
+): string {
+  return JSON.stringify(
+    EmailSettingsAccount$outboundSchema.parse(emailSettingsAccount),
+  );
 }
 
-export function emailSettingsFromJSON(
+export function emailSettingsAccountFromJSON(
   jsonString: string,
-): SafeParseResult<EmailSettings, SDKValidationError> {
+): SafeParseResult<EmailSettingsAccount, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => EmailSettings$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EmailSettings' from JSON`,
+    (x) => EmailSettingsAccount$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EmailSettingsAccount' from JSON`,
   );
 }
 
 /** @internal */
-export const Meta$inboundSchema: z.ZodType<Meta, z.ZodTypeDef, unknown> = z
-  .object({
-    subject: z.string().optional(),
-    message: z.string().optional(),
-    timezone: z.string().optional(),
-    dateFormat: DateFormat$inboundSchema.optional(),
-    distributionMethod: DistributionMethod$inboundSchema.optional(),
-    signingOrder: SigningOrder$inboundSchema.optional(),
-    redirectUrl: z.string().optional(),
-    language: Language$inboundSchema.optional(),
-    typedSignatureEnabled: z.boolean().optional(),
-    emailSettings: z.lazy(() => EmailSettings$inboundSchema).optional(),
-  });
+export const DocumentCreateDocumentTemporaryMeta$inboundSchema: z.ZodType<
+  DocumentCreateDocumentTemporaryMeta,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  subject: z.string().optional(),
+  message: z.string().optional(),
+  timezone: z.string().optional(),
+  dateFormat: DocumentCreateDocumentTemporaryDateFormat$inboundSchema
+    .optional(),
+  distributionMethod: DistributionMethodAccount$inboundSchema.optional(),
+  signingOrder: SigningOrderAccount$inboundSchema.optional(),
+  redirectUrl: z.string().optional(),
+  language: DocumentCreateDocumentTemporaryLanguage$inboundSchema.optional(),
+  typedSignatureEnabled: z.boolean().optional(),
+  drawSignatureEnabled: z.boolean().optional(),
+  uploadSignatureEnabled: z.boolean().optional(),
+  emailSettings: z.lazy(() => EmailSettingsAccount$inboundSchema).optional(),
+});
 
 /** @internal */
-export type Meta$Outbound = {
+export type DocumentCreateDocumentTemporaryMeta$Outbound = {
   subject?: string | undefined;
   message?: string | undefined;
   timezone?: string | undefined;
@@ -4115,159 +4105,176 @@ export type Meta$Outbound = {
   redirectUrl?: string | undefined;
   language?: string | undefined;
   typedSignatureEnabled?: boolean | undefined;
-  emailSettings?: EmailSettings$Outbound | undefined;
+  drawSignatureEnabled?: boolean | undefined;
+  uploadSignatureEnabled?: boolean | undefined;
+  emailSettings?: EmailSettingsAccount$Outbound | undefined;
 };
 
 /** @internal */
-export const Meta$outboundSchema: z.ZodType<Meta$Outbound, z.ZodTypeDef, Meta> =
-  z.object({
-    subject: z.string().optional(),
-    message: z.string().optional(),
-    timezone: z.string().optional(),
-    dateFormat: DateFormat$outboundSchema.optional(),
-    distributionMethod: DistributionMethod$outboundSchema.optional(),
-    signingOrder: SigningOrder$outboundSchema.optional(),
-    redirectUrl: z.string().optional(),
-    language: Language$outboundSchema.optional(),
-    typedSignatureEnabled: z.boolean().optional(),
-    emailSettings: z.lazy(() => EmailSettings$outboundSchema).optional(),
-  });
+export const DocumentCreateDocumentTemporaryMeta$outboundSchema: z.ZodType<
+  DocumentCreateDocumentTemporaryMeta$Outbound,
+  z.ZodTypeDef,
+  DocumentCreateDocumentTemporaryMeta
+> = z.object({
+  subject: z.string().optional(),
+  message: z.string().optional(),
+  timezone: z.string().optional(),
+  dateFormat: DocumentCreateDocumentTemporaryDateFormat$outboundSchema
+    .optional(),
+  distributionMethod: DistributionMethodAccount$outboundSchema.optional(),
+  signingOrder: SigningOrderAccount$outboundSchema.optional(),
+  redirectUrl: z.string().optional(),
+  language: DocumentCreateDocumentTemporaryLanguage$outboundSchema.optional(),
+  typedSignatureEnabled: z.boolean().optional(),
+  drawSignatureEnabled: z.boolean().optional(),
+  uploadSignatureEnabled: z.boolean().optional(),
+  emailSettings: z.lazy(() => EmailSettingsAccount$outboundSchema).optional(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Meta$ {
-  /** @deprecated use `Meta$inboundSchema` instead. */
-  export const inboundSchema = Meta$inboundSchema;
-  /** @deprecated use `Meta$outboundSchema` instead. */
-  export const outboundSchema = Meta$outboundSchema;
-  /** @deprecated use `Meta$Outbound` instead. */
-  export type Outbound = Meta$Outbound;
+export namespace DocumentCreateDocumentTemporaryMeta$ {
+  /** @deprecated use `DocumentCreateDocumentTemporaryMeta$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentCreateDocumentTemporaryMeta$inboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryMeta$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentCreateDocumentTemporaryMeta$outboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryMeta$Outbound` instead. */
+  export type Outbound = DocumentCreateDocumentTemporaryMeta$Outbound;
 }
 
-export function metaToJSON(meta: Meta): string {
-  return JSON.stringify(Meta$outboundSchema.parse(meta));
+export function documentCreateDocumentTemporaryMetaToJSON(
+  documentCreateDocumentTemporaryMeta: DocumentCreateDocumentTemporaryMeta,
+): string {
+  return JSON.stringify(
+    DocumentCreateDocumentTemporaryMeta$outboundSchema.parse(
+      documentCreateDocumentTemporaryMeta,
+    ),
+  );
 }
 
-export function metaFromJSON(
+export function documentCreateDocumentTemporaryMetaFromJSON(
   jsonString: string,
-): SafeParseResult<Meta, SDKValidationError> {
+): SafeParseResult<DocumentCreateDocumentTemporaryMeta, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Meta$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Meta' from JSON`,
+    (x) =>
+      DocumentCreateDocumentTemporaryMeta$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentCreateDocumentTemporaryMeta' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryRequestBody$inboundSchema:
-  z.ZodType<DocumentCreateDocumentTemporaryRequestBody, z.ZodTypeDef, unknown> =
-    z.object({
-      title: z.string(),
-      externalId: z.string().optional(),
-      visibility: Visibility$inboundSchema.optional(),
-      globalAccessAuth: GlobalAccessAuth$inboundSchema.optional(),
-      globalActionAuth: GlobalActionAuth$inboundSchema.optional(),
-      formValues: z.record(z.union([z.string(), z.boolean(), z.number()]))
-        .optional(),
-      recipients: z.array(z.lazy(() => Recipients$inboundSchema)).optional(),
-      meta: z.lazy(() => Meta$inboundSchema).optional(),
-    });
+export const DocumentCreateDocumentTemporaryRequest$inboundSchema: z.ZodType<
+  DocumentCreateDocumentTemporaryRequest,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  title: z.string(),
+  externalId: z.string().optional(),
+  visibility: VisibilityAccount$inboundSchema.optional(),
+  globalAccessAuth:
+    DocumentCreateDocumentTemporaryGlobalAccessAuthRequest$inboundSchema
+      .optional(),
+  globalActionAuth: GlobalActionAuthAccount$inboundSchema.optional(),
+  formValues: z.record(z.union([z.string(), z.boolean(), z.number()]))
+    .optional(),
+  recipients: z.array(z.lazy(() => RecipientAccount$inboundSchema)).optional(),
+  meta: z.lazy(() => DocumentCreateDocumentTemporaryMeta$inboundSchema)
+    .optional(),
+});
 
 /** @internal */
-export type DocumentCreateDocumentTemporaryRequestBody$Outbound = {
+export type DocumentCreateDocumentTemporaryRequest$Outbound = {
   title: string;
   externalId?: string | undefined;
   visibility?: string | undefined;
   globalAccessAuth?: string | undefined;
   globalActionAuth?: string | undefined;
   formValues?: { [k: string]: string | boolean | number } | undefined;
-  recipients?: Array<Recipients$Outbound> | undefined;
-  meta?: Meta$Outbound | undefined;
+  recipients?: Array<RecipientAccount$Outbound> | undefined;
+  meta?: DocumentCreateDocumentTemporaryMeta$Outbound | undefined;
 };
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryRequestBody$outboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryRequestBody$Outbound,
-    z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryRequestBody
-  > = z.object({
-    title: z.string(),
-    externalId: z.string().optional(),
-    visibility: Visibility$outboundSchema.optional(),
-    globalAccessAuth: GlobalAccessAuth$outboundSchema.optional(),
-    globalActionAuth: GlobalActionAuth$outboundSchema.optional(),
-    formValues: z.record(z.union([z.string(), z.boolean(), z.number()]))
+export const DocumentCreateDocumentTemporaryRequest$outboundSchema: z.ZodType<
+  DocumentCreateDocumentTemporaryRequest$Outbound,
+  z.ZodTypeDef,
+  DocumentCreateDocumentTemporaryRequest
+> = z.object({
+  title: z.string(),
+  externalId: z.string().optional(),
+  visibility: VisibilityAccount$outboundSchema.optional(),
+  globalAccessAuth:
+    DocumentCreateDocumentTemporaryGlobalAccessAuthRequest$outboundSchema
       .optional(),
-    recipients: z.array(z.lazy(() => Recipients$outboundSchema)).optional(),
-    meta: z.lazy(() => Meta$outboundSchema).optional(),
-  });
+  globalActionAuth: GlobalActionAuthAccount$outboundSchema.optional(),
+  formValues: z.record(z.union([z.string(), z.boolean(), z.number()]))
+    .optional(),
+  recipients: z.array(z.lazy(() => RecipientAccount$outboundSchema)).optional(),
+  meta: z.lazy(() => DocumentCreateDocumentTemporaryMeta$outboundSchema)
+    .optional(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryRequestBody$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryRequestBody$inboundSchema` instead. */
+export namespace DocumentCreateDocumentTemporaryRequest$ {
+  /** @deprecated use `DocumentCreateDocumentTemporaryRequest$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentCreateDocumentTemporaryRequestBody$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryRequestBody$outboundSchema` instead. */
+    DocumentCreateDocumentTemporaryRequest$inboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryRequest$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentCreateDocumentTemporaryRequestBody$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryRequestBody$Outbound` instead. */
-  export type Outbound = DocumentCreateDocumentTemporaryRequestBody$Outbound;
+    DocumentCreateDocumentTemporaryRequest$outboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryRequest$Outbound` instead. */
+  export type Outbound = DocumentCreateDocumentTemporaryRequest$Outbound;
 }
 
-export function documentCreateDocumentTemporaryRequestBodyToJSON(
-  documentCreateDocumentTemporaryRequestBody:
-    DocumentCreateDocumentTemporaryRequestBody,
+export function documentCreateDocumentTemporaryRequestToJSON(
+  documentCreateDocumentTemporaryRequest:
+    DocumentCreateDocumentTemporaryRequest,
 ): string {
   return JSON.stringify(
-    DocumentCreateDocumentTemporaryRequestBody$outboundSchema.parse(
-      documentCreateDocumentTemporaryRequestBody,
+    DocumentCreateDocumentTemporaryRequest$outboundSchema.parse(
+      documentCreateDocumentTemporaryRequest,
     ),
   );
 }
 
-export function documentCreateDocumentTemporaryRequestBodyFromJSON(
+export function documentCreateDocumentTemporaryRequestFromJSON(
   jsonString: string,
-): SafeParseResult<
-  DocumentCreateDocumentTemporaryRequestBody,
-  SDKValidationError
-> {
+): SafeParseResult<DocumentCreateDocumentTemporaryRequest, SDKValidationError> {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentCreateDocumentTemporaryRequestBody$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DocumentCreateDocumentTemporaryRequestBody' from JSON`,
+      DocumentCreateDocumentTemporaryRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentCreateDocumentTemporaryRequest' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryVisibility$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryVisibility> = z
-    .nativeEnum(DocumentCreateDocumentTemporaryVisibility);
+export const DocumentVisibility$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentVisibility
+> = z.nativeEnum(DocumentVisibility);
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryVisibility$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryVisibility> =
-    DocumentCreateDocumentTemporaryVisibility$inboundSchema;
+export const DocumentVisibility$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentVisibility
+> = DocumentVisibility$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryVisibility$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryVisibility$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryVisibility$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryVisibility$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryVisibility$outboundSchema;
+export namespace DocumentVisibility$ {
+  /** @deprecated use `DocumentVisibility$inboundSchema` instead. */
+  export const inboundSchema = DocumentVisibility$inboundSchema;
+  /** @deprecated use `DocumentVisibility$outboundSchema` instead. */
+  export const outboundSchema = DocumentVisibility$outboundSchema;
 }
 
 /** @internal */
@@ -4319,61 +4326,53 @@ export namespace DocumentCreateDocumentTemporarySource$ {
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryGlobalAccessAuth$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryGlobalAccessAuth> = z
-    .nativeEnum(DocumentCreateDocumentTemporaryGlobalAccessAuth);
+export const DocumentGlobalAccessAuth$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentGlobalAccessAuth
+> = z.nativeEnum(DocumentGlobalAccessAuth);
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryGlobalAccessAuth$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryGlobalAccessAuth> =
-    DocumentCreateDocumentTemporaryGlobalAccessAuth$inboundSchema;
+export const DocumentGlobalAccessAuth$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentGlobalAccessAuth
+> = DocumentGlobalAccessAuth$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryGlobalAccessAuth$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryGlobalAccessAuth$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryGlobalAccessAuth$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryGlobalAccessAuth$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryGlobalAccessAuth$outboundSchema;
+export namespace DocumentGlobalAccessAuth$ {
+  /** @deprecated use `DocumentGlobalAccessAuth$inboundSchema` instead. */
+  export const inboundSchema = DocumentGlobalAccessAuth$inboundSchema;
+  /** @deprecated use `DocumentGlobalAccessAuth$outboundSchema` instead. */
+  export const outboundSchema = DocumentGlobalAccessAuth$outboundSchema;
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryGlobalActionAuth$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryGlobalActionAuth> = z
-    .nativeEnum(DocumentCreateDocumentTemporaryGlobalActionAuth);
+export const DocumentGlobalActionAuth$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentGlobalActionAuth
+> = z.nativeEnum(DocumentGlobalActionAuth);
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryGlobalActionAuth$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryGlobalActionAuth> =
-    DocumentCreateDocumentTemporaryGlobalActionAuth$inboundSchema;
+export const DocumentGlobalActionAuth$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentGlobalActionAuth
+> = DocumentGlobalActionAuth$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryGlobalActionAuth$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryGlobalActionAuth$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryGlobalActionAuth$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryGlobalActionAuth$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryGlobalActionAuth$outboundSchema;
+export namespace DocumentGlobalActionAuth$ {
+  /** @deprecated use `DocumentGlobalActionAuth$inboundSchema` instead. */
+  export const inboundSchema = DocumentGlobalActionAuth$inboundSchema;
+  /** @deprecated use `DocumentGlobalActionAuth$outboundSchema` instead. */
+  export const outboundSchema = DocumentGlobalActionAuth$outboundSchema;
 }
 
 /** @internal */
 export const DocumentCreateDocumentTemporaryAuthOptions$inboundSchema:
   z.ZodType<DocumentCreateDocumentTemporaryAuthOptions, z.ZodTypeDef, unknown> =
     z.object({
-      globalAccessAuth: z.nullable(
-        DocumentCreateDocumentTemporaryGlobalAccessAuth$inboundSchema,
-      ),
-      globalActionAuth: z.nullable(
-        DocumentCreateDocumentTemporaryGlobalActionAuth$inboundSchema,
-      ),
+      globalAccessAuth: z.nullable(DocumentGlobalAccessAuth$inboundSchema),
+      globalActionAuth: z.nullable(DocumentGlobalActionAuth$inboundSchema),
     });
 
 /** @internal */
@@ -4389,12 +4388,8 @@ export const DocumentCreateDocumentTemporaryAuthOptions$outboundSchema:
     z.ZodTypeDef,
     DocumentCreateDocumentTemporaryAuthOptions
   > = z.object({
-    globalAccessAuth: z.nullable(
-      DocumentCreateDocumentTemporaryGlobalAccessAuth$outboundSchema,
-    ),
-    globalActionAuth: z.nullable(
-      DocumentCreateDocumentTemporaryGlobalActionAuth$outboundSchema,
-    ),
+    globalAccessAuth: z.nullable(DocumentGlobalAccessAuth$outboundSchema),
+    globalActionAuth: z.nullable(DocumentGlobalActionAuth$outboundSchema),
   });
 
 /**
@@ -4440,89 +4435,72 @@ export function documentCreateDocumentTemporaryAuthOptionsFromJSON(
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFormValues$inboundSchema: z.ZodType<
-  DocumentCreateDocumentTemporaryFormValues,
+export const DocumentFormValues$inboundSchema: z.ZodType<
+  DocumentFormValues,
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.boolean(), z.number()]);
 
 /** @internal */
-export type DocumentCreateDocumentTemporaryFormValues$Outbound =
-  | string
-  | boolean
-  | number;
+export type DocumentFormValues$Outbound = string | boolean | number;
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFormValues$outboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFormValues$Outbound,
-    z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryFormValues
-  > = z.union([z.string(), z.boolean(), z.number()]);
+export const DocumentFormValues$outboundSchema: z.ZodType<
+  DocumentFormValues$Outbound,
+  z.ZodTypeDef,
+  DocumentFormValues
+> = z.union([z.string(), z.boolean(), z.number()]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFormValues$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFormValues$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFormValues$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFormValues$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFormValues$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFormValues$Outbound` instead. */
-  export type Outbound = DocumentCreateDocumentTemporaryFormValues$Outbound;
+export namespace DocumentFormValues$ {
+  /** @deprecated use `DocumentFormValues$inboundSchema` instead. */
+  export const inboundSchema = DocumentFormValues$inboundSchema;
+  /** @deprecated use `DocumentFormValues$outboundSchema` instead. */
+  export const outboundSchema = DocumentFormValues$outboundSchema;
+  /** @deprecated use `DocumentFormValues$Outbound` instead. */
+  export type Outbound = DocumentFormValues$Outbound;
 }
 
-export function documentCreateDocumentTemporaryFormValuesToJSON(
-  documentCreateDocumentTemporaryFormValues:
-    DocumentCreateDocumentTemporaryFormValues,
+export function documentFormValuesToJSON(
+  documentFormValues: DocumentFormValues,
 ): string {
   return JSON.stringify(
-    DocumentCreateDocumentTemporaryFormValues$outboundSchema.parse(
-      documentCreateDocumentTemporaryFormValues,
-    ),
+    DocumentFormValues$outboundSchema.parse(documentFormValues),
   );
 }
 
-export function documentCreateDocumentTemporaryFormValuesFromJSON(
+export function documentFormValuesFromJSON(
   jsonString: string,
-): SafeParseResult<
-  DocumentCreateDocumentTemporaryFormValues,
-  SDKValidationError
-> {
+): SafeParseResult<DocumentFormValues, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      DocumentCreateDocumentTemporaryFormValues$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DocumentCreateDocumentTemporaryFormValues' from JSON`,
+    (x) => DocumentFormValues$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentFormValues' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryType$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateDocumentTemporaryType
-> = z.nativeEnum(DocumentCreateDocumentTemporaryType);
+export const DocumentDocumentDataType$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentDocumentDataType
+> = z.nativeEnum(DocumentDocumentDataType);
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryType$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryType> =
-    DocumentCreateDocumentTemporaryType$inboundSchema;
+export const DocumentDocumentDataType$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentDocumentDataType
+> = DocumentDocumentDataType$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryType$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryType$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryType$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryType$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryType$outboundSchema;
+export namespace DocumentDocumentDataType$ {
+  /** @deprecated use `DocumentDocumentDataType$inboundSchema` instead. */
+  export const inboundSchema = DocumentDocumentDataType$inboundSchema;
+  /** @deprecated use `DocumentDocumentDataType$outboundSchema` instead. */
+  export const outboundSchema = DocumentDocumentDataType$outboundSchema;
 }
 
 /** @internal */
@@ -4532,7 +4510,7 @@ export const DocumentCreateDocumentTemporaryDocumentData$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({
-    type: DocumentCreateDocumentTemporaryType$inboundSchema,
+    type: DocumentDocumentDataType$inboundSchema,
     id: z.string(),
     data: z.string(),
     initialData: z.string(),
@@ -4553,7 +4531,7 @@ export const DocumentCreateDocumentTemporaryDocumentData$outboundSchema:
     z.ZodTypeDef,
     DocumentCreateDocumentTemporaryDocumentData
   > = z.object({
-    type: DocumentCreateDocumentTemporaryType$outboundSchema,
+    type: DocumentDocumentDataType$outboundSchema,
     id: z.string(),
     data: z.string(),
     initialData: z.string(),
@@ -4602,69 +4580,64 @@ export function documentCreateDocumentTemporaryDocumentDataFromJSON(
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporarySigningOrder$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporarySigningOrder> = z
-    .nativeEnum(DocumentCreateDocumentTemporarySigningOrder);
+export const DocumentSigningOrder$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentSigningOrder
+> = z.nativeEnum(DocumentSigningOrder);
 
 /** @internal */
-export const DocumentCreateDocumentTemporarySigningOrder$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporarySigningOrder> =
-    DocumentCreateDocumentTemporarySigningOrder$inboundSchema;
+export const DocumentSigningOrder$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentSigningOrder
+> = DocumentSigningOrder$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporarySigningOrder$ {
-  /** @deprecated use `DocumentCreateDocumentTemporarySigningOrder$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporarySigningOrder$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporarySigningOrder$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporarySigningOrder$outboundSchema;
+export namespace DocumentSigningOrder$ {
+  /** @deprecated use `DocumentSigningOrder$inboundSchema` instead. */
+  export const inboundSchema = DocumentSigningOrder$inboundSchema;
+  /** @deprecated use `DocumentSigningOrder$outboundSchema` instead. */
+  export const outboundSchema = DocumentSigningOrder$outboundSchema;
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryDistributionMethod$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryDistributionMethod> = z
-    .nativeEnum(DocumentCreateDocumentTemporaryDistributionMethod);
+export const DocumentDistributionMethod$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentDistributionMethod
+> = z.nativeEnum(DocumentDistributionMethod);
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryDistributionMethod$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryDistributionMethod> =
-    DocumentCreateDocumentTemporaryDistributionMethod$inboundSchema;
+export const DocumentDistributionMethod$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentDistributionMethod
+> = DocumentDistributionMethod$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryDistributionMethod$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryDistributionMethod$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryDistributionMethod$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryDistributionMethod$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryDistributionMethod$outboundSchema;
+export namespace DocumentDistributionMethod$ {
+  /** @deprecated use `DocumentDistributionMethod$inboundSchema` instead. */
+  export const inboundSchema = DocumentDistributionMethod$inboundSchema;
+  /** @deprecated use `DocumentDistributionMethod$outboundSchema` instead. */
+  export const outboundSchema = DocumentDistributionMethod$outboundSchema;
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryEmailSettings$inboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryEmailSettings,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    recipientSigningRequest: z.boolean().default(true),
-    recipientRemoved: z.boolean().default(true),
-    recipientSigned: z.boolean().default(true),
-    documentPending: z.boolean().default(true),
-    documentCompleted: z.boolean().default(true),
-    documentDeleted: z.boolean().default(true),
-    ownerDocumentCompleted: z.boolean().default(true),
-  });
+export const DocumentEmailSettings$inboundSchema: z.ZodType<
+  DocumentEmailSettings,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  recipientSigningRequest: z.boolean().default(true),
+  recipientRemoved: z.boolean().default(true),
+  recipientSigned: z.boolean().default(true),
+  documentPending: z.boolean().default(true),
+  documentCompleted: z.boolean().default(true),
+  documentDeleted: z.boolean().default(true),
+  ownerDocumentCompleted: z.boolean().default(true),
+});
 
 /** @internal */
-export type DocumentCreateDocumentTemporaryEmailSettings$Outbound = {
+export type DocumentEmailSettings$Outbound = {
   recipientSigningRequest: boolean;
   recipientRemoved: boolean;
   recipientSigned: boolean;
@@ -4675,60 +4648,48 @@ export type DocumentCreateDocumentTemporaryEmailSettings$Outbound = {
 };
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryEmailSettings$outboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryEmailSettings$Outbound,
-    z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryEmailSettings
-  > = z.object({
-    recipientSigningRequest: z.boolean().default(true),
-    recipientRemoved: z.boolean().default(true),
-    recipientSigned: z.boolean().default(true),
-    documentPending: z.boolean().default(true),
-    documentCompleted: z.boolean().default(true),
-    documentDeleted: z.boolean().default(true),
-    ownerDocumentCompleted: z.boolean().default(true),
-  });
+export const DocumentEmailSettings$outboundSchema: z.ZodType<
+  DocumentEmailSettings$Outbound,
+  z.ZodTypeDef,
+  DocumentEmailSettings
+> = z.object({
+  recipientSigningRequest: z.boolean().default(true),
+  recipientRemoved: z.boolean().default(true),
+  recipientSigned: z.boolean().default(true),
+  documentPending: z.boolean().default(true),
+  documentCompleted: z.boolean().default(true),
+  documentDeleted: z.boolean().default(true),
+  ownerDocumentCompleted: z.boolean().default(true),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryEmailSettings$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryEmailSettings$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryEmailSettings$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryEmailSettings$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryEmailSettings$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryEmailSettings$Outbound` instead. */
-  export type Outbound = DocumentCreateDocumentTemporaryEmailSettings$Outbound;
+export namespace DocumentEmailSettings$ {
+  /** @deprecated use `DocumentEmailSettings$inboundSchema` instead. */
+  export const inboundSchema = DocumentEmailSettings$inboundSchema;
+  /** @deprecated use `DocumentEmailSettings$outboundSchema` instead. */
+  export const outboundSchema = DocumentEmailSettings$outboundSchema;
+  /** @deprecated use `DocumentEmailSettings$Outbound` instead. */
+  export type Outbound = DocumentEmailSettings$Outbound;
 }
 
-export function documentCreateDocumentTemporaryEmailSettingsToJSON(
-  documentCreateDocumentTemporaryEmailSettings:
-    DocumentCreateDocumentTemporaryEmailSettings,
+export function documentEmailSettingsToJSON(
+  documentEmailSettings: DocumentEmailSettings,
 ): string {
   return JSON.stringify(
-    DocumentCreateDocumentTemporaryEmailSettings$outboundSchema.parse(
-      documentCreateDocumentTemporaryEmailSettings,
-    ),
+    DocumentEmailSettings$outboundSchema.parse(documentEmailSettings),
   );
 }
 
-export function documentCreateDocumentTemporaryEmailSettingsFromJSON(
+export function documentEmailSettingsFromJSON(
   jsonString: string,
-): SafeParseResult<
-  DocumentCreateDocumentTemporaryEmailSettings,
-  SDKValidationError
-> {
+): SafeParseResult<DocumentEmailSettings, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      DocumentCreateDocumentTemporaryEmailSettings$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DocumentCreateDocumentTemporaryEmailSettings' from JSON`,
+    (x) => DocumentEmailSettings$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentEmailSettings' from JSON`,
   );
 }
 
@@ -4739,21 +4700,23 @@ export const DocumentCreateDocumentTemporaryDocumentMeta$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({
-    signingOrder: DocumentCreateDocumentTemporarySigningOrder$inboundSchema,
-    distributionMethod:
-      DocumentCreateDocumentTemporaryDistributionMethod$inboundSchema,
+    signingOrder: DocumentSigningOrder$inboundSchema,
+    distributionMethod: DocumentDistributionMethod$inboundSchema,
     id: z.string(),
     subject: z.nullable(z.string()),
     message: z.nullable(z.string()),
     timezone: z.nullable(z.string()),
     password: z.nullable(z.string()),
     dateFormat: z.nullable(z.string()),
-    documentId: z.number().int(),
+    documentId: z.number(),
     redirectUrl: z.nullable(z.string()),
     typedSignatureEnabled: z.boolean(),
+    uploadSignatureEnabled: z.boolean(),
+    drawSignatureEnabled: z.boolean(),
+    allowDictateNextSigner: z.boolean(),
     language: z.string(),
     emailSettings: z.nullable(
-      z.lazy(() => DocumentCreateDocumentTemporaryEmailSettings$inboundSchema),
+      z.lazy(() => DocumentEmailSettings$inboundSchema),
     ),
   });
 
@@ -4770,8 +4733,11 @@ export type DocumentCreateDocumentTemporaryDocumentMeta$Outbound = {
   documentId: number;
   redirectUrl: string | null;
   typedSignatureEnabled: boolean;
+  uploadSignatureEnabled: boolean;
+  drawSignatureEnabled: boolean;
+  allowDictateNextSigner: boolean;
   language: string;
-  emailSettings: DocumentCreateDocumentTemporaryEmailSettings$Outbound | null;
+  emailSettings: DocumentEmailSettings$Outbound | null;
 };
 
 /** @internal */
@@ -4781,21 +4747,23 @@ export const DocumentCreateDocumentTemporaryDocumentMeta$outboundSchema:
     z.ZodTypeDef,
     DocumentCreateDocumentTemporaryDocumentMeta
   > = z.object({
-    signingOrder: DocumentCreateDocumentTemporarySigningOrder$outboundSchema,
-    distributionMethod:
-      DocumentCreateDocumentTemporaryDistributionMethod$outboundSchema,
+    signingOrder: DocumentSigningOrder$outboundSchema,
+    distributionMethod: DocumentDistributionMethod$outboundSchema,
     id: z.string(),
     subject: z.nullable(z.string()),
     message: z.nullable(z.string()),
     timezone: z.nullable(z.string()),
     password: z.nullable(z.string()),
     dateFormat: z.nullable(z.string()),
-    documentId: z.number().int(),
+    documentId: z.number(),
     redirectUrl: z.nullable(z.string()),
     typedSignatureEnabled: z.boolean(),
+    uploadSignatureEnabled: z.boolean(),
+    drawSignatureEnabled: z.boolean(),
+    allowDictateNextSigner: z.boolean(),
     language: z.string(),
     emailSettings: z.nullable(
-      z.lazy(() => DocumentCreateDocumentTemporaryEmailSettings$outboundSchema),
+      z.lazy(() => DocumentEmailSettings$outboundSchema),
     ),
   });
 
@@ -4842,26 +4810,22 @@ export function documentCreateDocumentTemporaryDocumentMetaFromJSON(
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryRole$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateDocumentTemporaryRole
-> = z.nativeEnum(DocumentCreateDocumentTemporaryRole);
+export const DocumentRole$inboundSchema: z.ZodNativeEnum<typeof DocumentRole> =
+  z.nativeEnum(DocumentRole);
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryRole$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRole> =
-    DocumentCreateDocumentTemporaryRole$inboundSchema;
+export const DocumentRole$outboundSchema: z.ZodNativeEnum<typeof DocumentRole> =
+  DocumentRole$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryRole$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryRole$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryRole$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryRole$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryRole$outboundSchema;
+export namespace DocumentRole$ {
+  /** @deprecated use `DocumentRole$inboundSchema` instead. */
+  export const inboundSchema = DocumentRole$inboundSchema;
+  /** @deprecated use `DocumentRole$outboundSchema` instead. */
+  export const outboundSchema = DocumentRole$outboundSchema;
 }
 
 /** @internal */
@@ -4934,143 +4898,131 @@ export namespace DocumentCreateDocumentTemporarySendStatus$ {
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryAccessAuth$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryAccessAuth> = z
-    .nativeEnum(DocumentCreateDocumentTemporaryAccessAuth);
+export const DocumentAccessAuth$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentAccessAuth
+> = z.nativeEnum(DocumentAccessAuth);
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryAccessAuth$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryAccessAuth> =
-    DocumentCreateDocumentTemporaryAccessAuth$inboundSchema;
+export const DocumentAccessAuth$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentAccessAuth
+> = DocumentAccessAuth$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryAccessAuth$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryAccessAuth$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryAccessAuth$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryAccessAuth$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryAccessAuth$outboundSchema;
+export namespace DocumentAccessAuth$ {
+  /** @deprecated use `DocumentAccessAuth$inboundSchema` instead. */
+  export const inboundSchema = DocumentAccessAuth$inboundSchema;
+  /** @deprecated use `DocumentAccessAuth$outboundSchema` instead. */
+  export const outboundSchema = DocumentAccessAuth$outboundSchema;
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryActionAuth$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryActionAuth> = z
-    .nativeEnum(DocumentCreateDocumentTemporaryActionAuth);
+export const DocumentActionAuth$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentActionAuth
+> = z.nativeEnum(DocumentActionAuth);
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryActionAuth$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryActionAuth> =
-    DocumentCreateDocumentTemporaryActionAuth$inboundSchema;
+export const DocumentActionAuth$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentActionAuth
+> = DocumentActionAuth$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryActionAuth$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryActionAuth$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryActionAuth$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryActionAuth$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryActionAuth$outboundSchema;
+export namespace DocumentActionAuth$ {
+  /** @deprecated use `DocumentActionAuth$inboundSchema` instead. */
+  export const inboundSchema = DocumentActionAuth$inboundSchema;
+  /** @deprecated use `DocumentActionAuth$outboundSchema` instead. */
+  export const outboundSchema = DocumentActionAuth$outboundSchema;
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryDocumentsAuthOptions$inboundSchema:
+export const DocumentCreateDocumentTemporaryRecipientAuthOptions$inboundSchema:
   z.ZodType<
-    DocumentCreateDocumentTemporaryDocumentsAuthOptions,
+    DocumentCreateDocumentTemporaryRecipientAuthOptions,
     z.ZodTypeDef,
     unknown
   > = z.object({
-    accessAuth: z.nullable(
-      DocumentCreateDocumentTemporaryAccessAuth$inboundSchema,
-    ),
-    actionAuth: z.nullable(
-      DocumentCreateDocumentTemporaryActionAuth$inboundSchema,
-    ),
+    accessAuth: z.nullable(DocumentAccessAuth$inboundSchema),
+    actionAuth: z.nullable(DocumentActionAuth$inboundSchema),
   });
 
 /** @internal */
-export type DocumentCreateDocumentTemporaryDocumentsAuthOptions$Outbound = {
+export type DocumentCreateDocumentTemporaryRecipientAuthOptions$Outbound = {
   accessAuth: string | null;
   actionAuth: string | null;
 };
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryDocumentsAuthOptions$outboundSchema:
+export const DocumentCreateDocumentTemporaryRecipientAuthOptions$outboundSchema:
   z.ZodType<
-    DocumentCreateDocumentTemporaryDocumentsAuthOptions$Outbound,
+    DocumentCreateDocumentTemporaryRecipientAuthOptions$Outbound,
     z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryDocumentsAuthOptions
+    DocumentCreateDocumentTemporaryRecipientAuthOptions
   > = z.object({
-    accessAuth: z.nullable(
-      DocumentCreateDocumentTemporaryAccessAuth$outboundSchema,
-    ),
-    actionAuth: z.nullable(
-      DocumentCreateDocumentTemporaryActionAuth$outboundSchema,
-    ),
+    accessAuth: z.nullable(DocumentAccessAuth$outboundSchema),
+    actionAuth: z.nullable(DocumentActionAuth$outboundSchema),
   });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryDocumentsAuthOptions$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryDocumentsAuthOptions$inboundSchema` instead. */
+export namespace DocumentCreateDocumentTemporaryRecipientAuthOptions$ {
+  /** @deprecated use `DocumentCreateDocumentTemporaryRecipientAuthOptions$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentCreateDocumentTemporaryDocumentsAuthOptions$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryDocumentsAuthOptions$outboundSchema` instead. */
+    DocumentCreateDocumentTemporaryRecipientAuthOptions$inboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryRecipientAuthOptions$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentCreateDocumentTemporaryDocumentsAuthOptions$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryDocumentsAuthOptions$Outbound` instead. */
+    DocumentCreateDocumentTemporaryRecipientAuthOptions$outboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryRecipientAuthOptions$Outbound` instead. */
   export type Outbound =
-    DocumentCreateDocumentTemporaryDocumentsAuthOptions$Outbound;
+    DocumentCreateDocumentTemporaryRecipientAuthOptions$Outbound;
 }
 
-export function documentCreateDocumentTemporaryDocumentsAuthOptionsToJSON(
-  documentCreateDocumentTemporaryDocumentsAuthOptions:
-    DocumentCreateDocumentTemporaryDocumentsAuthOptions,
+export function documentCreateDocumentTemporaryRecipientAuthOptionsToJSON(
+  documentCreateDocumentTemporaryRecipientAuthOptions:
+    DocumentCreateDocumentTemporaryRecipientAuthOptions,
 ): string {
   return JSON.stringify(
-    DocumentCreateDocumentTemporaryDocumentsAuthOptions$outboundSchema.parse(
-      documentCreateDocumentTemporaryDocumentsAuthOptions,
+    DocumentCreateDocumentTemporaryRecipientAuthOptions$outboundSchema.parse(
+      documentCreateDocumentTemporaryRecipientAuthOptions,
     ),
   );
 }
 
-export function documentCreateDocumentTemporaryDocumentsAuthOptionsFromJSON(
+export function documentCreateDocumentTemporaryRecipientAuthOptionsFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  DocumentCreateDocumentTemporaryDocumentsAuthOptions,
+  DocumentCreateDocumentTemporaryRecipientAuthOptions,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentCreateDocumentTemporaryDocumentsAuthOptions$inboundSchema.parse(
+      DocumentCreateDocumentTemporaryRecipientAuthOptions$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'DocumentCreateDocumentTemporaryDocumentsAuthOptions' from JSON`,
+    `Failed to parse 'DocumentCreateDocumentTemporaryRecipientAuthOptions' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryRecipients$inboundSchema: z.ZodType<
-  DocumentCreateDocumentTemporaryRecipients,
+export const DocumentRecipient$inboundSchema: z.ZodType<
+  DocumentRecipient,
   z.ZodTypeDef,
   unknown
 > = z.object({
-  role: DocumentCreateDocumentTemporaryRole$inboundSchema,
+  role: DocumentRole$inboundSchema,
   readStatus: DocumentCreateDocumentTemporaryReadStatus$inboundSchema,
   signingStatus: DocumentCreateDocumentTemporarySigningStatus$inboundSchema,
   sendStatus: DocumentCreateDocumentTemporarySendStatus$inboundSchema,
-  id: z.number().int(),
-  documentId: z.nullable(z.number().int()),
-  templateId: z.nullable(z.number().int()),
+  id: z.number(),
+  documentId: z.nullable(z.number()),
+  templateId: z.nullable(z.number()),
   email: z.string(),
   name: z.string(),
   token: z.string(),
@@ -5079,7 +5031,7 @@ export const DocumentCreateDocumentTemporaryRecipients$inboundSchema: z.ZodType<
   signedAt: z.nullable(z.string()),
   authOptions: z.nullable(
     z.lazy(() =>
-      DocumentCreateDocumentTemporaryDocumentsAuthOptions$inboundSchema
+      DocumentCreateDocumentTemporaryRecipientAuthOptions$inboundSchema
     ),
   ),
   signingOrder: z.nullable(z.number()),
@@ -5087,7 +5039,7 @@ export const DocumentCreateDocumentTemporaryRecipients$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type DocumentCreateDocumentTemporaryRecipients$Outbound = {
+export type DocumentRecipient$Outbound = {
   role: string;
   readStatus: string;
   signingStatus: string;
@@ -5102,204 +5054,166 @@ export type DocumentCreateDocumentTemporaryRecipients$Outbound = {
   expired: string | null;
   signedAt: string | null;
   authOptions:
-    | DocumentCreateDocumentTemporaryDocumentsAuthOptions$Outbound
+    | DocumentCreateDocumentTemporaryRecipientAuthOptions$Outbound
     | null;
   signingOrder: number | null;
   rejectionReason: string | null;
 };
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryRecipients$outboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryRecipients$Outbound,
-    z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryRecipients
-  > = z.object({
-    role: DocumentCreateDocumentTemporaryRole$outboundSchema,
-    readStatus: DocumentCreateDocumentTemporaryReadStatus$outboundSchema,
-    signingStatus: DocumentCreateDocumentTemporarySigningStatus$outboundSchema,
-    sendStatus: DocumentCreateDocumentTemporarySendStatus$outboundSchema,
-    id: z.number().int(),
-    documentId: z.nullable(z.number().int()),
-    templateId: z.nullable(z.number().int()),
-    email: z.string(),
-    name: z.string(),
-    token: z.string(),
-    documentDeletedAt: z.nullable(z.string()),
-    expired: z.nullable(z.string()),
-    signedAt: z.nullable(z.string()),
-    authOptions: z.nullable(
-      z.lazy(() =>
-        DocumentCreateDocumentTemporaryDocumentsAuthOptions$outboundSchema
-      ),
+export const DocumentRecipient$outboundSchema: z.ZodType<
+  DocumentRecipient$Outbound,
+  z.ZodTypeDef,
+  DocumentRecipient
+> = z.object({
+  role: DocumentRole$outboundSchema,
+  readStatus: DocumentCreateDocumentTemporaryReadStatus$outboundSchema,
+  signingStatus: DocumentCreateDocumentTemporarySigningStatus$outboundSchema,
+  sendStatus: DocumentCreateDocumentTemporarySendStatus$outboundSchema,
+  id: z.number(),
+  documentId: z.nullable(z.number()),
+  templateId: z.nullable(z.number()),
+  email: z.string(),
+  name: z.string(),
+  token: z.string(),
+  documentDeletedAt: z.nullable(z.string()),
+  expired: z.nullable(z.string()),
+  signedAt: z.nullable(z.string()),
+  authOptions: z.nullable(
+    z.lazy(() =>
+      DocumentCreateDocumentTemporaryRecipientAuthOptions$outboundSchema
     ),
-    signingOrder: z.nullable(z.number()),
-    rejectionReason: z.nullable(z.string()),
-  });
+  ),
+  signingOrder: z.nullable(z.number()),
+  rejectionReason: z.nullable(z.string()),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryRecipients$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryRecipients$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryRecipients$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryRecipients$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryRecipients$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryRecipients$Outbound` instead. */
-  export type Outbound = DocumentCreateDocumentTemporaryRecipients$Outbound;
+export namespace DocumentRecipient$ {
+  /** @deprecated use `DocumentRecipient$inboundSchema` instead. */
+  export const inboundSchema = DocumentRecipient$inboundSchema;
+  /** @deprecated use `DocumentRecipient$outboundSchema` instead. */
+  export const outboundSchema = DocumentRecipient$outboundSchema;
+  /** @deprecated use `DocumentRecipient$Outbound` instead. */
+  export type Outbound = DocumentRecipient$Outbound;
 }
 
-export function documentCreateDocumentTemporaryRecipientsToJSON(
-  documentCreateDocumentTemporaryRecipients:
-    DocumentCreateDocumentTemporaryRecipients,
+export function documentRecipientToJSON(
+  documentRecipient: DocumentRecipient,
 ): string {
   return JSON.stringify(
-    DocumentCreateDocumentTemporaryRecipients$outboundSchema.parse(
-      documentCreateDocumentTemporaryRecipients,
-    ),
+    DocumentRecipient$outboundSchema.parse(documentRecipient),
   );
 }
 
-export function documentCreateDocumentTemporaryRecipientsFromJSON(
+export function documentRecipientFromJSON(
   jsonString: string,
-): SafeParseResult<
-  DocumentCreateDocumentTemporaryRecipients,
-  SDKValidationError
-> {
+): SafeParseResult<DocumentRecipient, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      DocumentCreateDocumentTemporaryRecipients$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DocumentCreateDocumentTemporaryRecipients' from JSON`,
+    (x) => DocumentRecipient$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentRecipient' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryDocumentsType$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryDocumentsType> = z
-    .nativeEnum(DocumentCreateDocumentTemporaryDocumentsType);
+export const DocumentFieldType$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentFieldType
+> = z.nativeEnum(DocumentFieldType);
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryDocumentsType$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryDocumentsType> =
-    DocumentCreateDocumentTemporaryDocumentsType$inboundSchema;
+export const DocumentFieldType$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentFieldType
+> = DocumentFieldType$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryDocumentsType$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryDocumentsType$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryDocumentsType$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryDocumentsType$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryDocumentsType$outboundSchema;
+export namespace DocumentFieldType$ {
+  /** @deprecated use `DocumentFieldType$inboundSchema` instead. */
+  export const inboundSchema = DocumentFieldType$inboundSchema;
+  /** @deprecated use `DocumentFieldType$outboundSchema` instead. */
+  export const outboundSchema = DocumentFieldType$outboundSchema;
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFields9Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFields9Type
-  > = z.nativeEnum(
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFields9Type,
-  );
+export const DocumentTypeDropdown$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentTypeDropdown
+> = z.nativeEnum(DocumentTypeDropdown);
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFields9Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFields9Type
-  > =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFields9Type$inboundSchema;
+export const DocumentTypeDropdown$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentTypeDropdown
+> = DocumentTypeDropdown$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFields9Type$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFields9Type$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFields9Type$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFields9Type$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFields9Type$outboundSchema;
+export namespace DocumentTypeDropdown$ {
+  /** @deprecated use `DocumentTypeDropdown$inboundSchema` instead. */
+  export const inboundSchema = DocumentTypeDropdown$inboundSchema;
+  /** @deprecated use `DocumentTypeDropdown$outboundSchema` instead. */
+  export const outboundSchema = DocumentTypeDropdown$outboundSchema;
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseValues$inboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseValues,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    value: z.string(),
-  });
+export const DocumentValue3$inboundSchema: z.ZodType<
+  DocumentValue3,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  value: z.string(),
+});
 
 /** @internal */
-export type DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseValues$Outbound =
-  {
-    value: string;
-  };
+export type DocumentValue3$Outbound = {
+  value: string;
+};
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseValues$outboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseValues$Outbound,
-    z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseValues
-  > = z.object({
-    value: z.string(),
-  });
+export const DocumentValue3$outboundSchema: z.ZodType<
+  DocumentValue3$Outbound,
+  z.ZodTypeDef,
+  DocumentValue3
+> = z.object({
+  value: z.string(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseValues$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseValues$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseValues$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseValues$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseValues$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseValues$Outbound` instead. */
-  export type Outbound =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseValues$Outbound;
+export namespace DocumentValue3$ {
+  /** @deprecated use `DocumentValue3$inboundSchema` instead. */
+  export const inboundSchema = DocumentValue3$inboundSchema;
+  /** @deprecated use `DocumentValue3$outboundSchema` instead. */
+  export const outboundSchema = DocumentValue3$outboundSchema;
+  /** @deprecated use `DocumentValue3$Outbound` instead. */
+  export type Outbound = DocumentValue3$Outbound;
 }
 
-export function documentCreateDocumentTemporaryFieldMetaDocumentsResponseValuesToJSON(
-  documentCreateDocumentTemporaryFieldMetaDocumentsResponseValues:
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseValues,
-): string {
-  return JSON.stringify(
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseValues$outboundSchema
-      .parse(documentCreateDocumentTemporaryFieldMetaDocumentsResponseValues),
-  );
+export function documentValue3ToJSON(documentValue3: DocumentValue3): string {
+  return JSON.stringify(DocumentValue3$outboundSchema.parse(documentValue3));
 }
 
-export function documentCreateDocumentTemporaryFieldMetaDocumentsResponseValuesFromJSON(
+export function documentValue3FromJSON(
   jsonString: string,
-): SafeParseResult<
-  DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseValues,
-  SDKValidationError
-> {
+): SafeParseResult<DocumentValue3, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseValues$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseValues' from JSON`,
+    (x) => DocumentValue3$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentValue3' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMeta9$inboundSchema: z.ZodType<
-  DocumentCreateDocumentTemporaryFieldMeta9,
+export const FieldMetaDocumentDropdown$inboundSchema: z.ZodType<
+  FieldMetaDocumentDropdown,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -5307,197 +5221,148 @@ export const DocumentCreateDocumentTemporaryFieldMeta9$inboundSchema: z.ZodType<
   placeholder: z.string().optional(),
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
-  type:
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFields9Type$inboundSchema,
-  values: z.array(
-    z.lazy(() =>
-      DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseValues$inboundSchema
-    ),
-  ).optional(),
+  type: DocumentTypeDropdown$inboundSchema,
+  values: z.array(z.lazy(() => DocumentValue3$inboundSchema)).optional(),
   defaultValue: z.string().optional(),
 });
 
 /** @internal */
-export type DocumentCreateDocumentTemporaryFieldMeta9$Outbound = {
+export type FieldMetaDocumentDropdown$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
-  values?:
-    | Array<
-      DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseValues$Outbound
-    >
-    | undefined;
+  values?: Array<DocumentValue3$Outbound> | undefined;
   defaultValue?: string | undefined;
 };
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMeta9$outboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldMeta9$Outbound,
-    z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryFieldMeta9
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFields9Type$outboundSchema,
-    values: z.array(
-      z.lazy(() =>
-        DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseValues$outboundSchema
-      ),
-    ).optional(),
-    defaultValue: z.string().optional(),
-  });
+export const FieldMetaDocumentDropdown$outboundSchema: z.ZodType<
+  FieldMetaDocumentDropdown$Outbound,
+  z.ZodTypeDef,
+  FieldMetaDocumentDropdown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: DocumentTypeDropdown$outboundSchema,
+  values: z.array(z.lazy(() => DocumentValue3$outboundSchema)).optional(),
+  defaultValue: z.string().optional(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldMeta9$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta9$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldMeta9$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta9$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldMeta9$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta9$Outbound` instead. */
-  export type Outbound = DocumentCreateDocumentTemporaryFieldMeta9$Outbound;
+export namespace FieldMetaDocumentDropdown$ {
+  /** @deprecated use `FieldMetaDocumentDropdown$inboundSchema` instead. */
+  export const inboundSchema = FieldMetaDocumentDropdown$inboundSchema;
+  /** @deprecated use `FieldMetaDocumentDropdown$outboundSchema` instead. */
+  export const outboundSchema = FieldMetaDocumentDropdown$outboundSchema;
+  /** @deprecated use `FieldMetaDocumentDropdown$Outbound` instead. */
+  export type Outbound = FieldMetaDocumentDropdown$Outbound;
 }
 
-export function documentCreateDocumentTemporaryFieldMeta9ToJSON(
-  documentCreateDocumentTemporaryFieldMeta9:
-    DocumentCreateDocumentTemporaryFieldMeta9,
+export function fieldMetaDocumentDropdownToJSON(
+  fieldMetaDocumentDropdown: FieldMetaDocumentDropdown,
 ): string {
   return JSON.stringify(
-    DocumentCreateDocumentTemporaryFieldMeta9$outboundSchema.parse(
-      documentCreateDocumentTemporaryFieldMeta9,
-    ),
+    FieldMetaDocumentDropdown$outboundSchema.parse(fieldMetaDocumentDropdown),
   );
 }
 
-export function documentCreateDocumentTemporaryFieldMeta9FromJSON(
+export function fieldMetaDocumentDropdownFromJSON(
   jsonString: string,
-): SafeParseResult<
-  DocumentCreateDocumentTemporaryFieldMeta9,
-  SDKValidationError
-> {
+): SafeParseResult<FieldMetaDocumentDropdown, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      DocumentCreateDocumentTemporaryFieldMeta9$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DocumentCreateDocumentTemporaryFieldMeta9' from JSON`,
+    (x) => FieldMetaDocumentDropdown$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldMetaDocumentDropdown' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFieldsType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFieldsType
-  > = z.nativeEnum(
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFieldsType,
-  );
+export const DocumentTypeCheckbox$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentTypeCheckbox
+> = z.nativeEnum(DocumentTypeCheckbox);
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFieldsType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFieldsType
-  > =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFieldsType$inboundSchema;
+export const DocumentTypeCheckbox$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentTypeCheckbox
+> = DocumentTypeCheckbox$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFieldsType$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFieldsType$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFieldsType$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFieldsType$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFieldsType$outboundSchema;
+export namespace DocumentTypeCheckbox$ {
+  /** @deprecated use `DocumentTypeCheckbox$inboundSchema` instead. */
+  export const inboundSchema = DocumentTypeCheckbox$inboundSchema;
+  /** @deprecated use `DocumentTypeCheckbox$outboundSchema` instead. */
+  export const outboundSchema = DocumentTypeCheckbox$outboundSchema;
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMetaDocumentsValues$inboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsValues,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    id: z.number(),
-    checked: z.boolean(),
-    value: z.string(),
-  });
+export const DocumentValue2$inboundSchema: z.ZodType<
+  DocumentValue2,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.number(),
+  checked: z.boolean(),
+  value: z.string(),
+});
 
 /** @internal */
-export type DocumentCreateDocumentTemporaryFieldMetaDocumentsValues$Outbound = {
+export type DocumentValue2$Outbound = {
   id: number;
   checked: boolean;
   value: string;
 };
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMetaDocumentsValues$outboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsValues$Outbound,
-    z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsValues
-  > = z.object({
-    id: z.number(),
-    checked: z.boolean(),
-    value: z.string(),
-  });
+export const DocumentValue2$outboundSchema: z.ZodType<
+  DocumentValue2$Outbound,
+  z.ZodTypeDef,
+  DocumentValue2
+> = z.object({
+  id: z.number(),
+  checked: z.boolean(),
+  value: z.string(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldMetaDocumentsValues$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsValues$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsValues$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsValues$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsValues$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsValues$Outbound` instead. */
-  export type Outbound =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsValues$Outbound;
+export namespace DocumentValue2$ {
+  /** @deprecated use `DocumentValue2$inboundSchema` instead. */
+  export const inboundSchema = DocumentValue2$inboundSchema;
+  /** @deprecated use `DocumentValue2$outboundSchema` instead. */
+  export const outboundSchema = DocumentValue2$outboundSchema;
+  /** @deprecated use `DocumentValue2$Outbound` instead. */
+  export type Outbound = DocumentValue2$Outbound;
 }
 
-export function documentCreateDocumentTemporaryFieldMetaDocumentsValuesToJSON(
-  documentCreateDocumentTemporaryFieldMetaDocumentsValues:
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsValues,
-): string {
-  return JSON.stringify(
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsValues$outboundSchema
-      .parse(documentCreateDocumentTemporaryFieldMetaDocumentsValues),
-  );
+export function documentValue2ToJSON(documentValue2: DocumentValue2): string {
+  return JSON.stringify(DocumentValue2$outboundSchema.parse(documentValue2));
 }
 
-export function documentCreateDocumentTemporaryFieldMetaDocumentsValuesFromJSON(
+export function documentValue2FromJSON(
   jsonString: string,
-): SafeParseResult<
-  DocumentCreateDocumentTemporaryFieldMetaDocumentsValues,
-  SDKValidationError
-> {
+): SafeParseResult<DocumentValue2, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      DocumentCreateDocumentTemporaryFieldMetaDocumentsValues$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'DocumentCreateDocumentTemporaryFieldMetaDocumentsValues' from JSON`,
+    (x) => DocumentValue2$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentValue2' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMeta8$inboundSchema: z.ZodType<
-  DocumentCreateDocumentTemporaryFieldMeta8,
+export const FieldMetaDocumentCheckbox$inboundSchema: z.ZodType<
+  FieldMetaDocumentCheckbox,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -5505,200 +5370,151 @@ export const DocumentCreateDocumentTemporaryFieldMeta8$inboundSchema: z.ZodType<
   placeholder: z.string().optional(),
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
-  type:
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFieldsType$inboundSchema,
-  values: z.array(
-    z.lazy(() =>
-      DocumentCreateDocumentTemporaryFieldMetaDocumentsValues$inboundSchema
-    ),
-  ).optional(),
+  type: DocumentTypeCheckbox$inboundSchema,
+  values: z.array(z.lazy(() => DocumentValue2$inboundSchema)).optional(),
   validationRule: z.string().optional(),
   validationLength: z.number().optional(),
 });
 
 /** @internal */
-export type DocumentCreateDocumentTemporaryFieldMeta8$Outbound = {
+export type FieldMetaDocumentCheckbox$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
-  values?:
-    | Array<DocumentCreateDocumentTemporaryFieldMetaDocumentsValues$Outbound>
-    | undefined;
+  values?: Array<DocumentValue2$Outbound> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
 };
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMeta8$outboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldMeta8$Outbound,
-    z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryFieldMeta8
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentFieldsType$outboundSchema,
-    values: z.array(
-      z.lazy(() =>
-        DocumentCreateDocumentTemporaryFieldMetaDocumentsValues$outboundSchema
-      ),
-    ).optional(),
-    validationRule: z.string().optional(),
-    validationLength: z.number().optional(),
-  });
+export const FieldMetaDocumentCheckbox$outboundSchema: z.ZodType<
+  FieldMetaDocumentCheckbox$Outbound,
+  z.ZodTypeDef,
+  FieldMetaDocumentCheckbox
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: DocumentTypeCheckbox$outboundSchema,
+  values: z.array(z.lazy(() => DocumentValue2$outboundSchema)).optional(),
+  validationRule: z.string().optional(),
+  validationLength: z.number().optional(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldMeta8$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta8$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldMeta8$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta8$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldMeta8$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta8$Outbound` instead. */
-  export type Outbound = DocumentCreateDocumentTemporaryFieldMeta8$Outbound;
+export namespace FieldMetaDocumentCheckbox$ {
+  /** @deprecated use `FieldMetaDocumentCheckbox$inboundSchema` instead. */
+  export const inboundSchema = FieldMetaDocumentCheckbox$inboundSchema;
+  /** @deprecated use `FieldMetaDocumentCheckbox$outboundSchema` instead. */
+  export const outboundSchema = FieldMetaDocumentCheckbox$outboundSchema;
+  /** @deprecated use `FieldMetaDocumentCheckbox$Outbound` instead. */
+  export type Outbound = FieldMetaDocumentCheckbox$Outbound;
 }
 
-export function documentCreateDocumentTemporaryFieldMeta8ToJSON(
-  documentCreateDocumentTemporaryFieldMeta8:
-    DocumentCreateDocumentTemporaryFieldMeta8,
+export function fieldMetaDocumentCheckboxToJSON(
+  fieldMetaDocumentCheckbox: FieldMetaDocumentCheckbox,
 ): string {
   return JSON.stringify(
-    DocumentCreateDocumentTemporaryFieldMeta8$outboundSchema.parse(
-      documentCreateDocumentTemporaryFieldMeta8,
-    ),
+    FieldMetaDocumentCheckbox$outboundSchema.parse(fieldMetaDocumentCheckbox),
   );
 }
 
-export function documentCreateDocumentTemporaryFieldMeta8FromJSON(
+export function fieldMetaDocumentCheckboxFromJSON(
   jsonString: string,
-): SafeParseResult<
-  DocumentCreateDocumentTemporaryFieldMeta8,
-  SDKValidationError
-> {
+): SafeParseResult<FieldMetaDocumentCheckbox, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      DocumentCreateDocumentTemporaryFieldMeta8$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DocumentCreateDocumentTemporaryFieldMeta8' from JSON`,
+    (x) => FieldMetaDocumentCheckbox$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldMetaDocumentCheckbox' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentType
-  > = z.nativeEnum(
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentType,
-  );
+export const DocumentTypeRadio$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentTypeRadio
+> = z.nativeEnum(DocumentTypeRadio);
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentType
-  > =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentType$inboundSchema;
+export const DocumentTypeRadio$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentTypeRadio
+> = DocumentTypeRadio$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentType$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentType$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentType$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentType$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentType$outboundSchema;
+export namespace DocumentTypeRadio$ {
+  /** @deprecated use `DocumentTypeRadio$inboundSchema` instead. */
+  export const inboundSchema = DocumentTypeRadio$inboundSchema;
+  /** @deprecated use `DocumentTypeRadio$outboundSchema` instead. */
+  export const outboundSchema = DocumentTypeRadio$outboundSchema;
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMetaValues$inboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldMetaValues,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    id: z.number(),
-    checked: z.boolean(),
-    value: z.string(),
-  });
+export const DocumentValue1$inboundSchema: z.ZodType<
+  DocumentValue1,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.number(),
+  checked: z.boolean(),
+  value: z.string(),
+});
 
 /** @internal */
-export type DocumentCreateDocumentTemporaryFieldMetaValues$Outbound = {
+export type DocumentValue1$Outbound = {
   id: number;
   checked: boolean;
   value: string;
 };
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMetaValues$outboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldMetaValues$Outbound,
-    z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryFieldMetaValues
-  > = z.object({
-    id: z.number(),
-    checked: z.boolean(),
-    value: z.string(),
-  });
+export const DocumentValue1$outboundSchema: z.ZodType<
+  DocumentValue1$Outbound,
+  z.ZodTypeDef,
+  DocumentValue1
+> = z.object({
+  id: z.number(),
+  checked: z.boolean(),
+  value: z.string(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldMetaValues$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaValues$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldMetaValues$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaValues$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldMetaValues$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaValues$Outbound` instead. */
-  export type Outbound =
-    DocumentCreateDocumentTemporaryFieldMetaValues$Outbound;
+export namespace DocumentValue1$ {
+  /** @deprecated use `DocumentValue1$inboundSchema` instead. */
+  export const inboundSchema = DocumentValue1$inboundSchema;
+  /** @deprecated use `DocumentValue1$outboundSchema` instead. */
+  export const outboundSchema = DocumentValue1$outboundSchema;
+  /** @deprecated use `DocumentValue1$Outbound` instead. */
+  export type Outbound = DocumentValue1$Outbound;
 }
 
-export function documentCreateDocumentTemporaryFieldMetaValuesToJSON(
-  documentCreateDocumentTemporaryFieldMetaValues:
-    DocumentCreateDocumentTemporaryFieldMetaValues,
-): string {
-  return JSON.stringify(
-    DocumentCreateDocumentTemporaryFieldMetaValues$outboundSchema.parse(
-      documentCreateDocumentTemporaryFieldMetaValues,
-    ),
-  );
+export function documentValue1ToJSON(documentValue1: DocumentValue1): string {
+  return JSON.stringify(DocumentValue1$outboundSchema.parse(documentValue1));
 }
 
-export function documentCreateDocumentTemporaryFieldMetaValuesFromJSON(
+export function documentValue1FromJSON(
   jsonString: string,
-): SafeParseResult<
-  DocumentCreateDocumentTemporaryFieldMetaValues,
-  SDKValidationError
-> {
+): SafeParseResult<DocumentValue1, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      DocumentCreateDocumentTemporaryFieldMetaValues$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DocumentCreateDocumentTemporaryFieldMetaValues' from JSON`,
+    (x) => DocumentValue1$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentValue1' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMeta7$inboundSchema: z.ZodType<
-  DocumentCreateDocumentTemporaryFieldMeta7,
+export const FieldMetaDocumentRadio$inboundSchema: z.ZodType<
+  FieldMetaDocumentRadio,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -5706,118 +5522,110 @@ export const DocumentCreateDocumentTemporaryFieldMeta7$inboundSchema: z.ZodType<
   placeholder: z.string().optional(),
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
-  type:
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentType$inboundSchema,
-  values: z.array(
-    z.lazy(() => DocumentCreateDocumentTemporaryFieldMetaValues$inboundSchema),
-  ).optional(),
+  type: DocumentTypeRadio$inboundSchema,
+  values: z.array(z.lazy(() => DocumentValue1$inboundSchema)).optional(),
 });
 
 /** @internal */
-export type DocumentCreateDocumentTemporaryFieldMeta7$Outbound = {
+export type FieldMetaDocumentRadio$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
-  values?:
-    | Array<DocumentCreateDocumentTemporaryFieldMetaValues$Outbound>
-    | undefined;
+  values?: Array<DocumentValue1$Outbound> | undefined;
 };
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMeta7$outboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldMeta7$Outbound,
-    z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryFieldMeta7
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyDocumentType$outboundSchema,
-    values: z.array(
-      z.lazy(() =>
-        DocumentCreateDocumentTemporaryFieldMetaValues$outboundSchema
-      ),
-    ).optional(),
-  });
+export const FieldMetaDocumentRadio$outboundSchema: z.ZodType<
+  FieldMetaDocumentRadio$Outbound,
+  z.ZodTypeDef,
+  FieldMetaDocumentRadio
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: DocumentTypeRadio$outboundSchema,
+  values: z.array(z.lazy(() => DocumentValue1$outboundSchema)).optional(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldMeta7$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta7$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldMeta7$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta7$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldMeta7$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta7$Outbound` instead. */
-  export type Outbound = DocumentCreateDocumentTemporaryFieldMeta7$Outbound;
+export namespace FieldMetaDocumentRadio$ {
+  /** @deprecated use `FieldMetaDocumentRadio$inboundSchema` instead. */
+  export const inboundSchema = FieldMetaDocumentRadio$inboundSchema;
+  /** @deprecated use `FieldMetaDocumentRadio$outboundSchema` instead. */
+  export const outboundSchema = FieldMetaDocumentRadio$outboundSchema;
+  /** @deprecated use `FieldMetaDocumentRadio$Outbound` instead. */
+  export type Outbound = FieldMetaDocumentRadio$Outbound;
 }
 
-export function documentCreateDocumentTemporaryFieldMeta7ToJSON(
-  documentCreateDocumentTemporaryFieldMeta7:
-    DocumentCreateDocumentTemporaryFieldMeta7,
+export function fieldMetaDocumentRadioToJSON(
+  fieldMetaDocumentRadio: FieldMetaDocumentRadio,
 ): string {
   return JSON.stringify(
-    DocumentCreateDocumentTemporaryFieldMeta7$outboundSchema.parse(
-      documentCreateDocumentTemporaryFieldMeta7,
-    ),
+    FieldMetaDocumentRadio$outboundSchema.parse(fieldMetaDocumentRadio),
   );
 }
 
-export function documentCreateDocumentTemporaryFieldMeta7FromJSON(
+export function fieldMetaDocumentRadioFromJSON(
   jsonString: string,
-): SafeParseResult<
-  DocumentCreateDocumentTemporaryFieldMeta7,
-  SDKValidationError
-> {
+): SafeParseResult<FieldMetaDocumentRadio, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      DocumentCreateDocumentTemporaryFieldMeta7$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DocumentCreateDocumentTemporaryFieldMeta7' from JSON`,
+    (x) => FieldMetaDocumentRadio$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldMetaDocumentRadio' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType
-  > = z.nativeEnum(
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType,
-  );
+export const DocumentTypeNumber$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentTypeNumber
+> = z.nativeEnum(DocumentTypeNumber);
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType
-  > =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType$inboundSchema;
+export const DocumentTypeNumber$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentTypeNumber
+> = DocumentTypeNumber$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType$outboundSchema;
+export namespace DocumentTypeNumber$ {
+  /** @deprecated use `DocumentTypeNumber$inboundSchema` instead. */
+  export const inboundSchema = DocumentTypeNumber$inboundSchema;
+  /** @deprecated use `DocumentTypeNumber$outboundSchema` instead. */
+  export const outboundSchema = DocumentTypeNumber$outboundSchema;
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMeta6$inboundSchema: z.ZodType<
-  DocumentCreateDocumentTemporaryFieldMeta6,
+export const DocumentTextAlign6$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentTextAlign6
+> = z.nativeEnum(DocumentTextAlign6);
+
+/** @internal */
+export const DocumentTextAlign6$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentTextAlign6
+> = DocumentTextAlign6$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentTextAlign6$ {
+  /** @deprecated use `DocumentTextAlign6$inboundSchema` instead. */
+  export const inboundSchema = DocumentTextAlign6$inboundSchema;
+  /** @deprecated use `DocumentTextAlign6$outboundSchema` instead. */
+  export const outboundSchema = DocumentTextAlign6$outboundSchema;
+}
+
+/** @internal */
+export const FieldMetaDocumentNumber$inboundSchema: z.ZodType<
+  FieldMetaDocumentNumber,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -5825,17 +5633,17 @@ export const DocumentCreateDocumentTemporaryFieldMeta6$inboundSchema: z.ZodType<
   placeholder: z.string().optional(),
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
-  type:
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType$inboundSchema,
+  type: DocumentTypeNumber$inboundSchema,
   numberFormat: z.string().optional(),
   value: z.string().optional(),
   minValue: z.number().optional(),
   maxValue: z.number().optional(),
   fontSize: z.number().optional(),
+  textAlign: DocumentTextAlign6$inboundSchema.optional(),
 });
 
 /** @internal */
-export type DocumentCreateDocumentTemporaryFieldMeta6$Outbound = {
+export type FieldMetaDocumentNumber$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -5846,101 +5654,104 @@ export type DocumentCreateDocumentTemporaryFieldMeta6$Outbound = {
   minValue?: number | undefined;
   maxValue?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMeta6$outboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldMeta6$Outbound,
-    z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryFieldMeta6
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONResponseBodyType$outboundSchema,
-    numberFormat: z.string().optional(),
-    value: z.string().optional(),
-    minValue: z.number().optional(),
-    maxValue: z.number().optional(),
-    fontSize: z.number().optional(),
-  });
+export const FieldMetaDocumentNumber$outboundSchema: z.ZodType<
+  FieldMetaDocumentNumber$Outbound,
+  z.ZodTypeDef,
+  FieldMetaDocumentNumber
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: DocumentTypeNumber$outboundSchema,
+  numberFormat: z.string().optional(),
+  value: z.string().optional(),
+  minValue: z.number().optional(),
+  maxValue: z.number().optional(),
+  fontSize: z.number().optional(),
+  textAlign: DocumentTextAlign6$outboundSchema.optional(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldMeta6$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta6$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldMeta6$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta6$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldMeta6$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta6$Outbound` instead. */
-  export type Outbound = DocumentCreateDocumentTemporaryFieldMeta6$Outbound;
+export namespace FieldMetaDocumentNumber$ {
+  /** @deprecated use `FieldMetaDocumentNumber$inboundSchema` instead. */
+  export const inboundSchema = FieldMetaDocumentNumber$inboundSchema;
+  /** @deprecated use `FieldMetaDocumentNumber$outboundSchema` instead. */
+  export const outboundSchema = FieldMetaDocumentNumber$outboundSchema;
+  /** @deprecated use `FieldMetaDocumentNumber$Outbound` instead. */
+  export type Outbound = FieldMetaDocumentNumber$Outbound;
 }
 
-export function documentCreateDocumentTemporaryFieldMeta6ToJSON(
-  documentCreateDocumentTemporaryFieldMeta6:
-    DocumentCreateDocumentTemporaryFieldMeta6,
+export function fieldMetaDocumentNumberToJSON(
+  fieldMetaDocumentNumber: FieldMetaDocumentNumber,
 ): string {
   return JSON.stringify(
-    DocumentCreateDocumentTemporaryFieldMeta6$outboundSchema.parse(
-      documentCreateDocumentTemporaryFieldMeta6,
-    ),
+    FieldMetaDocumentNumber$outboundSchema.parse(fieldMetaDocumentNumber),
   );
 }
 
-export function documentCreateDocumentTemporaryFieldMeta6FromJSON(
+export function fieldMetaDocumentNumberFromJSON(
   jsonString: string,
-): SafeParseResult<
-  DocumentCreateDocumentTemporaryFieldMeta6,
-  SDKValidationError
-> {
+): SafeParseResult<FieldMetaDocumentNumber, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      DocumentCreateDocumentTemporaryFieldMeta6$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DocumentCreateDocumentTemporaryFieldMeta6' from JSON`,
+    (x) => FieldMetaDocumentNumber$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldMetaDocumentNumber' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONType
-  > = z.nativeEnum(
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONType,
-  );
+export const DocumentTypeText$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentTypeText
+> = z.nativeEnum(DocumentTypeText);
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONType
-  > =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONType$inboundSchema;
+export const DocumentTypeText$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentTypeText
+> = DocumentTypeText$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONType$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONType$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONType$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONType$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONType$outboundSchema;
+export namespace DocumentTypeText$ {
+  /** @deprecated use `DocumentTypeText$inboundSchema` instead. */
+  export const inboundSchema = DocumentTypeText$inboundSchema;
+  /** @deprecated use `DocumentTypeText$outboundSchema` instead. */
+  export const outboundSchema = DocumentTypeText$outboundSchema;
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMeta5$inboundSchema: z.ZodType<
-  DocumentCreateDocumentTemporaryFieldMeta5,
+export const DocumentTextAlign5$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentTextAlign5
+> = z.nativeEnum(DocumentTextAlign5);
+
+/** @internal */
+export const DocumentTextAlign5$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentTextAlign5
+> = DocumentTextAlign5$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentTextAlign5$ {
+  /** @deprecated use `DocumentTextAlign5$inboundSchema` instead. */
+  export const inboundSchema = DocumentTextAlign5$inboundSchema;
+  /** @deprecated use `DocumentTextAlign5$outboundSchema` instead. */
+  export const outboundSchema = DocumentTextAlign5$outboundSchema;
+}
+
+/** @internal */
+export const FieldMetaDocumentText$inboundSchema: z.ZodType<
+  FieldMetaDocumentText,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -5948,15 +5759,15 @@ export const DocumentCreateDocumentTemporaryFieldMeta5$inboundSchema: z.ZodType<
   placeholder: z.string().optional(),
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
-  type:
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONType$inboundSchema,
+  type: DocumentTypeText$inboundSchema,
   text: z.string().optional(),
   characterLimit: z.number().optional(),
   fontSize: z.number().optional(),
+  textAlign: DocumentTextAlign5$inboundSchema.optional(),
 });
 
 /** @internal */
-export type DocumentCreateDocumentTemporaryFieldMeta5$Outbound = {
+export type FieldMetaDocumentText$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -5965,99 +5776,102 @@ export type DocumentCreateDocumentTemporaryFieldMeta5$Outbound = {
   text?: string | undefined;
   characterLimit?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMeta5$outboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldMeta5$Outbound,
-    z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryFieldMeta5
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200ApplicationJSONType$outboundSchema,
-    text: z.string().optional(),
-    characterLimit: z.number().optional(),
-    fontSize: z.number().optional(),
-  });
+export const FieldMetaDocumentText$outboundSchema: z.ZodType<
+  FieldMetaDocumentText$Outbound,
+  z.ZodTypeDef,
+  FieldMetaDocumentText
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: DocumentTypeText$outboundSchema,
+  text: z.string().optional(),
+  characterLimit: z.number().optional(),
+  fontSize: z.number().optional(),
+  textAlign: DocumentTextAlign5$outboundSchema.optional(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldMeta5$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta5$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldMeta5$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta5$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldMeta5$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta5$Outbound` instead. */
-  export type Outbound = DocumentCreateDocumentTemporaryFieldMeta5$Outbound;
+export namespace FieldMetaDocumentText$ {
+  /** @deprecated use `FieldMetaDocumentText$inboundSchema` instead. */
+  export const inboundSchema = FieldMetaDocumentText$inboundSchema;
+  /** @deprecated use `FieldMetaDocumentText$outboundSchema` instead. */
+  export const outboundSchema = FieldMetaDocumentText$outboundSchema;
+  /** @deprecated use `FieldMetaDocumentText$Outbound` instead. */
+  export type Outbound = FieldMetaDocumentText$Outbound;
 }
 
-export function documentCreateDocumentTemporaryFieldMeta5ToJSON(
-  documentCreateDocumentTemporaryFieldMeta5:
-    DocumentCreateDocumentTemporaryFieldMeta5,
+export function fieldMetaDocumentTextToJSON(
+  fieldMetaDocumentText: FieldMetaDocumentText,
 ): string {
   return JSON.stringify(
-    DocumentCreateDocumentTemporaryFieldMeta5$outboundSchema.parse(
-      documentCreateDocumentTemporaryFieldMeta5,
-    ),
+    FieldMetaDocumentText$outboundSchema.parse(fieldMetaDocumentText),
   );
 }
 
-export function documentCreateDocumentTemporaryFieldMeta5FromJSON(
+export function fieldMetaDocumentTextFromJSON(
   jsonString: string,
-): SafeParseResult<
-  DocumentCreateDocumentTemporaryFieldMeta5,
-  SDKValidationError
-> {
+): SafeParseResult<FieldMetaDocumentText, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      DocumentCreateDocumentTemporaryFieldMeta5$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DocumentCreateDocumentTemporaryFieldMeta5' from JSON`,
+    (x) => FieldMetaDocumentText$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldMetaDocumentText' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200Type
-  > = z.nativeEnum(
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200Type,
-  );
+export const DocumentTypeDate$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentTypeDate
+> = z.nativeEnum(DocumentTypeDate);
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200Type
-  > =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200Type$inboundSchema;
+export const DocumentTypeDate$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentTypeDate
+> = DocumentTypeDate$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200Type$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200Type$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200Type$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200Type$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200Type$outboundSchema;
+export namespace DocumentTypeDate$ {
+  /** @deprecated use `DocumentTypeDate$inboundSchema` instead. */
+  export const inboundSchema = DocumentTypeDate$inboundSchema;
+  /** @deprecated use `DocumentTypeDate$outboundSchema` instead. */
+  export const outboundSchema = DocumentTypeDate$outboundSchema;
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMeta4$inboundSchema: z.ZodType<
-  DocumentCreateDocumentTemporaryFieldMeta4,
+export const DocumentTextAlign4$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentTextAlign4
+> = z.nativeEnum(DocumentTextAlign4);
+
+/** @internal */
+export const DocumentTextAlign4$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentTextAlign4
+> = DocumentTextAlign4$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentTextAlign4$ {
+  /** @deprecated use `DocumentTextAlign4$inboundSchema` instead. */
+  export const inboundSchema = DocumentTextAlign4$inboundSchema;
+  /** @deprecated use `DocumentTextAlign4$outboundSchema` instead. */
+  export const outboundSchema = DocumentTextAlign4$outboundSchema;
+}
+
+/** @internal */
+export const FieldMetaDocumentDate$inboundSchema: z.ZodType<
+  FieldMetaDocumentDate,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -6065,110 +5879,113 @@ export const DocumentCreateDocumentTemporaryFieldMeta4$inboundSchema: z.ZodType<
   placeholder: z.string().optional(),
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
-  type:
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200Type$inboundSchema,
+  type: DocumentTypeDate$inboundSchema,
   fontSize: z.number().optional(),
+  textAlign: DocumentTextAlign4$inboundSchema.optional(),
 });
 
 /** @internal */
-export type DocumentCreateDocumentTemporaryFieldMeta4$Outbound = {
+export type FieldMetaDocumentDate$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMeta4$outboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldMeta4$Outbound,
-    z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryFieldMeta4
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      DocumentCreateDocumentTemporaryFieldMetaDocumentsResponse200Type$outboundSchema,
-    fontSize: z.number().optional(),
-  });
+export const FieldMetaDocumentDate$outboundSchema: z.ZodType<
+  FieldMetaDocumentDate$Outbound,
+  z.ZodTypeDef,
+  FieldMetaDocumentDate
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: DocumentTypeDate$outboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: DocumentTextAlign4$outboundSchema.optional(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldMeta4$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta4$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldMeta4$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta4$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldMeta4$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta4$Outbound` instead. */
-  export type Outbound = DocumentCreateDocumentTemporaryFieldMeta4$Outbound;
+export namespace FieldMetaDocumentDate$ {
+  /** @deprecated use `FieldMetaDocumentDate$inboundSchema` instead. */
+  export const inboundSchema = FieldMetaDocumentDate$inboundSchema;
+  /** @deprecated use `FieldMetaDocumentDate$outboundSchema` instead. */
+  export const outboundSchema = FieldMetaDocumentDate$outboundSchema;
+  /** @deprecated use `FieldMetaDocumentDate$Outbound` instead. */
+  export type Outbound = FieldMetaDocumentDate$Outbound;
 }
 
-export function documentCreateDocumentTemporaryFieldMeta4ToJSON(
-  documentCreateDocumentTemporaryFieldMeta4:
-    DocumentCreateDocumentTemporaryFieldMeta4,
+export function fieldMetaDocumentDateToJSON(
+  fieldMetaDocumentDate: FieldMetaDocumentDate,
 ): string {
   return JSON.stringify(
-    DocumentCreateDocumentTemporaryFieldMeta4$outboundSchema.parse(
-      documentCreateDocumentTemporaryFieldMeta4,
-    ),
+    FieldMetaDocumentDate$outboundSchema.parse(fieldMetaDocumentDate),
   );
 }
 
-export function documentCreateDocumentTemporaryFieldMeta4FromJSON(
+export function fieldMetaDocumentDateFromJSON(
   jsonString: string,
-): SafeParseResult<
-  DocumentCreateDocumentTemporaryFieldMeta4,
-  SDKValidationError
-> {
+): SafeParseResult<FieldMetaDocumentDate, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      DocumentCreateDocumentTemporaryFieldMeta4$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DocumentCreateDocumentTemporaryFieldMeta4' from JSON`,
+    (x) => FieldMetaDocumentDate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldMetaDocumentDate' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseType
-  > = z.nativeEnum(
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseType,
-  );
+export const DocumentTypeEmail$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentTypeEmail
+> = z.nativeEnum(DocumentTypeEmail);
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseType
-  > =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseType$inboundSchema;
+export const DocumentTypeEmail$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentTypeEmail
+> = DocumentTypeEmail$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseType$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseType$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseType$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseType$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseType$outboundSchema;
+export namespace DocumentTypeEmail$ {
+  /** @deprecated use `DocumentTypeEmail$inboundSchema` instead. */
+  export const inboundSchema = DocumentTypeEmail$inboundSchema;
+  /** @deprecated use `DocumentTypeEmail$outboundSchema` instead. */
+  export const outboundSchema = DocumentTypeEmail$outboundSchema;
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMeta3$inboundSchema: z.ZodType<
-  DocumentCreateDocumentTemporaryFieldMeta3,
+export const DocumentTextAlign3$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentTextAlign3
+> = z.nativeEnum(DocumentTextAlign3);
+
+/** @internal */
+export const DocumentTextAlign3$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentTextAlign3
+> = DocumentTextAlign3$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentTextAlign3$ {
+  /** @deprecated use `DocumentTextAlign3$inboundSchema` instead. */
+  export const inboundSchema = DocumentTextAlign3$inboundSchema;
+  /** @deprecated use `DocumentTextAlign3$outboundSchema` instead. */
+  export const outboundSchema = DocumentTextAlign3$outboundSchema;
+}
+
+/** @internal */
+export const FieldMetaDocumentEmail$inboundSchema: z.ZodType<
+  FieldMetaDocumentEmail,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -6176,107 +5993,113 @@ export const DocumentCreateDocumentTemporaryFieldMeta3$inboundSchema: z.ZodType<
   placeholder: z.string().optional(),
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
-  type:
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseType$inboundSchema,
+  type: DocumentTypeEmail$inboundSchema,
   fontSize: z.number().optional(),
+  textAlign: DocumentTextAlign3$inboundSchema.optional(),
 });
 
 /** @internal */
-export type DocumentCreateDocumentTemporaryFieldMeta3$Outbound = {
+export type FieldMetaDocumentEmail$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMeta3$outboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldMeta3$Outbound,
-    z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryFieldMeta3
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      DocumentCreateDocumentTemporaryFieldMetaDocumentsResponseType$outboundSchema,
-    fontSize: z.number().optional(),
-  });
+export const FieldMetaDocumentEmail$outboundSchema: z.ZodType<
+  FieldMetaDocumentEmail$Outbound,
+  z.ZodTypeDef,
+  FieldMetaDocumentEmail
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: DocumentTypeEmail$outboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: DocumentTextAlign3$outboundSchema.optional(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldMeta3$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta3$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldMeta3$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta3$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldMeta3$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta3$Outbound` instead. */
-  export type Outbound = DocumentCreateDocumentTemporaryFieldMeta3$Outbound;
+export namespace FieldMetaDocumentEmail$ {
+  /** @deprecated use `FieldMetaDocumentEmail$inboundSchema` instead. */
+  export const inboundSchema = FieldMetaDocumentEmail$inboundSchema;
+  /** @deprecated use `FieldMetaDocumentEmail$outboundSchema` instead. */
+  export const outboundSchema = FieldMetaDocumentEmail$outboundSchema;
+  /** @deprecated use `FieldMetaDocumentEmail$Outbound` instead. */
+  export type Outbound = FieldMetaDocumentEmail$Outbound;
 }
 
-export function documentCreateDocumentTemporaryFieldMeta3ToJSON(
-  documentCreateDocumentTemporaryFieldMeta3:
-    DocumentCreateDocumentTemporaryFieldMeta3,
+export function fieldMetaDocumentEmailToJSON(
+  fieldMetaDocumentEmail: FieldMetaDocumentEmail,
 ): string {
   return JSON.stringify(
-    DocumentCreateDocumentTemporaryFieldMeta3$outboundSchema.parse(
-      documentCreateDocumentTemporaryFieldMeta3,
-    ),
+    FieldMetaDocumentEmail$outboundSchema.parse(fieldMetaDocumentEmail),
   );
 }
 
-export function documentCreateDocumentTemporaryFieldMeta3FromJSON(
+export function fieldMetaDocumentEmailFromJSON(
   jsonString: string,
-): SafeParseResult<
-  DocumentCreateDocumentTemporaryFieldMeta3,
-  SDKValidationError
-> {
+): SafeParseResult<FieldMetaDocumentEmail, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      DocumentCreateDocumentTemporaryFieldMeta3$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DocumentCreateDocumentTemporaryFieldMeta3' from JSON`,
+    (x) => FieldMetaDocumentEmail$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldMetaDocumentEmail' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMetaDocumentsType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsType
-  > = z.nativeEnum(DocumentCreateDocumentTemporaryFieldMetaDocumentsType);
+export const DocumentTypeName$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentTypeName
+> = z.nativeEnum(DocumentTypeName);
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMetaDocumentsType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryFieldMetaDocumentsType
-  > = DocumentCreateDocumentTemporaryFieldMetaDocumentsType$inboundSchema;
+export const DocumentTypeName$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentTypeName
+> = DocumentTypeName$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldMetaDocumentsType$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsType$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsType$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaDocumentsType$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldMetaDocumentsType$outboundSchema;
+export namespace DocumentTypeName$ {
+  /** @deprecated use `DocumentTypeName$inboundSchema` instead. */
+  export const inboundSchema = DocumentTypeName$inboundSchema;
+  /** @deprecated use `DocumentTypeName$outboundSchema` instead. */
+  export const outboundSchema = DocumentTypeName$outboundSchema;
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMeta2$inboundSchema: z.ZodType<
-  DocumentCreateDocumentTemporaryFieldMeta2,
+export const DocumentTextAlign2$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentTextAlign2
+> = z.nativeEnum(DocumentTextAlign2);
+
+/** @internal */
+export const DocumentTextAlign2$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentTextAlign2
+> = DocumentTextAlign2$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentTextAlign2$ {
+  /** @deprecated use `DocumentTextAlign2$inboundSchema` instead. */
+  export const inboundSchema = DocumentTextAlign2$inboundSchema;
+  /** @deprecated use `DocumentTextAlign2$outboundSchema` instead. */
+  export const outboundSchema = DocumentTextAlign2$outboundSchema;
+}
+
+/** @internal */
+export const FieldMetaDocumentName$inboundSchema: z.ZodType<
+  FieldMetaDocumentName,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -6284,103 +6107,113 @@ export const DocumentCreateDocumentTemporaryFieldMeta2$inboundSchema: z.ZodType<
   placeholder: z.string().optional(),
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
-  type: DocumentCreateDocumentTemporaryFieldMetaDocumentsType$inboundSchema,
+  type: DocumentTypeName$inboundSchema,
   fontSize: z.number().optional(),
+  textAlign: DocumentTextAlign2$inboundSchema.optional(),
 });
 
 /** @internal */
-export type DocumentCreateDocumentTemporaryFieldMeta2$Outbound = {
+export type FieldMetaDocumentName$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMeta2$outboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldMeta2$Outbound,
-    z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryFieldMeta2
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type: DocumentCreateDocumentTemporaryFieldMetaDocumentsType$outboundSchema,
-    fontSize: z.number().optional(),
-  });
+export const FieldMetaDocumentName$outboundSchema: z.ZodType<
+  FieldMetaDocumentName$Outbound,
+  z.ZodTypeDef,
+  FieldMetaDocumentName
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: DocumentTypeName$outboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: DocumentTextAlign2$outboundSchema.optional(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldMeta2$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta2$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldMeta2$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta2$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldMeta2$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta2$Outbound` instead. */
-  export type Outbound = DocumentCreateDocumentTemporaryFieldMeta2$Outbound;
+export namespace FieldMetaDocumentName$ {
+  /** @deprecated use `FieldMetaDocumentName$inboundSchema` instead. */
+  export const inboundSchema = FieldMetaDocumentName$inboundSchema;
+  /** @deprecated use `FieldMetaDocumentName$outboundSchema` instead. */
+  export const outboundSchema = FieldMetaDocumentName$outboundSchema;
+  /** @deprecated use `FieldMetaDocumentName$Outbound` instead. */
+  export type Outbound = FieldMetaDocumentName$Outbound;
 }
 
-export function documentCreateDocumentTemporaryFieldMeta2ToJSON(
-  documentCreateDocumentTemporaryFieldMeta2:
-    DocumentCreateDocumentTemporaryFieldMeta2,
+export function fieldMetaDocumentNameToJSON(
+  fieldMetaDocumentName: FieldMetaDocumentName,
 ): string {
   return JSON.stringify(
-    DocumentCreateDocumentTemporaryFieldMeta2$outboundSchema.parse(
-      documentCreateDocumentTemporaryFieldMeta2,
-    ),
+    FieldMetaDocumentName$outboundSchema.parse(fieldMetaDocumentName),
   );
 }
 
-export function documentCreateDocumentTemporaryFieldMeta2FromJSON(
+export function fieldMetaDocumentNameFromJSON(
   jsonString: string,
-): SafeParseResult<
-  DocumentCreateDocumentTemporaryFieldMeta2,
-  SDKValidationError
-> {
+): SafeParseResult<FieldMetaDocumentName, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      DocumentCreateDocumentTemporaryFieldMeta2$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DocumentCreateDocumentTemporaryFieldMeta2' from JSON`,
+    (x) => FieldMetaDocumentName$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldMetaDocumentName' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMetaType$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryFieldMetaType> = z
-    .nativeEnum(DocumentCreateDocumentTemporaryFieldMetaType);
+export const DocumentTypeInitials$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentTypeInitials
+> = z.nativeEnum(DocumentTypeInitials);
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMetaType$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryFieldMetaType> =
-    DocumentCreateDocumentTemporaryFieldMetaType$inboundSchema;
+export const DocumentTypeInitials$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentTypeInitials
+> = DocumentTypeInitials$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldMetaType$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaType$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldMetaType$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMetaType$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldMetaType$outboundSchema;
+export namespace DocumentTypeInitials$ {
+  /** @deprecated use `DocumentTypeInitials$inboundSchema` instead. */
+  export const inboundSchema = DocumentTypeInitials$inboundSchema;
+  /** @deprecated use `DocumentTypeInitials$outboundSchema` instead. */
+  export const outboundSchema = DocumentTypeInitials$outboundSchema;
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMeta1$inboundSchema: z.ZodType<
-  DocumentCreateDocumentTemporaryFieldMeta1,
+export const DocumentTextAlign1$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentTextAlign1
+> = z.nativeEnum(DocumentTextAlign1);
+
+/** @internal */
+export const DocumentTextAlign1$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentTextAlign1
+> = DocumentTextAlign1$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentTextAlign1$ {
+  /** @deprecated use `DocumentTextAlign1$inboundSchema` instead. */
+  export const inboundSchema = DocumentTextAlign1$inboundSchema;
+  /** @deprecated use `DocumentTextAlign1$outboundSchema` instead. */
+  export const outboundSchema = DocumentTextAlign1$outboundSchema;
+}
+
+/** @internal */
+export const FieldMetaDocumentInitials$inboundSchema: z.ZodType<
+  FieldMetaDocumentInitials,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -6388,177 +6221,157 @@ export const DocumentCreateDocumentTemporaryFieldMeta1$inboundSchema: z.ZodType<
   placeholder: z.string().optional(),
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
-  type: DocumentCreateDocumentTemporaryFieldMetaType$inboundSchema,
+  type: DocumentTypeInitials$inboundSchema,
   fontSize: z.number().optional(),
+  textAlign: DocumentTextAlign1$inboundSchema.optional(),
 });
 
 /** @internal */
-export type DocumentCreateDocumentTemporaryFieldMeta1$Outbound = {
+export type FieldMetaDocumentInitials$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMeta1$outboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryFieldMeta1$Outbound,
-    z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryFieldMeta1
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type: DocumentCreateDocumentTemporaryFieldMetaType$outboundSchema,
-    fontSize: z.number().optional(),
-  });
+export const FieldMetaDocumentInitials$outboundSchema: z.ZodType<
+  FieldMetaDocumentInitials$Outbound,
+  z.ZodTypeDef,
+  FieldMetaDocumentInitials
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  type: DocumentTypeInitials$outboundSchema,
+  fontSize: z.number().optional(),
+  textAlign: DocumentTextAlign1$outboundSchema.optional(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldMeta1$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta1$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldMeta1$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta1$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldMeta1$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta1$Outbound` instead. */
-  export type Outbound = DocumentCreateDocumentTemporaryFieldMeta1$Outbound;
+export namespace FieldMetaDocumentInitials$ {
+  /** @deprecated use `FieldMetaDocumentInitials$inboundSchema` instead. */
+  export const inboundSchema = FieldMetaDocumentInitials$inboundSchema;
+  /** @deprecated use `FieldMetaDocumentInitials$outboundSchema` instead. */
+  export const outboundSchema = FieldMetaDocumentInitials$outboundSchema;
+  /** @deprecated use `FieldMetaDocumentInitials$Outbound` instead. */
+  export type Outbound = FieldMetaDocumentInitials$Outbound;
 }
 
-export function documentCreateDocumentTemporaryFieldMeta1ToJSON(
-  documentCreateDocumentTemporaryFieldMeta1:
-    DocumentCreateDocumentTemporaryFieldMeta1,
+export function fieldMetaDocumentInitialsToJSON(
+  fieldMetaDocumentInitials: FieldMetaDocumentInitials,
 ): string {
   return JSON.stringify(
-    DocumentCreateDocumentTemporaryFieldMeta1$outboundSchema.parse(
-      documentCreateDocumentTemporaryFieldMeta1,
-    ),
+    FieldMetaDocumentInitials$outboundSchema.parse(fieldMetaDocumentInitials),
   );
 }
 
-export function documentCreateDocumentTemporaryFieldMeta1FromJSON(
+export function fieldMetaDocumentInitialsFromJSON(
   jsonString: string,
-): SafeParseResult<
-  DocumentCreateDocumentTemporaryFieldMeta1,
-  SDKValidationError
-> {
+): SafeParseResult<FieldMetaDocumentInitials, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      DocumentCreateDocumentTemporaryFieldMeta1$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DocumentCreateDocumentTemporaryFieldMeta1' from JSON`,
+    (x) => FieldMetaDocumentInitials$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldMetaDocumentInitials' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMeta$inboundSchema: z.ZodType<
-  DocumentCreateDocumentTemporaryFieldMeta,
+export const DocumentFieldMetaUnion$inboundSchema: z.ZodType<
+  DocumentFieldMetaUnion,
   z.ZodTypeDef,
   unknown
 > = z.union([
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta1$inboundSchema),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta2$inboundSchema),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta3$inboundSchema),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta4$inboundSchema),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta7$inboundSchema),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta9$inboundSchema),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta5$inboundSchema),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta8$inboundSchema),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta6$inboundSchema),
+  z.lazy(() => FieldMetaDocumentRadio$inboundSchema),
+  z.lazy(() => FieldMetaDocumentInitials$inboundSchema),
+  z.lazy(() => FieldMetaDocumentName$inboundSchema),
+  z.lazy(() => FieldMetaDocumentEmail$inboundSchema),
+  z.lazy(() => FieldMetaDocumentDate$inboundSchema),
+  z.lazy(() => FieldMetaDocumentDropdown$inboundSchema),
+  z.lazy(() => FieldMetaDocumentCheckbox$inboundSchema),
+  z.lazy(() => FieldMetaDocumentText$inboundSchema),
+  z.lazy(() => FieldMetaDocumentNumber$inboundSchema),
 ]);
 
 /** @internal */
-export type DocumentCreateDocumentTemporaryFieldMeta$Outbound =
-  | DocumentCreateDocumentTemporaryFieldMeta1$Outbound
-  | DocumentCreateDocumentTemporaryFieldMeta2$Outbound
-  | DocumentCreateDocumentTemporaryFieldMeta3$Outbound
-  | DocumentCreateDocumentTemporaryFieldMeta4$Outbound
-  | DocumentCreateDocumentTemporaryFieldMeta7$Outbound
-  | DocumentCreateDocumentTemporaryFieldMeta9$Outbound
-  | DocumentCreateDocumentTemporaryFieldMeta5$Outbound
-  | DocumentCreateDocumentTemporaryFieldMeta8$Outbound
-  | DocumentCreateDocumentTemporaryFieldMeta6$Outbound;
+export type DocumentFieldMetaUnion$Outbound =
+  | FieldMetaDocumentRadio$Outbound
+  | FieldMetaDocumentInitials$Outbound
+  | FieldMetaDocumentName$Outbound
+  | FieldMetaDocumentEmail$Outbound
+  | FieldMetaDocumentDate$Outbound
+  | FieldMetaDocumentDropdown$Outbound
+  | FieldMetaDocumentCheckbox$Outbound
+  | FieldMetaDocumentText$Outbound
+  | FieldMetaDocumentNumber$Outbound;
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFieldMeta$outboundSchema: z.ZodType<
-  DocumentCreateDocumentTemporaryFieldMeta$Outbound,
+export const DocumentFieldMetaUnion$outboundSchema: z.ZodType<
+  DocumentFieldMetaUnion$Outbound,
   z.ZodTypeDef,
-  DocumentCreateDocumentTemporaryFieldMeta
+  DocumentFieldMetaUnion
 > = z.union([
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta1$outboundSchema),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta2$outboundSchema),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta3$outboundSchema),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta4$outboundSchema),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta7$outboundSchema),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta9$outboundSchema),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta5$outboundSchema),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta8$outboundSchema),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta6$outboundSchema),
+  z.lazy(() => FieldMetaDocumentRadio$outboundSchema),
+  z.lazy(() => FieldMetaDocumentInitials$outboundSchema),
+  z.lazy(() => FieldMetaDocumentName$outboundSchema),
+  z.lazy(() => FieldMetaDocumentEmail$outboundSchema),
+  z.lazy(() => FieldMetaDocumentDate$outboundSchema),
+  z.lazy(() => FieldMetaDocumentDropdown$outboundSchema),
+  z.lazy(() => FieldMetaDocumentCheckbox$outboundSchema),
+  z.lazy(() => FieldMetaDocumentText$outboundSchema),
+  z.lazy(() => FieldMetaDocumentNumber$outboundSchema),
 ]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFieldMeta$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFieldMeta$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFieldMeta$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFieldMeta$Outbound` instead. */
-  export type Outbound = DocumentCreateDocumentTemporaryFieldMeta$Outbound;
+export namespace DocumentFieldMetaUnion$ {
+  /** @deprecated use `DocumentFieldMetaUnion$inboundSchema` instead. */
+  export const inboundSchema = DocumentFieldMetaUnion$inboundSchema;
+  /** @deprecated use `DocumentFieldMetaUnion$outboundSchema` instead. */
+  export const outboundSchema = DocumentFieldMetaUnion$outboundSchema;
+  /** @deprecated use `DocumentFieldMetaUnion$Outbound` instead. */
+  export type Outbound = DocumentFieldMetaUnion$Outbound;
 }
 
-export function documentCreateDocumentTemporaryFieldMetaToJSON(
-  documentCreateDocumentTemporaryFieldMeta:
-    DocumentCreateDocumentTemporaryFieldMeta,
+export function documentFieldMetaUnionToJSON(
+  documentFieldMetaUnion: DocumentFieldMetaUnion,
 ): string {
   return JSON.stringify(
-    DocumentCreateDocumentTemporaryFieldMeta$outboundSchema.parse(
-      documentCreateDocumentTemporaryFieldMeta,
-    ),
+    DocumentFieldMetaUnion$outboundSchema.parse(documentFieldMetaUnion),
   );
 }
 
-export function documentCreateDocumentTemporaryFieldMetaFromJSON(
+export function documentFieldMetaUnionFromJSON(
   jsonString: string,
-): SafeParseResult<
-  DocumentCreateDocumentTemporaryFieldMeta,
-  SDKValidationError
-> {
+): SafeParseResult<DocumentFieldMetaUnion, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      DocumentCreateDocumentTemporaryFieldMeta$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DocumentCreateDocumentTemporaryFieldMeta' from JSON`,
+    (x) => DocumentFieldMetaUnion$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentFieldMetaUnion' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFields$inboundSchema: z.ZodType<
-  DocumentCreateDocumentTemporaryFields,
+export const DocumentField$inboundSchema: z.ZodType<
+  DocumentField,
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: DocumentCreateDocumentTemporaryDocumentsType$inboundSchema,
-  id: z.number().int(),
+  type: DocumentFieldType$inboundSchema,
+  id: z.number(),
   secondaryId: z.string(),
-  documentId: z.nullable(z.number().int()),
-  templateId: z.nullable(z.number().int()),
-  recipientId: z.number().int(),
+  documentId: z.nullable(z.number()),
+  templateId: z.nullable(z.number()),
+  recipientId: z.number(),
   page: z.number(),
   positionX: z.any().optional(),
   positionY: z.any().optional(),
@@ -6568,21 +6381,21 @@ export const DocumentCreateDocumentTemporaryFields$inboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta1$inboundSchema),
-      z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta2$inboundSchema),
-      z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta3$inboundSchema),
-      z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta4$inboundSchema),
-      z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta7$inboundSchema),
-      z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta9$inboundSchema),
-      z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta5$inboundSchema),
-      z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta8$inboundSchema),
-      z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta6$inboundSchema),
+      z.lazy(() => FieldMetaDocumentRadio$inboundSchema),
+      z.lazy(() => FieldMetaDocumentInitials$inboundSchema),
+      z.lazy(() => FieldMetaDocumentName$inboundSchema),
+      z.lazy(() => FieldMetaDocumentEmail$inboundSchema),
+      z.lazy(() => FieldMetaDocumentDate$inboundSchema),
+      z.lazy(() => FieldMetaDocumentDropdown$inboundSchema),
+      z.lazy(() => FieldMetaDocumentCheckbox$inboundSchema),
+      z.lazy(() => FieldMetaDocumentText$inboundSchema),
+      z.lazy(() => FieldMetaDocumentNumber$inboundSchema),
     ]),
   ),
 });
 
 /** @internal */
-export type DocumentCreateDocumentTemporaryFields$Outbound = {
+export type DocumentField$Outbound = {
   type: string;
   id: number;
   secondaryId: string;
@@ -6597,30 +6410,30 @@ export type DocumentCreateDocumentTemporaryFields$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | DocumentCreateDocumentTemporaryFieldMeta1$Outbound
-    | DocumentCreateDocumentTemporaryFieldMeta2$Outbound
-    | DocumentCreateDocumentTemporaryFieldMeta3$Outbound
-    | DocumentCreateDocumentTemporaryFieldMeta4$Outbound
-    | DocumentCreateDocumentTemporaryFieldMeta7$Outbound
-    | DocumentCreateDocumentTemporaryFieldMeta9$Outbound
-    | DocumentCreateDocumentTemporaryFieldMeta5$Outbound
-    | DocumentCreateDocumentTemporaryFieldMeta8$Outbound
-    | DocumentCreateDocumentTemporaryFieldMeta6$Outbound
+    | FieldMetaDocumentRadio$Outbound
+    | FieldMetaDocumentInitials$Outbound
+    | FieldMetaDocumentName$Outbound
+    | FieldMetaDocumentEmail$Outbound
+    | FieldMetaDocumentDate$Outbound
+    | FieldMetaDocumentDropdown$Outbound
+    | FieldMetaDocumentCheckbox$Outbound
+    | FieldMetaDocumentText$Outbound
+    | FieldMetaDocumentNumber$Outbound
     | null;
 };
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryFields$outboundSchema: z.ZodType<
-  DocumentCreateDocumentTemporaryFields$Outbound,
+export const DocumentField$outboundSchema: z.ZodType<
+  DocumentField$Outbound,
   z.ZodTypeDef,
-  DocumentCreateDocumentTemporaryFields
+  DocumentField
 > = z.object({
-  type: DocumentCreateDocumentTemporaryDocumentsType$outboundSchema,
-  id: z.number().int(),
+  type: DocumentFieldType$outboundSchema,
+  id: z.number(),
   secondaryId: z.string(),
-  documentId: z.nullable(z.number().int()),
-  templateId: z.nullable(z.number().int()),
-  recipientId: z.number().int(),
+  documentId: z.nullable(z.number()),
+  templateId: z.nullable(z.number()),
+  recipientId: z.number(),
   page: z.number(),
   positionX: z.any().optional(),
   positionY: z.any().optional(),
@@ -6630,15 +6443,15 @@ export const DocumentCreateDocumentTemporaryFields$outboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta1$outboundSchema),
-      z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta2$outboundSchema),
-      z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta3$outboundSchema),
-      z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta4$outboundSchema),
-      z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta7$outboundSchema),
-      z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta9$outboundSchema),
-      z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta5$outboundSchema),
-      z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta8$outboundSchema),
-      z.lazy(() => DocumentCreateDocumentTemporaryFieldMeta6$outboundSchema),
+      z.lazy(() => FieldMetaDocumentRadio$outboundSchema),
+      z.lazy(() => FieldMetaDocumentInitials$outboundSchema),
+      z.lazy(() => FieldMetaDocumentName$outboundSchema),
+      z.lazy(() => FieldMetaDocumentEmail$outboundSchema),
+      z.lazy(() => FieldMetaDocumentDate$outboundSchema),
+      z.lazy(() => FieldMetaDocumentDropdown$outboundSchema),
+      z.lazy(() => FieldMetaDocumentCheckbox$outboundSchema),
+      z.lazy(() => FieldMetaDocumentText$outboundSchema),
+      z.lazy(() => FieldMetaDocumentNumber$outboundSchema),
     ]),
   ),
 });
@@ -6647,35 +6460,26 @@ export const DocumentCreateDocumentTemporaryFields$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryFields$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryFields$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentCreateDocumentTemporaryFields$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFields$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentCreateDocumentTemporaryFields$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryFields$Outbound` instead. */
-  export type Outbound = DocumentCreateDocumentTemporaryFields$Outbound;
+export namespace DocumentField$ {
+  /** @deprecated use `DocumentField$inboundSchema` instead. */
+  export const inboundSchema = DocumentField$inboundSchema;
+  /** @deprecated use `DocumentField$outboundSchema` instead. */
+  export const outboundSchema = DocumentField$outboundSchema;
+  /** @deprecated use `DocumentField$Outbound` instead. */
+  export type Outbound = DocumentField$Outbound;
 }
 
-export function documentCreateDocumentTemporaryFieldsToJSON(
-  documentCreateDocumentTemporaryFields: DocumentCreateDocumentTemporaryFields,
-): string {
-  return JSON.stringify(
-    DocumentCreateDocumentTemporaryFields$outboundSchema.parse(
-      documentCreateDocumentTemporaryFields,
-    ),
-  );
+export function documentFieldToJSON(documentField: DocumentField): string {
+  return JSON.stringify(DocumentField$outboundSchema.parse(documentField));
 }
 
-export function documentCreateDocumentTemporaryFieldsFromJSON(
+export function documentFieldFromJSON(
   jsonString: string,
-): SafeParseResult<DocumentCreateDocumentTemporaryFields, SDKValidationError> {
+): SafeParseResult<DocumentField, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      DocumentCreateDocumentTemporaryFields$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DocumentCreateDocumentTemporaryFields' from JSON`,
+    (x) => DocumentField$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentField' from JSON`,
   );
 }
 
@@ -6685,10 +6489,10 @@ export const Document$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  visibility: DocumentCreateDocumentTemporaryVisibility$inboundSchema,
+  visibility: DocumentVisibility$inboundSchema,
   status: DocumentCreateDocumentTemporaryStatus$inboundSchema,
   source: DocumentCreateDocumentTemporarySource$inboundSchema,
-  id: z.number().int(),
+  id: z.number(),
   externalId: z.nullable(z.string()),
   userId: z.number(),
   authOptions: z.nullable(
@@ -6703,20 +6507,16 @@ export const Document$inboundSchema: z.ZodType<
   updatedAt: z.string(),
   completedAt: z.nullable(z.string()),
   deletedAt: z.nullable(z.string()),
-  teamId: z.nullable(z.number().int()),
-  templateId: z.nullable(z.number().int()),
+  teamId: z.nullable(z.number()),
+  templateId: z.nullable(z.number()),
   documentData: z.lazy(() =>
     DocumentCreateDocumentTemporaryDocumentData$inboundSchema
   ),
   documentMeta: z.nullable(
     z.lazy(() => DocumentCreateDocumentTemporaryDocumentMeta$inboundSchema),
   ),
-  recipients: z.array(
-    z.lazy(() => DocumentCreateDocumentTemporaryRecipients$inboundSchema),
-  ),
-  fields: z.array(
-    z.lazy(() => DocumentCreateDocumentTemporaryFields$inboundSchema),
-  ),
+  recipients: z.array(z.lazy(() => DocumentRecipient$inboundSchema)),
+  fields: z.array(z.lazy(() => DocumentField$inboundSchema)),
 });
 
 /** @internal */
@@ -6739,8 +6539,8 @@ export type Document$Outbound = {
   templateId: number | null;
   documentData: DocumentCreateDocumentTemporaryDocumentData$Outbound;
   documentMeta: DocumentCreateDocumentTemporaryDocumentMeta$Outbound | null;
-  recipients: Array<DocumentCreateDocumentTemporaryRecipients$Outbound>;
-  fields: Array<DocumentCreateDocumentTemporaryFields$Outbound>;
+  recipients: Array<DocumentRecipient$Outbound>;
+  fields: Array<DocumentField$Outbound>;
 };
 
 /** @internal */
@@ -6749,10 +6549,10 @@ export const Document$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Document
 > = z.object({
-  visibility: DocumentCreateDocumentTemporaryVisibility$outboundSchema,
+  visibility: DocumentVisibility$outboundSchema,
   status: DocumentCreateDocumentTemporaryStatus$outboundSchema,
   source: DocumentCreateDocumentTemporarySource$outboundSchema,
-  id: z.number().int(),
+  id: z.number(),
   externalId: z.nullable(z.string()),
   userId: z.number(),
   authOptions: z.nullable(
@@ -6767,20 +6567,16 @@ export const Document$outboundSchema: z.ZodType<
   updatedAt: z.string(),
   completedAt: z.nullable(z.string()),
   deletedAt: z.nullable(z.string()),
-  teamId: z.nullable(z.number().int()),
-  templateId: z.nullable(z.number().int()),
+  teamId: z.nullable(z.number()),
+  templateId: z.nullable(z.number()),
   documentData: z.lazy(() =>
     DocumentCreateDocumentTemporaryDocumentData$outboundSchema
   ),
   documentMeta: z.nullable(
     z.lazy(() => DocumentCreateDocumentTemporaryDocumentMeta$outboundSchema),
   ),
-  recipients: z.array(
-    z.lazy(() => DocumentCreateDocumentTemporaryRecipients$outboundSchema),
-  ),
-  fields: z.array(
-    z.lazy(() => DocumentCreateDocumentTemporaryFields$outboundSchema),
-  ),
+  recipients: z.array(z.lazy(() => DocumentRecipient$outboundSchema)),
+  fields: z.array(z.lazy(() => DocumentField$outboundSchema)),
 });
 
 /**
@@ -6811,71 +6607,69 @@ export function documentFromJSON(
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryResponseBody$inboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryResponseBody,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    document: z.lazy(() => Document$inboundSchema),
-    uploadUrl: z.string(),
-  });
+export const DocumentCreateDocumentTemporaryResponse$inboundSchema: z.ZodType<
+  DocumentCreateDocumentTemporaryResponse,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  document: z.lazy(() => Document$inboundSchema),
+  uploadUrl: z.string(),
+});
 
 /** @internal */
-export type DocumentCreateDocumentTemporaryResponseBody$Outbound = {
+export type DocumentCreateDocumentTemporaryResponse$Outbound = {
   document: Document$Outbound;
   uploadUrl: string;
 };
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryResponseBody$outboundSchema:
-  z.ZodType<
-    DocumentCreateDocumentTemporaryResponseBody$Outbound,
-    z.ZodTypeDef,
-    DocumentCreateDocumentTemporaryResponseBody
-  > = z.object({
-    document: z.lazy(() => Document$outboundSchema),
-    uploadUrl: z.string(),
-  });
+export const DocumentCreateDocumentTemporaryResponse$outboundSchema: z.ZodType<
+  DocumentCreateDocumentTemporaryResponse$Outbound,
+  z.ZodTypeDef,
+  DocumentCreateDocumentTemporaryResponse
+> = z.object({
+  document: z.lazy(() => Document$outboundSchema),
+  uploadUrl: z.string(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentCreateDocumentTemporaryResponseBody$ {
-  /** @deprecated use `DocumentCreateDocumentTemporaryResponseBody$inboundSchema` instead. */
+export namespace DocumentCreateDocumentTemporaryResponse$ {
+  /** @deprecated use `DocumentCreateDocumentTemporaryResponse$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentCreateDocumentTemporaryResponseBody$inboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryResponseBody$outboundSchema` instead. */
+    DocumentCreateDocumentTemporaryResponse$inboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryResponse$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentCreateDocumentTemporaryResponseBody$outboundSchema;
-  /** @deprecated use `DocumentCreateDocumentTemporaryResponseBody$Outbound` instead. */
-  export type Outbound = DocumentCreateDocumentTemporaryResponseBody$Outbound;
+    DocumentCreateDocumentTemporaryResponse$outboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryResponse$Outbound` instead. */
+  export type Outbound = DocumentCreateDocumentTemporaryResponse$Outbound;
 }
 
-export function documentCreateDocumentTemporaryResponseBodyToJSON(
-  documentCreateDocumentTemporaryResponseBody:
-    DocumentCreateDocumentTemporaryResponseBody,
+export function documentCreateDocumentTemporaryResponseToJSON(
+  documentCreateDocumentTemporaryResponse:
+    DocumentCreateDocumentTemporaryResponse,
 ): string {
   return JSON.stringify(
-    DocumentCreateDocumentTemporaryResponseBody$outboundSchema.parse(
-      documentCreateDocumentTemporaryResponseBody,
+    DocumentCreateDocumentTemporaryResponse$outboundSchema.parse(
+      documentCreateDocumentTemporaryResponse,
     ),
   );
 }
 
-export function documentCreateDocumentTemporaryResponseBodyFromJSON(
+export function documentCreateDocumentTemporaryResponseFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  DocumentCreateDocumentTemporaryResponseBody,
+  DocumentCreateDocumentTemporaryResponse,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentCreateDocumentTemporaryResponseBody$inboundSchema.parse(
+      DocumentCreateDocumentTemporaryResponse$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'DocumentCreateDocumentTemporaryResponseBody' from JSON`,
+    `Failed to parse 'DocumentCreateDocumentTemporaryResponse' from JSON`,
   );
 }

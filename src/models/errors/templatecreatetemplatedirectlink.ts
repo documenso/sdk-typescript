@@ -7,39 +7,34 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
-export type TemplateCreateTemplateDirectLinkTemplatesDirectLinkIssues = {
+export type TemplateCreateTemplateDirectLinkInternalServerErrorIssue = {
   message: string;
 };
 
 /**
  * Internal server error
  */
-export type TemplateCreateTemplateDirectLinkTemplatesDirectLinkResponseBodyData =
-  {
-    message: string;
-    code: string;
-    issues?:
-      | Array<TemplateCreateTemplateDirectLinkTemplatesDirectLinkIssues>
-      | undefined;
-  };
+export type TemplateCreateTemplateDirectLinkInternalServerErrorData = {
+  message: string;
+  code: string;
+  issues?:
+    | Array<TemplateCreateTemplateDirectLinkInternalServerErrorIssue>
+    | undefined;
+};
 
 /**
  * Internal server error
  */
-export class TemplateCreateTemplateDirectLinkTemplatesDirectLinkResponseBody
-  extends Error
-{
+export class TemplateCreateTemplateDirectLinkInternalServerError extends Error {
   code: string;
   issues?:
-    | Array<TemplateCreateTemplateDirectLinkTemplatesDirectLinkIssues>
+    | Array<TemplateCreateTemplateDirectLinkInternalServerErrorIssue>
     | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: TemplateCreateTemplateDirectLinkTemplatesDirectLinkResponseBodyData;
+  data$: TemplateCreateTemplateDirectLinkInternalServerErrorData;
 
-  constructor(
-    err: TemplateCreateTemplateDirectLinkTemplatesDirectLinkResponseBodyData,
-  ) {
+  constructor(err: TemplateCreateTemplateDirectLinkInternalServerErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -49,35 +44,34 @@ export class TemplateCreateTemplateDirectLinkTemplatesDirectLinkResponseBody
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name =
-      "TemplateCreateTemplateDirectLinkTemplatesDirectLinkResponseBody";
+    this.name = "TemplateCreateTemplateDirectLinkInternalServerError";
   }
 }
 
-export type TemplateCreateTemplateDirectLinkIssues = {
+export type TemplateCreateTemplateDirectLinkBadRequestIssue = {
   message: string;
 };
 
 /**
  * Invalid input data
  */
-export type TemplateCreateTemplateDirectLinkResponseBodyData = {
+export type TemplateCreateTemplateDirectLinkBadRequestErrorData = {
   message: string;
   code: string;
-  issues?: Array<TemplateCreateTemplateDirectLinkIssues> | undefined;
+  issues?: Array<TemplateCreateTemplateDirectLinkBadRequestIssue> | undefined;
 };
 
 /**
  * Invalid input data
  */
-export class TemplateCreateTemplateDirectLinkResponseBody extends Error {
+export class TemplateCreateTemplateDirectLinkBadRequestError extends Error {
   code: string;
-  issues?: Array<TemplateCreateTemplateDirectLinkIssues> | undefined;
+  issues?: Array<TemplateCreateTemplateDirectLinkBadRequestIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: TemplateCreateTemplateDirectLinkResponseBodyData;
+  data$: TemplateCreateTemplateDirectLinkBadRequestErrorData;
 
-  constructor(err: TemplateCreateTemplateDirectLinkResponseBodyData) {
+  constructor(err: TemplateCreateTemplateDirectLinkBadRequestErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -87,14 +81,14 @@ export class TemplateCreateTemplateDirectLinkResponseBody extends Error {
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name = "TemplateCreateTemplateDirectLinkResponseBody";
+    this.name = "TemplateCreateTemplateDirectLinkBadRequestError";
   }
 }
 
 /** @internal */
-export const TemplateCreateTemplateDirectLinkTemplatesDirectLinkIssues$inboundSchema:
+export const TemplateCreateTemplateDirectLinkInternalServerErrorIssue$inboundSchema:
   z.ZodType<
-    TemplateCreateTemplateDirectLinkTemplatesDirectLinkIssues,
+    TemplateCreateTemplateDirectLinkInternalServerErrorIssue,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -102,17 +96,17 @@ export const TemplateCreateTemplateDirectLinkTemplatesDirectLinkIssues$inboundSc
   });
 
 /** @internal */
-export type TemplateCreateTemplateDirectLinkTemplatesDirectLinkIssues$Outbound =
+export type TemplateCreateTemplateDirectLinkInternalServerErrorIssue$Outbound =
   {
     message: string;
   };
 
 /** @internal */
-export const TemplateCreateTemplateDirectLinkTemplatesDirectLinkIssues$outboundSchema:
+export const TemplateCreateTemplateDirectLinkInternalServerErrorIssue$outboundSchema:
   z.ZodType<
-    TemplateCreateTemplateDirectLinkTemplatesDirectLinkIssues$Outbound,
+    TemplateCreateTemplateDirectLinkInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
-    TemplateCreateTemplateDirectLinkTemplatesDirectLinkIssues
+    TemplateCreateTemplateDirectLinkInternalServerErrorIssue
   > = z.object({
     message: z.string(),
   });
@@ -121,47 +115,47 @@ export const TemplateCreateTemplateDirectLinkTemplatesDirectLinkIssues$outboundS
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateTemplateDirectLinkTemplatesDirectLinkIssues$ {
-  /** @deprecated use `TemplateCreateTemplateDirectLinkTemplatesDirectLinkIssues$inboundSchema` instead. */
+export namespace TemplateCreateTemplateDirectLinkInternalServerErrorIssue$ {
+  /** @deprecated use `TemplateCreateTemplateDirectLinkInternalServerErrorIssue$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateTemplateDirectLinkTemplatesDirectLinkIssues$inboundSchema;
-  /** @deprecated use `TemplateCreateTemplateDirectLinkTemplatesDirectLinkIssues$outboundSchema` instead. */
+    TemplateCreateTemplateDirectLinkInternalServerErrorIssue$inboundSchema;
+  /** @deprecated use `TemplateCreateTemplateDirectLinkInternalServerErrorIssue$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateTemplateDirectLinkTemplatesDirectLinkIssues$outboundSchema;
-  /** @deprecated use `TemplateCreateTemplateDirectLinkTemplatesDirectLinkIssues$Outbound` instead. */
+    TemplateCreateTemplateDirectLinkInternalServerErrorIssue$outboundSchema;
+  /** @deprecated use `TemplateCreateTemplateDirectLinkInternalServerErrorIssue$Outbound` instead. */
   export type Outbound =
-    TemplateCreateTemplateDirectLinkTemplatesDirectLinkIssues$Outbound;
+    TemplateCreateTemplateDirectLinkInternalServerErrorIssue$Outbound;
 }
 
-export function templateCreateTemplateDirectLinkTemplatesDirectLinkIssuesToJSON(
-  templateCreateTemplateDirectLinkTemplatesDirectLinkIssues:
-    TemplateCreateTemplateDirectLinkTemplatesDirectLinkIssues,
+export function templateCreateTemplateDirectLinkInternalServerErrorIssueToJSON(
+  templateCreateTemplateDirectLinkInternalServerErrorIssue:
+    TemplateCreateTemplateDirectLinkInternalServerErrorIssue,
 ): string {
   return JSON.stringify(
-    TemplateCreateTemplateDirectLinkTemplatesDirectLinkIssues$outboundSchema
-      .parse(templateCreateTemplateDirectLinkTemplatesDirectLinkIssues),
+    TemplateCreateTemplateDirectLinkInternalServerErrorIssue$outboundSchema
+      .parse(templateCreateTemplateDirectLinkInternalServerErrorIssue),
   );
 }
 
-export function templateCreateTemplateDirectLinkTemplatesDirectLinkIssuesFromJSON(
+export function templateCreateTemplateDirectLinkInternalServerErrorIssueFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  TemplateCreateTemplateDirectLinkTemplatesDirectLinkIssues,
+  TemplateCreateTemplateDirectLinkInternalServerErrorIssue,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      TemplateCreateTemplateDirectLinkTemplatesDirectLinkIssues$inboundSchema
+      TemplateCreateTemplateDirectLinkInternalServerErrorIssue$inboundSchema
         .parse(JSON.parse(x)),
-    `Failed to parse 'TemplateCreateTemplateDirectLinkTemplatesDirectLinkIssues' from JSON`,
+    `Failed to parse 'TemplateCreateTemplateDirectLinkInternalServerErrorIssue' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateCreateTemplateDirectLinkTemplatesDirectLinkResponseBody$inboundSchema:
+export const TemplateCreateTemplateDirectLinkInternalServerError$inboundSchema:
   z.ZodType<
-    TemplateCreateTemplateDirectLinkTemplatesDirectLinkResponseBody,
+    TemplateCreateTemplateDirectLinkInternalServerError,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -169,44 +163,37 @@ export const TemplateCreateTemplateDirectLinkTemplatesDirectLinkResponseBody$inb
     code: z.string(),
     issues: z.array(
       z.lazy(() =>
-        TemplateCreateTemplateDirectLinkTemplatesDirectLinkIssues$inboundSchema
+        TemplateCreateTemplateDirectLinkInternalServerErrorIssue$inboundSchema
       ),
     ).optional(),
   })
     .transform((v) => {
-      return new TemplateCreateTemplateDirectLinkTemplatesDirectLinkResponseBody(
-        v,
-      );
+      return new TemplateCreateTemplateDirectLinkInternalServerError(v);
     });
 
 /** @internal */
-export type TemplateCreateTemplateDirectLinkTemplatesDirectLinkResponseBody$Outbound =
-  {
-    message: string;
-    code: string;
-    issues?:
-      | Array<
-        TemplateCreateTemplateDirectLinkTemplatesDirectLinkIssues$Outbound
-      >
-      | undefined;
-  };
+export type TemplateCreateTemplateDirectLinkInternalServerError$Outbound = {
+  message: string;
+  code: string;
+  issues?:
+    | Array<TemplateCreateTemplateDirectLinkInternalServerErrorIssue$Outbound>
+    | undefined;
+};
 
 /** @internal */
-export const TemplateCreateTemplateDirectLinkTemplatesDirectLinkResponseBody$outboundSchema:
+export const TemplateCreateTemplateDirectLinkInternalServerError$outboundSchema:
   z.ZodType<
-    TemplateCreateTemplateDirectLinkTemplatesDirectLinkResponseBody$Outbound,
+    TemplateCreateTemplateDirectLinkInternalServerError$Outbound,
     z.ZodTypeDef,
-    TemplateCreateTemplateDirectLinkTemplatesDirectLinkResponseBody
-  > = z.instanceof(
-    TemplateCreateTemplateDirectLinkTemplatesDirectLinkResponseBody,
-  )
+    TemplateCreateTemplateDirectLinkInternalServerError
+  > = z.instanceof(TemplateCreateTemplateDirectLinkInternalServerError)
     .transform(v => v.data$)
     .pipe(z.object({
       message: z.string(),
       code: z.string(),
       issues: z.array(
         z.lazy(() =>
-          TemplateCreateTemplateDirectLinkTemplatesDirectLinkIssues$outboundSchema
+          TemplateCreateTemplateDirectLinkInternalServerErrorIssue$outboundSchema
         ),
       ).optional(),
     }));
@@ -215,115 +202,129 @@ export const TemplateCreateTemplateDirectLinkTemplatesDirectLinkResponseBody$out
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateTemplateDirectLinkTemplatesDirectLinkResponseBody$ {
-  /** @deprecated use `TemplateCreateTemplateDirectLinkTemplatesDirectLinkResponseBody$inboundSchema` instead. */
+export namespace TemplateCreateTemplateDirectLinkInternalServerError$ {
+  /** @deprecated use `TemplateCreateTemplateDirectLinkInternalServerError$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateTemplateDirectLinkTemplatesDirectLinkResponseBody$inboundSchema;
-  /** @deprecated use `TemplateCreateTemplateDirectLinkTemplatesDirectLinkResponseBody$outboundSchema` instead. */
+    TemplateCreateTemplateDirectLinkInternalServerError$inboundSchema;
+  /** @deprecated use `TemplateCreateTemplateDirectLinkInternalServerError$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateTemplateDirectLinkTemplatesDirectLinkResponseBody$outboundSchema;
-  /** @deprecated use `TemplateCreateTemplateDirectLinkTemplatesDirectLinkResponseBody$Outbound` instead. */
+    TemplateCreateTemplateDirectLinkInternalServerError$outboundSchema;
+  /** @deprecated use `TemplateCreateTemplateDirectLinkInternalServerError$Outbound` instead. */
   export type Outbound =
-    TemplateCreateTemplateDirectLinkTemplatesDirectLinkResponseBody$Outbound;
+    TemplateCreateTemplateDirectLinkInternalServerError$Outbound;
 }
 
 /** @internal */
-export const TemplateCreateTemplateDirectLinkIssues$inboundSchema: z.ZodType<
-  TemplateCreateTemplateDirectLinkIssues,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  message: z.string(),
-});
+export const TemplateCreateTemplateDirectLinkBadRequestIssue$inboundSchema:
+  z.ZodType<
+    TemplateCreateTemplateDirectLinkBadRequestIssue,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    message: z.string(),
+  });
 
 /** @internal */
-export type TemplateCreateTemplateDirectLinkIssues$Outbound = {
+export type TemplateCreateTemplateDirectLinkBadRequestIssue$Outbound = {
   message: string;
 };
 
 /** @internal */
-export const TemplateCreateTemplateDirectLinkIssues$outboundSchema: z.ZodType<
-  TemplateCreateTemplateDirectLinkIssues$Outbound,
-  z.ZodTypeDef,
-  TemplateCreateTemplateDirectLinkIssues
-> = z.object({
-  message: z.string(),
-});
+export const TemplateCreateTemplateDirectLinkBadRequestIssue$outboundSchema:
+  z.ZodType<
+    TemplateCreateTemplateDirectLinkBadRequestIssue$Outbound,
+    z.ZodTypeDef,
+    TemplateCreateTemplateDirectLinkBadRequestIssue
+  > = z.object({
+    message: z.string(),
+  });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateTemplateDirectLinkIssues$ {
-  /** @deprecated use `TemplateCreateTemplateDirectLinkIssues$inboundSchema` instead. */
+export namespace TemplateCreateTemplateDirectLinkBadRequestIssue$ {
+  /** @deprecated use `TemplateCreateTemplateDirectLinkBadRequestIssue$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateTemplateDirectLinkIssues$inboundSchema;
-  /** @deprecated use `TemplateCreateTemplateDirectLinkIssues$outboundSchema` instead. */
+    TemplateCreateTemplateDirectLinkBadRequestIssue$inboundSchema;
+  /** @deprecated use `TemplateCreateTemplateDirectLinkBadRequestIssue$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateTemplateDirectLinkIssues$outboundSchema;
-  /** @deprecated use `TemplateCreateTemplateDirectLinkIssues$Outbound` instead. */
-  export type Outbound = TemplateCreateTemplateDirectLinkIssues$Outbound;
+    TemplateCreateTemplateDirectLinkBadRequestIssue$outboundSchema;
+  /** @deprecated use `TemplateCreateTemplateDirectLinkBadRequestIssue$Outbound` instead. */
+  export type Outbound =
+    TemplateCreateTemplateDirectLinkBadRequestIssue$Outbound;
 }
 
-export function templateCreateTemplateDirectLinkIssuesToJSON(
-  templateCreateTemplateDirectLinkIssues:
-    TemplateCreateTemplateDirectLinkIssues,
+export function templateCreateTemplateDirectLinkBadRequestIssueToJSON(
+  templateCreateTemplateDirectLinkBadRequestIssue:
+    TemplateCreateTemplateDirectLinkBadRequestIssue,
 ): string {
   return JSON.stringify(
-    TemplateCreateTemplateDirectLinkIssues$outboundSchema.parse(
-      templateCreateTemplateDirectLinkIssues,
+    TemplateCreateTemplateDirectLinkBadRequestIssue$outboundSchema.parse(
+      templateCreateTemplateDirectLinkBadRequestIssue,
     ),
   );
 }
 
-export function templateCreateTemplateDirectLinkIssuesFromJSON(
+export function templateCreateTemplateDirectLinkBadRequestIssueFromJSON(
   jsonString: string,
-): SafeParseResult<TemplateCreateTemplateDirectLinkIssues, SDKValidationError> {
+): SafeParseResult<
+  TemplateCreateTemplateDirectLinkBadRequestIssue,
+  SDKValidationError
+> {
   return safeParse(
     jsonString,
     (x) =>
-      TemplateCreateTemplateDirectLinkIssues$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TemplateCreateTemplateDirectLinkIssues' from JSON`,
+      TemplateCreateTemplateDirectLinkBadRequestIssue$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'TemplateCreateTemplateDirectLinkBadRequestIssue' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateCreateTemplateDirectLinkResponseBody$inboundSchema:
+export const TemplateCreateTemplateDirectLinkBadRequestError$inboundSchema:
   z.ZodType<
-    TemplateCreateTemplateDirectLinkResponseBody,
+    TemplateCreateTemplateDirectLinkBadRequestError,
     z.ZodTypeDef,
     unknown
   > = z.object({
     message: z.string(),
     code: z.string(),
     issues: z.array(
-      z.lazy(() => TemplateCreateTemplateDirectLinkIssues$inboundSchema),
+      z.lazy(() =>
+        TemplateCreateTemplateDirectLinkBadRequestIssue$inboundSchema
+      ),
     ).optional(),
   })
     .transform((v) => {
-      return new TemplateCreateTemplateDirectLinkResponseBody(v);
+      return new TemplateCreateTemplateDirectLinkBadRequestError(v);
     });
 
 /** @internal */
-export type TemplateCreateTemplateDirectLinkResponseBody$Outbound = {
+export type TemplateCreateTemplateDirectLinkBadRequestError$Outbound = {
   message: string;
   code: string;
-  issues?: Array<TemplateCreateTemplateDirectLinkIssues$Outbound> | undefined;
+  issues?:
+    | Array<TemplateCreateTemplateDirectLinkBadRequestIssue$Outbound>
+    | undefined;
 };
 
 /** @internal */
-export const TemplateCreateTemplateDirectLinkResponseBody$outboundSchema:
+export const TemplateCreateTemplateDirectLinkBadRequestError$outboundSchema:
   z.ZodType<
-    TemplateCreateTemplateDirectLinkResponseBody$Outbound,
+    TemplateCreateTemplateDirectLinkBadRequestError$Outbound,
     z.ZodTypeDef,
-    TemplateCreateTemplateDirectLinkResponseBody
-  > = z.instanceof(TemplateCreateTemplateDirectLinkResponseBody)
+    TemplateCreateTemplateDirectLinkBadRequestError
+  > = z.instanceof(TemplateCreateTemplateDirectLinkBadRequestError)
     .transform(v => v.data$)
     .pipe(z.object({
       message: z.string(),
       code: z.string(),
       issues: z.array(
-        z.lazy(() => TemplateCreateTemplateDirectLinkIssues$outboundSchema),
+        z.lazy(() =>
+          TemplateCreateTemplateDirectLinkBadRequestIssue$outboundSchema
+        ),
       ).optional(),
     }));
 
@@ -331,13 +332,14 @@ export const TemplateCreateTemplateDirectLinkResponseBody$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateCreateTemplateDirectLinkResponseBody$ {
-  /** @deprecated use `TemplateCreateTemplateDirectLinkResponseBody$inboundSchema` instead. */
+export namespace TemplateCreateTemplateDirectLinkBadRequestError$ {
+  /** @deprecated use `TemplateCreateTemplateDirectLinkBadRequestError$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateCreateTemplateDirectLinkResponseBody$inboundSchema;
-  /** @deprecated use `TemplateCreateTemplateDirectLinkResponseBody$outboundSchema` instead. */
+    TemplateCreateTemplateDirectLinkBadRequestError$inboundSchema;
+  /** @deprecated use `TemplateCreateTemplateDirectLinkBadRequestError$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateCreateTemplateDirectLinkResponseBody$outboundSchema;
-  /** @deprecated use `TemplateCreateTemplateDirectLinkResponseBody$Outbound` instead. */
-  export type Outbound = TemplateCreateTemplateDirectLinkResponseBody$Outbound;
+    TemplateCreateTemplateDirectLinkBadRequestError$outboundSchema;
+  /** @deprecated use `TemplateCreateTemplateDirectLinkBadRequestError$Outbound` instead. */
+  export type Outbound =
+    TemplateCreateTemplateDirectLinkBadRequestError$Outbound;
 }

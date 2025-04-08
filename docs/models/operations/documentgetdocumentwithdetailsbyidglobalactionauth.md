@@ -7,7 +7,8 @@ The type of authentication required for the recipient to sign the document. This
 ```typescript
 import { DocumentGetDocumentWithDetailsByIdGlobalActionAuth } from "@documenso/sdk-typescript/models/operations";
 
-let value: DocumentGetDocumentWithDetailsByIdGlobalActionAuth = "PASSKEY";
+let value: DocumentGetDocumentWithDetailsByIdGlobalActionAuth =
+  "TWO_FACTOR_AUTH";
 ```
 
 ## Values
