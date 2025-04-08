@@ -7,7 +7,7 @@ import { TemplateGetTemplateByIdAuthOptions } from "@documenso/sdk-typescript/mo
 
 let value: TemplateGetTemplateByIdAuthOptions = {
   globalAccessAuth: "ACCOUNT",
-  globalActionAuth: "TWO_FACTOR_AUTH",
+  globalActionAuth: "ACCOUNT",
 };
 ```
 

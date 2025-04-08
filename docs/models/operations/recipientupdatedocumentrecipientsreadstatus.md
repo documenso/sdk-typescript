@@ -5,7 +5,7 @@
 ```typescript
 import { RecipientUpdateDocumentRecipientsReadStatus } from "@documenso/sdk-typescript/models/operations";
 
-let value: RecipientUpdateDocumentRecipientsReadStatus = "NOT_OPENED";
+let value: RecipientUpdateDocumentRecipientsReadStatus = "OPENED";
 ```
 
 ## Values

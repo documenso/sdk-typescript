@@ -6,7 +6,7 @@
 import { RecipientGetTemplateRecipientRequest } from "@documenso/sdk-typescript/models/operations";
 
 let value: RecipientGetTemplateRecipientRequest = {
-  recipientId: 8595.37,
+  recipientId: 5000.35,
 };
 ```
 

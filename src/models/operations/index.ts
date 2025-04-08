@@ -10,7 +10,7 @@ export * from "./documentgetdocumentwithdetailsbyid.js";
 export * from "./documentmovedocumenttoteam.js";
 export * from "./documentresenddocument.js";
 export * from "./documentsenddocument.js";
-export * from "./documentsetsettingsfordocument.js";
+export * from "./documentupdatedocument.js";
 export * from "./fieldcreatedocumentfield.js";
 export * from "./fieldcreatedocumentfields.js";
 export * from "./fieldcreatetemplatefield.js";

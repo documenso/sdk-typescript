@@ -13,18 +13,18 @@ import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 import { DirectLink } from "./directlink.js";
-import { DocumensoFields } from "./documensofields.js";
-import { DocumensoRecipients } from "./documensorecipients.js";
+import { TemplatesFields } from "./templatesfields.js";
+import { TemplatesRecipients } from "./templatesrecipients.js";
 
 export class Templates extends ClientSDK {
-  private _fields?: DocumensoFields;
-  get fields(): DocumensoFields {
-    return (this._fields ??= new DocumensoFields(this._options));
+  private _fields?: TemplatesFields;
+  get fields(): TemplatesFields {
+    return (this._fields ??= new TemplatesFields(this._options));
   }
 
-  private _recipients?: DocumensoRecipients;
-  get recipients(): DocumensoRecipients {
-    return (this._recipients ??= new DocumensoRecipients(this._options));
+  private _recipients?: TemplatesRecipients;
+  get recipients(): TemplatesRecipients {
+    return (this._recipients ??= new TemplatesRecipients(this._options));
   }
 
   private _directLink?: DirectLink;
@@ -41,7 +41,7 @@ export class Templates extends ClientSDK {
   async find(
     request: operations.TemplateFindTemplatesRequest,
     options?: RequestOptions,
-  ): Promise<operations.TemplateFindTemplatesResponseBody> {
+  ): Promise<operations.TemplateFindTemplatesResponse> {
     return unwrapAsync(templatesFind(
       this,
       request,
@@ -55,7 +55,7 @@ export class Templates extends ClientSDK {
   async get(
     request: operations.TemplateGetTemplateByIdRequest,
     options?: RequestOptions,
-  ): Promise<operations.TemplateGetTemplateByIdResponseBody> {
+  ): Promise<operations.TemplateGetTemplateByIdResponse> {
     return unwrapAsync(templatesGet(
       this,
       request,
@@ -67,9 +67,9 @@ export class Templates extends ClientSDK {
    * Update template
    */
   async update(
-    request: operations.TemplateUpdateTemplateRequestBody,
+    request: operations.TemplateUpdateTemplateRequest,
     options?: RequestOptions,
-  ): Promise<operations.TemplateUpdateTemplateResponseBody> {
+  ): Promise<operations.TemplateUpdateTemplateResponse> {
     return unwrapAsync(templatesUpdate(
       this,
       request,
@@ -81,9 +81,9 @@ export class Templates extends ClientSDK {
    * Duplicate template
    */
   async duplicate(
-    request: operations.TemplateDuplicateTemplateRequestBody,
+    request: operations.TemplateDuplicateTemplateRequest,
     options?: RequestOptions,
-  ): Promise<operations.TemplateDuplicateTemplateResponseBody> {
+  ): Promise<operations.TemplateDuplicateTemplateResponse> {
     return unwrapAsync(templatesDuplicate(
       this,
       request,
@@ -95,9 +95,9 @@ export class Templates extends ClientSDK {
    * Delete template
    */
   async delete(
-    request: operations.TemplateDeleteTemplateRequestBody,
+    request: operations.TemplateDeleteTemplateRequest,
     options?: RequestOptions,
-  ): Promise<operations.TemplateDeleteTemplateResponseBody> {
+  ): Promise<operations.TemplateDeleteTemplateResponse> {
     return unwrapAsync(templatesDelete(
       this,
       request,
@@ -112,9 +112,9 @@ export class Templates extends ClientSDK {
    * Use the template to create a document
    */
   async use(
-    request: operations.TemplateCreateDocumentFromTemplateRequestBody,
+    request: operations.TemplateCreateDocumentFromTemplateRequest,
     options?: RequestOptions,
-  ): Promise<operations.TemplateCreateDocumentFromTemplateResponseBody> {
+  ): Promise<operations.TemplateCreateDocumentFromTemplateResponse> {
     return unwrapAsync(templatesUse(
       this,
       request,
@@ -129,9 +129,9 @@ export class Templates extends ClientSDK {
    * Move a template to a team
    */
   async moveToTeam(
-    request: operations.TemplateMoveTemplateToTeamRequestBody,
+    request: operations.TemplateMoveTemplateToTeamRequest,
     options?: RequestOptions,
-  ): Promise<operations.TemplateMoveTemplateToTeamResponseBody> {
+  ): Promise<operations.TemplateMoveTemplateToTeamResponse> {
     return unwrapAsync(templatesMoveToTeam(
       this,
       request,

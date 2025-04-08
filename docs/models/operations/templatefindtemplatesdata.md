@@ -7,51 +7,51 @@ import { TemplateFindTemplatesData } from "@documenso/sdk-typescript/models/oper
 
 let value: TemplateFindTemplatesData = {
   type: "PUBLIC",
-  visibility: "ADMIN",
-  id: 30192,
+  visibility: "EVERYONE",
+  id: 5475.93,
   externalId: "<id>",
   title: "<value>",
-  userId: 873320,
-  teamId: 444479,
+  userId: 5177.26,
+  teamId: 3295.89,
   authOptions: {
     globalAccessAuth: "ACCOUNT",
     globalActionAuth: "PASSKEY",
   },
   templateDocumentDataId: "<id>",
-  createdAt: "1723086620945",
-  updatedAt: "1737561043284",
+  createdAt: "1714073444849",
+  updatedAt: "1744010024842",
   publicTitle: "<value>",
   publicDescription: "<value>",
   team: {
-    id: 344856,
-    url: "https://glass-colonialism.name/",
+    id: 8235.06,
+    url: "https://powerful-shadowbox.biz",
   },
   fields: [
     {
-      type: "NAME",
-      id: 958068,
+      type: "DATE",
+      id: 4216.08,
       secondaryId: "<id>",
-      documentId: 965735,
-      templateId: 620126,
-      recipientId: 617497,
-      page: 9853.79,
+      documentId: 6636.72,
+      templateId: 5544.41,
+      recipientId: 4567.91,
+      page: 1276.31,
       customText: "<value>",
       inserted: false,
       fieldMeta: {
-        type: "checkbox",
+        type: "radio",
       },
     },
   ],
   recipients: [
     {
-      role: "APPROVER",
+      role: "SIGNER",
       readStatus: "NOT_OPENED",
       signingStatus: "SIGNED",
-      sendStatus: "NOT_SENT",
-      id: 487148,
-      documentId: 990369,
-      templateId: 912151,
-      email: "Albina.Lind@gmail.com",
+      sendStatus: "SENT",
+      id: 3096.12,
+      documentId: 237.95,
+      templateId: 5324.57,
+      email: "Deanna_White@gmail.com",
       name: "<value>",
       token: "<value>",
       documentDeletedAt: "<value>",
@@ -59,15 +59,15 @@ let value: TemplateFindTemplatesData = {
       signedAt: "<value>",
       authOptions: {
         accessAuth: "ACCOUNT",
-        actionAuth: "ACCOUNT",
+        actionAuth: "TWO_FACTOR_AUTH",
       },
-      signingOrder: 2596,
+      signingOrder: 1789.53,
       rejectionReason: "<value>",
     },
   ],
   templateMeta: {
-    signingOrder: "PARALLEL",
-    distributionMethod: "EMAIL",
+    signingOrder: "SEQUENTIAL",
+    distributionMethod: "NONE",
   },
   directLink: {
     token: "<value>",
@@ -80,7 +80,7 @@ let value: TemplateFindTemplatesData = {
 
 | Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
 | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `type`                                                                                                       | [operations.TemplateFindTemplatesType](../../models/operations/templatefindtemplatestype.md)                 | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| `type`                                                                                                       | [operations.TemplateFindTemplatesDataType](../../models/operations/templatefindtemplatesdatatype.md)         | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `visibility`                                                                                                 | [operations.TemplateFindTemplatesVisibility](../../models/operations/templatefindtemplatesvisibility.md)     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `id`                                                                                                         | *number*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `externalId`                                                                                                 | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
@@ -94,7 +94,7 @@ let value: TemplateFindTemplatesData = {
 | `publicTitle`                                                                                                | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `publicDescription`                                                                                          | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `team`                                                                                                       | [operations.TemplateFindTemplatesTeam](../../models/operations/templatefindtemplatesteam.md)                 | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
-| `fields`                                                                                                     | [operations.TemplateFindTemplatesFields](../../models/operations/templatefindtemplatesfields.md)[]           | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
-| `recipients`                                                                                                 | [operations.TemplateFindTemplatesRecipients](../../models/operations/templatefindtemplatesrecipients.md)[]   | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| `fields`                                                                                                     | [operations.TemplateFindTemplatesField](../../models/operations/templatefindtemplatesfield.md)[]             | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| `recipients`                                                                                                 | [operations.TemplateFindTemplatesRecipient](../../models/operations/templatefindtemplatesrecipient.md)[]     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `templateMeta`                                                                                               | [operations.TemplateFindTemplatesTemplateMeta](../../models/operations/templatefindtemplatestemplatemeta.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `directLink`                                                                                                 | [operations.TemplateFindTemplatesDirectLink](../../models/operations/templatefindtemplatesdirectlink.md)     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |

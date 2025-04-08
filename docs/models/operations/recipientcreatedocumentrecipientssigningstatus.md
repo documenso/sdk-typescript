@@ -5,7 +5,7 @@
 ```typescript
 import { RecipientCreateDocumentRecipientsSigningStatus } from "@documenso/sdk-typescript/models/operations";
 
-let value: RecipientCreateDocumentRecipientsSigningStatus = "SIGNED";
+let value: RecipientCreateDocumentRecipientsSigningStatus = "NOT_SIGNED";
 ```
 
 ## Values

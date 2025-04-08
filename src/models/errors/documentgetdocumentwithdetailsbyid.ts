@@ -7,39 +7,36 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
-export type DocumentGetDocumentWithDetailsByIdDocumentsResponseIssues = {
+export type DocumentGetDocumentWithDetailsByIdInternalServerErrorIssue = {
   message: string;
 };
 
 /**
  * Internal server error
  */
-export type DocumentGetDocumentWithDetailsByIdDocumentsResponseResponseBodyData =
-  {
-    message: string;
-    code: string;
-    issues?:
-      | Array<DocumentGetDocumentWithDetailsByIdDocumentsResponseIssues>
-      | undefined;
-  };
+export type DocumentGetDocumentWithDetailsByIdInternalServerErrorData = {
+  message: string;
+  code: string;
+  issues?:
+    | Array<DocumentGetDocumentWithDetailsByIdInternalServerErrorIssue>
+    | undefined;
+};
 
 /**
  * Internal server error
  */
-export class DocumentGetDocumentWithDetailsByIdDocumentsResponseResponseBody
+export class DocumentGetDocumentWithDetailsByIdInternalServerError
   extends Error
 {
   code: string;
   issues?:
-    | Array<DocumentGetDocumentWithDetailsByIdDocumentsResponseIssues>
+    | Array<DocumentGetDocumentWithDetailsByIdInternalServerErrorIssue>
     | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: DocumentGetDocumentWithDetailsByIdDocumentsResponseResponseBodyData;
+  data$: DocumentGetDocumentWithDetailsByIdInternalServerErrorData;
 
-  constructor(
-    err: DocumentGetDocumentWithDetailsByIdDocumentsResponseResponseBodyData,
-  ) {
+  constructor(err: DocumentGetDocumentWithDetailsByIdInternalServerErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -49,39 +46,34 @@ export class DocumentGetDocumentWithDetailsByIdDocumentsResponseResponseBody
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name =
-      "DocumentGetDocumentWithDetailsByIdDocumentsResponseResponseBody";
+    this.name = "DocumentGetDocumentWithDetailsByIdInternalServerError";
   }
 }
 
-export type DocumentGetDocumentWithDetailsByIdDocumentsIssues = {
+export type DocumentGetDocumentWithDetailsByIdNotFoundIssue = {
   message: string;
 };
 
 /**
  * Not found
  */
-export type DocumentGetDocumentWithDetailsByIdDocumentsResponseBodyData = {
+export type DocumentGetDocumentWithDetailsByIdNotFoundErrorData = {
   message: string;
   code: string;
-  issues?: Array<DocumentGetDocumentWithDetailsByIdDocumentsIssues> | undefined;
+  issues?: Array<DocumentGetDocumentWithDetailsByIdNotFoundIssue> | undefined;
 };
 
 /**
  * Not found
  */
-export class DocumentGetDocumentWithDetailsByIdDocumentsResponseBody
-  extends Error
-{
+export class DocumentGetDocumentWithDetailsByIdNotFoundError extends Error {
   code: string;
-  issues?: Array<DocumentGetDocumentWithDetailsByIdDocumentsIssues> | undefined;
+  issues?: Array<DocumentGetDocumentWithDetailsByIdNotFoundIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: DocumentGetDocumentWithDetailsByIdDocumentsResponseBodyData;
+  data$: DocumentGetDocumentWithDetailsByIdNotFoundErrorData;
 
-  constructor(
-    err: DocumentGetDocumentWithDetailsByIdDocumentsResponseBodyData,
-  ) {
+  constructor(err: DocumentGetDocumentWithDetailsByIdNotFoundErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -91,34 +83,34 @@ export class DocumentGetDocumentWithDetailsByIdDocumentsResponseBody
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name = "DocumentGetDocumentWithDetailsByIdDocumentsResponseBody";
+    this.name = "DocumentGetDocumentWithDetailsByIdNotFoundError";
   }
 }
 
-export type DocumentGetDocumentWithDetailsByIdIssues = {
+export type DocumentGetDocumentWithDetailsByIdBadRequestIssue = {
   message: string;
 };
 
 /**
  * Invalid input data
  */
-export type DocumentGetDocumentWithDetailsByIdResponseBodyData = {
+export type DocumentGetDocumentWithDetailsByIdBadRequestErrorData = {
   message: string;
   code: string;
-  issues?: Array<DocumentGetDocumentWithDetailsByIdIssues> | undefined;
+  issues?: Array<DocumentGetDocumentWithDetailsByIdBadRequestIssue> | undefined;
 };
 
 /**
  * Invalid input data
  */
-export class DocumentGetDocumentWithDetailsByIdResponseBody extends Error {
+export class DocumentGetDocumentWithDetailsByIdBadRequestError extends Error {
   code: string;
-  issues?: Array<DocumentGetDocumentWithDetailsByIdIssues> | undefined;
+  issues?: Array<DocumentGetDocumentWithDetailsByIdBadRequestIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: DocumentGetDocumentWithDetailsByIdResponseBodyData;
+  data$: DocumentGetDocumentWithDetailsByIdBadRequestErrorData;
 
-  constructor(err: DocumentGetDocumentWithDetailsByIdResponseBodyData) {
+  constructor(err: DocumentGetDocumentWithDetailsByIdBadRequestErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -128,14 +120,14 @@ export class DocumentGetDocumentWithDetailsByIdResponseBody extends Error {
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name = "DocumentGetDocumentWithDetailsByIdResponseBody";
+    this.name = "DocumentGetDocumentWithDetailsByIdBadRequestError";
   }
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdDocumentsResponseIssues$inboundSchema:
+export const DocumentGetDocumentWithDetailsByIdInternalServerErrorIssue$inboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdDocumentsResponseIssues,
+    DocumentGetDocumentWithDetailsByIdInternalServerErrorIssue,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -143,17 +135,17 @@ export const DocumentGetDocumentWithDetailsByIdDocumentsResponseIssues$inboundSc
   });
 
 /** @internal */
-export type DocumentGetDocumentWithDetailsByIdDocumentsResponseIssues$Outbound =
+export type DocumentGetDocumentWithDetailsByIdInternalServerErrorIssue$Outbound =
   {
     message: string;
   };
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdDocumentsResponseIssues$outboundSchema:
+export const DocumentGetDocumentWithDetailsByIdInternalServerErrorIssue$outboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdDocumentsResponseIssues$Outbound,
+    DocumentGetDocumentWithDetailsByIdInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
-    DocumentGetDocumentWithDetailsByIdDocumentsResponseIssues
+    DocumentGetDocumentWithDetailsByIdInternalServerErrorIssue
   > = z.object({
     message: z.string(),
   });
@@ -162,47 +154,47 @@ export const DocumentGetDocumentWithDetailsByIdDocumentsResponseIssues$outboundS
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdDocumentsResponseIssues$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdDocumentsResponseIssues$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdInternalServerErrorIssue$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdInternalServerErrorIssue$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdDocumentsResponseIssues$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdDocumentsResponseIssues$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdInternalServerErrorIssue$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdInternalServerErrorIssue$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdDocumentsResponseIssues$outboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdDocumentsResponseIssues$Outbound` instead. */
+    DocumentGetDocumentWithDetailsByIdInternalServerErrorIssue$outboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdInternalServerErrorIssue$Outbound` instead. */
   export type Outbound =
-    DocumentGetDocumentWithDetailsByIdDocumentsResponseIssues$Outbound;
+    DocumentGetDocumentWithDetailsByIdInternalServerErrorIssue$Outbound;
 }
 
-export function documentGetDocumentWithDetailsByIdDocumentsResponseIssuesToJSON(
-  documentGetDocumentWithDetailsByIdDocumentsResponseIssues:
-    DocumentGetDocumentWithDetailsByIdDocumentsResponseIssues,
+export function documentGetDocumentWithDetailsByIdInternalServerErrorIssueToJSON(
+  documentGetDocumentWithDetailsByIdInternalServerErrorIssue:
+    DocumentGetDocumentWithDetailsByIdInternalServerErrorIssue,
 ): string {
   return JSON.stringify(
-    DocumentGetDocumentWithDetailsByIdDocumentsResponseIssues$outboundSchema
-      .parse(documentGetDocumentWithDetailsByIdDocumentsResponseIssues),
+    DocumentGetDocumentWithDetailsByIdInternalServerErrorIssue$outboundSchema
+      .parse(documentGetDocumentWithDetailsByIdInternalServerErrorIssue),
   );
 }
 
-export function documentGetDocumentWithDetailsByIdDocumentsResponseIssuesFromJSON(
+export function documentGetDocumentWithDetailsByIdInternalServerErrorIssueFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  DocumentGetDocumentWithDetailsByIdDocumentsResponseIssues,
+  DocumentGetDocumentWithDetailsByIdInternalServerErrorIssue,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentGetDocumentWithDetailsByIdDocumentsResponseIssues$inboundSchema
+      DocumentGetDocumentWithDetailsByIdInternalServerErrorIssue$inboundSchema
         .parse(JSON.parse(x)),
-    `Failed to parse 'DocumentGetDocumentWithDetailsByIdDocumentsResponseIssues' from JSON`,
+    `Failed to parse 'DocumentGetDocumentWithDetailsByIdInternalServerErrorIssue' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdDocumentsResponseResponseBody$inboundSchema:
+export const DocumentGetDocumentWithDetailsByIdInternalServerError$inboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdDocumentsResponseResponseBody,
+    DocumentGetDocumentWithDetailsByIdInternalServerError,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -210,174 +202,37 @@ export const DocumentGetDocumentWithDetailsByIdDocumentsResponseResponseBody$inb
     code: z.string(),
     issues: z.array(
       z.lazy(() =>
-        DocumentGetDocumentWithDetailsByIdDocumentsResponseIssues$inboundSchema
+        DocumentGetDocumentWithDetailsByIdInternalServerErrorIssue$inboundSchema
       ),
     ).optional(),
   })
     .transform((v) => {
-      return new DocumentGetDocumentWithDetailsByIdDocumentsResponseResponseBody(
-        v,
-      );
+      return new DocumentGetDocumentWithDetailsByIdInternalServerError(v);
     });
 
 /** @internal */
-export type DocumentGetDocumentWithDetailsByIdDocumentsResponseResponseBody$Outbound =
-  {
-    message: string;
-    code: string;
-    issues?:
-      | Array<
-        DocumentGetDocumentWithDetailsByIdDocumentsResponseIssues$Outbound
-      >
-      | undefined;
-  };
-
-/** @internal */
-export const DocumentGetDocumentWithDetailsByIdDocumentsResponseResponseBody$outboundSchema:
-  z.ZodType<
-    DocumentGetDocumentWithDetailsByIdDocumentsResponseResponseBody$Outbound,
-    z.ZodTypeDef,
-    DocumentGetDocumentWithDetailsByIdDocumentsResponseResponseBody
-  > = z.instanceof(
-    DocumentGetDocumentWithDetailsByIdDocumentsResponseResponseBody,
-  )
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          DocumentGetDocumentWithDetailsByIdDocumentsResponseIssues$outboundSchema
-        ),
-      ).optional(),
-    }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DocumentGetDocumentWithDetailsByIdDocumentsResponseResponseBody$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdDocumentsResponseResponseBody$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdDocumentsResponseResponseBody$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdDocumentsResponseResponseBody$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdDocumentsResponseResponseBody$outboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdDocumentsResponseResponseBody$Outbound` instead. */
-  export type Outbound =
-    DocumentGetDocumentWithDetailsByIdDocumentsResponseResponseBody$Outbound;
-}
-
-/** @internal */
-export const DocumentGetDocumentWithDetailsByIdDocumentsIssues$inboundSchema:
-  z.ZodType<
-    DocumentGetDocumentWithDetailsByIdDocumentsIssues,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    message: z.string(),
-  });
-
-/** @internal */
-export type DocumentGetDocumentWithDetailsByIdDocumentsIssues$Outbound = {
-  message: string;
-};
-
-/** @internal */
-export const DocumentGetDocumentWithDetailsByIdDocumentsIssues$outboundSchema:
-  z.ZodType<
-    DocumentGetDocumentWithDetailsByIdDocumentsIssues$Outbound,
-    z.ZodTypeDef,
-    DocumentGetDocumentWithDetailsByIdDocumentsIssues
-  > = z.object({
-    message: z.string(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DocumentGetDocumentWithDetailsByIdDocumentsIssues$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdDocumentsIssues$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdDocumentsIssues$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdDocumentsIssues$outboundSchema` instead. */
-  export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdDocumentsIssues$outboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdDocumentsIssues$Outbound` instead. */
-  export type Outbound =
-    DocumentGetDocumentWithDetailsByIdDocumentsIssues$Outbound;
-}
-
-export function documentGetDocumentWithDetailsByIdDocumentsIssuesToJSON(
-  documentGetDocumentWithDetailsByIdDocumentsIssues:
-    DocumentGetDocumentWithDetailsByIdDocumentsIssues,
-): string {
-  return JSON.stringify(
-    DocumentGetDocumentWithDetailsByIdDocumentsIssues$outboundSchema.parse(
-      documentGetDocumentWithDetailsByIdDocumentsIssues,
-    ),
-  );
-}
-
-export function documentGetDocumentWithDetailsByIdDocumentsIssuesFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  DocumentGetDocumentWithDetailsByIdDocumentsIssues,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      DocumentGetDocumentWithDetailsByIdDocumentsIssues$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DocumentGetDocumentWithDetailsByIdDocumentsIssues' from JSON`,
-  );
-}
-
-/** @internal */
-export const DocumentGetDocumentWithDetailsByIdDocumentsResponseBody$inboundSchema:
-  z.ZodType<
-    DocumentGetDocumentWithDetailsByIdDocumentsResponseBody,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
-        DocumentGetDocumentWithDetailsByIdDocumentsIssues$inboundSchema
-      ),
-    ).optional(),
-  })
-    .transform((v) => {
-      return new DocumentGetDocumentWithDetailsByIdDocumentsResponseBody(v);
-    });
-
-/** @internal */
-export type DocumentGetDocumentWithDetailsByIdDocumentsResponseBody$Outbound = {
+export type DocumentGetDocumentWithDetailsByIdInternalServerError$Outbound = {
   message: string;
   code: string;
   issues?:
-    | Array<DocumentGetDocumentWithDetailsByIdDocumentsIssues$Outbound>
+    | Array<DocumentGetDocumentWithDetailsByIdInternalServerErrorIssue$Outbound>
     | undefined;
 };
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdDocumentsResponseBody$outboundSchema:
+export const DocumentGetDocumentWithDetailsByIdInternalServerError$outboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdDocumentsResponseBody$Outbound,
+    DocumentGetDocumentWithDetailsByIdInternalServerError$Outbound,
     z.ZodTypeDef,
-    DocumentGetDocumentWithDetailsByIdDocumentsResponseBody
-  > = z.instanceof(DocumentGetDocumentWithDetailsByIdDocumentsResponseBody)
+    DocumentGetDocumentWithDetailsByIdInternalServerError
+  > = z.instanceof(DocumentGetDocumentWithDetailsByIdInternalServerError)
     .transform(v => v.data$)
     .pipe(z.object({
       message: z.string(),
       code: z.string(),
       issues: z.array(
         z.lazy(() =>
-          DocumentGetDocumentWithDetailsByIdDocumentsIssues$outboundSchema
+          DocumentGetDocumentWithDetailsByIdInternalServerErrorIssue$outboundSchema
         ),
       ).optional(),
     }));
@@ -386,120 +241,129 @@ export const DocumentGetDocumentWithDetailsByIdDocumentsResponseBody$outboundSch
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdDocumentsResponseBody$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdDocumentsResponseBody$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdInternalServerError$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdInternalServerError$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdDocumentsResponseBody$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdDocumentsResponseBody$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdInternalServerError$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdInternalServerError$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdDocumentsResponseBody$outboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdDocumentsResponseBody$Outbound` instead. */
+    DocumentGetDocumentWithDetailsByIdInternalServerError$outboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdInternalServerError$Outbound` instead. */
   export type Outbound =
-    DocumentGetDocumentWithDetailsByIdDocumentsResponseBody$Outbound;
+    DocumentGetDocumentWithDetailsByIdInternalServerError$Outbound;
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdIssues$inboundSchema: z.ZodType<
-  DocumentGetDocumentWithDetailsByIdIssues,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  message: z.string(),
-});
+export const DocumentGetDocumentWithDetailsByIdNotFoundIssue$inboundSchema:
+  z.ZodType<
+    DocumentGetDocumentWithDetailsByIdNotFoundIssue,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    message: z.string(),
+  });
 
 /** @internal */
-export type DocumentGetDocumentWithDetailsByIdIssues$Outbound = {
+export type DocumentGetDocumentWithDetailsByIdNotFoundIssue$Outbound = {
   message: string;
 };
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdIssues$outboundSchema: z.ZodType<
-  DocumentGetDocumentWithDetailsByIdIssues$Outbound,
-  z.ZodTypeDef,
-  DocumentGetDocumentWithDetailsByIdIssues
-> = z.object({
-  message: z.string(),
-});
+export const DocumentGetDocumentWithDetailsByIdNotFoundIssue$outboundSchema:
+  z.ZodType<
+    DocumentGetDocumentWithDetailsByIdNotFoundIssue$Outbound,
+    z.ZodTypeDef,
+    DocumentGetDocumentWithDetailsByIdNotFoundIssue
+  > = z.object({
+    message: z.string(),
+  });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdIssues$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdIssues$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdNotFoundIssue$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdNotFoundIssue$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdIssues$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdIssues$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdNotFoundIssue$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdNotFoundIssue$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdIssues$outboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdIssues$Outbound` instead. */
-  export type Outbound = DocumentGetDocumentWithDetailsByIdIssues$Outbound;
+    DocumentGetDocumentWithDetailsByIdNotFoundIssue$outboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdNotFoundIssue$Outbound` instead. */
+  export type Outbound =
+    DocumentGetDocumentWithDetailsByIdNotFoundIssue$Outbound;
 }
 
-export function documentGetDocumentWithDetailsByIdIssuesToJSON(
-  documentGetDocumentWithDetailsByIdIssues:
-    DocumentGetDocumentWithDetailsByIdIssues,
+export function documentGetDocumentWithDetailsByIdNotFoundIssueToJSON(
+  documentGetDocumentWithDetailsByIdNotFoundIssue:
+    DocumentGetDocumentWithDetailsByIdNotFoundIssue,
 ): string {
   return JSON.stringify(
-    DocumentGetDocumentWithDetailsByIdIssues$outboundSchema.parse(
-      documentGetDocumentWithDetailsByIdIssues,
+    DocumentGetDocumentWithDetailsByIdNotFoundIssue$outboundSchema.parse(
+      documentGetDocumentWithDetailsByIdNotFoundIssue,
     ),
   );
 }
 
-export function documentGetDocumentWithDetailsByIdIssuesFromJSON(
+export function documentGetDocumentWithDetailsByIdNotFoundIssueFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  DocumentGetDocumentWithDetailsByIdIssues,
+  DocumentGetDocumentWithDetailsByIdNotFoundIssue,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentGetDocumentWithDetailsByIdIssues$inboundSchema.parse(
+      DocumentGetDocumentWithDetailsByIdNotFoundIssue$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'DocumentGetDocumentWithDetailsByIdIssues' from JSON`,
+    `Failed to parse 'DocumentGetDocumentWithDetailsByIdNotFoundIssue' from JSON`,
   );
 }
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdResponseBody$inboundSchema:
+export const DocumentGetDocumentWithDetailsByIdNotFoundError$inboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdResponseBody,
+    DocumentGetDocumentWithDetailsByIdNotFoundError,
     z.ZodTypeDef,
     unknown
   > = z.object({
     message: z.string(),
     code: z.string(),
     issues: z.array(
-      z.lazy(() => DocumentGetDocumentWithDetailsByIdIssues$inboundSchema),
+      z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdNotFoundIssue$inboundSchema
+      ),
     ).optional(),
   })
     .transform((v) => {
-      return new DocumentGetDocumentWithDetailsByIdResponseBody(v);
+      return new DocumentGetDocumentWithDetailsByIdNotFoundError(v);
     });
 
 /** @internal */
-export type DocumentGetDocumentWithDetailsByIdResponseBody$Outbound = {
+export type DocumentGetDocumentWithDetailsByIdNotFoundError$Outbound = {
   message: string;
   code: string;
-  issues?: Array<DocumentGetDocumentWithDetailsByIdIssues$Outbound> | undefined;
+  issues?:
+    | Array<DocumentGetDocumentWithDetailsByIdNotFoundIssue$Outbound>
+    | undefined;
 };
 
 /** @internal */
-export const DocumentGetDocumentWithDetailsByIdResponseBody$outboundSchema:
+export const DocumentGetDocumentWithDetailsByIdNotFoundError$outboundSchema:
   z.ZodType<
-    DocumentGetDocumentWithDetailsByIdResponseBody$Outbound,
+    DocumentGetDocumentWithDetailsByIdNotFoundError$Outbound,
     z.ZodTypeDef,
-    DocumentGetDocumentWithDetailsByIdResponseBody
-  > = z.instanceof(DocumentGetDocumentWithDetailsByIdResponseBody)
+    DocumentGetDocumentWithDetailsByIdNotFoundError
+  > = z.instanceof(DocumentGetDocumentWithDetailsByIdNotFoundError)
     .transform(v => v.data$)
     .pipe(z.object({
       message: z.string(),
       code: z.string(),
       issues: z.array(
-        z.lazy(() => DocumentGetDocumentWithDetailsByIdIssues$outboundSchema),
+        z.lazy(() =>
+          DocumentGetDocumentWithDetailsByIdNotFoundIssue$outboundSchema
+        ),
       ).optional(),
     }));
 
@@ -507,14 +371,144 @@ export const DocumentGetDocumentWithDetailsByIdResponseBody$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentGetDocumentWithDetailsByIdResponseBody$ {
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdResponseBody$inboundSchema` instead. */
+export namespace DocumentGetDocumentWithDetailsByIdNotFoundError$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdNotFoundError$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentGetDocumentWithDetailsByIdResponseBody$inboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdResponseBody$outboundSchema` instead. */
+    DocumentGetDocumentWithDetailsByIdNotFoundError$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdNotFoundError$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentGetDocumentWithDetailsByIdResponseBody$outboundSchema;
-  /** @deprecated use `DocumentGetDocumentWithDetailsByIdResponseBody$Outbound` instead. */
+    DocumentGetDocumentWithDetailsByIdNotFoundError$outboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdNotFoundError$Outbound` instead. */
   export type Outbound =
-    DocumentGetDocumentWithDetailsByIdResponseBody$Outbound;
+    DocumentGetDocumentWithDetailsByIdNotFoundError$Outbound;
+}
+
+/** @internal */
+export const DocumentGetDocumentWithDetailsByIdBadRequestIssue$inboundSchema:
+  z.ZodType<
+    DocumentGetDocumentWithDetailsByIdBadRequestIssue,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    message: z.string(),
+  });
+
+/** @internal */
+export type DocumentGetDocumentWithDetailsByIdBadRequestIssue$Outbound = {
+  message: string;
+};
+
+/** @internal */
+export const DocumentGetDocumentWithDetailsByIdBadRequestIssue$outboundSchema:
+  z.ZodType<
+    DocumentGetDocumentWithDetailsByIdBadRequestIssue$Outbound,
+    z.ZodTypeDef,
+    DocumentGetDocumentWithDetailsByIdBadRequestIssue
+  > = z.object({
+    message: z.string(),
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentGetDocumentWithDetailsByIdBadRequestIssue$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdBadRequestIssue$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentGetDocumentWithDetailsByIdBadRequestIssue$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdBadRequestIssue$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentGetDocumentWithDetailsByIdBadRequestIssue$outboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdBadRequestIssue$Outbound` instead. */
+  export type Outbound =
+    DocumentGetDocumentWithDetailsByIdBadRequestIssue$Outbound;
+}
+
+export function documentGetDocumentWithDetailsByIdBadRequestIssueToJSON(
+  documentGetDocumentWithDetailsByIdBadRequestIssue:
+    DocumentGetDocumentWithDetailsByIdBadRequestIssue,
+): string {
+  return JSON.stringify(
+    DocumentGetDocumentWithDetailsByIdBadRequestIssue$outboundSchema.parse(
+      documentGetDocumentWithDetailsByIdBadRequestIssue,
+    ),
+  );
+}
+
+export function documentGetDocumentWithDetailsByIdBadRequestIssueFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  DocumentGetDocumentWithDetailsByIdBadRequestIssue,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      DocumentGetDocumentWithDetailsByIdBadRequestIssue$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'DocumentGetDocumentWithDetailsByIdBadRequestIssue' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentGetDocumentWithDetailsByIdBadRequestError$inboundSchema:
+  z.ZodType<
+    DocumentGetDocumentWithDetailsByIdBadRequestError,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdBadRequestIssue$inboundSchema
+      ),
+    ).optional(),
+  })
+    .transform((v) => {
+      return new DocumentGetDocumentWithDetailsByIdBadRequestError(v);
+    });
+
+/** @internal */
+export type DocumentGetDocumentWithDetailsByIdBadRequestError$Outbound = {
+  message: string;
+  code: string;
+  issues?:
+    | Array<DocumentGetDocumentWithDetailsByIdBadRequestIssue$Outbound>
+    | undefined;
+};
+
+/** @internal */
+export const DocumentGetDocumentWithDetailsByIdBadRequestError$outboundSchema:
+  z.ZodType<
+    DocumentGetDocumentWithDetailsByIdBadRequestError$Outbound,
+    z.ZodTypeDef,
+    DocumentGetDocumentWithDetailsByIdBadRequestError
+  > = z.instanceof(DocumentGetDocumentWithDetailsByIdBadRequestError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() =>
+          DocumentGetDocumentWithDetailsByIdBadRequestIssue$outboundSchema
+        ),
+      ).optional(),
+    }));
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentGetDocumentWithDetailsByIdBadRequestError$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdBadRequestError$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentGetDocumentWithDetailsByIdBadRequestError$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdBadRequestError$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentGetDocumentWithDetailsByIdBadRequestError$outboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdBadRequestError$Outbound` instead. */
+  export type Outbound =
+    DocumentGetDocumentWithDetailsByIdBadRequestError$Outbound;
 }

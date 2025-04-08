@@ -5,7 +5,7 @@
 ```typescript
 import { FieldGetDocumentFieldType } from "@documenso/sdk-typescript/models/operations";
 
-let value: FieldGetDocumentFieldType = "EMAIL";
+let value: FieldGetDocumentFieldType = "SIGNATURE";
 ```
 
 ## Values

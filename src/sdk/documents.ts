@@ -14,18 +14,18 @@ import { documentsUpdate } from "../funcs/documentsUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
-import { Fields } from "./fields.js";
-import { Recipients } from "./recipients.js";
+import { DocumentsFields } from "./documentsfields.js";
+import { DocumentsRecipients } from "./documentsrecipients.js";
 
 export class Documents extends ClientSDK {
-  private _fields?: Fields;
-  get fields(): Fields {
-    return (this._fields ??= new Fields(this._options));
+  private _fields?: DocumentsFields;
+  get fields(): DocumentsFields {
+    return (this._fields ??= new DocumentsFields(this._options));
   }
 
-  private _recipients?: Recipients;
-  get recipients(): Recipients {
-    return (this._recipients ??= new Recipients(this._options));
+  private _recipients?: DocumentsRecipients;
+  get recipients(): DocumentsRecipients {
+    return (this._recipients ??= new DocumentsRecipients(this._options));
   }
 
   /**
@@ -37,7 +37,7 @@ export class Documents extends ClientSDK {
   async find(
     request: operations.DocumentFindDocumentsRequest,
     options?: RequestOptions,
-  ): Promise<operations.DocumentFindDocumentsResponseBody> {
+  ): Promise<operations.DocumentFindDocumentsResponse> {
     return unwrapAsync(documentsFind(
       this,
       request,
@@ -54,7 +54,7 @@ export class Documents extends ClientSDK {
   async get(
     request: operations.DocumentGetDocumentWithDetailsByIdRequest,
     options?: RequestOptions,
-  ): Promise<operations.DocumentGetDocumentWithDetailsByIdResponseBody> {
+  ): Promise<operations.DocumentGetDocumentWithDetailsByIdResponse> {
     return unwrapAsync(documentsGet(
       this,
       request,
@@ -69,9 +69,9 @@ export class Documents extends ClientSDK {
    * You will need to upload the PDF to the provided URL returned. Note: Once V2 API is released, this will be removed since we will allow direct uploads, instead of using an upload URL.
    */
   async createV0(
-    request: operations.DocumentCreateDocumentTemporaryRequestBody,
+    request: operations.DocumentCreateDocumentTemporaryRequest,
     options?: RequestOptions,
-  ): Promise<operations.DocumentCreateDocumentTemporaryResponseBody> {
+  ): Promise<operations.DocumentCreateDocumentTemporaryResponse> {
     return unwrapAsync(documentsCreateV0(
       this,
       request,
@@ -83,9 +83,9 @@ export class Documents extends ClientSDK {
    * Update document
    */
   async update(
-    request: operations.DocumentSetSettingsForDocumentRequestBody,
+    request: operations.DocumentUpdateDocumentRequest,
     options?: RequestOptions,
-  ): Promise<operations.DocumentSetSettingsForDocumentResponseBody> {
+  ): Promise<operations.DocumentUpdateDocumentResponse> {
     return unwrapAsync(documentsUpdate(
       this,
       request,
@@ -97,9 +97,9 @@ export class Documents extends ClientSDK {
    * Delete document
    */
   async delete(
-    request: operations.DocumentDeleteDocumentRequestBody,
+    request: operations.DocumentDeleteDocumentRequest,
     options?: RequestOptions,
-  ): Promise<operations.DocumentDeleteDocumentResponseBody> {
+  ): Promise<operations.DocumentDeleteDocumentResponse> {
     return unwrapAsync(documentsDelete(
       this,
       request,
@@ -114,9 +114,9 @@ export class Documents extends ClientSDK {
    * Move a document from your personal account to a team
    */
   async moveToTeam(
-    request: operations.DocumentMoveDocumentToTeamRequestBody,
+    request: operations.DocumentMoveDocumentToTeamRequest,
     options?: RequestOptions,
-  ): Promise<operations.DocumentMoveDocumentToTeamResponseBody> {
+  ): Promise<operations.DocumentMoveDocumentToTeamResponse> {
     return unwrapAsync(documentsMoveToTeam(
       this,
       request,
@@ -131,9 +131,9 @@ export class Documents extends ClientSDK {
    * Send the document out to recipients based on your distribution method
    */
   async distribute(
-    request: operations.DocumentSendDocumentRequestBody,
+    request: operations.DocumentSendDocumentRequest,
     options?: RequestOptions,
-  ): Promise<operations.DocumentSendDocumentResponseBody> {
+  ): Promise<operations.DocumentSendDocumentResponse> {
     return unwrapAsync(documentsDistribute(
       this,
       request,
@@ -148,9 +148,9 @@ export class Documents extends ClientSDK {
    * Redistribute the document to the provided recipients who have not actioned the document. Will use the distribution method set in the document
    */
   async redistribute(
-    request: operations.DocumentResendDocumentRequestBody,
+    request: operations.DocumentResendDocumentRequest,
     options?: RequestOptions,
-  ): Promise<operations.DocumentResendDocumentResponseBody> {
+  ): Promise<operations.DocumentResendDocumentResponse> {
     return unwrapAsync(documentsRedistribute(
       this,
       request,
@@ -162,9 +162,9 @@ export class Documents extends ClientSDK {
    * Duplicate document
    */
   async duplicate(
-    request: operations.DocumentDuplicateDocumentRequestBody,
+    request: operations.DocumentDuplicateDocumentRequest,
     options?: RequestOptions,
-  ): Promise<operations.DocumentDuplicateDocumentResponseBody> {
+  ): Promise<operations.DocumentDuplicateDocumentResponse> {
     return unwrapAsync(documentsDuplicate(
       this,
       request,

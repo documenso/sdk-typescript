@@ -8,47 +8,37 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11Type =
-  {
-    Dropdown: "DROPDOWN",
-  } as const;
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11Type =
-  ClosedEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11Type
-  >;
+export const FieldUpdateTemplateFieldsTypeDropdownRequestBody1 = {
+  Dropdown: "DROPDOWN",
+} as const;
+export type FieldUpdateTemplateFieldsTypeDropdownRequestBody1 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTypeDropdownRequestBody1
+>;
 
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMetaType =
-  {
-    Dropdown: "dropdown",
-  } as const;
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMetaType =
-  ClosedEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMetaType
-  >;
+export const FieldUpdateTemplateFieldsTypeDropdownRequestBody2 = {
+  Dropdown: "dropdown",
+} as const;
+export type FieldUpdateTemplateFieldsTypeDropdownRequestBody2 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTypeDropdownRequestBody2
+>;
 
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestValues = {
+export type FieldUpdateTemplateFieldsValueDropdown = {
   value: string;
 };
 
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMeta =
-  {
-    label?: string | undefined;
-    placeholder?: string | undefined;
-    required?: boolean | undefined;
-    readOnly?: boolean | undefined;
-    type:
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMetaType;
-    values?:
-      | Array<FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestValues>
-      | undefined;
-    defaultValue?: string | undefined;
-  };
+export type FieldUpdateTemplateFieldsFieldMetaDropdownRequestBody = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: FieldUpdateTemplateFieldsTypeDropdownRequestBody2;
+  values?: Array<FieldUpdateTemplateFieldsValueDropdown> | undefined;
+  defaultValue?: string | undefined;
+};
 
-export type FieldUpdateTemplateFieldsFields11 = {
-  type: FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11Type;
-  fieldMeta?:
-    | FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMeta
-    | undefined;
+export type FieldUpdateTemplateFieldsFieldDropdown = {
+  type: FieldUpdateTemplateFieldsTypeDropdownRequestBody1;
+  fieldMeta?: FieldUpdateTemplateFieldsFieldMetaDropdownRequestBody | undefined;
   /**
    * The ID of the field to update.
    */
@@ -75,50 +65,40 @@ export type FieldUpdateTemplateFieldsFields11 = {
   height?: number | undefined;
 };
 
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10Type =
-  {
-    Checkbox: "CHECKBOX",
-  } as const;
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10Type =
-  ClosedEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10Type
-  >;
+export const FieldUpdateTemplateFieldsTypeCheckboxRequestBody1 = {
+  Checkbox: "CHECKBOX",
+} as const;
+export type FieldUpdateTemplateFieldsTypeCheckboxRequestBody1 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTypeCheckboxRequestBody1
+>;
 
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMetaType =
-  {
-    Checkbox: "checkbox",
-  } as const;
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMetaType =
-  ClosedEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMetaType
-  >;
+export const FieldUpdateTemplateFieldsTypeCheckboxRequestBody2 = {
+  Checkbox: "checkbox",
+} as const;
+export type FieldUpdateTemplateFieldsTypeCheckboxRequestBody2 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTypeCheckboxRequestBody2
+>;
 
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsValues = {
+export type FieldUpdateTemplateFieldsValueCheckbox = {
   id: number;
   checked: boolean;
   value: string;
 };
 
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMeta =
-  {
-    label?: string | undefined;
-    placeholder?: string | undefined;
-    required?: boolean | undefined;
-    readOnly?: boolean | undefined;
-    type:
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMetaType;
-    values?:
-      | Array<FieldUpdateTemplateFieldsFieldsTemplatesFieldsValues>
-      | undefined;
-    validationRule?: string | undefined;
-    validationLength?: number | undefined;
-  };
+export type FieldUpdateTemplateFieldsFieldMetaCheckboxRequestBody = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: FieldUpdateTemplateFieldsTypeCheckboxRequestBody2;
+  values?: Array<FieldUpdateTemplateFieldsValueCheckbox> | undefined;
+  validationRule?: string | undefined;
+  validationLength?: number | undefined;
+};
 
-export type FieldUpdateTemplateFieldsFields10 = {
-  type: FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10Type;
-  fieldMeta?:
-    | FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMeta
-    | undefined;
+export type FieldUpdateTemplateFieldsFieldCheckbox = {
+  type: FieldUpdateTemplateFieldsTypeCheckboxRequestBody1;
+  fieldMeta?: FieldUpdateTemplateFieldsFieldMetaCheckboxRequestBody | undefined;
   /**
    * The ID of the field to update.
    */
@@ -145,291 +125,38 @@ export type FieldUpdateTemplateFieldsFields10 = {
   height?: number | undefined;
 };
 
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9Type =
-  {
-    Radio: "RADIO",
-  } as const;
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9Type =
-  ClosedEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9Type
-  >;
+export const FieldUpdateTemplateFieldsTypeRadioRequestBody1 = {
+  Radio: "RADIO",
+} as const;
+export type FieldUpdateTemplateFieldsTypeRadioRequestBody1 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTypeRadioRequestBody1
+>;
 
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMetaType =
-  {
-    Radio: "radio",
-  } as const;
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMetaType =
-  ClosedEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMetaType
-  >;
+export const FieldUpdateTemplateFieldsTypeRadioRequestBody2 = {
+  Radio: "radio",
+} as const;
+export type FieldUpdateTemplateFieldsTypeRadioRequestBody2 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTypeRadioRequestBody2
+>;
 
-export type FieldUpdateTemplateFieldsFieldsValues = {
+export type FieldUpdateTemplateFieldsValueRadio = {
   id: number;
   checked: boolean;
   value: string;
 };
 
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMeta =
-  {
-    label?: string | undefined;
-    placeholder?: string | undefined;
-    required?: boolean | undefined;
-    readOnly?: boolean | undefined;
-    type:
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMetaType;
-    values?: Array<FieldUpdateTemplateFieldsFieldsValues> | undefined;
-  };
-
-export type FieldUpdateTemplateFieldsFields9 = {
-  type: FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9Type;
-  fieldMeta?:
-    | FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMeta
-    | undefined;
-  /**
-   * The ID of the field to update.
-   */
-  id: number;
-  /**
-   * The page number the field will be on.
-   */
-  pageNumber?: number | undefined;
-  /**
-   * The X coordinate of where the field will be placed.
-   */
-  pageX?: number | undefined;
-  /**
-   * The Y coordinate of where the field will be placed.
-   */
-  pageY?: number | undefined;
-  /**
-   * The width of the field.
-   */
-  width?: number | undefined;
-  /**
-   * The height of the field.
-   */
-  height?: number | undefined;
-};
-
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8Type =
-  {
-    Number: "NUMBER",
-  } as const;
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8Type =
-  ClosedEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8Type
-  >;
-
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMetaType =
-  {
-    Number: "number",
-  } as const;
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMetaType =
-  ClosedEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMetaType
-  >;
-
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMeta =
-  {
-    label?: string | undefined;
-    placeholder?: string | undefined;
-    required?: boolean | undefined;
-    readOnly?: boolean | undefined;
-    type:
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMetaType;
-    numberFormat?: string | undefined;
-    value?: string | undefined;
-    minValue?: number | undefined;
-    maxValue?: number | undefined;
-    fontSize?: number | undefined;
-  };
-
-export type FieldUpdateTemplateFieldsFields8 = {
-  type: FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8Type;
-  fieldMeta?:
-    | FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMeta
-    | undefined;
-  /**
-   * The ID of the field to update.
-   */
-  id: number;
-  /**
-   * The page number the field will be on.
-   */
-  pageNumber?: number | undefined;
-  /**
-   * The X coordinate of where the field will be placed.
-   */
-  pageX?: number | undefined;
-  /**
-   * The Y coordinate of where the field will be placed.
-   */
-  pageY?: number | undefined;
-  /**
-   * The width of the field.
-   */
-  width?: number | undefined;
-  /**
-   * The height of the field.
-   */
-  height?: number | undefined;
-};
-
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7Type =
-  {
-    Text: "TEXT",
-  } as const;
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7Type =
-  ClosedEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7Type
-  >;
-
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMetaType =
-  {
-    Text: "text",
-  } as const;
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMetaType =
-  ClosedEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMetaType
-  >;
-
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMeta =
-  {
-    label?: string | undefined;
-    placeholder?: string | undefined;
-    required?: boolean | undefined;
-    readOnly?: boolean | undefined;
-    type:
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMetaType;
-    text?: string | undefined;
-    characterLimit?: number | undefined;
-    fontSize?: number | undefined;
-  };
-
-export type FieldUpdateTemplateFieldsFields7 = {
-  type: FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7Type;
-  fieldMeta?:
-    | FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMeta
-    | undefined;
-  /**
-   * The ID of the field to update.
-   */
-  id: number;
-  /**
-   * The page number the field will be on.
-   */
-  pageNumber?: number | undefined;
-  /**
-   * The X coordinate of where the field will be placed.
-   */
-  pageX?: number | undefined;
-  /**
-   * The Y coordinate of where the field will be placed.
-   */
-  pageY?: number | undefined;
-  /**
-   * The width of the field.
-   */
-  width?: number | undefined;
-  /**
-   * The height of the field.
-   */
-  height?: number | undefined;
-};
-
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6Type =
-  {
-    Date: "DATE",
-  } as const;
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6Type =
-  ClosedEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6Type
-  >;
-
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6FieldMetaType =
-  {
-    Date: "date",
-  } as const;
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6FieldMetaType =
-  ClosedEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6FieldMetaType
-  >;
-
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMeta =
-  {
-    label?: string | undefined;
-    placeholder?: string | undefined;
-    required?: boolean | undefined;
-    readOnly?: boolean | undefined;
-    type:
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6FieldMetaType;
-    fontSize?: number | undefined;
-  };
-
-export type FieldUpdateTemplateFieldsFields6 = {
-  type: FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6Type;
-  fieldMeta?:
-    | FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMeta
-    | undefined;
-  /**
-   * The ID of the field to update.
-   */
-  id: number;
-  /**
-   * The page number the field will be on.
-   */
-  pageNumber?: number | undefined;
-  /**
-   * The X coordinate of where the field will be placed.
-   */
-  pageX?: number | undefined;
-  /**
-   * The Y coordinate of where the field will be placed.
-   */
-  pageY?: number | undefined;
-  /**
-   * The width of the field.
-   */
-  width?: number | undefined;
-  /**
-   * The height of the field.
-   */
-  height?: number | undefined;
-};
-
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5Type =
-  {
-    Email: "EMAIL",
-  } as const;
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5Type =
-  ClosedEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5Type
-  >;
-
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5FieldMetaType =
-  {
-    Email: "email",
-  } as const;
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5FieldMetaType =
-  ClosedEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5FieldMetaType
-  >;
-
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta = {
+export type FieldUpdateTemplateFieldsFieldMetaRadioRequestBody = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5FieldMetaType;
-  fontSize?: number | undefined;
+  type: FieldUpdateTemplateFieldsTypeRadioRequestBody2;
+  values?: Array<FieldUpdateTemplateFieldsValueRadio> | undefined;
 };
 
-export type FieldUpdateTemplateFieldsFields5 = {
-  type: FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5Type;
-  fieldMeta?:
-    | FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta
-    | undefined;
+export type FieldUpdateTemplateFieldsFieldRadio = {
+  type: FieldUpdateTemplateFieldsTypeRadioRequestBody1;
+  fieldMeta?: FieldUpdateTemplateFieldsFieldMetaRadioRequestBody | undefined;
   /**
    * The ID of the field to update.
    */
@@ -456,39 +183,46 @@ export type FieldUpdateTemplateFieldsFields5 = {
   height?: number | undefined;
 };
 
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4Type =
-  {
-    Name: "NAME",
-  } as const;
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4Type =
-  ClosedEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4Type
-  >;
+export const FieldUpdateTemplateFieldsTypeNumberRequestBody1 = {
+  Number: "NUMBER",
+} as const;
+export type FieldUpdateTemplateFieldsTypeNumberRequestBody1 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTypeNumberRequestBody1
+>;
 
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4FieldMetaType =
-  {
-    Name: "name",
-  } as const;
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4FieldMetaType =
-  ClosedEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4FieldMetaType
-  >;
+export const FieldUpdateTemplateFieldsTypeNumberRequestBody2 = {
+  Number: "number",
+} as const;
+export type FieldUpdateTemplateFieldsTypeNumberRequestBody2 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTypeNumberRequestBody2
+>;
 
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsFieldMeta = {
+export const FieldUpdateTemplateFieldsTextAlignNumber = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type FieldUpdateTemplateFieldsTextAlignNumber = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTextAlignNumber
+>;
+
+export type FieldUpdateTemplateFieldsFieldMetaNumberRequestBody = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4FieldMetaType;
+  type: FieldUpdateTemplateFieldsTypeNumberRequestBody2;
+  numberFormat?: string | undefined;
+  value?: string | undefined;
+  minValue?: number | undefined;
+  maxValue?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: FieldUpdateTemplateFieldsTextAlignNumber | undefined;
 };
 
-export type FieldUpdateTemplateFieldsFields4 = {
-  type: FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4Type;
-  fieldMeta?:
-    | FieldUpdateTemplateFieldsFieldsTemplatesFieldsFieldMeta
-    | undefined;
+export type FieldUpdateTemplateFieldsFieldNumber = {
+  type: FieldUpdateTemplateFieldsTypeNumberRequestBody1;
+  fieldMeta?: FieldUpdateTemplateFieldsFieldMetaNumberRequestBody | undefined;
   /**
    * The ID of the field to update.
    */
@@ -515,33 +249,292 @@ export type FieldUpdateTemplateFieldsFields4 = {
   height?: number | undefined;
 };
 
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestType = {
+export const FieldUpdateTemplateFieldsTypeTextRequestBody1 = {
+  Text: "TEXT",
+} as const;
+export type FieldUpdateTemplateFieldsTypeTextRequestBody1 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTypeTextRequestBody1
+>;
+
+export const FieldUpdateTemplateFieldsTypeTextRequestBody2 = {
+  Text: "text",
+} as const;
+export type FieldUpdateTemplateFieldsTypeTextRequestBody2 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTypeTextRequestBody2
+>;
+
+export const FieldUpdateTemplateFieldsTextAlignText = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type FieldUpdateTemplateFieldsTextAlignText = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTextAlignText
+>;
+
+export type FieldUpdateTemplateFieldsFieldMetaTextRequestBody = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: FieldUpdateTemplateFieldsTypeTextRequestBody2;
+  text?: string | undefined;
+  characterLimit?: number | undefined;
+  fontSize?: number | undefined;
+  textAlign?: FieldUpdateTemplateFieldsTextAlignText | undefined;
+};
+
+export type FieldUpdateTemplateFieldsFieldText = {
+  type: FieldUpdateTemplateFieldsTypeTextRequestBody1;
+  fieldMeta?: FieldUpdateTemplateFieldsFieldMetaTextRequestBody | undefined;
+  /**
+   * The ID of the field to update.
+   */
+  id: number;
+  /**
+   * The page number the field will be on.
+   */
+  pageNumber?: number | undefined;
+  /**
+   * The X coordinate of where the field will be placed.
+   */
+  pageX?: number | undefined;
+  /**
+   * The Y coordinate of where the field will be placed.
+   */
+  pageY?: number | undefined;
+  /**
+   * The width of the field.
+   */
+  width?: number | undefined;
+  /**
+   * The height of the field.
+   */
+  height?: number | undefined;
+};
+
+export const FieldUpdateTemplateFieldsTypeDateRequestBody1 = {
+  Date: "DATE",
+} as const;
+export type FieldUpdateTemplateFieldsTypeDateRequestBody1 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTypeDateRequestBody1
+>;
+
+export const FieldUpdateTemplateFieldsTypeDateRequestBody2 = {
+  Date: "date",
+} as const;
+export type FieldUpdateTemplateFieldsTypeDateRequestBody2 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTypeDateRequestBody2
+>;
+
+export const FieldUpdateTemplateFieldsTextAlignDate = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type FieldUpdateTemplateFieldsTextAlignDate = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTextAlignDate
+>;
+
+export type FieldUpdateTemplateFieldsFieldMetaDateRequestBody = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: FieldUpdateTemplateFieldsTypeDateRequestBody2;
+  fontSize?: number | undefined;
+  textAlign?: FieldUpdateTemplateFieldsTextAlignDate | undefined;
+};
+
+export type FieldUpdateTemplateFieldsFieldDate = {
+  type: FieldUpdateTemplateFieldsTypeDateRequestBody1;
+  fieldMeta?: FieldUpdateTemplateFieldsFieldMetaDateRequestBody | undefined;
+  /**
+   * The ID of the field to update.
+   */
+  id: number;
+  /**
+   * The page number the field will be on.
+   */
+  pageNumber?: number | undefined;
+  /**
+   * The X coordinate of where the field will be placed.
+   */
+  pageX?: number | undefined;
+  /**
+   * The Y coordinate of where the field will be placed.
+   */
+  pageY?: number | undefined;
+  /**
+   * The width of the field.
+   */
+  width?: number | undefined;
+  /**
+   * The height of the field.
+   */
+  height?: number | undefined;
+};
+
+export const FieldUpdateTemplateFieldsTypeEmailRequestBody1 = {
+  Email: "EMAIL",
+} as const;
+export type FieldUpdateTemplateFieldsTypeEmailRequestBody1 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTypeEmailRequestBody1
+>;
+
+export const FieldUpdateTemplateFieldsTypeEmailRequestBody2 = {
+  Email: "email",
+} as const;
+export type FieldUpdateTemplateFieldsTypeEmailRequestBody2 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTypeEmailRequestBody2
+>;
+
+export const FieldUpdateTemplateFieldsTextAlignEmail = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type FieldUpdateTemplateFieldsTextAlignEmail = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTextAlignEmail
+>;
+
+export type FieldUpdateTemplateFieldsFieldMetaEmailRequestBody = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: FieldUpdateTemplateFieldsTypeEmailRequestBody2;
+  fontSize?: number | undefined;
+  textAlign?: FieldUpdateTemplateFieldsTextAlignEmail | undefined;
+};
+
+export type FieldUpdateTemplateFieldsFieldEmail = {
+  type: FieldUpdateTemplateFieldsTypeEmailRequestBody1;
+  fieldMeta?: FieldUpdateTemplateFieldsFieldMetaEmailRequestBody | undefined;
+  /**
+   * The ID of the field to update.
+   */
+  id: number;
+  /**
+   * The page number the field will be on.
+   */
+  pageNumber?: number | undefined;
+  /**
+   * The X coordinate of where the field will be placed.
+   */
+  pageX?: number | undefined;
+  /**
+   * The Y coordinate of where the field will be placed.
+   */
+  pageY?: number | undefined;
+  /**
+   * The width of the field.
+   */
+  width?: number | undefined;
+  /**
+   * The height of the field.
+   */
+  height?: number | undefined;
+};
+
+export const FieldUpdateTemplateFieldsTypeNameRequestBody1 = {
+  Name: "NAME",
+} as const;
+export type FieldUpdateTemplateFieldsTypeNameRequestBody1 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTypeNameRequestBody1
+>;
+
+export const FieldUpdateTemplateFieldsTypeNameRequestBody2 = {
+  Name: "name",
+} as const;
+export type FieldUpdateTemplateFieldsTypeNameRequestBody2 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTypeNameRequestBody2
+>;
+
+export const FieldUpdateTemplateFieldsTextAlignName = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type FieldUpdateTemplateFieldsTextAlignName = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTextAlignName
+>;
+
+export type FieldUpdateTemplateFieldsFieldMetaNameRequestBody = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: FieldUpdateTemplateFieldsTypeNameRequestBody2;
+  fontSize?: number | undefined;
+  textAlign?: FieldUpdateTemplateFieldsTextAlignName | undefined;
+};
+
+export type FieldUpdateTemplateFieldsFieldName = {
+  type: FieldUpdateTemplateFieldsTypeNameRequestBody1;
+  fieldMeta?: FieldUpdateTemplateFieldsFieldMetaNameRequestBody | undefined;
+  /**
+   * The ID of the field to update.
+   */
+  id: number;
+  /**
+   * The page number the field will be on.
+   */
+  pageNumber?: number | undefined;
+  /**
+   * The X coordinate of where the field will be placed.
+   */
+  pageX?: number | undefined;
+  /**
+   * The Y coordinate of where the field will be placed.
+   */
+  pageY?: number | undefined;
+  /**
+   * The width of the field.
+   */
+  width?: number | undefined;
+  /**
+   * The height of the field.
+   */
+  height?: number | undefined;
+};
+
+export const FieldUpdateTemplateFieldsTypeInitialsRequestBody1 = {
   Initials: "INITIALS",
 } as const;
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestType =
-  ClosedEnum<typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestType>;
+export type FieldUpdateTemplateFieldsTypeInitialsRequestBody1 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTypeInitialsRequestBody1
+>;
 
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyType =
-  {
-    Initials: "initials",
-  } as const;
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyType =
-  ClosedEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyType
-  >;
+export const FieldUpdateTemplateFieldsTypeInitialsRequestBody2 = {
+  Initials: "initials",
+} as const;
+export type FieldUpdateTemplateFieldsTypeInitialsRequestBody2 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTypeInitialsRequestBody2
+>;
 
-export type FieldUpdateTemplateFieldsFieldsFieldMeta = {
+export const FieldUpdateTemplateFieldsTextAlignInitials = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type FieldUpdateTemplateFieldsTextAlignInitials = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTextAlignInitials
+>;
+
+export type FieldUpdateTemplateFieldsFieldMetaInitialsRequestBody = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyType;
+  type: FieldUpdateTemplateFieldsTypeInitialsRequestBody2;
   fontSize?: number | undefined;
+  textAlign?: FieldUpdateTemplateFieldsTextAlignInitials | undefined;
 };
 
-export type FieldUpdateTemplateFieldsFields3 = {
-  type: FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestType;
-  fieldMeta?: FieldUpdateTemplateFieldsFieldsFieldMeta | undefined;
+export type FieldUpdateTemplateFieldsFieldInitials = {
+  type: FieldUpdateTemplateFieldsTypeInitialsRequestBody1;
+  fieldMeta?: FieldUpdateTemplateFieldsFieldMetaInitialsRequestBody | undefined;
   /**
    * The ID of the field to update.
    */
@@ -568,15 +561,15 @@ export type FieldUpdateTemplateFieldsFields3 = {
   height?: number | undefined;
 };
 
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsType = {
+export const FieldUpdateTemplateFieldsTypeFreeSignature = {
   FreeSignature: "FREE_SIGNATURE",
 } as const;
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsType = ClosedEnum<
-  typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsType
+export type FieldUpdateTemplateFieldsTypeFreeSignature = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTypeFreeSignature
 >;
 
-export type FieldUpdateTemplateFieldsFields2 = {
-  type: FieldUpdateTemplateFieldsFieldsTemplatesFieldsType;
+export type FieldUpdateTemplateFieldsFieldFreeSignature = {
+  type: FieldUpdateTemplateFieldsTypeFreeSignature;
   /**
    * The ID of the field to update.
    */
@@ -603,15 +596,15 @@ export type FieldUpdateTemplateFieldsFields2 = {
   height?: number | undefined;
 };
 
-export const FieldUpdateTemplateFieldsFieldsType = {
+export const FieldUpdateTemplateFieldsTypeSignature = {
   Signature: "SIGNATURE",
 } as const;
-export type FieldUpdateTemplateFieldsFieldsType = ClosedEnum<
-  typeof FieldUpdateTemplateFieldsFieldsType
+export type FieldUpdateTemplateFieldsTypeSignature = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTypeSignature
 >;
 
-export type FieldUpdateTemplateFieldsFields1 = {
-  type: FieldUpdateTemplateFieldsFieldsType;
+export type FieldUpdateTemplateFieldsFieldSignature = {
+  type: FieldUpdateTemplateFieldsTypeSignature;
   /**
    * The ID of the field to update.
    */
@@ -638,37 +631,37 @@ export type FieldUpdateTemplateFieldsFields1 = {
   height?: number | undefined;
 };
 
-export type FieldUpdateTemplateFieldsFields =
-  | FieldUpdateTemplateFieldsFields1
-  | FieldUpdateTemplateFieldsFields2
-  | FieldUpdateTemplateFieldsFields3
-  | FieldUpdateTemplateFieldsFields4
-  | FieldUpdateTemplateFieldsFields5
-  | FieldUpdateTemplateFieldsFields6
-  | FieldUpdateTemplateFieldsFields7
-  | FieldUpdateTemplateFieldsFields8
-  | FieldUpdateTemplateFieldsFields9
-  | FieldUpdateTemplateFieldsFields10
-  | FieldUpdateTemplateFieldsFields11;
+export type FieldUpdateTemplateFieldsFieldUnion =
+  | FieldUpdateTemplateFieldsFieldSignature
+  | FieldUpdateTemplateFieldsFieldFreeSignature
+  | FieldUpdateTemplateFieldsFieldInitials
+  | FieldUpdateTemplateFieldsFieldName
+  | FieldUpdateTemplateFieldsFieldEmail
+  | FieldUpdateTemplateFieldsFieldDate
+  | FieldUpdateTemplateFieldsFieldText
+  | FieldUpdateTemplateFieldsFieldNumber
+  | FieldUpdateTemplateFieldsFieldRadio
+  | FieldUpdateTemplateFieldsFieldCheckbox
+  | FieldUpdateTemplateFieldsFieldDropdown;
 
-export type FieldUpdateTemplateFieldsRequestBody = {
+export type FieldUpdateTemplateFieldsRequest = {
   templateId: number;
   fields: Array<
-    | FieldUpdateTemplateFieldsFields1
-    | FieldUpdateTemplateFieldsFields2
-    | FieldUpdateTemplateFieldsFields3
-    | FieldUpdateTemplateFieldsFields4
-    | FieldUpdateTemplateFieldsFields5
-    | FieldUpdateTemplateFieldsFields6
-    | FieldUpdateTemplateFieldsFields7
-    | FieldUpdateTemplateFieldsFields8
-    | FieldUpdateTemplateFieldsFields9
-    | FieldUpdateTemplateFieldsFields10
-    | FieldUpdateTemplateFieldsFields11
+    | FieldUpdateTemplateFieldsFieldSignature
+    | FieldUpdateTemplateFieldsFieldFreeSignature
+    | FieldUpdateTemplateFieldsFieldInitials
+    | FieldUpdateTemplateFieldsFieldName
+    | FieldUpdateTemplateFieldsFieldEmail
+    | FieldUpdateTemplateFieldsFieldDate
+    | FieldUpdateTemplateFieldsFieldText
+    | FieldUpdateTemplateFieldsFieldNumber
+    | FieldUpdateTemplateFieldsFieldRadio
+    | FieldUpdateTemplateFieldsFieldCheckbox
+    | FieldUpdateTemplateFieldsFieldDropdown
   >;
 };
 
-export const FieldUpdateTemplateFieldsType = {
+export const FieldUpdateTemplateFieldsTypeResponse = {
   Signature: "SIGNATURE",
   FreeSignature: "FREE_SIGNATURE",
   Initials: "INITIALS",
@@ -681,214 +674,252 @@ export const FieldUpdateTemplateFieldsType = {
   Checkbox: "CHECKBOX",
   Dropdown: "DROPDOWN",
 } as const;
-export type FieldUpdateTemplateFieldsType = ClosedEnum<
-  typeof FieldUpdateTemplateFieldsType
+export type FieldUpdateTemplateFieldsTypeResponse = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTypeResponse
 >;
 
-export const FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields9Type =
-  {
-    Dropdown: "dropdown",
-  } as const;
-export type FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields9Type =
-  ClosedEnum<
-    typeof FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields9Type
-  >;
+export const FieldUpdateTemplateFieldsFieldMetaTypeDropdown = {
+  Dropdown: "dropdown",
+} as const;
+export type FieldUpdateTemplateFieldsFieldMetaTypeDropdown = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsFieldMetaTypeDropdown
+>;
 
-export type FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseValues = {
+export type FieldUpdateTemplateFieldsValueResponse3 = {
   value: string;
 };
 
-export type FieldUpdateTemplateFieldsFieldMeta9 = {
+export type FieldUpdateTemplateFieldsFieldMetaDropdownResponse = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields9Type;
-  values?:
-    | Array<FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseValues>
-    | undefined;
+  type: FieldUpdateTemplateFieldsFieldMetaTypeDropdown;
+  values?: Array<FieldUpdateTemplateFieldsValueResponse3> | undefined;
   defaultValue?: string | undefined;
 };
 
-export const FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields8Type =
-  {
-    Checkbox: "checkbox",
-  } as const;
-export type FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields8Type =
-  ClosedEnum<
-    typeof FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields8Type
-  >;
+export const FieldUpdateTemplateFieldsFieldMetaTypeCheckbox = {
+  Checkbox: "checkbox",
+} as const;
+export type FieldUpdateTemplateFieldsFieldMetaTypeCheckbox = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsFieldMetaTypeCheckbox
+>;
 
-export type FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValues = {
+export type FieldUpdateTemplateFieldsValueResponse2 = {
   id: number;
   checked: boolean;
   value: string;
 };
 
-export type FieldUpdateTemplateFieldsFieldMeta8 = {
+export type FieldUpdateTemplateFieldsFieldMetaCheckboxResponse = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields8Type;
-  values?:
-    | Array<FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValues>
-    | undefined;
+  type: FieldUpdateTemplateFieldsFieldMetaTypeCheckbox;
+  values?: Array<FieldUpdateTemplateFieldsValueResponse2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
 };
 
-export const FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFieldsType =
-  {
-    Radio: "radio",
-  } as const;
-export type FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFieldsType =
-  ClosedEnum<
-    typeof FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFieldsType
-  >;
+export const FieldUpdateTemplateFieldsFieldMetaTypeRadio = {
+  Radio: "radio",
+} as const;
+export type FieldUpdateTemplateFieldsFieldMetaTypeRadio = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsFieldMetaTypeRadio
+>;
 
-export type FieldUpdateTemplateFieldsFieldMetaValues = {
+export type FieldUpdateTemplateFieldsValueResponse1 = {
   id: number;
   checked: boolean;
   value: string;
 };
 
-export type FieldUpdateTemplateFieldsFieldMeta7 = {
+export type FieldUpdateTemplateFieldsFieldMetaRadioResponse = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFieldsType;
-  values?: Array<FieldUpdateTemplateFieldsFieldMetaValues> | undefined;
+  type: FieldUpdateTemplateFieldsFieldMetaTypeRadio;
+  values?: Array<FieldUpdateTemplateFieldsValueResponse1> | undefined;
 };
 
-export const FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyType =
-  {
-    Number: "number",
-  } as const;
-export type FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyType =
-  ClosedEnum<
-    typeof FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyType
-  >;
+export const FieldUpdateTemplateFieldsFieldMetaTypeNumber = {
+  Number: "number",
+} as const;
+export type FieldUpdateTemplateFieldsFieldMetaTypeNumber = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsFieldMetaTypeNumber
+>;
 
-export type FieldUpdateTemplateFieldsFieldMeta6 = {
+export const FieldUpdateTemplateFieldsTextAlignResponse6 = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type FieldUpdateTemplateFieldsTextAlignResponse6 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTextAlignResponse6
+>;
+
+export type FieldUpdateTemplateFieldsFieldMetaNumberResponse = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyType;
+  type: FieldUpdateTemplateFieldsFieldMetaTypeNumber;
   numberFormat?: string | undefined;
   value?: string | undefined;
   minValue?: number | undefined;
   maxValue?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: FieldUpdateTemplateFieldsTextAlignResponse6 | undefined;
 };
 
-export const FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONType =
-  {
-    Text: "text",
-  } as const;
-export type FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONType =
-  ClosedEnum<
-    typeof FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONType
-  >;
+export const FieldUpdateTemplateFieldsFieldMetaTypeText = {
+  Text: "text",
+} as const;
+export type FieldUpdateTemplateFieldsFieldMetaTypeText = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsFieldMetaTypeText
+>;
 
-export type FieldUpdateTemplateFieldsFieldMeta5 = {
+export const FieldUpdateTemplateFieldsTextAlignResponse5 = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type FieldUpdateTemplateFieldsTextAlignResponse5 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTextAlignResponse5
+>;
+
+export type FieldUpdateTemplateFieldsFieldMetaTextResponse = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type:
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONType;
+  type: FieldUpdateTemplateFieldsFieldMetaTypeText;
   text?: string | undefined;
   characterLimit?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: FieldUpdateTemplateFieldsTextAlignResponse5 | undefined;
 };
 
-export const FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200Type =
-  {
-    Date: "date",
-  } as const;
-export type FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200Type =
-  ClosedEnum<
-    typeof FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200Type
-  >;
+export const FieldUpdateTemplateFieldsFieldMetaTypeDate = {
+  Date: "date",
+} as const;
+export type FieldUpdateTemplateFieldsFieldMetaTypeDate = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsFieldMetaTypeDate
+>;
 
-export type FieldUpdateTemplateFieldsFieldMeta4 = {
+export const FieldUpdateTemplateFieldsTextAlignResponse4 = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type FieldUpdateTemplateFieldsTextAlignResponse4 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTextAlignResponse4
+>;
+
+export type FieldUpdateTemplateFieldsFieldMetaDateResponse = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200Type;
+  type: FieldUpdateTemplateFieldsFieldMetaTypeDate;
   fontSize?: number | undefined;
+  textAlign?: FieldUpdateTemplateFieldsTextAlignResponse4 | undefined;
 };
 
-export const FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseType = {
+export const FieldUpdateTemplateFieldsFieldMetaTypeEmail = {
   Email: "email",
 } as const;
-export type FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseType =
-  ClosedEnum<
-    typeof FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseType
-  >;
+export type FieldUpdateTemplateFieldsFieldMetaTypeEmail = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsFieldMetaTypeEmail
+>;
 
-export type FieldUpdateTemplateFieldsFieldMeta3 = {
+export const FieldUpdateTemplateFieldsTextAlignResponse3 = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type FieldUpdateTemplateFieldsTextAlignResponse3 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTextAlignResponse3
+>;
+
+export type FieldUpdateTemplateFieldsFieldMetaEmailResponse = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseType;
+  type: FieldUpdateTemplateFieldsFieldMetaTypeEmail;
   fontSize?: number | undefined;
+  textAlign?: FieldUpdateTemplateFieldsTextAlignResponse3 | undefined;
 };
 
-export const FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsType = {
+export const FieldUpdateTemplateFieldsFieldMetaTypeName = {
   Name: "name",
 } as const;
-export type FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsType = ClosedEnum<
-  typeof FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsType
+export type FieldUpdateTemplateFieldsFieldMetaTypeName = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsFieldMetaTypeName
 >;
 
-export type FieldUpdateTemplateFieldsFieldMeta2 = {
+export const FieldUpdateTemplateFieldsTextAlignResponse2 = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type FieldUpdateTemplateFieldsTextAlignResponse2 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTextAlignResponse2
+>;
+
+export type FieldUpdateTemplateFieldsFieldMetaNameResponse = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsType;
+  type: FieldUpdateTemplateFieldsFieldMetaTypeName;
   fontSize?: number | undefined;
+  textAlign?: FieldUpdateTemplateFieldsTextAlignResponse2 | undefined;
 };
 
-export const FieldUpdateTemplateFieldsFieldMetaType = {
+export const FieldUpdateTemplateFieldsFieldMetaTypeInitials = {
   Initials: "initials",
 } as const;
-export type FieldUpdateTemplateFieldsFieldMetaType = ClosedEnum<
-  typeof FieldUpdateTemplateFieldsFieldMetaType
+export type FieldUpdateTemplateFieldsFieldMetaTypeInitials = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsFieldMetaTypeInitials
 >;
 
-export type FieldUpdateTemplateFieldsFieldMeta1 = {
+export const FieldUpdateTemplateFieldsTextAlignResponse1 = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type FieldUpdateTemplateFieldsTextAlignResponse1 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsTextAlignResponse1
+>;
+
+export type FieldUpdateTemplateFieldsFieldMetaInitialsResponse = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: FieldUpdateTemplateFieldsFieldMetaType;
+  type: FieldUpdateTemplateFieldsFieldMetaTypeInitials;
   fontSize?: number | undefined;
+  textAlign?: FieldUpdateTemplateFieldsTextAlignResponse1 | undefined;
 };
 
-export type FieldUpdateTemplateFieldsFieldMeta =
-  | FieldUpdateTemplateFieldsFieldMeta1
-  | FieldUpdateTemplateFieldsFieldMeta2
-  | FieldUpdateTemplateFieldsFieldMeta3
-  | FieldUpdateTemplateFieldsFieldMeta4
-  | FieldUpdateTemplateFieldsFieldMeta7
-  | FieldUpdateTemplateFieldsFieldMeta9
-  | FieldUpdateTemplateFieldsFieldMeta5
-  | FieldUpdateTemplateFieldsFieldMeta8
-  | FieldUpdateTemplateFieldsFieldMeta6;
+export type FieldUpdateTemplateFieldsFieldMetaUnion =
+  | FieldUpdateTemplateFieldsFieldMetaRadioResponse
+  | FieldUpdateTemplateFieldsFieldMetaInitialsResponse
+  | FieldUpdateTemplateFieldsFieldMetaNameResponse
+  | FieldUpdateTemplateFieldsFieldMetaEmailResponse
+  | FieldUpdateTemplateFieldsFieldMetaDateResponse
+  | FieldUpdateTemplateFieldsFieldMetaDropdownResponse
+  | FieldUpdateTemplateFieldsFieldMetaCheckboxResponse
+  | FieldUpdateTemplateFieldsFieldMetaTextResponse
+  | FieldUpdateTemplateFieldsFieldMetaNumberResponse;
 
-export type FieldUpdateTemplateFieldsTemplatesFieldsFields = {
-  type: FieldUpdateTemplateFieldsType;
+export type FieldUpdateTemplateFieldsFieldResponse = {
+  type: FieldUpdateTemplateFieldsTypeResponse;
   id: number;
   secondaryId: string;
   documentId: number | null;
@@ -905,735 +936,91 @@ export type FieldUpdateTemplateFieldsTemplatesFieldsFields = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | FieldUpdateTemplateFieldsFieldMeta1
-    | FieldUpdateTemplateFieldsFieldMeta2
-    | FieldUpdateTemplateFieldsFieldMeta3
-    | FieldUpdateTemplateFieldsFieldMeta4
-    | FieldUpdateTemplateFieldsFieldMeta7
-    | FieldUpdateTemplateFieldsFieldMeta9
-    | FieldUpdateTemplateFieldsFieldMeta5
-    | FieldUpdateTemplateFieldsFieldMeta8
-    | FieldUpdateTemplateFieldsFieldMeta6
+    | FieldUpdateTemplateFieldsFieldMetaRadioResponse
+    | FieldUpdateTemplateFieldsFieldMetaInitialsResponse
+    | FieldUpdateTemplateFieldsFieldMetaNameResponse
+    | FieldUpdateTemplateFieldsFieldMetaEmailResponse
+    | FieldUpdateTemplateFieldsFieldMetaDateResponse
+    | FieldUpdateTemplateFieldsFieldMetaDropdownResponse
+    | FieldUpdateTemplateFieldsFieldMetaCheckboxResponse
+    | FieldUpdateTemplateFieldsFieldMetaTextResponse
+    | FieldUpdateTemplateFieldsFieldMetaNumberResponse
     | null;
 };
 
 /**
  * Successful response
  */
-export type FieldUpdateTemplateFieldsResponseBody = {
-  fields: Array<FieldUpdateTemplateFieldsTemplatesFieldsFields>;
+export type FieldUpdateTemplateFieldsResponse = {
+  fields: Array<FieldUpdateTemplateFieldsFieldResponse>;
 };
 
 /** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11Type
-  > = z.nativeEnum(
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11Type,
-  );
+export const FieldUpdateTemplateFieldsTypeDropdownRequestBody1$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeDropdownRequestBody1> = z
+    .nativeEnum(FieldUpdateTemplateFieldsTypeDropdownRequestBody1);
 
 /** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11Type
-  > =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11Type$inboundSchema;
+export const FieldUpdateTemplateFieldsTypeDropdownRequestBody1$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeDropdownRequestBody1> =
+    FieldUpdateTemplateFieldsTypeDropdownRequestBody1$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11Type$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11Type$inboundSchema` instead. */
+export namespace FieldUpdateTemplateFieldsTypeDropdownRequestBody1$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeDropdownRequestBody1$inboundSchema` instead. */
   export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11Type$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11Type$outboundSchema` instead. */
+    FieldUpdateTemplateFieldsTypeDropdownRequestBody1$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeDropdownRequestBody1$outboundSchema` instead. */
   export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11Type$outboundSchema;
+    FieldUpdateTemplateFieldsTypeDropdownRequestBody1$outboundSchema;
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMetaType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMetaType
-  > = z.nativeEnum(
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMetaType,
-  );
+export const FieldUpdateTemplateFieldsTypeDropdownRequestBody2$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeDropdownRequestBody2> = z
+    .nativeEnum(FieldUpdateTemplateFieldsTypeDropdownRequestBody2);
 
 /** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMetaType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMetaType
-  > =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMetaType$inboundSchema;
+export const FieldUpdateTemplateFieldsTypeDropdownRequestBody2$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeDropdownRequestBody2> =
+    FieldUpdateTemplateFieldsTypeDropdownRequestBody2$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMetaType$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMetaType$inboundSchema` instead. */
+export namespace FieldUpdateTemplateFieldsTypeDropdownRequestBody2$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeDropdownRequestBody2$inboundSchema` instead. */
   export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMetaType$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMetaType$outboundSchema` instead. */
+    FieldUpdateTemplateFieldsTypeDropdownRequestBody2$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeDropdownRequestBody2$outboundSchema` instead. */
   export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMetaType$outboundSchema;
+    FieldUpdateTemplateFieldsTypeDropdownRequestBody2$outboundSchema;
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestValues$inboundSchema:
-  z.ZodType<
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestValues,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    value: z.string(),
-  });
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestValues$Outbound =
-  {
-    value: string;
-  };
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestValues$outboundSchema:
-  z.ZodType<
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestValues$Outbound,
-    z.ZodTypeDef,
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestValues
-  > = z.object({
-    value: z.string(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestValues$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestValues$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestValues$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestValues$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestValues$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestValues$Outbound` instead. */
-  export type Outbound =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestValues$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestValuesToJSON(
-  fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestValues:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestValues,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestValues$outboundSchema
-      .parse(fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestValues),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestValuesFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestValues,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestValues$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestValues' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMeta$inboundSchema:
-  z.ZodType<
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMeta,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMetaType$inboundSchema,
-    values: z.array(
-      z.lazy(() =>
-        FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestValues$inboundSchema
-      ),
-    ).optional(),
-    defaultValue: z.string().optional(),
-  });
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMeta$Outbound =
-  {
-    label?: string | undefined;
-    placeholder?: string | undefined;
-    required?: boolean | undefined;
-    readOnly?: boolean | undefined;
-    type: string;
-    values?:
-      | Array<
-        FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestValues$Outbound
-      >
-      | undefined;
-    defaultValue?: string | undefined;
-  };
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMeta$outboundSchema:
-  z.ZodType<
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMeta$Outbound,
-    z.ZodTypeDef,
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMeta
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMetaType$outboundSchema,
-    values: z.array(
-      z.lazy(() =>
-        FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestValues$outboundSchema
-      ),
-    ).optional(),
-    defaultValue: z.string().optional(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMeta$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMeta$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMeta$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMeta$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMeta$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMeta$Outbound` instead. */
-  export type Outbound =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMeta$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMetaToJSON(
-  fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMeta:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMeta,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMeta$outboundSchema
-      .parse(
-        fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMeta,
-      ),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMetaFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMeta,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMeta$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMeta' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFields11$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFields11,
+export const FieldUpdateTemplateFieldsValueDropdown$inboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsValueDropdown,
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11Type$inboundSchema,
-  fieldMeta: z.lazy(() =>
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMeta$inboundSchema
-  ).optional(),
-  id: z.number(),
-  pageNumber: z.number().optional(),
-  pageX: z.number().optional(),
-  pageY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFields11$Outbound = {
-  type: string;
-  fieldMeta?:
-    | FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMeta$Outbound
-    | undefined;
-  id: number;
-  pageNumber?: number | undefined;
-  pageX?: number | undefined;
-  pageY?: number | undefined;
-  width?: number | undefined;
-  height?: number | undefined;
-};
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFields11$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFields11$Outbound,
-  z.ZodTypeDef,
-  FieldUpdateTemplateFieldsFields11
-> = z.object({
-  type:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11Type$outboundSchema,
-  fieldMeta: z.lazy(() =>
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody11FieldMeta$outboundSchema
-  ).optional(),
-  id: z.number(),
-  pageNumber: z.number().optional(),
-  pageX: z.number().optional(),
-  pageY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFields11$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFields11$inboundSchema` instead. */
-  export const inboundSchema = FieldUpdateTemplateFieldsFields11$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFields11$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFields11$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFields11$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsFields11$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFields11ToJSON(
-  fieldUpdateTemplateFieldsFields11: FieldUpdateTemplateFieldsFields11,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFields11$outboundSchema.parse(
-      fieldUpdateTemplateFieldsFields11,
-    ),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFields11FromJSON(
-  jsonString: string,
-): SafeParseResult<FieldUpdateTemplateFieldsFields11, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => FieldUpdateTemplateFieldsFields11$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFields11' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10Type
-  > = z.nativeEnum(
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10Type,
-  );
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10Type
-  > =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10Type$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10Type$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10Type$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10Type$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10Type$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10Type$outboundSchema;
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMetaType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMetaType
-  > = z.nativeEnum(
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMetaType,
-  );
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMetaType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMetaType
-  > =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMetaType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMetaType$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMetaType$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMetaType$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMetaType$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMetaType$outboundSchema;
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsValues$inboundSchema:
-  z.ZodType<
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsValues,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    id: z.number(),
-    checked: z.boolean(),
-    value: z.string(),
-  });
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsValues$Outbound = {
-  id: number;
-  checked: boolean;
-  value: string;
-};
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsValues$outboundSchema:
-  z.ZodType<
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsValues$Outbound,
-    z.ZodTypeDef,
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsValues
-  > = z.object({
-    id: z.number(),
-    checked: z.boolean(),
-    value: z.string(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsValues$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsValues$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsValues$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsValues$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsValues$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsValues$Outbound` instead. */
-  export type Outbound =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsValues$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFieldsTemplatesFieldsValuesToJSON(
-  fieldUpdateTemplateFieldsFieldsTemplatesFieldsValues:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsValues,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsValues$outboundSchema.parse(
-      fieldUpdateTemplateFieldsFieldsTemplatesFieldsValues,
-    ),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFieldsTemplatesFieldsValuesFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  FieldUpdateTemplateFieldsFieldsTemplatesFieldsValues,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsValues$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'FieldUpdateTemplateFieldsFieldsTemplatesFieldsValues' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMeta$inboundSchema:
-  z.ZodType<
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMeta,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMetaType$inboundSchema,
-    values: z.array(
-      z.lazy(() =>
-        FieldUpdateTemplateFieldsFieldsTemplatesFieldsValues$inboundSchema
-      ),
-    ).optional(),
-    validationRule: z.string().optional(),
-    validationLength: z.number().optional(),
-  });
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMeta$Outbound =
-  {
-    label?: string | undefined;
-    placeholder?: string | undefined;
-    required?: boolean | undefined;
-    readOnly?: boolean | undefined;
-    type: string;
-    values?:
-      | Array<FieldUpdateTemplateFieldsFieldsTemplatesFieldsValues$Outbound>
-      | undefined;
-    validationRule?: string | undefined;
-    validationLength?: number | undefined;
-  };
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMeta$outboundSchema:
-  z.ZodType<
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMeta$Outbound,
-    z.ZodTypeDef,
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMeta
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMetaType$outboundSchema,
-    values: z.array(
-      z.lazy(() =>
-        FieldUpdateTemplateFieldsFieldsTemplatesFieldsValues$outboundSchema
-      ),
-    ).optional(),
-    validationRule: z.string().optional(),
-    validationLength: z.number().optional(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMeta$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMeta$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMeta$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMeta$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMeta$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMeta$Outbound` instead. */
-  export type Outbound =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMeta$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMetaToJSON(
-  fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMeta:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMeta,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMeta$outboundSchema
-      .parse(
-        fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMeta,
-      ),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMetaFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMeta,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMeta$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMeta' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFields10$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFields10,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  type:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10Type$inboundSchema,
-  fieldMeta: z.lazy(() =>
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMeta$inboundSchema
-  ).optional(),
-  id: z.number(),
-  pageNumber: z.number().optional(),
-  pageX: z.number().optional(),
-  pageY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFields10$Outbound = {
-  type: string;
-  fieldMeta?:
-    | FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMeta$Outbound
-    | undefined;
-  id: number;
-  pageNumber?: number | undefined;
-  pageX?: number | undefined;
-  pageY?: number | undefined;
-  width?: number | undefined;
-  height?: number | undefined;
-};
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFields10$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFields10$Outbound,
-  z.ZodTypeDef,
-  FieldUpdateTemplateFieldsFields10
-> = z.object({
-  type:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10Type$outboundSchema,
-  fieldMeta: z.lazy(() =>
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody10FieldMeta$outboundSchema
-  ).optional(),
-  id: z.number(),
-  pageNumber: z.number().optional(),
-  pageX: z.number().optional(),
-  pageY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFields10$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFields10$inboundSchema` instead. */
-  export const inboundSchema = FieldUpdateTemplateFieldsFields10$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFields10$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFields10$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFields10$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsFields10$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFields10ToJSON(
-  fieldUpdateTemplateFieldsFields10: FieldUpdateTemplateFieldsFields10,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFields10$outboundSchema.parse(
-      fieldUpdateTemplateFieldsFields10,
-    ),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFields10FromJSON(
-  jsonString: string,
-): SafeParseResult<FieldUpdateTemplateFieldsFields10, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => FieldUpdateTemplateFieldsFields10$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFields10' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9Type
-  > = z.nativeEnum(
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9Type,
-  );
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9Type
-  > =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9Type$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9Type$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9Type$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9Type$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9Type$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9Type$outboundSchema;
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMetaType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMetaType
-  > = z.nativeEnum(
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMetaType,
-  );
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMetaType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMetaType
-  > =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMetaType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMetaType$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMetaType$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMetaType$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMetaType$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMetaType$outboundSchema;
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsValues$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFieldsValues,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
   value: z.string(),
 });
 
 /** @internal */
-export type FieldUpdateTemplateFieldsFieldsValues$Outbound = {
-  id: number;
-  checked: boolean;
+export type FieldUpdateTemplateFieldsValueDropdown$Outbound = {
   value: string;
 };
 
 /** @internal */
-export const FieldUpdateTemplateFieldsFieldsValues$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFieldsValues$Outbound,
+export const FieldUpdateTemplateFieldsValueDropdown$outboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsValueDropdown$Outbound,
   z.ZodTypeDef,
-  FieldUpdateTemplateFieldsFieldsValues
+  FieldUpdateTemplateFieldsValueDropdown
 > = z.object({
-  id: z.number(),
-  checked: z.boolean(),
   value: z.string(),
 });
 
@@ -1641,42 +1028,43 @@ export const FieldUpdateTemplateFieldsFieldsValues$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldUpdateTemplateFieldsFieldsValues$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsValues$inboundSchema` instead. */
+export namespace FieldUpdateTemplateFieldsValueDropdown$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsValueDropdown$inboundSchema` instead. */
   export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsValues$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsValues$outboundSchema` instead. */
+    FieldUpdateTemplateFieldsValueDropdown$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsValueDropdown$outboundSchema` instead. */
   export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsValues$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsValues$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsFieldsValues$Outbound;
+    FieldUpdateTemplateFieldsValueDropdown$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsValueDropdown$Outbound` instead. */
+  export type Outbound = FieldUpdateTemplateFieldsValueDropdown$Outbound;
 }
 
-export function fieldUpdateTemplateFieldsFieldsValuesToJSON(
-  fieldUpdateTemplateFieldsFieldsValues: FieldUpdateTemplateFieldsFieldsValues,
+export function fieldUpdateTemplateFieldsValueDropdownToJSON(
+  fieldUpdateTemplateFieldsValueDropdown:
+    FieldUpdateTemplateFieldsValueDropdown,
 ): string {
   return JSON.stringify(
-    FieldUpdateTemplateFieldsFieldsValues$outboundSchema.parse(
-      fieldUpdateTemplateFieldsFieldsValues,
+    FieldUpdateTemplateFieldsValueDropdown$outboundSchema.parse(
+      fieldUpdateTemplateFieldsValueDropdown,
     ),
   );
 }
 
-export function fieldUpdateTemplateFieldsFieldsValuesFromJSON(
+export function fieldUpdateTemplateFieldsValueDropdownFromJSON(
   jsonString: string,
-): SafeParseResult<FieldUpdateTemplateFieldsFieldsValues, SDKValidationError> {
+): SafeParseResult<FieldUpdateTemplateFieldsValueDropdown, SDKValidationError> {
   return safeParse(
     jsonString,
     (x) =>
-      FieldUpdateTemplateFieldsFieldsValues$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFieldsValues' from JSON`,
+      FieldUpdateTemplateFieldsValueDropdown$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldUpdateTemplateFieldsValueDropdown' from JSON`,
   );
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMeta$inboundSchema:
+export const FieldUpdateTemplateFieldsFieldMetaDropdownRequestBody$inboundSchema:
   z.ZodType<
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMeta,
+    FieldUpdateTemplateFieldsFieldMetaDropdownRequestBody,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -1684,2346 +1072,513 @@ export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9Fi
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type:
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMetaType$inboundSchema,
+    type: FieldUpdateTemplateFieldsTypeDropdownRequestBody2$inboundSchema,
     values: z.array(
-      z.lazy(() => FieldUpdateTemplateFieldsFieldsValues$inboundSchema),
+      z.lazy(() => FieldUpdateTemplateFieldsValueDropdown$inboundSchema),
     ).optional(),
+    defaultValue: z.string().optional(),
   });
 
 /** @internal */
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMeta$Outbound =
-  {
-    label?: string | undefined;
-    placeholder?: string | undefined;
-    required?: boolean | undefined;
-    readOnly?: boolean | undefined;
-    type: string;
-    values?: Array<FieldUpdateTemplateFieldsFieldsValues$Outbound> | undefined;
-  };
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMeta$outboundSchema:
-  z.ZodType<
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMeta$Outbound,
-    z.ZodTypeDef,
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMeta
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMetaType$outboundSchema,
-    values: z.array(
-      z.lazy(() => FieldUpdateTemplateFieldsFieldsValues$outboundSchema),
-    ).optional(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMeta$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMeta$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMeta$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMeta$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMeta$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMeta$Outbound` instead. */
-  export type Outbound =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMeta$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMetaToJSON(
-  fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMeta:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMeta,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMeta$outboundSchema
-      .parse(
-        fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMeta,
-      ),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMetaFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMeta,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMeta$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMeta' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFields9$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFields9,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  type:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9Type$inboundSchema,
-  fieldMeta: z.lazy(() =>
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMeta$inboundSchema
-  ).optional(),
-  id: z.number(),
-  pageNumber: z.number().optional(),
-  pageX: z.number().optional(),
-  pageY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFields9$Outbound = {
-  type: string;
-  fieldMeta?:
-    | FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMeta$Outbound
-    | undefined;
-  id: number;
-  pageNumber?: number | undefined;
-  pageX?: number | undefined;
-  pageY?: number | undefined;
-  width?: number | undefined;
-  height?: number | undefined;
-};
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFields9$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFields9$Outbound,
-  z.ZodTypeDef,
-  FieldUpdateTemplateFieldsFields9
-> = z.object({
-  type:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9Type$outboundSchema,
-  fieldMeta: z.lazy(() =>
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody9FieldMeta$outboundSchema
-  ).optional(),
-  id: z.number(),
-  pageNumber: z.number().optional(),
-  pageX: z.number().optional(),
-  pageY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFields9$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFields9$inboundSchema` instead. */
-  export const inboundSchema = FieldUpdateTemplateFieldsFields9$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFields9$outboundSchema` instead. */
-  export const outboundSchema = FieldUpdateTemplateFieldsFields9$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFields9$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsFields9$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFields9ToJSON(
-  fieldUpdateTemplateFieldsFields9: FieldUpdateTemplateFieldsFields9,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFields9$outboundSchema.parse(
-      fieldUpdateTemplateFieldsFields9,
-    ),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFields9FromJSON(
-  jsonString: string,
-): SafeParseResult<FieldUpdateTemplateFieldsFields9, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => FieldUpdateTemplateFieldsFields9$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFields9' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8Type
-  > = z.nativeEnum(
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8Type,
-  );
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8Type
-  > =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8Type$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8Type$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8Type$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8Type$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8Type$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8Type$outboundSchema;
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMetaType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMetaType
-  > = z.nativeEnum(
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMetaType,
-  );
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMetaType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMetaType
-  > =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMetaType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMetaType$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMetaType$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMetaType$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMetaType$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMetaType$outboundSchema;
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMeta$inboundSchema:
-  z.ZodType<
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMeta,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMetaType$inboundSchema,
-    numberFormat: z.string().optional(),
-    value: z.string().optional(),
-    minValue: z.number().optional(),
-    maxValue: z.number().optional(),
-    fontSize: z.number().optional(),
-  });
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMeta$Outbound =
-  {
-    label?: string | undefined;
-    placeholder?: string | undefined;
-    required?: boolean | undefined;
-    readOnly?: boolean | undefined;
-    type: string;
-    numberFormat?: string | undefined;
-    value?: string | undefined;
-    minValue?: number | undefined;
-    maxValue?: number | undefined;
-    fontSize?: number | undefined;
-  };
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMeta$outboundSchema:
-  z.ZodType<
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMeta$Outbound,
-    z.ZodTypeDef,
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMeta
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMetaType$outboundSchema,
-    numberFormat: z.string().optional(),
-    value: z.string().optional(),
-    minValue: z.number().optional(),
-    maxValue: z.number().optional(),
-    fontSize: z.number().optional(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMeta$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMeta$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMeta$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMeta$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMeta$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMeta$Outbound` instead. */
-  export type Outbound =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMeta$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMetaToJSON(
-  fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMeta:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMeta,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMeta$outboundSchema
-      .parse(
-        fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMeta,
-      ),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMetaFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMeta,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMeta$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMeta' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFields8$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFields8,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  type:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8Type$inboundSchema,
-  fieldMeta: z.lazy(() =>
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMeta$inboundSchema
-  ).optional(),
-  id: z.number(),
-  pageNumber: z.number().optional(),
-  pageX: z.number().optional(),
-  pageY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFields8$Outbound = {
-  type: string;
-  fieldMeta?:
-    | FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMeta$Outbound
-    | undefined;
-  id: number;
-  pageNumber?: number | undefined;
-  pageX?: number | undefined;
-  pageY?: number | undefined;
-  width?: number | undefined;
-  height?: number | undefined;
-};
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFields8$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFields8$Outbound,
-  z.ZodTypeDef,
-  FieldUpdateTemplateFieldsFields8
-> = z.object({
-  type:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8Type$outboundSchema,
-  fieldMeta: z.lazy(() =>
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody8FieldMeta$outboundSchema
-  ).optional(),
-  id: z.number(),
-  pageNumber: z.number().optional(),
-  pageX: z.number().optional(),
-  pageY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFields8$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFields8$inboundSchema` instead. */
-  export const inboundSchema = FieldUpdateTemplateFieldsFields8$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFields8$outboundSchema` instead. */
-  export const outboundSchema = FieldUpdateTemplateFieldsFields8$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFields8$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsFields8$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFields8ToJSON(
-  fieldUpdateTemplateFieldsFields8: FieldUpdateTemplateFieldsFields8,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFields8$outboundSchema.parse(
-      fieldUpdateTemplateFieldsFields8,
-    ),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFields8FromJSON(
-  jsonString: string,
-): SafeParseResult<FieldUpdateTemplateFieldsFields8, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => FieldUpdateTemplateFieldsFields8$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFields8' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7Type
-  > = z.nativeEnum(
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7Type,
-  );
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7Type
-  > =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7Type$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7Type$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7Type$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7Type$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7Type$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7Type$outboundSchema;
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMetaType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMetaType
-  > = z.nativeEnum(
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMetaType,
-  );
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMetaType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMetaType
-  > =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMetaType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMetaType$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMetaType$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMetaType$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMetaType$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMetaType$outboundSchema;
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMeta$inboundSchema:
-  z.ZodType<
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMeta,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMetaType$inboundSchema,
-    text: z.string().optional(),
-    characterLimit: z.number().optional(),
-    fontSize: z.number().optional(),
-  });
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMeta$Outbound =
-  {
-    label?: string | undefined;
-    placeholder?: string | undefined;
-    required?: boolean | undefined;
-    readOnly?: boolean | undefined;
-    type: string;
-    text?: string | undefined;
-    characterLimit?: number | undefined;
-    fontSize?: number | undefined;
-  };
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMeta$outboundSchema:
-  z.ZodType<
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMeta$Outbound,
-    z.ZodTypeDef,
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMeta
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMetaType$outboundSchema,
-    text: z.string().optional(),
-    characterLimit: z.number().optional(),
-    fontSize: z.number().optional(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMeta$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMeta$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMeta$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMeta$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMeta$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMeta$Outbound` instead. */
-  export type Outbound =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMeta$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMetaToJSON(
-  fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMeta:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMeta,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMeta$outboundSchema
-      .parse(
-        fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMeta,
-      ),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMetaFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMeta,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMeta$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMeta' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFields7$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFields7,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  type:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7Type$inboundSchema,
-  fieldMeta: z.lazy(() =>
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMeta$inboundSchema
-  ).optional(),
-  id: z.number(),
-  pageNumber: z.number().optional(),
-  pageX: z.number().optional(),
-  pageY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFields7$Outbound = {
-  type: string;
-  fieldMeta?:
-    | FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMeta$Outbound
-    | undefined;
-  id: number;
-  pageNumber?: number | undefined;
-  pageX?: number | undefined;
-  pageY?: number | undefined;
-  width?: number | undefined;
-  height?: number | undefined;
-};
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFields7$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFields7$Outbound,
-  z.ZodTypeDef,
-  FieldUpdateTemplateFieldsFields7
-> = z.object({
-  type:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7Type$outboundSchema,
-  fieldMeta: z.lazy(() =>
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody7FieldMeta$outboundSchema
-  ).optional(),
-  id: z.number(),
-  pageNumber: z.number().optional(),
-  pageX: z.number().optional(),
-  pageY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFields7$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFields7$inboundSchema` instead. */
-  export const inboundSchema = FieldUpdateTemplateFieldsFields7$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFields7$outboundSchema` instead. */
-  export const outboundSchema = FieldUpdateTemplateFieldsFields7$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFields7$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsFields7$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFields7ToJSON(
-  fieldUpdateTemplateFieldsFields7: FieldUpdateTemplateFieldsFields7,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFields7$outboundSchema.parse(
-      fieldUpdateTemplateFieldsFields7,
-    ),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFields7FromJSON(
-  jsonString: string,
-): SafeParseResult<FieldUpdateTemplateFieldsFields7, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => FieldUpdateTemplateFieldsFields7$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFields7' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6Type
-  > = z.nativeEnum(
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6Type,
-  );
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6Type
-  > =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6Type$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6Type$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6Type$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6Type$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6Type$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6Type$outboundSchema;
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6FieldMetaType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6FieldMetaType
-  > = z.nativeEnum(
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6FieldMetaType,
-  );
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6FieldMetaType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6FieldMetaType
-  > =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6FieldMetaType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6FieldMetaType$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6FieldMetaType$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6FieldMetaType$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6FieldMetaType$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6FieldMetaType$outboundSchema;
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMeta$inboundSchema:
-  z.ZodType<
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMeta,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6FieldMetaType$inboundSchema,
-    fontSize: z.number().optional(),
-  });
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMeta$Outbound =
-  {
-    label?: string | undefined;
-    placeholder?: string | undefined;
-    required?: boolean | undefined;
-    readOnly?: boolean | undefined;
-    type: string;
-    fontSize?: number | undefined;
-  };
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMeta$outboundSchema:
-  z.ZodType<
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMeta$Outbound,
-    z.ZodTypeDef,
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMeta
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6FieldMetaType$outboundSchema,
-    fontSize: z.number().optional(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMeta$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMeta$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMeta$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMeta$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMeta$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMeta$Outbound` instead. */
-  export type Outbound =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMeta$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMetaToJSON(
-  fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMeta:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMeta,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMeta$outboundSchema
-      .parse(
-        fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMeta,
-      ),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMetaFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMeta,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMeta$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMeta' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFields6$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFields6,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  type:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6Type$inboundSchema,
-  fieldMeta: z.lazy(() =>
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMeta$inboundSchema
-  ).optional(),
-  id: z.number(),
-  pageNumber: z.number().optional(),
-  pageX: z.number().optional(),
-  pageY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFields6$Outbound = {
-  type: string;
-  fieldMeta?:
-    | FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMeta$Outbound
-    | undefined;
-  id: number;
-  pageNumber?: number | undefined;
-  pageX?: number | undefined;
-  pageY?: number | undefined;
-  width?: number | undefined;
-  height?: number | undefined;
-};
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFields6$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFields6$Outbound,
-  z.ZodTypeDef,
-  FieldUpdateTemplateFieldsFields6
-> = z.object({
-  type:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody6Type$outboundSchema,
-  fieldMeta: z.lazy(() =>
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyFieldMeta$outboundSchema
-  ).optional(),
-  id: z.number(),
-  pageNumber: z.number().optional(),
-  pageX: z.number().optional(),
-  pageY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFields6$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFields6$inboundSchema` instead. */
-  export const inboundSchema = FieldUpdateTemplateFieldsFields6$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFields6$outboundSchema` instead. */
-  export const outboundSchema = FieldUpdateTemplateFieldsFields6$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFields6$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsFields6$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFields6ToJSON(
-  fieldUpdateTemplateFieldsFields6: FieldUpdateTemplateFieldsFields6,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFields6$outboundSchema.parse(
-      fieldUpdateTemplateFieldsFields6,
-    ),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFields6FromJSON(
-  jsonString: string,
-): SafeParseResult<FieldUpdateTemplateFieldsFields6, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => FieldUpdateTemplateFieldsFields6$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFields6' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5Type
-  > = z.nativeEnum(
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5Type,
-  );
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5Type
-  > =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5Type$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5Type$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5Type$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5Type$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5Type$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5Type$outboundSchema;
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5FieldMetaType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5FieldMetaType
-  > = z.nativeEnum(
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5FieldMetaType,
-  );
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5FieldMetaType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5FieldMetaType
-  > =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5FieldMetaType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5FieldMetaType$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5FieldMetaType$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5FieldMetaType$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5FieldMetaType$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5FieldMetaType$outboundSchema;
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta$inboundSchema:
-  z.ZodType<
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5FieldMetaType$inboundSchema,
-    fontSize: z.number().optional(),
-  });
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta$Outbound =
-  {
-    label?: string | undefined;
-    placeholder?: string | undefined;
-    required?: boolean | undefined;
-    readOnly?: boolean | undefined;
-    type: string;
-    fontSize?: number | undefined;
-  };
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta$outboundSchema:
-  z.ZodType<
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta$Outbound,
-    z.ZodTypeDef,
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5FieldMetaType$outboundSchema,
-    fontSize: z.number().optional(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta$Outbound` instead. */
-  export type Outbound =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestFieldMetaToJSON(
-  fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta$outboundSchema
-      .parse(fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestFieldMetaFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFields5$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFields5,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  type:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5Type$inboundSchema,
-  fieldMeta: z.lazy(() =>
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta$inboundSchema
-  ).optional(),
-  id: z.number(),
-  pageNumber: z.number().optional(),
-  pageX: z.number().optional(),
-  pageY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFields5$Outbound = {
-  type: string;
-  fieldMeta?:
-    | FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta$Outbound
-    | undefined;
-  id: number;
-  pageNumber?: number | undefined;
-  pageX?: number | undefined;
-  pageY?: number | undefined;
-  width?: number | undefined;
-  height?: number | undefined;
-};
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFields5$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFields5$Outbound,
-  z.ZodTypeDef,
-  FieldUpdateTemplateFieldsFields5
-> = z.object({
-  type:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody5Type$outboundSchema,
-  fieldMeta: z.lazy(() =>
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestFieldMeta$outboundSchema
-  ).optional(),
-  id: z.number(),
-  pageNumber: z.number().optional(),
-  pageX: z.number().optional(),
-  pageY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFields5$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFields5$inboundSchema` instead. */
-  export const inboundSchema = FieldUpdateTemplateFieldsFields5$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFields5$outboundSchema` instead. */
-  export const outboundSchema = FieldUpdateTemplateFieldsFields5$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFields5$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsFields5$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFields5ToJSON(
-  fieldUpdateTemplateFieldsFields5: FieldUpdateTemplateFieldsFields5,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFields5$outboundSchema.parse(
-      fieldUpdateTemplateFieldsFields5,
-    ),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFields5FromJSON(
-  jsonString: string,
-): SafeParseResult<FieldUpdateTemplateFieldsFields5, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => FieldUpdateTemplateFieldsFields5$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFields5' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4Type
-  > = z.nativeEnum(
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4Type,
-  );
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4Type
-  > =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4Type$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4Type$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4Type$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4Type$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4Type$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4Type$outboundSchema;
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4FieldMetaType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4FieldMetaType
-  > = z.nativeEnum(
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4FieldMetaType,
-  );
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4FieldMetaType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4FieldMetaType
-  > =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4FieldMetaType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4FieldMetaType$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4FieldMetaType$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4FieldMetaType$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4FieldMetaType$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4FieldMetaType$outboundSchema;
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsFieldMeta$inboundSchema:
-  z.ZodType<
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsFieldMeta,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4FieldMetaType$inboundSchema,
-    fontSize: z.number().optional(),
-  });
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFieldsTemplatesFieldsFieldMeta$Outbound = {
+export type FieldUpdateTemplateFieldsFieldMetaDropdownRequestBody$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
-  fontSize?: number | undefined;
-};
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsFieldMeta$outboundSchema:
-  z.ZodType<
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsFieldMeta$Outbound,
-    z.ZodTypeDef,
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsFieldMeta
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    type:
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4FieldMetaType$outboundSchema,
-    fontSize: z.number().optional(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsFieldMeta$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsFieldMeta$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsFieldMeta$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsFieldMeta$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsFieldMeta$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsFieldMeta$Outbound` instead. */
-  export type Outbound =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsFieldMeta$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFieldsTemplatesFieldsFieldMetaToJSON(
-  fieldUpdateTemplateFieldsFieldsTemplatesFieldsFieldMeta:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsFieldMeta,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsFieldMeta$outboundSchema
-      .parse(fieldUpdateTemplateFieldsFieldsTemplatesFieldsFieldMeta),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFieldsTemplatesFieldsFieldMetaFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  FieldUpdateTemplateFieldsFieldsTemplatesFieldsFieldMeta,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      FieldUpdateTemplateFieldsFieldsTemplatesFieldsFieldMeta$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFieldsTemplatesFieldsFieldMeta' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFields4$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFields4,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  type:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4Type$inboundSchema,
-  fieldMeta: z.lazy(() =>
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsFieldMeta$inboundSchema
-  ).optional(),
-  id: z.number(),
-  pageNumber: z.number().optional(),
-  pageX: z.number().optional(),
-  pageY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFields4$Outbound = {
-  type: string;
-  fieldMeta?:
-    | FieldUpdateTemplateFieldsFieldsTemplatesFieldsFieldMeta$Outbound
-    | undefined;
-  id: number;
-  pageNumber?: number | undefined;
-  pageX?: number | undefined;
-  pageY?: number | undefined;
-  width?: number | undefined;
-  height?: number | undefined;
-};
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFields4$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFields4$Outbound,
-  z.ZodTypeDef,
-  FieldUpdateTemplateFieldsFields4
-> = z.object({
-  type:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBody4Type$outboundSchema,
-  fieldMeta: z.lazy(() =>
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsFieldMeta$outboundSchema
-  ).optional(),
-  id: z.number(),
-  pageNumber: z.number().optional(),
-  pageX: z.number().optional(),
-  pageY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFields4$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFields4$inboundSchema` instead. */
-  export const inboundSchema = FieldUpdateTemplateFieldsFields4$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFields4$outboundSchema` instead. */
-  export const outboundSchema = FieldUpdateTemplateFieldsFields4$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFields4$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsFields4$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFields4ToJSON(
-  fieldUpdateTemplateFieldsFields4: FieldUpdateTemplateFieldsFields4,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFields4$outboundSchema.parse(
-      fieldUpdateTemplateFieldsFields4,
-    ),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFields4FromJSON(
-  jsonString: string,
-): SafeParseResult<FieldUpdateTemplateFieldsFields4, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => FieldUpdateTemplateFieldsFields4$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFields4' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestType
-  > = z.nativeEnum(FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestType);
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestType
-  > = FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestType$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestType$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestType$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestType$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestType$outboundSchema;
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyType
-  > = z.nativeEnum(
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyType,
-  );
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyType
-  > =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyType$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyType$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyType$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyType$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyType$outboundSchema;
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsFieldMeta$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFieldsFieldMeta,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  type:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyType$inboundSchema,
-  fontSize: z.number().optional(),
-});
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFieldsFieldMeta$Outbound = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  type: string;
-  fontSize?: number | undefined;
-};
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsFieldMeta$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFieldsFieldMeta$Outbound,
-  z.ZodTypeDef,
-  FieldUpdateTemplateFieldsFieldsFieldMeta
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  type:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestRequestBodyType$outboundSchema,
-  fontSize: z.number().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsFieldMeta$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsFieldMeta$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsFieldMeta$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsFieldMeta$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsFieldMeta$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsFieldMeta$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsFieldsFieldMeta$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFieldsFieldMetaToJSON(
-  fieldUpdateTemplateFieldsFieldsFieldMeta:
-    FieldUpdateTemplateFieldsFieldsFieldMeta,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFieldsFieldMeta$outboundSchema.parse(
-      fieldUpdateTemplateFieldsFieldsFieldMeta,
-    ),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFieldsFieldMetaFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  FieldUpdateTemplateFieldsFieldsFieldMeta,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      FieldUpdateTemplateFieldsFieldsFieldMeta$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'FieldUpdateTemplateFieldsFieldsFieldMeta' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFields3$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFields3,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  type: FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestType$inboundSchema,
-  fieldMeta: z.lazy(() =>
-    FieldUpdateTemplateFieldsFieldsFieldMeta$inboundSchema
-  ).optional(),
-  id: z.number(),
-  pageNumber: z.number().optional(),
-  pageX: z.number().optional(),
-  pageY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFields3$Outbound = {
-  type: string;
-  fieldMeta?: FieldUpdateTemplateFieldsFieldsFieldMeta$Outbound | undefined;
-  id: number;
-  pageNumber?: number | undefined;
-  pageX?: number | undefined;
-  pageY?: number | undefined;
-  width?: number | undefined;
-  height?: number | undefined;
-};
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFields3$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFields3$Outbound,
-  z.ZodTypeDef,
-  FieldUpdateTemplateFieldsFields3
-> = z.object({
-  type:
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsRequestType$outboundSchema,
-  fieldMeta: z.lazy(() =>
-    FieldUpdateTemplateFieldsFieldsFieldMeta$outboundSchema
-  ).optional(),
-  id: z.number(),
-  pageNumber: z.number().optional(),
-  pageX: z.number().optional(),
-  pageY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFields3$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFields3$inboundSchema` instead. */
-  export const inboundSchema = FieldUpdateTemplateFieldsFields3$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFields3$outboundSchema` instead. */
-  export const outboundSchema = FieldUpdateTemplateFieldsFields3$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFields3$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsFields3$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFields3ToJSON(
-  fieldUpdateTemplateFieldsFields3: FieldUpdateTemplateFieldsFields3,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFields3$outboundSchema.parse(
-      fieldUpdateTemplateFieldsFields3,
-    ),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFields3FromJSON(
-  jsonString: string,
-): SafeParseResult<FieldUpdateTemplateFieldsFields3, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => FieldUpdateTemplateFieldsFields3$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFields3' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsType$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsType> = z
-    .nativeEnum(FieldUpdateTemplateFieldsFieldsTemplatesFieldsType);
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsTemplatesFieldsType$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsFieldsTemplatesFieldsType> =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsTemplatesFieldsType$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsType$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsType$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsTemplatesFieldsType$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsTemplatesFieldsType$outboundSchema;
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFields2$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFields2,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  type: FieldUpdateTemplateFieldsFieldsTemplatesFieldsType$inboundSchema,
-  id: z.number(),
-  pageNumber: z.number().optional(),
-  pageX: z.number().optional(),
-  pageY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFields2$Outbound = {
-  type: string;
-  id: number;
-  pageNumber?: number | undefined;
-  pageX?: number | undefined;
-  pageY?: number | undefined;
-  width?: number | undefined;
-  height?: number | undefined;
-};
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFields2$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFields2$Outbound,
-  z.ZodTypeDef,
-  FieldUpdateTemplateFieldsFields2
-> = z.object({
-  type: FieldUpdateTemplateFieldsFieldsTemplatesFieldsType$outboundSchema,
-  id: z.number(),
-  pageNumber: z.number().optional(),
-  pageX: z.number().optional(),
-  pageY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFields2$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFields2$inboundSchema` instead. */
-  export const inboundSchema = FieldUpdateTemplateFieldsFields2$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFields2$outboundSchema` instead. */
-  export const outboundSchema = FieldUpdateTemplateFieldsFields2$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFields2$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsFields2$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFields2ToJSON(
-  fieldUpdateTemplateFieldsFields2: FieldUpdateTemplateFieldsFields2,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFields2$outboundSchema.parse(
-      fieldUpdateTemplateFieldsFields2,
-    ),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFields2FromJSON(
-  jsonString: string,
-): SafeParseResult<FieldUpdateTemplateFieldsFields2, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => FieldUpdateTemplateFieldsFields2$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFields2' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsType$inboundSchema: z.ZodNativeEnum<
-  typeof FieldUpdateTemplateFieldsFieldsType
-> = z.nativeEnum(FieldUpdateTemplateFieldsFieldsType);
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldsType$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsFieldsType> =
-    FieldUpdateTemplateFieldsFieldsType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldsType$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsType$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldsType$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldsType$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldsType$outboundSchema;
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFields1$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFields1,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  type: FieldUpdateTemplateFieldsFieldsType$inboundSchema,
-  id: z.number(),
-  pageNumber: z.number().optional(),
-  pageX: z.number().optional(),
-  pageY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFields1$Outbound = {
-  type: string;
-  id: number;
-  pageNumber?: number | undefined;
-  pageX?: number | undefined;
-  pageY?: number | undefined;
-  width?: number | undefined;
-  height?: number | undefined;
-};
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFields1$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFields1$Outbound,
-  z.ZodTypeDef,
-  FieldUpdateTemplateFieldsFields1
-> = z.object({
-  type: FieldUpdateTemplateFieldsFieldsType$outboundSchema,
-  id: z.number(),
-  pageNumber: z.number().optional(),
-  pageX: z.number().optional(),
-  pageY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFields1$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFields1$inboundSchema` instead. */
-  export const inboundSchema = FieldUpdateTemplateFieldsFields1$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFields1$outboundSchema` instead. */
-  export const outboundSchema = FieldUpdateTemplateFieldsFields1$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFields1$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsFields1$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFields1ToJSON(
-  fieldUpdateTemplateFieldsFields1: FieldUpdateTemplateFieldsFields1,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFields1$outboundSchema.parse(
-      fieldUpdateTemplateFieldsFields1,
-    ),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFields1FromJSON(
-  jsonString: string,
-): SafeParseResult<FieldUpdateTemplateFieldsFields1, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => FieldUpdateTemplateFieldsFields1$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFields1' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFields$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFields,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  z.lazy(() => FieldUpdateTemplateFieldsFields1$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFields2$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFields3$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFields4$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFields5$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFields6$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFields7$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFields8$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFields9$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFields10$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFields11$inboundSchema),
-]);
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFields$Outbound =
-  | FieldUpdateTemplateFieldsFields1$Outbound
-  | FieldUpdateTemplateFieldsFields2$Outbound
-  | FieldUpdateTemplateFieldsFields3$Outbound
-  | FieldUpdateTemplateFieldsFields4$Outbound
-  | FieldUpdateTemplateFieldsFields5$Outbound
-  | FieldUpdateTemplateFieldsFields6$Outbound
-  | FieldUpdateTemplateFieldsFields7$Outbound
-  | FieldUpdateTemplateFieldsFields8$Outbound
-  | FieldUpdateTemplateFieldsFields9$Outbound
-  | FieldUpdateTemplateFieldsFields10$Outbound
-  | FieldUpdateTemplateFieldsFields11$Outbound;
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFields$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFields$Outbound,
-  z.ZodTypeDef,
-  FieldUpdateTemplateFieldsFields
-> = z.union([
-  z.lazy(() => FieldUpdateTemplateFieldsFields1$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFields2$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFields3$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFields4$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFields5$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFields6$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFields7$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFields8$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFields9$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFields10$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFields11$outboundSchema),
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFields$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFields$inboundSchema` instead. */
-  export const inboundSchema = FieldUpdateTemplateFieldsFields$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFields$outboundSchema` instead. */
-  export const outboundSchema = FieldUpdateTemplateFieldsFields$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFields$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsFields$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFieldsToJSON(
-  fieldUpdateTemplateFieldsFields: FieldUpdateTemplateFieldsFields,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFields$outboundSchema.parse(
-      fieldUpdateTemplateFieldsFields,
-    ),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFieldsFromJSON(
-  jsonString: string,
-): SafeParseResult<FieldUpdateTemplateFieldsFields, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => FieldUpdateTemplateFieldsFields$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFields' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsRequestBody$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsRequestBody,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  templateId: z.number(),
-  fields: z.array(
-    z.union([
-      z.lazy(() => FieldUpdateTemplateFieldsFields1$inboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFields2$inboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFields3$inboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFields4$inboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFields5$inboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFields6$inboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFields7$inboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFields8$inboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFields9$inboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFields10$inboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFields11$inboundSchema),
-    ]),
-  ),
-});
-
-/** @internal */
-export type FieldUpdateTemplateFieldsRequestBody$Outbound = {
-  templateId: number;
-  fields: Array<
-    | FieldUpdateTemplateFieldsFields1$Outbound
-    | FieldUpdateTemplateFieldsFields2$Outbound
-    | FieldUpdateTemplateFieldsFields3$Outbound
-    | FieldUpdateTemplateFieldsFields4$Outbound
-    | FieldUpdateTemplateFieldsFields5$Outbound
-    | FieldUpdateTemplateFieldsFields6$Outbound
-    | FieldUpdateTemplateFieldsFields7$Outbound
-    | FieldUpdateTemplateFieldsFields8$Outbound
-    | FieldUpdateTemplateFieldsFields9$Outbound
-    | FieldUpdateTemplateFieldsFields10$Outbound
-    | FieldUpdateTemplateFieldsFields11$Outbound
-  >;
-};
-
-/** @internal */
-export const FieldUpdateTemplateFieldsRequestBody$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsRequestBody$Outbound,
-  z.ZodTypeDef,
-  FieldUpdateTemplateFieldsRequestBody
-> = z.object({
-  templateId: z.number(),
-  fields: z.array(
-    z.union([
-      z.lazy(() => FieldUpdateTemplateFieldsFields1$outboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFields2$outboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFields3$outboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFields4$outboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFields5$outboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFields6$outboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFields7$outboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFields8$outboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFields9$outboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFields10$outboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFields11$outboundSchema),
-    ]),
-  ),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsRequestBody$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsRequestBody$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsRequestBody$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsRequestBody$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsRequestBody$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsRequestBody$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsRequestBody$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsRequestBodyToJSON(
-  fieldUpdateTemplateFieldsRequestBody: FieldUpdateTemplateFieldsRequestBody,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsRequestBody$outboundSchema.parse(
-      fieldUpdateTemplateFieldsRequestBody,
-    ),
-  );
-}
-
-export function fieldUpdateTemplateFieldsRequestBodyFromJSON(
-  jsonString: string,
-): SafeParseResult<FieldUpdateTemplateFieldsRequestBody, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      FieldUpdateTemplateFieldsRequestBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsRequestBody' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsType$inboundSchema: z.ZodNativeEnum<
-  typeof FieldUpdateTemplateFieldsType
-> = z.nativeEnum(FieldUpdateTemplateFieldsType);
-
-/** @internal */
-export const FieldUpdateTemplateFieldsType$outboundSchema: z.ZodNativeEnum<
-  typeof FieldUpdateTemplateFieldsType
-> = FieldUpdateTemplateFieldsType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsType$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsType$inboundSchema` instead. */
-  export const inboundSchema = FieldUpdateTemplateFieldsType$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsType$outboundSchema` instead. */
-  export const outboundSchema = FieldUpdateTemplateFieldsType$outboundSchema;
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields9Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields9Type
-  > = z.nativeEnum(
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields9Type,
-  );
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields9Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields9Type
-  > =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields9Type$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields9Type$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields9Type$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields9Type$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields9Type$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields9Type$outboundSchema;
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseValues$inboundSchema:
-  z.ZodType<
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseValues,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    value: z.string(),
-  });
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseValues$Outbound =
-  {
-    value: string;
-  };
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseValues$outboundSchema:
-  z.ZodType<
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseValues$Outbound,
-    z.ZodTypeDef,
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseValues
-  > = z.object({
-    value: z.string(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseValues$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseValues$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseValues$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseValues$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseValues$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseValues$Outbound` instead. */
-  export type Outbound =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseValues$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseValuesToJSON(
-  fieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseValues:
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseValues,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseValues$outboundSchema
-      .parse(fieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseValues),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseValuesFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseValues,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseValues$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseValues' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldMeta9$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFieldMeta9,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  type:
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields9Type$inboundSchema,
-  values: z.array(
-    z.lazy(() =>
-      FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseValues$inboundSchema
-    ),
-  ).optional(),
-  defaultValue: z.string().optional(),
-});
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFieldMeta9$Outbound = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  type: string;
-  values?:
-    | Array<
-      FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseValues$Outbound
-    >
-    | undefined;
+  values?: Array<FieldUpdateTemplateFieldsValueDropdown$Outbound> | undefined;
   defaultValue?: string | undefined;
 };
 
 /** @internal */
-export const FieldUpdateTemplateFieldsFieldMeta9$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFieldMeta9$Outbound,
-  z.ZodTypeDef,
-  FieldUpdateTemplateFieldsFieldMeta9
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  type:
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields9Type$outboundSchema,
-  values: z.array(
-    z.lazy(() =>
-      FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseValues$outboundSchema
+export const FieldUpdateTemplateFieldsFieldMetaDropdownRequestBody$outboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaDropdownRequestBody$Outbound,
+    z.ZodTypeDef,
+    FieldUpdateTemplateFieldsFieldMetaDropdownRequestBody
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsTypeDropdownRequestBody2$outboundSchema,
+    values: z.array(
+      z.lazy(() => FieldUpdateTemplateFieldsValueDropdown$outboundSchema),
+    ).optional(),
+    defaultValue: z.string().optional(),
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldMetaDropdownRequestBody$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaDropdownRequestBody$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaDropdownRequestBody$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaDropdownRequestBody$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaDropdownRequestBody$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaDropdownRequestBody$Outbound` instead. */
+  export type Outbound =
+    FieldUpdateTemplateFieldsFieldMetaDropdownRequestBody$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaDropdownRequestBodyToJSON(
+  fieldUpdateTemplateFieldsFieldMetaDropdownRequestBody:
+    FieldUpdateTemplateFieldsFieldMetaDropdownRequestBody,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsFieldMetaDropdownRequestBody$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldMetaDropdownRequestBody,
     ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaDropdownRequestBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  FieldUpdateTemplateFieldsFieldMetaDropdownRequestBody,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsFieldMetaDropdownRequestBody$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldMetaDropdownRequestBody' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldDropdown$inboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsFieldDropdown,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: FieldUpdateTemplateFieldsTypeDropdownRequestBody1$inboundSchema,
+  fieldMeta: z.lazy(() =>
+    FieldUpdateTemplateFieldsFieldMetaDropdownRequestBody$inboundSchema
   ).optional(),
-  defaultValue: z.string().optional(),
+  id: z.number(),
+  pageNumber: z.number().optional(),
+  pageX: z.number().optional(),
+  pageY: z.number().optional(),
+  width: z.number().optional(),
+  height: z.number().optional(),
+});
+
+/** @internal */
+export type FieldUpdateTemplateFieldsFieldDropdown$Outbound = {
+  type: string;
+  fieldMeta?:
+    | FieldUpdateTemplateFieldsFieldMetaDropdownRequestBody$Outbound
+    | undefined;
+  id: number;
+  pageNumber?: number | undefined;
+  pageX?: number | undefined;
+  pageY?: number | undefined;
+  width?: number | undefined;
+  height?: number | undefined;
+};
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldDropdown$outboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsFieldDropdown$Outbound,
+  z.ZodTypeDef,
+  FieldUpdateTemplateFieldsFieldDropdown
+> = z.object({
+  type: FieldUpdateTemplateFieldsTypeDropdownRequestBody1$outboundSchema,
+  fieldMeta: z.lazy(() =>
+    FieldUpdateTemplateFieldsFieldMetaDropdownRequestBody$outboundSchema
+  ).optional(),
+  id: z.number(),
+  pageNumber: z.number().optional(),
+  pageX: z.number().optional(),
+  pageY: z.number().optional(),
+  width: z.number().optional(),
+  height: z.number().optional(),
 });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldUpdateTemplateFieldsFieldMeta9$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta9$inboundSchema` instead. */
+export namespace FieldUpdateTemplateFieldsFieldDropdown$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldDropdown$inboundSchema` instead. */
   export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldMeta9$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta9$outboundSchema` instead. */
+    FieldUpdateTemplateFieldsFieldDropdown$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldDropdown$outboundSchema` instead. */
   export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldMeta9$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta9$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsFieldMeta9$Outbound;
+    FieldUpdateTemplateFieldsFieldDropdown$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldDropdown$Outbound` instead. */
+  export type Outbound = FieldUpdateTemplateFieldsFieldDropdown$Outbound;
 }
 
-export function fieldUpdateTemplateFieldsFieldMeta9ToJSON(
-  fieldUpdateTemplateFieldsFieldMeta9: FieldUpdateTemplateFieldsFieldMeta9,
+export function fieldUpdateTemplateFieldsFieldDropdownToJSON(
+  fieldUpdateTemplateFieldsFieldDropdown:
+    FieldUpdateTemplateFieldsFieldDropdown,
 ): string {
   return JSON.stringify(
-    FieldUpdateTemplateFieldsFieldMeta9$outboundSchema.parse(
-      fieldUpdateTemplateFieldsFieldMeta9,
+    FieldUpdateTemplateFieldsFieldDropdown$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldDropdown,
     ),
   );
 }
 
-export function fieldUpdateTemplateFieldsFieldMeta9FromJSON(
+export function fieldUpdateTemplateFieldsFieldDropdownFromJSON(
   jsonString: string,
-): SafeParseResult<FieldUpdateTemplateFieldsFieldMeta9, SDKValidationError> {
+): SafeParseResult<FieldUpdateTemplateFieldsFieldDropdown, SDKValidationError> {
   return safeParse(
     jsonString,
     (x) =>
-      FieldUpdateTemplateFieldsFieldMeta9$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFieldMeta9' from JSON`,
+      FieldUpdateTemplateFieldsFieldDropdown$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldDropdown' from JSON`,
   );
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields8Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields8Type
-  > = z.nativeEnum(
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields8Type,
-  );
+export const FieldUpdateTemplateFieldsTypeCheckboxRequestBody1$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeCheckboxRequestBody1> = z
+    .nativeEnum(FieldUpdateTemplateFieldsTypeCheckboxRequestBody1);
 
 /** @internal */
-export const FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields8Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields8Type
-  > =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields8Type$inboundSchema;
+export const FieldUpdateTemplateFieldsTypeCheckboxRequestBody1$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeCheckboxRequestBody1> =
+    FieldUpdateTemplateFieldsTypeCheckboxRequestBody1$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields8Type$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields8Type$inboundSchema` instead. */
+export namespace FieldUpdateTemplateFieldsTypeCheckboxRequestBody1$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeCheckboxRequestBody1$inboundSchema` instead. */
   export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields8Type$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields8Type$outboundSchema` instead. */
+    FieldUpdateTemplateFieldsTypeCheckboxRequestBody1$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeCheckboxRequestBody1$outboundSchema` instead. */
   export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields8Type$outboundSchema;
+    FieldUpdateTemplateFieldsTypeCheckboxRequestBody1$outboundSchema;
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValues$inboundSchema:
-  z.ZodType<
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValues,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    id: z.number(),
-    checked: z.boolean(),
-    value: z.string(),
-  });
+export const FieldUpdateTemplateFieldsTypeCheckboxRequestBody2$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeCheckboxRequestBody2> = z
+    .nativeEnum(FieldUpdateTemplateFieldsTypeCheckboxRequestBody2);
 
 /** @internal */
-export type FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValues$Outbound = {
+export const FieldUpdateTemplateFieldsTypeCheckboxRequestBody2$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeCheckboxRequestBody2> =
+    FieldUpdateTemplateFieldsTypeCheckboxRequestBody2$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTypeCheckboxRequestBody2$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeCheckboxRequestBody2$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTypeCheckboxRequestBody2$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeCheckboxRequestBody2$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTypeCheckboxRequestBody2$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsValueCheckbox$inboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsValueCheckbox,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.number(),
+  checked: z.boolean(),
+  value: z.string(),
+});
+
+/** @internal */
+export type FieldUpdateTemplateFieldsValueCheckbox$Outbound = {
   id: number;
   checked: boolean;
   value: string;
 };
 
 /** @internal */
-export const FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValues$outboundSchema:
-  z.ZodType<
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValues$Outbound,
-    z.ZodTypeDef,
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValues
-  > = z.object({
-    id: z.number(),
-    checked: z.boolean(),
-    value: z.string(),
-  });
+export const FieldUpdateTemplateFieldsValueCheckbox$outboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsValueCheckbox$Outbound,
+  z.ZodTypeDef,
+  FieldUpdateTemplateFieldsValueCheckbox
+> = z.object({
+  id: z.number(),
+  checked: z.boolean(),
+  value: z.string(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValues$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValues$inboundSchema` instead. */
+export namespace FieldUpdateTemplateFieldsValueCheckbox$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsValueCheckbox$inboundSchema` instead. */
   export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValues$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValues$outboundSchema` instead. */
+    FieldUpdateTemplateFieldsValueCheckbox$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsValueCheckbox$outboundSchema` instead. */
   export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValues$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValues$Outbound` instead. */
-  export type Outbound =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValues$Outbound;
+    FieldUpdateTemplateFieldsValueCheckbox$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsValueCheckbox$Outbound` instead. */
+  export type Outbound = FieldUpdateTemplateFieldsValueCheckbox$Outbound;
 }
 
-export function fieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValuesToJSON(
-  fieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValues:
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValues,
+export function fieldUpdateTemplateFieldsValueCheckboxToJSON(
+  fieldUpdateTemplateFieldsValueCheckbox:
+    FieldUpdateTemplateFieldsValueCheckbox,
 ): string {
   return JSON.stringify(
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValues$outboundSchema
-      .parse(fieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValues),
+    FieldUpdateTemplateFieldsValueCheckbox$outboundSchema.parse(
+      fieldUpdateTemplateFieldsValueCheckbox,
+    ),
   );
 }
 
-export function fieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValuesFromJSON(
+export function fieldUpdateTemplateFieldsValueCheckboxFromJSON(
   jsonString: string,
-): SafeParseResult<
-  FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValues,
-  SDKValidationError
-> {
+): SafeParseResult<FieldUpdateTemplateFieldsValueCheckbox, SDKValidationError> {
   return safeParse(
     jsonString,
     (x) =>
-      FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValues$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValues' from JSON`,
+      FieldUpdateTemplateFieldsValueCheckbox$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldUpdateTemplateFieldsValueCheckbox' from JSON`,
   );
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldsFieldMeta8$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFieldMeta8,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  type:
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields8Type$inboundSchema,
-  values: z.array(
-    z.lazy(() =>
-      FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValues$inboundSchema
-    ),
-  ).optional(),
-  validationRule: z.string().optional(),
-  validationLength: z.number().optional(),
-});
+export const FieldUpdateTemplateFieldsFieldMetaCheckboxRequestBody$inboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaCheckboxRequestBody,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsTypeCheckboxRequestBody2$inboundSchema,
+    values: z.array(
+      z.lazy(() => FieldUpdateTemplateFieldsValueCheckbox$inboundSchema),
+    ).optional(),
+    validationRule: z.string().optional(),
+    validationLength: z.number().optional(),
+  });
 
 /** @internal */
-export type FieldUpdateTemplateFieldsFieldMeta8$Outbound = {
+export type FieldUpdateTemplateFieldsFieldMetaCheckboxRequestBody$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
-  values?:
-    | Array<FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValues$Outbound>
-    | undefined;
+  values?: Array<FieldUpdateTemplateFieldsValueCheckbox$Outbound> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
 };
 
 /** @internal */
-export const FieldUpdateTemplateFieldsFieldMeta8$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFieldMeta8$Outbound,
-  z.ZodTypeDef,
-  FieldUpdateTemplateFieldsFieldMeta8
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  type:
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFields8Type$outboundSchema,
-  values: z.array(
-    z.lazy(() =>
-      FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsValues$outboundSchema
+export const FieldUpdateTemplateFieldsFieldMetaCheckboxRequestBody$outboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaCheckboxRequestBody$Outbound,
+    z.ZodTypeDef,
+    FieldUpdateTemplateFieldsFieldMetaCheckboxRequestBody
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsTypeCheckboxRequestBody2$outboundSchema,
+    values: z.array(
+      z.lazy(() => FieldUpdateTemplateFieldsValueCheckbox$outboundSchema),
+    ).optional(),
+    validationRule: z.string().optional(),
+    validationLength: z.number().optional(),
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldMetaCheckboxRequestBody$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaCheckboxRequestBody$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaCheckboxRequestBody$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaCheckboxRequestBody$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaCheckboxRequestBody$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaCheckboxRequestBody$Outbound` instead. */
+  export type Outbound =
+    FieldUpdateTemplateFieldsFieldMetaCheckboxRequestBody$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaCheckboxRequestBodyToJSON(
+  fieldUpdateTemplateFieldsFieldMetaCheckboxRequestBody:
+    FieldUpdateTemplateFieldsFieldMetaCheckboxRequestBody,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsFieldMetaCheckboxRequestBody$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldMetaCheckboxRequestBody,
     ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaCheckboxRequestBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  FieldUpdateTemplateFieldsFieldMetaCheckboxRequestBody,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsFieldMetaCheckboxRequestBody$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldMetaCheckboxRequestBody' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldCheckbox$inboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsFieldCheckbox,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: FieldUpdateTemplateFieldsTypeCheckboxRequestBody1$inboundSchema,
+  fieldMeta: z.lazy(() =>
+    FieldUpdateTemplateFieldsFieldMetaCheckboxRequestBody$inboundSchema
   ).optional(),
-  validationRule: z.string().optional(),
-  validationLength: z.number().optional(),
+  id: z.number(),
+  pageNumber: z.number().optional(),
+  pageX: z.number().optional(),
+  pageY: z.number().optional(),
+  width: z.number().optional(),
+  height: z.number().optional(),
+});
+
+/** @internal */
+export type FieldUpdateTemplateFieldsFieldCheckbox$Outbound = {
+  type: string;
+  fieldMeta?:
+    | FieldUpdateTemplateFieldsFieldMetaCheckboxRequestBody$Outbound
+    | undefined;
+  id: number;
+  pageNumber?: number | undefined;
+  pageX?: number | undefined;
+  pageY?: number | undefined;
+  width?: number | undefined;
+  height?: number | undefined;
+};
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldCheckbox$outboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsFieldCheckbox$Outbound,
+  z.ZodTypeDef,
+  FieldUpdateTemplateFieldsFieldCheckbox
+> = z.object({
+  type: FieldUpdateTemplateFieldsTypeCheckboxRequestBody1$outboundSchema,
+  fieldMeta: z.lazy(() =>
+    FieldUpdateTemplateFieldsFieldMetaCheckboxRequestBody$outboundSchema
+  ).optional(),
+  id: z.number(),
+  pageNumber: z.number().optional(),
+  pageX: z.number().optional(),
+  pageY: z.number().optional(),
+  width: z.number().optional(),
+  height: z.number().optional(),
 });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldUpdateTemplateFieldsFieldMeta8$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta8$inboundSchema` instead. */
+export namespace FieldUpdateTemplateFieldsFieldCheckbox$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldCheckbox$inboundSchema` instead. */
   export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldMeta8$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta8$outboundSchema` instead. */
+    FieldUpdateTemplateFieldsFieldCheckbox$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldCheckbox$outboundSchema` instead. */
   export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldMeta8$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta8$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsFieldMeta8$Outbound;
+    FieldUpdateTemplateFieldsFieldCheckbox$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldCheckbox$Outbound` instead. */
+  export type Outbound = FieldUpdateTemplateFieldsFieldCheckbox$Outbound;
 }
 
-export function fieldUpdateTemplateFieldsFieldMeta8ToJSON(
-  fieldUpdateTemplateFieldsFieldMeta8: FieldUpdateTemplateFieldsFieldMeta8,
+export function fieldUpdateTemplateFieldsFieldCheckboxToJSON(
+  fieldUpdateTemplateFieldsFieldCheckbox:
+    FieldUpdateTemplateFieldsFieldCheckbox,
 ): string {
   return JSON.stringify(
-    FieldUpdateTemplateFieldsFieldMeta8$outboundSchema.parse(
-      fieldUpdateTemplateFieldsFieldMeta8,
+    FieldUpdateTemplateFieldsFieldCheckbox$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldCheckbox,
     ),
   );
 }
 
-export function fieldUpdateTemplateFieldsFieldMeta8FromJSON(
+export function fieldUpdateTemplateFieldsFieldCheckboxFromJSON(
   jsonString: string,
-): SafeParseResult<FieldUpdateTemplateFieldsFieldMeta8, SDKValidationError> {
+): SafeParseResult<FieldUpdateTemplateFieldsFieldCheckbox, SDKValidationError> {
   return safeParse(
     jsonString,
     (x) =>
-      FieldUpdateTemplateFieldsFieldMeta8$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFieldMeta8' from JSON`,
+      FieldUpdateTemplateFieldsFieldCheckbox$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldCheckbox' from JSON`,
   );
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFieldsType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFieldsType
-  > = z.nativeEnum(
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFieldsType,
-  );
+export const FieldUpdateTemplateFieldsTypeRadioRequestBody1$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeRadioRequestBody1> = z
+    .nativeEnum(FieldUpdateTemplateFieldsTypeRadioRequestBody1);
 
 /** @internal */
-export const FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFieldsType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFieldsType
-  > =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFieldsType$inboundSchema;
+export const FieldUpdateTemplateFieldsTypeRadioRequestBody1$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeRadioRequestBody1> =
+    FieldUpdateTemplateFieldsTypeRadioRequestBody1$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFieldsType$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFieldsType$inboundSchema` instead. */
+export namespace FieldUpdateTemplateFieldsTypeRadioRequestBody1$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeRadioRequestBody1$inboundSchema` instead. */
   export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFieldsType$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFieldsType$outboundSchema` instead. */
+    FieldUpdateTemplateFieldsTypeRadioRequestBody1$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeRadioRequestBody1$outboundSchema` instead. */
   export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFieldsType$outboundSchema;
+    FieldUpdateTemplateFieldsTypeRadioRequestBody1$outboundSchema;
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldsFieldMetaValues$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFieldMetaValues,
+export const FieldUpdateTemplateFieldsTypeRadioRequestBody2$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeRadioRequestBody2> = z
+    .nativeEnum(FieldUpdateTemplateFieldsTypeRadioRequestBody2);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTypeRadioRequestBody2$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeRadioRequestBody2> =
+    FieldUpdateTemplateFieldsTypeRadioRequestBody2$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTypeRadioRequestBody2$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeRadioRequestBody2$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTypeRadioRequestBody2$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeRadioRequestBody2$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTypeRadioRequestBody2$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsValueRadio$inboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsValueRadio,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -4033,17 +1588,17 @@ export const FieldUpdateTemplateFieldsFieldMetaValues$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type FieldUpdateTemplateFieldsFieldMetaValues$Outbound = {
+export type FieldUpdateTemplateFieldsValueRadio$Outbound = {
   id: number;
   checked: boolean;
   value: string;
 };
 
 /** @internal */
-export const FieldUpdateTemplateFieldsFieldMetaValues$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFieldMetaValues$Outbound,
+export const FieldUpdateTemplateFieldsValueRadio$outboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsValueRadio$Outbound,
   z.ZodTypeDef,
-  FieldUpdateTemplateFieldsFieldMetaValues
+  FieldUpdateTemplateFieldsValueRadio
 > = z.object({
   id: z.number(),
   checked: z.boolean(),
@@ -4054,173 +1609,303 @@ export const FieldUpdateTemplateFieldsFieldMetaValues$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldUpdateTemplateFieldsFieldMetaValues$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaValues$inboundSchema` instead. */
+export namespace FieldUpdateTemplateFieldsValueRadio$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsValueRadio$inboundSchema` instead. */
   export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldMetaValues$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaValues$outboundSchema` instead. */
+    FieldUpdateTemplateFieldsValueRadio$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsValueRadio$outboundSchema` instead. */
   export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldMetaValues$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaValues$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsFieldMetaValues$Outbound;
+    FieldUpdateTemplateFieldsValueRadio$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsValueRadio$Outbound` instead. */
+  export type Outbound = FieldUpdateTemplateFieldsValueRadio$Outbound;
 }
 
-export function fieldUpdateTemplateFieldsFieldMetaValuesToJSON(
-  fieldUpdateTemplateFieldsFieldMetaValues:
-    FieldUpdateTemplateFieldsFieldMetaValues,
+export function fieldUpdateTemplateFieldsValueRadioToJSON(
+  fieldUpdateTemplateFieldsValueRadio: FieldUpdateTemplateFieldsValueRadio,
 ): string {
   return JSON.stringify(
-    FieldUpdateTemplateFieldsFieldMetaValues$outboundSchema.parse(
-      fieldUpdateTemplateFieldsFieldMetaValues,
+    FieldUpdateTemplateFieldsValueRadio$outboundSchema.parse(
+      fieldUpdateTemplateFieldsValueRadio,
     ),
   );
 }
 
-export function fieldUpdateTemplateFieldsFieldMetaValuesFromJSON(
+export function fieldUpdateTemplateFieldsValueRadioFromJSON(
   jsonString: string,
-): SafeParseResult<
-  FieldUpdateTemplateFieldsFieldMetaValues,
-  SDKValidationError
-> {
+): SafeParseResult<FieldUpdateTemplateFieldsValueRadio, SDKValidationError> {
   return safeParse(
     jsonString,
     (x) =>
-      FieldUpdateTemplateFieldsFieldMetaValues$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'FieldUpdateTemplateFieldsFieldMetaValues' from JSON`,
+      FieldUpdateTemplateFieldsValueRadio$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldUpdateTemplateFieldsValueRadio' from JSON`,
   );
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldsFieldMeta7$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFieldMeta7,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  type:
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFieldsType$inboundSchema,
-  values: z.array(
-    z.lazy(() => FieldUpdateTemplateFieldsFieldMetaValues$inboundSchema),
-  ).optional(),
-});
+export const FieldUpdateTemplateFieldsFieldMetaRadioRequestBody$inboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaRadioRequestBody,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsTypeRadioRequestBody2$inboundSchema,
+    values: z.array(
+      z.lazy(() => FieldUpdateTemplateFieldsValueRadio$inboundSchema),
+    ).optional(),
+  });
 
 /** @internal */
-export type FieldUpdateTemplateFieldsFieldMeta7$Outbound = {
+export type FieldUpdateTemplateFieldsFieldMetaRadioRequestBody$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
-  values?: Array<FieldUpdateTemplateFieldsFieldMetaValues$Outbound> | undefined;
+  values?: Array<FieldUpdateTemplateFieldsValueRadio$Outbound> | undefined;
 };
 
 /** @internal */
-export const FieldUpdateTemplateFieldsFieldMeta7$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFieldMeta7$Outbound,
-  z.ZodTypeDef,
-  FieldUpdateTemplateFieldsFieldMeta7
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  type:
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyFieldsType$outboundSchema,
-  values: z.array(
-    z.lazy(() => FieldUpdateTemplateFieldsFieldMetaValues$outboundSchema),
-  ).optional(),
-});
+export const FieldUpdateTemplateFieldsFieldMetaRadioRequestBody$outboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaRadioRequestBody$Outbound,
+    z.ZodTypeDef,
+    FieldUpdateTemplateFieldsFieldMetaRadioRequestBody
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsTypeRadioRequestBody2$outboundSchema,
+    values: z.array(
+      z.lazy(() => FieldUpdateTemplateFieldsValueRadio$outboundSchema),
+    ).optional(),
+  });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldUpdateTemplateFieldsFieldMeta7$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta7$inboundSchema` instead. */
+export namespace FieldUpdateTemplateFieldsFieldMetaRadioRequestBody$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaRadioRequestBody$inboundSchema` instead. */
   export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldMeta7$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta7$outboundSchema` instead. */
+    FieldUpdateTemplateFieldsFieldMetaRadioRequestBody$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaRadioRequestBody$outboundSchema` instead. */
   export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldMeta7$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta7$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsFieldMeta7$Outbound;
+    FieldUpdateTemplateFieldsFieldMetaRadioRequestBody$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaRadioRequestBody$Outbound` instead. */
+  export type Outbound =
+    FieldUpdateTemplateFieldsFieldMetaRadioRequestBody$Outbound;
 }
 
-export function fieldUpdateTemplateFieldsFieldMeta7ToJSON(
-  fieldUpdateTemplateFieldsFieldMeta7: FieldUpdateTemplateFieldsFieldMeta7,
+export function fieldUpdateTemplateFieldsFieldMetaRadioRequestBodyToJSON(
+  fieldUpdateTemplateFieldsFieldMetaRadioRequestBody:
+    FieldUpdateTemplateFieldsFieldMetaRadioRequestBody,
 ): string {
   return JSON.stringify(
-    FieldUpdateTemplateFieldsFieldMeta7$outboundSchema.parse(
-      fieldUpdateTemplateFieldsFieldMeta7,
+    FieldUpdateTemplateFieldsFieldMetaRadioRequestBody$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldMetaRadioRequestBody,
     ),
   );
 }
 
-export function fieldUpdateTemplateFieldsFieldMeta7FromJSON(
+export function fieldUpdateTemplateFieldsFieldMetaRadioRequestBodyFromJSON(
   jsonString: string,
-): SafeParseResult<FieldUpdateTemplateFieldsFieldMeta7, SDKValidationError> {
+): SafeParseResult<
+  FieldUpdateTemplateFieldsFieldMetaRadioRequestBody,
+  SDKValidationError
+> {
   return safeParse(
     jsonString,
     (x) =>
-      FieldUpdateTemplateFieldsFieldMeta7$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFieldMeta7' from JSON`,
+      FieldUpdateTemplateFieldsFieldMetaRadioRequestBody$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldMetaRadioRequestBody' from JSON`,
   );
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyType
-  > = z.nativeEnum(
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyType,
-  );
+export const FieldUpdateTemplateFieldsFieldRadio$inboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsFieldRadio,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: FieldUpdateTemplateFieldsTypeRadioRequestBody1$inboundSchema,
+  fieldMeta: z.lazy(() =>
+    FieldUpdateTemplateFieldsFieldMetaRadioRequestBody$inboundSchema
+  ).optional(),
+  id: z.number(),
+  pageNumber: z.number().optional(),
+  pageX: z.number().optional(),
+  pageY: z.number().optional(),
+  width: z.number().optional(),
+  height: z.number().optional(),
+});
 
 /** @internal */
-export const FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyType
-  > =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyType$inboundSchema;
+export type FieldUpdateTemplateFieldsFieldRadio$Outbound = {
+  type: string;
+  fieldMeta?:
+    | FieldUpdateTemplateFieldsFieldMetaRadioRequestBody$Outbound
+    | undefined;
+  id: number;
+  pageNumber?: number | undefined;
+  pageX?: number | undefined;
+  pageY?: number | undefined;
+  width?: number | undefined;
+  height?: number | undefined;
+};
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldRadio$outboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsFieldRadio$Outbound,
+  z.ZodTypeDef,
+  FieldUpdateTemplateFieldsFieldRadio
+> = z.object({
+  type: FieldUpdateTemplateFieldsTypeRadioRequestBody1$outboundSchema,
+  fieldMeta: z.lazy(() =>
+    FieldUpdateTemplateFieldsFieldMetaRadioRequestBody$outboundSchema
+  ).optional(),
+  id: z.number(),
+  pageNumber: z.number().optional(),
+  pageX: z.number().optional(),
+  pageY: z.number().optional(),
+  width: z.number().optional(),
+  height: z.number().optional(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyType$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyType$inboundSchema` instead. */
+export namespace FieldUpdateTemplateFieldsFieldRadio$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldRadio$inboundSchema` instead. */
   export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyType$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyType$outboundSchema` instead. */
+    FieldUpdateTemplateFieldsFieldRadio$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldRadio$outboundSchema` instead. */
   export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyType$outboundSchema;
+    FieldUpdateTemplateFieldsFieldRadio$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldRadio$Outbound` instead. */
+  export type Outbound = FieldUpdateTemplateFieldsFieldRadio$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsFieldRadioToJSON(
+  fieldUpdateTemplateFieldsFieldRadio: FieldUpdateTemplateFieldsFieldRadio,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsFieldRadio$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldRadio,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsFieldRadioFromJSON(
+  jsonString: string,
+): SafeParseResult<FieldUpdateTemplateFieldsFieldRadio, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsFieldRadio$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldRadio' from JSON`,
+  );
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldsFieldMeta6$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFieldMeta6,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  type:
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyType$inboundSchema,
-  numberFormat: z.string().optional(),
-  value: z.string().optional(),
-  minValue: z.number().optional(),
-  maxValue: z.number().optional(),
-  fontSize: z.number().optional(),
-});
+export const FieldUpdateTemplateFieldsTypeNumberRequestBody1$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeNumberRequestBody1> = z
+    .nativeEnum(FieldUpdateTemplateFieldsTypeNumberRequestBody1);
 
 /** @internal */
-export type FieldUpdateTemplateFieldsFieldMeta6$Outbound = {
+export const FieldUpdateTemplateFieldsTypeNumberRequestBody1$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeNumberRequestBody1> =
+    FieldUpdateTemplateFieldsTypeNumberRequestBody1$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTypeNumberRequestBody1$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeNumberRequestBody1$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTypeNumberRequestBody1$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeNumberRequestBody1$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTypeNumberRequestBody1$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTypeNumberRequestBody2$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeNumberRequestBody2> = z
+    .nativeEnum(FieldUpdateTemplateFieldsTypeNumberRequestBody2);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTypeNumberRequestBody2$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeNumberRequestBody2> =
+    FieldUpdateTemplateFieldsTypeNumberRequestBody2$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTypeNumberRequestBody2$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeNumberRequestBody2$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTypeNumberRequestBody2$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeNumberRequestBody2$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTypeNumberRequestBody2$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTextAlignNumber$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignNumber> = z
+    .nativeEnum(FieldUpdateTemplateFieldsTextAlignNumber);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTextAlignNumber$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignNumber> =
+    FieldUpdateTemplateFieldsTextAlignNumber$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTextAlignNumber$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTextAlignNumber$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTextAlignNumber$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTextAlignNumber$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTextAlignNumber$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaNumberRequestBody$inboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaNumberRequestBody,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsTypeNumberRequestBody2$inboundSchema,
+    numberFormat: z.string().optional(),
+    value: z.string().optional(),
+    minValue: z.number().optional(),
+    maxValue: z.number().optional(),
+    fontSize: z.number().optional(),
+    textAlign: FieldUpdateTemplateFieldsTextAlignNumber$inboundSchema
+      .optional(),
+  });
+
+/** @internal */
+export type FieldUpdateTemplateFieldsFieldMetaNumberRequestBody$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -4231,110 +1916,249 @@ export type FieldUpdateTemplateFieldsFieldMeta6$Outbound = {
   minValue?: number | undefined;
   maxValue?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const FieldUpdateTemplateFieldsFieldMeta6$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFieldMeta6$Outbound,
-  z.ZodTypeDef,
-  FieldUpdateTemplateFieldsFieldMeta6
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  type:
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONResponseBodyType$outboundSchema,
-  numberFormat: z.string().optional(),
-  value: z.string().optional(),
-  minValue: z.number().optional(),
-  maxValue: z.number().optional(),
-  fontSize: z.number().optional(),
-});
+export const FieldUpdateTemplateFieldsFieldMetaNumberRequestBody$outboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaNumberRequestBody$Outbound,
+    z.ZodTypeDef,
+    FieldUpdateTemplateFieldsFieldMetaNumberRequestBody
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsTypeNumberRequestBody2$outboundSchema,
+    numberFormat: z.string().optional(),
+    value: z.string().optional(),
+    minValue: z.number().optional(),
+    maxValue: z.number().optional(),
+    fontSize: z.number().optional(),
+    textAlign: FieldUpdateTemplateFieldsTextAlignNumber$outboundSchema
+      .optional(),
+  });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldUpdateTemplateFieldsFieldMeta6$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta6$inboundSchema` instead. */
+export namespace FieldUpdateTemplateFieldsFieldMetaNumberRequestBody$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaNumberRequestBody$inboundSchema` instead. */
   export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldMeta6$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta6$outboundSchema` instead. */
+    FieldUpdateTemplateFieldsFieldMetaNumberRequestBody$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaNumberRequestBody$outboundSchema` instead. */
   export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldMeta6$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta6$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsFieldMeta6$Outbound;
+    FieldUpdateTemplateFieldsFieldMetaNumberRequestBody$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaNumberRequestBody$Outbound` instead. */
+  export type Outbound =
+    FieldUpdateTemplateFieldsFieldMetaNumberRequestBody$Outbound;
 }
 
-export function fieldUpdateTemplateFieldsFieldMeta6ToJSON(
-  fieldUpdateTemplateFieldsFieldMeta6: FieldUpdateTemplateFieldsFieldMeta6,
+export function fieldUpdateTemplateFieldsFieldMetaNumberRequestBodyToJSON(
+  fieldUpdateTemplateFieldsFieldMetaNumberRequestBody:
+    FieldUpdateTemplateFieldsFieldMetaNumberRequestBody,
 ): string {
   return JSON.stringify(
-    FieldUpdateTemplateFieldsFieldMeta6$outboundSchema.parse(
-      fieldUpdateTemplateFieldsFieldMeta6,
+    FieldUpdateTemplateFieldsFieldMetaNumberRequestBody$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldMetaNumberRequestBody,
     ),
   );
 }
 
-export function fieldUpdateTemplateFieldsFieldMeta6FromJSON(
+export function fieldUpdateTemplateFieldsFieldMetaNumberRequestBodyFromJSON(
   jsonString: string,
-): SafeParseResult<FieldUpdateTemplateFieldsFieldMeta6, SDKValidationError> {
+): SafeParseResult<
+  FieldUpdateTemplateFieldsFieldMetaNumberRequestBody,
+  SDKValidationError
+> {
   return safeParse(
     jsonString,
     (x) =>
-      FieldUpdateTemplateFieldsFieldMeta6$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFieldMeta6' from JSON`,
+      FieldUpdateTemplateFieldsFieldMetaNumberRequestBody$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldMetaNumberRequestBody' from JSON`,
   );
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONType
-  > = z.nativeEnum(
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONType,
-  );
+export const FieldUpdateTemplateFieldsFieldNumber$inboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsFieldNumber,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: FieldUpdateTemplateFieldsTypeNumberRequestBody1$inboundSchema,
+  fieldMeta: z.lazy(() =>
+    FieldUpdateTemplateFieldsFieldMetaNumberRequestBody$inboundSchema
+  ).optional(),
+  id: z.number(),
+  pageNumber: z.number().optional(),
+  pageX: z.number().optional(),
+  pageY: z.number().optional(),
+  width: z.number().optional(),
+  height: z.number().optional(),
+});
 
 /** @internal */
-export const FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONType
-  > =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONType$inboundSchema;
+export type FieldUpdateTemplateFieldsFieldNumber$Outbound = {
+  type: string;
+  fieldMeta?:
+    | FieldUpdateTemplateFieldsFieldMetaNumberRequestBody$Outbound
+    | undefined;
+  id: number;
+  pageNumber?: number | undefined;
+  pageX?: number | undefined;
+  pageY?: number | undefined;
+  width?: number | undefined;
+  height?: number | undefined;
+};
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldNumber$outboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsFieldNumber$Outbound,
+  z.ZodTypeDef,
+  FieldUpdateTemplateFieldsFieldNumber
+> = z.object({
+  type: FieldUpdateTemplateFieldsTypeNumberRequestBody1$outboundSchema,
+  fieldMeta: z.lazy(() =>
+    FieldUpdateTemplateFieldsFieldMetaNumberRequestBody$outboundSchema
+  ).optional(),
+  id: z.number(),
+  pageNumber: z.number().optional(),
+  pageX: z.number().optional(),
+  pageY: z.number().optional(),
+  width: z.number().optional(),
+  height: z.number().optional(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONType$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONType$inboundSchema` instead. */
+export namespace FieldUpdateTemplateFieldsFieldNumber$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldNumber$inboundSchema` instead. */
   export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONType$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONType$outboundSchema` instead. */
+    FieldUpdateTemplateFieldsFieldNumber$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldNumber$outboundSchema` instead. */
   export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONType$outboundSchema;
+    FieldUpdateTemplateFieldsFieldNumber$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldNumber$Outbound` instead. */
+  export type Outbound = FieldUpdateTemplateFieldsFieldNumber$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsFieldNumberToJSON(
+  fieldUpdateTemplateFieldsFieldNumber: FieldUpdateTemplateFieldsFieldNumber,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsFieldNumber$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldNumber,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsFieldNumberFromJSON(
+  jsonString: string,
+): SafeParseResult<FieldUpdateTemplateFieldsFieldNumber, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsFieldNumber$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldNumber' from JSON`,
+  );
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldsFieldMeta5$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFieldMeta5,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  type:
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONType$inboundSchema,
-  text: z.string().optional(),
-  characterLimit: z.number().optional(),
-  fontSize: z.number().optional(),
-});
+export const FieldUpdateTemplateFieldsTypeTextRequestBody1$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeTextRequestBody1> = z
+    .nativeEnum(FieldUpdateTemplateFieldsTypeTextRequestBody1);
 
 /** @internal */
-export type FieldUpdateTemplateFieldsFieldMeta5$Outbound = {
+export const FieldUpdateTemplateFieldsTypeTextRequestBody1$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeTextRequestBody1> =
+    FieldUpdateTemplateFieldsTypeTextRequestBody1$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTypeTextRequestBody1$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeTextRequestBody1$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTypeTextRequestBody1$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeTextRequestBody1$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTypeTextRequestBody1$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTypeTextRequestBody2$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeTextRequestBody2> = z
+    .nativeEnum(FieldUpdateTemplateFieldsTypeTextRequestBody2);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTypeTextRequestBody2$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeTextRequestBody2> =
+    FieldUpdateTemplateFieldsTypeTextRequestBody2$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTypeTextRequestBody2$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeTextRequestBody2$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTypeTextRequestBody2$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeTextRequestBody2$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTypeTextRequestBody2$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTextAlignText$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignText> = z.nativeEnum(
+    FieldUpdateTemplateFieldsTextAlignText,
+  );
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTextAlignText$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignText> =
+    FieldUpdateTemplateFieldsTextAlignText$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTextAlignText$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTextAlignText$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTextAlignText$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTextAlignText$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTextAlignText$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaTextRequestBody$inboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaTextRequestBody,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsTypeTextRequestBody2$inboundSchema,
+    text: z.string().optional(),
+    characterLimit: z.number().optional(),
+    fontSize: z.number().optional(),
+    textAlign: FieldUpdateTemplateFieldsTextAlignText$inboundSchema.optional(),
+  });
+
+/** @internal */
+export type FieldUpdateTemplateFieldsFieldMetaTextRequestBody$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -4343,584 +2167,3071 @@ export type FieldUpdateTemplateFieldsFieldMeta5$Outbound = {
   text?: string | undefined;
   characterLimit?: number | undefined;
   fontSize?: number | undefined;
+  textAlign?: string | undefined;
 };
 
 /** @internal */
-export const FieldUpdateTemplateFieldsFieldMeta5$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFieldMeta5$Outbound,
-  z.ZodTypeDef,
-  FieldUpdateTemplateFieldsFieldMeta5
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  type:
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200ApplicationJSONType$outboundSchema,
-  text: z.string().optional(),
-  characterLimit: z.number().optional(),
-  fontSize: z.number().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldMeta5$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta5$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldMeta5$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta5$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldMeta5$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta5$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsFieldMeta5$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFieldMeta5ToJSON(
-  fieldUpdateTemplateFieldsFieldMeta5: FieldUpdateTemplateFieldsFieldMeta5,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFieldMeta5$outboundSchema.parse(
-      fieldUpdateTemplateFieldsFieldMeta5,
-    ),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFieldMeta5FromJSON(
-  jsonString: string,
-): SafeParseResult<FieldUpdateTemplateFieldsFieldMeta5, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      FieldUpdateTemplateFieldsFieldMeta5$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFieldMeta5' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200Type$inboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200Type
-  > = z.nativeEnum(
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200Type,
-  );
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200Type$outboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200Type
-  > =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200Type$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200Type$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200Type$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200Type$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200Type$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200Type$outboundSchema;
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldMeta4$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFieldMeta4,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  type:
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200Type$inboundSchema,
-  fontSize: z.number().optional(),
-});
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFieldMeta4$Outbound = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  type: string;
-  fontSize?: number | undefined;
-};
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldMeta4$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFieldMeta4$Outbound,
-  z.ZodTypeDef,
-  FieldUpdateTemplateFieldsFieldMeta4
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  type:
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponse200Type$outboundSchema,
-  fontSize: z.number().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldMeta4$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta4$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldMeta4$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta4$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldMeta4$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta4$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsFieldMeta4$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFieldMeta4ToJSON(
-  fieldUpdateTemplateFieldsFieldMeta4: FieldUpdateTemplateFieldsFieldMeta4,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFieldMeta4$outboundSchema.parse(
-      fieldUpdateTemplateFieldsFieldMeta4,
-    ),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFieldMeta4FromJSON(
-  jsonString: string,
-): SafeParseResult<FieldUpdateTemplateFieldsFieldMeta4, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      FieldUpdateTemplateFieldsFieldMeta4$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFieldMeta4' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseType
-  > = z.nativeEnum(
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseType,
-  );
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseType
-  > =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseType$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseType$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseType$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseType$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseType$outboundSchema;
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldMeta3$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFieldMeta3,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  type:
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseType$inboundSchema,
-  fontSize: z.number().optional(),
-});
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFieldMeta3$Outbound = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  type: string;
-  fontSize?: number | undefined;
-};
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldMeta3$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFieldMeta3$Outbound,
-  z.ZodTypeDef,
-  FieldUpdateTemplateFieldsFieldMeta3
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  type:
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsResponseType$outboundSchema,
-  fontSize: z.number().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldMeta3$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta3$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldMeta3$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta3$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldMeta3$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta3$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsFieldMeta3$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFieldMeta3ToJSON(
-  fieldUpdateTemplateFieldsFieldMeta3: FieldUpdateTemplateFieldsFieldMeta3,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFieldMeta3$outboundSchema.parse(
-      fieldUpdateTemplateFieldsFieldMeta3,
-    ),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFieldMeta3FromJSON(
-  jsonString: string,
-): SafeParseResult<FieldUpdateTemplateFieldsFieldMeta3, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      FieldUpdateTemplateFieldsFieldMeta3$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFieldMeta3' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsType$inboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsType
-  > = z.nativeEnum(FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsType);
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsType$outboundSchema:
-  z.ZodNativeEnum<
-    typeof FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsType
-  > = FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsType$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsType$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsType$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsType$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsType$outboundSchema;
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldMeta2$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFieldMeta2,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  type: FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsType$inboundSchema,
-  fontSize: z.number().optional(),
-});
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFieldMeta2$Outbound = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  type: string;
-  fontSize?: number | undefined;
-};
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldMeta2$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFieldMeta2$Outbound,
-  z.ZodTypeDef,
-  FieldUpdateTemplateFieldsFieldMeta2
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  type: FieldUpdateTemplateFieldsFieldMetaTemplatesFieldsType$outboundSchema,
-  fontSize: z.number().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldMeta2$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta2$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldMeta2$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta2$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldMeta2$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta2$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsFieldMeta2$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFieldMeta2ToJSON(
-  fieldUpdateTemplateFieldsFieldMeta2: FieldUpdateTemplateFieldsFieldMeta2,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFieldMeta2$outboundSchema.parse(
-      fieldUpdateTemplateFieldsFieldMeta2,
-    ),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFieldMeta2FromJSON(
-  jsonString: string,
-): SafeParseResult<FieldUpdateTemplateFieldsFieldMeta2, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      FieldUpdateTemplateFieldsFieldMeta2$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFieldMeta2' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldMetaType$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsFieldMetaType> = z.nativeEnum(
-    FieldUpdateTemplateFieldsFieldMetaType,
-  );
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldMetaType$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsFieldMetaType> =
-    FieldUpdateTemplateFieldsFieldMetaType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldMetaType$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaType$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldMetaType$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaType$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldMetaType$outboundSchema;
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldMeta1$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFieldMeta1,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  type: FieldUpdateTemplateFieldsFieldMetaType$inboundSchema,
-  fontSize: z.number().optional(),
-});
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFieldMeta1$Outbound = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  type: string;
-  fontSize?: number | undefined;
-};
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldMeta1$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFieldMeta1$Outbound,
-  z.ZodTypeDef,
-  FieldUpdateTemplateFieldsFieldMeta1
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  type: FieldUpdateTemplateFieldsFieldMetaType$outboundSchema,
-  fontSize: z.number().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldMeta1$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta1$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsFieldMeta1$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta1$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldMeta1$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta1$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsFieldMeta1$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFieldMeta1ToJSON(
-  fieldUpdateTemplateFieldsFieldMeta1: FieldUpdateTemplateFieldsFieldMeta1,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFieldMeta1$outboundSchema.parse(
-      fieldUpdateTemplateFieldsFieldMeta1,
-    ),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFieldMeta1FromJSON(
-  jsonString: string,
-): SafeParseResult<FieldUpdateTemplateFieldsFieldMeta1, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      FieldUpdateTemplateFieldsFieldMeta1$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFieldMeta1' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldMeta$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFieldMeta,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMeta1$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMeta2$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMeta3$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMeta4$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMeta7$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMeta9$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMeta5$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMeta8$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMeta6$inboundSchema),
-]);
-
-/** @internal */
-export type FieldUpdateTemplateFieldsFieldMeta$Outbound =
-  | FieldUpdateTemplateFieldsFieldMeta1$Outbound
-  | FieldUpdateTemplateFieldsFieldMeta2$Outbound
-  | FieldUpdateTemplateFieldsFieldMeta3$Outbound
-  | FieldUpdateTemplateFieldsFieldMeta4$Outbound
-  | FieldUpdateTemplateFieldsFieldMeta7$Outbound
-  | FieldUpdateTemplateFieldsFieldMeta9$Outbound
-  | FieldUpdateTemplateFieldsFieldMeta5$Outbound
-  | FieldUpdateTemplateFieldsFieldMeta8$Outbound
-  | FieldUpdateTemplateFieldsFieldMeta6$Outbound;
-
-/** @internal */
-export const FieldUpdateTemplateFieldsFieldMeta$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsFieldMeta$Outbound,
-  z.ZodTypeDef,
-  FieldUpdateTemplateFieldsFieldMeta
-> = z.union([
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMeta1$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMeta2$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMeta3$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMeta4$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMeta7$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMeta9$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMeta5$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMeta8$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMeta6$outboundSchema),
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldUpdateTemplateFieldsFieldMeta$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta$inboundSchema` instead. */
-  export const inboundSchema = FieldUpdateTemplateFieldsFieldMeta$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldUpdateTemplateFieldsFieldMeta$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsFieldMeta$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsFieldMeta$Outbound;
-}
-
-export function fieldUpdateTemplateFieldsFieldMetaToJSON(
-  fieldUpdateTemplateFieldsFieldMeta: FieldUpdateTemplateFieldsFieldMeta,
-): string {
-  return JSON.stringify(
-    FieldUpdateTemplateFieldsFieldMeta$outboundSchema.parse(
-      fieldUpdateTemplateFieldsFieldMeta,
-    ),
-  );
-}
-
-export function fieldUpdateTemplateFieldsFieldMetaFromJSON(
-  jsonString: string,
-): SafeParseResult<FieldUpdateTemplateFieldsFieldMeta, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      FieldUpdateTemplateFieldsFieldMeta$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsFieldMeta' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldUpdateTemplateFieldsTemplatesFieldsFields$inboundSchema:
+export const FieldUpdateTemplateFieldsFieldMetaTextRequestBody$outboundSchema:
   z.ZodType<
-    FieldUpdateTemplateFieldsTemplatesFieldsFields,
+    FieldUpdateTemplateFieldsFieldMetaTextRequestBody$Outbound,
+    z.ZodTypeDef,
+    FieldUpdateTemplateFieldsFieldMetaTextRequestBody
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsTypeTextRequestBody2$outboundSchema,
+    text: z.string().optional(),
+    characterLimit: z.number().optional(),
+    fontSize: z.number().optional(),
+    textAlign: FieldUpdateTemplateFieldsTextAlignText$outboundSchema.optional(),
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldMetaTextRequestBody$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTextRequestBody$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaTextRequestBody$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTextRequestBody$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaTextRequestBody$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTextRequestBody$Outbound` instead. */
+  export type Outbound =
+    FieldUpdateTemplateFieldsFieldMetaTextRequestBody$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaTextRequestBodyToJSON(
+  fieldUpdateTemplateFieldsFieldMetaTextRequestBody:
+    FieldUpdateTemplateFieldsFieldMetaTextRequestBody,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsFieldMetaTextRequestBody$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldMetaTextRequestBody,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaTextRequestBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  FieldUpdateTemplateFieldsFieldMetaTextRequestBody,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsFieldMetaTextRequestBody$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldMetaTextRequestBody' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldText$inboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsFieldText,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: FieldUpdateTemplateFieldsTypeTextRequestBody1$inboundSchema,
+  fieldMeta: z.lazy(() =>
+    FieldUpdateTemplateFieldsFieldMetaTextRequestBody$inboundSchema
+  ).optional(),
+  id: z.number(),
+  pageNumber: z.number().optional(),
+  pageX: z.number().optional(),
+  pageY: z.number().optional(),
+  width: z.number().optional(),
+  height: z.number().optional(),
+});
+
+/** @internal */
+export type FieldUpdateTemplateFieldsFieldText$Outbound = {
+  type: string;
+  fieldMeta?:
+    | FieldUpdateTemplateFieldsFieldMetaTextRequestBody$Outbound
+    | undefined;
+  id: number;
+  pageNumber?: number | undefined;
+  pageX?: number | undefined;
+  pageY?: number | undefined;
+  width?: number | undefined;
+  height?: number | undefined;
+};
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldText$outboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsFieldText$Outbound,
+  z.ZodTypeDef,
+  FieldUpdateTemplateFieldsFieldText
+> = z.object({
+  type: FieldUpdateTemplateFieldsTypeTextRequestBody1$outboundSchema,
+  fieldMeta: z.lazy(() =>
+    FieldUpdateTemplateFieldsFieldMetaTextRequestBody$outboundSchema
+  ).optional(),
+  id: z.number(),
+  pageNumber: z.number().optional(),
+  pageX: z.number().optional(),
+  pageY: z.number().optional(),
+  width: z.number().optional(),
+  height: z.number().optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldText$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldText$inboundSchema` instead. */
+  export const inboundSchema = FieldUpdateTemplateFieldsFieldText$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldText$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldText$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldText$Outbound` instead. */
+  export type Outbound = FieldUpdateTemplateFieldsFieldText$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsFieldTextToJSON(
+  fieldUpdateTemplateFieldsFieldText: FieldUpdateTemplateFieldsFieldText,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsFieldText$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldText,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsFieldTextFromJSON(
+  jsonString: string,
+): SafeParseResult<FieldUpdateTemplateFieldsFieldText, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsFieldText$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldText' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTypeDateRequestBody1$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeDateRequestBody1> = z
+    .nativeEnum(FieldUpdateTemplateFieldsTypeDateRequestBody1);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTypeDateRequestBody1$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeDateRequestBody1> =
+    FieldUpdateTemplateFieldsTypeDateRequestBody1$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTypeDateRequestBody1$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeDateRequestBody1$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTypeDateRequestBody1$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeDateRequestBody1$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTypeDateRequestBody1$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTypeDateRequestBody2$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeDateRequestBody2> = z
+    .nativeEnum(FieldUpdateTemplateFieldsTypeDateRequestBody2);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTypeDateRequestBody2$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeDateRequestBody2> =
+    FieldUpdateTemplateFieldsTypeDateRequestBody2$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTypeDateRequestBody2$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeDateRequestBody2$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTypeDateRequestBody2$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeDateRequestBody2$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTypeDateRequestBody2$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTextAlignDate$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignDate> = z.nativeEnum(
+    FieldUpdateTemplateFieldsTextAlignDate,
+  );
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTextAlignDate$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignDate> =
+    FieldUpdateTemplateFieldsTextAlignDate$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTextAlignDate$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTextAlignDate$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTextAlignDate$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTextAlignDate$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTextAlignDate$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaDateRequestBody$inboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaDateRequestBody,
     z.ZodTypeDef,
     unknown
   > = z.object({
-    type: FieldUpdateTemplateFieldsType$inboundSchema,
-    id: z.number().int(),
-    secondaryId: z.string(),
-    documentId: z.nullable(z.number().int()),
-    templateId: z.nullable(z.number().int()),
-    recipientId: z.number().int(),
-    page: z.number(),
-    positionX: z.any().optional(),
-    positionY: z.any().optional(),
-    width: z.any().optional(),
-    height: z.any().optional(),
-    customText: z.string(),
-    inserted: z.boolean(),
-    fieldMeta: z.nullable(
-      z.union([
-        z.lazy(() => FieldUpdateTemplateFieldsFieldMeta1$inboundSchema),
-        z.lazy(() => FieldUpdateTemplateFieldsFieldMeta2$inboundSchema),
-        z.lazy(() => FieldUpdateTemplateFieldsFieldMeta3$inboundSchema),
-        z.lazy(() => FieldUpdateTemplateFieldsFieldMeta4$inboundSchema),
-        z.lazy(() => FieldUpdateTemplateFieldsFieldMeta7$inboundSchema),
-        z.lazy(() => FieldUpdateTemplateFieldsFieldMeta9$inboundSchema),
-        z.lazy(() => FieldUpdateTemplateFieldsFieldMeta5$inboundSchema),
-        z.lazy(() => FieldUpdateTemplateFieldsFieldMeta8$inboundSchema),
-        z.lazy(() => FieldUpdateTemplateFieldsFieldMeta6$inboundSchema),
-      ]),
-    ),
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsTypeDateRequestBody2$inboundSchema,
+    fontSize: z.number().optional(),
+    textAlign: FieldUpdateTemplateFieldsTextAlignDate$inboundSchema.optional(),
   });
 
 /** @internal */
-export type FieldUpdateTemplateFieldsTemplatesFieldsFields$Outbound = {
+export type FieldUpdateTemplateFieldsFieldMetaDateRequestBody$Outbound = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: string;
+  fontSize?: number | undefined;
+  textAlign?: string | undefined;
+};
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaDateRequestBody$outboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaDateRequestBody$Outbound,
+    z.ZodTypeDef,
+    FieldUpdateTemplateFieldsFieldMetaDateRequestBody
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsTypeDateRequestBody2$outboundSchema,
+    fontSize: z.number().optional(),
+    textAlign: FieldUpdateTemplateFieldsTextAlignDate$outboundSchema.optional(),
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldMetaDateRequestBody$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaDateRequestBody$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaDateRequestBody$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaDateRequestBody$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaDateRequestBody$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaDateRequestBody$Outbound` instead. */
+  export type Outbound =
+    FieldUpdateTemplateFieldsFieldMetaDateRequestBody$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaDateRequestBodyToJSON(
+  fieldUpdateTemplateFieldsFieldMetaDateRequestBody:
+    FieldUpdateTemplateFieldsFieldMetaDateRequestBody,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsFieldMetaDateRequestBody$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldMetaDateRequestBody,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaDateRequestBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  FieldUpdateTemplateFieldsFieldMetaDateRequestBody,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsFieldMetaDateRequestBody$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldMetaDateRequestBody' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldDate$inboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsFieldDate,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: FieldUpdateTemplateFieldsTypeDateRequestBody1$inboundSchema,
+  fieldMeta: z.lazy(() =>
+    FieldUpdateTemplateFieldsFieldMetaDateRequestBody$inboundSchema
+  ).optional(),
+  id: z.number(),
+  pageNumber: z.number().optional(),
+  pageX: z.number().optional(),
+  pageY: z.number().optional(),
+  width: z.number().optional(),
+  height: z.number().optional(),
+});
+
+/** @internal */
+export type FieldUpdateTemplateFieldsFieldDate$Outbound = {
+  type: string;
+  fieldMeta?:
+    | FieldUpdateTemplateFieldsFieldMetaDateRequestBody$Outbound
+    | undefined;
+  id: number;
+  pageNumber?: number | undefined;
+  pageX?: number | undefined;
+  pageY?: number | undefined;
+  width?: number | undefined;
+  height?: number | undefined;
+};
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldDate$outboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsFieldDate$Outbound,
+  z.ZodTypeDef,
+  FieldUpdateTemplateFieldsFieldDate
+> = z.object({
+  type: FieldUpdateTemplateFieldsTypeDateRequestBody1$outboundSchema,
+  fieldMeta: z.lazy(() =>
+    FieldUpdateTemplateFieldsFieldMetaDateRequestBody$outboundSchema
+  ).optional(),
+  id: z.number(),
+  pageNumber: z.number().optional(),
+  pageX: z.number().optional(),
+  pageY: z.number().optional(),
+  width: z.number().optional(),
+  height: z.number().optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldDate$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldDate$inboundSchema` instead. */
+  export const inboundSchema = FieldUpdateTemplateFieldsFieldDate$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldDate$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldDate$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldDate$Outbound` instead. */
+  export type Outbound = FieldUpdateTemplateFieldsFieldDate$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsFieldDateToJSON(
+  fieldUpdateTemplateFieldsFieldDate: FieldUpdateTemplateFieldsFieldDate,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsFieldDate$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldDate,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsFieldDateFromJSON(
+  jsonString: string,
+): SafeParseResult<FieldUpdateTemplateFieldsFieldDate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsFieldDate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldDate' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTypeEmailRequestBody1$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeEmailRequestBody1> = z
+    .nativeEnum(FieldUpdateTemplateFieldsTypeEmailRequestBody1);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTypeEmailRequestBody1$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeEmailRequestBody1> =
+    FieldUpdateTemplateFieldsTypeEmailRequestBody1$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTypeEmailRequestBody1$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeEmailRequestBody1$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTypeEmailRequestBody1$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeEmailRequestBody1$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTypeEmailRequestBody1$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTypeEmailRequestBody2$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeEmailRequestBody2> = z
+    .nativeEnum(FieldUpdateTemplateFieldsTypeEmailRequestBody2);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTypeEmailRequestBody2$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeEmailRequestBody2> =
+    FieldUpdateTemplateFieldsTypeEmailRequestBody2$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTypeEmailRequestBody2$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeEmailRequestBody2$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTypeEmailRequestBody2$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeEmailRequestBody2$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTypeEmailRequestBody2$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTextAlignEmail$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignEmail> = z
+    .nativeEnum(FieldUpdateTemplateFieldsTextAlignEmail);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTextAlignEmail$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignEmail> =
+    FieldUpdateTemplateFieldsTextAlignEmail$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTextAlignEmail$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTextAlignEmail$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTextAlignEmail$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTextAlignEmail$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTextAlignEmail$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaEmailRequestBody$inboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaEmailRequestBody,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsTypeEmailRequestBody2$inboundSchema,
+    fontSize: z.number().optional(),
+    textAlign: FieldUpdateTemplateFieldsTextAlignEmail$inboundSchema.optional(),
+  });
+
+/** @internal */
+export type FieldUpdateTemplateFieldsFieldMetaEmailRequestBody$Outbound = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: string;
+  fontSize?: number | undefined;
+  textAlign?: string | undefined;
+};
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaEmailRequestBody$outboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaEmailRequestBody$Outbound,
+    z.ZodTypeDef,
+    FieldUpdateTemplateFieldsFieldMetaEmailRequestBody
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsTypeEmailRequestBody2$outboundSchema,
+    fontSize: z.number().optional(),
+    textAlign: FieldUpdateTemplateFieldsTextAlignEmail$outboundSchema
+      .optional(),
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldMetaEmailRequestBody$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaEmailRequestBody$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaEmailRequestBody$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaEmailRequestBody$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaEmailRequestBody$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaEmailRequestBody$Outbound` instead. */
+  export type Outbound =
+    FieldUpdateTemplateFieldsFieldMetaEmailRequestBody$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaEmailRequestBodyToJSON(
+  fieldUpdateTemplateFieldsFieldMetaEmailRequestBody:
+    FieldUpdateTemplateFieldsFieldMetaEmailRequestBody,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsFieldMetaEmailRequestBody$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldMetaEmailRequestBody,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaEmailRequestBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  FieldUpdateTemplateFieldsFieldMetaEmailRequestBody,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsFieldMetaEmailRequestBody$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldMetaEmailRequestBody' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldEmail$inboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsFieldEmail,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: FieldUpdateTemplateFieldsTypeEmailRequestBody1$inboundSchema,
+  fieldMeta: z.lazy(() =>
+    FieldUpdateTemplateFieldsFieldMetaEmailRequestBody$inboundSchema
+  ).optional(),
+  id: z.number(),
+  pageNumber: z.number().optional(),
+  pageX: z.number().optional(),
+  pageY: z.number().optional(),
+  width: z.number().optional(),
+  height: z.number().optional(),
+});
+
+/** @internal */
+export type FieldUpdateTemplateFieldsFieldEmail$Outbound = {
+  type: string;
+  fieldMeta?:
+    | FieldUpdateTemplateFieldsFieldMetaEmailRequestBody$Outbound
+    | undefined;
+  id: number;
+  pageNumber?: number | undefined;
+  pageX?: number | undefined;
+  pageY?: number | undefined;
+  width?: number | undefined;
+  height?: number | undefined;
+};
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldEmail$outboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsFieldEmail$Outbound,
+  z.ZodTypeDef,
+  FieldUpdateTemplateFieldsFieldEmail
+> = z.object({
+  type: FieldUpdateTemplateFieldsTypeEmailRequestBody1$outboundSchema,
+  fieldMeta: z.lazy(() =>
+    FieldUpdateTemplateFieldsFieldMetaEmailRequestBody$outboundSchema
+  ).optional(),
+  id: z.number(),
+  pageNumber: z.number().optional(),
+  pageX: z.number().optional(),
+  pageY: z.number().optional(),
+  width: z.number().optional(),
+  height: z.number().optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldEmail$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldEmail$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldEmail$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldEmail$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldEmail$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldEmail$Outbound` instead. */
+  export type Outbound = FieldUpdateTemplateFieldsFieldEmail$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsFieldEmailToJSON(
+  fieldUpdateTemplateFieldsFieldEmail: FieldUpdateTemplateFieldsFieldEmail,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsFieldEmail$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldEmail,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsFieldEmailFromJSON(
+  jsonString: string,
+): SafeParseResult<FieldUpdateTemplateFieldsFieldEmail, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsFieldEmail$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldEmail' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTypeNameRequestBody1$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeNameRequestBody1> = z
+    .nativeEnum(FieldUpdateTemplateFieldsTypeNameRequestBody1);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTypeNameRequestBody1$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeNameRequestBody1> =
+    FieldUpdateTemplateFieldsTypeNameRequestBody1$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTypeNameRequestBody1$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeNameRequestBody1$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTypeNameRequestBody1$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeNameRequestBody1$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTypeNameRequestBody1$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTypeNameRequestBody2$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeNameRequestBody2> = z
+    .nativeEnum(FieldUpdateTemplateFieldsTypeNameRequestBody2);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTypeNameRequestBody2$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeNameRequestBody2> =
+    FieldUpdateTemplateFieldsTypeNameRequestBody2$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTypeNameRequestBody2$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeNameRequestBody2$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTypeNameRequestBody2$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeNameRequestBody2$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTypeNameRequestBody2$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTextAlignName$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignName> = z.nativeEnum(
+    FieldUpdateTemplateFieldsTextAlignName,
+  );
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTextAlignName$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignName> =
+    FieldUpdateTemplateFieldsTextAlignName$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTextAlignName$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTextAlignName$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTextAlignName$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTextAlignName$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTextAlignName$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaNameRequestBody$inboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaNameRequestBody,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsTypeNameRequestBody2$inboundSchema,
+    fontSize: z.number().optional(),
+    textAlign: FieldUpdateTemplateFieldsTextAlignName$inboundSchema.optional(),
+  });
+
+/** @internal */
+export type FieldUpdateTemplateFieldsFieldMetaNameRequestBody$Outbound = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: string;
+  fontSize?: number | undefined;
+  textAlign?: string | undefined;
+};
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaNameRequestBody$outboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaNameRequestBody$Outbound,
+    z.ZodTypeDef,
+    FieldUpdateTemplateFieldsFieldMetaNameRequestBody
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsTypeNameRequestBody2$outboundSchema,
+    fontSize: z.number().optional(),
+    textAlign: FieldUpdateTemplateFieldsTextAlignName$outboundSchema.optional(),
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldMetaNameRequestBody$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaNameRequestBody$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaNameRequestBody$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaNameRequestBody$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaNameRequestBody$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaNameRequestBody$Outbound` instead. */
+  export type Outbound =
+    FieldUpdateTemplateFieldsFieldMetaNameRequestBody$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaNameRequestBodyToJSON(
+  fieldUpdateTemplateFieldsFieldMetaNameRequestBody:
+    FieldUpdateTemplateFieldsFieldMetaNameRequestBody,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsFieldMetaNameRequestBody$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldMetaNameRequestBody,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaNameRequestBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  FieldUpdateTemplateFieldsFieldMetaNameRequestBody,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsFieldMetaNameRequestBody$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldMetaNameRequestBody' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldName$inboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsFieldName,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: FieldUpdateTemplateFieldsTypeNameRequestBody1$inboundSchema,
+  fieldMeta: z.lazy(() =>
+    FieldUpdateTemplateFieldsFieldMetaNameRequestBody$inboundSchema
+  ).optional(),
+  id: z.number(),
+  pageNumber: z.number().optional(),
+  pageX: z.number().optional(),
+  pageY: z.number().optional(),
+  width: z.number().optional(),
+  height: z.number().optional(),
+});
+
+/** @internal */
+export type FieldUpdateTemplateFieldsFieldName$Outbound = {
+  type: string;
+  fieldMeta?:
+    | FieldUpdateTemplateFieldsFieldMetaNameRequestBody$Outbound
+    | undefined;
+  id: number;
+  pageNumber?: number | undefined;
+  pageX?: number | undefined;
+  pageY?: number | undefined;
+  width?: number | undefined;
+  height?: number | undefined;
+};
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldName$outboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsFieldName$Outbound,
+  z.ZodTypeDef,
+  FieldUpdateTemplateFieldsFieldName
+> = z.object({
+  type: FieldUpdateTemplateFieldsTypeNameRequestBody1$outboundSchema,
+  fieldMeta: z.lazy(() =>
+    FieldUpdateTemplateFieldsFieldMetaNameRequestBody$outboundSchema
+  ).optional(),
+  id: z.number(),
+  pageNumber: z.number().optional(),
+  pageX: z.number().optional(),
+  pageY: z.number().optional(),
+  width: z.number().optional(),
+  height: z.number().optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldName$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldName$inboundSchema` instead. */
+  export const inboundSchema = FieldUpdateTemplateFieldsFieldName$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldName$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldName$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldName$Outbound` instead. */
+  export type Outbound = FieldUpdateTemplateFieldsFieldName$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsFieldNameToJSON(
+  fieldUpdateTemplateFieldsFieldName: FieldUpdateTemplateFieldsFieldName,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsFieldName$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldName,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsFieldNameFromJSON(
+  jsonString: string,
+): SafeParseResult<FieldUpdateTemplateFieldsFieldName, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsFieldName$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldName' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTypeInitialsRequestBody1$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeInitialsRequestBody1> = z
+    .nativeEnum(FieldUpdateTemplateFieldsTypeInitialsRequestBody1);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTypeInitialsRequestBody1$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeInitialsRequestBody1> =
+    FieldUpdateTemplateFieldsTypeInitialsRequestBody1$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTypeInitialsRequestBody1$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeInitialsRequestBody1$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTypeInitialsRequestBody1$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeInitialsRequestBody1$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTypeInitialsRequestBody1$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTypeInitialsRequestBody2$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeInitialsRequestBody2> = z
+    .nativeEnum(FieldUpdateTemplateFieldsTypeInitialsRequestBody2);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTypeInitialsRequestBody2$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeInitialsRequestBody2> =
+    FieldUpdateTemplateFieldsTypeInitialsRequestBody2$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTypeInitialsRequestBody2$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeInitialsRequestBody2$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTypeInitialsRequestBody2$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeInitialsRequestBody2$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTypeInitialsRequestBody2$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTextAlignInitials$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignInitials> = z
+    .nativeEnum(FieldUpdateTemplateFieldsTextAlignInitials);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTextAlignInitials$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignInitials> =
+    FieldUpdateTemplateFieldsTextAlignInitials$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTextAlignInitials$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTextAlignInitials$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTextAlignInitials$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTextAlignInitials$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTextAlignInitials$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaInitialsRequestBody$inboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaInitialsRequestBody,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsTypeInitialsRequestBody2$inboundSchema,
+    fontSize: z.number().optional(),
+    textAlign: FieldUpdateTemplateFieldsTextAlignInitials$inboundSchema
+      .optional(),
+  });
+
+/** @internal */
+export type FieldUpdateTemplateFieldsFieldMetaInitialsRequestBody$Outbound = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: string;
+  fontSize?: number | undefined;
+  textAlign?: string | undefined;
+};
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaInitialsRequestBody$outboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaInitialsRequestBody$Outbound,
+    z.ZodTypeDef,
+    FieldUpdateTemplateFieldsFieldMetaInitialsRequestBody
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsTypeInitialsRequestBody2$outboundSchema,
+    fontSize: z.number().optional(),
+    textAlign: FieldUpdateTemplateFieldsTextAlignInitials$outboundSchema
+      .optional(),
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldMetaInitialsRequestBody$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaInitialsRequestBody$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaInitialsRequestBody$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaInitialsRequestBody$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaInitialsRequestBody$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaInitialsRequestBody$Outbound` instead. */
+  export type Outbound =
+    FieldUpdateTemplateFieldsFieldMetaInitialsRequestBody$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaInitialsRequestBodyToJSON(
+  fieldUpdateTemplateFieldsFieldMetaInitialsRequestBody:
+    FieldUpdateTemplateFieldsFieldMetaInitialsRequestBody,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsFieldMetaInitialsRequestBody$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldMetaInitialsRequestBody,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaInitialsRequestBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  FieldUpdateTemplateFieldsFieldMetaInitialsRequestBody,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsFieldMetaInitialsRequestBody$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldMetaInitialsRequestBody' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldInitials$inboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsFieldInitials,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: FieldUpdateTemplateFieldsTypeInitialsRequestBody1$inboundSchema,
+  fieldMeta: z.lazy(() =>
+    FieldUpdateTemplateFieldsFieldMetaInitialsRequestBody$inboundSchema
+  ).optional(),
+  id: z.number(),
+  pageNumber: z.number().optional(),
+  pageX: z.number().optional(),
+  pageY: z.number().optional(),
+  width: z.number().optional(),
+  height: z.number().optional(),
+});
+
+/** @internal */
+export type FieldUpdateTemplateFieldsFieldInitials$Outbound = {
+  type: string;
+  fieldMeta?:
+    | FieldUpdateTemplateFieldsFieldMetaInitialsRequestBody$Outbound
+    | undefined;
+  id: number;
+  pageNumber?: number | undefined;
+  pageX?: number | undefined;
+  pageY?: number | undefined;
+  width?: number | undefined;
+  height?: number | undefined;
+};
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldInitials$outboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsFieldInitials$Outbound,
+  z.ZodTypeDef,
+  FieldUpdateTemplateFieldsFieldInitials
+> = z.object({
+  type: FieldUpdateTemplateFieldsTypeInitialsRequestBody1$outboundSchema,
+  fieldMeta: z.lazy(() =>
+    FieldUpdateTemplateFieldsFieldMetaInitialsRequestBody$outboundSchema
+  ).optional(),
+  id: z.number(),
+  pageNumber: z.number().optional(),
+  pageX: z.number().optional(),
+  pageY: z.number().optional(),
+  width: z.number().optional(),
+  height: z.number().optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldInitials$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldInitials$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldInitials$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldInitials$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldInitials$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldInitials$Outbound` instead. */
+  export type Outbound = FieldUpdateTemplateFieldsFieldInitials$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsFieldInitialsToJSON(
+  fieldUpdateTemplateFieldsFieldInitials:
+    FieldUpdateTemplateFieldsFieldInitials,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsFieldInitials$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldInitials,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsFieldInitialsFromJSON(
+  jsonString: string,
+): SafeParseResult<FieldUpdateTemplateFieldsFieldInitials, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsFieldInitials$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldInitials' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTypeFreeSignature$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeFreeSignature> = z
+    .nativeEnum(FieldUpdateTemplateFieldsTypeFreeSignature);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTypeFreeSignature$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeFreeSignature> =
+    FieldUpdateTemplateFieldsTypeFreeSignature$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTypeFreeSignature$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeFreeSignature$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTypeFreeSignature$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeFreeSignature$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTypeFreeSignature$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldFreeSignature$inboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldFreeSignature,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    type: FieldUpdateTemplateFieldsTypeFreeSignature$inboundSchema,
+    id: z.number(),
+    pageNumber: z.number().optional(),
+    pageX: z.number().optional(),
+    pageY: z.number().optional(),
+    width: z.number().optional(),
+    height: z.number().optional(),
+  });
+
+/** @internal */
+export type FieldUpdateTemplateFieldsFieldFreeSignature$Outbound = {
+  type: string;
+  id: number;
+  pageNumber?: number | undefined;
+  pageX?: number | undefined;
+  pageY?: number | undefined;
+  width?: number | undefined;
+  height?: number | undefined;
+};
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldFreeSignature$outboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldFreeSignature$Outbound,
+    z.ZodTypeDef,
+    FieldUpdateTemplateFieldsFieldFreeSignature
+  > = z.object({
+    type: FieldUpdateTemplateFieldsTypeFreeSignature$outboundSchema,
+    id: z.number(),
+    pageNumber: z.number().optional(),
+    pageX: z.number().optional(),
+    pageY: z.number().optional(),
+    width: z.number().optional(),
+    height: z.number().optional(),
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldFreeSignature$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldFreeSignature$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldFreeSignature$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldFreeSignature$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldFreeSignature$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldFreeSignature$Outbound` instead. */
+  export type Outbound = FieldUpdateTemplateFieldsFieldFreeSignature$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsFieldFreeSignatureToJSON(
+  fieldUpdateTemplateFieldsFieldFreeSignature:
+    FieldUpdateTemplateFieldsFieldFreeSignature,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsFieldFreeSignature$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldFreeSignature,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsFieldFreeSignatureFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  FieldUpdateTemplateFieldsFieldFreeSignature,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsFieldFreeSignature$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldFreeSignature' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTypeSignature$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeSignature> = z.nativeEnum(
+    FieldUpdateTemplateFieldsTypeSignature,
+  );
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTypeSignature$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeSignature> =
+    FieldUpdateTemplateFieldsTypeSignature$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTypeSignature$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeSignature$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTypeSignature$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeSignature$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTypeSignature$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldSignature$inboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsFieldSignature,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: FieldUpdateTemplateFieldsTypeSignature$inboundSchema,
+  id: z.number(),
+  pageNumber: z.number().optional(),
+  pageX: z.number().optional(),
+  pageY: z.number().optional(),
+  width: z.number().optional(),
+  height: z.number().optional(),
+});
+
+/** @internal */
+export type FieldUpdateTemplateFieldsFieldSignature$Outbound = {
+  type: string;
+  id: number;
+  pageNumber?: number | undefined;
+  pageX?: number | undefined;
+  pageY?: number | undefined;
+  width?: number | undefined;
+  height?: number | undefined;
+};
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldSignature$outboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsFieldSignature$Outbound,
+  z.ZodTypeDef,
+  FieldUpdateTemplateFieldsFieldSignature
+> = z.object({
+  type: FieldUpdateTemplateFieldsTypeSignature$outboundSchema,
+  id: z.number(),
+  pageNumber: z.number().optional(),
+  pageX: z.number().optional(),
+  pageY: z.number().optional(),
+  width: z.number().optional(),
+  height: z.number().optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldSignature$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldSignature$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldSignature$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldSignature$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldSignature$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldSignature$Outbound` instead. */
+  export type Outbound = FieldUpdateTemplateFieldsFieldSignature$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsFieldSignatureToJSON(
+  fieldUpdateTemplateFieldsFieldSignature:
+    FieldUpdateTemplateFieldsFieldSignature,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsFieldSignature$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldSignature,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsFieldSignatureFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  FieldUpdateTemplateFieldsFieldSignature,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsFieldSignature$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldSignature' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldUnion$inboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsFieldUnion,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  z.lazy(() => FieldUpdateTemplateFieldsFieldSignature$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldFreeSignature$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldInitials$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldName$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldEmail$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldDate$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldText$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldNumber$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldRadio$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldCheckbox$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldDropdown$inboundSchema),
+]);
+
+/** @internal */
+export type FieldUpdateTemplateFieldsFieldUnion$Outbound =
+  | FieldUpdateTemplateFieldsFieldSignature$Outbound
+  | FieldUpdateTemplateFieldsFieldFreeSignature$Outbound
+  | FieldUpdateTemplateFieldsFieldInitials$Outbound
+  | FieldUpdateTemplateFieldsFieldName$Outbound
+  | FieldUpdateTemplateFieldsFieldEmail$Outbound
+  | FieldUpdateTemplateFieldsFieldDate$Outbound
+  | FieldUpdateTemplateFieldsFieldText$Outbound
+  | FieldUpdateTemplateFieldsFieldNumber$Outbound
+  | FieldUpdateTemplateFieldsFieldRadio$Outbound
+  | FieldUpdateTemplateFieldsFieldCheckbox$Outbound
+  | FieldUpdateTemplateFieldsFieldDropdown$Outbound;
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldUnion$outboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsFieldUnion$Outbound,
+  z.ZodTypeDef,
+  FieldUpdateTemplateFieldsFieldUnion
+> = z.union([
+  z.lazy(() => FieldUpdateTemplateFieldsFieldSignature$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldFreeSignature$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldInitials$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldName$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldEmail$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldDate$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldText$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldNumber$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldRadio$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldCheckbox$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldDropdown$outboundSchema),
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldUnion$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldUnion$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldUnion$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldUnion$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldUnion$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldUnion$Outbound` instead. */
+  export type Outbound = FieldUpdateTemplateFieldsFieldUnion$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsFieldUnionToJSON(
+  fieldUpdateTemplateFieldsFieldUnion: FieldUpdateTemplateFieldsFieldUnion,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsFieldUnion$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldUnion,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsFieldUnionFromJSON(
+  jsonString: string,
+): SafeParseResult<FieldUpdateTemplateFieldsFieldUnion, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsFieldUnion$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldUnion' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsRequest$inboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsRequest,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  templateId: z.number(),
+  fields: z.array(
+    z.union([
+      z.lazy(() => FieldUpdateTemplateFieldsFieldSignature$inboundSchema),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldFreeSignature$inboundSchema),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldInitials$inboundSchema),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldName$inboundSchema),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldEmail$inboundSchema),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldDate$inboundSchema),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldText$inboundSchema),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldNumber$inboundSchema),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldRadio$inboundSchema),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldCheckbox$inboundSchema),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldDropdown$inboundSchema),
+    ]),
+  ),
+});
+
+/** @internal */
+export type FieldUpdateTemplateFieldsRequest$Outbound = {
+  templateId: number;
+  fields: Array<
+    | FieldUpdateTemplateFieldsFieldSignature$Outbound
+    | FieldUpdateTemplateFieldsFieldFreeSignature$Outbound
+    | FieldUpdateTemplateFieldsFieldInitials$Outbound
+    | FieldUpdateTemplateFieldsFieldName$Outbound
+    | FieldUpdateTemplateFieldsFieldEmail$Outbound
+    | FieldUpdateTemplateFieldsFieldDate$Outbound
+    | FieldUpdateTemplateFieldsFieldText$Outbound
+    | FieldUpdateTemplateFieldsFieldNumber$Outbound
+    | FieldUpdateTemplateFieldsFieldRadio$Outbound
+    | FieldUpdateTemplateFieldsFieldCheckbox$Outbound
+    | FieldUpdateTemplateFieldsFieldDropdown$Outbound
+  >;
+};
+
+/** @internal */
+export const FieldUpdateTemplateFieldsRequest$outboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsRequest$Outbound,
+  z.ZodTypeDef,
+  FieldUpdateTemplateFieldsRequest
+> = z.object({
+  templateId: z.number(),
+  fields: z.array(
+    z.union([
+      z.lazy(() => FieldUpdateTemplateFieldsFieldSignature$outboundSchema),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldFreeSignature$outboundSchema),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldInitials$outboundSchema),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldName$outboundSchema),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldEmail$outboundSchema),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldDate$outboundSchema),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldText$outboundSchema),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldNumber$outboundSchema),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldRadio$outboundSchema),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldCheckbox$outboundSchema),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldDropdown$outboundSchema),
+    ]),
+  ),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsRequest$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsRequest$inboundSchema` instead. */
+  export const inboundSchema = FieldUpdateTemplateFieldsRequest$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsRequest$outboundSchema` instead. */
+  export const outboundSchema = FieldUpdateTemplateFieldsRequest$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsRequest$Outbound` instead. */
+  export type Outbound = FieldUpdateTemplateFieldsRequest$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsRequestToJSON(
+  fieldUpdateTemplateFieldsRequest: FieldUpdateTemplateFieldsRequest,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsRequest$outboundSchema.parse(
+      fieldUpdateTemplateFieldsRequest,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<FieldUpdateTemplateFieldsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => FieldUpdateTemplateFieldsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldUpdateTemplateFieldsRequest' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTypeResponse$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeResponse> = z.nativeEnum(
+    FieldUpdateTemplateFieldsTypeResponse,
+  );
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTypeResponse$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeResponse> =
+    FieldUpdateTemplateFieldsTypeResponse$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTypeResponse$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeResponse$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTypeResponse$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTypeResponse$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTypeResponse$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaTypeDropdown$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsFieldMetaTypeDropdown> = z
+    .nativeEnum(FieldUpdateTemplateFieldsFieldMetaTypeDropdown);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaTypeDropdown$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsFieldMetaTypeDropdown> =
+    FieldUpdateTemplateFieldsFieldMetaTypeDropdown$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldMetaTypeDropdown$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTypeDropdown$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaTypeDropdown$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTypeDropdown$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaTypeDropdown$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsValueResponse3$inboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsValueResponse3,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  value: z.string(),
+});
+
+/** @internal */
+export type FieldUpdateTemplateFieldsValueResponse3$Outbound = {
+  value: string;
+};
+
+/** @internal */
+export const FieldUpdateTemplateFieldsValueResponse3$outboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsValueResponse3$Outbound,
+  z.ZodTypeDef,
+  FieldUpdateTemplateFieldsValueResponse3
+> = z.object({
+  value: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsValueResponse3$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsValueResponse3$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsValueResponse3$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsValueResponse3$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsValueResponse3$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsValueResponse3$Outbound` instead. */
+  export type Outbound = FieldUpdateTemplateFieldsValueResponse3$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsValueResponse3ToJSON(
+  fieldUpdateTemplateFieldsValueResponse3:
+    FieldUpdateTemplateFieldsValueResponse3,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsValueResponse3$outboundSchema.parse(
+      fieldUpdateTemplateFieldsValueResponse3,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsValueResponse3FromJSON(
+  jsonString: string,
+): SafeParseResult<
+  FieldUpdateTemplateFieldsValueResponse3,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsValueResponse3$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'FieldUpdateTemplateFieldsValueResponse3' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaDropdownResponse$inboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaDropdownResponse,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsFieldMetaTypeDropdown$inboundSchema,
+    values: z.array(
+      z.lazy(() => FieldUpdateTemplateFieldsValueResponse3$inboundSchema),
+    ).optional(),
+    defaultValue: z.string().optional(),
+  });
+
+/** @internal */
+export type FieldUpdateTemplateFieldsFieldMetaDropdownResponse$Outbound = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: string;
+  values?: Array<FieldUpdateTemplateFieldsValueResponse3$Outbound> | undefined;
+  defaultValue?: string | undefined;
+};
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaDropdownResponse$outboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaDropdownResponse$Outbound,
+    z.ZodTypeDef,
+    FieldUpdateTemplateFieldsFieldMetaDropdownResponse
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsFieldMetaTypeDropdown$outboundSchema,
+    values: z.array(
+      z.lazy(() => FieldUpdateTemplateFieldsValueResponse3$outboundSchema),
+    ).optional(),
+    defaultValue: z.string().optional(),
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldMetaDropdownResponse$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaDropdownResponse$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaDropdownResponse$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaDropdownResponse$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaDropdownResponse$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaDropdownResponse$Outbound` instead. */
+  export type Outbound =
+    FieldUpdateTemplateFieldsFieldMetaDropdownResponse$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaDropdownResponseToJSON(
+  fieldUpdateTemplateFieldsFieldMetaDropdownResponse:
+    FieldUpdateTemplateFieldsFieldMetaDropdownResponse,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsFieldMetaDropdownResponse$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldMetaDropdownResponse,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaDropdownResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  FieldUpdateTemplateFieldsFieldMetaDropdownResponse,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsFieldMetaDropdownResponse$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldMetaDropdownResponse' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaTypeCheckbox$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsFieldMetaTypeCheckbox> = z
+    .nativeEnum(FieldUpdateTemplateFieldsFieldMetaTypeCheckbox);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaTypeCheckbox$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsFieldMetaTypeCheckbox> =
+    FieldUpdateTemplateFieldsFieldMetaTypeCheckbox$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldMetaTypeCheckbox$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTypeCheckbox$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaTypeCheckbox$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTypeCheckbox$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaTypeCheckbox$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsValueResponse2$inboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsValueResponse2,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.number(),
+  checked: z.boolean(),
+  value: z.string(),
+});
+
+/** @internal */
+export type FieldUpdateTemplateFieldsValueResponse2$Outbound = {
+  id: number;
+  checked: boolean;
+  value: string;
+};
+
+/** @internal */
+export const FieldUpdateTemplateFieldsValueResponse2$outboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsValueResponse2$Outbound,
+  z.ZodTypeDef,
+  FieldUpdateTemplateFieldsValueResponse2
+> = z.object({
+  id: z.number(),
+  checked: z.boolean(),
+  value: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsValueResponse2$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsValueResponse2$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsValueResponse2$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsValueResponse2$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsValueResponse2$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsValueResponse2$Outbound` instead. */
+  export type Outbound = FieldUpdateTemplateFieldsValueResponse2$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsValueResponse2ToJSON(
+  fieldUpdateTemplateFieldsValueResponse2:
+    FieldUpdateTemplateFieldsValueResponse2,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsValueResponse2$outboundSchema.parse(
+      fieldUpdateTemplateFieldsValueResponse2,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsValueResponse2FromJSON(
+  jsonString: string,
+): SafeParseResult<
+  FieldUpdateTemplateFieldsValueResponse2,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsValueResponse2$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'FieldUpdateTemplateFieldsValueResponse2' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$inboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaCheckboxResponse,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsFieldMetaTypeCheckbox$inboundSchema,
+    values: z.array(
+      z.lazy(() => FieldUpdateTemplateFieldsValueResponse2$inboundSchema),
+    ).optional(),
+    validationRule: z.string().optional(),
+    validationLength: z.number().optional(),
+  });
+
+/** @internal */
+export type FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$Outbound = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: string;
+  values?: Array<FieldUpdateTemplateFieldsValueResponse2$Outbound> | undefined;
+  validationRule?: string | undefined;
+  validationLength?: number | undefined;
+};
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$outboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$Outbound,
+    z.ZodTypeDef,
+    FieldUpdateTemplateFieldsFieldMetaCheckboxResponse
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsFieldMetaTypeCheckbox$outboundSchema,
+    values: z.array(
+      z.lazy(() => FieldUpdateTemplateFieldsValueResponse2$outboundSchema),
+    ).optional(),
+    validationRule: z.string().optional(),
+    validationLength: z.number().optional(),
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$Outbound` instead. */
+  export type Outbound =
+    FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaCheckboxResponseToJSON(
+  fieldUpdateTemplateFieldsFieldMetaCheckboxResponse:
+    FieldUpdateTemplateFieldsFieldMetaCheckboxResponse,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldMetaCheckboxResponse,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaCheckboxResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  FieldUpdateTemplateFieldsFieldMetaCheckboxResponse,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldMetaCheckboxResponse' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaTypeRadio$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsFieldMetaTypeRadio> = z
+    .nativeEnum(FieldUpdateTemplateFieldsFieldMetaTypeRadio);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaTypeRadio$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsFieldMetaTypeRadio> =
+    FieldUpdateTemplateFieldsFieldMetaTypeRadio$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldMetaTypeRadio$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTypeRadio$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaTypeRadio$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTypeRadio$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaTypeRadio$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsValueResponse1$inboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsValueResponse1,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.number(),
+  checked: z.boolean(),
+  value: z.string(),
+});
+
+/** @internal */
+export type FieldUpdateTemplateFieldsValueResponse1$Outbound = {
+  id: number;
+  checked: boolean;
+  value: string;
+};
+
+/** @internal */
+export const FieldUpdateTemplateFieldsValueResponse1$outboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsValueResponse1$Outbound,
+  z.ZodTypeDef,
+  FieldUpdateTemplateFieldsValueResponse1
+> = z.object({
+  id: z.number(),
+  checked: z.boolean(),
+  value: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsValueResponse1$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsValueResponse1$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsValueResponse1$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsValueResponse1$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsValueResponse1$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsValueResponse1$Outbound` instead. */
+  export type Outbound = FieldUpdateTemplateFieldsValueResponse1$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsValueResponse1ToJSON(
+  fieldUpdateTemplateFieldsValueResponse1:
+    FieldUpdateTemplateFieldsValueResponse1,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsValueResponse1$outboundSchema.parse(
+      fieldUpdateTemplateFieldsValueResponse1,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsValueResponse1FromJSON(
+  jsonString: string,
+): SafeParseResult<
+  FieldUpdateTemplateFieldsValueResponse1,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsValueResponse1$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'FieldUpdateTemplateFieldsValueResponse1' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaRadioResponse$inboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaRadioResponse,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsFieldMetaTypeRadio$inboundSchema,
+    values: z.array(
+      z.lazy(() => FieldUpdateTemplateFieldsValueResponse1$inboundSchema),
+    ).optional(),
+  });
+
+/** @internal */
+export type FieldUpdateTemplateFieldsFieldMetaRadioResponse$Outbound = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: string;
+  values?: Array<FieldUpdateTemplateFieldsValueResponse1$Outbound> | undefined;
+};
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaRadioResponse$outboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaRadioResponse$Outbound,
+    z.ZodTypeDef,
+    FieldUpdateTemplateFieldsFieldMetaRadioResponse
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsFieldMetaTypeRadio$outboundSchema,
+    values: z.array(
+      z.lazy(() => FieldUpdateTemplateFieldsValueResponse1$outboundSchema),
+    ).optional(),
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldMetaRadioResponse$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaRadioResponse$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaRadioResponse$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaRadioResponse$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaRadioResponse$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaRadioResponse$Outbound` instead. */
+  export type Outbound =
+    FieldUpdateTemplateFieldsFieldMetaRadioResponse$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaRadioResponseToJSON(
+  fieldUpdateTemplateFieldsFieldMetaRadioResponse:
+    FieldUpdateTemplateFieldsFieldMetaRadioResponse,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsFieldMetaRadioResponse$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldMetaRadioResponse,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaRadioResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  FieldUpdateTemplateFieldsFieldMetaRadioResponse,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsFieldMetaRadioResponse$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldMetaRadioResponse' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaTypeNumber$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsFieldMetaTypeNumber> = z
+    .nativeEnum(FieldUpdateTemplateFieldsFieldMetaTypeNumber);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaTypeNumber$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsFieldMetaTypeNumber> =
+    FieldUpdateTemplateFieldsFieldMetaTypeNumber$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldMetaTypeNumber$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTypeNumber$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaTypeNumber$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTypeNumber$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaTypeNumber$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTextAlignResponse6$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignResponse6> = z
+    .nativeEnum(FieldUpdateTemplateFieldsTextAlignResponse6);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTextAlignResponse6$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignResponse6> =
+    FieldUpdateTemplateFieldsTextAlignResponse6$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTextAlignResponse6$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTextAlignResponse6$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTextAlignResponse6$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTextAlignResponse6$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTextAlignResponse6$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaNumberResponse$inboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaNumberResponse,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsFieldMetaTypeNumber$inboundSchema,
+    numberFormat: z.string().optional(),
+    value: z.string().optional(),
+    minValue: z.number().optional(),
+    maxValue: z.number().optional(),
+    fontSize: z.number().optional(),
+    textAlign: FieldUpdateTemplateFieldsTextAlignResponse6$inboundSchema
+      .optional(),
+  });
+
+/** @internal */
+export type FieldUpdateTemplateFieldsFieldMetaNumberResponse$Outbound = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: string;
+  numberFormat?: string | undefined;
+  value?: string | undefined;
+  minValue?: number | undefined;
+  maxValue?: number | undefined;
+  fontSize?: number | undefined;
+  textAlign?: string | undefined;
+};
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaNumberResponse$outboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaNumberResponse$Outbound,
+    z.ZodTypeDef,
+    FieldUpdateTemplateFieldsFieldMetaNumberResponse
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsFieldMetaTypeNumber$outboundSchema,
+    numberFormat: z.string().optional(),
+    value: z.string().optional(),
+    minValue: z.number().optional(),
+    maxValue: z.number().optional(),
+    fontSize: z.number().optional(),
+    textAlign: FieldUpdateTemplateFieldsTextAlignResponse6$outboundSchema
+      .optional(),
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldMetaNumberResponse$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaNumberResponse$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaNumberResponse$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaNumberResponse$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaNumberResponse$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaNumberResponse$Outbound` instead. */
+  export type Outbound =
+    FieldUpdateTemplateFieldsFieldMetaNumberResponse$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaNumberResponseToJSON(
+  fieldUpdateTemplateFieldsFieldMetaNumberResponse:
+    FieldUpdateTemplateFieldsFieldMetaNumberResponse,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsFieldMetaNumberResponse$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldMetaNumberResponse,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaNumberResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  FieldUpdateTemplateFieldsFieldMetaNumberResponse,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsFieldMetaNumberResponse$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldMetaNumberResponse' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaTypeText$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsFieldMetaTypeText> = z
+    .nativeEnum(FieldUpdateTemplateFieldsFieldMetaTypeText);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaTypeText$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsFieldMetaTypeText> =
+    FieldUpdateTemplateFieldsFieldMetaTypeText$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldMetaTypeText$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTypeText$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaTypeText$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTypeText$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaTypeText$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTextAlignResponse5$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignResponse5> = z
+    .nativeEnum(FieldUpdateTemplateFieldsTextAlignResponse5);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTextAlignResponse5$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignResponse5> =
+    FieldUpdateTemplateFieldsTextAlignResponse5$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTextAlignResponse5$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTextAlignResponse5$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTextAlignResponse5$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTextAlignResponse5$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTextAlignResponse5$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaTextResponse$inboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaTextResponse,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsFieldMetaTypeText$inboundSchema,
+    text: z.string().optional(),
+    characterLimit: z.number().optional(),
+    fontSize: z.number().optional(),
+    textAlign: FieldUpdateTemplateFieldsTextAlignResponse5$inboundSchema
+      .optional(),
+  });
+
+/** @internal */
+export type FieldUpdateTemplateFieldsFieldMetaTextResponse$Outbound = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: string;
+  text?: string | undefined;
+  characterLimit?: number | undefined;
+  fontSize?: number | undefined;
+  textAlign?: string | undefined;
+};
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaTextResponse$outboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaTextResponse$Outbound,
+    z.ZodTypeDef,
+    FieldUpdateTemplateFieldsFieldMetaTextResponse
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsFieldMetaTypeText$outboundSchema,
+    text: z.string().optional(),
+    characterLimit: z.number().optional(),
+    fontSize: z.number().optional(),
+    textAlign: FieldUpdateTemplateFieldsTextAlignResponse5$outboundSchema
+      .optional(),
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldMetaTextResponse$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTextResponse$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaTextResponse$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTextResponse$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaTextResponse$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTextResponse$Outbound` instead. */
+  export type Outbound =
+    FieldUpdateTemplateFieldsFieldMetaTextResponse$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaTextResponseToJSON(
+  fieldUpdateTemplateFieldsFieldMetaTextResponse:
+    FieldUpdateTemplateFieldsFieldMetaTextResponse,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsFieldMetaTextResponse$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldMetaTextResponse,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaTextResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  FieldUpdateTemplateFieldsFieldMetaTextResponse,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsFieldMetaTextResponse$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldMetaTextResponse' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaTypeDate$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsFieldMetaTypeDate> = z
+    .nativeEnum(FieldUpdateTemplateFieldsFieldMetaTypeDate);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaTypeDate$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsFieldMetaTypeDate> =
+    FieldUpdateTemplateFieldsFieldMetaTypeDate$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldMetaTypeDate$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTypeDate$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaTypeDate$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTypeDate$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaTypeDate$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTextAlignResponse4$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignResponse4> = z
+    .nativeEnum(FieldUpdateTemplateFieldsTextAlignResponse4);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTextAlignResponse4$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignResponse4> =
+    FieldUpdateTemplateFieldsTextAlignResponse4$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTextAlignResponse4$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTextAlignResponse4$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTextAlignResponse4$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTextAlignResponse4$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTextAlignResponse4$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaDateResponse$inboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaDateResponse,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsFieldMetaTypeDate$inboundSchema,
+    fontSize: z.number().optional(),
+    textAlign: FieldUpdateTemplateFieldsTextAlignResponse4$inboundSchema
+      .optional(),
+  });
+
+/** @internal */
+export type FieldUpdateTemplateFieldsFieldMetaDateResponse$Outbound = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: string;
+  fontSize?: number | undefined;
+  textAlign?: string | undefined;
+};
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaDateResponse$outboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaDateResponse$Outbound,
+    z.ZodTypeDef,
+    FieldUpdateTemplateFieldsFieldMetaDateResponse
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsFieldMetaTypeDate$outboundSchema,
+    fontSize: z.number().optional(),
+    textAlign: FieldUpdateTemplateFieldsTextAlignResponse4$outboundSchema
+      .optional(),
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldMetaDateResponse$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaDateResponse$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaDateResponse$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaDateResponse$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaDateResponse$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaDateResponse$Outbound` instead. */
+  export type Outbound =
+    FieldUpdateTemplateFieldsFieldMetaDateResponse$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaDateResponseToJSON(
+  fieldUpdateTemplateFieldsFieldMetaDateResponse:
+    FieldUpdateTemplateFieldsFieldMetaDateResponse,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsFieldMetaDateResponse$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldMetaDateResponse,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaDateResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  FieldUpdateTemplateFieldsFieldMetaDateResponse,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsFieldMetaDateResponse$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldMetaDateResponse' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaTypeEmail$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsFieldMetaTypeEmail> = z
+    .nativeEnum(FieldUpdateTemplateFieldsFieldMetaTypeEmail);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaTypeEmail$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsFieldMetaTypeEmail> =
+    FieldUpdateTemplateFieldsFieldMetaTypeEmail$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldMetaTypeEmail$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTypeEmail$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaTypeEmail$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTypeEmail$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaTypeEmail$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTextAlignResponse3$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignResponse3> = z
+    .nativeEnum(FieldUpdateTemplateFieldsTextAlignResponse3);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTextAlignResponse3$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignResponse3> =
+    FieldUpdateTemplateFieldsTextAlignResponse3$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTextAlignResponse3$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTextAlignResponse3$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTextAlignResponse3$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTextAlignResponse3$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTextAlignResponse3$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaEmailResponse$inboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaEmailResponse,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsFieldMetaTypeEmail$inboundSchema,
+    fontSize: z.number().optional(),
+    textAlign: FieldUpdateTemplateFieldsTextAlignResponse3$inboundSchema
+      .optional(),
+  });
+
+/** @internal */
+export type FieldUpdateTemplateFieldsFieldMetaEmailResponse$Outbound = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: string;
+  fontSize?: number | undefined;
+  textAlign?: string | undefined;
+};
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaEmailResponse$outboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaEmailResponse$Outbound,
+    z.ZodTypeDef,
+    FieldUpdateTemplateFieldsFieldMetaEmailResponse
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsFieldMetaTypeEmail$outboundSchema,
+    fontSize: z.number().optional(),
+    textAlign: FieldUpdateTemplateFieldsTextAlignResponse3$outboundSchema
+      .optional(),
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldMetaEmailResponse$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaEmailResponse$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaEmailResponse$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaEmailResponse$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaEmailResponse$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaEmailResponse$Outbound` instead. */
+  export type Outbound =
+    FieldUpdateTemplateFieldsFieldMetaEmailResponse$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaEmailResponseToJSON(
+  fieldUpdateTemplateFieldsFieldMetaEmailResponse:
+    FieldUpdateTemplateFieldsFieldMetaEmailResponse,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsFieldMetaEmailResponse$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldMetaEmailResponse,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaEmailResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  FieldUpdateTemplateFieldsFieldMetaEmailResponse,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsFieldMetaEmailResponse$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldMetaEmailResponse' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaTypeName$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsFieldMetaTypeName> = z
+    .nativeEnum(FieldUpdateTemplateFieldsFieldMetaTypeName);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaTypeName$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsFieldMetaTypeName> =
+    FieldUpdateTemplateFieldsFieldMetaTypeName$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldMetaTypeName$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTypeName$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaTypeName$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTypeName$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaTypeName$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTextAlignResponse2$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignResponse2> = z
+    .nativeEnum(FieldUpdateTemplateFieldsTextAlignResponse2);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTextAlignResponse2$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignResponse2> =
+    FieldUpdateTemplateFieldsTextAlignResponse2$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTextAlignResponse2$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTextAlignResponse2$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTextAlignResponse2$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTextAlignResponse2$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTextAlignResponse2$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaNameResponse$inboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaNameResponse,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsFieldMetaTypeName$inboundSchema,
+    fontSize: z.number().optional(),
+    textAlign: FieldUpdateTemplateFieldsTextAlignResponse2$inboundSchema
+      .optional(),
+  });
+
+/** @internal */
+export type FieldUpdateTemplateFieldsFieldMetaNameResponse$Outbound = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: string;
+  fontSize?: number | undefined;
+  textAlign?: string | undefined;
+};
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaNameResponse$outboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaNameResponse$Outbound,
+    z.ZodTypeDef,
+    FieldUpdateTemplateFieldsFieldMetaNameResponse
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsFieldMetaTypeName$outboundSchema,
+    fontSize: z.number().optional(),
+    textAlign: FieldUpdateTemplateFieldsTextAlignResponse2$outboundSchema
+      .optional(),
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldMetaNameResponse$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaNameResponse$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaNameResponse$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaNameResponse$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaNameResponse$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaNameResponse$Outbound` instead. */
+  export type Outbound =
+    FieldUpdateTemplateFieldsFieldMetaNameResponse$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaNameResponseToJSON(
+  fieldUpdateTemplateFieldsFieldMetaNameResponse:
+    FieldUpdateTemplateFieldsFieldMetaNameResponse,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsFieldMetaNameResponse$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldMetaNameResponse,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaNameResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  FieldUpdateTemplateFieldsFieldMetaNameResponse,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsFieldMetaNameResponse$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldMetaNameResponse' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaTypeInitials$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsFieldMetaTypeInitials> = z
+    .nativeEnum(FieldUpdateTemplateFieldsFieldMetaTypeInitials);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaTypeInitials$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsFieldMetaTypeInitials> =
+    FieldUpdateTemplateFieldsFieldMetaTypeInitials$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldMetaTypeInitials$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTypeInitials$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaTypeInitials$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaTypeInitials$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaTypeInitials$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTextAlignResponse1$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignResponse1> = z
+    .nativeEnum(FieldUpdateTemplateFieldsTextAlignResponse1);
+
+/** @internal */
+export const FieldUpdateTemplateFieldsTextAlignResponse1$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignResponse1> =
+    FieldUpdateTemplateFieldsTextAlignResponse1$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsTextAlignResponse1$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsTextAlignResponse1$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsTextAlignResponse1$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsTextAlignResponse1$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsTextAlignResponse1$outboundSchema;
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaInitialsResponse$inboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaInitialsResponse,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsFieldMetaTypeInitials$inboundSchema,
+    fontSize: z.number().optional(),
+    textAlign: FieldUpdateTemplateFieldsTextAlignResponse1$inboundSchema
+      .optional(),
+  });
+
+/** @internal */
+export type FieldUpdateTemplateFieldsFieldMetaInitialsResponse$Outbound = {
+  label?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  readOnly?: boolean | undefined;
+  type: string;
+  fontSize?: number | undefined;
+  textAlign?: string | undefined;
+};
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaInitialsResponse$outboundSchema:
+  z.ZodType<
+    FieldUpdateTemplateFieldsFieldMetaInitialsResponse$Outbound,
+    z.ZodTypeDef,
+    FieldUpdateTemplateFieldsFieldMetaInitialsResponse
+  > = z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    type: FieldUpdateTemplateFieldsFieldMetaTypeInitials$outboundSchema,
+    fontSize: z.number().optional(),
+    textAlign: FieldUpdateTemplateFieldsTextAlignResponse1$outboundSchema
+      .optional(),
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldMetaInitialsResponse$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaInitialsResponse$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaInitialsResponse$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaInitialsResponse$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaInitialsResponse$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaInitialsResponse$Outbound` instead. */
+  export type Outbound =
+    FieldUpdateTemplateFieldsFieldMetaInitialsResponse$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaInitialsResponseToJSON(
+  fieldUpdateTemplateFieldsFieldMetaInitialsResponse:
+    FieldUpdateTemplateFieldsFieldMetaInitialsResponse,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsFieldMetaInitialsResponse$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldMetaInitialsResponse,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaInitialsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  FieldUpdateTemplateFieldsFieldMetaInitialsResponse,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsFieldMetaInitialsResponse$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldMetaInitialsResponse' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaUnion$inboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsFieldMetaUnion,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaRadioResponse$inboundSchema),
+  z.lazy(() =>
+    FieldUpdateTemplateFieldsFieldMetaInitialsResponse$inboundSchema
+  ),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaNameResponse$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaEmailResponse$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaDateResponse$inboundSchema),
+  z.lazy(() =>
+    FieldUpdateTemplateFieldsFieldMetaDropdownResponse$inboundSchema
+  ),
+  z.lazy(() =>
+    FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$inboundSchema
+  ),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaTextResponse$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaNumberResponse$inboundSchema),
+]);
+
+/** @internal */
+export type FieldUpdateTemplateFieldsFieldMetaUnion$Outbound =
+  | FieldUpdateTemplateFieldsFieldMetaRadioResponse$Outbound
+  | FieldUpdateTemplateFieldsFieldMetaInitialsResponse$Outbound
+  | FieldUpdateTemplateFieldsFieldMetaNameResponse$Outbound
+  | FieldUpdateTemplateFieldsFieldMetaEmailResponse$Outbound
+  | FieldUpdateTemplateFieldsFieldMetaDateResponse$Outbound
+  | FieldUpdateTemplateFieldsFieldMetaDropdownResponse$Outbound
+  | FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$Outbound
+  | FieldUpdateTemplateFieldsFieldMetaTextResponse$Outbound
+  | FieldUpdateTemplateFieldsFieldMetaNumberResponse$Outbound;
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldMetaUnion$outboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsFieldMetaUnion$Outbound,
+  z.ZodTypeDef,
+  FieldUpdateTemplateFieldsFieldMetaUnion
+> = z.union([
+  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaRadioResponse$outboundSchema),
+  z.lazy(() =>
+    FieldUpdateTemplateFieldsFieldMetaInitialsResponse$outboundSchema
+  ),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaNameResponse$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaEmailResponse$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaDateResponse$outboundSchema),
+  z.lazy(() =>
+    FieldUpdateTemplateFieldsFieldMetaDropdownResponse$outboundSchema
+  ),
+  z.lazy(() =>
+    FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$outboundSchema
+  ),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaTextResponse$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaNumberResponse$outboundSchema),
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateTemplateFieldsFieldMetaUnion$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaUnion$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaUnion$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaUnion$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateTemplateFieldsFieldMetaUnion$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldMetaUnion$Outbound` instead. */
+  export type Outbound = FieldUpdateTemplateFieldsFieldMetaUnion$Outbound;
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaUnionToJSON(
+  fieldUpdateTemplateFieldsFieldMetaUnion:
+    FieldUpdateTemplateFieldsFieldMetaUnion,
+): string {
+  return JSON.stringify(
+    FieldUpdateTemplateFieldsFieldMetaUnion$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldMetaUnion,
+    ),
+  );
+}
+
+export function fieldUpdateTemplateFieldsFieldMetaUnionFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  FieldUpdateTemplateFieldsFieldMetaUnion,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldUpdateTemplateFieldsFieldMetaUnion$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldMetaUnion' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldUpdateTemplateFieldsFieldResponse$inboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsFieldResponse,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: FieldUpdateTemplateFieldsTypeResponse$inboundSchema,
+  id: z.number(),
+  secondaryId: z.string(),
+  documentId: z.nullable(z.number()),
+  templateId: z.nullable(z.number()),
+  recipientId: z.number(),
+  page: z.number(),
+  positionX: z.any().optional(),
+  positionY: z.any().optional(),
+  width: z.any().optional(),
+  height: z.any().optional(),
+  customText: z.string(),
+  inserted: z.boolean(),
+  fieldMeta: z.nullable(
+    z.union([
+      z.lazy(() =>
+        FieldUpdateTemplateFieldsFieldMetaRadioResponse$inboundSchema
+      ),
+      z.lazy(() =>
+        FieldUpdateTemplateFieldsFieldMetaInitialsResponse$inboundSchema
+      ),
+      z.lazy(() =>
+        FieldUpdateTemplateFieldsFieldMetaNameResponse$inboundSchema
+      ),
+      z.lazy(() =>
+        FieldUpdateTemplateFieldsFieldMetaEmailResponse$inboundSchema
+      ),
+      z.lazy(() =>
+        FieldUpdateTemplateFieldsFieldMetaDateResponse$inboundSchema
+      ),
+      z.lazy(() =>
+        FieldUpdateTemplateFieldsFieldMetaDropdownResponse$inboundSchema
+      ),
+      z.lazy(() =>
+        FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$inboundSchema
+      ),
+      z.lazy(() =>
+        FieldUpdateTemplateFieldsFieldMetaTextResponse$inboundSchema
+      ),
+      z.lazy(() =>
+        FieldUpdateTemplateFieldsFieldMetaNumberResponse$inboundSchema
+      ),
+    ]),
+  ),
+});
+
+/** @internal */
+export type FieldUpdateTemplateFieldsFieldResponse$Outbound = {
   type: string;
   id: number;
   secondaryId: string;
@@ -4935,120 +5246,131 @@ export type FieldUpdateTemplateFieldsTemplatesFieldsFields$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | FieldUpdateTemplateFieldsFieldMeta1$Outbound
-    | FieldUpdateTemplateFieldsFieldMeta2$Outbound
-    | FieldUpdateTemplateFieldsFieldMeta3$Outbound
-    | FieldUpdateTemplateFieldsFieldMeta4$Outbound
-    | FieldUpdateTemplateFieldsFieldMeta7$Outbound
-    | FieldUpdateTemplateFieldsFieldMeta9$Outbound
-    | FieldUpdateTemplateFieldsFieldMeta5$Outbound
-    | FieldUpdateTemplateFieldsFieldMeta8$Outbound
-    | FieldUpdateTemplateFieldsFieldMeta6$Outbound
+    | FieldUpdateTemplateFieldsFieldMetaRadioResponse$Outbound
+    | FieldUpdateTemplateFieldsFieldMetaInitialsResponse$Outbound
+    | FieldUpdateTemplateFieldsFieldMetaNameResponse$Outbound
+    | FieldUpdateTemplateFieldsFieldMetaEmailResponse$Outbound
+    | FieldUpdateTemplateFieldsFieldMetaDateResponse$Outbound
+    | FieldUpdateTemplateFieldsFieldMetaDropdownResponse$Outbound
+    | FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$Outbound
+    | FieldUpdateTemplateFieldsFieldMetaTextResponse$Outbound
+    | FieldUpdateTemplateFieldsFieldMetaNumberResponse$Outbound
     | null;
 };
 
 /** @internal */
-export const FieldUpdateTemplateFieldsTemplatesFieldsFields$outboundSchema:
-  z.ZodType<
-    FieldUpdateTemplateFieldsTemplatesFieldsFields$Outbound,
-    z.ZodTypeDef,
-    FieldUpdateTemplateFieldsTemplatesFieldsFields
-  > = z.object({
-    type: FieldUpdateTemplateFieldsType$outboundSchema,
-    id: z.number().int(),
-    secondaryId: z.string(),
-    documentId: z.nullable(z.number().int()),
-    templateId: z.nullable(z.number().int()),
-    recipientId: z.number().int(),
-    page: z.number(),
-    positionX: z.any().optional(),
-    positionY: z.any().optional(),
-    width: z.any().optional(),
-    height: z.any().optional(),
-    customText: z.string(),
-    inserted: z.boolean(),
-    fieldMeta: z.nullable(
-      z.union([
-        z.lazy(() => FieldUpdateTemplateFieldsFieldMeta1$outboundSchema),
-        z.lazy(() => FieldUpdateTemplateFieldsFieldMeta2$outboundSchema),
-        z.lazy(() => FieldUpdateTemplateFieldsFieldMeta3$outboundSchema),
-        z.lazy(() => FieldUpdateTemplateFieldsFieldMeta4$outboundSchema),
-        z.lazy(() => FieldUpdateTemplateFieldsFieldMeta7$outboundSchema),
-        z.lazy(() => FieldUpdateTemplateFieldsFieldMeta9$outboundSchema),
-        z.lazy(() => FieldUpdateTemplateFieldsFieldMeta5$outboundSchema),
-        z.lazy(() => FieldUpdateTemplateFieldsFieldMeta8$outboundSchema),
-        z.lazy(() => FieldUpdateTemplateFieldsFieldMeta6$outboundSchema),
-      ]),
-    ),
-  });
+export const FieldUpdateTemplateFieldsFieldResponse$outboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsFieldResponse$Outbound,
+  z.ZodTypeDef,
+  FieldUpdateTemplateFieldsFieldResponse
+> = z.object({
+  type: FieldUpdateTemplateFieldsTypeResponse$outboundSchema,
+  id: z.number(),
+  secondaryId: z.string(),
+  documentId: z.nullable(z.number()),
+  templateId: z.nullable(z.number()),
+  recipientId: z.number(),
+  page: z.number(),
+  positionX: z.any().optional(),
+  positionY: z.any().optional(),
+  width: z.any().optional(),
+  height: z.any().optional(),
+  customText: z.string(),
+  inserted: z.boolean(),
+  fieldMeta: z.nullable(
+    z.union([
+      z.lazy(() =>
+        FieldUpdateTemplateFieldsFieldMetaRadioResponse$outboundSchema
+      ),
+      z.lazy(() =>
+        FieldUpdateTemplateFieldsFieldMetaInitialsResponse$outboundSchema
+      ),
+      z.lazy(() =>
+        FieldUpdateTemplateFieldsFieldMetaNameResponse$outboundSchema
+      ),
+      z.lazy(() =>
+        FieldUpdateTemplateFieldsFieldMetaEmailResponse$outboundSchema
+      ),
+      z.lazy(() =>
+        FieldUpdateTemplateFieldsFieldMetaDateResponse$outboundSchema
+      ),
+      z.lazy(() =>
+        FieldUpdateTemplateFieldsFieldMetaDropdownResponse$outboundSchema
+      ),
+      z.lazy(() =>
+        FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$outboundSchema
+      ),
+      z.lazy(() =>
+        FieldUpdateTemplateFieldsFieldMetaTextResponse$outboundSchema
+      ),
+      z.lazy(() =>
+        FieldUpdateTemplateFieldsFieldMetaNumberResponse$outboundSchema
+      ),
+    ]),
+  ),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldUpdateTemplateFieldsTemplatesFieldsFields$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsTemplatesFieldsFields$inboundSchema` instead. */
+export namespace FieldUpdateTemplateFieldsFieldResponse$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldResponse$inboundSchema` instead. */
   export const inboundSchema =
-    FieldUpdateTemplateFieldsTemplatesFieldsFields$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsTemplatesFieldsFields$outboundSchema` instead. */
+    FieldUpdateTemplateFieldsFieldResponse$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldResponse$outboundSchema` instead. */
   export const outboundSchema =
-    FieldUpdateTemplateFieldsTemplatesFieldsFields$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsTemplatesFieldsFields$Outbound` instead. */
-  export type Outbound =
-    FieldUpdateTemplateFieldsTemplatesFieldsFields$Outbound;
+    FieldUpdateTemplateFieldsFieldResponse$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsFieldResponse$Outbound` instead. */
+  export type Outbound = FieldUpdateTemplateFieldsFieldResponse$Outbound;
 }
 
-export function fieldUpdateTemplateFieldsTemplatesFieldsFieldsToJSON(
-  fieldUpdateTemplateFieldsTemplatesFieldsFields:
-    FieldUpdateTemplateFieldsTemplatesFieldsFields,
+export function fieldUpdateTemplateFieldsFieldResponseToJSON(
+  fieldUpdateTemplateFieldsFieldResponse:
+    FieldUpdateTemplateFieldsFieldResponse,
 ): string {
   return JSON.stringify(
-    FieldUpdateTemplateFieldsTemplatesFieldsFields$outboundSchema.parse(
-      fieldUpdateTemplateFieldsTemplatesFieldsFields,
+    FieldUpdateTemplateFieldsFieldResponse$outboundSchema.parse(
+      fieldUpdateTemplateFieldsFieldResponse,
     ),
   );
 }
 
-export function fieldUpdateTemplateFieldsTemplatesFieldsFieldsFromJSON(
+export function fieldUpdateTemplateFieldsFieldResponseFromJSON(
   jsonString: string,
-): SafeParseResult<
-  FieldUpdateTemplateFieldsTemplatesFieldsFields,
-  SDKValidationError
-> {
+): SafeParseResult<FieldUpdateTemplateFieldsFieldResponse, SDKValidationError> {
   return safeParse(
     jsonString,
     (x) =>
-      FieldUpdateTemplateFieldsTemplatesFieldsFields$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'FieldUpdateTemplateFieldsTemplatesFieldsFields' from JSON`,
+      FieldUpdateTemplateFieldsFieldResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldUpdateTemplateFieldsFieldResponse' from JSON`,
   );
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldsResponseBody$inboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsResponseBody,
+export const FieldUpdateTemplateFieldsResponse$inboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsResponse,
   z.ZodTypeDef,
   unknown
 > = z.object({
   fields: z.array(
-    z.lazy(() => FieldUpdateTemplateFieldsTemplatesFieldsFields$inboundSchema),
+    z.lazy(() => FieldUpdateTemplateFieldsFieldResponse$inboundSchema),
   ),
 });
 
 /** @internal */
-export type FieldUpdateTemplateFieldsResponseBody$Outbound = {
-  fields: Array<FieldUpdateTemplateFieldsTemplatesFieldsFields$Outbound>;
+export type FieldUpdateTemplateFieldsResponse$Outbound = {
+  fields: Array<FieldUpdateTemplateFieldsFieldResponse$Outbound>;
 };
 
 /** @internal */
-export const FieldUpdateTemplateFieldsResponseBody$outboundSchema: z.ZodType<
-  FieldUpdateTemplateFieldsResponseBody$Outbound,
+export const FieldUpdateTemplateFieldsResponse$outboundSchema: z.ZodType<
+  FieldUpdateTemplateFieldsResponse$Outbound,
   z.ZodTypeDef,
-  FieldUpdateTemplateFieldsResponseBody
+  FieldUpdateTemplateFieldsResponse
 > = z.object({
   fields: z.array(
-    z.lazy(() => FieldUpdateTemplateFieldsTemplatesFieldsFields$outboundSchema),
+    z.lazy(() => FieldUpdateTemplateFieldsFieldResponse$outboundSchema),
   ),
 });
 
@@ -5056,34 +5378,32 @@ export const FieldUpdateTemplateFieldsResponseBody$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldUpdateTemplateFieldsResponseBody$ {
-  /** @deprecated use `FieldUpdateTemplateFieldsResponseBody$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldUpdateTemplateFieldsResponseBody$inboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsResponseBody$outboundSchema` instead. */
+export namespace FieldUpdateTemplateFieldsResponse$ {
+  /** @deprecated use `FieldUpdateTemplateFieldsResponse$inboundSchema` instead. */
+  export const inboundSchema = FieldUpdateTemplateFieldsResponse$inboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsResponse$outboundSchema` instead. */
   export const outboundSchema =
-    FieldUpdateTemplateFieldsResponseBody$outboundSchema;
-  /** @deprecated use `FieldUpdateTemplateFieldsResponseBody$Outbound` instead. */
-  export type Outbound = FieldUpdateTemplateFieldsResponseBody$Outbound;
+    FieldUpdateTemplateFieldsResponse$outboundSchema;
+  /** @deprecated use `FieldUpdateTemplateFieldsResponse$Outbound` instead. */
+  export type Outbound = FieldUpdateTemplateFieldsResponse$Outbound;
 }
 
-export function fieldUpdateTemplateFieldsResponseBodyToJSON(
-  fieldUpdateTemplateFieldsResponseBody: FieldUpdateTemplateFieldsResponseBody,
+export function fieldUpdateTemplateFieldsResponseToJSON(
+  fieldUpdateTemplateFieldsResponse: FieldUpdateTemplateFieldsResponse,
 ): string {
   return JSON.stringify(
-    FieldUpdateTemplateFieldsResponseBody$outboundSchema.parse(
-      fieldUpdateTemplateFieldsResponseBody,
+    FieldUpdateTemplateFieldsResponse$outboundSchema.parse(
+      fieldUpdateTemplateFieldsResponse,
     ),
   );
 }
 
-export function fieldUpdateTemplateFieldsResponseBodyFromJSON(
+export function fieldUpdateTemplateFieldsResponseFromJSON(
   jsonString: string,
-): SafeParseResult<FieldUpdateTemplateFieldsResponseBody, SDKValidationError> {
+): SafeParseResult<FieldUpdateTemplateFieldsResponse, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      FieldUpdateTemplateFieldsResponseBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldUpdateTemplateFieldsResponseBody' from JSON`,
+    (x) => FieldUpdateTemplateFieldsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldUpdateTemplateFieldsResponse' from JSON`,
   );
 }

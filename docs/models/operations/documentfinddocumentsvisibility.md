@@ -5,7 +5,7 @@
 ```typescript
 import { DocumentFindDocumentsVisibility } from "@documenso/sdk-typescript/models/operations";
 
-let value: DocumentFindDocumentsVisibility = "MANAGER_AND_ABOVE";
+let value: DocumentFindDocumentsVisibility = "EVERYONE";
 ```
 
 ## Values

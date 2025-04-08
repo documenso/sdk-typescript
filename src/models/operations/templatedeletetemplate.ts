@@ -7,20 +7,20 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type TemplateDeleteTemplateRequestBody = {
+export type TemplateDeleteTemplateRequest = {
   templateId: number;
 };
 
 /**
  * Successful response
  */
-export type TemplateDeleteTemplateResponseBody = {
+export type TemplateDeleteTemplateResponse = {
   success: boolean;
 };
 
 /** @internal */
-export const TemplateDeleteTemplateRequestBody$inboundSchema: z.ZodType<
-  TemplateDeleteTemplateRequestBody,
+export const TemplateDeleteTemplateRequest$inboundSchema: z.ZodType<
+  TemplateDeleteTemplateRequest,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -28,15 +28,15 @@ export const TemplateDeleteTemplateRequestBody$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type TemplateDeleteTemplateRequestBody$Outbound = {
+export type TemplateDeleteTemplateRequest$Outbound = {
   templateId: number;
 };
 
 /** @internal */
-export const TemplateDeleteTemplateRequestBody$outboundSchema: z.ZodType<
-  TemplateDeleteTemplateRequestBody$Outbound,
+export const TemplateDeleteTemplateRequest$outboundSchema: z.ZodType<
+  TemplateDeleteTemplateRequest$Outbound,
   z.ZodTypeDef,
-  TemplateDeleteTemplateRequestBody
+  TemplateDeleteTemplateRequest
 > = z.object({
   templateId: z.number(),
 });
@@ -45,39 +45,38 @@ export const TemplateDeleteTemplateRequestBody$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateDeleteTemplateRequestBody$ {
-  /** @deprecated use `TemplateDeleteTemplateRequestBody$inboundSchema` instead. */
-  export const inboundSchema = TemplateDeleteTemplateRequestBody$inboundSchema;
-  /** @deprecated use `TemplateDeleteTemplateRequestBody$outboundSchema` instead. */
-  export const outboundSchema =
-    TemplateDeleteTemplateRequestBody$outboundSchema;
-  /** @deprecated use `TemplateDeleteTemplateRequestBody$Outbound` instead. */
-  export type Outbound = TemplateDeleteTemplateRequestBody$Outbound;
+export namespace TemplateDeleteTemplateRequest$ {
+  /** @deprecated use `TemplateDeleteTemplateRequest$inboundSchema` instead. */
+  export const inboundSchema = TemplateDeleteTemplateRequest$inboundSchema;
+  /** @deprecated use `TemplateDeleteTemplateRequest$outboundSchema` instead. */
+  export const outboundSchema = TemplateDeleteTemplateRequest$outboundSchema;
+  /** @deprecated use `TemplateDeleteTemplateRequest$Outbound` instead. */
+  export type Outbound = TemplateDeleteTemplateRequest$Outbound;
 }
 
-export function templateDeleteTemplateRequestBodyToJSON(
-  templateDeleteTemplateRequestBody: TemplateDeleteTemplateRequestBody,
+export function templateDeleteTemplateRequestToJSON(
+  templateDeleteTemplateRequest: TemplateDeleteTemplateRequest,
 ): string {
   return JSON.stringify(
-    TemplateDeleteTemplateRequestBody$outboundSchema.parse(
-      templateDeleteTemplateRequestBody,
+    TemplateDeleteTemplateRequest$outboundSchema.parse(
+      templateDeleteTemplateRequest,
     ),
   );
 }
 
-export function templateDeleteTemplateRequestBodyFromJSON(
+export function templateDeleteTemplateRequestFromJSON(
   jsonString: string,
-): SafeParseResult<TemplateDeleteTemplateRequestBody, SDKValidationError> {
+): SafeParseResult<TemplateDeleteTemplateRequest, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => TemplateDeleteTemplateRequestBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TemplateDeleteTemplateRequestBody' from JSON`,
+    (x) => TemplateDeleteTemplateRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateDeleteTemplateRequest' from JSON`,
   );
 }
 
 /** @internal */
-export const TemplateDeleteTemplateResponseBody$inboundSchema: z.ZodType<
-  TemplateDeleteTemplateResponseBody,
+export const TemplateDeleteTemplateResponse$inboundSchema: z.ZodType<
+  TemplateDeleteTemplateResponse,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -85,15 +84,15 @@ export const TemplateDeleteTemplateResponseBody$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type TemplateDeleteTemplateResponseBody$Outbound = {
+export type TemplateDeleteTemplateResponse$Outbound = {
   success: boolean;
 };
 
 /** @internal */
-export const TemplateDeleteTemplateResponseBody$outboundSchema: z.ZodType<
-  TemplateDeleteTemplateResponseBody$Outbound,
+export const TemplateDeleteTemplateResponse$outboundSchema: z.ZodType<
+  TemplateDeleteTemplateResponse$Outbound,
   z.ZodTypeDef,
-  TemplateDeleteTemplateResponseBody
+  TemplateDeleteTemplateResponse
 > = z.object({
   success: z.boolean(),
 });
@@ -102,33 +101,31 @@ export const TemplateDeleteTemplateResponseBody$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateDeleteTemplateResponseBody$ {
-  /** @deprecated use `TemplateDeleteTemplateResponseBody$inboundSchema` instead. */
-  export const inboundSchema = TemplateDeleteTemplateResponseBody$inboundSchema;
-  /** @deprecated use `TemplateDeleteTemplateResponseBody$outboundSchema` instead. */
-  export const outboundSchema =
-    TemplateDeleteTemplateResponseBody$outboundSchema;
-  /** @deprecated use `TemplateDeleteTemplateResponseBody$Outbound` instead. */
-  export type Outbound = TemplateDeleteTemplateResponseBody$Outbound;
+export namespace TemplateDeleteTemplateResponse$ {
+  /** @deprecated use `TemplateDeleteTemplateResponse$inboundSchema` instead. */
+  export const inboundSchema = TemplateDeleteTemplateResponse$inboundSchema;
+  /** @deprecated use `TemplateDeleteTemplateResponse$outboundSchema` instead. */
+  export const outboundSchema = TemplateDeleteTemplateResponse$outboundSchema;
+  /** @deprecated use `TemplateDeleteTemplateResponse$Outbound` instead. */
+  export type Outbound = TemplateDeleteTemplateResponse$Outbound;
 }
 
-export function templateDeleteTemplateResponseBodyToJSON(
-  templateDeleteTemplateResponseBody: TemplateDeleteTemplateResponseBody,
+export function templateDeleteTemplateResponseToJSON(
+  templateDeleteTemplateResponse: TemplateDeleteTemplateResponse,
 ): string {
   return JSON.stringify(
-    TemplateDeleteTemplateResponseBody$outboundSchema.parse(
-      templateDeleteTemplateResponseBody,
+    TemplateDeleteTemplateResponse$outboundSchema.parse(
+      templateDeleteTemplateResponse,
     ),
   );
 }
 
-export function templateDeleteTemplateResponseBodyFromJSON(
+export function templateDeleteTemplateResponseFromJSON(
   jsonString: string,
-): SafeParseResult<TemplateDeleteTemplateResponseBody, SDKValidationError> {
+): SafeParseResult<TemplateDeleteTemplateResponse, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      TemplateDeleteTemplateResponseBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TemplateDeleteTemplateResponseBody' from JSON`,
+    (x) => TemplateDeleteTemplateResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateDeleteTemplateResponse' from JSON`,
   );
 }

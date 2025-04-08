@@ -11,12 +11,15 @@ let value: TemplateCreateDocumentFromTemplateDocumentMeta = {
   id: "<id>",
   subject: "<value>",
   message: "<value>",
-  timezone: "Africa/Abidjan",
-  password: "Lm2HRKllm73SM7i",
+  timezone: "Europe/Tirane",
+  password: "2nasnrmIGrL6ARS",
   dateFormat: "<value>",
-  documentId: 870183,
-  redirectUrl: "https://lasting-necklace.info",
+  documentId: 8614.57,
+  redirectUrl: "https://recent-marksman.com/",
   typedSignatureEnabled: false,
+  uploadSignatureEnabled: false,
+  drawSignatureEnabled: false,
+  allowDictateNextSigner: false,
   language: "<value>",
   emailSettings: {},
 };
@@ -37,5 +40,8 @@ let value: TemplateCreateDocumentFromTemplateDocumentMeta = {
 | `documentId`                                                                                                                                       | *number*                                                                                                                                           | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
 | `redirectUrl`                                                                                                                                      | *string*                                                                                                                                           | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
 | `typedSignatureEnabled`                                                                                                                            | *boolean*                                                                                                                                          | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
+| `uploadSignatureEnabled`                                                                                                                           | *boolean*                                                                                                                                          | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
+| `drawSignatureEnabled`                                                                                                                             | *boolean*                                                                                                                                          | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
+| `allowDictateNextSigner`                                                                                                                           | *boolean*                                                                                                                                          | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
 | `language`                                                                                                                                         | *string*                                                                                                                                           | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
 | `emailSettings`                                                                                                                                    | [operations.TemplateCreateDocumentFromTemplateEmailSettings](../../models/operations/templatecreatedocumentfromtemplateemailsettings.md)           | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |

@@ -7,7 +7,7 @@ import { DocumentFindDocumentsAuthOptions } from "@documenso/sdk-typescript/mode
 
 let value: DocumentFindDocumentsAuthOptions = {
   globalAccessAuth: "ACCOUNT",
-  globalActionAuth: "TWO_FACTOR_AUTH",
+  globalActionAuth: "ACCOUNT",
 };
 ```
 

@@ -7,38 +7,30 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
-export type FieldGetDocumentFieldDocumentsFieldsResponseIssues = {
+export type FieldGetDocumentFieldInternalServerErrorIssue = {
   message: string;
 };
 
 /**
  * Internal server error
  */
-export type FieldGetDocumentFieldDocumentsFieldsResponseResponseBodyData = {
+export type FieldGetDocumentFieldInternalServerErrorData = {
   message: string;
   code: string;
-  issues?:
-    | Array<FieldGetDocumentFieldDocumentsFieldsResponseIssues>
-    | undefined;
+  issues?: Array<FieldGetDocumentFieldInternalServerErrorIssue> | undefined;
 };
 
 /**
  * Internal server error
  */
-export class FieldGetDocumentFieldDocumentsFieldsResponseResponseBody
-  extends Error
-{
+export class FieldGetDocumentFieldInternalServerError extends Error {
   code: string;
-  issues?:
-    | Array<FieldGetDocumentFieldDocumentsFieldsResponseIssues>
-    | undefined;
+  issues?: Array<FieldGetDocumentFieldInternalServerErrorIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: FieldGetDocumentFieldDocumentsFieldsResponseResponseBodyData;
+  data$: FieldGetDocumentFieldInternalServerErrorData;
 
-  constructor(
-    err: FieldGetDocumentFieldDocumentsFieldsResponseResponseBodyData,
-  ) {
+  constructor(err: FieldGetDocumentFieldInternalServerErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -48,34 +40,34 @@ export class FieldGetDocumentFieldDocumentsFieldsResponseResponseBody
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name = "FieldGetDocumentFieldDocumentsFieldsResponseResponseBody";
+    this.name = "FieldGetDocumentFieldInternalServerError";
   }
 }
 
-export type FieldGetDocumentFieldDocumentsFieldsIssues = {
+export type FieldGetDocumentFieldNotFoundIssue = {
   message: string;
 };
 
 /**
  * Not found
  */
-export type FieldGetDocumentFieldDocumentsFieldsResponseBodyData = {
+export type FieldGetDocumentFieldNotFoundErrorData = {
   message: string;
   code: string;
-  issues?: Array<FieldGetDocumentFieldDocumentsFieldsIssues> | undefined;
+  issues?: Array<FieldGetDocumentFieldNotFoundIssue> | undefined;
 };
 
 /**
  * Not found
  */
-export class FieldGetDocumentFieldDocumentsFieldsResponseBody extends Error {
+export class FieldGetDocumentFieldNotFoundError extends Error {
   code: string;
-  issues?: Array<FieldGetDocumentFieldDocumentsFieldsIssues> | undefined;
+  issues?: Array<FieldGetDocumentFieldNotFoundIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: FieldGetDocumentFieldDocumentsFieldsResponseBodyData;
+  data$: FieldGetDocumentFieldNotFoundErrorData;
 
-  constructor(err: FieldGetDocumentFieldDocumentsFieldsResponseBodyData) {
+  constructor(err: FieldGetDocumentFieldNotFoundErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -85,34 +77,34 @@ export class FieldGetDocumentFieldDocumentsFieldsResponseBody extends Error {
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name = "FieldGetDocumentFieldDocumentsFieldsResponseBody";
+    this.name = "FieldGetDocumentFieldNotFoundError";
   }
 }
 
-export type FieldGetDocumentFieldIssues = {
+export type FieldGetDocumentFieldBadRequestIssue = {
   message: string;
 };
 
 /**
  * Invalid input data
  */
-export type FieldGetDocumentFieldResponseBodyData = {
+export type FieldGetDocumentFieldBadRequestErrorData = {
   message: string;
   code: string;
-  issues?: Array<FieldGetDocumentFieldIssues> | undefined;
+  issues?: Array<FieldGetDocumentFieldBadRequestIssue> | undefined;
 };
 
 /**
  * Invalid input data
  */
-export class FieldGetDocumentFieldResponseBody extends Error {
+export class FieldGetDocumentFieldBadRequestError extends Error {
   code: string;
-  issues?: Array<FieldGetDocumentFieldIssues> | undefined;
+  issues?: Array<FieldGetDocumentFieldBadRequestIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
-  data$: FieldGetDocumentFieldResponseBodyData;
+  data$: FieldGetDocumentFieldBadRequestErrorData;
 
-  constructor(err: FieldGetDocumentFieldResponseBodyData) {
+  constructor(err: FieldGetDocumentFieldBadRequestErrorData) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
@@ -122,14 +114,14 @@ export class FieldGetDocumentFieldResponseBody extends Error {
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
-    this.name = "FieldGetDocumentFieldResponseBody";
+    this.name = "FieldGetDocumentFieldBadRequestError";
   }
 }
 
 /** @internal */
-export const FieldGetDocumentFieldDocumentsFieldsResponseIssues$inboundSchema:
+export const FieldGetDocumentFieldInternalServerErrorIssue$inboundSchema:
   z.ZodType<
-    FieldGetDocumentFieldDocumentsFieldsResponseIssues,
+    FieldGetDocumentFieldInternalServerErrorIssue,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -137,16 +129,16 @@ export const FieldGetDocumentFieldDocumentsFieldsResponseIssues$inboundSchema:
   });
 
 /** @internal */
-export type FieldGetDocumentFieldDocumentsFieldsResponseIssues$Outbound = {
+export type FieldGetDocumentFieldInternalServerErrorIssue$Outbound = {
   message: string;
 };
 
 /** @internal */
-export const FieldGetDocumentFieldDocumentsFieldsResponseIssues$outboundSchema:
+export const FieldGetDocumentFieldInternalServerErrorIssue$outboundSchema:
   z.ZodType<
-    FieldGetDocumentFieldDocumentsFieldsResponseIssues$Outbound,
+    FieldGetDocumentFieldInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
-    FieldGetDocumentFieldDocumentsFieldsResponseIssues
+    FieldGetDocumentFieldInternalServerErrorIssue
   > = z.object({
     message: z.string(),
   });
@@ -155,332 +147,319 @@ export const FieldGetDocumentFieldDocumentsFieldsResponseIssues$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldGetDocumentFieldDocumentsFieldsResponseIssues$ {
-  /** @deprecated use `FieldGetDocumentFieldDocumentsFieldsResponseIssues$inboundSchema` instead. */
+export namespace FieldGetDocumentFieldInternalServerErrorIssue$ {
+  /** @deprecated use `FieldGetDocumentFieldInternalServerErrorIssue$inboundSchema` instead. */
   export const inboundSchema =
-    FieldGetDocumentFieldDocumentsFieldsResponseIssues$inboundSchema;
-  /** @deprecated use `FieldGetDocumentFieldDocumentsFieldsResponseIssues$outboundSchema` instead. */
+    FieldGetDocumentFieldInternalServerErrorIssue$inboundSchema;
+  /** @deprecated use `FieldGetDocumentFieldInternalServerErrorIssue$outboundSchema` instead. */
   export const outboundSchema =
-    FieldGetDocumentFieldDocumentsFieldsResponseIssues$outboundSchema;
-  /** @deprecated use `FieldGetDocumentFieldDocumentsFieldsResponseIssues$Outbound` instead. */
-  export type Outbound =
-    FieldGetDocumentFieldDocumentsFieldsResponseIssues$Outbound;
+    FieldGetDocumentFieldInternalServerErrorIssue$outboundSchema;
+  /** @deprecated use `FieldGetDocumentFieldInternalServerErrorIssue$Outbound` instead. */
+  export type Outbound = FieldGetDocumentFieldInternalServerErrorIssue$Outbound;
 }
 
-export function fieldGetDocumentFieldDocumentsFieldsResponseIssuesToJSON(
-  fieldGetDocumentFieldDocumentsFieldsResponseIssues:
-    FieldGetDocumentFieldDocumentsFieldsResponseIssues,
+export function fieldGetDocumentFieldInternalServerErrorIssueToJSON(
+  fieldGetDocumentFieldInternalServerErrorIssue:
+    FieldGetDocumentFieldInternalServerErrorIssue,
 ): string {
   return JSON.stringify(
-    FieldGetDocumentFieldDocumentsFieldsResponseIssues$outboundSchema.parse(
-      fieldGetDocumentFieldDocumentsFieldsResponseIssues,
+    FieldGetDocumentFieldInternalServerErrorIssue$outboundSchema.parse(
+      fieldGetDocumentFieldInternalServerErrorIssue,
     ),
   );
 }
 
-export function fieldGetDocumentFieldDocumentsFieldsResponseIssuesFromJSON(
+export function fieldGetDocumentFieldInternalServerErrorIssueFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  FieldGetDocumentFieldDocumentsFieldsResponseIssues,
+  FieldGetDocumentFieldInternalServerErrorIssue,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      FieldGetDocumentFieldDocumentsFieldsResponseIssues$inboundSchema.parse(
+      FieldGetDocumentFieldInternalServerErrorIssue$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'FieldGetDocumentFieldDocumentsFieldsResponseIssues' from JSON`,
+    `Failed to parse 'FieldGetDocumentFieldInternalServerErrorIssue' from JSON`,
   );
 }
 
 /** @internal */
-export const FieldGetDocumentFieldDocumentsFieldsResponseResponseBody$inboundSchema:
-  z.ZodType<
-    FieldGetDocumentFieldDocumentsFieldsResponseResponseBody,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
-        FieldGetDocumentFieldDocumentsFieldsResponseIssues$inboundSchema
-      ),
-    ).optional(),
-  })
-    .transform((v) => {
-      return new FieldGetDocumentFieldDocumentsFieldsResponseResponseBody(v);
-    });
-
-/** @internal */
-export type FieldGetDocumentFieldDocumentsFieldsResponseResponseBody$Outbound =
-  {
-    message: string;
-    code: string;
-    issues?:
-      | Array<FieldGetDocumentFieldDocumentsFieldsResponseIssues$Outbound>
-      | undefined;
-  };
-
-/** @internal */
-export const FieldGetDocumentFieldDocumentsFieldsResponseResponseBody$outboundSchema:
-  z.ZodType<
-    FieldGetDocumentFieldDocumentsFieldsResponseResponseBody$Outbound,
-    z.ZodTypeDef,
-    FieldGetDocumentFieldDocumentsFieldsResponseResponseBody
-  > = z.instanceof(FieldGetDocumentFieldDocumentsFieldsResponseResponseBody)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          FieldGetDocumentFieldDocumentsFieldsResponseIssues$outboundSchema
-        ),
-      ).optional(),
-    }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldGetDocumentFieldDocumentsFieldsResponseResponseBody$ {
-  /** @deprecated use `FieldGetDocumentFieldDocumentsFieldsResponseResponseBody$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldGetDocumentFieldDocumentsFieldsResponseResponseBody$inboundSchema;
-  /** @deprecated use `FieldGetDocumentFieldDocumentsFieldsResponseResponseBody$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldGetDocumentFieldDocumentsFieldsResponseResponseBody$outboundSchema;
-  /** @deprecated use `FieldGetDocumentFieldDocumentsFieldsResponseResponseBody$Outbound` instead. */
-  export type Outbound =
-    FieldGetDocumentFieldDocumentsFieldsResponseResponseBody$Outbound;
-}
-
-/** @internal */
-export const FieldGetDocumentFieldDocumentsFieldsIssues$inboundSchema:
-  z.ZodType<FieldGetDocumentFieldDocumentsFieldsIssues, z.ZodTypeDef, unknown> =
-    z.object({
-      message: z.string(),
-    });
-
-/** @internal */
-export type FieldGetDocumentFieldDocumentsFieldsIssues$Outbound = {
-  message: string;
-};
-
-/** @internal */
-export const FieldGetDocumentFieldDocumentsFieldsIssues$outboundSchema:
-  z.ZodType<
-    FieldGetDocumentFieldDocumentsFieldsIssues$Outbound,
-    z.ZodTypeDef,
-    FieldGetDocumentFieldDocumentsFieldsIssues
-  > = z.object({
-    message: z.string(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldGetDocumentFieldDocumentsFieldsIssues$ {
-  /** @deprecated use `FieldGetDocumentFieldDocumentsFieldsIssues$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldGetDocumentFieldDocumentsFieldsIssues$inboundSchema;
-  /** @deprecated use `FieldGetDocumentFieldDocumentsFieldsIssues$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldGetDocumentFieldDocumentsFieldsIssues$outboundSchema;
-  /** @deprecated use `FieldGetDocumentFieldDocumentsFieldsIssues$Outbound` instead. */
-  export type Outbound = FieldGetDocumentFieldDocumentsFieldsIssues$Outbound;
-}
-
-export function fieldGetDocumentFieldDocumentsFieldsIssuesToJSON(
-  fieldGetDocumentFieldDocumentsFieldsIssues:
-    FieldGetDocumentFieldDocumentsFieldsIssues,
-): string {
-  return JSON.stringify(
-    FieldGetDocumentFieldDocumentsFieldsIssues$outboundSchema.parse(
-      fieldGetDocumentFieldDocumentsFieldsIssues,
-    ),
-  );
-}
-
-export function fieldGetDocumentFieldDocumentsFieldsIssuesFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  FieldGetDocumentFieldDocumentsFieldsIssues,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      FieldGetDocumentFieldDocumentsFieldsIssues$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'FieldGetDocumentFieldDocumentsFieldsIssues' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldGetDocumentFieldDocumentsFieldsResponseBody$inboundSchema:
-  z.ZodType<
-    FieldGetDocumentFieldDocumentsFieldsResponseBody,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => FieldGetDocumentFieldDocumentsFieldsIssues$inboundSchema),
-    ).optional(),
-  })
-    .transform((v) => {
-      return new FieldGetDocumentFieldDocumentsFieldsResponseBody(v);
-    });
-
-/** @internal */
-export type FieldGetDocumentFieldDocumentsFieldsResponseBody$Outbound = {
-  message: string;
-  code: string;
-  issues?:
-    | Array<FieldGetDocumentFieldDocumentsFieldsIssues$Outbound>
-    | undefined;
-};
-
-/** @internal */
-export const FieldGetDocumentFieldDocumentsFieldsResponseBody$outboundSchema:
-  z.ZodType<
-    FieldGetDocumentFieldDocumentsFieldsResponseBody$Outbound,
-    z.ZodTypeDef,
-    FieldGetDocumentFieldDocumentsFieldsResponseBody
-  > = z.instanceof(FieldGetDocumentFieldDocumentsFieldsResponseBody)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() => FieldGetDocumentFieldDocumentsFieldsIssues$outboundSchema),
-      ).optional(),
-    }));
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldGetDocumentFieldDocumentsFieldsResponseBody$ {
-  /** @deprecated use `FieldGetDocumentFieldDocumentsFieldsResponseBody$inboundSchema` instead. */
-  export const inboundSchema =
-    FieldGetDocumentFieldDocumentsFieldsResponseBody$inboundSchema;
-  /** @deprecated use `FieldGetDocumentFieldDocumentsFieldsResponseBody$outboundSchema` instead. */
-  export const outboundSchema =
-    FieldGetDocumentFieldDocumentsFieldsResponseBody$outboundSchema;
-  /** @deprecated use `FieldGetDocumentFieldDocumentsFieldsResponseBody$Outbound` instead. */
-  export type Outbound =
-    FieldGetDocumentFieldDocumentsFieldsResponseBody$Outbound;
-}
-
-/** @internal */
-export const FieldGetDocumentFieldIssues$inboundSchema: z.ZodType<
-  FieldGetDocumentFieldIssues,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  message: z.string(),
-});
-
-/** @internal */
-export type FieldGetDocumentFieldIssues$Outbound = {
-  message: string;
-};
-
-/** @internal */
-export const FieldGetDocumentFieldIssues$outboundSchema: z.ZodType<
-  FieldGetDocumentFieldIssues$Outbound,
-  z.ZodTypeDef,
-  FieldGetDocumentFieldIssues
-> = z.object({
-  message: z.string(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FieldGetDocumentFieldIssues$ {
-  /** @deprecated use `FieldGetDocumentFieldIssues$inboundSchema` instead. */
-  export const inboundSchema = FieldGetDocumentFieldIssues$inboundSchema;
-  /** @deprecated use `FieldGetDocumentFieldIssues$outboundSchema` instead. */
-  export const outboundSchema = FieldGetDocumentFieldIssues$outboundSchema;
-  /** @deprecated use `FieldGetDocumentFieldIssues$Outbound` instead. */
-  export type Outbound = FieldGetDocumentFieldIssues$Outbound;
-}
-
-export function fieldGetDocumentFieldIssuesToJSON(
-  fieldGetDocumentFieldIssues: FieldGetDocumentFieldIssues,
-): string {
-  return JSON.stringify(
-    FieldGetDocumentFieldIssues$outboundSchema.parse(
-      fieldGetDocumentFieldIssues,
-    ),
-  );
-}
-
-export function fieldGetDocumentFieldIssuesFromJSON(
-  jsonString: string,
-): SafeParseResult<FieldGetDocumentFieldIssues, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => FieldGetDocumentFieldIssues$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FieldGetDocumentFieldIssues' from JSON`,
-  );
-}
-
-/** @internal */
-export const FieldGetDocumentFieldResponseBody$inboundSchema: z.ZodType<
-  FieldGetDocumentFieldResponseBody,
+export const FieldGetDocumentFieldInternalServerError$inboundSchema: z.ZodType<
+  FieldGetDocumentFieldInternalServerError,
   z.ZodTypeDef,
   unknown
 > = z.object({
   message: z.string(),
   code: z.string(),
-  issues: z.array(z.lazy(() => FieldGetDocumentFieldIssues$inboundSchema))
-    .optional(),
+  issues: z.array(
+    z.lazy(() => FieldGetDocumentFieldInternalServerErrorIssue$inboundSchema),
+  ).optional(),
 })
   .transform((v) => {
-    return new FieldGetDocumentFieldResponseBody(v);
+    return new FieldGetDocumentFieldInternalServerError(v);
   });
 
 /** @internal */
-export type FieldGetDocumentFieldResponseBody$Outbound = {
+export type FieldGetDocumentFieldInternalServerError$Outbound = {
   message: string;
   code: string;
-  issues?: Array<FieldGetDocumentFieldIssues$Outbound> | undefined;
+  issues?:
+    | Array<FieldGetDocumentFieldInternalServerErrorIssue$Outbound>
+    | undefined;
 };
 
 /** @internal */
-export const FieldGetDocumentFieldResponseBody$outboundSchema: z.ZodType<
-  FieldGetDocumentFieldResponseBody$Outbound,
+export const FieldGetDocumentFieldInternalServerError$outboundSchema: z.ZodType<
+  FieldGetDocumentFieldInternalServerError$Outbound,
   z.ZodTypeDef,
-  FieldGetDocumentFieldResponseBody
-> = z.instanceof(FieldGetDocumentFieldResponseBody)
+  FieldGetDocumentFieldInternalServerError
+> = z.instanceof(FieldGetDocumentFieldInternalServerError)
   .transform(v => v.data$)
   .pipe(z.object({
     message: z.string(),
     code: z.string(),
-    issues: z.array(z.lazy(() => FieldGetDocumentFieldIssues$outboundSchema))
-      .optional(),
+    issues: z.array(
+      z.lazy(() =>
+        FieldGetDocumentFieldInternalServerErrorIssue$outboundSchema
+      ),
+    ).optional(),
   }));
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldGetDocumentFieldResponseBody$ {
-  /** @deprecated use `FieldGetDocumentFieldResponseBody$inboundSchema` instead. */
-  export const inboundSchema = FieldGetDocumentFieldResponseBody$inboundSchema;
-  /** @deprecated use `FieldGetDocumentFieldResponseBody$outboundSchema` instead. */
+export namespace FieldGetDocumentFieldInternalServerError$ {
+  /** @deprecated use `FieldGetDocumentFieldInternalServerError$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldGetDocumentFieldInternalServerError$inboundSchema;
+  /** @deprecated use `FieldGetDocumentFieldInternalServerError$outboundSchema` instead. */
   export const outboundSchema =
-    FieldGetDocumentFieldResponseBody$outboundSchema;
-  /** @deprecated use `FieldGetDocumentFieldResponseBody$Outbound` instead. */
-  export type Outbound = FieldGetDocumentFieldResponseBody$Outbound;
+    FieldGetDocumentFieldInternalServerError$outboundSchema;
+  /** @deprecated use `FieldGetDocumentFieldInternalServerError$Outbound` instead. */
+  export type Outbound = FieldGetDocumentFieldInternalServerError$Outbound;
+}
+
+/** @internal */
+export const FieldGetDocumentFieldNotFoundIssue$inboundSchema: z.ZodType<
+  FieldGetDocumentFieldNotFoundIssue,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  message: z.string(),
+});
+
+/** @internal */
+export type FieldGetDocumentFieldNotFoundIssue$Outbound = {
+  message: string;
+};
+
+/** @internal */
+export const FieldGetDocumentFieldNotFoundIssue$outboundSchema: z.ZodType<
+  FieldGetDocumentFieldNotFoundIssue$Outbound,
+  z.ZodTypeDef,
+  FieldGetDocumentFieldNotFoundIssue
+> = z.object({
+  message: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldGetDocumentFieldNotFoundIssue$ {
+  /** @deprecated use `FieldGetDocumentFieldNotFoundIssue$inboundSchema` instead. */
+  export const inboundSchema = FieldGetDocumentFieldNotFoundIssue$inboundSchema;
+  /** @deprecated use `FieldGetDocumentFieldNotFoundIssue$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldGetDocumentFieldNotFoundIssue$outboundSchema;
+  /** @deprecated use `FieldGetDocumentFieldNotFoundIssue$Outbound` instead. */
+  export type Outbound = FieldGetDocumentFieldNotFoundIssue$Outbound;
+}
+
+export function fieldGetDocumentFieldNotFoundIssueToJSON(
+  fieldGetDocumentFieldNotFoundIssue: FieldGetDocumentFieldNotFoundIssue,
+): string {
+  return JSON.stringify(
+    FieldGetDocumentFieldNotFoundIssue$outboundSchema.parse(
+      fieldGetDocumentFieldNotFoundIssue,
+    ),
+  );
+}
+
+export function fieldGetDocumentFieldNotFoundIssueFromJSON(
+  jsonString: string,
+): SafeParseResult<FieldGetDocumentFieldNotFoundIssue, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldGetDocumentFieldNotFoundIssue$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldGetDocumentFieldNotFoundIssue' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldGetDocumentFieldNotFoundError$inboundSchema: z.ZodType<
+  FieldGetDocumentFieldNotFoundError,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  message: z.string(),
+  code: z.string(),
+  issues: z.array(
+    z.lazy(() => FieldGetDocumentFieldNotFoundIssue$inboundSchema),
+  ).optional(),
+})
+  .transform((v) => {
+    return new FieldGetDocumentFieldNotFoundError(v);
+  });
+
+/** @internal */
+export type FieldGetDocumentFieldNotFoundError$Outbound = {
+  message: string;
+  code: string;
+  issues?: Array<FieldGetDocumentFieldNotFoundIssue$Outbound> | undefined;
+};
+
+/** @internal */
+export const FieldGetDocumentFieldNotFoundError$outboundSchema: z.ZodType<
+  FieldGetDocumentFieldNotFoundError$Outbound,
+  z.ZodTypeDef,
+  FieldGetDocumentFieldNotFoundError
+> = z.instanceof(FieldGetDocumentFieldNotFoundError)
+  .transform(v => v.data$)
+  .pipe(z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => FieldGetDocumentFieldNotFoundIssue$outboundSchema),
+    ).optional(),
+  }));
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldGetDocumentFieldNotFoundError$ {
+  /** @deprecated use `FieldGetDocumentFieldNotFoundError$inboundSchema` instead. */
+  export const inboundSchema = FieldGetDocumentFieldNotFoundError$inboundSchema;
+  /** @deprecated use `FieldGetDocumentFieldNotFoundError$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldGetDocumentFieldNotFoundError$outboundSchema;
+  /** @deprecated use `FieldGetDocumentFieldNotFoundError$Outbound` instead. */
+  export type Outbound = FieldGetDocumentFieldNotFoundError$Outbound;
+}
+
+/** @internal */
+export const FieldGetDocumentFieldBadRequestIssue$inboundSchema: z.ZodType<
+  FieldGetDocumentFieldBadRequestIssue,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  message: z.string(),
+});
+
+/** @internal */
+export type FieldGetDocumentFieldBadRequestIssue$Outbound = {
+  message: string;
+};
+
+/** @internal */
+export const FieldGetDocumentFieldBadRequestIssue$outboundSchema: z.ZodType<
+  FieldGetDocumentFieldBadRequestIssue$Outbound,
+  z.ZodTypeDef,
+  FieldGetDocumentFieldBadRequestIssue
+> = z.object({
+  message: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldGetDocumentFieldBadRequestIssue$ {
+  /** @deprecated use `FieldGetDocumentFieldBadRequestIssue$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldGetDocumentFieldBadRequestIssue$inboundSchema;
+  /** @deprecated use `FieldGetDocumentFieldBadRequestIssue$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldGetDocumentFieldBadRequestIssue$outboundSchema;
+  /** @deprecated use `FieldGetDocumentFieldBadRequestIssue$Outbound` instead. */
+  export type Outbound = FieldGetDocumentFieldBadRequestIssue$Outbound;
+}
+
+export function fieldGetDocumentFieldBadRequestIssueToJSON(
+  fieldGetDocumentFieldBadRequestIssue: FieldGetDocumentFieldBadRequestIssue,
+): string {
+  return JSON.stringify(
+    FieldGetDocumentFieldBadRequestIssue$outboundSchema.parse(
+      fieldGetDocumentFieldBadRequestIssue,
+    ),
+  );
+}
+
+export function fieldGetDocumentFieldBadRequestIssueFromJSON(
+  jsonString: string,
+): SafeParseResult<FieldGetDocumentFieldBadRequestIssue, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      FieldGetDocumentFieldBadRequestIssue$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FieldGetDocumentFieldBadRequestIssue' from JSON`,
+  );
+}
+
+/** @internal */
+export const FieldGetDocumentFieldBadRequestError$inboundSchema: z.ZodType<
+  FieldGetDocumentFieldBadRequestError,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  message: z.string(),
+  code: z.string(),
+  issues: z.array(
+    z.lazy(() => FieldGetDocumentFieldBadRequestIssue$inboundSchema),
+  ).optional(),
+})
+  .transform((v) => {
+    return new FieldGetDocumentFieldBadRequestError(v);
+  });
+
+/** @internal */
+export type FieldGetDocumentFieldBadRequestError$Outbound = {
+  message: string;
+  code: string;
+  issues?: Array<FieldGetDocumentFieldBadRequestIssue$Outbound> | undefined;
+};
+
+/** @internal */
+export const FieldGetDocumentFieldBadRequestError$outboundSchema: z.ZodType<
+  FieldGetDocumentFieldBadRequestError$Outbound,
+  z.ZodTypeDef,
+  FieldGetDocumentFieldBadRequestError
+> = z.instanceof(FieldGetDocumentFieldBadRequestError)
+  .transform(v => v.data$)
+  .pipe(z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => FieldGetDocumentFieldBadRequestIssue$outboundSchema),
+    ).optional(),
+  }));
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldGetDocumentFieldBadRequestError$ {
+  /** @deprecated use `FieldGetDocumentFieldBadRequestError$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldGetDocumentFieldBadRequestError$inboundSchema;
+  /** @deprecated use `FieldGetDocumentFieldBadRequestError$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldGetDocumentFieldBadRequestError$outboundSchema;
+  /** @deprecated use `FieldGetDocumentFieldBadRequestError$Outbound` instead. */
+  export type Outbound = FieldGetDocumentFieldBadRequestError$Outbound;
 }

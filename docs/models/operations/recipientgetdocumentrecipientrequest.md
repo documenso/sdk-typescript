@@ -6,7 +6,7 @@
 import { RecipientGetDocumentRecipientRequest } from "@documenso/sdk-typescript/models/operations";
 
 let value: RecipientGetDocumentRecipientRequest = {
-  recipientId: 9673.38,
+  recipientId: 5605.56,
 };
 ```
 

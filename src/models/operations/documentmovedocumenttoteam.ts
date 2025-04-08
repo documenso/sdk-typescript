@@ -8,7 +8,7 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type DocumentMoveDocumentToTeamRequestBody = {
+export type DocumentMoveDocumentToTeamRequest = {
   /**
    * The ID of the document to move to a team.
    */
@@ -32,6 +32,7 @@ export const DocumentMoveDocumentToTeamStatus = {
   Draft: "DRAFT",
   Pending: "PENDING",
   Completed: "COMPLETED",
+  Rejected: "REJECTED",
 } as const;
 export type DocumentMoveDocumentToTeamStatus = ClosedEnum<
   typeof DocumentMoveDocumentToTeamStatus
@@ -90,7 +91,7 @@ export type DocumentMoveDocumentToTeamFormValues = string | boolean | number;
 /**
  * Successful response
  */
-export type DocumentMoveDocumentToTeamResponseBody = {
+export type DocumentMoveDocumentToTeamResponse = {
   visibility: DocumentMoveDocumentToTeamVisibility;
   status: DocumentMoveDocumentToTeamStatus;
   source: DocumentMoveDocumentToTeamSource;
@@ -116,8 +117,8 @@ export type DocumentMoveDocumentToTeamResponseBody = {
 };
 
 /** @internal */
-export const DocumentMoveDocumentToTeamRequestBody$inboundSchema: z.ZodType<
-  DocumentMoveDocumentToTeamRequestBody,
+export const DocumentMoveDocumentToTeamRequest$inboundSchema: z.ZodType<
+  DocumentMoveDocumentToTeamRequest,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -126,16 +127,16 @@ export const DocumentMoveDocumentToTeamRequestBody$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type DocumentMoveDocumentToTeamRequestBody$Outbound = {
+export type DocumentMoveDocumentToTeamRequest$Outbound = {
   documentId: number;
   teamId: number;
 };
 
 /** @internal */
-export const DocumentMoveDocumentToTeamRequestBody$outboundSchema: z.ZodType<
-  DocumentMoveDocumentToTeamRequestBody$Outbound,
+export const DocumentMoveDocumentToTeamRequest$outboundSchema: z.ZodType<
+  DocumentMoveDocumentToTeamRequest$Outbound,
   z.ZodTypeDef,
-  DocumentMoveDocumentToTeamRequestBody
+  DocumentMoveDocumentToTeamRequest
 > = z.object({
   documentId: z.number(),
   teamId: z.number(),
@@ -145,35 +146,33 @@ export const DocumentMoveDocumentToTeamRequestBody$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentMoveDocumentToTeamRequestBody$ {
-  /** @deprecated use `DocumentMoveDocumentToTeamRequestBody$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentMoveDocumentToTeamRequestBody$inboundSchema;
-  /** @deprecated use `DocumentMoveDocumentToTeamRequestBody$outboundSchema` instead. */
+export namespace DocumentMoveDocumentToTeamRequest$ {
+  /** @deprecated use `DocumentMoveDocumentToTeamRequest$inboundSchema` instead. */
+  export const inboundSchema = DocumentMoveDocumentToTeamRequest$inboundSchema;
+  /** @deprecated use `DocumentMoveDocumentToTeamRequest$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentMoveDocumentToTeamRequestBody$outboundSchema;
-  /** @deprecated use `DocumentMoveDocumentToTeamRequestBody$Outbound` instead. */
-  export type Outbound = DocumentMoveDocumentToTeamRequestBody$Outbound;
+    DocumentMoveDocumentToTeamRequest$outboundSchema;
+  /** @deprecated use `DocumentMoveDocumentToTeamRequest$Outbound` instead. */
+  export type Outbound = DocumentMoveDocumentToTeamRequest$Outbound;
 }
 
-export function documentMoveDocumentToTeamRequestBodyToJSON(
-  documentMoveDocumentToTeamRequestBody: DocumentMoveDocumentToTeamRequestBody,
+export function documentMoveDocumentToTeamRequestToJSON(
+  documentMoveDocumentToTeamRequest: DocumentMoveDocumentToTeamRequest,
 ): string {
   return JSON.stringify(
-    DocumentMoveDocumentToTeamRequestBody$outboundSchema.parse(
-      documentMoveDocumentToTeamRequestBody,
+    DocumentMoveDocumentToTeamRequest$outboundSchema.parse(
+      documentMoveDocumentToTeamRequest,
     ),
   );
 }
 
-export function documentMoveDocumentToTeamRequestBodyFromJSON(
+export function documentMoveDocumentToTeamRequestFromJSON(
   jsonString: string,
-): SafeParseResult<DocumentMoveDocumentToTeamRequestBody, SDKValidationError> {
+): SafeParseResult<DocumentMoveDocumentToTeamRequest, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      DocumentMoveDocumentToTeamRequestBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DocumentMoveDocumentToTeamRequestBody' from JSON`,
+    (x) => DocumentMoveDocumentToTeamRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentMoveDocumentToTeamRequest' from JSON`,
   );
 }
 
@@ -416,15 +415,15 @@ export function documentMoveDocumentToTeamFormValuesFromJSON(
 }
 
 /** @internal */
-export const DocumentMoveDocumentToTeamResponseBody$inboundSchema: z.ZodType<
-  DocumentMoveDocumentToTeamResponseBody,
+export const DocumentMoveDocumentToTeamResponse$inboundSchema: z.ZodType<
+  DocumentMoveDocumentToTeamResponse,
   z.ZodTypeDef,
   unknown
 > = z.object({
   visibility: DocumentMoveDocumentToTeamVisibility$inboundSchema,
   status: DocumentMoveDocumentToTeamStatus$inboundSchema,
   source: DocumentMoveDocumentToTeamSource$inboundSchema,
-  id: z.number().int(),
+  id: z.number(),
   externalId: z.nullable(z.string()),
   userId: z.number(),
   authOptions: z.nullable(
@@ -439,12 +438,12 @@ export const DocumentMoveDocumentToTeamResponseBody$inboundSchema: z.ZodType<
   updatedAt: z.string(),
   completedAt: z.nullable(z.string()),
   deletedAt: z.nullable(z.string()),
-  teamId: z.nullable(z.number().int()),
-  templateId: z.nullable(z.number().int()),
+  teamId: z.nullable(z.number()),
+  templateId: z.nullable(z.number()),
 });
 
 /** @internal */
-export type DocumentMoveDocumentToTeamResponseBody$Outbound = {
+export type DocumentMoveDocumentToTeamResponse$Outbound = {
   visibility: string;
   status: string;
   source: string;
@@ -464,15 +463,15 @@ export type DocumentMoveDocumentToTeamResponseBody$Outbound = {
 };
 
 /** @internal */
-export const DocumentMoveDocumentToTeamResponseBody$outboundSchema: z.ZodType<
-  DocumentMoveDocumentToTeamResponseBody$Outbound,
+export const DocumentMoveDocumentToTeamResponse$outboundSchema: z.ZodType<
+  DocumentMoveDocumentToTeamResponse$Outbound,
   z.ZodTypeDef,
-  DocumentMoveDocumentToTeamResponseBody
+  DocumentMoveDocumentToTeamResponse
 > = z.object({
   visibility: DocumentMoveDocumentToTeamVisibility$outboundSchema,
   status: DocumentMoveDocumentToTeamStatus$outboundSchema,
   source: DocumentMoveDocumentToTeamSource$outboundSchema,
-  id: z.number().int(),
+  id: z.number(),
   externalId: z.nullable(z.string()),
   userId: z.number(),
   authOptions: z.nullable(
@@ -487,43 +486,41 @@ export const DocumentMoveDocumentToTeamResponseBody$outboundSchema: z.ZodType<
   updatedAt: z.string(),
   completedAt: z.nullable(z.string()),
   deletedAt: z.nullable(z.string()),
-  teamId: z.nullable(z.number().int()),
-  templateId: z.nullable(z.number().int()),
+  teamId: z.nullable(z.number()),
+  templateId: z.nullable(z.number()),
 });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentMoveDocumentToTeamResponseBody$ {
-  /** @deprecated use `DocumentMoveDocumentToTeamResponseBody$inboundSchema` instead. */
-  export const inboundSchema =
-    DocumentMoveDocumentToTeamResponseBody$inboundSchema;
-  /** @deprecated use `DocumentMoveDocumentToTeamResponseBody$outboundSchema` instead. */
+export namespace DocumentMoveDocumentToTeamResponse$ {
+  /** @deprecated use `DocumentMoveDocumentToTeamResponse$inboundSchema` instead. */
+  export const inboundSchema = DocumentMoveDocumentToTeamResponse$inboundSchema;
+  /** @deprecated use `DocumentMoveDocumentToTeamResponse$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentMoveDocumentToTeamResponseBody$outboundSchema;
-  /** @deprecated use `DocumentMoveDocumentToTeamResponseBody$Outbound` instead. */
-  export type Outbound = DocumentMoveDocumentToTeamResponseBody$Outbound;
+    DocumentMoveDocumentToTeamResponse$outboundSchema;
+  /** @deprecated use `DocumentMoveDocumentToTeamResponse$Outbound` instead. */
+  export type Outbound = DocumentMoveDocumentToTeamResponse$Outbound;
 }
 
-export function documentMoveDocumentToTeamResponseBodyToJSON(
-  documentMoveDocumentToTeamResponseBody:
-    DocumentMoveDocumentToTeamResponseBody,
+export function documentMoveDocumentToTeamResponseToJSON(
+  documentMoveDocumentToTeamResponse: DocumentMoveDocumentToTeamResponse,
 ): string {
   return JSON.stringify(
-    DocumentMoveDocumentToTeamResponseBody$outboundSchema.parse(
-      documentMoveDocumentToTeamResponseBody,
+    DocumentMoveDocumentToTeamResponse$outboundSchema.parse(
+      documentMoveDocumentToTeamResponse,
     ),
   );
 }
 
-export function documentMoveDocumentToTeamResponseBodyFromJSON(
+export function documentMoveDocumentToTeamResponseFromJSON(
   jsonString: string,
-): SafeParseResult<DocumentMoveDocumentToTeamResponseBody, SDKValidationError> {
+): SafeParseResult<DocumentMoveDocumentToTeamResponse, SDKValidationError> {
   return safeParse(
     jsonString,
     (x) =>
-      DocumentMoveDocumentToTeamResponseBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DocumentMoveDocumentToTeamResponseBody' from JSON`,
+      DocumentMoveDocumentToTeamResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentMoveDocumentToTeamResponse' from JSON`,
   );
 }

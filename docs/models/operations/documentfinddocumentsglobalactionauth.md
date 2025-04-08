@@ -7,7 +7,7 @@ The type of authentication required for the recipient to sign the document. This
 ```typescript
 import { DocumentFindDocumentsGlobalActionAuth } from "@documenso/sdk-typescript/models/operations";
 
-let value: DocumentFindDocumentsGlobalActionAuth = "PASSKEY";
+let value: DocumentFindDocumentsGlobalActionAuth = "TWO_FACTOR_AUTH";
 ```
 
 ## Values

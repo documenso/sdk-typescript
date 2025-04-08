@@ -6,7 +6,7 @@
 import { TemplateGetTemplateByIdRequest } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateGetTemplateByIdRequest = {
-  templateId: 3051.89,
+  templateId: 3184.43,
 };
 ```
 

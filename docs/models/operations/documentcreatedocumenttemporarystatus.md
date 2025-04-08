@@ -11,5 +11,5 @@ let value: DocumentCreateDocumentTemporaryStatus = "DRAFT";
 ## Values
 
 ```typescript
-"DRAFT" | "PENDING" | "COMPLETED"
+"DRAFT" | "PENDING" | "COMPLETED" | "REJECTED"
 ```

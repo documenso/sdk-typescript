@@ -7,7 +7,7 @@ import { DocumentSendDocumentAuthOptions } from "@documenso/sdk-typescript/model
 
 let value: DocumentSendDocumentAuthOptions = {
   globalAccessAuth: "ACCOUNT",
-  globalActionAuth: "ACCOUNT",
+  globalActionAuth: "PASSKEY",
 };
 ```
 

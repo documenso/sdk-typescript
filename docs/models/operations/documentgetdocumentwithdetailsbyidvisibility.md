@@ -5,7 +5,7 @@
 ```typescript
 import { DocumentGetDocumentWithDetailsByIdVisibility } from "@documenso/sdk-typescript/models/operations";
 
-let value: DocumentGetDocumentWithDetailsByIdVisibility = "MANAGER_AND_ABOVE";
+let value: DocumentGetDocumentWithDetailsByIdVisibility = "EVERYONE";
 ```
 
 ## Values

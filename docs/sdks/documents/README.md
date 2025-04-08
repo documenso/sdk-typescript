@@ -29,9 +29,7 @@ const documenso = new Documenso({
 });
 
 async function run() {
-  const result = await documenso.documents.find({
-    orderByDirection: "desc",
-  });
+  const result = await documenso.documents.find({});
 
   // Handle the result
   console.log(result);
@@ -55,9 +53,7 @@ const documenso = new DocumensoCore({
 });
 
 async function run() {
-  const res = await documentsFind(documenso, {
-    orderByDirection: "desc",
-  });
+  const res = await documentsFind(documenso, {});
 
   if (!res.ok) {
     throw res.error;
@@ -83,16 +79,16 @@ run();
 
 ### Response
 
-**Promise\<[operations.DocumentFindDocumentsResponseBody](../../models/operations/documentfinddocumentsresponsebody.md)\>**
+**Promise\<[operations.DocumentFindDocumentsResponse](../../models/operations/documentfinddocumentsresponse.md)\>**
 
 ### Errors
 
-| Error Type                                                | Status Code                                               | Content Type                                              |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| errors.DocumentFindDocumentsResponseBody                  | 400                                                       | application/json                                          |
-| errors.DocumentFindDocumentsDocumentsResponseBody         | 404                                                       | application/json                                          |
-| errors.DocumentFindDocumentsDocumentsResponseResponseBody | 500                                                       | application/json                                          |
-| errors.APIError                                           | 4XX, 5XX                                                  | \*/\*                                                     |
+| Error Type                                      | Status Code                                     | Content Type                                    |
+| ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
+| errors.DocumentFindDocumentsBadRequestError     | 400                                             | application/json                                |
+| errors.DocumentFindDocumentsNotFoundError       | 404                                             | application/json                                |
+| errors.DocumentFindDocumentsInternalServerError | 500                                             | application/json                                |
+| errors.APIError                                 | 4XX, 5XX                                        | \*/\*                                           |
 
 ## get
 
@@ -162,16 +158,16 @@ run();
 
 ### Response
 
-**Promise\<[operations.DocumentGetDocumentWithDetailsByIdResponseBody](../../models/operations/documentgetdocumentwithdetailsbyidresponsebody.md)\>**
+**Promise\<[operations.DocumentGetDocumentWithDetailsByIdResponse](../../models/operations/documentgetdocumentwithdetailsbyidresponse.md)\>**
 
 ### Errors
 
-| Error Type                                                             | Status Code                                                            | Content Type                                                           |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| errors.DocumentGetDocumentWithDetailsByIdResponseBody                  | 400                                                                    | application/json                                                       |
-| errors.DocumentGetDocumentWithDetailsByIdDocumentsResponseBody         | 404                                                                    | application/json                                                       |
-| errors.DocumentGetDocumentWithDetailsByIdDocumentsResponseResponseBody | 500                                                                    | application/json                                                       |
-| errors.APIError                                                        | 4XX, 5XX                                                               | \*/\*                                                                  |
+| Error Type                                                   | Status Code                                                  | Content Type                                                 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| errors.DocumentGetDocumentWithDetailsByIdBadRequestError     | 400                                                          | application/json                                             |
+| errors.DocumentGetDocumentWithDetailsByIdNotFoundError       | 404                                                          | application/json                                             |
+| errors.DocumentGetDocumentWithDetailsByIdInternalServerError | 500                                                          | application/json                                             |
+| errors.APIError                                              | 4XX, 5XX                                                     | \*/\*                                                        |
 
 ## createV0
 
@@ -234,22 +230,22 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.DocumentCreateDocumentTemporaryRequestBody](../../models/operations/documentcreatedocumenttemporaryrequestbody.md)                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.DocumentCreateDocumentTemporaryRequest](../../models/operations/documentcreatedocumenttemporaryrequest.md)                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[operations.DocumentCreateDocumentTemporaryResponseBody](../../models/operations/documentcreatedocumenttemporaryresponsebody.md)\>**
+**Promise\<[operations.DocumentCreateDocumentTemporaryResponse](../../models/operations/documentcreatedocumenttemporaryresponse.md)\>**
 
 ### Errors
 
-| Error Type                                                  | Status Code                                                 | Content Type                                                |
-| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
-| errors.DocumentCreateDocumentTemporaryResponseBody          | 400                                                         | application/json                                            |
-| errors.DocumentCreateDocumentTemporaryDocumentsResponseBody | 500                                                         | application/json                                            |
-| errors.APIError                                             | 4XX, 5XX                                                    | \*/\*                                                       |
+| Error Type                                                | Status Code                                               | Content Type                                              |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| errors.DocumentCreateDocumentTemporaryBadRequestError     | 400                                                       | application/json                                          |
+| errors.DocumentCreateDocumentTemporaryInternalServerError | 500                                                       | application/json                                          |
+| errors.APIError                                           | 4XX, 5XX                                                  | \*/\*                                                     |
 
 ## update
 
@@ -312,22 +308,22 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.DocumentSetSettingsForDocumentRequestBody](../../models/operations/documentsetsettingsfordocumentrequestbody.md)                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.DocumentUpdateDocumentRequest](../../models/operations/documentupdatedocumentrequest.md)                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[operations.DocumentSetSettingsForDocumentResponseBody](../../models/operations/documentsetsettingsfordocumentresponsebody.md)\>**
+**Promise\<[operations.DocumentUpdateDocumentResponse](../../models/operations/documentupdatedocumentresponse.md)\>**
 
 ### Errors
 
-| Error Type                                                 | Status Code                                                | Content Type                                               |
-| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
-| errors.DocumentSetSettingsForDocumentResponseBody          | 400                                                        | application/json                                           |
-| errors.DocumentSetSettingsForDocumentDocumentsResponseBody | 500                                                        | application/json                                           |
-| errors.APIError                                            | 4XX, 5XX                                                   | \*/\*                                                      |
+| Error Type                                       | Status Code                                      | Content Type                                     |
+| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
+| errors.DocumentUpdateDocumentBadRequestError     | 400                                              | application/json                                 |
+| errors.DocumentUpdateDocumentInternalServerError | 500                                              | application/json                                 |
+| errors.APIError                                  | 4XX, 5XX                                         | \*/\*                                            |
 
 ## delete
 
@@ -390,22 +386,22 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.DocumentDeleteDocumentRequestBody](../../models/operations/documentdeletedocumentrequestbody.md)                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.DocumentDeleteDocumentRequest](../../models/operations/documentdeletedocumentrequest.md)                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[operations.DocumentDeleteDocumentResponseBody](../../models/operations/documentdeletedocumentresponsebody.md)\>**
+**Promise\<[operations.DocumentDeleteDocumentResponse](../../models/operations/documentdeletedocumentresponse.md)\>**
 
 ### Errors
 
-| Error Type                                         | Status Code                                        | Content Type                                       |
-| -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
-| errors.DocumentDeleteDocumentResponseBody          | 400                                                | application/json                                   |
-| errors.DocumentDeleteDocumentDocumentsResponseBody | 500                                                | application/json                                   |
-| errors.APIError                                    | 4XX, 5XX                                           | \*/\*                                              |
+| Error Type                                       | Status Code                                      | Content Type                                     |
+| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
+| errors.DocumentDeleteDocumentBadRequestError     | 400                                              | application/json                                 |
+| errors.DocumentDeleteDocumentInternalServerError | 500                                              | application/json                                 |
+| errors.APIError                                  | 4XX, 5XX                                         | \*/\*                                            |
 
 ## moveToTeam
 
@@ -470,22 +466,22 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.DocumentMoveDocumentToTeamRequestBody](../../models/operations/documentmovedocumenttoteamrequestbody.md)                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.DocumentMoveDocumentToTeamRequest](../../models/operations/documentmovedocumenttoteamrequest.md)                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[operations.DocumentMoveDocumentToTeamResponseBody](../../models/operations/documentmovedocumenttoteamresponsebody.md)\>**
+**Promise\<[operations.DocumentMoveDocumentToTeamResponse](../../models/operations/documentmovedocumenttoteamresponse.md)\>**
 
 ### Errors
 
-| Error Type                                             | Status Code                                            | Content Type                                           |
-| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
-| errors.DocumentMoveDocumentToTeamResponseBody          | 400                                                    | application/json                                       |
-| errors.DocumentMoveDocumentToTeamDocumentsResponseBody | 500                                                    | application/json                                       |
-| errors.APIError                                        | 4XX, 5XX                                               | \*/\*                                                  |
+| Error Type                                           | Status Code                                          | Content Type                                         |
+| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| errors.DocumentMoveDocumentToTeamBadRequestError     | 400                                                  | application/json                                     |
+| errors.DocumentMoveDocumentToTeamInternalServerError | 500                                                  | application/json                                     |
+| errors.APIError                                      | 4XX, 5XX                                             | \*/\*                                                |
 
 ## distribute
 
@@ -548,22 +544,22 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.DocumentSendDocumentRequestBody](../../models/operations/documentsenddocumentrequestbody.md)                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.DocumentSendDocumentRequest](../../models/operations/documentsenddocumentrequest.md)                                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[operations.DocumentSendDocumentResponseBody](../../models/operations/documentsenddocumentresponsebody.md)\>**
+**Promise\<[operations.DocumentSendDocumentResponse](../../models/operations/documentsenddocumentresponse.md)\>**
 
 ### Errors
 
-| Error Type                                       | Status Code                                      | Content Type                                     |
-| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
-| errors.DocumentSendDocumentResponseBody          | 400                                              | application/json                                 |
-| errors.DocumentSendDocumentDocumentsResponseBody | 500                                              | application/json                                 |
-| errors.APIError                                  | 4XX, 5XX                                         | \*/\*                                            |
+| Error Type                                     | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| errors.DocumentSendDocumentBadRequestError     | 400                                            | application/json                               |
+| errors.DocumentSendDocumentInternalServerError | 500                                            | application/json                               |
+| errors.APIError                                | 4XX, 5XX                                       | \*/\*                                          |
 
 ## redistribute
 
@@ -632,22 +628,22 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.DocumentResendDocumentRequestBody](../../models/operations/documentresenddocumentrequestbody.md)                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.DocumentResendDocumentRequest](../../models/operations/documentresenddocumentrequest.md)                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[operations.DocumentResendDocumentResponseBody](../../models/operations/documentresenddocumentresponsebody.md)\>**
+**Promise\<[operations.DocumentResendDocumentResponse](../../models/operations/documentresenddocumentresponse.md)\>**
 
 ### Errors
 
-| Error Type                                         | Status Code                                        | Content Type                                       |
-| -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
-| errors.DocumentResendDocumentResponseBody          | 400                                                | application/json                                   |
-| errors.DocumentResendDocumentDocumentsResponseBody | 500                                                | application/json                                   |
-| errors.APIError                                    | 4XX, 5XX                                           | \*/\*                                              |
+| Error Type                                       | Status Code                                      | Content Type                                     |
+| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
+| errors.DocumentResendDocumentBadRequestError     | 400                                              | application/json                                 |
+| errors.DocumentResendDocumentInternalServerError | 500                                              | application/json                                 |
+| errors.APIError                                  | 4XX, 5XX                                         | \*/\*                                            |
 
 ## duplicate
 
@@ -710,19 +706,19 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.DocumentDuplicateDocumentRequestBody](../../models/operations/documentduplicatedocumentrequestbody.md)                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.DocumentDuplicateDocumentRequest](../../models/operations/documentduplicatedocumentrequest.md)                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[operations.DocumentDuplicateDocumentResponseBody](../../models/operations/documentduplicatedocumentresponsebody.md)\>**
+**Promise\<[operations.DocumentDuplicateDocumentResponse](../../models/operations/documentduplicatedocumentresponse.md)\>**
 
 ### Errors
 
-| Error Type                                            | Status Code                                           | Content Type                                          |
-| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| errors.DocumentDuplicateDocumentResponseBody          | 400                                                   | application/json                                      |
-| errors.DocumentDuplicateDocumentDocumentsResponseBody | 500                                                   | application/json                                      |
-| errors.APIError                                       | 4XX, 5XX                                              | \*/\*                                                 |
+| Error Type                                          | Status Code                                         | Content Type                                        |
+| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
+| errors.DocumentDuplicateDocumentBadRequestError     | 400                                                 | application/json                                    |
+| errors.DocumentDuplicateDocumentInternalServerError | 500                                                 | application/json                                    |
+| errors.APIError                                     | 4XX, 5XX                                            | \*/\*                                               |

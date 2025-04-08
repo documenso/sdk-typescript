@@ -6,7 +6,7 @@
 import { FieldGetDocumentFieldRequest } from "@documenso/sdk-typescript/models/operations";
 
 let value: FieldGetDocumentFieldRequest = {
-  fieldId: 4050.36,
+  fieldId: 4296.23,
 };
 ```
 

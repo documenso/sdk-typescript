@@ -7,7 +7,7 @@ The type of authentication required for the recipient to sign the document. This
 ```typescript
 import { TemplateDuplicateTemplateGlobalActionAuth } from "@documenso/sdk-typescript/models/operations";
 
-let value: TemplateDuplicateTemplateGlobalActionAuth = "ACCOUNT";
+let value: TemplateDuplicateTemplateGlobalActionAuth = "PASSKEY";
 ```
 
 ## Values

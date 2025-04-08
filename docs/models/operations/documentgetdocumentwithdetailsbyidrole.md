@@ -5,11 +5,11 @@
 ```typescript
 import { DocumentGetDocumentWithDetailsByIdRole } from "@documenso/sdk-typescript/models/operations";
 
-let value: DocumentGetDocumentWithDetailsByIdRole = "CC";
+let value: DocumentGetDocumentWithDetailsByIdRole = "VIEWER";
 ```
 
 ## Values
 
 ```typescript
-"CC" | "SIGNER" | "VIEWER" | "APPROVER"
+"CC" | "SIGNER" | "VIEWER" | "APPROVER" | "ASSISTANT"
 ```
