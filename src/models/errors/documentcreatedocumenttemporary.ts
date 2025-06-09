@@ -5,6 +5,7 @@
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
 export type DocumentCreateDocumentTemporaryInternalServerErrorIssue = {
@@ -25,7 +26,9 @@ export type DocumentCreateDocumentTemporaryInternalServerErrorData = {
 /**
  * Internal server error
  */
-export class DocumentCreateDocumentTemporaryInternalServerError extends Error {
+export class DocumentCreateDocumentTemporaryInternalServerError
+  extends DocumensoError
+{
   code: string;
   issues?:
     | Array<DocumentCreateDocumentTemporaryInternalServerErrorIssue>
@@ -34,13 +37,15 @@ export class DocumentCreateDocumentTemporaryInternalServerError extends Error {
   /** The original data that was passed to this error instance. */
   data$: DocumentCreateDocumentTemporaryInternalServerErrorData;
 
-  constructor(err: DocumentCreateDocumentTemporaryInternalServerErrorData) {
+  constructor(
+    err: DocumentCreateDocumentTemporaryInternalServerErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -64,20 +69,24 @@ export type DocumentCreateDocumentTemporaryBadRequestErrorData = {
 /**
  * Invalid input data
  */
-export class DocumentCreateDocumentTemporaryBadRequestError extends Error {
+export class DocumentCreateDocumentTemporaryBadRequestError
+  extends DocumensoError
+{
   code: string;
   issues?: Array<DocumentCreateDocumentTemporaryBadRequestIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: DocumentCreateDocumentTemporaryBadRequestErrorData;
 
-  constructor(err: DocumentCreateDocumentTemporaryBadRequestErrorData) {
+  constructor(
+    err: DocumentCreateDocumentTemporaryBadRequestErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -165,9 +174,16 @@ export const DocumentCreateDocumentTemporaryInternalServerError$inboundSchema:
         DocumentCreateDocumentTemporaryInternalServerErrorIssue$inboundSchema
       ),
     ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
   })
     .transform((v) => {
-      return new DocumentCreateDocumentTemporaryInternalServerError(v);
+      return new DocumentCreateDocumentTemporaryInternalServerError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
     });
 
 /** @internal */
@@ -295,9 +311,16 @@ export const DocumentCreateDocumentTemporaryBadRequestError$inboundSchema:
         DocumentCreateDocumentTemporaryBadRequestIssue$inboundSchema
       ),
     ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
   })
     .transform((v) => {
-      return new DocumentCreateDocumentTemporaryBadRequestError(v);
+      return new DocumentCreateDocumentTemporaryBadRequestError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
     });
 
 /** @internal */

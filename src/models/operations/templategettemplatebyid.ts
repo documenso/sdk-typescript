@@ -49,6 +49,7 @@ export const TemplateGetTemplateByIdGlobalActionAuth = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
+  Password: "PASSWORD",
 } as const;
 /**
  * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
@@ -58,14 +59,8 @@ export type TemplateGetTemplateByIdGlobalActionAuth = ClosedEnum<
 >;
 
 export type TemplateGetTemplateByIdAuthOptions = {
-  /**
-   * The type of authentication required for the recipient to access the document.
-   */
-  globalAccessAuth: TemplateGetTemplateByIdGlobalAccessAuth | null;
-  /**
-   * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
-   */
-  globalActionAuth: TemplateGetTemplateByIdGlobalActionAuth | null;
+  globalAccessAuth: Array<TemplateGetTemplateByIdGlobalAccessAuth>;
+  globalActionAuth: Array<TemplateGetTemplateByIdGlobalActionAuth>;
 };
 
 export const TemplateDocumentDataType = {
@@ -220,6 +215,7 @@ export const TemplateGetTemplateByIdActionAuth = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
+  Password: "PASSWORD",
   ExplicitNone: "EXPLICIT_NONE",
 } as const;
 /**
@@ -230,14 +226,8 @@ export type TemplateGetTemplateByIdActionAuth = ClosedEnum<
 >;
 
 export type TemplateGetTemplateByIdRecipientAuthOptions = {
-  /**
-   * The type of authentication required for the recipient to access the document.
-   */
-  accessAuth: TemplateGetTemplateByIdAccessAuth | null;
-  /**
-   * The type of authentication required for the recipient to sign the document.
-   */
-  actionAuth: TemplateGetTemplateByIdActionAuth | null;
+  accessAuth: Array<TemplateGetTemplateByIdAccessAuth>;
+  actionAuth: Array<TemplateGetTemplateByIdActionAuth>;
 };
 
 export type TemplateGetTemplateByIdRecipient = {
@@ -549,6 +539,36 @@ export type TemplateGetTemplateByIdField = {
     | null;
 };
 
+export const TemplateGetTemplateByIdFolderType = {
+  Document: "DOCUMENT",
+  Template: "TEMPLATE",
+} as const;
+export type TemplateGetTemplateByIdFolderType = ClosedEnum<
+  typeof TemplateGetTemplateByIdFolderType
+>;
+
+export const TemplateGetTemplateByIdFolderVisibility = {
+  Everyone: "EVERYONE",
+  ManagerAndAbove: "MANAGER_AND_ABOVE",
+  Admin: "ADMIN",
+} as const;
+export type TemplateGetTemplateByIdFolderVisibility = ClosedEnum<
+  typeof TemplateGetTemplateByIdFolderVisibility
+>;
+
+export type TemplateGetTemplateByIdFolder = {
+  id: string;
+  name: string;
+  type: TemplateGetTemplateByIdFolderType;
+  visibility: TemplateGetTemplateByIdFolderVisibility;
+  userId: number;
+  teamId: number | null;
+  pinned: boolean;
+  parentId: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
 /**
  * Successful response
  */
@@ -566,12 +586,14 @@ export type TemplateGetTemplateByIdResponse = {
   updatedAt: string;
   publicTitle: string;
   publicDescription: string;
+  folderId: string | null;
   templateDocumentData: TemplateDocumentData;
   templateMeta: TemplateGetTemplateByIdTemplateMeta | null;
   directLink: TemplateGetTemplateByIdDirectLink | null;
   user: TemplateGetTemplateByIdUser;
   recipients: Array<TemplateGetTemplateByIdRecipient>;
   fields: Array<TemplateGetTemplateByIdField>;
+  folder: TemplateGetTemplateByIdFolder | null;
 };
 
 /** @internal */
@@ -725,18 +747,18 @@ export const TemplateGetTemplateByIdAuthOptions$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  globalAccessAuth: z.nullable(
+  globalAccessAuth: z.array(
     TemplateGetTemplateByIdGlobalAccessAuth$inboundSchema,
   ),
-  globalActionAuth: z.nullable(
+  globalActionAuth: z.array(
     TemplateGetTemplateByIdGlobalActionAuth$inboundSchema,
   ),
 });
 
 /** @internal */
 export type TemplateGetTemplateByIdAuthOptions$Outbound = {
-  globalAccessAuth: string | null;
-  globalActionAuth: string | null;
+  globalAccessAuth: Array<string>;
+  globalActionAuth: Array<string>;
 };
 
 /** @internal */
@@ -745,10 +767,10 @@ export const TemplateGetTemplateByIdAuthOptions$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TemplateGetTemplateByIdAuthOptions
 > = z.object({
-  globalAccessAuth: z.nullable(
+  globalAccessAuth: z.array(
     TemplateGetTemplateByIdGlobalAccessAuth$outboundSchema,
   ),
-  globalActionAuth: z.nullable(
+  globalActionAuth: z.array(
     TemplateGetTemplateByIdGlobalActionAuth$outboundSchema,
   ),
 });
@@ -1374,14 +1396,14 @@ export const TemplateGetTemplateByIdRecipientAuthOptions$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({
-    accessAuth: z.nullable(TemplateGetTemplateByIdAccessAuth$inboundSchema),
-    actionAuth: z.nullable(TemplateGetTemplateByIdActionAuth$inboundSchema),
+    accessAuth: z.array(TemplateGetTemplateByIdAccessAuth$inboundSchema),
+    actionAuth: z.array(TemplateGetTemplateByIdActionAuth$inboundSchema),
   });
 
 /** @internal */
 export type TemplateGetTemplateByIdRecipientAuthOptions$Outbound = {
-  accessAuth: string | null;
-  actionAuth: string | null;
+  accessAuth: Array<string>;
+  actionAuth: Array<string>;
 };
 
 /** @internal */
@@ -1391,8 +1413,8 @@ export const TemplateGetTemplateByIdRecipientAuthOptions$outboundSchema:
     z.ZodTypeDef,
     TemplateGetTemplateByIdRecipientAuthOptions
   > = z.object({
-    accessAuth: z.nullable(TemplateGetTemplateByIdAccessAuth$outboundSchema),
-    actionAuth: z.nullable(TemplateGetTemplateByIdActionAuth$outboundSchema),
+    accessAuth: z.array(TemplateGetTemplateByIdAccessAuth$outboundSchema),
+    actionAuth: z.array(TemplateGetTemplateByIdActionAuth$outboundSchema),
   });
 
 /**
@@ -3019,6 +3041,134 @@ export function templateGetTemplateByIdFieldFromJSON(
 }
 
 /** @internal */
+export const TemplateGetTemplateByIdFolderType$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetTemplateByIdFolderType
+> = z.nativeEnum(TemplateGetTemplateByIdFolderType);
+
+/** @internal */
+export const TemplateGetTemplateByIdFolderType$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetTemplateByIdFolderType
+> = TemplateGetTemplateByIdFolderType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateGetTemplateByIdFolderType$ {
+  /** @deprecated use `TemplateGetTemplateByIdFolderType$inboundSchema` instead. */
+  export const inboundSchema = TemplateGetTemplateByIdFolderType$inboundSchema;
+  /** @deprecated use `TemplateGetTemplateByIdFolderType$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateGetTemplateByIdFolderType$outboundSchema;
+}
+
+/** @internal */
+export const TemplateGetTemplateByIdFolderVisibility$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateGetTemplateByIdFolderVisibility> = z
+    .nativeEnum(TemplateGetTemplateByIdFolderVisibility);
+
+/** @internal */
+export const TemplateGetTemplateByIdFolderVisibility$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateGetTemplateByIdFolderVisibility> =
+    TemplateGetTemplateByIdFolderVisibility$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateGetTemplateByIdFolderVisibility$ {
+  /** @deprecated use `TemplateGetTemplateByIdFolderVisibility$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateGetTemplateByIdFolderVisibility$inboundSchema;
+  /** @deprecated use `TemplateGetTemplateByIdFolderVisibility$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateGetTemplateByIdFolderVisibility$outboundSchema;
+}
+
+/** @internal */
+export const TemplateGetTemplateByIdFolder$inboundSchema: z.ZodType<
+  TemplateGetTemplateByIdFolder,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.string(),
+  name: z.string(),
+  type: TemplateGetTemplateByIdFolderType$inboundSchema,
+  visibility: TemplateGetTemplateByIdFolderVisibility$inboundSchema,
+  userId: z.number(),
+  teamId: z.nullable(z.number()),
+  pinned: z.boolean(),
+  parentId: z.nullable(z.string()),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+});
+
+/** @internal */
+export type TemplateGetTemplateByIdFolder$Outbound = {
+  id: string;
+  name: string;
+  type: string;
+  visibility: string;
+  userId: number;
+  teamId: number | null;
+  pinned: boolean;
+  parentId: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+/** @internal */
+export const TemplateGetTemplateByIdFolder$outboundSchema: z.ZodType<
+  TemplateGetTemplateByIdFolder$Outbound,
+  z.ZodTypeDef,
+  TemplateGetTemplateByIdFolder
+> = z.object({
+  id: z.string(),
+  name: z.string(),
+  type: TemplateGetTemplateByIdFolderType$outboundSchema,
+  visibility: TemplateGetTemplateByIdFolderVisibility$outboundSchema,
+  userId: z.number(),
+  teamId: z.nullable(z.number()),
+  pinned: z.boolean(),
+  parentId: z.nullable(z.string()),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateGetTemplateByIdFolder$ {
+  /** @deprecated use `TemplateGetTemplateByIdFolder$inboundSchema` instead. */
+  export const inboundSchema = TemplateGetTemplateByIdFolder$inboundSchema;
+  /** @deprecated use `TemplateGetTemplateByIdFolder$outboundSchema` instead. */
+  export const outboundSchema = TemplateGetTemplateByIdFolder$outboundSchema;
+  /** @deprecated use `TemplateGetTemplateByIdFolder$Outbound` instead. */
+  export type Outbound = TemplateGetTemplateByIdFolder$Outbound;
+}
+
+export function templateGetTemplateByIdFolderToJSON(
+  templateGetTemplateByIdFolder: TemplateGetTemplateByIdFolder,
+): string {
+  return JSON.stringify(
+    TemplateGetTemplateByIdFolder$outboundSchema.parse(
+      templateGetTemplateByIdFolder,
+    ),
+  );
+}
+
+export function templateGetTemplateByIdFolderFromJSON(
+  jsonString: string,
+): SafeParseResult<TemplateGetTemplateByIdFolder, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => TemplateGetTemplateByIdFolder$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TemplateGetTemplateByIdFolder' from JSON`,
+  );
+}
+
+/** @internal */
 export const TemplateGetTemplateByIdResponse$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdResponse,
   z.ZodTypeDef,
@@ -3039,6 +3189,7 @@ export const TemplateGetTemplateByIdResponse$inboundSchema: z.ZodType<
   updatedAt: z.string(),
   publicTitle: z.string(),
   publicDescription: z.string(),
+  folderId: z.nullable(z.string()),
   templateDocumentData: z.lazy(() => TemplateDocumentData$inboundSchema),
   templateMeta: z.nullable(
     z.lazy(() => TemplateGetTemplateByIdTemplateMeta$inboundSchema),
@@ -3051,6 +3202,7 @@ export const TemplateGetTemplateByIdResponse$inboundSchema: z.ZodType<
     z.lazy(() => TemplateGetTemplateByIdRecipient$inboundSchema),
   ),
   fields: z.array(z.lazy(() => TemplateGetTemplateByIdField$inboundSchema)),
+  folder: z.nullable(z.lazy(() => TemplateGetTemplateByIdFolder$inboundSchema)),
 });
 
 /** @internal */
@@ -3068,12 +3220,14 @@ export type TemplateGetTemplateByIdResponse$Outbound = {
   updatedAt: string;
   publicTitle: string;
   publicDescription: string;
+  folderId: string | null;
   templateDocumentData: TemplateDocumentData$Outbound;
   templateMeta: TemplateGetTemplateByIdTemplateMeta$Outbound | null;
   directLink: TemplateGetTemplateByIdDirectLink$Outbound | null;
   user: TemplateGetTemplateByIdUser$Outbound;
   recipients: Array<TemplateGetTemplateByIdRecipient$Outbound>;
   fields: Array<TemplateGetTemplateByIdField$Outbound>;
+  folder: TemplateGetTemplateByIdFolder$Outbound | null;
 };
 
 /** @internal */
@@ -3097,6 +3251,7 @@ export const TemplateGetTemplateByIdResponse$outboundSchema: z.ZodType<
   updatedAt: z.string(),
   publicTitle: z.string(),
   publicDescription: z.string(),
+  folderId: z.nullable(z.string()),
   templateDocumentData: z.lazy(() => TemplateDocumentData$outboundSchema),
   templateMeta: z.nullable(
     z.lazy(() => TemplateGetTemplateByIdTemplateMeta$outboundSchema),
@@ -3109,6 +3264,9 @@ export const TemplateGetTemplateByIdResponse$outboundSchema: z.ZodType<
     z.lazy(() => TemplateGetTemplateByIdRecipient$outboundSchema),
   ),
   fields: z.array(z.lazy(() => TemplateGetTemplateByIdField$outboundSchema)),
+  folder: z.nullable(
+    z.lazy(() => TemplateGetTemplateByIdFolder$outboundSchema),
+  ),
 });
 
 /**

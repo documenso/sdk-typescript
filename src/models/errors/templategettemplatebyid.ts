@@ -5,6 +5,7 @@
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
 export type TemplateGetTemplateByIdInternalServerErrorIssue = {
@@ -23,20 +24,22 @@ export type TemplateGetTemplateByIdInternalServerErrorData = {
 /**
  * Internal server error
  */
-export class TemplateGetTemplateByIdInternalServerError extends Error {
+export class TemplateGetTemplateByIdInternalServerError extends DocumensoError {
   code: string;
   issues?: Array<TemplateGetTemplateByIdInternalServerErrorIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: TemplateGetTemplateByIdInternalServerErrorData;
 
-  constructor(err: TemplateGetTemplateByIdInternalServerErrorData) {
+  constructor(
+    err: TemplateGetTemplateByIdInternalServerErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -60,20 +63,22 @@ export type TemplateGetTemplateByIdNotFoundErrorData = {
 /**
  * Not found
  */
-export class TemplateGetTemplateByIdNotFoundError extends Error {
+export class TemplateGetTemplateByIdNotFoundError extends DocumensoError {
   code: string;
   issues?: Array<TemplateGetTemplateByIdNotFoundIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: TemplateGetTemplateByIdNotFoundErrorData;
 
-  constructor(err: TemplateGetTemplateByIdNotFoundErrorData) {
+  constructor(
+    err: TemplateGetTemplateByIdNotFoundErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -97,20 +102,22 @@ export type TemplateGetTemplateByIdBadRequestErrorData = {
 /**
  * Invalid input data
  */
-export class TemplateGetTemplateByIdBadRequestError extends Error {
+export class TemplateGetTemplateByIdBadRequestError extends DocumensoError {
   code: string;
   issues?: Array<TemplateGetTemplateByIdBadRequestIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: TemplateGetTemplateByIdBadRequestErrorData;
 
-  constructor(err: TemplateGetTemplateByIdBadRequestErrorData) {
+  constructor(
+    err: TemplateGetTemplateByIdBadRequestErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -197,9 +204,16 @@ export const TemplateGetTemplateByIdInternalServerError$inboundSchema:
           TemplateGetTemplateByIdInternalServerErrorIssue$inboundSchema
         ),
       ).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
     })
       .transform((v) => {
-        return new TemplateGetTemplateByIdInternalServerError(v);
+        return new TemplateGetTemplateByIdInternalServerError(v, {
+          request: v.request$,
+          response: v.response$,
+          body: v.body$,
+        });
       });
 
 /** @internal */
@@ -314,9 +328,16 @@ export const TemplateGetTemplateByIdNotFoundError$inboundSchema: z.ZodType<
   issues: z.array(
     z.lazy(() => TemplateGetTemplateByIdNotFoundIssue$inboundSchema),
   ).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new TemplateGetTemplateByIdNotFoundError(v);
+    return new TemplateGetTemplateByIdNotFoundError(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */
@@ -427,9 +448,16 @@ export const TemplateGetTemplateByIdBadRequestError$inboundSchema: z.ZodType<
   issues: z.array(
     z.lazy(() => TemplateGetTemplateByIdBadRequestIssue$inboundSchema),
   ).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new TemplateGetTemplateByIdBadRequestError(v);
+    return new TemplateGetTemplateByIdBadRequestError(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */

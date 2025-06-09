@@ -9,14 +9,14 @@ let value: DocumentField = {
   type: "EMAIL",
   id: 6761.94,
   secondaryId: "<id>",
-  documentId: 2069.76,
-  templateId: 3142.11,
-  recipientId: 9401.05,
-  page: 179.72,
+  documentId: 3142.11,
+  templateId: 179.72,
+  recipientId: 123.33,
+  page: 2591.61,
   customText: "<value>",
   inserted: false,
   fieldMeta: {
-    type: "initials",
+    type: "text",
   },
 };
 ```

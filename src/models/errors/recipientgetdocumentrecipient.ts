@@ -5,6 +5,7 @@
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
 export type RecipientGetDocumentRecipientInternalServerErrorIssue = {
@@ -25,7 +26,9 @@ export type RecipientGetDocumentRecipientInternalServerErrorData = {
 /**
  * Internal server error
  */
-export class RecipientGetDocumentRecipientInternalServerError extends Error {
+export class RecipientGetDocumentRecipientInternalServerError
+  extends DocumensoError
+{
   code: string;
   issues?:
     | Array<RecipientGetDocumentRecipientInternalServerErrorIssue>
@@ -34,13 +37,15 @@ export class RecipientGetDocumentRecipientInternalServerError extends Error {
   /** The original data that was passed to this error instance. */
   data$: RecipientGetDocumentRecipientInternalServerErrorData;
 
-  constructor(err: RecipientGetDocumentRecipientInternalServerErrorData) {
+  constructor(
+    err: RecipientGetDocumentRecipientInternalServerErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -64,20 +69,22 @@ export type RecipientGetDocumentRecipientNotFoundErrorData = {
 /**
  * Not found
  */
-export class RecipientGetDocumentRecipientNotFoundError extends Error {
+export class RecipientGetDocumentRecipientNotFoundError extends DocumensoError {
   code: string;
   issues?: Array<RecipientGetDocumentRecipientNotFoundIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: RecipientGetDocumentRecipientNotFoundErrorData;
 
-  constructor(err: RecipientGetDocumentRecipientNotFoundErrorData) {
+  constructor(
+    err: RecipientGetDocumentRecipientNotFoundErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -101,20 +108,24 @@ export type RecipientGetDocumentRecipientBadRequestErrorData = {
 /**
  * Invalid input data
  */
-export class RecipientGetDocumentRecipientBadRequestError extends Error {
+export class RecipientGetDocumentRecipientBadRequestError
+  extends DocumensoError
+{
   code: string;
   issues?: Array<RecipientGetDocumentRecipientBadRequestIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: RecipientGetDocumentRecipientBadRequestErrorData;
 
-  constructor(err: RecipientGetDocumentRecipientBadRequestErrorData) {
+  constructor(
+    err: RecipientGetDocumentRecipientBadRequestErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -204,9 +215,16 @@ export const RecipientGetDocumentRecipientInternalServerError$inboundSchema:
         RecipientGetDocumentRecipientInternalServerErrorIssue$inboundSchema
       ),
     ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
   })
     .transform((v) => {
-      return new RecipientGetDocumentRecipientInternalServerError(v);
+      return new RecipientGetDocumentRecipientInternalServerError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
     });
 
 /** @internal */
@@ -325,9 +343,16 @@ export const RecipientGetDocumentRecipientNotFoundError$inboundSchema:
       issues: z.array(
         z.lazy(() => RecipientGetDocumentRecipientNotFoundIssue$inboundSchema),
       ).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
     })
       .transform((v) => {
-        return new RecipientGetDocumentRecipientNotFoundError(v);
+        return new RecipientGetDocumentRecipientNotFoundError(v, {
+          request: v.request$,
+          response: v.response$,
+          body: v.body$,
+        });
       });
 
 /** @internal */
@@ -449,9 +474,16 @@ export const RecipientGetDocumentRecipientBadRequestError$inboundSchema:
     issues: z.array(
       z.lazy(() => RecipientGetDocumentRecipientBadRequestIssue$inboundSchema),
     ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
   })
     .transform((v) => {
-      return new RecipientGetDocumentRecipientBadRequestError(v);
+      return new RecipientGetDocumentRecipientBadRequestError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
     });
 
 /** @internal */

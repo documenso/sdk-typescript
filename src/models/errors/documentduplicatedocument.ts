@@ -5,6 +5,7 @@
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
 export type DocumentDuplicateDocumentInternalServerErrorIssue = {
@@ -23,20 +24,24 @@ export type DocumentDuplicateDocumentInternalServerErrorData = {
 /**
  * Internal server error
  */
-export class DocumentDuplicateDocumentInternalServerError extends Error {
+export class DocumentDuplicateDocumentInternalServerError
+  extends DocumensoError
+{
   code: string;
   issues?: Array<DocumentDuplicateDocumentInternalServerErrorIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: DocumentDuplicateDocumentInternalServerErrorData;
 
-  constructor(err: DocumentDuplicateDocumentInternalServerErrorData) {
+  constructor(
+    err: DocumentDuplicateDocumentInternalServerErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -60,20 +65,22 @@ export type DocumentDuplicateDocumentBadRequestErrorData = {
 /**
  * Invalid input data
  */
-export class DocumentDuplicateDocumentBadRequestError extends Error {
+export class DocumentDuplicateDocumentBadRequestError extends DocumensoError {
   code: string;
   issues?: Array<DocumentDuplicateDocumentBadRequestIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: DocumentDuplicateDocumentBadRequestErrorData;
 
-  constructor(err: DocumentDuplicateDocumentBadRequestErrorData) {
+  constructor(
+    err: DocumentDuplicateDocumentBadRequestErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -163,9 +170,16 @@ export const DocumentDuplicateDocumentInternalServerError$inboundSchema:
         DocumentDuplicateDocumentInternalServerErrorIssue$inboundSchema
       ),
     ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
   })
     .transform((v) => {
-      return new DocumentDuplicateDocumentInternalServerError(v);
+      return new DocumentDuplicateDocumentInternalServerError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
     });
 
 /** @internal */
@@ -286,9 +300,16 @@ export const DocumentDuplicateDocumentBadRequestError$inboundSchema: z.ZodType<
   issues: z.array(
     z.lazy(() => DocumentDuplicateDocumentBadRequestIssue$inboundSchema),
   ).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new DocumentDuplicateDocumentBadRequestError(v);
+    return new DocumentDuplicateDocumentBadRequestError(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */

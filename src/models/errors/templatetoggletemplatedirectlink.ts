@@ -5,6 +5,7 @@
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
 export type TemplateToggleTemplateDirectLinkInternalServerErrorIssue = {
@@ -25,7 +26,9 @@ export type TemplateToggleTemplateDirectLinkInternalServerErrorData = {
 /**
  * Internal server error
  */
-export class TemplateToggleTemplateDirectLinkInternalServerError extends Error {
+export class TemplateToggleTemplateDirectLinkInternalServerError
+  extends DocumensoError
+{
   code: string;
   issues?:
     | Array<TemplateToggleTemplateDirectLinkInternalServerErrorIssue>
@@ -34,13 +37,15 @@ export class TemplateToggleTemplateDirectLinkInternalServerError extends Error {
   /** The original data that was passed to this error instance. */
   data$: TemplateToggleTemplateDirectLinkInternalServerErrorData;
 
-  constructor(err: TemplateToggleTemplateDirectLinkInternalServerErrorData) {
+  constructor(
+    err: TemplateToggleTemplateDirectLinkInternalServerErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -64,20 +69,24 @@ export type TemplateToggleTemplateDirectLinkBadRequestErrorData = {
 /**
  * Invalid input data
  */
-export class TemplateToggleTemplateDirectLinkBadRequestError extends Error {
+export class TemplateToggleTemplateDirectLinkBadRequestError
+  extends DocumensoError
+{
   code: string;
   issues?: Array<TemplateToggleTemplateDirectLinkBadRequestIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: TemplateToggleTemplateDirectLinkBadRequestErrorData;
 
-  constructor(err: TemplateToggleTemplateDirectLinkBadRequestErrorData) {
+  constructor(
+    err: TemplateToggleTemplateDirectLinkBadRequestErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -166,9 +175,16 @@ export const TemplateToggleTemplateDirectLinkInternalServerError$inboundSchema:
         TemplateToggleTemplateDirectLinkInternalServerErrorIssue$inboundSchema
       ),
     ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
   })
     .transform((v) => {
-      return new TemplateToggleTemplateDirectLinkInternalServerError(v);
+      return new TemplateToggleTemplateDirectLinkInternalServerError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
     });
 
 /** @internal */
@@ -296,9 +312,16 @@ export const TemplateToggleTemplateDirectLinkBadRequestError$inboundSchema:
         TemplateToggleTemplateDirectLinkBadRequestIssue$inboundSchema
       ),
     ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
   })
     .transform((v) => {
-      return new TemplateToggleTemplateDirectLinkBadRequestError(v);
+      return new TemplateToggleTemplateDirectLinkBadRequestError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
     });
 
 /** @internal */

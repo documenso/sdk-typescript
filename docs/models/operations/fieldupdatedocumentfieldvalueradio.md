@@ -7,7 +7,7 @@ import { FieldUpdateDocumentFieldValueRadio } from "@documenso/sdk-typescript/mo
 
 let value: FieldUpdateDocumentFieldValueRadio = {
   id: 6565.8,
-  checked: false,
+  checked: true,
   value: "<value>",
 };
 ```

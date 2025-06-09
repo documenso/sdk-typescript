@@ -11,19 +11,23 @@ let value: DocumentGetDocumentWithDetailsByIdRecipient = {
   signingStatus: "REJECTED",
   sendStatus: "NOT_SENT",
   id: 552.74,
-  documentId: 2751.51,
-  templateId: 5638.87,
-  email: "Kirsten5@yahoo.com",
+  documentId: 5638.87,
+  templateId: 5765.08,
+  email: "Arely_Bednar@yahoo.com",
   name: "<value>",
   token: "<value>",
   documentDeletedAt: "<value>",
   expired: "<value>",
   signedAt: "<value>",
   authOptions: {
-    accessAuth: "ACCOUNT",
-    actionAuth: "EXPLICIT_NONE",
+    accessAuth: [
+      "ACCOUNT",
+    ],
+    actionAuth: [
+      "EXPLICIT_NONE",
+    ],
   },
-  signingOrder: 3544.22,
+  signingOrder: 1482.12,
   rejectionReason: "<value>",
 };
 ```

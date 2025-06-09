@@ -5,6 +5,7 @@
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
 export type DocumentGetDocumentWithDetailsByIdInternalServerErrorIssue = {
@@ -26,7 +27,7 @@ export type DocumentGetDocumentWithDetailsByIdInternalServerErrorData = {
  * Internal server error
  */
 export class DocumentGetDocumentWithDetailsByIdInternalServerError
-  extends Error
+  extends DocumensoError
 {
   code: string;
   issues?:
@@ -36,13 +37,15 @@ export class DocumentGetDocumentWithDetailsByIdInternalServerError
   /** The original data that was passed to this error instance. */
   data$: DocumentGetDocumentWithDetailsByIdInternalServerErrorData;
 
-  constructor(err: DocumentGetDocumentWithDetailsByIdInternalServerErrorData) {
+  constructor(
+    err: DocumentGetDocumentWithDetailsByIdInternalServerErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -66,20 +69,24 @@ export type DocumentGetDocumentWithDetailsByIdNotFoundErrorData = {
 /**
  * Not found
  */
-export class DocumentGetDocumentWithDetailsByIdNotFoundError extends Error {
+export class DocumentGetDocumentWithDetailsByIdNotFoundError
+  extends DocumensoError
+{
   code: string;
   issues?: Array<DocumentGetDocumentWithDetailsByIdNotFoundIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: DocumentGetDocumentWithDetailsByIdNotFoundErrorData;
 
-  constructor(err: DocumentGetDocumentWithDetailsByIdNotFoundErrorData) {
+  constructor(
+    err: DocumentGetDocumentWithDetailsByIdNotFoundErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -103,20 +110,24 @@ export type DocumentGetDocumentWithDetailsByIdBadRequestErrorData = {
 /**
  * Invalid input data
  */
-export class DocumentGetDocumentWithDetailsByIdBadRequestError extends Error {
+export class DocumentGetDocumentWithDetailsByIdBadRequestError
+  extends DocumensoError
+{
   code: string;
   issues?: Array<DocumentGetDocumentWithDetailsByIdBadRequestIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: DocumentGetDocumentWithDetailsByIdBadRequestErrorData;
 
-  constructor(err: DocumentGetDocumentWithDetailsByIdBadRequestErrorData) {
+  constructor(
+    err: DocumentGetDocumentWithDetailsByIdBadRequestErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -205,9 +216,16 @@ export const DocumentGetDocumentWithDetailsByIdInternalServerError$inboundSchema
         DocumentGetDocumentWithDetailsByIdInternalServerErrorIssue$inboundSchema
       ),
     ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
   })
     .transform((v) => {
-      return new DocumentGetDocumentWithDetailsByIdInternalServerError(v);
+      return new DocumentGetDocumentWithDetailsByIdInternalServerError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
     });
 
 /** @internal */
@@ -335,9 +353,16 @@ export const DocumentGetDocumentWithDetailsByIdNotFoundError$inboundSchema:
         DocumentGetDocumentWithDetailsByIdNotFoundIssue$inboundSchema
       ),
     ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
   })
     .transform((v) => {
-      return new DocumentGetDocumentWithDetailsByIdNotFoundError(v);
+      return new DocumentGetDocumentWithDetailsByIdNotFoundError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
     });
 
 /** @internal */
@@ -465,9 +490,16 @@ export const DocumentGetDocumentWithDetailsByIdBadRequestError$inboundSchema:
         DocumentGetDocumentWithDetailsByIdBadRequestIssue$inboundSchema
       ),
     ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
   })
     .transform((v) => {
-      return new DocumentGetDocumentWithDetailsByIdBadRequestError(v);
+      return new DocumentGetDocumentWithDetailsByIdBadRequestError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
     });
 
 /** @internal */

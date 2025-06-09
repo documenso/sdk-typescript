@@ -71,6 +71,10 @@ export type DocumentFindDocumentsRequest = {
    * Filter documents by the current status
    */
   status?: QueryParamStatus | undefined;
+  /**
+   * Filter documents by folder ID
+   */
+  folderId?: string | undefined;
   orderByColumn?: OrderByColumn | undefined;
   orderByDirection?: OrderByDirection | undefined;
 };
@@ -119,6 +123,7 @@ export const DocumentFindDocumentsGlobalActionAuth = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
+  Password: "PASSWORD",
 } as const;
 /**
  * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
@@ -128,14 +133,8 @@ export type DocumentFindDocumentsGlobalActionAuth = ClosedEnum<
 >;
 
 export type DocumentFindDocumentsAuthOptions = {
-  /**
-   * The type of authentication required for the recipient to access the document.
-   */
-  globalAccessAuth: DocumentFindDocumentsGlobalAccessAuth | null;
-  /**
-   * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
-   */
-  globalActionAuth: DocumentFindDocumentsGlobalActionAuth | null;
+  globalAccessAuth: Array<DocumentFindDocumentsGlobalAccessAuth>;
+  globalActionAuth: Array<DocumentFindDocumentsGlobalActionAuth>;
 };
 
 export type DocumentFindDocumentsFormValues = string | boolean | number;
@@ -202,6 +201,7 @@ export const DocumentFindDocumentsActionAuth = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
+  Password: "PASSWORD",
   ExplicitNone: "EXPLICIT_NONE",
 } as const;
 /**
@@ -212,14 +212,8 @@ export type DocumentFindDocumentsActionAuth = ClosedEnum<
 >;
 
 export type DocumentFindDocumentsRecipientAuthOptions = {
-  /**
-   * The type of authentication required for the recipient to access the document.
-   */
-  accessAuth: DocumentFindDocumentsAccessAuth | null;
-  /**
-   * The type of authentication required for the recipient to sign the document.
-   */
-  actionAuth: DocumentFindDocumentsActionAuth | null;
+  accessAuth: Array<DocumentFindDocumentsAccessAuth>;
+  actionAuth: Array<DocumentFindDocumentsActionAuth>;
 };
 
 export type DocumentFindDocumentsRecipient = {
@@ -272,6 +266,8 @@ export type DocumentFindDocumentsData = {
   deletedAt: string | null;
   teamId: number | null;
   templateId: number | null;
+  folderId: string | null;
+  useLegacyFieldInsertion: boolean;
   user: DocumentFindDocumentsUser;
   recipients: Array<DocumentFindDocumentsRecipient>;
   team: DocumentFindDocumentsTeam | null;
@@ -396,6 +392,7 @@ export const DocumentFindDocumentsRequest$inboundSchema: z.ZodType<
   templateId: z.number().optional(),
   source: QueryParamSource$inboundSchema.optional(),
   status: QueryParamStatus$inboundSchema.optional(),
+  folderId: z.string().optional(),
   orderByColumn: OrderByColumn$inboundSchema.optional(),
   orderByDirection: OrderByDirection$inboundSchema.default("desc"),
 });
@@ -408,6 +405,7 @@ export type DocumentFindDocumentsRequest$Outbound = {
   templateId?: number | undefined;
   source?: string | undefined;
   status?: string | undefined;
+  folderId?: string | undefined;
   orderByColumn?: string | undefined;
   orderByDirection: string;
 };
@@ -424,6 +422,7 @@ export const DocumentFindDocumentsRequest$outboundSchema: z.ZodType<
   templateId: z.number().optional(),
   source: QueryParamSource$outboundSchema.optional(),
   status: QueryParamStatus$outboundSchema.optional(),
+  folderId: z.string().optional(),
   orderByColumn: OrderByColumn$outboundSchema.optional(),
   orderByDirection: OrderByDirection$outboundSchema.default("desc"),
 });
@@ -574,18 +573,18 @@ export const DocumentFindDocumentsAuthOptions$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  globalAccessAuth: z.nullable(
+  globalAccessAuth: z.array(
     DocumentFindDocumentsGlobalAccessAuth$inboundSchema,
   ),
-  globalActionAuth: z.nullable(
+  globalActionAuth: z.array(
     DocumentFindDocumentsGlobalActionAuth$inboundSchema,
   ),
 });
 
 /** @internal */
 export type DocumentFindDocumentsAuthOptions$Outbound = {
-  globalAccessAuth: string | null;
-  globalActionAuth: string | null;
+  globalAccessAuth: Array<string>;
+  globalActionAuth: Array<string>;
 };
 
 /** @internal */
@@ -594,10 +593,10 @@ export const DocumentFindDocumentsAuthOptions$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentFindDocumentsAuthOptions
 > = z.object({
-  globalAccessAuth: z.nullable(
+  globalAccessAuth: z.array(
     DocumentFindDocumentsGlobalAccessAuth$outboundSchema,
   ),
-  globalActionAuth: z.nullable(
+  globalActionAuth: z.array(
     DocumentFindDocumentsGlobalActionAuth$outboundSchema,
   ),
 });
@@ -881,14 +880,14 @@ export const DocumentFindDocumentsRecipientAuthOptions$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  accessAuth: z.nullable(DocumentFindDocumentsAccessAuth$inboundSchema),
-  actionAuth: z.nullable(DocumentFindDocumentsActionAuth$inboundSchema),
+  accessAuth: z.array(DocumentFindDocumentsAccessAuth$inboundSchema),
+  actionAuth: z.array(DocumentFindDocumentsActionAuth$inboundSchema),
 });
 
 /** @internal */
 export type DocumentFindDocumentsRecipientAuthOptions$Outbound = {
-  accessAuth: string | null;
-  actionAuth: string | null;
+  accessAuth: Array<string>;
+  actionAuth: Array<string>;
 };
 
 /** @internal */
@@ -898,8 +897,8 @@ export const DocumentFindDocumentsRecipientAuthOptions$outboundSchema:
     z.ZodTypeDef,
     DocumentFindDocumentsRecipientAuthOptions
   > = z.object({
-    accessAuth: z.nullable(DocumentFindDocumentsAccessAuth$outboundSchema),
-    actionAuth: z.nullable(DocumentFindDocumentsActionAuth$outboundSchema),
+    accessAuth: z.array(DocumentFindDocumentsAccessAuth$outboundSchema),
+    actionAuth: z.array(DocumentFindDocumentsActionAuth$outboundSchema),
   });
 
 /**
@@ -1132,6 +1131,8 @@ export const DocumentFindDocumentsData$inboundSchema: z.ZodType<
   deletedAt: z.nullable(z.string()),
   teamId: z.nullable(z.number()),
   templateId: z.nullable(z.number()),
+  folderId: z.nullable(z.string()),
+  useLegacyFieldInsertion: z.boolean(),
   user: z.lazy(() => DocumentFindDocumentsUser$inboundSchema),
   recipients: z.array(
     z.lazy(() => DocumentFindDocumentsRecipient$inboundSchema),
@@ -1157,6 +1158,8 @@ export type DocumentFindDocumentsData$Outbound = {
   deletedAt: string | null;
   teamId: number | null;
   templateId: number | null;
+  folderId: string | null;
+  useLegacyFieldInsertion: boolean;
   user: DocumentFindDocumentsUser$Outbound;
   recipients: Array<DocumentFindDocumentsRecipient$Outbound>;
   team: DocumentFindDocumentsTeam$Outbound | null;
@@ -1188,6 +1191,8 @@ export const DocumentFindDocumentsData$outboundSchema: z.ZodType<
   deletedAt: z.nullable(z.string()),
   teamId: z.nullable(z.number()),
   templateId: z.nullable(z.number()),
+  folderId: z.nullable(z.string()),
+  useLegacyFieldInsertion: z.boolean(),
   user: z.lazy(() => DocumentFindDocumentsUser$outboundSchema),
   recipients: z.array(
     z.lazy(() => DocumentFindDocumentsRecipient$outboundSchema),

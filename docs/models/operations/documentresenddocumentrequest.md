@@ -8,7 +8,8 @@ import { DocumentResendDocumentRequest } from "@documenso/sdk-typescript/models/
 let value: DocumentResendDocumentRequest = {
   documentId: 6209.79,
   recipients: [
-    6381.92,
+    5345.93,
+    7940.74,
   ],
 };
 ```

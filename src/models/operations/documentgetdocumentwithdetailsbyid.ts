@@ -10,6 +10,10 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type DocumentGetDocumentWithDetailsByIdRequest = {
   documentId: number;
+  /**
+   * Filter documents by folder ID
+   */
+  folderId?: string | undefined;
 };
 
 export const DocumentGetDocumentWithDetailsByIdVisibility = {
@@ -60,6 +64,7 @@ export const DocumentGetDocumentWithDetailsByIdGlobalActionAuth = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
+  Password: "PASSWORD",
 } as const;
 /**
  * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
@@ -69,14 +74,8 @@ export type DocumentGetDocumentWithDetailsByIdGlobalActionAuth = ClosedEnum<
 >;
 
 export type DocumentGetDocumentWithDetailsByIdAuthOptions = {
-  /**
-   * The type of authentication required for the recipient to access the document.
-   */
-  globalAccessAuth: DocumentGetDocumentWithDetailsByIdGlobalAccessAuth | null;
-  /**
-   * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
-   */
-  globalActionAuth: DocumentGetDocumentWithDetailsByIdGlobalActionAuth | null;
+  globalAccessAuth: Array<DocumentGetDocumentWithDetailsByIdGlobalAccessAuth>;
+  globalActionAuth: Array<DocumentGetDocumentWithDetailsByIdGlobalActionAuth>;
 };
 
 export type DocumentGetDocumentWithDetailsByIdFormValues =
@@ -166,6 +165,36 @@ export type DocumentGetDocumentWithDetailsByIdDocumentMeta = {
   emailSettings: DocumentGetDocumentWithDetailsByIdEmailSettings | null;
 };
 
+export const DocumentGetDocumentWithDetailsByIdFolderType = {
+  Document: "DOCUMENT",
+  Template: "TEMPLATE",
+} as const;
+export type DocumentGetDocumentWithDetailsByIdFolderType = ClosedEnum<
+  typeof DocumentGetDocumentWithDetailsByIdFolderType
+>;
+
+export const DocumentGetDocumentWithDetailsByIdFolderVisibility = {
+  Everyone: "EVERYONE",
+  ManagerAndAbove: "MANAGER_AND_ABOVE",
+  Admin: "ADMIN",
+} as const;
+export type DocumentGetDocumentWithDetailsByIdFolderVisibility = ClosedEnum<
+  typeof DocumentGetDocumentWithDetailsByIdFolderVisibility
+>;
+
+export type DocumentGetDocumentWithDetailsByIdFolder = {
+  id: string;
+  name: string;
+  type: DocumentGetDocumentWithDetailsByIdFolderType;
+  visibility: DocumentGetDocumentWithDetailsByIdFolderVisibility;
+  userId: number;
+  teamId: number | null;
+  pinned: boolean;
+  parentId: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
 export const DocumentGetDocumentWithDetailsByIdRole = {
   Cc: "CC",
   Signer: "SIGNER",
@@ -222,6 +251,7 @@ export const DocumentGetDocumentWithDetailsByIdActionAuth = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
+  Password: "PASSWORD",
   ExplicitNone: "EXPLICIT_NONE",
 } as const;
 /**
@@ -232,14 +262,8 @@ export type DocumentGetDocumentWithDetailsByIdActionAuth = ClosedEnum<
 >;
 
 export type DocumentGetDocumentWithDetailsByIdRecipientAuthOptions = {
-  /**
-   * The type of authentication required for the recipient to access the document.
-   */
-  accessAuth: DocumentGetDocumentWithDetailsByIdAccessAuth | null;
-  /**
-   * The type of authentication required for the recipient to sign the document.
-   */
-  actionAuth: DocumentGetDocumentWithDetailsByIdActionAuth | null;
+  accessAuth: Array<DocumentGetDocumentWithDetailsByIdAccessAuth>;
+  actionAuth: Array<DocumentGetDocumentWithDetailsByIdActionAuth>;
 };
 
 export type DocumentGetDocumentWithDetailsByIdRecipient = {
@@ -577,8 +601,10 @@ export type DocumentGetDocumentWithDetailsByIdResponse = {
   deletedAt: string | null;
   teamId: number | null;
   templateId: number | null;
+  folderId: string | null;
   documentData: DocumentGetDocumentWithDetailsByIdDocumentData;
   documentMeta: DocumentGetDocumentWithDetailsByIdDocumentMeta | null;
+  folder: DocumentGetDocumentWithDetailsByIdFolder | null;
   recipients: Array<DocumentGetDocumentWithDetailsByIdRecipient>;
   fields: Array<DocumentGetDocumentWithDetailsByIdField>;
 };
@@ -590,11 +616,13 @@ export const DocumentGetDocumentWithDetailsByIdRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   documentId: z.number(),
+  folderId: z.string().optional(),
 });
 
 /** @internal */
 export type DocumentGetDocumentWithDetailsByIdRequest$Outbound = {
   documentId: number;
+  folderId?: string | undefined;
 };
 
 /** @internal */
@@ -605,6 +633,7 @@ export const DocumentGetDocumentWithDetailsByIdRequest$outboundSchema:
     DocumentGetDocumentWithDetailsByIdRequest
   > = z.object({
     documentId: z.number(),
+    folderId: z.string().optional(),
   });
 
 /**
@@ -771,18 +800,18 @@ export const DocumentGetDocumentWithDetailsByIdAuthOptions$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({
-    globalAccessAuth: z.nullable(
+    globalAccessAuth: z.array(
       DocumentGetDocumentWithDetailsByIdGlobalAccessAuth$inboundSchema,
     ),
-    globalActionAuth: z.nullable(
+    globalActionAuth: z.array(
       DocumentGetDocumentWithDetailsByIdGlobalActionAuth$inboundSchema,
     ),
   });
 
 /** @internal */
 export type DocumentGetDocumentWithDetailsByIdAuthOptions$Outbound = {
-  globalAccessAuth: string | null;
-  globalActionAuth: string | null;
+  globalAccessAuth: Array<string>;
+  globalActionAuth: Array<string>;
 };
 
 /** @internal */
@@ -792,10 +821,10 @@ export const DocumentGetDocumentWithDetailsByIdAuthOptions$outboundSchema:
     z.ZodTypeDef,
     DocumentGetDocumentWithDetailsByIdAuthOptions
   > = z.object({
-    globalAccessAuth: z.nullable(
+    globalAccessAuth: z.array(
       DocumentGetDocumentWithDetailsByIdGlobalAccessAuth$outboundSchema,
     ),
-    globalActionAuth: z.nullable(
+    globalActionAuth: z.array(
       DocumentGetDocumentWithDetailsByIdGlobalActionAuth$outboundSchema,
     ),
   });
@@ -1264,6 +1293,144 @@ export function documentGetDocumentWithDetailsByIdDocumentMetaFromJSON(
 }
 
 /** @internal */
+export const DocumentGetDocumentWithDetailsByIdFolderType$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdFolderType> = z
+    .nativeEnum(DocumentGetDocumentWithDetailsByIdFolderType);
+
+/** @internal */
+export const DocumentGetDocumentWithDetailsByIdFolderType$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdFolderType> =
+    DocumentGetDocumentWithDetailsByIdFolderType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentGetDocumentWithDetailsByIdFolderType$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFolderType$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentGetDocumentWithDetailsByIdFolderType$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFolderType$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentGetDocumentWithDetailsByIdFolderType$outboundSchema;
+}
+
+/** @internal */
+export const DocumentGetDocumentWithDetailsByIdFolderVisibility$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdFolderVisibility> = z
+    .nativeEnum(DocumentGetDocumentWithDetailsByIdFolderVisibility);
+
+/** @internal */
+export const DocumentGetDocumentWithDetailsByIdFolderVisibility$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdFolderVisibility> =
+    DocumentGetDocumentWithDetailsByIdFolderVisibility$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentGetDocumentWithDetailsByIdFolderVisibility$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFolderVisibility$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentGetDocumentWithDetailsByIdFolderVisibility$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFolderVisibility$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentGetDocumentWithDetailsByIdFolderVisibility$outboundSchema;
+}
+
+/** @internal */
+export const DocumentGetDocumentWithDetailsByIdFolder$inboundSchema: z.ZodType<
+  DocumentGetDocumentWithDetailsByIdFolder,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.string(),
+  name: z.string(),
+  type: DocumentGetDocumentWithDetailsByIdFolderType$inboundSchema,
+  visibility: DocumentGetDocumentWithDetailsByIdFolderVisibility$inboundSchema,
+  userId: z.number(),
+  teamId: z.nullable(z.number()),
+  pinned: z.boolean(),
+  parentId: z.nullable(z.string()),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+});
+
+/** @internal */
+export type DocumentGetDocumentWithDetailsByIdFolder$Outbound = {
+  id: string;
+  name: string;
+  type: string;
+  visibility: string;
+  userId: number;
+  teamId: number | null;
+  pinned: boolean;
+  parentId: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+/** @internal */
+export const DocumentGetDocumentWithDetailsByIdFolder$outboundSchema: z.ZodType<
+  DocumentGetDocumentWithDetailsByIdFolder$Outbound,
+  z.ZodTypeDef,
+  DocumentGetDocumentWithDetailsByIdFolder
+> = z.object({
+  id: z.string(),
+  name: z.string(),
+  type: DocumentGetDocumentWithDetailsByIdFolderType$outboundSchema,
+  visibility: DocumentGetDocumentWithDetailsByIdFolderVisibility$outboundSchema,
+  userId: z.number(),
+  teamId: z.nullable(z.number()),
+  pinned: z.boolean(),
+  parentId: z.nullable(z.string()),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentGetDocumentWithDetailsByIdFolder$ {
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFolder$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentGetDocumentWithDetailsByIdFolder$inboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFolder$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentGetDocumentWithDetailsByIdFolder$outboundSchema;
+  /** @deprecated use `DocumentGetDocumentWithDetailsByIdFolder$Outbound` instead. */
+  export type Outbound = DocumentGetDocumentWithDetailsByIdFolder$Outbound;
+}
+
+export function documentGetDocumentWithDetailsByIdFolderToJSON(
+  documentGetDocumentWithDetailsByIdFolder:
+    DocumentGetDocumentWithDetailsByIdFolder,
+): string {
+  return JSON.stringify(
+    DocumentGetDocumentWithDetailsByIdFolder$outboundSchema.parse(
+      documentGetDocumentWithDetailsByIdFolder,
+    ),
+  );
+}
+
+export function documentGetDocumentWithDetailsByIdFolderFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  DocumentGetDocumentWithDetailsByIdFolder,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      DocumentGetDocumentWithDetailsByIdFolder$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'DocumentGetDocumentWithDetailsByIdFolder' from JSON`,
+  );
+}
+
+/** @internal */
 export const DocumentGetDocumentWithDetailsByIdRole$inboundSchema:
   z.ZodNativeEnum<typeof DocumentGetDocumentWithDetailsByIdRole> = z.nativeEnum(
     DocumentGetDocumentWithDetailsByIdRole,
@@ -1409,18 +1576,18 @@ export const DocumentGetDocumentWithDetailsByIdRecipientAuthOptions$inboundSchem
     z.ZodTypeDef,
     unknown
   > = z.object({
-    accessAuth: z.nullable(
+    accessAuth: z.array(
       DocumentGetDocumentWithDetailsByIdAccessAuth$inboundSchema,
     ),
-    actionAuth: z.nullable(
+    actionAuth: z.array(
       DocumentGetDocumentWithDetailsByIdActionAuth$inboundSchema,
     ),
   });
 
 /** @internal */
 export type DocumentGetDocumentWithDetailsByIdRecipientAuthOptions$Outbound = {
-  accessAuth: string | null;
-  actionAuth: string | null;
+  accessAuth: Array<string>;
+  actionAuth: Array<string>;
 };
 
 /** @internal */
@@ -1430,10 +1597,10 @@ export const DocumentGetDocumentWithDetailsByIdRecipientAuthOptions$outboundSche
     z.ZodTypeDef,
     DocumentGetDocumentWithDetailsByIdRecipientAuthOptions
   > = z.object({
-    accessAuth: z.nullable(
+    accessAuth: z.array(
       DocumentGetDocumentWithDetailsByIdAccessAuth$outboundSchema,
     ),
-    actionAuth: z.nullable(
+    actionAuth: z.array(
       DocumentGetDocumentWithDetailsByIdActionAuth$outboundSchema,
     ),
   });
@@ -3316,6 +3483,7 @@ export const DocumentGetDocumentWithDetailsByIdResponse$inboundSchema:
       deletedAt: z.nullable(z.string()),
       teamId: z.nullable(z.number()),
       templateId: z.nullable(z.number()),
+      folderId: z.nullable(z.string()),
       documentData: z.lazy(() =>
         DocumentGetDocumentWithDetailsByIdDocumentData$inboundSchema
       ),
@@ -3323,6 +3491,9 @@ export const DocumentGetDocumentWithDetailsByIdResponse$inboundSchema:
         z.lazy(() =>
           DocumentGetDocumentWithDetailsByIdDocumentMeta$inboundSchema
         ),
+      ),
+      folder: z.nullable(
+        z.lazy(() => DocumentGetDocumentWithDetailsByIdFolder$inboundSchema),
       ),
       recipients: z.array(
         z.lazy(() => DocumentGetDocumentWithDetailsByIdRecipient$inboundSchema),
@@ -3350,8 +3521,10 @@ export type DocumentGetDocumentWithDetailsByIdResponse$Outbound = {
   deletedAt: string | null;
   teamId: number | null;
   templateId: number | null;
+  folderId: string | null;
   documentData: DocumentGetDocumentWithDetailsByIdDocumentData$Outbound;
   documentMeta: DocumentGetDocumentWithDetailsByIdDocumentMeta$Outbound | null;
+  folder: DocumentGetDocumentWithDetailsByIdFolder$Outbound | null;
   recipients: Array<DocumentGetDocumentWithDetailsByIdRecipient$Outbound>;
   fields: Array<DocumentGetDocumentWithDetailsByIdField$Outbound>;
 };
@@ -3385,6 +3558,7 @@ export const DocumentGetDocumentWithDetailsByIdResponse$outboundSchema:
     deletedAt: z.nullable(z.string()),
     teamId: z.nullable(z.number()),
     templateId: z.nullable(z.number()),
+    folderId: z.nullable(z.string()),
     documentData: z.lazy(() =>
       DocumentGetDocumentWithDetailsByIdDocumentData$outboundSchema
     ),
@@ -3392,6 +3566,9 @@ export const DocumentGetDocumentWithDetailsByIdResponse$outboundSchema:
       z.lazy(() =>
         DocumentGetDocumentWithDetailsByIdDocumentMeta$outboundSchema
       ),
+    ),
+    folder: z.nullable(
+      z.lazy(() => DocumentGetDocumentWithDetailsByIdFolder$outboundSchema),
     ),
     recipients: z.array(
       z.lazy(() => DocumentGetDocumentWithDetailsByIdRecipient$outboundSchema),

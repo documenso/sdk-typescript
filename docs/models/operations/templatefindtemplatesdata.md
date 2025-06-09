@@ -11,68 +11,34 @@ let value: TemplateFindTemplatesData = {
   id: 5475.93,
   externalId: "<id>",
   title: "<value>",
-  userId: 5177.26,
-  teamId: 3295.89,
+  userId: 3295.89,
+  teamId: 487.58,
   authOptions: {
-    globalAccessAuth: "ACCOUNT",
-    globalActionAuth: "PASSKEY",
+    globalAccessAuth: [
+      "ACCOUNT",
+    ],
+    globalActionAuth: [
+      "TWO_FACTOR_AUTH",
+    ],
   },
   templateDocumentDataId: "<id>",
-  createdAt: "1714073444849",
-  updatedAt: "1744010024842",
+  createdAt: "1729533592048",
+  updatedAt: "1735618878211",
   publicTitle: "<value>",
   publicDescription: "<value>",
+  folderId: "<id>",
+  useLegacyFieldInsertion: true,
   team: {
-    id: 8235.06,
-    url: "https://powerful-shadowbox.biz",
+    id: 5544.41,
+    url: "https://colossal-railway.biz/",
   },
-  fields: [
-    {
-      type: "DATE",
-      id: 4216.08,
-      secondaryId: "<id>",
-      documentId: 6636.72,
-      templateId: 5544.41,
-      recipientId: 4567.91,
-      page: 1276.31,
-      customText: "<value>",
-      inserted: false,
-      fieldMeta: {
-        type: "radio",
-      },
-    },
-  ],
-  recipients: [
-    {
-      role: "SIGNER",
-      readStatus: "NOT_OPENED",
-      signingStatus: "SIGNED",
-      sendStatus: "SENT",
-      id: 3096.12,
-      documentId: 237.95,
-      templateId: 5324.57,
-      email: "Deanna_White@gmail.com",
-      name: "<value>",
-      token: "<value>",
-      documentDeletedAt: "<value>",
-      expired: "<value>",
-      signedAt: "<value>",
-      authOptions: {
-        accessAuth: "ACCOUNT",
-        actionAuth: "TWO_FACTOR_AUTH",
-      },
-      signingOrder: 1789.53,
-      rejectionReason: "<value>",
-    },
-  ],
+  fields: [],
+  recipients: [],
   templateMeta: {
-    signingOrder: "SEQUENTIAL",
+    signingOrder: "PARALLEL",
     distributionMethod: "NONE",
   },
-  directLink: {
-    token: "<value>",
-    enabled: false,
-  },
+  directLink: null,
 };
 ```
 
@@ -93,6 +59,8 @@ let value: TemplateFindTemplatesData = {
 | `updatedAt`                                                                                                  | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `publicTitle`                                                                                                | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `publicDescription`                                                                                          | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| `folderId`                                                                                                   | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| `useLegacyFieldInsertion`                                                                                    | *boolean*                                                                                                    | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `team`                                                                                                       | [operations.TemplateFindTemplatesTeam](../../models/operations/templatefindtemplatesteam.md)                 | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `fields`                                                                                                     | [operations.TemplateFindTemplatesField](../../models/operations/templatefindtemplatesfield.md)[]             | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `recipients`                                                                                                 | [operations.TemplateFindTemplatesRecipient](../../models/operations/templatefindtemplatesrecipient.md)[]     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |

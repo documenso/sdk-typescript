@@ -9,14 +9,14 @@ let value: TemplateCreateDocumentFromTemplateField = {
   type: "INITIALS",
   id: 5022.06,
   secondaryId: "<id>",
-  documentId: 1543.88,
-  templateId: 9731.51,
-  recipientId: 7828.24,
-  page: 4100.66,
+  documentId: 9731.51,
+  templateId: 4100.66,
+  recipientId: 9639.67,
+  page: 1900.27,
   customText: "<value>",
-  inserted: false,
+  inserted: true,
   fieldMeta: {
-    type: "dropdown",
+    type: "name",
   },
 };
 ```

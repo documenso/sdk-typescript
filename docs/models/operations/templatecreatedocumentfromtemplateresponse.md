@@ -12,23 +12,19 @@ let value: TemplateCreateDocumentFromTemplateResponse = {
   status: "DRAFT",
   source: "DOCUMENT",
   id: 6352.39,
-  externalId: "<id>",
-  userId: 689.95,
-  authOptions: {
-    globalAccessAuth: "ACCOUNT",
-    globalActionAuth: "ACCOUNT",
-  },
-  formValues: {
-    "key": "<value>",
-  },
+  externalId: null,
+  userId: 604.67,
+  authOptions: null,
+  formValues: {},
   title: "<value>",
   documentDataId: "<id>",
-  createdAt: "1720708933109",
-  updatedAt: "1744013322859",
+  createdAt: "1726149769095",
+  updatedAt: "1735650729634",
   completedAt: "<value>",
   deletedAt: "<value>",
-  teamId: 6974.94,
-  templateId: 5501.18,
+  teamId: 6381.97,
+  templateId: 2962.33,
+  folderId: "<id>",
   documentData: {
     type: "BYTES",
     id: "<id>",
@@ -36,62 +32,37 @@ let value: TemplateCreateDocumentFromTemplateResponse = {
     initialData: "<value>",
   },
   documentMeta: {
-    signingOrder: "PARALLEL",
+    signingOrder: "SEQUENTIAL",
     distributionMethod: "EMAIL",
     id: "<id>",
     subject: "<value>",
-    message: "<value>",
-    timezone: "Asia/Qyzylorda",
-    password: "LA_JgFO6uaCuVNS",
+    message: null,
+    timezone: "Antarctica/Rothera",
+    password: "uaCuVNSI9nx0p2q",
     dateFormat: "<value>",
-    documentId: 4295.56,
-    redirectUrl: "https://subdued-topsail.com/",
-    typedSignatureEnabled: false,
-    uploadSignatureEnabled: false,
+    documentId: 1656.46,
+    redirectUrl: "https://unsung-possession.com/",
+    typedSignatureEnabled: true,
+    uploadSignatureEnabled: true,
     drawSignatureEnabled: false,
-    allowDictateNextSigner: false,
+    allowDictateNextSigner: true,
     language: "<value>",
     emailSettings: {},
   },
-  recipients: [
-    {
-      role: "SIGNER",
-      readStatus: "NOT_OPENED",
-      signingStatus: "REJECTED",
-      sendStatus: "NOT_SENT",
-      id: 8523.5,
-      documentId: 3370.18,
-      templateId: 1656.46,
-      email: "Gertrude.Predovic36@hotmail.com",
-      name: "<value>",
-      token: "<value>",
-      documentDeletedAt: "<value>",
-      expired: "<value>",
-      signedAt: "<value>",
-      authOptions: {
-        accessAuth: "ACCOUNT",
-        actionAuth: "TWO_FACTOR_AUTH",
-      },
-      signingOrder: 1738.36,
-      rejectionReason: "<value>",
-    },
-  ],
-  fields: [
-    {
-      type: "EMAIL",
-      id: 4250.91,
-      secondaryId: "<id>",
-      documentId: 1267.64,
-      templateId: 6947.19,
-      recipientId: 6892.94,
-      page: 9047.93,
-      customText: "<value>",
-      inserted: false,
-      fieldMeta: {
-        type: "initials",
-      },
-    },
-  ],
+  folder: {
+    id: "<id>",
+    name: "<value>",
+    type: "DOCUMENT",
+    visibility: "ADMIN",
+    userId: 6892.94,
+    teamId: 110.29,
+    pinned: false,
+    parentId: "<id>",
+    createdAt: "1733706574183",
+    updatedAt: "1735620682763",
+  },
+  recipients: [],
+  fields: [],
 };
 ```
 
@@ -115,7 +86,9 @@ let value: TemplateCreateDocumentFromTemplateResponse = {
 | `deletedAt`                                                                                                                                        | *string*                                                                                                                                           | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
 | `teamId`                                                                                                                                           | *number*                                                                                                                                           | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
 | `templateId`                                                                                                                                       | *number*                                                                                                                                           | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
+| `folderId`                                                                                                                                         | *string*                                                                                                                                           | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
 | `documentData`                                                                                                                                     | [operations.TemplateCreateDocumentFromTemplateDocumentData](../../models/operations/templatecreatedocumentfromtemplatedocumentdata.md)             | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
 | `documentMeta`                                                                                                                                     | [operations.TemplateCreateDocumentFromTemplateDocumentMeta](../../models/operations/templatecreatedocumentfromtemplatedocumentmeta.md)             | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
+| `folder`                                                                                                                                           | [operations.TemplateCreateDocumentFromTemplateFolder](../../models/operations/templatecreatedocumentfromtemplatefolder.md)                         | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
 | `recipients`                                                                                                                                       | [operations.TemplateCreateDocumentFromTemplateRecipientResponse](../../models/operations/templatecreatedocumentfromtemplaterecipientresponse.md)[] | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
 | `fields`                                                                                                                                           | [operations.TemplateCreateDocumentFromTemplateField](../../models/operations/templatecreatedocumentfromtemplatefield.md)[]                         | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |

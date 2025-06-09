@@ -8,41 +8,42 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export const TemplateUpdateTemplateVisibilityRequestBody = {
+export const TemplateUpdateTemplateVisibilityRequest = {
   Everyone: "EVERYONE",
   ManagerAndAbove: "MANAGER_AND_ABOVE",
   Admin: "ADMIN",
 } as const;
-export type TemplateUpdateTemplateVisibilityRequestBody = ClosedEnum<
-  typeof TemplateUpdateTemplateVisibilityRequestBody
+export type TemplateUpdateTemplateVisibilityRequest = ClosedEnum<
+  typeof TemplateUpdateTemplateVisibilityRequest
 >;
 
 /**
  * The type of authentication required for the recipient to access the document.
  */
-export const TemplateUpdateTemplateGlobalAccessAuthRequestBody = {
+export const TemplateUpdateTemplateGlobalAccessAuthRequest = {
   Account: "ACCOUNT",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
  */
-export type TemplateUpdateTemplateGlobalAccessAuthRequestBody = ClosedEnum<
-  typeof TemplateUpdateTemplateGlobalAccessAuthRequestBody
+export type TemplateUpdateTemplateGlobalAccessAuthRequest = ClosedEnum<
+  typeof TemplateUpdateTemplateGlobalAccessAuthRequest
 >;
 
 /**
  * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
  */
-export const TemplateUpdateTemplateGlobalActionAuthRequestBody = {
+export const TemplateUpdateTemplateGlobalActionAuthRequest = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
+  Password: "PASSWORD",
 } as const;
 /**
  * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
  */
-export type TemplateUpdateTemplateGlobalActionAuthRequestBody = ClosedEnum<
-  typeof TemplateUpdateTemplateGlobalActionAuthRequestBody
+export type TemplateUpdateTemplateGlobalActionAuthRequest = ClosedEnum<
+  typeof TemplateUpdateTemplateGlobalActionAuthRequest
 >;
 
 export const TemplateUpdateTemplateDataType = {
@@ -56,20 +57,12 @@ export type TemplateUpdateTemplateDataType = ClosedEnum<
 export type TemplateUpdateTemplateData = {
   title?: string | undefined;
   externalId?: string | null | undefined;
-  visibility?: TemplateUpdateTemplateVisibilityRequestBody | undefined;
-  /**
-   * The type of authentication required for the recipient to access the document.
-   */
+  visibility?: TemplateUpdateTemplateVisibilityRequest | undefined;
   globalAccessAuth?:
-    | TemplateUpdateTemplateGlobalAccessAuthRequestBody
-    | null
+    | Array<TemplateUpdateTemplateGlobalAccessAuthRequest>
     | undefined;
-  /**
-   * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
-   */
   globalActionAuth?:
-    | TemplateUpdateTemplateGlobalActionAuthRequestBody
-    | null
+    | Array<TemplateUpdateTemplateGlobalActionAuthRequest>
     | undefined;
   /**
    * The title of the template that will be displayed to the public. Only applicable for public templates.
@@ -80,6 +73,7 @@ export type TemplateUpdateTemplateData = {
    */
   publicDescription?: string | undefined;
   type?: TemplateUpdateTemplateDataType | undefined;
+  useLegacyFieldInsertion?: boolean | undefined;
 };
 
 /**
@@ -264,6 +258,7 @@ export const TemplateUpdateTemplateGlobalActionAuthResponse = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
+  Password: "PASSWORD",
 } as const;
 /**
  * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
@@ -273,14 +268,8 @@ export type TemplateUpdateTemplateGlobalActionAuthResponse = ClosedEnum<
 >;
 
 export type TemplateUpdateTemplateAuthOptions = {
-  /**
-   * The type of authentication required for the recipient to access the document.
-   */
-  globalAccessAuth: TemplateUpdateTemplateGlobalAccessAuthResponse | null;
-  /**
-   * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
-   */
-  globalActionAuth: TemplateUpdateTemplateGlobalActionAuthResponse | null;
+  globalAccessAuth: Array<TemplateUpdateTemplateGlobalAccessAuthResponse>;
+  globalActionAuth: Array<TemplateUpdateTemplateGlobalActionAuthResponse>;
 };
 
 /**
@@ -300,75 +289,77 @@ export type TemplateUpdateTemplateResponse = {
   updatedAt: string;
   publicTitle: string;
   publicDescription: string;
+  folderId: string | null;
+  useLegacyFieldInsertion: boolean;
 };
 
 /** @internal */
-export const TemplateUpdateTemplateVisibilityRequestBody$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateVisibilityRequestBody> = z
-    .nativeEnum(TemplateUpdateTemplateVisibilityRequestBody);
+export const TemplateUpdateTemplateVisibilityRequest$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateVisibilityRequest> = z
+    .nativeEnum(TemplateUpdateTemplateVisibilityRequest);
 
 /** @internal */
-export const TemplateUpdateTemplateVisibilityRequestBody$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateVisibilityRequestBody> =
-    TemplateUpdateTemplateVisibilityRequestBody$inboundSchema;
+export const TemplateUpdateTemplateVisibilityRequest$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateVisibilityRequest> =
+    TemplateUpdateTemplateVisibilityRequest$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateUpdateTemplateVisibilityRequestBody$ {
-  /** @deprecated use `TemplateUpdateTemplateVisibilityRequestBody$inboundSchema` instead. */
+export namespace TemplateUpdateTemplateVisibilityRequest$ {
+  /** @deprecated use `TemplateUpdateTemplateVisibilityRequest$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateUpdateTemplateVisibilityRequestBody$inboundSchema;
-  /** @deprecated use `TemplateUpdateTemplateVisibilityRequestBody$outboundSchema` instead. */
+    TemplateUpdateTemplateVisibilityRequest$inboundSchema;
+  /** @deprecated use `TemplateUpdateTemplateVisibilityRequest$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateUpdateTemplateVisibilityRequestBody$outboundSchema;
+    TemplateUpdateTemplateVisibilityRequest$outboundSchema;
 }
 
 /** @internal */
-export const TemplateUpdateTemplateGlobalAccessAuthRequestBody$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateGlobalAccessAuthRequestBody> = z
-    .nativeEnum(TemplateUpdateTemplateGlobalAccessAuthRequestBody);
+export const TemplateUpdateTemplateGlobalAccessAuthRequest$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateGlobalAccessAuthRequest> = z
+    .nativeEnum(TemplateUpdateTemplateGlobalAccessAuthRequest);
 
 /** @internal */
-export const TemplateUpdateTemplateGlobalAccessAuthRequestBody$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateGlobalAccessAuthRequestBody> =
-    TemplateUpdateTemplateGlobalAccessAuthRequestBody$inboundSchema;
+export const TemplateUpdateTemplateGlobalAccessAuthRequest$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateGlobalAccessAuthRequest> =
+    TemplateUpdateTemplateGlobalAccessAuthRequest$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateUpdateTemplateGlobalAccessAuthRequestBody$ {
-  /** @deprecated use `TemplateUpdateTemplateGlobalAccessAuthRequestBody$inboundSchema` instead. */
+export namespace TemplateUpdateTemplateGlobalAccessAuthRequest$ {
+  /** @deprecated use `TemplateUpdateTemplateGlobalAccessAuthRequest$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateUpdateTemplateGlobalAccessAuthRequestBody$inboundSchema;
-  /** @deprecated use `TemplateUpdateTemplateGlobalAccessAuthRequestBody$outboundSchema` instead. */
+    TemplateUpdateTemplateGlobalAccessAuthRequest$inboundSchema;
+  /** @deprecated use `TemplateUpdateTemplateGlobalAccessAuthRequest$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateUpdateTemplateGlobalAccessAuthRequestBody$outboundSchema;
+    TemplateUpdateTemplateGlobalAccessAuthRequest$outboundSchema;
 }
 
 /** @internal */
-export const TemplateUpdateTemplateGlobalActionAuthRequestBody$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateGlobalActionAuthRequestBody> = z
-    .nativeEnum(TemplateUpdateTemplateGlobalActionAuthRequestBody);
+export const TemplateUpdateTemplateGlobalActionAuthRequest$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateGlobalActionAuthRequest> = z
+    .nativeEnum(TemplateUpdateTemplateGlobalActionAuthRequest);
 
 /** @internal */
-export const TemplateUpdateTemplateGlobalActionAuthRequestBody$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateGlobalActionAuthRequestBody> =
-    TemplateUpdateTemplateGlobalActionAuthRequestBody$inboundSchema;
+export const TemplateUpdateTemplateGlobalActionAuthRequest$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateGlobalActionAuthRequest> =
+    TemplateUpdateTemplateGlobalActionAuthRequest$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateUpdateTemplateGlobalActionAuthRequestBody$ {
-  /** @deprecated use `TemplateUpdateTemplateGlobalActionAuthRequestBody$inboundSchema` instead. */
+export namespace TemplateUpdateTemplateGlobalActionAuthRequest$ {
+  /** @deprecated use `TemplateUpdateTemplateGlobalActionAuthRequest$inboundSchema` instead. */
   export const inboundSchema =
-    TemplateUpdateTemplateGlobalActionAuthRequestBody$inboundSchema;
-  /** @deprecated use `TemplateUpdateTemplateGlobalActionAuthRequestBody$outboundSchema` instead. */
+    TemplateUpdateTemplateGlobalActionAuthRequest$inboundSchema;
+  /** @deprecated use `TemplateUpdateTemplateGlobalActionAuthRequest$outboundSchema` instead. */
   export const outboundSchema =
-    TemplateUpdateTemplateGlobalActionAuthRequestBody$outboundSchema;
+    TemplateUpdateTemplateGlobalActionAuthRequest$outboundSchema;
 }
 
 /** @internal */
@@ -400,17 +391,17 @@ export const TemplateUpdateTemplateData$inboundSchema: z.ZodType<
 > = z.object({
   title: z.string().optional(),
   externalId: z.nullable(z.string()).optional(),
-  visibility: TemplateUpdateTemplateVisibilityRequestBody$inboundSchema
-    .optional(),
-  globalAccessAuth: z.nullable(
-    TemplateUpdateTemplateGlobalAccessAuthRequestBody$inboundSchema,
+  visibility: TemplateUpdateTemplateVisibilityRequest$inboundSchema.optional(),
+  globalAccessAuth: z.array(
+    TemplateUpdateTemplateGlobalAccessAuthRequest$inboundSchema,
   ).optional(),
-  globalActionAuth: z.nullable(
-    TemplateUpdateTemplateGlobalActionAuthRequestBody$inboundSchema,
+  globalActionAuth: z.array(
+    TemplateUpdateTemplateGlobalActionAuthRequest$inboundSchema,
   ).optional(),
   publicTitle: z.string().optional(),
   publicDescription: z.string().optional(),
   type: TemplateUpdateTemplateDataType$inboundSchema.optional(),
+  useLegacyFieldInsertion: z.boolean().optional(),
 });
 
 /** @internal */
@@ -418,11 +409,12 @@ export type TemplateUpdateTemplateData$Outbound = {
   title?: string | undefined;
   externalId?: string | null | undefined;
   visibility?: string | undefined;
-  globalAccessAuth?: string | null | undefined;
-  globalActionAuth?: string | null | undefined;
+  globalAccessAuth?: Array<string> | undefined;
+  globalActionAuth?: Array<string> | undefined;
   publicTitle?: string | undefined;
   publicDescription?: string | undefined;
   type?: string | undefined;
+  useLegacyFieldInsertion?: boolean | undefined;
 };
 
 /** @internal */
@@ -433,17 +425,17 @@ export const TemplateUpdateTemplateData$outboundSchema: z.ZodType<
 > = z.object({
   title: z.string().optional(),
   externalId: z.nullable(z.string()).optional(),
-  visibility: TemplateUpdateTemplateVisibilityRequestBody$outboundSchema
-    .optional(),
-  globalAccessAuth: z.nullable(
-    TemplateUpdateTemplateGlobalAccessAuthRequestBody$outboundSchema,
+  visibility: TemplateUpdateTemplateVisibilityRequest$outboundSchema.optional(),
+  globalAccessAuth: z.array(
+    TemplateUpdateTemplateGlobalAccessAuthRequest$outboundSchema,
   ).optional(),
-  globalActionAuth: z.nullable(
-    TemplateUpdateTemplateGlobalActionAuthRequestBody$outboundSchema,
+  globalActionAuth: z.array(
+    TemplateUpdateTemplateGlobalActionAuthRequest$outboundSchema,
   ).optional(),
   publicTitle: z.string().optional(),
   publicDescription: z.string().optional(),
   type: TemplateUpdateTemplateDataType$outboundSchema.optional(),
+  useLegacyFieldInsertion: z.boolean().optional(),
 });
 
 /**
@@ -895,18 +887,18 @@ export const TemplateUpdateTemplateAuthOptions$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  globalAccessAuth: z.nullable(
+  globalAccessAuth: z.array(
     TemplateUpdateTemplateGlobalAccessAuthResponse$inboundSchema,
   ),
-  globalActionAuth: z.nullable(
+  globalActionAuth: z.array(
     TemplateUpdateTemplateGlobalActionAuthResponse$inboundSchema,
   ),
 });
 
 /** @internal */
 export type TemplateUpdateTemplateAuthOptions$Outbound = {
-  globalAccessAuth: string | null;
-  globalActionAuth: string | null;
+  globalAccessAuth: Array<string>;
+  globalActionAuth: Array<string>;
 };
 
 /** @internal */
@@ -915,10 +907,10 @@ export const TemplateUpdateTemplateAuthOptions$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TemplateUpdateTemplateAuthOptions
 > = z.object({
-  globalAccessAuth: z.nullable(
+  globalAccessAuth: z.array(
     TemplateUpdateTemplateGlobalAccessAuthResponse$outboundSchema,
   ),
-  globalActionAuth: z.nullable(
+  globalActionAuth: z.array(
     TemplateUpdateTemplateGlobalActionAuthResponse$outboundSchema,
   ),
 });
@@ -978,6 +970,8 @@ export const TemplateUpdateTemplateResponse$inboundSchema: z.ZodType<
   updatedAt: z.string(),
   publicTitle: z.string(),
   publicDescription: z.string(),
+  folderId: z.nullable(z.string()),
+  useLegacyFieldInsertion: z.boolean(),
 });
 
 /** @internal */
@@ -995,6 +989,8 @@ export type TemplateUpdateTemplateResponse$Outbound = {
   updatedAt: string;
   publicTitle: string;
   publicDescription: string;
+  folderId: string | null;
+  useLegacyFieldInsertion: boolean;
 };
 
 /** @internal */
@@ -1018,6 +1014,8 @@ export const TemplateUpdateTemplateResponse$outboundSchema: z.ZodType<
   updatedAt: z.string(),
   publicTitle: z.string(),
   publicDescription: z.string(),
+  folderId: z.nullable(z.string()),
+  useLegacyFieldInsertion: z.boolean(),
 });
 
 /**

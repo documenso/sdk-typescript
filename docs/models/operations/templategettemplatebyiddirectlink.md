@@ -9,9 +9,9 @@ let value: TemplateGetTemplateByIdDirectLink = {
   id: "<id>",
   templateId: 4516.97,
   token: "<value>",
-  createdAt: "1723784685511",
-  enabled: false,
-  directTemplateRecipientId: 3461.72,
+  createdAt: "1715402496227",
+  enabled: true,
+  directTemplateRecipientId: 3184.27,
 };
 ```
 

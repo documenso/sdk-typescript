@@ -13,5 +13,5 @@ let value: TemplateMoveTemplateToTeamGlobalActionAuth = "PASSKEY";
 ## Values
 
 ```typescript
-"ACCOUNT" | "PASSKEY" | "TWO_FACTOR_AUTH"
+"ACCOUNT" | "PASSKEY" | "TWO_FACTOR_AUTH" | "PASSWORD"
 ```

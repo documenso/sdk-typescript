@@ -27,10 +27,9 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.documents.recipients.get({
-    recipientId: 7003.47,
+    recipientId: 874.3,
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -53,17 +52,14 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await documentsRecipientsGet(documenso, {
-    recipientId: 7003.47,
+    recipientId: 874.3,
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("documentsRecipientsGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -106,15 +102,14 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.documents.recipients.create({
-    documentId: 4865.89,
+    documentId: 3058.31,
     recipient: {
-      email: "Haylie_Bernhard95@yahoo.com",
+      email: "Ila.Steuber@yahoo.com",
       name: "<value>",
-      role: "CC",
+      role: "ASSISTANT",
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -137,22 +132,19 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await documentsRecipientsCreate(documenso, {
-    documentId: 4865.89,
+    documentId: 3058.31,
     recipient: {
-      email: "Haylie_Bernhard95@yahoo.com",
+      email: "Ila.Steuber@yahoo.com",
       name: "<value>",
-      role: "CC",
+      role: "ASSISTANT",
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("documentsRecipientsCreate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -194,22 +186,16 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.documents.recipients.createMany({
-    documentId: 5158.41,
+    documentId: 9983.95,
     recipients: [
       {
-        email: "Demetrius.Sanford35@hotmail.com",
+        email: "Roosevelt_Baumbach@yahoo.com",
         name: "<value>",
-        role: "APPROVER",
-      },
-      {
-        email: "Lyla50@yahoo.com",
-        name: "<value>",
-        role: "APPROVER",
+        role: "CC",
       },
     ],
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -232,29 +218,21 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await documentsRecipientsCreateMany(documenso, {
-    documentId: 5158.41,
+    documentId: 9983.95,
     recipients: [
       {
-        email: "Demetrius.Sanford35@hotmail.com",
+        email: "Roosevelt_Baumbach@yahoo.com",
         name: "<value>",
-        role: "APPROVER",
-      },
-      {
-        email: "Lyla50@yahoo.com",
-        name: "<value>",
-        role: "APPROVER",
+        role: "CC",
       },
     ],
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("documentsRecipientsCreateMany failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -296,13 +274,12 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.documents.recipients.update({
-    documentId: 8574.78,
+    documentId: 7045.62,
     recipient: {
-      id: 5971.29,
+      id: 2224.05,
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -325,20 +302,17 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await documentsRecipientsUpdate(documenso, {
-    documentId: 8574.78,
+    documentId: 7045.62,
     recipient: {
-      id: 5971.29,
+      id: 2224.05,
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("documentsRecipientsUpdate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -380,18 +354,10 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.documents.recipients.updateMany({
-    documentId: 4057.69,
-    recipients: [
-      {
-        id: 5359.16,
-      },
-      {
-        id: 8982.15,
-      },
-    ],
+    documentId: 3189.76,
+    recipients: [],
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -414,25 +380,15 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await documentsRecipientsUpdateMany(documenso, {
-    documentId: 4057.69,
-    recipients: [
-      {
-        id: 5359.16,
-      },
-      {
-        id: 8982.15,
-      },
-    ],
+    documentId: 3189.76,
+    recipients: [],
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("documentsRecipientsUpdateMany failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -474,10 +430,9 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.documents.recipients.delete({
-    recipientId: 5459.07,
+    recipientId: 5490.43,
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -500,17 +455,14 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await documentsRecipientsDelete(documenso, {
-    recipientId: 5459.07,
+    recipientId: 5490.43,
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("documentsRecipientsDelete failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

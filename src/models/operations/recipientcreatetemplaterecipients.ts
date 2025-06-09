@@ -8,70 +8,63 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export const RecipientCreateTemplateRecipientsRoleRequestBody = {
+export const RecipientCreateTemplateRecipientsRoleRequest = {
   Cc: "CC",
   Signer: "SIGNER",
   Viewer: "VIEWER",
   Approver: "APPROVER",
   Assistant: "ASSISTANT",
 } as const;
-export type RecipientCreateTemplateRecipientsRoleRequestBody = ClosedEnum<
-  typeof RecipientCreateTemplateRecipientsRoleRequestBody
+export type RecipientCreateTemplateRecipientsRoleRequest = ClosedEnum<
+  typeof RecipientCreateTemplateRecipientsRoleRequest
 >;
 
 /**
  * The type of authentication required for the recipient to access the document.
  */
-export const RecipientCreateTemplateRecipientsAccessAuthRequestBody = {
+export const RecipientCreateTemplateRecipientsAccessAuthRequest = {
   Account: "ACCOUNT",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
  */
-export type RecipientCreateTemplateRecipientsAccessAuthRequestBody = ClosedEnum<
-  typeof RecipientCreateTemplateRecipientsAccessAuthRequestBody
+export type RecipientCreateTemplateRecipientsAccessAuthRequest = ClosedEnum<
+  typeof RecipientCreateTemplateRecipientsAccessAuthRequest
 >;
 
 /**
  * The type of authentication required for the recipient to sign the document.
  */
-export const RecipientCreateTemplateRecipientsActionAuthRequestBody = {
+export const RecipientCreateTemplateRecipientsActionAuthRequest = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
+  Password: "PASSWORD",
   ExplicitNone: "EXPLICIT_NONE",
 } as const;
 /**
  * The type of authentication required for the recipient to sign the document.
  */
-export type RecipientCreateTemplateRecipientsActionAuthRequestBody = ClosedEnum<
-  typeof RecipientCreateTemplateRecipientsActionAuthRequestBody
+export type RecipientCreateTemplateRecipientsActionAuthRequest = ClosedEnum<
+  typeof RecipientCreateTemplateRecipientsActionAuthRequest
 >;
 
-export type RecipientCreateTemplateRecipientsRecipientRequestBody = {
+export type RecipientCreateTemplateRecipientsRecipientRequest = {
   email: string;
   name: string;
-  role: RecipientCreateTemplateRecipientsRoleRequestBody;
+  role: RecipientCreateTemplateRecipientsRoleRequest;
   signingOrder?: number | undefined;
-  /**
-   * The type of authentication required for the recipient to access the document.
-   */
   accessAuth?:
-    | RecipientCreateTemplateRecipientsAccessAuthRequestBody
-    | null
+    | Array<RecipientCreateTemplateRecipientsAccessAuthRequest>
     | undefined;
-  /**
-   * The type of authentication required for the recipient to sign the document.
-   */
   actionAuth?:
-    | RecipientCreateTemplateRecipientsActionAuthRequestBody
-    | null
+    | Array<RecipientCreateTemplateRecipientsActionAuthRequest>
     | undefined;
 };
 
 export type RecipientCreateTemplateRecipientsRequest = {
   templateId: number;
-  recipients: Array<RecipientCreateTemplateRecipientsRecipientRequestBody>;
+  recipients: Array<RecipientCreateTemplateRecipientsRecipientRequest>;
 };
 
 export const RecipientCreateTemplateRecipientsRoleResponse = {
@@ -130,6 +123,7 @@ export const RecipientCreateTemplateRecipientsActionAuthResponse = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
+  Password: "PASSWORD",
   ExplicitNone: "EXPLICIT_NONE",
 } as const;
 /**
@@ -140,14 +134,8 @@ export type RecipientCreateTemplateRecipientsActionAuthResponse = ClosedEnum<
 >;
 
 export type RecipientCreateTemplateRecipientsAuthOptions = {
-  /**
-   * The type of authentication required for the recipient to access the document.
-   */
-  accessAuth: RecipientCreateTemplateRecipientsAccessAuthResponse | null;
-  /**
-   * The type of authentication required for the recipient to sign the document.
-   */
-  actionAuth: RecipientCreateTemplateRecipientsActionAuthResponse | null;
+  accessAuth: Array<RecipientCreateTemplateRecipientsAccessAuthResponse>;
+  actionAuth: Array<RecipientCreateTemplateRecipientsActionAuthResponse>;
 };
 
 export type RecipientCreateTemplateRecipientsRecipientResponse = {
@@ -180,123 +168,119 @@ export type RecipientCreateTemplateRecipientsResponse = {
 };
 
 /** @internal */
-export const RecipientCreateTemplateRecipientsRoleRequestBody$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientCreateTemplateRecipientsRoleRequestBody> = z
-    .nativeEnum(RecipientCreateTemplateRecipientsRoleRequestBody);
+export const RecipientCreateTemplateRecipientsRoleRequest$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientCreateTemplateRecipientsRoleRequest> = z
+    .nativeEnum(RecipientCreateTemplateRecipientsRoleRequest);
 
 /** @internal */
-export const RecipientCreateTemplateRecipientsRoleRequestBody$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientCreateTemplateRecipientsRoleRequestBody> =
-    RecipientCreateTemplateRecipientsRoleRequestBody$inboundSchema;
+export const RecipientCreateTemplateRecipientsRoleRequest$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientCreateTemplateRecipientsRoleRequest> =
+    RecipientCreateTemplateRecipientsRoleRequest$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientCreateTemplateRecipientsRoleRequestBody$ {
-  /** @deprecated use `RecipientCreateTemplateRecipientsRoleRequestBody$inboundSchema` instead. */
+export namespace RecipientCreateTemplateRecipientsRoleRequest$ {
+  /** @deprecated use `RecipientCreateTemplateRecipientsRoleRequest$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientCreateTemplateRecipientsRoleRequestBody$inboundSchema;
-  /** @deprecated use `RecipientCreateTemplateRecipientsRoleRequestBody$outboundSchema` instead. */
+    RecipientCreateTemplateRecipientsRoleRequest$inboundSchema;
+  /** @deprecated use `RecipientCreateTemplateRecipientsRoleRequest$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientCreateTemplateRecipientsRoleRequestBody$outboundSchema;
+    RecipientCreateTemplateRecipientsRoleRequest$outboundSchema;
 }
 
 /** @internal */
-export const RecipientCreateTemplateRecipientsAccessAuthRequestBody$inboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientCreateTemplateRecipientsAccessAuthRequestBody
-  > = z.nativeEnum(RecipientCreateTemplateRecipientsAccessAuthRequestBody);
+export const RecipientCreateTemplateRecipientsAccessAuthRequest$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientCreateTemplateRecipientsAccessAuthRequest> = z
+    .nativeEnum(RecipientCreateTemplateRecipientsAccessAuthRequest);
 
 /** @internal */
-export const RecipientCreateTemplateRecipientsAccessAuthRequestBody$outboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientCreateTemplateRecipientsAccessAuthRequestBody
-  > = RecipientCreateTemplateRecipientsAccessAuthRequestBody$inboundSchema;
+export const RecipientCreateTemplateRecipientsAccessAuthRequest$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientCreateTemplateRecipientsAccessAuthRequest> =
+    RecipientCreateTemplateRecipientsAccessAuthRequest$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientCreateTemplateRecipientsAccessAuthRequestBody$ {
-  /** @deprecated use `RecipientCreateTemplateRecipientsAccessAuthRequestBody$inboundSchema` instead. */
+export namespace RecipientCreateTemplateRecipientsAccessAuthRequest$ {
+  /** @deprecated use `RecipientCreateTemplateRecipientsAccessAuthRequest$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientCreateTemplateRecipientsAccessAuthRequestBody$inboundSchema;
-  /** @deprecated use `RecipientCreateTemplateRecipientsAccessAuthRequestBody$outboundSchema` instead. */
+    RecipientCreateTemplateRecipientsAccessAuthRequest$inboundSchema;
+  /** @deprecated use `RecipientCreateTemplateRecipientsAccessAuthRequest$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientCreateTemplateRecipientsAccessAuthRequestBody$outboundSchema;
+    RecipientCreateTemplateRecipientsAccessAuthRequest$outboundSchema;
 }
 
 /** @internal */
-export const RecipientCreateTemplateRecipientsActionAuthRequestBody$inboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientCreateTemplateRecipientsActionAuthRequestBody
-  > = z.nativeEnum(RecipientCreateTemplateRecipientsActionAuthRequestBody);
+export const RecipientCreateTemplateRecipientsActionAuthRequest$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientCreateTemplateRecipientsActionAuthRequest> = z
+    .nativeEnum(RecipientCreateTemplateRecipientsActionAuthRequest);
 
 /** @internal */
-export const RecipientCreateTemplateRecipientsActionAuthRequestBody$outboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientCreateTemplateRecipientsActionAuthRequestBody
-  > = RecipientCreateTemplateRecipientsActionAuthRequestBody$inboundSchema;
+export const RecipientCreateTemplateRecipientsActionAuthRequest$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientCreateTemplateRecipientsActionAuthRequest> =
+    RecipientCreateTemplateRecipientsActionAuthRequest$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientCreateTemplateRecipientsActionAuthRequestBody$ {
-  /** @deprecated use `RecipientCreateTemplateRecipientsActionAuthRequestBody$inboundSchema` instead. */
+export namespace RecipientCreateTemplateRecipientsActionAuthRequest$ {
+  /** @deprecated use `RecipientCreateTemplateRecipientsActionAuthRequest$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientCreateTemplateRecipientsActionAuthRequestBody$inboundSchema;
-  /** @deprecated use `RecipientCreateTemplateRecipientsActionAuthRequestBody$outboundSchema` instead. */
+    RecipientCreateTemplateRecipientsActionAuthRequest$inboundSchema;
+  /** @deprecated use `RecipientCreateTemplateRecipientsActionAuthRequest$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientCreateTemplateRecipientsActionAuthRequestBody$outboundSchema;
+    RecipientCreateTemplateRecipientsActionAuthRequest$outboundSchema;
 }
 
 /** @internal */
-export const RecipientCreateTemplateRecipientsRecipientRequestBody$inboundSchema:
+export const RecipientCreateTemplateRecipientsRecipientRequest$inboundSchema:
   z.ZodType<
-    RecipientCreateTemplateRecipientsRecipientRequestBody,
+    RecipientCreateTemplateRecipientsRecipientRequest,
     z.ZodTypeDef,
     unknown
   > = z.object({
     email: z.string(),
     name: z.string(),
-    role: RecipientCreateTemplateRecipientsRoleRequestBody$inboundSchema,
+    role: RecipientCreateTemplateRecipientsRoleRequest$inboundSchema,
     signingOrder: z.number().optional(),
-    accessAuth: z.nullable(
-      RecipientCreateTemplateRecipientsAccessAuthRequestBody$inboundSchema,
+    accessAuth: z.array(
+      RecipientCreateTemplateRecipientsAccessAuthRequest$inboundSchema,
     ).optional(),
-    actionAuth: z.nullable(
-      RecipientCreateTemplateRecipientsActionAuthRequestBody$inboundSchema,
+    actionAuth: z.array(
+      RecipientCreateTemplateRecipientsActionAuthRequest$inboundSchema,
     ).optional(),
   });
 
 /** @internal */
-export type RecipientCreateTemplateRecipientsRecipientRequestBody$Outbound = {
+export type RecipientCreateTemplateRecipientsRecipientRequest$Outbound = {
   email: string;
   name: string;
   role: string;
   signingOrder?: number | undefined;
-  accessAuth?: string | null | undefined;
-  actionAuth?: string | null | undefined;
+  accessAuth?: Array<string> | undefined;
+  actionAuth?: Array<string> | undefined;
 };
 
 /** @internal */
-export const RecipientCreateTemplateRecipientsRecipientRequestBody$outboundSchema:
+export const RecipientCreateTemplateRecipientsRecipientRequest$outboundSchema:
   z.ZodType<
-    RecipientCreateTemplateRecipientsRecipientRequestBody$Outbound,
+    RecipientCreateTemplateRecipientsRecipientRequest$Outbound,
     z.ZodTypeDef,
-    RecipientCreateTemplateRecipientsRecipientRequestBody
+    RecipientCreateTemplateRecipientsRecipientRequest
   > = z.object({
     email: z.string(),
     name: z.string(),
-    role: RecipientCreateTemplateRecipientsRoleRequestBody$outboundSchema,
+    role: RecipientCreateTemplateRecipientsRoleRequest$outboundSchema,
     signingOrder: z.number().optional(),
-    accessAuth: z.nullable(
-      RecipientCreateTemplateRecipientsAccessAuthRequestBody$outboundSchema,
+    accessAuth: z.array(
+      RecipientCreateTemplateRecipientsAccessAuthRequest$outboundSchema,
     ).optional(),
-    actionAuth: z.nullable(
-      RecipientCreateTemplateRecipientsActionAuthRequestBody$outboundSchema,
+    actionAuth: z.array(
+      RecipientCreateTemplateRecipientsActionAuthRequest$outboundSchema,
     ).optional(),
   });
 
@@ -304,42 +288,42 @@ export const RecipientCreateTemplateRecipientsRecipientRequestBody$outboundSchem
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientCreateTemplateRecipientsRecipientRequestBody$ {
-  /** @deprecated use `RecipientCreateTemplateRecipientsRecipientRequestBody$inboundSchema` instead. */
+export namespace RecipientCreateTemplateRecipientsRecipientRequest$ {
+  /** @deprecated use `RecipientCreateTemplateRecipientsRecipientRequest$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientCreateTemplateRecipientsRecipientRequestBody$inboundSchema;
-  /** @deprecated use `RecipientCreateTemplateRecipientsRecipientRequestBody$outboundSchema` instead. */
+    RecipientCreateTemplateRecipientsRecipientRequest$inboundSchema;
+  /** @deprecated use `RecipientCreateTemplateRecipientsRecipientRequest$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientCreateTemplateRecipientsRecipientRequestBody$outboundSchema;
-  /** @deprecated use `RecipientCreateTemplateRecipientsRecipientRequestBody$Outbound` instead. */
+    RecipientCreateTemplateRecipientsRecipientRequest$outboundSchema;
+  /** @deprecated use `RecipientCreateTemplateRecipientsRecipientRequest$Outbound` instead. */
   export type Outbound =
-    RecipientCreateTemplateRecipientsRecipientRequestBody$Outbound;
+    RecipientCreateTemplateRecipientsRecipientRequest$Outbound;
 }
 
-export function recipientCreateTemplateRecipientsRecipientRequestBodyToJSON(
-  recipientCreateTemplateRecipientsRecipientRequestBody:
-    RecipientCreateTemplateRecipientsRecipientRequestBody,
+export function recipientCreateTemplateRecipientsRecipientRequestToJSON(
+  recipientCreateTemplateRecipientsRecipientRequest:
+    RecipientCreateTemplateRecipientsRecipientRequest,
 ): string {
   return JSON.stringify(
-    RecipientCreateTemplateRecipientsRecipientRequestBody$outboundSchema.parse(
-      recipientCreateTemplateRecipientsRecipientRequestBody,
+    RecipientCreateTemplateRecipientsRecipientRequest$outboundSchema.parse(
+      recipientCreateTemplateRecipientsRecipientRequest,
     ),
   );
 }
 
-export function recipientCreateTemplateRecipientsRecipientRequestBodyFromJSON(
+export function recipientCreateTemplateRecipientsRecipientRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  RecipientCreateTemplateRecipientsRecipientRequestBody,
+  RecipientCreateTemplateRecipientsRecipientRequest,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      RecipientCreateTemplateRecipientsRecipientRequestBody$inboundSchema.parse(
+      RecipientCreateTemplateRecipientsRecipientRequest$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'RecipientCreateTemplateRecipientsRecipientRequestBody' from JSON`,
+    `Failed to parse 'RecipientCreateTemplateRecipientsRecipientRequest' from JSON`,
   );
 }
 
@@ -352,7 +336,7 @@ export const RecipientCreateTemplateRecipientsRequest$inboundSchema: z.ZodType<
   templateId: z.number(),
   recipients: z.array(
     z.lazy(() =>
-      RecipientCreateTemplateRecipientsRecipientRequestBody$inboundSchema
+      RecipientCreateTemplateRecipientsRecipientRequest$inboundSchema
     ),
   ),
 });
@@ -360,9 +344,7 @@ export const RecipientCreateTemplateRecipientsRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type RecipientCreateTemplateRecipientsRequest$Outbound = {
   templateId: number;
-  recipients: Array<
-    RecipientCreateTemplateRecipientsRecipientRequestBody$Outbound
-  >;
+  recipients: Array<RecipientCreateTemplateRecipientsRecipientRequest$Outbound>;
 };
 
 /** @internal */
@@ -374,7 +356,7 @@ export const RecipientCreateTemplateRecipientsRequest$outboundSchema: z.ZodType<
   templateId: z.number(),
   recipients: z.array(
     z.lazy(() =>
-      RecipientCreateTemplateRecipientsRecipientRequestBody$outboundSchema
+      RecipientCreateTemplateRecipientsRecipientRequest$outboundSchema
     ),
   ),
 });
@@ -566,18 +548,18 @@ export const RecipientCreateTemplateRecipientsAuthOptions$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({
-    accessAuth: z.nullable(
+    accessAuth: z.array(
       RecipientCreateTemplateRecipientsAccessAuthResponse$inboundSchema,
     ),
-    actionAuth: z.nullable(
+    actionAuth: z.array(
       RecipientCreateTemplateRecipientsActionAuthResponse$inboundSchema,
     ),
   });
 
 /** @internal */
 export type RecipientCreateTemplateRecipientsAuthOptions$Outbound = {
-  accessAuth: string | null;
-  actionAuth: string | null;
+  accessAuth: Array<string>;
+  actionAuth: Array<string>;
 };
 
 /** @internal */
@@ -587,10 +569,10 @@ export const RecipientCreateTemplateRecipientsAuthOptions$outboundSchema:
     z.ZodTypeDef,
     RecipientCreateTemplateRecipientsAuthOptions
   > = z.object({
-    accessAuth: z.nullable(
+    accessAuth: z.array(
       RecipientCreateTemplateRecipientsAccessAuthResponse$outboundSchema,
     ),
-    actionAuth: z.nullable(
+    actionAuth: z.array(
       RecipientCreateTemplateRecipientsActionAuthResponse$outboundSchema,
     ),
   });

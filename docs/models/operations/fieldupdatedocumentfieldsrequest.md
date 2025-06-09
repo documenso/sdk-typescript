@@ -9,8 +9,8 @@ let value: FieldUpdateDocumentFieldsRequest = {
   documentId: 5395.11,
   fields: [
     {
-      type: "TEXT",
-      id: 3793.34,
+      type: "EMAIL",
+      id: 8801.1,
     },
   ],
 };

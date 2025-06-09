@@ -27,10 +27,9 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.documents.fields.get({
-    fieldId: 7003.47,
+    fieldId: 6077.81,
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -53,17 +52,14 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await documentsFieldsGet(documenso, {
-    fieldId: 7003.47,
+    fieldId: 6077.81,
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("documentsFieldsGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -106,19 +102,18 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.documents.fields.create({
-    documentId: 4865.89,
+    documentId: 8001.93,
     field: {
-      type: "NUMBER",
-      recipientId: 4174.58,
-      pageNumber: 1343.65,
-      pageX: 690.25,
-      pageY: 7964.74,
-      width: 9510.62,
-      height: 0.86,
+      type: "NAME",
+      recipientId: 2564.68,
+      pageNumber: 791.77,
+      pageX: 7845.22,
+      pageY: 6843.16,
+      width: 3932.15,
+      height: 8879.89,
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -141,26 +136,23 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await documentsFieldsCreate(documenso, {
-    documentId: 4865.89,
+    documentId: 8001.93,
     field: {
-      type: "NUMBER",
-      recipientId: 4174.58,
-      pageNumber: 1343.65,
-      pageX: 690.25,
-      pageY: 7964.74,
-      width: 9510.62,
-      height: 0.86,
+      type: "NAME",
+      recipientId: 2564.68,
+      pageNumber: 791.77,
+      pageX: 7845.22,
+      pageY: 6843.16,
+      width: 3932.15,
+      height: 8879.89,
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("documentsFieldsCreate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -202,30 +194,20 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.documents.fields.createMany({
-    documentId: 5158.41,
+    documentId: 6257.51,
     fields: [
       {
-        type: "CHECKBOX",
-        recipientId: 2516.72,
-        pageNumber: 2304.17,
-        pageX: 7760.32,
-        pageY: 3376.66,
-        width: 3566.94,
-        height: 2768.94,
-      },
-      {
-        type: "NUMBER",
-        recipientId: 5689.64,
-        pageNumber: 6483.69,
-        pageX: 7271.79,
-        pageY: 1891.56,
-        width: 7263.21,
-        height: 5043.41,
+        type: "FREE_SIGNATURE",
+        recipientId: 679.35,
+        pageNumber: 5914.59,
+        pageX: 7253.11,
+        pageY: 8426.91,
+        width: 8995.55,
+        height: 9808.97,
       },
     ],
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -248,37 +230,25 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await documentsFieldsCreateMany(documenso, {
-    documentId: 5158.41,
+    documentId: 6257.51,
     fields: [
       {
-        type: "CHECKBOX",
-        recipientId: 2516.72,
-        pageNumber: 2304.17,
-        pageX: 7760.32,
-        pageY: 3376.66,
-        width: 3566.94,
-        height: 2768.94,
-      },
-      {
-        type: "NUMBER",
-        recipientId: 5689.64,
-        pageNumber: 6483.69,
-        pageX: 7271.79,
-        pageY: 1891.56,
-        width: 7263.21,
-        height: 5043.41,
+        type: "FREE_SIGNATURE",
+        recipientId: 679.35,
+        pageNumber: 5914.59,
+        pageX: 7253.11,
+        pageY: 8426.91,
+        width: 8995.55,
+        height: 9808.97,
       },
     ],
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("documentsFieldsCreateMany failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -320,14 +290,13 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.documents.fields.update({
-    documentId: 8574.78,
+    documentId: 5956.26,
     field: {
-      type: "TEXT",
-      id: 3446.2,
+      type: "FREE_SIGNATURE",
+      id: 6955.16,
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -350,21 +319,18 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await documentsFieldsUpdate(documenso, {
-    documentId: 8574.78,
+    documentId: 5956.26,
     field: {
-      type: "TEXT",
-      id: 3446.2,
+      type: "FREE_SIGNATURE",
+      id: 6955.16,
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("documentsFieldsUpdate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -406,20 +372,10 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.documents.fields.updateMany({
-    documentId: 4057.69,
-    fields: [
-      {
-        type: "DATE",
-        id: 8982.15,
-      },
-      {
-        type: "NAME",
-        id: 310.19,
-      },
-    ],
+    documentId: 9317.43,
+    fields: [],
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -442,27 +398,15 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await documentsFieldsUpdateMany(documenso, {
-    documentId: 4057.69,
-    fields: [
-      {
-        type: "DATE",
-        id: 8982.15,
-      },
-      {
-        type: "NAME",
-        id: 310.19,
-      },
-    ],
+    documentId: 9317.43,
+    fields: [],
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("documentsFieldsUpdateMany failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -504,10 +448,9 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.documents.fields.delete({
-    fieldId: 5459.07,
+    fieldId: 4748.27,
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -530,17 +473,14 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await documentsFieldsDelete(documenso, {
-    fieldId: 5459.07,
+    fieldId: 4748.27,
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("documentsFieldsDelete failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

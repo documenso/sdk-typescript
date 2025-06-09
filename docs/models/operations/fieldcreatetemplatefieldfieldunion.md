@@ -8,12 +8,12 @@
 ```typescript
 const value: operations.FieldCreateTemplateFieldFieldSignature = {
   type: "SIGNATURE",
-  recipientId: 7255.78,
-  pageNumber: 1195.02,
-  pageX: 9114.09,
-  pageY: 7896.66,
-  width: 9282.27,
-  height: 7247.05,
+  recipientId: 477.63,
+  pageNumber: 6298.96,
+  pageX: 163.32,
+  pageY: 9334.82,
+  width: 4871.86,
+  height: 91.19,
 };
 ```
 
@@ -22,12 +22,12 @@ const value: operations.FieldCreateTemplateFieldFieldSignature = {
 ```typescript
 const value: operations.FieldCreateTemplateFieldFieldFreeSignature = {
   type: "FREE_SIGNATURE",
-  recipientId: 9920.08,
-  pageNumber: 2540.38,
-  pageX: 2095.27,
-  pageY: 8458.54,
-  width: 148.41,
-  height: 9513.17,
+  recipientId: 1899.72,
+  pageNumber: 874.17,
+  pageX: 8624.45,
+  pageY: 8718.74,
+  width: 25.91,
+  height: 6929.78,
 };
 ```
 
@@ -36,12 +36,12 @@ const value: operations.FieldCreateTemplateFieldFieldFreeSignature = {
 ```typescript
 const value: operations.FieldCreateTemplateFieldFieldInitials = {
   type: "INITIALS",
-  recipientId: 8721.27,
-  pageNumber: 7779.7,
-  pageX: 1329.52,
-  pageY: 97.17,
-  width: 1388.53,
-  height: 8293.68,
+  recipientId: 7885.35,
+  pageNumber: 8802.87,
+  pageX: 293.01,
+  pageY: 822.19,
+  width: 9514.21,
+  height: 7496.64,
 };
 ```
 
@@ -50,12 +50,12 @@ const value: operations.FieldCreateTemplateFieldFieldInitials = {
 ```typescript
 const value: operations.FieldCreateTemplateFieldFieldName = {
   type: "NAME",
-  recipientId: 4890.12,
-  pageNumber: 9611.83,
-  pageX: 970.74,
-  pageY: 385.99,
-  width: 165.23,
-  height: 7013.98,
+  recipientId: 9027.94,
+  pageNumber: 4875.93,
+  pageX: 5463.14,
+  pageY: 4360.74,
+  width: 6465.21,
+  height: 9142.6,
 };
 ```
 
@@ -64,12 +64,12 @@ const value: operations.FieldCreateTemplateFieldFieldName = {
 ```typescript
 const value: operations.FieldCreateTemplateFieldFieldEmail = {
   type: "EMAIL",
-  recipientId: 612.91,
-  pageNumber: 5661.74,
-  pageX: 9488.17,
-  pageY: 7079.52,
-  width: 4779.43,
-  height: 1708.57,
+  recipientId: 4914.66,
+  pageNumber: 7710.9,
+  pageX: 9584.98,
+  pageY: 4395.85,
+  width: 1663.21,
+  height: 7979.88,
 };
 ```
 
@@ -78,12 +78,12 @@ const value: operations.FieldCreateTemplateFieldFieldEmail = {
 ```typescript
 const value: operations.FieldCreateTemplateFieldFieldDate = {
   type: "DATE",
-  recipientId: 232.22,
-  pageNumber: 4039.31,
-  pageX: 6060.81,
-  pageY: 1405.06,
-  width: 938.81,
-  height: 5772.32,
+  recipientId: 6089.93,
+  pageNumber: 9248.7,
+  pageX: 5738.25,
+  pageY: 7137.43,
+  width: 8393.82,
+  height: 860.55,
 };
 ```
 
@@ -92,12 +92,12 @@ const value: operations.FieldCreateTemplateFieldFieldDate = {
 ```typescript
 const value: operations.FieldCreateTemplateFieldFieldText = {
   type: "TEXT",
-  recipientId: 7223.78,
-  pageNumber: 9250.72,
-  pageX: 8988.99,
-  pageY: 9470.77,
-  width: 2133.71,
-  height: 2468.49,
+  recipientId: 1582.49,
+  pageNumber: 1019.32,
+  pageX: 1805.71,
+  pageY: 1924.55,
+  width: 3528.47,
+  height: 5780.09,
 };
 ```
 
@@ -106,12 +106,12 @@ const value: operations.FieldCreateTemplateFieldFieldText = {
 ```typescript
 const value: operations.FieldCreateTemplateFieldFieldNumber = {
   type: "NUMBER",
-  recipientId: 7715.12,
-  pageNumber: 7013.61,
-  pageX: 1436.29,
-  pageY: 5488.7,
-  width: 8212.9,
-  height: 5992.12,
+  recipientId: 9666.78,
+  pageNumber: 1804.81,
+  pageX: 2558.61,
+  pageY: 7702.2,
+  width: 3195.22,
+  height: 8869.06,
 };
 ```
 
@@ -120,12 +120,12 @@ const value: operations.FieldCreateTemplateFieldFieldNumber = {
 ```typescript
 const value: operations.FieldCreateTemplateFieldFieldRadio = {
   type: "RADIO",
-  recipientId: 5027.61,
-  pageNumber: 4995.9,
-  pageX: 816.72,
-  pageY: 418.88,
-  width: 7312.58,
-  height: 143.54,
+  recipientId: 7051.89,
+  pageNumber: 7153.15,
+  pageX: 9812.35,
+  pageY: 994.43,
+  width: 8620.14,
+  height: 6409.32,
 };
 ```
 
@@ -134,12 +134,12 @@ const value: operations.FieldCreateTemplateFieldFieldRadio = {
 ```typescript
 const value: operations.FieldCreateTemplateFieldFieldCheckbox = {
   type: "CHECKBOX",
-  recipientId: 7088.39,
-  pageNumber: 9245.74,
-  pageX: 9438.19,
-  pageY: 1160.15,
-  width: 7326.77,
-  height: 798.89,
+  recipientId: 8361.32,
+  pageNumber: 8549.32,
+  pageX: 2245.27,
+  pageY: 4812.75,
+  width: 430.83,
+  height: 9591.35,
 };
 ```
 
@@ -148,12 +148,12 @@ const value: operations.FieldCreateTemplateFieldFieldCheckbox = {
 ```typescript
 const value: operations.FieldCreateTemplateFieldFieldDropdown = {
   type: "DROPDOWN",
-  recipientId: 7631.35,
-  pageNumber: 8711.56,
-  pageX: 4071.3,
-  pageY: 1348.94,
-  width: 8819.71,
-  height: 2735.48,
+  recipientId: 5748.45,
+  pageNumber: 9670.47,
+  pageX: 2714.78,
+  pageY: 5678.16,
+  width: 6914.42,
+  height: 6912.37,
 };
 ```
 

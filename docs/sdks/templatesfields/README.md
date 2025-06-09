@@ -27,19 +27,18 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.templates.fields.create({
-    templateId: 4865.89,
+    templateId: 1203.71,
     field: {
-      type: "NUMBER",
-      recipientId: 4174.58,
-      pageNumber: 1343.65,
-      pageX: 690.25,
-      pageY: 7964.74,
-      width: 9510.62,
-      height: 0.86,
+      type: "DATE",
+      recipientId: 2738.54,
+      pageNumber: 5735.12,
+      pageX: 2936.28,
+      pageY: 8594.41,
+      width: 7589.39,
+      height: 3122.23,
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -62,26 +61,23 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await templatesFieldsCreate(documenso, {
-    templateId: 4865.89,
+    templateId: 1203.71,
     field: {
-      type: "NUMBER",
-      recipientId: 4174.58,
-      pageNumber: 1343.65,
-      pageX: 690.25,
-      pageY: 7964.74,
-      width: 9510.62,
-      height: 0.86,
+      type: "DATE",
+      recipientId: 2738.54,
+      pageNumber: 5735.12,
+      pageX: 2936.28,
+      pageY: 8594.41,
+      width: 7589.39,
+      height: 3122.23,
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("templatesFieldsCreate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -123,10 +119,9 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.templates.fields.get({
-    fieldId: 7003.47,
+    fieldId: 1152.82,
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -149,17 +144,14 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await templatesFieldsGet(documenso, {
-    fieldId: 7003.47,
+    fieldId: 1152.82,
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("templatesFieldsGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -202,30 +194,20 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.templates.fields.createMany({
-    templateId: 5158.41,
+    templateId: 586.2,
     fields: [
       {
-        type: "CHECKBOX",
-        recipientId: 2516.72,
-        pageNumber: 2304.17,
-        pageX: 7760.32,
-        pageY: 3376.66,
-        width: 3566.94,
-        height: 2768.94,
-      },
-      {
-        type: "NUMBER",
-        recipientId: 5689.64,
-        pageNumber: 6483.69,
-        pageX: 7271.79,
-        pageY: 1891.56,
-        width: 7263.21,
-        height: 5043.41,
+        type: "SIGNATURE",
+        recipientId: 6990.12,
+        pageNumber: 3472.45,
+        pageX: 4747.87,
+        pageY: 1673.94,
+        width: 7215.37,
+        height: 9417.43,
       },
     ],
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -248,37 +230,25 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await templatesFieldsCreateMany(documenso, {
-    templateId: 5158.41,
+    templateId: 586.2,
     fields: [
       {
-        type: "CHECKBOX",
-        recipientId: 2516.72,
-        pageNumber: 2304.17,
-        pageX: 7760.32,
-        pageY: 3376.66,
-        width: 3566.94,
-        height: 2768.94,
-      },
-      {
-        type: "NUMBER",
-        recipientId: 5689.64,
-        pageNumber: 6483.69,
-        pageX: 7271.79,
-        pageY: 1891.56,
-        width: 7263.21,
-        height: 5043.41,
+        type: "SIGNATURE",
+        recipientId: 6990.12,
+        pageNumber: 3472.45,
+        pageX: 4747.87,
+        pageY: 1673.94,
+        width: 7215.37,
+        height: 9417.43,
       },
     ],
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("templatesFieldsCreateMany failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -320,14 +290,13 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.templates.fields.update({
-    templateId: 8574.78,
+    templateId: 5083.07,
     field: {
       type: "TEXT",
-      id: 3446.2,
+      id: 1792.29,
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -350,21 +319,18 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await templatesFieldsUpdate(documenso, {
-    templateId: 8574.78,
+    templateId: 5083.07,
     field: {
       type: "TEXT",
-      id: 3446.2,
+      id: 1792.29,
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("templatesFieldsUpdate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -406,20 +372,15 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.templates.fields.updateMany({
-    templateId: 4057.69,
+    templateId: 3969.1,
     fields: [
       {
-        type: "DATE",
-        id: 8982.15,
-      },
-      {
-        type: "NAME",
-        id: 310.19,
+        type: "DROPDOWN",
+        id: 2460.72,
       },
     ],
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -442,27 +403,20 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await templatesFieldsUpdateMany(documenso, {
-    templateId: 4057.69,
+    templateId: 3969.1,
     fields: [
       {
-        type: "DATE",
-        id: 8982.15,
-      },
-      {
-        type: "NAME",
-        id: 310.19,
+        type: "DROPDOWN",
+        id: 2460.72,
       },
     ],
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("templatesFieldsUpdateMany failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -504,10 +458,9 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.templates.fields.delete({
-    fieldId: 5459.07,
+    fieldId: 7996.49,
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -530,17 +483,14 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await templatesFieldsDelete(documenso, {
-    fieldId: 5459.07,
+    fieldId: 7996.49,
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("templatesFieldsDelete failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

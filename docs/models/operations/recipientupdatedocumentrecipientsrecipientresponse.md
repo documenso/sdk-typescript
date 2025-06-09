@@ -11,36 +11,23 @@ let value: RecipientUpdateDocumentRecipientsRecipientResponse = {
   signingStatus: "SIGNED",
   sendStatus: "NOT_SENT",
   id: 4456.3,
-  documentId: 728.66,
-  templateId: 3126.79,
-  email: "Lera.Mertz@yahoo.com",
+  documentId: null,
+  templateId: 5486.19,
+  email: "Sarai_Collins35@yahoo.com",
   name: "<value>",
   token: "<value>",
   documentDeletedAt: "<value>",
-  expired: "<value>",
+  expired: null,
   signedAt: "<value>",
   authOptions: {
-    accessAuth: "ACCOUNT",
-    actionAuth: "ACCOUNT",
+    accessAuth: [],
+    actionAuth: [
+      "PASSKEY",
+    ],
   },
-  signingOrder: 1543.76,
+  signingOrder: null,
   rejectionReason: "<value>",
-  fields: [
-    {
-      type: "SIGNATURE",
-      id: 7870.63,
-      secondaryId: "<id>",
-      documentId: 6923.45,
-      templateId: 3891.43,
-      recipientId: 6939.51,
-      page: 3347.39,
-      customText: "<value>",
-      inserted: false,
-      fieldMeta: {
-        type: "initials",
-      },
-    },
-  ],
+  fields: [],
 };
 ```
 

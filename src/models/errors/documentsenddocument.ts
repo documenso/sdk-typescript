@@ -5,6 +5,7 @@
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
 export type DocumentSendDocumentInternalServerErrorIssue = {
@@ -23,20 +24,22 @@ export type DocumentSendDocumentInternalServerErrorData = {
 /**
  * Internal server error
  */
-export class DocumentSendDocumentInternalServerError extends Error {
+export class DocumentSendDocumentInternalServerError extends DocumensoError {
   code: string;
   issues?: Array<DocumentSendDocumentInternalServerErrorIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: DocumentSendDocumentInternalServerErrorData;
 
-  constructor(err: DocumentSendDocumentInternalServerErrorData) {
+  constructor(
+    err: DocumentSendDocumentInternalServerErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -60,20 +63,22 @@ export type DocumentSendDocumentBadRequestErrorData = {
 /**
  * Invalid input data
  */
-export class DocumentSendDocumentBadRequestError extends Error {
+export class DocumentSendDocumentBadRequestError extends DocumensoError {
   code: string;
   issues?: Array<DocumentSendDocumentBadRequestIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: DocumentSendDocumentBadRequestErrorData;
 
-  constructor(err: DocumentSendDocumentBadRequestErrorData) {
+  constructor(
+    err: DocumentSendDocumentBadRequestErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -159,9 +164,16 @@ export const DocumentSendDocumentInternalServerError$inboundSchema: z.ZodType<
   issues: z.array(
     z.lazy(() => DocumentSendDocumentInternalServerErrorIssue$inboundSchema),
   ).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new DocumentSendDocumentInternalServerError(v);
+    return new DocumentSendDocumentInternalServerError(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */
@@ -273,9 +285,16 @@ export const DocumentSendDocumentBadRequestError$inboundSchema: z.ZodType<
   issues: z.array(
     z.lazy(() => DocumentSendDocumentBadRequestIssue$inboundSchema),
   ).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new DocumentSendDocumentBadRequestError(v);
+    return new DocumentSendDocumentBadRequestError(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */

@@ -24,10 +24,9 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.templates.directLink.create({
-    templateId: 4865.89,
+    templateId: 5094.31,
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -50,17 +49,14 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await templatesDirectLinkCreate(documenso, {
-    templateId: 4865.89,
+    templateId: 5094.31,
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("templatesDirectLinkCreate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -102,10 +98,9 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.templates.directLink.delete({
-    templateId: 5459.07,
+    templateId: 9950.03,
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -128,17 +123,14 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await templatesDirectLinkDelete(documenso, {
-    templateId: 5459.07,
+    templateId: 9950.03,
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("templatesDirectLinkDelete failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -180,11 +172,10 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.templates.directLink.toggle({
-    templateId: 722.9,
-    enabled: true,
+    templateId: 6583.54,
+    enabled: false,
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -207,18 +198,15 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await templatesDirectLinkToggle(documenso, {
-    templateId: 722.9,
-    enabled: true,
+    templateId: 6583.54,
+    enabled: false,
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("templatesDirectLinkToggle failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

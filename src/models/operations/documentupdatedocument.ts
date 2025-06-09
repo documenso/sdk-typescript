@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 /**
  * The visibility of the document.
  */
-export const DocumentUpdateDocumentVisibilityRequestBody = {
+export const DocumentUpdateDocumentVisibilityRequest = {
   Everyone: "EVERYONE",
   ManagerAndAbove: "MANAGER_AND_ABOVE",
   Admin: "ADMIN",
@@ -19,36 +19,37 @@ export const DocumentUpdateDocumentVisibilityRequestBody = {
 /**
  * The visibility of the document.
  */
-export type DocumentUpdateDocumentVisibilityRequestBody = ClosedEnum<
-  typeof DocumentUpdateDocumentVisibilityRequestBody
+export type DocumentUpdateDocumentVisibilityRequest = ClosedEnum<
+  typeof DocumentUpdateDocumentVisibilityRequest
 >;
 
 /**
  * The type of authentication required for the recipient to access the document.
  */
-export const DocumentUpdateDocumentGlobalAccessAuthRequestBody = {
+export const DocumentUpdateDocumentGlobalAccessAuthRequest = {
   Account: "ACCOUNT",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
  */
-export type DocumentUpdateDocumentGlobalAccessAuthRequestBody = ClosedEnum<
-  typeof DocumentUpdateDocumentGlobalAccessAuthRequestBody
+export type DocumentUpdateDocumentGlobalAccessAuthRequest = ClosedEnum<
+  typeof DocumentUpdateDocumentGlobalAccessAuthRequest
 >;
 
 /**
  * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
  */
-export const DocumentUpdateDocumentGlobalActionAuthRequestBody = {
+export const DocumentUpdateDocumentGlobalActionAuthRequest = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
+  Password: "PASSWORD",
 } as const;
 /**
  * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
  */
-export type DocumentUpdateDocumentGlobalActionAuthRequestBody = ClosedEnum<
-  typeof DocumentUpdateDocumentGlobalActionAuthRequestBody
+export type DocumentUpdateDocumentGlobalActionAuthRequest = ClosedEnum<
+  typeof DocumentUpdateDocumentGlobalActionAuthRequest
 >;
 
 export type DocumentUpdateDocumentData = {
@@ -63,21 +64,14 @@ export type DocumentUpdateDocumentData = {
   /**
    * The visibility of the document.
    */
-  visibility?: DocumentUpdateDocumentVisibilityRequestBody | undefined;
-  /**
-   * The type of authentication required for the recipient to access the document.
-   */
+  visibility?: DocumentUpdateDocumentVisibilityRequest | undefined;
   globalAccessAuth?:
-    | DocumentUpdateDocumentGlobalAccessAuthRequestBody
-    | null
+    | Array<DocumentUpdateDocumentGlobalAccessAuthRequest>
     | undefined;
-  /**
-   * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
-   */
   globalActionAuth?:
-    | DocumentUpdateDocumentGlobalActionAuthRequestBody
-    | null
+    | Array<DocumentUpdateDocumentGlobalActionAuthRequest>
     | undefined;
+  useLegacyFieldInsertion?: boolean | undefined;
 };
 
 /**
@@ -273,6 +267,7 @@ export const DocumentUpdateDocumentGlobalActionAuthResponse = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
+  Password: "PASSWORD",
 } as const;
 /**
  * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
@@ -282,14 +277,8 @@ export type DocumentUpdateDocumentGlobalActionAuthResponse = ClosedEnum<
 >;
 
 export type DocumentUpdateDocumentAuthOptions = {
-  /**
-   * The type of authentication required for the recipient to access the document.
-   */
-  globalAccessAuth: DocumentUpdateDocumentGlobalAccessAuthResponse | null;
-  /**
-   * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
-   */
-  globalActionAuth: DocumentUpdateDocumentGlobalActionAuthResponse | null;
+  globalAccessAuth: Array<DocumentUpdateDocumentGlobalAccessAuthResponse>;
+  globalActionAuth: Array<DocumentUpdateDocumentGlobalActionAuthResponse>;
 };
 
 export type DocumentUpdateDocumentFormValues = string | boolean | number;
@@ -320,75 +309,77 @@ export type DocumentUpdateDocumentResponse = {
   deletedAt: string | null;
   teamId: number | null;
   templateId: number | null;
+  folderId: string | null;
+  useLegacyFieldInsertion: boolean;
 };
 
 /** @internal */
-export const DocumentUpdateDocumentVisibilityRequestBody$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentUpdateDocumentVisibilityRequestBody> = z
-    .nativeEnum(DocumentUpdateDocumentVisibilityRequestBody);
+export const DocumentUpdateDocumentVisibilityRequest$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentUpdateDocumentVisibilityRequest> = z
+    .nativeEnum(DocumentUpdateDocumentVisibilityRequest);
 
 /** @internal */
-export const DocumentUpdateDocumentVisibilityRequestBody$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentUpdateDocumentVisibilityRequestBody> =
-    DocumentUpdateDocumentVisibilityRequestBody$inboundSchema;
+export const DocumentUpdateDocumentVisibilityRequest$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentUpdateDocumentVisibilityRequest> =
+    DocumentUpdateDocumentVisibilityRequest$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentUpdateDocumentVisibilityRequestBody$ {
-  /** @deprecated use `DocumentUpdateDocumentVisibilityRequestBody$inboundSchema` instead. */
+export namespace DocumentUpdateDocumentVisibilityRequest$ {
+  /** @deprecated use `DocumentUpdateDocumentVisibilityRequest$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentUpdateDocumentVisibilityRequestBody$inboundSchema;
-  /** @deprecated use `DocumentUpdateDocumentVisibilityRequestBody$outboundSchema` instead. */
+    DocumentUpdateDocumentVisibilityRequest$inboundSchema;
+  /** @deprecated use `DocumentUpdateDocumentVisibilityRequest$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentUpdateDocumentVisibilityRequestBody$outboundSchema;
+    DocumentUpdateDocumentVisibilityRequest$outboundSchema;
 }
 
 /** @internal */
-export const DocumentUpdateDocumentGlobalAccessAuthRequestBody$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentUpdateDocumentGlobalAccessAuthRequestBody> = z
-    .nativeEnum(DocumentUpdateDocumentGlobalAccessAuthRequestBody);
+export const DocumentUpdateDocumentGlobalAccessAuthRequest$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentUpdateDocumentGlobalAccessAuthRequest> = z
+    .nativeEnum(DocumentUpdateDocumentGlobalAccessAuthRequest);
 
 /** @internal */
-export const DocumentUpdateDocumentGlobalAccessAuthRequestBody$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentUpdateDocumentGlobalAccessAuthRequestBody> =
-    DocumentUpdateDocumentGlobalAccessAuthRequestBody$inboundSchema;
+export const DocumentUpdateDocumentGlobalAccessAuthRequest$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentUpdateDocumentGlobalAccessAuthRequest> =
+    DocumentUpdateDocumentGlobalAccessAuthRequest$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentUpdateDocumentGlobalAccessAuthRequestBody$ {
-  /** @deprecated use `DocumentUpdateDocumentGlobalAccessAuthRequestBody$inboundSchema` instead. */
+export namespace DocumentUpdateDocumentGlobalAccessAuthRequest$ {
+  /** @deprecated use `DocumentUpdateDocumentGlobalAccessAuthRequest$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentUpdateDocumentGlobalAccessAuthRequestBody$inboundSchema;
-  /** @deprecated use `DocumentUpdateDocumentGlobalAccessAuthRequestBody$outboundSchema` instead. */
+    DocumentUpdateDocumentGlobalAccessAuthRequest$inboundSchema;
+  /** @deprecated use `DocumentUpdateDocumentGlobalAccessAuthRequest$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentUpdateDocumentGlobalAccessAuthRequestBody$outboundSchema;
+    DocumentUpdateDocumentGlobalAccessAuthRequest$outboundSchema;
 }
 
 /** @internal */
-export const DocumentUpdateDocumentGlobalActionAuthRequestBody$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentUpdateDocumentGlobalActionAuthRequestBody> = z
-    .nativeEnum(DocumentUpdateDocumentGlobalActionAuthRequestBody);
+export const DocumentUpdateDocumentGlobalActionAuthRequest$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentUpdateDocumentGlobalActionAuthRequest> = z
+    .nativeEnum(DocumentUpdateDocumentGlobalActionAuthRequest);
 
 /** @internal */
-export const DocumentUpdateDocumentGlobalActionAuthRequestBody$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentUpdateDocumentGlobalActionAuthRequestBody> =
-    DocumentUpdateDocumentGlobalActionAuthRequestBody$inboundSchema;
+export const DocumentUpdateDocumentGlobalActionAuthRequest$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentUpdateDocumentGlobalActionAuthRequest> =
+    DocumentUpdateDocumentGlobalActionAuthRequest$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DocumentUpdateDocumentGlobalActionAuthRequestBody$ {
-  /** @deprecated use `DocumentUpdateDocumentGlobalActionAuthRequestBody$inboundSchema` instead. */
+export namespace DocumentUpdateDocumentGlobalActionAuthRequest$ {
+  /** @deprecated use `DocumentUpdateDocumentGlobalActionAuthRequest$inboundSchema` instead. */
   export const inboundSchema =
-    DocumentUpdateDocumentGlobalActionAuthRequestBody$inboundSchema;
-  /** @deprecated use `DocumentUpdateDocumentGlobalActionAuthRequestBody$outboundSchema` instead. */
+    DocumentUpdateDocumentGlobalActionAuthRequest$inboundSchema;
+  /** @deprecated use `DocumentUpdateDocumentGlobalActionAuthRequest$outboundSchema` instead. */
   export const outboundSchema =
-    DocumentUpdateDocumentGlobalActionAuthRequestBody$outboundSchema;
+    DocumentUpdateDocumentGlobalActionAuthRequest$outboundSchema;
 }
 
 /** @internal */
@@ -399,14 +390,14 @@ export const DocumentUpdateDocumentData$inboundSchema: z.ZodType<
 > = z.object({
   title: z.string().optional(),
   externalId: z.nullable(z.string()).optional(),
-  visibility: DocumentUpdateDocumentVisibilityRequestBody$inboundSchema
-    .optional(),
-  globalAccessAuth: z.nullable(
-    DocumentUpdateDocumentGlobalAccessAuthRequestBody$inboundSchema,
+  visibility: DocumentUpdateDocumentVisibilityRequest$inboundSchema.optional(),
+  globalAccessAuth: z.array(
+    DocumentUpdateDocumentGlobalAccessAuthRequest$inboundSchema,
   ).optional(),
-  globalActionAuth: z.nullable(
-    DocumentUpdateDocumentGlobalActionAuthRequestBody$inboundSchema,
+  globalActionAuth: z.array(
+    DocumentUpdateDocumentGlobalActionAuthRequest$inboundSchema,
   ).optional(),
+  useLegacyFieldInsertion: z.boolean().optional(),
 });
 
 /** @internal */
@@ -414,8 +405,9 @@ export type DocumentUpdateDocumentData$Outbound = {
   title?: string | undefined;
   externalId?: string | null | undefined;
   visibility?: string | undefined;
-  globalAccessAuth?: string | null | undefined;
-  globalActionAuth?: string | null | undefined;
+  globalAccessAuth?: Array<string> | undefined;
+  globalActionAuth?: Array<string> | undefined;
+  useLegacyFieldInsertion?: boolean | undefined;
 };
 
 /** @internal */
@@ -426,14 +418,14 @@ export const DocumentUpdateDocumentData$outboundSchema: z.ZodType<
 > = z.object({
   title: z.string().optional(),
   externalId: z.nullable(z.string()).optional(),
-  visibility: DocumentUpdateDocumentVisibilityRequestBody$outboundSchema
-    .optional(),
-  globalAccessAuth: z.nullable(
-    DocumentUpdateDocumentGlobalAccessAuthRequestBody$outboundSchema,
+  visibility: DocumentUpdateDocumentVisibilityRequest$outboundSchema.optional(),
+  globalAccessAuth: z.array(
+    DocumentUpdateDocumentGlobalAccessAuthRequest$outboundSchema,
   ).optional(),
-  globalActionAuth: z.nullable(
-    DocumentUpdateDocumentGlobalActionAuthRequestBody$outboundSchema,
+  globalActionAuth: z.array(
+    DocumentUpdateDocumentGlobalActionAuthRequest$outboundSchema,
   ).optional(),
+  useLegacyFieldInsertion: z.boolean().optional(),
 });
 
 /**
@@ -905,18 +897,18 @@ export const DocumentUpdateDocumentAuthOptions$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  globalAccessAuth: z.nullable(
+  globalAccessAuth: z.array(
     DocumentUpdateDocumentGlobalAccessAuthResponse$inboundSchema,
   ),
-  globalActionAuth: z.nullable(
+  globalActionAuth: z.array(
     DocumentUpdateDocumentGlobalActionAuthResponse$inboundSchema,
   ),
 });
 
 /** @internal */
 export type DocumentUpdateDocumentAuthOptions$Outbound = {
-  globalAccessAuth: string | null;
-  globalActionAuth: string | null;
+  globalAccessAuth: Array<string>;
+  globalActionAuth: Array<string>;
 };
 
 /** @internal */
@@ -925,10 +917,10 @@ export const DocumentUpdateDocumentAuthOptions$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentUpdateDocumentAuthOptions
 > = z.object({
-  globalAccessAuth: z.nullable(
+  globalAccessAuth: z.array(
     DocumentUpdateDocumentGlobalAccessAuthResponse$outboundSchema,
   ),
-  globalActionAuth: z.nullable(
+  globalActionAuth: z.array(
     DocumentUpdateDocumentGlobalActionAuthResponse$outboundSchema,
   ),
 });
@@ -1046,6 +1038,8 @@ export const DocumentUpdateDocumentResponse$inboundSchema: z.ZodType<
   deletedAt: z.nullable(z.string()),
   teamId: z.nullable(z.number()),
   templateId: z.nullable(z.number()),
+  folderId: z.nullable(z.string()),
+  useLegacyFieldInsertion: z.boolean(),
 });
 
 /** @internal */
@@ -1066,6 +1060,8 @@ export type DocumentUpdateDocumentResponse$Outbound = {
   deletedAt: string | null;
   teamId: number | null;
   templateId: number | null;
+  folderId: string | null;
+  useLegacyFieldInsertion: boolean;
 };
 
 /** @internal */
@@ -1094,6 +1090,8 @@ export const DocumentUpdateDocumentResponse$outboundSchema: z.ZodType<
   deletedAt: z.nullable(z.string()),
   teamId: z.nullable(z.number()),
   templateId: z.nullable(z.number()),
+  folderId: z.nullable(z.string()),
+  useLegacyFieldInsertion: z.boolean(),
 });
 
 /**

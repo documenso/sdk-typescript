@@ -7,7 +7,7 @@ import { FieldUpdateDocumentFieldsValueResponse1 } from "@documenso/sdk-typescri
 
 let value: FieldUpdateDocumentFieldsValueResponse1 = {
   id: 9387.61,
-  checked: false,
+  checked: true,
   value: "<value>",
 };
 ```

@@ -11,14 +11,14 @@ let value: FieldGetDocumentFieldResponse = {
   type: "INITIALS",
   id: 4256.77,
   secondaryId: "<id>",
-  documentId: 7400.94,
-  templateId: 6822.42,
-  recipientId: 6278.08,
-  page: 8991.32,
+  documentId: 6822.42,
+  templateId: 8991.32,
+  recipientId: 2659.39,
+  page: 4332.76,
   customText: "<value>",
   inserted: false,
   fieldMeta: {
-    type: "email",
+    type: "number",
   },
 };
 ```

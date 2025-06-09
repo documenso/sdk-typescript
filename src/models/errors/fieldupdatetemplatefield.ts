@@ -5,6 +5,7 @@
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
 export type FieldUpdateTemplateFieldInternalServerErrorIssue = {
@@ -23,20 +24,24 @@ export type FieldUpdateTemplateFieldInternalServerErrorData = {
 /**
  * Internal server error
  */
-export class FieldUpdateTemplateFieldInternalServerError extends Error {
+export class FieldUpdateTemplateFieldInternalServerError
+  extends DocumensoError
+{
   code: string;
   issues?: Array<FieldUpdateTemplateFieldInternalServerErrorIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: FieldUpdateTemplateFieldInternalServerErrorData;
 
-  constructor(err: FieldUpdateTemplateFieldInternalServerErrorData) {
+  constructor(
+    err: FieldUpdateTemplateFieldInternalServerErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -60,20 +65,22 @@ export type FieldUpdateTemplateFieldBadRequestErrorData = {
 /**
  * Invalid input data
  */
-export class FieldUpdateTemplateFieldBadRequestError extends Error {
+export class FieldUpdateTemplateFieldBadRequestError extends DocumensoError {
   code: string;
   issues?: Array<FieldUpdateTemplateFieldBadRequestIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: FieldUpdateTemplateFieldBadRequestErrorData;
 
-  constructor(err: FieldUpdateTemplateFieldBadRequestErrorData) {
+  constructor(
+    err: FieldUpdateTemplateFieldBadRequestErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -163,9 +170,16 @@ export const FieldUpdateTemplateFieldInternalServerError$inboundSchema:
         FieldUpdateTemplateFieldInternalServerErrorIssue$inboundSchema
       ),
     ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
   })
     .transform((v) => {
-      return new FieldUpdateTemplateFieldInternalServerError(v);
+      return new FieldUpdateTemplateFieldInternalServerError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
     });
 
 /** @internal */
@@ -286,9 +300,16 @@ export const FieldUpdateTemplateFieldBadRequestError$inboundSchema: z.ZodType<
   issues: z.array(
     z.lazy(() => FieldUpdateTemplateFieldBadRequestIssue$inboundSchema),
   ).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new FieldUpdateTemplateFieldBadRequestError(v);
+    return new FieldUpdateTemplateFieldBadRequestError(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */

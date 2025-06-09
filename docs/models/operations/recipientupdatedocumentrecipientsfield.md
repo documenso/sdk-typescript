@@ -9,14 +9,14 @@ let value: RecipientUpdateDocumentRecipientsField = {
   type: "CHECKBOX",
   id: 9425.41,
   secondaryId: "<id>",
-  documentId: 3620.25,
-  templateId: 2727.77,
-  recipientId: 4356.06,
-  page: 3022.68,
+  documentId: 2727.77,
+  templateId: 3022.68,
+  recipientId: 4941.45,
+  page: 1442.72,
   customText: "<value>",
   inserted: false,
   fieldMeta: {
-    type: "text",
+    type: "dropdown",
   },
 };
 ```

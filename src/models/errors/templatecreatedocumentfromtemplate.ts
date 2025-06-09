@@ -5,6 +5,7 @@
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
 export type TemplateCreateDocumentFromTemplateInternalServerErrorIssue = {
@@ -26,7 +27,7 @@ export type TemplateCreateDocumentFromTemplateInternalServerErrorData = {
  * Internal server error
  */
 export class TemplateCreateDocumentFromTemplateInternalServerError
-  extends Error
+  extends DocumensoError
 {
   code: string;
   issues?:
@@ -36,13 +37,15 @@ export class TemplateCreateDocumentFromTemplateInternalServerError
   /** The original data that was passed to this error instance. */
   data$: TemplateCreateDocumentFromTemplateInternalServerErrorData;
 
-  constructor(err: TemplateCreateDocumentFromTemplateInternalServerErrorData) {
+  constructor(
+    err: TemplateCreateDocumentFromTemplateInternalServerErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -66,20 +69,24 @@ export type TemplateCreateDocumentFromTemplateBadRequestErrorData = {
 /**
  * Invalid input data
  */
-export class TemplateCreateDocumentFromTemplateBadRequestError extends Error {
+export class TemplateCreateDocumentFromTemplateBadRequestError
+  extends DocumensoError
+{
   code: string;
   issues?: Array<TemplateCreateDocumentFromTemplateBadRequestIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: TemplateCreateDocumentFromTemplateBadRequestErrorData;
 
-  constructor(err: TemplateCreateDocumentFromTemplateBadRequestErrorData) {
+  constructor(
+    err: TemplateCreateDocumentFromTemplateBadRequestErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -168,9 +175,16 @@ export const TemplateCreateDocumentFromTemplateInternalServerError$inboundSchema
         TemplateCreateDocumentFromTemplateInternalServerErrorIssue$inboundSchema
       ),
     ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
   })
     .transform((v) => {
-      return new TemplateCreateDocumentFromTemplateInternalServerError(v);
+      return new TemplateCreateDocumentFromTemplateInternalServerError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
     });
 
 /** @internal */
@@ -298,9 +312,16 @@ export const TemplateCreateDocumentFromTemplateBadRequestError$inboundSchema:
         TemplateCreateDocumentFromTemplateBadRequestIssue$inboundSchema
       ),
     ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
   })
     .transform((v) => {
-      return new TemplateCreateDocumentFromTemplateBadRequestError(v);
+      return new TemplateCreateDocumentFromTemplateBadRequestError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
     });
 
 /** @internal */

@@ -5,6 +5,7 @@
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
 export type RecipientCreateTemplateRecipientInternalServerErrorIssue = {
@@ -25,7 +26,9 @@ export type RecipientCreateTemplateRecipientInternalServerErrorData = {
 /**
  * Internal server error
  */
-export class RecipientCreateTemplateRecipientInternalServerError extends Error {
+export class RecipientCreateTemplateRecipientInternalServerError
+  extends DocumensoError
+{
   code: string;
   issues?:
     | Array<RecipientCreateTemplateRecipientInternalServerErrorIssue>
@@ -34,13 +37,15 @@ export class RecipientCreateTemplateRecipientInternalServerError extends Error {
   /** The original data that was passed to this error instance. */
   data$: RecipientCreateTemplateRecipientInternalServerErrorData;
 
-  constructor(err: RecipientCreateTemplateRecipientInternalServerErrorData) {
+  constructor(
+    err: RecipientCreateTemplateRecipientInternalServerErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -64,20 +69,24 @@ export type RecipientCreateTemplateRecipientBadRequestErrorData = {
 /**
  * Invalid input data
  */
-export class RecipientCreateTemplateRecipientBadRequestError extends Error {
+export class RecipientCreateTemplateRecipientBadRequestError
+  extends DocumensoError
+{
   code: string;
   issues?: Array<RecipientCreateTemplateRecipientBadRequestIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: RecipientCreateTemplateRecipientBadRequestErrorData;
 
-  constructor(err: RecipientCreateTemplateRecipientBadRequestErrorData) {
+  constructor(
+    err: RecipientCreateTemplateRecipientBadRequestErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -166,9 +175,16 @@ export const RecipientCreateTemplateRecipientInternalServerError$inboundSchema:
         RecipientCreateTemplateRecipientInternalServerErrorIssue$inboundSchema
       ),
     ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
   })
     .transform((v) => {
-      return new RecipientCreateTemplateRecipientInternalServerError(v);
+      return new RecipientCreateTemplateRecipientInternalServerError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
     });
 
 /** @internal */
@@ -296,9 +312,16 @@ export const RecipientCreateTemplateRecipientBadRequestError$inboundSchema:
         RecipientCreateTemplateRecipientBadRequestIssue$inboundSchema
       ),
     ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
   })
     .transform((v) => {
-      return new RecipientCreateTemplateRecipientBadRequestError(v);
+      return new RecipientCreateTemplateRecipientBadRequestError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
     });
 
 /** @internal */

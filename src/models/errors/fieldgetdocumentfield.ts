@@ -5,6 +5,7 @@
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
 export type FieldGetDocumentFieldInternalServerErrorIssue = {
@@ -23,20 +24,22 @@ export type FieldGetDocumentFieldInternalServerErrorData = {
 /**
  * Internal server error
  */
-export class FieldGetDocumentFieldInternalServerError extends Error {
+export class FieldGetDocumentFieldInternalServerError extends DocumensoError {
   code: string;
   issues?: Array<FieldGetDocumentFieldInternalServerErrorIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: FieldGetDocumentFieldInternalServerErrorData;
 
-  constructor(err: FieldGetDocumentFieldInternalServerErrorData) {
+  constructor(
+    err: FieldGetDocumentFieldInternalServerErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -60,20 +63,22 @@ export type FieldGetDocumentFieldNotFoundErrorData = {
 /**
  * Not found
  */
-export class FieldGetDocumentFieldNotFoundError extends Error {
+export class FieldGetDocumentFieldNotFoundError extends DocumensoError {
   code: string;
   issues?: Array<FieldGetDocumentFieldNotFoundIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: FieldGetDocumentFieldNotFoundErrorData;
 
-  constructor(err: FieldGetDocumentFieldNotFoundErrorData) {
+  constructor(
+    err: FieldGetDocumentFieldNotFoundErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -97,20 +102,22 @@ export type FieldGetDocumentFieldBadRequestErrorData = {
 /**
  * Invalid input data
  */
-export class FieldGetDocumentFieldBadRequestError extends Error {
+export class FieldGetDocumentFieldBadRequestError extends DocumensoError {
   code: string;
   issues?: Array<FieldGetDocumentFieldBadRequestIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: FieldGetDocumentFieldBadRequestErrorData;
 
-  constructor(err: FieldGetDocumentFieldBadRequestErrorData) {
+  constructor(
+    err: FieldGetDocumentFieldBadRequestErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -196,9 +203,16 @@ export const FieldGetDocumentFieldInternalServerError$inboundSchema: z.ZodType<
   issues: z.array(
     z.lazy(() => FieldGetDocumentFieldInternalServerErrorIssue$inboundSchema),
   ).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new FieldGetDocumentFieldInternalServerError(v);
+    return new FieldGetDocumentFieldInternalServerError(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */
@@ -311,9 +325,16 @@ export const FieldGetDocumentFieldNotFoundError$inboundSchema: z.ZodType<
   issues: z.array(
     z.lazy(() => FieldGetDocumentFieldNotFoundIssue$inboundSchema),
   ).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new FieldGetDocumentFieldNotFoundError(v);
+    return new FieldGetDocumentFieldNotFoundError(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */
@@ -422,9 +443,16 @@ export const FieldGetDocumentFieldBadRequestError$inboundSchema: z.ZodType<
   issues: z.array(
     z.lazy(() => FieldGetDocumentFieldBadRequestIssue$inboundSchema),
   ).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new FieldGetDocumentFieldBadRequestError(v);
+    return new FieldGetDocumentFieldBadRequestError(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */

@@ -67,6 +67,7 @@ export const DocumentMoveDocumentToTeamGlobalActionAuth = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
+  Password: "PASSWORD",
 } as const;
 /**
  * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
@@ -76,14 +77,8 @@ export type DocumentMoveDocumentToTeamGlobalActionAuth = ClosedEnum<
 >;
 
 export type DocumentMoveDocumentToTeamAuthOptions = {
-  /**
-   * The type of authentication required for the recipient to access the document.
-   */
-  globalAccessAuth: DocumentMoveDocumentToTeamGlobalAccessAuth | null;
-  /**
-   * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
-   */
-  globalActionAuth: DocumentMoveDocumentToTeamGlobalActionAuth | null;
+  globalAccessAuth: Array<DocumentMoveDocumentToTeamGlobalAccessAuth>;
+  globalActionAuth: Array<DocumentMoveDocumentToTeamGlobalActionAuth>;
 };
 
 export type DocumentMoveDocumentToTeamFormValues = string | boolean | number;
@@ -114,6 +109,8 @@ export type DocumentMoveDocumentToTeamResponse = {
   deletedAt: string | null;
   teamId: number | null;
   templateId: number | null;
+  folderId: string | null;
+  useLegacyFieldInsertion: boolean;
 };
 
 /** @internal */
@@ -294,18 +291,18 @@ export const DocumentMoveDocumentToTeamAuthOptions$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  globalAccessAuth: z.nullable(
+  globalAccessAuth: z.array(
     DocumentMoveDocumentToTeamGlobalAccessAuth$inboundSchema,
   ),
-  globalActionAuth: z.nullable(
+  globalActionAuth: z.array(
     DocumentMoveDocumentToTeamGlobalActionAuth$inboundSchema,
   ),
 });
 
 /** @internal */
 export type DocumentMoveDocumentToTeamAuthOptions$Outbound = {
-  globalAccessAuth: string | null;
-  globalActionAuth: string | null;
+  globalAccessAuth: Array<string>;
+  globalActionAuth: Array<string>;
 };
 
 /** @internal */
@@ -314,10 +311,10 @@ export const DocumentMoveDocumentToTeamAuthOptions$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentMoveDocumentToTeamAuthOptions
 > = z.object({
-  globalAccessAuth: z.nullable(
+  globalAccessAuth: z.array(
     DocumentMoveDocumentToTeamGlobalAccessAuth$outboundSchema,
   ),
-  globalActionAuth: z.nullable(
+  globalActionAuth: z.array(
     DocumentMoveDocumentToTeamGlobalActionAuth$outboundSchema,
   ),
 });
@@ -440,6 +437,8 @@ export const DocumentMoveDocumentToTeamResponse$inboundSchema: z.ZodType<
   deletedAt: z.nullable(z.string()),
   teamId: z.nullable(z.number()),
   templateId: z.nullable(z.number()),
+  folderId: z.nullable(z.string()),
+  useLegacyFieldInsertion: z.boolean(),
 });
 
 /** @internal */
@@ -460,6 +459,8 @@ export type DocumentMoveDocumentToTeamResponse$Outbound = {
   deletedAt: string | null;
   teamId: number | null;
   templateId: number | null;
+  folderId: string | null;
+  useLegacyFieldInsertion: boolean;
 };
 
 /** @internal */
@@ -488,6 +489,8 @@ export const DocumentMoveDocumentToTeamResponse$outboundSchema: z.ZodType<
   deletedAt: z.nullable(z.string()),
   teamId: z.nullable(z.number()),
   templateId: z.nullable(z.number()),
+  folderId: z.nullable(z.string()),
+  useLegacyFieldInsertion: z.boolean(),
 });
 
 /**

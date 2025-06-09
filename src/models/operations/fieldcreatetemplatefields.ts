@@ -8,37 +8,37 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export const FieldCreateTemplateFieldsTypeDropdownRequestBody1 = {
+export const FieldCreateTemplateFieldsTypeDropdownRequest1 = {
   Dropdown: "DROPDOWN",
 } as const;
-export type FieldCreateTemplateFieldsTypeDropdownRequestBody1 = ClosedEnum<
-  typeof FieldCreateTemplateFieldsTypeDropdownRequestBody1
+export type FieldCreateTemplateFieldsTypeDropdownRequest1 = ClosedEnum<
+  typeof FieldCreateTemplateFieldsTypeDropdownRequest1
 >;
 
-export const FieldCreateTemplateFieldsTypeDropdownRequestBody2 = {
+export const FieldCreateTemplateFieldsTypeDropdownRequest2 = {
   Dropdown: "dropdown",
 } as const;
-export type FieldCreateTemplateFieldsTypeDropdownRequestBody2 = ClosedEnum<
-  typeof FieldCreateTemplateFieldsTypeDropdownRequestBody2
+export type FieldCreateTemplateFieldsTypeDropdownRequest2 = ClosedEnum<
+  typeof FieldCreateTemplateFieldsTypeDropdownRequest2
 >;
 
 export type FieldCreateTemplateFieldsValueDropdown = {
   value: string;
 };
 
-export type FieldCreateTemplateFieldsFieldMetaDropdownRequestBody = {
+export type FieldCreateTemplateFieldsFieldMetaDropdownRequest = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: FieldCreateTemplateFieldsTypeDropdownRequestBody2;
+  type: FieldCreateTemplateFieldsTypeDropdownRequest2;
   values?: Array<FieldCreateTemplateFieldsValueDropdown> | undefined;
   defaultValue?: string | undefined;
 };
 
 export type FieldCreateTemplateFieldsFieldDropdown = {
-  type: FieldCreateTemplateFieldsTypeDropdownRequestBody1;
-  fieldMeta?: FieldCreateTemplateFieldsFieldMetaDropdownRequestBody | undefined;
+  type: FieldCreateTemplateFieldsTypeDropdownRequest1;
+  fieldMeta?: FieldCreateTemplateFieldsFieldMetaDropdownRequest | undefined;
   /**
    * The ID of the recipient to create the field for.
    */
@@ -65,18 +65,18 @@ export type FieldCreateTemplateFieldsFieldDropdown = {
   height: number;
 };
 
-export const FieldCreateTemplateFieldsTypeCheckboxRequestBody1 = {
+export const FieldCreateTemplateFieldsTypeCheckboxRequest1 = {
   Checkbox: "CHECKBOX",
 } as const;
-export type FieldCreateTemplateFieldsTypeCheckboxRequestBody1 = ClosedEnum<
-  typeof FieldCreateTemplateFieldsTypeCheckboxRequestBody1
+export type FieldCreateTemplateFieldsTypeCheckboxRequest1 = ClosedEnum<
+  typeof FieldCreateTemplateFieldsTypeCheckboxRequest1
 >;
 
-export const FieldCreateTemplateFieldsTypeCheckboxRequestBody2 = {
+export const FieldCreateTemplateFieldsTypeCheckboxRequest2 = {
   Checkbox: "checkbox",
 } as const;
-export type FieldCreateTemplateFieldsTypeCheckboxRequestBody2 = ClosedEnum<
-  typeof FieldCreateTemplateFieldsTypeCheckboxRequestBody2
+export type FieldCreateTemplateFieldsTypeCheckboxRequest2 = ClosedEnum<
+  typeof FieldCreateTemplateFieldsTypeCheckboxRequest2
 >;
 
 export type FieldCreateTemplateFieldsValueCheckbox = {
@@ -85,20 +85,20 @@ export type FieldCreateTemplateFieldsValueCheckbox = {
   value: string;
 };
 
-export type FieldCreateTemplateFieldsFieldMetaCheckboxRequestBody = {
+export type FieldCreateTemplateFieldsFieldMetaCheckboxRequest = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: FieldCreateTemplateFieldsTypeCheckboxRequestBody2;
+  type: FieldCreateTemplateFieldsTypeCheckboxRequest2;
   values?: Array<FieldCreateTemplateFieldsValueCheckbox> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
 };
 
 export type FieldCreateTemplateFieldsFieldCheckbox = {
-  type: FieldCreateTemplateFieldsTypeCheckboxRequestBody1;
-  fieldMeta?: FieldCreateTemplateFieldsFieldMetaCheckboxRequestBody | undefined;
+  type: FieldCreateTemplateFieldsTypeCheckboxRequest1;
+  fieldMeta?: FieldCreateTemplateFieldsFieldMetaCheckboxRequest | undefined;
   /**
    * The ID of the recipient to create the field for.
    */
@@ -125,18 +125,18 @@ export type FieldCreateTemplateFieldsFieldCheckbox = {
   height: number;
 };
 
-export const FieldCreateTemplateFieldsTypeRadioRequestBody1 = {
+export const FieldCreateTemplateFieldsTypeRadioRequest1 = {
   Radio: "RADIO",
 } as const;
-export type FieldCreateTemplateFieldsTypeRadioRequestBody1 = ClosedEnum<
-  typeof FieldCreateTemplateFieldsTypeRadioRequestBody1
+export type FieldCreateTemplateFieldsTypeRadioRequest1 = ClosedEnum<
+  typeof FieldCreateTemplateFieldsTypeRadioRequest1
 >;
 
-export const FieldCreateTemplateFieldsTypeRadioRequestBody2 = {
+export const FieldCreateTemplateFieldsTypeRadioRequest2 = {
   Radio: "radio",
 } as const;
-export type FieldCreateTemplateFieldsTypeRadioRequestBody2 = ClosedEnum<
-  typeof FieldCreateTemplateFieldsTypeRadioRequestBody2
+export type FieldCreateTemplateFieldsTypeRadioRequest2 = ClosedEnum<
+  typeof FieldCreateTemplateFieldsTypeRadioRequest2
 >;
 
 export type FieldCreateTemplateFieldsValueRadio = {
@@ -145,18 +145,18 @@ export type FieldCreateTemplateFieldsValueRadio = {
   value: string;
 };
 
-export type FieldCreateTemplateFieldsFieldMetaRadioRequestBody = {
+export type FieldCreateTemplateFieldsFieldMetaRadioRequest = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: FieldCreateTemplateFieldsTypeRadioRequestBody2;
+  type: FieldCreateTemplateFieldsTypeRadioRequest2;
   values?: Array<FieldCreateTemplateFieldsValueRadio> | undefined;
 };
 
 export type FieldCreateTemplateFieldsFieldRadio = {
-  type: FieldCreateTemplateFieldsTypeRadioRequestBody1;
-  fieldMeta?: FieldCreateTemplateFieldsFieldMetaRadioRequestBody | undefined;
+  type: FieldCreateTemplateFieldsTypeRadioRequest1;
+  fieldMeta?: FieldCreateTemplateFieldsFieldMetaRadioRequest | undefined;
   /**
    * The ID of the recipient to create the field for.
    */
@@ -183,18 +183,18 @@ export type FieldCreateTemplateFieldsFieldRadio = {
   height: number;
 };
 
-export const FieldCreateTemplateFieldsTypeNumberRequestBody1 = {
+export const FieldCreateTemplateFieldsTypeNumberRequest1 = {
   Number: "NUMBER",
 } as const;
-export type FieldCreateTemplateFieldsTypeNumberRequestBody1 = ClosedEnum<
-  typeof FieldCreateTemplateFieldsTypeNumberRequestBody1
+export type FieldCreateTemplateFieldsTypeNumberRequest1 = ClosedEnum<
+  typeof FieldCreateTemplateFieldsTypeNumberRequest1
 >;
 
-export const FieldCreateTemplateFieldsTypeNumberRequestBody2 = {
+export const FieldCreateTemplateFieldsTypeNumberRequest2 = {
   Number: "number",
 } as const;
-export type FieldCreateTemplateFieldsTypeNumberRequestBody2 = ClosedEnum<
-  typeof FieldCreateTemplateFieldsTypeNumberRequestBody2
+export type FieldCreateTemplateFieldsTypeNumberRequest2 = ClosedEnum<
+  typeof FieldCreateTemplateFieldsTypeNumberRequest2
 >;
 
 export const FieldCreateTemplateFieldsTextAlignNumber = {
@@ -206,12 +206,12 @@ export type FieldCreateTemplateFieldsTextAlignNumber = ClosedEnum<
   typeof FieldCreateTemplateFieldsTextAlignNumber
 >;
 
-export type FieldCreateTemplateFieldsFieldMetaNumberRequestBody = {
+export type FieldCreateTemplateFieldsFieldMetaNumberRequest = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: FieldCreateTemplateFieldsTypeNumberRequestBody2;
+  type: FieldCreateTemplateFieldsTypeNumberRequest2;
   numberFormat?: string | undefined;
   value?: string | undefined;
   minValue?: number | undefined;
@@ -221,8 +221,8 @@ export type FieldCreateTemplateFieldsFieldMetaNumberRequestBody = {
 };
 
 export type FieldCreateTemplateFieldsFieldNumber = {
-  type: FieldCreateTemplateFieldsTypeNumberRequestBody1;
-  fieldMeta?: FieldCreateTemplateFieldsFieldMetaNumberRequestBody | undefined;
+  type: FieldCreateTemplateFieldsTypeNumberRequest1;
+  fieldMeta?: FieldCreateTemplateFieldsFieldMetaNumberRequest | undefined;
   /**
    * The ID of the recipient to create the field for.
    */
@@ -249,18 +249,18 @@ export type FieldCreateTemplateFieldsFieldNumber = {
   height: number;
 };
 
-export const FieldCreateTemplateFieldsTypeTextRequestBody1 = {
+export const FieldCreateTemplateFieldsTypeTextRequest1 = {
   Text: "TEXT",
 } as const;
-export type FieldCreateTemplateFieldsTypeTextRequestBody1 = ClosedEnum<
-  typeof FieldCreateTemplateFieldsTypeTextRequestBody1
+export type FieldCreateTemplateFieldsTypeTextRequest1 = ClosedEnum<
+  typeof FieldCreateTemplateFieldsTypeTextRequest1
 >;
 
-export const FieldCreateTemplateFieldsTypeTextRequestBody2 = {
+export const FieldCreateTemplateFieldsTypeTextRequest2 = {
   Text: "text",
 } as const;
-export type FieldCreateTemplateFieldsTypeTextRequestBody2 = ClosedEnum<
-  typeof FieldCreateTemplateFieldsTypeTextRequestBody2
+export type FieldCreateTemplateFieldsTypeTextRequest2 = ClosedEnum<
+  typeof FieldCreateTemplateFieldsTypeTextRequest2
 >;
 
 export const FieldCreateTemplateFieldsTextAlignText = {
@@ -272,12 +272,12 @@ export type FieldCreateTemplateFieldsTextAlignText = ClosedEnum<
   typeof FieldCreateTemplateFieldsTextAlignText
 >;
 
-export type FieldCreateTemplateFieldsFieldMetaTextRequestBody = {
+export type FieldCreateTemplateFieldsFieldMetaTextRequest = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: FieldCreateTemplateFieldsTypeTextRequestBody2;
+  type: FieldCreateTemplateFieldsTypeTextRequest2;
   text?: string | undefined;
   characterLimit?: number | undefined;
   fontSize?: number | undefined;
@@ -285,8 +285,8 @@ export type FieldCreateTemplateFieldsFieldMetaTextRequestBody = {
 };
 
 export type FieldCreateTemplateFieldsFieldText = {
-  type: FieldCreateTemplateFieldsTypeTextRequestBody1;
-  fieldMeta?: FieldCreateTemplateFieldsFieldMetaTextRequestBody | undefined;
+  type: FieldCreateTemplateFieldsTypeTextRequest1;
+  fieldMeta?: FieldCreateTemplateFieldsFieldMetaTextRequest | undefined;
   /**
    * The ID of the recipient to create the field for.
    */
@@ -313,18 +313,18 @@ export type FieldCreateTemplateFieldsFieldText = {
   height: number;
 };
 
-export const FieldCreateTemplateFieldsTypeDateRequestBody1 = {
+export const FieldCreateTemplateFieldsTypeDateRequest1 = {
   Date: "DATE",
 } as const;
-export type FieldCreateTemplateFieldsTypeDateRequestBody1 = ClosedEnum<
-  typeof FieldCreateTemplateFieldsTypeDateRequestBody1
+export type FieldCreateTemplateFieldsTypeDateRequest1 = ClosedEnum<
+  typeof FieldCreateTemplateFieldsTypeDateRequest1
 >;
 
-export const FieldCreateTemplateFieldsTypeDateRequestBody2 = {
+export const FieldCreateTemplateFieldsTypeDateRequest2 = {
   Date: "date",
 } as const;
-export type FieldCreateTemplateFieldsTypeDateRequestBody2 = ClosedEnum<
-  typeof FieldCreateTemplateFieldsTypeDateRequestBody2
+export type FieldCreateTemplateFieldsTypeDateRequest2 = ClosedEnum<
+  typeof FieldCreateTemplateFieldsTypeDateRequest2
 >;
 
 export const FieldCreateTemplateFieldsTextAlignDate = {
@@ -336,19 +336,19 @@ export type FieldCreateTemplateFieldsTextAlignDate = ClosedEnum<
   typeof FieldCreateTemplateFieldsTextAlignDate
 >;
 
-export type FieldCreateTemplateFieldsFieldMetaDateRequestBody = {
+export type FieldCreateTemplateFieldsFieldMetaDateRequest = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: FieldCreateTemplateFieldsTypeDateRequestBody2;
+  type: FieldCreateTemplateFieldsTypeDateRequest2;
   fontSize?: number | undefined;
   textAlign?: FieldCreateTemplateFieldsTextAlignDate | undefined;
 };
 
 export type FieldCreateTemplateFieldsFieldDate = {
-  type: FieldCreateTemplateFieldsTypeDateRequestBody1;
-  fieldMeta?: FieldCreateTemplateFieldsFieldMetaDateRequestBody | undefined;
+  type: FieldCreateTemplateFieldsTypeDateRequest1;
+  fieldMeta?: FieldCreateTemplateFieldsFieldMetaDateRequest | undefined;
   /**
    * The ID of the recipient to create the field for.
    */
@@ -375,18 +375,18 @@ export type FieldCreateTemplateFieldsFieldDate = {
   height: number;
 };
 
-export const FieldCreateTemplateFieldsTypeEmailRequestBody1 = {
+export const FieldCreateTemplateFieldsTypeEmailRequest1 = {
   Email: "EMAIL",
 } as const;
-export type FieldCreateTemplateFieldsTypeEmailRequestBody1 = ClosedEnum<
-  typeof FieldCreateTemplateFieldsTypeEmailRequestBody1
+export type FieldCreateTemplateFieldsTypeEmailRequest1 = ClosedEnum<
+  typeof FieldCreateTemplateFieldsTypeEmailRequest1
 >;
 
-export const FieldCreateTemplateFieldsTypeEmailRequestBody2 = {
+export const FieldCreateTemplateFieldsTypeEmailRequest2 = {
   Email: "email",
 } as const;
-export type FieldCreateTemplateFieldsTypeEmailRequestBody2 = ClosedEnum<
-  typeof FieldCreateTemplateFieldsTypeEmailRequestBody2
+export type FieldCreateTemplateFieldsTypeEmailRequest2 = ClosedEnum<
+  typeof FieldCreateTemplateFieldsTypeEmailRequest2
 >;
 
 export const FieldCreateTemplateFieldsTextAlignEmail = {
@@ -398,19 +398,19 @@ export type FieldCreateTemplateFieldsTextAlignEmail = ClosedEnum<
   typeof FieldCreateTemplateFieldsTextAlignEmail
 >;
 
-export type FieldCreateTemplateFieldsFieldMetaEmailRequestBody = {
+export type FieldCreateTemplateFieldsFieldMetaEmailRequest = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: FieldCreateTemplateFieldsTypeEmailRequestBody2;
+  type: FieldCreateTemplateFieldsTypeEmailRequest2;
   fontSize?: number | undefined;
   textAlign?: FieldCreateTemplateFieldsTextAlignEmail | undefined;
 };
 
 export type FieldCreateTemplateFieldsFieldEmail = {
-  type: FieldCreateTemplateFieldsTypeEmailRequestBody1;
-  fieldMeta?: FieldCreateTemplateFieldsFieldMetaEmailRequestBody | undefined;
+  type: FieldCreateTemplateFieldsTypeEmailRequest1;
+  fieldMeta?: FieldCreateTemplateFieldsFieldMetaEmailRequest | undefined;
   /**
    * The ID of the recipient to create the field for.
    */
@@ -437,18 +437,18 @@ export type FieldCreateTemplateFieldsFieldEmail = {
   height: number;
 };
 
-export const FieldCreateTemplateFieldsTypeNameRequestBody1 = {
+export const FieldCreateTemplateFieldsTypeNameRequest1 = {
   Name: "NAME",
 } as const;
-export type FieldCreateTemplateFieldsTypeNameRequestBody1 = ClosedEnum<
-  typeof FieldCreateTemplateFieldsTypeNameRequestBody1
+export type FieldCreateTemplateFieldsTypeNameRequest1 = ClosedEnum<
+  typeof FieldCreateTemplateFieldsTypeNameRequest1
 >;
 
-export const FieldCreateTemplateFieldsTypeNameRequestBody2 = {
+export const FieldCreateTemplateFieldsTypeNameRequest2 = {
   Name: "name",
 } as const;
-export type FieldCreateTemplateFieldsTypeNameRequestBody2 = ClosedEnum<
-  typeof FieldCreateTemplateFieldsTypeNameRequestBody2
+export type FieldCreateTemplateFieldsTypeNameRequest2 = ClosedEnum<
+  typeof FieldCreateTemplateFieldsTypeNameRequest2
 >;
 
 export const FieldCreateTemplateFieldsTextAlignName = {
@@ -460,19 +460,19 @@ export type FieldCreateTemplateFieldsTextAlignName = ClosedEnum<
   typeof FieldCreateTemplateFieldsTextAlignName
 >;
 
-export type FieldCreateTemplateFieldsFieldMetaNameRequestBody = {
+export type FieldCreateTemplateFieldsFieldMetaNameRequest = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: FieldCreateTemplateFieldsTypeNameRequestBody2;
+  type: FieldCreateTemplateFieldsTypeNameRequest2;
   fontSize?: number | undefined;
   textAlign?: FieldCreateTemplateFieldsTextAlignName | undefined;
 };
 
 export type FieldCreateTemplateFieldsFieldName = {
-  type: FieldCreateTemplateFieldsTypeNameRequestBody1;
-  fieldMeta?: FieldCreateTemplateFieldsFieldMetaNameRequestBody | undefined;
+  type: FieldCreateTemplateFieldsTypeNameRequest1;
+  fieldMeta?: FieldCreateTemplateFieldsFieldMetaNameRequest | undefined;
   /**
    * The ID of the recipient to create the field for.
    */
@@ -499,18 +499,18 @@ export type FieldCreateTemplateFieldsFieldName = {
   height: number;
 };
 
-export const FieldCreateTemplateFieldsTypeInitialsRequestBody1 = {
+export const FieldCreateTemplateFieldsTypeInitialsRequest1 = {
   Initials: "INITIALS",
 } as const;
-export type FieldCreateTemplateFieldsTypeInitialsRequestBody1 = ClosedEnum<
-  typeof FieldCreateTemplateFieldsTypeInitialsRequestBody1
+export type FieldCreateTemplateFieldsTypeInitialsRequest1 = ClosedEnum<
+  typeof FieldCreateTemplateFieldsTypeInitialsRequest1
 >;
 
-export const FieldCreateTemplateFieldsTypeInitialsRequestBody2 = {
+export const FieldCreateTemplateFieldsTypeInitialsRequest2 = {
   Initials: "initials",
 } as const;
-export type FieldCreateTemplateFieldsTypeInitialsRequestBody2 = ClosedEnum<
-  typeof FieldCreateTemplateFieldsTypeInitialsRequestBody2
+export type FieldCreateTemplateFieldsTypeInitialsRequest2 = ClosedEnum<
+  typeof FieldCreateTemplateFieldsTypeInitialsRequest2
 >;
 
 export const FieldCreateTemplateFieldsTextAlignInitials = {
@@ -522,19 +522,19 @@ export type FieldCreateTemplateFieldsTextAlignInitials = ClosedEnum<
   typeof FieldCreateTemplateFieldsTextAlignInitials
 >;
 
-export type FieldCreateTemplateFieldsFieldMetaInitialsRequestBody = {
+export type FieldCreateTemplateFieldsFieldMetaInitialsRequest = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
-  type: FieldCreateTemplateFieldsTypeInitialsRequestBody2;
+  type: FieldCreateTemplateFieldsTypeInitialsRequest2;
   fontSize?: number | undefined;
   textAlign?: FieldCreateTemplateFieldsTextAlignInitials | undefined;
 };
 
 export type FieldCreateTemplateFieldsFieldInitials = {
-  type: FieldCreateTemplateFieldsTypeInitialsRequestBody1;
-  fieldMeta?: FieldCreateTemplateFieldsFieldMetaInitialsRequestBody | undefined;
+  type: FieldCreateTemplateFieldsTypeInitialsRequest1;
+  fieldMeta?: FieldCreateTemplateFieldsFieldMetaInitialsRequest | undefined;
   /**
    * The ID of the recipient to create the field for.
    */
@@ -956,49 +956,49 @@ export type FieldCreateTemplateFieldsResponse = {
 };
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeDropdownRequestBody1$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeDropdownRequestBody1> = z
-    .nativeEnum(FieldCreateTemplateFieldsTypeDropdownRequestBody1);
+export const FieldCreateTemplateFieldsTypeDropdownRequest1$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeDropdownRequest1> = z
+    .nativeEnum(FieldCreateTemplateFieldsTypeDropdownRequest1);
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeDropdownRequestBody1$outboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeDropdownRequestBody1> =
-    FieldCreateTemplateFieldsTypeDropdownRequestBody1$inboundSchema;
+export const FieldCreateTemplateFieldsTypeDropdownRequest1$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeDropdownRequest1> =
+    FieldCreateTemplateFieldsTypeDropdownRequest1$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldCreateTemplateFieldsTypeDropdownRequestBody1$ {
-  /** @deprecated use `FieldCreateTemplateFieldsTypeDropdownRequestBody1$inboundSchema` instead. */
+export namespace FieldCreateTemplateFieldsTypeDropdownRequest1$ {
+  /** @deprecated use `FieldCreateTemplateFieldsTypeDropdownRequest1$inboundSchema` instead. */
   export const inboundSchema =
-    FieldCreateTemplateFieldsTypeDropdownRequestBody1$inboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsTypeDropdownRequestBody1$outboundSchema` instead. */
+    FieldCreateTemplateFieldsTypeDropdownRequest1$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsTypeDropdownRequest1$outboundSchema` instead. */
   export const outboundSchema =
-    FieldCreateTemplateFieldsTypeDropdownRequestBody1$outboundSchema;
+    FieldCreateTemplateFieldsTypeDropdownRequest1$outboundSchema;
 }
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeDropdownRequestBody2$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeDropdownRequestBody2> = z
-    .nativeEnum(FieldCreateTemplateFieldsTypeDropdownRequestBody2);
+export const FieldCreateTemplateFieldsTypeDropdownRequest2$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeDropdownRequest2> = z
+    .nativeEnum(FieldCreateTemplateFieldsTypeDropdownRequest2);
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeDropdownRequestBody2$outboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeDropdownRequestBody2> =
-    FieldCreateTemplateFieldsTypeDropdownRequestBody2$inboundSchema;
+export const FieldCreateTemplateFieldsTypeDropdownRequest2$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeDropdownRequest2> =
+    FieldCreateTemplateFieldsTypeDropdownRequest2$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldCreateTemplateFieldsTypeDropdownRequestBody2$ {
-  /** @deprecated use `FieldCreateTemplateFieldsTypeDropdownRequestBody2$inboundSchema` instead. */
+export namespace FieldCreateTemplateFieldsTypeDropdownRequest2$ {
+  /** @deprecated use `FieldCreateTemplateFieldsTypeDropdownRequest2$inboundSchema` instead. */
   export const inboundSchema =
-    FieldCreateTemplateFieldsTypeDropdownRequestBody2$inboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsTypeDropdownRequestBody2$outboundSchema` instead. */
+    FieldCreateTemplateFieldsTypeDropdownRequest2$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsTypeDropdownRequest2$outboundSchema` instead. */
   export const outboundSchema =
-    FieldCreateTemplateFieldsTypeDropdownRequestBody2$outboundSchema;
+    FieldCreateTemplateFieldsTypeDropdownRequest2$outboundSchema;
 }
 
 /** @internal */
@@ -1062,9 +1062,9 @@ export function fieldCreateTemplateFieldsValueDropdownFromJSON(
 }
 
 /** @internal */
-export const FieldCreateTemplateFieldsFieldMetaDropdownRequestBody$inboundSchema:
+export const FieldCreateTemplateFieldsFieldMetaDropdownRequest$inboundSchema:
   z.ZodType<
-    FieldCreateTemplateFieldsFieldMetaDropdownRequestBody,
+    FieldCreateTemplateFieldsFieldMetaDropdownRequest,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -1072,7 +1072,7 @@ export const FieldCreateTemplateFieldsFieldMetaDropdownRequestBody$inboundSchema
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type: FieldCreateTemplateFieldsTypeDropdownRequestBody2$inboundSchema,
+    type: FieldCreateTemplateFieldsTypeDropdownRequest2$inboundSchema,
     values: z.array(
       z.lazy(() => FieldCreateTemplateFieldsValueDropdown$inboundSchema),
     ).optional(),
@@ -1080,7 +1080,7 @@ export const FieldCreateTemplateFieldsFieldMetaDropdownRequestBody$inboundSchema
   });
 
 /** @internal */
-export type FieldCreateTemplateFieldsFieldMetaDropdownRequestBody$Outbound = {
+export type FieldCreateTemplateFieldsFieldMetaDropdownRequest$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -1091,17 +1091,17 @@ export type FieldCreateTemplateFieldsFieldMetaDropdownRequestBody$Outbound = {
 };
 
 /** @internal */
-export const FieldCreateTemplateFieldsFieldMetaDropdownRequestBody$outboundSchema:
+export const FieldCreateTemplateFieldsFieldMetaDropdownRequest$outboundSchema:
   z.ZodType<
-    FieldCreateTemplateFieldsFieldMetaDropdownRequestBody$Outbound,
+    FieldCreateTemplateFieldsFieldMetaDropdownRequest$Outbound,
     z.ZodTypeDef,
-    FieldCreateTemplateFieldsFieldMetaDropdownRequestBody
+    FieldCreateTemplateFieldsFieldMetaDropdownRequest
   > = z.object({
     label: z.string().optional(),
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type: FieldCreateTemplateFieldsTypeDropdownRequestBody2$outboundSchema,
+    type: FieldCreateTemplateFieldsTypeDropdownRequest2$outboundSchema,
     values: z.array(
       z.lazy(() => FieldCreateTemplateFieldsValueDropdown$outboundSchema),
     ).optional(),
@@ -1112,42 +1112,42 @@ export const FieldCreateTemplateFieldsFieldMetaDropdownRequestBody$outboundSchem
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldCreateTemplateFieldsFieldMetaDropdownRequestBody$ {
-  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaDropdownRequestBody$inboundSchema` instead. */
+export namespace FieldCreateTemplateFieldsFieldMetaDropdownRequest$ {
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaDropdownRequest$inboundSchema` instead. */
   export const inboundSchema =
-    FieldCreateTemplateFieldsFieldMetaDropdownRequestBody$inboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaDropdownRequestBody$outboundSchema` instead. */
+    FieldCreateTemplateFieldsFieldMetaDropdownRequest$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaDropdownRequest$outboundSchema` instead. */
   export const outboundSchema =
-    FieldCreateTemplateFieldsFieldMetaDropdownRequestBody$outboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaDropdownRequestBody$Outbound` instead. */
+    FieldCreateTemplateFieldsFieldMetaDropdownRequest$outboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaDropdownRequest$Outbound` instead. */
   export type Outbound =
-    FieldCreateTemplateFieldsFieldMetaDropdownRequestBody$Outbound;
+    FieldCreateTemplateFieldsFieldMetaDropdownRequest$Outbound;
 }
 
-export function fieldCreateTemplateFieldsFieldMetaDropdownRequestBodyToJSON(
-  fieldCreateTemplateFieldsFieldMetaDropdownRequestBody:
-    FieldCreateTemplateFieldsFieldMetaDropdownRequestBody,
+export function fieldCreateTemplateFieldsFieldMetaDropdownRequestToJSON(
+  fieldCreateTemplateFieldsFieldMetaDropdownRequest:
+    FieldCreateTemplateFieldsFieldMetaDropdownRequest,
 ): string {
   return JSON.stringify(
-    FieldCreateTemplateFieldsFieldMetaDropdownRequestBody$outboundSchema.parse(
-      fieldCreateTemplateFieldsFieldMetaDropdownRequestBody,
+    FieldCreateTemplateFieldsFieldMetaDropdownRequest$outboundSchema.parse(
+      fieldCreateTemplateFieldsFieldMetaDropdownRequest,
     ),
   );
 }
 
-export function fieldCreateTemplateFieldsFieldMetaDropdownRequestBodyFromJSON(
+export function fieldCreateTemplateFieldsFieldMetaDropdownRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  FieldCreateTemplateFieldsFieldMetaDropdownRequestBody,
+  FieldCreateTemplateFieldsFieldMetaDropdownRequest,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      FieldCreateTemplateFieldsFieldMetaDropdownRequestBody$inboundSchema.parse(
+      FieldCreateTemplateFieldsFieldMetaDropdownRequest$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'FieldCreateTemplateFieldsFieldMetaDropdownRequestBody' from JSON`,
+    `Failed to parse 'FieldCreateTemplateFieldsFieldMetaDropdownRequest' from JSON`,
   );
 }
 
@@ -1157,9 +1157,9 @@ export const FieldCreateTemplateFieldsFieldDropdown$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: FieldCreateTemplateFieldsTypeDropdownRequestBody1$inboundSchema,
+  type: FieldCreateTemplateFieldsTypeDropdownRequest1$inboundSchema,
   fieldMeta: z.lazy(() =>
-    FieldCreateTemplateFieldsFieldMetaDropdownRequestBody$inboundSchema
+    FieldCreateTemplateFieldsFieldMetaDropdownRequest$inboundSchema
   ).optional(),
   recipientId: z.number(),
   pageNumber: z.number(),
@@ -1173,7 +1173,7 @@ export const FieldCreateTemplateFieldsFieldDropdown$inboundSchema: z.ZodType<
 export type FieldCreateTemplateFieldsFieldDropdown$Outbound = {
   type: string;
   fieldMeta?:
-    | FieldCreateTemplateFieldsFieldMetaDropdownRequestBody$Outbound
+    | FieldCreateTemplateFieldsFieldMetaDropdownRequest$Outbound
     | undefined;
   recipientId: number;
   pageNumber: number;
@@ -1189,9 +1189,9 @@ export const FieldCreateTemplateFieldsFieldDropdown$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FieldCreateTemplateFieldsFieldDropdown
 > = z.object({
-  type: FieldCreateTemplateFieldsTypeDropdownRequestBody1$outboundSchema,
+  type: FieldCreateTemplateFieldsTypeDropdownRequest1$outboundSchema,
   fieldMeta: z.lazy(() =>
-    FieldCreateTemplateFieldsFieldMetaDropdownRequestBody$outboundSchema
+    FieldCreateTemplateFieldsFieldMetaDropdownRequest$outboundSchema
   ).optional(),
   recipientId: z.number(),
   pageNumber: z.number(),
@@ -1239,49 +1239,49 @@ export function fieldCreateTemplateFieldsFieldDropdownFromJSON(
 }
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeCheckboxRequestBody1$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeCheckboxRequestBody1> = z
-    .nativeEnum(FieldCreateTemplateFieldsTypeCheckboxRequestBody1);
+export const FieldCreateTemplateFieldsTypeCheckboxRequest1$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeCheckboxRequest1> = z
+    .nativeEnum(FieldCreateTemplateFieldsTypeCheckboxRequest1);
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeCheckboxRequestBody1$outboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeCheckboxRequestBody1> =
-    FieldCreateTemplateFieldsTypeCheckboxRequestBody1$inboundSchema;
+export const FieldCreateTemplateFieldsTypeCheckboxRequest1$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeCheckboxRequest1> =
+    FieldCreateTemplateFieldsTypeCheckboxRequest1$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldCreateTemplateFieldsTypeCheckboxRequestBody1$ {
-  /** @deprecated use `FieldCreateTemplateFieldsTypeCheckboxRequestBody1$inboundSchema` instead. */
+export namespace FieldCreateTemplateFieldsTypeCheckboxRequest1$ {
+  /** @deprecated use `FieldCreateTemplateFieldsTypeCheckboxRequest1$inboundSchema` instead. */
   export const inboundSchema =
-    FieldCreateTemplateFieldsTypeCheckboxRequestBody1$inboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsTypeCheckboxRequestBody1$outboundSchema` instead. */
+    FieldCreateTemplateFieldsTypeCheckboxRequest1$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsTypeCheckboxRequest1$outboundSchema` instead. */
   export const outboundSchema =
-    FieldCreateTemplateFieldsTypeCheckboxRequestBody1$outboundSchema;
+    FieldCreateTemplateFieldsTypeCheckboxRequest1$outboundSchema;
 }
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeCheckboxRequestBody2$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeCheckboxRequestBody2> = z
-    .nativeEnum(FieldCreateTemplateFieldsTypeCheckboxRequestBody2);
+export const FieldCreateTemplateFieldsTypeCheckboxRequest2$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeCheckboxRequest2> = z
+    .nativeEnum(FieldCreateTemplateFieldsTypeCheckboxRequest2);
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeCheckboxRequestBody2$outboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeCheckboxRequestBody2> =
-    FieldCreateTemplateFieldsTypeCheckboxRequestBody2$inboundSchema;
+export const FieldCreateTemplateFieldsTypeCheckboxRequest2$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeCheckboxRequest2> =
+    FieldCreateTemplateFieldsTypeCheckboxRequest2$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldCreateTemplateFieldsTypeCheckboxRequestBody2$ {
-  /** @deprecated use `FieldCreateTemplateFieldsTypeCheckboxRequestBody2$inboundSchema` instead. */
+export namespace FieldCreateTemplateFieldsTypeCheckboxRequest2$ {
+  /** @deprecated use `FieldCreateTemplateFieldsTypeCheckboxRequest2$inboundSchema` instead. */
   export const inboundSchema =
-    FieldCreateTemplateFieldsTypeCheckboxRequestBody2$inboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsTypeCheckboxRequestBody2$outboundSchema` instead. */
+    FieldCreateTemplateFieldsTypeCheckboxRequest2$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsTypeCheckboxRequest2$outboundSchema` instead. */
   export const outboundSchema =
-    FieldCreateTemplateFieldsTypeCheckboxRequestBody2$outboundSchema;
+    FieldCreateTemplateFieldsTypeCheckboxRequest2$outboundSchema;
 }
 
 /** @internal */
@@ -1351,9 +1351,9 @@ export function fieldCreateTemplateFieldsValueCheckboxFromJSON(
 }
 
 /** @internal */
-export const FieldCreateTemplateFieldsFieldMetaCheckboxRequestBody$inboundSchema:
+export const FieldCreateTemplateFieldsFieldMetaCheckboxRequest$inboundSchema:
   z.ZodType<
-    FieldCreateTemplateFieldsFieldMetaCheckboxRequestBody,
+    FieldCreateTemplateFieldsFieldMetaCheckboxRequest,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -1361,7 +1361,7 @@ export const FieldCreateTemplateFieldsFieldMetaCheckboxRequestBody$inboundSchema
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type: FieldCreateTemplateFieldsTypeCheckboxRequestBody2$inboundSchema,
+    type: FieldCreateTemplateFieldsTypeCheckboxRequest2$inboundSchema,
     values: z.array(
       z.lazy(() => FieldCreateTemplateFieldsValueCheckbox$inboundSchema),
     ).optional(),
@@ -1370,7 +1370,7 @@ export const FieldCreateTemplateFieldsFieldMetaCheckboxRequestBody$inboundSchema
   });
 
 /** @internal */
-export type FieldCreateTemplateFieldsFieldMetaCheckboxRequestBody$Outbound = {
+export type FieldCreateTemplateFieldsFieldMetaCheckboxRequest$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -1382,17 +1382,17 @@ export type FieldCreateTemplateFieldsFieldMetaCheckboxRequestBody$Outbound = {
 };
 
 /** @internal */
-export const FieldCreateTemplateFieldsFieldMetaCheckboxRequestBody$outboundSchema:
+export const FieldCreateTemplateFieldsFieldMetaCheckboxRequest$outboundSchema:
   z.ZodType<
-    FieldCreateTemplateFieldsFieldMetaCheckboxRequestBody$Outbound,
+    FieldCreateTemplateFieldsFieldMetaCheckboxRequest$Outbound,
     z.ZodTypeDef,
-    FieldCreateTemplateFieldsFieldMetaCheckboxRequestBody
+    FieldCreateTemplateFieldsFieldMetaCheckboxRequest
   > = z.object({
     label: z.string().optional(),
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type: FieldCreateTemplateFieldsTypeCheckboxRequestBody2$outboundSchema,
+    type: FieldCreateTemplateFieldsTypeCheckboxRequest2$outboundSchema,
     values: z.array(
       z.lazy(() => FieldCreateTemplateFieldsValueCheckbox$outboundSchema),
     ).optional(),
@@ -1404,42 +1404,42 @@ export const FieldCreateTemplateFieldsFieldMetaCheckboxRequestBody$outboundSchem
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldCreateTemplateFieldsFieldMetaCheckboxRequestBody$ {
-  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaCheckboxRequestBody$inboundSchema` instead. */
+export namespace FieldCreateTemplateFieldsFieldMetaCheckboxRequest$ {
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaCheckboxRequest$inboundSchema` instead. */
   export const inboundSchema =
-    FieldCreateTemplateFieldsFieldMetaCheckboxRequestBody$inboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaCheckboxRequestBody$outboundSchema` instead. */
+    FieldCreateTemplateFieldsFieldMetaCheckboxRequest$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaCheckboxRequest$outboundSchema` instead. */
   export const outboundSchema =
-    FieldCreateTemplateFieldsFieldMetaCheckboxRequestBody$outboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaCheckboxRequestBody$Outbound` instead. */
+    FieldCreateTemplateFieldsFieldMetaCheckboxRequest$outboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaCheckboxRequest$Outbound` instead. */
   export type Outbound =
-    FieldCreateTemplateFieldsFieldMetaCheckboxRequestBody$Outbound;
+    FieldCreateTemplateFieldsFieldMetaCheckboxRequest$Outbound;
 }
 
-export function fieldCreateTemplateFieldsFieldMetaCheckboxRequestBodyToJSON(
-  fieldCreateTemplateFieldsFieldMetaCheckboxRequestBody:
-    FieldCreateTemplateFieldsFieldMetaCheckboxRequestBody,
+export function fieldCreateTemplateFieldsFieldMetaCheckboxRequestToJSON(
+  fieldCreateTemplateFieldsFieldMetaCheckboxRequest:
+    FieldCreateTemplateFieldsFieldMetaCheckboxRequest,
 ): string {
   return JSON.stringify(
-    FieldCreateTemplateFieldsFieldMetaCheckboxRequestBody$outboundSchema.parse(
-      fieldCreateTemplateFieldsFieldMetaCheckboxRequestBody,
+    FieldCreateTemplateFieldsFieldMetaCheckboxRequest$outboundSchema.parse(
+      fieldCreateTemplateFieldsFieldMetaCheckboxRequest,
     ),
   );
 }
 
-export function fieldCreateTemplateFieldsFieldMetaCheckboxRequestBodyFromJSON(
+export function fieldCreateTemplateFieldsFieldMetaCheckboxRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  FieldCreateTemplateFieldsFieldMetaCheckboxRequestBody,
+  FieldCreateTemplateFieldsFieldMetaCheckboxRequest,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      FieldCreateTemplateFieldsFieldMetaCheckboxRequestBody$inboundSchema.parse(
+      FieldCreateTemplateFieldsFieldMetaCheckboxRequest$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'FieldCreateTemplateFieldsFieldMetaCheckboxRequestBody' from JSON`,
+    `Failed to parse 'FieldCreateTemplateFieldsFieldMetaCheckboxRequest' from JSON`,
   );
 }
 
@@ -1449,9 +1449,9 @@ export const FieldCreateTemplateFieldsFieldCheckbox$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: FieldCreateTemplateFieldsTypeCheckboxRequestBody1$inboundSchema,
+  type: FieldCreateTemplateFieldsTypeCheckboxRequest1$inboundSchema,
   fieldMeta: z.lazy(() =>
-    FieldCreateTemplateFieldsFieldMetaCheckboxRequestBody$inboundSchema
+    FieldCreateTemplateFieldsFieldMetaCheckboxRequest$inboundSchema
   ).optional(),
   recipientId: z.number(),
   pageNumber: z.number(),
@@ -1465,7 +1465,7 @@ export const FieldCreateTemplateFieldsFieldCheckbox$inboundSchema: z.ZodType<
 export type FieldCreateTemplateFieldsFieldCheckbox$Outbound = {
   type: string;
   fieldMeta?:
-    | FieldCreateTemplateFieldsFieldMetaCheckboxRequestBody$Outbound
+    | FieldCreateTemplateFieldsFieldMetaCheckboxRequest$Outbound
     | undefined;
   recipientId: number;
   pageNumber: number;
@@ -1481,9 +1481,9 @@ export const FieldCreateTemplateFieldsFieldCheckbox$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FieldCreateTemplateFieldsFieldCheckbox
 > = z.object({
-  type: FieldCreateTemplateFieldsTypeCheckboxRequestBody1$outboundSchema,
+  type: FieldCreateTemplateFieldsTypeCheckboxRequest1$outboundSchema,
   fieldMeta: z.lazy(() =>
-    FieldCreateTemplateFieldsFieldMetaCheckboxRequestBody$outboundSchema
+    FieldCreateTemplateFieldsFieldMetaCheckboxRequest$outboundSchema
   ).optional(),
   recipientId: z.number(),
   pageNumber: z.number(),
@@ -1531,49 +1531,49 @@ export function fieldCreateTemplateFieldsFieldCheckboxFromJSON(
 }
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeRadioRequestBody1$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeRadioRequestBody1> = z
-    .nativeEnum(FieldCreateTemplateFieldsTypeRadioRequestBody1);
+export const FieldCreateTemplateFieldsTypeRadioRequest1$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeRadioRequest1> = z
+    .nativeEnum(FieldCreateTemplateFieldsTypeRadioRequest1);
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeRadioRequestBody1$outboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeRadioRequestBody1> =
-    FieldCreateTemplateFieldsTypeRadioRequestBody1$inboundSchema;
+export const FieldCreateTemplateFieldsTypeRadioRequest1$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeRadioRequest1> =
+    FieldCreateTemplateFieldsTypeRadioRequest1$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldCreateTemplateFieldsTypeRadioRequestBody1$ {
-  /** @deprecated use `FieldCreateTemplateFieldsTypeRadioRequestBody1$inboundSchema` instead. */
+export namespace FieldCreateTemplateFieldsTypeRadioRequest1$ {
+  /** @deprecated use `FieldCreateTemplateFieldsTypeRadioRequest1$inboundSchema` instead. */
   export const inboundSchema =
-    FieldCreateTemplateFieldsTypeRadioRequestBody1$inboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsTypeRadioRequestBody1$outboundSchema` instead. */
+    FieldCreateTemplateFieldsTypeRadioRequest1$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsTypeRadioRequest1$outboundSchema` instead. */
   export const outboundSchema =
-    FieldCreateTemplateFieldsTypeRadioRequestBody1$outboundSchema;
+    FieldCreateTemplateFieldsTypeRadioRequest1$outboundSchema;
 }
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeRadioRequestBody2$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeRadioRequestBody2> = z
-    .nativeEnum(FieldCreateTemplateFieldsTypeRadioRequestBody2);
+export const FieldCreateTemplateFieldsTypeRadioRequest2$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeRadioRequest2> = z
+    .nativeEnum(FieldCreateTemplateFieldsTypeRadioRequest2);
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeRadioRequestBody2$outboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeRadioRequestBody2> =
-    FieldCreateTemplateFieldsTypeRadioRequestBody2$inboundSchema;
+export const FieldCreateTemplateFieldsTypeRadioRequest2$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeRadioRequest2> =
+    FieldCreateTemplateFieldsTypeRadioRequest2$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldCreateTemplateFieldsTypeRadioRequestBody2$ {
-  /** @deprecated use `FieldCreateTemplateFieldsTypeRadioRequestBody2$inboundSchema` instead. */
+export namespace FieldCreateTemplateFieldsTypeRadioRequest2$ {
+  /** @deprecated use `FieldCreateTemplateFieldsTypeRadioRequest2$inboundSchema` instead. */
   export const inboundSchema =
-    FieldCreateTemplateFieldsTypeRadioRequestBody2$inboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsTypeRadioRequestBody2$outboundSchema` instead. */
+    FieldCreateTemplateFieldsTypeRadioRequest2$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsTypeRadioRequest2$outboundSchema` instead. */
   export const outboundSchema =
-    FieldCreateTemplateFieldsTypeRadioRequestBody2$outboundSchema;
+    FieldCreateTemplateFieldsTypeRadioRequest2$outboundSchema;
 }
 
 /** @internal */
@@ -1642,9 +1642,9 @@ export function fieldCreateTemplateFieldsValueRadioFromJSON(
 }
 
 /** @internal */
-export const FieldCreateTemplateFieldsFieldMetaRadioRequestBody$inboundSchema:
+export const FieldCreateTemplateFieldsFieldMetaRadioRequest$inboundSchema:
   z.ZodType<
-    FieldCreateTemplateFieldsFieldMetaRadioRequestBody,
+    FieldCreateTemplateFieldsFieldMetaRadioRequest,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -1652,14 +1652,14 @@ export const FieldCreateTemplateFieldsFieldMetaRadioRequestBody$inboundSchema:
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type: FieldCreateTemplateFieldsTypeRadioRequestBody2$inboundSchema,
+    type: FieldCreateTemplateFieldsTypeRadioRequest2$inboundSchema,
     values: z.array(
       z.lazy(() => FieldCreateTemplateFieldsValueRadio$inboundSchema),
     ).optional(),
   });
 
 /** @internal */
-export type FieldCreateTemplateFieldsFieldMetaRadioRequestBody$Outbound = {
+export type FieldCreateTemplateFieldsFieldMetaRadioRequest$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -1669,17 +1669,17 @@ export type FieldCreateTemplateFieldsFieldMetaRadioRequestBody$Outbound = {
 };
 
 /** @internal */
-export const FieldCreateTemplateFieldsFieldMetaRadioRequestBody$outboundSchema:
+export const FieldCreateTemplateFieldsFieldMetaRadioRequest$outboundSchema:
   z.ZodType<
-    FieldCreateTemplateFieldsFieldMetaRadioRequestBody$Outbound,
+    FieldCreateTemplateFieldsFieldMetaRadioRequest$Outbound,
     z.ZodTypeDef,
-    FieldCreateTemplateFieldsFieldMetaRadioRequestBody
+    FieldCreateTemplateFieldsFieldMetaRadioRequest
   > = z.object({
     label: z.string().optional(),
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type: FieldCreateTemplateFieldsTypeRadioRequestBody2$outboundSchema,
+    type: FieldCreateTemplateFieldsTypeRadioRequest2$outboundSchema,
     values: z.array(
       z.lazy(() => FieldCreateTemplateFieldsValueRadio$outboundSchema),
     ).optional(),
@@ -1689,42 +1689,42 @@ export const FieldCreateTemplateFieldsFieldMetaRadioRequestBody$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldCreateTemplateFieldsFieldMetaRadioRequestBody$ {
-  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaRadioRequestBody$inboundSchema` instead. */
+export namespace FieldCreateTemplateFieldsFieldMetaRadioRequest$ {
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaRadioRequest$inboundSchema` instead. */
   export const inboundSchema =
-    FieldCreateTemplateFieldsFieldMetaRadioRequestBody$inboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaRadioRequestBody$outboundSchema` instead. */
+    FieldCreateTemplateFieldsFieldMetaRadioRequest$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaRadioRequest$outboundSchema` instead. */
   export const outboundSchema =
-    FieldCreateTemplateFieldsFieldMetaRadioRequestBody$outboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaRadioRequestBody$Outbound` instead. */
+    FieldCreateTemplateFieldsFieldMetaRadioRequest$outboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaRadioRequest$Outbound` instead. */
   export type Outbound =
-    FieldCreateTemplateFieldsFieldMetaRadioRequestBody$Outbound;
+    FieldCreateTemplateFieldsFieldMetaRadioRequest$Outbound;
 }
 
-export function fieldCreateTemplateFieldsFieldMetaRadioRequestBodyToJSON(
-  fieldCreateTemplateFieldsFieldMetaRadioRequestBody:
-    FieldCreateTemplateFieldsFieldMetaRadioRequestBody,
+export function fieldCreateTemplateFieldsFieldMetaRadioRequestToJSON(
+  fieldCreateTemplateFieldsFieldMetaRadioRequest:
+    FieldCreateTemplateFieldsFieldMetaRadioRequest,
 ): string {
   return JSON.stringify(
-    FieldCreateTemplateFieldsFieldMetaRadioRequestBody$outboundSchema.parse(
-      fieldCreateTemplateFieldsFieldMetaRadioRequestBody,
+    FieldCreateTemplateFieldsFieldMetaRadioRequest$outboundSchema.parse(
+      fieldCreateTemplateFieldsFieldMetaRadioRequest,
     ),
   );
 }
 
-export function fieldCreateTemplateFieldsFieldMetaRadioRequestBodyFromJSON(
+export function fieldCreateTemplateFieldsFieldMetaRadioRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  FieldCreateTemplateFieldsFieldMetaRadioRequestBody,
+  FieldCreateTemplateFieldsFieldMetaRadioRequest,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      FieldCreateTemplateFieldsFieldMetaRadioRequestBody$inboundSchema.parse(
+      FieldCreateTemplateFieldsFieldMetaRadioRequest$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'FieldCreateTemplateFieldsFieldMetaRadioRequestBody' from JSON`,
+    `Failed to parse 'FieldCreateTemplateFieldsFieldMetaRadioRequest' from JSON`,
   );
 }
 
@@ -1734,9 +1734,9 @@ export const FieldCreateTemplateFieldsFieldRadio$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: FieldCreateTemplateFieldsTypeRadioRequestBody1$inboundSchema,
+  type: FieldCreateTemplateFieldsTypeRadioRequest1$inboundSchema,
   fieldMeta: z.lazy(() =>
-    FieldCreateTemplateFieldsFieldMetaRadioRequestBody$inboundSchema
+    FieldCreateTemplateFieldsFieldMetaRadioRequest$inboundSchema
   ).optional(),
   recipientId: z.number(),
   pageNumber: z.number(),
@@ -1750,7 +1750,7 @@ export const FieldCreateTemplateFieldsFieldRadio$inboundSchema: z.ZodType<
 export type FieldCreateTemplateFieldsFieldRadio$Outbound = {
   type: string;
   fieldMeta?:
-    | FieldCreateTemplateFieldsFieldMetaRadioRequestBody$Outbound
+    | FieldCreateTemplateFieldsFieldMetaRadioRequest$Outbound
     | undefined;
   recipientId: number;
   pageNumber: number;
@@ -1766,9 +1766,9 @@ export const FieldCreateTemplateFieldsFieldRadio$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FieldCreateTemplateFieldsFieldRadio
 > = z.object({
-  type: FieldCreateTemplateFieldsTypeRadioRequestBody1$outboundSchema,
+  type: FieldCreateTemplateFieldsTypeRadioRequest1$outboundSchema,
   fieldMeta: z.lazy(() =>
-    FieldCreateTemplateFieldsFieldMetaRadioRequestBody$outboundSchema
+    FieldCreateTemplateFieldsFieldMetaRadioRequest$outboundSchema
   ).optional(),
   recipientId: z.number(),
   pageNumber: z.number(),
@@ -1815,49 +1815,49 @@ export function fieldCreateTemplateFieldsFieldRadioFromJSON(
 }
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeNumberRequestBody1$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeNumberRequestBody1> = z
-    .nativeEnum(FieldCreateTemplateFieldsTypeNumberRequestBody1);
+export const FieldCreateTemplateFieldsTypeNumberRequest1$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeNumberRequest1> = z
+    .nativeEnum(FieldCreateTemplateFieldsTypeNumberRequest1);
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeNumberRequestBody1$outboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeNumberRequestBody1> =
-    FieldCreateTemplateFieldsTypeNumberRequestBody1$inboundSchema;
+export const FieldCreateTemplateFieldsTypeNumberRequest1$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeNumberRequest1> =
+    FieldCreateTemplateFieldsTypeNumberRequest1$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldCreateTemplateFieldsTypeNumberRequestBody1$ {
-  /** @deprecated use `FieldCreateTemplateFieldsTypeNumberRequestBody1$inboundSchema` instead. */
+export namespace FieldCreateTemplateFieldsTypeNumberRequest1$ {
+  /** @deprecated use `FieldCreateTemplateFieldsTypeNumberRequest1$inboundSchema` instead. */
   export const inboundSchema =
-    FieldCreateTemplateFieldsTypeNumberRequestBody1$inboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsTypeNumberRequestBody1$outboundSchema` instead. */
+    FieldCreateTemplateFieldsTypeNumberRequest1$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsTypeNumberRequest1$outboundSchema` instead. */
   export const outboundSchema =
-    FieldCreateTemplateFieldsTypeNumberRequestBody1$outboundSchema;
+    FieldCreateTemplateFieldsTypeNumberRequest1$outboundSchema;
 }
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeNumberRequestBody2$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeNumberRequestBody2> = z
-    .nativeEnum(FieldCreateTemplateFieldsTypeNumberRequestBody2);
+export const FieldCreateTemplateFieldsTypeNumberRequest2$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeNumberRequest2> = z
+    .nativeEnum(FieldCreateTemplateFieldsTypeNumberRequest2);
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeNumberRequestBody2$outboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeNumberRequestBody2> =
-    FieldCreateTemplateFieldsTypeNumberRequestBody2$inboundSchema;
+export const FieldCreateTemplateFieldsTypeNumberRequest2$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeNumberRequest2> =
+    FieldCreateTemplateFieldsTypeNumberRequest2$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldCreateTemplateFieldsTypeNumberRequestBody2$ {
-  /** @deprecated use `FieldCreateTemplateFieldsTypeNumberRequestBody2$inboundSchema` instead. */
+export namespace FieldCreateTemplateFieldsTypeNumberRequest2$ {
+  /** @deprecated use `FieldCreateTemplateFieldsTypeNumberRequest2$inboundSchema` instead. */
   export const inboundSchema =
-    FieldCreateTemplateFieldsTypeNumberRequestBody2$inboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsTypeNumberRequestBody2$outboundSchema` instead. */
+    FieldCreateTemplateFieldsTypeNumberRequest2$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsTypeNumberRequest2$outboundSchema` instead. */
   export const outboundSchema =
-    FieldCreateTemplateFieldsTypeNumberRequestBody2$outboundSchema;
+    FieldCreateTemplateFieldsTypeNumberRequest2$outboundSchema;
 }
 
 /** @internal */
@@ -1884,9 +1884,9 @@ export namespace FieldCreateTemplateFieldsTextAlignNumber$ {
 }
 
 /** @internal */
-export const FieldCreateTemplateFieldsFieldMetaNumberRequestBody$inboundSchema:
+export const FieldCreateTemplateFieldsFieldMetaNumberRequest$inboundSchema:
   z.ZodType<
-    FieldCreateTemplateFieldsFieldMetaNumberRequestBody,
+    FieldCreateTemplateFieldsFieldMetaNumberRequest,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -1894,7 +1894,7 @@ export const FieldCreateTemplateFieldsFieldMetaNumberRequestBody$inboundSchema:
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type: FieldCreateTemplateFieldsTypeNumberRequestBody2$inboundSchema,
+    type: FieldCreateTemplateFieldsTypeNumberRequest2$inboundSchema,
     numberFormat: z.string().optional(),
     value: z.string().optional(),
     minValue: z.number().optional(),
@@ -1905,7 +1905,7 @@ export const FieldCreateTemplateFieldsFieldMetaNumberRequestBody$inboundSchema:
   });
 
 /** @internal */
-export type FieldCreateTemplateFieldsFieldMetaNumberRequestBody$Outbound = {
+export type FieldCreateTemplateFieldsFieldMetaNumberRequest$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -1920,17 +1920,17 @@ export type FieldCreateTemplateFieldsFieldMetaNumberRequestBody$Outbound = {
 };
 
 /** @internal */
-export const FieldCreateTemplateFieldsFieldMetaNumberRequestBody$outboundSchema:
+export const FieldCreateTemplateFieldsFieldMetaNumberRequest$outboundSchema:
   z.ZodType<
-    FieldCreateTemplateFieldsFieldMetaNumberRequestBody$Outbound,
+    FieldCreateTemplateFieldsFieldMetaNumberRequest$Outbound,
     z.ZodTypeDef,
-    FieldCreateTemplateFieldsFieldMetaNumberRequestBody
+    FieldCreateTemplateFieldsFieldMetaNumberRequest
   > = z.object({
     label: z.string().optional(),
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type: FieldCreateTemplateFieldsTypeNumberRequestBody2$outboundSchema,
+    type: FieldCreateTemplateFieldsTypeNumberRequest2$outboundSchema,
     numberFormat: z.string().optional(),
     value: z.string().optional(),
     minValue: z.number().optional(),
@@ -1944,42 +1944,42 @@ export const FieldCreateTemplateFieldsFieldMetaNumberRequestBody$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldCreateTemplateFieldsFieldMetaNumberRequestBody$ {
-  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaNumberRequestBody$inboundSchema` instead. */
+export namespace FieldCreateTemplateFieldsFieldMetaNumberRequest$ {
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaNumberRequest$inboundSchema` instead. */
   export const inboundSchema =
-    FieldCreateTemplateFieldsFieldMetaNumberRequestBody$inboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaNumberRequestBody$outboundSchema` instead. */
+    FieldCreateTemplateFieldsFieldMetaNumberRequest$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaNumberRequest$outboundSchema` instead. */
   export const outboundSchema =
-    FieldCreateTemplateFieldsFieldMetaNumberRequestBody$outboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaNumberRequestBody$Outbound` instead. */
+    FieldCreateTemplateFieldsFieldMetaNumberRequest$outboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaNumberRequest$Outbound` instead. */
   export type Outbound =
-    FieldCreateTemplateFieldsFieldMetaNumberRequestBody$Outbound;
+    FieldCreateTemplateFieldsFieldMetaNumberRequest$Outbound;
 }
 
-export function fieldCreateTemplateFieldsFieldMetaNumberRequestBodyToJSON(
-  fieldCreateTemplateFieldsFieldMetaNumberRequestBody:
-    FieldCreateTemplateFieldsFieldMetaNumberRequestBody,
+export function fieldCreateTemplateFieldsFieldMetaNumberRequestToJSON(
+  fieldCreateTemplateFieldsFieldMetaNumberRequest:
+    FieldCreateTemplateFieldsFieldMetaNumberRequest,
 ): string {
   return JSON.stringify(
-    FieldCreateTemplateFieldsFieldMetaNumberRequestBody$outboundSchema.parse(
-      fieldCreateTemplateFieldsFieldMetaNumberRequestBody,
+    FieldCreateTemplateFieldsFieldMetaNumberRequest$outboundSchema.parse(
+      fieldCreateTemplateFieldsFieldMetaNumberRequest,
     ),
   );
 }
 
-export function fieldCreateTemplateFieldsFieldMetaNumberRequestBodyFromJSON(
+export function fieldCreateTemplateFieldsFieldMetaNumberRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  FieldCreateTemplateFieldsFieldMetaNumberRequestBody,
+  FieldCreateTemplateFieldsFieldMetaNumberRequest,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      FieldCreateTemplateFieldsFieldMetaNumberRequestBody$inboundSchema.parse(
+      FieldCreateTemplateFieldsFieldMetaNumberRequest$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'FieldCreateTemplateFieldsFieldMetaNumberRequestBody' from JSON`,
+    `Failed to parse 'FieldCreateTemplateFieldsFieldMetaNumberRequest' from JSON`,
   );
 }
 
@@ -1989,9 +1989,9 @@ export const FieldCreateTemplateFieldsFieldNumber$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: FieldCreateTemplateFieldsTypeNumberRequestBody1$inboundSchema,
+  type: FieldCreateTemplateFieldsTypeNumberRequest1$inboundSchema,
   fieldMeta: z.lazy(() =>
-    FieldCreateTemplateFieldsFieldMetaNumberRequestBody$inboundSchema
+    FieldCreateTemplateFieldsFieldMetaNumberRequest$inboundSchema
   ).optional(),
   recipientId: z.number(),
   pageNumber: z.number(),
@@ -2005,7 +2005,7 @@ export const FieldCreateTemplateFieldsFieldNumber$inboundSchema: z.ZodType<
 export type FieldCreateTemplateFieldsFieldNumber$Outbound = {
   type: string;
   fieldMeta?:
-    | FieldCreateTemplateFieldsFieldMetaNumberRequestBody$Outbound
+    | FieldCreateTemplateFieldsFieldMetaNumberRequest$Outbound
     | undefined;
   recipientId: number;
   pageNumber: number;
@@ -2021,9 +2021,9 @@ export const FieldCreateTemplateFieldsFieldNumber$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FieldCreateTemplateFieldsFieldNumber
 > = z.object({
-  type: FieldCreateTemplateFieldsTypeNumberRequestBody1$outboundSchema,
+  type: FieldCreateTemplateFieldsTypeNumberRequest1$outboundSchema,
   fieldMeta: z.lazy(() =>
-    FieldCreateTemplateFieldsFieldMetaNumberRequestBody$outboundSchema
+    FieldCreateTemplateFieldsFieldMetaNumberRequest$outboundSchema
   ).optional(),
   recipientId: z.number(),
   pageNumber: z.number(),
@@ -2070,49 +2070,49 @@ export function fieldCreateTemplateFieldsFieldNumberFromJSON(
 }
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeTextRequestBody1$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeTextRequestBody1> = z
-    .nativeEnum(FieldCreateTemplateFieldsTypeTextRequestBody1);
+export const FieldCreateTemplateFieldsTypeTextRequest1$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeTextRequest1> = z
+    .nativeEnum(FieldCreateTemplateFieldsTypeTextRequest1);
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeTextRequestBody1$outboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeTextRequestBody1> =
-    FieldCreateTemplateFieldsTypeTextRequestBody1$inboundSchema;
+export const FieldCreateTemplateFieldsTypeTextRequest1$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeTextRequest1> =
+    FieldCreateTemplateFieldsTypeTextRequest1$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldCreateTemplateFieldsTypeTextRequestBody1$ {
-  /** @deprecated use `FieldCreateTemplateFieldsTypeTextRequestBody1$inboundSchema` instead. */
+export namespace FieldCreateTemplateFieldsTypeTextRequest1$ {
+  /** @deprecated use `FieldCreateTemplateFieldsTypeTextRequest1$inboundSchema` instead. */
   export const inboundSchema =
-    FieldCreateTemplateFieldsTypeTextRequestBody1$inboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsTypeTextRequestBody1$outboundSchema` instead. */
+    FieldCreateTemplateFieldsTypeTextRequest1$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsTypeTextRequest1$outboundSchema` instead. */
   export const outboundSchema =
-    FieldCreateTemplateFieldsTypeTextRequestBody1$outboundSchema;
+    FieldCreateTemplateFieldsTypeTextRequest1$outboundSchema;
 }
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeTextRequestBody2$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeTextRequestBody2> = z
-    .nativeEnum(FieldCreateTemplateFieldsTypeTextRequestBody2);
+export const FieldCreateTemplateFieldsTypeTextRequest2$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeTextRequest2> = z
+    .nativeEnum(FieldCreateTemplateFieldsTypeTextRequest2);
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeTextRequestBody2$outboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeTextRequestBody2> =
-    FieldCreateTemplateFieldsTypeTextRequestBody2$inboundSchema;
+export const FieldCreateTemplateFieldsTypeTextRequest2$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeTextRequest2> =
+    FieldCreateTemplateFieldsTypeTextRequest2$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldCreateTemplateFieldsTypeTextRequestBody2$ {
-  /** @deprecated use `FieldCreateTemplateFieldsTypeTextRequestBody2$inboundSchema` instead. */
+export namespace FieldCreateTemplateFieldsTypeTextRequest2$ {
+  /** @deprecated use `FieldCreateTemplateFieldsTypeTextRequest2$inboundSchema` instead. */
   export const inboundSchema =
-    FieldCreateTemplateFieldsTypeTextRequestBody2$inboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsTypeTextRequestBody2$outboundSchema` instead. */
+    FieldCreateTemplateFieldsTypeTextRequest2$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsTypeTextRequest2$outboundSchema` instead. */
   export const outboundSchema =
-    FieldCreateTemplateFieldsTypeTextRequestBody2$outboundSchema;
+    FieldCreateTemplateFieldsTypeTextRequest2$outboundSchema;
 }
 
 /** @internal */
@@ -2140,9 +2140,9 @@ export namespace FieldCreateTemplateFieldsTextAlignText$ {
 }
 
 /** @internal */
-export const FieldCreateTemplateFieldsFieldMetaTextRequestBody$inboundSchema:
+export const FieldCreateTemplateFieldsFieldMetaTextRequest$inboundSchema:
   z.ZodType<
-    FieldCreateTemplateFieldsFieldMetaTextRequestBody,
+    FieldCreateTemplateFieldsFieldMetaTextRequest,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -2150,7 +2150,7 @@ export const FieldCreateTemplateFieldsFieldMetaTextRequestBody$inboundSchema:
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type: FieldCreateTemplateFieldsTypeTextRequestBody2$inboundSchema,
+    type: FieldCreateTemplateFieldsTypeTextRequest2$inboundSchema,
     text: z.string().optional(),
     characterLimit: z.number().optional(),
     fontSize: z.number().optional(),
@@ -2158,7 +2158,7 @@ export const FieldCreateTemplateFieldsFieldMetaTextRequestBody$inboundSchema:
   });
 
 /** @internal */
-export type FieldCreateTemplateFieldsFieldMetaTextRequestBody$Outbound = {
+export type FieldCreateTemplateFieldsFieldMetaTextRequest$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -2171,17 +2171,17 @@ export type FieldCreateTemplateFieldsFieldMetaTextRequestBody$Outbound = {
 };
 
 /** @internal */
-export const FieldCreateTemplateFieldsFieldMetaTextRequestBody$outboundSchema:
+export const FieldCreateTemplateFieldsFieldMetaTextRequest$outboundSchema:
   z.ZodType<
-    FieldCreateTemplateFieldsFieldMetaTextRequestBody$Outbound,
+    FieldCreateTemplateFieldsFieldMetaTextRequest$Outbound,
     z.ZodTypeDef,
-    FieldCreateTemplateFieldsFieldMetaTextRequestBody
+    FieldCreateTemplateFieldsFieldMetaTextRequest
   > = z.object({
     label: z.string().optional(),
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type: FieldCreateTemplateFieldsTypeTextRequestBody2$outboundSchema,
+    type: FieldCreateTemplateFieldsTypeTextRequest2$outboundSchema,
     text: z.string().optional(),
     characterLimit: z.number().optional(),
     fontSize: z.number().optional(),
@@ -2192,42 +2192,41 @@ export const FieldCreateTemplateFieldsFieldMetaTextRequestBody$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldCreateTemplateFieldsFieldMetaTextRequestBody$ {
-  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaTextRequestBody$inboundSchema` instead. */
+export namespace FieldCreateTemplateFieldsFieldMetaTextRequest$ {
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaTextRequest$inboundSchema` instead. */
   export const inboundSchema =
-    FieldCreateTemplateFieldsFieldMetaTextRequestBody$inboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaTextRequestBody$outboundSchema` instead. */
+    FieldCreateTemplateFieldsFieldMetaTextRequest$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaTextRequest$outboundSchema` instead. */
   export const outboundSchema =
-    FieldCreateTemplateFieldsFieldMetaTextRequestBody$outboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaTextRequestBody$Outbound` instead. */
-  export type Outbound =
-    FieldCreateTemplateFieldsFieldMetaTextRequestBody$Outbound;
+    FieldCreateTemplateFieldsFieldMetaTextRequest$outboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaTextRequest$Outbound` instead. */
+  export type Outbound = FieldCreateTemplateFieldsFieldMetaTextRequest$Outbound;
 }
 
-export function fieldCreateTemplateFieldsFieldMetaTextRequestBodyToJSON(
-  fieldCreateTemplateFieldsFieldMetaTextRequestBody:
-    FieldCreateTemplateFieldsFieldMetaTextRequestBody,
+export function fieldCreateTemplateFieldsFieldMetaTextRequestToJSON(
+  fieldCreateTemplateFieldsFieldMetaTextRequest:
+    FieldCreateTemplateFieldsFieldMetaTextRequest,
 ): string {
   return JSON.stringify(
-    FieldCreateTemplateFieldsFieldMetaTextRequestBody$outboundSchema.parse(
-      fieldCreateTemplateFieldsFieldMetaTextRequestBody,
+    FieldCreateTemplateFieldsFieldMetaTextRequest$outboundSchema.parse(
+      fieldCreateTemplateFieldsFieldMetaTextRequest,
     ),
   );
 }
 
-export function fieldCreateTemplateFieldsFieldMetaTextRequestBodyFromJSON(
+export function fieldCreateTemplateFieldsFieldMetaTextRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  FieldCreateTemplateFieldsFieldMetaTextRequestBody,
+  FieldCreateTemplateFieldsFieldMetaTextRequest,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      FieldCreateTemplateFieldsFieldMetaTextRequestBody$inboundSchema.parse(
+      FieldCreateTemplateFieldsFieldMetaTextRequest$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'FieldCreateTemplateFieldsFieldMetaTextRequestBody' from JSON`,
+    `Failed to parse 'FieldCreateTemplateFieldsFieldMetaTextRequest' from JSON`,
   );
 }
 
@@ -2237,9 +2236,9 @@ export const FieldCreateTemplateFieldsFieldText$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: FieldCreateTemplateFieldsTypeTextRequestBody1$inboundSchema,
+  type: FieldCreateTemplateFieldsTypeTextRequest1$inboundSchema,
   fieldMeta: z.lazy(() =>
-    FieldCreateTemplateFieldsFieldMetaTextRequestBody$inboundSchema
+    FieldCreateTemplateFieldsFieldMetaTextRequest$inboundSchema
   ).optional(),
   recipientId: z.number(),
   pageNumber: z.number(),
@@ -2253,7 +2252,7 @@ export const FieldCreateTemplateFieldsFieldText$inboundSchema: z.ZodType<
 export type FieldCreateTemplateFieldsFieldText$Outbound = {
   type: string;
   fieldMeta?:
-    | FieldCreateTemplateFieldsFieldMetaTextRequestBody$Outbound
+    | FieldCreateTemplateFieldsFieldMetaTextRequest$Outbound
     | undefined;
   recipientId: number;
   pageNumber: number;
@@ -2269,9 +2268,9 @@ export const FieldCreateTemplateFieldsFieldText$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FieldCreateTemplateFieldsFieldText
 > = z.object({
-  type: FieldCreateTemplateFieldsTypeTextRequestBody1$outboundSchema,
+  type: FieldCreateTemplateFieldsTypeTextRequest1$outboundSchema,
   fieldMeta: z.lazy(() =>
-    FieldCreateTemplateFieldsFieldMetaTextRequestBody$outboundSchema
+    FieldCreateTemplateFieldsFieldMetaTextRequest$outboundSchema
   ).optional(),
   recipientId: z.number(),
   pageNumber: z.number(),
@@ -2317,49 +2316,49 @@ export function fieldCreateTemplateFieldsFieldTextFromJSON(
 }
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeDateRequestBody1$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeDateRequestBody1> = z
-    .nativeEnum(FieldCreateTemplateFieldsTypeDateRequestBody1);
+export const FieldCreateTemplateFieldsTypeDateRequest1$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeDateRequest1> = z
+    .nativeEnum(FieldCreateTemplateFieldsTypeDateRequest1);
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeDateRequestBody1$outboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeDateRequestBody1> =
-    FieldCreateTemplateFieldsTypeDateRequestBody1$inboundSchema;
+export const FieldCreateTemplateFieldsTypeDateRequest1$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeDateRequest1> =
+    FieldCreateTemplateFieldsTypeDateRequest1$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldCreateTemplateFieldsTypeDateRequestBody1$ {
-  /** @deprecated use `FieldCreateTemplateFieldsTypeDateRequestBody1$inboundSchema` instead. */
+export namespace FieldCreateTemplateFieldsTypeDateRequest1$ {
+  /** @deprecated use `FieldCreateTemplateFieldsTypeDateRequest1$inboundSchema` instead. */
   export const inboundSchema =
-    FieldCreateTemplateFieldsTypeDateRequestBody1$inboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsTypeDateRequestBody1$outboundSchema` instead. */
+    FieldCreateTemplateFieldsTypeDateRequest1$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsTypeDateRequest1$outboundSchema` instead. */
   export const outboundSchema =
-    FieldCreateTemplateFieldsTypeDateRequestBody1$outboundSchema;
+    FieldCreateTemplateFieldsTypeDateRequest1$outboundSchema;
 }
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeDateRequestBody2$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeDateRequestBody2> = z
-    .nativeEnum(FieldCreateTemplateFieldsTypeDateRequestBody2);
+export const FieldCreateTemplateFieldsTypeDateRequest2$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeDateRequest2> = z
+    .nativeEnum(FieldCreateTemplateFieldsTypeDateRequest2);
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeDateRequestBody2$outboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeDateRequestBody2> =
-    FieldCreateTemplateFieldsTypeDateRequestBody2$inboundSchema;
+export const FieldCreateTemplateFieldsTypeDateRequest2$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeDateRequest2> =
+    FieldCreateTemplateFieldsTypeDateRequest2$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldCreateTemplateFieldsTypeDateRequestBody2$ {
-  /** @deprecated use `FieldCreateTemplateFieldsTypeDateRequestBody2$inboundSchema` instead. */
+export namespace FieldCreateTemplateFieldsTypeDateRequest2$ {
+  /** @deprecated use `FieldCreateTemplateFieldsTypeDateRequest2$inboundSchema` instead. */
   export const inboundSchema =
-    FieldCreateTemplateFieldsTypeDateRequestBody2$inboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsTypeDateRequestBody2$outboundSchema` instead. */
+    FieldCreateTemplateFieldsTypeDateRequest2$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsTypeDateRequest2$outboundSchema` instead. */
   export const outboundSchema =
-    FieldCreateTemplateFieldsTypeDateRequestBody2$outboundSchema;
+    FieldCreateTemplateFieldsTypeDateRequest2$outboundSchema;
 }
 
 /** @internal */
@@ -2387,9 +2386,9 @@ export namespace FieldCreateTemplateFieldsTextAlignDate$ {
 }
 
 /** @internal */
-export const FieldCreateTemplateFieldsFieldMetaDateRequestBody$inboundSchema:
+export const FieldCreateTemplateFieldsFieldMetaDateRequest$inboundSchema:
   z.ZodType<
-    FieldCreateTemplateFieldsFieldMetaDateRequestBody,
+    FieldCreateTemplateFieldsFieldMetaDateRequest,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -2397,13 +2396,13 @@ export const FieldCreateTemplateFieldsFieldMetaDateRequestBody$inboundSchema:
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type: FieldCreateTemplateFieldsTypeDateRequestBody2$inboundSchema,
+    type: FieldCreateTemplateFieldsTypeDateRequest2$inboundSchema,
     fontSize: z.number().optional(),
     textAlign: FieldCreateTemplateFieldsTextAlignDate$inboundSchema.optional(),
   });
 
 /** @internal */
-export type FieldCreateTemplateFieldsFieldMetaDateRequestBody$Outbound = {
+export type FieldCreateTemplateFieldsFieldMetaDateRequest$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -2414,17 +2413,17 @@ export type FieldCreateTemplateFieldsFieldMetaDateRequestBody$Outbound = {
 };
 
 /** @internal */
-export const FieldCreateTemplateFieldsFieldMetaDateRequestBody$outboundSchema:
+export const FieldCreateTemplateFieldsFieldMetaDateRequest$outboundSchema:
   z.ZodType<
-    FieldCreateTemplateFieldsFieldMetaDateRequestBody$Outbound,
+    FieldCreateTemplateFieldsFieldMetaDateRequest$Outbound,
     z.ZodTypeDef,
-    FieldCreateTemplateFieldsFieldMetaDateRequestBody
+    FieldCreateTemplateFieldsFieldMetaDateRequest
   > = z.object({
     label: z.string().optional(),
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type: FieldCreateTemplateFieldsTypeDateRequestBody2$outboundSchema,
+    type: FieldCreateTemplateFieldsTypeDateRequest2$outboundSchema,
     fontSize: z.number().optional(),
     textAlign: FieldCreateTemplateFieldsTextAlignDate$outboundSchema.optional(),
   });
@@ -2433,42 +2432,41 @@ export const FieldCreateTemplateFieldsFieldMetaDateRequestBody$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldCreateTemplateFieldsFieldMetaDateRequestBody$ {
-  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaDateRequestBody$inboundSchema` instead. */
+export namespace FieldCreateTemplateFieldsFieldMetaDateRequest$ {
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaDateRequest$inboundSchema` instead. */
   export const inboundSchema =
-    FieldCreateTemplateFieldsFieldMetaDateRequestBody$inboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaDateRequestBody$outboundSchema` instead. */
+    FieldCreateTemplateFieldsFieldMetaDateRequest$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaDateRequest$outboundSchema` instead. */
   export const outboundSchema =
-    FieldCreateTemplateFieldsFieldMetaDateRequestBody$outboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaDateRequestBody$Outbound` instead. */
-  export type Outbound =
-    FieldCreateTemplateFieldsFieldMetaDateRequestBody$Outbound;
+    FieldCreateTemplateFieldsFieldMetaDateRequest$outboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaDateRequest$Outbound` instead. */
+  export type Outbound = FieldCreateTemplateFieldsFieldMetaDateRequest$Outbound;
 }
 
-export function fieldCreateTemplateFieldsFieldMetaDateRequestBodyToJSON(
-  fieldCreateTemplateFieldsFieldMetaDateRequestBody:
-    FieldCreateTemplateFieldsFieldMetaDateRequestBody,
+export function fieldCreateTemplateFieldsFieldMetaDateRequestToJSON(
+  fieldCreateTemplateFieldsFieldMetaDateRequest:
+    FieldCreateTemplateFieldsFieldMetaDateRequest,
 ): string {
   return JSON.stringify(
-    FieldCreateTemplateFieldsFieldMetaDateRequestBody$outboundSchema.parse(
-      fieldCreateTemplateFieldsFieldMetaDateRequestBody,
+    FieldCreateTemplateFieldsFieldMetaDateRequest$outboundSchema.parse(
+      fieldCreateTemplateFieldsFieldMetaDateRequest,
     ),
   );
 }
 
-export function fieldCreateTemplateFieldsFieldMetaDateRequestBodyFromJSON(
+export function fieldCreateTemplateFieldsFieldMetaDateRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  FieldCreateTemplateFieldsFieldMetaDateRequestBody,
+  FieldCreateTemplateFieldsFieldMetaDateRequest,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      FieldCreateTemplateFieldsFieldMetaDateRequestBody$inboundSchema.parse(
+      FieldCreateTemplateFieldsFieldMetaDateRequest$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'FieldCreateTemplateFieldsFieldMetaDateRequestBody' from JSON`,
+    `Failed to parse 'FieldCreateTemplateFieldsFieldMetaDateRequest' from JSON`,
   );
 }
 
@@ -2478,9 +2476,9 @@ export const FieldCreateTemplateFieldsFieldDate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: FieldCreateTemplateFieldsTypeDateRequestBody1$inboundSchema,
+  type: FieldCreateTemplateFieldsTypeDateRequest1$inboundSchema,
   fieldMeta: z.lazy(() =>
-    FieldCreateTemplateFieldsFieldMetaDateRequestBody$inboundSchema
+    FieldCreateTemplateFieldsFieldMetaDateRequest$inboundSchema
   ).optional(),
   recipientId: z.number(),
   pageNumber: z.number(),
@@ -2494,7 +2492,7 @@ export const FieldCreateTemplateFieldsFieldDate$inboundSchema: z.ZodType<
 export type FieldCreateTemplateFieldsFieldDate$Outbound = {
   type: string;
   fieldMeta?:
-    | FieldCreateTemplateFieldsFieldMetaDateRequestBody$Outbound
+    | FieldCreateTemplateFieldsFieldMetaDateRequest$Outbound
     | undefined;
   recipientId: number;
   pageNumber: number;
@@ -2510,9 +2508,9 @@ export const FieldCreateTemplateFieldsFieldDate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FieldCreateTemplateFieldsFieldDate
 > = z.object({
-  type: FieldCreateTemplateFieldsTypeDateRequestBody1$outboundSchema,
+  type: FieldCreateTemplateFieldsTypeDateRequest1$outboundSchema,
   fieldMeta: z.lazy(() =>
-    FieldCreateTemplateFieldsFieldMetaDateRequestBody$outboundSchema
+    FieldCreateTemplateFieldsFieldMetaDateRequest$outboundSchema
   ).optional(),
   recipientId: z.number(),
   pageNumber: z.number(),
@@ -2558,49 +2556,49 @@ export function fieldCreateTemplateFieldsFieldDateFromJSON(
 }
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeEmailRequestBody1$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeEmailRequestBody1> = z
-    .nativeEnum(FieldCreateTemplateFieldsTypeEmailRequestBody1);
+export const FieldCreateTemplateFieldsTypeEmailRequest1$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeEmailRequest1> = z
+    .nativeEnum(FieldCreateTemplateFieldsTypeEmailRequest1);
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeEmailRequestBody1$outboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeEmailRequestBody1> =
-    FieldCreateTemplateFieldsTypeEmailRequestBody1$inboundSchema;
+export const FieldCreateTemplateFieldsTypeEmailRequest1$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeEmailRequest1> =
+    FieldCreateTemplateFieldsTypeEmailRequest1$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldCreateTemplateFieldsTypeEmailRequestBody1$ {
-  /** @deprecated use `FieldCreateTemplateFieldsTypeEmailRequestBody1$inboundSchema` instead. */
+export namespace FieldCreateTemplateFieldsTypeEmailRequest1$ {
+  /** @deprecated use `FieldCreateTemplateFieldsTypeEmailRequest1$inboundSchema` instead. */
   export const inboundSchema =
-    FieldCreateTemplateFieldsTypeEmailRequestBody1$inboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsTypeEmailRequestBody1$outboundSchema` instead. */
+    FieldCreateTemplateFieldsTypeEmailRequest1$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsTypeEmailRequest1$outboundSchema` instead. */
   export const outboundSchema =
-    FieldCreateTemplateFieldsTypeEmailRequestBody1$outboundSchema;
+    FieldCreateTemplateFieldsTypeEmailRequest1$outboundSchema;
 }
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeEmailRequestBody2$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeEmailRequestBody2> = z
-    .nativeEnum(FieldCreateTemplateFieldsTypeEmailRequestBody2);
+export const FieldCreateTemplateFieldsTypeEmailRequest2$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeEmailRequest2> = z
+    .nativeEnum(FieldCreateTemplateFieldsTypeEmailRequest2);
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeEmailRequestBody2$outboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeEmailRequestBody2> =
-    FieldCreateTemplateFieldsTypeEmailRequestBody2$inboundSchema;
+export const FieldCreateTemplateFieldsTypeEmailRequest2$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeEmailRequest2> =
+    FieldCreateTemplateFieldsTypeEmailRequest2$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldCreateTemplateFieldsTypeEmailRequestBody2$ {
-  /** @deprecated use `FieldCreateTemplateFieldsTypeEmailRequestBody2$inboundSchema` instead. */
+export namespace FieldCreateTemplateFieldsTypeEmailRequest2$ {
+  /** @deprecated use `FieldCreateTemplateFieldsTypeEmailRequest2$inboundSchema` instead. */
   export const inboundSchema =
-    FieldCreateTemplateFieldsTypeEmailRequestBody2$inboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsTypeEmailRequestBody2$outboundSchema` instead. */
+    FieldCreateTemplateFieldsTypeEmailRequest2$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsTypeEmailRequest2$outboundSchema` instead. */
   export const outboundSchema =
-    FieldCreateTemplateFieldsTypeEmailRequestBody2$outboundSchema;
+    FieldCreateTemplateFieldsTypeEmailRequest2$outboundSchema;
 }
 
 /** @internal */
@@ -2627,9 +2625,9 @@ export namespace FieldCreateTemplateFieldsTextAlignEmail$ {
 }
 
 /** @internal */
-export const FieldCreateTemplateFieldsFieldMetaEmailRequestBody$inboundSchema:
+export const FieldCreateTemplateFieldsFieldMetaEmailRequest$inboundSchema:
   z.ZodType<
-    FieldCreateTemplateFieldsFieldMetaEmailRequestBody,
+    FieldCreateTemplateFieldsFieldMetaEmailRequest,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -2637,13 +2635,13 @@ export const FieldCreateTemplateFieldsFieldMetaEmailRequestBody$inboundSchema:
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type: FieldCreateTemplateFieldsTypeEmailRequestBody2$inboundSchema,
+    type: FieldCreateTemplateFieldsTypeEmailRequest2$inboundSchema,
     fontSize: z.number().optional(),
     textAlign: FieldCreateTemplateFieldsTextAlignEmail$inboundSchema.optional(),
   });
 
 /** @internal */
-export type FieldCreateTemplateFieldsFieldMetaEmailRequestBody$Outbound = {
+export type FieldCreateTemplateFieldsFieldMetaEmailRequest$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -2654,17 +2652,17 @@ export type FieldCreateTemplateFieldsFieldMetaEmailRequestBody$Outbound = {
 };
 
 /** @internal */
-export const FieldCreateTemplateFieldsFieldMetaEmailRequestBody$outboundSchema:
+export const FieldCreateTemplateFieldsFieldMetaEmailRequest$outboundSchema:
   z.ZodType<
-    FieldCreateTemplateFieldsFieldMetaEmailRequestBody$Outbound,
+    FieldCreateTemplateFieldsFieldMetaEmailRequest$Outbound,
     z.ZodTypeDef,
-    FieldCreateTemplateFieldsFieldMetaEmailRequestBody
+    FieldCreateTemplateFieldsFieldMetaEmailRequest
   > = z.object({
     label: z.string().optional(),
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type: FieldCreateTemplateFieldsTypeEmailRequestBody2$outboundSchema,
+    type: FieldCreateTemplateFieldsTypeEmailRequest2$outboundSchema,
     fontSize: z.number().optional(),
     textAlign: FieldCreateTemplateFieldsTextAlignEmail$outboundSchema
       .optional(),
@@ -2674,42 +2672,42 @@ export const FieldCreateTemplateFieldsFieldMetaEmailRequestBody$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldCreateTemplateFieldsFieldMetaEmailRequestBody$ {
-  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaEmailRequestBody$inboundSchema` instead. */
+export namespace FieldCreateTemplateFieldsFieldMetaEmailRequest$ {
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaEmailRequest$inboundSchema` instead. */
   export const inboundSchema =
-    FieldCreateTemplateFieldsFieldMetaEmailRequestBody$inboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaEmailRequestBody$outboundSchema` instead. */
+    FieldCreateTemplateFieldsFieldMetaEmailRequest$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaEmailRequest$outboundSchema` instead. */
   export const outboundSchema =
-    FieldCreateTemplateFieldsFieldMetaEmailRequestBody$outboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaEmailRequestBody$Outbound` instead. */
+    FieldCreateTemplateFieldsFieldMetaEmailRequest$outboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaEmailRequest$Outbound` instead. */
   export type Outbound =
-    FieldCreateTemplateFieldsFieldMetaEmailRequestBody$Outbound;
+    FieldCreateTemplateFieldsFieldMetaEmailRequest$Outbound;
 }
 
-export function fieldCreateTemplateFieldsFieldMetaEmailRequestBodyToJSON(
-  fieldCreateTemplateFieldsFieldMetaEmailRequestBody:
-    FieldCreateTemplateFieldsFieldMetaEmailRequestBody,
+export function fieldCreateTemplateFieldsFieldMetaEmailRequestToJSON(
+  fieldCreateTemplateFieldsFieldMetaEmailRequest:
+    FieldCreateTemplateFieldsFieldMetaEmailRequest,
 ): string {
   return JSON.stringify(
-    FieldCreateTemplateFieldsFieldMetaEmailRequestBody$outboundSchema.parse(
-      fieldCreateTemplateFieldsFieldMetaEmailRequestBody,
+    FieldCreateTemplateFieldsFieldMetaEmailRequest$outboundSchema.parse(
+      fieldCreateTemplateFieldsFieldMetaEmailRequest,
     ),
   );
 }
 
-export function fieldCreateTemplateFieldsFieldMetaEmailRequestBodyFromJSON(
+export function fieldCreateTemplateFieldsFieldMetaEmailRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  FieldCreateTemplateFieldsFieldMetaEmailRequestBody,
+  FieldCreateTemplateFieldsFieldMetaEmailRequest,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      FieldCreateTemplateFieldsFieldMetaEmailRequestBody$inboundSchema.parse(
+      FieldCreateTemplateFieldsFieldMetaEmailRequest$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'FieldCreateTemplateFieldsFieldMetaEmailRequestBody' from JSON`,
+    `Failed to parse 'FieldCreateTemplateFieldsFieldMetaEmailRequest' from JSON`,
   );
 }
 
@@ -2719,9 +2717,9 @@ export const FieldCreateTemplateFieldsFieldEmail$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: FieldCreateTemplateFieldsTypeEmailRequestBody1$inboundSchema,
+  type: FieldCreateTemplateFieldsTypeEmailRequest1$inboundSchema,
   fieldMeta: z.lazy(() =>
-    FieldCreateTemplateFieldsFieldMetaEmailRequestBody$inboundSchema
+    FieldCreateTemplateFieldsFieldMetaEmailRequest$inboundSchema
   ).optional(),
   recipientId: z.number(),
   pageNumber: z.number(),
@@ -2735,7 +2733,7 @@ export const FieldCreateTemplateFieldsFieldEmail$inboundSchema: z.ZodType<
 export type FieldCreateTemplateFieldsFieldEmail$Outbound = {
   type: string;
   fieldMeta?:
-    | FieldCreateTemplateFieldsFieldMetaEmailRequestBody$Outbound
+    | FieldCreateTemplateFieldsFieldMetaEmailRequest$Outbound
     | undefined;
   recipientId: number;
   pageNumber: number;
@@ -2751,9 +2749,9 @@ export const FieldCreateTemplateFieldsFieldEmail$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FieldCreateTemplateFieldsFieldEmail
 > = z.object({
-  type: FieldCreateTemplateFieldsTypeEmailRequestBody1$outboundSchema,
+  type: FieldCreateTemplateFieldsTypeEmailRequest1$outboundSchema,
   fieldMeta: z.lazy(() =>
-    FieldCreateTemplateFieldsFieldMetaEmailRequestBody$outboundSchema
+    FieldCreateTemplateFieldsFieldMetaEmailRequest$outboundSchema
   ).optional(),
   recipientId: z.number(),
   pageNumber: z.number(),
@@ -2800,49 +2798,49 @@ export function fieldCreateTemplateFieldsFieldEmailFromJSON(
 }
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeNameRequestBody1$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeNameRequestBody1> = z
-    .nativeEnum(FieldCreateTemplateFieldsTypeNameRequestBody1);
+export const FieldCreateTemplateFieldsTypeNameRequest1$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeNameRequest1> = z
+    .nativeEnum(FieldCreateTemplateFieldsTypeNameRequest1);
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeNameRequestBody1$outboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeNameRequestBody1> =
-    FieldCreateTemplateFieldsTypeNameRequestBody1$inboundSchema;
+export const FieldCreateTemplateFieldsTypeNameRequest1$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeNameRequest1> =
+    FieldCreateTemplateFieldsTypeNameRequest1$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldCreateTemplateFieldsTypeNameRequestBody1$ {
-  /** @deprecated use `FieldCreateTemplateFieldsTypeNameRequestBody1$inboundSchema` instead. */
+export namespace FieldCreateTemplateFieldsTypeNameRequest1$ {
+  /** @deprecated use `FieldCreateTemplateFieldsTypeNameRequest1$inboundSchema` instead. */
   export const inboundSchema =
-    FieldCreateTemplateFieldsTypeNameRequestBody1$inboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsTypeNameRequestBody1$outboundSchema` instead. */
+    FieldCreateTemplateFieldsTypeNameRequest1$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsTypeNameRequest1$outboundSchema` instead. */
   export const outboundSchema =
-    FieldCreateTemplateFieldsTypeNameRequestBody1$outboundSchema;
+    FieldCreateTemplateFieldsTypeNameRequest1$outboundSchema;
 }
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeNameRequestBody2$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeNameRequestBody2> = z
-    .nativeEnum(FieldCreateTemplateFieldsTypeNameRequestBody2);
+export const FieldCreateTemplateFieldsTypeNameRequest2$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeNameRequest2> = z
+    .nativeEnum(FieldCreateTemplateFieldsTypeNameRequest2);
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeNameRequestBody2$outboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeNameRequestBody2> =
-    FieldCreateTemplateFieldsTypeNameRequestBody2$inboundSchema;
+export const FieldCreateTemplateFieldsTypeNameRequest2$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeNameRequest2> =
+    FieldCreateTemplateFieldsTypeNameRequest2$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldCreateTemplateFieldsTypeNameRequestBody2$ {
-  /** @deprecated use `FieldCreateTemplateFieldsTypeNameRequestBody2$inboundSchema` instead. */
+export namespace FieldCreateTemplateFieldsTypeNameRequest2$ {
+  /** @deprecated use `FieldCreateTemplateFieldsTypeNameRequest2$inboundSchema` instead. */
   export const inboundSchema =
-    FieldCreateTemplateFieldsTypeNameRequestBody2$inboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsTypeNameRequestBody2$outboundSchema` instead. */
+    FieldCreateTemplateFieldsTypeNameRequest2$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsTypeNameRequest2$outboundSchema` instead. */
   export const outboundSchema =
-    FieldCreateTemplateFieldsTypeNameRequestBody2$outboundSchema;
+    FieldCreateTemplateFieldsTypeNameRequest2$outboundSchema;
 }
 
 /** @internal */
@@ -2870,9 +2868,9 @@ export namespace FieldCreateTemplateFieldsTextAlignName$ {
 }
 
 /** @internal */
-export const FieldCreateTemplateFieldsFieldMetaNameRequestBody$inboundSchema:
+export const FieldCreateTemplateFieldsFieldMetaNameRequest$inboundSchema:
   z.ZodType<
-    FieldCreateTemplateFieldsFieldMetaNameRequestBody,
+    FieldCreateTemplateFieldsFieldMetaNameRequest,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -2880,13 +2878,13 @@ export const FieldCreateTemplateFieldsFieldMetaNameRequestBody$inboundSchema:
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type: FieldCreateTemplateFieldsTypeNameRequestBody2$inboundSchema,
+    type: FieldCreateTemplateFieldsTypeNameRequest2$inboundSchema,
     fontSize: z.number().optional(),
     textAlign: FieldCreateTemplateFieldsTextAlignName$inboundSchema.optional(),
   });
 
 /** @internal */
-export type FieldCreateTemplateFieldsFieldMetaNameRequestBody$Outbound = {
+export type FieldCreateTemplateFieldsFieldMetaNameRequest$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -2897,17 +2895,17 @@ export type FieldCreateTemplateFieldsFieldMetaNameRequestBody$Outbound = {
 };
 
 /** @internal */
-export const FieldCreateTemplateFieldsFieldMetaNameRequestBody$outboundSchema:
+export const FieldCreateTemplateFieldsFieldMetaNameRequest$outboundSchema:
   z.ZodType<
-    FieldCreateTemplateFieldsFieldMetaNameRequestBody$Outbound,
+    FieldCreateTemplateFieldsFieldMetaNameRequest$Outbound,
     z.ZodTypeDef,
-    FieldCreateTemplateFieldsFieldMetaNameRequestBody
+    FieldCreateTemplateFieldsFieldMetaNameRequest
   > = z.object({
     label: z.string().optional(),
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type: FieldCreateTemplateFieldsTypeNameRequestBody2$outboundSchema,
+    type: FieldCreateTemplateFieldsTypeNameRequest2$outboundSchema,
     fontSize: z.number().optional(),
     textAlign: FieldCreateTemplateFieldsTextAlignName$outboundSchema.optional(),
   });
@@ -2916,42 +2914,41 @@ export const FieldCreateTemplateFieldsFieldMetaNameRequestBody$outboundSchema:
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldCreateTemplateFieldsFieldMetaNameRequestBody$ {
-  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaNameRequestBody$inboundSchema` instead. */
+export namespace FieldCreateTemplateFieldsFieldMetaNameRequest$ {
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaNameRequest$inboundSchema` instead. */
   export const inboundSchema =
-    FieldCreateTemplateFieldsFieldMetaNameRequestBody$inboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaNameRequestBody$outboundSchema` instead. */
+    FieldCreateTemplateFieldsFieldMetaNameRequest$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaNameRequest$outboundSchema` instead. */
   export const outboundSchema =
-    FieldCreateTemplateFieldsFieldMetaNameRequestBody$outboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaNameRequestBody$Outbound` instead. */
-  export type Outbound =
-    FieldCreateTemplateFieldsFieldMetaNameRequestBody$Outbound;
+    FieldCreateTemplateFieldsFieldMetaNameRequest$outboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaNameRequest$Outbound` instead. */
+  export type Outbound = FieldCreateTemplateFieldsFieldMetaNameRequest$Outbound;
 }
 
-export function fieldCreateTemplateFieldsFieldMetaNameRequestBodyToJSON(
-  fieldCreateTemplateFieldsFieldMetaNameRequestBody:
-    FieldCreateTemplateFieldsFieldMetaNameRequestBody,
+export function fieldCreateTemplateFieldsFieldMetaNameRequestToJSON(
+  fieldCreateTemplateFieldsFieldMetaNameRequest:
+    FieldCreateTemplateFieldsFieldMetaNameRequest,
 ): string {
   return JSON.stringify(
-    FieldCreateTemplateFieldsFieldMetaNameRequestBody$outboundSchema.parse(
-      fieldCreateTemplateFieldsFieldMetaNameRequestBody,
+    FieldCreateTemplateFieldsFieldMetaNameRequest$outboundSchema.parse(
+      fieldCreateTemplateFieldsFieldMetaNameRequest,
     ),
   );
 }
 
-export function fieldCreateTemplateFieldsFieldMetaNameRequestBodyFromJSON(
+export function fieldCreateTemplateFieldsFieldMetaNameRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  FieldCreateTemplateFieldsFieldMetaNameRequestBody,
+  FieldCreateTemplateFieldsFieldMetaNameRequest,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      FieldCreateTemplateFieldsFieldMetaNameRequestBody$inboundSchema.parse(
+      FieldCreateTemplateFieldsFieldMetaNameRequest$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'FieldCreateTemplateFieldsFieldMetaNameRequestBody' from JSON`,
+    `Failed to parse 'FieldCreateTemplateFieldsFieldMetaNameRequest' from JSON`,
   );
 }
 
@@ -2961,9 +2958,9 @@ export const FieldCreateTemplateFieldsFieldName$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: FieldCreateTemplateFieldsTypeNameRequestBody1$inboundSchema,
+  type: FieldCreateTemplateFieldsTypeNameRequest1$inboundSchema,
   fieldMeta: z.lazy(() =>
-    FieldCreateTemplateFieldsFieldMetaNameRequestBody$inboundSchema
+    FieldCreateTemplateFieldsFieldMetaNameRequest$inboundSchema
   ).optional(),
   recipientId: z.number(),
   pageNumber: z.number(),
@@ -2977,7 +2974,7 @@ export const FieldCreateTemplateFieldsFieldName$inboundSchema: z.ZodType<
 export type FieldCreateTemplateFieldsFieldName$Outbound = {
   type: string;
   fieldMeta?:
-    | FieldCreateTemplateFieldsFieldMetaNameRequestBody$Outbound
+    | FieldCreateTemplateFieldsFieldMetaNameRequest$Outbound
     | undefined;
   recipientId: number;
   pageNumber: number;
@@ -2993,9 +2990,9 @@ export const FieldCreateTemplateFieldsFieldName$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FieldCreateTemplateFieldsFieldName
 > = z.object({
-  type: FieldCreateTemplateFieldsTypeNameRequestBody1$outboundSchema,
+  type: FieldCreateTemplateFieldsTypeNameRequest1$outboundSchema,
   fieldMeta: z.lazy(() =>
-    FieldCreateTemplateFieldsFieldMetaNameRequestBody$outboundSchema
+    FieldCreateTemplateFieldsFieldMetaNameRequest$outboundSchema
   ).optional(),
   recipientId: z.number(),
   pageNumber: z.number(),
@@ -3041,49 +3038,49 @@ export function fieldCreateTemplateFieldsFieldNameFromJSON(
 }
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeInitialsRequestBody1$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeInitialsRequestBody1> = z
-    .nativeEnum(FieldCreateTemplateFieldsTypeInitialsRequestBody1);
+export const FieldCreateTemplateFieldsTypeInitialsRequest1$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeInitialsRequest1> = z
+    .nativeEnum(FieldCreateTemplateFieldsTypeInitialsRequest1);
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeInitialsRequestBody1$outboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeInitialsRequestBody1> =
-    FieldCreateTemplateFieldsTypeInitialsRequestBody1$inboundSchema;
+export const FieldCreateTemplateFieldsTypeInitialsRequest1$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeInitialsRequest1> =
+    FieldCreateTemplateFieldsTypeInitialsRequest1$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldCreateTemplateFieldsTypeInitialsRequestBody1$ {
-  /** @deprecated use `FieldCreateTemplateFieldsTypeInitialsRequestBody1$inboundSchema` instead. */
+export namespace FieldCreateTemplateFieldsTypeInitialsRequest1$ {
+  /** @deprecated use `FieldCreateTemplateFieldsTypeInitialsRequest1$inboundSchema` instead. */
   export const inboundSchema =
-    FieldCreateTemplateFieldsTypeInitialsRequestBody1$inboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsTypeInitialsRequestBody1$outboundSchema` instead. */
+    FieldCreateTemplateFieldsTypeInitialsRequest1$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsTypeInitialsRequest1$outboundSchema` instead. */
   export const outboundSchema =
-    FieldCreateTemplateFieldsTypeInitialsRequestBody1$outboundSchema;
+    FieldCreateTemplateFieldsTypeInitialsRequest1$outboundSchema;
 }
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeInitialsRequestBody2$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeInitialsRequestBody2> = z
-    .nativeEnum(FieldCreateTemplateFieldsTypeInitialsRequestBody2);
+export const FieldCreateTemplateFieldsTypeInitialsRequest2$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeInitialsRequest2> = z
+    .nativeEnum(FieldCreateTemplateFieldsTypeInitialsRequest2);
 
 /** @internal */
-export const FieldCreateTemplateFieldsTypeInitialsRequestBody2$outboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeInitialsRequestBody2> =
-    FieldCreateTemplateFieldsTypeInitialsRequestBody2$inboundSchema;
+export const FieldCreateTemplateFieldsTypeInitialsRequest2$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsTypeInitialsRequest2> =
+    FieldCreateTemplateFieldsTypeInitialsRequest2$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldCreateTemplateFieldsTypeInitialsRequestBody2$ {
-  /** @deprecated use `FieldCreateTemplateFieldsTypeInitialsRequestBody2$inboundSchema` instead. */
+export namespace FieldCreateTemplateFieldsTypeInitialsRequest2$ {
+  /** @deprecated use `FieldCreateTemplateFieldsTypeInitialsRequest2$inboundSchema` instead. */
   export const inboundSchema =
-    FieldCreateTemplateFieldsTypeInitialsRequestBody2$inboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsTypeInitialsRequestBody2$outboundSchema` instead. */
+    FieldCreateTemplateFieldsTypeInitialsRequest2$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsTypeInitialsRequest2$outboundSchema` instead. */
   export const outboundSchema =
-    FieldCreateTemplateFieldsTypeInitialsRequestBody2$outboundSchema;
+    FieldCreateTemplateFieldsTypeInitialsRequest2$outboundSchema;
 }
 
 /** @internal */
@@ -3110,9 +3107,9 @@ export namespace FieldCreateTemplateFieldsTextAlignInitials$ {
 }
 
 /** @internal */
-export const FieldCreateTemplateFieldsFieldMetaInitialsRequestBody$inboundSchema:
+export const FieldCreateTemplateFieldsFieldMetaInitialsRequest$inboundSchema:
   z.ZodType<
-    FieldCreateTemplateFieldsFieldMetaInitialsRequestBody,
+    FieldCreateTemplateFieldsFieldMetaInitialsRequest,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -3120,14 +3117,14 @@ export const FieldCreateTemplateFieldsFieldMetaInitialsRequestBody$inboundSchema
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type: FieldCreateTemplateFieldsTypeInitialsRequestBody2$inboundSchema,
+    type: FieldCreateTemplateFieldsTypeInitialsRequest2$inboundSchema,
     fontSize: z.number().optional(),
     textAlign: FieldCreateTemplateFieldsTextAlignInitials$inboundSchema
       .optional(),
   });
 
 /** @internal */
-export type FieldCreateTemplateFieldsFieldMetaInitialsRequestBody$Outbound = {
+export type FieldCreateTemplateFieldsFieldMetaInitialsRequest$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -3138,17 +3135,17 @@ export type FieldCreateTemplateFieldsFieldMetaInitialsRequestBody$Outbound = {
 };
 
 /** @internal */
-export const FieldCreateTemplateFieldsFieldMetaInitialsRequestBody$outboundSchema:
+export const FieldCreateTemplateFieldsFieldMetaInitialsRequest$outboundSchema:
   z.ZodType<
-    FieldCreateTemplateFieldsFieldMetaInitialsRequestBody$Outbound,
+    FieldCreateTemplateFieldsFieldMetaInitialsRequest$Outbound,
     z.ZodTypeDef,
-    FieldCreateTemplateFieldsFieldMetaInitialsRequestBody
+    FieldCreateTemplateFieldsFieldMetaInitialsRequest
   > = z.object({
     label: z.string().optional(),
     placeholder: z.string().optional(),
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
-    type: FieldCreateTemplateFieldsTypeInitialsRequestBody2$outboundSchema,
+    type: FieldCreateTemplateFieldsTypeInitialsRequest2$outboundSchema,
     fontSize: z.number().optional(),
     textAlign: FieldCreateTemplateFieldsTextAlignInitials$outboundSchema
       .optional(),
@@ -3158,42 +3155,42 @@ export const FieldCreateTemplateFieldsFieldMetaInitialsRequestBody$outboundSchem
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace FieldCreateTemplateFieldsFieldMetaInitialsRequestBody$ {
-  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaInitialsRequestBody$inboundSchema` instead. */
+export namespace FieldCreateTemplateFieldsFieldMetaInitialsRequest$ {
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaInitialsRequest$inboundSchema` instead. */
   export const inboundSchema =
-    FieldCreateTemplateFieldsFieldMetaInitialsRequestBody$inboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaInitialsRequestBody$outboundSchema` instead. */
+    FieldCreateTemplateFieldsFieldMetaInitialsRequest$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaInitialsRequest$outboundSchema` instead. */
   export const outboundSchema =
-    FieldCreateTemplateFieldsFieldMetaInitialsRequestBody$outboundSchema;
-  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaInitialsRequestBody$Outbound` instead. */
+    FieldCreateTemplateFieldsFieldMetaInitialsRequest$outboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsFieldMetaInitialsRequest$Outbound` instead. */
   export type Outbound =
-    FieldCreateTemplateFieldsFieldMetaInitialsRequestBody$Outbound;
+    FieldCreateTemplateFieldsFieldMetaInitialsRequest$Outbound;
 }
 
-export function fieldCreateTemplateFieldsFieldMetaInitialsRequestBodyToJSON(
-  fieldCreateTemplateFieldsFieldMetaInitialsRequestBody:
-    FieldCreateTemplateFieldsFieldMetaInitialsRequestBody,
+export function fieldCreateTemplateFieldsFieldMetaInitialsRequestToJSON(
+  fieldCreateTemplateFieldsFieldMetaInitialsRequest:
+    FieldCreateTemplateFieldsFieldMetaInitialsRequest,
 ): string {
   return JSON.stringify(
-    FieldCreateTemplateFieldsFieldMetaInitialsRequestBody$outboundSchema.parse(
-      fieldCreateTemplateFieldsFieldMetaInitialsRequestBody,
+    FieldCreateTemplateFieldsFieldMetaInitialsRequest$outboundSchema.parse(
+      fieldCreateTemplateFieldsFieldMetaInitialsRequest,
     ),
   );
 }
 
-export function fieldCreateTemplateFieldsFieldMetaInitialsRequestBodyFromJSON(
+export function fieldCreateTemplateFieldsFieldMetaInitialsRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  FieldCreateTemplateFieldsFieldMetaInitialsRequestBody,
+  FieldCreateTemplateFieldsFieldMetaInitialsRequest,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      FieldCreateTemplateFieldsFieldMetaInitialsRequestBody$inboundSchema.parse(
+      FieldCreateTemplateFieldsFieldMetaInitialsRequest$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'FieldCreateTemplateFieldsFieldMetaInitialsRequestBody' from JSON`,
+    `Failed to parse 'FieldCreateTemplateFieldsFieldMetaInitialsRequest' from JSON`,
   );
 }
 
@@ -3203,9 +3200,9 @@ export const FieldCreateTemplateFieldsFieldInitials$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: FieldCreateTemplateFieldsTypeInitialsRequestBody1$inboundSchema,
+  type: FieldCreateTemplateFieldsTypeInitialsRequest1$inboundSchema,
   fieldMeta: z.lazy(() =>
-    FieldCreateTemplateFieldsFieldMetaInitialsRequestBody$inboundSchema
+    FieldCreateTemplateFieldsFieldMetaInitialsRequest$inboundSchema
   ).optional(),
   recipientId: z.number(),
   pageNumber: z.number(),
@@ -3219,7 +3216,7 @@ export const FieldCreateTemplateFieldsFieldInitials$inboundSchema: z.ZodType<
 export type FieldCreateTemplateFieldsFieldInitials$Outbound = {
   type: string;
   fieldMeta?:
-    | FieldCreateTemplateFieldsFieldMetaInitialsRequestBody$Outbound
+    | FieldCreateTemplateFieldsFieldMetaInitialsRequest$Outbound
     | undefined;
   recipientId: number;
   pageNumber: number;
@@ -3235,9 +3232,9 @@ export const FieldCreateTemplateFieldsFieldInitials$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FieldCreateTemplateFieldsFieldInitials
 > = z.object({
-  type: FieldCreateTemplateFieldsTypeInitialsRequestBody1$outboundSchema,
+  type: FieldCreateTemplateFieldsTypeInitialsRequest1$outboundSchema,
   fieldMeta: z.lazy(() =>
-    FieldCreateTemplateFieldsFieldMetaInitialsRequestBody$outboundSchema
+    FieldCreateTemplateFieldsFieldMetaInitialsRequest$outboundSchema
   ).optional(),
   recipientId: z.number(),
   pageNumber: z.number(),

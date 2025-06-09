@@ -13,5 +13,5 @@ let value: TemplateFindTemplatesGlobalActionAuth = "ACCOUNT";
 ## Values
 
 ```typescript
-"ACCOUNT" | "PASSKEY" | "TWO_FACTOR_AUTH"
+"ACCOUNT" | "PASSKEY" | "TWO_FACTOR_AUTH" | "PASSWORD"
 ```

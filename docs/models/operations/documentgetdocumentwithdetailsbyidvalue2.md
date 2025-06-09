@@ -7,7 +7,7 @@ import { DocumentGetDocumentWithDetailsByIdValue2 } from "@documenso/sdk-typescr
 
 let value: DocumentGetDocumentWithDetailsByIdValue2 = {
   id: 8911.73,
-  checked: false,
+  checked: true,
   value: "<value>",
 };
 ```

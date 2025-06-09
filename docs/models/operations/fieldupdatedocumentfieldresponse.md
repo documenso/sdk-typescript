@@ -11,14 +11,14 @@ let value: FieldUpdateDocumentFieldResponse = {
   type: "INITIALS",
   id: 4615.62,
   secondaryId: "<id>",
-  documentId: 3723.26,
-  templateId: 2178.8,
-  recipientId: 286.11,
-  page: 712.57,
+  documentId: 2178.8,
+  templateId: null,
+  recipientId: 712.57,
+  page: 9356.51,
   customText: "<value>",
   inserted: false,
   fieldMeta: {
-    type: "dropdown",
+    type: "date",
   },
 };
 ```

@@ -9,14 +9,14 @@ let value: RecipientUpdateTemplateRecipientField = {
   type: "INITIALS",
   id: 9505.51,
   secondaryId: "<id>",
-  documentId: 2916.73,
-  templateId: 9540.89,
-  recipientId: 3457.78,
-  page: 9258.68,
+  documentId: 9540.89,
+  templateId: 9258.68,
+  recipientId: 2806.91,
+  page: 9015.04,
   customText: "<value>",
-  inserted: false,
+  inserted: true,
   fieldMeta: {
-    type: "email",
+    type: "initials",
   },
 };
 ```

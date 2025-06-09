@@ -11,19 +11,21 @@ let value: TemplateCreateDocumentFromTemplateRecipientResponse = {
   signingStatus: "REJECTED",
   sendStatus: "NOT_SENT",
   id: 2242.56,
-  documentId: 7759.88,
-  templateId: 8035.37,
-  email: "Johnson.Waelchi66@hotmail.com",
+  documentId: 8035.37,
+  templateId: 5116.96,
+  email: "Thelma.Orn98@yahoo.com",
   name: "<value>",
   token: "<value>",
   documentDeletedAt: "<value>",
   expired: "<value>",
   signedAt: "<value>",
   authOptions: {
-    accessAuth: "ACCOUNT",
-    actionAuth: "EXPLICIT_NONE",
+    accessAuth: [],
+    actionAuth: [
+      "EXPLICIT_NONE",
+    ],
   },
-  signingOrder: 1695.08,
+  signingOrder: 3272.56,
   rejectionReason: "<value>",
 };
 ```

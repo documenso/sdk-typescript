@@ -5,6 +5,7 @@
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
 export type DocumentMoveDocumentToTeamInternalServerErrorIssue = {
@@ -25,7 +26,9 @@ export type DocumentMoveDocumentToTeamInternalServerErrorData = {
 /**
  * Internal server error
  */
-export class DocumentMoveDocumentToTeamInternalServerError extends Error {
+export class DocumentMoveDocumentToTeamInternalServerError
+  extends DocumensoError
+{
   code: string;
   issues?:
     | Array<DocumentMoveDocumentToTeamInternalServerErrorIssue>
@@ -34,13 +37,15 @@ export class DocumentMoveDocumentToTeamInternalServerError extends Error {
   /** The original data that was passed to this error instance. */
   data$: DocumentMoveDocumentToTeamInternalServerErrorData;
 
-  constructor(err: DocumentMoveDocumentToTeamInternalServerErrorData) {
+  constructor(
+    err: DocumentMoveDocumentToTeamInternalServerErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -64,20 +69,22 @@ export type DocumentMoveDocumentToTeamBadRequestErrorData = {
 /**
  * Invalid input data
  */
-export class DocumentMoveDocumentToTeamBadRequestError extends Error {
+export class DocumentMoveDocumentToTeamBadRequestError extends DocumensoError {
   code: string;
   issues?: Array<DocumentMoveDocumentToTeamBadRequestIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: DocumentMoveDocumentToTeamBadRequestErrorData;
 
-  constructor(err: DocumentMoveDocumentToTeamBadRequestErrorData) {
+  constructor(
+    err: DocumentMoveDocumentToTeamBadRequestErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -167,9 +174,16 @@ export const DocumentMoveDocumentToTeamInternalServerError$inboundSchema:
         DocumentMoveDocumentToTeamInternalServerErrorIssue$inboundSchema
       ),
     ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
   })
     .transform((v) => {
-      return new DocumentMoveDocumentToTeamInternalServerError(v);
+      return new DocumentMoveDocumentToTeamInternalServerError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
     });
 
 /** @internal */
@@ -291,9 +305,16 @@ export const DocumentMoveDocumentToTeamBadRequestError$inboundSchema: z.ZodType<
   issues: z.array(
     z.lazy(() => DocumentMoveDocumentToTeamBadRequestIssue$inboundSchema),
   ).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new DocumentMoveDocumentToTeamBadRequestError(v);
+    return new DocumentMoveDocumentToTeamBadRequestError(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */

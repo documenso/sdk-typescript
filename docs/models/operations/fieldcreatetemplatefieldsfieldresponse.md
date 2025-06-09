@@ -9,14 +9,14 @@ let value: FieldCreateTemplateFieldsFieldResponse = {
   type: "EMAIL",
   id: 5388.94,
   secondaryId: "<id>",
-  documentId: 3420.05,
-  templateId: 6246.65,
-  recipientId: 2218.41,
-  page: 2063.27,
+  documentId: 6246.65,
+  templateId: 2063.27,
+  recipientId: 2864.51,
+  page: 1505.85,
   customText: "<value>",
-  inserted: false,
+  inserted: true,
   fieldMeta: {
-    type: "email",
+    type: "radio",
   },
 };
 ```

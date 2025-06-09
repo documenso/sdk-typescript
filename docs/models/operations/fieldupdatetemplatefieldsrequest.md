@@ -7,12 +7,7 @@ import { FieldUpdateTemplateFieldsRequest } from "@documenso/sdk-typescript/mode
 
 let value: FieldUpdateTemplateFieldsRequest = {
   templateId: 4213.74,
-  fields: [
-    {
-      type: "NAME",
-      id: 1756.93,
-    },
-  ],
+  fields: [],
 };
 ```
 

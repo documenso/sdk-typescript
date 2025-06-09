@@ -9,15 +9,13 @@ let value: RecipientGetTemplateRecipientField = {
   type: "CHECKBOX",
   id: 353.33,
   secondaryId: "<id>",
-  documentId: 7147.87,
-  templateId: 9460.94,
-  recipientId: 8750.63,
-  page: 3908.47,
+  documentId: 9460.94,
+  templateId: 3908.47,
+  recipientId: 1853.99,
+  page: 5820.22,
   customText: "<value>",
   inserted: false,
-  fieldMeta: {
-    type: "name",
-  },
+  fieldMeta: null,
 };
 ```
 

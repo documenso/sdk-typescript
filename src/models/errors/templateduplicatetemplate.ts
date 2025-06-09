@@ -5,6 +5,7 @@
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
 export type TemplateDuplicateTemplateInternalServerErrorIssue = {
@@ -23,20 +24,24 @@ export type TemplateDuplicateTemplateInternalServerErrorData = {
 /**
  * Internal server error
  */
-export class TemplateDuplicateTemplateInternalServerError extends Error {
+export class TemplateDuplicateTemplateInternalServerError
+  extends DocumensoError
+{
   code: string;
   issues?: Array<TemplateDuplicateTemplateInternalServerErrorIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: TemplateDuplicateTemplateInternalServerErrorData;
 
-  constructor(err: TemplateDuplicateTemplateInternalServerErrorData) {
+  constructor(
+    err: TemplateDuplicateTemplateInternalServerErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -60,20 +65,22 @@ export type TemplateDuplicateTemplateBadRequestErrorData = {
 /**
  * Invalid input data
  */
-export class TemplateDuplicateTemplateBadRequestError extends Error {
+export class TemplateDuplicateTemplateBadRequestError extends DocumensoError {
   code: string;
   issues?: Array<TemplateDuplicateTemplateBadRequestIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: TemplateDuplicateTemplateBadRequestErrorData;
 
-  constructor(err: TemplateDuplicateTemplateBadRequestErrorData) {
+  constructor(
+    err: TemplateDuplicateTemplateBadRequestErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -163,9 +170,16 @@ export const TemplateDuplicateTemplateInternalServerError$inboundSchema:
         TemplateDuplicateTemplateInternalServerErrorIssue$inboundSchema
       ),
     ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
   })
     .transform((v) => {
-      return new TemplateDuplicateTemplateInternalServerError(v);
+      return new TemplateDuplicateTemplateInternalServerError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
     });
 
 /** @internal */
@@ -286,9 +300,16 @@ export const TemplateDuplicateTemplateBadRequestError$inboundSchema: z.ZodType<
   issues: z.array(
     z.lazy(() => TemplateDuplicateTemplateBadRequestIssue$inboundSchema),
   ).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new TemplateDuplicateTemplateBadRequestError(v);
+    return new TemplateDuplicateTemplateBadRequestError(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */

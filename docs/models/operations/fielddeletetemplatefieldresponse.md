@@ -8,7 +8,7 @@ Successful response
 import { FieldDeleteTemplateFieldResponse } from "@documenso/sdk-typescript/models/operations";
 
 let value: FieldDeleteTemplateFieldResponse = {
-  success: false,
+  success: true,
 };
 ```
 

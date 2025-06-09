@@ -31,7 +31,6 @@ const documenso = new Documenso({
 async function run() {
   const result = await documenso.documents.find({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -54,15 +53,12 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await documentsFind(documenso, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("documentsFind failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -105,10 +101,9 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.documents.get({
-    documentId: 7003.47,
+    documentId: 7491.86,
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -131,17 +126,14 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await documentsGet(documenso, {
-    documentId: 7003.47,
+    documentId: 7491.86,
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("documentsGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -187,7 +179,6 @@ async function run() {
     title: "<value>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -212,15 +203,12 @@ async function run() {
   const res = await documentsCreateV0(documenso, {
     title: "<value>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("documentsCreateV0 failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -262,10 +250,9 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.documents.update({
-    documentId: 8574.78,
+    documentId: 9701.92,
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -288,17 +275,14 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await documentsUpdate(documenso, {
-    documentId: 8574.78,
+    documentId: 9701.92,
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("documentsUpdate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -340,10 +324,9 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.documents.delete({
-    documentId: 5459.07,
+    documentId: 4054.62,
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -366,17 +349,14 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await documentsDelete(documenso, {
-    documentId: 5459.07,
+    documentId: 4054.62,
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("documentsDelete failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -418,11 +398,10 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.documents.moveToTeam({
-    documentId: 8301.72,
-    teamId: 6724.78,
+    documentId: 7184.15,
+    teamId: 4855.19,
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -445,18 +424,15 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await documentsMoveToTeam(documenso, {
-    documentId: 8301.72,
-    teamId: 6724.78,
+    documentId: 7184.15,
+    teamId: 4855.19,
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("documentsMoveToTeam failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -498,10 +474,9 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.documents.distribute({
-    documentId: 4115.92,
+    documentId: 7930.82,
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -524,17 +499,14 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await documentsDistribute(documenso, {
-    documentId: 4115.92,
+    documentId: 7930.82,
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("documentsDistribute failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -576,13 +548,10 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.documents.redistribute({
-    documentId: 5758.65,
-    recipients: [
-
-    ],
+    documentId: 2824.22,
+    recipients: [],
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -605,20 +574,15 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await documentsRedistribute(documenso, {
-    documentId: 5758.65,
-    recipients: [
-  
-    ],
+    documentId: 2824.22,
+    recipients: [],
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("documentsRedistribute failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -660,10 +624,9 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.documents.duplicate({
-    documentId: 3523.11,
+    documentId: 309.05,
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -686,17 +649,14 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await documentsDuplicate(documenso, {
-    documentId: 3523.11,
+    documentId: 309.05,
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("documentsDuplicate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

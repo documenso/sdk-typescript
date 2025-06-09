@@ -8,7 +8,7 @@ Successful response
 import { TemplateDeleteTemplateDirectLinkResponse } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateDeleteTemplateDirectLinkResponse = {
-  success: false,
+  success: true,
 };
 ```
 

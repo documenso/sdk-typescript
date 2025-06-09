@@ -7,7 +7,7 @@ import { RecipientUpdateTemplateRecipientValue2 } from "@documenso/sdk-typescrip
 
 let value: RecipientUpdateTemplateRecipientValue2 = {
   id: 5444.68,
-  checked: false,
+  checked: true,
   value: "<value>",
 };
 ```

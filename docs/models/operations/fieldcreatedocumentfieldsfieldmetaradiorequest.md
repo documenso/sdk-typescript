@@ -1,0 +1,22 @@
+# FieldCreateDocumentFieldsFieldMetaRadioRequest
+
+## Example Usage
+
+```typescript
+import { FieldCreateDocumentFieldsFieldMetaRadioRequest } from "@documenso/sdk-typescript/models/operations";
+
+let value: FieldCreateDocumentFieldsFieldMetaRadioRequest = {
+  type: "radio",
+};
+```
+
+## Fields
+
+| Field                                                                                                                          | Type                                                                                                                           | Required                                                                                                                       | Description                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| `label`                                                                                                                        | *string*                                                                                                                       | :heavy_minus_sign:                                                                                                             | N/A                                                                                                                            |
+| `placeholder`                                                                                                                  | *string*                                                                                                                       | :heavy_minus_sign:                                                                                                             | N/A                                                                                                                            |
+| `required`                                                                                                                     | *boolean*                                                                                                                      | :heavy_minus_sign:                                                                                                             | N/A                                                                                                                            |
+| `readOnly`                                                                                                                     | *boolean*                                                                                                                      | :heavy_minus_sign:                                                                                                             | N/A                                                                                                                            |
+| `type`                                                                                                                         | [operations.FieldCreateDocumentFieldsTypeRadioRequest2](../../models/operations/fieldcreatedocumentfieldstyperadiorequest2.md) | :heavy_check_mark:                                                                                                             | N/A                                                                                                                            |
+| `values`                                                                                                                       | [operations.FieldCreateDocumentFieldsValueRadio](../../models/operations/fieldcreatedocumentfieldsvalueradio.md)[]             | :heavy_minus_sign:                                                                                                             | N/A                                                                                                                            |
