@@ -1,0 +1,22 @@
+# FieldUpdateDocumentFieldFieldMetaRadioRequest
+
+## Example Usage
+
+```typescript
+import { FieldUpdateDocumentFieldFieldMetaRadioRequest } from "@documenso/sdk-typescript/models/operations";
+
+let value: FieldUpdateDocumentFieldFieldMetaRadioRequest = {
+  type: "radio",
+};
+```
+
+## Fields
+
+| Field                                                                                                                        | Type                                                                                                                         | Required                                                                                                                     | Description                                                                                                                  |
+| ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `label`                                                                                                                      | *string*                                                                                                                     | :heavy_minus_sign:                                                                                                           | N/A                                                                                                                          |
+| `placeholder`                                                                                                                | *string*                                                                                                                     | :heavy_minus_sign:                                                                                                           | N/A                                                                                                                          |
+| `required`                                                                                                                   | *boolean*                                                                                                                    | :heavy_minus_sign:                                                                                                           | N/A                                                                                                                          |
+| `readOnly`                                                                                                                   | *boolean*                                                                                                                    | :heavy_minus_sign:                                                                                                           | N/A                                                                                                                          |
+| `type`                                                                                                                       | [operations.FieldUpdateDocumentFieldTypeRadioRequest2](../../models/operations/fieldupdatedocumentfieldtyperadiorequest2.md) | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
+| `values`                                                                                                                     | [operations.FieldUpdateDocumentFieldValueRadio](../../models/operations/fieldupdatedocumentfieldvalueradio.md)[]             | :heavy_minus_sign:                                                                                                           | N/A                                                                                                                          |

@@ -7,7 +7,7 @@ import { TemplateGetTemplateByIdValue1 } from "@documenso/sdk-typescript/models/
 
 let value: TemplateGetTemplateByIdValue1 = {
   id: 4623.09,
-  checked: false,
+  checked: true,
   value: "<value>",
 };
 ```

@@ -8,74 +8,67 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export const RecipientUpdateDocumentRecipientsRoleRequestBody = {
+export const RecipientUpdateDocumentRecipientsRoleRequest = {
   Cc: "CC",
   Signer: "SIGNER",
   Viewer: "VIEWER",
   Approver: "APPROVER",
   Assistant: "ASSISTANT",
 } as const;
-export type RecipientUpdateDocumentRecipientsRoleRequestBody = ClosedEnum<
-  typeof RecipientUpdateDocumentRecipientsRoleRequestBody
+export type RecipientUpdateDocumentRecipientsRoleRequest = ClosedEnum<
+  typeof RecipientUpdateDocumentRecipientsRoleRequest
 >;
 
 /**
  * The type of authentication required for the recipient to access the document.
  */
-export const RecipientUpdateDocumentRecipientsAccessAuthRequestBody = {
+export const RecipientUpdateDocumentRecipientsAccessAuthRequest = {
   Account: "ACCOUNT",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
  */
-export type RecipientUpdateDocumentRecipientsAccessAuthRequestBody = ClosedEnum<
-  typeof RecipientUpdateDocumentRecipientsAccessAuthRequestBody
+export type RecipientUpdateDocumentRecipientsAccessAuthRequest = ClosedEnum<
+  typeof RecipientUpdateDocumentRecipientsAccessAuthRequest
 >;
 
 /**
  * The type of authentication required for the recipient to sign the document.
  */
-export const RecipientUpdateDocumentRecipientsActionAuthRequestBody = {
+export const RecipientUpdateDocumentRecipientsActionAuthRequest = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
+  Password: "PASSWORD",
   ExplicitNone: "EXPLICIT_NONE",
 } as const;
 /**
  * The type of authentication required for the recipient to sign the document.
  */
-export type RecipientUpdateDocumentRecipientsActionAuthRequestBody = ClosedEnum<
-  typeof RecipientUpdateDocumentRecipientsActionAuthRequestBody
+export type RecipientUpdateDocumentRecipientsActionAuthRequest = ClosedEnum<
+  typeof RecipientUpdateDocumentRecipientsActionAuthRequest
 >;
 
-export type RecipientUpdateDocumentRecipientsRecipientRequestBody = {
+export type RecipientUpdateDocumentRecipientsRecipientRequest = {
   /**
    * The ID of the recipient to update.
    */
   id: number;
   email?: string | undefined;
   name?: string | undefined;
-  role?: RecipientUpdateDocumentRecipientsRoleRequestBody | undefined;
+  role?: RecipientUpdateDocumentRecipientsRoleRequest | undefined;
   signingOrder?: number | undefined;
-  /**
-   * The type of authentication required for the recipient to access the document.
-   */
   accessAuth?:
-    | RecipientUpdateDocumentRecipientsAccessAuthRequestBody
-    | null
+    | Array<RecipientUpdateDocumentRecipientsAccessAuthRequest>
     | undefined;
-  /**
-   * The type of authentication required for the recipient to sign the document.
-   */
   actionAuth?:
-    | RecipientUpdateDocumentRecipientsActionAuthRequestBody
-    | null
+    | Array<RecipientUpdateDocumentRecipientsActionAuthRequest>
     | undefined;
 };
 
 export type RecipientUpdateDocumentRecipientsRequest = {
   documentId: number;
-  recipients: Array<RecipientUpdateDocumentRecipientsRecipientRequestBody>;
+  recipients: Array<RecipientUpdateDocumentRecipientsRecipientRequest>;
 };
 
 export const RecipientUpdateDocumentRecipientsRoleResponse = {
@@ -134,6 +127,7 @@ export const RecipientUpdateDocumentRecipientsActionAuthResponse = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
+  Password: "PASSWORD",
   ExplicitNone: "EXPLICIT_NONE",
 } as const;
 /**
@@ -144,14 +138,8 @@ export type RecipientUpdateDocumentRecipientsActionAuthResponse = ClosedEnum<
 >;
 
 export type RecipientUpdateDocumentRecipientsAuthOptions = {
-  /**
-   * The type of authentication required for the recipient to access the document.
-   */
-  accessAuth: RecipientUpdateDocumentRecipientsAccessAuthResponse | null;
-  /**
-   * The type of authentication required for the recipient to sign the document.
-   */
-  actionAuth: RecipientUpdateDocumentRecipientsActionAuthResponse | null;
+  accessAuth: Array<RecipientUpdateDocumentRecipientsAccessAuthResponse>;
+  actionAuth: Array<RecipientUpdateDocumentRecipientsActionAuthResponse>;
 };
 
 export const RecipientUpdateDocumentRecipientsType = {
@@ -472,128 +460,123 @@ export type RecipientUpdateDocumentRecipientsResponse = {
 };
 
 /** @internal */
-export const RecipientUpdateDocumentRecipientsRoleRequestBody$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsRoleRequestBody> = z
-    .nativeEnum(RecipientUpdateDocumentRecipientsRoleRequestBody);
+export const RecipientUpdateDocumentRecipientsRoleRequest$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsRoleRequest> = z
+    .nativeEnum(RecipientUpdateDocumentRecipientsRoleRequest);
 
 /** @internal */
-export const RecipientUpdateDocumentRecipientsRoleRequestBody$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsRoleRequestBody> =
-    RecipientUpdateDocumentRecipientsRoleRequestBody$inboundSchema;
+export const RecipientUpdateDocumentRecipientsRoleRequest$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsRoleRequest> =
+    RecipientUpdateDocumentRecipientsRoleRequest$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateDocumentRecipientsRoleRequestBody$ {
-  /** @deprecated use `RecipientUpdateDocumentRecipientsRoleRequestBody$inboundSchema` instead. */
+export namespace RecipientUpdateDocumentRecipientsRoleRequest$ {
+  /** @deprecated use `RecipientUpdateDocumentRecipientsRoleRequest$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateDocumentRecipientsRoleRequestBody$inboundSchema;
-  /** @deprecated use `RecipientUpdateDocumentRecipientsRoleRequestBody$outboundSchema` instead. */
+    RecipientUpdateDocumentRecipientsRoleRequest$inboundSchema;
+  /** @deprecated use `RecipientUpdateDocumentRecipientsRoleRequest$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateDocumentRecipientsRoleRequestBody$outboundSchema;
+    RecipientUpdateDocumentRecipientsRoleRequest$outboundSchema;
 }
 
 /** @internal */
-export const RecipientUpdateDocumentRecipientsAccessAuthRequestBody$inboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientUpdateDocumentRecipientsAccessAuthRequestBody
-  > = z.nativeEnum(RecipientUpdateDocumentRecipientsAccessAuthRequestBody);
+export const RecipientUpdateDocumentRecipientsAccessAuthRequest$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsAccessAuthRequest> = z
+    .nativeEnum(RecipientUpdateDocumentRecipientsAccessAuthRequest);
 
 /** @internal */
-export const RecipientUpdateDocumentRecipientsAccessAuthRequestBody$outboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientUpdateDocumentRecipientsAccessAuthRequestBody
-  > = RecipientUpdateDocumentRecipientsAccessAuthRequestBody$inboundSchema;
+export const RecipientUpdateDocumentRecipientsAccessAuthRequest$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsAccessAuthRequest> =
+    RecipientUpdateDocumentRecipientsAccessAuthRequest$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateDocumentRecipientsAccessAuthRequestBody$ {
-  /** @deprecated use `RecipientUpdateDocumentRecipientsAccessAuthRequestBody$inboundSchema` instead. */
+export namespace RecipientUpdateDocumentRecipientsAccessAuthRequest$ {
+  /** @deprecated use `RecipientUpdateDocumentRecipientsAccessAuthRequest$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateDocumentRecipientsAccessAuthRequestBody$inboundSchema;
-  /** @deprecated use `RecipientUpdateDocumentRecipientsAccessAuthRequestBody$outboundSchema` instead. */
+    RecipientUpdateDocumentRecipientsAccessAuthRequest$inboundSchema;
+  /** @deprecated use `RecipientUpdateDocumentRecipientsAccessAuthRequest$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateDocumentRecipientsAccessAuthRequestBody$outboundSchema;
+    RecipientUpdateDocumentRecipientsAccessAuthRequest$outboundSchema;
 }
 
 /** @internal */
-export const RecipientUpdateDocumentRecipientsActionAuthRequestBody$inboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientUpdateDocumentRecipientsActionAuthRequestBody
-  > = z.nativeEnum(RecipientUpdateDocumentRecipientsActionAuthRequestBody);
+export const RecipientUpdateDocumentRecipientsActionAuthRequest$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsActionAuthRequest> = z
+    .nativeEnum(RecipientUpdateDocumentRecipientsActionAuthRequest);
 
 /** @internal */
-export const RecipientUpdateDocumentRecipientsActionAuthRequestBody$outboundSchema:
-  z.ZodNativeEnum<
-    typeof RecipientUpdateDocumentRecipientsActionAuthRequestBody
-  > = RecipientUpdateDocumentRecipientsActionAuthRequestBody$inboundSchema;
+export const RecipientUpdateDocumentRecipientsActionAuthRequest$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsActionAuthRequest> =
+    RecipientUpdateDocumentRecipientsActionAuthRequest$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateDocumentRecipientsActionAuthRequestBody$ {
-  /** @deprecated use `RecipientUpdateDocumentRecipientsActionAuthRequestBody$inboundSchema` instead. */
+export namespace RecipientUpdateDocumentRecipientsActionAuthRequest$ {
+  /** @deprecated use `RecipientUpdateDocumentRecipientsActionAuthRequest$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateDocumentRecipientsActionAuthRequestBody$inboundSchema;
-  /** @deprecated use `RecipientUpdateDocumentRecipientsActionAuthRequestBody$outboundSchema` instead. */
+    RecipientUpdateDocumentRecipientsActionAuthRequest$inboundSchema;
+  /** @deprecated use `RecipientUpdateDocumentRecipientsActionAuthRequest$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateDocumentRecipientsActionAuthRequestBody$outboundSchema;
+    RecipientUpdateDocumentRecipientsActionAuthRequest$outboundSchema;
 }
 
 /** @internal */
-export const RecipientUpdateDocumentRecipientsRecipientRequestBody$inboundSchema:
+export const RecipientUpdateDocumentRecipientsRecipientRequest$inboundSchema:
   z.ZodType<
-    RecipientUpdateDocumentRecipientsRecipientRequestBody,
+    RecipientUpdateDocumentRecipientsRecipientRequest,
     z.ZodTypeDef,
     unknown
   > = z.object({
     id: z.number(),
     email: z.string().optional(),
     name: z.string().optional(),
-    role: RecipientUpdateDocumentRecipientsRoleRequestBody$inboundSchema
-      .optional(),
+    role: RecipientUpdateDocumentRecipientsRoleRequest$inboundSchema.optional(),
     signingOrder: z.number().optional(),
-    accessAuth: z.nullable(
-      RecipientUpdateDocumentRecipientsAccessAuthRequestBody$inboundSchema,
+    accessAuth: z.array(
+      RecipientUpdateDocumentRecipientsAccessAuthRequest$inboundSchema,
     ).optional(),
-    actionAuth: z.nullable(
-      RecipientUpdateDocumentRecipientsActionAuthRequestBody$inboundSchema,
+    actionAuth: z.array(
+      RecipientUpdateDocumentRecipientsActionAuthRequest$inboundSchema,
     ).optional(),
   });
 
 /** @internal */
-export type RecipientUpdateDocumentRecipientsRecipientRequestBody$Outbound = {
+export type RecipientUpdateDocumentRecipientsRecipientRequest$Outbound = {
   id: number;
   email?: string | undefined;
   name?: string | undefined;
   role?: string | undefined;
   signingOrder?: number | undefined;
-  accessAuth?: string | null | undefined;
-  actionAuth?: string | null | undefined;
+  accessAuth?: Array<string> | undefined;
+  actionAuth?: Array<string> | undefined;
 };
 
 /** @internal */
-export const RecipientUpdateDocumentRecipientsRecipientRequestBody$outboundSchema:
+export const RecipientUpdateDocumentRecipientsRecipientRequest$outboundSchema:
   z.ZodType<
-    RecipientUpdateDocumentRecipientsRecipientRequestBody$Outbound,
+    RecipientUpdateDocumentRecipientsRecipientRequest$Outbound,
     z.ZodTypeDef,
-    RecipientUpdateDocumentRecipientsRecipientRequestBody
+    RecipientUpdateDocumentRecipientsRecipientRequest
   > = z.object({
     id: z.number(),
     email: z.string().optional(),
     name: z.string().optional(),
-    role: RecipientUpdateDocumentRecipientsRoleRequestBody$outboundSchema
+    role: RecipientUpdateDocumentRecipientsRoleRequest$outboundSchema
       .optional(),
     signingOrder: z.number().optional(),
-    accessAuth: z.nullable(
-      RecipientUpdateDocumentRecipientsAccessAuthRequestBody$outboundSchema,
+    accessAuth: z.array(
+      RecipientUpdateDocumentRecipientsAccessAuthRequest$outboundSchema,
     ).optional(),
-    actionAuth: z.nullable(
-      RecipientUpdateDocumentRecipientsActionAuthRequestBody$outboundSchema,
+    actionAuth: z.array(
+      RecipientUpdateDocumentRecipientsActionAuthRequest$outboundSchema,
     ).optional(),
   });
 
@@ -601,42 +584,42 @@ export const RecipientUpdateDocumentRecipientsRecipientRequestBody$outboundSchem
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace RecipientUpdateDocumentRecipientsRecipientRequestBody$ {
-  /** @deprecated use `RecipientUpdateDocumentRecipientsRecipientRequestBody$inboundSchema` instead. */
+export namespace RecipientUpdateDocumentRecipientsRecipientRequest$ {
+  /** @deprecated use `RecipientUpdateDocumentRecipientsRecipientRequest$inboundSchema` instead. */
   export const inboundSchema =
-    RecipientUpdateDocumentRecipientsRecipientRequestBody$inboundSchema;
-  /** @deprecated use `RecipientUpdateDocumentRecipientsRecipientRequestBody$outboundSchema` instead. */
+    RecipientUpdateDocumentRecipientsRecipientRequest$inboundSchema;
+  /** @deprecated use `RecipientUpdateDocumentRecipientsRecipientRequest$outboundSchema` instead. */
   export const outboundSchema =
-    RecipientUpdateDocumentRecipientsRecipientRequestBody$outboundSchema;
-  /** @deprecated use `RecipientUpdateDocumentRecipientsRecipientRequestBody$Outbound` instead. */
+    RecipientUpdateDocumentRecipientsRecipientRequest$outboundSchema;
+  /** @deprecated use `RecipientUpdateDocumentRecipientsRecipientRequest$Outbound` instead. */
   export type Outbound =
-    RecipientUpdateDocumentRecipientsRecipientRequestBody$Outbound;
+    RecipientUpdateDocumentRecipientsRecipientRequest$Outbound;
 }
 
-export function recipientUpdateDocumentRecipientsRecipientRequestBodyToJSON(
-  recipientUpdateDocumentRecipientsRecipientRequestBody:
-    RecipientUpdateDocumentRecipientsRecipientRequestBody,
+export function recipientUpdateDocumentRecipientsRecipientRequestToJSON(
+  recipientUpdateDocumentRecipientsRecipientRequest:
+    RecipientUpdateDocumentRecipientsRecipientRequest,
 ): string {
   return JSON.stringify(
-    RecipientUpdateDocumentRecipientsRecipientRequestBody$outboundSchema.parse(
-      recipientUpdateDocumentRecipientsRecipientRequestBody,
+    RecipientUpdateDocumentRecipientsRecipientRequest$outboundSchema.parse(
+      recipientUpdateDocumentRecipientsRecipientRequest,
     ),
   );
 }
 
-export function recipientUpdateDocumentRecipientsRecipientRequestBodyFromJSON(
+export function recipientUpdateDocumentRecipientsRecipientRequestFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  RecipientUpdateDocumentRecipientsRecipientRequestBody,
+  RecipientUpdateDocumentRecipientsRecipientRequest,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      RecipientUpdateDocumentRecipientsRecipientRequestBody$inboundSchema.parse(
+      RecipientUpdateDocumentRecipientsRecipientRequest$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'RecipientUpdateDocumentRecipientsRecipientRequestBody' from JSON`,
+    `Failed to parse 'RecipientUpdateDocumentRecipientsRecipientRequest' from JSON`,
   );
 }
 
@@ -649,7 +632,7 @@ export const RecipientUpdateDocumentRecipientsRequest$inboundSchema: z.ZodType<
   documentId: z.number(),
   recipients: z.array(
     z.lazy(() =>
-      RecipientUpdateDocumentRecipientsRecipientRequestBody$inboundSchema
+      RecipientUpdateDocumentRecipientsRecipientRequest$inboundSchema
     ),
   ),
 });
@@ -657,9 +640,7 @@ export const RecipientUpdateDocumentRecipientsRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type RecipientUpdateDocumentRecipientsRequest$Outbound = {
   documentId: number;
-  recipients: Array<
-    RecipientUpdateDocumentRecipientsRecipientRequestBody$Outbound
-  >;
+  recipients: Array<RecipientUpdateDocumentRecipientsRecipientRequest$Outbound>;
 };
 
 /** @internal */
@@ -671,7 +652,7 @@ export const RecipientUpdateDocumentRecipientsRequest$outboundSchema: z.ZodType<
   documentId: z.number(),
   recipients: z.array(
     z.lazy(() =>
-      RecipientUpdateDocumentRecipientsRecipientRequestBody$outboundSchema
+      RecipientUpdateDocumentRecipientsRecipientRequest$outboundSchema
     ),
   ),
 });
@@ -863,18 +844,18 @@ export const RecipientUpdateDocumentRecipientsAuthOptions$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({
-    accessAuth: z.nullable(
+    accessAuth: z.array(
       RecipientUpdateDocumentRecipientsAccessAuthResponse$inboundSchema,
     ),
-    actionAuth: z.nullable(
+    actionAuth: z.array(
       RecipientUpdateDocumentRecipientsActionAuthResponse$inboundSchema,
     ),
   });
 
 /** @internal */
 export type RecipientUpdateDocumentRecipientsAuthOptions$Outbound = {
-  accessAuth: string | null;
-  actionAuth: string | null;
+  accessAuth: Array<string>;
+  actionAuth: Array<string>;
 };
 
 /** @internal */
@@ -884,10 +865,10 @@ export const RecipientUpdateDocumentRecipientsAuthOptions$outboundSchema:
     z.ZodTypeDef,
     RecipientUpdateDocumentRecipientsAuthOptions
   > = z.object({
-    accessAuth: z.nullable(
+    accessAuth: z.array(
       RecipientUpdateDocumentRecipientsAccessAuthResponse$outboundSchema,
     ),
-    actionAuth: z.nullable(
+    actionAuth: z.array(
       RecipientUpdateDocumentRecipientsActionAuthResponse$outboundSchema,
     ),
   });

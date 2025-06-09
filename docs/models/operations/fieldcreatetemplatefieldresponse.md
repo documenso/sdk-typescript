@@ -11,15 +11,13 @@ let value: FieldCreateTemplateFieldResponse = {
   type: "CHECKBOX",
   id: 994.15,
   secondaryId: "<id>",
-  documentId: 8747.47,
-  templateId: 9901.8,
-  recipientId: 3434.76,
-  page: 3859.65,
+  documentId: 9901.8,
+  templateId: 3859.65,
+  recipientId: 7861.45,
+  page: 5905.76,
   customText: "<value>",
   inserted: false,
-  fieldMeta: {
-    type: "checkbox",
-  },
+  fieldMeta: null,
 };
 ```
 

@@ -10,17 +10,17 @@ import { FieldUpdateTemplateFieldsResponse } from "@documenso/sdk-typescript/mod
 let value: FieldUpdateTemplateFieldsResponse = {
   fields: [
     {
-      type: "CHECKBOX",
-      id: 1284.33,
+      type: "FREE_SIGNATURE",
+      id: 6817.07,
       secondaryId: "<id>",
-      documentId: 6817.07,
-      templateId: 1094.84,
-      recipientId: 2673.63,
-      page: 5224.94,
+      documentId: 2673.63,
+      templateId: 6356.17,
+      recipientId: 2551.5,
+      page: 107.6,
       customText: "<value>",
       inserted: false,
       fieldMeta: {
-        type: "number",
+        type: "date",
       },
     },
   ],

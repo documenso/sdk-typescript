@@ -181,6 +181,7 @@ export const DocumentSendDocumentGlobalActionAuth = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
+  Password: "PASSWORD",
 } as const;
 /**
  * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
@@ -190,14 +191,8 @@ export type DocumentSendDocumentGlobalActionAuth = ClosedEnum<
 >;
 
 export type DocumentSendDocumentAuthOptions = {
-  /**
-   * The type of authentication required for the recipient to access the document.
-   */
-  globalAccessAuth: DocumentSendDocumentGlobalAccessAuth | null;
-  /**
-   * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
-   */
-  globalActionAuth: DocumentSendDocumentGlobalActionAuth | null;
+  globalAccessAuth: Array<DocumentSendDocumentGlobalAccessAuth>;
+  globalActionAuth: Array<DocumentSendDocumentGlobalActionAuth>;
 };
 
 export type DocumentSendDocumentFormValues = string | boolean | number;
@@ -228,6 +223,8 @@ export type DocumentSendDocumentResponse = {
   deletedAt: string | null;
   teamId: number | null;
   templateId: number | null;
+  folderId: string | null;
+  useLegacyFieldInsertion: boolean;
 };
 
 /** @internal */
@@ -626,18 +623,14 @@ export const DocumentSendDocumentAuthOptions$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  globalAccessAuth: z.nullable(
-    DocumentSendDocumentGlobalAccessAuth$inboundSchema,
-  ),
-  globalActionAuth: z.nullable(
-    DocumentSendDocumentGlobalActionAuth$inboundSchema,
-  ),
+  globalAccessAuth: z.array(DocumentSendDocumentGlobalAccessAuth$inboundSchema),
+  globalActionAuth: z.array(DocumentSendDocumentGlobalActionAuth$inboundSchema),
 });
 
 /** @internal */
 export type DocumentSendDocumentAuthOptions$Outbound = {
-  globalAccessAuth: string | null;
-  globalActionAuth: string | null;
+  globalAccessAuth: Array<string>;
+  globalActionAuth: Array<string>;
 };
 
 /** @internal */
@@ -646,10 +639,10 @@ export const DocumentSendDocumentAuthOptions$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentSendDocumentAuthOptions
 > = z.object({
-  globalAccessAuth: z.nullable(
+  globalAccessAuth: z.array(
     DocumentSendDocumentGlobalAccessAuth$outboundSchema,
   ),
-  globalActionAuth: z.nullable(
+  globalActionAuth: z.array(
     DocumentSendDocumentGlobalActionAuth$outboundSchema,
   ),
 });
@@ -763,6 +756,8 @@ export const DocumentSendDocumentResponse$inboundSchema: z.ZodType<
   deletedAt: z.nullable(z.string()),
   teamId: z.nullable(z.number()),
   templateId: z.nullable(z.number()),
+  folderId: z.nullable(z.string()),
+  useLegacyFieldInsertion: z.boolean(),
 });
 
 /** @internal */
@@ -783,6 +778,8 @@ export type DocumentSendDocumentResponse$Outbound = {
   deletedAt: string | null;
   teamId: number | null;
   templateId: number | null;
+  folderId: string | null;
+  useLegacyFieldInsertion: boolean;
 };
 
 /** @internal */
@@ -811,6 +808,8 @@ export const DocumentSendDocumentResponse$outboundSchema: z.ZodType<
   deletedAt: z.nullable(z.string()),
   teamId: z.nullable(z.number()),
   templateId: z.nullable(z.number()),
+  folderId: z.nullable(z.string()),
+  useLegacyFieldInsertion: z.boolean(),
 });
 
 /**

@@ -10,15 +10,15 @@ import { FieldUpdateDocumentFieldsResponse } from "@documenso/sdk-typescript/mod
 let value: FieldUpdateDocumentFieldsResponse = {
   fields: [
     {
-      type: "DROPDOWN",
-      id: 2992.55,
+      type: "NAME",
+      id: 6326.22,
       secondaryId: "<id>",
-      documentId: 6326.22,
-      templateId: 4223.59,
-      recipientId: 892,
-      page: 9865.38,
+      documentId: 892,
+      templateId: 608.73,
+      recipientId: 7078.42,
+      page: 724.02,
       customText: "<value>",
-      inserted: false,
+      inserted: true,
       fieldMeta: {
         type: "initials",
       },

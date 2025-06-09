@@ -7,7 +7,7 @@ import { FieldGetTemplateFieldValue1 } from "@documenso/sdk-typescript/models/op
 
 let value: FieldGetTemplateFieldValue1 = {
   id: 220.34,
-  checked: false,
+  checked: true,
   value: "<value>",
 };
 ```

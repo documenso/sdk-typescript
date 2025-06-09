@@ -7,7 +7,7 @@ import { FieldCreateDocumentFieldsValueResponse2 } from "@documenso/sdk-typescri
 
 let value: FieldCreateDocumentFieldsValueResponse2 = {
   id: 2415.99,
-  checked: false,
+  checked: true,
   value: "<value>",
 };
 ```

@@ -11,19 +11,21 @@ let value: TemplateFindTemplatesRecipient = {
   signingStatus: "REJECTED",
   sendStatus: "SENT",
   id: 1377.33,
-  documentId: 2796.94,
-  templateId: 8929.31,
-  email: "Claude56@hotmail.com",
+  documentId: 8929.31,
+  templateId: 1915.13,
+  email: "Haylie_Mante80@yahoo.com",
   name: "<value>",
   token: "<value>",
   documentDeletedAt: "<value>",
   expired: "<value>",
   signedAt: "<value>",
   authOptions: {
-    accessAuth: "ACCOUNT",
-    actionAuth: "EXPLICIT_NONE",
+    accessAuth: [],
+    actionAuth: [
+      "EXPLICIT_NONE",
+    ],
   },
-  signingOrder: 1504.12,
+  signingOrder: 1069.41,
   rejectionReason: "<value>",
 };
 ```

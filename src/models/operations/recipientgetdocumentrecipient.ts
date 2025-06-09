@@ -68,6 +68,7 @@ export const RecipientGetDocumentRecipientActionAuth = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
+  Password: "PASSWORD",
   ExplicitNone: "EXPLICIT_NONE",
 } as const;
 /**
@@ -78,14 +79,8 @@ export type RecipientGetDocumentRecipientActionAuth = ClosedEnum<
 >;
 
 export type RecipientGetDocumentRecipientAuthOptions = {
-  /**
-   * The type of authentication required for the recipient to access the document.
-   */
-  accessAuth: RecipientGetDocumentRecipientAccessAuth | null;
-  /**
-   * The type of authentication required for the recipient to sign the document.
-   */
-  actionAuth: RecipientGetDocumentRecipientActionAuth | null;
+  accessAuth: Array<RecipientGetDocumentRecipientAccessAuth>;
+  actionAuth: Array<RecipientGetDocumentRecipientActionAuth>;
 };
 
 export const RecipientGetDocumentRecipientType = {
@@ -603,14 +598,14 @@ export const RecipientGetDocumentRecipientAuthOptions$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  accessAuth: z.nullable(RecipientGetDocumentRecipientAccessAuth$inboundSchema),
-  actionAuth: z.nullable(RecipientGetDocumentRecipientActionAuth$inboundSchema),
+  accessAuth: z.array(RecipientGetDocumentRecipientAccessAuth$inboundSchema),
+  actionAuth: z.array(RecipientGetDocumentRecipientActionAuth$inboundSchema),
 });
 
 /** @internal */
 export type RecipientGetDocumentRecipientAuthOptions$Outbound = {
-  accessAuth: string | null;
-  actionAuth: string | null;
+  accessAuth: Array<string>;
+  actionAuth: Array<string>;
 };
 
 /** @internal */
@@ -619,12 +614,8 @@ export const RecipientGetDocumentRecipientAuthOptions$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   RecipientGetDocumentRecipientAuthOptions
 > = z.object({
-  accessAuth: z.nullable(
-    RecipientGetDocumentRecipientAccessAuth$outboundSchema,
-  ),
-  actionAuth: z.nullable(
-    RecipientGetDocumentRecipientActionAuth$outboundSchema,
-  ),
+  accessAuth: z.array(RecipientGetDocumentRecipientAccessAuth$outboundSchema),
+  actionAuth: z.array(RecipientGetDocumentRecipientActionAuth$outboundSchema),
 });
 
 /**

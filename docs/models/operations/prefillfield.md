@@ -8,7 +8,7 @@
 ```typescript
 const value: operations.PrefillFieldText = {
   type: "text",
-  id: 842.09,
+  id: 4182.56,
 };
 ```
 
@@ -17,7 +17,7 @@ const value: operations.PrefillFieldText = {
 ```typescript
 const value: operations.PrefillFieldNumber = {
   type: "number",
-  id: 7797.7,
+  id: 1246.35,
 };
 ```
 
@@ -26,7 +26,7 @@ const value: operations.PrefillFieldNumber = {
 ```typescript
 const value: operations.PrefillFieldRadio = {
   type: "radio",
-  id: 3632.22,
+  id: 9984.61,
 };
 ```
 
@@ -35,7 +35,7 @@ const value: operations.PrefillFieldRadio = {
 ```typescript
 const value: operations.PrefillFieldCheckbox = {
   type: "checkbox",
-  id: 9523.11,
+  id: 8002.57,
 };
 ```
 
@@ -44,7 +44,16 @@ const value: operations.PrefillFieldCheckbox = {
 ```typescript
 const value: operations.PrefillFieldDropdown = {
   type: "dropdown",
-  id: 5857.98,
+  id: 2551.62,
+};
+```
+
+### `operations.PrefillFieldDate`
+
+```typescript
+const value: operations.PrefillFieldDate = {
+  type: "date",
+  id: 2991.65,
 };
 ```
 

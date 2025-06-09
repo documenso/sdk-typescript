@@ -7,7 +7,7 @@ import { TemplateFindTemplatesValue2 } from "@documenso/sdk-typescript/models/op
 
 let value: TemplateFindTemplatesValue2 = {
   id: 7899.81,
-  checked: false,
+  checked: true,
   value: "<value>",
 };
 ```

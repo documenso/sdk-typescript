@@ -13,36 +13,25 @@ let value: RecipientGetDocumentRecipientResponse = {
   signingStatus: "SIGNED",
   sendStatus: "NOT_SENT",
   id: 2726.18,
-  documentId: 7957.69,
-  templateId: 4860.57,
-  email: "Merlin_Bechtelar@hotmail.com",
+  documentId: 4860.57,
+  templateId: 7115.56,
+  email: "Amelie.Smith28@hotmail.com",
   name: "<value>",
   token: "<value>",
   documentDeletedAt: "<value>",
   expired: "<value>",
   signedAt: "<value>",
   authOptions: {
-    accessAuth: "ACCOUNT",
-    actionAuth: "PASSKEY",
+    accessAuth: [
+      "ACCOUNT",
+    ],
+    actionAuth: [
+      "TWO_FACTOR_AUTH",
+    ],
   },
-  signingOrder: 101.39,
+  signingOrder: 2471.84,
   rejectionReason: "<value>",
-  fields: [
-    {
-      type: "RADIO",
-      id: 8092.34,
-      secondaryId: "<id>",
-      documentId: 8760.1,
-      templateId: 5778.13,
-      recipientId: 5565.54,
-      page: 5215.72,
-      customText: "<value>",
-      inserted: false,
-      fieldMeta: {
-        type: "text",
-      },
-    },
-  ],
+  fields: [],
 };
 ```
 

@@ -13,5 +13,5 @@ let value: TemplateCreateDocumentFromTemplateActionAuth = "EXPLICIT_NONE";
 ## Values
 
 ```typescript
-"ACCOUNT" | "PASSKEY" | "TWO_FACTOR_AUTH" | "EXPLICIT_NONE"
+"ACCOUNT" | "PASSKEY" | "TWO_FACTOR_AUTH" | "PASSWORD" | "EXPLICIT_NONE"
 ```

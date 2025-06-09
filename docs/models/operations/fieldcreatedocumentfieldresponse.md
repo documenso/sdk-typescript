@@ -11,14 +11,14 @@ let value: FieldCreateDocumentFieldResponse = {
   type: "NAME",
   id: 4449.71,
   secondaryId: "<id>",
-  documentId: 1726.85,
-  templateId: 5701.48,
-  recipientId: 1398.58,
-  page: 1924.19,
+  documentId: 5701.48,
+  templateId: 1924.19,
+  recipientId: 6020.59,
+  page: 2815.91,
   customText: "<value>",
   inserted: false,
   fieldMeta: {
-    type: "number",
+    type: "radio",
   },
 };
 ```

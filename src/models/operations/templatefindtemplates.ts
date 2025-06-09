@@ -37,6 +37,10 @@ export type TemplateFindTemplatesRequest = {
    * Filter templates by type.
    */
   type?: QueryParamType | undefined;
+  /**
+   * The ID of the folder to filter templates by.
+   */
+  folderId?: string | undefined;
 };
 
 export const TemplateFindTemplatesDataType = {
@@ -76,6 +80,7 @@ export const TemplateFindTemplatesGlobalActionAuth = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
+  Password: "PASSWORD",
 } as const;
 /**
  * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
@@ -85,14 +90,8 @@ export type TemplateFindTemplatesGlobalActionAuth = ClosedEnum<
 >;
 
 export type TemplateFindTemplatesAuthOptions = {
-  /**
-   * The type of authentication required for the recipient to access the document.
-   */
-  globalAccessAuth: TemplateFindTemplatesGlobalAccessAuth | null;
-  /**
-   * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
-   */
-  globalActionAuth: TemplateFindTemplatesGlobalActionAuth | null;
+  globalAccessAuth: Array<TemplateFindTemplatesGlobalAccessAuth>;
+  globalActionAuth: Array<TemplateFindTemplatesGlobalActionAuth>;
 };
 
 export type TemplateFindTemplatesTeam = {
@@ -443,6 +442,7 @@ export const TemplateFindTemplatesActionAuth = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
+  Password: "PASSWORD",
   ExplicitNone: "EXPLICIT_NONE",
 } as const;
 /**
@@ -453,14 +453,8 @@ export type TemplateFindTemplatesActionAuth = ClosedEnum<
 >;
 
 export type TemplateFindTemplatesRecipientAuthOptions = {
-  /**
-   * The type of authentication required for the recipient to access the document.
-   */
-  accessAuth: TemplateFindTemplatesAccessAuth | null;
-  /**
-   * The type of authentication required for the recipient to sign the document.
-   */
-  actionAuth: TemplateFindTemplatesActionAuth | null;
+  accessAuth: Array<TemplateFindTemplatesAccessAuth>;
+  actionAuth: Array<TemplateFindTemplatesActionAuth>;
 };
 
 export type TemplateFindTemplatesRecipient = {
@@ -525,6 +519,8 @@ export type TemplateFindTemplatesData = {
   updatedAt: string;
   publicTitle: string;
   publicDescription: string;
+  folderId: string | null;
+  useLegacyFieldInsertion: boolean;
   team: TemplateFindTemplatesTeam | null;
   fields: Array<TemplateFindTemplatesField>;
   recipients: Array<TemplateFindTemplatesRecipient>;
@@ -586,6 +582,7 @@ export const TemplateFindTemplatesRequest$inboundSchema: z.ZodType<
   page: z.number().optional(),
   perPage: z.number().optional(),
   type: QueryParamType$inboundSchema.optional(),
+  folderId: z.string().optional(),
 });
 
 /** @internal */
@@ -594,6 +591,7 @@ export type TemplateFindTemplatesRequest$Outbound = {
   page?: number | undefined;
   perPage?: number | undefined;
   type?: string | undefined;
+  folderId?: string | undefined;
 };
 
 /** @internal */
@@ -606,6 +604,7 @@ export const TemplateFindTemplatesRequest$outboundSchema: z.ZodType<
   page: z.number().optional(),
   perPage: z.number().optional(),
   type: QueryParamType$outboundSchema.optional(),
+  folderId: z.string().optional(),
 });
 
 /**
@@ -737,18 +736,18 @@ export const TemplateFindTemplatesAuthOptions$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  globalAccessAuth: z.nullable(
+  globalAccessAuth: z.array(
     TemplateFindTemplatesGlobalAccessAuth$inboundSchema,
   ),
-  globalActionAuth: z.nullable(
+  globalActionAuth: z.array(
     TemplateFindTemplatesGlobalActionAuth$inboundSchema,
   ),
 });
 
 /** @internal */
 export type TemplateFindTemplatesAuthOptions$Outbound = {
-  globalAccessAuth: string | null;
-  globalActionAuth: string | null;
+  globalAccessAuth: Array<string>;
+  globalActionAuth: Array<string>;
 };
 
 /** @internal */
@@ -757,10 +756,10 @@ export const TemplateFindTemplatesAuthOptions$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TemplateFindTemplatesAuthOptions
 > = z.object({
-  globalAccessAuth: z.nullable(
+  globalAccessAuth: z.array(
     TemplateFindTemplatesGlobalAccessAuth$outboundSchema,
   ),
-  globalActionAuth: z.nullable(
+  globalActionAuth: z.array(
     TemplateFindTemplatesGlobalActionAuth$outboundSchema,
   ),
 });
@@ -2433,14 +2432,14 @@ export const TemplateFindTemplatesRecipientAuthOptions$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  accessAuth: z.nullable(TemplateFindTemplatesAccessAuth$inboundSchema),
-  actionAuth: z.nullable(TemplateFindTemplatesActionAuth$inboundSchema),
+  accessAuth: z.array(TemplateFindTemplatesAccessAuth$inboundSchema),
+  actionAuth: z.array(TemplateFindTemplatesActionAuth$inboundSchema),
 });
 
 /** @internal */
 export type TemplateFindTemplatesRecipientAuthOptions$Outbound = {
-  accessAuth: string | null;
-  actionAuth: string | null;
+  accessAuth: Array<string>;
+  actionAuth: Array<string>;
 };
 
 /** @internal */
@@ -2450,8 +2449,8 @@ export const TemplateFindTemplatesRecipientAuthOptions$outboundSchema:
     z.ZodTypeDef,
     TemplateFindTemplatesRecipientAuthOptions
   > = z.object({
-    accessAuth: z.nullable(TemplateFindTemplatesAccessAuth$outboundSchema),
-    actionAuth: z.nullable(TemplateFindTemplatesActionAuth$outboundSchema),
+    accessAuth: z.array(TemplateFindTemplatesAccessAuth$outboundSchema),
+    actionAuth: z.array(TemplateFindTemplatesActionAuth$outboundSchema),
   });
 
 /**
@@ -2786,6 +2785,8 @@ export const TemplateFindTemplatesData$inboundSchema: z.ZodType<
   updatedAt: z.string(),
   publicTitle: z.string(),
   publicDescription: z.string(),
+  folderId: z.nullable(z.string()),
+  useLegacyFieldInsertion: z.boolean(),
   team: z.nullable(z.lazy(() => TemplateFindTemplatesTeam$inboundSchema)),
   fields: z.array(z.lazy(() => TemplateFindTemplatesField$inboundSchema)),
   recipients: z.array(
@@ -2814,6 +2815,8 @@ export type TemplateFindTemplatesData$Outbound = {
   updatedAt: string;
   publicTitle: string;
   publicDescription: string;
+  folderId: string | null;
+  useLegacyFieldInsertion: boolean;
   team: TemplateFindTemplatesTeam$Outbound | null;
   fields: Array<TemplateFindTemplatesField$Outbound>;
   recipients: Array<TemplateFindTemplatesRecipient$Outbound>;
@@ -2842,6 +2845,8 @@ export const TemplateFindTemplatesData$outboundSchema: z.ZodType<
   updatedAt: z.string(),
   publicTitle: z.string(),
   publicDescription: z.string(),
+  folderId: z.nullable(z.string()),
+  useLegacyFieldInsertion: z.boolean(),
   team: z.nullable(z.lazy(() => TemplateFindTemplatesTeam$outboundSchema)),
   fields: z.array(z.lazy(() => TemplateFindTemplatesField$outboundSchema)),
   recipients: z.array(

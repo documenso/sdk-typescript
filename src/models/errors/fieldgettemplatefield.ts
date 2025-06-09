@@ -5,6 +5,7 @@
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
 export type FieldGetTemplateFieldInternalServerErrorIssue = {
@@ -23,20 +24,22 @@ export type FieldGetTemplateFieldInternalServerErrorData = {
 /**
  * Internal server error
  */
-export class FieldGetTemplateFieldInternalServerError extends Error {
+export class FieldGetTemplateFieldInternalServerError extends DocumensoError {
   code: string;
   issues?: Array<FieldGetTemplateFieldInternalServerErrorIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: FieldGetTemplateFieldInternalServerErrorData;
 
-  constructor(err: FieldGetTemplateFieldInternalServerErrorData) {
+  constructor(
+    err: FieldGetTemplateFieldInternalServerErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -60,20 +63,22 @@ export type FieldGetTemplateFieldNotFoundErrorData = {
 /**
  * Not found
  */
-export class FieldGetTemplateFieldNotFoundError extends Error {
+export class FieldGetTemplateFieldNotFoundError extends DocumensoError {
   code: string;
   issues?: Array<FieldGetTemplateFieldNotFoundIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: FieldGetTemplateFieldNotFoundErrorData;
 
-  constructor(err: FieldGetTemplateFieldNotFoundErrorData) {
+  constructor(
+    err: FieldGetTemplateFieldNotFoundErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -97,20 +102,22 @@ export type FieldGetTemplateFieldBadRequestErrorData = {
 /**
  * Invalid input data
  */
-export class FieldGetTemplateFieldBadRequestError extends Error {
+export class FieldGetTemplateFieldBadRequestError extends DocumensoError {
   code: string;
   issues?: Array<FieldGetTemplateFieldBadRequestIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: FieldGetTemplateFieldBadRequestErrorData;
 
-  constructor(err: FieldGetTemplateFieldBadRequestErrorData) {
+  constructor(
+    err: FieldGetTemplateFieldBadRequestErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -196,9 +203,16 @@ export const FieldGetTemplateFieldInternalServerError$inboundSchema: z.ZodType<
   issues: z.array(
     z.lazy(() => FieldGetTemplateFieldInternalServerErrorIssue$inboundSchema),
   ).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new FieldGetTemplateFieldInternalServerError(v);
+    return new FieldGetTemplateFieldInternalServerError(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */
@@ -311,9 +325,16 @@ export const FieldGetTemplateFieldNotFoundError$inboundSchema: z.ZodType<
   issues: z.array(
     z.lazy(() => FieldGetTemplateFieldNotFoundIssue$inboundSchema),
   ).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new FieldGetTemplateFieldNotFoundError(v);
+    return new FieldGetTemplateFieldNotFoundError(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */
@@ -422,9 +443,16 @@ export const FieldGetTemplateFieldBadRequestError$inboundSchema: z.ZodType<
   issues: z.array(
     z.lazy(() => FieldGetTemplateFieldBadRequestIssue$inboundSchema),
   ).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new FieldGetTemplateFieldBadRequestError(v);
+    return new FieldGetTemplateFieldBadRequestError(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */

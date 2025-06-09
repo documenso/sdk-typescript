@@ -9,14 +9,14 @@ let value: FieldUpdateTemplateFieldsFieldResponse = {
   type: "TEXT",
   id: 3097.8,
   secondaryId: "<id>",
-  documentId: 375.86,
-  templateId: 4055.95,
-  recipientId: 7826.05,
-  page: 5764.37,
+  documentId: null,
+  templateId: 7826.05,
+  recipientId: 5764.37,
+  page: 8208.39,
   customText: "<value>",
   inserted: false,
   fieldMeta: {
-    type: "checkbox",
+    type: "radio",
   },
 };
 ```

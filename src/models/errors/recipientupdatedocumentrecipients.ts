@@ -5,6 +5,7 @@
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
 export type RecipientUpdateDocumentRecipientsInternalServerErrorIssue = {
@@ -26,7 +27,7 @@ export type RecipientUpdateDocumentRecipientsInternalServerErrorData = {
  * Internal server error
  */
 export class RecipientUpdateDocumentRecipientsInternalServerError
-  extends Error
+  extends DocumensoError
 {
   code: string;
   issues?:
@@ -36,13 +37,15 @@ export class RecipientUpdateDocumentRecipientsInternalServerError
   /** The original data that was passed to this error instance. */
   data$: RecipientUpdateDocumentRecipientsInternalServerErrorData;
 
-  constructor(err: RecipientUpdateDocumentRecipientsInternalServerErrorData) {
+  constructor(
+    err: RecipientUpdateDocumentRecipientsInternalServerErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -66,20 +69,24 @@ export type RecipientUpdateDocumentRecipientsBadRequestErrorData = {
 /**
  * Invalid input data
  */
-export class RecipientUpdateDocumentRecipientsBadRequestError extends Error {
+export class RecipientUpdateDocumentRecipientsBadRequestError
+  extends DocumensoError
+{
   code: string;
   issues?: Array<RecipientUpdateDocumentRecipientsBadRequestIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: RecipientUpdateDocumentRecipientsBadRequestErrorData;
 
-  constructor(err: RecipientUpdateDocumentRecipientsBadRequestErrorData) {
+  constructor(
+    err: RecipientUpdateDocumentRecipientsBadRequestErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -168,9 +175,16 @@ export const RecipientUpdateDocumentRecipientsInternalServerError$inboundSchema:
         RecipientUpdateDocumentRecipientsInternalServerErrorIssue$inboundSchema
       ),
     ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
   })
     .transform((v) => {
-      return new RecipientUpdateDocumentRecipientsInternalServerError(v);
+      return new RecipientUpdateDocumentRecipientsInternalServerError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
     });
 
 /** @internal */
@@ -298,9 +312,16 @@ export const RecipientUpdateDocumentRecipientsBadRequestError$inboundSchema:
         RecipientUpdateDocumentRecipientsBadRequestIssue$inboundSchema
       ),
     ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
   })
     .transform((v) => {
-      return new RecipientUpdateDocumentRecipientsBadRequestError(v);
+      return new RecipientUpdateDocumentRecipientsBadRequestError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
     });
 
 /** @internal */

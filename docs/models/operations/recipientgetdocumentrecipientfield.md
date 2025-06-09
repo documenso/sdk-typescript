@@ -9,14 +9,14 @@ let value: RecipientGetDocumentRecipientField = {
   type: "SIGNATURE",
   id: 7743.27,
   secondaryId: "<id>",
-  documentId: 5918.62,
-  templateId: 2973.96,
-  recipientId: 7998.89,
-  page: 3890.13,
+  documentId: 2973.96,
+  templateId: 3890.13,
+  recipientId: 565.05,
+  page: 3748.71,
   customText: "<value>",
-  inserted: false,
+  inserted: true,
   fieldMeta: {
-    type: "initials",
+    type: "dropdown",
   },
 };
 ```

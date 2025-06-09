@@ -11,19 +11,21 @@ let value: TemplateGetTemplateByIdRecipient = {
   signingStatus: "NOT_SIGNED",
   sendStatus: "SENT",
   id: 9979.58,
-  documentId: 7398.2,
-  templateId: 9567.96,
-  email: "Bella_Farrell@hotmail.com",
+  documentId: 9567.96,
+  templateId: 1045.43,
+  email: "Dannie.Kuhn@gmail.com",
   name: "<value>",
   token: "<value>",
   documentDeletedAt: "<value>",
   expired: "<value>",
   signedAt: "<value>",
   authOptions: {
-    accessAuth: "ACCOUNT",
-    actionAuth: "PASSKEY",
+    accessAuth: [],
+    actionAuth: [
+      "EXPLICIT_NONE",
+    ],
   },
-  signingOrder: 6550.15,
+  signingOrder: 6573.86,
   rejectionReason: "<value>",
 };
 ```

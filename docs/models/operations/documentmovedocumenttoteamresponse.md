@@ -13,22 +13,26 @@ let value: DocumentMoveDocumentToTeamResponse = {
   source: "TEMPLATE",
   id: 5317.34,
   externalId: "<id>",
-  userId: 6190.61,
+  userId: 3753.56,
   authOptions: {
-    globalAccessAuth: "ACCOUNT",
-    globalActionAuth: "PASSKEY",
+    globalAccessAuth: [],
+    globalActionAuth: [
+      "PASSWORD",
+    ],
   },
   formValues: {
-    "key": false,
+    "key": "<value>",
   },
   title: "<value>",
   documentDataId: "<id>",
-  createdAt: "1714360484976",
-  updatedAt: "1744041325995",
+  createdAt: "1708947960146",
+  updatedAt: "1735626989340",
   completedAt: "<value>",
   deletedAt: "<value>",
-  teamId: 8022.32,
-  templateId: 5805.01,
+  teamId: 156.69,
+  templateId: 6405.94,
+  folderId: "<id>",
+  useLegacyFieldInsertion: true,
 };
 ```
 
@@ -52,3 +56,5 @@ let value: DocumentMoveDocumentToTeamResponse = {
 | `deletedAt`                                                                                                          | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
 | `teamId`                                                                                                             | *number*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
 | `templateId`                                                                                                         | *number*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
+| `folderId`                                                                                                           | *string*                                                                                                             | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
+| `useLegacyFieldInsertion`                                                                                            | *boolean*                                                                                                            | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |

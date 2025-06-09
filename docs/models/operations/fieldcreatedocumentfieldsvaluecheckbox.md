@@ -7,7 +7,7 @@ import { FieldCreateDocumentFieldsValueCheckbox } from "@documenso/sdk-typescrip
 
 let value: FieldCreateDocumentFieldsValueCheckbox = {
   id: 6200.51,
-  checked: false,
+  checked: true,
   value: "<value>",
 };
 ```

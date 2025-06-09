@@ -68,6 +68,7 @@ export const RecipientGetTemplateRecipientActionAuth = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
+  Password: "PASSWORD",
   ExplicitNone: "EXPLICIT_NONE",
 } as const;
 /**
@@ -78,14 +79,8 @@ export type RecipientGetTemplateRecipientActionAuth = ClosedEnum<
 >;
 
 export type RecipientGetTemplateRecipientAuthOptions = {
-  /**
-   * The type of authentication required for the recipient to access the document.
-   */
-  accessAuth: RecipientGetTemplateRecipientAccessAuth | null;
-  /**
-   * The type of authentication required for the recipient to sign the document.
-   */
-  actionAuth: RecipientGetTemplateRecipientActionAuth | null;
+  accessAuth: Array<RecipientGetTemplateRecipientAccessAuth>;
+  actionAuth: Array<RecipientGetTemplateRecipientActionAuth>;
 };
 
 export const RecipientGetTemplateRecipientType = {
@@ -603,14 +598,14 @@ export const RecipientGetTemplateRecipientAuthOptions$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  accessAuth: z.nullable(RecipientGetTemplateRecipientAccessAuth$inboundSchema),
-  actionAuth: z.nullable(RecipientGetTemplateRecipientActionAuth$inboundSchema),
+  accessAuth: z.array(RecipientGetTemplateRecipientAccessAuth$inboundSchema),
+  actionAuth: z.array(RecipientGetTemplateRecipientActionAuth$inboundSchema),
 });
 
 /** @internal */
 export type RecipientGetTemplateRecipientAuthOptions$Outbound = {
-  accessAuth: string | null;
-  actionAuth: string | null;
+  accessAuth: Array<string>;
+  actionAuth: Array<string>;
 };
 
 /** @internal */
@@ -619,12 +614,8 @@ export const RecipientGetTemplateRecipientAuthOptions$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   RecipientGetTemplateRecipientAuthOptions
 > = z.object({
-  accessAuth: z.nullable(
-    RecipientGetTemplateRecipientAccessAuth$outboundSchema,
-  ),
-  actionAuth: z.nullable(
-    RecipientGetTemplateRecipientActionAuth$outboundSchema,
-  ),
+  accessAuth: z.array(RecipientGetTemplateRecipientAccessAuth$outboundSchema),
+  actionAuth: z.array(RecipientGetTemplateRecipientActionAuth$outboundSchema),
 });
 
 /**

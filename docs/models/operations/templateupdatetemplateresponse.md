@@ -13,17 +13,23 @@ let value: TemplateUpdateTemplateResponse = {
   id: 3618.86,
   externalId: "<id>",
   title: "<value>",
-  userId: 5399.75,
-  teamId: 9635.03,
+  userId: 9635.03,
+  teamId: 265.31,
   authOptions: {
-    globalAccessAuth: "ACCOUNT",
-    globalActionAuth: "TWO_FACTOR_AUTH",
+    globalAccessAuth: [
+      "ACCOUNT",
+    ],
+    globalActionAuth: [
+      "PASSWORD",
+    ],
   },
   templateDocumentDataId: "<id>",
-  createdAt: "1713372499431",
-  updatedAt: "1744021610314",
+  createdAt: "1712865818564",
+  updatedAt: "1735650192364",
   publicTitle: "<value>",
   publicDescription: "<value>",
+  folderId: "<id>",
+  useLegacyFieldInsertion: false,
 };
 ```
 
@@ -44,3 +50,5 @@ let value: TemplateUpdateTemplateResponse = {
 | `updatedAt`                                                                                                                | *string*                                                                                                                   | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
 | `publicTitle`                                                                                                              | *string*                                                                                                                   | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
 | `publicDescription`                                                                                                        | *string*                                                                                                                   | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
+| `folderId`                                                                                                                 | *string*                                                                                                                   | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
+| `useLegacyFieldInsertion`                                                                                                  | *boolean*                                                                                                                  | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |

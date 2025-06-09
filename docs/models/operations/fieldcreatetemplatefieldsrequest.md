@@ -9,13 +9,13 @@ let value: FieldCreateTemplateFieldsRequest = {
   templateId: 9058.4,
   fields: [
     {
-      type: "RADIO",
-      recipientId: 4725.18,
-      pageNumber: 9761.82,
-      pageX: 4030.79,
-      pageY: 3072.4,
-      width: 797.43,
-      height: 1360.37,
+      type: "DATE",
+      recipientId: 9761.82,
+      pageNumber: 4030.79,
+      pageX: 3072.4,
+      pageY: 797.43,
+      width: 1360.37,
+      height: 3308.17,
     },
   ],
 };

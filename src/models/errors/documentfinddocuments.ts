@@ -5,6 +5,7 @@
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
 export type DocumentFindDocumentsInternalServerErrorIssue = {
@@ -23,20 +24,22 @@ export type DocumentFindDocumentsInternalServerErrorData = {
 /**
  * Internal server error
  */
-export class DocumentFindDocumentsInternalServerError extends Error {
+export class DocumentFindDocumentsInternalServerError extends DocumensoError {
   code: string;
   issues?: Array<DocumentFindDocumentsInternalServerErrorIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: DocumentFindDocumentsInternalServerErrorData;
 
-  constructor(err: DocumentFindDocumentsInternalServerErrorData) {
+  constructor(
+    err: DocumentFindDocumentsInternalServerErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -60,20 +63,22 @@ export type DocumentFindDocumentsNotFoundErrorData = {
 /**
  * Not found
  */
-export class DocumentFindDocumentsNotFoundError extends Error {
+export class DocumentFindDocumentsNotFoundError extends DocumensoError {
   code: string;
   issues?: Array<DocumentFindDocumentsNotFoundIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: DocumentFindDocumentsNotFoundErrorData;
 
-  constructor(err: DocumentFindDocumentsNotFoundErrorData) {
+  constructor(
+    err: DocumentFindDocumentsNotFoundErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -97,20 +102,22 @@ export type DocumentFindDocumentsBadRequestErrorData = {
 /**
  * Invalid input data
  */
-export class DocumentFindDocumentsBadRequestError extends Error {
+export class DocumentFindDocumentsBadRequestError extends DocumensoError {
   code: string;
   issues?: Array<DocumentFindDocumentsBadRequestIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: DocumentFindDocumentsBadRequestErrorData;
 
-  constructor(err: DocumentFindDocumentsBadRequestErrorData) {
+  constructor(
+    err: DocumentFindDocumentsBadRequestErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -196,9 +203,16 @@ export const DocumentFindDocumentsInternalServerError$inboundSchema: z.ZodType<
   issues: z.array(
     z.lazy(() => DocumentFindDocumentsInternalServerErrorIssue$inboundSchema),
   ).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new DocumentFindDocumentsInternalServerError(v);
+    return new DocumentFindDocumentsInternalServerError(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */
@@ -311,9 +325,16 @@ export const DocumentFindDocumentsNotFoundError$inboundSchema: z.ZodType<
   issues: z.array(
     z.lazy(() => DocumentFindDocumentsNotFoundIssue$inboundSchema),
   ).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new DocumentFindDocumentsNotFoundError(v);
+    return new DocumentFindDocumentsNotFoundError(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */
@@ -422,9 +443,16 @@ export const DocumentFindDocumentsBadRequestError$inboundSchema: z.ZodType<
   issues: z.array(
     z.lazy(() => DocumentFindDocumentsBadRequestIssue$inboundSchema),
   ).optional(),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new DocumentFindDocumentsBadRequestError(v);
+    return new DocumentFindDocumentsBadRequestError(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */

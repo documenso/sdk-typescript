@@ -34,6 +34,8 @@ import { tool$documentsRecipientsUpdate } from "./tools/documentsRecipientsUpdat
 import { tool$documentsRecipientsUpdateMany } from "./tools/documentsRecipientsUpdateMany.js";
 import { tool$documentsRedistribute } from "./tools/documentsRedistribute.js";
 import { tool$documentsUpdate } from "./tools/documentsUpdate.js";
+import { tool$embeddingEmbeddingPresignCreateEmbeddingPresignToken } from "./tools/embeddingEmbeddingPresignCreateEmbeddingPresignToken.js";
+import { tool$embeddingEmbeddingPresignVerifyEmbeddingPresignToken } from "./tools/embeddingEmbeddingPresignVerifyEmbeddingPresignToken.js";
 import { tool$templatesDelete } from "./tools/templatesDelete.js";
 import { tool$templatesDirectLinkCreate } from "./tools/templatesDirectLinkCreate.js";
 import { tool$templatesDirectLinkDelete } from "./tools/templatesDirectLinkDelete.js";
@@ -67,7 +69,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Documenso",
-    version: "0.2.0",
+    version: "0.3.0",
   });
 
   const client = new DocumensoCore({
@@ -113,6 +115,8 @@ export function createMCPServer(deps: {
   tool(tool$templatesDelete);
   tool(tool$templatesUse);
   tool(tool$templatesMoveToTeam);
+  tool(tool$embeddingEmbeddingPresignCreateEmbeddingPresignToken);
+  tool(tool$embeddingEmbeddingPresignVerifyEmbeddingPresignToken);
   tool(tool$documentsFieldsGet);
   tool(tool$documentsFieldsCreate);
   tool(tool$documentsFieldsCreateMany);

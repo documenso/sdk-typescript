@@ -7,12 +7,11 @@ The type of authentication required for the recipient to sign the document.
 ```typescript
 import { RecipientUpdateDocumentRecipientActionAuthResponse } from "@documenso/sdk-typescript/models/operations";
 
-let value: RecipientUpdateDocumentRecipientActionAuthResponse =
-  "TWO_FACTOR_AUTH";
+let value: RecipientUpdateDocumentRecipientActionAuthResponse = "PASSWORD";
 ```
 
 ## Values
 
 ```typescript
-"ACCOUNT" | "PASSKEY" | "TWO_FACTOR_AUTH" | "EXPLICIT_NONE"
+"ACCOUNT" | "PASSKEY" | "TWO_FACTOR_AUTH" | "PASSWORD" | "EXPLICIT_NONE"
 ```

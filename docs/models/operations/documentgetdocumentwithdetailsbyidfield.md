@@ -9,14 +9,14 @@ let value: DocumentGetDocumentWithDetailsByIdField = {
   type: "RADIO",
   id: 9659.86,
   secondaryId: "<id>",
-  documentId: 1560.85,
-  templateId: 6178.37,
-  recipientId: 1118.62,
-  page: 5809.52,
+  documentId: 6178.37,
+  templateId: 5809.52,
+  recipientId: 5169.86,
+  page: 4500.84,
   customText: "<value>",
-  inserted: false,
+  inserted: true,
   fieldMeta: {
-    type: "text",
+    type: "name",
   },
 };
 ```

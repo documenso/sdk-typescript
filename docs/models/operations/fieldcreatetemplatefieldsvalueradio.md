@@ -7,7 +7,7 @@ import { FieldCreateTemplateFieldsValueRadio } from "@documenso/sdk-typescript/m
 
 let value: FieldCreateTemplateFieldsValueRadio = {
   id: 7768.55,
-  checked: false,
+  checked: true,
   value: "<value>",
 };
 ```

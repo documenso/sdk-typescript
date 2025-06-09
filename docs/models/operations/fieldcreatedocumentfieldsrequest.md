@@ -9,13 +9,13 @@ let value: FieldCreateDocumentFieldsRequest = {
   documentId: 4777.18,
   fields: [
     {
-      type: "RADIO",
-      recipientId: 2220.74,
-      pageNumber: 278.03,
-      pageX: 2064.32,
-      pageY: 3916.74,
-      width: 8.36,
-      height: 8340.08,
+      type: "INITIALS",
+      recipientId: 278.03,
+      pageNumber: 2064.32,
+      pageX: 3916.74,
+      pageY: 8.36,
+      width: 8340.08,
+      height: 4669.19,
     },
   ],
 };

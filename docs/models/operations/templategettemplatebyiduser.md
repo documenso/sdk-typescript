@@ -8,7 +8,7 @@ import { TemplateGetTemplateByIdUser } from "@documenso/sdk-typescript/models/op
 let value: TemplateGetTemplateByIdUser = {
   id: 3613.04,
   name: "<value>",
-  email: "Lisa_Friesen@hotmail.com",
+  email: "Krystal42@yahoo.com",
 };
 ```
 

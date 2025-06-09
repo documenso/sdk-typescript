@@ -11,19 +11,23 @@ let value: RecipientCreateTemplateRecipientsRecipientResponse = {
   signingStatus: "NOT_SIGNED",
   sendStatus: "NOT_SENT",
   id: 8686.43,
-  documentId: 9119.2,
-  templateId: 5978.96,
-  email: "Eden.Lind@yahoo.com",
+  documentId: 5978.96,
+  templateId: 2853.52,
+  email: "Kaleigh.Effertz@yahoo.com",
   name: "<value>",
   token: "<value>",
   documentDeletedAt: "<value>",
   expired: "<value>",
   signedAt: "<value>",
   authOptions: {
-    accessAuth: "ACCOUNT",
-    actionAuth: "TWO_FACTOR_AUTH",
+    accessAuth: [
+      "ACCOUNT",
+    ],
+    actionAuth: [
+      "PASSKEY",
+    ],
   },
-  signingOrder: 5921.74,
+  signingOrder: null,
   rejectionReason: "<value>",
 };
 ```

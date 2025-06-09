@@ -49,6 +49,7 @@ export const TemplateDuplicateTemplateGlobalActionAuth = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
+  Password: "PASSWORD",
 } as const;
 /**
  * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
@@ -58,14 +59,8 @@ export type TemplateDuplicateTemplateGlobalActionAuth = ClosedEnum<
 >;
 
 export type TemplateDuplicateTemplateAuthOptions = {
-  /**
-   * The type of authentication required for the recipient to access the document.
-   */
-  globalAccessAuth: TemplateDuplicateTemplateGlobalAccessAuth | null;
-  /**
-   * The type of authentication required for the recipient to sign the document. This field is restricted to Enterprise plan users only.
-   */
-  globalActionAuth: TemplateDuplicateTemplateGlobalActionAuth | null;
+  globalAccessAuth: Array<TemplateDuplicateTemplateGlobalAccessAuth>;
+  globalActionAuth: Array<TemplateDuplicateTemplateGlobalActionAuth>;
 };
 
 /**
@@ -85,6 +80,8 @@ export type TemplateDuplicateTemplateResponse = {
   updatedAt: string;
   publicTitle: string;
   publicDescription: string;
+  folderId: string | null;
+  useLegacyFieldInsertion: boolean;
 };
 
 /** @internal */
@@ -239,18 +236,18 @@ export const TemplateDuplicateTemplateAuthOptions$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  globalAccessAuth: z.nullable(
+  globalAccessAuth: z.array(
     TemplateDuplicateTemplateGlobalAccessAuth$inboundSchema,
   ),
-  globalActionAuth: z.nullable(
+  globalActionAuth: z.array(
     TemplateDuplicateTemplateGlobalActionAuth$inboundSchema,
   ),
 });
 
 /** @internal */
 export type TemplateDuplicateTemplateAuthOptions$Outbound = {
-  globalAccessAuth: string | null;
-  globalActionAuth: string | null;
+  globalAccessAuth: Array<string>;
+  globalActionAuth: Array<string>;
 };
 
 /** @internal */
@@ -259,10 +256,10 @@ export const TemplateDuplicateTemplateAuthOptions$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TemplateDuplicateTemplateAuthOptions
 > = z.object({
-  globalAccessAuth: z.nullable(
+  globalAccessAuth: z.array(
     TemplateDuplicateTemplateGlobalAccessAuth$outboundSchema,
   ),
-  globalActionAuth: z.nullable(
+  globalActionAuth: z.array(
     TemplateDuplicateTemplateGlobalActionAuth$outboundSchema,
   ),
 });
@@ -324,6 +321,8 @@ export const TemplateDuplicateTemplateResponse$inboundSchema: z.ZodType<
   updatedAt: z.string(),
   publicTitle: z.string(),
   publicDescription: z.string(),
+  folderId: z.nullable(z.string()),
+  useLegacyFieldInsertion: z.boolean(),
 });
 
 /** @internal */
@@ -341,6 +340,8 @@ export type TemplateDuplicateTemplateResponse$Outbound = {
   updatedAt: string;
   publicTitle: string;
   publicDescription: string;
+  folderId: string | null;
+  useLegacyFieldInsertion: boolean;
 };
 
 /** @internal */
@@ -364,6 +365,8 @@ export const TemplateDuplicateTemplateResponse$outboundSchema: z.ZodType<
   updatedAt: z.string(),
   publicTitle: z.string(),
   publicDescription: z.string(),
+  folderId: z.nullable(z.string()),
+  useLegacyFieldInsertion: z.boolean(),
 });
 
 /**

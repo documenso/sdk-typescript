@@ -11,19 +11,21 @@ let value: DocumentRecipient = {
   signingStatus: "SIGNED",
   sendStatus: "SENT",
   id: 6319.31,
-  documentId: 1541.47,
-  templateId: 5259.55,
-  email: "Marquise_Dibbert@yahoo.com",
+  documentId: 5259.55,
+  templateId: 6868.91,
+  email: "Ciara70@yahoo.com",
   name: "<value>",
   token: "<value>",
   documentDeletedAt: "<value>",
   expired: "<value>",
   signedAt: "<value>",
   authOptions: {
-    accessAuth: "ACCOUNT",
-    actionAuth: "TWO_FACTOR_AUTH",
+    accessAuth: [],
+    actionAuth: [
+      "TWO_FACTOR_AUTH",
+    ],
   },
-  signingOrder: 9566.73,
+  signingOrder: 2816.42,
   rejectionReason: "<value>",
 };
 ```

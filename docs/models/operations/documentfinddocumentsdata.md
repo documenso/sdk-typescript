@@ -11,53 +11,33 @@ let value: DocumentFindDocumentsData = {
   source: "DOCUMENT",
   id: 5328.71,
   externalId: "<id>",
-  userId: 1048.73,
+  userId: 6767.02,
   authOptions: {
-    globalAccessAuth: "ACCOUNT",
-    globalActionAuth: "TWO_FACTOR_AUTH",
+    globalAccessAuth: [],
+    globalActionAuth: [],
   },
   formValues: {
-    "key": false,
+    "key": 7453.35,
   },
   title: "<value>",
   documentDataId: "<id>",
-  createdAt: "1714411546378",
-  updatedAt: "1743987562539",
+  createdAt: "1735005842618",
+  updatedAt: "1735658574172",
   completedAt: "<value>",
   deletedAt: "<value>",
-  teamId: 9009.09,
-  templateId: 7399.64,
+  teamId: 8341.79,
+  templateId: 171.68,
+  folderId: "<id>",
+  useLegacyFieldInsertion: false,
   user: {
-    id: 7230.88,
+    id: 2710.15,
     name: "<value>",
-    email: "Wiley64@hotmail.com",
+    email: "Maci33@gmail.com",
   },
-  recipients: [
-    {
-      role: "ASSISTANT",
-      readStatus: "NOT_OPENED",
-      signingStatus: "REJECTED",
-      sendStatus: "SENT",
-      id: 2710.15,
-      documentId: 2113.88,
-      templateId: 2199.97,
-      email: "Oren.Kiehn@yahoo.com",
-      name: "<value>",
-      token: "<value>",
-      documentDeletedAt: "<value>",
-      expired: "<value>",
-      signedAt: "<value>",
-      authOptions: {
-        accessAuth: "ACCOUNT",
-        actionAuth: "ACCOUNT",
-      },
-      signingOrder: 7776.99,
-      rejectionReason: "<value>",
-    },
-  ],
+  recipients: [],
   team: {
-    id: 4462.5,
-    url: "https://clear-ruin.biz",
+    id: 7776.99,
+    url: "https://metallic-caption.net/",
   },
 };
 ```
@@ -82,6 +62,8 @@ let value: DocumentFindDocumentsData = {
 | `deletedAt`                                                                                                | *string*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
 | `teamId`                                                                                                   | *number*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
 | `templateId`                                                                                               | *number*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| `folderId`                                                                                                 | *string*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| `useLegacyFieldInsertion`                                                                                  | *boolean*                                                                                                  | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
 | `user`                                                                                                     | [operations.DocumentFindDocumentsUser](../../models/operations/documentfinddocumentsuser.md)               | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
 | `recipients`                                                                                               | [operations.DocumentFindDocumentsRecipient](../../models/operations/documentfinddocumentsrecipient.md)[]   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
 | `team`                                                                                                     | [operations.DocumentFindDocumentsTeam](../../models/operations/documentfinddocumentsteam.md)               | :heavy_check_mark:                                                                                         | N/A                                                                                                        |

@@ -13,19 +13,23 @@ let value: RecipientCreateDocumentRecipientResponse = {
   signingStatus: "NOT_SIGNED",
   sendStatus: "NOT_SENT",
   id: 8655.25,
-  documentId: 8534.8,
-  templateId: 8731.13,
-  email: "Libbie67@yahoo.com",
+  documentId: 8731.13,
+  templateId: 6183.83,
+  email: "Estelle_Padberg10@gmail.com",
   name: "<value>",
   token: "<value>",
   documentDeletedAt: "<value>",
   expired: "<value>",
   signedAt: "<value>",
   authOptions: {
-    accessAuth: "ACCOUNT",
-    actionAuth: "ACCOUNT",
+    accessAuth: [
+      "ACCOUNT",
+    ],
+    actionAuth: [
+      "PASSKEY",
+    ],
   },
-  signingOrder: 1485.2,
+  signingOrder: 9998.68,
   rejectionReason: "<value>",
 };
 ```

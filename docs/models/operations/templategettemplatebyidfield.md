@@ -9,14 +9,14 @@ let value: TemplateGetTemplateByIdField = {
   type: "CHECKBOX",
   id: 9718.06,
   secondaryId: "<id>",
-  documentId: 7520.74,
-  templateId: 7559.54,
-  recipientId: 7369.01,
-  page: 5207.36,
+  documentId: 7559.54,
+  templateId: 5207.36,
+  recipientId: 2803.38,
+  page: 9949.9,
   customText: "<value>",
-  inserted: false,
+  inserted: true,
   fieldMeta: {
-    type: "email",
+    type: "dropdown",
   },
 };
 ```

@@ -11,14 +11,14 @@ let value: FieldUpdateTemplateFieldResponse = {
   type: "DATE",
   id: 3406.4,
   secondaryId: "<id>",
-  documentId: 5425.03,
-  templateId: 6934.43,
-  recipientId: 6357.85,
-  page: 3439.01,
+  documentId: 6934.43,
+  templateId: 3439.01,
+  recipientId: 26.74,
+  page: 6308.89,
   customText: "<value>",
-  inserted: false,
+  inserted: true,
   fieldMeta: {
-    type: "initials",
+    type: "radio",
   },
 };
 ```

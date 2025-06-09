@@ -5,6 +5,7 @@
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
 export type RecipientDeleteDocumentRecipientInternalServerErrorIssue = {
@@ -25,7 +26,9 @@ export type RecipientDeleteDocumentRecipientInternalServerErrorData = {
 /**
  * Internal server error
  */
-export class RecipientDeleteDocumentRecipientInternalServerError extends Error {
+export class RecipientDeleteDocumentRecipientInternalServerError
+  extends DocumensoError
+{
   code: string;
   issues?:
     | Array<RecipientDeleteDocumentRecipientInternalServerErrorIssue>
@@ -34,13 +37,15 @@ export class RecipientDeleteDocumentRecipientInternalServerError extends Error {
   /** The original data that was passed to this error instance. */
   data$: RecipientDeleteDocumentRecipientInternalServerErrorData;
 
-  constructor(err: RecipientDeleteDocumentRecipientInternalServerErrorData) {
+  constructor(
+    err: RecipientDeleteDocumentRecipientInternalServerErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -64,20 +69,24 @@ export type RecipientDeleteDocumentRecipientBadRequestErrorData = {
 /**
  * Invalid input data
  */
-export class RecipientDeleteDocumentRecipientBadRequestError extends Error {
+export class RecipientDeleteDocumentRecipientBadRequestError
+  extends DocumensoError
+{
   code: string;
   issues?: Array<RecipientDeleteDocumentRecipientBadRequestIssue> | undefined;
 
   /** The original data that was passed to this error instance. */
   data$: RecipientDeleteDocumentRecipientBadRequestErrorData;
 
-  constructor(err: RecipientDeleteDocumentRecipientBadRequestErrorData) {
+  constructor(
+    err: RecipientDeleteDocumentRecipientBadRequestErrorData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.code = err.code;
     if (err.issues != null) this.issues = err.issues;
 
@@ -166,9 +175,16 @@ export const RecipientDeleteDocumentRecipientInternalServerError$inboundSchema:
         RecipientDeleteDocumentRecipientInternalServerErrorIssue$inboundSchema
       ),
     ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
   })
     .transform((v) => {
-      return new RecipientDeleteDocumentRecipientInternalServerError(v);
+      return new RecipientDeleteDocumentRecipientInternalServerError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
     });
 
 /** @internal */
@@ -296,9 +312,16 @@ export const RecipientDeleteDocumentRecipientBadRequestError$inboundSchema:
         RecipientDeleteDocumentRecipientBadRequestIssue$inboundSchema
       ),
     ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
   })
     .transform((v) => {
-      return new RecipientDeleteDocumentRecipientBadRequestError(v);
+      return new RecipientDeleteDocumentRecipientBadRequestError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
     });
 
 /** @internal */

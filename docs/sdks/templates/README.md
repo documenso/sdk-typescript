@@ -29,7 +29,6 @@ const documenso = new Documenso({
 async function run() {
   const result = await documenso.templates.find({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -52,15 +51,12 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await templatesFind(documenso, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("templatesFind failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -103,10 +99,9 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.templates.get({
-    templateId: 7003.47,
+    templateId: 2128.54,
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -129,17 +124,14 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await templatesGet(documenso, {
-    templateId: 7003.47,
+    templateId: 2128.54,
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("templatesGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -182,10 +174,9 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.templates.update({
-    templateId: 8574.78,
+    templateId: 9404.77,
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -208,17 +199,14 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await templatesUpdate(documenso, {
-    templateId: 8574.78,
+    templateId: 9404.77,
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("templatesUpdate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -260,10 +248,9 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.templates.duplicate({
-    templateId: 3523.11,
+    templateId: 2490.16,
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -286,17 +273,14 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await templatesDuplicate(documenso, {
-    templateId: 3523.11,
+    templateId: 2490.16,
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("templatesDuplicate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -338,10 +322,9 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.templates.delete({
-    templateId: 5459.07,
+    templateId: 536.89,
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -364,17 +347,14 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await templatesDelete(documenso, {
-    templateId: 5459.07,
+    templateId: 536.89,
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("templatesDelete failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -416,20 +396,10 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.templates.use({
-    templateId: 6626.9,
-    recipients: [
-      {
-        id: 6473.53,
-        email: "August_Schmeler68@yahoo.com",
-      },
-      {
-        id: 3772.31,
-        email: "Angeline.Purdy@gmail.com",
-      },
-    ],
+    templateId: 7392.96,
+    recipients: [],
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -452,27 +422,15 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await templatesUse(documenso, {
-    templateId: 6626.9,
-    recipients: [
-      {
-        id: 6473.53,
-        email: "August_Schmeler68@yahoo.com",
-      },
-      {
-        id: 3772.31,
-        email: "Angeline.Purdy@gmail.com",
-      },
-    ],
+    templateId: 7392.96,
+    recipients: [],
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("templatesUse failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -514,11 +472,10 @@ const documenso = new Documenso({
 
 async function run() {
   const result = await documenso.templates.moveToTeam({
-    templateId: 8301.72,
-    teamId: 6724.78,
+    templateId: 9124,
+    teamId: 6200.73,
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -541,18 +498,15 @@ const documenso = new DocumensoCore({
 
 async function run() {
   const res = await templatesMoveToTeam(documenso, {
-    templateId: 8301.72,
-    teamId: 6724.78,
+    templateId: 9124,
+    teamId: 6200.73,
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("templatesMoveToTeam failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

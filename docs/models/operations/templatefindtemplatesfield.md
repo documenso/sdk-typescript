@@ -9,15 +9,13 @@ let value: TemplateFindTemplatesField = {
   type: "DATE",
   id: 7270,
   secondaryId: "<id>",
-  documentId: 1138.27,
-  templateId: 3090.81,
-  recipientId: 8482.01,
-  page: 8529.11,
+  documentId: 3090.81,
+  templateId: 8529.11,
+  recipientId: 3354.67,
+  page: 6148.64,
   customText: "<value>",
   inserted: false,
-  fieldMeta: {
-    type: "date",
-  },
+  fieldMeta: null,
 };
 ```
 

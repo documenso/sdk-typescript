@@ -9,14 +9,14 @@ let value: RecipientUpdateTemplateRecipientsField = {
   type: "DROPDOWN",
   id: 4484.24,
   secondaryId: "<id>",
-  documentId: 8585.62,
-  templateId: 1643.06,
-  recipientId: 945.71,
-  page: 9197.51,
+  documentId: 1643.06,
+  templateId: null,
+  recipientId: 9197.51,
+  page: 7388.94,
   customText: "<value>",
   inserted: false,
   fieldMeta: {
-    type: "radio",
+    type: "name",
   },
 };
 ```

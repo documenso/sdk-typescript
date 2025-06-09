@@ -8,7 +8,7 @@ import { DocumentFindDocumentsUser } from "@documenso/sdk-typescript/models/oper
 let value: DocumentFindDocumentsUser = {
   id: 2708.44,
   name: "<value>",
-  email: "Maggie_Stroman@hotmail.com",
+  email: "Otis_McDermott38@yahoo.com",
 };
 ```
 

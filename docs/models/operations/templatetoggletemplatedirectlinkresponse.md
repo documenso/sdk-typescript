@@ -11,9 +11,9 @@ let value: TemplateToggleTemplateDirectLinkResponse = {
   id: "<id>",
   templateId: 2293.94,
   token: "<value>",
-  createdAt: "1713626784257",
+  createdAt: "1705244607010",
   enabled: false,
-  directTemplateRecipientId: 8974.33,
+  directTemplateRecipientId: 8689.94,
 };
 ```
 

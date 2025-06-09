@@ -7,7 +7,7 @@ import { FieldUpdateTemplateFieldValueResponse2 } from "@documenso/sdk-typescrip
 
 let value: FieldUpdateTemplateFieldValueResponse2 = {
   id: 7684.28,
-  checked: false,
+  checked: true,
   value: "<value>",
 };
 ```

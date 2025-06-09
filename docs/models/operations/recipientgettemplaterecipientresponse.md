@@ -13,36 +13,18 @@ let value: RecipientGetTemplateRecipientResponse = {
   signingStatus: "NOT_SIGNED",
   sendStatus: "NOT_SENT",
   id: 3337.61,
-  documentId: 5104.84,
-  templateId: 7280.75,
-  email: "Pierre.Gerlach@gmail.com",
+  documentId: 7280.75,
+  templateId: 7981.3,
+  email: "Destiny96@gmail.com",
   name: "<value>",
   token: "<value>",
   documentDeletedAt: "<value>",
   expired: "<value>",
   signedAt: "<value>",
-  authOptions: {
-    accessAuth: "ACCOUNT",
-    actionAuth: "EXPLICIT_NONE",
-  },
-  signingOrder: 9896.57,
+  authOptions: null,
+  signingOrder: 8958.78,
   rejectionReason: "<value>",
-  fields: [
-    {
-      type: "EMAIL",
-      id: 4547.02,
-      secondaryId: "<id>",
-      documentId: 1041.13,
-      templateId: 405.35,
-      recipientId: 3509.75,
-      page: 8958.78,
-      customText: "<value>",
-      inserted: false,
-      fieldMeta: {
-        type: "name",
-      },
-    },
-  ],
+  fields: [],
 };
 ```
 

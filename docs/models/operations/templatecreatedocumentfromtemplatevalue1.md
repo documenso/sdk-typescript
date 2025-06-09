@@ -7,7 +7,7 @@ import { TemplateCreateDocumentFromTemplateValue1 } from "@documenso/sdk-typescr
 
 let value: TemplateCreateDocumentFromTemplateValue1 = {
   id: 3399.63,
-  checked: false,
+  checked: true,
   value: "<value>",
 };
 ```

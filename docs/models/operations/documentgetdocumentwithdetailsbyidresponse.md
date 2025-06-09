@@ -13,85 +13,56 @@ let value: DocumentGetDocumentWithDetailsByIdResponse = {
   source: "DOCUMENT",
   id: 4005.96,
   externalId: "<id>",
-  userId: 3837.66,
-  authOptions: {
-    globalAccessAuth: "ACCOUNT",
-    globalActionAuth: "TWO_FACTOR_AUTH",
-  },
-  formValues: {
-    "key": "<value>",
-  },
+  userId: 8523.51,
+  authOptions: null,
+  formValues: null,
   title: "<value>",
   documentDataId: "<id>",
-  createdAt: "1715425741269",
-  updatedAt: "1744043002525",
+  createdAt: "1725184332583",
+  updatedAt: "1735683325552",
   completedAt: "<value>",
   deletedAt: "<value>",
-  teamId: 9273.9,
-  templateId: 5066.42,
+  teamId: 2723.6,
+  templateId: 5754.41,
+  folderId: "<id>",
   documentData: {
-    type: "BYTES_64",
+    type: "S3_PATH",
     id: "<id>",
     data: "<value>",
     initialData: "<value>",
   },
   documentMeta: {
     signingOrder: "PARALLEL",
-    distributionMethod: "EMAIL",
+    distributionMethod: "NONE",
     id: "<id>",
     subject: "<value>",
     message: "<value>",
-    timezone: "Europe/Mariehamn",
-    password: "WYPwINXZb01HWU6",
+    timezone: "America/St_Johns",
+    password: "XZb01HWU66HcVt8",
     dateFormat: "<value>",
-    documentId: 2266.53,
-    redirectUrl: "https://royal-membership.org/",
+    documentId: 6741.58,
+    redirectUrl: "https://clean-graffiti.net",
     typedSignatureEnabled: false,
-    uploadSignatureEnabled: false,
-    drawSignatureEnabled: false,
+    uploadSignatureEnabled: true,
+    drawSignatureEnabled: true,
     allowDictateNextSigner: false,
     language: "<value>",
-    emailSettings: {},
+    emailSettings: null,
   },
-  recipients: [
-    {
-      role: "CC",
-      readStatus: "NOT_OPENED",
-      signingStatus: "SIGNED",
-      sendStatus: "SENT",
-      id: 7265.62,
-      documentId: 6614.32,
-      templateId: 1154.9,
-      email: "Richard.Funk79@yahoo.com",
-      name: "<value>",
-      token: "<value>",
-      documentDeletedAt: "<value>",
-      expired: "<value>",
-      signedAt: "<value>",
-      authOptions: {
-        accessAuth: "ACCOUNT",
-        actionAuth: "ACCOUNT",
-      },
-      signingOrder: 6847.27,
-      rejectionReason: "<value>",
-    },
-  ],
-  fields: [
-    {
-      type: "NUMBER",
-      id: 7186.6,
-      secondaryId: "<id>",
-      documentId: 5366.86,
-      templateId: 1978.18,
-      recipientId: 4691.92,
-      page: 2543.41,
-      customText: "<value>",
-      inserted: false,
-      fieldMeta: {
-        type: "name",
-      },
-    },
-  ],
+  folder: {
+    id: "<id>",
+    name: "<value>",
+    type: "TEMPLATE",
+    visibility: "ADMIN",
+    userId: 7186.6,
+    teamId: 1978.18,
+    pinned: true,
+    parentId: "<id>",
+    createdAt: "1710005150648",
+    updatedAt: "1735614433029",
+  },
+  recipients: [],
+  fields: [],
 };
 ```
 
@@ -115,7 +86,9 @@ let value: DocumentGetDocumentWithDetailsByIdResponse = {
 | `deletedAt`                                                                                                                            | *string*                                                                                                                               | :heavy_check_mark:                                                                                                                     | N/A                                                                                                                                    |
 | `teamId`                                                                                                                               | *number*                                                                                                                               | :heavy_check_mark:                                                                                                                     | N/A                                                                                                                                    |
 | `templateId`                                                                                                                           | *number*                                                                                                                               | :heavy_check_mark:                                                                                                                     | N/A                                                                                                                                    |
+| `folderId`                                                                                                                             | *string*                                                                                                                               | :heavy_check_mark:                                                                                                                     | N/A                                                                                                                                    |
 | `documentData`                                                                                                                         | [operations.DocumentGetDocumentWithDetailsByIdDocumentData](../../models/operations/documentgetdocumentwithdetailsbyiddocumentdata.md) | :heavy_check_mark:                                                                                                                     | N/A                                                                                                                                    |
 | `documentMeta`                                                                                                                         | [operations.DocumentGetDocumentWithDetailsByIdDocumentMeta](../../models/operations/documentgetdocumentwithdetailsbyiddocumentmeta.md) | :heavy_check_mark:                                                                                                                     | N/A                                                                                                                                    |
+| `folder`                                                                                                                               | [operations.DocumentGetDocumentWithDetailsByIdFolder](../../models/operations/documentgetdocumentwithdetailsbyidfolder.md)             | :heavy_check_mark:                                                                                                                     | N/A                                                                                                                                    |
 | `recipients`                                                                                                                           | [operations.DocumentGetDocumentWithDetailsByIdRecipient](../../models/operations/documentgetdocumentwithdetailsbyidrecipient.md)[]     | :heavy_check_mark:                                                                                                                     | N/A                                                                                                                                    |
 | `fields`                                                                                                                               | [operations.DocumentGetDocumentWithDetailsByIdField](../../models/operations/documentgetdocumentwithdetailsbyidfield.md)[]             | :heavy_check_mark:                                                                                                                     | N/A                                                                                                                                    |

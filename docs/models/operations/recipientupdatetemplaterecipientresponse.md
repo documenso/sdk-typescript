@@ -13,36 +13,23 @@ let value: RecipientUpdateTemplateRecipientResponse = {
   signingStatus: "REJECTED",
   sendStatus: "SENT",
   id: 7508,
-  documentId: 2937.02,
-  templateId: 6708.46,
-  email: "Daniella.Keeling@yahoo.com",
+  documentId: 6708.46,
+  templateId: 2269.09,
+  email: "Hillary_Miller@gmail.com",
   name: "<value>",
   token: "<value>",
   documentDeletedAt: "<value>",
   expired: "<value>",
   signedAt: "<value>",
   authOptions: {
-    accessAuth: "ACCOUNT",
-    actionAuth: "ACCOUNT",
+    accessAuth: [],
+    actionAuth: [
+      "PASSWORD",
+    ],
   },
-  signingOrder: 4355.91,
+  signingOrder: 8779.58,
   rejectionReason: "<value>",
-  fields: [
-    {
-      type: "EMAIL",
-      id: 6422.52,
-      secondaryId: "<id>",
-      documentId: 9720.03,
-      templateId: 9069.27,
-      recipientId: 334.66,
-      page: 9689.06,
-      customText: "<value>",
-      inserted: false,
-      fieldMeta: {
-        type: "number",
-      },
-    },
-  ],
+  fields: [],
 };
 ```
 

@@ -7,7 +7,7 @@ import { DocumentValue2 } from "@documenso/sdk-typescript/models/operations";
 
 let value: DocumentValue2 = {
   id: 7449.54,
-  checked: false,
+  checked: true,
   value: "<value>",
 };
 ```

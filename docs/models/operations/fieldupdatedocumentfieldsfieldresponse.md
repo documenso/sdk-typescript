@@ -9,14 +9,14 @@ let value: FieldUpdateDocumentFieldsFieldResponse = {
   type: "SIGNATURE",
   id: 1175.92,
   secondaryId: "<id>",
-  documentId: 1075.03,
-  templateId: 649.18,
-  recipientId: 4720.23,
-  page: 6389.86,
+  documentId: 649.18,
+  templateId: 6389.86,
+  recipientId: 3695.14,
+  page: 1154.05,
   customText: "<value>",
-  inserted: false,
+  inserted: true,
   fieldMeta: {
-    type: "date",
+    type: "text",
   },
 };
 ```

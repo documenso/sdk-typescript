@@ -8,7 +8,7 @@ Successful response
 import { DocumentResendDocumentResponse } from "@documenso/sdk-typescript/models/operations";
 
 let value: DocumentResendDocumentResponse = {
-  success: false,
+  success: true,
 };
 ```
 

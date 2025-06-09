@@ -14,5 +14,5 @@ let value: RecipientCreateDocumentRecipientsActionAuthResponse =
 ## Values
 
 ```typescript
-"ACCOUNT" | "PASSKEY" | "TWO_FACTOR_AUTH" | "EXPLICIT_NONE"
+"ACCOUNT" | "PASSKEY" | "TWO_FACTOR_AUTH" | "PASSWORD" | "EXPLICIT_NONE"
 ```

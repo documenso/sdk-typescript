@@ -11,14 +11,14 @@ let value: FieldGetTemplateFieldResponse = {
   type: "EMAIL",
   id: 9395.67,
   secondaryId: "<id>",
-  documentId: 9346.03,
-  templateId: 9753.93,
-  recipientId: 6853.47,
-  page: 3656.68,
+  documentId: 9753.93,
+  templateId: 3656.68,
+  recipientId: 9095.87,
+  page: 2090.36,
   customText: "<value>",
-  inserted: false,
+  inserted: true,
   fieldMeta: {
-    type: "dropdown",
+    type: "radio",
   },
 };
 ```
