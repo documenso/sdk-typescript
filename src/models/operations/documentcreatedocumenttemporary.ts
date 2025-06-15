@@ -1057,7 +1057,7 @@ export type DocumentCreateDocumentTemporaryFolder = {
   type: DocumentFolderType;
   visibility: DocumentFolderVisibility;
   userId: number;
-  teamId: number | null;
+  teamId: number;
   pinned: boolean;
   parentId: string | null;
   createdAt: string;
@@ -1427,7 +1427,7 @@ export type Document = {
   updatedAt: string;
   completedAt: string | null;
   deletedAt: string | null;
-  teamId: number | null;
+  teamId: number;
   templateId: number | null;
   folderId: string | null;
   documentData: DocumentCreateDocumentTemporaryDocumentData;
@@ -5497,7 +5497,7 @@ export const DocumentCreateDocumentTemporaryFolder$inboundSchema: z.ZodType<
   type: DocumentFolderType$inboundSchema,
   visibility: DocumentFolderVisibility$inboundSchema,
   userId: z.number(),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   pinned: z.boolean(),
   parentId: z.nullable(z.string()),
   createdAt: z.string(),
@@ -5511,7 +5511,7 @@ export type DocumentCreateDocumentTemporaryFolder$Outbound = {
   type: string;
   visibility: string;
   userId: number;
-  teamId: number | null;
+  teamId: number;
   pinned: boolean;
   parentId: string | null;
   createdAt: string;
@@ -5529,7 +5529,7 @@ export const DocumentCreateDocumentTemporaryFolder$outboundSchema: z.ZodType<
   type: DocumentFolderType$outboundSchema,
   visibility: DocumentFolderVisibility$outboundSchema,
   userId: z.number(),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   pinned: z.boolean(),
   parentId: z.nullable(z.string()),
   createdAt: z.string(),
@@ -7270,7 +7270,7 @@ export const Document$inboundSchema: z.ZodType<
   updatedAt: z.string(),
   completedAt: z.nullable(z.string()),
   deletedAt: z.nullable(z.string()),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   templateId: z.nullable(z.number()),
   folderId: z.nullable(z.string()),
   documentData: z.lazy(() =>
@@ -7302,7 +7302,7 @@ export type Document$Outbound = {
   updatedAt: string;
   completedAt: string | null;
   deletedAt: string | null;
-  teamId: number | null;
+  teamId: number;
   templateId: number | null;
   folderId: string | null;
   documentData: DocumentCreateDocumentTemporaryDocumentData$Outbound;
@@ -7336,7 +7336,7 @@ export const Document$outboundSchema: z.ZodType<
   updatedAt: z.string(),
   completedAt: z.nullable(z.string()),
   deletedAt: z.nullable(z.string()),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   templateId: z.nullable(z.number()),
   folderId: z.nullable(z.string()),
   documentData: z.lazy(() =>

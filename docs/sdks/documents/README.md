@@ -10,7 +10,6 @@
 * [createV0](#createv0) - Create document
 * [update](#update) - Update document
 * [delete](#delete) - Delete document
-* [moveToTeam](#movetoteam) - Move document
 * [distribute](#distribute) - Distribute document
 * [redistribute](#redistribute) - Redistribute document
 * [duplicate](#duplicate) - Duplicate document
@@ -382,82 +381,6 @@ run();
 | errors.DocumentDeleteDocumentBadRequestError     | 400                                              | application/json                                 |
 | errors.DocumentDeleteDocumentInternalServerError | 500                                              | application/json                                 |
 | errors.APIError                                  | 4XX, 5XX                                         | \*/\*                                            |
-
-## moveToTeam
-
-Move a document from your personal account to a team
-
-### Example Usage
-
-```typescript
-import { Documenso } from "@documenso/sdk-typescript";
-
-const documenso = new Documenso({
-  apiKey: process.env["DOCUMENSO_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await documenso.documents.moveToTeam({
-    documentId: 7184.15,
-    teamId: 4855.19,
-  });
-
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { DocumensoCore } from "@documenso/sdk-typescript/core.js";
-import { documentsMoveToTeam } from "@documenso/sdk-typescript/funcs/documentsMoveToTeam.js";
-
-// Use `DocumensoCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const documenso = new DocumensoCore({
-  apiKey: process.env["DOCUMENSO_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await documentsMoveToTeam(documenso, {
-    documentId: 7184.15,
-    teamId: 4855.19,
-  });
-  if (res.ok) {
-    const { value: result } = res;
-    console.log(result);
-  } else {
-    console.log("documentsMoveToTeam failed:", res.error);
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.DocumentMoveDocumentToTeamRequest](../../models/operations/documentmovedocumenttoteamrequest.md)                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[operations.DocumentMoveDocumentToTeamResponse](../../models/operations/documentmovedocumenttoteamresponse.md)\>**
-
-### Errors
-
-| Error Type                                           | Status Code                                          | Content Type                                         |
-| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
-| errors.DocumentMoveDocumentToTeamBadRequestError     | 400                                                  | application/json                                     |
-| errors.DocumentMoveDocumentToTeamInternalServerError | 500                                                  | application/json                                     |
-| errors.APIError                                      | 4XX, 5XX                                             | \*/\*                                                |
 
 ## distribute
 

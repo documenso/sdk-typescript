@@ -14,12 +14,14 @@ let value: TemplateGetTemplateByIdResponse = {
   externalId: "<id>",
   title: "<value>",
   userId: 2772.42,
-  teamId: 5854.19,
+  teamId: 5309.8,
   authOptions: {
     globalAccessAuth: [
       "ACCOUNT",
     ],
-    globalActionAuth: [],
+    globalActionAuth: [
+      "PASSKEY",
+    ],
   },
   templateDocumentDataId: "<id>",
   createdAt: "1723877045893",
@@ -110,11 +112,11 @@ let value: TemplateGetTemplateByIdResponse = {
     type: "TEMPLATE",
     visibility: "EVERYONE",
     userId: 4548.88,
-    teamId: 4887.61,
-    pinned: false,
+    teamId: 7809.58,
+    pinned: true,
     parentId: "<id>",
-    createdAt: "1729993871876",
-    updatedAt: "1735638805008",
+    createdAt: "1710560705901",
+    updatedAt: "1735673994449",
   },
 };
 ```
