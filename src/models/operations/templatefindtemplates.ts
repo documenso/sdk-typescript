@@ -512,7 +512,7 @@ export type TemplateFindTemplatesData = {
   externalId: string | null;
   title: string;
   userId: number;
-  teamId: number | null;
+  teamId: number;
   authOptions: TemplateFindTemplatesAuthOptions | null;
   templateDocumentDataId: string;
   createdAt: string;
@@ -2776,7 +2776,7 @@ export const TemplateFindTemplatesData$inboundSchema: z.ZodType<
   externalId: z.nullable(z.string()),
   title: z.string(),
   userId: z.number(),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   authOptions: z.nullable(
     z.lazy(() => TemplateFindTemplatesAuthOptions$inboundSchema),
   ),
@@ -2808,7 +2808,7 @@ export type TemplateFindTemplatesData$Outbound = {
   externalId: string | null;
   title: string;
   userId: number;
-  teamId: number | null;
+  teamId: number;
   authOptions: TemplateFindTemplatesAuthOptions$Outbound | null;
   templateDocumentDataId: string;
   createdAt: string;
@@ -2836,7 +2836,7 @@ export const TemplateFindTemplatesData$outboundSchema: z.ZodType<
   externalId: z.nullable(z.string()),
   title: z.string(),
   userId: z.number(),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   authOptions: z.nullable(
     z.lazy(() => TemplateFindTemplatesAuthOptions$outboundSchema),
   ),

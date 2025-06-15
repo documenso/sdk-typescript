@@ -29,10 +29,10 @@ let value: DocumentUpdateDocumentResponse = {
   updatedAt: "1735608494506",
   completedAt: null,
   deletedAt: "<value>",
-  teamId: 6039.73,
-  templateId: 3573.55,
-  folderId: null,
-  useLegacyFieldInsertion: false,
+  teamId: 4021.63,
+  templateId: 1154.78,
+  folderId: "<id>",
+  useLegacyFieldInsertion: true,
 };
 ```
 

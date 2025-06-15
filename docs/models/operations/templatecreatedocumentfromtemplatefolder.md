@@ -11,11 +11,11 @@ let value: TemplateCreateDocumentFromTemplateFolder = {
   type: "DOCUMENT",
   visibility: "MANAGER_AND_ABOVE",
   userId: 2075.93,
-  teamId: 2122.64,
-  pinned: false,
+  teamId: 5225.47,
+  pinned: true,
   parentId: "<id>",
-  createdAt: "1717082009431",
-  updatedAt: "1735627132801",
+  createdAt: "1729935342148",
+  updatedAt: "1735638619891",
 };
 ```
 
