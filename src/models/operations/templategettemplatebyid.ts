@@ -562,7 +562,7 @@ export type TemplateGetTemplateByIdFolder = {
   type: TemplateGetTemplateByIdFolderType;
   visibility: TemplateGetTemplateByIdFolderVisibility;
   userId: number;
-  teamId: number | null;
+  teamId: number;
   pinned: boolean;
   parentId: string | null;
   createdAt: string;
@@ -579,7 +579,7 @@ export type TemplateGetTemplateByIdResponse = {
   externalId: string | null;
   title: string;
   userId: number;
-  teamId: number | null;
+  teamId: number;
   authOptions: TemplateGetTemplateByIdAuthOptions | null;
   templateDocumentDataId: string;
   createdAt: string;
@@ -3096,7 +3096,7 @@ export const TemplateGetTemplateByIdFolder$inboundSchema: z.ZodType<
   type: TemplateGetTemplateByIdFolderType$inboundSchema,
   visibility: TemplateGetTemplateByIdFolderVisibility$inboundSchema,
   userId: z.number(),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   pinned: z.boolean(),
   parentId: z.nullable(z.string()),
   createdAt: z.string(),
@@ -3110,7 +3110,7 @@ export type TemplateGetTemplateByIdFolder$Outbound = {
   type: string;
   visibility: string;
   userId: number;
-  teamId: number | null;
+  teamId: number;
   pinned: boolean;
   parentId: string | null;
   createdAt: string;
@@ -3128,7 +3128,7 @@ export const TemplateGetTemplateByIdFolder$outboundSchema: z.ZodType<
   type: TemplateGetTemplateByIdFolderType$outboundSchema,
   visibility: TemplateGetTemplateByIdFolderVisibility$outboundSchema,
   userId: z.number(),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   pinned: z.boolean(),
   parentId: z.nullable(z.string()),
   createdAt: z.string(),
@@ -3180,7 +3180,7 @@ export const TemplateGetTemplateByIdResponse$inboundSchema: z.ZodType<
   externalId: z.nullable(z.string()),
   title: z.string(),
   userId: z.number(),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   authOptions: z.nullable(
     z.lazy(() => TemplateGetTemplateByIdAuthOptions$inboundSchema),
   ),
@@ -3213,7 +3213,7 @@ export type TemplateGetTemplateByIdResponse$Outbound = {
   externalId: string | null;
   title: string;
   userId: number;
-  teamId: number | null;
+  teamId: number;
   authOptions: TemplateGetTemplateByIdAuthOptions$Outbound | null;
   templateDocumentDataId: string;
   createdAt: string;
@@ -3242,7 +3242,7 @@ export const TemplateGetTemplateByIdResponse$outboundSchema: z.ZodType<
   externalId: z.nullable(z.string()),
   title: z.string(),
   userId: z.number(),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   authOptions: z.nullable(
     z.lazy(() => TemplateGetTemplateByIdAuthOptions$outboundSchema),
   ),

@@ -14,22 +14,20 @@ let value: TemplateDuplicateTemplateResponse = {
   externalId: "<id>",
   title: "<value>",
   userId: 5245.05,
-  teamId: 6567.53,
+  teamId: 7996.11,
   authOptions: {
-    globalAccessAuth: [
-      "ACCOUNT",
-    ],
+    globalAccessAuth: [],
     globalActionAuth: [
       "PASSWORD",
     ],
   },
   templateDocumentDataId: "<id>",
-  createdAt: "1721178151008",
-  updatedAt: "1735648518775",
+  createdAt: "1733976405841",
+  updatedAt: "1735649842067",
   publicTitle: "<value>",
   publicDescription: "<value>",
   folderId: "<id>",
-  useLegacyFieldInsertion: true,
+  useLegacyFieldInsertion: false,
 };
 ```
 

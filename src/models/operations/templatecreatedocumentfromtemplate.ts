@@ -303,7 +303,7 @@ export type TemplateCreateDocumentFromTemplateFolder = {
   type: TemplateCreateDocumentFromTemplateFolderType;
   visibility: TemplateCreateDocumentFromTemplateFolderVisibility;
   userId: number;
-  teamId: number | null;
+  teamId: number;
   pinned: boolean;
   parentId: string | null;
   createdAt: string;
@@ -712,7 +712,7 @@ export type TemplateCreateDocumentFromTemplateResponse = {
   updatedAt: string;
   completedAt: string | null;
   deletedAt: string | null;
-  teamId: number | null;
+  teamId: number;
   templateId: number | null;
   folderId: string | null;
   documentData: TemplateCreateDocumentFromTemplateDocumentData;
@@ -2153,7 +2153,7 @@ export const TemplateCreateDocumentFromTemplateFolder$inboundSchema: z.ZodType<
   type: TemplateCreateDocumentFromTemplateFolderType$inboundSchema,
   visibility: TemplateCreateDocumentFromTemplateFolderVisibility$inboundSchema,
   userId: z.number(),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   pinned: z.boolean(),
   parentId: z.nullable(z.string()),
   createdAt: z.string(),
@@ -2167,7 +2167,7 @@ export type TemplateCreateDocumentFromTemplateFolder$Outbound = {
   type: string;
   visibility: string;
   userId: number;
-  teamId: number | null;
+  teamId: number;
   pinned: boolean;
   parentId: string | null;
   createdAt: string;
@@ -2185,7 +2185,7 @@ export const TemplateCreateDocumentFromTemplateFolder$outboundSchema: z.ZodType<
   type: TemplateCreateDocumentFromTemplateFolderType$outboundSchema,
   visibility: TemplateCreateDocumentFromTemplateFolderVisibility$outboundSchema,
   userId: z.number(),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   pinned: z.boolean(),
   parentId: z.nullable(z.string()),
   createdAt: z.string(),
@@ -4294,7 +4294,7 @@ export const TemplateCreateDocumentFromTemplateResponse$inboundSchema:
       updatedAt: z.string(),
       completedAt: z.nullable(z.string()),
       deletedAt: z.nullable(z.string()),
-      teamId: z.nullable(z.number()),
+      teamId: z.number(),
       templateId: z.nullable(z.number()),
       folderId: z.nullable(z.string()),
       documentData: z.lazy(() =>
@@ -4334,7 +4334,7 @@ export type TemplateCreateDocumentFromTemplateResponse$Outbound = {
   updatedAt: string;
   completedAt: string | null;
   deletedAt: string | null;
-  teamId: number | null;
+  teamId: number;
   templateId: number | null;
   folderId: string | null;
   documentData: TemplateCreateDocumentFromTemplateDocumentData$Outbound;
@@ -4373,7 +4373,7 @@ export const TemplateCreateDocumentFromTemplateResponse$outboundSchema:
     updatedAt: z.string(),
     completedAt: z.nullable(z.string()),
     deletedAt: z.nullable(z.string()),
-    teamId: z.nullable(z.number()),
+    teamId: z.number(),
     templateId: z.nullable(z.number()),
     folderId: z.nullable(z.string()),
     documentData: z.lazy(() =>
