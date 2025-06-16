@@ -188,7 +188,7 @@ export type DocumentGetDocumentWithDetailsByIdFolder = {
   type: DocumentGetDocumentWithDetailsByIdFolderType;
   visibility: DocumentGetDocumentWithDetailsByIdFolderVisibility;
   userId: number;
-  teamId: number | null;
+  teamId: number;
   pinned: boolean;
   parentId: string | null;
   createdAt: string;
@@ -599,7 +599,7 @@ export type DocumentGetDocumentWithDetailsByIdResponse = {
   updatedAt: string;
   completedAt: string | null;
   deletedAt: string | null;
-  teamId: number | null;
+  teamId: number;
   templateId: number | null;
   folderId: string | null;
   documentData: DocumentGetDocumentWithDetailsByIdDocumentData;
@@ -1349,7 +1349,7 @@ export const DocumentGetDocumentWithDetailsByIdFolder$inboundSchema: z.ZodType<
   type: DocumentGetDocumentWithDetailsByIdFolderType$inboundSchema,
   visibility: DocumentGetDocumentWithDetailsByIdFolderVisibility$inboundSchema,
   userId: z.number(),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   pinned: z.boolean(),
   parentId: z.nullable(z.string()),
   createdAt: z.string(),
@@ -1363,7 +1363,7 @@ export type DocumentGetDocumentWithDetailsByIdFolder$Outbound = {
   type: string;
   visibility: string;
   userId: number;
-  teamId: number | null;
+  teamId: number;
   pinned: boolean;
   parentId: string | null;
   createdAt: string;
@@ -1381,7 +1381,7 @@ export const DocumentGetDocumentWithDetailsByIdFolder$outboundSchema: z.ZodType<
   type: DocumentGetDocumentWithDetailsByIdFolderType$outboundSchema,
   visibility: DocumentGetDocumentWithDetailsByIdFolderVisibility$outboundSchema,
   userId: z.number(),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   pinned: z.boolean(),
   parentId: z.nullable(z.string()),
   createdAt: z.string(),
@@ -3481,7 +3481,7 @@ export const DocumentGetDocumentWithDetailsByIdResponse$inboundSchema:
       updatedAt: z.string(),
       completedAt: z.nullable(z.string()),
       deletedAt: z.nullable(z.string()),
-      teamId: z.nullable(z.number()),
+      teamId: z.number(),
       templateId: z.nullable(z.number()),
       folderId: z.nullable(z.string()),
       documentData: z.lazy(() =>
@@ -3519,7 +3519,7 @@ export type DocumentGetDocumentWithDetailsByIdResponse$Outbound = {
   updatedAt: string;
   completedAt: string | null;
   deletedAt: string | null;
-  teamId: number | null;
+  teamId: number;
   templateId: number | null;
   folderId: string | null;
   documentData: DocumentGetDocumentWithDetailsByIdDocumentData$Outbound;
@@ -3556,7 +3556,7 @@ export const DocumentGetDocumentWithDetailsByIdResponse$outboundSchema:
     updatedAt: z.string(),
     completedAt: z.nullable(z.string()),
     deletedAt: z.nullable(z.string()),
-    teamId: z.nullable(z.number()),
+    teamId: z.number(),
     templateId: z.nullable(z.number()),
     folderId: z.nullable(z.string()),
     documentData: z.lazy(() =>
