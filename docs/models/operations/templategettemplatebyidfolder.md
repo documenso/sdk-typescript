@@ -11,11 +11,11 @@ let value: TemplateGetTemplateByIdFolder = {
   type: "DOCUMENT",
   visibility: "MANAGER_AND_ABOVE",
   userId: 3966.65,
-  teamId: 1306.65,
-  pinned: false,
+  teamId: 6108.7,
+  pinned: true,
   parentId: "<id>",
-  createdAt: "1714809358881",
-  updatedAt: "1735685495018",
+  createdAt: "1716487227093",
+  updatedAt: "1735632393523",
 };
 ```
 

@@ -95,12 +95,12 @@ export type PrefillFieldText = {
 };
 
 export type PrefillField =
-  | PrefillFieldDate
+  | PrefillFieldText
+  | PrefillFieldNumber
   | PrefillFieldRadio
   | PrefillFieldCheckbox
   | PrefillFieldDropdown
-  | PrefillFieldText
-  | PrefillFieldNumber;
+  | PrefillFieldDate;
 
 export type TemplateCreateDocumentFromTemplateRequest = {
   templateId: number;
@@ -121,12 +121,12 @@ export type TemplateCreateDocumentFromTemplateRequest = {
    */
   prefillFields?:
     | Array<
-      | PrefillFieldDate
+      | PrefillFieldText
+      | PrefillFieldNumber
       | PrefillFieldRadio
       | PrefillFieldCheckbox
       | PrefillFieldDropdown
-      | PrefillFieldText
-      | PrefillFieldNumber
+      | PrefillFieldDate
     >
     | undefined;
 };
@@ -303,7 +303,7 @@ export type TemplateCreateDocumentFromTemplateFolder = {
   type: TemplateCreateDocumentFromTemplateFolderType;
   visibility: TemplateCreateDocumentFromTemplateFolderVisibility;
   userId: number;
-  teamId: number | null;
+  teamId: number;
   pinned: boolean;
   parentId: string | null;
   createdAt: string;
@@ -648,15 +648,15 @@ export type TemplateCreateDocumentFromTemplateFieldMetaInitials = {
 };
 
 export type TemplateCreateDocumentFromTemplateFieldMetaUnion =
-  | TemplateCreateDocumentFromTemplateFieldMetaRadio
   | TemplateCreateDocumentFromTemplateFieldMetaInitials
   | TemplateCreateDocumentFromTemplateFieldMetaName
   | TemplateCreateDocumentFromTemplateFieldMetaEmail
   | TemplateCreateDocumentFromTemplateFieldMetaDate
-  | TemplateCreateDocumentFromTemplateFieldMetaDropdown
-  | TemplateCreateDocumentFromTemplateFieldMetaCheckbox
   | TemplateCreateDocumentFromTemplateFieldMetaText
-  | TemplateCreateDocumentFromTemplateFieldMetaNumber;
+  | TemplateCreateDocumentFromTemplateFieldMetaNumber
+  | TemplateCreateDocumentFromTemplateFieldMetaRadio
+  | TemplateCreateDocumentFromTemplateFieldMetaCheckbox
+  | TemplateCreateDocumentFromTemplateFieldMetaDropdown;
 
 export type TemplateCreateDocumentFromTemplateField = {
   type: TemplateCreateDocumentFromTemplateFieldType;
@@ -676,15 +676,15 @@ export type TemplateCreateDocumentFromTemplateField = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | TemplateCreateDocumentFromTemplateFieldMetaRadio
     | TemplateCreateDocumentFromTemplateFieldMetaInitials
     | TemplateCreateDocumentFromTemplateFieldMetaName
     | TemplateCreateDocumentFromTemplateFieldMetaEmail
     | TemplateCreateDocumentFromTemplateFieldMetaDate
-    | TemplateCreateDocumentFromTemplateFieldMetaDropdown
-    | TemplateCreateDocumentFromTemplateFieldMetaCheckbox
     | TemplateCreateDocumentFromTemplateFieldMetaText
     | TemplateCreateDocumentFromTemplateFieldMetaNumber
+    | TemplateCreateDocumentFromTemplateFieldMetaRadio
+    | TemplateCreateDocumentFromTemplateFieldMetaCheckbox
+    | TemplateCreateDocumentFromTemplateFieldMetaDropdown
     | null;
 };
 
@@ -712,7 +712,7 @@ export type TemplateCreateDocumentFromTemplateResponse = {
   updatedAt: string;
   completedAt: string | null;
   deletedAt: string | null;
-  teamId: number | null;
+  teamId: number;
   templateId: number | null;
   folderId: string | null;
   documentData: TemplateCreateDocumentFromTemplateDocumentData;
@@ -1309,22 +1309,22 @@ export const PrefillField$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  z.lazy(() => PrefillFieldDate$inboundSchema),
+  z.lazy(() => PrefillFieldText$inboundSchema),
+  z.lazy(() => PrefillFieldNumber$inboundSchema),
   z.lazy(() => PrefillFieldRadio$inboundSchema),
   z.lazy(() => PrefillFieldCheckbox$inboundSchema),
   z.lazy(() => PrefillFieldDropdown$inboundSchema),
-  z.lazy(() => PrefillFieldText$inboundSchema),
-  z.lazy(() => PrefillFieldNumber$inboundSchema),
+  z.lazy(() => PrefillFieldDate$inboundSchema),
 ]);
 
 /** @internal */
 export type PrefillField$Outbound =
-  | PrefillFieldDate$Outbound
+  | PrefillFieldText$Outbound
+  | PrefillFieldNumber$Outbound
   | PrefillFieldRadio$Outbound
   | PrefillFieldCheckbox$Outbound
   | PrefillFieldDropdown$Outbound
-  | PrefillFieldText$Outbound
-  | PrefillFieldNumber$Outbound;
+  | PrefillFieldDate$Outbound;
 
 /** @internal */
 export const PrefillField$outboundSchema: z.ZodType<
@@ -1332,12 +1332,12 @@ export const PrefillField$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   PrefillField
 > = z.union([
-  z.lazy(() => PrefillFieldDate$outboundSchema),
+  z.lazy(() => PrefillFieldText$outboundSchema),
+  z.lazy(() => PrefillFieldNumber$outboundSchema),
   z.lazy(() => PrefillFieldRadio$outboundSchema),
   z.lazy(() => PrefillFieldCheckbox$outboundSchema),
   z.lazy(() => PrefillFieldDropdown$outboundSchema),
-  z.lazy(() => PrefillFieldText$outboundSchema),
-  z.lazy(() => PrefillFieldNumber$outboundSchema),
+  z.lazy(() => PrefillFieldDate$outboundSchema),
 ]);
 
 /**
@@ -1383,12 +1383,12 @@ export const TemplateCreateDocumentFromTemplateRequest$inboundSchema: z.ZodType<
   customDocumentDataId: z.string().optional(),
   prefillFields: z.array(
     z.union([
-      z.lazy(() => PrefillFieldDate$inboundSchema),
+      z.lazy(() => PrefillFieldText$inboundSchema),
+      z.lazy(() => PrefillFieldNumber$inboundSchema),
       z.lazy(() => PrefillFieldRadio$inboundSchema),
       z.lazy(() => PrefillFieldCheckbox$inboundSchema),
       z.lazy(() => PrefillFieldDropdown$inboundSchema),
-      z.lazy(() => PrefillFieldText$inboundSchema),
-      z.lazy(() => PrefillFieldNumber$inboundSchema),
+      z.lazy(() => PrefillFieldDate$inboundSchema),
     ]),
   ).optional(),
 });
@@ -1403,12 +1403,12 @@ export type TemplateCreateDocumentFromTemplateRequest$Outbound = {
   customDocumentDataId?: string | undefined;
   prefillFields?:
     | Array<
-      | PrefillFieldDate$Outbound
+      | PrefillFieldText$Outbound
+      | PrefillFieldNumber$Outbound
       | PrefillFieldRadio$Outbound
       | PrefillFieldCheckbox$Outbound
       | PrefillFieldDropdown$Outbound
-      | PrefillFieldText$Outbound
-      | PrefillFieldNumber$Outbound
+      | PrefillFieldDate$Outbound
     >
     | undefined;
 };
@@ -1430,12 +1430,12 @@ export const TemplateCreateDocumentFromTemplateRequest$outboundSchema:
     customDocumentDataId: z.string().optional(),
     prefillFields: z.array(
       z.union([
-        z.lazy(() => PrefillFieldDate$outboundSchema),
+        z.lazy(() => PrefillFieldText$outboundSchema),
+        z.lazy(() => PrefillFieldNumber$outboundSchema),
         z.lazy(() => PrefillFieldRadio$outboundSchema),
         z.lazy(() => PrefillFieldCheckbox$outboundSchema),
         z.lazy(() => PrefillFieldDropdown$outboundSchema),
-        z.lazy(() => PrefillFieldText$outboundSchema),
-        z.lazy(() => PrefillFieldNumber$outboundSchema),
+        z.lazy(() => PrefillFieldDate$outboundSchema),
       ]),
     ).optional(),
   });
@@ -2153,7 +2153,7 @@ export const TemplateCreateDocumentFromTemplateFolder$inboundSchema: z.ZodType<
   type: TemplateCreateDocumentFromTemplateFolderType$inboundSchema,
   visibility: TemplateCreateDocumentFromTemplateFolderVisibility$inboundSchema,
   userId: z.number(),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   pinned: z.boolean(),
   parentId: z.nullable(z.string()),
   createdAt: z.string(),
@@ -2167,7 +2167,7 @@ export type TemplateCreateDocumentFromTemplateFolder$Outbound = {
   type: string;
   visibility: string;
   userId: number;
-  teamId: number | null;
+  teamId: number;
   pinned: boolean;
   parentId: string | null;
   createdAt: string;
@@ -2185,7 +2185,7 @@ export const TemplateCreateDocumentFromTemplateFolder$outboundSchema: z.ZodType<
   type: TemplateCreateDocumentFromTemplateFolderType$outboundSchema,
   visibility: TemplateCreateDocumentFromTemplateFolderVisibility$outboundSchema,
   userId: z.number(),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   pinned: z.boolean(),
   parentId: z.nullable(z.string()),
   createdAt: z.string(),
@@ -3983,9 +3983,6 @@ export const TemplateCreateDocumentFromTemplateFieldMetaUnion$inboundSchema:
     unknown
   > = z.union([
     z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaRadio$inboundSchema
-    ),
-    z.lazy(() =>
       TemplateCreateDocumentFromTemplateFieldMetaInitials$inboundSchema
     ),
     z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaName$inboundSchema),
@@ -3993,29 +3990,32 @@ export const TemplateCreateDocumentFromTemplateFieldMetaUnion$inboundSchema:
       TemplateCreateDocumentFromTemplateFieldMetaEmail$inboundSchema
     ),
     z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaDate$inboundSchema),
+    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaText$inboundSchema),
     z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaDropdown$inboundSchema
+      TemplateCreateDocumentFromTemplateFieldMetaNumber$inboundSchema
+    ),
+    z.lazy(() =>
+      TemplateCreateDocumentFromTemplateFieldMetaRadio$inboundSchema
     ),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplateFieldMetaCheckbox$inboundSchema
     ),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaText$inboundSchema),
     z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaNumber$inboundSchema
+      TemplateCreateDocumentFromTemplateFieldMetaDropdown$inboundSchema
     ),
   ]);
 
 /** @internal */
 export type TemplateCreateDocumentFromTemplateFieldMetaUnion$Outbound =
-  | TemplateCreateDocumentFromTemplateFieldMetaRadio$Outbound
   | TemplateCreateDocumentFromTemplateFieldMetaInitials$Outbound
   | TemplateCreateDocumentFromTemplateFieldMetaName$Outbound
   | TemplateCreateDocumentFromTemplateFieldMetaEmail$Outbound
   | TemplateCreateDocumentFromTemplateFieldMetaDate$Outbound
-  | TemplateCreateDocumentFromTemplateFieldMetaDropdown$Outbound
-  | TemplateCreateDocumentFromTemplateFieldMetaCheckbox$Outbound
   | TemplateCreateDocumentFromTemplateFieldMetaText$Outbound
-  | TemplateCreateDocumentFromTemplateFieldMetaNumber$Outbound;
+  | TemplateCreateDocumentFromTemplateFieldMetaNumber$Outbound
+  | TemplateCreateDocumentFromTemplateFieldMetaRadio$Outbound
+  | TemplateCreateDocumentFromTemplateFieldMetaCheckbox$Outbound
+  | TemplateCreateDocumentFromTemplateFieldMetaDropdown$Outbound;
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateFieldMetaUnion$outboundSchema:
@@ -4024,9 +4024,6 @@ export const TemplateCreateDocumentFromTemplateFieldMetaUnion$outboundSchema:
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateFieldMetaUnion
   > = z.union([
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaRadio$outboundSchema
-    ),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplateFieldMetaInitials$outboundSchema
     ),
@@ -4040,16 +4037,19 @@ export const TemplateCreateDocumentFromTemplateFieldMetaUnion$outboundSchema:
       TemplateCreateDocumentFromTemplateFieldMetaDate$outboundSchema
     ),
     z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaDropdown$outboundSchema
+      TemplateCreateDocumentFromTemplateFieldMetaText$outboundSchema
+    ),
+    z.lazy(() =>
+      TemplateCreateDocumentFromTemplateFieldMetaNumber$outboundSchema
+    ),
+    z.lazy(() =>
+      TemplateCreateDocumentFromTemplateFieldMetaRadio$outboundSchema
     ),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplateFieldMetaCheckbox$outboundSchema
     ),
     z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaText$outboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaNumber$outboundSchema
+      TemplateCreateDocumentFromTemplateFieldMetaDropdown$outboundSchema
     ),
   ]);
 
@@ -4118,9 +4118,6 @@ export const TemplateCreateDocumentFromTemplateField$inboundSchema: z.ZodType<
   fieldMeta: z.nullable(
     z.union([
       z.lazy(() =>
-        TemplateCreateDocumentFromTemplateFieldMetaRadio$inboundSchema
-      ),
-      z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaInitials$inboundSchema
       ),
       z.lazy(() =>
@@ -4133,16 +4130,19 @@ export const TemplateCreateDocumentFromTemplateField$inboundSchema: z.ZodType<
         TemplateCreateDocumentFromTemplateFieldMetaDate$inboundSchema
       ),
       z.lazy(() =>
-        TemplateCreateDocumentFromTemplateFieldMetaDropdown$inboundSchema
+        TemplateCreateDocumentFromTemplateFieldMetaText$inboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateFieldMetaNumber$inboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateFieldMetaRadio$inboundSchema
       ),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaCheckbox$inboundSchema
       ),
       z.lazy(() =>
-        TemplateCreateDocumentFromTemplateFieldMetaText$inboundSchema
-      ),
-      z.lazy(() =>
-        TemplateCreateDocumentFromTemplateFieldMetaNumber$inboundSchema
+        TemplateCreateDocumentFromTemplateFieldMetaDropdown$inboundSchema
       ),
     ]),
   ),
@@ -4164,15 +4164,15 @@ export type TemplateCreateDocumentFromTemplateField$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | TemplateCreateDocumentFromTemplateFieldMetaRadio$Outbound
     | TemplateCreateDocumentFromTemplateFieldMetaInitials$Outbound
     | TemplateCreateDocumentFromTemplateFieldMetaName$Outbound
     | TemplateCreateDocumentFromTemplateFieldMetaEmail$Outbound
     | TemplateCreateDocumentFromTemplateFieldMetaDate$Outbound
-    | TemplateCreateDocumentFromTemplateFieldMetaDropdown$Outbound
-    | TemplateCreateDocumentFromTemplateFieldMetaCheckbox$Outbound
     | TemplateCreateDocumentFromTemplateFieldMetaText$Outbound
     | TemplateCreateDocumentFromTemplateFieldMetaNumber$Outbound
+    | TemplateCreateDocumentFromTemplateFieldMetaRadio$Outbound
+    | TemplateCreateDocumentFromTemplateFieldMetaCheckbox$Outbound
+    | TemplateCreateDocumentFromTemplateFieldMetaDropdown$Outbound
     | null;
 };
 
@@ -4198,9 +4198,6 @@ export const TemplateCreateDocumentFromTemplateField$outboundSchema: z.ZodType<
   fieldMeta: z.nullable(
     z.union([
       z.lazy(() =>
-        TemplateCreateDocumentFromTemplateFieldMetaRadio$outboundSchema
-      ),
-      z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaInitials$outboundSchema
       ),
       z.lazy(() =>
@@ -4213,16 +4210,19 @@ export const TemplateCreateDocumentFromTemplateField$outboundSchema: z.ZodType<
         TemplateCreateDocumentFromTemplateFieldMetaDate$outboundSchema
       ),
       z.lazy(() =>
-        TemplateCreateDocumentFromTemplateFieldMetaDropdown$outboundSchema
+        TemplateCreateDocumentFromTemplateFieldMetaText$outboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateFieldMetaNumber$outboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateFieldMetaRadio$outboundSchema
       ),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaCheckbox$outboundSchema
       ),
       z.lazy(() =>
-        TemplateCreateDocumentFromTemplateFieldMetaText$outboundSchema
-      ),
-      z.lazy(() =>
-        TemplateCreateDocumentFromTemplateFieldMetaNumber$outboundSchema
+        TemplateCreateDocumentFromTemplateFieldMetaDropdown$outboundSchema
       ),
     ]),
   ),
@@ -4294,7 +4294,7 @@ export const TemplateCreateDocumentFromTemplateResponse$inboundSchema:
       updatedAt: z.string(),
       completedAt: z.nullable(z.string()),
       deletedAt: z.nullable(z.string()),
-      teamId: z.nullable(z.number()),
+      teamId: z.number(),
       templateId: z.nullable(z.number()),
       folderId: z.nullable(z.string()),
       documentData: z.lazy(() =>
@@ -4334,7 +4334,7 @@ export type TemplateCreateDocumentFromTemplateResponse$Outbound = {
   updatedAt: string;
   completedAt: string | null;
   deletedAt: string | null;
-  teamId: number | null;
+  teamId: number;
   templateId: number | null;
   folderId: string | null;
   documentData: TemplateCreateDocumentFromTemplateDocumentData$Outbound;
@@ -4373,7 +4373,7 @@ export const TemplateCreateDocumentFromTemplateResponse$outboundSchema:
     updatedAt: z.string(),
     completedAt: z.nullable(z.string()),
     deletedAt: z.nullable(z.string()),
-    teamId: z.nullable(z.number()),
+    teamId: z.number(),
     templateId: z.nullable(z.number()),
     folderId: z.nullable(z.string()),
     documentData: z.lazy(() =>

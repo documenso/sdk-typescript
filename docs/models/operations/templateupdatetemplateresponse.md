@@ -14,18 +14,11 @@ let value: TemplateUpdateTemplateResponse = {
   externalId: "<id>",
   title: "<value>",
   userId: 9635.03,
-  teamId: 265.31,
-  authOptions: {
-    globalAccessAuth: [
-      "ACCOUNT",
-    ],
-    globalActionAuth: [
-      "PASSWORD",
-    ],
-  },
+  teamId: 8537.95,
+  authOptions: null,
   templateDocumentDataId: "<id>",
-  createdAt: "1712865818564",
-  updatedAt: "1735650192364",
+  createdAt: "1717372713880",
+  updatedAt: "1735666211656",
   publicTitle: "<value>",
   publicDescription: "<value>",
   folderId: "<id>",
