@@ -8,7 +8,6 @@ import { documentsDistribute } from "../funcs/documentsDistribute.js";
 import { documentsDuplicate } from "../funcs/documentsDuplicate.js";
 import { documentsFind } from "../funcs/documentsFind.js";
 import { documentsGet } from "../funcs/documentsGet.js";
-import { documentsMoveToTeam } from "../funcs/documentsMoveToTeam.js";
 import { documentsRedistribute } from "../funcs/documentsRedistribute.js";
 import { documentsUpdate } from "../funcs/documentsUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
@@ -101,23 +100,6 @@ export class Documents extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.DocumentDeleteDocumentResponse> {
     return unwrapAsync(documentsDelete(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Move document
-   *
-   * @remarks
-   * Move a document from your personal account to a team
-   */
-  async moveToTeam(
-    request: operations.DocumentMoveDocumentToTeamRequest,
-    options?: RequestOptions,
-  ): Promise<operations.DocumentMoveDocumentToTeamResponse> {
-    return unwrapAsync(documentsMoveToTeam(
       this,
       request,
       options,

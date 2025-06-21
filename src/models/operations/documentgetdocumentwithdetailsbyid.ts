@@ -188,7 +188,7 @@ export type DocumentGetDocumentWithDetailsByIdFolder = {
   type: DocumentGetDocumentWithDetailsByIdFolderType;
   visibility: DocumentGetDocumentWithDetailsByIdFolderVisibility;
   userId: number;
-  teamId: number | null;
+  teamId: number;
   pinned: boolean;
   parentId: string | null;
   createdAt: string;
@@ -535,15 +535,15 @@ export type DocumentGetDocumentWithDetailsByIdFieldMetaInitials = {
 };
 
 export type DocumentGetDocumentWithDetailsByIdFieldMetaUnion =
-  | DocumentGetDocumentWithDetailsByIdFieldMetaRadio
   | DocumentGetDocumentWithDetailsByIdFieldMetaInitials
   | DocumentGetDocumentWithDetailsByIdFieldMetaName
   | DocumentGetDocumentWithDetailsByIdFieldMetaEmail
   | DocumentGetDocumentWithDetailsByIdFieldMetaDate
-  | DocumentGetDocumentWithDetailsByIdFieldMetaDropdown
-  | DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox
   | DocumentGetDocumentWithDetailsByIdFieldMetaText
-  | DocumentGetDocumentWithDetailsByIdFieldMetaNumber;
+  | DocumentGetDocumentWithDetailsByIdFieldMetaNumber
+  | DocumentGetDocumentWithDetailsByIdFieldMetaRadio
+  | DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox
+  | DocumentGetDocumentWithDetailsByIdFieldMetaDropdown;
 
 export type DocumentGetDocumentWithDetailsByIdField = {
   type: DocumentGetDocumentWithDetailsByIdFieldType;
@@ -563,15 +563,15 @@ export type DocumentGetDocumentWithDetailsByIdField = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | DocumentGetDocumentWithDetailsByIdFieldMetaRadio
     | DocumentGetDocumentWithDetailsByIdFieldMetaInitials
     | DocumentGetDocumentWithDetailsByIdFieldMetaName
     | DocumentGetDocumentWithDetailsByIdFieldMetaEmail
     | DocumentGetDocumentWithDetailsByIdFieldMetaDate
-    | DocumentGetDocumentWithDetailsByIdFieldMetaDropdown
-    | DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox
     | DocumentGetDocumentWithDetailsByIdFieldMetaText
     | DocumentGetDocumentWithDetailsByIdFieldMetaNumber
+    | DocumentGetDocumentWithDetailsByIdFieldMetaRadio
+    | DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox
+    | DocumentGetDocumentWithDetailsByIdFieldMetaDropdown
     | null;
 };
 
@@ -599,7 +599,7 @@ export type DocumentGetDocumentWithDetailsByIdResponse = {
   updatedAt: string;
   completedAt: string | null;
   deletedAt: string | null;
-  teamId: number | null;
+  teamId: number;
   templateId: number | null;
   folderId: string | null;
   documentData: DocumentGetDocumentWithDetailsByIdDocumentData;
@@ -1349,7 +1349,7 @@ export const DocumentGetDocumentWithDetailsByIdFolder$inboundSchema: z.ZodType<
   type: DocumentGetDocumentWithDetailsByIdFolderType$inboundSchema,
   visibility: DocumentGetDocumentWithDetailsByIdFolderVisibility$inboundSchema,
   userId: z.number(),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   pinned: z.boolean(),
   parentId: z.nullable(z.string()),
   createdAt: z.string(),
@@ -1363,7 +1363,7 @@ export type DocumentGetDocumentWithDetailsByIdFolder$Outbound = {
   type: string;
   visibility: string;
   userId: number;
-  teamId: number | null;
+  teamId: number;
   pinned: boolean;
   parentId: string | null;
   createdAt: string;
@@ -1381,7 +1381,7 @@ export const DocumentGetDocumentWithDetailsByIdFolder$outboundSchema: z.ZodType<
   type: DocumentGetDocumentWithDetailsByIdFolderType$outboundSchema,
   visibility: DocumentGetDocumentWithDetailsByIdFolderVisibility$outboundSchema,
   userId: z.number(),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   pinned: z.boolean(),
   parentId: z.nullable(z.string()),
   createdAt: z.string(),
@@ -3170,9 +3170,6 @@ export const DocumentGetDocumentWithDetailsByIdFieldMetaUnion$inboundSchema:
     unknown
   > = z.union([
     z.lazy(() =>
-      DocumentGetDocumentWithDetailsByIdFieldMetaRadio$inboundSchema
-    ),
-    z.lazy(() =>
       DocumentGetDocumentWithDetailsByIdFieldMetaInitials$inboundSchema
     ),
     z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMetaName$inboundSchema),
@@ -3180,29 +3177,32 @@ export const DocumentGetDocumentWithDetailsByIdFieldMetaUnion$inboundSchema:
       DocumentGetDocumentWithDetailsByIdFieldMetaEmail$inboundSchema
     ),
     z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMetaDate$inboundSchema),
+    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMetaText$inboundSchema),
     z.lazy(() =>
-      DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$inboundSchema
+      DocumentGetDocumentWithDetailsByIdFieldMetaNumber$inboundSchema
+    ),
+    z.lazy(() =>
+      DocumentGetDocumentWithDetailsByIdFieldMetaRadio$inboundSchema
     ),
     z.lazy(() =>
       DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox$inboundSchema
     ),
-    z.lazy(() => DocumentGetDocumentWithDetailsByIdFieldMetaText$inboundSchema),
     z.lazy(() =>
-      DocumentGetDocumentWithDetailsByIdFieldMetaNumber$inboundSchema
+      DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$inboundSchema
     ),
   ]);
 
 /** @internal */
 export type DocumentGetDocumentWithDetailsByIdFieldMetaUnion$Outbound =
-  | DocumentGetDocumentWithDetailsByIdFieldMetaRadio$Outbound
   | DocumentGetDocumentWithDetailsByIdFieldMetaInitials$Outbound
   | DocumentGetDocumentWithDetailsByIdFieldMetaName$Outbound
   | DocumentGetDocumentWithDetailsByIdFieldMetaEmail$Outbound
   | DocumentGetDocumentWithDetailsByIdFieldMetaDate$Outbound
-  | DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$Outbound
-  | DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox$Outbound
   | DocumentGetDocumentWithDetailsByIdFieldMetaText$Outbound
-  | DocumentGetDocumentWithDetailsByIdFieldMetaNumber$Outbound;
+  | DocumentGetDocumentWithDetailsByIdFieldMetaNumber$Outbound
+  | DocumentGetDocumentWithDetailsByIdFieldMetaRadio$Outbound
+  | DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox$Outbound
+  | DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$Outbound;
 
 /** @internal */
 export const DocumentGetDocumentWithDetailsByIdFieldMetaUnion$outboundSchema:
@@ -3211,9 +3211,6 @@ export const DocumentGetDocumentWithDetailsByIdFieldMetaUnion$outboundSchema:
     z.ZodTypeDef,
     DocumentGetDocumentWithDetailsByIdFieldMetaUnion
   > = z.union([
-    z.lazy(() =>
-      DocumentGetDocumentWithDetailsByIdFieldMetaRadio$outboundSchema
-    ),
     z.lazy(() =>
       DocumentGetDocumentWithDetailsByIdFieldMetaInitials$outboundSchema
     ),
@@ -3227,16 +3224,19 @@ export const DocumentGetDocumentWithDetailsByIdFieldMetaUnion$outboundSchema:
       DocumentGetDocumentWithDetailsByIdFieldMetaDate$outboundSchema
     ),
     z.lazy(() =>
-      DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$outboundSchema
+      DocumentGetDocumentWithDetailsByIdFieldMetaText$outboundSchema
+    ),
+    z.lazy(() =>
+      DocumentGetDocumentWithDetailsByIdFieldMetaNumber$outboundSchema
+    ),
+    z.lazy(() =>
+      DocumentGetDocumentWithDetailsByIdFieldMetaRadio$outboundSchema
     ),
     z.lazy(() =>
       DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox$outboundSchema
     ),
     z.lazy(() =>
-      DocumentGetDocumentWithDetailsByIdFieldMetaText$outboundSchema
-    ),
-    z.lazy(() =>
-      DocumentGetDocumentWithDetailsByIdFieldMetaNumber$outboundSchema
+      DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$outboundSchema
     ),
   ]);
 
@@ -3305,9 +3305,6 @@ export const DocumentGetDocumentWithDetailsByIdField$inboundSchema: z.ZodType<
   fieldMeta: z.nullable(
     z.union([
       z.lazy(() =>
-        DocumentGetDocumentWithDetailsByIdFieldMetaRadio$inboundSchema
-      ),
-      z.lazy(() =>
         DocumentGetDocumentWithDetailsByIdFieldMetaInitials$inboundSchema
       ),
       z.lazy(() =>
@@ -3320,16 +3317,19 @@ export const DocumentGetDocumentWithDetailsByIdField$inboundSchema: z.ZodType<
         DocumentGetDocumentWithDetailsByIdFieldMetaDate$inboundSchema
       ),
       z.lazy(() =>
-        DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$inboundSchema
+        DocumentGetDocumentWithDetailsByIdFieldMetaText$inboundSchema
+      ),
+      z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdFieldMetaNumber$inboundSchema
+      ),
+      z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdFieldMetaRadio$inboundSchema
       ),
       z.lazy(() =>
         DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox$inboundSchema
       ),
       z.lazy(() =>
-        DocumentGetDocumentWithDetailsByIdFieldMetaText$inboundSchema
-      ),
-      z.lazy(() =>
-        DocumentGetDocumentWithDetailsByIdFieldMetaNumber$inboundSchema
+        DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$inboundSchema
       ),
     ]),
   ),
@@ -3351,15 +3351,15 @@ export type DocumentGetDocumentWithDetailsByIdField$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | DocumentGetDocumentWithDetailsByIdFieldMetaRadio$Outbound
     | DocumentGetDocumentWithDetailsByIdFieldMetaInitials$Outbound
     | DocumentGetDocumentWithDetailsByIdFieldMetaName$Outbound
     | DocumentGetDocumentWithDetailsByIdFieldMetaEmail$Outbound
     | DocumentGetDocumentWithDetailsByIdFieldMetaDate$Outbound
-    | DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$Outbound
-    | DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox$Outbound
     | DocumentGetDocumentWithDetailsByIdFieldMetaText$Outbound
     | DocumentGetDocumentWithDetailsByIdFieldMetaNumber$Outbound
+    | DocumentGetDocumentWithDetailsByIdFieldMetaRadio$Outbound
+    | DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox$Outbound
+    | DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$Outbound
     | null;
 };
 
@@ -3385,9 +3385,6 @@ export const DocumentGetDocumentWithDetailsByIdField$outboundSchema: z.ZodType<
   fieldMeta: z.nullable(
     z.union([
       z.lazy(() =>
-        DocumentGetDocumentWithDetailsByIdFieldMetaRadio$outboundSchema
-      ),
-      z.lazy(() =>
         DocumentGetDocumentWithDetailsByIdFieldMetaInitials$outboundSchema
       ),
       z.lazy(() =>
@@ -3400,16 +3397,19 @@ export const DocumentGetDocumentWithDetailsByIdField$outboundSchema: z.ZodType<
         DocumentGetDocumentWithDetailsByIdFieldMetaDate$outboundSchema
       ),
       z.lazy(() =>
-        DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$outboundSchema
+        DocumentGetDocumentWithDetailsByIdFieldMetaText$outboundSchema
+      ),
+      z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdFieldMetaNumber$outboundSchema
+      ),
+      z.lazy(() =>
+        DocumentGetDocumentWithDetailsByIdFieldMetaRadio$outboundSchema
       ),
       z.lazy(() =>
         DocumentGetDocumentWithDetailsByIdFieldMetaCheckbox$outboundSchema
       ),
       z.lazy(() =>
-        DocumentGetDocumentWithDetailsByIdFieldMetaText$outboundSchema
-      ),
-      z.lazy(() =>
-        DocumentGetDocumentWithDetailsByIdFieldMetaNumber$outboundSchema
+        DocumentGetDocumentWithDetailsByIdFieldMetaDropdown$outboundSchema
       ),
     ]),
   ),
@@ -3481,7 +3481,7 @@ export const DocumentGetDocumentWithDetailsByIdResponse$inboundSchema:
       updatedAt: z.string(),
       completedAt: z.nullable(z.string()),
       deletedAt: z.nullable(z.string()),
-      teamId: z.nullable(z.number()),
+      teamId: z.number(),
       templateId: z.nullable(z.number()),
       folderId: z.nullable(z.string()),
       documentData: z.lazy(() =>
@@ -3519,7 +3519,7 @@ export type DocumentGetDocumentWithDetailsByIdResponse$Outbound = {
   updatedAt: string;
   completedAt: string | null;
   deletedAt: string | null;
-  teamId: number | null;
+  teamId: number;
   templateId: number | null;
   folderId: string | null;
   documentData: DocumentGetDocumentWithDetailsByIdDocumentData$Outbound;
@@ -3556,7 +3556,7 @@ export const DocumentGetDocumentWithDetailsByIdResponse$outboundSchema:
     updatedAt: z.string(),
     completedAt: z.nullable(z.string()),
     deletedAt: z.nullable(z.string()),
-    teamId: z.nullable(z.number()),
+    teamId: z.number(),
     templateId: z.nullable(z.number()),
     folderId: z.nullable(z.string()),
     documentData: z.lazy(() =>

@@ -908,15 +908,15 @@ export type FieldCreateDocumentFieldsFieldMetaInitialsResponse = {
 };
 
 export type FieldCreateDocumentFieldsFieldMetaUnion =
-  | FieldCreateDocumentFieldsFieldMetaRadioResponse
   | FieldCreateDocumentFieldsFieldMetaInitialsResponse
   | FieldCreateDocumentFieldsFieldMetaNameResponse
   | FieldCreateDocumentFieldsFieldMetaEmailResponse
   | FieldCreateDocumentFieldsFieldMetaDateResponse
-  | FieldCreateDocumentFieldsFieldMetaDropdownResponse
-  | FieldCreateDocumentFieldsFieldMetaCheckboxResponse
   | FieldCreateDocumentFieldsFieldMetaTextResponse
-  | FieldCreateDocumentFieldsFieldMetaNumberResponse;
+  | FieldCreateDocumentFieldsFieldMetaNumberResponse
+  | FieldCreateDocumentFieldsFieldMetaRadioResponse
+  | FieldCreateDocumentFieldsFieldMetaCheckboxResponse
+  | FieldCreateDocumentFieldsFieldMetaDropdownResponse;
 
 export type FieldCreateDocumentFieldsFieldResponse = {
   type: FieldCreateDocumentFieldsTypeResponse;
@@ -936,15 +936,15 @@ export type FieldCreateDocumentFieldsFieldResponse = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | FieldCreateDocumentFieldsFieldMetaRadioResponse
     | FieldCreateDocumentFieldsFieldMetaInitialsResponse
     | FieldCreateDocumentFieldsFieldMetaNameResponse
     | FieldCreateDocumentFieldsFieldMetaEmailResponse
     | FieldCreateDocumentFieldsFieldMetaDateResponse
-    | FieldCreateDocumentFieldsFieldMetaDropdownResponse
-    | FieldCreateDocumentFieldsFieldMetaCheckboxResponse
     | FieldCreateDocumentFieldsFieldMetaTextResponse
     | FieldCreateDocumentFieldsFieldMetaNumberResponse
+    | FieldCreateDocumentFieldsFieldMetaRadioResponse
+    | FieldCreateDocumentFieldsFieldMetaCheckboxResponse
+    | FieldCreateDocumentFieldsFieldMetaDropdownResponse
     | null;
 };
 
@@ -5081,34 +5081,34 @@ export const FieldCreateDocumentFieldsFieldMetaUnion$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaRadioResponse$inboundSchema),
   z.lazy(() =>
     FieldCreateDocumentFieldsFieldMetaInitialsResponse$inboundSchema
   ),
   z.lazy(() => FieldCreateDocumentFieldsFieldMetaNameResponse$inboundSchema),
   z.lazy(() => FieldCreateDocumentFieldsFieldMetaEmailResponse$inboundSchema),
   z.lazy(() => FieldCreateDocumentFieldsFieldMetaDateResponse$inboundSchema),
-  z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaDropdownResponse$inboundSchema
-  ),
+  z.lazy(() => FieldCreateDocumentFieldsFieldMetaTextResponse$inboundSchema),
+  z.lazy(() => FieldCreateDocumentFieldsFieldMetaNumberResponse$inboundSchema),
+  z.lazy(() => FieldCreateDocumentFieldsFieldMetaRadioResponse$inboundSchema),
   z.lazy(() =>
     FieldCreateDocumentFieldsFieldMetaCheckboxResponse$inboundSchema
   ),
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaTextResponse$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaNumberResponse$inboundSchema),
+  z.lazy(() =>
+    FieldCreateDocumentFieldsFieldMetaDropdownResponse$inboundSchema
+  ),
 ]);
 
 /** @internal */
 export type FieldCreateDocumentFieldsFieldMetaUnion$Outbound =
-  | FieldCreateDocumentFieldsFieldMetaRadioResponse$Outbound
   | FieldCreateDocumentFieldsFieldMetaInitialsResponse$Outbound
   | FieldCreateDocumentFieldsFieldMetaNameResponse$Outbound
   | FieldCreateDocumentFieldsFieldMetaEmailResponse$Outbound
   | FieldCreateDocumentFieldsFieldMetaDateResponse$Outbound
-  | FieldCreateDocumentFieldsFieldMetaDropdownResponse$Outbound
-  | FieldCreateDocumentFieldsFieldMetaCheckboxResponse$Outbound
   | FieldCreateDocumentFieldsFieldMetaTextResponse$Outbound
-  | FieldCreateDocumentFieldsFieldMetaNumberResponse$Outbound;
+  | FieldCreateDocumentFieldsFieldMetaNumberResponse$Outbound
+  | FieldCreateDocumentFieldsFieldMetaRadioResponse$Outbound
+  | FieldCreateDocumentFieldsFieldMetaCheckboxResponse$Outbound
+  | FieldCreateDocumentFieldsFieldMetaDropdownResponse$Outbound;
 
 /** @internal */
 export const FieldCreateDocumentFieldsFieldMetaUnion$outboundSchema: z.ZodType<
@@ -5116,21 +5116,21 @@ export const FieldCreateDocumentFieldsFieldMetaUnion$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FieldCreateDocumentFieldsFieldMetaUnion
 > = z.union([
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaRadioResponse$outboundSchema),
   z.lazy(() =>
     FieldCreateDocumentFieldsFieldMetaInitialsResponse$outboundSchema
   ),
   z.lazy(() => FieldCreateDocumentFieldsFieldMetaNameResponse$outboundSchema),
   z.lazy(() => FieldCreateDocumentFieldsFieldMetaEmailResponse$outboundSchema),
   z.lazy(() => FieldCreateDocumentFieldsFieldMetaDateResponse$outboundSchema),
-  z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaDropdownResponse$outboundSchema
-  ),
+  z.lazy(() => FieldCreateDocumentFieldsFieldMetaTextResponse$outboundSchema),
+  z.lazy(() => FieldCreateDocumentFieldsFieldMetaNumberResponse$outboundSchema),
+  z.lazy(() => FieldCreateDocumentFieldsFieldMetaRadioResponse$outboundSchema),
   z.lazy(() =>
     FieldCreateDocumentFieldsFieldMetaCheckboxResponse$outboundSchema
   ),
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaTextResponse$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaNumberResponse$outboundSchema),
+  z.lazy(() =>
+    FieldCreateDocumentFieldsFieldMetaDropdownResponse$outboundSchema
+  ),
 ]);
 
 /**
@@ -5197,9 +5197,6 @@ export const FieldCreateDocumentFieldsFieldResponse$inboundSchema: z.ZodType<
   fieldMeta: z.nullable(
     z.union([
       z.lazy(() =>
-        FieldCreateDocumentFieldsFieldMetaRadioResponse$inboundSchema
-      ),
-      z.lazy(() =>
         FieldCreateDocumentFieldsFieldMetaInitialsResponse$inboundSchema
       ),
       z.lazy(() =>
@@ -5212,16 +5209,19 @@ export const FieldCreateDocumentFieldsFieldResponse$inboundSchema: z.ZodType<
         FieldCreateDocumentFieldsFieldMetaDateResponse$inboundSchema
       ),
       z.lazy(() =>
-        FieldCreateDocumentFieldsFieldMetaDropdownResponse$inboundSchema
+        FieldCreateDocumentFieldsFieldMetaTextResponse$inboundSchema
+      ),
+      z.lazy(() =>
+        FieldCreateDocumentFieldsFieldMetaNumberResponse$inboundSchema
+      ),
+      z.lazy(() =>
+        FieldCreateDocumentFieldsFieldMetaRadioResponse$inboundSchema
       ),
       z.lazy(() =>
         FieldCreateDocumentFieldsFieldMetaCheckboxResponse$inboundSchema
       ),
       z.lazy(() =>
-        FieldCreateDocumentFieldsFieldMetaTextResponse$inboundSchema
-      ),
-      z.lazy(() =>
-        FieldCreateDocumentFieldsFieldMetaNumberResponse$inboundSchema
+        FieldCreateDocumentFieldsFieldMetaDropdownResponse$inboundSchema
       ),
     ]),
   ),
@@ -5243,15 +5243,15 @@ export type FieldCreateDocumentFieldsFieldResponse$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | FieldCreateDocumentFieldsFieldMetaRadioResponse$Outbound
     | FieldCreateDocumentFieldsFieldMetaInitialsResponse$Outbound
     | FieldCreateDocumentFieldsFieldMetaNameResponse$Outbound
     | FieldCreateDocumentFieldsFieldMetaEmailResponse$Outbound
     | FieldCreateDocumentFieldsFieldMetaDateResponse$Outbound
-    | FieldCreateDocumentFieldsFieldMetaDropdownResponse$Outbound
-    | FieldCreateDocumentFieldsFieldMetaCheckboxResponse$Outbound
     | FieldCreateDocumentFieldsFieldMetaTextResponse$Outbound
     | FieldCreateDocumentFieldsFieldMetaNumberResponse$Outbound
+    | FieldCreateDocumentFieldsFieldMetaRadioResponse$Outbound
+    | FieldCreateDocumentFieldsFieldMetaCheckboxResponse$Outbound
+    | FieldCreateDocumentFieldsFieldMetaDropdownResponse$Outbound
     | null;
 };
 
@@ -5277,9 +5277,6 @@ export const FieldCreateDocumentFieldsFieldResponse$outboundSchema: z.ZodType<
   fieldMeta: z.nullable(
     z.union([
       z.lazy(() =>
-        FieldCreateDocumentFieldsFieldMetaRadioResponse$outboundSchema
-      ),
-      z.lazy(() =>
         FieldCreateDocumentFieldsFieldMetaInitialsResponse$outboundSchema
       ),
       z.lazy(() =>
@@ -5292,16 +5289,19 @@ export const FieldCreateDocumentFieldsFieldResponse$outboundSchema: z.ZodType<
         FieldCreateDocumentFieldsFieldMetaDateResponse$outboundSchema
       ),
       z.lazy(() =>
-        FieldCreateDocumentFieldsFieldMetaDropdownResponse$outboundSchema
+        FieldCreateDocumentFieldsFieldMetaTextResponse$outboundSchema
+      ),
+      z.lazy(() =>
+        FieldCreateDocumentFieldsFieldMetaNumberResponse$outboundSchema
+      ),
+      z.lazy(() =>
+        FieldCreateDocumentFieldsFieldMetaRadioResponse$outboundSchema
       ),
       z.lazy(() =>
         FieldCreateDocumentFieldsFieldMetaCheckboxResponse$outboundSchema
       ),
       z.lazy(() =>
-        FieldCreateDocumentFieldsFieldMetaTextResponse$outboundSchema
-      ),
-      z.lazy(() =>
-        FieldCreateDocumentFieldsFieldMetaNumberResponse$outboundSchema
+        FieldCreateDocumentFieldsFieldMetaDropdownResponse$outboundSchema
       ),
     ]),
   ),

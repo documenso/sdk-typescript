@@ -346,15 +346,15 @@ export type TemplateFindTemplatesFieldMetaInitials = {
 };
 
 export type TemplateFindTemplatesFieldMetaUnion =
-  | TemplateFindTemplatesFieldMetaRadio
   | TemplateFindTemplatesFieldMetaInitials
   | TemplateFindTemplatesFieldMetaName
   | TemplateFindTemplatesFieldMetaEmail
   | TemplateFindTemplatesFieldMetaDate
-  | TemplateFindTemplatesFieldMetaDropdown
-  | TemplateFindTemplatesFieldMetaCheckbox
   | TemplateFindTemplatesFieldMetaText
-  | TemplateFindTemplatesFieldMetaNumber;
+  | TemplateFindTemplatesFieldMetaNumber
+  | TemplateFindTemplatesFieldMetaRadio
+  | TemplateFindTemplatesFieldMetaCheckbox
+  | TemplateFindTemplatesFieldMetaDropdown;
 
 export type TemplateFindTemplatesField = {
   type: TemplateFindTemplatesFieldType;
@@ -374,15 +374,15 @@ export type TemplateFindTemplatesField = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | TemplateFindTemplatesFieldMetaRadio
     | TemplateFindTemplatesFieldMetaInitials
     | TemplateFindTemplatesFieldMetaName
     | TemplateFindTemplatesFieldMetaEmail
     | TemplateFindTemplatesFieldMetaDate
-    | TemplateFindTemplatesFieldMetaDropdown
-    | TemplateFindTemplatesFieldMetaCheckbox
     | TemplateFindTemplatesFieldMetaText
     | TemplateFindTemplatesFieldMetaNumber
+    | TemplateFindTemplatesFieldMetaRadio
+    | TemplateFindTemplatesFieldMetaCheckbox
+    | TemplateFindTemplatesFieldMetaDropdown
     | null;
 };
 
@@ -512,7 +512,7 @@ export type TemplateFindTemplatesData = {
   externalId: string | null;
   title: string;
   userId: number;
-  teamId: number | null;
+  teamId: number;
   authOptions: TemplateFindTemplatesAuthOptions | null;
   templateDocumentDataId: string;
   createdAt: string;
@@ -2096,28 +2096,28 @@ export const TemplateFindTemplatesFieldMetaUnion$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  z.lazy(() => TemplateFindTemplatesFieldMetaRadio$inboundSchema),
   z.lazy(() => TemplateFindTemplatesFieldMetaInitials$inboundSchema),
   z.lazy(() => TemplateFindTemplatesFieldMetaName$inboundSchema),
   z.lazy(() => TemplateFindTemplatesFieldMetaEmail$inboundSchema),
   z.lazy(() => TemplateFindTemplatesFieldMetaDate$inboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMetaDropdown$inboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMetaCheckbox$inboundSchema),
   z.lazy(() => TemplateFindTemplatesFieldMetaText$inboundSchema),
   z.lazy(() => TemplateFindTemplatesFieldMetaNumber$inboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaRadio$inboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaCheckbox$inboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaDropdown$inboundSchema),
 ]);
 
 /** @internal */
 export type TemplateFindTemplatesFieldMetaUnion$Outbound =
-  | TemplateFindTemplatesFieldMetaRadio$Outbound
   | TemplateFindTemplatesFieldMetaInitials$Outbound
   | TemplateFindTemplatesFieldMetaName$Outbound
   | TemplateFindTemplatesFieldMetaEmail$Outbound
   | TemplateFindTemplatesFieldMetaDate$Outbound
-  | TemplateFindTemplatesFieldMetaDropdown$Outbound
-  | TemplateFindTemplatesFieldMetaCheckbox$Outbound
   | TemplateFindTemplatesFieldMetaText$Outbound
-  | TemplateFindTemplatesFieldMetaNumber$Outbound;
+  | TemplateFindTemplatesFieldMetaNumber$Outbound
+  | TemplateFindTemplatesFieldMetaRadio$Outbound
+  | TemplateFindTemplatesFieldMetaCheckbox$Outbound
+  | TemplateFindTemplatesFieldMetaDropdown$Outbound;
 
 /** @internal */
 export const TemplateFindTemplatesFieldMetaUnion$outboundSchema: z.ZodType<
@@ -2125,15 +2125,15 @@ export const TemplateFindTemplatesFieldMetaUnion$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TemplateFindTemplatesFieldMetaUnion
 > = z.union([
-  z.lazy(() => TemplateFindTemplatesFieldMetaRadio$outboundSchema),
   z.lazy(() => TemplateFindTemplatesFieldMetaInitials$outboundSchema),
   z.lazy(() => TemplateFindTemplatesFieldMetaName$outboundSchema),
   z.lazy(() => TemplateFindTemplatesFieldMetaEmail$outboundSchema),
   z.lazy(() => TemplateFindTemplatesFieldMetaDate$outboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMetaDropdown$outboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMetaCheckbox$outboundSchema),
   z.lazy(() => TemplateFindTemplatesFieldMetaText$outboundSchema),
   z.lazy(() => TemplateFindTemplatesFieldMetaNumber$outboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaRadio$outboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaCheckbox$outboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaDropdown$outboundSchema),
 ]);
 
 /**
@@ -2193,15 +2193,15 @@ export const TemplateFindTemplatesField$inboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() => TemplateFindTemplatesFieldMetaRadio$inboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMetaInitials$inboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMetaName$inboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMetaEmail$inboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMetaDate$inboundSchema),
-      z.lazy(() => TemplateFindTemplatesFieldMetaDropdown$inboundSchema),
-      z.lazy(() => TemplateFindTemplatesFieldMetaCheckbox$inboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMetaText$inboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMetaNumber$inboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaRadio$inboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaCheckbox$inboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaDropdown$inboundSchema),
     ]),
   ),
 });
@@ -2222,15 +2222,15 @@ export type TemplateFindTemplatesField$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | TemplateFindTemplatesFieldMetaRadio$Outbound
     | TemplateFindTemplatesFieldMetaInitials$Outbound
     | TemplateFindTemplatesFieldMetaName$Outbound
     | TemplateFindTemplatesFieldMetaEmail$Outbound
     | TemplateFindTemplatesFieldMetaDate$Outbound
-    | TemplateFindTemplatesFieldMetaDropdown$Outbound
-    | TemplateFindTemplatesFieldMetaCheckbox$Outbound
     | TemplateFindTemplatesFieldMetaText$Outbound
     | TemplateFindTemplatesFieldMetaNumber$Outbound
+    | TemplateFindTemplatesFieldMetaRadio$Outbound
+    | TemplateFindTemplatesFieldMetaCheckbox$Outbound
+    | TemplateFindTemplatesFieldMetaDropdown$Outbound
     | null;
 };
 
@@ -2255,15 +2255,15 @@ export const TemplateFindTemplatesField$outboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() => TemplateFindTemplatesFieldMetaRadio$outboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMetaInitials$outboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMetaName$outboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMetaEmail$outboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMetaDate$outboundSchema),
-      z.lazy(() => TemplateFindTemplatesFieldMetaDropdown$outboundSchema),
-      z.lazy(() => TemplateFindTemplatesFieldMetaCheckbox$outboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMetaText$outboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMetaNumber$outboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaRadio$outboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaCheckbox$outboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaDropdown$outboundSchema),
     ]),
   ),
 });
@@ -2776,7 +2776,7 @@ export const TemplateFindTemplatesData$inboundSchema: z.ZodType<
   externalId: z.nullable(z.string()),
   title: z.string(),
   userId: z.number(),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   authOptions: z.nullable(
     z.lazy(() => TemplateFindTemplatesAuthOptions$inboundSchema),
   ),
@@ -2808,7 +2808,7 @@ export type TemplateFindTemplatesData$Outbound = {
   externalId: string | null;
   title: string;
   userId: number;
-  teamId: number | null;
+  teamId: number;
   authOptions: TemplateFindTemplatesAuthOptions$Outbound | null;
   templateDocumentDataId: string;
   createdAt: string;
@@ -2836,7 +2836,7 @@ export const TemplateFindTemplatesData$outboundSchema: z.ZodType<
   externalId: z.nullable(z.string()),
   title: z.string(),
   userId: z.number(),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   authOptions: z.nullable(
     z.lazy(() => TemplateFindTemplatesAuthOptions$outboundSchema),
   ),
