@@ -25,7 +25,6 @@ import { tool$documentsFieldsUpdate } from "./tools/documentsFieldsUpdate.js";
 import { tool$documentsFieldsUpdateMany } from "./tools/documentsFieldsUpdateMany.js";
 import { tool$documentsFind } from "./tools/documentsFind.js";
 import { tool$documentsGet } from "./tools/documentsGet.js";
-import { tool$documentsMoveToTeam } from "./tools/documentsMoveToTeam.js";
 import { tool$documentsRecipientsCreate } from "./tools/documentsRecipientsCreate.js";
 import { tool$documentsRecipientsCreateMany } from "./tools/documentsRecipientsCreateMany.js";
 import { tool$documentsRecipientsDelete } from "./tools/documentsRecipientsDelete.js";
@@ -49,7 +48,6 @@ import { tool$templatesFieldsUpdate } from "./tools/templatesFieldsUpdate.js";
 import { tool$templatesFieldsUpdateMany } from "./tools/templatesFieldsUpdateMany.js";
 import { tool$templatesFind } from "./tools/templatesFind.js";
 import { tool$templatesGet } from "./tools/templatesGet.js";
-import { tool$templatesMoveToTeam } from "./tools/templatesMoveToTeam.js";
 import { tool$templatesRecipientsCreate } from "./tools/templatesRecipientsCreate.js";
 import { tool$templatesRecipientsCreateMany } from "./tools/templatesRecipientsCreateMany.js";
 import { tool$templatesRecipientsDelete } from "./tools/templatesRecipientsDelete.js";
@@ -69,7 +67,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Documenso",
-    version: "0.3.0",
+    version: "0.3.1",
   });
 
   const client = new DocumensoCore({
@@ -99,12 +97,11 @@ export function createMCPServer(deps: {
   const register = { tool, resource, resourceTemplate, prompt };
   void register; // suppress unused warnings
 
+  tool(tool$documentsUpdate);
   tool(tool$documentsFind);
   tool(tool$documentsGet);
   tool(tool$documentsCreateV0);
-  tool(tool$documentsUpdate);
   tool(tool$documentsDelete);
-  tool(tool$documentsMoveToTeam);
   tool(tool$documentsDistribute);
   tool(tool$documentsRedistribute);
   tool(tool$documentsDuplicate);
@@ -114,7 +111,6 @@ export function createMCPServer(deps: {
   tool(tool$templatesDuplicate);
   tool(tool$templatesDelete);
   tool(tool$templatesUse);
-  tool(tool$templatesMoveToTeam);
   tool(tool$embeddingEmbeddingPresignCreateEmbeddingPresignToken);
   tool(tool$embeddingEmbeddingPresignVerifyEmbeddingPresignToken);
   tool(tool$documentsFieldsGet);

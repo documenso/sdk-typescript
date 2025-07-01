@@ -499,15 +499,15 @@ export type TemplateGetTemplateByIdFieldMetaInitials = {
 };
 
 export type TemplateGetTemplateByIdFieldMetaUnion =
-  | TemplateGetTemplateByIdFieldMetaRadio
   | TemplateGetTemplateByIdFieldMetaInitials
   | TemplateGetTemplateByIdFieldMetaName
   | TemplateGetTemplateByIdFieldMetaEmail
   | TemplateGetTemplateByIdFieldMetaDate
-  | TemplateGetTemplateByIdFieldMetaDropdown
-  | TemplateGetTemplateByIdFieldMetaCheckbox
   | TemplateGetTemplateByIdFieldMetaText
-  | TemplateGetTemplateByIdFieldMetaNumber;
+  | TemplateGetTemplateByIdFieldMetaNumber
+  | TemplateGetTemplateByIdFieldMetaRadio
+  | TemplateGetTemplateByIdFieldMetaCheckbox
+  | TemplateGetTemplateByIdFieldMetaDropdown;
 
 export type TemplateGetTemplateByIdField = {
   type: TemplateGetTemplateByIdFieldType;
@@ -527,15 +527,15 @@ export type TemplateGetTemplateByIdField = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | TemplateGetTemplateByIdFieldMetaRadio
     | TemplateGetTemplateByIdFieldMetaInitials
     | TemplateGetTemplateByIdFieldMetaName
     | TemplateGetTemplateByIdFieldMetaEmail
     | TemplateGetTemplateByIdFieldMetaDate
-    | TemplateGetTemplateByIdFieldMetaDropdown
-    | TemplateGetTemplateByIdFieldMetaCheckbox
     | TemplateGetTemplateByIdFieldMetaText
     | TemplateGetTemplateByIdFieldMetaNumber
+    | TemplateGetTemplateByIdFieldMetaRadio
+    | TemplateGetTemplateByIdFieldMetaCheckbox
+    | TemplateGetTemplateByIdFieldMetaDropdown
     | null;
 };
 
@@ -562,7 +562,7 @@ export type TemplateGetTemplateByIdFolder = {
   type: TemplateGetTemplateByIdFolderType;
   visibility: TemplateGetTemplateByIdFolderVisibility;
   userId: number;
-  teamId: number | null;
+  teamId: number;
   pinned: boolean;
   parentId: string | null;
   createdAt: string;
@@ -579,7 +579,7 @@ export type TemplateGetTemplateByIdResponse = {
   externalId: string | null;
   title: string;
   userId: number;
-  teamId: number | null;
+  teamId: number;
   authOptions: TemplateGetTemplateByIdAuthOptions | null;
   templateDocumentDataId: string;
   createdAt: string;
@@ -2835,28 +2835,28 @@ export const TemplateGetTemplateByIdFieldMetaUnion$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaRadio$inboundSchema),
   z.lazy(() => TemplateGetTemplateByIdFieldMetaInitials$inboundSchema),
   z.lazy(() => TemplateGetTemplateByIdFieldMetaName$inboundSchema),
   z.lazy(() => TemplateGetTemplateByIdFieldMetaEmail$inboundSchema),
   z.lazy(() => TemplateGetTemplateByIdFieldMetaDate$inboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaDropdown$inboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaCheckbox$inboundSchema),
   z.lazy(() => TemplateGetTemplateByIdFieldMetaText$inboundSchema),
   z.lazy(() => TemplateGetTemplateByIdFieldMetaNumber$inboundSchema),
+  z.lazy(() => TemplateGetTemplateByIdFieldMetaRadio$inboundSchema),
+  z.lazy(() => TemplateGetTemplateByIdFieldMetaCheckbox$inboundSchema),
+  z.lazy(() => TemplateGetTemplateByIdFieldMetaDropdown$inboundSchema),
 ]);
 
 /** @internal */
 export type TemplateGetTemplateByIdFieldMetaUnion$Outbound =
-  | TemplateGetTemplateByIdFieldMetaRadio$Outbound
   | TemplateGetTemplateByIdFieldMetaInitials$Outbound
   | TemplateGetTemplateByIdFieldMetaName$Outbound
   | TemplateGetTemplateByIdFieldMetaEmail$Outbound
   | TemplateGetTemplateByIdFieldMetaDate$Outbound
-  | TemplateGetTemplateByIdFieldMetaDropdown$Outbound
-  | TemplateGetTemplateByIdFieldMetaCheckbox$Outbound
   | TemplateGetTemplateByIdFieldMetaText$Outbound
-  | TemplateGetTemplateByIdFieldMetaNumber$Outbound;
+  | TemplateGetTemplateByIdFieldMetaNumber$Outbound
+  | TemplateGetTemplateByIdFieldMetaRadio$Outbound
+  | TemplateGetTemplateByIdFieldMetaCheckbox$Outbound
+  | TemplateGetTemplateByIdFieldMetaDropdown$Outbound;
 
 /** @internal */
 export const TemplateGetTemplateByIdFieldMetaUnion$outboundSchema: z.ZodType<
@@ -2864,15 +2864,15 @@ export const TemplateGetTemplateByIdFieldMetaUnion$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TemplateGetTemplateByIdFieldMetaUnion
 > = z.union([
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaRadio$outboundSchema),
   z.lazy(() => TemplateGetTemplateByIdFieldMetaInitials$outboundSchema),
   z.lazy(() => TemplateGetTemplateByIdFieldMetaName$outboundSchema),
   z.lazy(() => TemplateGetTemplateByIdFieldMetaEmail$outboundSchema),
   z.lazy(() => TemplateGetTemplateByIdFieldMetaDate$outboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaDropdown$outboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaCheckbox$outboundSchema),
   z.lazy(() => TemplateGetTemplateByIdFieldMetaText$outboundSchema),
   z.lazy(() => TemplateGetTemplateByIdFieldMetaNumber$outboundSchema),
+  z.lazy(() => TemplateGetTemplateByIdFieldMetaRadio$outboundSchema),
+  z.lazy(() => TemplateGetTemplateByIdFieldMetaCheckbox$outboundSchema),
+  z.lazy(() => TemplateGetTemplateByIdFieldMetaDropdown$outboundSchema),
 ]);
 
 /**
@@ -2932,15 +2932,15 @@ export const TemplateGetTemplateByIdField$inboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() => TemplateGetTemplateByIdFieldMetaRadio$inboundSchema),
       z.lazy(() => TemplateGetTemplateByIdFieldMetaInitials$inboundSchema),
       z.lazy(() => TemplateGetTemplateByIdFieldMetaName$inboundSchema),
       z.lazy(() => TemplateGetTemplateByIdFieldMetaEmail$inboundSchema),
       z.lazy(() => TemplateGetTemplateByIdFieldMetaDate$inboundSchema),
-      z.lazy(() => TemplateGetTemplateByIdFieldMetaDropdown$inboundSchema),
-      z.lazy(() => TemplateGetTemplateByIdFieldMetaCheckbox$inboundSchema),
       z.lazy(() => TemplateGetTemplateByIdFieldMetaText$inboundSchema),
       z.lazy(() => TemplateGetTemplateByIdFieldMetaNumber$inboundSchema),
+      z.lazy(() => TemplateGetTemplateByIdFieldMetaRadio$inboundSchema),
+      z.lazy(() => TemplateGetTemplateByIdFieldMetaCheckbox$inboundSchema),
+      z.lazy(() => TemplateGetTemplateByIdFieldMetaDropdown$inboundSchema),
     ]),
   ),
 });
@@ -2961,15 +2961,15 @@ export type TemplateGetTemplateByIdField$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | TemplateGetTemplateByIdFieldMetaRadio$Outbound
     | TemplateGetTemplateByIdFieldMetaInitials$Outbound
     | TemplateGetTemplateByIdFieldMetaName$Outbound
     | TemplateGetTemplateByIdFieldMetaEmail$Outbound
     | TemplateGetTemplateByIdFieldMetaDate$Outbound
-    | TemplateGetTemplateByIdFieldMetaDropdown$Outbound
-    | TemplateGetTemplateByIdFieldMetaCheckbox$Outbound
     | TemplateGetTemplateByIdFieldMetaText$Outbound
     | TemplateGetTemplateByIdFieldMetaNumber$Outbound
+    | TemplateGetTemplateByIdFieldMetaRadio$Outbound
+    | TemplateGetTemplateByIdFieldMetaCheckbox$Outbound
+    | TemplateGetTemplateByIdFieldMetaDropdown$Outbound
     | null;
 };
 
@@ -2994,15 +2994,15 @@ export const TemplateGetTemplateByIdField$outboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() => TemplateGetTemplateByIdFieldMetaRadio$outboundSchema),
       z.lazy(() => TemplateGetTemplateByIdFieldMetaInitials$outboundSchema),
       z.lazy(() => TemplateGetTemplateByIdFieldMetaName$outboundSchema),
       z.lazy(() => TemplateGetTemplateByIdFieldMetaEmail$outboundSchema),
       z.lazy(() => TemplateGetTemplateByIdFieldMetaDate$outboundSchema),
-      z.lazy(() => TemplateGetTemplateByIdFieldMetaDropdown$outboundSchema),
-      z.lazy(() => TemplateGetTemplateByIdFieldMetaCheckbox$outboundSchema),
       z.lazy(() => TemplateGetTemplateByIdFieldMetaText$outboundSchema),
       z.lazy(() => TemplateGetTemplateByIdFieldMetaNumber$outboundSchema),
+      z.lazy(() => TemplateGetTemplateByIdFieldMetaRadio$outboundSchema),
+      z.lazy(() => TemplateGetTemplateByIdFieldMetaCheckbox$outboundSchema),
+      z.lazy(() => TemplateGetTemplateByIdFieldMetaDropdown$outboundSchema),
     ]),
   ),
 });
@@ -3096,7 +3096,7 @@ export const TemplateGetTemplateByIdFolder$inboundSchema: z.ZodType<
   type: TemplateGetTemplateByIdFolderType$inboundSchema,
   visibility: TemplateGetTemplateByIdFolderVisibility$inboundSchema,
   userId: z.number(),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   pinned: z.boolean(),
   parentId: z.nullable(z.string()),
   createdAt: z.string(),
@@ -3110,7 +3110,7 @@ export type TemplateGetTemplateByIdFolder$Outbound = {
   type: string;
   visibility: string;
   userId: number;
-  teamId: number | null;
+  teamId: number;
   pinned: boolean;
   parentId: string | null;
   createdAt: string;
@@ -3128,7 +3128,7 @@ export const TemplateGetTemplateByIdFolder$outboundSchema: z.ZodType<
   type: TemplateGetTemplateByIdFolderType$outboundSchema,
   visibility: TemplateGetTemplateByIdFolderVisibility$outboundSchema,
   userId: z.number(),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   pinned: z.boolean(),
   parentId: z.nullable(z.string()),
   createdAt: z.string(),
@@ -3180,7 +3180,7 @@ export const TemplateGetTemplateByIdResponse$inboundSchema: z.ZodType<
   externalId: z.nullable(z.string()),
   title: z.string(),
   userId: z.number(),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   authOptions: z.nullable(
     z.lazy(() => TemplateGetTemplateByIdAuthOptions$inboundSchema),
   ),
@@ -3213,7 +3213,7 @@ export type TemplateGetTemplateByIdResponse$Outbound = {
   externalId: string | null;
   title: string;
   userId: number;
-  teamId: number | null;
+  teamId: number;
   authOptions: TemplateGetTemplateByIdAuthOptions$Outbound | null;
   templateDocumentDataId: string;
   createdAt: string;
@@ -3242,7 +3242,7 @@ export const TemplateGetTemplateByIdResponse$outboundSchema: z.ZodType<
   externalId: z.nullable(z.string()),
   title: z.string(),
   userId: z.number(),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   authOptions: z.nullable(
     z.lazy(() => TemplateGetTemplateByIdAuthOptions$outboundSchema),
   ),

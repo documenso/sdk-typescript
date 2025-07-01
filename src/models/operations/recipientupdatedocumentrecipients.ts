@@ -389,15 +389,15 @@ export type RecipientUpdateDocumentRecipientsFieldMetaInitials = {
 };
 
 export type RecipientUpdateDocumentRecipientsFieldMetaUnion =
-  | RecipientUpdateDocumentRecipientsFieldMetaRadio
   | RecipientUpdateDocumentRecipientsFieldMetaInitials
   | RecipientUpdateDocumentRecipientsFieldMetaName
   | RecipientUpdateDocumentRecipientsFieldMetaEmail
   | RecipientUpdateDocumentRecipientsFieldMetaDate
-  | RecipientUpdateDocumentRecipientsFieldMetaDropdown
-  | RecipientUpdateDocumentRecipientsFieldMetaCheckbox
   | RecipientUpdateDocumentRecipientsFieldMetaText
-  | RecipientUpdateDocumentRecipientsFieldMetaNumber;
+  | RecipientUpdateDocumentRecipientsFieldMetaNumber
+  | RecipientUpdateDocumentRecipientsFieldMetaRadio
+  | RecipientUpdateDocumentRecipientsFieldMetaCheckbox
+  | RecipientUpdateDocumentRecipientsFieldMetaDropdown;
 
 export type RecipientUpdateDocumentRecipientsField = {
   type: RecipientUpdateDocumentRecipientsType;
@@ -417,15 +417,15 @@ export type RecipientUpdateDocumentRecipientsField = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | RecipientUpdateDocumentRecipientsFieldMetaRadio
     | RecipientUpdateDocumentRecipientsFieldMetaInitials
     | RecipientUpdateDocumentRecipientsFieldMetaName
     | RecipientUpdateDocumentRecipientsFieldMetaEmail
     | RecipientUpdateDocumentRecipientsFieldMetaDate
-    | RecipientUpdateDocumentRecipientsFieldMetaDropdown
-    | RecipientUpdateDocumentRecipientsFieldMetaCheckbox
     | RecipientUpdateDocumentRecipientsFieldMetaText
     | RecipientUpdateDocumentRecipientsFieldMetaNumber
+    | RecipientUpdateDocumentRecipientsFieldMetaRadio
+    | RecipientUpdateDocumentRecipientsFieldMetaCheckbox
+    | RecipientUpdateDocumentRecipientsFieldMetaDropdown
     | null;
 };
 
@@ -2314,36 +2314,36 @@ export const RecipientUpdateDocumentRecipientsFieldMetaUnion$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.union([
-    z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaRadio$inboundSchema),
     z.lazy(() =>
       RecipientUpdateDocumentRecipientsFieldMetaInitials$inboundSchema
     ),
     z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaName$inboundSchema),
     z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaEmail$inboundSchema),
     z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaDate$inboundSchema),
-    z.lazy(() =>
-      RecipientUpdateDocumentRecipientsFieldMetaDropdown$inboundSchema
-    ),
-    z.lazy(() =>
-      RecipientUpdateDocumentRecipientsFieldMetaCheckbox$inboundSchema
-    ),
     z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaText$inboundSchema),
     z.lazy(() =>
       RecipientUpdateDocumentRecipientsFieldMetaNumber$inboundSchema
+    ),
+    z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaRadio$inboundSchema),
+    z.lazy(() =>
+      RecipientUpdateDocumentRecipientsFieldMetaCheckbox$inboundSchema
+    ),
+    z.lazy(() =>
+      RecipientUpdateDocumentRecipientsFieldMetaDropdown$inboundSchema
     ),
   ]);
 
 /** @internal */
 export type RecipientUpdateDocumentRecipientsFieldMetaUnion$Outbound =
-  | RecipientUpdateDocumentRecipientsFieldMetaRadio$Outbound
   | RecipientUpdateDocumentRecipientsFieldMetaInitials$Outbound
   | RecipientUpdateDocumentRecipientsFieldMetaName$Outbound
   | RecipientUpdateDocumentRecipientsFieldMetaEmail$Outbound
   | RecipientUpdateDocumentRecipientsFieldMetaDate$Outbound
-  | RecipientUpdateDocumentRecipientsFieldMetaDropdown$Outbound
-  | RecipientUpdateDocumentRecipientsFieldMetaCheckbox$Outbound
   | RecipientUpdateDocumentRecipientsFieldMetaText$Outbound
-  | RecipientUpdateDocumentRecipientsFieldMetaNumber$Outbound;
+  | RecipientUpdateDocumentRecipientsFieldMetaNumber$Outbound
+  | RecipientUpdateDocumentRecipientsFieldMetaRadio$Outbound
+  | RecipientUpdateDocumentRecipientsFieldMetaCheckbox$Outbound
+  | RecipientUpdateDocumentRecipientsFieldMetaDropdown$Outbound;
 
 /** @internal */
 export const RecipientUpdateDocumentRecipientsFieldMetaUnion$outboundSchema:
@@ -2353,9 +2353,6 @@ export const RecipientUpdateDocumentRecipientsFieldMetaUnion$outboundSchema:
     RecipientUpdateDocumentRecipientsFieldMetaUnion
   > = z.union([
     z.lazy(() =>
-      RecipientUpdateDocumentRecipientsFieldMetaRadio$outboundSchema
-    ),
-    z.lazy(() =>
       RecipientUpdateDocumentRecipientsFieldMetaInitials$outboundSchema
     ),
     z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaName$outboundSchema),
@@ -2363,15 +2360,18 @@ export const RecipientUpdateDocumentRecipientsFieldMetaUnion$outboundSchema:
       RecipientUpdateDocumentRecipientsFieldMetaEmail$outboundSchema
     ),
     z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaDate$outboundSchema),
+    z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaText$outboundSchema),
     z.lazy(() =>
-      RecipientUpdateDocumentRecipientsFieldMetaDropdown$outboundSchema
+      RecipientUpdateDocumentRecipientsFieldMetaNumber$outboundSchema
+    ),
+    z.lazy(() =>
+      RecipientUpdateDocumentRecipientsFieldMetaRadio$outboundSchema
     ),
     z.lazy(() =>
       RecipientUpdateDocumentRecipientsFieldMetaCheckbox$outboundSchema
     ),
-    z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaText$outboundSchema),
     z.lazy(() =>
-      RecipientUpdateDocumentRecipientsFieldMetaNumber$outboundSchema
+      RecipientUpdateDocumentRecipientsFieldMetaDropdown$outboundSchema
     ),
   ]);
 
@@ -2440,9 +2440,6 @@ export const RecipientUpdateDocumentRecipientsField$inboundSchema: z.ZodType<
   fieldMeta: z.nullable(
     z.union([
       z.lazy(() =>
-        RecipientUpdateDocumentRecipientsFieldMetaRadio$inboundSchema
-      ),
-      z.lazy(() =>
         RecipientUpdateDocumentRecipientsFieldMetaInitials$inboundSchema
       ),
       z.lazy(() =>
@@ -2455,16 +2452,19 @@ export const RecipientUpdateDocumentRecipientsField$inboundSchema: z.ZodType<
         RecipientUpdateDocumentRecipientsFieldMetaDate$inboundSchema
       ),
       z.lazy(() =>
-        RecipientUpdateDocumentRecipientsFieldMetaDropdown$inboundSchema
+        RecipientUpdateDocumentRecipientsFieldMetaText$inboundSchema
+      ),
+      z.lazy(() =>
+        RecipientUpdateDocumentRecipientsFieldMetaNumber$inboundSchema
+      ),
+      z.lazy(() =>
+        RecipientUpdateDocumentRecipientsFieldMetaRadio$inboundSchema
       ),
       z.lazy(() =>
         RecipientUpdateDocumentRecipientsFieldMetaCheckbox$inboundSchema
       ),
       z.lazy(() =>
-        RecipientUpdateDocumentRecipientsFieldMetaText$inboundSchema
-      ),
-      z.lazy(() =>
-        RecipientUpdateDocumentRecipientsFieldMetaNumber$inboundSchema
+        RecipientUpdateDocumentRecipientsFieldMetaDropdown$inboundSchema
       ),
     ]),
   ),
@@ -2486,15 +2486,15 @@ export type RecipientUpdateDocumentRecipientsField$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | RecipientUpdateDocumentRecipientsFieldMetaRadio$Outbound
     | RecipientUpdateDocumentRecipientsFieldMetaInitials$Outbound
     | RecipientUpdateDocumentRecipientsFieldMetaName$Outbound
     | RecipientUpdateDocumentRecipientsFieldMetaEmail$Outbound
     | RecipientUpdateDocumentRecipientsFieldMetaDate$Outbound
-    | RecipientUpdateDocumentRecipientsFieldMetaDropdown$Outbound
-    | RecipientUpdateDocumentRecipientsFieldMetaCheckbox$Outbound
     | RecipientUpdateDocumentRecipientsFieldMetaText$Outbound
     | RecipientUpdateDocumentRecipientsFieldMetaNumber$Outbound
+    | RecipientUpdateDocumentRecipientsFieldMetaRadio$Outbound
+    | RecipientUpdateDocumentRecipientsFieldMetaCheckbox$Outbound
+    | RecipientUpdateDocumentRecipientsFieldMetaDropdown$Outbound
     | null;
 };
 
@@ -2520,9 +2520,6 @@ export const RecipientUpdateDocumentRecipientsField$outboundSchema: z.ZodType<
   fieldMeta: z.nullable(
     z.union([
       z.lazy(() =>
-        RecipientUpdateDocumentRecipientsFieldMetaRadio$outboundSchema
-      ),
-      z.lazy(() =>
         RecipientUpdateDocumentRecipientsFieldMetaInitials$outboundSchema
       ),
       z.lazy(() =>
@@ -2535,16 +2532,19 @@ export const RecipientUpdateDocumentRecipientsField$outboundSchema: z.ZodType<
         RecipientUpdateDocumentRecipientsFieldMetaDate$outboundSchema
       ),
       z.lazy(() =>
-        RecipientUpdateDocumentRecipientsFieldMetaDropdown$outboundSchema
+        RecipientUpdateDocumentRecipientsFieldMetaText$outboundSchema
+      ),
+      z.lazy(() =>
+        RecipientUpdateDocumentRecipientsFieldMetaNumber$outboundSchema
+      ),
+      z.lazy(() =>
+        RecipientUpdateDocumentRecipientsFieldMetaRadio$outboundSchema
       ),
       z.lazy(() =>
         RecipientUpdateDocumentRecipientsFieldMetaCheckbox$outboundSchema
       ),
       z.lazy(() =>
-        RecipientUpdateDocumentRecipientsFieldMetaText$outboundSchema
-      ),
-      z.lazy(() =>
-        RecipientUpdateDocumentRecipientsFieldMetaNumber$outboundSchema
+        RecipientUpdateDocumentRecipientsFieldMetaDropdown$outboundSchema
       ),
     ]),
   ),

@@ -29,8 +29,8 @@ let value: DocumentSendDocumentResponse = {
   updatedAt: "1735650761340",
   completedAt: "<value>",
   deletedAt: "<value>",
-  teamId: 64.12,
-  templateId: 962.14,
+  teamId: 9351.66,
+  templateId: null,
   folderId: "<id>",
   useLegacyFieldInsertion: true,
 };

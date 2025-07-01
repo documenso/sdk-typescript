@@ -11,11 +11,11 @@ let value: DocumentGetDocumentWithDetailsByIdFolder = {
   type: "TEMPLATE",
   visibility: "MANAGER_AND_ABOVE",
   userId: 6943.14,
-  teamId: 6166.46,
-  pinned: true,
+  teamId: 4294.58,
+  pinned: false,
   parentId: null,
-  createdAt: "1705745169171",
-  updatedAt: "1735673493700",
+  createdAt: "1704307205359",
+  updatedAt: "1735607560413",
 };
 ```
 

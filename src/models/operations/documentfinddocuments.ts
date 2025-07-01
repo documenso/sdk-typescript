@@ -264,7 +264,7 @@ export type DocumentFindDocumentsData = {
   updatedAt: string;
   completedAt: string | null;
   deletedAt: string | null;
-  teamId: number | null;
+  teamId: number;
   templateId: number | null;
   folderId: string | null;
   useLegacyFieldInsertion: boolean;
@@ -1129,7 +1129,7 @@ export const DocumentFindDocumentsData$inboundSchema: z.ZodType<
   updatedAt: z.string(),
   completedAt: z.nullable(z.string()),
   deletedAt: z.nullable(z.string()),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   templateId: z.nullable(z.number()),
   folderId: z.nullable(z.string()),
   useLegacyFieldInsertion: z.boolean(),
@@ -1156,7 +1156,7 @@ export type DocumentFindDocumentsData$Outbound = {
   updatedAt: string;
   completedAt: string | null;
   deletedAt: string | null;
-  teamId: number | null;
+  teamId: number;
   templateId: number | null;
   folderId: string | null;
   useLegacyFieldInsertion: boolean;
@@ -1189,7 +1189,7 @@ export const DocumentFindDocumentsData$outboundSchema: z.ZodType<
   updatedAt: z.string(),
   completedAt: z.nullable(z.string()),
   deletedAt: z.nullable(z.string()),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   templateId: z.nullable(z.number()),
   folderId: z.nullable(z.string()),
   useLegacyFieldInsertion: z.boolean(),

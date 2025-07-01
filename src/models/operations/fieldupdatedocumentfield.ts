@@ -907,15 +907,15 @@ export type FieldUpdateDocumentFieldFieldMetaInitialsResponse = {
 };
 
 export type FieldUpdateDocumentFieldFieldMetaUnion =
-  | FieldUpdateDocumentFieldFieldMetaRadioResponse
   | FieldUpdateDocumentFieldFieldMetaInitialsResponse
   | FieldUpdateDocumentFieldFieldMetaNameResponse
   | FieldUpdateDocumentFieldFieldMetaEmailResponse
   | FieldUpdateDocumentFieldFieldMetaDateResponse
-  | FieldUpdateDocumentFieldFieldMetaDropdownResponse
-  | FieldUpdateDocumentFieldFieldMetaCheckboxResponse
   | FieldUpdateDocumentFieldFieldMetaTextResponse
-  | FieldUpdateDocumentFieldFieldMetaNumberResponse;
+  | FieldUpdateDocumentFieldFieldMetaNumberResponse
+  | FieldUpdateDocumentFieldFieldMetaRadioResponse
+  | FieldUpdateDocumentFieldFieldMetaCheckboxResponse
+  | FieldUpdateDocumentFieldFieldMetaDropdownResponse;
 
 /**
  * Successful response
@@ -938,15 +938,15 @@ export type FieldUpdateDocumentFieldResponse = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | FieldUpdateDocumentFieldFieldMetaRadioResponse
     | FieldUpdateDocumentFieldFieldMetaInitialsResponse
     | FieldUpdateDocumentFieldFieldMetaNameResponse
     | FieldUpdateDocumentFieldFieldMetaEmailResponse
     | FieldUpdateDocumentFieldFieldMetaDateResponse
-    | FieldUpdateDocumentFieldFieldMetaDropdownResponse
-    | FieldUpdateDocumentFieldFieldMetaCheckboxResponse
     | FieldUpdateDocumentFieldFieldMetaTextResponse
     | FieldUpdateDocumentFieldFieldMetaNumberResponse
+    | FieldUpdateDocumentFieldFieldMetaRadioResponse
+    | FieldUpdateDocumentFieldFieldMetaCheckboxResponse
+    | FieldUpdateDocumentFieldFieldMetaDropdownResponse
     | null;
 };
 
@@ -5024,28 +5024,28 @@ export const FieldUpdateDocumentFieldFieldMetaUnion$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  z.lazy(() => FieldUpdateDocumentFieldFieldMetaRadioResponse$inboundSchema),
   z.lazy(() => FieldUpdateDocumentFieldFieldMetaInitialsResponse$inboundSchema),
   z.lazy(() => FieldUpdateDocumentFieldFieldMetaNameResponse$inboundSchema),
   z.lazy(() => FieldUpdateDocumentFieldFieldMetaEmailResponse$inboundSchema),
   z.lazy(() => FieldUpdateDocumentFieldFieldMetaDateResponse$inboundSchema),
-  z.lazy(() => FieldUpdateDocumentFieldFieldMetaDropdownResponse$inboundSchema),
-  z.lazy(() => FieldUpdateDocumentFieldFieldMetaCheckboxResponse$inboundSchema),
   z.lazy(() => FieldUpdateDocumentFieldFieldMetaTextResponse$inboundSchema),
   z.lazy(() => FieldUpdateDocumentFieldFieldMetaNumberResponse$inboundSchema),
+  z.lazy(() => FieldUpdateDocumentFieldFieldMetaRadioResponse$inboundSchema),
+  z.lazy(() => FieldUpdateDocumentFieldFieldMetaCheckboxResponse$inboundSchema),
+  z.lazy(() => FieldUpdateDocumentFieldFieldMetaDropdownResponse$inboundSchema),
 ]);
 
 /** @internal */
 export type FieldUpdateDocumentFieldFieldMetaUnion$Outbound =
-  | FieldUpdateDocumentFieldFieldMetaRadioResponse$Outbound
   | FieldUpdateDocumentFieldFieldMetaInitialsResponse$Outbound
   | FieldUpdateDocumentFieldFieldMetaNameResponse$Outbound
   | FieldUpdateDocumentFieldFieldMetaEmailResponse$Outbound
   | FieldUpdateDocumentFieldFieldMetaDateResponse$Outbound
-  | FieldUpdateDocumentFieldFieldMetaDropdownResponse$Outbound
-  | FieldUpdateDocumentFieldFieldMetaCheckboxResponse$Outbound
   | FieldUpdateDocumentFieldFieldMetaTextResponse$Outbound
-  | FieldUpdateDocumentFieldFieldMetaNumberResponse$Outbound;
+  | FieldUpdateDocumentFieldFieldMetaNumberResponse$Outbound
+  | FieldUpdateDocumentFieldFieldMetaRadioResponse$Outbound
+  | FieldUpdateDocumentFieldFieldMetaCheckboxResponse$Outbound
+  | FieldUpdateDocumentFieldFieldMetaDropdownResponse$Outbound;
 
 /** @internal */
 export const FieldUpdateDocumentFieldFieldMetaUnion$outboundSchema: z.ZodType<
@@ -5053,21 +5053,21 @@ export const FieldUpdateDocumentFieldFieldMetaUnion$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FieldUpdateDocumentFieldFieldMetaUnion
 > = z.union([
-  z.lazy(() => FieldUpdateDocumentFieldFieldMetaRadioResponse$outboundSchema),
   z.lazy(() =>
     FieldUpdateDocumentFieldFieldMetaInitialsResponse$outboundSchema
   ),
   z.lazy(() => FieldUpdateDocumentFieldFieldMetaNameResponse$outboundSchema),
   z.lazy(() => FieldUpdateDocumentFieldFieldMetaEmailResponse$outboundSchema),
   z.lazy(() => FieldUpdateDocumentFieldFieldMetaDateResponse$outboundSchema),
-  z.lazy(() =>
-    FieldUpdateDocumentFieldFieldMetaDropdownResponse$outboundSchema
-  ),
+  z.lazy(() => FieldUpdateDocumentFieldFieldMetaTextResponse$outboundSchema),
+  z.lazy(() => FieldUpdateDocumentFieldFieldMetaNumberResponse$outboundSchema),
+  z.lazy(() => FieldUpdateDocumentFieldFieldMetaRadioResponse$outboundSchema),
   z.lazy(() =>
     FieldUpdateDocumentFieldFieldMetaCheckboxResponse$outboundSchema
   ),
-  z.lazy(() => FieldUpdateDocumentFieldFieldMetaTextResponse$outboundSchema),
-  z.lazy(() => FieldUpdateDocumentFieldFieldMetaNumberResponse$outboundSchema),
+  z.lazy(() =>
+    FieldUpdateDocumentFieldFieldMetaDropdownResponse$outboundSchema
+  ),
 ]);
 
 /**
@@ -5129,9 +5129,6 @@ export const FieldUpdateDocumentFieldResponse$inboundSchema: z.ZodType<
   fieldMeta: z.nullable(
     z.union([
       z.lazy(() =>
-        FieldUpdateDocumentFieldFieldMetaRadioResponse$inboundSchema
-      ),
-      z.lazy(() =>
         FieldUpdateDocumentFieldFieldMetaInitialsResponse$inboundSchema
       ),
       z.lazy(() => FieldUpdateDocumentFieldFieldMetaNameResponse$inboundSchema),
@@ -5139,15 +5136,18 @@ export const FieldUpdateDocumentFieldResponse$inboundSchema: z.ZodType<
         FieldUpdateDocumentFieldFieldMetaEmailResponse$inboundSchema
       ),
       z.lazy(() => FieldUpdateDocumentFieldFieldMetaDateResponse$inboundSchema),
+      z.lazy(() => FieldUpdateDocumentFieldFieldMetaTextResponse$inboundSchema),
       z.lazy(() =>
-        FieldUpdateDocumentFieldFieldMetaDropdownResponse$inboundSchema
+        FieldUpdateDocumentFieldFieldMetaNumberResponse$inboundSchema
+      ),
+      z.lazy(() =>
+        FieldUpdateDocumentFieldFieldMetaRadioResponse$inboundSchema
       ),
       z.lazy(() =>
         FieldUpdateDocumentFieldFieldMetaCheckboxResponse$inboundSchema
       ),
-      z.lazy(() => FieldUpdateDocumentFieldFieldMetaTextResponse$inboundSchema),
       z.lazy(() =>
-        FieldUpdateDocumentFieldFieldMetaNumberResponse$inboundSchema
+        FieldUpdateDocumentFieldFieldMetaDropdownResponse$inboundSchema
       ),
     ]),
   ),
@@ -5169,15 +5169,15 @@ export type FieldUpdateDocumentFieldResponse$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | FieldUpdateDocumentFieldFieldMetaRadioResponse$Outbound
     | FieldUpdateDocumentFieldFieldMetaInitialsResponse$Outbound
     | FieldUpdateDocumentFieldFieldMetaNameResponse$Outbound
     | FieldUpdateDocumentFieldFieldMetaEmailResponse$Outbound
     | FieldUpdateDocumentFieldFieldMetaDateResponse$Outbound
-    | FieldUpdateDocumentFieldFieldMetaDropdownResponse$Outbound
-    | FieldUpdateDocumentFieldFieldMetaCheckboxResponse$Outbound
     | FieldUpdateDocumentFieldFieldMetaTextResponse$Outbound
     | FieldUpdateDocumentFieldFieldMetaNumberResponse$Outbound
+    | FieldUpdateDocumentFieldFieldMetaRadioResponse$Outbound
+    | FieldUpdateDocumentFieldFieldMetaCheckboxResponse$Outbound
+    | FieldUpdateDocumentFieldFieldMetaDropdownResponse$Outbound
     | null;
 };
 
@@ -5203,9 +5203,6 @@ export const FieldUpdateDocumentFieldResponse$outboundSchema: z.ZodType<
   fieldMeta: z.nullable(
     z.union([
       z.lazy(() =>
-        FieldUpdateDocumentFieldFieldMetaRadioResponse$outboundSchema
-      ),
-      z.lazy(() =>
         FieldUpdateDocumentFieldFieldMetaInitialsResponse$outboundSchema
       ),
       z.lazy(() =>
@@ -5218,16 +5215,19 @@ export const FieldUpdateDocumentFieldResponse$outboundSchema: z.ZodType<
         FieldUpdateDocumentFieldFieldMetaDateResponse$outboundSchema
       ),
       z.lazy(() =>
-        FieldUpdateDocumentFieldFieldMetaDropdownResponse$outboundSchema
+        FieldUpdateDocumentFieldFieldMetaTextResponse$outboundSchema
+      ),
+      z.lazy(() =>
+        FieldUpdateDocumentFieldFieldMetaNumberResponse$outboundSchema
+      ),
+      z.lazy(() =>
+        FieldUpdateDocumentFieldFieldMetaRadioResponse$outboundSchema
       ),
       z.lazy(() =>
         FieldUpdateDocumentFieldFieldMetaCheckboxResponse$outboundSchema
       ),
       z.lazy(() =>
-        FieldUpdateDocumentFieldFieldMetaTextResponse$outboundSchema
-      ),
-      z.lazy(() =>
-        FieldUpdateDocumentFieldFieldMetaNumberResponse$outboundSchema
+        FieldUpdateDocumentFieldFieldMetaDropdownResponse$outboundSchema
       ),
     ]),
   ),

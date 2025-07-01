@@ -389,15 +389,15 @@ export type RecipientUpdateTemplateRecipientFieldMetaInitials = {
 };
 
 export type RecipientUpdateTemplateRecipientFieldMetaUnion =
-  | RecipientUpdateTemplateRecipientFieldMetaRadio
   | RecipientUpdateTemplateRecipientFieldMetaInitials
   | RecipientUpdateTemplateRecipientFieldMetaName
   | RecipientUpdateTemplateRecipientFieldMetaEmail
   | RecipientUpdateTemplateRecipientFieldMetaDate
-  | RecipientUpdateTemplateRecipientFieldMetaDropdown
-  | RecipientUpdateTemplateRecipientFieldMetaCheckbox
   | RecipientUpdateTemplateRecipientFieldMetaText
-  | RecipientUpdateTemplateRecipientFieldMetaNumber;
+  | RecipientUpdateTemplateRecipientFieldMetaNumber
+  | RecipientUpdateTemplateRecipientFieldMetaRadio
+  | RecipientUpdateTemplateRecipientFieldMetaCheckbox
+  | RecipientUpdateTemplateRecipientFieldMetaDropdown;
 
 export type RecipientUpdateTemplateRecipientField = {
   type: RecipientUpdateTemplateRecipientType;
@@ -417,15 +417,15 @@ export type RecipientUpdateTemplateRecipientField = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | RecipientUpdateTemplateRecipientFieldMetaRadio
     | RecipientUpdateTemplateRecipientFieldMetaInitials
     | RecipientUpdateTemplateRecipientFieldMetaName
     | RecipientUpdateTemplateRecipientFieldMetaEmail
     | RecipientUpdateTemplateRecipientFieldMetaDate
-    | RecipientUpdateTemplateRecipientFieldMetaDropdown
-    | RecipientUpdateTemplateRecipientFieldMetaCheckbox
     | RecipientUpdateTemplateRecipientFieldMetaText
     | RecipientUpdateTemplateRecipientFieldMetaNumber
+    | RecipientUpdateTemplateRecipientFieldMetaRadio
+    | RecipientUpdateTemplateRecipientFieldMetaCheckbox
+    | RecipientUpdateTemplateRecipientFieldMetaDropdown
     | null;
 };
 
@@ -2285,34 +2285,34 @@ export const RecipientUpdateTemplateRecipientFieldMetaUnion$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.union([
-    z.lazy(() => RecipientUpdateTemplateRecipientFieldMetaRadio$inboundSchema),
     z.lazy(() =>
       RecipientUpdateTemplateRecipientFieldMetaInitials$inboundSchema
     ),
     z.lazy(() => RecipientUpdateTemplateRecipientFieldMetaName$inboundSchema),
     z.lazy(() => RecipientUpdateTemplateRecipientFieldMetaEmail$inboundSchema),
     z.lazy(() => RecipientUpdateTemplateRecipientFieldMetaDate$inboundSchema),
-    z.lazy(() =>
-      RecipientUpdateTemplateRecipientFieldMetaDropdown$inboundSchema
-    ),
+    z.lazy(() => RecipientUpdateTemplateRecipientFieldMetaText$inboundSchema),
+    z.lazy(() => RecipientUpdateTemplateRecipientFieldMetaNumber$inboundSchema),
+    z.lazy(() => RecipientUpdateTemplateRecipientFieldMetaRadio$inboundSchema),
     z.lazy(() =>
       RecipientUpdateTemplateRecipientFieldMetaCheckbox$inboundSchema
     ),
-    z.lazy(() => RecipientUpdateTemplateRecipientFieldMetaText$inboundSchema),
-    z.lazy(() => RecipientUpdateTemplateRecipientFieldMetaNumber$inboundSchema),
+    z.lazy(() =>
+      RecipientUpdateTemplateRecipientFieldMetaDropdown$inboundSchema
+    ),
   ]);
 
 /** @internal */
 export type RecipientUpdateTemplateRecipientFieldMetaUnion$Outbound =
-  | RecipientUpdateTemplateRecipientFieldMetaRadio$Outbound
   | RecipientUpdateTemplateRecipientFieldMetaInitials$Outbound
   | RecipientUpdateTemplateRecipientFieldMetaName$Outbound
   | RecipientUpdateTemplateRecipientFieldMetaEmail$Outbound
   | RecipientUpdateTemplateRecipientFieldMetaDate$Outbound
-  | RecipientUpdateTemplateRecipientFieldMetaDropdown$Outbound
-  | RecipientUpdateTemplateRecipientFieldMetaCheckbox$Outbound
   | RecipientUpdateTemplateRecipientFieldMetaText$Outbound
-  | RecipientUpdateTemplateRecipientFieldMetaNumber$Outbound;
+  | RecipientUpdateTemplateRecipientFieldMetaNumber$Outbound
+  | RecipientUpdateTemplateRecipientFieldMetaRadio$Outbound
+  | RecipientUpdateTemplateRecipientFieldMetaCheckbox$Outbound
+  | RecipientUpdateTemplateRecipientFieldMetaDropdown$Outbound;
 
 /** @internal */
 export const RecipientUpdateTemplateRecipientFieldMetaUnion$outboundSchema:
@@ -2321,22 +2321,22 @@ export const RecipientUpdateTemplateRecipientFieldMetaUnion$outboundSchema:
     z.ZodTypeDef,
     RecipientUpdateTemplateRecipientFieldMetaUnion
   > = z.union([
-    z.lazy(() => RecipientUpdateTemplateRecipientFieldMetaRadio$outboundSchema),
     z.lazy(() =>
       RecipientUpdateTemplateRecipientFieldMetaInitials$outboundSchema
     ),
     z.lazy(() => RecipientUpdateTemplateRecipientFieldMetaName$outboundSchema),
     z.lazy(() => RecipientUpdateTemplateRecipientFieldMetaEmail$outboundSchema),
     z.lazy(() => RecipientUpdateTemplateRecipientFieldMetaDate$outboundSchema),
-    z.lazy(() =>
-      RecipientUpdateTemplateRecipientFieldMetaDropdown$outboundSchema
-    ),
-    z.lazy(() =>
-      RecipientUpdateTemplateRecipientFieldMetaCheckbox$outboundSchema
-    ),
     z.lazy(() => RecipientUpdateTemplateRecipientFieldMetaText$outboundSchema),
     z.lazy(() =>
       RecipientUpdateTemplateRecipientFieldMetaNumber$outboundSchema
+    ),
+    z.lazy(() => RecipientUpdateTemplateRecipientFieldMetaRadio$outboundSchema),
+    z.lazy(() =>
+      RecipientUpdateTemplateRecipientFieldMetaCheckbox$outboundSchema
+    ),
+    z.lazy(() =>
+      RecipientUpdateTemplateRecipientFieldMetaDropdown$outboundSchema
     ),
   ]);
 
@@ -2405,9 +2405,6 @@ export const RecipientUpdateTemplateRecipientField$inboundSchema: z.ZodType<
   fieldMeta: z.nullable(
     z.union([
       z.lazy(() =>
-        RecipientUpdateTemplateRecipientFieldMetaRadio$inboundSchema
-      ),
-      z.lazy(() =>
         RecipientUpdateTemplateRecipientFieldMetaInitials$inboundSchema
       ),
       z.lazy(() => RecipientUpdateTemplateRecipientFieldMetaName$inboundSchema),
@@ -2415,15 +2412,18 @@ export const RecipientUpdateTemplateRecipientField$inboundSchema: z.ZodType<
         RecipientUpdateTemplateRecipientFieldMetaEmail$inboundSchema
       ),
       z.lazy(() => RecipientUpdateTemplateRecipientFieldMetaDate$inboundSchema),
+      z.lazy(() => RecipientUpdateTemplateRecipientFieldMetaText$inboundSchema),
       z.lazy(() =>
-        RecipientUpdateTemplateRecipientFieldMetaDropdown$inboundSchema
+        RecipientUpdateTemplateRecipientFieldMetaNumber$inboundSchema
+      ),
+      z.lazy(() =>
+        RecipientUpdateTemplateRecipientFieldMetaRadio$inboundSchema
       ),
       z.lazy(() =>
         RecipientUpdateTemplateRecipientFieldMetaCheckbox$inboundSchema
       ),
-      z.lazy(() => RecipientUpdateTemplateRecipientFieldMetaText$inboundSchema),
       z.lazy(() =>
-        RecipientUpdateTemplateRecipientFieldMetaNumber$inboundSchema
+        RecipientUpdateTemplateRecipientFieldMetaDropdown$inboundSchema
       ),
     ]),
   ),
@@ -2445,15 +2445,15 @@ export type RecipientUpdateTemplateRecipientField$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | RecipientUpdateTemplateRecipientFieldMetaRadio$Outbound
     | RecipientUpdateTemplateRecipientFieldMetaInitials$Outbound
     | RecipientUpdateTemplateRecipientFieldMetaName$Outbound
     | RecipientUpdateTemplateRecipientFieldMetaEmail$Outbound
     | RecipientUpdateTemplateRecipientFieldMetaDate$Outbound
-    | RecipientUpdateTemplateRecipientFieldMetaDropdown$Outbound
-    | RecipientUpdateTemplateRecipientFieldMetaCheckbox$Outbound
     | RecipientUpdateTemplateRecipientFieldMetaText$Outbound
     | RecipientUpdateTemplateRecipientFieldMetaNumber$Outbound
+    | RecipientUpdateTemplateRecipientFieldMetaRadio$Outbound
+    | RecipientUpdateTemplateRecipientFieldMetaCheckbox$Outbound
+    | RecipientUpdateTemplateRecipientFieldMetaDropdown$Outbound
     | null;
 };
 
@@ -2479,9 +2479,6 @@ export const RecipientUpdateTemplateRecipientField$outboundSchema: z.ZodType<
   fieldMeta: z.nullable(
     z.union([
       z.lazy(() =>
-        RecipientUpdateTemplateRecipientFieldMetaRadio$outboundSchema
-      ),
-      z.lazy(() =>
         RecipientUpdateTemplateRecipientFieldMetaInitials$outboundSchema
       ),
       z.lazy(() =>
@@ -2494,16 +2491,19 @@ export const RecipientUpdateTemplateRecipientField$outboundSchema: z.ZodType<
         RecipientUpdateTemplateRecipientFieldMetaDate$outboundSchema
       ),
       z.lazy(() =>
-        RecipientUpdateTemplateRecipientFieldMetaDropdown$outboundSchema
+        RecipientUpdateTemplateRecipientFieldMetaText$outboundSchema
+      ),
+      z.lazy(() =>
+        RecipientUpdateTemplateRecipientFieldMetaNumber$outboundSchema
+      ),
+      z.lazy(() =>
+        RecipientUpdateTemplateRecipientFieldMetaRadio$outboundSchema
       ),
       z.lazy(() =>
         RecipientUpdateTemplateRecipientFieldMetaCheckbox$outboundSchema
       ),
       z.lazy(() =>
-        RecipientUpdateTemplateRecipientFieldMetaText$outboundSchema
-      ),
-      z.lazy(() =>
-        RecipientUpdateTemplateRecipientFieldMetaNumber$outboundSchema
+        RecipientUpdateTemplateRecipientFieldMetaDropdown$outboundSchema
       ),
     ]),
   ),

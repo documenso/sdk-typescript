@@ -259,15 +259,15 @@ export type FieldGetDocumentFieldFieldMetaInitials = {
 };
 
 export type FieldGetDocumentFieldFieldMetaUnion =
-  | FieldGetDocumentFieldFieldMetaRadio
   | FieldGetDocumentFieldFieldMetaInitials
   | FieldGetDocumentFieldFieldMetaName
   | FieldGetDocumentFieldFieldMetaEmail
   | FieldGetDocumentFieldFieldMetaDate
-  | FieldGetDocumentFieldFieldMetaDropdown
-  | FieldGetDocumentFieldFieldMetaCheckbox
   | FieldGetDocumentFieldFieldMetaText
-  | FieldGetDocumentFieldFieldMetaNumber;
+  | FieldGetDocumentFieldFieldMetaNumber
+  | FieldGetDocumentFieldFieldMetaRadio
+  | FieldGetDocumentFieldFieldMetaCheckbox
+  | FieldGetDocumentFieldFieldMetaDropdown;
 
 /**
  * Successful response
@@ -290,15 +290,15 @@ export type FieldGetDocumentFieldResponse = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | FieldGetDocumentFieldFieldMetaRadio
     | FieldGetDocumentFieldFieldMetaInitials
     | FieldGetDocumentFieldFieldMetaName
     | FieldGetDocumentFieldFieldMetaEmail
     | FieldGetDocumentFieldFieldMetaDate
-    | FieldGetDocumentFieldFieldMetaDropdown
-    | FieldGetDocumentFieldFieldMetaCheckbox
     | FieldGetDocumentFieldFieldMetaText
     | FieldGetDocumentFieldFieldMetaNumber
+    | FieldGetDocumentFieldFieldMetaRadio
+    | FieldGetDocumentFieldFieldMetaCheckbox
+    | FieldGetDocumentFieldFieldMetaDropdown
     | null;
 };
 
@@ -1600,28 +1600,28 @@ export const FieldGetDocumentFieldFieldMetaUnion$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  z.lazy(() => FieldGetDocumentFieldFieldMetaRadio$inboundSchema),
   z.lazy(() => FieldGetDocumentFieldFieldMetaInitials$inboundSchema),
   z.lazy(() => FieldGetDocumentFieldFieldMetaName$inboundSchema),
   z.lazy(() => FieldGetDocumentFieldFieldMetaEmail$inboundSchema),
   z.lazy(() => FieldGetDocumentFieldFieldMetaDate$inboundSchema),
-  z.lazy(() => FieldGetDocumentFieldFieldMetaDropdown$inboundSchema),
-  z.lazy(() => FieldGetDocumentFieldFieldMetaCheckbox$inboundSchema),
   z.lazy(() => FieldGetDocumentFieldFieldMetaText$inboundSchema),
   z.lazy(() => FieldGetDocumentFieldFieldMetaNumber$inboundSchema),
+  z.lazy(() => FieldGetDocumentFieldFieldMetaRadio$inboundSchema),
+  z.lazy(() => FieldGetDocumentFieldFieldMetaCheckbox$inboundSchema),
+  z.lazy(() => FieldGetDocumentFieldFieldMetaDropdown$inboundSchema),
 ]);
 
 /** @internal */
 export type FieldGetDocumentFieldFieldMetaUnion$Outbound =
-  | FieldGetDocumentFieldFieldMetaRadio$Outbound
   | FieldGetDocumentFieldFieldMetaInitials$Outbound
   | FieldGetDocumentFieldFieldMetaName$Outbound
   | FieldGetDocumentFieldFieldMetaEmail$Outbound
   | FieldGetDocumentFieldFieldMetaDate$Outbound
-  | FieldGetDocumentFieldFieldMetaDropdown$Outbound
-  | FieldGetDocumentFieldFieldMetaCheckbox$Outbound
   | FieldGetDocumentFieldFieldMetaText$Outbound
-  | FieldGetDocumentFieldFieldMetaNumber$Outbound;
+  | FieldGetDocumentFieldFieldMetaNumber$Outbound
+  | FieldGetDocumentFieldFieldMetaRadio$Outbound
+  | FieldGetDocumentFieldFieldMetaCheckbox$Outbound
+  | FieldGetDocumentFieldFieldMetaDropdown$Outbound;
 
 /** @internal */
 export const FieldGetDocumentFieldFieldMetaUnion$outboundSchema: z.ZodType<
@@ -1629,15 +1629,15 @@ export const FieldGetDocumentFieldFieldMetaUnion$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FieldGetDocumentFieldFieldMetaUnion
 > = z.union([
-  z.lazy(() => FieldGetDocumentFieldFieldMetaRadio$outboundSchema),
   z.lazy(() => FieldGetDocumentFieldFieldMetaInitials$outboundSchema),
   z.lazy(() => FieldGetDocumentFieldFieldMetaName$outboundSchema),
   z.lazy(() => FieldGetDocumentFieldFieldMetaEmail$outboundSchema),
   z.lazy(() => FieldGetDocumentFieldFieldMetaDate$outboundSchema),
-  z.lazy(() => FieldGetDocumentFieldFieldMetaDropdown$outboundSchema),
-  z.lazy(() => FieldGetDocumentFieldFieldMetaCheckbox$outboundSchema),
   z.lazy(() => FieldGetDocumentFieldFieldMetaText$outboundSchema),
   z.lazy(() => FieldGetDocumentFieldFieldMetaNumber$outboundSchema),
+  z.lazy(() => FieldGetDocumentFieldFieldMetaRadio$outboundSchema),
+  z.lazy(() => FieldGetDocumentFieldFieldMetaCheckbox$outboundSchema),
+  z.lazy(() => FieldGetDocumentFieldFieldMetaDropdown$outboundSchema),
 ]);
 
 /**
@@ -1697,15 +1697,15 @@ export const FieldGetDocumentFieldResponse$inboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() => FieldGetDocumentFieldFieldMetaRadio$inboundSchema),
       z.lazy(() => FieldGetDocumentFieldFieldMetaInitials$inboundSchema),
       z.lazy(() => FieldGetDocumentFieldFieldMetaName$inboundSchema),
       z.lazy(() => FieldGetDocumentFieldFieldMetaEmail$inboundSchema),
       z.lazy(() => FieldGetDocumentFieldFieldMetaDate$inboundSchema),
-      z.lazy(() => FieldGetDocumentFieldFieldMetaDropdown$inboundSchema),
-      z.lazy(() => FieldGetDocumentFieldFieldMetaCheckbox$inboundSchema),
       z.lazy(() => FieldGetDocumentFieldFieldMetaText$inboundSchema),
       z.lazy(() => FieldGetDocumentFieldFieldMetaNumber$inboundSchema),
+      z.lazy(() => FieldGetDocumentFieldFieldMetaRadio$inboundSchema),
+      z.lazy(() => FieldGetDocumentFieldFieldMetaCheckbox$inboundSchema),
+      z.lazy(() => FieldGetDocumentFieldFieldMetaDropdown$inboundSchema),
     ]),
   ),
 });
@@ -1726,15 +1726,15 @@ export type FieldGetDocumentFieldResponse$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | FieldGetDocumentFieldFieldMetaRadio$Outbound
     | FieldGetDocumentFieldFieldMetaInitials$Outbound
     | FieldGetDocumentFieldFieldMetaName$Outbound
     | FieldGetDocumentFieldFieldMetaEmail$Outbound
     | FieldGetDocumentFieldFieldMetaDate$Outbound
-    | FieldGetDocumentFieldFieldMetaDropdown$Outbound
-    | FieldGetDocumentFieldFieldMetaCheckbox$Outbound
     | FieldGetDocumentFieldFieldMetaText$Outbound
     | FieldGetDocumentFieldFieldMetaNumber$Outbound
+    | FieldGetDocumentFieldFieldMetaRadio$Outbound
+    | FieldGetDocumentFieldFieldMetaCheckbox$Outbound
+    | FieldGetDocumentFieldFieldMetaDropdown$Outbound
     | null;
 };
 
@@ -1759,15 +1759,15 @@ export const FieldGetDocumentFieldResponse$outboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() => FieldGetDocumentFieldFieldMetaRadio$outboundSchema),
       z.lazy(() => FieldGetDocumentFieldFieldMetaInitials$outboundSchema),
       z.lazy(() => FieldGetDocumentFieldFieldMetaName$outboundSchema),
       z.lazy(() => FieldGetDocumentFieldFieldMetaEmail$outboundSchema),
       z.lazy(() => FieldGetDocumentFieldFieldMetaDate$outboundSchema),
-      z.lazy(() => FieldGetDocumentFieldFieldMetaDropdown$outboundSchema),
-      z.lazy(() => FieldGetDocumentFieldFieldMetaCheckbox$outboundSchema),
       z.lazy(() => FieldGetDocumentFieldFieldMetaText$outboundSchema),
       z.lazy(() => FieldGetDocumentFieldFieldMetaNumber$outboundSchema),
+      z.lazy(() => FieldGetDocumentFieldFieldMetaRadio$outboundSchema),
+      z.lazy(() => FieldGetDocumentFieldFieldMetaCheckbox$outboundSchema),
+      z.lazy(() => FieldGetDocumentFieldFieldMetaDropdown$outboundSchema),
     ]),
   ),
 });

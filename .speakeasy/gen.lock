@@ -1,20 +1,20 @@
 lockVersion: 2.0.0
 id: 2f28b0c4-e21c-47c4-aada-41da1a74c452
 management:
-  docChecksum: a8ff5894847b46d40382a5684964ee08
+  docChecksum: aa952c1439edb3a7c7b235b58601b090
   docVersion: 0.0.0
-  speakeasyVersion: 1.557.0
-  generationVersion: 2.623.0
-  releaseVersion: 0.3.0
-  configChecksum: 99fb7e77b875a2328522738171361900
+  speakeasyVersion: 1.573.0
+  generationVersion: 2.644.1
+  releaseVersion: 0.3.1
+  configChecksum: 1654dbdd1135465bed4c4bb344c05ec1
   repoURL: https://github.com/documenso/sdk-typescript.git
   installationURL: https://github.com/documenso/sdk-typescript
   published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
-    constsAndDefaults: 0.1.11
-    core: 3.21.10
+    constsAndDefaults: 0.1.12
+    core: 3.21.11
     defaultEnabledRetries: 0.1.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
@@ -29,7 +29,7 @@ features:
     responseFormat: 0.2.3
     retries: 2.83.0
     sdkHooks: 0.3.0
-    unions: 2.85.8
+    unions: 2.85.11
 generatedFiles:
   - .gitattributes
   - .npmignore
@@ -62,10 +62,6 @@ generatedFiles:
   - docs/models/errors/documentgetdocumentwithdetailsbyidinternalservererrorissue.md
   - docs/models/errors/documentgetdocumentwithdetailsbyidnotfounderror.md
   - docs/models/errors/documentgetdocumentwithdetailsbyidnotfoundissue.md
-  - docs/models/errors/documentmovedocumenttoteambadrequesterror.md
-  - docs/models/errors/documentmovedocumenttoteambadrequestissue.md
-  - docs/models/errors/documentmovedocumenttoteaminternalservererror.md
-  - docs/models/errors/documentmovedocumenttoteaminternalservererrorissue.md
   - docs/models/errors/documentresenddocumentbadrequesterror.md
   - docs/models/errors/documentresenddocumentbadrequestissue.md
   - docs/models/errors/documentresenddocumentinternalservererror.md
@@ -222,10 +218,6 @@ generatedFiles:
   - docs/models/errors/templategettemplatebyidinternalservererrorissue.md
   - docs/models/errors/templategettemplatebyidnotfounderror.md
   - docs/models/errors/templategettemplatebyidnotfoundissue.md
-  - docs/models/errors/templatemovetemplatetoteambadrequesterror.md
-  - docs/models/errors/templatemovetemplatetoteambadrequestissue.md
-  - docs/models/errors/templatemovetemplatetoteaminternalservererror.md
-  - docs/models/errors/templatemovetemplatetoteaminternalservererrorissue.md
   - docs/models/errors/templatetoggletemplatedirectlinkbadrequesterror.md
   - docs/models/errors/templatetoggletemplatedirectlinkbadrequestissue.md
   - docs/models/errors/templatetoggletemplatedirectlinkinternalservererror.md
@@ -403,15 +395,6 @@ generatedFiles:
   - docs/models/operations/documentgetdocumentwithdetailsbyidvisibility.md
   - docs/models/operations/documentglobalaccessauth.md
   - docs/models/operations/documentglobalactionauth.md
-  - docs/models/operations/documentmovedocumenttoteamauthoptions.md
-  - docs/models/operations/documentmovedocumenttoteamformvalues.md
-  - docs/models/operations/documentmovedocumenttoteamglobalaccessauth.md
-  - docs/models/operations/documentmovedocumenttoteamglobalactionauth.md
-  - docs/models/operations/documentmovedocumenttoteamrequest.md
-  - docs/models/operations/documentmovedocumenttoteamresponse.md
-  - docs/models/operations/documentmovedocumenttoteamsource.md
-  - docs/models/operations/documentmovedocumenttoteamstatus.md
-  - docs/models/operations/documentmovedocumenttoteamvisibility.md
   - docs/models/operations/documentrecipient.md
   - docs/models/operations/documentresenddocumentrequest.md
   - docs/models/operations/documentresenddocumentresponse.md
@@ -1706,13 +1689,6 @@ generatedFiles:
   - docs/models/operations/templategettemplatebyidvalue2.md
   - docs/models/operations/templategettemplatebyidvalue3.md
   - docs/models/operations/templategettemplatebyidvisibility.md
-  - docs/models/operations/templatemovetemplatetoteamauthoptions.md
-  - docs/models/operations/templatemovetemplatetoteamglobalaccessauth.md
-  - docs/models/operations/templatemovetemplatetoteamglobalactionauth.md
-  - docs/models/operations/templatemovetemplatetoteamrequest.md
-  - docs/models/operations/templatemovetemplatetoteamresponse.md
-  - docs/models/operations/templatemovetemplatetoteamtype.md
-  - docs/models/operations/templatemovetemplatetoteamvisibility.md
   - docs/models/operations/templatetoggletemplatedirectlinkrequest.md
   - docs/models/operations/templatetoggletemplatedirectlinkresponse.md
   - docs/models/operations/templateupdatetemplateauthoptions.md
@@ -1758,7 +1734,6 @@ generatedFiles:
   - src/funcs/documentsFieldsUpdateMany.ts
   - src/funcs/documentsFind.ts
   - src/funcs/documentsGet.ts
-  - src/funcs/documentsMoveToTeam.ts
   - src/funcs/documentsRecipientsCreate.ts
   - src/funcs/documentsRecipientsCreateMany.ts
   - src/funcs/documentsRecipientsDelete.ts
@@ -1782,7 +1757,6 @@ generatedFiles:
   - src/funcs/templatesFieldsUpdateMany.ts
   - src/funcs/templatesFind.ts
   - src/funcs/templatesGet.ts
-  - src/funcs/templatesMoveToTeam.ts
   - src/funcs/templatesRecipientsCreate.ts
   - src/funcs/templatesRecipientsCreateMany.ts
   - src/funcs/templatesRecipientsDelete.ts
@@ -1836,7 +1810,6 @@ generatedFiles:
   - src/mcp-server/tools/documentsFieldsUpdateMany.ts
   - src/mcp-server/tools/documentsFind.ts
   - src/mcp-server/tools/documentsGet.ts
-  - src/mcp-server/tools/documentsMoveToTeam.ts
   - src/mcp-server/tools/documentsRecipientsCreate.ts
   - src/mcp-server/tools/documentsRecipientsCreateMany.ts
   - src/mcp-server/tools/documentsRecipientsDelete.ts
@@ -1860,7 +1833,6 @@ generatedFiles:
   - src/mcp-server/tools/templatesFieldsUpdateMany.ts
   - src/mcp-server/tools/templatesFind.ts
   - src/mcp-server/tools/templatesGet.ts
-  - src/mcp-server/tools/templatesMoveToTeam.ts
   - src/mcp-server/tools/templatesRecipientsCreate.ts
   - src/mcp-server/tools/templatesRecipientsCreateMany.ts
   - src/mcp-server/tools/templatesRecipientsDelete.ts
@@ -1878,7 +1850,6 @@ generatedFiles:
   - src/models/errors/documentduplicatedocument.ts
   - src/models/errors/documentfinddocuments.ts
   - src/models/errors/documentgetdocumentwithdetailsbyid.ts
-  - src/models/errors/documentmovedocumenttoteam.ts
   - src/models/errors/documentresenddocument.ts
   - src/models/errors/documentsenddocument.ts
   - src/models/errors/documentupdatedocument.ts
@@ -1919,7 +1890,6 @@ generatedFiles:
   - src/models/errors/templateduplicatetemplate.ts
   - src/models/errors/templatefindtemplates.ts
   - src/models/errors/templategettemplatebyid.ts
-  - src/models/errors/templatemovetemplatetoteam.ts
   - src/models/errors/templatetoggletemplatedirectlink.ts
   - src/models/errors/templateupdatetemplate.ts
   - src/models/operations/documentcreatedocumenttemporary.ts
@@ -1927,7 +1897,6 @@ generatedFiles:
   - src/models/operations/documentduplicatedocument.ts
   - src/models/operations/documentfinddocuments.ts
   - src/models/operations/documentgetdocumentwithdetailsbyid.ts
-  - src/models/operations/documentmovedocumenttoteam.ts
   - src/models/operations/documentresenddocument.ts
   - src/models/operations/documentsenddocument.ts
   - src/models/operations/documentupdatedocument.ts
@@ -1965,7 +1934,6 @@ generatedFiles:
   - src/models/operations/templateduplicatetemplate.ts
   - src/models/operations/templatefindtemplates.ts
   - src/models/operations/templategettemplatebyid.ts
-  - src/models/operations/templatemovetemplatetoteam.ts
   - src/models/operations/templatetoggletemplatedirectlink.ts
   - src/models/operations/templateupdatetemplate.ts
   - src/sdk/directlink.ts
@@ -2010,7 +1978,7 @@ examples:
           documentId: 7491.86
       responses:
         "200":
-          application/json: {"visibility": "MANAGER_AND_ABOVE", "status": "REJECTED", "source": "DOCUMENT", "id": 9948.62, "externalId": "<id>", "userId": 7310.1, "authOptions": null, "formValues": {"key": 9722.59}, "title": "<value>", "documentDataId": "<id>", "createdAt": "1728854634372", "updatedAt": "1735677688657", "completedAt": "<value>", "deletedAt": null, "teamId": null, "templateId": 8596.74, "folderId": "<id>", "documentData": {"type": "BYTES_64", "id": "<id>", "data": "<value>", "initialData": "<value>"}, "documentMeta": {"signingOrder": "SEQUENTIAL", "distributionMethod": "NONE", "id": "<id>", "subject": "<value>", "message": "<value>", "timezone": "Indian/Chagos", "password": "CAn4uQ3h1FpmG0q", "dateFormat": "<value>", "documentId": 204.94, "redirectUrl": "https://edible-masterpiece.info/", "typedSignatureEnabled": false, "uploadSignatureEnabled": true, "drawSignatureEnabled": false, "allowDictateNextSigner": false, "language": "<value>", "emailSettings": {"recipientSigningRequest": true, "recipientRemoved": true, "recipientSigned": true, "documentPending": true, "documentCompleted": true, "documentDeleted": true, "ownerDocumentCompleted": true}}, "folder": {"id": "<id>", "name": "<value>", "type": "TEMPLATE", "visibility": "MANAGER_AND_ABOVE", "userId": 2413.18, "teamId": 3096.11, "pinned": false, "parentId": "<id>", "createdAt": "1714373031275", "updatedAt": "1735630332194"}, "recipients": [{"role": "ASSISTANT", "readStatus": "NOT_OPENED", "signingStatus": "SIGNED", "sendStatus": "NOT_SENT", "id": 356.09, "documentId": 3848.66, "templateId": 2236.33, "email": "Raquel_Schaefer@gmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": [], "actionAuth": ["EXPLICIT_NONE"]}, "signingOrder": 7986.65, "rejectionReason": null}], "fields": []}
+          application/json: {"visibility": "MANAGER_AND_ABOVE", "status": "REJECTED", "source": "DOCUMENT", "id": 9948.62, "externalId": "<id>", "userId": 7310.1, "authOptions": null, "formValues": {"key": 9722.59}, "title": "<value>", "documentDataId": "<id>", "createdAt": "1728854634372", "updatedAt": "1735677688657", "completedAt": "<value>", "deletedAt": null, "teamId": 7491.86, "templateId": 8596.74, "folderId": "<id>", "documentData": {"type": "BYTES_64", "id": "<id>", "data": "<value>", "initialData": "<value>"}, "documentMeta": {"signingOrder": "SEQUENTIAL", "distributionMethod": "NONE", "id": "<id>", "subject": "<value>", "message": "<value>", "timezone": "Indian/Chagos", "password": "CAn4uQ3h1FpmG0q", "dateFormat": "<value>", "documentId": 204.94, "redirectUrl": "https://edible-masterpiece.info/", "typedSignatureEnabled": false, "uploadSignatureEnabled": true, "drawSignatureEnabled": false, "allowDictateNextSigner": false, "language": "<value>", "emailSettings": {"recipientSigningRequest": true, "recipientRemoved": true, "recipientSigned": true, "documentPending": true, "documentCompleted": true, "documentDeleted": true, "ownerDocumentCompleted": true}}, "folder": {"id": "<id>", "name": "<value>", "type": "TEMPLATE", "visibility": "MANAGER_AND_ABOVE", "userId": 2413.18, "teamId": 3096.11, "pinned": false, "parentId": "<id>", "createdAt": "1714373031275", "updatedAt": "1735630332194"}, "recipients": [{"role": "ASSISTANT", "readStatus": "NOT_OPENED", "signingStatus": "SIGNED", "sendStatus": "NOT_SENT", "id": 356.09, "documentId": 3848.66, "templateId": 2236.33, "email": "Raquel_Schaefer@gmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": [], "actionAuth": ["EXPLICIT_NONE"]}, "signingOrder": 7986.65, "rejectionReason": null}], "fields": []}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "404":
