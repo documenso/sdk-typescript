@@ -6,7 +6,6 @@ import { templatesDelete } from "../funcs/templatesDelete.js";
 import { templatesDuplicate } from "../funcs/templatesDuplicate.js";
 import { templatesFind } from "../funcs/templatesFind.js";
 import { templatesGet } from "../funcs/templatesGet.js";
-import { templatesMoveToTeam } from "../funcs/templatesMoveToTeam.js";
 import { templatesUpdate } from "../funcs/templatesUpdate.js";
 import { templatesUse } from "../funcs/templatesUse.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
@@ -116,23 +115,6 @@ export class Templates extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.TemplateCreateDocumentFromTemplateResponse> {
     return unwrapAsync(templatesUse(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Move template
-   *
-   * @remarks
-   * Move a template to a team
-   */
-  async moveToTeam(
-    request: operations.TemplateMoveTemplateToTeamRequest,
-    options?: RequestOptions,
-  ): Promise<operations.TemplateMoveTemplateToTeamResponse> {
-    return unwrapAsync(templatesMoveToTeam(
       this,
       request,
       options,

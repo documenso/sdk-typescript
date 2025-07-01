@@ -11,11 +11,11 @@ let value: DocumentCreateDocumentTemporaryFolder = {
   type: "DOCUMENT",
   visibility: "ADMIN",
   userId: 3738.73,
-  teamId: 6520.37,
+  teamId: 7961.24,
   pinned: false,
   parentId: "<id>",
-  createdAt: "1733877825439",
-  updatedAt: "1735661610580",
+  createdAt: "1707350836658",
+  updatedAt: "1735684635295",
 };
 ```
 

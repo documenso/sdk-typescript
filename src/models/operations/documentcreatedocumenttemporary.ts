@@ -1057,7 +1057,7 @@ export type DocumentCreateDocumentTemporaryFolder = {
   type: DocumentFolderType;
   visibility: DocumentFolderVisibility;
   userId: number;
-  teamId: number | null;
+  teamId: number;
   pinned: boolean;
   parentId: string | null;
   createdAt: string;
@@ -1366,15 +1366,15 @@ export type FieldMetaDocumentInitials = {
 };
 
 export type DocumentFieldMetaUnion =
-  | FieldMetaDocumentRadio
   | FieldMetaDocumentInitials
   | FieldMetaDocumentName
   | FieldMetaDocumentEmail
   | FieldMetaDocumentDate
-  | FieldMetaDocumentDropdown
-  | FieldMetaDocumentCheckbox
   | FieldMetaDocumentText
-  | FieldMetaDocumentNumber;
+  | FieldMetaDocumentNumber
+  | FieldMetaDocumentRadio
+  | FieldMetaDocumentCheckbox
+  | FieldMetaDocumentDropdown;
 
 export type DocumentField = {
   type: DocumentFieldType;
@@ -1394,15 +1394,15 @@ export type DocumentField = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | FieldMetaDocumentRadio
     | FieldMetaDocumentInitials
     | FieldMetaDocumentName
     | FieldMetaDocumentEmail
     | FieldMetaDocumentDate
-    | FieldMetaDocumentDropdown
-    | FieldMetaDocumentCheckbox
     | FieldMetaDocumentText
     | FieldMetaDocumentNumber
+    | FieldMetaDocumentRadio
+    | FieldMetaDocumentCheckbox
+    | FieldMetaDocumentDropdown
     | null;
 };
 
@@ -1427,7 +1427,7 @@ export type Document = {
   updatedAt: string;
   completedAt: string | null;
   deletedAt: string | null;
-  teamId: number | null;
+  teamId: number;
   templateId: number | null;
   folderId: string | null;
   documentData: DocumentCreateDocumentTemporaryDocumentData;
@@ -5497,7 +5497,7 @@ export const DocumentCreateDocumentTemporaryFolder$inboundSchema: z.ZodType<
   type: DocumentFolderType$inboundSchema,
   visibility: DocumentFolderVisibility$inboundSchema,
   userId: z.number(),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   pinned: z.boolean(),
   parentId: z.nullable(z.string()),
   createdAt: z.string(),
@@ -5511,7 +5511,7 @@ export type DocumentCreateDocumentTemporaryFolder$Outbound = {
   type: string;
   visibility: string;
   userId: number;
-  teamId: number | null;
+  teamId: number;
   pinned: boolean;
   parentId: string | null;
   createdAt: string;
@@ -5529,7 +5529,7 @@ export const DocumentCreateDocumentTemporaryFolder$outboundSchema: z.ZodType<
   type: DocumentFolderType$outboundSchema,
   visibility: DocumentFolderVisibility$outboundSchema,
   userId: z.number(),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   pinned: z.boolean(),
   parentId: z.nullable(z.string()),
   createdAt: z.string(),
@@ -7052,28 +7052,28 @@ export const DocumentFieldMetaUnion$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  z.lazy(() => FieldMetaDocumentRadio$inboundSchema),
   z.lazy(() => FieldMetaDocumentInitials$inboundSchema),
   z.lazy(() => FieldMetaDocumentName$inboundSchema),
   z.lazy(() => FieldMetaDocumentEmail$inboundSchema),
   z.lazy(() => FieldMetaDocumentDate$inboundSchema),
-  z.lazy(() => FieldMetaDocumentDropdown$inboundSchema),
-  z.lazy(() => FieldMetaDocumentCheckbox$inboundSchema),
   z.lazy(() => FieldMetaDocumentText$inboundSchema),
   z.lazy(() => FieldMetaDocumentNumber$inboundSchema),
+  z.lazy(() => FieldMetaDocumentRadio$inboundSchema),
+  z.lazy(() => FieldMetaDocumentCheckbox$inboundSchema),
+  z.lazy(() => FieldMetaDocumentDropdown$inboundSchema),
 ]);
 
 /** @internal */
 export type DocumentFieldMetaUnion$Outbound =
-  | FieldMetaDocumentRadio$Outbound
   | FieldMetaDocumentInitials$Outbound
   | FieldMetaDocumentName$Outbound
   | FieldMetaDocumentEmail$Outbound
   | FieldMetaDocumentDate$Outbound
-  | FieldMetaDocumentDropdown$Outbound
-  | FieldMetaDocumentCheckbox$Outbound
   | FieldMetaDocumentText$Outbound
-  | FieldMetaDocumentNumber$Outbound;
+  | FieldMetaDocumentNumber$Outbound
+  | FieldMetaDocumentRadio$Outbound
+  | FieldMetaDocumentCheckbox$Outbound
+  | FieldMetaDocumentDropdown$Outbound;
 
 /** @internal */
 export const DocumentFieldMetaUnion$outboundSchema: z.ZodType<
@@ -7081,15 +7081,15 @@ export const DocumentFieldMetaUnion$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentFieldMetaUnion
 > = z.union([
-  z.lazy(() => FieldMetaDocumentRadio$outboundSchema),
   z.lazy(() => FieldMetaDocumentInitials$outboundSchema),
   z.lazy(() => FieldMetaDocumentName$outboundSchema),
   z.lazy(() => FieldMetaDocumentEmail$outboundSchema),
   z.lazy(() => FieldMetaDocumentDate$outboundSchema),
-  z.lazy(() => FieldMetaDocumentDropdown$outboundSchema),
-  z.lazy(() => FieldMetaDocumentCheckbox$outboundSchema),
   z.lazy(() => FieldMetaDocumentText$outboundSchema),
   z.lazy(() => FieldMetaDocumentNumber$outboundSchema),
+  z.lazy(() => FieldMetaDocumentRadio$outboundSchema),
+  z.lazy(() => FieldMetaDocumentCheckbox$outboundSchema),
+  z.lazy(() => FieldMetaDocumentDropdown$outboundSchema),
 ]);
 
 /**
@@ -7144,15 +7144,15 @@ export const DocumentField$inboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() => FieldMetaDocumentRadio$inboundSchema),
       z.lazy(() => FieldMetaDocumentInitials$inboundSchema),
       z.lazy(() => FieldMetaDocumentName$inboundSchema),
       z.lazy(() => FieldMetaDocumentEmail$inboundSchema),
       z.lazy(() => FieldMetaDocumentDate$inboundSchema),
-      z.lazy(() => FieldMetaDocumentDropdown$inboundSchema),
-      z.lazy(() => FieldMetaDocumentCheckbox$inboundSchema),
       z.lazy(() => FieldMetaDocumentText$inboundSchema),
       z.lazy(() => FieldMetaDocumentNumber$inboundSchema),
+      z.lazy(() => FieldMetaDocumentRadio$inboundSchema),
+      z.lazy(() => FieldMetaDocumentCheckbox$inboundSchema),
+      z.lazy(() => FieldMetaDocumentDropdown$inboundSchema),
     ]),
   ),
 });
@@ -7173,15 +7173,15 @@ export type DocumentField$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | FieldMetaDocumentRadio$Outbound
     | FieldMetaDocumentInitials$Outbound
     | FieldMetaDocumentName$Outbound
     | FieldMetaDocumentEmail$Outbound
     | FieldMetaDocumentDate$Outbound
-    | FieldMetaDocumentDropdown$Outbound
-    | FieldMetaDocumentCheckbox$Outbound
     | FieldMetaDocumentText$Outbound
     | FieldMetaDocumentNumber$Outbound
+    | FieldMetaDocumentRadio$Outbound
+    | FieldMetaDocumentCheckbox$Outbound
+    | FieldMetaDocumentDropdown$Outbound
     | null;
 };
 
@@ -7206,15 +7206,15 @@ export const DocumentField$outboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() => FieldMetaDocumentRadio$outboundSchema),
       z.lazy(() => FieldMetaDocumentInitials$outboundSchema),
       z.lazy(() => FieldMetaDocumentName$outboundSchema),
       z.lazy(() => FieldMetaDocumentEmail$outboundSchema),
       z.lazy(() => FieldMetaDocumentDate$outboundSchema),
-      z.lazy(() => FieldMetaDocumentDropdown$outboundSchema),
-      z.lazy(() => FieldMetaDocumentCheckbox$outboundSchema),
       z.lazy(() => FieldMetaDocumentText$outboundSchema),
       z.lazy(() => FieldMetaDocumentNumber$outboundSchema),
+      z.lazy(() => FieldMetaDocumentRadio$outboundSchema),
+      z.lazy(() => FieldMetaDocumentCheckbox$outboundSchema),
+      z.lazy(() => FieldMetaDocumentDropdown$outboundSchema),
     ]),
   ),
 });
@@ -7270,7 +7270,7 @@ export const Document$inboundSchema: z.ZodType<
   updatedAt: z.string(),
   completedAt: z.nullable(z.string()),
   deletedAt: z.nullable(z.string()),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   templateId: z.nullable(z.number()),
   folderId: z.nullable(z.string()),
   documentData: z.lazy(() =>
@@ -7302,7 +7302,7 @@ export type Document$Outbound = {
   updatedAt: string;
   completedAt: string | null;
   deletedAt: string | null;
-  teamId: number | null;
+  teamId: number;
   templateId: number | null;
   folderId: string | null;
   documentData: DocumentCreateDocumentTemporaryDocumentData$Outbound;
@@ -7336,7 +7336,7 @@ export const Document$outboundSchema: z.ZodType<
   updatedAt: z.string(),
   completedAt: z.nullable(z.string()),
   deletedAt: z.nullable(z.string()),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   templateId: z.nullable(z.number()),
   folderId: z.nullable(z.string()),
   documentData: z.lazy(() =>

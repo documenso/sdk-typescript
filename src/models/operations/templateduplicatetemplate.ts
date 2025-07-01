@@ -73,7 +73,7 @@ export type TemplateDuplicateTemplateResponse = {
   externalId: string | null;
   title: string;
   userId: number;
-  teamId: number | null;
+  teamId: number;
   authOptions: TemplateDuplicateTemplateAuthOptions | null;
   templateDocumentDataId: string;
   createdAt: string;
@@ -312,7 +312,7 @@ export const TemplateDuplicateTemplateResponse$inboundSchema: z.ZodType<
   externalId: z.nullable(z.string()),
   title: z.string(),
   userId: z.number(),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   authOptions: z.nullable(
     z.lazy(() => TemplateDuplicateTemplateAuthOptions$inboundSchema),
   ),
@@ -333,7 +333,7 @@ export type TemplateDuplicateTemplateResponse$Outbound = {
   externalId: string | null;
   title: string;
   userId: number;
-  teamId: number | null;
+  teamId: number;
   authOptions: TemplateDuplicateTemplateAuthOptions$Outbound | null;
   templateDocumentDataId: string;
   createdAt: string;
@@ -356,7 +356,7 @@ export const TemplateDuplicateTemplateResponse$outboundSchema: z.ZodType<
   externalId: z.nullable(z.string()),
   title: z.string(),
   userId: z.number(),
-  teamId: z.nullable(z.number()),
+  teamId: z.number(),
   authOptions: z.nullable(
     z.lazy(() => TemplateDuplicateTemplateAuthOptions$outboundSchema),
   ),

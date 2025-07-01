@@ -12,33 +12,29 @@ let value: TemplateFindTemplatesData = {
   externalId: "<id>",
   title: "<value>",
   userId: 3295.89,
-  teamId: 487.58,
-  authOptions: {
-    globalAccessAuth: [
-      "ACCOUNT",
-    ],
-    globalActionAuth: [
-      "TWO_FACTOR_AUTH",
-    ],
-  },
+  teamId: 5651.61,
+  authOptions: null,
   templateDocumentDataId: "<id>",
-  createdAt: "1729533592048",
-  updatedAt: "1735618878211",
+  createdAt: "1713144859293",
+  updatedAt: "1735674350045",
   publicTitle: "<value>",
   publicDescription: "<value>",
   folderId: "<id>",
-  useLegacyFieldInsertion: true,
+  useLegacyFieldInsertion: false,
   team: {
-    id: 5544.41,
-    url: "https://colossal-railway.biz/",
+    id: 1814.63,
+    url: "https://insecure-pharmacopoeia.name",
   },
   fields: [],
   recipients: [],
   templateMeta: {
     signingOrder: "PARALLEL",
-    distributionMethod: "NONE",
+    distributionMethod: "EMAIL",
   },
-  directLink: null,
+  directLink: {
+    token: "<value>",
+    enabled: true,
+  },
 };
 ```
 

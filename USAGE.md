@@ -7,7 +7,9 @@ const documenso = new Documenso({
 });
 
 async function run() {
-  const result = await documenso.documents.find({});
+  const result = await documenso.documents.update({
+    documentId: 9701.92,
+  });
 
   console.log(result);
 }

@@ -16,8 +16,12 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
+  tests:
+    generateTests: true
+    generateNewTests: false
+    skipResponseBodyAssertions: false
 typescript:
-  version: 0.3.0
+  version: 0.3.1
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -26,6 +30,7 @@ typescript:
   author: Speakeasy
   baseErrorName: DocumensoError
   clientServerStatusCodesAsErrors: true
+  constFieldsAlwaysOptional: true
   defaultErrorName: APIError
   enableCustomCodeRegions: false
   enableMCPServer: true

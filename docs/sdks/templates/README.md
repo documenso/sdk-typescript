@@ -11,7 +11,6 @@
 * [duplicate](#duplicate) - Duplicate template
 * [delete](#delete) - Delete template
 * [use](#use) - Use template
-* [moveToTeam](#movetoteam) - Move template
 
 ## find
 
@@ -456,79 +455,3 @@ run();
 | errors.TemplateCreateDocumentFromTemplateBadRequestError     | 400                                                          | application/json                                             |
 | errors.TemplateCreateDocumentFromTemplateInternalServerError | 500                                                          | application/json                                             |
 | errors.APIError                                              | 4XX, 5XX                                                     | \*/\*                                                        |
-
-## moveToTeam
-
-Move a template to a team
-
-### Example Usage
-
-```typescript
-import { Documenso } from "@documenso/sdk-typescript";
-
-const documenso = new Documenso({
-  apiKey: process.env["DOCUMENSO_API_KEY"] ?? "",
-});
-
-async function run() {
-  const result = await documenso.templates.moveToTeam({
-    templateId: 9124,
-    teamId: 6200.73,
-  });
-
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { DocumensoCore } from "@documenso/sdk-typescript/core.js";
-import { templatesMoveToTeam } from "@documenso/sdk-typescript/funcs/templatesMoveToTeam.js";
-
-// Use `DocumensoCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const documenso = new DocumensoCore({
-  apiKey: process.env["DOCUMENSO_API_KEY"] ?? "",
-});
-
-async function run() {
-  const res = await templatesMoveToTeam(documenso, {
-    templateId: 9124,
-    teamId: 6200.73,
-  });
-  if (res.ok) {
-    const { value: result } = res;
-    console.log(result);
-  } else {
-    console.log("templatesMoveToTeam failed:", res.error);
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.TemplateMoveTemplateToTeamRequest](../../models/operations/templatemovetemplatetoteamrequest.md)                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[operations.TemplateMoveTemplateToTeamResponse](../../models/operations/templatemovetemplatetoteamresponse.md)\>**
-
-### Errors
-
-| Error Type                                           | Status Code                                          | Content Type                                         |
-| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
-| errors.TemplateMoveTemplateToTeamBadRequestError     | 400                                                  | application/json                                     |
-| errors.TemplateMoveTemplateToTeamInternalServerError | 500                                                  | application/json                                     |
-| errors.APIError                                      | 4XX, 5XX                                             | \*/\*                                                |

@@ -299,12 +299,11 @@ main()
 
 ### [documents](docs/sdks/documents/README.md)
 
+* [update](docs/sdks/documents/README.md#update) - Update document
 * [find](docs/sdks/documents/README.md#find) - Find documents
 * [get](docs/sdks/documents/README.md#get) - Get document
 * [createV0](docs/sdks/documents/README.md#createv0) - Create document
-* [update](docs/sdks/documents/README.md#update) - Update document
 * [delete](docs/sdks/documents/README.md#delete) - Delete document
-* [moveToTeam](docs/sdks/documents/README.md#movetoteam) - Move document
 * [distribute](docs/sdks/documents/README.md#distribute) - Distribute document
 * [redistribute](docs/sdks/documents/README.md#redistribute) - Redistribute document
 * [duplicate](docs/sdks/documents/README.md#duplicate) - Duplicate document
@@ -340,7 +339,6 @@ main()
 * [duplicate](docs/sdks/templates/README.md#duplicate) - Duplicate template
 * [delete](docs/sdks/templates/README.md#delete) - Delete template
 * [use](docs/sdks/templates/README.md#use) - Use template
-* [moveToTeam](docs/sdks/templates/README.md#movetoteam) - Move template
 
 #### [templates.directLink](docs/sdks/directlink/README.md)
 
@@ -385,7 +383,9 @@ const documenso = new Documenso({
 });
 
 async function run() {
-  const result = await documenso.documents.find({}, {
+  const result = await documenso.documents.update({
+    documentId: 9701.92,
+  }, {
     retries: {
       strategy: "backoff",
       backoff: {
@@ -424,7 +424,9 @@ const documenso = new Documenso({
 });
 
 async function run() {
-  const result = await documenso.documents.find({});
+  const result = await documenso.documents.update({
+    documentId: 9701.92,
+  });
 
   console.log(result);
 }
@@ -459,7 +461,9 @@ const documenso = new Documenso({
 
 async function run() {
   try {
-    const result = await documenso.documents.find({});
+    const result = await documenso.documents.update({
+      documentId: 9701.92,
+    });
 
     console.log(result);
   } catch (error) {
@@ -471,10 +475,10 @@ async function run() {
       console.log(error.headers);
 
       // Depending on the method different errors may be thrown
-      if (error instanceof errors.DocumentFindDocumentsBadRequestError) {
+      if (error instanceof errors.DocumentUpdateDocumentBadRequestError) {
         console.log(error.data$.message); // string
         console.log(error.data$.code); // string
-        console.log(error.data$.issues); // DocumentFindDocumentsBadRequestIssue[]
+        console.log(error.data$.issues); // DocumentUpdateDocumentBadRequestIssue[]
       }
     }
   }
@@ -488,7 +492,7 @@ run();
 **Primary error:**
 * [`DocumensoError`](./src/models/errors/documensoerror.ts): The base class for HTTP error responses.
 
-<details><summary>Less common errors (104)</summary>
+<details><summary>Less common errors (100)</summary>
 
 <br />
 
@@ -501,104 +505,100 @@ run();
 
 
 **Inherit from [`DocumensoError`](./src/models/errors/documensoerror.ts)**:
-* [`DocumentFindDocumentsBadRequestError`](docs/models/errors/documentfinddocumentsbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`DocumentGetDocumentWithDetailsByIdBadRequestError`](docs/models/errors/documentgetdocumentwithdetailsbyidbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`DocumentCreateDocumentTemporaryBadRequestError`](docs/models/errors/documentcreatedocumenttemporarybadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`DocumentUpdateDocumentBadRequestError`](docs/models/errors/documentupdatedocumentbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`DocumentDeleteDocumentBadRequestError`](docs/models/errors/documentdeletedocumentbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`DocumentMoveDocumentToTeamBadRequestError`](docs/models/errors/documentmovedocumenttoteambadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`DocumentSendDocumentBadRequestError`](docs/models/errors/documentsenddocumentbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`DocumentResendDocumentBadRequestError`](docs/models/errors/documentresenddocumentbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`DocumentDuplicateDocumentBadRequestError`](docs/models/errors/documentduplicatedocumentbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`TemplateFindTemplatesBadRequestError`](docs/models/errors/templatefindtemplatesbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`TemplateGetTemplateByIdBadRequestError`](docs/models/errors/templategettemplatebyidbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`TemplateUpdateTemplateBadRequestError`](docs/models/errors/templateupdatetemplatebadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`TemplateDuplicateTemplateBadRequestError`](docs/models/errors/templateduplicatetemplatebadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`TemplateDeleteTemplateBadRequestError`](docs/models/errors/templatedeletetemplatebadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`TemplateCreateDocumentFromTemplateBadRequestError`](docs/models/errors/templatecreatedocumentfromtemplatebadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`TemplateMoveTemplateToTeamBadRequestError`](docs/models/errors/templatemovetemplatetoteambadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`EmbeddingPresignCreateEmbeddingPresignTokenBadRequestError`](docs/models/errors/embeddingpresigncreateembeddingpresigntokenbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`EmbeddingPresignVerifyEmbeddingPresignTokenBadRequestError`](docs/models/errors/embeddingpresignverifyembeddingpresigntokenbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`FieldGetDocumentFieldBadRequestError`](docs/models/errors/fieldgetdocumentfieldbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`FieldCreateDocumentFieldBadRequestError`](docs/models/errors/fieldcreatedocumentfieldbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`FieldCreateDocumentFieldsBadRequestError`](docs/models/errors/fieldcreatedocumentfieldsbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`FieldUpdateDocumentFieldBadRequestError`](docs/models/errors/fieldupdatedocumentfieldbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`FieldUpdateDocumentFieldsBadRequestError`](docs/models/errors/fieldupdatedocumentfieldsbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`FieldDeleteDocumentFieldBadRequestError`](docs/models/errors/fielddeletedocumentfieldbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`RecipientGetDocumentRecipientBadRequestError`](docs/models/errors/recipientgetdocumentrecipientbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`RecipientCreateDocumentRecipientBadRequestError`](docs/models/errors/recipientcreatedocumentrecipientbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`RecipientCreateDocumentRecipientsBadRequestError`](docs/models/errors/recipientcreatedocumentrecipientsbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`RecipientUpdateDocumentRecipientBadRequestError`](docs/models/errors/recipientupdatedocumentrecipientbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`RecipientUpdateDocumentRecipientsBadRequestError`](docs/models/errors/recipientupdatedocumentrecipientsbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`RecipientDeleteDocumentRecipientBadRequestError`](docs/models/errors/recipientdeletedocumentrecipientbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`FieldCreateTemplateFieldBadRequestError`](docs/models/errors/fieldcreatetemplatefieldbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`FieldGetTemplateFieldBadRequestError`](docs/models/errors/fieldgettemplatefieldbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`FieldCreateTemplateFieldsBadRequestError`](docs/models/errors/fieldcreatetemplatefieldsbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`FieldUpdateTemplateFieldBadRequestError`](docs/models/errors/fieldupdatetemplatefieldbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`FieldUpdateTemplateFieldsBadRequestError`](docs/models/errors/fieldupdatetemplatefieldsbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`FieldDeleteTemplateFieldBadRequestError`](docs/models/errors/fielddeletetemplatefieldbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`RecipientGetTemplateRecipientBadRequestError`](docs/models/errors/recipientgettemplaterecipientbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`RecipientCreateTemplateRecipientBadRequestError`](docs/models/errors/recipientcreatetemplaterecipientbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`RecipientCreateTemplateRecipientsBadRequestError`](docs/models/errors/recipientcreatetemplaterecipientsbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`RecipientUpdateTemplateRecipientBadRequestError`](docs/models/errors/recipientupdatetemplaterecipientbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`RecipientUpdateTemplateRecipientsBadRequestError`](docs/models/errors/recipientupdatetemplaterecipientsbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`RecipientDeleteTemplateRecipientBadRequestError`](docs/models/errors/recipientdeletetemplaterecipientbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`TemplateCreateTemplateDirectLinkBadRequestError`](docs/models/errors/templatecreatetemplatedirectlinkbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`TemplateDeleteTemplateDirectLinkBadRequestError`](docs/models/errors/templatedeletetemplatedirectlinkbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`TemplateToggleTemplateDirectLinkBadRequestError`](docs/models/errors/templatetoggletemplatedirectlinkbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 45 methods.*
-* [`DocumentFindDocumentsNotFoundError`](docs/models/errors/documentfinddocumentsnotfounderror.md): Not found. Status code `404`. Applicable to 1 of 45 methods.*
-* [`DocumentGetDocumentWithDetailsByIdNotFoundError`](docs/models/errors/documentgetdocumentwithdetailsbyidnotfounderror.md): Not found. Status code `404`. Applicable to 1 of 45 methods.*
-* [`TemplateFindTemplatesNotFoundError`](docs/models/errors/templatefindtemplatesnotfounderror.md): Not found. Status code `404`. Applicable to 1 of 45 methods.*
-* [`TemplateGetTemplateByIdNotFoundError`](docs/models/errors/templategettemplatebyidnotfounderror.md): Not found. Status code `404`. Applicable to 1 of 45 methods.*
-* [`FieldGetDocumentFieldNotFoundError`](docs/models/errors/fieldgetdocumentfieldnotfounderror.md): Not found. Status code `404`. Applicable to 1 of 45 methods.*
-* [`RecipientGetDocumentRecipientNotFoundError`](docs/models/errors/recipientgetdocumentrecipientnotfounderror.md): Not found. Status code `404`. Applicable to 1 of 45 methods.*
-* [`FieldGetTemplateFieldNotFoundError`](docs/models/errors/fieldgettemplatefieldnotfounderror.md): Not found. Status code `404`. Applicable to 1 of 45 methods.*
-* [`RecipientGetTemplateRecipientNotFoundError`](docs/models/errors/recipientgettemplaterecipientnotfounderror.md): Not found. Status code `404`. Applicable to 1 of 45 methods.*
-* [`DocumentFindDocumentsInternalServerError`](docs/models/errors/documentfinddocumentsinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`DocumentGetDocumentWithDetailsByIdInternalServerError`](docs/models/errors/documentgetdocumentwithdetailsbyidinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`DocumentCreateDocumentTemporaryInternalServerError`](docs/models/errors/documentcreatedocumenttemporaryinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`DocumentUpdateDocumentInternalServerError`](docs/models/errors/documentupdatedocumentinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`DocumentDeleteDocumentInternalServerError`](docs/models/errors/documentdeletedocumentinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`DocumentMoveDocumentToTeamInternalServerError`](docs/models/errors/documentmovedocumenttoteaminternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`DocumentSendDocumentInternalServerError`](docs/models/errors/documentsenddocumentinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`DocumentResendDocumentInternalServerError`](docs/models/errors/documentresenddocumentinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`DocumentDuplicateDocumentInternalServerError`](docs/models/errors/documentduplicatedocumentinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`TemplateFindTemplatesInternalServerError`](docs/models/errors/templatefindtemplatesinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`TemplateGetTemplateByIdInternalServerError`](docs/models/errors/templategettemplatebyidinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`TemplateUpdateTemplateInternalServerError`](docs/models/errors/templateupdatetemplateinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`TemplateDuplicateTemplateInternalServerError`](docs/models/errors/templateduplicatetemplateinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`TemplateDeleteTemplateInternalServerError`](docs/models/errors/templatedeletetemplateinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`TemplateCreateDocumentFromTemplateInternalServerError`](docs/models/errors/templatecreatedocumentfromtemplateinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`TemplateMoveTemplateToTeamInternalServerError`](docs/models/errors/templatemovetemplatetoteaminternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`EmbeddingPresignCreateEmbeddingPresignTokenInternalServerError`](docs/models/errors/embeddingpresigncreateembeddingpresigntokeninternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`EmbeddingPresignVerifyEmbeddingPresignTokenInternalServerError`](docs/models/errors/embeddingpresignverifyembeddingpresigntokeninternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`FieldGetDocumentFieldInternalServerError`](docs/models/errors/fieldgetdocumentfieldinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`FieldCreateDocumentFieldInternalServerError`](docs/models/errors/fieldcreatedocumentfieldinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`FieldCreateDocumentFieldsInternalServerError`](docs/models/errors/fieldcreatedocumentfieldsinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`FieldUpdateDocumentFieldInternalServerError`](docs/models/errors/fieldupdatedocumentfieldinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`FieldUpdateDocumentFieldsInternalServerError`](docs/models/errors/fieldupdatedocumentfieldsinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`FieldDeleteDocumentFieldInternalServerError`](docs/models/errors/fielddeletedocumentfieldinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`RecipientGetDocumentRecipientInternalServerError`](docs/models/errors/recipientgetdocumentrecipientinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`RecipientCreateDocumentRecipientInternalServerError`](docs/models/errors/recipientcreatedocumentrecipientinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`RecipientCreateDocumentRecipientsInternalServerError`](docs/models/errors/recipientcreatedocumentrecipientsinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`RecipientUpdateDocumentRecipientInternalServerError`](docs/models/errors/recipientupdatedocumentrecipientinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`RecipientUpdateDocumentRecipientsInternalServerError`](docs/models/errors/recipientupdatedocumentrecipientsinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`RecipientDeleteDocumentRecipientInternalServerError`](docs/models/errors/recipientdeletedocumentrecipientinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`FieldCreateTemplateFieldInternalServerError`](docs/models/errors/fieldcreatetemplatefieldinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`FieldGetTemplateFieldInternalServerError`](docs/models/errors/fieldgettemplatefieldinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`FieldCreateTemplateFieldsInternalServerError`](docs/models/errors/fieldcreatetemplatefieldsinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`FieldUpdateTemplateFieldInternalServerError`](docs/models/errors/fieldupdatetemplatefieldinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`FieldUpdateTemplateFieldsInternalServerError`](docs/models/errors/fieldupdatetemplatefieldsinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`FieldDeleteTemplateFieldInternalServerError`](docs/models/errors/fielddeletetemplatefieldinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`RecipientGetTemplateRecipientInternalServerError`](docs/models/errors/recipientgettemplaterecipientinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`RecipientCreateTemplateRecipientInternalServerError`](docs/models/errors/recipientcreatetemplaterecipientinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`RecipientCreateTemplateRecipientsInternalServerError`](docs/models/errors/recipientcreatetemplaterecipientsinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`RecipientUpdateTemplateRecipientInternalServerError`](docs/models/errors/recipientupdatetemplaterecipientinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`RecipientUpdateTemplateRecipientsInternalServerError`](docs/models/errors/recipientupdatetemplaterecipientsinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`RecipientDeleteTemplateRecipientInternalServerError`](docs/models/errors/recipientdeletetemplaterecipientinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`TemplateCreateTemplateDirectLinkInternalServerError`](docs/models/errors/templatecreatetemplatedirectlinkinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`TemplateDeleteTemplateDirectLinkInternalServerError`](docs/models/errors/templatedeletetemplatedirectlinkinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
-* [`TemplateToggleTemplateDirectLinkInternalServerError`](docs/models/errors/templatetoggletemplatedirectlinkinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 45 methods.*
+* [`DocumentUpdateDocumentBadRequestError`](docs/models/errors/documentupdatedocumentbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`DocumentFindDocumentsBadRequestError`](docs/models/errors/documentfinddocumentsbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`DocumentGetDocumentWithDetailsByIdBadRequestError`](docs/models/errors/documentgetdocumentwithdetailsbyidbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`DocumentCreateDocumentTemporaryBadRequestError`](docs/models/errors/documentcreatedocumenttemporarybadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`DocumentDeleteDocumentBadRequestError`](docs/models/errors/documentdeletedocumentbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`DocumentSendDocumentBadRequestError`](docs/models/errors/documentsenddocumentbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`DocumentResendDocumentBadRequestError`](docs/models/errors/documentresenddocumentbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`DocumentDuplicateDocumentBadRequestError`](docs/models/errors/documentduplicatedocumentbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`TemplateFindTemplatesBadRequestError`](docs/models/errors/templatefindtemplatesbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`TemplateGetTemplateByIdBadRequestError`](docs/models/errors/templategettemplatebyidbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`TemplateUpdateTemplateBadRequestError`](docs/models/errors/templateupdatetemplatebadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`TemplateDuplicateTemplateBadRequestError`](docs/models/errors/templateduplicatetemplatebadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`TemplateDeleteTemplateBadRequestError`](docs/models/errors/templatedeletetemplatebadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`TemplateCreateDocumentFromTemplateBadRequestError`](docs/models/errors/templatecreatedocumentfromtemplatebadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`EmbeddingPresignCreateEmbeddingPresignTokenBadRequestError`](docs/models/errors/embeddingpresigncreateembeddingpresigntokenbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`EmbeddingPresignVerifyEmbeddingPresignTokenBadRequestError`](docs/models/errors/embeddingpresignverifyembeddingpresigntokenbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`FieldGetDocumentFieldBadRequestError`](docs/models/errors/fieldgetdocumentfieldbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`FieldCreateDocumentFieldBadRequestError`](docs/models/errors/fieldcreatedocumentfieldbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`FieldCreateDocumentFieldsBadRequestError`](docs/models/errors/fieldcreatedocumentfieldsbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`FieldUpdateDocumentFieldBadRequestError`](docs/models/errors/fieldupdatedocumentfieldbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`FieldUpdateDocumentFieldsBadRequestError`](docs/models/errors/fieldupdatedocumentfieldsbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`FieldDeleteDocumentFieldBadRequestError`](docs/models/errors/fielddeletedocumentfieldbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`RecipientGetDocumentRecipientBadRequestError`](docs/models/errors/recipientgetdocumentrecipientbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`RecipientCreateDocumentRecipientBadRequestError`](docs/models/errors/recipientcreatedocumentrecipientbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`RecipientCreateDocumentRecipientsBadRequestError`](docs/models/errors/recipientcreatedocumentrecipientsbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`RecipientUpdateDocumentRecipientBadRequestError`](docs/models/errors/recipientupdatedocumentrecipientbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`RecipientUpdateDocumentRecipientsBadRequestError`](docs/models/errors/recipientupdatedocumentrecipientsbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`RecipientDeleteDocumentRecipientBadRequestError`](docs/models/errors/recipientdeletedocumentrecipientbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`FieldCreateTemplateFieldBadRequestError`](docs/models/errors/fieldcreatetemplatefieldbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`FieldGetTemplateFieldBadRequestError`](docs/models/errors/fieldgettemplatefieldbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`FieldCreateTemplateFieldsBadRequestError`](docs/models/errors/fieldcreatetemplatefieldsbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`FieldUpdateTemplateFieldBadRequestError`](docs/models/errors/fieldupdatetemplatefieldbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`FieldUpdateTemplateFieldsBadRequestError`](docs/models/errors/fieldupdatetemplatefieldsbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`FieldDeleteTemplateFieldBadRequestError`](docs/models/errors/fielddeletetemplatefieldbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`RecipientGetTemplateRecipientBadRequestError`](docs/models/errors/recipientgettemplaterecipientbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`RecipientCreateTemplateRecipientBadRequestError`](docs/models/errors/recipientcreatetemplaterecipientbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`RecipientCreateTemplateRecipientsBadRequestError`](docs/models/errors/recipientcreatetemplaterecipientsbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`RecipientUpdateTemplateRecipientBadRequestError`](docs/models/errors/recipientupdatetemplaterecipientbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`RecipientUpdateTemplateRecipientsBadRequestError`](docs/models/errors/recipientupdatetemplaterecipientsbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`RecipientDeleteTemplateRecipientBadRequestError`](docs/models/errors/recipientdeletetemplaterecipientbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`TemplateCreateTemplateDirectLinkBadRequestError`](docs/models/errors/templatecreatetemplatedirectlinkbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`TemplateDeleteTemplateDirectLinkBadRequestError`](docs/models/errors/templatedeletetemplatedirectlinkbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`TemplateToggleTemplateDirectLinkBadRequestError`](docs/models/errors/templatetoggletemplatedirectlinkbadrequesterror.md): Invalid input data. Status code `400`. Applicable to 1 of 43 methods.*
+* [`DocumentFindDocumentsNotFoundError`](docs/models/errors/documentfinddocumentsnotfounderror.md): Not found. Status code `404`. Applicable to 1 of 43 methods.*
+* [`DocumentGetDocumentWithDetailsByIdNotFoundError`](docs/models/errors/documentgetdocumentwithdetailsbyidnotfounderror.md): Not found. Status code `404`. Applicable to 1 of 43 methods.*
+* [`TemplateFindTemplatesNotFoundError`](docs/models/errors/templatefindtemplatesnotfounderror.md): Not found. Status code `404`. Applicable to 1 of 43 methods.*
+* [`TemplateGetTemplateByIdNotFoundError`](docs/models/errors/templategettemplatebyidnotfounderror.md): Not found. Status code `404`. Applicable to 1 of 43 methods.*
+* [`FieldGetDocumentFieldNotFoundError`](docs/models/errors/fieldgetdocumentfieldnotfounderror.md): Not found. Status code `404`. Applicable to 1 of 43 methods.*
+* [`RecipientGetDocumentRecipientNotFoundError`](docs/models/errors/recipientgetdocumentrecipientnotfounderror.md): Not found. Status code `404`. Applicable to 1 of 43 methods.*
+* [`FieldGetTemplateFieldNotFoundError`](docs/models/errors/fieldgettemplatefieldnotfounderror.md): Not found. Status code `404`. Applicable to 1 of 43 methods.*
+* [`RecipientGetTemplateRecipientNotFoundError`](docs/models/errors/recipientgettemplaterecipientnotfounderror.md): Not found. Status code `404`. Applicable to 1 of 43 methods.*
+* [`DocumentUpdateDocumentInternalServerError`](docs/models/errors/documentupdatedocumentinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`DocumentFindDocumentsInternalServerError`](docs/models/errors/documentfinddocumentsinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`DocumentGetDocumentWithDetailsByIdInternalServerError`](docs/models/errors/documentgetdocumentwithdetailsbyidinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`DocumentCreateDocumentTemporaryInternalServerError`](docs/models/errors/documentcreatedocumenttemporaryinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`DocumentDeleteDocumentInternalServerError`](docs/models/errors/documentdeletedocumentinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`DocumentSendDocumentInternalServerError`](docs/models/errors/documentsenddocumentinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`DocumentResendDocumentInternalServerError`](docs/models/errors/documentresenddocumentinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`DocumentDuplicateDocumentInternalServerError`](docs/models/errors/documentduplicatedocumentinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`TemplateFindTemplatesInternalServerError`](docs/models/errors/templatefindtemplatesinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`TemplateGetTemplateByIdInternalServerError`](docs/models/errors/templategettemplatebyidinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`TemplateUpdateTemplateInternalServerError`](docs/models/errors/templateupdatetemplateinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`TemplateDuplicateTemplateInternalServerError`](docs/models/errors/templateduplicatetemplateinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`TemplateDeleteTemplateInternalServerError`](docs/models/errors/templatedeletetemplateinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`TemplateCreateDocumentFromTemplateInternalServerError`](docs/models/errors/templatecreatedocumentfromtemplateinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`EmbeddingPresignCreateEmbeddingPresignTokenInternalServerError`](docs/models/errors/embeddingpresigncreateembeddingpresigntokeninternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`EmbeddingPresignVerifyEmbeddingPresignTokenInternalServerError`](docs/models/errors/embeddingpresignverifyembeddingpresigntokeninternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`FieldGetDocumentFieldInternalServerError`](docs/models/errors/fieldgetdocumentfieldinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`FieldCreateDocumentFieldInternalServerError`](docs/models/errors/fieldcreatedocumentfieldinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`FieldCreateDocumentFieldsInternalServerError`](docs/models/errors/fieldcreatedocumentfieldsinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`FieldUpdateDocumentFieldInternalServerError`](docs/models/errors/fieldupdatedocumentfieldinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`FieldUpdateDocumentFieldsInternalServerError`](docs/models/errors/fieldupdatedocumentfieldsinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`FieldDeleteDocumentFieldInternalServerError`](docs/models/errors/fielddeletedocumentfieldinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`RecipientGetDocumentRecipientInternalServerError`](docs/models/errors/recipientgetdocumentrecipientinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`RecipientCreateDocumentRecipientInternalServerError`](docs/models/errors/recipientcreatedocumentrecipientinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`RecipientCreateDocumentRecipientsInternalServerError`](docs/models/errors/recipientcreatedocumentrecipientsinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`RecipientUpdateDocumentRecipientInternalServerError`](docs/models/errors/recipientupdatedocumentrecipientinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`RecipientUpdateDocumentRecipientsInternalServerError`](docs/models/errors/recipientupdatedocumentrecipientsinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`RecipientDeleteDocumentRecipientInternalServerError`](docs/models/errors/recipientdeletedocumentrecipientinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`FieldCreateTemplateFieldInternalServerError`](docs/models/errors/fieldcreatetemplatefieldinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`FieldGetTemplateFieldInternalServerError`](docs/models/errors/fieldgettemplatefieldinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`FieldCreateTemplateFieldsInternalServerError`](docs/models/errors/fieldcreatetemplatefieldsinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`FieldUpdateTemplateFieldInternalServerError`](docs/models/errors/fieldupdatetemplatefieldinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`FieldUpdateTemplateFieldsInternalServerError`](docs/models/errors/fieldupdatetemplatefieldsinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`FieldDeleteTemplateFieldInternalServerError`](docs/models/errors/fielddeletetemplatefieldinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`RecipientGetTemplateRecipientInternalServerError`](docs/models/errors/recipientgettemplaterecipientinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`RecipientCreateTemplateRecipientInternalServerError`](docs/models/errors/recipientcreatetemplaterecipientinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`RecipientCreateTemplateRecipientsInternalServerError`](docs/models/errors/recipientcreatetemplaterecipientsinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`RecipientUpdateTemplateRecipientInternalServerError`](docs/models/errors/recipientupdatetemplaterecipientinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`RecipientUpdateTemplateRecipientsInternalServerError`](docs/models/errors/recipientupdatetemplaterecipientsinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`RecipientDeleteTemplateRecipientInternalServerError`](docs/models/errors/recipientdeletetemplaterecipientinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`TemplateCreateTemplateDirectLinkInternalServerError`](docs/models/errors/templatecreatetemplatedirectlinkinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`TemplateDeleteTemplateDirectLinkInternalServerError`](docs/models/errors/templatedeletetemplatedirectlinkinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
+* [`TemplateToggleTemplateDirectLinkInternalServerError`](docs/models/errors/templatetoggletemplatedirectlinkinternalservererror.md): Internal server error. Status code `500`. Applicable to 1 of 43 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>
@@ -621,7 +621,9 @@ const documenso = new Documenso({
 });
 
 async function run() {
-  const result = await documenso.documents.find({});
+  const result = await documenso.documents.update({
+    documentId: 9701.92,
+  });
 
   console.log(result);
 }
