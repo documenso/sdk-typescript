@@ -45,9 +45,7 @@ export class EmbeddingPresignCreateEmbeddingPresignTokenInternalServerError
     err: EmbeddingPresignCreateEmbeddingPresignTokenInternalServerErrorData,
     httpMeta: { response: Response; request: Request; body: string },
   ) {
-    const message = "message" in err && typeof err.message === "string"
-      ? err.message
-      : `API error occurred: ${JSON.stringify(err)}`;
+    const message = err.message || `API error occurred: ${JSON.stringify(err)}`;
     super(message, httpMeta);
     this.data$ = err;
     this.code = err.code;
@@ -91,9 +89,7 @@ export class EmbeddingPresignCreateEmbeddingPresignTokenBadRequestError
     err: EmbeddingPresignCreateEmbeddingPresignTokenBadRequestErrorData,
     httpMeta: { response: Response; request: Request; body: string },
   ) {
-    const message = "message" in err && typeof err.message === "string"
-      ? err.message
-      : `API error occurred: ${JSON.stringify(err)}`;
+    const message = err.message || `API error occurred: ${JSON.stringify(err)}`;
     super(message, httpMeta);
     this.data$ = err;
     this.code = err.code;

@@ -37,9 +37,7 @@ export class FieldCreateDocumentFieldsInternalServerError
     err: FieldCreateDocumentFieldsInternalServerErrorData,
     httpMeta: { response: Response; request: Request; body: string },
   ) {
-    const message = "message" in err && typeof err.message === "string"
-      ? err.message
-      : `API error occurred: ${JSON.stringify(err)}`;
+    const message = err.message || `API error occurred: ${JSON.stringify(err)}`;
     super(message, httpMeta);
     this.data$ = err;
     this.code = err.code;
@@ -76,9 +74,7 @@ export class FieldCreateDocumentFieldsBadRequestError extends DocumensoError {
     err: FieldCreateDocumentFieldsBadRequestErrorData,
     httpMeta: { response: Response; request: Request; body: string },
   ) {
-    const message = "message" in err && typeof err.message === "string"
-      ? err.message
-      : `API error occurred: ${JSON.stringify(err)}`;
+    const message = err.message || `API error occurred: ${JSON.stringify(err)}`;
     super(message, httpMeta);
     this.data$ = err;
     this.code = err.code;
