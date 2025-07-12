@@ -3,10 +3,10 @@ id: 2f28b0c4-e21c-47c4-aada-41da1a74c452
 management:
   docChecksum: aa952c1439edb3a7c7b235b58601b090
   docVersion: 0.0.0
-  speakeasyVersion: 1.573.0
-  generationVersion: 2.644.1
-  releaseVersion: 0.3.1
-  configChecksum: 1654dbdd1135465bed4c4bb344c05ec1
+  speakeasyVersion: 1.581.0
+  generationVersion: 2.656.5
+  releaseVersion: 0.3.2
+  configChecksum: ac0950b43bf8a292778c5db96e0527bc
   repoURL: https://github.com/documenso/sdk-typescript.git
   installationURL: https://github.com/documenso/sdk-typescript
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.21.11
+    core: 3.21.14
     defaultEnabledRetries: 0.1.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
@@ -23,7 +23,7 @@ features:
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.5
     groups: 2.81.2
-    mcpServer: 0.9.2
+    mcpServer: 0.9.3
     nameOverrides: 2.81.2
     nullables: 0.1.1
     responseFormat: 0.2.3
@@ -1719,6 +1719,10 @@ generatedFiles:
   - docs/sdks/templatesfields/README.md
   - docs/sdks/templatesrecipients/README.md
   - eslint.config.mjs
+  - examples/.env.template
+  - examples/README.md
+  - examples/documentsUpdate.example.ts
+  - examples/package.json
   - jsr.json
   - package.json
   - src/core.ts

@@ -35,9 +35,7 @@ export class DocumentSendDocumentInternalServerError extends DocumensoError {
     err: DocumentSendDocumentInternalServerErrorData,
     httpMeta: { response: Response; request: Request; body: string },
   ) {
-    const message = "message" in err && typeof err.message === "string"
-      ? err.message
-      : `API error occurred: ${JSON.stringify(err)}`;
+    const message = err.message || `API error occurred: ${JSON.stringify(err)}`;
     super(message, httpMeta);
     this.data$ = err;
     this.code = err.code;
@@ -74,9 +72,7 @@ export class DocumentSendDocumentBadRequestError extends DocumensoError {
     err: DocumentSendDocumentBadRequestErrorData,
     httpMeta: { response: Response; request: Request; body: string },
   ) {
-    const message = "message" in err && typeof err.message === "string"
-      ? err.message
-      : `API error occurred: ${JSON.stringify(err)}`;
+    const message = err.message || `API error occurred: ${JSON.stringify(err)}`;
     super(message, httpMeta);
     this.data$ = err;
     this.code = err.code;
