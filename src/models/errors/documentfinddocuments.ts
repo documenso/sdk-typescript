@@ -35,9 +35,7 @@ export class DocumentFindDocumentsInternalServerError extends DocumensoError {
     err: DocumentFindDocumentsInternalServerErrorData,
     httpMeta: { response: Response; request: Request; body: string },
   ) {
-    const message = "message" in err && typeof err.message === "string"
-      ? err.message
-      : `API error occurred: ${JSON.stringify(err)}`;
+    const message = err.message || `API error occurred: ${JSON.stringify(err)}`;
     super(message, httpMeta);
     this.data$ = err;
     this.code = err.code;
@@ -74,9 +72,7 @@ export class DocumentFindDocumentsNotFoundError extends DocumensoError {
     err: DocumentFindDocumentsNotFoundErrorData,
     httpMeta: { response: Response; request: Request; body: string },
   ) {
-    const message = "message" in err && typeof err.message === "string"
-      ? err.message
-      : `API error occurred: ${JSON.stringify(err)}`;
+    const message = err.message || `API error occurred: ${JSON.stringify(err)}`;
     super(message, httpMeta);
     this.data$ = err;
     this.code = err.code;
@@ -113,9 +109,7 @@ export class DocumentFindDocumentsBadRequestError extends DocumensoError {
     err: DocumentFindDocumentsBadRequestErrorData,
     httpMeta: { response: Response; request: Request; body: string },
   ) {
-    const message = "message" in err && typeof err.message === "string"
-      ? err.message
-      : `API error occurred: ${JSON.stringify(err)}`;
+    const message = err.message || `API error occurred: ${JSON.stringify(err)}`;
     super(message, httpMeta);
     this.data$ = err;
     this.code = err.code;
