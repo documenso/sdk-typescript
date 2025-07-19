@@ -67,7 +67,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Documenso",
-    version: "0.3.1",
+    version: "0.3.2",
   });
 
   const client = new DocumensoCore({
