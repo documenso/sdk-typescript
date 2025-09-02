@@ -134,6 +134,14 @@ export type RecipientGetDocumentRecipientValue2 = {
   value: string;
 };
 
+export const RecipientGetDocumentRecipientDirection = {
+  Vertical: "vertical",
+  Horizontal: "horizontal",
+} as const;
+export type RecipientGetDocumentRecipientDirection = ClosedEnum<
+  typeof RecipientGetDocumentRecipientDirection
+>;
+
 export type RecipientGetDocumentRecipientFieldMetaCheckbox = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -143,6 +151,7 @@ export type RecipientGetDocumentRecipientFieldMetaCheckbox = {
   values?: Array<RecipientGetDocumentRecipientValue2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
+  direction?: RecipientGetDocumentRecipientDirection | undefined;
 };
 
 export const RecipientGetDocumentRecipientTypeRadio = {
@@ -943,6 +952,30 @@ export function recipientGetDocumentRecipientValue2FromJSON(
 }
 
 /** @internal */
+export const RecipientGetDocumentRecipientDirection$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientGetDocumentRecipientDirection> = z.nativeEnum(
+    RecipientGetDocumentRecipientDirection,
+  );
+
+/** @internal */
+export const RecipientGetDocumentRecipientDirection$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientGetDocumentRecipientDirection> =
+    RecipientGetDocumentRecipientDirection$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace RecipientGetDocumentRecipientDirection$ {
+  /** @deprecated use `RecipientGetDocumentRecipientDirection$inboundSchema` instead. */
+  export const inboundSchema =
+    RecipientGetDocumentRecipientDirection$inboundSchema;
+  /** @deprecated use `RecipientGetDocumentRecipientDirection$outboundSchema` instead. */
+  export const outboundSchema =
+    RecipientGetDocumentRecipientDirection$outboundSchema;
+}
+
+/** @internal */
 export const RecipientGetDocumentRecipientFieldMetaCheckbox$inboundSchema:
   z.ZodType<
     RecipientGetDocumentRecipientFieldMetaCheckbox,
@@ -959,6 +992,9 @@ export const RecipientGetDocumentRecipientFieldMetaCheckbox$inboundSchema:
     ).optional(),
     validationRule: z.string().optional(),
     validationLength: z.number().optional(),
+    direction: RecipientGetDocumentRecipientDirection$inboundSchema.default(
+      "vertical",
+    ),
   });
 
 /** @internal */
@@ -971,6 +1007,7 @@ export type RecipientGetDocumentRecipientFieldMetaCheckbox$Outbound = {
   values?: Array<RecipientGetDocumentRecipientValue2$Outbound> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
+  direction: string;
 };
 
 /** @internal */
@@ -990,6 +1027,9 @@ export const RecipientGetDocumentRecipientFieldMetaCheckbox$outboundSchema:
     ).optional(),
     validationRule: z.string().optional(),
     validationLength: z.number().optional(),
+    direction: RecipientGetDocumentRecipientDirection$outboundSchema.default(
+      "vertical",
+    ),
   });
 
 /**

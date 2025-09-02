@@ -18,6 +18,7 @@ Returns a single field. If you want to retrieve all the fields for a document, u
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="field-getDocumentField" method="get" path="/document/field/{fieldId}" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -93,6 +94,7 @@ Create a single field for a document.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="field-createDocumentField" method="post" path="/document/field/create" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -185,6 +187,7 @@ Create multiple fields for a document.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="field-createDocumentFields" method="post" path="/document/field/create-many" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -281,6 +284,7 @@ Update a single field for a document.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="field-updateDocumentField" method="post" path="/document/field/update" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -363,6 +367,7 @@ Update multiple fields for a document.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="field-updateDocumentFields" method="post" path="/document/field/update-many" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -439,6 +444,7 @@ Delete document field
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="field-deleteDocumentField" method="post" path="/document/field/delete" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 

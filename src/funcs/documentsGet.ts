@@ -3,7 +3,7 @@
  */
 
 import { DocumensoCore } from "../core.js";
-import { encodeFormQuery, encodeSimple } from "../lib/encodings.js";
+import { encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
@@ -33,14 +33,14 @@ import { Result } from "../types/fp.js";
  */
 export function documentsGet(
   client: DocumensoCore,
-  request: operations.DocumentGetDocumentWithDetailsByIdRequest,
+  request: operations.DocumentGetRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.DocumentGetDocumentWithDetailsByIdResponse,
-    | errors.DocumentGetDocumentWithDetailsByIdBadRequestError
-    | errors.DocumentGetDocumentWithDetailsByIdNotFoundError
-    | errors.DocumentGetDocumentWithDetailsByIdInternalServerError
+    operations.DocumentGetResponse,
+    | errors.DocumentGetBadRequestError
+    | errors.DocumentGetNotFoundError
+    | errors.DocumentGetInternalServerError
     | DocumensoError
     | ResponseValidationError
     | ConnectionError
@@ -60,15 +60,15 @@ export function documentsGet(
 
 async function $do(
   client: DocumensoCore,
-  request: operations.DocumentGetDocumentWithDetailsByIdRequest,
+  request: operations.DocumentGetRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      operations.DocumentGetDocumentWithDetailsByIdResponse,
-      | errors.DocumentGetDocumentWithDetailsByIdBadRequestError
-      | errors.DocumentGetDocumentWithDetailsByIdNotFoundError
-      | errors.DocumentGetDocumentWithDetailsByIdInternalServerError
+      operations.DocumentGetResponse,
+      | errors.DocumentGetBadRequestError
+      | errors.DocumentGetNotFoundError
+      | errors.DocumentGetInternalServerError
       | DocumensoError
       | ResponseValidationError
       | ConnectionError
@@ -83,10 +83,7 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) =>
-      operations.DocumentGetDocumentWithDetailsByIdRequest$outboundSchema.parse(
-        value,
-      ),
+    (value) => operations.DocumentGetRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -104,10 +101,6 @@ async function $do(
 
   const path = pathToFunc("/document/{documentId}")(pathParams);
 
-  const query = encodeFormQuery({
-    "folderId": payload.folderId,
-  });
-
   const headers = new Headers(compactMap({
     Accept: "application/json",
   }));
@@ -119,7 +112,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "document-getDocumentWithDetailsById",
+    operationID: "document-get",
     oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,
@@ -137,7 +130,6 @@ async function $do(
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
-    query: query,
     body: body,
     userAgent: client._options.userAgent,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
@@ -163,10 +155,10 @@ async function $do(
   };
 
   const [result] = await M.match<
-    operations.DocumentGetDocumentWithDetailsByIdResponse,
-    | errors.DocumentGetDocumentWithDetailsByIdBadRequestError
-    | errors.DocumentGetDocumentWithDetailsByIdNotFoundError
-    | errors.DocumentGetDocumentWithDetailsByIdInternalServerError
+    operations.DocumentGetResponse,
+    | errors.DocumentGetBadRequestError
+    | errors.DocumentGetNotFoundError
+    | errors.DocumentGetInternalServerError
     | DocumensoError
     | ResponseValidationError
     | ConnectionError
@@ -176,23 +168,10 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(
-      200,
-      operations.DocumentGetDocumentWithDetailsByIdResponse$inboundSchema,
-    ),
-    M.jsonErr(
-      400,
-      errors.DocumentGetDocumentWithDetailsByIdBadRequestError$inboundSchema,
-    ),
-    M.jsonErr(
-      404,
-      errors.DocumentGetDocumentWithDetailsByIdNotFoundError$inboundSchema,
-    ),
-    M.jsonErr(
-      500,
-      errors
-        .DocumentGetDocumentWithDetailsByIdInternalServerError$inboundSchema,
-    ),
+    M.json(200, operations.DocumentGetResponse$inboundSchema),
+    M.jsonErr(400, errors.DocumentGetBadRequestError$inboundSchema),
+    M.jsonErr(404, errors.DocumentGetNotFoundError$inboundSchema),
+    M.jsonErr(500, errors.DocumentGetInternalServerError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

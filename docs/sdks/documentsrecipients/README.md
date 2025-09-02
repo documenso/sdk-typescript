@@ -18,6 +18,7 @@ Returns a single recipient. If you want to retrieve all the recipients for a doc
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="recipient-getDocumentRecipient" method="get" path="/document/recipient/{recipientId}" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -93,6 +94,7 @@ Create a single recipient for a document.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="recipient-createDocumentRecipient" method="post" path="/document/recipient/create" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -177,6 +179,7 @@ Create multiple recipients for a document.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="recipient-createDocumentRecipients" method="post" path="/document/recipient/create-many" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -265,6 +268,7 @@ Update a single recipient for a document.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="recipient-updateDocumentRecipient" method="post" path="/document/recipient/update" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -345,6 +349,7 @@ Update multiple recipients for a document.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="recipient-updateDocumentRecipients" method="post" path="/document/recipient/update-many" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -421,6 +426,7 @@ Delete document recipient
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="recipient-deleteDocumentRecipient" method="post" path="/document/recipient/delete" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 

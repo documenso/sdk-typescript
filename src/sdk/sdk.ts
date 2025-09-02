@@ -3,8 +3,10 @@
  */
 
 import { ClientSDK } from "../lib/sdks.js";
+import { Document } from "./document.js";
 import { Documents } from "./documents.js";
 import { Embedding } from "./embedding.js";
+import { Template } from "./template.js";
 import { Templates } from "./templates.js";
 
 export class Documenso extends ClientSDK {
@@ -13,9 +15,19 @@ export class Documenso extends ClientSDK {
     return (this._documents ??= new Documents(this._options));
   }
 
+  private _document?: Document;
+  get document(): Document {
+    return (this._document ??= new Document(this._options));
+  }
+
   private _templates?: Templates;
   get templates(): Templates {
     return (this._templates ??= new Templates(this._options));
+  }
+
+  private _template?: Template;
+  get template(): Template {
+    return (this._template ??= new Template(this._options));
   }
 
   private _embedding?: Embedding;

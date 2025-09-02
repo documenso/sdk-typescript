@@ -13,6 +13,7 @@ import {
 } from "./resources.js";
 import { MCPScope } from "./scopes.js";
 import { createRegisterTool } from "./tools.js";
+import { tool$documentDocumentDownload } from "./tools/documentDocumentDownload.js";
 import { tool$documentsCreateV0 } from "./tools/documentsCreateV0.js";
 import { tool$documentsDelete } from "./tools/documentsDelete.js";
 import { tool$documentsDistribute } from "./tools/documentsDistribute.js";
@@ -56,6 +57,7 @@ import { tool$templatesRecipientsUpdate } from "./tools/templatesRecipientsUpdat
 import { tool$templatesRecipientsUpdateMany } from "./tools/templatesRecipientsUpdateMany.js";
 import { tool$templatesUpdate } from "./tools/templatesUpdate.js";
 import { tool$templatesUse } from "./tools/templatesUse.js";
+import { tool$templateTemplateCreateTemplateTemporary } from "./tools/templateTemplateCreateTemplateTemporary.js";
 
 export function createMCPServer(deps: {
   logger: ConsoleLogger;
@@ -67,7 +69,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Documenso",
-    version: "0.3.1",
+    version: "0.3.2",
   });
 
   const client = new DocumensoCore({
@@ -97,20 +99,22 @@ export function createMCPServer(deps: {
   const register = { tool, resource, resourceTemplate, prompt };
   void register; // suppress unused warnings
 
-  tool(tool$documentsUpdate);
-  tool(tool$documentsFind);
   tool(tool$documentsGet);
-  tool(tool$documentsCreateV0);
+  tool(tool$documentsFind);
+  tool(tool$documentsUpdate);
   tool(tool$documentsDelete);
+  tool(tool$documentsDuplicate);
   tool(tool$documentsDistribute);
   tool(tool$documentsRedistribute);
-  tool(tool$documentsDuplicate);
+  tool(tool$documentsCreateV0);
+  tool(tool$documentDocumentDownload);
   tool(tool$templatesFind);
   tool(tool$templatesGet);
   tool(tool$templatesUpdate);
   tool(tool$templatesDuplicate);
   tool(tool$templatesDelete);
   tool(tool$templatesUse);
+  tool(tool$templateTemplateCreateTemplateTemporary);
   tool(tool$embeddingEmbeddingPresignCreateEmbeddingPresignToken);
   tool(tool$embeddingEmbeddingPresignVerifyEmbeddingPresignToken);
   tool(tool$documentsFieldsGet);

@@ -18,6 +18,7 @@ Create a single field for a template.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="field-createTemplateField" method="post" path="/template/field/create" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -110,6 +111,7 @@ Returns a single field. If you want to retrieve all the fields for a template, u
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="field-getTemplateField" method="get" path="/template/field/{fieldId}" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -185,6 +187,7 @@ Create multiple fields for a template.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="field-createTemplateFields" method="post" path="/template/field/create-many" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -281,6 +284,7 @@ Update a single field for a template.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="field-updateTemplateField" method="post" path="/template/field/update" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -363,6 +367,7 @@ Update multiple fields for a template.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="field-updateTemplateFields" method="post" path="/template/field/update-many" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -449,6 +454,7 @@ Delete template field
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="field-deleteTemplateField" method="post" path="/template/field/delete" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 

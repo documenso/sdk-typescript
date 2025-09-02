@@ -28,13 +28,16 @@ export class Documents extends ClientSDK {
   }
 
   /**
-   * Update document
+   * Get document
+   *
+   * @remarks
+   * Returns a document given an ID
    */
-  async update(
-    request: operations.DocumentUpdateDocumentRequest,
+  async get(
+    request: operations.DocumentGetRequest,
     options?: RequestOptions,
-  ): Promise<operations.DocumentUpdateDocumentResponse> {
-    return unwrapAsync(documentsUpdate(
+  ): Promise<operations.DocumentGetResponse> {
+    return unwrapAsync(documentsGet(
       this,
       request,
       options,
@@ -48,9 +51,9 @@ export class Documents extends ClientSDK {
    * Find documents based on a search criteria
    */
   async find(
-    request: operations.DocumentFindDocumentsRequest,
+    request: operations.DocumentFindRequest,
     options?: RequestOptions,
-  ): Promise<operations.DocumentFindDocumentsResponse> {
+  ): Promise<operations.DocumentFindResponse> {
     return unwrapAsync(documentsFind(
       this,
       request,
@@ -59,16 +62,75 @@ export class Documents extends ClientSDK {
   }
 
   /**
-   * Get document
+   * Update document
+   */
+  async update(
+    request: operations.DocumentUpdateRequest,
+    options?: RequestOptions,
+  ): Promise<operations.DocumentUpdateResponse> {
+    return unwrapAsync(documentsUpdate(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Delete document
+   */
+  async delete(
+    request: operations.DocumentDeleteRequest,
+    options?: RequestOptions,
+  ): Promise<operations.DocumentDeleteResponse> {
+    return unwrapAsync(documentsDelete(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Duplicate document
+   */
+  async duplicate(
+    request: operations.DocumentDuplicateRequest,
+    options?: RequestOptions,
+  ): Promise<operations.DocumentDuplicateResponse> {
+    return unwrapAsync(documentsDuplicate(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Distribute document
    *
    * @remarks
-   * Returns a document given an ID
+   * Send the document out to recipients based on your distribution method
    */
-  async get(
-    request: operations.DocumentGetDocumentWithDetailsByIdRequest,
+  async distribute(
+    request: operations.DocumentDistributeRequest,
     options?: RequestOptions,
-  ): Promise<operations.DocumentGetDocumentWithDetailsByIdResponse> {
-    return unwrapAsync(documentsGet(
+  ): Promise<operations.DocumentDistributeResponse> {
+    return unwrapAsync(documentsDistribute(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Redistribute document
+   *
+   * @remarks
+   * Redistribute the document to the provided recipients who have not actioned the document. Will use the distribution method set in the document
+   */
+  async redistribute(
+    request: operations.DocumentRedistributeRequest,
+    options?: RequestOptions,
+  ): Promise<operations.DocumentRedistributeResponse> {
+    return unwrapAsync(documentsRedistribute(
       this,
       request,
       options,
@@ -86,68 +148,6 @@ export class Documents extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.DocumentCreateDocumentTemporaryResponse> {
     return unwrapAsync(documentsCreateV0(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Delete document
-   */
-  async delete(
-    request: operations.DocumentDeleteDocumentRequest,
-    options?: RequestOptions,
-  ): Promise<operations.DocumentDeleteDocumentResponse> {
-    return unwrapAsync(documentsDelete(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Distribute document
-   *
-   * @remarks
-   * Send the document out to recipients based on your distribution method
-   */
-  async distribute(
-    request: operations.DocumentSendDocumentRequest,
-    options?: RequestOptions,
-  ): Promise<operations.DocumentSendDocumentResponse> {
-    return unwrapAsync(documentsDistribute(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Redistribute document
-   *
-   * @remarks
-   * Redistribute the document to the provided recipients who have not actioned the document. Will use the distribution method set in the document
-   */
-  async redistribute(
-    request: operations.DocumentResendDocumentRequest,
-    options?: RequestOptions,
-  ): Promise<operations.DocumentResendDocumentResponse> {
-    return unwrapAsync(documentsRedistribute(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Duplicate document
-   */
-  async duplicate(
-    request: operations.DocumentDuplicateDocumentRequest,
-    options?: RequestOptions,
-  ): Promise<operations.DocumentDuplicateDocumentResponse> {
-    return unwrapAsync(documentsDuplicate(
       this,
       request,
       options,

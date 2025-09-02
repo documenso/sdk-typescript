@@ -21,7 +21,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 typescript:
-  version: 0.3.1
+  version: 0.3.2
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -39,6 +39,7 @@ typescript:
   envVarPrefix: DOCUMENSO
   flattenGlobalSecurity: true
   flatteningOrder: parameters-first
+  generateExamples: true
   imports:
     option: openapi
     paths:
@@ -56,4 +57,5 @@ typescript:
   packageName: '@documenso/sdk-typescript'
   responseFormat: flat
   templateVersion: v2
+  usageSDKInitImports: []
   useIndexModules: true

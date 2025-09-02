@@ -54,6 +54,8 @@ let value: DocumentCreateDocumentTemporaryResponse = {
       allowDictateNextSigner: true,
       language: "<value>",
       emailSettings: {},
+      emailId: "<id>",
+      emailReplyTo: "<value>",
     },
     folder: {
       id: "<id>",
@@ -70,7 +72,7 @@ let value: DocumentCreateDocumentTemporaryResponse = {
     recipients: [],
     fields: [],
   },
-  uploadUrl: "https://leading-prohibition.info/",
+  uploadUrl: "https://judicious-poetry.name",
 };
 ```
 

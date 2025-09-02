@@ -30,13 +30,13 @@ import { Result } from "../types/fp.js";
  */
 export function documentsDelete(
   client: DocumensoCore,
-  request: operations.DocumentDeleteDocumentRequest,
+  request: operations.DocumentDeleteRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.DocumentDeleteDocumentResponse,
-    | errors.DocumentDeleteDocumentBadRequestError
-    | errors.DocumentDeleteDocumentInternalServerError
+    operations.DocumentDeleteResponse,
+    | errors.DocumentDeleteBadRequestError
+    | errors.DocumentDeleteInternalServerError
     | DocumensoError
     | ResponseValidationError
     | ConnectionError
@@ -56,14 +56,14 @@ export function documentsDelete(
 
 async function $do(
   client: DocumensoCore,
-  request: operations.DocumentDeleteDocumentRequest,
+  request: operations.DocumentDeleteRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      operations.DocumentDeleteDocumentResponse,
-      | errors.DocumentDeleteDocumentBadRequestError
-      | errors.DocumentDeleteDocumentInternalServerError
+      operations.DocumentDeleteResponse,
+      | errors.DocumentDeleteBadRequestError
+      | errors.DocumentDeleteInternalServerError
       | DocumensoError
       | ResponseValidationError
       | ConnectionError
@@ -78,8 +78,7 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) =>
-      operations.DocumentDeleteDocumentRequest$outboundSchema.parse(value),
+    (value) => operations.DocumentDeleteRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -102,7 +101,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "document-deleteDocument",
+    operationID: "document-delete",
     oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,
@@ -145,9 +144,9 @@ async function $do(
   };
 
   const [result] = await M.match<
-    operations.DocumentDeleteDocumentResponse,
-    | errors.DocumentDeleteDocumentBadRequestError
-    | errors.DocumentDeleteDocumentInternalServerError
+    operations.DocumentDeleteResponse,
+    | errors.DocumentDeleteBadRequestError
+    | errors.DocumentDeleteInternalServerError
     | DocumensoError
     | ResponseValidationError
     | ConnectionError
@@ -157,12 +156,9 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, operations.DocumentDeleteDocumentResponse$inboundSchema),
-    M.jsonErr(400, errors.DocumentDeleteDocumentBadRequestError$inboundSchema),
-    M.jsonErr(
-      500,
-      errors.DocumentDeleteDocumentInternalServerError$inboundSchema,
-    ),
+    M.json(200, operations.DocumentDeleteResponse$inboundSchema),
+    M.jsonErr(400, errors.DocumentDeleteBadRequestError$inboundSchema),
+    M.jsonErr(500, errors.DocumentDeleteInternalServerError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

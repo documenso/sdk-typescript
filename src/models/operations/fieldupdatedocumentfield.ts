@@ -85,6 +85,14 @@ export type FieldUpdateDocumentFieldValueCheckbox = {
   value: string;
 };
 
+export const FieldUpdateDocumentFieldDirectionRequest = {
+  Vertical: "vertical",
+  Horizontal: "horizontal",
+} as const;
+export type FieldUpdateDocumentFieldDirectionRequest = ClosedEnum<
+  typeof FieldUpdateDocumentFieldDirectionRequest
+>;
+
 export type FieldUpdateDocumentFieldFieldMetaCheckboxRequest = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -94,6 +102,7 @@ export type FieldUpdateDocumentFieldFieldMetaCheckboxRequest = {
   values?: Array<FieldUpdateDocumentFieldValueCheckbox> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
+  direction?: FieldUpdateDocumentFieldDirectionRequest | undefined;
 };
 
 export type FieldUpdateDocumentFieldFieldCheckbox = {
@@ -711,6 +720,14 @@ export type FieldUpdateDocumentFieldValueResponse2 = {
   value: string;
 };
 
+export const FieldUpdateDocumentFieldDirectionResponse = {
+  Vertical: "vertical",
+  Horizontal: "horizontal",
+} as const;
+export type FieldUpdateDocumentFieldDirectionResponse = ClosedEnum<
+  typeof FieldUpdateDocumentFieldDirectionResponse
+>;
+
 export type FieldUpdateDocumentFieldFieldMetaCheckboxResponse = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -720,6 +737,7 @@ export type FieldUpdateDocumentFieldFieldMetaCheckboxResponse = {
   values?: Array<FieldUpdateDocumentFieldValueResponse2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
+  direction?: FieldUpdateDocumentFieldDirectionResponse | undefined;
 };
 
 export const FieldUpdateDocumentFieldFieldMetaTypeRadio = {
@@ -1343,6 +1361,29 @@ export function fieldUpdateDocumentFieldValueCheckboxFromJSON(
 }
 
 /** @internal */
+export const FieldUpdateDocumentFieldDirectionRequest$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldDirectionRequest> = z
+    .nativeEnum(FieldUpdateDocumentFieldDirectionRequest);
+
+/** @internal */
+export const FieldUpdateDocumentFieldDirectionRequest$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldDirectionRequest> =
+    FieldUpdateDocumentFieldDirectionRequest$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateDocumentFieldDirectionRequest$ {
+  /** @deprecated use `FieldUpdateDocumentFieldDirectionRequest$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateDocumentFieldDirectionRequest$inboundSchema;
+  /** @deprecated use `FieldUpdateDocumentFieldDirectionRequest$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateDocumentFieldDirectionRequest$outboundSchema;
+}
+
+/** @internal */
 export const FieldUpdateDocumentFieldFieldMetaCheckboxRequest$inboundSchema:
   z.ZodType<
     FieldUpdateDocumentFieldFieldMetaCheckboxRequest,
@@ -1359,6 +1400,9 @@ export const FieldUpdateDocumentFieldFieldMetaCheckboxRequest$inboundSchema:
     ).optional(),
     validationRule: z.string().optional(),
     validationLength: z.number().optional(),
+    direction: FieldUpdateDocumentFieldDirectionRequest$inboundSchema.default(
+      "vertical",
+    ),
   });
 
 /** @internal */
@@ -1371,6 +1415,7 @@ export type FieldUpdateDocumentFieldFieldMetaCheckboxRequest$Outbound = {
   values?: Array<FieldUpdateDocumentFieldValueCheckbox$Outbound> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
+  direction: string;
 };
 
 /** @internal */
@@ -1390,6 +1435,9 @@ export const FieldUpdateDocumentFieldFieldMetaCheckboxRequest$outboundSchema:
     ).optional(),
     validationRule: z.string().optional(),
     validationLength: z.number().optional(),
+    direction: FieldUpdateDocumentFieldDirectionRequest$outboundSchema.default(
+      "vertical",
+    ),
   });
 
 /**
@@ -3931,6 +3979,29 @@ export function fieldUpdateDocumentFieldValueResponse2FromJSON(
 }
 
 /** @internal */
+export const FieldUpdateDocumentFieldDirectionResponse$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldDirectionResponse> = z
+    .nativeEnum(FieldUpdateDocumentFieldDirectionResponse);
+
+/** @internal */
+export const FieldUpdateDocumentFieldDirectionResponse$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldDirectionResponse> =
+    FieldUpdateDocumentFieldDirectionResponse$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldUpdateDocumentFieldDirectionResponse$ {
+  /** @deprecated use `FieldUpdateDocumentFieldDirectionResponse$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldUpdateDocumentFieldDirectionResponse$inboundSchema;
+  /** @deprecated use `FieldUpdateDocumentFieldDirectionResponse$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldUpdateDocumentFieldDirectionResponse$outboundSchema;
+}
+
+/** @internal */
 export const FieldUpdateDocumentFieldFieldMetaCheckboxResponse$inboundSchema:
   z.ZodType<
     FieldUpdateDocumentFieldFieldMetaCheckboxResponse,
@@ -3947,6 +4018,9 @@ export const FieldUpdateDocumentFieldFieldMetaCheckboxResponse$inboundSchema:
     ).optional(),
     validationRule: z.string().optional(),
     validationLength: z.number().optional(),
+    direction: FieldUpdateDocumentFieldDirectionResponse$inboundSchema.default(
+      "vertical",
+    ),
   });
 
 /** @internal */
@@ -3959,6 +4033,7 @@ export type FieldUpdateDocumentFieldFieldMetaCheckboxResponse$Outbound = {
   values?: Array<FieldUpdateDocumentFieldValueResponse2$Outbound> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
+  direction: string;
 };
 
 /** @internal */
@@ -3978,6 +4053,9 @@ export const FieldUpdateDocumentFieldFieldMetaCheckboxResponse$outboundSchema:
     ).optional(),
     validationRule: z.string().optional(),
     validationLength: z.number().optional(),
+    direction: FieldUpdateDocumentFieldDirectionResponse$outboundSchema.default(
+      "vertical",
+    ),
   });
 
 /**

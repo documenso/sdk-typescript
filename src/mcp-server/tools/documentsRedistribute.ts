@@ -7,7 +7,7 @@ import * as operations from "../../models/operations/index.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
 const args = {
-  request: operations.DocumentResendDocumentRequest$inboundSchema,
+  request: operations.DocumentRedistributeRequest$inboundSchema,
 };
 
 export const tool$documentsRedistribute: ToolDefinition<typeof args> = {

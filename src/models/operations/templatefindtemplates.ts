@@ -150,6 +150,14 @@ export type TemplateFindTemplatesValue2 = {
   value: string;
 };
 
+export const TemplateFindTemplatesDirection = {
+  Vertical: "vertical",
+  Horizontal: "horizontal",
+} as const;
+export type TemplateFindTemplatesDirection = ClosedEnum<
+  typeof TemplateFindTemplatesDirection
+>;
+
 export type TemplateFindTemplatesFieldMetaCheckbox = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -159,6 +167,7 @@ export type TemplateFindTemplatesFieldMetaCheckbox = {
   values?: Array<TemplateFindTemplatesValue2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
+  direction?: TemplateFindTemplatesDirection | undefined;
 };
 
 export const TemplateFindTemplatesTypeRadio = {
@@ -1118,6 +1127,27 @@ export function templateFindTemplatesValue2FromJSON(
 }
 
 /** @internal */
+export const TemplateFindTemplatesDirection$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesDirection
+> = z.nativeEnum(TemplateFindTemplatesDirection);
+
+/** @internal */
+export const TemplateFindTemplatesDirection$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesDirection
+> = TemplateFindTemplatesDirection$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateFindTemplatesDirection$ {
+  /** @deprecated use `TemplateFindTemplatesDirection$inboundSchema` instead. */
+  export const inboundSchema = TemplateFindTemplatesDirection$inboundSchema;
+  /** @deprecated use `TemplateFindTemplatesDirection$outboundSchema` instead. */
+  export const outboundSchema = TemplateFindTemplatesDirection$outboundSchema;
+}
+
+/** @internal */
 export const TemplateFindTemplatesFieldMetaCheckbox$inboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMetaCheckbox,
   z.ZodTypeDef,
@@ -1132,6 +1162,7 @@ export const TemplateFindTemplatesFieldMetaCheckbox$inboundSchema: z.ZodType<
     .optional(),
   validationRule: z.string().optional(),
   validationLength: z.number().optional(),
+  direction: TemplateFindTemplatesDirection$inboundSchema.default("vertical"),
 });
 
 /** @internal */
@@ -1144,6 +1175,7 @@ export type TemplateFindTemplatesFieldMetaCheckbox$Outbound = {
   values?: Array<TemplateFindTemplatesValue2$Outbound> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
+  direction: string;
 };
 
 /** @internal */
@@ -1161,6 +1193,7 @@ export const TemplateFindTemplatesFieldMetaCheckbox$outboundSchema: z.ZodType<
     .optional(),
   validationRule: z.string().optional(),
   validationLength: z.number().optional(),
+  direction: TemplateFindTemplatesDirection$outboundSchema.default("vertical"),
 });
 
 /**

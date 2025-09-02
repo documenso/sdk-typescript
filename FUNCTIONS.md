@@ -20,7 +20,7 @@ specific category of applications.
 
 ```typescript
 import { DocumensoCore } from "@documenso/sdk-typescript/core.js";
-import { documentsUpdate } from "@documenso/sdk-typescript/funcs/documentsUpdate.js";
+import { documentsGet } from "@documenso/sdk-typescript/funcs/documentsGet.js";
 
 // Use `DocumensoCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -29,14 +29,14 @@ const documenso = new DocumensoCore({
 });
 
 async function run() {
-  const res = await documentsUpdate(documenso, {
-    documentId: 9701.92,
+  const res = await documentsGet(documenso, {
+    documentId: 6150.61,
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("documentsUpdate failed:", res.error);
+    console.log("documentsGet failed:", res.error);
   }
 }
 

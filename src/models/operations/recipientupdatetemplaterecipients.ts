@@ -193,6 +193,14 @@ export type RecipientUpdateTemplateRecipientsValue2 = {
   value: string;
 };
 
+export const RecipientUpdateTemplateRecipientsDirection = {
+  Vertical: "vertical",
+  Horizontal: "horizontal",
+} as const;
+export type RecipientUpdateTemplateRecipientsDirection = ClosedEnum<
+  typeof RecipientUpdateTemplateRecipientsDirection
+>;
+
 export type RecipientUpdateTemplateRecipientsFieldMetaCheckbox = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -202,6 +210,7 @@ export type RecipientUpdateTemplateRecipientsFieldMetaCheckbox = {
   values?: Array<RecipientUpdateTemplateRecipientsValue2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
+  direction?: RecipientUpdateTemplateRecipientsDirection | undefined;
 };
 
 export const RecipientUpdateTemplateRecipientsTypeRadio = {
@@ -1212,6 +1221,29 @@ export function recipientUpdateTemplateRecipientsValue2FromJSON(
 }
 
 /** @internal */
+export const RecipientUpdateTemplateRecipientsDirection$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsDirection> = z
+    .nativeEnum(RecipientUpdateTemplateRecipientsDirection);
+
+/** @internal */
+export const RecipientUpdateTemplateRecipientsDirection$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsDirection> =
+    RecipientUpdateTemplateRecipientsDirection$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace RecipientUpdateTemplateRecipientsDirection$ {
+  /** @deprecated use `RecipientUpdateTemplateRecipientsDirection$inboundSchema` instead. */
+  export const inboundSchema =
+    RecipientUpdateTemplateRecipientsDirection$inboundSchema;
+  /** @deprecated use `RecipientUpdateTemplateRecipientsDirection$outboundSchema` instead. */
+  export const outboundSchema =
+    RecipientUpdateTemplateRecipientsDirection$outboundSchema;
+}
+
+/** @internal */
 export const RecipientUpdateTemplateRecipientsFieldMetaCheckbox$inboundSchema:
   z.ZodType<
     RecipientUpdateTemplateRecipientsFieldMetaCheckbox,
@@ -1228,6 +1260,9 @@ export const RecipientUpdateTemplateRecipientsFieldMetaCheckbox$inboundSchema:
     ).optional(),
     validationRule: z.string().optional(),
     validationLength: z.number().optional(),
+    direction: RecipientUpdateTemplateRecipientsDirection$inboundSchema.default(
+      "vertical",
+    ),
   });
 
 /** @internal */
@@ -1240,6 +1275,7 @@ export type RecipientUpdateTemplateRecipientsFieldMetaCheckbox$Outbound = {
   values?: Array<RecipientUpdateTemplateRecipientsValue2$Outbound> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
+  direction: string;
 };
 
 /** @internal */
@@ -1259,6 +1295,8 @@ export const RecipientUpdateTemplateRecipientsFieldMetaCheckbox$outboundSchema:
     ).optional(),
     validationRule: z.string().optional(),
     validationLength: z.number().optional(),
+    direction: RecipientUpdateTemplateRecipientsDirection$outboundSchema
+      .default("vertical"),
   });
 
 /**

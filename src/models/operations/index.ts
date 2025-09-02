@@ -3,13 +3,14 @@
  */
 
 export * from "./documentcreatedocumenttemporary.js";
-export * from "./documentdeletedocument.js";
-export * from "./documentduplicatedocument.js";
-export * from "./documentfinddocuments.js";
-export * from "./documentgetdocumentwithdetailsbyid.js";
-export * from "./documentresenddocument.js";
-export * from "./documentsenddocument.js";
-export * from "./documentupdatedocument.js";
+export * from "./documentdelete.js";
+export * from "./documentdistribute.js";
+export * from "./documentdownload.js";
+export * from "./documentduplicate.js";
+export * from "./documentfind.js";
+export * from "./documentget.js";
+export * from "./documentredistribute.js";
+export * from "./documentupdate.js";
 export * from "./embeddingpresigncreateembeddingpresigntoken.js";
 export * from "./embeddingpresignverifyembeddingpresigntoken.js";
 export * from "./fieldcreatedocumentfield.js";
@@ -38,6 +39,7 @@ export * from "./recipientupdatetemplaterecipient.js";
 export * from "./recipientupdatetemplaterecipients.js";
 export * from "./templatecreatedocumentfromtemplate.js";
 export * from "./templatecreatetemplatedirectlink.js";
+export * from "./templatecreatetemplatetemporary.js";
 export * from "./templatedeletetemplate.js";
 export * from "./templatedeletetemplatedirectlink.js";
 export * from "./templateduplicatetemplate.js";

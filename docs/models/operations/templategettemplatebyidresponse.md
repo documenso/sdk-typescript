@@ -51,30 +51,32 @@ let value: TemplateGetTemplateByIdResponse = {
     redirectUrl: "https://descriptive-grandson.com/",
     language: "<value>",
     emailSettings: {},
+    emailId: "<id>",
+    emailReplyTo: "<value>",
   },
   directLink: {
     id: "<id>",
-    templateId: 7563.15,
+    templateId: 9058.72,
     token: "<value>",
-    createdAt: "1711716853951",
-    enabled: false,
-    directTemplateRecipientId: 794.92,
+    createdAt: "1706660459834",
+    enabled: true,
+    directTemplateRecipientId: 691.67,
   },
   user: {
-    id: 1979.33,
-    name: null,
-    email: "Roselyn45@hotmail.com",
+    id: 6866.29,
+    name: "<value>",
+    email: "Wilton_Koelpin83@gmail.com",
   },
   recipients: [
     {
-      role: "CC",
+      role: "APPROVER",
       readStatus: "OPENED",
-      signingStatus: "SIGNED",
-      sendStatus: "SENT",
-      id: 8719,
-      documentId: 7854.52,
-      templateId: 3886.16,
-      email: "Alfred.Spencer45@hotmail.com",
+      signingStatus: "REJECTED",
+      sendStatus: "NOT_SENT",
+      id: 7854.52,
+      documentId: 3886.16,
+      templateId: 359.79,
+      email: "Roman.Koelpin@hotmail.com",
       name: "<value>",
       token: "<value>",
       documentDeletedAt: "<value>",
@@ -86,63 +88,48 @@ let value: TemplateGetTemplateByIdResponse = {
           "EXPLICIT_NONE",
         ],
       },
-      signingOrder: 2969.33,
+      signingOrder: 7521.2,
       rejectionReason: "<value>",
     },
   ],
-  fields: [
-    {
-      type: "EMAIL",
-      id: 431.51,
-      secondaryId: "<id>",
-      documentId: 5817.8,
-      templateId: 604.34,
-      recipientId: 5592.12,
-      page: 9367.23,
-      customText: "<value>",
-      inserted: false,
-      fieldMeta: {
-        type: "date",
-      },
-    },
-  ],
+  fields: [],
   folder: {
     id: "<id>",
     name: "<value>",
     type: "TEMPLATE",
-    visibility: "EVERYONE",
-    userId: 4548.88,
-    teamId: 7809.58,
-    pinned: true,
+    visibility: "MANAGER_AND_ABOVE",
+    userId: 604.34,
+    teamId: 5592.12,
+    pinned: false,
     parentId: "<id>",
-    createdAt: "1710560705901",
-    updatedAt: "1735673994449",
+    createdAt: "1712996151462",
+    updatedAt: "1735637856379",
   },
 };
 ```
 
 ## Fields
 
-| Field                                                                                                            | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
-| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `type`                                                                                                           | [operations.TemplateGetTemplateByIdType](../../models/operations/templategettemplatebyidtype.md)                 | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `visibility`                                                                                                     | [operations.TemplateGetTemplateByIdVisibility](../../models/operations/templategettemplatebyidvisibility.md)     | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `id`                                                                                                             | *number*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `externalId`                                                                                                     | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `title`                                                                                                          | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `userId`                                                                                                         | *number*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `teamId`                                                                                                         | *number*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `authOptions`                                                                                                    | [operations.TemplateGetTemplateByIdAuthOptions](../../models/operations/templategettemplatebyidauthoptions.md)   | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `templateDocumentDataId`                                                                                         | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `createdAt`                                                                                                      | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `updatedAt`                                                                                                      | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `publicTitle`                                                                                                    | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `publicDescription`                                                                                              | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `folderId`                                                                                                       | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `templateDocumentData`                                                                                           | [operations.TemplateDocumentData](../../models/operations/templatedocumentdata.md)                               | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `templateMeta`                                                                                                   | [operations.TemplateGetTemplateByIdTemplateMeta](../../models/operations/templategettemplatebyidtemplatemeta.md) | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `directLink`                                                                                                     | [operations.TemplateGetTemplateByIdDirectLink](../../models/operations/templategettemplatebyiddirectlink.md)     | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `user`                                                                                                           | [operations.TemplateGetTemplateByIdUser](../../models/operations/templategettemplatebyiduser.md)                 | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `recipients`                                                                                                     | [operations.TemplateGetTemplateByIdRecipient](../../models/operations/templategettemplatebyidrecipient.md)[]     | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `fields`                                                                                                         | [operations.TemplateGetTemplateByIdField](../../models/operations/templategettemplatebyidfield.md)[]             | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
-| `folder`                                                                                                         | [operations.TemplateGetTemplateByIdFolder](../../models/operations/templategettemplatebyidfolder.md)             | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| Field                                                                                                                            | Type                                                                                                                             | Required                                                                                                                         | Description                                                                                                                      |
+| -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `type`                                                                                                                           | [operations.TemplateGetTemplateByIdType](../../models/operations/templategettemplatebyidtype.md)                                 | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
+| `visibility`                                                                                                                     | [operations.TemplateGetTemplateByIdVisibility](../../models/operations/templategettemplatebyidvisibility.md)                     | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
+| `id`                                                                                                                             | *number*                                                                                                                         | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
+| `externalId`                                                                                                                     | *string*                                                                                                                         | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
+| `title`                                                                                                                          | *string*                                                                                                                         | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
+| `userId`                                                                                                                         | *number*                                                                                                                         | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
+| `teamId`                                                                                                                         | *number*                                                                                                                         | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
+| `authOptions`                                                                                                                    | [operations.TemplateGetTemplateByIdAuthOptions](../../models/operations/templategettemplatebyidauthoptions.md)                   | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
+| `templateDocumentDataId`                                                                                                         | *string*                                                                                                                         | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
+| `createdAt`                                                                                                                      | *string*                                                                                                                         | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
+| `updatedAt`                                                                                                                      | *string*                                                                                                                         | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
+| `publicTitle`                                                                                                                    | *string*                                                                                                                         | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
+| `publicDescription`                                                                                                              | *string*                                                                                                                         | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
+| `folderId`                                                                                                                       | *string*                                                                                                                         | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
+| `templateDocumentData`                                                                                                           | [operations.TemplateGetTemplateByIdTemplateDocumentData](../../models/operations/templategettemplatebyidtemplatedocumentdata.md) | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
+| `templateMeta`                                                                                                                   | [operations.TemplateGetTemplateByIdTemplateMeta](../../models/operations/templategettemplatebyidtemplatemeta.md)                 | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
+| `directLink`                                                                                                                     | [operations.TemplateGetTemplateByIdDirectLink](../../models/operations/templategettemplatebyiddirectlink.md)                     | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
+| `user`                                                                                                                           | [operations.TemplateGetTemplateByIdUser](../../models/operations/templategettemplatebyiduser.md)                                 | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
+| `recipients`                                                                                                                     | [operations.TemplateGetTemplateByIdRecipient](../../models/operations/templategettemplatebyidrecipient.md)[]                     | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
+| `fields`                                                                                                                         | [operations.TemplateGetTemplateByIdField](../../models/operations/templategettemplatebyidfield.md)[]                             | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
+| `folder`                                                                                                                         | [operations.TemplateGetTemplateByIdFolder](../../models/operations/templategettemplatebyidfolder.md)                             | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |

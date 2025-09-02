@@ -7,7 +7,7 @@ import * as operations from "../../models/operations/index.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
 const args = {
-  request: operations.DocumentDuplicateDocumentRequest$inboundSchema,
+  request: operations.DocumentDuplicateRequest$inboundSchema,
 };
 
 export const tool$documentsDuplicate: ToolDefinition<typeof args> = {

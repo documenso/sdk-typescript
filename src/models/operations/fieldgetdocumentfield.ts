@@ -63,6 +63,14 @@ export type FieldGetDocumentFieldValue2 = {
   value: string;
 };
 
+export const FieldGetDocumentFieldDirection = {
+  Vertical: "vertical",
+  Horizontal: "horizontal",
+} as const;
+export type FieldGetDocumentFieldDirection = ClosedEnum<
+  typeof FieldGetDocumentFieldDirection
+>;
+
 export type FieldGetDocumentFieldFieldMetaCheckbox = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -72,6 +80,7 @@ export type FieldGetDocumentFieldFieldMetaCheckbox = {
   values?: Array<FieldGetDocumentFieldValue2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
+  direction?: FieldGetDocumentFieldDirection | undefined;
 };
 
 export const FieldGetDocumentFieldTypeRadio = {
@@ -622,6 +631,27 @@ export function fieldGetDocumentFieldValue2FromJSON(
 }
 
 /** @internal */
+export const FieldGetDocumentFieldDirection$inboundSchema: z.ZodNativeEnum<
+  typeof FieldGetDocumentFieldDirection
+> = z.nativeEnum(FieldGetDocumentFieldDirection);
+
+/** @internal */
+export const FieldGetDocumentFieldDirection$outboundSchema: z.ZodNativeEnum<
+  typeof FieldGetDocumentFieldDirection
+> = FieldGetDocumentFieldDirection$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldGetDocumentFieldDirection$ {
+  /** @deprecated use `FieldGetDocumentFieldDirection$inboundSchema` instead. */
+  export const inboundSchema = FieldGetDocumentFieldDirection$inboundSchema;
+  /** @deprecated use `FieldGetDocumentFieldDirection$outboundSchema` instead. */
+  export const outboundSchema = FieldGetDocumentFieldDirection$outboundSchema;
+}
+
+/** @internal */
 export const FieldGetDocumentFieldFieldMetaCheckbox$inboundSchema: z.ZodType<
   FieldGetDocumentFieldFieldMetaCheckbox,
   z.ZodTypeDef,
@@ -636,6 +666,7 @@ export const FieldGetDocumentFieldFieldMetaCheckbox$inboundSchema: z.ZodType<
     .optional(),
   validationRule: z.string().optional(),
   validationLength: z.number().optional(),
+  direction: FieldGetDocumentFieldDirection$inboundSchema.default("vertical"),
 });
 
 /** @internal */
@@ -648,6 +679,7 @@ export type FieldGetDocumentFieldFieldMetaCheckbox$Outbound = {
   values?: Array<FieldGetDocumentFieldValue2$Outbound> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
+  direction: string;
 };
 
 /** @internal */
@@ -665,6 +697,7 @@ export const FieldGetDocumentFieldFieldMetaCheckbox$outboundSchema: z.ZodType<
     .optional(),
   validationRule: z.string().optional(),
   validationLength: z.number().optional(),
+  direction: FieldGetDocumentFieldDirection$outboundSchema.default("vertical"),
 });
 
 /**

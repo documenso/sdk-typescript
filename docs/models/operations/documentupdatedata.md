@@ -1,0 +1,20 @@
+# DocumentUpdateData
+
+## Example Usage
+
+```typescript
+import { DocumentUpdateData } from "@documenso/sdk-typescript/models/operations";
+
+let value: DocumentUpdateData = {};
+```
+
+## Fields
+
+| Field                                                                                                                  | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `title`                                                                                                                | *string*                                                                                                               | :heavy_minus_sign:                                                                                                     | The title of the document.                                                                                             |
+| `externalId`                                                                                                           | *string*                                                                                                               | :heavy_minus_sign:                                                                                                     | The external ID of the document.                                                                                       |
+| `visibility`                                                                                                           | [operations.DocumentUpdateVisibilityRequest](../../models/operations/documentupdatevisibilityrequest.md)               | :heavy_minus_sign:                                                                                                     | The visibility of the document.                                                                                        |
+| `globalAccessAuth`                                                                                                     | [operations.DocumentUpdateGlobalAccessAuthRequest](../../models/operations/documentupdateglobalaccessauthrequest.md)[] | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `globalActionAuth`                                                                                                     | [operations.DocumentUpdateGlobalActionAuthRequest](../../models/operations/documentupdateglobalactionauthrequest.md)[] | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `useLegacyFieldInsertion`                                                                                              | *boolean*                                                                                                              | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |

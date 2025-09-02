@@ -15,6 +15,7 @@ Create a direct link for a template
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="template-createTemplateDirectLink" method="post" path="/template/direct/create" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -89,6 +90,7 @@ Delete a direct link for a template
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="template-deleteTemplateDirectLink" method="post" path="/template/direct/delete" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -163,6 +165,7 @@ Enable or disable a direct link for a template
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="template-toggleTemplateDirectLink" method="post" path="/template/direct/toggle" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
