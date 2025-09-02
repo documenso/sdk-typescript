@@ -55,6 +55,9 @@ export type TemplateUpdateTemplateDataType = ClosedEnum<
 >;
 
 export type TemplateUpdateTemplateData = {
+  /**
+   * The title of the document.
+   */
   title?: string | undefined;
   externalId?: string | null | undefined;
   visibility?: TemplateUpdateTemplateVisibilityRequest | undefined;
@@ -84,6 +87,7 @@ export const TemplateUpdateTemplateDateFormat = {
   YyyyMMDd: "yyyy-MM-dd",
   DdMMYyyyHhMMA: "dd/MM/yyyy hh:mm a",
   MMDdYyyyHhMMA: "MM/dd/yyyy hh:mm a",
+  DdMMYyyyHHMM: "dd.MM.yyyy HH:mm",
   YyyyMMDdHHMM: "yyyy-MM-dd HH:mm",
   YyMMDdHhMMA: "yy-MM-dd hh:mm a",
   YyyyMMDdHHMMSs: "yyyy-MM-dd HH:mm:ss",
@@ -190,6 +194,8 @@ export type TemplateUpdateTemplateMeta = {
    * The distribution method to use when sending the document to the recipients.
    */
   distributionMethod?: TemplateUpdateTemplateDistributionMethod | undefined;
+  emailId?: string | null | undefined;
+  emailReplyTo?: string | null | undefined;
   emailSettings?: TemplateUpdateTemplateEmailSettings | undefined;
   /**
    * The URL to which the recipient should be redirected after signing the document.
@@ -645,6 +651,8 @@ export const TemplateUpdateTemplateMeta$inboundSchema: z.ZodType<
   dateFormat: TemplateUpdateTemplateDateFormat$inboundSchema.optional(),
   distributionMethod: TemplateUpdateTemplateDistributionMethod$inboundSchema
     .optional(),
+  emailId: z.nullable(z.string()).optional(),
+  emailReplyTo: z.nullable(z.string()).optional(),
   emailSettings: z.lazy(() => TemplateUpdateTemplateEmailSettings$inboundSchema)
     .optional(),
   redirectUrl: z.string().optional(),
@@ -663,6 +671,8 @@ export type TemplateUpdateTemplateMeta$Outbound = {
   timezone?: string | undefined;
   dateFormat?: string | undefined;
   distributionMethod?: string | undefined;
+  emailId?: string | null | undefined;
+  emailReplyTo?: string | null | undefined;
   emailSettings?: TemplateUpdateTemplateEmailSettings$Outbound | undefined;
   redirectUrl?: string | undefined;
   language?: string | undefined;
@@ -685,6 +695,8 @@ export const TemplateUpdateTemplateMeta$outboundSchema: z.ZodType<
   dateFormat: TemplateUpdateTemplateDateFormat$outboundSchema.optional(),
   distributionMethod: TemplateUpdateTemplateDistributionMethod$outboundSchema
     .optional(),
+  emailId: z.nullable(z.string()).optional(),
+  emailReplyTo: z.nullable(z.string()).optional(),
   emailSettings: z.lazy(() =>
     TemplateUpdateTemplateEmailSettings$outboundSchema
   ).optional(),

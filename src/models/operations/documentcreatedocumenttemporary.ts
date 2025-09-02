@@ -170,6 +170,14 @@ export type DocumentCreateDocumentTemporaryValueCheckbox = {
   value: string;
 };
 
+export const DocumentCreateDocumentTemporaryRecipientDirection = {
+  Vertical: "vertical",
+  Horizontal: "horizontal",
+} as const;
+export type DocumentCreateDocumentTemporaryRecipientDirection = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryRecipientDirection
+>;
+
 export type DocumentCreateDocumentTemporaryRecipientFieldMetaCheckbox = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -179,6 +187,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaCheckbox = {
   values?: Array<DocumentCreateDocumentTemporaryValueCheckbox> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
+  direction?: DocumentCreateDocumentTemporaryRecipientDirection | undefined;
 };
 
 export type DocumentCreateDocumentTemporaryFieldCheckbox = {
@@ -735,6 +744,7 @@ export const DocumentCreateDocumentTemporaryDateFormat = {
   YyyyMMDd: "yyyy-MM-dd",
   DdMMYyyyHhMMA: "dd/MM/yyyy hh:mm a",
   MMDdYyyyHhMMA: "MM/dd/yyyy hh:mm a",
+  DdMMYyyyHHMM: "dd.MM.yyyy HH:mm",
   YyyyMMDdHHMM: "yyyy-MM-dd HH:mm",
   YyMMDdHhMMA: "yy-MM-dd hh:mm a",
   YyyyMMDdHHMMSs: "yyyy-MM-dd HH:mm:ss",
@@ -888,6 +898,10 @@ export type DocumentCreateDocumentTemporaryRequest = {
     | Array<DocumentCreateDocumentTemporaryGlobalActionAuthRequest>
     | undefined;
   formValues?: { [k: string]: string | boolean | number } | undefined;
+  /**
+   * The ID of the folder to create the document in. If not provided, the document will be created in the root folder.
+   */
+  folderId?: string | undefined;
   recipients?:
     | Array<DocumentCreateDocumentTemporaryRecipientRequest>
     | undefined;
@@ -1034,6 +1048,8 @@ export type DocumentCreateDocumentTemporaryDocumentMeta = {
   allowDictateNextSigner: boolean;
   language: string;
   emailSettings: DocumentEmailSettings | null;
+  emailId: string | null;
+  emailReplyTo: string | null;
 };
 
 export const DocumentFolderType = {
@@ -1196,6 +1212,12 @@ export type DocumentValue2 = {
   value: string;
 };
 
+export const DocumentDirection = {
+  Vertical: "vertical",
+  Horizontal: "horizontal",
+} as const;
+export type DocumentDirection = ClosedEnum<typeof DocumentDirection>;
+
 export type FieldMetaDocumentCheckbox = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -1205,6 +1227,7 @@ export type FieldMetaDocumentCheckbox = {
   values?: Array<DocumentValue2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
+  direction?: DocumentDirection | undefined;
 };
 
 export const DocumentTypeRadio = {
@@ -2061,6 +2084,29 @@ export function documentCreateDocumentTemporaryValueCheckboxFromJSON(
 }
 
 /** @internal */
+export const DocumentCreateDocumentTemporaryRecipientDirection$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRecipientDirection> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryRecipientDirection);
+
+/** @internal */
+export const DocumentCreateDocumentTemporaryRecipientDirection$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRecipientDirection> =
+    DocumentCreateDocumentTemporaryRecipientDirection$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentCreateDocumentTemporaryRecipientDirection$ {
+  /** @deprecated use `DocumentCreateDocumentTemporaryRecipientDirection$inboundSchema` instead. */
+  export const inboundSchema =
+    DocumentCreateDocumentTemporaryRecipientDirection$inboundSchema;
+  /** @deprecated use `DocumentCreateDocumentTemporaryRecipientDirection$outboundSchema` instead. */
+  export const outboundSchema =
+    DocumentCreateDocumentTemporaryRecipientDirection$outboundSchema;
+}
+
+/** @internal */
 export const DocumentCreateDocumentTemporaryRecipientFieldMetaCheckbox$inboundSchema:
   z.ZodType<
     DocumentCreateDocumentTemporaryRecipientFieldMetaCheckbox,
@@ -2077,6 +2123,8 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaCheckbox$inboundSc
     ).optional(),
     validationRule: z.string().optional(),
     validationLength: z.number().optional(),
+    direction: DocumentCreateDocumentTemporaryRecipientDirection$inboundSchema
+      .default("vertical"),
   });
 
 /** @internal */
@@ -2092,6 +2140,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaCheckbox$Outbound =
       | undefined;
     validationRule?: string | undefined;
     validationLength?: number | undefined;
+    direction: string;
   };
 
 /** @internal */
@@ -2111,6 +2160,8 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaCheckbox$outboundS
     ).optional(),
     validationRule: z.string().optional(),
     validationLength: z.number().optional(),
+    direction: DocumentCreateDocumentTemporaryRecipientDirection$outboundSchema
+      .default("vertical"),
   });
 
 /**
@@ -4806,6 +4857,7 @@ export const DocumentCreateDocumentTemporaryRequest$inboundSchema: z.ZodType<
   ).optional(),
   formValues: z.record(z.union([z.string(), z.boolean(), z.number()]))
     .optional(),
+  folderId: z.string().optional(),
   recipients: z.array(
     z.lazy(() => DocumentCreateDocumentTemporaryRecipientRequest$inboundSchema),
   ).optional(),
@@ -4821,6 +4873,7 @@ export type DocumentCreateDocumentTemporaryRequest$Outbound = {
   globalAccessAuth?: Array<string> | undefined;
   globalActionAuth?: Array<string> | undefined;
   formValues?: { [k: string]: string | boolean | number } | undefined;
+  folderId?: string | undefined;
   recipients?:
     | Array<DocumentCreateDocumentTemporaryRecipientRequest$Outbound>
     | undefined;
@@ -4845,6 +4898,7 @@ export const DocumentCreateDocumentTemporaryRequest$outboundSchema: z.ZodType<
   ).optional(),
   formValues: z.record(z.union([z.string(), z.boolean(), z.number()]))
     .optional(),
+  folderId: z.string().optional(),
   recipients: z.array(
     z.lazy(() =>
       DocumentCreateDocumentTemporaryRecipientRequest$outboundSchema
@@ -5353,6 +5407,8 @@ export const DocumentCreateDocumentTemporaryDocumentMeta$inboundSchema:
     emailSettings: z.nullable(
       z.lazy(() => DocumentEmailSettings$inboundSchema),
     ),
+    emailId: z.nullable(z.string()),
+    emailReplyTo: z.nullable(z.string()),
   });
 
 /** @internal */
@@ -5373,6 +5429,8 @@ export type DocumentCreateDocumentTemporaryDocumentMeta$Outbound = {
   allowDictateNextSigner: boolean;
   language: string;
   emailSettings: DocumentEmailSettings$Outbound | null;
+  emailId: string | null;
+  emailReplyTo: string | null;
 };
 
 /** @internal */
@@ -5400,6 +5458,8 @@ export const DocumentCreateDocumentTemporaryDocumentMeta$outboundSchema:
     emailSettings: z.nullable(
       z.lazy(() => DocumentEmailSettings$outboundSchema),
     ),
+    emailId: z.nullable(z.string()),
+    emailReplyTo: z.nullable(z.string()),
   });
 
 /**
@@ -6124,6 +6184,27 @@ export function documentValue2FromJSON(
 }
 
 /** @internal */
+export const DocumentDirection$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentDirection
+> = z.nativeEnum(DocumentDirection);
+
+/** @internal */
+export const DocumentDirection$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentDirection
+> = DocumentDirection$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace DocumentDirection$ {
+  /** @deprecated use `DocumentDirection$inboundSchema` instead. */
+  export const inboundSchema = DocumentDirection$inboundSchema;
+  /** @deprecated use `DocumentDirection$outboundSchema` instead. */
+  export const outboundSchema = DocumentDirection$outboundSchema;
+}
+
+/** @internal */
 export const FieldMetaDocumentCheckbox$inboundSchema: z.ZodType<
   FieldMetaDocumentCheckbox,
   z.ZodTypeDef,
@@ -6137,6 +6218,7 @@ export const FieldMetaDocumentCheckbox$inboundSchema: z.ZodType<
   values: z.array(z.lazy(() => DocumentValue2$inboundSchema)).optional(),
   validationRule: z.string().optional(),
   validationLength: z.number().optional(),
+  direction: DocumentDirection$inboundSchema.default("vertical"),
 });
 
 /** @internal */
@@ -6149,6 +6231,7 @@ export type FieldMetaDocumentCheckbox$Outbound = {
   values?: Array<DocumentValue2$Outbound> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
+  direction: string;
 };
 
 /** @internal */
@@ -6165,6 +6248,7 @@ export const FieldMetaDocumentCheckbox$outboundSchema: z.ZodType<
   values: z.array(z.lazy(() => DocumentValue2$outboundSchema)).optional(),
   validationRule: z.string().optional(),
   validationLength: z.number().optional(),
+  direction: DocumentDirection$outboundSchema.default("vertical"),
 });
 
 /**

@@ -14,6 +14,7 @@ Creates a presign token for embedding operations with configurable expiration ti
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="embeddingPresign-createEmbeddingPresignToken" method="post" path="/embedding/create-presign-token" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -84,6 +85,7 @@ Verifies a presign token for embedding operations and returns the associated API
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="embeddingPresign-verifyEmbeddingPresignToken" method="post" path="/embedding/verify-presign-token" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 

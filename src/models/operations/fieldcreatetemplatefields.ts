@@ -85,6 +85,14 @@ export type FieldCreateTemplateFieldsValueCheckbox = {
   value: string;
 };
 
+export const FieldCreateTemplateFieldsDirectionRequest = {
+  Vertical: "vertical",
+  Horizontal: "horizontal",
+} as const;
+export type FieldCreateTemplateFieldsDirectionRequest = ClosedEnum<
+  typeof FieldCreateTemplateFieldsDirectionRequest
+>;
+
 export type FieldCreateTemplateFieldsFieldMetaCheckboxRequest = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -94,6 +102,7 @@ export type FieldCreateTemplateFieldsFieldMetaCheckboxRequest = {
   values?: Array<FieldCreateTemplateFieldsValueCheckbox> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
+  direction?: FieldCreateTemplateFieldsDirectionRequest | undefined;
 };
 
 export type FieldCreateTemplateFieldsFieldCheckbox = {
@@ -712,6 +721,14 @@ export type FieldCreateTemplateFieldsValueResponse2 = {
   value: string;
 };
 
+export const FieldCreateTemplateFieldsDirectionResponse = {
+  Vertical: "vertical",
+  Horizontal: "horizontal",
+} as const;
+export type FieldCreateTemplateFieldsDirectionResponse = ClosedEnum<
+  typeof FieldCreateTemplateFieldsDirectionResponse
+>;
+
 export type FieldCreateTemplateFieldsFieldMetaCheckboxResponse = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -721,6 +738,7 @@ export type FieldCreateTemplateFieldsFieldMetaCheckboxResponse = {
   values?: Array<FieldCreateTemplateFieldsValueResponse2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
+  direction?: FieldCreateTemplateFieldsDirectionResponse | undefined;
 };
 
 export const FieldCreateTemplateFieldsFieldMetaTypeRadio = {
@@ -1351,6 +1369,29 @@ export function fieldCreateTemplateFieldsValueCheckboxFromJSON(
 }
 
 /** @internal */
+export const FieldCreateTemplateFieldsDirectionRequest$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsDirectionRequest> = z
+    .nativeEnum(FieldCreateTemplateFieldsDirectionRequest);
+
+/** @internal */
+export const FieldCreateTemplateFieldsDirectionRequest$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsDirectionRequest> =
+    FieldCreateTemplateFieldsDirectionRequest$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldCreateTemplateFieldsDirectionRequest$ {
+  /** @deprecated use `FieldCreateTemplateFieldsDirectionRequest$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldCreateTemplateFieldsDirectionRequest$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsDirectionRequest$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldCreateTemplateFieldsDirectionRequest$outboundSchema;
+}
+
+/** @internal */
 export const FieldCreateTemplateFieldsFieldMetaCheckboxRequest$inboundSchema:
   z.ZodType<
     FieldCreateTemplateFieldsFieldMetaCheckboxRequest,
@@ -1367,6 +1408,9 @@ export const FieldCreateTemplateFieldsFieldMetaCheckboxRequest$inboundSchema:
     ).optional(),
     validationRule: z.string().optional(),
     validationLength: z.number().optional(),
+    direction: FieldCreateTemplateFieldsDirectionRequest$inboundSchema.default(
+      "vertical",
+    ),
   });
 
 /** @internal */
@@ -1379,6 +1423,7 @@ export type FieldCreateTemplateFieldsFieldMetaCheckboxRequest$Outbound = {
   values?: Array<FieldCreateTemplateFieldsValueCheckbox$Outbound> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
+  direction: string;
 };
 
 /** @internal */
@@ -1398,6 +1443,9 @@ export const FieldCreateTemplateFieldsFieldMetaCheckboxRequest$outboundSchema:
     ).optional(),
     validationRule: z.string().optional(),
     validationLength: z.number().optional(),
+    direction: FieldCreateTemplateFieldsDirectionRequest$outboundSchema.default(
+      "vertical",
+    ),
   });
 
 /**
@@ -3980,6 +4028,29 @@ export function fieldCreateTemplateFieldsValueResponse2FromJSON(
 }
 
 /** @internal */
+export const FieldCreateTemplateFieldsDirectionResponse$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsDirectionResponse> = z
+    .nativeEnum(FieldCreateTemplateFieldsDirectionResponse);
+
+/** @internal */
+export const FieldCreateTemplateFieldsDirectionResponse$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateTemplateFieldsDirectionResponse> =
+    FieldCreateTemplateFieldsDirectionResponse$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FieldCreateTemplateFieldsDirectionResponse$ {
+  /** @deprecated use `FieldCreateTemplateFieldsDirectionResponse$inboundSchema` instead. */
+  export const inboundSchema =
+    FieldCreateTemplateFieldsDirectionResponse$inboundSchema;
+  /** @deprecated use `FieldCreateTemplateFieldsDirectionResponse$outboundSchema` instead. */
+  export const outboundSchema =
+    FieldCreateTemplateFieldsDirectionResponse$outboundSchema;
+}
+
+/** @internal */
 export const FieldCreateTemplateFieldsFieldMetaCheckboxResponse$inboundSchema:
   z.ZodType<
     FieldCreateTemplateFieldsFieldMetaCheckboxResponse,
@@ -3996,6 +4067,9 @@ export const FieldCreateTemplateFieldsFieldMetaCheckboxResponse$inboundSchema:
     ).optional(),
     validationRule: z.string().optional(),
     validationLength: z.number().optional(),
+    direction: FieldCreateTemplateFieldsDirectionResponse$inboundSchema.default(
+      "vertical",
+    ),
   });
 
 /** @internal */
@@ -4008,6 +4082,7 @@ export type FieldCreateTemplateFieldsFieldMetaCheckboxResponse$Outbound = {
   values?: Array<FieldCreateTemplateFieldsValueResponse2$Outbound> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
+  direction: string;
 };
 
 /** @internal */
@@ -4027,6 +4102,8 @@ export const FieldCreateTemplateFieldsFieldMetaCheckboxResponse$outboundSchema:
     ).optional(),
     validationRule: z.string().optional(),
     validationLength: z.number().optional(),
+    direction: FieldCreateTemplateFieldsDirectionResponse$outboundSchema
+      .default("vertical"),
   });
 
 /**

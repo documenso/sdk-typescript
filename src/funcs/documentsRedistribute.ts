@@ -33,13 +33,13 @@ import { Result } from "../types/fp.js";
  */
 export function documentsRedistribute(
   client: DocumensoCore,
-  request: operations.DocumentResendDocumentRequest,
+  request: operations.DocumentRedistributeRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.DocumentResendDocumentResponse,
-    | errors.DocumentResendDocumentBadRequestError
-    | errors.DocumentResendDocumentInternalServerError
+    operations.DocumentRedistributeResponse,
+    | errors.DocumentRedistributeBadRequestError
+    | errors.DocumentRedistributeInternalServerError
     | DocumensoError
     | ResponseValidationError
     | ConnectionError
@@ -59,14 +59,14 @@ export function documentsRedistribute(
 
 async function $do(
   client: DocumensoCore,
-  request: operations.DocumentResendDocumentRequest,
+  request: operations.DocumentRedistributeRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      operations.DocumentResendDocumentResponse,
-      | errors.DocumentResendDocumentBadRequestError
-      | errors.DocumentResendDocumentInternalServerError
+      operations.DocumentRedistributeResponse,
+      | errors.DocumentRedistributeBadRequestError
+      | errors.DocumentRedistributeInternalServerError
       | DocumensoError
       | ResponseValidationError
       | ConnectionError
@@ -82,7 +82,7 @@ async function $do(
   const parsed = safeParse(
     request,
     (value) =>
-      operations.DocumentResendDocumentRequest$outboundSchema.parse(value),
+      operations.DocumentRedistributeRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -105,7 +105,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "document-resendDocument",
+    operationID: "document-redistribute",
     oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,
@@ -148,9 +148,9 @@ async function $do(
   };
 
   const [result] = await M.match<
-    operations.DocumentResendDocumentResponse,
-    | errors.DocumentResendDocumentBadRequestError
-    | errors.DocumentResendDocumentInternalServerError
+    operations.DocumentRedistributeResponse,
+    | errors.DocumentRedistributeBadRequestError
+    | errors.DocumentRedistributeInternalServerError
     | DocumensoError
     | ResponseValidationError
     | ConnectionError
@@ -160,11 +160,11 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, operations.DocumentResendDocumentResponse$inboundSchema),
-    M.jsonErr(400, errors.DocumentResendDocumentBadRequestError$inboundSchema),
+    M.json(200, operations.DocumentRedistributeResponse$inboundSchema),
+    M.jsonErr(400, errors.DocumentRedistributeBadRequestError$inboundSchema),
     M.jsonErr(
       500,
-      errors.DocumentResendDocumentInternalServerError$inboundSchema,
+      errors.DocumentRedistributeInternalServerError$inboundSchema,
     ),
     M.fail("4XX"),
     M.fail("5XX"),

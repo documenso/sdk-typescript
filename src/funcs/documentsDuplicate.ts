@@ -30,13 +30,13 @@ import { Result } from "../types/fp.js";
  */
 export function documentsDuplicate(
   client: DocumensoCore,
-  request: operations.DocumentDuplicateDocumentRequest,
+  request: operations.DocumentDuplicateRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.DocumentDuplicateDocumentResponse,
-    | errors.DocumentDuplicateDocumentBadRequestError
-    | errors.DocumentDuplicateDocumentInternalServerError
+    operations.DocumentDuplicateResponse,
+    | errors.DocumentDuplicateBadRequestError
+    | errors.DocumentDuplicateInternalServerError
     | DocumensoError
     | ResponseValidationError
     | ConnectionError
@@ -56,14 +56,14 @@ export function documentsDuplicate(
 
 async function $do(
   client: DocumensoCore,
-  request: operations.DocumentDuplicateDocumentRequest,
+  request: operations.DocumentDuplicateRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      operations.DocumentDuplicateDocumentResponse,
-      | errors.DocumentDuplicateDocumentBadRequestError
-      | errors.DocumentDuplicateDocumentInternalServerError
+      operations.DocumentDuplicateResponse,
+      | errors.DocumentDuplicateBadRequestError
+      | errors.DocumentDuplicateInternalServerError
       | DocumensoError
       | ResponseValidationError
       | ConnectionError
@@ -78,8 +78,7 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) =>
-      operations.DocumentDuplicateDocumentRequest$outboundSchema.parse(value),
+    (value) => operations.DocumentDuplicateRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -102,7 +101,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "document-duplicateDocument",
+    operationID: "document-duplicate",
     oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,
@@ -145,9 +144,9 @@ async function $do(
   };
 
   const [result] = await M.match<
-    operations.DocumentDuplicateDocumentResponse,
-    | errors.DocumentDuplicateDocumentBadRequestError
-    | errors.DocumentDuplicateDocumentInternalServerError
+    operations.DocumentDuplicateResponse,
+    | errors.DocumentDuplicateBadRequestError
+    | errors.DocumentDuplicateInternalServerError
     | DocumensoError
     | ResponseValidationError
     | ConnectionError
@@ -157,15 +156,9 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, operations.DocumentDuplicateDocumentResponse$inboundSchema),
-    M.jsonErr(
-      400,
-      errors.DocumentDuplicateDocumentBadRequestError$inboundSchema,
-    ),
-    M.jsonErr(
-      500,
-      errors.DocumentDuplicateDocumentInternalServerError$inboundSchema,
-    ),
+    M.json(200, operations.DocumentDuplicateResponse$inboundSchema),
+    M.jsonErr(400, errors.DocumentDuplicateBadRequestError$inboundSchema),
+    M.jsonErr(500, errors.DocumentDuplicateInternalServerError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

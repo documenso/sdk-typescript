@@ -18,6 +18,7 @@ Returns a single recipient. If you want to retrieve all the recipients for a tem
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="recipient-getTemplateRecipient" method="get" path="/template/recipient/{recipientId}" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -93,6 +94,7 @@ Create a single recipient for a template.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="recipient-createTemplateRecipient" method="post" path="/template/recipient/create" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -177,6 +179,7 @@ Create multiple recipients for a template.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="recipient-createTemplateRecipients" method="post" path="/template/recipient/create-many" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -253,6 +256,7 @@ Update a single recipient for a template.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="recipient-updateTemplateRecipient" method="post" path="/template/recipient/update" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -333,6 +337,7 @@ Update multiple recipients for a template.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="recipient-updateTemplateRecipients" method="post" path="/template/recipient/update-many" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -417,6 +422,7 @@ Delete template recipient
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="recipient-deleteTemplateRecipient" method="post" path="/template/recipient/delete" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 

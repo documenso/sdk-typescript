@@ -33,14 +33,14 @@ import { Result } from "../types/fp.js";
  */
 export function documentsFind(
   client: DocumensoCore,
-  request: operations.DocumentFindDocumentsRequest,
+  request: operations.DocumentFindRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.DocumentFindDocumentsResponse,
-    | errors.DocumentFindDocumentsBadRequestError
-    | errors.DocumentFindDocumentsNotFoundError
-    | errors.DocumentFindDocumentsInternalServerError
+    operations.DocumentFindResponse,
+    | errors.DocumentFindBadRequestError
+    | errors.DocumentFindNotFoundError
+    | errors.DocumentFindInternalServerError
     | DocumensoError
     | ResponseValidationError
     | ConnectionError
@@ -60,15 +60,15 @@ export function documentsFind(
 
 async function $do(
   client: DocumensoCore,
-  request: operations.DocumentFindDocumentsRequest,
+  request: operations.DocumentFindRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      operations.DocumentFindDocumentsResponse,
-      | errors.DocumentFindDocumentsBadRequestError
-      | errors.DocumentFindDocumentsNotFoundError
-      | errors.DocumentFindDocumentsInternalServerError
+      operations.DocumentFindResponse,
+      | errors.DocumentFindBadRequestError
+      | errors.DocumentFindNotFoundError
+      | errors.DocumentFindInternalServerError
       | DocumensoError
       | ResponseValidationError
       | ConnectionError
@@ -83,8 +83,7 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) =>
-      operations.DocumentFindDocumentsRequest$outboundSchema.parse(value),
+    (value) => operations.DocumentFindRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -118,7 +117,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "document-findDocuments",
+    operationID: "document-find",
     oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,
@@ -162,10 +161,10 @@ async function $do(
   };
 
   const [result] = await M.match<
-    operations.DocumentFindDocumentsResponse,
-    | errors.DocumentFindDocumentsBadRequestError
-    | errors.DocumentFindDocumentsNotFoundError
-    | errors.DocumentFindDocumentsInternalServerError
+    operations.DocumentFindResponse,
+    | errors.DocumentFindBadRequestError
+    | errors.DocumentFindNotFoundError
+    | errors.DocumentFindInternalServerError
     | DocumensoError
     | ResponseValidationError
     | ConnectionError
@@ -175,13 +174,10 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, operations.DocumentFindDocumentsResponse$inboundSchema),
-    M.jsonErr(400, errors.DocumentFindDocumentsBadRequestError$inboundSchema),
-    M.jsonErr(404, errors.DocumentFindDocumentsNotFoundError$inboundSchema),
-    M.jsonErr(
-      500,
-      errors.DocumentFindDocumentsInternalServerError$inboundSchema,
-    ),
+    M.json(200, operations.DocumentFindResponse$inboundSchema),
+    M.jsonErr(400, errors.DocumentFindBadRequestError$inboundSchema),
+    M.jsonErr(404, errors.DocumentFindNotFoundError$inboundSchema),
+    M.jsonErr(500, errors.DocumentFindInternalServerError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

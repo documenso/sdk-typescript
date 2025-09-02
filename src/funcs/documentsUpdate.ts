@@ -30,13 +30,13 @@ import { Result } from "../types/fp.js";
  */
 export function documentsUpdate(
   client: DocumensoCore,
-  request: operations.DocumentUpdateDocumentRequest,
+  request: operations.DocumentUpdateRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.DocumentUpdateDocumentResponse,
-    | errors.DocumentUpdateDocumentBadRequestError
-    | errors.DocumentUpdateDocumentInternalServerError
+    operations.DocumentUpdateResponse,
+    | errors.DocumentUpdateBadRequestError
+    | errors.DocumentUpdateInternalServerError
     | DocumensoError
     | ResponseValidationError
     | ConnectionError
@@ -56,14 +56,14 @@ export function documentsUpdate(
 
 async function $do(
   client: DocumensoCore,
-  request: operations.DocumentUpdateDocumentRequest,
+  request: operations.DocumentUpdateRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      operations.DocumentUpdateDocumentResponse,
-      | errors.DocumentUpdateDocumentBadRequestError
-      | errors.DocumentUpdateDocumentInternalServerError
+      operations.DocumentUpdateResponse,
+      | errors.DocumentUpdateBadRequestError
+      | errors.DocumentUpdateInternalServerError
       | DocumensoError
       | ResponseValidationError
       | ConnectionError
@@ -78,8 +78,7 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) =>
-      operations.DocumentUpdateDocumentRequest$outboundSchema.parse(value),
+    (value) => operations.DocumentUpdateRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -102,7 +101,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "document-updateDocument",
+    operationID: "document-update",
     oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,
@@ -145,9 +144,9 @@ async function $do(
   };
 
   const [result] = await M.match<
-    operations.DocumentUpdateDocumentResponse,
-    | errors.DocumentUpdateDocumentBadRequestError
-    | errors.DocumentUpdateDocumentInternalServerError
+    operations.DocumentUpdateResponse,
+    | errors.DocumentUpdateBadRequestError
+    | errors.DocumentUpdateInternalServerError
     | DocumensoError
     | ResponseValidationError
     | ConnectionError
@@ -157,12 +156,9 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, operations.DocumentUpdateDocumentResponse$inboundSchema),
-    M.jsonErr(400, errors.DocumentUpdateDocumentBadRequestError$inboundSchema),
-    M.jsonErr(
-      500,
-      errors.DocumentUpdateDocumentInternalServerError$inboundSchema,
-    ),
+    M.json(200, operations.DocumentUpdateResponse$inboundSchema),
+    M.jsonErr(400, errors.DocumentUpdateBadRequestError$inboundSchema),
+    M.jsonErr(500, errors.DocumentUpdateInternalServerError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

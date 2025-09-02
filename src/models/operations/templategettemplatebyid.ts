@@ -63,17 +63,17 @@ export type TemplateGetTemplateByIdAuthOptions = {
   globalActionAuth: Array<TemplateGetTemplateByIdGlobalActionAuth>;
 };
 
-export const TemplateDocumentDataType = {
+export const TemplateGetTemplateByIdTemplateDocumentDataType = {
   S3Path: "S3_PATH",
   Bytes: "BYTES",
   Bytes64: "BYTES_64",
 } as const;
-export type TemplateDocumentDataType = ClosedEnum<
-  typeof TemplateDocumentDataType
+export type TemplateGetTemplateByIdTemplateDocumentDataType = ClosedEnum<
+  typeof TemplateGetTemplateByIdTemplateDocumentDataType
 >;
 
-export type TemplateDocumentData = {
-  type: TemplateDocumentDataType;
+export type TemplateGetTemplateByIdTemplateDocumentData = {
+  type: TemplateGetTemplateByIdTemplateDocumentDataType;
   id: string;
   data: string;
   initialData: string;
@@ -142,6 +142,8 @@ export type TemplateGetTemplateByIdTemplateMeta = {
   redirectUrl: string | null;
   language: string;
   emailSettings: TemplateGetTemplateByIdEmailSettings | null;
+  emailId: string | null;
+  emailReplyTo: string | null;
 };
 
 export type TemplateGetTemplateByIdDirectLink = {
@@ -303,6 +305,14 @@ export type TemplateGetTemplateByIdValue2 = {
   value: string;
 };
 
+export const TemplateGetTemplateByIdDirection = {
+  Vertical: "vertical",
+  Horizontal: "horizontal",
+} as const;
+export type TemplateGetTemplateByIdDirection = ClosedEnum<
+  typeof TemplateGetTemplateByIdDirection
+>;
+
 export type TemplateGetTemplateByIdFieldMetaCheckbox = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -312,6 +322,7 @@ export type TemplateGetTemplateByIdFieldMetaCheckbox = {
   values?: Array<TemplateGetTemplateByIdValue2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
+  direction?: TemplateGetTemplateByIdDirection | undefined;
 };
 
 export const TemplateGetTemplateByIdTypeRadio = {
@@ -587,7 +598,7 @@ export type TemplateGetTemplateByIdResponse = {
   publicTitle: string;
   publicDescription: string;
   folderId: string | null;
-  templateDocumentData: TemplateDocumentData;
+  templateDocumentData: TemplateGetTemplateByIdTemplateDocumentData;
   templateMeta: TemplateGetTemplateByIdTemplateMeta | null;
   directLink: TemplateGetTemplateByIdDirectLink | null;
   user: TemplateGetTemplateByIdUser;
@@ -811,40 +822,43 @@ export function templateGetTemplateByIdAuthOptionsFromJSON(
 }
 
 /** @internal */
-export const TemplateDocumentDataType$inboundSchema: z.ZodNativeEnum<
-  typeof TemplateDocumentDataType
-> = z.nativeEnum(TemplateDocumentDataType);
+export const TemplateGetTemplateByIdTemplateDocumentDataType$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateGetTemplateByIdTemplateDocumentDataType> = z
+    .nativeEnum(TemplateGetTemplateByIdTemplateDocumentDataType);
 
 /** @internal */
-export const TemplateDocumentDataType$outboundSchema: z.ZodNativeEnum<
-  typeof TemplateDocumentDataType
-> = TemplateDocumentDataType$inboundSchema;
+export const TemplateGetTemplateByIdTemplateDocumentDataType$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateGetTemplateByIdTemplateDocumentDataType> =
+    TemplateGetTemplateByIdTemplateDocumentDataType$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateDocumentDataType$ {
-  /** @deprecated use `TemplateDocumentDataType$inboundSchema` instead. */
-  export const inboundSchema = TemplateDocumentDataType$inboundSchema;
-  /** @deprecated use `TemplateDocumentDataType$outboundSchema` instead. */
-  export const outboundSchema = TemplateDocumentDataType$outboundSchema;
+export namespace TemplateGetTemplateByIdTemplateDocumentDataType$ {
+  /** @deprecated use `TemplateGetTemplateByIdTemplateDocumentDataType$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateGetTemplateByIdTemplateDocumentDataType$inboundSchema;
+  /** @deprecated use `TemplateGetTemplateByIdTemplateDocumentDataType$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateGetTemplateByIdTemplateDocumentDataType$outboundSchema;
 }
 
 /** @internal */
-export const TemplateDocumentData$inboundSchema: z.ZodType<
-  TemplateDocumentData,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  type: TemplateDocumentDataType$inboundSchema,
-  id: z.string(),
-  data: z.string(),
-  initialData: z.string(),
-});
+export const TemplateGetTemplateByIdTemplateDocumentData$inboundSchema:
+  z.ZodType<
+    TemplateGetTemplateByIdTemplateDocumentData,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    type: TemplateGetTemplateByIdTemplateDocumentDataType$inboundSchema,
+    id: z.string(),
+    data: z.string(),
+    initialData: z.string(),
+  });
 
 /** @internal */
-export type TemplateDocumentData$Outbound = {
+export type TemplateGetTemplateByIdTemplateDocumentData$Outbound = {
   type: string;
   id: string;
   data: string;
@@ -852,45 +866,57 @@ export type TemplateDocumentData$Outbound = {
 };
 
 /** @internal */
-export const TemplateDocumentData$outboundSchema: z.ZodType<
-  TemplateDocumentData$Outbound,
-  z.ZodTypeDef,
-  TemplateDocumentData
-> = z.object({
-  type: TemplateDocumentDataType$outboundSchema,
-  id: z.string(),
-  data: z.string(),
-  initialData: z.string(),
-});
+export const TemplateGetTemplateByIdTemplateDocumentData$outboundSchema:
+  z.ZodType<
+    TemplateGetTemplateByIdTemplateDocumentData$Outbound,
+    z.ZodTypeDef,
+    TemplateGetTemplateByIdTemplateDocumentData
+  > = z.object({
+    type: TemplateGetTemplateByIdTemplateDocumentDataType$outboundSchema,
+    id: z.string(),
+    data: z.string(),
+    initialData: z.string(),
+  });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace TemplateDocumentData$ {
-  /** @deprecated use `TemplateDocumentData$inboundSchema` instead. */
-  export const inboundSchema = TemplateDocumentData$inboundSchema;
-  /** @deprecated use `TemplateDocumentData$outboundSchema` instead. */
-  export const outboundSchema = TemplateDocumentData$outboundSchema;
-  /** @deprecated use `TemplateDocumentData$Outbound` instead. */
-  export type Outbound = TemplateDocumentData$Outbound;
+export namespace TemplateGetTemplateByIdTemplateDocumentData$ {
+  /** @deprecated use `TemplateGetTemplateByIdTemplateDocumentData$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateGetTemplateByIdTemplateDocumentData$inboundSchema;
+  /** @deprecated use `TemplateGetTemplateByIdTemplateDocumentData$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateGetTemplateByIdTemplateDocumentData$outboundSchema;
+  /** @deprecated use `TemplateGetTemplateByIdTemplateDocumentData$Outbound` instead. */
+  export type Outbound = TemplateGetTemplateByIdTemplateDocumentData$Outbound;
 }
 
-export function templateDocumentDataToJSON(
-  templateDocumentData: TemplateDocumentData,
+export function templateGetTemplateByIdTemplateDocumentDataToJSON(
+  templateGetTemplateByIdTemplateDocumentData:
+    TemplateGetTemplateByIdTemplateDocumentData,
 ): string {
   return JSON.stringify(
-    TemplateDocumentData$outboundSchema.parse(templateDocumentData),
+    TemplateGetTemplateByIdTemplateDocumentData$outboundSchema.parse(
+      templateGetTemplateByIdTemplateDocumentData,
+    ),
   );
 }
 
-export function templateDocumentDataFromJSON(
+export function templateGetTemplateByIdTemplateDocumentDataFromJSON(
   jsonString: string,
-): SafeParseResult<TemplateDocumentData, SDKValidationError> {
+): SafeParseResult<
+  TemplateGetTemplateByIdTemplateDocumentData,
+  SDKValidationError
+> {
   return safeParse(
     jsonString,
-    (x) => TemplateDocumentData$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TemplateDocumentData' from JSON`,
+    (x) =>
+      TemplateGetTemplateByIdTemplateDocumentData$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'TemplateGetTemplateByIdTemplateDocumentData' from JSON`,
   );
 }
 
@@ -1040,6 +1066,8 @@ export const TemplateGetTemplateByIdTemplateMeta$inboundSchema: z.ZodType<
   emailSettings: z.nullable(
     z.lazy(() => TemplateGetTemplateByIdEmailSettings$inboundSchema),
   ),
+  emailId: z.nullable(z.string()),
+  emailReplyTo: z.nullable(z.string()),
 });
 
 /** @internal */
@@ -1059,6 +1087,8 @@ export type TemplateGetTemplateByIdTemplateMeta$Outbound = {
   redirectUrl: string | null;
   language: string;
   emailSettings: TemplateGetTemplateByIdEmailSettings$Outbound | null;
+  emailId: string | null;
+  emailReplyTo: string | null;
 };
 
 /** @internal */
@@ -1084,6 +1114,8 @@ export const TemplateGetTemplateByIdTemplateMeta$outboundSchema: z.ZodType<
   emailSettings: z.nullable(
     z.lazy(() => TemplateGetTemplateByIdEmailSettings$outboundSchema),
   ),
+  emailId: z.nullable(z.string()),
+  emailReplyTo: z.nullable(z.string()),
 });
 
 /**
@@ -1835,6 +1867,27 @@ export function templateGetTemplateByIdValue2FromJSON(
 }
 
 /** @internal */
+export const TemplateGetTemplateByIdDirection$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetTemplateByIdDirection
+> = z.nativeEnum(TemplateGetTemplateByIdDirection);
+
+/** @internal */
+export const TemplateGetTemplateByIdDirection$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetTemplateByIdDirection
+> = TemplateGetTemplateByIdDirection$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateGetTemplateByIdDirection$ {
+  /** @deprecated use `TemplateGetTemplateByIdDirection$inboundSchema` instead. */
+  export const inboundSchema = TemplateGetTemplateByIdDirection$inboundSchema;
+  /** @deprecated use `TemplateGetTemplateByIdDirection$outboundSchema` instead. */
+  export const outboundSchema = TemplateGetTemplateByIdDirection$outboundSchema;
+}
+
+/** @internal */
 export const TemplateGetTemplateByIdFieldMetaCheckbox$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdFieldMetaCheckbox,
   z.ZodTypeDef,
@@ -1849,6 +1902,7 @@ export const TemplateGetTemplateByIdFieldMetaCheckbox$inboundSchema: z.ZodType<
     .optional(),
   validationRule: z.string().optional(),
   validationLength: z.number().optional(),
+  direction: TemplateGetTemplateByIdDirection$inboundSchema.default("vertical"),
 });
 
 /** @internal */
@@ -1861,6 +1915,7 @@ export type TemplateGetTemplateByIdFieldMetaCheckbox$Outbound = {
   values?: Array<TemplateGetTemplateByIdValue2$Outbound> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
+  direction: string;
 };
 
 /** @internal */
@@ -1878,6 +1933,9 @@ export const TemplateGetTemplateByIdFieldMetaCheckbox$outboundSchema: z.ZodType<
     .optional(),
   validationRule: z.string().optional(),
   validationLength: z.number().optional(),
+  direction: TemplateGetTemplateByIdDirection$outboundSchema.default(
+    "vertical",
+  ),
 });
 
 /**
@@ -3190,7 +3248,9 @@ export const TemplateGetTemplateByIdResponse$inboundSchema: z.ZodType<
   publicTitle: z.string(),
   publicDescription: z.string(),
   folderId: z.nullable(z.string()),
-  templateDocumentData: z.lazy(() => TemplateDocumentData$inboundSchema),
+  templateDocumentData: z.lazy(() =>
+    TemplateGetTemplateByIdTemplateDocumentData$inboundSchema
+  ),
   templateMeta: z.nullable(
     z.lazy(() => TemplateGetTemplateByIdTemplateMeta$inboundSchema),
   ),
@@ -3221,7 +3281,7 @@ export type TemplateGetTemplateByIdResponse$Outbound = {
   publicTitle: string;
   publicDescription: string;
   folderId: string | null;
-  templateDocumentData: TemplateDocumentData$Outbound;
+  templateDocumentData: TemplateGetTemplateByIdTemplateDocumentData$Outbound;
   templateMeta: TemplateGetTemplateByIdTemplateMeta$Outbound | null;
   directLink: TemplateGetTemplateByIdDirectLink$Outbound | null;
   user: TemplateGetTemplateByIdUser$Outbound;
@@ -3252,7 +3312,9 @@ export const TemplateGetTemplateByIdResponse$outboundSchema: z.ZodType<
   publicTitle: z.string(),
   publicDescription: z.string(),
   folderId: z.nullable(z.string()),
-  templateDocumentData: z.lazy(() => TemplateDocumentData$outboundSchema),
+  templateDocumentData: z.lazy(() =>
+    TemplateGetTemplateByIdTemplateDocumentData$outboundSchema
+  ),
   templateMeta: z.nullable(
     z.lazy(() => TemplateGetTemplateByIdTemplateMeta$outboundSchema),
   ),

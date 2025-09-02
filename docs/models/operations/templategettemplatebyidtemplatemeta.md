@@ -21,6 +21,8 @@ let value: TemplateGetTemplateByIdTemplateMeta = {
   redirectUrl: "https://boiling-skeleton.name",
   language: "<value>",
   emailSettings: null,
+  emailId: "<id>",
+  emailReplyTo: null,
 };
 ```
 
@@ -43,3 +45,5 @@ let value: TemplateGetTemplateByIdTemplateMeta = {
 | `redirectUrl`                                                                                                                | *string*                                                                                                                     | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
 | `language`                                                                                                                   | *string*                                                                                                                     | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
 | `emailSettings`                                                                                                              | [operations.TemplateGetTemplateByIdEmailSettings](../../models/operations/templategettemplatebyidemailsettings.md)           | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
+| `emailId`                                                                                                                    | *string*                                                                                                                     | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
+| `emailReplyTo`                                                                                                               | *string*                                                                                                                     | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |

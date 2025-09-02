@@ -117,6 +117,10 @@ export type TemplateCreateDocumentFromTemplateRequest = {
    */
   customDocumentDataId?: string | undefined;
   /**
+   * The ID of the folder to create the document in. If not provided, the document will be created in the root folder.
+   */
+  folderId?: string | undefined;
+  /**
    * The fields to prefill on the document before sending it out. Useful when you want to create a document from an existing template and pre-fill the fields with specific values.
    */
   prefillFields?:
@@ -278,6 +282,8 @@ export type TemplateCreateDocumentFromTemplateDocumentMeta = {
   allowDictateNextSigner: boolean;
   language: string;
   emailSettings: TemplateCreateDocumentFromTemplateEmailSettings | null;
+  emailId: string | null;
+  emailReplyTo: string | null;
 };
 
 export const TemplateCreateDocumentFromTemplateFolderType = {
@@ -452,6 +458,14 @@ export type TemplateCreateDocumentFromTemplateValue2 = {
   value: string;
 };
 
+export const TemplateCreateDocumentFromTemplateDirection = {
+  Vertical: "vertical",
+  Horizontal: "horizontal",
+} as const;
+export type TemplateCreateDocumentFromTemplateDirection = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateDirection
+>;
+
 export type TemplateCreateDocumentFromTemplateFieldMetaCheckbox = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -461,6 +475,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaCheckbox = {
   values?: Array<TemplateCreateDocumentFromTemplateValue2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
+  direction?: TemplateCreateDocumentFromTemplateDirection | undefined;
 };
 
 export const TemplateCreateDocumentFromTemplateFieldMetaTypeRadio = {
@@ -1381,6 +1396,7 @@ export const TemplateCreateDocumentFromTemplateRequest$inboundSchema: z.ZodType<
   ),
   distributeDocument: z.boolean().optional(),
   customDocumentDataId: z.string().optional(),
+  folderId: z.string().optional(),
   prefillFields: z.array(
     z.union([
       z.lazy(() => PrefillFieldText$inboundSchema),
@@ -1401,6 +1417,7 @@ export type TemplateCreateDocumentFromTemplateRequest$Outbound = {
   >;
   distributeDocument?: boolean | undefined;
   customDocumentDataId?: string | undefined;
+  folderId?: string | undefined;
   prefillFields?:
     | Array<
       | PrefillFieldText$Outbound
@@ -1428,6 +1445,7 @@ export const TemplateCreateDocumentFromTemplateRequest$outboundSchema:
     ),
     distributeDocument: z.boolean().optional(),
     customDocumentDataId: z.string().optional(),
+    folderId: z.string().optional(),
     prefillFields: z.array(
       z.union([
         z.lazy(() => PrefillFieldText$outboundSchema),
@@ -1999,6 +2017,8 @@ export const TemplateCreateDocumentFromTemplateDocumentMeta$inboundSchema:
         TemplateCreateDocumentFromTemplateEmailSettings$inboundSchema
       ),
     ),
+    emailId: z.nullable(z.string()),
+    emailReplyTo: z.nullable(z.string()),
   });
 
 /** @internal */
@@ -2021,6 +2041,8 @@ export type TemplateCreateDocumentFromTemplateDocumentMeta$Outbound = {
   emailSettings:
     | TemplateCreateDocumentFromTemplateEmailSettings$Outbound
     | null;
+  emailId: string | null;
+  emailReplyTo: string | null;
 };
 
 /** @internal */
@@ -2051,6 +2073,8 @@ export const TemplateCreateDocumentFromTemplateDocumentMeta$outboundSchema:
         TemplateCreateDocumentFromTemplateEmailSettings$outboundSchema
       ),
     ),
+    emailId: z.nullable(z.string()),
+    emailReplyTo: z.nullable(z.string()),
   });
 
 /**
@@ -2877,6 +2901,29 @@ export function templateCreateDocumentFromTemplateValue2FromJSON(
 }
 
 /** @internal */
+export const TemplateCreateDocumentFromTemplateDirection$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateDirection> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateDirection);
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateDirection$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateDirection> =
+    TemplateCreateDocumentFromTemplateDirection$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace TemplateCreateDocumentFromTemplateDirection$ {
+  /** @deprecated use `TemplateCreateDocumentFromTemplateDirection$inboundSchema` instead. */
+  export const inboundSchema =
+    TemplateCreateDocumentFromTemplateDirection$inboundSchema;
+  /** @deprecated use `TemplateCreateDocumentFromTemplateDirection$outboundSchema` instead. */
+  export const outboundSchema =
+    TemplateCreateDocumentFromTemplateDirection$outboundSchema;
+}
+
+/** @internal */
 export const TemplateCreateDocumentFromTemplateFieldMetaCheckbox$inboundSchema:
   z.ZodType<
     TemplateCreateDocumentFromTemplateFieldMetaCheckbox,
@@ -2893,6 +2940,8 @@ export const TemplateCreateDocumentFromTemplateFieldMetaCheckbox$inboundSchema:
     ).optional(),
     validationRule: z.string().optional(),
     validationLength: z.number().optional(),
+    direction: TemplateCreateDocumentFromTemplateDirection$inboundSchema
+      .default("vertical"),
   });
 
 /** @internal */
@@ -2905,6 +2954,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaCheckbox$Outbound = {
   values?: Array<TemplateCreateDocumentFromTemplateValue2$Outbound> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
+  direction: string;
 };
 
 /** @internal */
@@ -2925,6 +2975,8 @@ export const TemplateCreateDocumentFromTemplateFieldMetaCheckbox$outboundSchema:
     ).optional(),
     validationRule: z.string().optional(),
     validationLength: z.number().optional(),
+    direction: TemplateCreateDocumentFromTemplateDirection$outboundSchema
+      .default("vertical"),
   });
 
 /**

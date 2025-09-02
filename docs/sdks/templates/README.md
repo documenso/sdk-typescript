@@ -18,6 +18,7 @@ Find templates based on a search criteria
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="template-findTemplates" method="get" path="/template" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -89,6 +90,7 @@ Get template
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="template-getTemplateById" method="get" path="/template/{templateId}" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -164,6 +166,7 @@ Update template
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="template-updateTemplate" method="post" path="/template/update" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -238,6 +241,7 @@ Duplicate template
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="template-duplicateTemplate" method="post" path="/template/duplicate" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -312,6 +316,7 @@ Delete template
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="template-deleteTemplate" method="post" path="/template/delete" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 
@@ -386,6 +391,7 @@ Use the template to create a document
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="template-createDocumentFromTemplate" method="post" path="/template/use" -->
 ```typescript
 import { Documenso } from "@documenso/sdk-typescript";
 

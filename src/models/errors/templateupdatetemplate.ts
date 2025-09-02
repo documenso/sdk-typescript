@@ -35,9 +35,7 @@ export class TemplateUpdateTemplateInternalServerError extends DocumensoError {
     err: TemplateUpdateTemplateInternalServerErrorData,
     httpMeta: { response: Response; request: Request; body: string },
   ) {
-    const message = "message" in err && typeof err.message === "string"
-      ? err.message
-      : `API error occurred: ${JSON.stringify(err)}`;
+    const message = err.message || `API error occurred: ${JSON.stringify(err)}`;
     super(message, httpMeta);
     this.data$ = err;
     this.code = err.code;
@@ -74,9 +72,7 @@ export class TemplateUpdateTemplateBadRequestError extends DocumensoError {
     err: TemplateUpdateTemplateBadRequestErrorData,
     httpMeta: { response: Response; request: Request; body: string },
   ) {
-    const message = "message" in err && typeof err.message === "string"
-      ? err.message
-      : `API error occurred: ${JSON.stringify(err)}`;
+    const message = err.message || `API error occurred: ${JSON.stringify(err)}`;
     super(message, httpMeta);
     this.data$ = err;
     this.code = err.code;

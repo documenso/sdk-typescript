@@ -22,6 +22,8 @@ let value: DocumentCreateDocumentTemporaryDocumentMeta = {
   allowDictateNextSigner: false,
   language: "<value>",
   emailSettings: {},
+  emailId: "<id>",
+  emailReplyTo: "<value>",
 };
 ```
 
@@ -45,3 +47,5 @@ let value: DocumentCreateDocumentTemporaryDocumentMeta = {
 | `allowDictateNextSigner`                                                                       | *boolean*                                                                                      | :heavy_check_mark:                                                                             | N/A                                                                                            |
 | `language`                                                                                     | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
 | `emailSettings`                                                                                | [operations.DocumentEmailSettings](../../models/operations/documentemailsettings.md)           | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| `emailId`                                                                                      | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| `emailReplyTo`                                                                                 | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
