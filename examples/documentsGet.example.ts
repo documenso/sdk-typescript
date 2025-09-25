@@ -18,7 +18,7 @@ const documenso = new Documenso({
 });
 
 async function main() {
-  const result = await documenso.get({
+  const result = await documenso.documents.get({
     documentId: 6150.61,
   });
 

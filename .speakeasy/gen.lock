@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 2f28b0c4-e21c-47c4-aada-41da1a74c452
 management:
-  docChecksum: 0734586080f611ee0374f81f64c8399a
+  docChecksum: 21124d5efb907dd71e616e131fb59b31
   docVersion: 0.0.0
-  speakeasyVersion: 1.606.10
-  generationVersion: 2.687.13
-  releaseVersion: 0.3.2
-  configChecksum: a8a85d0ea717d86f4be261a03e30d33d
+  speakeasyVersion: 1.626.0
+  generationVersion: 2.715.0
+  releaseVersion: 0.3.3
+  configChecksum: 19dba51955e4af25b38ce5bebdfd48fc
   repoURL: https://github.com/documenso/sdk-typescript.git
   installationURL: https://github.com/documenso/sdk-typescript
   published: true
@@ -14,11 +14,11 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.21.20
+    core: 3.21.25
     defaultEnabledRetries: 0.1.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
-    globalSecurity: 2.82.13
+    globalSecurity: 2.82.14
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.5
@@ -2712,4 +2712,3 @@ examples:
           application/json: {"message": "<value>", "code": "<value>"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## SDK Changes Detected:\n* `documenso.documents.get()`: \n  *  `request.folderId` **Removed** **Breaking** :warning:\n  *  `response` **Changed**\n* `documenso.documents.recipients.update()`:  `response.fields.[].fieldMeta.[class].direction` **Added**\n* `documenso.templates.fields.updateMany()`: \n  *  `request.fields.[].[class].fieldMeta.direction` **Added**\n  *  `response.fields.[].fieldMeta.[class].direction` **Added**\n* `documenso.template.templateCreateTemplateTemporary()`: **Added**\n* `documenso.documents.createV0()`: \n  *  `request` **Changed**\n  *  `response.document` **Changed**\n* `documenso.documents.distribute()`: \n  *  `request.meta` **Changed**\n* `documenso.documents.fields.get()`:  `response.fieldmeta.[class].direction` **Added**\n* `documenso.documents.fields.create()`: \n  *  `request.field.[class].fieldMeta.direction` **Added**\n  *  `response.fieldmeta.[class].direction` **Added**\n* `documenso.documents.fields.createMany()`: \n  *  `request.fields.[].[class].fieldMeta.direction` **Added**\n  *  `response.fields.[].fieldMeta.[class].direction` **Added**\n* `documenso.documents.fields.update()`: \n  *  `request.field.[class].fieldMeta.direction` **Added**\n  *  `response.fieldmeta.[class].direction` **Added**\n* `documenso.documents.fields.updateMany()`: \n  *  `request.fields.[].[class].fieldMeta.direction` **Added**\n  *  `response.fields.[].fieldMeta.[class].direction` **Added**\n* `documenso.documents.recipients.get()`:  `response.fields.[].fieldMeta.[class].direction` **Added**\n* `documenso.document.documentDownload()`: **Added**\n* `documenso.documents.update()`: \n  *  `request.meta` **Changed**\n* `documenso.templates.get()`:  `response` **Changed**\n* `documenso.documents.recipients.updateMany()`:  `response.recipients.[].fields.[].fieldMeta.[class].direction` **Added**\n* `documenso.templates.update()`: \n  *  `request.meta` **Changed**\n* `documenso.templates.use()`: \n  *  `request.folderId` **Added**\n  *  `response` **Changed**\n* `documenso.templates.fields.create()`: \n  *  `request.field.[class].fieldMeta.direction` **Added**\n  *  `response.fieldmeta.[class].direction` **Added**\n* `documenso.templates.fields.get()`:  `response.fieldmeta.[class].direction` **Added**\n* `documenso.templates.fields.createMany()`: \n  *  `request.fields.[].[class].fieldMeta.direction` **Added**\n  *  `response.fields.[].fieldMeta.[class].direction` **Added**\n* `documenso.templates.fields.update()`: \n  *  `request.field.[class].fieldMeta.direction` **Added**\n  *  `response.fieldmeta.[class].direction` **Added**\n* `documenso.templates.find()`:  `response.data.[].fields.[].fieldMeta.[class].direction` **Added**\n* `documenso.templates.recipients.get()`:  `response.fields.[].fieldMeta.[class].direction` **Added**\n* `documenso.templates.recipients.update()`:  `response.fields.[].fieldMeta.[class].direction` **Added**\n* `documenso.templates.recipients.updateMany()`:  `response.recipients.[].fields.[].fieldMeta.[class].direction` **Added**\n"
