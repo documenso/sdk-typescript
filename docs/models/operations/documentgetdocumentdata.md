@@ -10,6 +10,7 @@ let value: DocumentGetDocumentData = {
   id: "<id>",
   data: "<value>",
   initialData: "<value>",
+  envelopeItemId: "<id>",
 };
 ```
 
@@ -21,3 +22,4 @@ let value: DocumentGetDocumentData = {
 | `id`                                                                                             | *string*                                                                                         | :heavy_check_mark:                                                                               | N/A                                                                                              |
 | `data`                                                                                           | *string*                                                                                         | :heavy_check_mark:                                                                               | N/A                                                                                              |
 | `initialData`                                                                                    | *string*                                                                                         | :heavy_check_mark:                                                                               | N/A                                                                                              |
+| `envelopeItemId`                                                                                 | *string*                                                                                         | :heavy_check_mark:                                                                               | N/A                                                                                              |

@@ -8,41 +8,29 @@ Successful response
 import { RecipientUpdateDocumentRecipientResponse } from "@documenso/sdk-typescript/models/operations";
 
 let value: RecipientUpdateDocumentRecipientResponse = {
+  envelopeId: "<id>",
   role: "CC",
   readStatus: "OPENED",
   signingStatus: "REJECTED",
   sendStatus: "SENT",
   id: 3861.76,
-  documentId: 4292.95,
-  templateId: 8133.14,
-  email: "Kianna.Hagenes@yahoo.com",
+  email: "Hillary.Schulist57@yahoo.com",
   name: "<value>",
   token: "<value>",
   documentDeletedAt: "<value>",
   expired: "<value>",
   signedAt: "<value>",
   authOptions: {
-    accessAuth: [],
-    actionAuth: [],
+    accessAuth: [
+      "TWO_FACTOR_AUTH",
+    ],
+    actionAuth: [
+      "PASSWORD",
+    ],
   },
-  signingOrder: 2300.2,
+  signingOrder: null,
   rejectionReason: "<value>",
-  fields: [
-    {
-      type: "FREE_SIGNATURE",
-      id: 1796.09,
-      secondaryId: "<id>",
-      documentId: null,
-      templateId: 1330.56,
-      recipientId: 231.9,
-      page: 2724.77,
-      customText: "<value>",
-      inserted: true,
-      fieldMeta: {
-        type: "dropdown",
-      },
-    },
-  ],
+  fields: [],
 };
 ```
 
@@ -50,13 +38,12 @@ let value: RecipientUpdateDocumentRecipientResponse = {
 
 | Field                                                                                                                                | Type                                                                                                                                 | Required                                                                                                                             | Description                                                                                                                          |
 | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `envelopeId`                                                                                                                         | *string*                                                                                                                             | :heavy_check_mark:                                                                                                                   | N/A                                                                                                                                  |
 | `role`                                                                                                                               | [operations.RecipientUpdateDocumentRecipientRoleResponse](../../models/operations/recipientupdatedocumentrecipientroleresponse.md)   | :heavy_check_mark:                                                                                                                   | N/A                                                                                                                                  |
 | `readStatus`                                                                                                                         | [operations.RecipientUpdateDocumentRecipientReadStatus](../../models/operations/recipientupdatedocumentrecipientreadstatus.md)       | :heavy_check_mark:                                                                                                                   | N/A                                                                                                                                  |
 | `signingStatus`                                                                                                                      | [operations.RecipientUpdateDocumentRecipientSigningStatus](../../models/operations/recipientupdatedocumentrecipientsigningstatus.md) | :heavy_check_mark:                                                                                                                   | N/A                                                                                                                                  |
 | `sendStatus`                                                                                                                         | [operations.RecipientUpdateDocumentRecipientSendStatus](../../models/operations/recipientupdatedocumentrecipientsendstatus.md)       | :heavy_check_mark:                                                                                                                   | N/A                                                                                                                                  |
 | `id`                                                                                                                                 | *number*                                                                                                                             | :heavy_check_mark:                                                                                                                   | N/A                                                                                                                                  |
-| `documentId`                                                                                                                         | *number*                                                                                                                             | :heavy_check_mark:                                                                                                                   | N/A                                                                                                                                  |
-| `templateId`                                                                                                                         | *number*                                                                                                                             | :heavy_check_mark:                                                                                                                   | N/A                                                                                                                                  |
 | `email`                                                                                                                              | *string*                                                                                                                             | :heavy_check_mark:                                                                                                                   | N/A                                                                                                                                  |
 | `name`                                                                                                                               | *string*                                                                                                                             | :heavy_check_mark:                                                                                                                   | N/A                                                                                                                                  |
 | `token`                                                                                                                              | *string*                                                                                                                             | :heavy_check_mark:                                                                                                                   | N/A                                                                                                                                  |
@@ -67,3 +54,5 @@ let value: RecipientUpdateDocumentRecipientResponse = {
 | `signingOrder`                                                                                                                       | *number*                                                                                                                             | :heavy_check_mark:                                                                                                                   | The order in which the recipient should sign the document. Only works if the document is set to sequential signing.                  |
 | `rejectionReason`                                                                                                                    | *string*                                                                                                                             | :heavy_check_mark:                                                                                                                   | N/A                                                                                                                                  |
 | `fields`                                                                                                                             | [operations.RecipientUpdateDocumentRecipientField](../../models/operations/recipientupdatedocumentrecipientfield.md)[]               | :heavy_check_mark:                                                                                                                   | N/A                                                                                                                                  |
+| `documentId`                                                                                                                         | *number*                                                                                                                             | :heavy_minus_sign:                                                                                                                   | N/A                                                                                                                                  |
+| `templateId`                                                                                                                         | *number*                                                                                                                             | :heavy_minus_sign:                                                                                                                   | N/A                                                                                                                                  |

@@ -9,7 +9,9 @@ let value: TemplateUpdateTemplateAuthOptions = {
   globalAccessAuth: [
     "ACCOUNT",
   ],
-  globalActionAuth: [],
+  globalActionAuth: [
+    "PASSKEY",
+  ],
 };
 ```
 

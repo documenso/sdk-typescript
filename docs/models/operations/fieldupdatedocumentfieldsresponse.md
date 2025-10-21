@@ -10,18 +10,16 @@ import { FieldUpdateDocumentFieldsResponse } from "@documenso/sdk-typescript/mod
 let value: FieldUpdateDocumentFieldsResponse = {
   fields: [
     {
+      envelopeId: "<id>",
+      envelopeItemId: "<id>",
       type: "NAME",
       id: 6326.22,
       secondaryId: "<id>",
-      documentId: 892,
-      templateId: 608.73,
-      recipientId: 7078.42,
-      page: 724.02,
+      recipientId: 4223.59,
+      page: 892,
       customText: "<value>",
-      inserted: true,
-      fieldMeta: {
-        type: "initials",
-      },
+      inserted: false,
+      fieldMeta: null,
     },
   ],
 };

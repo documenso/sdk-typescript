@@ -24,6 +24,7 @@ export type RecipientCreateDocumentRecipientsRoleRequest = ClosedEnum<
  */
 export const RecipientCreateDocumentRecipientsAccessAuthRequest = {
   Account: "ACCOUNT",
+  TwoFactorAuth: "TWO_FACTOR_AUTH",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
@@ -108,6 +109,7 @@ export type RecipientCreateDocumentRecipientsSendStatus = ClosedEnum<
  */
 export const RecipientCreateDocumentRecipientsAccessAuthResponse = {
   Account: "ACCOUNT",
+  TwoFactorAuth: "TWO_FACTOR_AUTH",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
@@ -139,13 +141,12 @@ export type RecipientCreateDocumentRecipientsAuthOptions = {
 };
 
 export type RecipientCreateDocumentRecipientsRecipientResponse = {
+  envelopeId: string;
   role: RecipientCreateDocumentRecipientsRoleResponse;
   readStatus: RecipientCreateDocumentRecipientsReadStatus;
   signingStatus: RecipientCreateDocumentRecipientsSigningStatus;
   sendStatus: RecipientCreateDocumentRecipientsSendStatus;
   id: number;
-  documentId: number | null;
-  templateId: number | null;
   email: string;
   name: string;
   token: string;
@@ -158,6 +159,8 @@ export type RecipientCreateDocumentRecipientsRecipientResponse = {
    */
   signingOrder: number | null;
   rejectionReason: string | null;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 /**
@@ -626,13 +629,12 @@ export const RecipientCreateDocumentRecipientsRecipientResponse$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({
+    envelopeId: z.string(),
     role: RecipientCreateDocumentRecipientsRoleResponse$inboundSchema,
     readStatus: RecipientCreateDocumentRecipientsReadStatus$inboundSchema,
     signingStatus: RecipientCreateDocumentRecipientsSigningStatus$inboundSchema,
     sendStatus: RecipientCreateDocumentRecipientsSendStatus$inboundSchema,
     id: z.number(),
-    documentId: z.nullable(z.number()),
-    templateId: z.nullable(z.number()),
     email: z.string(),
     name: z.string(),
     token: z.string(),
@@ -644,17 +646,18 @@ export const RecipientCreateDocumentRecipientsRecipientResponse$inboundSchema:
     ),
     signingOrder: z.nullable(z.number()),
     rejectionReason: z.nullable(z.string()),
+    documentId: z.nullable(z.number()).optional(),
+    templateId: z.nullable(z.number()).optional(),
   });
 
 /** @internal */
 export type RecipientCreateDocumentRecipientsRecipientResponse$Outbound = {
+  envelopeId: string;
   role: string;
   readStatus: string;
   signingStatus: string;
   sendStatus: string;
   id: number;
-  documentId: number | null;
-  templateId: number | null;
   email: string;
   name: string;
   token: string;
@@ -664,6 +667,8 @@ export type RecipientCreateDocumentRecipientsRecipientResponse$Outbound = {
   authOptions: RecipientCreateDocumentRecipientsAuthOptions$Outbound | null;
   signingOrder: number | null;
   rejectionReason: string | null;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 /** @internal */
@@ -673,14 +678,13 @@ export const RecipientCreateDocumentRecipientsRecipientResponse$outboundSchema:
     z.ZodTypeDef,
     RecipientCreateDocumentRecipientsRecipientResponse
   > = z.object({
+    envelopeId: z.string(),
     role: RecipientCreateDocumentRecipientsRoleResponse$outboundSchema,
     readStatus: RecipientCreateDocumentRecipientsReadStatus$outboundSchema,
     signingStatus:
       RecipientCreateDocumentRecipientsSigningStatus$outboundSchema,
     sendStatus: RecipientCreateDocumentRecipientsSendStatus$outboundSchema,
     id: z.number(),
-    documentId: z.nullable(z.number()),
-    templateId: z.nullable(z.number()),
     email: z.string(),
     name: z.string(),
     token: z.string(),
@@ -692,6 +696,8 @@ export const RecipientCreateDocumentRecipientsRecipientResponse$outboundSchema:
     ),
     signingOrder: z.nullable(z.number()),
     rejectionReason: z.nullable(z.string()),
+    documentId: z.nullable(z.number()).optional(),
+    templateId: z.nullable(z.number()).optional(),
   });
 
 /**

@@ -34,6 +34,7 @@ export type TemplateGetTemplateByIdVisibility = ClosedEnum<
  */
 export const TemplateGetTemplateByIdGlobalAccessAuth = {
   Account: "ACCOUNT",
+  TwoFactorAuth: "TWO_FACTOR_AUTH",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
@@ -77,6 +78,7 @@ export type TemplateGetTemplateByIdTemplateDocumentData = {
   id: string;
   data: string;
   initialData: string;
+  envelopeItemId: string;
 };
 
 export const TemplateGetTemplateByIdSigningOrder = {
@@ -132,27 +134,28 @@ export type TemplateGetTemplateByIdTemplateMeta = {
   message: string | null;
   timezone: string | null;
   dateFormat: string | null;
-  signingOrder: TemplateGetTemplateByIdSigningOrder | null;
+  signingOrder: TemplateGetTemplateByIdSigningOrder;
   typedSignatureEnabled: boolean;
   uploadSignatureEnabled: boolean;
   drawSignatureEnabled: boolean;
   allowDictateNextSigner: boolean;
   distributionMethod: TemplateGetTemplateByIdDistributionMethod;
-  templateId: number;
   redirectUrl: string | null;
   language: string;
   emailSettings: TemplateGetTemplateByIdEmailSettings | null;
   emailId: string | null;
   emailReplyTo: string | null;
+  templateId: number | null;
 };
 
 export type TemplateGetTemplateByIdDirectLink = {
   id: string;
-  templateId: number;
+  envelopeId: string;
   token: string;
   createdAt: string;
   enabled: boolean;
   directTemplateRecipientId: number;
+  templateId: number;
 };
 
 export type TemplateGetTemplateByIdUser = {
@@ -202,6 +205,7 @@ export type TemplateGetTemplateByIdSendStatus = ClosedEnum<
  */
 export const TemplateGetTemplateByIdAccessAuth = {
   Account: "ACCOUNT",
+  TwoFactorAuth: "TWO_FACTOR_AUTH",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
@@ -233,13 +237,12 @@ export type TemplateGetTemplateByIdRecipientAuthOptions = {
 };
 
 export type TemplateGetTemplateByIdRecipient = {
+  envelopeId: string;
   role: TemplateGetTemplateByIdRole;
   readStatus: TemplateGetTemplateByIdReadStatus;
   signingStatus: TemplateGetTemplateByIdSigningStatus;
   sendStatus: TemplateGetTemplateByIdSendStatus;
   id: number;
-  documentId: number | null;
-  templateId: number | null;
   email: string;
   name: string;
   token: string;
@@ -252,6 +255,8 @@ export type TemplateGetTemplateByIdRecipient = {
    */
   signingOrder: number | null;
   rejectionReason: string | null;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 export const TemplateGetTemplateByIdFieldType = {
@@ -369,10 +374,10 @@ export type TemplateGetTemplateByIdFieldMetaNumber = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: TemplateGetTemplateByIdTypeNumber;
-  numberFormat?: string | undefined;
+  numberFormat?: string | null | undefined;
   value?: string | undefined;
-  minValue?: number | undefined;
-  maxValue?: number | undefined;
+  minValue?: number | null | undefined;
+  maxValue?: number | null | undefined;
   fontSize?: number | undefined;
   textAlign?: TemplateGetTemplateByIdTextAlign6 | undefined;
 };
@@ -521,11 +526,11 @@ export type TemplateGetTemplateByIdFieldMetaUnion =
   | TemplateGetTemplateByIdFieldMetaDropdown;
 
 export type TemplateGetTemplateByIdField = {
+  envelopeId: string;
+  envelopeItemId: string;
   type: TemplateGetTemplateByIdFieldType;
   id: number;
   secondaryId: string;
-  documentId: number | null;
-  templateId: number | null;
   recipientId: number;
   /**
    * The page number of the field on the document. Starts from 1.
@@ -548,6 +553,8 @@ export type TemplateGetTemplateByIdField = {
     | TemplateGetTemplateByIdFieldMetaCheckbox
     | TemplateGetTemplateByIdFieldMetaDropdown
     | null;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 export const TemplateGetTemplateByIdFolderType = {
@@ -592,14 +599,15 @@ export type TemplateGetTemplateByIdResponse = {
   userId: number;
   teamId: number;
   authOptions: TemplateGetTemplateByIdAuthOptions | null;
-  templateDocumentDataId: string;
   createdAt: string;
   updatedAt: string;
   publicTitle: string;
   publicDescription: string;
   folderId: string | null;
+  envelopeId: string;
+  templateDocumentDataId?: string | undefined;
   templateDocumentData: TemplateGetTemplateByIdTemplateDocumentData;
-  templateMeta: TemplateGetTemplateByIdTemplateMeta | null;
+  templateMeta: TemplateGetTemplateByIdTemplateMeta;
   directLink: TemplateGetTemplateByIdDirectLink | null;
   user: TemplateGetTemplateByIdUser;
   recipients: Array<TemplateGetTemplateByIdRecipient>;
@@ -855,6 +863,7 @@ export const TemplateGetTemplateByIdTemplateDocumentData$inboundSchema:
     id: z.string(),
     data: z.string(),
     initialData: z.string(),
+    envelopeItemId: z.string(),
   });
 
 /** @internal */
@@ -863,6 +872,7 @@ export type TemplateGetTemplateByIdTemplateDocumentData$Outbound = {
   id: string;
   data: string;
   initialData: string;
+  envelopeItemId: string;
 };
 
 /** @internal */
@@ -876,6 +886,7 @@ export const TemplateGetTemplateByIdTemplateDocumentData$outboundSchema:
     id: z.string(),
     data: z.string(),
     initialData: z.string(),
+    envelopeItemId: z.string(),
   });
 
 /**
@@ -1054,13 +1065,12 @@ export const TemplateGetTemplateByIdTemplateMeta$inboundSchema: z.ZodType<
   message: z.nullable(z.string()),
   timezone: z.nullable(z.string()),
   dateFormat: z.nullable(z.string()),
-  signingOrder: z.nullable(TemplateGetTemplateByIdSigningOrder$inboundSchema),
+  signingOrder: TemplateGetTemplateByIdSigningOrder$inboundSchema,
   typedSignatureEnabled: z.boolean(),
   uploadSignatureEnabled: z.boolean(),
   drawSignatureEnabled: z.boolean(),
   allowDictateNextSigner: z.boolean(),
   distributionMethod: TemplateGetTemplateByIdDistributionMethod$inboundSchema,
-  templateId: z.number(),
   redirectUrl: z.nullable(z.string()),
   language: z.string(),
   emailSettings: z.nullable(
@@ -1068,6 +1078,7 @@ export const TemplateGetTemplateByIdTemplateMeta$inboundSchema: z.ZodType<
   ),
   emailId: z.nullable(z.string()),
   emailReplyTo: z.nullable(z.string()),
+  templateId: z.nullable(z.number()),
 });
 
 /** @internal */
@@ -1077,18 +1088,18 @@ export type TemplateGetTemplateByIdTemplateMeta$Outbound = {
   message: string | null;
   timezone: string | null;
   dateFormat: string | null;
-  signingOrder: string | null;
+  signingOrder: string;
   typedSignatureEnabled: boolean;
   uploadSignatureEnabled: boolean;
   drawSignatureEnabled: boolean;
   allowDictateNextSigner: boolean;
   distributionMethod: string;
-  templateId: number;
   redirectUrl: string | null;
   language: string;
   emailSettings: TemplateGetTemplateByIdEmailSettings$Outbound | null;
   emailId: string | null;
   emailReplyTo: string | null;
+  templateId: number | null;
 };
 
 /** @internal */
@@ -1102,13 +1113,12 @@ export const TemplateGetTemplateByIdTemplateMeta$outboundSchema: z.ZodType<
   message: z.nullable(z.string()),
   timezone: z.nullable(z.string()),
   dateFormat: z.nullable(z.string()),
-  signingOrder: z.nullable(TemplateGetTemplateByIdSigningOrder$outboundSchema),
+  signingOrder: TemplateGetTemplateByIdSigningOrder$outboundSchema,
   typedSignatureEnabled: z.boolean(),
   uploadSignatureEnabled: z.boolean(),
   drawSignatureEnabled: z.boolean(),
   allowDictateNextSigner: z.boolean(),
   distributionMethod: TemplateGetTemplateByIdDistributionMethod$outboundSchema,
-  templateId: z.number(),
   redirectUrl: z.nullable(z.string()),
   language: z.string(),
   emailSettings: z.nullable(
@@ -1116,6 +1126,7 @@ export const TemplateGetTemplateByIdTemplateMeta$outboundSchema: z.ZodType<
   ),
   emailId: z.nullable(z.string()),
   emailReplyTo: z.nullable(z.string()),
+  templateId: z.nullable(z.number()),
 });
 
 /**
@@ -1161,21 +1172,23 @@ export const TemplateGetTemplateByIdDirectLink$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  templateId: z.number(),
+  envelopeId: z.string(),
   token: z.string(),
   createdAt: z.string(),
   enabled: z.boolean(),
   directTemplateRecipientId: z.number(),
+  templateId: z.number(),
 });
 
 /** @internal */
 export type TemplateGetTemplateByIdDirectLink$Outbound = {
   id: string;
-  templateId: number;
+  envelopeId: string;
   token: string;
   createdAt: string;
   enabled: boolean;
   directTemplateRecipientId: number;
+  templateId: number;
 };
 
 /** @internal */
@@ -1185,11 +1198,12 @@ export const TemplateGetTemplateByIdDirectLink$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdDirectLink
 > = z.object({
   id: z.string(),
-  templateId: z.number(),
+  envelopeId: z.string(),
   token: z.string(),
   createdAt: z.string(),
   enabled: z.boolean(),
   directTemplateRecipientId: z.number(),
+  templateId: z.number(),
 });
 
 /**
@@ -1497,13 +1511,12 @@ export const TemplateGetTemplateByIdRecipient$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  envelopeId: z.string(),
   role: TemplateGetTemplateByIdRole$inboundSchema,
   readStatus: TemplateGetTemplateByIdReadStatus$inboundSchema,
   signingStatus: TemplateGetTemplateByIdSigningStatus$inboundSchema,
   sendStatus: TemplateGetTemplateByIdSendStatus$inboundSchema,
   id: z.number(),
-  documentId: z.nullable(z.number()),
-  templateId: z.nullable(z.number()),
   email: z.string(),
   name: z.string(),
   token: z.string(),
@@ -1515,17 +1528,18 @@ export const TemplateGetTemplateByIdRecipient$inboundSchema: z.ZodType<
   ),
   signingOrder: z.nullable(z.number()),
   rejectionReason: z.nullable(z.string()),
+  documentId: z.nullable(z.number()).optional(),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /** @internal */
 export type TemplateGetTemplateByIdRecipient$Outbound = {
+  envelopeId: string;
   role: string;
   readStatus: string;
   signingStatus: string;
   sendStatus: string;
   id: number;
-  documentId: number | null;
-  templateId: number | null;
   email: string;
   name: string;
   token: string;
@@ -1535,6 +1549,8 @@ export type TemplateGetTemplateByIdRecipient$Outbound = {
   authOptions: TemplateGetTemplateByIdRecipientAuthOptions$Outbound | null;
   signingOrder: number | null;
   rejectionReason: string | null;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 /** @internal */
@@ -1543,13 +1559,12 @@ export const TemplateGetTemplateByIdRecipient$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TemplateGetTemplateByIdRecipient
 > = z.object({
+  envelopeId: z.string(),
   role: TemplateGetTemplateByIdRole$outboundSchema,
   readStatus: TemplateGetTemplateByIdReadStatus$outboundSchema,
   signingStatus: TemplateGetTemplateByIdSigningStatus$outboundSchema,
   sendStatus: TemplateGetTemplateByIdSendStatus$outboundSchema,
   id: z.number(),
-  documentId: z.nullable(z.number()),
-  templateId: z.nullable(z.number()),
   email: z.string(),
   name: z.string(),
   token: z.string(),
@@ -1561,6 +1576,8 @@ export const TemplateGetTemplateByIdRecipient$outboundSchema: z.ZodType<
   ),
   signingOrder: z.nullable(z.number()),
   rejectionReason: z.nullable(z.string()),
+  documentId: z.nullable(z.number()).optional(),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /**
@@ -2194,10 +2211,10 @@ export const TemplateGetTemplateByIdFieldMetaNumber$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   type: TemplateGetTemplateByIdTypeNumber$inboundSchema,
-  numberFormat: z.string().optional(),
+  numberFormat: z.nullable(z.string()).optional(),
   value: z.string().optional(),
-  minValue: z.number().optional(),
-  maxValue: z.number().optional(),
+  minValue: z.nullable(z.number()).optional(),
+  maxValue: z.nullable(z.number()).optional(),
   fontSize: z.number().optional(),
   textAlign: TemplateGetTemplateByIdTextAlign6$inboundSchema.optional(),
 });
@@ -2209,10 +2226,10 @@ export type TemplateGetTemplateByIdFieldMetaNumber$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
-  numberFormat?: string | undefined;
+  numberFormat?: string | null | undefined;
   value?: string | undefined;
-  minValue?: number | undefined;
-  maxValue?: number | undefined;
+  minValue?: number | null | undefined;
+  maxValue?: number | null | undefined;
   fontSize?: number | undefined;
   textAlign?: string | undefined;
 };
@@ -2228,10 +2245,10 @@ export const TemplateGetTemplateByIdFieldMetaNumber$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   type: TemplateGetTemplateByIdTypeNumber$outboundSchema,
-  numberFormat: z.string().optional(),
+  numberFormat: z.nullable(z.string()).optional(),
   value: z.string().optional(),
-  minValue: z.number().optional(),
-  maxValue: z.number().optional(),
+  minValue: z.nullable(z.number()).optional(),
+  maxValue: z.nullable(z.number()).optional(),
   fontSize: z.number().optional(),
   textAlign: TemplateGetTemplateByIdTextAlign6$outboundSchema.optional(),
 });
@@ -2975,11 +2992,11 @@ export const TemplateGetTemplateByIdField$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  envelopeId: z.string(),
+  envelopeItemId: z.string(),
   type: TemplateGetTemplateByIdFieldType$inboundSchema,
   id: z.number(),
   secondaryId: z.string(),
-  documentId: z.nullable(z.number()),
-  templateId: z.nullable(z.number()),
   recipientId: z.number(),
   page: z.number(),
   positionX: z.any().optional(),
@@ -3001,15 +3018,17 @@ export const TemplateGetTemplateByIdField$inboundSchema: z.ZodType<
       z.lazy(() => TemplateGetTemplateByIdFieldMetaDropdown$inboundSchema),
     ]),
   ),
+  documentId: z.nullable(z.number()).optional(),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /** @internal */
 export type TemplateGetTemplateByIdField$Outbound = {
+  envelopeId: string;
+  envelopeItemId: string;
   type: string;
   id: number;
   secondaryId: string;
-  documentId: number | null;
-  templateId: number | null;
   recipientId: number;
   page: number;
   positionX?: any | undefined;
@@ -3029,6 +3048,8 @@ export type TemplateGetTemplateByIdField$Outbound = {
     | TemplateGetTemplateByIdFieldMetaCheckbox$Outbound
     | TemplateGetTemplateByIdFieldMetaDropdown$Outbound
     | null;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 /** @internal */
@@ -3037,11 +3058,11 @@ export const TemplateGetTemplateByIdField$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TemplateGetTemplateByIdField
 > = z.object({
+  envelopeId: z.string(),
+  envelopeItemId: z.string(),
   type: TemplateGetTemplateByIdFieldType$outboundSchema,
   id: z.number(),
   secondaryId: z.string(),
-  documentId: z.nullable(z.number()),
-  templateId: z.nullable(z.number()),
   recipientId: z.number(),
   page: z.number(),
   positionX: z.any().optional(),
@@ -3063,6 +3084,8 @@ export const TemplateGetTemplateByIdField$outboundSchema: z.ZodType<
       z.lazy(() => TemplateGetTemplateByIdFieldMetaDropdown$outboundSchema),
     ]),
   ),
+  documentId: z.nullable(z.number()).optional(),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /**
@@ -3242,18 +3265,17 @@ export const TemplateGetTemplateByIdResponse$inboundSchema: z.ZodType<
   authOptions: z.nullable(
     z.lazy(() => TemplateGetTemplateByIdAuthOptions$inboundSchema),
   ),
-  templateDocumentDataId: z.string(),
   createdAt: z.string(),
   updatedAt: z.string(),
   publicTitle: z.string(),
   publicDescription: z.string(),
   folderId: z.nullable(z.string()),
+  envelopeId: z.string(),
+  templateDocumentDataId: z.string().default(""),
   templateDocumentData: z.lazy(() =>
     TemplateGetTemplateByIdTemplateDocumentData$inboundSchema
   ),
-  templateMeta: z.nullable(
-    z.lazy(() => TemplateGetTemplateByIdTemplateMeta$inboundSchema),
-  ),
+  templateMeta: z.lazy(() => TemplateGetTemplateByIdTemplateMeta$inboundSchema),
   directLink: z.nullable(
     z.lazy(() => TemplateGetTemplateByIdDirectLink$inboundSchema),
   ),
@@ -3275,14 +3297,15 @@ export type TemplateGetTemplateByIdResponse$Outbound = {
   userId: number;
   teamId: number;
   authOptions: TemplateGetTemplateByIdAuthOptions$Outbound | null;
-  templateDocumentDataId: string;
   createdAt: string;
   updatedAt: string;
   publicTitle: string;
   publicDescription: string;
   folderId: string | null;
+  envelopeId: string;
+  templateDocumentDataId: string;
   templateDocumentData: TemplateGetTemplateByIdTemplateDocumentData$Outbound;
-  templateMeta: TemplateGetTemplateByIdTemplateMeta$Outbound | null;
+  templateMeta: TemplateGetTemplateByIdTemplateMeta$Outbound;
   directLink: TemplateGetTemplateByIdDirectLink$Outbound | null;
   user: TemplateGetTemplateByIdUser$Outbound;
   recipients: Array<TemplateGetTemplateByIdRecipient$Outbound>;
@@ -3306,17 +3329,18 @@ export const TemplateGetTemplateByIdResponse$outboundSchema: z.ZodType<
   authOptions: z.nullable(
     z.lazy(() => TemplateGetTemplateByIdAuthOptions$outboundSchema),
   ),
-  templateDocumentDataId: z.string(),
   createdAt: z.string(),
   updatedAt: z.string(),
   publicTitle: z.string(),
   publicDescription: z.string(),
   folderId: z.nullable(z.string()),
+  envelopeId: z.string(),
+  templateDocumentDataId: z.string().default(""),
   templateDocumentData: z.lazy(() =>
     TemplateGetTemplateByIdTemplateDocumentData$outboundSchema
   ),
-  templateMeta: z.nullable(
-    z.lazy(() => TemplateGetTemplateByIdTemplateMeta$outboundSchema),
+  templateMeta: z.lazy(() =>
+    TemplateGetTemplateByIdTemplateMeta$outboundSchema
   ),
   directLink: z.nullable(
     z.lazy(() => TemplateGetTemplateByIdDirectLink$outboundSchema),

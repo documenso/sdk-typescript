@@ -10,28 +10,27 @@ import { RecipientCreateTemplateRecipientsResponse } from "@documenso/sdk-typesc
 let value: RecipientCreateTemplateRecipientsResponse = {
   recipients: [
     {
+      envelopeId: "<id>",
       role: "SIGNER",
       readStatus: "NOT_OPENED",
       signingStatus: "NOT_SIGNED",
       sendStatus: "NOT_SENT",
       id: 6134.75,
-      documentId: 9304.9,
-      templateId: 8591.06,
-      email: "Rylan_Mills@hotmail.com",
+      email: "Tomas_Stokes@gmail.com",
       name: "<value>",
       token: "<value>",
       documentDeletedAt: "<value>",
-      expired: null,
+      expired: "<value>",
       signedAt: "<value>",
       authOptions: {
         accessAuth: [
           "ACCOUNT",
         ],
         actionAuth: [
-          "PASSKEY",
+          "EXPLICIT_NONE",
         ],
       },
-      signingOrder: null,
+      signingOrder: 325.59,
       rejectionReason: "<value>",
     },
   ],

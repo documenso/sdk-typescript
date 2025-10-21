@@ -24,6 +24,7 @@ export type RecipientUpdateTemplateRecipientRoleRequest = ClosedEnum<
  */
 export const RecipientUpdateTemplateRecipientAccessAuthRequest = {
   Account: "ACCOUNT",
+  TwoFactorAuth: "TWO_FACTOR_AUTH",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
@@ -112,6 +113,7 @@ export type RecipientUpdateTemplateRecipientSendStatus = ClosedEnum<
  */
 export const RecipientUpdateTemplateRecipientAccessAuthResponse = {
   Account: "ACCOUNT",
+  TwoFactorAuth: "TWO_FACTOR_AUTH",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
@@ -257,10 +259,10 @@ export type RecipientUpdateTemplateRecipientFieldMetaNumber = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: RecipientUpdateTemplateRecipientTypeNumber;
-  numberFormat?: string | undefined;
+  numberFormat?: string | null | undefined;
   value?: string | undefined;
-  minValue?: number | undefined;
-  maxValue?: number | undefined;
+  minValue?: number | null | undefined;
+  maxValue?: number | null | undefined;
   fontSize?: number | undefined;
   textAlign?: RecipientUpdateTemplateRecipientTextAlign6 | undefined;
 };
@@ -409,11 +411,11 @@ export type RecipientUpdateTemplateRecipientFieldMetaUnion =
   | RecipientUpdateTemplateRecipientFieldMetaDropdown;
 
 export type RecipientUpdateTemplateRecipientField = {
+  envelopeId: string;
+  envelopeItemId: string;
   type: RecipientUpdateTemplateRecipientType;
   id: number;
   secondaryId: string;
-  documentId: number | null;
-  templateId: number | null;
   recipientId: number;
   /**
    * The page number of the field on the document. Starts from 1.
@@ -436,19 +438,20 @@ export type RecipientUpdateTemplateRecipientField = {
     | RecipientUpdateTemplateRecipientFieldMetaCheckbox
     | RecipientUpdateTemplateRecipientFieldMetaDropdown
     | null;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 /**
  * Successful response
  */
 export type RecipientUpdateTemplateRecipientResponse = {
+  envelopeId: string;
   role: RecipientUpdateTemplateRecipientRoleResponse;
   readStatus: RecipientUpdateTemplateRecipientReadStatus;
   signingStatus: RecipientUpdateTemplateRecipientSigningStatus;
   sendStatus: RecipientUpdateTemplateRecipientSendStatus;
   id: number;
-  documentId: number | null;
-  templateId: number | null;
   email: string;
   name: string;
   token: string;
@@ -462,6 +465,8 @@ export type RecipientUpdateTemplateRecipientResponse = {
   signingOrder: number | null;
   rejectionReason: string | null;
   fields: Array<RecipientUpdateTemplateRecipientField>;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 /** @internal */
@@ -1556,10 +1561,10 @@ export const RecipientUpdateTemplateRecipientFieldMetaNumber$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     type: RecipientUpdateTemplateRecipientTypeNumber$inboundSchema,
-    numberFormat: z.string().optional(),
+    numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
-    minValue: z.number().optional(),
-    maxValue: z.number().optional(),
+    minValue: z.nullable(z.number()).optional(),
+    maxValue: z.nullable(z.number()).optional(),
     fontSize: z.number().optional(),
     textAlign: RecipientUpdateTemplateRecipientTextAlign6$inboundSchema
       .optional(),
@@ -1572,10 +1577,10 @@ export type RecipientUpdateTemplateRecipientFieldMetaNumber$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
-  numberFormat?: string | undefined;
+  numberFormat?: string | null | undefined;
   value?: string | undefined;
-  minValue?: number | undefined;
-  maxValue?: number | undefined;
+  minValue?: number | null | undefined;
+  maxValue?: number | null | undefined;
   fontSize?: number | undefined;
   textAlign?: string | undefined;
 };
@@ -1592,10 +1597,10 @@ export const RecipientUpdateTemplateRecipientFieldMetaNumber$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     type: RecipientUpdateTemplateRecipientTypeNumber$outboundSchema,
-    numberFormat: z.string().optional(),
+    numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
-    minValue: z.number().optional(),
-    maxValue: z.number().optional(),
+    minValue: z.nullable(z.number()).optional(),
+    maxValue: z.nullable(z.number()).optional(),
     fontSize: z.number().optional(),
     textAlign: RecipientUpdateTemplateRecipientTextAlign6$outboundSchema
       .optional(),
@@ -2428,11 +2433,11 @@ export const RecipientUpdateTemplateRecipientField$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  envelopeId: z.string(),
+  envelopeItemId: z.string(),
   type: RecipientUpdateTemplateRecipientType$inboundSchema,
   id: z.number(),
   secondaryId: z.string(),
-  documentId: z.nullable(z.number()),
-  templateId: z.nullable(z.number()),
   recipientId: z.number(),
   page: z.number(),
   positionX: z.any().optional(),
@@ -2466,15 +2471,17 @@ export const RecipientUpdateTemplateRecipientField$inboundSchema: z.ZodType<
       ),
     ]),
   ),
+  documentId: z.nullable(z.number()).optional(),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /** @internal */
 export type RecipientUpdateTemplateRecipientField$Outbound = {
+  envelopeId: string;
+  envelopeItemId: string;
   type: string;
   id: number;
   secondaryId: string;
-  documentId: number | null;
-  templateId: number | null;
   recipientId: number;
   page: number;
   positionX?: any | undefined;
@@ -2494,6 +2501,8 @@ export type RecipientUpdateTemplateRecipientField$Outbound = {
     | RecipientUpdateTemplateRecipientFieldMetaCheckbox$Outbound
     | RecipientUpdateTemplateRecipientFieldMetaDropdown$Outbound
     | null;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 /** @internal */
@@ -2502,11 +2511,11 @@ export const RecipientUpdateTemplateRecipientField$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   RecipientUpdateTemplateRecipientField
 > = z.object({
+  envelopeId: z.string(),
+  envelopeItemId: z.string(),
   type: RecipientUpdateTemplateRecipientType$outboundSchema,
   id: z.number(),
   secondaryId: z.string(),
-  documentId: z.nullable(z.number()),
-  templateId: z.nullable(z.number()),
   recipientId: z.number(),
   page: z.number(),
   positionX: z.any().optional(),
@@ -2546,6 +2555,8 @@ export const RecipientUpdateTemplateRecipientField$outboundSchema: z.ZodType<
       ),
     ]),
   ),
+  documentId: z.nullable(z.number()).optional(),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /**
@@ -2590,13 +2601,12 @@ export const RecipientUpdateTemplateRecipientResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  envelopeId: z.string(),
   role: RecipientUpdateTemplateRecipientRoleResponse$inboundSchema,
   readStatus: RecipientUpdateTemplateRecipientReadStatus$inboundSchema,
   signingStatus: RecipientUpdateTemplateRecipientSigningStatus$inboundSchema,
   sendStatus: RecipientUpdateTemplateRecipientSendStatus$inboundSchema,
   id: z.number(),
-  documentId: z.nullable(z.number()),
-  templateId: z.nullable(z.number()),
   email: z.string(),
   name: z.string(),
   token: z.string(),
@@ -2611,17 +2621,18 @@ export const RecipientUpdateTemplateRecipientResponse$inboundSchema: z.ZodType<
   fields: z.array(
     z.lazy(() => RecipientUpdateTemplateRecipientField$inboundSchema),
   ),
+  documentId: z.nullable(z.number()).optional(),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /** @internal */
 export type RecipientUpdateTemplateRecipientResponse$Outbound = {
+  envelopeId: string;
   role: string;
   readStatus: string;
   signingStatus: string;
   sendStatus: string;
   id: number;
-  documentId: number | null;
-  templateId: number | null;
   email: string;
   name: string;
   token: string;
@@ -2632,6 +2643,8 @@ export type RecipientUpdateTemplateRecipientResponse$Outbound = {
   signingOrder: number | null;
   rejectionReason: string | null;
   fields: Array<RecipientUpdateTemplateRecipientField$Outbound>;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 /** @internal */
@@ -2640,13 +2653,12 @@ export const RecipientUpdateTemplateRecipientResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   RecipientUpdateTemplateRecipientResponse
 > = z.object({
+  envelopeId: z.string(),
   role: RecipientUpdateTemplateRecipientRoleResponse$outboundSchema,
   readStatus: RecipientUpdateTemplateRecipientReadStatus$outboundSchema,
   signingStatus: RecipientUpdateTemplateRecipientSigningStatus$outboundSchema,
   sendStatus: RecipientUpdateTemplateRecipientSendStatus$outboundSchema,
   id: z.number(),
-  documentId: z.nullable(z.number()),
-  templateId: z.nullable(z.number()),
   email: z.string(),
   name: z.string(),
   token: z.string(),
@@ -2661,6 +2673,8 @@ export const RecipientUpdateTemplateRecipientResponse$outboundSchema: z.ZodType<
   fields: z.array(
     z.lazy(() => RecipientUpdateTemplateRecipientField$outboundSchema),
   ),
+  documentId: z.nullable(z.number()).optional(),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /**

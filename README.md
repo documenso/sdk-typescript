@@ -74,10 +74,7 @@ bun add @documenso/sdk-typescript
 ### Yarn
 
 ```bash
-yarn add @documenso/sdk-typescript zod
-
-# Note that Yarn does not install peer dependencies automatically. You will need
-# to install zod as shown above.
+yarn add @documenso/sdk-typescript
 ```
 
 
@@ -295,7 +292,6 @@ main()
 
 <details open>
 <summary>Available methods</summary>
-
 
 ### [document](docs/sdks/document/README.md)
 

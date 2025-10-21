@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 2f28b0c4-e21c-47c4-aada-41da1a74c452
 management:
-  docChecksum: 0734586080f611ee0374f81f64c8399a
+  docChecksum: 02958eb740d2da10d29e1482c6450f0f
   docVersion: 0.0.0
-  speakeasyVersion: 1.606.10
-  generationVersion: 2.687.13
-  releaseVersion: 0.3.2
-  configChecksum: a8a85d0ea717d86f4be261a03e30d33d
+  speakeasyVersion: 1.637.3
+  generationVersion: 2.727.9
+  releaseVersion: 0.4.0
+  configChecksum: 916fec95705de8b6bfead150a122b146
   repoURL: https://github.com/documenso/sdk-typescript.git
   installationURL: https://github.com/documenso/sdk-typescript
   published: true
@@ -14,22 +14,23 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.21.20
+    core: 3.22.0
     defaultEnabledRetries: 0.1.0
     enumUnions: 0.1.0
+    enums: 2.83.0
     envVarSecurityUsage: 0.1.2
-    globalSecurity: 2.82.13
+    globalSecurity: 2.82.14
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.5
-    groups: 2.81.2
+    groups: 2.81.3
     mcpServer: 0.9.3
     nameOverrides: 2.81.2
     nullables: 0.1.1
     responseFormat: 0.2.3
     retries: 2.83.0
     sdkHooks: 0.3.0
-    unions: 2.85.11
+    unions: 2.86.0
 generatedFiles:
   - .gitattributes
   - .npmignore
@@ -236,6 +237,7 @@ generatedFiles:
   - docs/models/errors/templateupdatetemplatebadrequestissue.md
   - docs/models/errors/templateupdatetemplateinternalservererror.md
   - docs/models/errors/templateupdatetemplateinternalservererrorissue.md
+  - docs/models/operations/customdocumentdatum.md
   - docs/models/operations/datasource.md
   - docs/models/operations/datastatus.md
   - docs/models/operations/document.md
@@ -1821,7 +1823,6 @@ generatedFiles:
   - docs/models/operations/templateupdatetemplatevisibilityresponse.md
   - docs/models/operations/version.md
   - docs/sdks/directlink/README.md
-  - docs/sdks/documenso/README.md
   - docs/sdks/document/README.md
   - docs/sdks/documents/README.md
   - docs/sdks/documentsfields/README.md
@@ -2118,7 +2119,7 @@ examples:
         application/json: {"title": "<value>"}
       responses:
         "200":
-          application/json: {"document": {"visibility": "MANAGER_AND_ABOVE", "status": "DRAFT", "source": "TEMPLATE_DIRECT_LINK", "id": 9025.78, "externalId": "<id>", "userId": 3553.42, "authOptions": null, "formValues": {}, "title": "<value>", "documentDataId": "<id>", "createdAt": "1727678986659", "updatedAt": "1735619356040", "completedAt": null, "deletedAt": "<value>", "teamId": 2366.18, "templateId": 5940.67, "folderId": "<id>", "documentData": {"type": "BYTES", "id": "<id>", "data": "<value>", "initialData": "<value>"}, "documentMeta": {"signingOrder": "SEQUENTIAL", "distributionMethod": "NONE", "id": "<id>", "subject": "<value>", "message": "<value>", "timezone": "America/Inuvik", "password": "2lXhpWYWQqLVzMm", "dateFormat": "<value>", "documentId": 5456.09, "redirectUrl": "https://live-valentine.net", "typedSignatureEnabled": false, "uploadSignatureEnabled": false, "drawSignatureEnabled": true, "allowDictateNextSigner": false, "language": "<value>", "emailSettings": {"recipientSigningRequest": true, "recipientRemoved": true, "recipientSigned": true, "documentPending": true, "documentCompleted": true, "documentDeleted": true, "ownerDocumentCompleted": true}, "emailId": "<id>", "emailReplyTo": null}, "folder": {"id": "<id>", "name": "<value>", "type": "DOCUMENT", "visibility": "MANAGER_AND_ABOVE", "userId": 9321.89, "teamId": 5395.26, "pinned": false, "parentId": "<id>", "createdAt": "1707737138130", "updatedAt": "1735664848668"}, "recipients": [], "fields": [{"type": "DATE", "id": 6320.09, "secondaryId": "<id>", "documentId": 6541.15, "templateId": 7534.32, "recipientId": 4439.65, "page": 5921.96, "customText": "<value>", "inserted": false, "fieldMeta": {"type": "radio"}}]}, "uploadUrl": "https://kaleidoscopic-maestro.info/"}
+          application/json: {"document": {"visibility": "MANAGER_AND_ABOVE", "status": "DRAFT", "source": "TEMPLATE_DIRECT_LINK", "id": 9025.78, "externalId": "<id>", "userId": 3553.42, "authOptions": null, "formValues": {}, "title": "<value>", "createdAt": "1727678986659", "updatedAt": "1735619356040", "completedAt": null, "deletedAt": "<value>", "teamId": 2366.18, "folderId": "<id>", "envelopeId": "<id>", "documentDataId": "", "documentData": {"type": "BYTES", "id": "<id>", "data": "<value>", "initialData": "<value>", "envelopeItemId": "<id>"}, "documentMeta": {"signingOrder": "SEQUENTIAL", "distributionMethod": "NONE", "id": "<id>", "subject": "<value>", "message": "<value>", "timezone": "America/Inuvik", "dateFormat": "<value>", "redirectUrl": "https://live-valentine.net", "typedSignatureEnabled": false, "uploadSignatureEnabled": false, "drawSignatureEnabled": true, "allowDictateNextSigner": false, "language": "<value>", "emailSettings": {"recipientSigningRequest": true, "recipientRemoved": true, "recipientSigned": true, "documentPending": true, "documentCompleted": true, "documentDeleted": true, "ownerDocumentCompleted": true}, "emailId": "<id>", "emailReplyTo": null, "password": null, "documentId": -1}, "folder": {"id": "<id>", "name": "<value>", "type": "DOCUMENT", "visibility": "MANAGER_AND_ABOVE", "userId": 9321.89, "teamId": 5395.26, "pinned": false, "parentId": "<id>", "createdAt": "1707737138130", "updatedAt": "1735664848668"}, "recipients": [], "fields": [{"envelopeId": "<id>", "envelopeItemId": "<id>", "type": "DATE", "id": 6320.09, "secondaryId": "<id>", "recipientId": 4439.65, "page": 5921.96, "customText": "<value>", "inserted": false, "fieldMeta": {"type": "radio"}, "documentId": 6541.15, "templateId": 7534.32}]}, "uploadUrl": "https://kaleidoscopic-maestro.info/"}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "500":
@@ -2196,7 +2197,7 @@ examples:
           fieldId: 6077.81
       responses:
         "200":
-          application/json: {"type": "DROPDOWN", "id": 1675.25, "secondaryId": "<id>", "documentId": 5913.76, "templateId": 5141.8, "recipientId": 41.83, "page": 2158.79, "customText": "<value>", "inserted": true, "fieldMeta": {"type": "radio"}}
+          application/json: {"envelopeId": "<id>", "envelopeItemId": "<id>", "type": "DROPDOWN", "id": 1675.25, "secondaryId": "<id>", "recipientId": 41.83, "page": 2158.79, "customText": "<value>", "inserted": true, "fieldMeta": {"type": "radio"}}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "404":
@@ -2209,7 +2210,7 @@ examples:
         application/json: {"documentId": 8001.93, "field": {"type": "NAME", "recipientId": 2564.68, "pageNumber": 791.77, "pageX": 7845.22, "pageY": 6843.16, "width": 3932.15, "height": 8879.89}}
       responses:
         "200":
-          application/json: {"type": "SIGNATURE", "id": 2381.57, "secondaryId": "<id>", "documentId": 3378.71, "templateId": 787.23, "recipientId": 1080.89, "page": 9103.02, "customText": "<value>", "inserted": false, "fieldMeta": null}
+          application/json: {"envelopeId": "<id>", "envelopeItemId": "<id>", "type": "SIGNATURE", "id": 2381.57, "secondaryId": "<id>", "recipientId": 1080.89, "page": 9103.02, "customText": "<value>", "inserted": false, "fieldMeta": null}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "500":
@@ -2231,7 +2232,7 @@ examples:
         application/json: {"documentId": 5956.26, "field": {"type": "FREE_SIGNATURE", "id": 6955.16}}
       responses:
         "200":
-          application/json: {"type": "INITIALS", "id": 1295.68, "secondaryId": "<id>", "documentId": 4731.43, "templateId": 502.03, "recipientId": 9839.63, "page": 8795.43, "customText": "<value>", "inserted": true, "fieldMeta": {"type": "initials"}}
+          application/json: {"envelopeId": "<id>", "envelopeItemId": "<id>", "type": "INITIALS", "id": 1295.68, "secondaryId": "<id>", "recipientId": 9839.63, "page": 8795.43, "customText": "<value>", "inserted": true, "fieldMeta": {"type": "initials"}}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "500":
@@ -2265,7 +2266,7 @@ examples:
           recipientId: 874.3
       responses:
         "200":
-          application/json: {"role": "VIEWER", "readStatus": "OPENED", "signingStatus": "REJECTED", "sendStatus": "SENT", "id": 2011.21, "documentId": 8537.53, "templateId": 7026.32, "email": "Micaela.McCullough@hotmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": null, "authOptions": {"accessAuth": ["ACCOUNT"], "actionAuth": ["ACCOUNT"]}, "signingOrder": 2776.88, "rejectionReason": "<value>", "fields": [{"type": "FREE_SIGNATURE", "id": 6796.74, "secondaryId": "<id>", "documentId": null, "templateId": null, "recipientId": 4324.4, "page": 7869.52, "customText": "<value>", "inserted": true, "fieldMeta": {"type": "checkbox", "direction": "vertical"}}]}
+          application/json: {"envelopeId": "<id>", "role": "VIEWER", "readStatus": "OPENED", "signingStatus": "REJECTED", "sendStatus": "SENT", "id": 2011.21, "email": "Micaela.McCullough@hotmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": null, "authOptions": {"accessAuth": ["ACCOUNT"], "actionAuth": ["ACCOUNT"]}, "signingOrder": 2776.88, "rejectionReason": "<value>", "fields": [{"envelopeId": "<id>", "envelopeItemId": "<id>", "type": "FREE_SIGNATURE", "id": 6796.74, "secondaryId": "<id>", "recipientId": 4324.4, "page": 7869.52, "customText": "<value>", "inserted": true, "fieldMeta": {"type": "checkbox", "direction": "vertical"}, "documentId": null, "templateId": null}]}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "404":
@@ -2278,7 +2279,7 @@ examples:
         application/json: {"documentId": 3058.31, "recipient": {"email": "Ila.Steuber@yahoo.com", "name": "<value>", "role": "ASSISTANT"}}
       responses:
         "200":
-          application/json: {"role": "ASSISTANT", "readStatus": "NOT_OPENED", "signingStatus": "SIGNED", "sendStatus": "NOT_SENT", "id": 4556.07, "documentId": 2327.54, "templateId": 7160.46, "email": "Kitty_Heathcote-Huels@gmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": ["ACCOUNT"], "actionAuth": ["TWO_FACTOR_AUTH"]}, "signingOrder": 3961.73, "rejectionReason": null}
+          application/json: {"envelopeId": "<id>", "role": "ASSISTANT", "readStatus": "NOT_OPENED", "signingStatus": "SIGNED", "sendStatus": "NOT_SENT", "id": 4556.07, "email": "Kitty_Heathcote-Huels@gmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": ["ACCOUNT"], "actionAuth": ["TWO_FACTOR_AUTH"]}, "signingOrder": 3961.73, "rejectionReason": null}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "500":
@@ -2300,7 +2301,7 @@ examples:
         application/json: {"documentId": 7045.62, "recipient": {"id": 2224.05}}
       responses:
         "200":
-          application/json: {"role": "ASSISTANT", "readStatus": "OPENED", "signingStatus": "REJECTED", "sendStatus": "SENT", "id": 6679.58, "documentId": 1962.76, "templateId": 8876.44, "email": "Ned42@yahoo.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": [], "actionAuth": ["PASSKEY"]}, "signingOrder": 231.61, "rejectionReason": "<value>", "fields": []}
+          application/json: {"envelopeId": "<id>", "role": "ASSISTANT", "readStatus": "OPENED", "signingStatus": "REJECTED", "sendStatus": "SENT", "id": 6679.58, "email": "Ned42@yahoo.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": [], "actionAuth": ["PASSKEY"]}, "signingOrder": 231.61, "rejectionReason": "<value>", "fields": []}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "500":
@@ -2311,7 +2312,7 @@ examples:
         application/json: {"documentId": 3189.76, "recipients": []}
       responses:
         "200":
-          application/json: {"recipients": [{"role": "VIEWER", "readStatus": "NOT_OPENED", "signingStatus": "SIGNED", "sendStatus": "NOT_SENT", "id": 7967.19, "documentId": 366.25, "templateId": 5896.63, "email": "Burley.Kuhn68@hotmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": null, "signedAt": "<value>", "authOptions": {"accessAuth": ["ACCOUNT"], "actionAuth": []}, "signingOrder": 1407.42, "rejectionReason": "<value>", "fields": [{"type": "NAME", "id": 9168.07, "secondaryId": "<id>", "documentId": 7326.55, "templateId": 4970.01, "recipientId": 2204.76, "page": 9162.68, "customText": "<value>", "inserted": true, "fieldMeta": {"type": "number"}}]}]}
+          application/json: {"recipients": [{"envelopeId": "<id>", "role": "VIEWER", "readStatus": "NOT_OPENED", "signingStatus": "SIGNED", "sendStatus": "NOT_SENT", "id": 7967.19, "email": "Burley.Kuhn68@hotmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": null, "signedAt": "<value>", "authOptions": {"accessAuth": ["ACCOUNT"], "actionAuth": []}, "signingOrder": 1407.42, "rejectionReason": "<value>", "fields": [{"envelopeId": "<id>", "envelopeItemId": "<id>", "type": "NAME", "id": 9168.07, "secondaryId": "<id>", "recipientId": 2204.76, "page": 9162.68, "customText": "<value>", "inserted": true, "fieldMeta": {"type": "number"}, "documentId": 7326.55, "templateId": 4970.01}], "documentId": 366.25, "templateId": 5896.63}]}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "500":
@@ -2331,7 +2332,7 @@ examples:
     speakeasy-default-template-find-templates:
       responses:
         "200":
-          application/json: {"data": [{"type": "PRIVATE", "visibility": "ADMIN", "id": 8353.5, "externalId": "<id>", "title": "<value>", "userId": 3928.48, "teamId": 3159.46, "authOptions": {"globalAccessAuth": [], "globalActionAuth": ["TWO_FACTOR_AUTH"]}, "templateDocumentDataId": "<id>", "createdAt": "1714153048686", "updatedAt": "1735669673106", "publicTitle": "<value>", "publicDescription": "<value>", "folderId": "<id>", "useLegacyFieldInsertion": true, "team": {"id": 2668.99, "url": "https://prickly-catalyst.info/"}, "fields": [], "recipients": [{"role": "APPROVER", "readStatus": "NOT_OPENED", "signingStatus": "REJECTED", "sendStatus": "NOT_SENT", "id": 2399.32, "documentId": 7002.73, "templateId": 3480.56, "email": "Trinity4@yahoo.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": ["ACCOUNT"], "actionAuth": []}, "signingOrder": 7999, "rejectionReason": "<value>"}], "templateMeta": {"signingOrder": "PARALLEL", "distributionMethod": "EMAIL"}, "directLink": {"token": "<value>", "enabled": false}}], "count": 3257.39, "currentPage": 6213.36, "perPage": 1087.86, "totalPages": 9305.35}
+          application/json: {"data": [{"type": "PRIVATE", "visibility": "ADMIN", "id": 8353.5, "externalId": "<id>", "title": "<value>", "userId": 3928.48, "teamId": 3159.46, "authOptions": {"globalAccessAuth": [], "globalActionAuth": ["TWO_FACTOR_AUTH"]}, "createdAt": "1714153048686", "updatedAt": "1735669673106", "publicTitle": "<value>", "publicDescription": "<value>", "folderId": "<id>", "useLegacyFieldInsertion": true, "envelopeId": "<id>", "team": {"id": 2668.99, "url": "https://prickly-catalyst.info/"}, "fields": [], "recipients": [{"envelopeId": "<id>", "role": "APPROVER", "readStatus": "NOT_OPENED", "signingStatus": "REJECTED", "sendStatus": "NOT_SENT", "id": 2399.32, "email": "Trinity4@yahoo.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": ["ACCOUNT"], "actionAuth": []}, "signingOrder": 7999, "rejectionReason": "<value>", "documentId": 7002.73, "templateId": 3480.56}], "templateMeta": {"signingOrder": "PARALLEL", "distributionMethod": "EMAIL"}, "directLink": {"token": "<value>", "enabled": false}, "templateDocumentDataId": "<id>"}], "count": 3257.39, "currentPage": 6213.36, "perPage": 1087.86, "totalPages": 9305.35}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "404":
@@ -2345,7 +2346,7 @@ examples:
           templateId: 2128.54
       responses:
         "200":
-          application/json: {"type": "PUBLIC", "visibility": "MANAGER_AND_ABOVE", "id": 2786.55, "externalId": "<id>", "title": "<value>", "userId": 6940.89, "teamId": 3976.59, "authOptions": {"globalAccessAuth": ["ACCOUNT"], "globalActionAuth": []}, "templateDocumentDataId": "<id>", "createdAt": "1723768641783", "updatedAt": "1735674990008", "publicTitle": "<value>", "publicDescription": "<value>", "folderId": "<id>", "templateDocumentData": {"type": "S3_PATH", "id": "<id>", "data": "<value>", "initialData": "<value>"}, "templateMeta": null, "directLink": {"id": "<id>", "templateId": 7277.86, "token": "<value>", "createdAt": "1717601799828", "enabled": false, "directTemplateRecipientId": 834.56}, "user": {"id": 9738.42, "name": null, "email": "Mack_Medhurst1@yahoo.com"}, "recipients": [{"role": "SIGNER", "readStatus": "OPENED", "signingStatus": "REJECTED", "sendStatus": "SENT", "id": 4032.33, "documentId": 1928.67, "templateId": 8554.25, "email": "Jerod84@gmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": null, "signingOrder": 2256.36, "rejectionReason": "<value>"}], "fields": [{"type": "DROPDOWN", "id": 5010.54, "secondaryId": "<id>", "documentId": 7051.15, "templateId": 2232.05, "recipientId": 1178.91, "page": 6095.28, "customText": "<value>", "inserted": false, "fieldMeta": {"type": "number"}}], "folder": {"id": "<id>", "name": "<value>", "type": "TEMPLATE", "visibility": "ADMIN", "userId": 3373.59, "teamId": 8767.64, "pinned": true, "parentId": "<id>", "createdAt": "1730669445716", "updatedAt": "1735609508778"}}
+          application/json: {"type": "PUBLIC", "visibility": "MANAGER_AND_ABOVE", "id": 2786.55, "externalId": "<id>", "title": "<value>", "userId": 6940.89, "teamId": 3976.59, "authOptions": {"globalAccessAuth": ["ACCOUNT"], "globalActionAuth": []}, "createdAt": "1723768641783", "updatedAt": "1735674990008", "publicTitle": "<value>", "publicDescription": "<value>", "folderId": "<id>", "envelopeId": "<id>", "templateDocumentDataId": "", "templateDocumentData": {"type": "S3_PATH", "id": "<id>", "data": "<value>", "initialData": "<value>", "envelopeItemId": "<id>"}, "templateMeta": {"id": "<id>", "subject": "<value>", "message": "<value>", "timezone": "America/Indiana/Indianapolis", "dateFormat": "<value>", "signingOrder": "SEQUENTIAL", "typedSignatureEnabled": true, "uploadSignatureEnabled": true, "drawSignatureEnabled": false, "allowDictateNextSigner": false, "distributionMethod": "EMAIL", "redirectUrl": "https://prudent-embossing.com", "language": "<value>", "emailSettings": {"recipientSigningRequest": true, "recipientRemoved": true, "recipientSigned": true, "documentPending": true, "documentCompleted": true, "documentDeleted": true, "ownerDocumentCompleted": true}, "emailId": "<id>", "emailReplyTo": "<value>", "templateId": 834.56}, "directLink": {"id": "<id>", "envelopeId": "<id>", "token": "<value>", "createdAt": "1717601799828", "enabled": false, "directTemplateRecipientId": 834.56, "templateId": 7277.86}, "user": {"id": 9738.42, "name": null, "email": "Mack_Medhurst1@yahoo.com"}, "recipients": [{"envelopeId": "<id>", "role": "SIGNER", "readStatus": "OPENED", "signingStatus": "REJECTED", "sendStatus": "SENT", "id": 4032.33, "email": "Jerod84@gmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": null, "signingOrder": 2256.36, "rejectionReason": "<value>", "documentId": 1928.67, "templateId": 8554.25}], "fields": [{"envelopeId": "<id>", "envelopeItemId": "<id>", "type": "DROPDOWN", "id": 5010.54, "secondaryId": "<id>", "recipientId": 1178.91, "page": 6095.28, "customText": "<value>", "inserted": false, "fieldMeta": {"type": "number"}, "documentId": 7051.15, "templateId": 2232.05}], "folder": {"id": "<id>", "name": "<value>", "type": "TEMPLATE", "visibility": "ADMIN", "userId": 3373.59, "teamId": 8767.64, "pinned": true, "parentId": "<id>", "createdAt": "1730669445716", "updatedAt": "1735609508778"}}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "404":
@@ -2358,7 +2359,7 @@ examples:
         application/json: {"templateId": 9404.77}
       responses:
         "200":
-          application/json: {"type": "PUBLIC", "visibility": "MANAGER_AND_ABOVE", "id": 5983.02, "externalId": "<id>", "title": "<value>", "userId": 9111.71, "teamId": 6120.86, "authOptions": {"globalAccessAuth": [], "globalActionAuth": []}, "templateDocumentDataId": "<id>", "createdAt": "1709192090796", "updatedAt": "1735628592236", "publicTitle": "<value>", "publicDescription": "<value>", "folderId": null, "useLegacyFieldInsertion": false}
+          application/json: {"type": "PUBLIC", "visibility": "MANAGER_AND_ABOVE", "id": 5983.02, "externalId": "<id>", "title": "<value>", "userId": 9111.71, "teamId": 6120.86, "authOptions": {"globalAccessAuth": [], "globalActionAuth": []}, "createdAt": "1709192090796", "updatedAt": "1735628592236", "publicTitle": "<value>", "publicDescription": "<value>", "folderId": null, "useLegacyFieldInsertion": false, "envelopeId": "<id>", "templateDocumentDataId": ""}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "500":
@@ -2369,7 +2370,7 @@ examples:
         application/json: {"templateId": 2490.16}
       responses:
         "200":
-          application/json: {"type": "PUBLIC", "visibility": "MANAGER_AND_ABOVE", "id": 4866.89, "externalId": "<id>", "title": "<value>", "userId": 9126.65, "teamId": 4478.26, "authOptions": {"globalAccessAuth": ["ACCOUNT"], "globalActionAuth": []}, "templateDocumentDataId": "<id>", "createdAt": "1704548362148", "updatedAt": "1735659577102", "publicTitle": "<value>", "publicDescription": "<value>", "folderId": "<id>", "useLegacyFieldInsertion": true}
+          application/json: {"type": "PUBLIC", "visibility": "MANAGER_AND_ABOVE", "id": 4866.89, "externalId": "<id>", "title": "<value>", "userId": 9126.65, "teamId": 4478.26, "authOptions": {"globalAccessAuth": ["ACCOUNT"], "globalActionAuth": []}, "createdAt": "1704548362148", "updatedAt": "1735659577102", "publicTitle": "<value>", "publicDescription": "<value>", "folderId": "<id>", "useLegacyFieldInsertion": true, "envelopeId": "<id>", "templateDocumentDataId": ""}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "500":
@@ -2391,7 +2392,7 @@ examples:
         application/json: {"templateId": 7392.96, "recipients": []}
       responses:
         "200":
-          application/json: {"visibility": "EVERYONE", "status": "DRAFT", "source": "DOCUMENT", "id": 5310.67, "externalId": "<id>", "userId": 4199.74, "authOptions": {"globalAccessAuth": [], "globalActionAuth": ["PASSWORD"]}, "formValues": {"key": "<value>"}, "title": "<value>", "documentDataId": "<id>", "createdAt": "1713071497395", "updatedAt": "1735653497198", "completedAt": "<value>", "deletedAt": "<value>", "teamId": 7804.64, "templateId": null, "folderId": "<id>", "documentData": {"type": "BYTES_64", "id": "<id>", "data": "<value>", "initialData": "<value>"}, "documentMeta": {"signingOrder": "PARALLEL", "distributionMethod": "EMAIL", "id": "<id>", "subject": "<value>", "message": "<value>", "timezone": "Asia/Baghdad", "password": "YbkNhe0kXAWK9Uf", "dateFormat": "<value>", "documentId": 808.12, "redirectUrl": "https://crazy-passport.info", "typedSignatureEnabled": true, "uploadSignatureEnabled": true, "drawSignatureEnabled": true, "allowDictateNextSigner": true, "language": "<value>", "emailSettings": {"recipientSigningRequest": true, "recipientRemoved": true, "recipientSigned": true, "documentPending": true, "documentCompleted": true, "documentDeleted": true, "ownerDocumentCompleted": true}, "emailId": "<id>", "emailReplyTo": "<value>"}, "folder": {"id": "<id>", "name": "<value>", "type": "TEMPLATE", "visibility": "EVERYONE", "userId": 1798.88, "teamId": 8271.19, "pinned": true, "parentId": "<id>", "createdAt": "1708992067457", "updatedAt": "1735631101461"}, "recipients": [{"role": "CC", "readStatus": "OPENED", "signingStatus": "NOT_SIGNED", "sendStatus": "SENT", "id": 5426.03, "documentId": 4293.73, "templateId": 1031.22, "email": "Jada_Schowalter@hotmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": null, "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": ["ACCOUNT"], "actionAuth": ["PASSWORD"]}, "signingOrder": 6463.78, "rejectionReason": null}], "fields": []}
+          application/json: {"visibility": "EVERYONE", "status": "DRAFT", "source": "DOCUMENT", "id": 5310.67, "externalId": "<id>", "userId": 4199.74, "authOptions": {"globalAccessAuth": [], "globalActionAuth": ["PASSWORD"]}, "formValues": {"key": "<value>"}, "title": "<value>", "createdAt": "1713071497395", "updatedAt": "1735653497198", "completedAt": "<value>", "deletedAt": "<value>", "teamId": 7804.64, "folderId": "<id>", "envelopeId": "<id>", "documentDataId": "", "documentData": {"type": "BYTES_64", "id": "<id>", "data": "<value>", "initialData": "<value>", "envelopeItemId": "<id>"}, "documentMeta": {"signingOrder": "PARALLEL", "distributionMethod": "EMAIL", "id": "<id>", "subject": "<value>", "message": "<value>", "timezone": "Asia/Baghdad", "dateFormat": "<value>", "redirectUrl": "https://crazy-passport.info", "typedSignatureEnabled": true, "uploadSignatureEnabled": true, "drawSignatureEnabled": true, "allowDictateNextSigner": true, "language": "<value>", "emailSettings": {"recipientSigningRequest": true, "recipientRemoved": true, "recipientSigned": true, "documentPending": true, "documentCompleted": true, "documentDeleted": true, "ownerDocumentCompleted": true}, "emailId": "<id>", "emailReplyTo": "<value>", "password": null, "documentId": -1}, "folder": {"id": "<id>", "name": "<value>", "type": "TEMPLATE", "visibility": "EVERYONE", "userId": 1798.88, "teamId": 8271.19, "pinned": true, "parentId": "<id>", "createdAt": "1708992067457", "updatedAt": "1735631101461"}, "recipients": [{"envelopeId": "<id>", "role": "CC", "readStatus": "OPENED", "signingStatus": "NOT_SIGNED", "sendStatus": "SENT", "id": 5426.03, "email": "Jada_Schowalter@hotmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": null, "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": ["ACCOUNT"], "actionAuth": ["PASSWORD"]}, "signingOrder": 6463.78, "rejectionReason": null, "documentId": 4293.73, "templateId": 1031.22}], "fields": []}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "500":
@@ -2413,7 +2414,7 @@ examples:
         application/json: {"templateId": 1203.71, "field": {"type": "DATE", "recipientId": 2738.54, "pageNumber": 5735.12, "pageX": 2936.28, "pageY": 8594.41, "width": 7589.39, "height": 3122.23}}
       responses:
         "200":
-          application/json: {"type": "NAME", "id": 3321.38, "secondaryId": "<id>", "documentId": 7985.8, "templateId": 394.38, "recipientId": 8001.07, "page": 9090.42, "customText": "<value>", "inserted": false, "fieldMeta": {"type": "checkbox", "direction": "vertical"}}
+          application/json: {"envelopeId": "<id>", "envelopeItemId": "<id>", "type": "NAME", "id": 3321.38, "secondaryId": "<id>", "recipientId": 8001.07, "page": 9090.42, "customText": "<value>", "inserted": false, "fieldMeta": {"type": "checkbox", "direction": "vertical"}}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "500":
@@ -2425,7 +2426,7 @@ examples:
           fieldId: 1152.82
       responses:
         "200":
-          application/json: {"type": "TEXT", "id": 2979.32, "secondaryId": "<id>", "documentId": 3596.91, "templateId": 6711.15, "recipientId": 6690.25, "page": 5824.69, "customText": "<value>", "inserted": false, "fieldMeta": {"type": "number"}}
+          application/json: {"envelopeId": "<id>", "envelopeItemId": "<id>", "type": "TEXT", "id": 2979.32, "secondaryId": "<id>", "recipientId": 6690.25, "page": 5824.69, "customText": "<value>", "inserted": false, "fieldMeta": {"type": "number"}}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "404":
@@ -2438,7 +2439,7 @@ examples:
         application/json: {"templateId": 586.2, "fields": [{"type": "SIGNATURE", "recipientId": 6990.12, "pageNumber": 3472.45, "pageX": 4747.87, "pageY": 1673.94, "width": 7215.37, "height": 9417.43}]}
       responses:
         "200":
-          application/json: {"fields": [{"type": "CHECKBOX", "id": 7862.02, "secondaryId": "<id>", "documentId": 6981.63, "templateId": 9898.46, "recipientId": 8274.39, "page": 3264.78, "customText": "<value>", "inserted": true, "fieldMeta": {"type": "name"}}]}
+          application/json: {"fields": [{"envelopeId": "<id>", "envelopeItemId": "<id>", "type": "CHECKBOX", "id": 7862.02, "secondaryId": "<id>", "recipientId": 8274.39, "page": 3264.78, "customText": "<value>", "inserted": true, "fieldMeta": {"type": "name"}, "documentId": 6981.63, "templateId": 9898.46}]}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "500":
@@ -2449,7 +2450,7 @@ examples:
         application/json: {"templateId": 5083.07, "field": {"type": "TEXT", "id": 1792.29}}
       responses:
         "200":
-          application/json: {"type": "CHECKBOX", "id": 5188.56, "secondaryId": "<id>", "documentId": 9956.37, "templateId": 7914.68, "recipientId": 4165.02, "page": 9069.54, "customText": "<value>", "inserted": false, "fieldMeta": {"type": "number"}}
+          application/json: {"envelopeId": "<id>", "envelopeItemId": "<id>", "type": "CHECKBOX", "id": 5188.56, "secondaryId": "<id>", "recipientId": 4165.02, "page": 9069.54, "customText": "<value>", "inserted": false, "fieldMeta": {"type": "number"}}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "500":
@@ -2460,7 +2461,7 @@ examples:
         application/json: {"templateId": 3969.1, "fields": [{"type": "DROPDOWN", "id": 2460.72}]}
       responses:
         "200":
-          application/json: {"fields": [{"type": "CHECKBOX", "id": 5681.05, "secondaryId": "<id>", "documentId": 3141.26, "templateId": 6919.19, "recipientId": 3658.89, "page": 6460.06, "customText": "<value>", "inserted": true, "fieldMeta": {"type": "initials"}}]}
+          application/json: {"fields": [{"envelopeId": "<id>", "envelopeItemId": "<id>", "type": "CHECKBOX", "id": 5681.05, "secondaryId": "<id>", "recipientId": 3658.89, "page": 6460.06, "customText": "<value>", "inserted": true, "fieldMeta": {"type": "initials"}, "documentId": 3141.26, "templateId": 6919.19}]}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "500":
@@ -2483,7 +2484,7 @@ examples:
           recipientId: 9436.42
       responses:
         "200":
-          application/json: {"role": "SIGNER", "readStatus": "OPENED", "signingStatus": "SIGNED", "sendStatus": "NOT_SENT", "id": 3084.26, "documentId": 9767.45, "templateId": 4075, "email": "Clovis_Stoltenberg@gmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": null, "signedAt": "<value>", "authOptions": {"accessAuth": [], "actionAuth": ["PASSWORD"]}, "signingOrder": 5048.3, "rejectionReason": null, "fields": [{"type": "DROPDOWN", "id": 1498.08, "secondaryId": "<id>", "documentId": 3041.54, "templateId": 8898.39, "recipientId": 5421.45, "page": 5530.65, "customText": "<value>", "inserted": false, "fieldMeta": {"type": "radio"}}]}
+          application/json: {"envelopeId": "<id>", "role": "SIGNER", "readStatus": "OPENED", "signingStatus": "SIGNED", "sendStatus": "NOT_SENT", "id": 3084.26, "email": "Clovis_Stoltenberg@gmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": null, "signedAt": "<value>", "authOptions": {"accessAuth": [], "actionAuth": ["PASSWORD"]}, "signingOrder": 5048.3, "rejectionReason": null, "fields": [{"envelopeId": "<id>", "envelopeItemId": "<id>", "type": "DROPDOWN", "id": 1498.08, "secondaryId": "<id>", "recipientId": 5421.45, "page": 5530.65, "customText": "<value>", "inserted": false, "fieldMeta": {"type": "radio"}, "documentId": 3041.54, "templateId": 8898.39}]}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "404":
@@ -2496,7 +2497,7 @@ examples:
         application/json: {"templateId": 5712.95, "recipient": {"email": "Gerhard88@yahoo.com", "name": "<value>", "role": "SIGNER"}}
       responses:
         "200":
-          application/json: {"role": "ASSISTANT", "readStatus": "OPENED", "signingStatus": "SIGNED", "sendStatus": "SENT", "id": 3391.15, "documentId": 1642.76, "templateId": 1072.6, "email": "Vida29@hotmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": null, "signingOrder": 8644.53, "rejectionReason": "<value>"}
+          application/json: {"envelopeId": "<id>", "role": "ASSISTANT", "readStatus": "OPENED", "signingStatus": "SIGNED", "sendStatus": "SENT", "id": 3391.15, "email": "Vida29@hotmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": null, "signingOrder": 8644.53, "rejectionReason": "<value>"}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "500":
@@ -2518,7 +2519,7 @@ examples:
         application/json: {"templateId": 2984.61, "recipient": {"id": 8617.99}}
       responses:
         "200":
-          application/json: {"role": "ASSISTANT", "readStatus": "OPENED", "signingStatus": "REJECTED", "sendStatus": "SENT", "id": 3174.79, "documentId": 149.88, "templateId": 5506.77, "email": "Esperanza_Moen@gmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": ["ACCOUNT"], "actionAuth": []}, "signingOrder": 6494.69, "rejectionReason": "<value>", "fields": []}
+          application/json: {"envelopeId": "<id>", "role": "ASSISTANT", "readStatus": "OPENED", "signingStatus": "REJECTED", "sendStatus": "SENT", "id": 3174.79, "email": "Esperanza_Moen@gmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": ["ACCOUNT"], "actionAuth": []}, "signingOrder": 6494.69, "rejectionReason": "<value>", "fields": []}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "500":
@@ -2529,7 +2530,7 @@ examples:
         application/json: {"templateId": 5597.58, "recipients": [{"id": 1630.42}]}
       responses:
         "200":
-          application/json: {"recipients": [{"role": "CC", "readStatus": "NOT_OPENED", "signingStatus": "REJECTED", "sendStatus": "SENT", "id": 653.82, "documentId": 3004.48, "templateId": null, "email": "Ramona58@hotmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": null, "authOptions": {"accessAuth": ["ACCOUNT"], "actionAuth": []}, "signingOrder": 9903.26, "rejectionReason": "<value>", "fields": [{"type": "EMAIL", "id": 4590.2, "secondaryId": "<id>", "documentId": null, "templateId": 893.72, "recipientId": 3286.18, "page": 3712.73, "customText": "<value>", "inserted": false, "fieldMeta": {"type": "text"}}]}]}
+          application/json: {"recipients": [{"envelopeId": "<id>", "role": "CC", "readStatus": "NOT_OPENED", "signingStatus": "REJECTED", "sendStatus": "SENT", "id": 653.82, "email": "Ramona58@hotmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": null, "authOptions": {"accessAuth": ["ACCOUNT"], "actionAuth": []}, "signingOrder": 9903.26, "rejectionReason": "<value>", "fields": [{"envelopeId": "<id>", "envelopeItemId": "<id>", "type": "EMAIL", "id": 4590.2, "secondaryId": "<id>", "recipientId": 3286.18, "page": 3712.73, "customText": "<value>", "inserted": false, "fieldMeta": {"type": "text"}, "documentId": null, "templateId": 893.72}], "documentId": 3004.48, "templateId": null}]}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "500":
@@ -2551,7 +2552,7 @@ examples:
         application/json: {"templateId": 5094.31}
       responses:
         "200":
-          application/json: {"id": "<id>", "templateId": 9525.52, "token": "<value>", "createdAt": "1721338708803", "enabled": true, "directTemplateRecipientId": 892.62}
+          application/json: {"id": "<id>", "token": "<value>", "createdAt": "1721338708803", "enabled": true, "directTemplateRecipientId": 892.62, "envelopeId": "<id>", "templateId": 9525.52}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "500":
@@ -2573,7 +2574,7 @@ examples:
         application/json: {"templateId": 6583.54, "enabled": false}
       responses:
         "200":
-          application/json: {"id": "<id>", "templateId": 3373.72, "token": "<value>", "createdAt": "1718653442722", "enabled": false, "directTemplateRecipientId": 6029.67}
+          application/json: {"id": "<id>", "token": "<value>", "createdAt": "1718653442722", "enabled": false, "directTemplateRecipientId": 6029.67, "envelopeId": "<id>", "templateId": 3373.72}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "500":
@@ -2607,7 +2608,7 @@ examples:
           documentId: 6150.61
       responses:
         "200":
-          application/json: {"visibility": "MANAGER_AND_ABOVE", "status": "COMPLETED", "source": "TEMPLATE_DIRECT_LINK", "id": 790.23, "externalId": "<id>", "userId": 6931.1, "authOptions": {"globalAccessAuth": [], "globalActionAuth": ["PASSWORD"]}, "formValues": {"key": true}, "title": "<value>", "documentDataId": "<id>", "createdAt": "1711154896799", "updatedAt": "1735666806591", "completedAt": "<value>", "deletedAt": "<value>", "teamId": 3827.21, "templateId": 4732.99, "folderId": null, "documentData": {"type": "BYTES_64", "id": "<id>", "data": "<value>", "initialData": "<value>"}, "documentMeta": {"signingOrder": "PARALLEL", "distributionMethod": "EMAIL", "id": "<id>", "subject": "<value>", "message": "<value>", "timezone": "Asia/Irkutsk", "password": "umjrsCYmtCVkTfk", "dateFormat": "<value>", "documentId": 7995.91, "redirectUrl": "https://male-solution.biz", "typedSignatureEnabled": true, "uploadSignatureEnabled": false, "drawSignatureEnabled": false, "allowDictateNextSigner": true, "language": "<value>", "emailSettings": {"recipientSigningRequest": true, "recipientRemoved": true, "recipientSigned": true, "documentPending": true, "documentCompleted": true, "documentDeleted": true, "ownerDocumentCompleted": true}, "emailId": "<id>", "emailReplyTo": "<value>"}, "folder": {"id": "<id>", "name": "<value>", "type": "TEMPLATE", "visibility": "EVERYONE", "userId": 3251.85, "teamId": 8449.35, "pinned": false, "parentId": "<id>", "createdAt": "1708562085192", "updatedAt": "1735658632171"}, "recipients": [], "fields": []}
+          application/json: {"visibility": "MANAGER_AND_ABOVE", "status": "COMPLETED", "source": "TEMPLATE_DIRECT_LINK", "id": 790.23, "externalId": "<id>", "userId": 6931.1, "authOptions": {"globalAccessAuth": [], "globalActionAuth": ["PASSWORD"]}, "formValues": {"key": true}, "title": "<value>", "createdAt": "1711154896799", "updatedAt": "1735666806591", "completedAt": "<value>", "deletedAt": "<value>", "teamId": 3827.21, "folderId": null, "envelopeId": "<id>", "documentDataId": "", "documentData": {"type": "BYTES_64", "id": "<id>", "data": "<value>", "initialData": "<value>", "envelopeItemId": "<id>"}, "documentMeta": {"signingOrder": "PARALLEL", "distributionMethod": "EMAIL", "id": "<id>", "subject": "<value>", "message": "<value>", "timezone": "Asia/Irkutsk", "dateFormat": "<value>", "redirectUrl": "https://male-solution.biz", "typedSignatureEnabled": true, "uploadSignatureEnabled": false, "drawSignatureEnabled": false, "allowDictateNextSigner": true, "language": "<value>", "emailSettings": {"recipientSigningRequest": true, "recipientRemoved": true, "recipientSigned": true, "documentPending": true, "documentCompleted": true, "documentDeleted": true, "ownerDocumentCompleted": true}, "emailId": "<id>", "emailReplyTo": "<value>", "password": null, "documentId": -1}, "folder": {"id": "<id>", "name": "<value>", "type": "TEMPLATE", "visibility": "EVERYONE", "userId": 3251.85, "teamId": 8449.35, "pinned": false, "parentId": "<id>", "createdAt": "1708562085192", "updatedAt": "1735658632171"}, "recipients": [], "fields": []}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "404":
@@ -2621,7 +2622,7 @@ examples:
           orderByDirection: "desc"
       responses:
         "200":
-          application/json: {"data": [{"visibility": "MANAGER_AND_ABOVE", "status": "DRAFT", "source": "TEMPLATE_DIRECT_LINK", "id": 7654.95, "externalId": "<id>", "userId": 7633.68, "authOptions": {"globalAccessAuth": ["ACCOUNT"], "globalActionAuth": []}, "formValues": {"key": "<value>"}, "title": "<value>", "documentDataId": "<id>", "createdAt": "1727038710195", "updatedAt": "1735623651736", "completedAt": "<value>", "deletedAt": "<value>", "teamId": 4974.29, "templateId": 2770.63, "folderId": "<id>", "useLegacyFieldInsertion": false, "user": {"id": 2349.98, "name": "<value>", "email": "Houston76@gmail.com"}, "recipients": [{"role": "SIGNER", "readStatus": "OPENED", "signingStatus": "REJECTED", "sendStatus": "NOT_SENT", "id": 41.02, "documentId": null, "templateId": 6978.53, "email": "Max.Quigley12@hotmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": ["ACCOUNT"], "actionAuth": []}, "signingOrder": 3026.85, "rejectionReason": "<value>"}], "team": {"id": 392.69, "url": "https://whopping-obligation.biz/"}}], "count": 5292.54, "currentPage": 6035.56, "perPage": 5604.88, "totalPages": 6554.44}
+          application/json: {"data": [{"visibility": "MANAGER_AND_ABOVE", "status": "DRAFT", "source": "TEMPLATE_DIRECT_LINK", "id": 7654.95, "externalId": "<id>", "userId": 7633.68, "authOptions": {"globalAccessAuth": ["ACCOUNT"], "globalActionAuth": []}, "formValues": {"key": "<value>"}, "title": "<value>", "createdAt": "1727038710195", "updatedAt": "1735623651736", "completedAt": "<value>", "deletedAt": "<value>", "teamId": 4974.29, "folderId": "<id>", "useLegacyFieldInsertion": false, "envelopeId": "<id>", "documentDataId": "<id>", "templateId": 2770.63, "user": {"id": 2349.98, "name": "<value>", "email": "Houston76@gmail.com"}, "recipients": [{"envelopeId": "<id>", "role": "SIGNER", "readStatus": "OPENED", "signingStatus": "REJECTED", "sendStatus": "NOT_SENT", "id": 41.02, "email": "Max.Quigley12@hotmail.com", "name": "<value>", "token": "<value>", "documentDeletedAt": "<value>", "expired": "<value>", "signedAt": "<value>", "authOptions": {"accessAuth": ["ACCOUNT"], "actionAuth": []}, "signingOrder": 3026.85, "rejectionReason": "<value>", "documentId": null, "templateId": 6978.53}], "team": {"id": 392.69, "url": "https://whopping-obligation.biz/"}}], "count": 5292.54, "currentPage": 6035.56, "perPage": 5604.88, "totalPages": 6554.44}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "404":
@@ -2634,7 +2635,7 @@ examples:
         application/json: {"documentId": 3428.95}
       responses:
         "200":
-          application/json: {"visibility": "EVERYONE", "status": "COMPLETED", "source": "TEMPLATE_DIRECT_LINK", "id": 3519.03, "externalId": null, "userId": 7295.76, "authOptions": {"globalAccessAuth": ["ACCOUNT"], "globalActionAuth": ["PASSKEY"]}, "formValues": {"key": 2836.38}, "title": "<value>", "documentDataId": "<id>", "createdAt": "1715198116202", "updatedAt": "1735678172451", "completedAt": null, "deletedAt": "<value>", "teamId": 6211.31, "templateId": null, "folderId": "<id>", "useLegacyFieldInsertion": true}
+          application/json: {"visibility": "EVERYONE", "status": "COMPLETED", "source": "TEMPLATE_DIRECT_LINK", "id": 3519.03, "externalId": null, "userId": 7295.76, "authOptions": {"globalAccessAuth": ["ACCOUNT"], "globalActionAuth": ["PASSKEY"]}, "formValues": {"key": 2836.38}, "title": "<value>", "createdAt": "1715198116202", "updatedAt": "1735678172451", "completedAt": null, "deletedAt": "<value>", "teamId": 6211.31, "folderId": "<id>", "useLegacyFieldInsertion": true, "envelopeId": "<id>", "documentDataId": ""}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "500":
@@ -2656,7 +2657,7 @@ examples:
         application/json: {"documentId": 5285.3}
       responses:
         "200":
-          application/json: {"documentId": 1846.9}
+          application/json: {"id": "<id>", "documentId": 1846.9}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "500":
@@ -2667,7 +2668,7 @@ examples:
         application/json: {"documentId": 7548.74}
       responses:
         "200":
-          application/json: {"visibility": "MANAGER_AND_ABOVE", "status": "DRAFT", "source": "TEMPLATE", "id": 4202.33, "externalId": "<id>", "userId": 139.61, "authOptions": {"globalAccessAuth": ["ACCOUNT"], "globalActionAuth": ["ACCOUNT"]}, "formValues": {"key": 3939.25}, "title": "<value>", "documentDataId": "<id>", "createdAt": "1711393054424", "updatedAt": "1735639958766", "completedAt": "<value>", "deletedAt": "<value>", "teamId": 3513.5, "templateId": 7969.92, "folderId": "<id>", "useLegacyFieldInsertion": false}
+          application/json: {"visibility": "MANAGER_AND_ABOVE", "status": "DRAFT", "source": "TEMPLATE", "id": 4202.33, "externalId": "<id>", "userId": 139.61, "authOptions": {"globalAccessAuth": ["ACCOUNT"], "globalActionAuth": ["ACCOUNT"]}, "formValues": {"key": 3939.25}, "title": "<value>", "createdAt": "1711393054424", "updatedAt": "1735639958766", "completedAt": "<value>", "deletedAt": "<value>", "teamId": 3513.5, "folderId": "<id>", "useLegacyFieldInsertion": false, "envelopeId": "<id>", "documentDataId": ""}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "500":
@@ -2705,11 +2706,11 @@ examples:
         application/json: {"title": "<value>"}
       responses:
         "200":
-          application/json: {"template": {"type": "PUBLIC", "visibility": "ADMIN", "id": 8391.69, "externalId": "<id>", "title": "<value>", "userId": 6247.95, "teamId": 5122.65, "authOptions": {"globalAccessAuth": ["ACCOUNT"], "globalActionAuth": ["TWO_FACTOR_AUTH"]}, "templateDocumentDataId": "<id>", "createdAt": "1712192211407", "updatedAt": "1735675735056", "publicTitle": "<value>", "publicDescription": "<value>", "folderId": "<id>", "templateDocumentData": {"type": "BYTES_64", "id": "<id>", "data": "<value>", "initialData": "<value>"}, "templateMeta": {"id": "<id>", "subject": "<value>", "message": "<value>", "timezone": "Asia/Sakhalin", "dateFormat": "<value>", "signingOrder": "PARALLEL", "typedSignatureEnabled": true, "uploadSignatureEnabled": true, "drawSignatureEnabled": false, "allowDictateNextSigner": true, "distributionMethod": "NONE", "templateId": 7720.82, "redirectUrl": "https://vivid-kiss.biz/", "language": "<value>", "emailSettings": {"recipientSigningRequest": true, "recipientRemoved": true, "recipientSigned": true, "documentPending": true, "documentCompleted": true, "documentDeleted": true, "ownerDocumentCompleted": true}, "emailId": "<id>", "emailReplyTo": "<value>"}, "directLink": {"id": "<id>", "templateId": 8606.18, "token": "<value>", "createdAt": "1721483827272", "enabled": false, "directTemplateRecipientId": 697.57}, "user": {"id": 1951.08, "name": "<value>", "email": "Irving.Wilderman49@yahoo.com"}, "recipients": [], "fields": [{"type": "FREE_SIGNATURE", "id": 7540.28, "secondaryId": "<id>", "documentId": 4328.3, "templateId": 18.79, "recipientId": 19.81, "page": 1036.07, "customText": "<value>", "inserted": true, "fieldMeta": {"type": "email"}}], "folder": {"id": "<id>", "name": "<value>", "type": "TEMPLATE", "visibility": "ADMIN", "userId": 668.9, "teamId": 9535.83, "pinned": true, "parentId": null, "createdAt": "1721370013638", "updatedAt": "1735673140541"}}, "uploadUrl": "https://blank-stranger.name"}
+          application/json: {"template": {"type": "PUBLIC", "visibility": "ADMIN", "id": 8391.69, "externalId": "<id>", "title": "<value>", "userId": 6247.95, "teamId": 5122.65, "authOptions": {"globalAccessAuth": ["ACCOUNT"], "globalActionAuth": ["TWO_FACTOR_AUTH"]}, "createdAt": "1712192211407", "updatedAt": "1735675735056", "publicTitle": "<value>", "publicDescription": "<value>", "folderId": "<id>", "envelopeId": "<id>", "templateDocumentDataId": "", "templateDocumentData": {"type": "BYTES_64", "id": "<id>", "data": "<value>", "initialData": "<value>", "envelopeItemId": "<id>"}, "templateMeta": {"id": "<id>", "subject": "<value>", "message": "<value>", "timezone": "Asia/Sakhalin", "dateFormat": "<value>", "signingOrder": "PARALLEL", "typedSignatureEnabled": true, "uploadSignatureEnabled": true, "drawSignatureEnabled": false, "allowDictateNextSigner": true, "distributionMethod": "NONE", "redirectUrl": "https://vivid-kiss.biz/", "language": "<value>", "emailSettings": {"recipientSigningRequest": true, "recipientRemoved": true, "recipientSigned": true, "documentPending": true, "documentCompleted": true, "documentDeleted": true, "ownerDocumentCompleted": true}, "emailId": "<id>", "emailReplyTo": "<value>", "templateId": 7720.82}, "directLink": {"id": "<id>", "envelopeId": "<id>", "token": "<value>", "createdAt": "1721483827272", "enabled": false, "directTemplateRecipientId": 697.57, "templateId": 8606.18}, "user": {"id": 1951.08, "name": "<value>", "email": "Irving.Wilderman49@yahoo.com"}, "recipients": [], "fields": [{"envelopeId": "<id>", "envelopeItemId": "<id>", "type": "FREE_SIGNATURE", "id": 7540.28, "secondaryId": "<id>", "recipientId": 19.81, "page": 1036.07, "customText": "<value>", "inserted": true, "fieldMeta": {"type": "email"}, "documentId": 4328.3, "templateId": 18.79}], "folder": {"id": "<id>", "name": "<value>", "type": "TEMPLATE", "visibility": "ADMIN", "userId": 668.9, "teamId": 9535.83, "pinned": true, "parentId": null, "createdAt": "1721370013638", "updatedAt": "1735673140541"}}, "uploadUrl": "https://blank-stranger.name"}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "500":
           application/json: {"message": "<value>", "code": "<value>"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## SDK Changes Detected:\n* `documenso.documents.get()`: \n  *  `request.folderId` **Removed** **Breaking** :warning:\n  *  `response` **Changed**\n* `documenso.documents.recipients.update()`:  `response.fields.[].fieldMeta.[class].direction` **Added**\n* `documenso.templates.fields.updateMany()`: \n  *  `request.fields.[].[class].fieldMeta.direction` **Added**\n  *  `response.fields.[].fieldMeta.[class].direction` **Added**\n* `documenso.template.templateCreateTemplateTemporary()`: **Added**\n* `documenso.documents.createV0()`: \n  *  `request` **Changed**\n  *  `response.document` **Changed**\n* `documenso.documents.distribute()`: \n  *  `request.meta` **Changed**\n* `documenso.documents.fields.get()`:  `response.fieldmeta.[class].direction` **Added**\n* `documenso.documents.fields.create()`: \n  *  `request.field.[class].fieldMeta.direction` **Added**\n  *  `response.fieldmeta.[class].direction` **Added**\n* `documenso.documents.fields.createMany()`: \n  *  `request.fields.[].[class].fieldMeta.direction` **Added**\n  *  `response.fields.[].fieldMeta.[class].direction` **Added**\n* `documenso.documents.fields.update()`: \n  *  `request.field.[class].fieldMeta.direction` **Added**\n  *  `response.fieldmeta.[class].direction` **Added**\n* `documenso.documents.fields.updateMany()`: \n  *  `request.fields.[].[class].fieldMeta.direction` **Added**\n  *  `response.fields.[].fieldMeta.[class].direction` **Added**\n* `documenso.documents.recipients.get()`:  `response.fields.[].fieldMeta.[class].direction` **Added**\n* `documenso.document.documentDownload()`: **Added**\n* `documenso.documents.update()`: \n  *  `request.meta` **Changed**\n* `documenso.templates.get()`:  `response` **Changed**\n* `documenso.documents.recipients.updateMany()`:  `response.recipients.[].fields.[].fieldMeta.[class].direction` **Added**\n* `documenso.templates.update()`: \n  *  `request.meta` **Changed**\n* `documenso.templates.use()`: \n  *  `request.folderId` **Added**\n  *  `response` **Changed**\n* `documenso.templates.fields.create()`: \n  *  `request.field.[class].fieldMeta.direction` **Added**\n  *  `response.fieldmeta.[class].direction` **Added**\n* `documenso.templates.fields.get()`:  `response.fieldmeta.[class].direction` **Added**\n* `documenso.templates.fields.createMany()`: \n  *  `request.fields.[].[class].fieldMeta.direction` **Added**\n  *  `response.fields.[].fieldMeta.[class].direction` **Added**\n* `documenso.templates.fields.update()`: \n  *  `request.field.[class].fieldMeta.direction` **Added**\n  *  `response.fieldmeta.[class].direction` **Added**\n* `documenso.templates.find()`:  `response.data.[].fields.[].fieldMeta.[class].direction` **Added**\n* `documenso.templates.recipients.get()`:  `response.fields.[].fieldMeta.[class].direction` **Added**\n* `documenso.templates.recipients.update()`:  `response.fields.[].fieldMeta.[class].direction` **Added**\n* `documenso.templates.recipients.updateMany()`:  `response.recipients.[].fields.[].fieldMeta.[class].direction` **Added**\n"
+releaseNotes: "## Typescript SDK Changes Detected:\n* `documenso.templates.find()`:  `response.data.[]` **Changed** **Breaking** :warning:\n* `documenso.templates.get()`:  `response` **Changed** **Breaking** :warning:\n* `documenso.template.templateCreateTemplateTemporary()`:  `response.template` **Changed** **Breaking** :warning:\n* `documenso.templates.recipients.updateMany()`:  `response.recipients.[]` **Changed** **Breaking** :warning:\n* `documenso.templates.recipients.update()`:  `response` **Changed** **Breaking** :warning:\n* `documenso.documents.createV0()`: \n  *  `request` **Changed**\n  *  `response.document` **Changed** **Breaking** :warning:\n* `documenso.documents.fields.get()`:  `response` **Changed** **Breaking** :warning:\n* `documenso.documents.fields.create()`: \n  *  `request.field.[class].fieldMeta` **Changed**\n  *  `response` **Changed** **Breaking** :warning:\n* `documenso.documents.fields.createMany()`: \n  *  `request.fields.[].[class].fieldMeta` **Changed**\n  *  `response.fields.[]` **Changed** **Breaking** :warning:\n* `documenso.documents.fields.update()`: \n  *  `request.field.[class].fieldMeta` **Changed**\n  *  `response` **Changed** **Breaking** :warning:\n* `documenso.templates.recipients.get()`:  `response` **Changed** **Breaking** :warning:\n* `documenso.documents.recipients.get()`:  `response` **Changed** **Breaking** :warning:\n* `documenso.templates.fields.updateMany()`: \n  *  `request.fields.[].[class].fieldMeta` **Changed**\n  *  `response.fields.[]` **Changed** **Breaking** :warning:\n* `documenso.templates.fields.update()`: \n  *  `request.field.[class].fieldMeta` **Changed**\n  *  `response` **Changed** **Breaking** :warning:\n* `documenso.documents.recipients.update()`:  `response` **Changed** **Breaking** :warning:\n* `documenso.documents.recipients.updateMany()`:  `response.recipients.[]` **Changed** **Breaking** :warning:\n* `documenso.templates.fields.createMany()`: \n  *  `request.fields.[].[class].fieldMeta` **Changed**\n  *  `response.fields.[]` **Changed** **Breaking** :warning:\n* `documenso.documents.get()`:  `response` **Changed** **Breaking** :warning:\n* `documenso.documents.fields.updateMany()`: \n  *  `request.fields.[].[class].fieldMeta` **Changed**\n  *  `response.fields.[]` **Changed** **Breaking** :warning:\n* `documenso.templates.fields.get()`:  `response` **Changed** **Breaking** :warning:\n* `documenso.templates.use()`: \n  *  `request.customDocumentData` **Added**\n  *  `response` **Changed** **Breaking** :warning:\n* `documenso.templates.fields.create()`: \n  *  `request.field.[class].fieldMeta` **Changed**\n  *  `response` **Changed** **Breaking** :warning:\n* `documenso.templates.duplicate()`:  `response` **Changed**\n* `documenso.documents.find()`:  `response.data.[]` **Changed**\n* `documenso.documents.recipients.createMany()`:  `response.recipients.[]` **Changed**\n* `documenso.documents.recipients.create()`:  `response` **Changed**\n* `documenso.templates.update()`: \n  *  `request.data.folderId` **Added**\n  *  `response` **Changed**\n* `documenso.templates.recipients.create()`:  `response` **Changed**\n* `documenso.templates.recipients.createMany()`:  `response.recipients.[]` **Changed**\n* `documenso.documents.distribute()`:  `response` **Changed**\n* `documenso.documents.duplicate()`:  `response.id` **Added**\n* `documenso.templates.directLink.create()`:  `response.envelopeid` **Added**\n* `documenso.templates.directLink.toggle()`:  `response.envelopeid` **Added**\n* `documenso.documents.update()`: \n  *  `request` **Changed**\n  *  `response` **Changed**\n"

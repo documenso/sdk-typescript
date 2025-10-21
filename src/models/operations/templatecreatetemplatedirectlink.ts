@@ -20,11 +20,12 @@ export type TemplateCreateTemplateDirectLinkRequest = {
  */
 export type TemplateCreateTemplateDirectLinkResponse = {
   id: string;
-  templateId: number;
   token: string;
   createdAt: string;
   enabled: boolean;
   directTemplateRecipientId: number;
+  envelopeId: string;
+  templateId: number;
 };
 
 /** @internal */
@@ -102,21 +103,23 @@ export const TemplateCreateTemplateDirectLinkResponse$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  templateId: z.number(),
   token: z.string(),
   createdAt: z.string(),
   enabled: z.boolean(),
   directTemplateRecipientId: z.number(),
+  envelopeId: z.string(),
+  templateId: z.number(),
 });
 
 /** @internal */
 export type TemplateCreateTemplateDirectLinkResponse$Outbound = {
   id: string;
-  templateId: number;
   token: string;
   createdAt: string;
   enabled: boolean;
   directTemplateRecipientId: number;
+  envelopeId: string;
+  templateId: number;
 };
 
 /** @internal */
@@ -126,11 +129,12 @@ export const TemplateCreateTemplateDirectLinkResponse$outboundSchema: z.ZodType<
   TemplateCreateTemplateDirectLinkResponse
 > = z.object({
   id: z.string(),
-  templateId: z.number(),
   token: z.string(),
   createdAt: z.string(),
   enabled: z.boolean(),
   directTemplateRecipientId: z.number(),
+  envelopeId: z.string(),
+  templateId: z.number(),
 });
 
 /**

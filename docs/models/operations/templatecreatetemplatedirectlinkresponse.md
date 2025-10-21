@@ -9,11 +9,12 @@ import { TemplateCreateTemplateDirectLinkResponse } from "@documenso/sdk-typescr
 
 let value: TemplateCreateTemplateDirectLinkResponse = {
   id: "<id>",
-  templateId: 6033.47,
   token: "<value>",
-  createdAt: "1722405330738",
+  createdAt: "1723180732501",
   enabled: false,
-  directTemplateRecipientId: 8025.23,
+  directTemplateRecipientId: 5620.96,
+  envelopeId: "<id>",
+  templateId: 8025.23,
 };
 ```
 
@@ -22,8 +23,9 @@ let value: TemplateCreateTemplateDirectLinkResponse = {
 | Field                       | Type                        | Required                    | Description                 |
 | --------------------------- | --------------------------- | --------------------------- | --------------------------- |
 | `id`                        | *string*                    | :heavy_check_mark:          | N/A                         |
-| `templateId`                | *number*                    | :heavy_check_mark:          | N/A                         |
 | `token`                     | *string*                    | :heavy_check_mark:          | N/A                         |
 | `createdAt`                 | *string*                    | :heavy_check_mark:          | N/A                         |
 | `enabled`                   | *boolean*                   | :heavy_check_mark:          | N/A                         |
 | `directTemplateRecipientId` | *number*                    | :heavy_check_mark:          | N/A                         |
+| `envelopeId`                | *string*                    | :heavy_check_mark:          | N/A                         |
+| `templateId`                | *number*                    | :heavy_check_mark:          | N/A                         |

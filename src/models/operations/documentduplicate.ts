@@ -15,6 +15,13 @@ export type DocumentDuplicateRequest = {
  * Successful response
  */
 export type DocumentDuplicateResponse = {
+  /**
+   * The envelope ID
+   */
+  id: string;
+  /**
+   * The legacy document ID
+   */
   documentId: number;
 };
 
@@ -78,11 +85,13 @@ export const DocumentDuplicateResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  id: z.string(),
   documentId: z.number(),
 });
 
 /** @internal */
 export type DocumentDuplicateResponse$Outbound = {
+  id: string;
   documentId: number;
 };
 
@@ -92,6 +101,7 @@ export const DocumentDuplicateResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentDuplicateResponse
 > = z.object({
+  id: z.string(),
   documentId: z.number(),
 });
 

@@ -9,11 +9,12 @@ import { TemplateToggleTemplateDirectLinkResponse } from "@documenso/sdk-typescr
 
 let value: TemplateToggleTemplateDirectLinkResponse = {
   id: "<id>",
-  templateId: 2293.94,
   token: "<value>",
-  createdAt: "1705244607010",
-  enabled: false,
-  directTemplateRecipientId: 8689.94,
+  createdAt: "1711387768661",
+  enabled: true,
+  directTemplateRecipientId: 8974.33,
+  envelopeId: "<id>",
+  templateId: 8689.94,
 };
 ```
 
@@ -22,8 +23,9 @@ let value: TemplateToggleTemplateDirectLinkResponse = {
 | Field                       | Type                        | Required                    | Description                 |
 | --------------------------- | --------------------------- | --------------------------- | --------------------------- |
 | `id`                        | *string*                    | :heavy_check_mark:          | N/A                         |
-| `templateId`                | *number*                    | :heavy_check_mark:          | N/A                         |
 | `token`                     | *string*                    | :heavy_check_mark:          | N/A                         |
 | `createdAt`                 | *string*                    | :heavy_check_mark:          | N/A                         |
 | `enabled`                   | *boolean*                   | :heavy_check_mark:          | N/A                         |
 | `directTemplateRecipientId` | *number*                    | :heavy_check_mark:          | N/A                         |
+| `envelopeId`                | *string*                    | :heavy_check_mark:          | N/A                         |
+| `templateId`                | *number*                    | :heavy_check_mark:          | N/A                         |

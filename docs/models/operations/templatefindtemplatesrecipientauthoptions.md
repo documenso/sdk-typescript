@@ -7,11 +7,9 @@ import { TemplateFindTemplatesRecipientAuthOptions } from "@documenso/sdk-typesc
 
 let value: TemplateFindTemplatesRecipientAuthOptions = {
   accessAuth: [
-    "ACCOUNT",
-  ],
-  actionAuth: [
     "TWO_FACTOR_AUTH",
   ],
+  actionAuth: [],
 };
 ```
 

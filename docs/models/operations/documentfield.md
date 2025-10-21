@@ -6,18 +6,16 @@
 import { DocumentField } from "@documenso/sdk-typescript/models/operations";
 
 let value: DocumentField = {
+  envelopeId: "<id>",
+  envelopeItemId: "<id>",
   type: "EMAIL",
   id: 6761.94,
   secondaryId: "<id>",
-  documentId: 3142.11,
-  templateId: 179.72,
-  recipientId: 123.33,
-  page: 2591.61,
+  recipientId: 2069.76,
+  page: 3142.11,
   customText: "<value>",
   inserted: false,
-  fieldMeta: {
-    type: "text",
-  },
+  fieldMeta: null,
 };
 ```
 
@@ -25,11 +23,11 @@ let value: DocumentField = {
 
 | Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  |
 | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `envelopeId`                                                                 | *string*                                                                     | :heavy_check_mark:                                                           | N/A                                                                          |
+| `envelopeItemId`                                                             | *string*                                                                     | :heavy_check_mark:                                                           | N/A                                                                          |
 | `type`                                                                       | [operations.DocumentFieldType](../../models/operations/documentfieldtype.md) | :heavy_check_mark:                                                           | N/A                                                                          |
 | `id`                                                                         | *number*                                                                     | :heavy_check_mark:                                                           | N/A                                                                          |
 | `secondaryId`                                                                | *string*                                                                     | :heavy_check_mark:                                                           | N/A                                                                          |
-| `documentId`                                                                 | *number*                                                                     | :heavy_check_mark:                                                           | N/A                                                                          |
-| `templateId`                                                                 | *number*                                                                     | :heavy_check_mark:                                                           | N/A                                                                          |
 | `recipientId`                                                                | *number*                                                                     | :heavy_check_mark:                                                           | N/A                                                                          |
 | `page`                                                                       | *number*                                                                     | :heavy_check_mark:                                                           | The page number of the field on the document. Starts from 1.                 |
 | `positionX`                                                                  | *any*                                                                        | :heavy_minus_sign:                                                           | N/A                                                                          |
@@ -39,3 +37,5 @@ let value: DocumentField = {
 | `customText`                                                                 | *string*                                                                     | :heavy_check_mark:                                                           | N/A                                                                          |
 | `inserted`                                                                   | *boolean*                                                                    | :heavy_check_mark:                                                           | N/A                                                                          |
 | `fieldMeta`                                                                  | *operations.DocumentFieldMetaUnion*                                          | :heavy_check_mark:                                                           | N/A                                                                          |
+| `documentId`                                                                 | *number*                                                                     | :heavy_minus_sign:                                                           | N/A                                                                          |
+| `templateId`                                                                 | *number*                                                                     | :heavy_minus_sign:                                                           | N/A                                                                          |

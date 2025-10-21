@@ -7,7 +7,7 @@ import { DocumentUpdateAuthOptions } from "@documenso/sdk-typescript/models/oper
 
 let value: DocumentUpdateAuthOptions = {
   globalAccessAuth: [
-    "ACCOUNT",
+    "TWO_FACTOR_AUTH",
   ],
   globalActionAuth: [
     "PASSWORD",

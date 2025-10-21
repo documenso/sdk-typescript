@@ -3,6 +3,7 @@
  */
 
 export * from "./apierror.js";
+export * from "./documensoerror.js";
 export * from "./documentcreatedocumenttemporary.js";
 export * from "./documentdelete.js";
 export * from "./documentdistribute.js";
