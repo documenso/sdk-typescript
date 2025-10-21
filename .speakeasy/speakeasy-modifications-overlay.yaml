@@ -413,3 +413,29 @@ actions:
       after: sdk.documents.recipients.delete()
       reviewed_at: 1737284371636
       created_at: 1737284351918
+  # Patch each schema where the enum collisions happen
+  - target: $..properties.dateFormat
+    update:
+      x-speakeasy-enums:
+        - YyyyMMddHhMmA
+        - YyyyMMdd
+        - DdMMSlashYyyy
+        - MmDdSlashYyyy
+        - YyMMdd
+        - MmmmDdCommaYyyy
+        - EeeeMmmmDdCommaYyyy
+        - DdMMSlashYyyyHhMmA
+        - DdMMSlashYyyyHHmm
+        - MmDdSlashYyyyHhMmA
+        - MmDdSlashYyyyHHmm
+        - DdDotMmDotYyyy
+        - DdDotMmDotYyyyHHmm
+        - YyyyMMddHHmm
+        - YyMMddHhMmA
+        - YyMMddHHmm
+        - YyyyMMddHHmmss
+        - MmmmDdCommaYyyyHhMmA
+        - MmmmDdCommaYyyyHHmm
+        - EeeeMmmmDdCommaYyyyHhMmA
+        - EeeeMmmmDdCommaYyyyHHmm
+        - Iso8601Full
