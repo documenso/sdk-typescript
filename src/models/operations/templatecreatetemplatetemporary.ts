@@ -22,6 +22,7 @@ export type TemplateCreateTemplateTemporaryVisibilityRequest = ClosedEnum<
  */
 export const TemplateCreateTemplateTemporaryGlobalAccessAuthRequest = {
   Account: "ACCOUNT",
+  TwoFactorAuth: "TWO_FACTOR_AUTH",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
@@ -58,17 +59,28 @@ export type TemplateCreateTemplateTemporaryTypeRequest = ClosedEnum<
  * The date format to use for date fields and signing the document.
  */
 export const TemplateCreateTemplateTemporaryDateFormat = {
-  YyyyMMDdHhMMA: "yyyy-MM-dd hh:mm a",
-  YyyyMMDd: "yyyy-MM-dd",
-  DdMMYyyyHhMMA: "dd/MM/yyyy hh:mm a",
-  MMDdYyyyHhMMA: "MM/dd/yyyy hh:mm a",
-  DdMMYyyyHHMM: "dd.MM.yyyy HH:mm",
-  YyyyMMDdHHMM: "yyyy-MM-dd HH:mm",
-  YyMMDdHhMMA: "yy-MM-dd hh:mm a",
-  YyyyMMDdHHMMSs: "yyyy-MM-dd HH:mm:ss",
-  MMMMDdYyyyHhMmA: "MMMM dd, yyyy hh:mm a",
-  EEEEMMMMDdYyyyHhMmA: "EEEE, MMMM dd, yyyy hh:mm a",
-  YyyyMMDdTHHMMSsSSSXXX: "yyyy-MM-dd'T'HH:mm:ss.SSSXXX",
+  YyyyMMddHhMmA: "yyyy-MM-dd hh:mm a",
+  YyyyMMdd: "yyyy-MM-dd",
+  DdMMSlashYyyy: "dd/MM/yyyy",
+  MmDdSlashYyyy: "MM/dd/yyyy",
+  YyMMdd: "yy-MM-dd",
+  MmmmDdCommaYyyy: "MMMM dd, yyyy",
+  EeeeMmmmDdCommaYyyy: "EEEE, MMMM dd, yyyy",
+  DdMMSlashYyyyHhMMA: "dd/MM/yyyy hh:mm a",
+  DdMMSlashYyyyHHmm: "dd/MM/yyyy HH:mm",
+  MmDdSlashYyyyHhMmA: "MM/dd/yyyy hh:mm a",
+  MmDdSlashYyyyHHmm: "MM/dd/yyyy HH:mm",
+  DdDotMmDotYyyy: "dd.MM.yyyy",
+  DdDotMmDotYyyyHHmm: "dd.MM.yyyy HH:mm",
+  YyyyMMddHHmm: "yyyy-MM-dd HH:mm",
+  YyMMddHhMmA: "yy-MM-dd hh:mm a",
+  YyMMddHHmm: "yy-MM-dd HH:mm",
+  YyyyMMddHHmmss: "yyyy-MM-dd HH:mm:ss",
+  MmmmDdCommaYyyyHhMmA: "MMMM dd, yyyy hh:mm a",
+  MmmmDdCommaYyyyHHmm: "MMMM dd, yyyy HH:mm",
+  EeeeMmmmDdCommaYyyyHhMmA: "EEEE, MMMM dd, yyyy hh:mm a",
+  EeeeMmmmDdCommaYyyyHHmm: "EEEE, MMMM dd, yyyy HH:mm",
+  Iso8601Full: "yyyy-MM-dd'T'HH:mm:ss.SSSXXX",
 } as const;
 /**
  * The date format to use for date fields and signing the document.
@@ -247,6 +259,7 @@ export type TemplateCreateTemplateTemporaryVisibilityResponse = ClosedEnum<
  */
 export const TemplateCreateTemplateTemporaryGlobalAccessAuthResponse = {
   Account: "ACCOUNT",
+  TwoFactorAuth: "TWO_FACTOR_AUTH",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
@@ -291,6 +304,7 @@ export type TemplateCreateTemplateTemporaryTemplateDocumentData = {
   id: string;
   data: string;
   initialData: string;
+  envelopeItemId: string;
 };
 
 export const TemplateCreateTemplateTemporaryTemplateMetaSigningOrder = {
@@ -346,14 +360,13 @@ export type TemplateCreateTemplateTemporaryTemplateMeta = {
   message: string | null;
   timezone: string | null;
   dateFormat: string | null;
-  signingOrder: TemplateCreateTemplateTemporaryTemplateMetaSigningOrder | null;
+  signingOrder: TemplateCreateTemplateTemporaryTemplateMetaSigningOrder;
   typedSignatureEnabled: boolean;
   uploadSignatureEnabled: boolean;
   drawSignatureEnabled: boolean;
   allowDictateNextSigner: boolean;
   distributionMethod:
     TemplateCreateTemplateTemporaryTemplateMetaDistributionMethod;
-  templateId: number;
   redirectUrl: string | null;
   language: string;
   emailSettings:
@@ -361,15 +374,17 @@ export type TemplateCreateTemplateTemporaryTemplateMeta = {
     | null;
   emailId: string | null;
   emailReplyTo: string | null;
+  templateId: number | null;
 };
 
 export type TemplateCreateTemplateTemporaryDirectLink = {
   id: string;
-  templateId: number;
+  envelopeId: string;
   token: string;
   createdAt: string;
   enabled: boolean;
   directTemplateRecipientId: number;
+  templateId: number;
 };
 
 export type TemplateCreateTemplateTemporaryUser = {
@@ -419,6 +434,7 @@ export type TemplateCreateTemplateTemporarySendStatus = ClosedEnum<
  */
 export const TemplateCreateTemplateTemporaryAccessAuth = {
   Account: "ACCOUNT",
+  TwoFactorAuth: "TWO_FACTOR_AUTH",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
@@ -450,13 +466,12 @@ export type TemplateCreateTemplateTemporaryRecipientAuthOptions = {
 };
 
 export type TemplateCreateTemplateTemporaryRecipient = {
+  envelopeId: string;
   role: TemplateCreateTemplateTemporaryRole;
   readStatus: TemplateCreateTemplateTemporaryReadStatus;
   signingStatus: TemplateCreateTemplateTemporarySigningStatus;
   sendStatus: TemplateCreateTemplateTemporarySendStatus;
   id: number;
-  documentId: number | null;
-  templateId: number | null;
   email: string;
   name: string;
   token: string;
@@ -469,6 +484,8 @@ export type TemplateCreateTemplateTemporaryRecipient = {
    */
   signingOrder: number | null;
   rejectionReason: string | null;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 export const TemplateCreateTemplateTemporaryFieldType = {
@@ -586,10 +603,10 @@ export type TemplateCreateTemplateTemporaryFieldMetaNumber = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: TemplateCreateTemplateTemporaryTypeNumber;
-  numberFormat?: string | undefined;
+  numberFormat?: string | null | undefined;
   value?: string | undefined;
-  minValue?: number | undefined;
-  maxValue?: number | undefined;
+  minValue?: number | null | undefined;
+  maxValue?: number | null | undefined;
   fontSize?: number | undefined;
   textAlign?: TemplateCreateTemplateTemporaryTextAlign6 | undefined;
 };
@@ -738,11 +755,11 @@ export type TemplateCreateTemplateTemporaryFieldMetaUnion =
   | TemplateCreateTemplateTemporaryFieldMetaDropdown;
 
 export type TemplateCreateTemplateTemporaryField = {
+  envelopeId: string;
+  envelopeItemId: string;
   type: TemplateCreateTemplateTemporaryFieldType;
   id: number;
   secondaryId: string;
-  documentId: number | null;
-  templateId: number | null;
   recipientId: number;
   /**
    * The page number of the field on the document. Starts from 1.
@@ -765,6 +782,8 @@ export type TemplateCreateTemplateTemporaryField = {
     | TemplateCreateTemplateTemporaryFieldMetaCheckbox
     | TemplateCreateTemplateTemporaryFieldMetaDropdown
     | null;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 export const TemplateCreateTemplateTemporaryFolderType = {
@@ -806,14 +825,15 @@ export type Template = {
   userId: number;
   teamId: number;
   authOptions: TemplateCreateTemplateTemporaryAuthOptions | null;
-  templateDocumentDataId: string;
   createdAt: string;
   updatedAt: string;
   publicTitle: string;
   publicDescription: string;
   folderId: string | null;
+  envelopeId: string;
+  templateDocumentDataId?: string | undefined;
   templateDocumentData: TemplateCreateTemplateTemporaryTemplateDocumentData;
-  templateMeta: TemplateCreateTemplateTemporaryTemplateMeta | null;
+  templateMeta: TemplateCreateTemplateTemporaryTemplateMeta;
   directLink: TemplateCreateTemplateTemporaryDirectLink | null;
   user: TemplateCreateTemplateTemporaryUser;
   recipients: Array<TemplateCreateTemplateTemporaryRecipient>;
@@ -1527,6 +1547,7 @@ export const TemplateCreateTemplateTemporaryTemplateDocumentData$inboundSchema:
     id: z.string(),
     data: z.string(),
     initialData: z.string(),
+    envelopeItemId: z.string(),
   });
 
 /** @internal */
@@ -1535,6 +1556,7 @@ export type TemplateCreateTemplateTemporaryTemplateDocumentData$Outbound = {
   id: string;
   data: string;
   initialData: string;
+  envelopeItemId: string;
 };
 
 /** @internal */
@@ -1549,6 +1571,7 @@ export const TemplateCreateTemplateTemporaryTemplateDocumentData$outboundSchema:
     id: z.string(),
     data: z.string(),
     initialData: z.string(),
+    envelopeItemId: z.string(),
   });
 
 /**
@@ -1744,16 +1767,14 @@ export const TemplateCreateTemplateTemporaryTemplateMeta$inboundSchema:
     message: z.nullable(z.string()),
     timezone: z.nullable(z.string()),
     dateFormat: z.nullable(z.string()),
-    signingOrder: z.nullable(
+    signingOrder:
       TemplateCreateTemplateTemporaryTemplateMetaSigningOrder$inboundSchema,
-    ),
     typedSignatureEnabled: z.boolean(),
     uploadSignatureEnabled: z.boolean(),
     drawSignatureEnabled: z.boolean(),
     allowDictateNextSigner: z.boolean(),
     distributionMethod:
       TemplateCreateTemplateTemporaryTemplateMetaDistributionMethod$inboundSchema,
-    templateId: z.number(),
     redirectUrl: z.nullable(z.string()),
     language: z.string(),
     emailSettings: z.nullable(
@@ -1763,6 +1784,7 @@ export const TemplateCreateTemplateTemporaryTemplateMeta$inboundSchema:
     ),
     emailId: z.nullable(z.string()),
     emailReplyTo: z.nullable(z.string()),
+    templateId: z.nullable(z.number()),
   });
 
 /** @internal */
@@ -1772,13 +1794,12 @@ export type TemplateCreateTemplateTemporaryTemplateMeta$Outbound = {
   message: string | null;
   timezone: string | null;
   dateFormat: string | null;
-  signingOrder: string | null;
+  signingOrder: string;
   typedSignatureEnabled: boolean;
   uploadSignatureEnabled: boolean;
   drawSignatureEnabled: boolean;
   allowDictateNextSigner: boolean;
   distributionMethod: string;
-  templateId: number;
   redirectUrl: string | null;
   language: string;
   emailSettings:
@@ -1786,6 +1807,7 @@ export type TemplateCreateTemplateTemporaryTemplateMeta$Outbound = {
     | null;
   emailId: string | null;
   emailReplyTo: string | null;
+  templateId: number | null;
 };
 
 /** @internal */
@@ -1800,16 +1822,14 @@ export const TemplateCreateTemplateTemporaryTemplateMeta$outboundSchema:
     message: z.nullable(z.string()),
     timezone: z.nullable(z.string()),
     dateFormat: z.nullable(z.string()),
-    signingOrder: z.nullable(
+    signingOrder:
       TemplateCreateTemplateTemporaryTemplateMetaSigningOrder$outboundSchema,
-    ),
     typedSignatureEnabled: z.boolean(),
     uploadSignatureEnabled: z.boolean(),
     drawSignatureEnabled: z.boolean(),
     allowDictateNextSigner: z.boolean(),
     distributionMethod:
       TemplateCreateTemplateTemporaryTemplateMetaDistributionMethod$outboundSchema,
-    templateId: z.number(),
     redirectUrl: z.nullable(z.string()),
     language: z.string(),
     emailSettings: z.nullable(
@@ -1819,6 +1839,7 @@ export const TemplateCreateTemplateTemporaryTemplateMeta$outboundSchema:
     ),
     emailId: z.nullable(z.string()),
     emailReplyTo: z.nullable(z.string()),
+    templateId: z.nullable(z.number()),
   });
 
 /**
@@ -1870,21 +1891,23 @@ export const TemplateCreateTemplateTemporaryDirectLink$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  templateId: z.number(),
+  envelopeId: z.string(),
   token: z.string(),
   createdAt: z.string(),
   enabled: z.boolean(),
   directTemplateRecipientId: z.number(),
+  templateId: z.number(),
 });
 
 /** @internal */
 export type TemplateCreateTemplateTemporaryDirectLink$Outbound = {
   id: string;
-  templateId: number;
+  envelopeId: string;
   token: string;
   createdAt: string;
   enabled: boolean;
   directTemplateRecipientId: number;
+  templateId: number;
 };
 
 /** @internal */
@@ -1895,11 +1918,12 @@ export const TemplateCreateTemplateTemporaryDirectLink$outboundSchema:
     TemplateCreateTemplateTemporaryDirectLink
   > = z.object({
     id: z.string(),
-    templateId: z.number(),
+    envelopeId: z.string(),
     token: z.string(),
     createdAt: z.string(),
     enabled: z.boolean(),
     directTemplateRecipientId: z.number(),
+    templateId: z.number(),
   });
 
 /**
@@ -2232,13 +2256,12 @@ export const TemplateCreateTemplateTemporaryRecipient$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  envelopeId: z.string(),
   role: TemplateCreateTemplateTemporaryRole$inboundSchema,
   readStatus: TemplateCreateTemplateTemporaryReadStatus$inboundSchema,
   signingStatus: TemplateCreateTemplateTemporarySigningStatus$inboundSchema,
   sendStatus: TemplateCreateTemplateTemporarySendStatus$inboundSchema,
   id: z.number(),
-  documentId: z.nullable(z.number()),
-  templateId: z.nullable(z.number()),
   email: z.string(),
   name: z.string(),
   token: z.string(),
@@ -2252,17 +2275,18 @@ export const TemplateCreateTemplateTemporaryRecipient$inboundSchema: z.ZodType<
   ),
   signingOrder: z.nullable(z.number()),
   rejectionReason: z.nullable(z.string()),
+  documentId: z.nullable(z.number()).optional(),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /** @internal */
 export type TemplateCreateTemplateTemporaryRecipient$Outbound = {
+  envelopeId: string;
   role: string;
   readStatus: string;
   signingStatus: string;
   sendStatus: string;
   id: number;
-  documentId: number | null;
-  templateId: number | null;
   email: string;
   name: string;
   token: string;
@@ -2274,6 +2298,8 @@ export type TemplateCreateTemplateTemporaryRecipient$Outbound = {
     | null;
   signingOrder: number | null;
   rejectionReason: string | null;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 /** @internal */
@@ -2282,13 +2308,12 @@ export const TemplateCreateTemplateTemporaryRecipient$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TemplateCreateTemplateTemporaryRecipient
 > = z.object({
+  envelopeId: z.string(),
   role: TemplateCreateTemplateTemporaryRole$outboundSchema,
   readStatus: TemplateCreateTemplateTemporaryReadStatus$outboundSchema,
   signingStatus: TemplateCreateTemplateTemporarySigningStatus$outboundSchema,
   sendStatus: TemplateCreateTemplateTemporarySendStatus$outboundSchema,
   id: z.number(),
-  documentId: z.nullable(z.number()),
-  templateId: z.nullable(z.number()),
   email: z.string(),
   name: z.string(),
   token: z.string(),
@@ -2302,6 +2327,8 @@ export const TemplateCreateTemplateTemporaryRecipient$outboundSchema: z.ZodType<
   ),
   signingOrder: z.nullable(z.number()),
   rejectionReason: z.nullable(z.string()),
+  documentId: z.nullable(z.number()).optional(),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /**
@@ -2984,10 +3011,10 @@ export const TemplateCreateTemplateTemporaryFieldMetaNumber$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     type: TemplateCreateTemplateTemporaryTypeNumber$inboundSchema,
-    numberFormat: z.string().optional(),
+    numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
-    minValue: z.number().optional(),
-    maxValue: z.number().optional(),
+    minValue: z.nullable(z.number()).optional(),
+    maxValue: z.nullable(z.number()).optional(),
     fontSize: z.number().optional(),
     textAlign: TemplateCreateTemplateTemporaryTextAlign6$inboundSchema
       .optional(),
@@ -3000,10 +3027,10 @@ export type TemplateCreateTemplateTemporaryFieldMetaNumber$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
-  numberFormat?: string | undefined;
+  numberFormat?: string | null | undefined;
   value?: string | undefined;
-  minValue?: number | undefined;
-  maxValue?: number | undefined;
+  minValue?: number | null | undefined;
+  maxValue?: number | null | undefined;
   fontSize?: number | undefined;
   textAlign?: string | undefined;
 };
@@ -3020,10 +3047,10 @@ export const TemplateCreateTemplateTemporaryFieldMetaNumber$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     type: TemplateCreateTemplateTemporaryTypeNumber$outboundSchema,
-    numberFormat: z.string().optional(),
+    numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
-    minValue: z.number().optional(),
-    maxValue: z.number().optional(),
+    minValue: z.nullable(z.number()).optional(),
+    maxValue: z.nullable(z.number()).optional(),
     fontSize: z.number().optional(),
     textAlign: TemplateCreateTemplateTemporaryTextAlign6$outboundSchema
       .optional(),
@@ -3852,11 +3879,11 @@ export const TemplateCreateTemplateTemporaryField$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  envelopeId: z.string(),
+  envelopeItemId: z.string(),
   type: TemplateCreateTemplateTemporaryFieldType$inboundSchema,
   id: z.number(),
   secondaryId: z.string(),
-  documentId: z.nullable(z.number()),
-  templateId: z.nullable(z.number()),
   recipientId: z.number(),
   page: z.number(),
   positionX: z.any().optional(),
@@ -3886,15 +3913,17 @@ export const TemplateCreateTemplateTemporaryField$inboundSchema: z.ZodType<
       ),
     ]),
   ),
+  documentId: z.nullable(z.number()).optional(),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /** @internal */
 export type TemplateCreateTemplateTemporaryField$Outbound = {
+  envelopeId: string;
+  envelopeItemId: string;
   type: string;
   id: number;
   secondaryId: string;
-  documentId: number | null;
-  templateId: number | null;
   recipientId: number;
   page: number;
   positionX?: any | undefined;
@@ -3914,6 +3943,8 @@ export type TemplateCreateTemplateTemporaryField$Outbound = {
     | TemplateCreateTemplateTemporaryFieldMetaCheckbox$Outbound
     | TemplateCreateTemplateTemporaryFieldMetaDropdown$Outbound
     | null;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 /** @internal */
@@ -3922,11 +3953,11 @@ export const TemplateCreateTemplateTemporaryField$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TemplateCreateTemplateTemporaryField
 > = z.object({
+  envelopeId: z.string(),
+  envelopeItemId: z.string(),
   type: TemplateCreateTemplateTemporaryFieldType$outboundSchema,
   id: z.number(),
   secondaryId: z.string(),
-  documentId: z.nullable(z.number()),
-  templateId: z.nullable(z.number()),
   recipientId: z.number(),
   page: z.number(),
   positionX: z.any().optional(),
@@ -3960,6 +3991,8 @@ export const TemplateCreateTemplateTemporaryField$outboundSchema: z.ZodType<
       ),
     ]),
   ),
+  documentId: z.nullable(z.number()).optional(),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /**
@@ -4146,17 +4179,18 @@ export const Template$inboundSchema: z.ZodType<
   authOptions: z.nullable(
     z.lazy(() => TemplateCreateTemplateTemporaryAuthOptions$inboundSchema),
   ),
-  templateDocumentDataId: z.string(),
   createdAt: z.string(),
   updatedAt: z.string(),
   publicTitle: z.string(),
   publicDescription: z.string(),
   folderId: z.nullable(z.string()),
+  envelopeId: z.string(),
+  templateDocumentDataId: z.string().default(""),
   templateDocumentData: z.lazy(() =>
     TemplateCreateTemplateTemporaryTemplateDocumentData$inboundSchema
   ),
-  templateMeta: z.nullable(
-    z.lazy(() => TemplateCreateTemplateTemporaryTemplateMeta$inboundSchema),
+  templateMeta: z.lazy(() =>
+    TemplateCreateTemplateTemporaryTemplateMeta$inboundSchema
   ),
   directLink: z.nullable(
     z.lazy(() => TemplateCreateTemplateTemporaryDirectLink$inboundSchema),
@@ -4183,15 +4217,16 @@ export type Template$Outbound = {
   userId: number;
   teamId: number;
   authOptions: TemplateCreateTemplateTemporaryAuthOptions$Outbound | null;
-  templateDocumentDataId: string;
   createdAt: string;
   updatedAt: string;
   publicTitle: string;
   publicDescription: string;
   folderId: string | null;
+  envelopeId: string;
+  templateDocumentDataId: string;
   templateDocumentData:
     TemplateCreateTemplateTemporaryTemplateDocumentData$Outbound;
-  templateMeta: TemplateCreateTemplateTemporaryTemplateMeta$Outbound | null;
+  templateMeta: TemplateCreateTemplateTemporaryTemplateMeta$Outbound;
   directLink: TemplateCreateTemplateTemporaryDirectLink$Outbound | null;
   user: TemplateCreateTemplateTemporaryUser$Outbound;
   recipients: Array<TemplateCreateTemplateTemporaryRecipient$Outbound>;
@@ -4215,17 +4250,18 @@ export const Template$outboundSchema: z.ZodType<
   authOptions: z.nullable(
     z.lazy(() => TemplateCreateTemplateTemporaryAuthOptions$outboundSchema),
   ),
-  templateDocumentDataId: z.string(),
   createdAt: z.string(),
   updatedAt: z.string(),
   publicTitle: z.string(),
   publicDescription: z.string(),
   folderId: z.nullable(z.string()),
+  envelopeId: z.string(),
+  templateDocumentDataId: z.string().default(""),
   templateDocumentData: z.lazy(() =>
     TemplateCreateTemplateTemporaryTemplateDocumentData$outboundSchema
   ),
-  templateMeta: z.nullable(
-    z.lazy(() => TemplateCreateTemplateTemporaryTemplateMeta$outboundSchema),
+  templateMeta: z.lazy(() =>
+    TemplateCreateTemplateTemporaryTemplateMeta$outboundSchema
   ),
   directLink: z.nullable(
     z.lazy(() => TemplateCreateTemplateTemporaryDirectLink$outboundSchema),

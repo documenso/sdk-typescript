@@ -7,10 +7,10 @@ import { RecipientUpdateTemplateRecipientAuthOptions } from "@documenso/sdk-type
 
 let value: RecipientUpdateTemplateRecipientAuthOptions = {
   accessAuth: [
-    "ACCOUNT",
+    "TWO_FACTOR_AUTH",
   ],
   actionAuth: [
-    "TWO_FACTOR_AUTH",
+    "PASSKEY",
   ],
 };
 ```

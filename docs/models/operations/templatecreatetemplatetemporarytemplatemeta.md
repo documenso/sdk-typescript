@@ -11,18 +11,18 @@ let value: TemplateCreateTemplateTemporaryTemplateMeta = {
   message: "<value>",
   timezone: "Europe/Paris",
   dateFormat: "<value>",
-  signingOrder: "PARALLEL",
-  typedSignatureEnabled: false,
-  uploadSignatureEnabled: true,
+  signingOrder: "SEQUENTIAL",
+  typedSignatureEnabled: true,
+  uploadSignatureEnabled: false,
   drawSignatureEnabled: true,
   allowDictateNextSigner: true,
   distributionMethod: "EMAIL",
-  templateId: 3470.83,
-  redirectUrl: "https://better-overcoat.org/",
+  redirectUrl: "https://sparse-disappointment.com/",
   language: "<value>",
-  emailSettings: null,
-  emailId: null,
-  emailReplyTo: "<value>",
+  emailSettings: {},
+  emailId: "<id>",
+  emailReplyTo: null,
+  templateId: null,
 };
 ```
 
@@ -41,9 +41,9 @@ let value: TemplateCreateTemplateTemporaryTemplateMeta = {
 | `drawSignatureEnabled`                                                                                                                                               | *boolean*                                                                                                                                                            | :heavy_check_mark:                                                                                                                                                   | N/A                                                                                                                                                                  |
 | `allowDictateNextSigner`                                                                                                                                             | *boolean*                                                                                                                                                            | :heavy_check_mark:                                                                                                                                                   | N/A                                                                                                                                                                  |
 | `distributionMethod`                                                                                                                                                 | [operations.TemplateCreateTemplateTemporaryTemplateMetaDistributionMethod](../../models/operations/templatecreatetemplatetemporarytemplatemetadistributionmethod.md) | :heavy_check_mark:                                                                                                                                                   | N/A                                                                                                                                                                  |
-| `templateId`                                                                                                                                                         | *number*                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                   | N/A                                                                                                                                                                  |
 | `redirectUrl`                                                                                                                                                        | *string*                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                   | N/A                                                                                                                                                                  |
 | `language`                                                                                                                                                           | *string*                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                   | N/A                                                                                                                                                                  |
 | `emailSettings`                                                                                                                                                      | [operations.TemplateCreateTemplateTemporaryTemplateMetaEmailSettings](../../models/operations/templatecreatetemplatetemporarytemplatemetaemailsettings.md)           | :heavy_check_mark:                                                                                                                                                   | N/A                                                                                                                                                                  |
 | `emailId`                                                                                                                                                            | *string*                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                   | N/A                                                                                                                                                                  |
 | `emailReplyTo`                                                                                                                                                       | *string*                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                   | N/A                                                                                                                                                                  |
+| `templateId`                                                                                                                                                         | *number*                                                                                                                                                             | :heavy_check_mark:                                                                                                                                                   | N/A                                                                                                                                                                  |

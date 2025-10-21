@@ -12,17 +12,28 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
  * The date format to use for date fields and signing the document.
  */
 export const DocumentDistributeDateFormat = {
-  YyyyMMDdHhMMA: "yyyy-MM-dd hh:mm a",
-  YyyyMMDd: "yyyy-MM-dd",
-  DdMMYyyyHhMMA: "dd/MM/yyyy hh:mm a",
-  MMDdYyyyHhMMA: "MM/dd/yyyy hh:mm a",
-  DdMMYyyyHHMM: "dd.MM.yyyy HH:mm",
-  YyyyMMDdHHMM: "yyyy-MM-dd HH:mm",
-  YyMMDdHhMMA: "yy-MM-dd hh:mm a",
-  YyyyMMDdHHMMSs: "yyyy-MM-dd HH:mm:ss",
-  MMMMDdYyyyHhMmA: "MMMM dd, yyyy hh:mm a",
-  EEEEMMMMDdYyyyHhMmA: "EEEE, MMMM dd, yyyy hh:mm a",
-  YyyyMMDdTHHMMSsSSSXXX: "yyyy-MM-dd'T'HH:mm:ss.SSSXXX",
+  YyyyMMddHhMmA: "yyyy-MM-dd hh:mm a",
+  YyyyMMdd: "yyyy-MM-dd",
+  DdMMSlashYyyy: "dd/MM/yyyy",
+  MmDdSlashYyyy: "MM/dd/yyyy",
+  YyMMdd: "yy-MM-dd",
+  MmmmDdCommaYyyy: "MMMM dd, yyyy",
+  EeeeMmmmDdCommaYyyy: "EEEE, MMMM dd, yyyy",
+  DdMMSlashYyyyHhMMA: "dd/MM/yyyy hh:mm a",
+  DdMMSlashYyyyHHmm: "dd/MM/yyyy HH:mm",
+  MmDdSlashYyyyHhMmA: "MM/dd/yyyy hh:mm a",
+  MmDdSlashYyyyHHmm: "MM/dd/yyyy HH:mm",
+  DdDotMmDotYyyy: "dd.MM.yyyy",
+  DdDotMmDotYyyyHHmm: "dd.MM.yyyy HH:mm",
+  YyyyMMddHHmm: "yyyy-MM-dd HH:mm",
+  YyMMddHhMmA: "yy-MM-dd hh:mm a",
+  YyMMddHHmm: "yy-MM-dd HH:mm",
+  YyyyMMddHHmmss: "yyyy-MM-dd HH:mm:ss",
+  MmmmDdCommaYyyyHhMmA: "MMMM dd, yyyy hh:mm a",
+  MmmmDdCommaYyyyHHmm: "MMMM dd, yyyy HH:mm",
+  EeeeMmmmDdCommaYyyyHhMmA: "EEEE, MMMM dd, yyyy hh:mm a",
+  EeeeMmmmDdCommaYyyyHHmm: "EEEE, MMMM dd, yyyy HH:mm",
+  Iso8601Full: "yyyy-MM-dd'T'HH:mm:ss.SSSXXX",
 } as const;
 /**
  * The date format to use for date fields and signing the document.
@@ -169,6 +180,7 @@ export type DocumentDistributeSource = ClosedEnum<
  */
 export const DocumentDistributeGlobalAccessAuth = {
   Account: "ACCOUNT",
+  TwoFactorAuth: "TWO_FACTOR_AUTH",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
@@ -219,15 +231,19 @@ export type DocumentDistributeResponse = {
   authOptions: DocumentDistributeAuthOptions | null;
   formValues: { [k: string]: string | boolean | number } | null;
   title: string;
-  documentDataId: string;
   createdAt: string;
   updatedAt: string;
   completedAt: string | null;
   deletedAt: string | null;
   teamId: number;
-  templateId: number | null;
   folderId: string | null;
   useLegacyFieldInsertion: boolean;
+  envelopeId: string;
+  documentDataId?: string | undefined;
+  /**
+   * The ID of the template that the document was created from, if any.
+   */
+  templateId?: number | null | undefined;
 };
 
 /** @internal */
@@ -747,15 +763,16 @@ export const DocumentDistributeResponse$inboundSchema: z.ZodType<
     z.record(z.union([z.string(), z.boolean(), z.number()])),
   ),
   title: z.string(),
-  documentDataId: z.string(),
   createdAt: z.string(),
   updatedAt: z.string(),
   completedAt: z.nullable(z.string()),
   deletedAt: z.nullable(z.string()),
   teamId: z.number(),
-  templateId: z.nullable(z.number()),
   folderId: z.nullable(z.string()),
   useLegacyFieldInsertion: z.boolean(),
+  envelopeId: z.string(),
+  documentDataId: z.string().default(""),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /** @internal */
@@ -769,15 +786,16 @@ export type DocumentDistributeResponse$Outbound = {
   authOptions: DocumentDistributeAuthOptions$Outbound | null;
   formValues: { [k: string]: string | boolean | number } | null;
   title: string;
-  documentDataId: string;
   createdAt: string;
   updatedAt: string;
   completedAt: string | null;
   deletedAt: string | null;
   teamId: number;
-  templateId: number | null;
   folderId: string | null;
   useLegacyFieldInsertion: boolean;
+  envelopeId: string;
+  documentDataId: string;
+  templateId?: number | null | undefined;
 };
 
 /** @internal */
@@ -799,15 +817,16 @@ export const DocumentDistributeResponse$outboundSchema: z.ZodType<
     z.record(z.union([z.string(), z.boolean(), z.number()])),
   ),
   title: z.string(),
-  documentDataId: z.string(),
   createdAt: z.string(),
   updatedAt: z.string(),
   completedAt: z.nullable(z.string()),
   deletedAt: z.nullable(z.string()),
   teamId: z.number(),
-  templateId: z.nullable(z.number()),
   folderId: z.nullable(z.string()),
   useLegacyFieldInsertion: z.boolean(),
+  envelopeId: z.string(),
+  documentDataId: z.string().default(""),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /**

@@ -17,60 +17,61 @@ let value: Template = {
     globalAccessAuth: [],
     globalActionAuth: [],
   },
-  templateDocumentDataId: "<id>",
   createdAt: "1706149971951",
   updatedAt: "1735654227391",
   publicTitle: "<value>",
   publicDescription: "<value>",
   folderId: null,
+  envelopeId: "<id>",
   templateDocumentData: {
     type: "S3_PATH",
     id: "<id>",
     data: "<value>",
     initialData: "<value>",
+    envelopeItemId: "<id>",
   },
   templateMeta: {
     id: "<id>",
     subject: "<value>",
     message: "<value>",
-    timezone: "Europe/Skopje",
-    dateFormat: null,
+    timezone: "America/Anchorage",
+    dateFormat: "<value>",
     signingOrder: "PARALLEL",
     typedSignatureEnabled: false,
-    uploadSignatureEnabled: false,
-    drawSignatureEnabled: true,
-    allowDictateNextSigner: true,
-    distributionMethod: "NONE",
-    templateId: 535.07,
-    redirectUrl: "https://pitiful-extent.com",
+    uploadSignatureEnabled: true,
+    drawSignatureEnabled: false,
+    allowDictateNextSigner: false,
+    distributionMethod: "EMAIL",
+    redirectUrl: "https://awesome-jellyfish.org",
     language: "<value>",
     emailSettings: {},
     emailId: "<id>",
-    emailReplyTo: "<value>",
+    emailReplyTo: null,
+    templateId: 6491.25,
   },
   directLink: {
     id: "<id>",
-    templateId: 2906.33,
+    envelopeId: "<id>",
     token: "<value>",
-    createdAt: "1719848666818",
+    createdAt: "1726866861086",
     enabled: true,
-    directTemplateRecipientId: 7492.04,
+    directTemplateRecipientId: 4976.87,
+    templateId: 4407.15,
   },
   user: {
-    id: 2012.56,
+    id: 7492.04,
     name: "<value>",
-    email: "Domenica.DuBuque@hotmail.com",
+    email: "Rosina27@hotmail.com",
   },
   recipients: [
     {
+      envelopeId: "<id>",
       role: "ASSISTANT",
       readStatus: "OPENED",
-      signingStatus: "SIGNED",
-      sendStatus: "NOT_SENT",
-      id: 1921.91,
-      documentId: 8540.85,
-      templateId: null,
-      email: "Bernard_Sipes@hotmail.com",
+      signingStatus: "REJECTED",
+      sendStatus: "SENT",
+      id: 2297.91,
+      email: "Davin_Beahan10@gmail.com",
       name: "<value>",
       token: "<value>",
       documentDeletedAt: "<value>",
@@ -78,12 +79,10 @@ let value: Template = {
       signedAt: "<value>",
       authOptions: {
         accessAuth: [],
-        actionAuth: [
-          "PASSKEY",
-        ],
+        actionAuth: [],
       },
-      signingOrder: 135.48,
-      rejectionReason: null,
+      signingOrder: 7528.64,
+      rejectionReason: "<value>",
     },
   ],
   fields: [],
@@ -91,13 +90,13 @@ let value: Template = {
     id: "<id>",
     name: "<value>",
     type: "DOCUMENT",
-    visibility: "ADMIN",
-    userId: 9120.37,
-    teamId: 5757.17,
+    visibility: "EVERYONE",
+    userId: 2470.86,
+    teamId: 8054.81,
     pinned: true,
-    parentId: null,
-    createdAt: "1729360187536",
-    updatedAt: "1735634686334",
+    parentId: "<id>",
+    createdAt: "1732915599752",
+    updatedAt: "1735652941400",
   },
 };
 ```
@@ -114,12 +113,13 @@ let value: Template = {
 | `userId`                                                                                                                                         | *number*                                                                                                                                         | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
 | `teamId`                                                                                                                                         | *number*                                                                                                                                         | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
 | `authOptions`                                                                                                                                    | [operations.TemplateCreateTemplateTemporaryAuthOptions](../../models/operations/templatecreatetemplatetemporaryauthoptions.md)                   | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
-| `templateDocumentDataId`                                                                                                                         | *string*                                                                                                                                         | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
 | `createdAt`                                                                                                                                      | *string*                                                                                                                                         | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
 | `updatedAt`                                                                                                                                      | *string*                                                                                                                                         | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
 | `publicTitle`                                                                                                                                    | *string*                                                                                                                                         | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
 | `publicDescription`                                                                                                                              | *string*                                                                                                                                         | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
 | `folderId`                                                                                                                                       | *string*                                                                                                                                         | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
+| `envelopeId`                                                                                                                                     | *string*                                                                                                                                         | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
+| `templateDocumentDataId`                                                                                                                         | *string*                                                                                                                                         | :heavy_minus_sign:                                                                                                                               | N/A                                                                                                                                              |
 | `templateDocumentData`                                                                                                                           | [operations.TemplateCreateTemplateTemporaryTemplateDocumentData](../../models/operations/templatecreatetemplatetemporarytemplatedocumentdata.md) | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
 | `templateMeta`                                                                                                                                   | [operations.TemplateCreateTemplateTemporaryTemplateMeta](../../models/operations/templatecreatetemplatetemporarytemplatemeta.md)                 | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
 | `directLink`                                                                                                                                     | [operations.TemplateCreateTemplateTemporaryDirectLink](../../models/operations/templatecreatetemplatetemporarydirectlink.md)                     | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |

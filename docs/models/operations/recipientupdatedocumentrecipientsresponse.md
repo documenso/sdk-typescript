@@ -10,26 +10,25 @@ import { RecipientUpdateDocumentRecipientsResponse } from "@documenso/sdk-typesc
 let value: RecipientUpdateDocumentRecipientsResponse = {
   recipients: [
     {
+      envelopeId: "<id>",
       role: "VIEWER",
       readStatus: "OPENED",
       signingStatus: "NOT_SIGNED",
       sendStatus: "NOT_SENT",
       id: 4016.96,
-      documentId: 1315.53,
-      templateId: 2618.83,
-      email: "Misael37@gmail.com",
+      email: "Brenden.Gibson72@yahoo.com",
       name: "<value>",
       token: "<value>",
-      documentDeletedAt: null,
+      documentDeletedAt: "<value>",
       expired: "<value>",
       signedAt: "<value>",
       authOptions: {
         accessAuth: [],
         actionAuth: [
-          "PASSKEY",
+          "PASSWORD",
         ],
       },
-      signingOrder: 3524.23,
+      signingOrder: null,
       rejectionReason: "<value>",
       fields: [],
     },

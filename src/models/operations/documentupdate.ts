@@ -28,6 +28,7 @@ export type DocumentUpdateVisibilityRequest = ClosedEnum<
  */
 export const DocumentUpdateGlobalAccessAuthRequest = {
   Account: "ACCOUNT",
+  TwoFactorAuth: "TWO_FACTOR_AUTH",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
@@ -68,23 +69,35 @@ export type DocumentUpdateData = {
   globalAccessAuth?: Array<DocumentUpdateGlobalAccessAuthRequest> | undefined;
   globalActionAuth?: Array<DocumentUpdateGlobalActionAuthRequest> | undefined;
   useLegacyFieldInsertion?: boolean | undefined;
+  folderId?: string | null | undefined;
 };
 
 /**
  * The date format to use for date fields and signing the document.
  */
 export const DocumentUpdateDateFormat = {
-  YyyyMMDdHhMMA: "yyyy-MM-dd hh:mm a",
-  YyyyMMDd: "yyyy-MM-dd",
-  DdMMYyyyHhMMA: "dd/MM/yyyy hh:mm a",
-  MMDdYyyyHhMMA: "MM/dd/yyyy hh:mm a",
-  DdMMYyyyHHMM: "dd.MM.yyyy HH:mm",
-  YyyyMMDdHHMM: "yyyy-MM-dd HH:mm",
-  YyMMDdHhMMA: "yy-MM-dd hh:mm a",
-  YyyyMMDdHHMMSs: "yyyy-MM-dd HH:mm:ss",
-  MMMMDdYyyyHhMmA: "MMMM dd, yyyy hh:mm a",
-  EEEEMMMMDdYyyyHhMmA: "EEEE, MMMM dd, yyyy hh:mm a",
-  YyyyMMDdTHHMMSsSSSXXX: "yyyy-MM-dd'T'HH:mm:ss.SSSXXX",
+  YyyyMMddHhMmA: "yyyy-MM-dd hh:mm a",
+  YyyyMMdd: "yyyy-MM-dd",
+  DdMMSlashYyyy: "dd/MM/yyyy",
+  MmDdSlashYyyy: "MM/dd/yyyy",
+  YyMMdd: "yy-MM-dd",
+  MmmmDdCommaYyyy: "MMMM dd, yyyy",
+  EeeeMmmmDdCommaYyyy: "EEEE, MMMM dd, yyyy",
+  DdMMSlashYyyyHhMMA: "dd/MM/yyyy hh:mm a",
+  DdMMSlashYyyyHHmm: "dd/MM/yyyy HH:mm",
+  MmDdSlashYyyyHhMmA: "MM/dd/yyyy hh:mm a",
+  MmDdSlashYyyyHHmm: "MM/dd/yyyy HH:mm",
+  DdDotMmDotYyyy: "dd.MM.yyyy",
+  DdDotMmDotYyyyHHmm: "dd.MM.yyyy HH:mm",
+  YyyyMMddHHmm: "yyyy-MM-dd HH:mm",
+  YyMMddHhMmA: "yy-MM-dd hh:mm a",
+  YyMMddHHmm: "yy-MM-dd HH:mm",
+  YyyyMMddHHmmss: "yyyy-MM-dd HH:mm:ss",
+  MmmmDdCommaYyyyHhMmA: "MMMM dd, yyyy hh:mm a",
+  MmmmDdCommaYyyyHHmm: "MMMM dd, yyyy HH:mm",
+  EeeeMmmmDdCommaYyyyHhMmA: "EEEE, MMMM dd, yyyy hh:mm a",
+  EeeeMmmmDdCommaYyyyHHmm: "EEEE, MMMM dd, yyyy HH:mm",
+  Iso8601Full: "yyyy-MM-dd'T'HH:mm:ss.SSSXXX",
 } as const;
 /**
  * The date format to use for date fields and signing the document.
@@ -207,7 +220,7 @@ export type DocumentUpdateMeta = {
   drawSignatureEnabled?: boolean | undefined;
   emailId?: string | null | undefined;
   emailReplyTo?: string | null | undefined;
-  emailSettings?: DocumentUpdateEmailSettings | undefined;
+  emailSettings?: DocumentUpdateEmailSettings | null | undefined;
 };
 
 export type DocumentUpdateRequest = {
@@ -245,6 +258,7 @@ export type DocumentUpdateSource = ClosedEnum<typeof DocumentUpdateSource>;
  */
 export const DocumentUpdateGlobalAccessAuthResponse = {
   Account: "ACCOUNT",
+  TwoFactorAuth: "TWO_FACTOR_AUTH",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
@@ -295,15 +309,19 @@ export type DocumentUpdateResponse = {
   authOptions: DocumentUpdateAuthOptions | null;
   formValues: { [k: string]: string | boolean | number } | null;
   title: string;
-  documentDataId: string;
   createdAt: string;
   updatedAt: string;
   completedAt: string | null;
   deletedAt: string | null;
   teamId: number;
-  templateId: number | null;
   folderId: string | null;
   useLegacyFieldInsertion: boolean;
+  envelopeId: string;
+  documentDataId?: string | undefined;
+  /**
+   * The ID of the template that the document was created from, if any.
+   */
+  templateId?: number | null | undefined;
 };
 
 /** @internal */
@@ -389,6 +407,7 @@ export const DocumentUpdateData$inboundSchema: z.ZodType<
   globalActionAuth: z.array(DocumentUpdateGlobalActionAuthRequest$inboundSchema)
     .optional(),
   useLegacyFieldInsertion: z.boolean().optional(),
+  folderId: z.nullable(z.string()).optional(),
 });
 
 /** @internal */
@@ -399,6 +418,7 @@ export type DocumentUpdateData$Outbound = {
   globalAccessAuth?: Array<string> | undefined;
   globalActionAuth?: Array<string> | undefined;
   useLegacyFieldInsertion?: boolean | undefined;
+  folderId?: string | null | undefined;
 };
 
 /** @internal */
@@ -417,6 +437,7 @@ export const DocumentUpdateData$outboundSchema: z.ZodType<
     DocumentUpdateGlobalActionAuthRequest$outboundSchema,
   ).optional(),
   useLegacyFieldInsertion: z.boolean().optional(),
+  folderId: z.nullable(z.string()).optional(),
 });
 
 /**
@@ -628,8 +649,9 @@ export const DocumentUpdateMeta$inboundSchema: z.ZodType<
   drawSignatureEnabled: z.boolean().optional(),
   emailId: z.nullable(z.string()).optional(),
   emailReplyTo: z.nullable(z.string()).optional(),
-  emailSettings: z.lazy(() => DocumentUpdateEmailSettings$inboundSchema)
-    .optional(),
+  emailSettings: z.nullable(
+    z.lazy(() => DocumentUpdateEmailSettings$inboundSchema),
+  ).optional(),
 });
 
 /** @internal */
@@ -648,7 +670,7 @@ export type DocumentUpdateMeta$Outbound = {
   drawSignatureEnabled?: boolean | undefined;
   emailId?: string | null | undefined;
   emailReplyTo?: string | null | undefined;
-  emailSettings?: DocumentUpdateEmailSettings$Outbound | undefined;
+  emailSettings?: DocumentUpdateEmailSettings$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -672,8 +694,9 @@ export const DocumentUpdateMeta$outboundSchema: z.ZodType<
   drawSignatureEnabled: z.boolean().optional(),
   emailId: z.nullable(z.string()).optional(),
   emailReplyTo: z.nullable(z.string()).optional(),
-  emailSettings: z.lazy(() => DocumentUpdateEmailSettings$outboundSchema)
-    .optional(),
+  emailSettings: z.nullable(
+    z.lazy(() => DocumentUpdateEmailSettings$outboundSchema),
+  ).optional(),
 });
 
 /**
@@ -1010,15 +1033,16 @@ export const DocumentUpdateResponse$inboundSchema: z.ZodType<
     z.record(z.union([z.string(), z.boolean(), z.number()])),
   ),
   title: z.string(),
-  documentDataId: z.string(),
   createdAt: z.string(),
   updatedAt: z.string(),
   completedAt: z.nullable(z.string()),
   deletedAt: z.nullable(z.string()),
   teamId: z.number(),
-  templateId: z.nullable(z.number()),
   folderId: z.nullable(z.string()),
   useLegacyFieldInsertion: z.boolean(),
+  envelopeId: z.string(),
+  documentDataId: z.string().default(""),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /** @internal */
@@ -1032,15 +1056,16 @@ export type DocumentUpdateResponse$Outbound = {
   authOptions: DocumentUpdateAuthOptions$Outbound | null;
   formValues: { [k: string]: string | boolean | number } | null;
   title: string;
-  documentDataId: string;
   createdAt: string;
   updatedAt: string;
   completedAt: string | null;
   deletedAt: string | null;
   teamId: number;
-  templateId: number | null;
   folderId: string | null;
   useLegacyFieldInsertion: boolean;
+  envelopeId: string;
+  documentDataId: string;
+  templateId?: number | null | undefined;
 };
 
 /** @internal */
@@ -1062,15 +1087,16 @@ export const DocumentUpdateResponse$outboundSchema: z.ZodType<
     z.record(z.union([z.string(), z.boolean(), z.number()])),
   ),
   title: z.string(),
-  documentDataId: z.string(),
   createdAt: z.string(),
   updatedAt: z.string(),
   completedAt: z.nullable(z.string()),
   deletedAt: z.nullable(z.string()),
   teamId: z.number(),
-  templateId: z.nullable(z.number()),
   folderId: z.nullable(z.string()),
   useLegacyFieldInsertion: z.boolean(),
+  envelopeId: z.string(),
+  documentDataId: z.string().default(""),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /**

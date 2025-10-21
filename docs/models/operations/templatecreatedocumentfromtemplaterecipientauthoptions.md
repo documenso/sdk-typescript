@@ -7,10 +7,10 @@ import { TemplateCreateDocumentFromTemplateRecipientAuthOptions } from "@documen
 
 let value: TemplateCreateDocumentFromTemplateRecipientAuthOptions = {
   accessAuth: [
-    "ACCOUNT",
+    "TWO_FACTOR_AUTH",
   ],
   actionAuth: [
-    "TWO_FACTOR_AUTH",
+    "ACCOUNT",
   ],
 };
 ```

@@ -221,10 +221,10 @@ export type FieldUpdateTemplateFieldsFieldMetaNumberRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: FieldUpdateTemplateFieldsTypeNumberRequest2;
-  numberFormat?: string | undefined;
+  numberFormat?: string | null | undefined;
   value?: string | undefined;
-  minValue?: number | undefined;
-  maxValue?: number | undefined;
+  minValue?: number | null | undefined;
+  maxValue?: number | null | undefined;
   fontSize?: number | undefined;
   textAlign?: FieldUpdateTemplateFieldsTextAlignNumber | undefined;
 };
@@ -785,10 +785,10 @@ export type FieldUpdateTemplateFieldsFieldMetaNumberResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: FieldUpdateTemplateFieldsFieldMetaTypeNumber;
-  numberFormat?: string | undefined;
+  numberFormat?: string | null | undefined;
   value?: string | undefined;
-  minValue?: number | undefined;
-  maxValue?: number | undefined;
+  minValue?: number | null | undefined;
+  maxValue?: number | null | undefined;
   fontSize?: number | undefined;
   textAlign?: FieldUpdateTemplateFieldsTextAlignResponse6 | undefined;
 };
@@ -937,11 +937,11 @@ export type FieldUpdateTemplateFieldsFieldMetaUnion =
   | FieldUpdateTemplateFieldsFieldMetaDropdownResponse;
 
 export type FieldUpdateTemplateFieldsFieldResponse = {
+  envelopeId: string;
+  envelopeItemId: string;
   type: FieldUpdateTemplateFieldsTypeResponse;
   id: number;
   secondaryId: string;
-  documentId: number | null;
-  templateId: number | null;
   recipientId: number;
   /**
    * The page number of the field on the document. Starts from 1.
@@ -964,6 +964,8 @@ export type FieldUpdateTemplateFieldsFieldResponse = {
     | FieldUpdateTemplateFieldsFieldMetaCheckboxResponse
     | FieldUpdateTemplateFieldsFieldMetaDropdownResponse
     | null;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 /**
@@ -1943,10 +1945,10 @@ export const FieldUpdateTemplateFieldsFieldMetaNumberRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     type: FieldUpdateTemplateFieldsTypeNumberRequest2$inboundSchema,
-    numberFormat: z.string().optional(),
+    numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
-    minValue: z.number().optional(),
-    maxValue: z.number().optional(),
+    minValue: z.nullable(z.number()).optional(),
+    maxValue: z.nullable(z.number()).optional(),
     fontSize: z.number().optional(),
     textAlign: FieldUpdateTemplateFieldsTextAlignNumber$inboundSchema
       .optional(),
@@ -1959,10 +1961,10 @@ export type FieldUpdateTemplateFieldsFieldMetaNumberRequest$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
-  numberFormat?: string | undefined;
+  numberFormat?: string | null | undefined;
   value?: string | undefined;
-  minValue?: number | undefined;
-  maxValue?: number | undefined;
+  minValue?: number | null | undefined;
+  maxValue?: number | null | undefined;
   fontSize?: number | undefined;
   textAlign?: string | undefined;
 };
@@ -1979,10 +1981,10 @@ export const FieldUpdateTemplateFieldsFieldMetaNumberRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     type: FieldUpdateTemplateFieldsTypeNumberRequest2$outboundSchema,
-    numberFormat: z.string().optional(),
+    numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
-    minValue: z.number().optional(),
-    maxValue: z.number().optional(),
+    minValue: z.nullable(z.number()).optional(),
+    maxValue: z.nullable(z.number()).optional(),
     fontSize: z.number().optional(),
     textAlign: FieldUpdateTemplateFieldsTextAlignNumber$outboundSchema
       .optional(),
@@ -4388,10 +4390,10 @@ export const FieldUpdateTemplateFieldsFieldMetaNumberResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     type: FieldUpdateTemplateFieldsFieldMetaTypeNumber$inboundSchema,
-    numberFormat: z.string().optional(),
+    numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
-    minValue: z.number().optional(),
-    maxValue: z.number().optional(),
+    minValue: z.nullable(z.number()).optional(),
+    maxValue: z.nullable(z.number()).optional(),
     fontSize: z.number().optional(),
     textAlign: FieldUpdateTemplateFieldsTextAlignResponse6$inboundSchema
       .optional(),
@@ -4404,10 +4406,10 @@ export type FieldUpdateTemplateFieldsFieldMetaNumberResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
-  numberFormat?: string | undefined;
+  numberFormat?: string | null | undefined;
   value?: string | undefined;
-  minValue?: number | undefined;
-  maxValue?: number | undefined;
+  minValue?: number | null | undefined;
+  maxValue?: number | null | undefined;
   fontSize?: number | undefined;
   textAlign?: string | undefined;
 };
@@ -4424,10 +4426,10 @@ export const FieldUpdateTemplateFieldsFieldMetaNumberResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     type: FieldUpdateTemplateFieldsFieldMetaTypeNumber$outboundSchema,
-    numberFormat: z.string().optional(),
+    numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
-    minValue: z.number().optional(),
-    maxValue: z.number().optional(),
+    minValue: z.nullable(z.number()).optional(),
+    maxValue: z.nullable(z.number()).optional(),
     fontSize: z.number().optional(),
     textAlign: FieldUpdateTemplateFieldsTextAlignResponse6$outboundSchema
       .optional(),
@@ -5258,11 +5260,11 @@ export const FieldUpdateTemplateFieldsFieldResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  envelopeId: z.string(),
+  envelopeItemId: z.string(),
   type: FieldUpdateTemplateFieldsTypeResponse$inboundSchema,
   id: z.number(),
   secondaryId: z.string(),
-  documentId: z.nullable(z.number()),
-  templateId: z.nullable(z.number()),
   recipientId: z.number(),
   page: z.number(),
   positionX: z.any().optional(),
@@ -5302,15 +5304,17 @@ export const FieldUpdateTemplateFieldsFieldResponse$inboundSchema: z.ZodType<
       ),
     ]),
   ),
+  documentId: z.nullable(z.number()).optional(),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /** @internal */
 export type FieldUpdateTemplateFieldsFieldResponse$Outbound = {
+  envelopeId: string;
+  envelopeItemId: string;
   type: string;
   id: number;
   secondaryId: string;
-  documentId: number | null;
-  templateId: number | null;
   recipientId: number;
   page: number;
   positionX?: any | undefined;
@@ -5330,6 +5334,8 @@ export type FieldUpdateTemplateFieldsFieldResponse$Outbound = {
     | FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$Outbound
     | FieldUpdateTemplateFieldsFieldMetaDropdownResponse$Outbound
     | null;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 /** @internal */
@@ -5338,11 +5344,11 @@ export const FieldUpdateTemplateFieldsFieldResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FieldUpdateTemplateFieldsFieldResponse
 > = z.object({
+  envelopeId: z.string(),
+  envelopeItemId: z.string(),
   type: FieldUpdateTemplateFieldsTypeResponse$outboundSchema,
   id: z.number(),
   secondaryId: z.string(),
-  documentId: z.nullable(z.number()),
-  templateId: z.nullable(z.number()),
   recipientId: z.number(),
   page: z.number(),
   positionX: z.any().optional(),
@@ -5382,6 +5388,8 @@ export const FieldUpdateTemplateFieldsFieldResponse$outboundSchema: z.ZodType<
       ),
     ]),
   ),
+  documentId: z.nullable(z.number()).optional(),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /**

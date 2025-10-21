@@ -13,5 +13,5 @@ let value: TemplateCreateTemplateTemporaryAccessAuth = "ACCOUNT";
 ## Values
 
 ```typescript
-"ACCOUNT"
+"ACCOUNT" | "TWO_FACTOR_AUTH"
 ```

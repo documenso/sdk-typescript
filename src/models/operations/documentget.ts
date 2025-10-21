@@ -39,6 +39,7 @@ export type DocumentGetSource = ClosedEnum<typeof DocumentGetSource>;
  */
 export const DocumentGetGlobalAccessAuth = {
   Account: "ACCOUNT",
+  TwoFactorAuth: "TWO_FACTOR_AUTH",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
@@ -84,6 +85,7 @@ export type DocumentGetDocumentData = {
   id: string;
   data: string;
   initialData: string;
+  envelopeItemId: string;
 };
 
 export const DocumentGetSigningOrder = {
@@ -140,9 +142,7 @@ export type DocumentGetDocumentMeta = {
   subject: string | null;
   message: string | null;
   timezone: string | null;
-  password: string | null;
   dateFormat: string | null;
-  documentId: number;
   redirectUrl: string | null;
   typedSignatureEnabled: boolean;
   uploadSignatureEnabled: boolean;
@@ -152,6 +152,8 @@ export type DocumentGetDocumentMeta = {
   emailSettings: DocumentGetEmailSettings | null;
   emailId: string | null;
   emailReplyTo: string | null;
+  password?: string | null | undefined;
+  documentId?: number | undefined;
 };
 
 export const DocumentGetFolderType = {
@@ -217,6 +219,7 @@ export type DocumentGetSendStatus = ClosedEnum<typeof DocumentGetSendStatus>;
  */
 export const DocumentGetAccessAuth = {
   Account: "ACCOUNT",
+  TwoFactorAuth: "TWO_FACTOR_AUTH",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
@@ -244,13 +247,12 @@ export type DocumentGetRecipientAuthOptions = {
 };
 
 export type DocumentGetRecipient = {
+  envelopeId: string;
   role: DocumentGetRole;
   readStatus: DocumentGetReadStatus;
   signingStatus: DocumentGetSigningStatus;
   sendStatus: DocumentGetSendStatus;
   id: number;
-  documentId: number | null;
-  templateId: number | null;
   email: string;
   name: string;
   token: string;
@@ -263,6 +265,8 @@ export type DocumentGetRecipient = {
    */
   signingOrder: number | null;
   rejectionReason: string | null;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 export const DocumentGetFieldType = {
@@ -370,10 +374,10 @@ export type DocumentGetFieldMetaNumber = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: DocumentGetTypeNumber;
-  numberFormat?: string | undefined;
+  numberFormat?: string | null | undefined;
   value?: string | undefined;
-  minValue?: number | undefined;
-  maxValue?: number | undefined;
+  minValue?: number | null | undefined;
+  maxValue?: number | null | undefined;
   fontSize?: number | undefined;
   textAlign?: DocumentGetTextAlign6 | undefined;
 };
@@ -504,11 +508,11 @@ export type DocumentGetFieldMetaUnion =
   | DocumentGetFieldMetaDropdown;
 
 export type DocumentGetField = {
+  envelopeId: string;
+  envelopeItemId: string;
   type: DocumentGetFieldType;
   id: number;
   secondaryId: string;
-  documentId: number | null;
-  templateId: number | null;
   recipientId: number;
   /**
    * The page number of the field on the document. Starts from 1.
@@ -531,6 +535,8 @@ export type DocumentGetField = {
     | DocumentGetFieldMetaCheckbox
     | DocumentGetFieldMetaDropdown
     | null;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 /**
@@ -552,16 +558,20 @@ export type DocumentGetResponse = {
   authOptions: DocumentGetAuthOptions | null;
   formValues: { [k: string]: string | boolean | number } | null;
   title: string;
-  documentDataId: string;
   createdAt: string;
   updatedAt: string;
   completedAt: string | null;
   deletedAt: string | null;
   teamId: number;
-  templateId: number | null;
   folderId: string | null;
+  envelopeId: string;
+  /**
+   * The ID of the template that the document was created from, if any.
+   */
+  templateId?: number | null | undefined;
+  documentDataId?: string | undefined;
   documentData: DocumentGetDocumentData;
-  documentMeta: DocumentGetDocumentMeta | null;
+  documentMeta: DocumentGetDocumentMeta;
   folder: DocumentGetFolder | null;
   recipients: Array<DocumentGetRecipient>;
   fields: Array<DocumentGetField>;
@@ -862,6 +872,7 @@ export const DocumentGetDocumentData$inboundSchema: z.ZodType<
   id: z.string(),
   data: z.string(),
   initialData: z.string(),
+  envelopeItemId: z.string(),
 });
 
 /** @internal */
@@ -870,6 +881,7 @@ export type DocumentGetDocumentData$Outbound = {
   id: string;
   data: string;
   initialData: string;
+  envelopeItemId: string;
 };
 
 /** @internal */
@@ -882,6 +894,7 @@ export const DocumentGetDocumentData$outboundSchema: z.ZodType<
   id: z.string(),
   data: z.string(),
   initialData: z.string(),
+  envelopeItemId: z.string(),
 });
 
 /**
@@ -1041,9 +1054,7 @@ export const DocumentGetDocumentMeta$inboundSchema: z.ZodType<
   subject: z.nullable(z.string()),
   message: z.nullable(z.string()),
   timezone: z.nullable(z.string()),
-  password: z.nullable(z.string()),
   dateFormat: z.nullable(z.string()),
-  documentId: z.number(),
   redirectUrl: z.nullable(z.string()),
   typedSignatureEnabled: z.boolean(),
   uploadSignatureEnabled: z.boolean(),
@@ -1055,6 +1066,8 @@ export const DocumentGetDocumentMeta$inboundSchema: z.ZodType<
   ),
   emailId: z.nullable(z.string()),
   emailReplyTo: z.nullable(z.string()),
+  password: z.nullable(z.string()).default(null),
+  documentId: z.number().default(-1),
 });
 
 /** @internal */
@@ -1065,9 +1078,7 @@ export type DocumentGetDocumentMeta$Outbound = {
   subject: string | null;
   message: string | null;
   timezone: string | null;
-  password: string | null;
   dateFormat: string | null;
-  documentId: number;
   redirectUrl: string | null;
   typedSignatureEnabled: boolean;
   uploadSignatureEnabled: boolean;
@@ -1077,6 +1088,8 @@ export type DocumentGetDocumentMeta$Outbound = {
   emailSettings: DocumentGetEmailSettings$Outbound | null;
   emailId: string | null;
   emailReplyTo: string | null;
+  password: string | null;
+  documentId: number;
 };
 
 /** @internal */
@@ -1091,9 +1104,7 @@ export const DocumentGetDocumentMeta$outboundSchema: z.ZodType<
   subject: z.nullable(z.string()),
   message: z.nullable(z.string()),
   timezone: z.nullable(z.string()),
-  password: z.nullable(z.string()),
   dateFormat: z.nullable(z.string()),
-  documentId: z.number(),
   redirectUrl: z.nullable(z.string()),
   typedSignatureEnabled: z.boolean(),
   uploadSignatureEnabled: z.boolean(),
@@ -1105,6 +1116,8 @@ export const DocumentGetDocumentMeta$outboundSchema: z.ZodType<
   ),
   emailId: z.nullable(z.string()),
   emailReplyTo: z.nullable(z.string()),
+  password: z.nullable(z.string()).default(null),
+  documentId: z.number().default(-1),
 });
 
 /**
@@ -1452,13 +1465,12 @@ export const DocumentGetRecipient$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  envelopeId: z.string(),
   role: DocumentGetRole$inboundSchema,
   readStatus: DocumentGetReadStatus$inboundSchema,
   signingStatus: DocumentGetSigningStatus$inboundSchema,
   sendStatus: DocumentGetSendStatus$inboundSchema,
   id: z.number(),
-  documentId: z.nullable(z.number()),
-  templateId: z.nullable(z.number()),
   email: z.string(),
   name: z.string(),
   token: z.string(),
@@ -1470,17 +1482,18 @@ export const DocumentGetRecipient$inboundSchema: z.ZodType<
   ),
   signingOrder: z.nullable(z.number()),
   rejectionReason: z.nullable(z.string()),
+  documentId: z.nullable(z.number()).optional(),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /** @internal */
 export type DocumentGetRecipient$Outbound = {
+  envelopeId: string;
   role: string;
   readStatus: string;
   signingStatus: string;
   sendStatus: string;
   id: number;
-  documentId: number | null;
-  templateId: number | null;
   email: string;
   name: string;
   token: string;
@@ -1490,6 +1503,8 @@ export type DocumentGetRecipient$Outbound = {
   authOptions: DocumentGetRecipientAuthOptions$Outbound | null;
   signingOrder: number | null;
   rejectionReason: string | null;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 /** @internal */
@@ -1498,13 +1513,12 @@ export const DocumentGetRecipient$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentGetRecipient
 > = z.object({
+  envelopeId: z.string(),
   role: DocumentGetRole$outboundSchema,
   readStatus: DocumentGetReadStatus$outboundSchema,
   signingStatus: DocumentGetSigningStatus$outboundSchema,
   sendStatus: DocumentGetSendStatus$outboundSchema,
   id: z.number(),
-  documentId: z.nullable(z.number()),
-  templateId: z.nullable(z.number()),
   email: z.string(),
   name: z.string(),
   token: z.string(),
@@ -1516,6 +1530,8 @@ export const DocumentGetRecipient$outboundSchema: z.ZodType<
   ),
   signingOrder: z.nullable(z.number()),
   rejectionReason: z.nullable(z.string()),
+  documentId: z.nullable(z.number()).optional(),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /**
@@ -2104,10 +2120,10 @@ export const DocumentGetFieldMetaNumber$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   type: DocumentGetTypeNumber$inboundSchema,
-  numberFormat: z.string().optional(),
+  numberFormat: z.nullable(z.string()).optional(),
   value: z.string().optional(),
-  minValue: z.number().optional(),
-  maxValue: z.number().optional(),
+  minValue: z.nullable(z.number()).optional(),
+  maxValue: z.nullable(z.number()).optional(),
   fontSize: z.number().optional(),
   textAlign: DocumentGetTextAlign6$inboundSchema.optional(),
 });
@@ -2119,10 +2135,10 @@ export type DocumentGetFieldMetaNumber$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
-  numberFormat?: string | undefined;
+  numberFormat?: string | null | undefined;
   value?: string | undefined;
-  minValue?: number | undefined;
-  maxValue?: number | undefined;
+  minValue?: number | null | undefined;
+  maxValue?: number | null | undefined;
   fontSize?: number | undefined;
   textAlign?: string | undefined;
 };
@@ -2138,10 +2154,10 @@ export const DocumentGetFieldMetaNumber$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   type: DocumentGetTypeNumber$outboundSchema,
-  numberFormat: z.string().optional(),
+  numberFormat: z.nullable(z.string()).optional(),
   value: z.string().optional(),
-  minValue: z.number().optional(),
-  maxValue: z.number().optional(),
+  minValue: z.nullable(z.number()).optional(),
+  maxValue: z.nullable(z.number()).optional(),
   fontSize: z.number().optional(),
   textAlign: DocumentGetTextAlign6$outboundSchema.optional(),
 });
@@ -2838,11 +2854,11 @@ export const DocumentGetField$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  envelopeId: z.string(),
+  envelopeItemId: z.string(),
   type: DocumentGetFieldType$inboundSchema,
   id: z.number(),
   secondaryId: z.string(),
-  documentId: z.nullable(z.number()),
-  templateId: z.nullable(z.number()),
   recipientId: z.number(),
   page: z.number(),
   positionX: z.any().optional(),
@@ -2864,15 +2880,17 @@ export const DocumentGetField$inboundSchema: z.ZodType<
       z.lazy(() => DocumentGetFieldMetaDropdown$inboundSchema),
     ]),
   ),
+  documentId: z.nullable(z.number()).optional(),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /** @internal */
 export type DocumentGetField$Outbound = {
+  envelopeId: string;
+  envelopeItemId: string;
   type: string;
   id: number;
   secondaryId: string;
-  documentId: number | null;
-  templateId: number | null;
   recipientId: number;
   page: number;
   positionX?: any | undefined;
@@ -2892,6 +2910,8 @@ export type DocumentGetField$Outbound = {
     | DocumentGetFieldMetaCheckbox$Outbound
     | DocumentGetFieldMetaDropdown$Outbound
     | null;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 /** @internal */
@@ -2900,11 +2920,11 @@ export const DocumentGetField$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentGetField
 > = z.object({
+  envelopeId: z.string(),
+  envelopeItemId: z.string(),
   type: DocumentGetFieldType$outboundSchema,
   id: z.number(),
   secondaryId: z.string(),
-  documentId: z.nullable(z.number()),
-  templateId: z.nullable(z.number()),
   recipientId: z.number(),
   page: z.number(),
   positionX: z.any().optional(),
@@ -2926,6 +2946,8 @@ export const DocumentGetField$outboundSchema: z.ZodType<
       z.lazy(() => DocumentGetFieldMetaDropdown$outboundSchema),
     ]),
   ),
+  documentId: z.nullable(z.number()).optional(),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /**
@@ -2976,16 +2998,17 @@ export const DocumentGetResponse$inboundSchema: z.ZodType<
     z.record(z.union([z.string(), z.boolean(), z.number()])),
   ),
   title: z.string(),
-  documentDataId: z.string(),
   createdAt: z.string(),
   updatedAt: z.string(),
   completedAt: z.nullable(z.string()),
   deletedAt: z.nullable(z.string()),
   teamId: z.number(),
-  templateId: z.nullable(z.number()),
   folderId: z.nullable(z.string()),
+  envelopeId: z.string(),
+  templateId: z.nullable(z.number()).optional(),
+  documentDataId: z.string().default(""),
   documentData: z.lazy(() => DocumentGetDocumentData$inboundSchema),
-  documentMeta: z.nullable(z.lazy(() => DocumentGetDocumentMeta$inboundSchema)),
+  documentMeta: z.lazy(() => DocumentGetDocumentMeta$inboundSchema),
   folder: z.nullable(z.lazy(() => DocumentGetFolder$inboundSchema)),
   recipients: z.array(z.lazy(() => DocumentGetRecipient$inboundSchema)),
   fields: z.array(z.lazy(() => DocumentGetField$inboundSchema)),
@@ -3002,16 +3025,17 @@ export type DocumentGetResponse$Outbound = {
   authOptions: DocumentGetAuthOptions$Outbound | null;
   formValues: { [k: string]: string | boolean | number } | null;
   title: string;
-  documentDataId: string;
   createdAt: string;
   updatedAt: string;
   completedAt: string | null;
   deletedAt: string | null;
   teamId: number;
-  templateId: number | null;
   folderId: string | null;
+  envelopeId: string;
+  templateId?: number | null | undefined;
+  documentDataId: string;
   documentData: DocumentGetDocumentData$Outbound;
-  documentMeta: DocumentGetDocumentMeta$Outbound | null;
+  documentMeta: DocumentGetDocumentMeta$Outbound;
   folder: DocumentGetFolder$Outbound | null;
   recipients: Array<DocumentGetRecipient$Outbound>;
   fields: Array<DocumentGetField$Outbound>;
@@ -3034,18 +3058,17 @@ export const DocumentGetResponse$outboundSchema: z.ZodType<
     z.record(z.union([z.string(), z.boolean(), z.number()])),
   ),
   title: z.string(),
-  documentDataId: z.string(),
   createdAt: z.string(),
   updatedAt: z.string(),
   completedAt: z.nullable(z.string()),
   deletedAt: z.nullable(z.string()),
   teamId: z.number(),
-  templateId: z.nullable(z.number()),
   folderId: z.nullable(z.string()),
+  envelopeId: z.string(),
+  templateId: z.nullable(z.number()).optional(),
+  documentDataId: z.string().default(""),
   documentData: z.lazy(() => DocumentGetDocumentData$outboundSchema),
-  documentMeta: z.nullable(
-    z.lazy(() => DocumentGetDocumentMeta$outboundSchema),
-  ),
+  documentMeta: z.lazy(() => DocumentGetDocumentMeta$outboundSchema),
   folder: z.nullable(z.lazy(() => DocumentGetFolder$outboundSchema)),
   recipients: z.array(z.lazy(() => DocumentGetRecipient$outboundSchema)),
   fields: z.array(z.lazy(() => DocumentGetField$outboundSchema)),

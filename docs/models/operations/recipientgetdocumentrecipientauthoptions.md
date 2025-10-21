@@ -7,11 +7,9 @@ import { RecipientGetDocumentRecipientAuthOptions } from "@documenso/sdk-typescr
 
 let value: RecipientGetDocumentRecipientAuthOptions = {
   accessAuth: [
-    "ACCOUNT",
+    "TWO_FACTOR_AUTH",
   ],
-  actionAuth: [
-    "PASSKEY",
-  ],
+  actionAuth: [],
 };
 ```
 

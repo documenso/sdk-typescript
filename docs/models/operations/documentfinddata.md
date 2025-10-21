@@ -18,26 +18,46 @@ let value: DocumentFindData = {
     ],
     globalActionAuth: [],
   },
-  formValues: null,
+  formValues: {},
   title: "<value>",
-  documentDataId: "<id>",
-  createdAt: "1707865978611",
-  updatedAt: "1735616330381",
+  createdAt: "1728001866847",
+  updatedAt: "1735618616447",
   completedAt: "<value>",
-  deletedAt: "<value>",
-  teamId: 1387.13,
-  templateId: null,
+  deletedAt: null,
+  teamId: 4867.45,
   folderId: "<id>",
   useLegacyFieldInsertion: true,
+  envelopeId: "<id>",
   user: {
-    id: 4875.96,
+    id: 4968.94,
     name: "<value>",
-    email: "Jessica33@yahoo.com",
+    email: "Jabari.Gleichner99@yahoo.com",
   },
-  recipients: [],
+  recipients: [
+    {
+      envelopeId: "<id>",
+      role: "CC",
+      readStatus: "OPENED",
+      signingStatus: "NOT_SIGNED",
+      sendStatus: "NOT_SENT",
+      id: 2972.6,
+      email: "Sabryna98@gmail.com",
+      name: "<value>",
+      token: "<value>",
+      documentDeletedAt: "<value>",
+      expired: null,
+      signedAt: null,
+      authOptions: {
+        accessAuth: [],
+        actionAuth: [],
+      },
+      signingOrder: 839.49,
+      rejectionReason: "<value>",
+    },
+  ],
   team: {
-    id: 721.66,
-    url: "https://enraged-advancement.biz",
+    id: 5369.77,
+    url: "https://blank-fold.net",
   },
 };
 ```
@@ -55,15 +75,16 @@ let value: DocumentFindData = {
 | `authOptions`                                                                            | [operations.DocumentFindAuthOptions](../../models/operations/documentfindauthoptions.md) | :heavy_check_mark:                                                                       | N/A                                                                                      |
 | `formValues`                                                                             | Record<string, *operations.DocumentFindFormValues*>                                      | :heavy_check_mark:                                                                       | N/A                                                                                      |
 | `title`                                                                                  | *string*                                                                                 | :heavy_check_mark:                                                                       | N/A                                                                                      |
-| `documentDataId`                                                                         | *string*                                                                                 | :heavy_check_mark:                                                                       | N/A                                                                                      |
 | `createdAt`                                                                              | *string*                                                                                 | :heavy_check_mark:                                                                       | N/A                                                                                      |
 | `updatedAt`                                                                              | *string*                                                                                 | :heavy_check_mark:                                                                       | N/A                                                                                      |
 | `completedAt`                                                                            | *string*                                                                                 | :heavy_check_mark:                                                                       | N/A                                                                                      |
 | `deletedAt`                                                                              | *string*                                                                                 | :heavy_check_mark:                                                                       | N/A                                                                                      |
 | `teamId`                                                                                 | *number*                                                                                 | :heavy_check_mark:                                                                       | N/A                                                                                      |
-| `templateId`                                                                             | *number*                                                                                 | :heavy_check_mark:                                                                       | N/A                                                                                      |
 | `folderId`                                                                               | *string*                                                                                 | :heavy_check_mark:                                                                       | N/A                                                                                      |
 | `useLegacyFieldInsertion`                                                                | *boolean*                                                                                | :heavy_check_mark:                                                                       | N/A                                                                                      |
+| `envelopeId`                                                                             | *string*                                                                                 | :heavy_check_mark:                                                                       | N/A                                                                                      |
+| `documentDataId`                                                                         | *string*                                                                                 | :heavy_minus_sign:                                                                       | N/A                                                                                      |
+| `templateId`                                                                             | *number*                                                                                 | :heavy_minus_sign:                                                                       | The ID of the template that the document was created from, if any.                       |
 | `user`                                                                                   | [operations.DocumentFindUser](../../models/operations/documentfinduser.md)               | :heavy_check_mark:                                                                       | N/A                                                                                      |
 | `recipients`                                                                             | [operations.DocumentFindRecipient](../../models/operations/documentfindrecipient.md)[]   | :heavy_check_mark:                                                                       | N/A                                                                                      |
 | `team`                                                                                   | [operations.DocumentFindTeam](../../models/operations/documentfindteam.md)               | :heavy_check_mark:                                                                       | N/A                                                                                      |

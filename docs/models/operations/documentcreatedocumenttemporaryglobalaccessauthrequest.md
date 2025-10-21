@@ -7,11 +7,12 @@ The type of authentication required for the recipient to access the document.
 ```typescript
 import { DocumentCreateDocumentTemporaryGlobalAccessAuthRequest } from "@documenso/sdk-typescript/models/operations";
 
-let value: DocumentCreateDocumentTemporaryGlobalAccessAuthRequest = "ACCOUNT";
+let value: DocumentCreateDocumentTemporaryGlobalAccessAuthRequest =
+  "TWO_FACTOR_AUTH";
 ```
 
 ## Values
 
 ```typescript
-"ACCOUNT"
+"ACCOUNT" | "TWO_FACTOR_AUTH"
 ```

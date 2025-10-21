@@ -24,6 +24,7 @@ export type RecipientCreateDocumentRecipientRoleRequest = ClosedEnum<
  */
 export const RecipientCreateDocumentRecipientAccessAuthRequest = {
   Account: "ACCOUNT",
+  TwoFactorAuth: "TWO_FACTOR_AUTH",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
@@ -108,6 +109,7 @@ export type RecipientCreateDocumentRecipientSendStatus = ClosedEnum<
  */
 export const RecipientCreateDocumentRecipientAccessAuthResponse = {
   Account: "ACCOUNT",
+  TwoFactorAuth: "TWO_FACTOR_AUTH",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
@@ -142,13 +144,12 @@ export type RecipientCreateDocumentRecipientAuthOptions = {
  * Successful response
  */
 export type RecipientCreateDocumentRecipientResponse = {
+  envelopeId: string;
   role: RecipientCreateDocumentRecipientRoleResponse;
   readStatus: RecipientCreateDocumentRecipientReadStatus;
   signingStatus: RecipientCreateDocumentRecipientSigningStatus;
   sendStatus: RecipientCreateDocumentRecipientSendStatus;
   id: number;
-  documentId: number | null;
-  templateId: number | null;
   email: string;
   name: string;
   token: string;
@@ -161,6 +162,8 @@ export type RecipientCreateDocumentRecipientResponse = {
    */
   signingOrder: number | null;
   rejectionReason: string | null;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 /** @internal */
@@ -615,13 +618,12 @@ export const RecipientCreateDocumentRecipientResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  envelopeId: z.string(),
   role: RecipientCreateDocumentRecipientRoleResponse$inboundSchema,
   readStatus: RecipientCreateDocumentRecipientReadStatus$inboundSchema,
   signingStatus: RecipientCreateDocumentRecipientSigningStatus$inboundSchema,
   sendStatus: RecipientCreateDocumentRecipientSendStatus$inboundSchema,
   id: z.number(),
-  documentId: z.nullable(z.number()),
-  templateId: z.nullable(z.number()),
   email: z.string(),
   name: z.string(),
   token: z.string(),
@@ -633,17 +635,18 @@ export const RecipientCreateDocumentRecipientResponse$inboundSchema: z.ZodType<
   ),
   signingOrder: z.nullable(z.number()),
   rejectionReason: z.nullable(z.string()),
+  documentId: z.nullable(z.number()).optional(),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /** @internal */
 export type RecipientCreateDocumentRecipientResponse$Outbound = {
+  envelopeId: string;
   role: string;
   readStatus: string;
   signingStatus: string;
   sendStatus: string;
   id: number;
-  documentId: number | null;
-  templateId: number | null;
   email: string;
   name: string;
   token: string;
@@ -653,6 +656,8 @@ export type RecipientCreateDocumentRecipientResponse$Outbound = {
   authOptions: RecipientCreateDocumentRecipientAuthOptions$Outbound | null;
   signingOrder: number | null;
   rejectionReason: string | null;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 /** @internal */
@@ -661,13 +666,12 @@ export const RecipientCreateDocumentRecipientResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   RecipientCreateDocumentRecipientResponse
 > = z.object({
+  envelopeId: z.string(),
   role: RecipientCreateDocumentRecipientRoleResponse$outboundSchema,
   readStatus: RecipientCreateDocumentRecipientReadStatus$outboundSchema,
   signingStatus: RecipientCreateDocumentRecipientSigningStatus$outboundSchema,
   sendStatus: RecipientCreateDocumentRecipientSendStatus$outboundSchema,
   id: z.number(),
-  documentId: z.nullable(z.number()),
-  templateId: z.nullable(z.number()),
   email: z.string(),
   name: z.string(),
   token: z.string(),
@@ -679,6 +683,8 @@ export const RecipientCreateDocumentRecipientResponse$outboundSchema: z.ZodType<
   ),
   signingOrder: z.nullable(z.number()),
   rejectionReason: z.nullable(z.string()),
+  documentId: z.nullable(z.number()).optional(),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /**

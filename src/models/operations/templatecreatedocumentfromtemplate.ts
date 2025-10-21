@@ -17,6 +17,11 @@ export type TemplateCreateDocumentFromTemplateRecipientRequest = {
   name?: string | undefined;
 };
 
+export type CustomDocumentDatum = {
+  documentDataId: string;
+  envelopeItemId: string;
+};
+
 export const PrefillFieldTypeDate = {
   Date: "date",
 } as const;
@@ -113,9 +118,13 @@ export type TemplateCreateDocumentFromTemplateRequest = {
    */
   distributeDocument?: boolean | undefined;
   /**
-   * The data ID of an alternative PDF to use when creating the document. If not provided, the PDF attached to the template will be used.
+   * [DEPRECATED] - Use customDocumentData instead. The data ID of an alternative PDF to use when creating the document. If not provided, the PDF attached to the template will be used.
    */
   customDocumentDataId?: string | undefined;
+  /**
+   * The data IDs of alternative PDFs to use when creating the document. If not provided, the PDF attached to the template will be used.
+   */
+  customDocumentData?: Array<CustomDocumentDatum> | undefined;
   /**
    * The ID of the folder to create the document in. If not provided, the document will be created in the root folder.
    */
@@ -168,6 +177,7 @@ export type TemplateCreateDocumentFromTemplateSource = ClosedEnum<
  */
 export const TemplateCreateDocumentFromTemplateGlobalAccessAuth = {
   Account: "ACCOUNT",
+  TwoFactorAuth: "TWO_FACTOR_AUTH",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
@@ -216,6 +226,7 @@ export type TemplateCreateDocumentFromTemplateDocumentData = {
   id: string;
   data: string;
   initialData: string;
+  envelopeItemId: string;
 };
 
 export const TemplateCreateDocumentFromTemplateSigningOrder = {
@@ -272,9 +283,7 @@ export type TemplateCreateDocumentFromTemplateDocumentMeta = {
   subject: string | null;
   message: string | null;
   timezone: string | null;
-  password: string | null;
   dateFormat: string | null;
-  documentId: number;
   redirectUrl: string | null;
   typedSignatureEnabled: boolean;
   uploadSignatureEnabled: boolean;
@@ -284,6 +293,8 @@ export type TemplateCreateDocumentFromTemplateDocumentMeta = {
   emailSettings: TemplateCreateDocumentFromTemplateEmailSettings | null;
   emailId: string | null;
   emailReplyTo: string | null;
+  password?: string | null | undefined;
+  documentId?: number | undefined;
 };
 
 export const TemplateCreateDocumentFromTemplateFolderType = {
@@ -357,6 +368,7 @@ export type TemplateCreateDocumentFromTemplateSendStatus = ClosedEnum<
  */
 export const TemplateCreateDocumentFromTemplateAccessAuth = {
   Account: "ACCOUNT",
+  TwoFactorAuth: "TWO_FACTOR_AUTH",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
@@ -388,13 +400,12 @@ export type TemplateCreateDocumentFromTemplateRecipientAuthOptions = {
 };
 
 export type TemplateCreateDocumentFromTemplateRecipientResponse = {
+  envelopeId: string;
   role: TemplateCreateDocumentFromTemplateRole;
   readStatus: TemplateCreateDocumentFromTemplateReadStatus;
   signingStatus: TemplateCreateDocumentFromTemplateSigningStatus;
   sendStatus: TemplateCreateDocumentFromTemplateSendStatus;
   id: number;
-  documentId: number | null;
-  templateId: number | null;
   email: string;
   name: string;
   token: string;
@@ -407,6 +418,8 @@ export type TemplateCreateDocumentFromTemplateRecipientResponse = {
    */
   signingOrder: number | null;
   rejectionReason: string | null;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 export const TemplateCreateDocumentFromTemplateFieldType = {
@@ -522,10 +535,10 @@ export type TemplateCreateDocumentFromTemplateFieldMetaNumber = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: TemplateCreateDocumentFromTemplateFieldMetaTypeNumber;
-  numberFormat?: string | undefined;
+  numberFormat?: string | null | undefined;
   value?: string | undefined;
-  minValue?: number | undefined;
-  maxValue?: number | undefined;
+  minValue?: number | null | undefined;
+  maxValue?: number | null | undefined;
   fontSize?: number | undefined;
   textAlign?: TemplateCreateDocumentFromTemplateTextAlign6 | undefined;
 };
@@ -674,11 +687,11 @@ export type TemplateCreateDocumentFromTemplateFieldMetaUnion =
   | TemplateCreateDocumentFromTemplateFieldMetaDropdown;
 
 export type TemplateCreateDocumentFromTemplateField = {
+  envelopeId: string;
+  envelopeItemId: string;
   type: TemplateCreateDocumentFromTemplateFieldType;
   id: number;
   secondaryId: string;
-  documentId: number | null;
-  templateId: number | null;
   recipientId: number;
   /**
    * The page number of the field on the document. Starts from 1.
@@ -701,6 +714,8 @@ export type TemplateCreateDocumentFromTemplateField = {
     | TemplateCreateDocumentFromTemplateFieldMetaCheckbox
     | TemplateCreateDocumentFromTemplateFieldMetaDropdown
     | null;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 /**
@@ -722,16 +737,20 @@ export type TemplateCreateDocumentFromTemplateResponse = {
   authOptions: TemplateCreateDocumentFromTemplateAuthOptions | null;
   formValues: { [k: string]: string | boolean | number } | null;
   title: string;
-  documentDataId: string;
   createdAt: string;
   updatedAt: string;
   completedAt: string | null;
   deletedAt: string | null;
   teamId: number;
-  templateId: number | null;
   folderId: string | null;
+  envelopeId: string;
+  /**
+   * The ID of the template that the document was created from, if any.
+   */
+  templateId?: number | null | undefined;
+  documentDataId?: string | undefined;
   documentData: TemplateCreateDocumentFromTemplateDocumentData;
-  documentMeta: TemplateCreateDocumentFromTemplateDocumentMeta | null;
+  documentMeta: TemplateCreateDocumentFromTemplateDocumentMeta;
   folder: TemplateCreateDocumentFromTemplateFolder | null;
   recipients: Array<TemplateCreateDocumentFromTemplateRecipientResponse>;
   fields: Array<TemplateCreateDocumentFromTemplateField>;
@@ -808,6 +827,63 @@ export function templateCreateDocumentFromTemplateRecipientRequestFromJSON(
         JSON.parse(x),
       ),
     `Failed to parse 'TemplateCreateDocumentFromTemplateRecipientRequest' from JSON`,
+  );
+}
+
+/** @internal */
+export const CustomDocumentDatum$inboundSchema: z.ZodType<
+  CustomDocumentDatum,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  documentDataId: z.string(),
+  envelopeItemId: z.string(),
+});
+
+/** @internal */
+export type CustomDocumentDatum$Outbound = {
+  documentDataId: string;
+  envelopeItemId: string;
+};
+
+/** @internal */
+export const CustomDocumentDatum$outboundSchema: z.ZodType<
+  CustomDocumentDatum$Outbound,
+  z.ZodTypeDef,
+  CustomDocumentDatum
+> = z.object({
+  documentDataId: z.string(),
+  envelopeItemId: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CustomDocumentDatum$ {
+  /** @deprecated use `CustomDocumentDatum$inboundSchema` instead. */
+  export const inboundSchema = CustomDocumentDatum$inboundSchema;
+  /** @deprecated use `CustomDocumentDatum$outboundSchema` instead. */
+  export const outboundSchema = CustomDocumentDatum$outboundSchema;
+  /** @deprecated use `CustomDocumentDatum$Outbound` instead. */
+  export type Outbound = CustomDocumentDatum$Outbound;
+}
+
+export function customDocumentDatumToJSON(
+  customDocumentDatum: CustomDocumentDatum,
+): string {
+  return JSON.stringify(
+    CustomDocumentDatum$outboundSchema.parse(customDocumentDatum),
+  );
+}
+
+export function customDocumentDatumFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomDocumentDatum, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomDocumentDatum$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomDocumentDatum' from JSON`,
   );
 }
 
@@ -1396,6 +1472,8 @@ export const TemplateCreateDocumentFromTemplateRequest$inboundSchema: z.ZodType<
   ),
   distributeDocument: z.boolean().optional(),
   customDocumentDataId: z.string().optional(),
+  customDocumentData: z.array(z.lazy(() => CustomDocumentDatum$inboundSchema))
+    .optional(),
   folderId: z.string().optional(),
   prefillFields: z.array(
     z.union([
@@ -1417,6 +1495,7 @@ export type TemplateCreateDocumentFromTemplateRequest$Outbound = {
   >;
   distributeDocument?: boolean | undefined;
   customDocumentDataId?: string | undefined;
+  customDocumentData?: Array<CustomDocumentDatum$Outbound> | undefined;
   folderId?: string | undefined;
   prefillFields?:
     | Array<
@@ -1445,6 +1524,9 @@ export const TemplateCreateDocumentFromTemplateRequest$outboundSchema:
     ),
     distributeDocument: z.boolean().optional(),
     customDocumentDataId: z.string().optional(),
+    customDocumentData: z.array(
+      z.lazy(() => CustomDocumentDatum$outboundSchema),
+    ).optional(),
     folderId: z.string().optional(),
     prefillFields: z.array(
       z.union([
@@ -1791,6 +1873,7 @@ export const TemplateCreateDocumentFromTemplateDocumentData$inboundSchema:
     id: z.string(),
     data: z.string(),
     initialData: z.string(),
+    envelopeItemId: z.string(),
   });
 
 /** @internal */
@@ -1799,6 +1882,7 @@ export type TemplateCreateDocumentFromTemplateDocumentData$Outbound = {
   id: string;
   data: string;
   initialData: string;
+  envelopeItemId: string;
 };
 
 /** @internal */
@@ -1812,6 +1896,7 @@ export const TemplateCreateDocumentFromTemplateDocumentData$outboundSchema:
     id: z.string(),
     data: z.string(),
     initialData: z.string(),
+    envelopeItemId: z.string(),
   });
 
 /**
@@ -2003,9 +2088,7 @@ export const TemplateCreateDocumentFromTemplateDocumentMeta$inboundSchema:
     subject: z.nullable(z.string()),
     message: z.nullable(z.string()),
     timezone: z.nullable(z.string()),
-    password: z.nullable(z.string()),
     dateFormat: z.nullable(z.string()),
-    documentId: z.number(),
     redirectUrl: z.nullable(z.string()),
     typedSignatureEnabled: z.boolean(),
     uploadSignatureEnabled: z.boolean(),
@@ -2019,6 +2102,8 @@ export const TemplateCreateDocumentFromTemplateDocumentMeta$inboundSchema:
     ),
     emailId: z.nullable(z.string()),
     emailReplyTo: z.nullable(z.string()),
+    password: z.nullable(z.string()).default(null),
+    documentId: z.number().default(-1),
   });
 
 /** @internal */
@@ -2029,9 +2114,7 @@ export type TemplateCreateDocumentFromTemplateDocumentMeta$Outbound = {
   subject: string | null;
   message: string | null;
   timezone: string | null;
-  password: string | null;
   dateFormat: string | null;
-  documentId: number;
   redirectUrl: string | null;
   typedSignatureEnabled: boolean;
   uploadSignatureEnabled: boolean;
@@ -2043,6 +2126,8 @@ export type TemplateCreateDocumentFromTemplateDocumentMeta$Outbound = {
     | null;
   emailId: string | null;
   emailReplyTo: string | null;
+  password: string | null;
+  documentId: number;
 };
 
 /** @internal */
@@ -2059,9 +2144,7 @@ export const TemplateCreateDocumentFromTemplateDocumentMeta$outboundSchema:
     subject: z.nullable(z.string()),
     message: z.nullable(z.string()),
     timezone: z.nullable(z.string()),
-    password: z.nullable(z.string()),
     dateFormat: z.nullable(z.string()),
-    documentId: z.number(),
     redirectUrl: z.nullable(z.string()),
     typedSignatureEnabled: z.boolean(),
     uploadSignatureEnabled: z.boolean(),
@@ -2075,6 +2158,8 @@ export const TemplateCreateDocumentFromTemplateDocumentMeta$outboundSchema:
     ),
     emailId: z.nullable(z.string()),
     emailReplyTo: z.nullable(z.string()),
+    password: z.nullable(z.string()).default(null),
+    documentId: z.number().default(-1),
   });
 
 /**
@@ -2482,14 +2567,13 @@ export const TemplateCreateDocumentFromTemplateRecipientResponse$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({
+    envelopeId: z.string(),
     role: TemplateCreateDocumentFromTemplateRole$inboundSchema,
     readStatus: TemplateCreateDocumentFromTemplateReadStatus$inboundSchema,
     signingStatus:
       TemplateCreateDocumentFromTemplateSigningStatus$inboundSchema,
     sendStatus: TemplateCreateDocumentFromTemplateSendStatus$inboundSchema,
     id: z.number(),
-    documentId: z.nullable(z.number()),
-    templateId: z.nullable(z.number()),
     email: z.string(),
     name: z.string(),
     token: z.string(),
@@ -2503,17 +2587,18 @@ export const TemplateCreateDocumentFromTemplateRecipientResponse$inboundSchema:
     ),
     signingOrder: z.nullable(z.number()),
     rejectionReason: z.nullable(z.string()),
+    documentId: z.nullable(z.number()).optional(),
+    templateId: z.nullable(z.number()).optional(),
   });
 
 /** @internal */
 export type TemplateCreateDocumentFromTemplateRecipientResponse$Outbound = {
+  envelopeId: string;
   role: string;
   readStatus: string;
   signingStatus: string;
   sendStatus: string;
   id: number;
-  documentId: number | null;
-  templateId: number | null;
   email: string;
   name: string;
   token: string;
@@ -2525,6 +2610,8 @@ export type TemplateCreateDocumentFromTemplateRecipientResponse$Outbound = {
     | null;
   signingOrder: number | null;
   rejectionReason: string | null;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 /** @internal */
@@ -2534,14 +2621,13 @@ export const TemplateCreateDocumentFromTemplateRecipientResponse$outboundSchema:
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateRecipientResponse
   > = z.object({
+    envelopeId: z.string(),
     role: TemplateCreateDocumentFromTemplateRole$outboundSchema,
     readStatus: TemplateCreateDocumentFromTemplateReadStatus$outboundSchema,
     signingStatus:
       TemplateCreateDocumentFromTemplateSigningStatus$outboundSchema,
     sendStatus: TemplateCreateDocumentFromTemplateSendStatus$outboundSchema,
     id: z.number(),
-    documentId: z.nullable(z.number()),
-    templateId: z.nullable(z.number()),
     email: z.string(),
     name: z.string(),
     token: z.string(),
@@ -2555,6 +2641,8 @@ export const TemplateCreateDocumentFromTemplateRecipientResponse$outboundSchema:
     ),
     signingOrder: z.nullable(z.number()),
     rejectionReason: z.nullable(z.string()),
+    documentId: z.nullable(z.number()).optional(),
+    templateId: z.nullable(z.number()).optional(),
   });
 
 /**
@@ -3263,10 +3351,10 @@ export const TemplateCreateDocumentFromTemplateFieldMetaNumber$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     type: TemplateCreateDocumentFromTemplateFieldMetaTypeNumber$inboundSchema,
-    numberFormat: z.string().optional(),
+    numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
-    minValue: z.number().optional(),
-    maxValue: z.number().optional(),
+    minValue: z.nullable(z.number()).optional(),
+    maxValue: z.nullable(z.number()).optional(),
     fontSize: z.number().optional(),
     textAlign: TemplateCreateDocumentFromTemplateTextAlign6$inboundSchema
       .optional(),
@@ -3279,10 +3367,10 @@ export type TemplateCreateDocumentFromTemplateFieldMetaNumber$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
-  numberFormat?: string | undefined;
+  numberFormat?: string | null | undefined;
   value?: string | undefined;
-  minValue?: number | undefined;
-  maxValue?: number | undefined;
+  minValue?: number | null | undefined;
+  maxValue?: number | null | undefined;
   fontSize?: number | undefined;
   textAlign?: string | undefined;
 };
@@ -3299,10 +3387,10 @@ export const TemplateCreateDocumentFromTemplateFieldMetaNumber$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     type: TemplateCreateDocumentFromTemplateFieldMetaTypeNumber$outboundSchema,
-    numberFormat: z.string().optional(),
+    numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
-    minValue: z.number().optional(),
-    maxValue: z.number().optional(),
+    minValue: z.nullable(z.number()).optional(),
+    maxValue: z.nullable(z.number()).optional(),
     fontSize: z.number().optional(),
     textAlign: TemplateCreateDocumentFromTemplateTextAlign6$outboundSchema
       .optional(),
@@ -4154,11 +4242,11 @@ export const TemplateCreateDocumentFromTemplateField$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  envelopeId: z.string(),
+  envelopeItemId: z.string(),
   type: TemplateCreateDocumentFromTemplateFieldType$inboundSchema,
   id: z.number(),
   secondaryId: z.string(),
-  documentId: z.nullable(z.number()),
-  templateId: z.nullable(z.number()),
   recipientId: z.number(),
   page: z.number(),
   positionX: z.any().optional(),
@@ -4198,15 +4286,17 @@ export const TemplateCreateDocumentFromTemplateField$inboundSchema: z.ZodType<
       ),
     ]),
   ),
+  documentId: z.nullable(z.number()).optional(),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /** @internal */
 export type TemplateCreateDocumentFromTemplateField$Outbound = {
+  envelopeId: string;
+  envelopeItemId: string;
   type: string;
   id: number;
   secondaryId: string;
-  documentId: number | null;
-  templateId: number | null;
   recipientId: number;
   page: number;
   positionX?: any | undefined;
@@ -4226,6 +4316,8 @@ export type TemplateCreateDocumentFromTemplateField$Outbound = {
     | TemplateCreateDocumentFromTemplateFieldMetaCheckbox$Outbound
     | TemplateCreateDocumentFromTemplateFieldMetaDropdown$Outbound
     | null;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 /** @internal */
@@ -4234,11 +4326,11 @@ export const TemplateCreateDocumentFromTemplateField$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TemplateCreateDocumentFromTemplateField
 > = z.object({
+  envelopeId: z.string(),
+  envelopeItemId: z.string(),
   type: TemplateCreateDocumentFromTemplateFieldType$outboundSchema,
   id: z.number(),
   secondaryId: z.string(),
-  documentId: z.nullable(z.number()),
-  templateId: z.nullable(z.number()),
   recipientId: z.number(),
   page: z.number(),
   positionX: z.any().optional(),
@@ -4278,6 +4370,8 @@ export const TemplateCreateDocumentFromTemplateField$outboundSchema: z.ZodType<
       ),
     ]),
   ),
+  documentId: z.nullable(z.number()).optional(),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /**
@@ -4341,21 +4435,20 @@ export const TemplateCreateDocumentFromTemplateResponse$inboundSchema:
         z.record(z.union([z.string(), z.boolean(), z.number()])),
       ),
       title: z.string(),
-      documentDataId: z.string(),
       createdAt: z.string(),
       updatedAt: z.string(),
       completedAt: z.nullable(z.string()),
       deletedAt: z.nullable(z.string()),
       teamId: z.number(),
-      templateId: z.nullable(z.number()),
       folderId: z.nullable(z.string()),
+      envelopeId: z.string(),
+      templateId: z.nullable(z.number()).optional(),
+      documentDataId: z.string().default(""),
       documentData: z.lazy(() =>
         TemplateCreateDocumentFromTemplateDocumentData$inboundSchema
       ),
-      documentMeta: z.nullable(
-        z.lazy(() =>
-          TemplateCreateDocumentFromTemplateDocumentMeta$inboundSchema
-        ),
+      documentMeta: z.lazy(() =>
+        TemplateCreateDocumentFromTemplateDocumentMeta$inboundSchema
       ),
       folder: z.nullable(
         z.lazy(() => TemplateCreateDocumentFromTemplateFolder$inboundSchema),
@@ -4381,16 +4474,17 @@ export type TemplateCreateDocumentFromTemplateResponse$Outbound = {
   authOptions: TemplateCreateDocumentFromTemplateAuthOptions$Outbound | null;
   formValues: { [k: string]: string | boolean | number } | null;
   title: string;
-  documentDataId: string;
   createdAt: string;
   updatedAt: string;
   completedAt: string | null;
   deletedAt: string | null;
   teamId: number;
-  templateId: number | null;
   folderId: string | null;
+  envelopeId: string;
+  templateId?: number | null | undefined;
+  documentDataId: string;
   documentData: TemplateCreateDocumentFromTemplateDocumentData$Outbound;
-  documentMeta: TemplateCreateDocumentFromTemplateDocumentMeta$Outbound | null;
+  documentMeta: TemplateCreateDocumentFromTemplateDocumentMeta$Outbound;
   folder: TemplateCreateDocumentFromTemplateFolder$Outbound | null;
   recipients: Array<
     TemplateCreateDocumentFromTemplateRecipientResponse$Outbound
@@ -4420,21 +4514,20 @@ export const TemplateCreateDocumentFromTemplateResponse$outboundSchema:
       z.record(z.union([z.string(), z.boolean(), z.number()])),
     ),
     title: z.string(),
-    documentDataId: z.string(),
     createdAt: z.string(),
     updatedAt: z.string(),
     completedAt: z.nullable(z.string()),
     deletedAt: z.nullable(z.string()),
     teamId: z.number(),
-    templateId: z.nullable(z.number()),
     folderId: z.nullable(z.string()),
+    envelopeId: z.string(),
+    templateId: z.nullable(z.number()).optional(),
+    documentDataId: z.string().default(""),
     documentData: z.lazy(() =>
       TemplateCreateDocumentFromTemplateDocumentData$outboundSchema
     ),
-    documentMeta: z.nullable(
-      z.lazy(() =>
-        TemplateCreateDocumentFromTemplateDocumentMeta$outboundSchema
-      ),
+    documentMeta: z.lazy(() =>
+      TemplateCreateDocumentFromTemplateDocumentMeta$outboundSchema
     ),
     folder: z.nullable(
       z.lazy(() => TemplateCreateDocumentFromTemplateFolder$outboundSchema),

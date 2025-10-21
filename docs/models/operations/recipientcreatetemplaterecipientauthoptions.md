@@ -9,7 +9,9 @@ let value: RecipientCreateTemplateRecipientAuthOptions = {
   accessAuth: [
     "ACCOUNT",
   ],
-  actionAuth: [],
+  actionAuth: [
+    "TWO_FACTOR_AUTH",
+  ],
 };
 ```
 

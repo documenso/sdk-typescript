@@ -9,7 +9,9 @@ let value: TemplateCreateTemplateTemporaryAuthOptions = {
   globalAccessAuth: [
     "ACCOUNT",
   ],
-  globalActionAuth: [],
+  globalActionAuth: [
+    "PASSWORD",
+  ],
 };
 ```
 

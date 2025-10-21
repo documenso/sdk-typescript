@@ -13,16 +13,16 @@ let value: TemplateGetTemplateByIdTemplateMeta = {
   dateFormat: "<value>",
   signingOrder: "PARALLEL",
   typedSignatureEnabled: true,
-  uploadSignatureEnabled: false,
-  drawSignatureEnabled: true,
-  allowDictateNextSigner: false,
+  uploadSignatureEnabled: true,
+  drawSignatureEnabled: false,
+  allowDictateNextSigner: true,
   distributionMethod: "NONE",
-  templateId: 7473.54,
-  redirectUrl: "https://boiling-skeleton.name",
+  redirectUrl: "https://outlying-wombat.com",
   language: "<value>",
-  emailSettings: null,
+  emailSettings: {},
   emailId: "<id>",
   emailReplyTo: null,
+  templateId: 998.6,
 };
 ```
 
@@ -41,9 +41,9 @@ let value: TemplateGetTemplateByIdTemplateMeta = {
 | `drawSignatureEnabled`                                                                                                       | *boolean*                                                                                                                    | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
 | `allowDictateNextSigner`                                                                                                     | *boolean*                                                                                                                    | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
 | `distributionMethod`                                                                                                         | [operations.TemplateGetTemplateByIdDistributionMethod](../../models/operations/templategettemplatebyiddistributionmethod.md) | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
-| `templateId`                                                                                                                 | *number*                                                                                                                     | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
 | `redirectUrl`                                                                                                                | *string*                                                                                                                     | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
 | `language`                                                                                                                   | *string*                                                                                                                     | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
 | `emailSettings`                                                                                                              | [operations.TemplateGetTemplateByIdEmailSettings](../../models/operations/templategettemplatebyidemailsettings.md)           | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
 | `emailId`                                                                                                                    | *string*                                                                                                                     | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
 | `emailReplyTo`                                                                                                               | *string*                                                                                                                     | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |
+| `templateId`                                                                                                                 | *number*                                                                                                                     | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |

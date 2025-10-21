@@ -6,7 +6,7 @@
 import { TemplateFindTemplatesTemplateMeta } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateFindTemplatesTemplateMeta = {
-  signingOrder: null,
+  signingOrder: "PARALLEL",
   distributionMethod: "NONE",
 };
 ```

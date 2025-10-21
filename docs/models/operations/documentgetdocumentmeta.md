@@ -12,14 +12,12 @@ let value: DocumentGetDocumentMeta = {
   subject: "<value>",
   message: "<value>",
   timezone: "Asia/Kabul",
-  password: "Arf0eB1hteyfkko",
   dateFormat: "<value>",
-  documentId: 3525.39,
-  redirectUrl: "https://rich-trick.biz/",
+  redirectUrl: "https://tinted-eyeliner.net/",
   typedSignatureEnabled: true,
-  uploadSignatureEnabled: true,
+  uploadSignatureEnabled: false,
   drawSignatureEnabled: true,
-  allowDictateNextSigner: false,
+  allowDictateNextSigner: true,
   language: "<value>",
   emailSettings: {},
   emailId: "<id>",
@@ -37,9 +35,7 @@ let value: DocumentGetDocumentMeta = {
 | `subject`                                                                                            | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `message`                                                                                            | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `timezone`                                                                                           | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
-| `password`                                                                                           | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `dateFormat`                                                                                         | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
-| `documentId`                                                                                         | *number*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `redirectUrl`                                                                                        | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `typedSignatureEnabled`                                                                              | *boolean*                                                                                            | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `uploadSignatureEnabled`                                                                             | *boolean*                                                                                            | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
@@ -49,3 +45,5 @@ let value: DocumentGetDocumentMeta = {
 | `emailSettings`                                                                                      | [operations.DocumentGetEmailSettings](../../models/operations/documentgetemailsettings.md)           | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `emailId`                                                                                            | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `emailReplyTo`                                                                                       | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| `password`                                                                                           | *string*                                                                                             | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |
+| `documentId`                                                                                         | *number*                                                                                             | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |

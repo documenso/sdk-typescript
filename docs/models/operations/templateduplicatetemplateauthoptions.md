@@ -9,7 +9,9 @@ let value: TemplateDuplicateTemplateAuthOptions = {
   globalAccessAuth: [
     "ACCOUNT",
   ],
-  globalActionAuth: [],
+  globalActionAuth: [
+    "ACCOUNT",
+  ],
 };
 ```
 

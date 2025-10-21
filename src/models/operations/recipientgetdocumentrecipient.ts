@@ -53,6 +53,7 @@ export type RecipientGetDocumentRecipientSendStatus = ClosedEnum<
  */
 export const RecipientGetDocumentRecipientAccessAuth = {
   Account: "ACCOUNT",
+  TwoFactorAuth: "TWO_FACTOR_AUTH",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
@@ -198,10 +199,10 @@ export type RecipientGetDocumentRecipientFieldMetaNumber = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: RecipientGetDocumentRecipientTypeNumber;
-  numberFormat?: string | undefined;
+  numberFormat?: string | null | undefined;
   value?: string | undefined;
-  minValue?: number | undefined;
-  maxValue?: number | undefined;
+  minValue?: number | null | undefined;
+  maxValue?: number | null | undefined;
   fontSize?: number | undefined;
   textAlign?: RecipientGetDocumentRecipientTextAlign6 | undefined;
 };
@@ -350,11 +351,11 @@ export type RecipientGetDocumentRecipientFieldMetaUnion =
   | RecipientGetDocumentRecipientFieldMetaDropdown;
 
 export type RecipientGetDocumentRecipientField = {
+  envelopeId: string;
+  envelopeItemId: string;
   type: RecipientGetDocumentRecipientType;
   id: number;
   secondaryId: string;
-  documentId: number | null;
-  templateId: number | null;
   recipientId: number;
   /**
    * The page number of the field on the document. Starts from 1.
@@ -377,19 +378,20 @@ export type RecipientGetDocumentRecipientField = {
     | RecipientGetDocumentRecipientFieldMetaCheckbox
     | RecipientGetDocumentRecipientFieldMetaDropdown
     | null;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 /**
  * Successful response
  */
 export type RecipientGetDocumentRecipientResponse = {
+  envelopeId: string;
   role: RecipientGetDocumentRecipientRole;
   readStatus: RecipientGetDocumentRecipientReadStatus;
   signingStatus: RecipientGetDocumentRecipientSigningStatus;
   sendStatus: RecipientGetDocumentRecipientSendStatus;
   id: number;
-  documentId: number | null;
-  templateId: number | null;
   email: string;
   name: string;
   token: string;
@@ -403,6 +405,8 @@ export type RecipientGetDocumentRecipientResponse = {
   signingOrder: number | null;
   rejectionReason: string | null;
   fields: Array<RecipientGetDocumentRecipientField>;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 /** @internal */
@@ -1308,10 +1312,10 @@ export const RecipientGetDocumentRecipientFieldMetaNumber$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     type: RecipientGetDocumentRecipientTypeNumber$inboundSchema,
-    numberFormat: z.string().optional(),
+    numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
-    minValue: z.number().optional(),
-    maxValue: z.number().optional(),
+    minValue: z.nullable(z.number()).optional(),
+    maxValue: z.nullable(z.number()).optional(),
     fontSize: z.number().optional(),
     textAlign: RecipientGetDocumentRecipientTextAlign6$inboundSchema.optional(),
   });
@@ -1323,10 +1327,10 @@ export type RecipientGetDocumentRecipientFieldMetaNumber$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   type: string;
-  numberFormat?: string | undefined;
+  numberFormat?: string | null | undefined;
   value?: string | undefined;
-  minValue?: number | undefined;
-  maxValue?: number | undefined;
+  minValue?: number | null | undefined;
+  maxValue?: number | null | undefined;
   fontSize?: number | undefined;
   textAlign?: string | undefined;
 };
@@ -1343,10 +1347,10 @@ export const RecipientGetDocumentRecipientFieldMetaNumber$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     type: RecipientGetDocumentRecipientTypeNumber$outboundSchema,
-    numberFormat: z.string().optional(),
+    numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
-    minValue: z.number().optional(),
-    maxValue: z.number().optional(),
+    minValue: z.nullable(z.number()).optional(),
+    maxValue: z.nullable(z.number()).optional(),
     fontSize: z.number().optional(),
     textAlign: RecipientGetDocumentRecipientTextAlign6$outboundSchema
       .optional(),
@@ -2155,11 +2159,11 @@ export const RecipientGetDocumentRecipientField$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  envelopeId: z.string(),
+  envelopeItemId: z.string(),
   type: RecipientGetDocumentRecipientType$inboundSchema,
   id: z.number(),
   secondaryId: z.string(),
-  documentId: z.nullable(z.number()),
-  templateId: z.nullable(z.number()),
   recipientId: z.number(),
   page: z.number(),
   positionX: z.any().optional(),
@@ -2187,15 +2191,17 @@ export const RecipientGetDocumentRecipientField$inboundSchema: z.ZodType<
       ),
     ]),
   ),
+  documentId: z.nullable(z.number()).optional(),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /** @internal */
 export type RecipientGetDocumentRecipientField$Outbound = {
+  envelopeId: string;
+  envelopeItemId: string;
   type: string;
   id: number;
   secondaryId: string;
-  documentId: number | null;
-  templateId: number | null;
   recipientId: number;
   page: number;
   positionX?: any | undefined;
@@ -2215,6 +2221,8 @@ export type RecipientGetDocumentRecipientField$Outbound = {
     | RecipientGetDocumentRecipientFieldMetaCheckbox$Outbound
     | RecipientGetDocumentRecipientFieldMetaDropdown$Outbound
     | null;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 /** @internal */
@@ -2223,11 +2231,11 @@ export const RecipientGetDocumentRecipientField$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   RecipientGetDocumentRecipientField
 > = z.object({
+  envelopeId: z.string(),
+  envelopeItemId: z.string(),
   type: RecipientGetDocumentRecipientType$outboundSchema,
   id: z.number(),
   secondaryId: z.string(),
-  documentId: z.nullable(z.number()),
-  templateId: z.nullable(z.number()),
   recipientId: z.number(),
   page: z.number(),
   positionX: z.any().optional(),
@@ -2255,6 +2263,8 @@ export const RecipientGetDocumentRecipientField$outboundSchema: z.ZodType<
       ),
     ]),
   ),
+  documentId: z.nullable(z.number()).optional(),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /**
@@ -2298,13 +2308,12 @@ export const RecipientGetDocumentRecipientResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  envelopeId: z.string(),
   role: RecipientGetDocumentRecipientRole$inboundSchema,
   readStatus: RecipientGetDocumentRecipientReadStatus$inboundSchema,
   signingStatus: RecipientGetDocumentRecipientSigningStatus$inboundSchema,
   sendStatus: RecipientGetDocumentRecipientSendStatus$inboundSchema,
   id: z.number(),
-  documentId: z.nullable(z.number()),
-  templateId: z.nullable(z.number()),
   email: z.string(),
   name: z.string(),
   token: z.string(),
@@ -2319,17 +2328,18 @@ export const RecipientGetDocumentRecipientResponse$inboundSchema: z.ZodType<
   fields: z.array(
     z.lazy(() => RecipientGetDocumentRecipientField$inboundSchema),
   ),
+  documentId: z.nullable(z.number()).optional(),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /** @internal */
 export type RecipientGetDocumentRecipientResponse$Outbound = {
+  envelopeId: string;
   role: string;
   readStatus: string;
   signingStatus: string;
   sendStatus: string;
   id: number;
-  documentId: number | null;
-  templateId: number | null;
   email: string;
   name: string;
   token: string;
@@ -2340,6 +2350,8 @@ export type RecipientGetDocumentRecipientResponse$Outbound = {
   signingOrder: number | null;
   rejectionReason: string | null;
   fields: Array<RecipientGetDocumentRecipientField$Outbound>;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 /** @internal */
@@ -2348,13 +2360,12 @@ export const RecipientGetDocumentRecipientResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   RecipientGetDocumentRecipientResponse
 > = z.object({
+  envelopeId: z.string(),
   role: RecipientGetDocumentRecipientRole$outboundSchema,
   readStatus: RecipientGetDocumentRecipientReadStatus$outboundSchema,
   signingStatus: RecipientGetDocumentRecipientSigningStatus$outboundSchema,
   sendStatus: RecipientGetDocumentRecipientSendStatus$outboundSchema,
   id: z.number(),
-  documentId: z.nullable(z.number()),
-  templateId: z.nullable(z.number()),
   email: z.string(),
   name: z.string(),
   token: z.string(),
@@ -2369,6 +2380,8 @@ export const RecipientGetDocumentRecipientResponse$outboundSchema: z.ZodType<
   fields: z.array(
     z.lazy(() => RecipientGetDocumentRecipientField$outboundSchema),
   ),
+  documentId: z.nullable(z.number()).optional(),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /**

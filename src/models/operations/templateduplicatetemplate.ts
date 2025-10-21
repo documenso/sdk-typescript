@@ -34,6 +34,7 @@ export type TemplateDuplicateTemplateVisibility = ClosedEnum<
  */
 export const TemplateDuplicateTemplateGlobalAccessAuth = {
   Account: "ACCOUNT",
+  TwoFactorAuth: "TWO_FACTOR_AUTH",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
@@ -75,13 +76,14 @@ export type TemplateDuplicateTemplateResponse = {
   userId: number;
   teamId: number;
   authOptions: TemplateDuplicateTemplateAuthOptions | null;
-  templateDocumentDataId: string;
   createdAt: string;
   updatedAt: string;
   publicTitle: string;
   publicDescription: string;
   folderId: string | null;
   useLegacyFieldInsertion: boolean;
+  envelopeId: string;
+  templateDocumentDataId?: string | undefined;
 };
 
 /** @internal */
@@ -316,13 +318,14 @@ export const TemplateDuplicateTemplateResponse$inboundSchema: z.ZodType<
   authOptions: z.nullable(
     z.lazy(() => TemplateDuplicateTemplateAuthOptions$inboundSchema),
   ),
-  templateDocumentDataId: z.string(),
   createdAt: z.string(),
   updatedAt: z.string(),
   publicTitle: z.string(),
   publicDescription: z.string(),
   folderId: z.nullable(z.string()),
   useLegacyFieldInsertion: z.boolean(),
+  envelopeId: z.string(),
+  templateDocumentDataId: z.string().default(""),
 });
 
 /** @internal */
@@ -335,13 +338,14 @@ export type TemplateDuplicateTemplateResponse$Outbound = {
   userId: number;
   teamId: number;
   authOptions: TemplateDuplicateTemplateAuthOptions$Outbound | null;
-  templateDocumentDataId: string;
   createdAt: string;
   updatedAt: string;
   publicTitle: string;
   publicDescription: string;
   folderId: string | null;
   useLegacyFieldInsertion: boolean;
+  envelopeId: string;
+  templateDocumentDataId: string;
 };
 
 /** @internal */
@@ -360,13 +364,14 @@ export const TemplateDuplicateTemplateResponse$outboundSchema: z.ZodType<
   authOptions: z.nullable(
     z.lazy(() => TemplateDuplicateTemplateAuthOptions$outboundSchema),
   ),
-  templateDocumentDataId: z.string(),
   createdAt: z.string(),
   updatedAt: z.string(),
   publicTitle: z.string(),
   publicDescription: z.string(),
   folderId: z.nullable(z.string()),
   useLegacyFieldInsertion: z.boolean(),
+  envelopeId: z.string(),
+  templateDocumentDataId: z.string().default(""),
 });
 
 /**

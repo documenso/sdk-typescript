@@ -8,17 +8,17 @@ Successful response
 import { FieldGetDocumentFieldResponse } from "@documenso/sdk-typescript/models/operations";
 
 let value: FieldGetDocumentFieldResponse = {
+  envelopeId: "<id>",
+  envelopeItemId: "<id>",
   type: "INITIALS",
   id: 4256.77,
   secondaryId: "<id>",
-  documentId: 6822.42,
-  templateId: 8991.32,
-  recipientId: 2659.39,
-  page: 4332.76,
+  recipientId: 7400.94,
+  page: 6822.42,
   customText: "<value>",
   inserted: false,
   fieldMeta: {
-    type: "number",
+    type: "email",
   },
 };
 ```
@@ -27,11 +27,11 @@ let value: FieldGetDocumentFieldResponse = {
 
 | Field                                                                                        | Type                                                                                         | Required                                                                                     | Description                                                                                  |
 | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `envelopeId`                                                                                 | *string*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |
+| `envelopeItemId`                                                                             | *string*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |
 | `type`                                                                                       | [operations.FieldGetDocumentFieldType](../../models/operations/fieldgetdocumentfieldtype.md) | :heavy_check_mark:                                                                           | N/A                                                                                          |
 | `id`                                                                                         | *number*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |
 | `secondaryId`                                                                                | *string*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |
-| `documentId`                                                                                 | *number*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |
-| `templateId`                                                                                 | *number*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |
 | `recipientId`                                                                                | *number*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |
 | `page`                                                                                       | *number*                                                                                     | :heavy_check_mark:                                                                           | The page number of the field on the document. Starts from 1.                                 |
 | `positionX`                                                                                  | *any*                                                                                        | :heavy_minus_sign:                                                                           | N/A                                                                                          |
@@ -41,3 +41,5 @@ let value: FieldGetDocumentFieldResponse = {
 | `customText`                                                                                 | *string*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |
 | `inserted`                                                                                   | *boolean*                                                                                    | :heavy_check_mark:                                                                           | N/A                                                                                          |
 | `fieldMeta`                                                                                  | *operations.FieldGetDocumentFieldFieldMetaUnion*                                             | :heavy_check_mark:                                                                           | N/A                                                                                          |
+| `documentId`                                                                                 | *number*                                                                                     | :heavy_minus_sign:                                                                           | N/A                                                                                          |
+| `templateId`                                                                                 | *number*                                                                                     | :heavy_minus_sign:                                                                           | N/A                                                                                          |

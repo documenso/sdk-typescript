@@ -106,6 +106,7 @@ export type DataSource = ClosedEnum<typeof DataSource>;
  */
 export const DocumentFindGlobalAccessAuth = {
   Account: "ACCOUNT",
+  TwoFactorAuth: "TWO_FACTOR_AUTH",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
@@ -178,6 +179,7 @@ export type DocumentFindSendStatus = ClosedEnum<typeof DocumentFindSendStatus>;
  */
 export const DocumentFindAccessAuth = {
   Account: "ACCOUNT",
+  TwoFactorAuth: "TWO_FACTOR_AUTH",
 } as const;
 /**
  * The type of authentication required for the recipient to access the document.
@@ -205,13 +207,12 @@ export type DocumentFindRecipientAuthOptions = {
 };
 
 export type DocumentFindRecipient = {
+  envelopeId: string;
   role: DocumentFindRole;
   readStatus: DocumentFindReadStatus;
   signingStatus: DocumentFindSigningStatus;
   sendStatus: DocumentFindSendStatus;
   id: number;
-  documentId: number | null;
-  templateId: number | null;
   email: string;
   name: string;
   token: string;
@@ -224,6 +225,8 @@ export type DocumentFindRecipient = {
    */
   signingOrder: number | null;
   rejectionReason: string | null;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 export type DocumentFindTeam = {
@@ -247,15 +250,19 @@ export type DocumentFindData = {
   authOptions: DocumentFindAuthOptions | null;
   formValues: { [k: string]: string | boolean | number } | null;
   title: string;
-  documentDataId: string;
   createdAt: string;
   updatedAt: string;
   completedAt: string | null;
   deletedAt: string | null;
   teamId: number;
-  templateId: number | null;
   folderId: string | null;
   useLegacyFieldInsertion: boolean;
+  envelopeId: string;
+  documentDataId?: string | undefined;
+  /**
+   * The ID of the template that the document was created from, if any.
+   */
+  templateId?: number | null | undefined;
   user: DocumentFindUser;
   recipients: Array<DocumentFindRecipient>;
   team: DocumentFindTeam | null;
@@ -903,13 +910,12 @@ export const DocumentFindRecipient$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  envelopeId: z.string(),
   role: DocumentFindRole$inboundSchema,
   readStatus: DocumentFindReadStatus$inboundSchema,
   signingStatus: DocumentFindSigningStatus$inboundSchema,
   sendStatus: DocumentFindSendStatus$inboundSchema,
   id: z.number(),
-  documentId: z.nullable(z.number()),
-  templateId: z.nullable(z.number()),
   email: z.string(),
   name: z.string(),
   token: z.string(),
@@ -921,17 +927,18 @@ export const DocumentFindRecipient$inboundSchema: z.ZodType<
   ),
   signingOrder: z.nullable(z.number()),
   rejectionReason: z.nullable(z.string()),
+  documentId: z.nullable(z.number()).optional(),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /** @internal */
 export type DocumentFindRecipient$Outbound = {
+  envelopeId: string;
   role: string;
   readStatus: string;
   signingStatus: string;
   sendStatus: string;
   id: number;
-  documentId: number | null;
-  templateId: number | null;
   email: string;
   name: string;
   token: string;
@@ -941,6 +948,8 @@ export type DocumentFindRecipient$Outbound = {
   authOptions: DocumentFindRecipientAuthOptions$Outbound | null;
   signingOrder: number | null;
   rejectionReason: string | null;
+  documentId?: number | null | undefined;
+  templateId?: number | null | undefined;
 };
 
 /** @internal */
@@ -949,13 +958,12 @@ export const DocumentFindRecipient$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentFindRecipient
 > = z.object({
+  envelopeId: z.string(),
   role: DocumentFindRole$outboundSchema,
   readStatus: DocumentFindReadStatus$outboundSchema,
   signingStatus: DocumentFindSigningStatus$outboundSchema,
   sendStatus: DocumentFindSendStatus$outboundSchema,
   id: z.number(),
-  documentId: z.nullable(z.number()),
-  templateId: z.nullable(z.number()),
   email: z.string(),
   name: z.string(),
   token: z.string(),
@@ -967,6 +975,8 @@ export const DocumentFindRecipient$outboundSchema: z.ZodType<
   ),
   signingOrder: z.nullable(z.number()),
   rejectionReason: z.nullable(z.string()),
+  documentId: z.nullable(z.number()).optional(),
+  templateId: z.nullable(z.number()).optional(),
 });
 
 /**
@@ -1074,15 +1084,16 @@ export const DocumentFindData$inboundSchema: z.ZodType<
     z.record(z.union([z.string(), z.boolean(), z.number()])),
   ),
   title: z.string(),
-  documentDataId: z.string(),
   createdAt: z.string(),
   updatedAt: z.string(),
   completedAt: z.nullable(z.string()),
   deletedAt: z.nullable(z.string()),
   teamId: z.number(),
-  templateId: z.nullable(z.number()),
   folderId: z.nullable(z.string()),
   useLegacyFieldInsertion: z.boolean(),
+  envelopeId: z.string(),
+  documentDataId: z.string().default(""),
+  templateId: z.nullable(z.number()).optional(),
   user: z.lazy(() => DocumentFindUser$inboundSchema),
   recipients: z.array(z.lazy(() => DocumentFindRecipient$inboundSchema)),
   team: z.nullable(z.lazy(() => DocumentFindTeam$inboundSchema)),
@@ -1099,15 +1110,16 @@ export type DocumentFindData$Outbound = {
   authOptions: DocumentFindAuthOptions$Outbound | null;
   formValues: { [k: string]: string | boolean | number } | null;
   title: string;
-  documentDataId: string;
   createdAt: string;
   updatedAt: string;
   completedAt: string | null;
   deletedAt: string | null;
   teamId: number;
-  templateId: number | null;
   folderId: string | null;
   useLegacyFieldInsertion: boolean;
+  envelopeId: string;
+  documentDataId: string;
+  templateId?: number | null | undefined;
   user: DocumentFindUser$Outbound;
   recipients: Array<DocumentFindRecipient$Outbound>;
   team: DocumentFindTeam$Outbound | null;
@@ -1130,15 +1142,16 @@ export const DocumentFindData$outboundSchema: z.ZodType<
     z.record(z.union([z.string(), z.boolean(), z.number()])),
   ),
   title: z.string(),
-  documentDataId: z.string(),
   createdAt: z.string(),
   updatedAt: z.string(),
   completedAt: z.nullable(z.string()),
   deletedAt: z.nullable(z.string()),
   teamId: z.number(),
-  templateId: z.nullable(z.number()),
   folderId: z.nullable(z.string()),
   useLegacyFieldInsertion: z.boolean(),
+  envelopeId: z.string(),
+  documentDataId: z.string().default(""),
+  templateId: z.nullable(z.number()).optional(),
   user: z.lazy(() => DocumentFindUser$outboundSchema),
   recipients: z.array(z.lazy(() => DocumentFindRecipient$outboundSchema)),
   team: z.nullable(z.lazy(() => DocumentFindTeam$outboundSchema)),
