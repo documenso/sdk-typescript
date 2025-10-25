@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 2f28b0c4-e21c-47c4-aada-41da1a74c452
 management:
-  docChecksum: 02958eb740d2da10d29e1482c6450f0f
+  docChecksum: 05385136120a6ae56a3ce3b8ee96af17
   docVersion: 0.0.0
-  speakeasyVersion: 1.637.3
-  generationVersion: 2.727.9
-  releaseVersion: 0.4.0
-  configChecksum: 916fec95705de8b6bfead150a122b146
+  speakeasyVersion: 1.639.3
+  generationVersion: 2.730.5
+  releaseVersion: 0.5.0
+  configChecksum: 78d585dc063990135491c5643e608bc3
   repoURL: https://github.com/documenso/sdk-typescript.git
   installationURL: https://github.com/documenso/sdk-typescript
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.22.0
+    core: 3.24.1
     defaultEnabledRetries: 0.1.0
     enumUnions: 0.1.0
     enums: 2.83.0
@@ -39,6 +39,24 @@ generatedFiles:
   - USAGE.md
   - docs/lib/utils/retryconfig.md
   - docs/models/components/security.md
+  - docs/models/errors/documentattachmentcreatebadrequesterror.md
+  - docs/models/errors/documentattachmentcreatebadrequestissue.md
+  - docs/models/errors/documentattachmentcreateinternalservererror.md
+  - docs/models/errors/documentattachmentcreateinternalservererrorissue.md
+  - docs/models/errors/documentattachmentdeletebadrequesterror.md
+  - docs/models/errors/documentattachmentdeletebadrequestissue.md
+  - docs/models/errors/documentattachmentdeleteinternalservererror.md
+  - docs/models/errors/documentattachmentdeleteinternalservererrorissue.md
+  - docs/models/errors/documentattachmentfindbadrequesterror.md
+  - docs/models/errors/documentattachmentfindbadrequestissue.md
+  - docs/models/errors/documentattachmentfindinternalservererror.md
+  - docs/models/errors/documentattachmentfindinternalservererrorissue.md
+  - docs/models/errors/documentattachmentfindnotfounderror.md
+  - docs/models/errors/documentattachmentfindnotfoundissue.md
+  - docs/models/errors/documentattachmentupdatebadrequesterror.md
+  - docs/models/errors/documentattachmentupdatebadrequestissue.md
+  - docs/models/errors/documentattachmentupdateinternalservererror.md
+  - docs/models/errors/documentattachmentupdateinternalservererrorissue.md
   - docs/models/errors/documentcreatedocumenttemporarybadrequesterror.md
   - docs/models/errors/documentcreatedocumenttemporarybadrequestissue.md
   - docs/models/errors/documentcreatedocumenttemporaryinternalservererror.md
@@ -89,6 +107,24 @@ generatedFiles:
   - docs/models/errors/embeddingpresignverifyembeddingpresigntokenbadrequestissue.md
   - docs/models/errors/embeddingpresignverifyembeddingpresigntokeninternalservererror.md
   - docs/models/errors/embeddingpresignverifyembeddingpresigntokeninternalservererrorissue.md
+  - docs/models/errors/envelopeattachmentcreatebadrequesterror.md
+  - docs/models/errors/envelopeattachmentcreatebadrequestissue.md
+  - docs/models/errors/envelopeattachmentcreateinternalservererror.md
+  - docs/models/errors/envelopeattachmentcreateinternalservererrorissue.md
+  - docs/models/errors/envelopeattachmentdeletebadrequesterror.md
+  - docs/models/errors/envelopeattachmentdeletebadrequestissue.md
+  - docs/models/errors/envelopeattachmentdeleteinternalservererror.md
+  - docs/models/errors/envelopeattachmentdeleteinternalservererrorissue.md
+  - docs/models/errors/envelopeattachmentfindbadrequesterror.md
+  - docs/models/errors/envelopeattachmentfindbadrequestissue.md
+  - docs/models/errors/envelopeattachmentfindinternalservererror.md
+  - docs/models/errors/envelopeattachmentfindinternalservererrorissue.md
+  - docs/models/errors/envelopeattachmentfindnotfounderror.md
+  - docs/models/errors/envelopeattachmentfindnotfoundissue.md
+  - docs/models/errors/envelopeattachmentupdatebadrequesterror.md
+  - docs/models/errors/envelopeattachmentupdatebadrequestissue.md
+  - docs/models/errors/envelopeattachmentupdateinternalservererror.md
+  - docs/models/errors/envelopeattachmentupdateinternalservererrorissue.md
   - docs/models/errors/fieldcreatedocumentfieldbadrequesterror.md
   - docs/models/errors/fieldcreatedocumentfieldbadrequestissue.md
   - docs/models/errors/fieldcreatedocumentfieldinternalservererror.md
@@ -141,6 +177,24 @@ generatedFiles:
   - docs/models/errors/fieldupdatetemplatefieldsbadrequestissue.md
   - docs/models/errors/fieldupdatetemplatefieldsinternalservererror.md
   - docs/models/errors/fieldupdatetemplatefieldsinternalservererrorissue.md
+  - docs/models/errors/foldercreatefolderbadrequesterror.md
+  - docs/models/errors/foldercreatefolderbadrequestissue.md
+  - docs/models/errors/foldercreatefolderinternalservererror.md
+  - docs/models/errors/foldercreatefolderinternalservererrorissue.md
+  - docs/models/errors/folderdeletefolderbadrequesterror.md
+  - docs/models/errors/folderdeletefolderbadrequestissue.md
+  - docs/models/errors/folderdeletefolderinternalservererror.md
+  - docs/models/errors/folderdeletefolderinternalservererrorissue.md
+  - docs/models/errors/folderfindfoldersbadrequesterror.md
+  - docs/models/errors/folderfindfoldersbadrequestissue.md
+  - docs/models/errors/folderfindfoldersinternalservererror.md
+  - docs/models/errors/folderfindfoldersinternalservererrorissue.md
+  - docs/models/errors/folderfindfoldersnotfounderror.md
+  - docs/models/errors/folderfindfoldersnotfoundissue.md
+  - docs/models/errors/folderupdatefolderbadrequesterror.md
+  - docs/models/errors/folderupdatefolderbadrequestissue.md
+  - docs/models/errors/folderupdatefolderinternalservererror.md
+  - docs/models/errors/folderupdatefolderinternalservererrorissue.md
   - docs/models/errors/recipientcreatedocumentrecipientbadrequesterror.md
   - docs/models/errors/recipientcreatedocumentrecipientbadrequestissue.md
   - docs/models/errors/recipientcreatedocumentrecipientinternalservererror.md
@@ -243,8 +297,18 @@ generatedFiles:
   - docs/models/operations/document.md
   - docs/models/operations/documentaccessauth.md
   - docs/models/operations/documentactionauth.md
+  - docs/models/operations/documentattachmentcreatedata.md
+  - docs/models/operations/documentattachmentcreaterequest.md
+  - docs/models/operations/documentattachmentdeleterequest.md
+  - docs/models/operations/documentattachmentfinddata.md
+  - docs/models/operations/documentattachmentfindrequest.md
+  - docs/models/operations/documentattachmentfindresponse.md
+  - docs/models/operations/documentattachmentfindtype.md
+  - docs/models/operations/documentattachmentupdatedata.md
+  - docs/models/operations/documentattachmentupdaterequest.md
   - docs/models/operations/documentcreatedocumenttemporaryaccessauthrequest.md
   - docs/models/operations/documentcreatedocumenttemporaryactionauthrequest.md
+  - docs/models/operations/documentcreatedocumenttemporaryattachment.md
   - docs/models/operations/documentcreatedocumenttemporaryauthoptions.md
   - docs/models/operations/documentcreatedocumenttemporarydateformat.md
   - docs/models/operations/documentcreatedocumenttemporarydistributionmethodrequest.md
@@ -314,6 +378,7 @@ generatedFiles:
   - docs/models/operations/documentcreatedocumenttemporarytextalignnumber.md
   - docs/models/operations/documentcreatedocumenttemporarytextaligntext.md
   - docs/models/operations/documentcreatedocumenttemporarytypefreesignature.md
+  - docs/models/operations/documentcreatedocumenttemporarytypelink.md
   - docs/models/operations/documentcreatedocumenttemporarytypesignature.md
   - docs/models/operations/documentcreatedocumenttemporaryvaluecheckbox.md
   - docs/models/operations/documentcreatedocumenttemporaryvaluedropdown.md
@@ -473,6 +538,15 @@ generatedFiles:
   - docs/models/operations/embeddingpresigncreateembeddingpresigntokenresponse.md
   - docs/models/operations/embeddingpresignverifyembeddingpresigntokenrequest.md
   - docs/models/operations/embeddingpresignverifyembeddingpresigntokenresponse.md
+  - docs/models/operations/envelopeattachmentcreatedata.md
+  - docs/models/operations/envelopeattachmentcreaterequest.md
+  - docs/models/operations/envelopeattachmentdeleterequest.md
+  - docs/models/operations/envelopeattachmentfinddata.md
+  - docs/models/operations/envelopeattachmentfindrequest.md
+  - docs/models/operations/envelopeattachmentfindresponse.md
+  - docs/models/operations/envelopeattachmentfindtype.md
+  - docs/models/operations/envelopeattachmentupdatedata.md
+  - docs/models/operations/envelopeattachmentupdaterequest.md
   - docs/models/operations/fieldcreatedocumentfielddirectionrequest.md
   - docs/models/operations/fieldcreatedocumentfielddirectionresponse.md
   - docs/models/operations/fieldcreatedocumentfieldfieldcheckbox.md
@@ -1218,6 +1292,25 @@ generatedFiles:
   - docs/models/operations/fieldupdatetemplatefieldvalueresponse1.md
   - docs/models/operations/fieldupdatetemplatefieldvalueresponse2.md
   - docs/models/operations/fieldupdatetemplatefieldvalueresponse3.md
+  - docs/models/operations/foldercreatefolderrequest.md
+  - docs/models/operations/foldercreatefolderresponse.md
+  - docs/models/operations/foldercreatefoldertyperequest.md
+  - docs/models/operations/foldercreatefoldertyperesponse.md
+  - docs/models/operations/foldercreatefoldervisibility.md
+  - docs/models/operations/folderdeletefolderrequest.md
+  - docs/models/operations/folderdeletefolderresponse.md
+  - docs/models/operations/folderfindfoldersdata.md
+  - docs/models/operations/folderfindfoldersdatatype.md
+  - docs/models/operations/folderfindfoldersqueryparamtype.md
+  - docs/models/operations/folderfindfoldersrequest.md
+  - docs/models/operations/folderfindfoldersresponse.md
+  - docs/models/operations/folderfindfoldersvisibility.md
+  - docs/models/operations/folderupdatefolderdata.md
+  - docs/models/operations/folderupdatefolderrequest.md
+  - docs/models/operations/folderupdatefolderresponse.md
+  - docs/models/operations/folderupdatefoldertype.md
+  - docs/models/operations/folderupdatefoldervisibilityrequest.md
+  - docs/models/operations/folderupdatefoldervisibilityresponse.md
   - docs/models/operations/formvaluesrequest.md
   - docs/models/operations/orderbycolumn.md
   - docs/models/operations/orderbydirection.md
@@ -1236,7 +1329,6 @@ generatedFiles:
   - docs/models/operations/prefillfieldtypetext.md
   - docs/models/operations/queryparamsource.md
   - docs/models/operations/queryparamstatus.md
-  - docs/models/operations/queryparamtype.md
   - docs/models/operations/recipientcreatedocumentrecipientaccessauthrequest.md
   - docs/models/operations/recipientcreatedocumentrecipientaccessauthresponse.md
   - docs/models/operations/recipientcreatedocumentrecipientactionauthrequest.md
@@ -1616,6 +1708,7 @@ generatedFiles:
   - docs/models/operations/templatecreatetemplatedirectlinkresponse.md
   - docs/models/operations/templatecreatetemplatetemporaryaccessauth.md
   - docs/models/operations/templatecreatetemplatetemporaryactionauth.md
+  - docs/models/operations/templatecreatetemplatetemporaryattachment.md
   - docs/models/operations/templatecreatetemplatetemporaryauthoptions.md
   - docs/models/operations/templatecreatetemplatetemporarydateformat.md
   - docs/models/operations/templatecreatetemplatetemporarydirection.md
@@ -1669,6 +1762,7 @@ generatedFiles:
   - docs/models/operations/templatecreatetemplatetemporarytypedropdown.md
   - docs/models/operations/templatecreatetemplatetemporarytypeemail.md
   - docs/models/operations/templatecreatetemplatetemporarytypeinitials.md
+  - docs/models/operations/templatecreatetemplatetemporarytypelink.md
   - docs/models/operations/templatecreatetemplatetemporarytypename.md
   - docs/models/operations/templatecreatetemplatetemporarytypenumber.md
   - docs/models/operations/templatecreatetemplatetemporarytyperadio.md
@@ -1714,6 +1808,7 @@ generatedFiles:
   - docs/models/operations/templatefindtemplatesfieldtype.md
   - docs/models/operations/templatefindtemplatesglobalaccessauth.md
   - docs/models/operations/templatefindtemplatesglobalactionauth.md
+  - docs/models/operations/templatefindtemplatesqueryparamtype.md
   - docs/models/operations/templatefindtemplatesreadstatus.md
   - docs/models/operations/templatefindtemplatesrecipient.md
   - docs/models/operations/templatefindtemplatesrecipientauthoptions.md
@@ -1828,6 +1923,8 @@ generatedFiles:
   - docs/sdks/documentsfields/README.md
   - docs/sdks/documentsrecipients/README.md
   - docs/sdks/embedding/README.md
+  - docs/sdks/envelope/README.md
+  - docs/sdks/folder/README.md
   - docs/sdks/template/README.md
   - docs/sdks/templates/README.md
   - docs/sdks/templatesfields/README.md
@@ -1835,11 +1932,15 @@ generatedFiles:
   - eslint.config.mjs
   - examples/.env.template
   - examples/README.md
-  - examples/documentsGet.example.ts
+  - examples/envelopeEnvelopeAttachmentFind.example.ts
   - examples/package.json
   - jsr.json
   - package.json
   - src/core.ts
+  - src/funcs/documentDocumentAttachmentCreate.ts
+  - src/funcs/documentDocumentAttachmentDelete.ts
+  - src/funcs/documentDocumentAttachmentFind.ts
+  - src/funcs/documentDocumentAttachmentUpdate.ts
   - src/funcs/documentDocumentDownload.ts
   - src/funcs/documentsCreateV0.ts
   - src/funcs/documentsDelete.ts
@@ -1863,6 +1964,14 @@ generatedFiles:
   - src/funcs/documentsUpdate.ts
   - src/funcs/embeddingEmbeddingPresignCreateEmbeddingPresignToken.ts
   - src/funcs/embeddingEmbeddingPresignVerifyEmbeddingPresignToken.ts
+  - src/funcs/envelopeEnvelopeAttachmentCreate.ts
+  - src/funcs/envelopeEnvelopeAttachmentDelete.ts
+  - src/funcs/envelopeEnvelopeAttachmentFind.ts
+  - src/funcs/envelopeEnvelopeAttachmentUpdate.ts
+  - src/funcs/folderFolderCreateFolder.ts
+  - src/funcs/folderFolderDeleteFolder.ts
+  - src/funcs/folderFolderFindFolders.ts
+  - src/funcs/folderFolderUpdateFolder.ts
   - src/funcs/templateTemplateCreateTemplateTemporary.ts
   - src/funcs/templatesDelete.ts
   - src/funcs/templatesDirectLinkCreate.ts
@@ -1918,6 +2027,10 @@ generatedFiles:
   - src/mcp-server/server.ts
   - src/mcp-server/shared.ts
   - src/mcp-server/tools.ts
+  - src/mcp-server/tools/documentDocumentAttachmentCreate.ts
+  - src/mcp-server/tools/documentDocumentAttachmentDelete.ts
+  - src/mcp-server/tools/documentDocumentAttachmentFind.ts
+  - src/mcp-server/tools/documentDocumentAttachmentUpdate.ts
   - src/mcp-server/tools/documentDocumentDownload.ts
   - src/mcp-server/tools/documentsCreateV0.ts
   - src/mcp-server/tools/documentsDelete.ts
@@ -1941,6 +2054,14 @@ generatedFiles:
   - src/mcp-server/tools/documentsUpdate.ts
   - src/mcp-server/tools/embeddingEmbeddingPresignCreateEmbeddingPresignToken.ts
   - src/mcp-server/tools/embeddingEmbeddingPresignVerifyEmbeddingPresignToken.ts
+  - src/mcp-server/tools/envelopeEnvelopeAttachmentCreate.ts
+  - src/mcp-server/tools/envelopeEnvelopeAttachmentDelete.ts
+  - src/mcp-server/tools/envelopeEnvelopeAttachmentFind.ts
+  - src/mcp-server/tools/envelopeEnvelopeAttachmentUpdate.ts
+  - src/mcp-server/tools/folderFolderCreateFolder.ts
+  - src/mcp-server/tools/folderFolderDeleteFolder.ts
+  - src/mcp-server/tools/folderFolderFindFolders.ts
+  - src/mcp-server/tools/folderFolderUpdateFolder.ts
   - src/mcp-server/tools/templateTemplateCreateTemplateTemporary.ts
   - src/mcp-server/tools/templatesDelete.ts
   - src/mcp-server/tools/templatesDirectLinkCreate.ts
@@ -1967,6 +2088,10 @@ generatedFiles:
   - src/models/components/security.ts
   - src/models/errors/apierror.ts
   - src/models/errors/documensoerror.ts
+  - src/models/errors/documentattachmentcreate.ts
+  - src/models/errors/documentattachmentdelete.ts
+  - src/models/errors/documentattachmentfind.ts
+  - src/models/errors/documentattachmentupdate.ts
   - src/models/errors/documentcreatedocumenttemporary.ts
   - src/models/errors/documentdelete.ts
   - src/models/errors/documentdistribute.ts
@@ -1978,6 +2103,10 @@ generatedFiles:
   - src/models/errors/documentupdate.ts
   - src/models/errors/embeddingpresigncreateembeddingpresigntoken.ts
   - src/models/errors/embeddingpresignverifyembeddingpresigntoken.ts
+  - src/models/errors/envelopeattachmentcreate.ts
+  - src/models/errors/envelopeattachmentdelete.ts
+  - src/models/errors/envelopeattachmentfind.ts
+  - src/models/errors/envelopeattachmentupdate.ts
   - src/models/errors/fieldcreatedocumentfield.ts
   - src/models/errors/fieldcreatedocumentfields.ts
   - src/models/errors/fieldcreatetemplatefield.ts
@@ -1990,6 +2119,10 @@ generatedFiles:
   - src/models/errors/fieldupdatedocumentfields.ts
   - src/models/errors/fieldupdatetemplatefield.ts
   - src/models/errors/fieldupdatetemplatefields.ts
+  - src/models/errors/foldercreatefolder.ts
+  - src/models/errors/folderdeletefolder.ts
+  - src/models/errors/folderfindfolders.ts
+  - src/models/errors/folderupdatefolder.ts
   - src/models/errors/httpclienterrors.ts
   - src/models/errors/index.ts
   - src/models/errors/recipientcreatedocumentrecipient.ts
@@ -2016,6 +2149,10 @@ generatedFiles:
   - src/models/errors/templategettemplatebyid.ts
   - src/models/errors/templatetoggletemplatedirectlink.ts
   - src/models/errors/templateupdatetemplate.ts
+  - src/models/operations/documentattachmentcreate.ts
+  - src/models/operations/documentattachmentdelete.ts
+  - src/models/operations/documentattachmentfind.ts
+  - src/models/operations/documentattachmentupdate.ts
   - src/models/operations/documentcreatedocumenttemporary.ts
   - src/models/operations/documentdelete.ts
   - src/models/operations/documentdistribute.ts
@@ -2027,6 +2164,10 @@ generatedFiles:
   - src/models/operations/documentupdate.ts
   - src/models/operations/embeddingpresigncreateembeddingpresigntoken.ts
   - src/models/operations/embeddingpresignverifyembeddingpresigntoken.ts
+  - src/models/operations/envelopeattachmentcreate.ts
+  - src/models/operations/envelopeattachmentdelete.ts
+  - src/models/operations/envelopeattachmentfind.ts
+  - src/models/operations/envelopeattachmentupdate.ts
   - src/models/operations/fieldcreatedocumentfield.ts
   - src/models/operations/fieldcreatedocumentfields.ts
   - src/models/operations/fieldcreatetemplatefield.ts
@@ -2039,6 +2180,10 @@ generatedFiles:
   - src/models/operations/fieldupdatedocumentfields.ts
   - src/models/operations/fieldupdatetemplatefield.ts
   - src/models/operations/fieldupdatetemplatefields.ts
+  - src/models/operations/foldercreatefolder.ts
+  - src/models/operations/folderdeletefolder.ts
+  - src/models/operations/folderfindfolders.ts
+  - src/models/operations/folderupdatefolder.ts
   - src/models/operations/index.ts
   - src/models/operations/recipientcreatedocumentrecipient.ts
   - src/models/operations/recipientcreatedocumentrecipients.ts
@@ -2068,6 +2213,8 @@ generatedFiles:
   - src/sdk/documentsfields.ts
   - src/sdk/documentsrecipients.ts
   - src/sdk/embedding.ts
+  - src/sdk/envelope.ts
+  - src/sdk/folder.ts
   - src/sdk/index.ts
   - src/sdk/sdk.ts
   - src/sdk/template.ts
@@ -2711,6 +2858,144 @@ examples:
           application/json: {"message": "<value>", "code": "<value>"}
         "500":
           application/json: {"message": "<value>", "code": "<value>"}
+  envelope-attachment-find:
+    speakeasy-default-envelope-attachment-find:
+      parameters:
+        query:
+          envelopeId: "<id>"
+      responses:
+        "200":
+          application/json: {"data": [{"id": "<id>", "type": "link", "label": "<value>", "data": "<value>"}]}
+        "400":
+          application/json: {"message": "<value>", "code": "<value>"}
+        "404":
+          application/json: {"message": "<value>", "code": "<value>"}
+        "500":
+          application/json: {"message": "<value>", "code": "<value>"}
+  envelope-attachment-create:
+    speakeasy-default-envelope-attachment-create:
+      requestBody:
+        application/json: {"envelopeId": "<id>", "data": {"label": "<value>", "data": "https://lustrous-skeleton.info"}}
+      responses:
+        "200":
+          application/json: "<value>"
+        "400":
+          application/json: {"message": "<value>", "code": "<value>"}
+        "500":
+          application/json: {"message": "<value>", "code": "<value>"}
+  envelope-attachment-update:
+    speakeasy-default-envelope-attachment-update:
+      requestBody:
+        application/json: {"id": "<id>", "data": {"label": "<value>", "data": "https://tough-premier.biz"}}
+      responses:
+        "200":
+          application/json: "<value>"
+        "400":
+          application/json: {"message": "<value>", "code": "<value>"}
+        "500":
+          application/json: {"message": "<value>", "code": "<value>"}
+  envelope-attachment-delete:
+    speakeasy-default-envelope-attachment-delete:
+      requestBody:
+        application/json: {"id": "<id>"}
+      responses:
+        "200":
+          application/json: "<value>"
+        "400":
+          application/json: {"message": "<value>", "code": "<value>"}
+        "500":
+          application/json: {"message": "<value>", "code": "<value>"}
+  document-attachment-create:
+    speakeasy-default-document-attachment-create:
+      requestBody:
+        application/json: {"documentId": 7014.36, "data": {"label": "<value>", "data": "https://cheerful-bourgeoisie.org/"}}
+      responses:
+        "200":
+          application/json: "<value>"
+        "400":
+          application/json: {"message": "<value>", "code": "<value>"}
+        "500":
+          application/json: {"message": "<value>", "code": "<value>"}
+  document-attachment-update:
+    speakeasy-default-document-attachment-update:
+      requestBody:
+        application/json: {"id": "<id>", "data": {"label": "<value>", "data": "https://tinted-ceramics.biz"}}
+      responses:
+        "200":
+          application/json: "<value>"
+        "400":
+          application/json: {"message": "<value>", "code": "<value>"}
+        "500":
+          application/json: {"message": "<value>", "code": "<value>"}
+  document-attachment-delete:
+    speakeasy-default-document-attachment-delete:
+      requestBody:
+        application/json: {"id": "<id>"}
+      responses:
+        "200":
+          application/json: "<value>"
+        "400":
+          application/json: {"message": "<value>", "code": "<value>"}
+        "500":
+          application/json: {"message": "<value>", "code": "<value>"}
+  document-attachment-find:
+    speakeasy-default-document-attachment-find:
+      parameters:
+        query:
+          documentId: 965.17
+      responses:
+        "200":
+          application/json: {"data": []}
+        "400":
+          application/json: {"message": "<value>", "code": "<value>"}
+        "404":
+          application/json: {"message": "<value>", "code": "<value>"}
+        "500":
+          application/json: {"message": "<value>", "code": "<value>"}
+  folder-findFolders:
+    speakeasy-default-folder-find-folders:
+      responses:
+        "200":
+          application/json: {"data": [{"id": "<id>", "name": "<value>", "userId": 4046.76, "teamId": 6905.08, "parentId": "<id>", "pinned": true, "createdAt": "1715546444342", "updatedAt": "1735623630892", "visibility": "EVERYONE", "type": "TEMPLATE"}], "count": 5869.92, "currentPage": 3949.24, "perPage": 9820.55, "totalPages": 6586.83}
+        "400":
+          application/json: {"message": "<value>", "code": "<value>"}
+        "404":
+          application/json: {"message": "<value>", "code": "<value>"}
+        "500":
+          application/json: {"message": "<value>", "code": "<value>"}
+  folder-createFolder:
+    speakeasy-default-folder-create-folder:
+      requestBody:
+        application/json: {"name": "<value>"}
+      responses:
+        "200":
+          application/json: {"id": "<id>", "name": "<value>", "userId": 8739.23, "teamId": 1311.57, "parentId": "<id>", "pinned": false, "createdAt": "1717527332082", "updatedAt": "1735686418947", "visibility": "ADMIN", "type": "DOCUMENT"}
+        "400":
+          application/json: {"message": "<value>", "code": "<value>"}
+        "500":
+          application/json: {"message": "<value>", "code": "<value>"}
+  folder-updateFolder:
+    speakeasy-default-folder-update-folder:
+      requestBody:
+        application/json: {"folderId": "<id>", "data": {}}
+      responses:
+        "200":
+          application/json: {"id": "<id>", "name": "<value>", "userId": 3066.76, "teamId": 8570.02, "parentId": null, "pinned": false, "createdAt": "1705673377446", "updatedAt": "1735664987955", "visibility": "EVERYONE", "type": "TEMPLATE"}
+        "400":
+          application/json: {"message": "<value>", "code": "<value>"}
+        "500":
+          application/json: {"message": "<value>", "code": "<value>"}
+  folder-deleteFolder:
+    speakeasy-default-folder-delete-folder:
+      requestBody:
+        application/json: {"folderId": "<id>"}
+      responses:
+        "200":
+          application/json: {"success": false}
+        "400":
+          application/json: {"message": "<value>", "code": "<value>"}
+        "500":
+          application/json: {"message": "<value>", "code": "<value>"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Typescript SDK Changes Detected:\n* `documenso.templates.find()`:  `response.data.[]` **Changed** **Breaking** :warning:\n* `documenso.templates.get()`:  `response` **Changed** **Breaking** :warning:\n* `documenso.template.templateCreateTemplateTemporary()`:  `response.template` **Changed** **Breaking** :warning:\n* `documenso.templates.recipients.updateMany()`:  `response.recipients.[]` **Changed** **Breaking** :warning:\n* `documenso.templates.recipients.update()`:  `response` **Changed** **Breaking** :warning:\n* `documenso.documents.createV0()`: \n  *  `request` **Changed**\n  *  `response.document` **Changed** **Breaking** :warning:\n* `documenso.documents.fields.get()`:  `response` **Changed** **Breaking** :warning:\n* `documenso.documents.fields.create()`: \n  *  `request.field.[class].fieldMeta` **Changed**\n  *  `response` **Changed** **Breaking** :warning:\n* `documenso.documents.fields.createMany()`: \n  *  `request.fields.[].[class].fieldMeta` **Changed**\n  *  `response.fields.[]` **Changed** **Breaking** :warning:\n* `documenso.documents.fields.update()`: \n  *  `request.field.[class].fieldMeta` **Changed**\n  *  `response` **Changed** **Breaking** :warning:\n* `documenso.templates.recipients.get()`:  `response` **Changed** **Breaking** :warning:\n* `documenso.documents.recipients.get()`:  `response` **Changed** **Breaking** :warning:\n* `documenso.templates.fields.updateMany()`: \n  *  `request.fields.[].[class].fieldMeta` **Changed**\n  *  `response.fields.[]` **Changed** **Breaking** :warning:\n* `documenso.templates.fields.update()`: \n  *  `request.field.[class].fieldMeta` **Changed**\n  *  `response` **Changed** **Breaking** :warning:\n* `documenso.documents.recipients.update()`:  `response` **Changed** **Breaking** :warning:\n* `documenso.documents.recipients.updateMany()`:  `response.recipients.[]` **Changed** **Breaking** :warning:\n* `documenso.templates.fields.createMany()`: \n  *  `request.fields.[].[class].fieldMeta` **Changed**\n  *  `response.fields.[]` **Changed** **Breaking** :warning:\n* `documenso.documents.get()`:  `response` **Changed** **Breaking** :warning:\n* `documenso.documents.fields.updateMany()`: \n  *  `request.fields.[].[class].fieldMeta` **Changed**\n  *  `response.fields.[]` **Changed** **Breaking** :warning:\n* `documenso.templates.fields.get()`:  `response` **Changed** **Breaking** :warning:\n* `documenso.templates.use()`: \n  *  `request.customDocumentData` **Added**\n  *  `response` **Changed** **Breaking** :warning:\n* `documenso.templates.fields.create()`: \n  *  `request.field.[class].fieldMeta` **Changed**\n  *  `response` **Changed** **Breaking** :warning:\n* `documenso.templates.duplicate()`:  `response` **Changed**\n* `documenso.documents.find()`:  `response.data.[]` **Changed**\n* `documenso.documents.recipients.createMany()`:  `response.recipients.[]` **Changed**\n* `documenso.documents.recipients.create()`:  `response` **Changed**\n* `documenso.templates.update()`: \n  *  `request.data.folderId` **Added**\n  *  `response` **Changed**\n* `documenso.templates.recipients.create()`:  `response` **Changed**\n* `documenso.templates.recipients.createMany()`:  `response.recipients.[]` **Changed**\n* `documenso.documents.distribute()`:  `response` **Changed**\n* `documenso.documents.duplicate()`:  `response.id` **Added**\n* `documenso.templates.directLink.create()`:  `response.envelopeid` **Added**\n* `documenso.templates.directLink.toggle()`:  `response.envelopeid` **Added**\n* `documenso.documents.update()`: \n  *  `request` **Changed**\n  *  `response` **Changed**\n"
+releaseNotes: "## Typescript SDK Changes Detected:\n* `documenso.envelope.envelopeAttachmentFind()`: **Added**\n* `documenso.envelope.envelopeAttachmentCreate()`: **Added**\n* `documenso.envelope.envelopeAttachmentUpdate()`: **Added**\n* `documenso.envelope.envelopeAttachmentDelete()`: **Added**\n* `documenso.document.documentAttachmentCreate()`: **Added**\n* `documenso.document.documentAttachmentUpdate()`: **Added**\n* `documenso.document.documentAttachmentDelete()`: **Added**\n* `documenso.document.documentAttachmentFind()`: **Added**\n* `documenso.folder.folderFindFolders()`: **Added**\n* `documenso.folder.folderCreateFolder()`: **Added**\n* `documenso.folder.folderUpdateFolder()`: **Added**\n* `documenso.folder.folderDeleteFolder()`: **Added**\n* `documenso.documents.createV0()`: \n  *  `request.attachments` **Added**\n* `documenso.template.templateCreateTemplateTemporary()`: \n  *  `request.attachments` **Added**\n"

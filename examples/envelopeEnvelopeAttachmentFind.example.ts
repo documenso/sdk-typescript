@@ -8,7 +8,7 @@ dotenv.config();
  * Example usage of the @documenso/sdk-typescript SDK
  *
  * To run this example from the examples directory:
- * npm run build && npx tsx documentsGet.example.ts
+ * npm run build && npx tsx envelopeEnvelopeAttachmentFind.example.ts
  */
 
 import { Documenso } from "@documenso/sdk-typescript";
@@ -18,8 +18,8 @@ const documenso = new Documenso({
 });
 
 async function main() {
-  const result = await documenso.documents.get({
-    documentId: 6150.61,
+  const result = await documenso.envelope.envelopeAttachmentFind({
+    envelopeId: "<id>",
   });
 
   console.log(result);
