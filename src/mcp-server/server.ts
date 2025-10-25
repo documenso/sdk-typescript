@@ -13,6 +13,10 @@ import {
 } from "./resources.js";
 import { MCPScope } from "./scopes.js";
 import { createRegisterTool } from "./tools.js";
+import { tool$documentDocumentAttachmentCreate } from "./tools/documentDocumentAttachmentCreate.js";
+import { tool$documentDocumentAttachmentDelete } from "./tools/documentDocumentAttachmentDelete.js";
+import { tool$documentDocumentAttachmentFind } from "./tools/documentDocumentAttachmentFind.js";
+import { tool$documentDocumentAttachmentUpdate } from "./tools/documentDocumentAttachmentUpdate.js";
 import { tool$documentDocumentDownload } from "./tools/documentDocumentDownload.js";
 import { tool$documentsCreateV0 } from "./tools/documentsCreateV0.js";
 import { tool$documentsDelete } from "./tools/documentsDelete.js";
@@ -36,6 +40,14 @@ import { tool$documentsRedistribute } from "./tools/documentsRedistribute.js";
 import { tool$documentsUpdate } from "./tools/documentsUpdate.js";
 import { tool$embeddingEmbeddingPresignCreateEmbeddingPresignToken } from "./tools/embeddingEmbeddingPresignCreateEmbeddingPresignToken.js";
 import { tool$embeddingEmbeddingPresignVerifyEmbeddingPresignToken } from "./tools/embeddingEmbeddingPresignVerifyEmbeddingPresignToken.js";
+import { tool$envelopeEnvelopeAttachmentCreate } from "./tools/envelopeEnvelopeAttachmentCreate.js";
+import { tool$envelopeEnvelopeAttachmentDelete } from "./tools/envelopeEnvelopeAttachmentDelete.js";
+import { tool$envelopeEnvelopeAttachmentFind } from "./tools/envelopeEnvelopeAttachmentFind.js";
+import { tool$envelopeEnvelopeAttachmentUpdate } from "./tools/envelopeEnvelopeAttachmentUpdate.js";
+import { tool$folderFolderCreateFolder } from "./tools/folderFolderCreateFolder.js";
+import { tool$folderFolderDeleteFolder } from "./tools/folderFolderDeleteFolder.js";
+import { tool$folderFolderFindFolders } from "./tools/folderFolderFindFolders.js";
+import { tool$folderFolderUpdateFolder } from "./tools/folderFolderUpdateFolder.js";
 import { tool$templatesDelete } from "./tools/templatesDelete.js";
 import { tool$templatesDirectLinkCreate } from "./tools/templatesDirectLinkCreate.js";
 import { tool$templatesDirectLinkDelete } from "./tools/templatesDirectLinkDelete.js";
@@ -69,7 +81,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Documenso",
-    version: "0.4.0",
+    version: "0.5.0",
   });
 
   const client = new DocumensoCore({
@@ -99,6 +111,10 @@ export function createMCPServer(deps: {
   const register = { tool, resource, resourceTemplate, prompt };
   void register; // suppress unused warnings
 
+  tool(tool$envelopeEnvelopeAttachmentFind);
+  tool(tool$envelopeEnvelopeAttachmentCreate);
+  tool(tool$envelopeEnvelopeAttachmentUpdate);
+  tool(tool$envelopeEnvelopeAttachmentDelete);
   tool(tool$documentsGet);
   tool(tool$documentsFind);
   tool(tool$documentsUpdate);
@@ -108,12 +124,20 @@ export function createMCPServer(deps: {
   tool(tool$documentsRedistribute);
   tool(tool$documentsCreateV0);
   tool(tool$documentDocumentDownload);
+  tool(tool$documentDocumentAttachmentCreate);
+  tool(tool$documentDocumentAttachmentUpdate);
+  tool(tool$documentDocumentAttachmentDelete);
+  tool(tool$documentDocumentAttachmentFind);
   tool(tool$templatesFind);
   tool(tool$templatesGet);
   tool(tool$templatesUpdate);
   tool(tool$templatesDuplicate);
   tool(tool$templatesDelete);
   tool(tool$templatesUse);
+  tool(tool$folderFolderFindFolders);
+  tool(tool$folderFolderCreateFolder);
+  tool(tool$folderFolderUpdateFolder);
+  tool(tool$folderFolderDeleteFolder);
   tool(tool$templateTemplateCreateTemplateTemporary);
   tool(tool$embeddingEmbeddingPresignCreateEmbeddingPresignToken);
   tool(tool$embeddingEmbeddingPresignVerifyEmbeddingPresignToken);
