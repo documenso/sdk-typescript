@@ -6,10 +6,17 @@ import { ClientSDK } from "../lib/sdks.js";
 import { Document } from "./document.js";
 import { Documents } from "./documents.js";
 import { Embedding } from "./embedding.js";
+import { Envelope } from "./envelope.js";
+import { Folder } from "./folder.js";
 import { Template } from "./template.js";
 import { Templates } from "./templates.js";
 
 export class Documenso extends ClientSDK {
+  private _envelope?: Envelope;
+  get envelope(): Envelope {
+    return (this._envelope ??= new Envelope(this._options));
+  }
+
   private _documents?: Documents;
   get documents(): Documents {
     return (this._documents ??= new Documents(this._options));
@@ -23,6 +30,11 @@ export class Documenso extends ClientSDK {
   private _templates?: Templates;
   get templates(): Templates {
     return (this._templates ??= new Templates(this._options));
+  }
+
+  private _folder?: Folder;
+  get folder(): Folder {
+    return (this._folder ??= new Folder(this._options));
   }
 
   private _template?: Template;
