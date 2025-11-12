@@ -342,7 +342,7 @@ actions:
   - target: $["paths"]["/document/{documentId}/download-beta"]["get"]
     update:
       x-speakeasy-group: document
-      x-speakeasy-name-override: downloadDocument
+      x-speakeasy-name-override: documentDownload
 
   - target: $["paths"]["/template/field/update-many"]["post"]
     update:
