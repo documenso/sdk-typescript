@@ -7,6 +7,85 @@ info:
     before: ""
     type: speakeasy-modifications
 actions:
+  - target: $["paths"]["/envelope/{envelopeId}"]["get"]
+    update:
+      x-speakeasy-group: envelopes
+      x-speakeasy-name-override: get
+  - target: $["paths"]["/envelope/create"]["post"]
+    update:
+      x-speakeasy-group: envelopes
+      x-speakeasy-name-override: create
+  - target: $["paths"]["/envelope/update"]["post"]
+    update:
+      x-speakeasy-group: envelopes
+      x-speakeasy-name-override: update
+  - target: $["paths"]["/envelope/delete"]["post"]
+    update:
+      x-speakeasy-group: envelopes
+      x-speakeasy-name-override: delete
+  - target: $["paths"]["/envelope/use"]["post"]
+    update:
+      x-speakeasy-group: envelopes
+      x-speakeasy-name-override: use
+  - target: $["paths"]["/envelope/duplicate"]["post"]
+    update:
+      x-speakeasy-group: envelopes
+      x-speakeasy-name-override: duplicate
+  - target: $["paths"]["/envelope/distribute"]["post"]
+    update:
+      x-speakeasy-group: envelopes
+      x-speakeasy-name-override: distribute
+  - target: $["paths"]["/envelope/redistribute"]["post"]
+    update:
+      x-speakeasy-group: envelopes
+      x-speakeasy-name-override: redistribute
+  - target: $["paths"]["/envelope/field/{fieldId}"]["get"]
+    update:
+      x-speakeasy-group: envelopes.fields
+      x-speakeasy-name-override: get
+  - target: $["paths"]["/envelope/field/create-many"]["post"]
+    update:
+      x-speakeasy-group: envelopes.fields
+      x-speakeasy-name-override: createMany
+  - target: $["paths"]["/envelope/field/update-many"]["post"]
+    update:
+      x-speakeasy-group: envelopes.fields
+      x-speakeasy-name-override: updateMany
+  - target: $["paths"]["/envelope/field/delete"]["post"]
+    update:
+      x-speakeasy-group: envelopes.fields
+      x-speakeasy-name-override: delete
+
+  - target: $["paths"]["/envelope/recipient/{recipientId}"]["get"]
+    update:
+      x-speakeasy-group: envelopes.recipients
+      x-speakeasy-name-override: get
+  - target: $["paths"]["/envelope/recipient/create-many"]["post"]
+    update:
+      x-speakeasy-group: envelopes.recipients
+      x-speakeasy-name-override: createMany
+  - target: $["paths"]["/envelope/recipient/update-many"]["post"]
+    update:
+      x-speakeasy-group: envelopes.recipients
+      x-speakeasy-name-override: updateMany
+  - target: $["paths"]["/envelope/recipient/delete"]["post"]
+    update:
+      x-speakeasy-group: envelopes.recipients
+      x-speakeasy-name-override: delete
+
+  - target: $["paths"]["/envelope/item/create-many"]["post"]
+    update:
+      x-speakeasy-group: envelopes.items
+      x-speakeasy-name-override: createMany
+  - target: $["paths"]["/envelope/item/update-many"]["post"]
+    update:
+      x-speakeasy-group: envelopes.items
+      x-speakeasy-name-override: updateMany
+  - target: $["paths"]["/envelope/item/delete"]["post"]
+    update:
+      x-speakeasy-group: envelopes.items
+      x-speakeasy-name-override: delete
+
   - target: $["paths"]["/document/recipient/{recipientId}"]["get"]
     update:
       x-speakeasy-group: documents.recipients
@@ -145,6 +224,10 @@ actions:
       after: sdk.templates.fields.createMany()
       reviewed_at: 1737284371636
       created_at: 1737284351918
+  - target: $["paths"]["/template/create"]["post"]
+    update:
+      x-speakeasy-group: templates
+      x-speakeasy-name-override: create
   - target: $["paths"]["/template/use"]["post"]
     update:
       x-speakeasy-group: templates
@@ -165,6 +248,84 @@ actions:
       after: sdk.documents.distribute()
       reviewed_at: 1737284371636
       created_at: 1737284351918
+
+  - target: $["paths"]["/document/attachment/create"]["post"]
+    update:
+      x-speakeasy-group: documents.attachments
+      x-speakeasy-name-override: create
+  - target: $["paths"]["/document/attachment/update"]["post"]
+    update:
+      x-speakeasy-group: documents.attachments
+      x-speakeasy-name-override: update
+  - target: $["paths"]["/document/attachment/delete"]["post"]
+    update:
+      x-speakeasy-group: documents.attachments
+      x-speakeasy-name-override: delete
+  - target: $["paths"]["/document/attachment"]["get"]
+    update:
+      x-speakeasy-group: documents.attachments
+      x-speakeasy-name-override: find
+
+  - target: $["paths"]["/template/attachment/create"]["post"]
+    update:
+      x-speakeasy-group: templates.attachments
+      x-speakeasy-name-override: create
+  - target: $["paths"]["/template/attachment/update"]["post"]
+    update:
+      x-speakeasy-group: templates.attachments
+      x-speakeasy-name-override: update
+  - target: $["paths"]["/template/attachment/delete"]["post"]
+    update:
+      x-speakeasy-group: templates.attachments
+      x-speakeasy-name-override: delete
+  - target: $["paths"]["/template/attachment"]["get"]
+    update:
+      x-speakeasy-group: templates.attachments
+      x-speakeasy-name-override: find
+
+  - target: $["paths"]["/envelope/attachment/create"]["post"]
+    update:
+      x-speakeasy-group: envelopes.attachments
+      x-speakeasy-name-override: create
+  - target: $["paths"]["/envelope/attachment/update"]["post"]
+    update:
+      x-speakeasy-group: envelopes.attachments
+      x-speakeasy-name-override: update
+  - target: $["paths"]["/envelope/attachment/delete"]["post"]
+    update:
+      x-speakeasy-group: envelopes.attachments
+      x-speakeasy-name-override: delete
+  - target: $["paths"]["/envelope/attachment"]["get"]
+    update:
+      x-speakeasy-group: envelopes.attachments
+      x-speakeasy-name-override: find
+
+  - target: $["paths"]["/folder/create"]["post"]
+    update:
+      x-speakeasy-group: folders
+      x-speakeasy-name-override: create
+  - target: $["paths"]["/folder/update"]["post"]
+    update:
+      x-speakeasy-group: folders
+      x-speakeasy-name-override: update
+  - target: $["paths"]["/folder/delete"]["post"]
+    update:
+      x-speakeasy-group: folders
+      x-speakeasy-name-override: delete
+  - target: $["paths"]["/folder"]["get"]
+    update:
+      x-speakeasy-group: folders
+      x-speakeasy-name-override: find
+
+  - target: $["paths"]["/document/create"]["post"]
+    update:
+      x-speakeasy-group: documents
+      x-speakeasy-name-override: create
+    x-speakeasy-metadata:
+      type: method-name
+      after: sdk.documents.create()
+      reviewed_at: 1737284371636
+      created_at: 1737284351918
   - target: $["paths"]["/document/create/beta"]["post"]
     update:
       x-speakeasy-group: documents
@@ -175,6 +336,16 @@ actions:
       after: sdk.documents.createV0()
       reviewed_at: 1737284371636
       created_at: 1737284351918
+  - target: $["paths"]["/document/{documentId}/download"]["get"]
+    update:
+      x-speakeasy-group: documents
+      x-speakeasy-name-override: download
+  - target: $["paths"]["/document/{documentId}/download-beta"]["get"]
+    update:
+      x-speakeasy-group: documents
+      x-speakeasy-name-override: download-deprecated
+      x-speakeasy-ignore: true
+
   - target: $["paths"]["/template/field/update-many"]["post"]
     update:
       x-speakeasy-group: templates.fields
@@ -439,3 +610,15 @@ actions:
         - EeeeMmmmDdCommaYyyyHhMmA
         - EeeeMmmmDdCommaYyyyHHmm
         - Iso8601Full
+  - target: "$..requestBody.content['multipart/form-data'].schema.properties.files"
+    description: Make files property an array of binary file items
+    update:
+      type: array
+      items:
+        type: string
+        format: binary
+  - target: "$..requestBody.content['multipart/form-data'].schema.properties.file"
+    description: Make files property an array of binary file items
+    update:
+      type: string
+      format: binary
