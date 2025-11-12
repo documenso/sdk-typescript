@@ -7,11 +7,14 @@
 
 * [get](#get) - Get document
 * [find](#find) - Find documents
+* [create](#create) - Create document
 * [update](#update) - Update document
 * [delete](#delete) - Delete document
 * [duplicate](#duplicate) - Duplicate document
 * [distribute](#distribute) - Distribute document
 * [redistribute](#redistribute) - Redistribute document
+* [download](#download) - Download document
+* [downloadDeprecated](#downloaddeprecated) - Download document (beta)
 * [createV0](#createv0) - Create document
 
 ## get
@@ -86,6 +89,8 @@ run();
 | Error Type                            | Status Code                           | Content Type                          |
 | ------------------------------------- | ------------------------------------- | ------------------------------------- |
 | errors.DocumentGetBadRequestError     | 400                                   | application/json                      |
+| errors.DocumentGetUnauthorizedError   | 401                                   | application/json                      |
+| errors.DocumentGetForbiddenError      | 403                                   | application/json                      |
 | errors.DocumentGetNotFoundError       | 404                                   | application/json                      |
 | errors.DocumentGetInternalServerError | 500                                   | application/json                      |
 | errors.APIError                       | 4XX, 5XX                              | \*/\*                                 |
@@ -158,9 +163,96 @@ run();
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
 | errors.DocumentFindBadRequestError     | 400                                    | application/json                       |
+| errors.DocumentFindUnauthorizedError   | 401                                    | application/json                       |
+| errors.DocumentFindForbiddenError      | 403                                    | application/json                       |
 | errors.DocumentFindNotFoundError       | 404                                    | application/json                       |
 | errors.DocumentFindInternalServerError | 500                                    | application/json                       |
 | errors.APIError                        | 4XX, 5XX                               | \*/\*                                  |
+
+## create
+
+Create a document using form data.
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="document-create" method="post" path="/document/create" -->
+```typescript
+import { Documenso } from "@documenso/sdk-typescript";
+import { openAsBlob } from "node:fs";
+
+const documenso = new Documenso({
+  apiKey: process.env["DOCUMENSO_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await documenso.documents.create({
+    payload: {
+      title: "<value>",
+    },
+    file: await openAsBlob("example.file"),
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { DocumensoCore } from "@documenso/sdk-typescript/core.js";
+import { documentsCreate } from "@documenso/sdk-typescript/funcs/documentsCreate.js";
+import { openAsBlob } from "node:fs";
+
+// Use `DocumensoCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const documenso = new DocumensoCore({
+  apiKey: process.env["DOCUMENSO_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await documentsCreate(documenso, {
+    payload: {
+      title: "<value>",
+    },
+    file: await openAsBlob("example.file"),
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("documentsCreate failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DocumentCreateRequest](../../models/operations/documentcreaterequest.md)                                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.DocumentCreateResponse](../../models/operations/documentcreateresponse.md)\>**
+
+### Errors
+
+| Error Type                               | Status Code                              | Content Type                             |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| errors.DocumentCreateBadRequestError     | 400                                      | application/json                         |
+| errors.DocumentCreateUnauthorizedError   | 401                                      | application/json                         |
+| errors.DocumentCreateForbiddenError      | 403                                      | application/json                         |
+| errors.DocumentCreateInternalServerError | 500                                      | application/json                         |
+| errors.APIError                          | 4XX, 5XX                                 | \*/\*                                    |
 
 ## update
 
@@ -234,6 +326,8 @@ run();
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | errors.DocumentUpdateBadRequestError     | 400                                      | application/json                         |
+| errors.DocumentUpdateUnauthorizedError   | 401                                      | application/json                         |
+| errors.DocumentUpdateForbiddenError      | 403                                      | application/json                         |
 | errors.DocumentUpdateInternalServerError | 500                                      | application/json                         |
 | errors.APIError                          | 4XX, 5XX                                 | \*/\*                                    |
 
@@ -309,6 +403,8 @@ run();
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | errors.DocumentDeleteBadRequestError     | 400                                      | application/json                         |
+| errors.DocumentDeleteUnauthorizedError   | 401                                      | application/json                         |
+| errors.DocumentDeleteForbiddenError      | 403                                      | application/json                         |
 | errors.DocumentDeleteInternalServerError | 500                                      | application/json                         |
 | errors.APIError                          | 4XX, 5XX                                 | \*/\*                                    |
 
@@ -384,6 +480,8 @@ run();
 | Error Type                                  | Status Code                                 | Content Type                                |
 | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
 | errors.DocumentDuplicateBadRequestError     | 400                                         | application/json                            |
+| errors.DocumentDuplicateUnauthorizedError   | 401                                         | application/json                            |
+| errors.DocumentDuplicateForbiddenError      | 403                                         | application/json                            |
 | errors.DocumentDuplicateInternalServerError | 500                                         | application/json                            |
 | errors.APIError                             | 4XX, 5XX                                    | \*/\*                                       |
 
@@ -459,6 +557,8 @@ run();
 | Error Type                                   | Status Code                                  | Content Type                                 |
 | -------------------------------------------- | -------------------------------------------- | -------------------------------------------- |
 | errors.DocumentDistributeBadRequestError     | 400                                          | application/json                             |
+| errors.DocumentDistributeUnauthorizedError   | 401                                          | application/json                             |
+| errors.DocumentDistributeForbiddenError      | 403                                          | application/json                             |
 | errors.DocumentDistributeInternalServerError | 500                                          | application/json                             |
 | errors.APIError                              | 4XX, 5XX                                     | \*/\*                                        |
 
@@ -544,7 +644,165 @@ run();
 | Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
 | errors.DocumentRedistributeBadRequestError     | 400                                            | application/json                               |
+| errors.DocumentRedistributeUnauthorizedError   | 401                                            | application/json                               |
+| errors.DocumentRedistributeForbiddenError      | 403                                            | application/json                               |
 | errors.DocumentRedistributeInternalServerError | 500                                            | application/json                               |
+| errors.APIError                                | 4XX, 5XX                                       | \*/\*                                          |
+
+## download
+
+Download document
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="document-download" method="get" path="/document/{documentId}/download" -->
+```typescript
+import { Documenso } from "@documenso/sdk-typescript";
+
+const documenso = new Documenso({
+  apiKey: process.env["DOCUMENSO_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await documenso.documents.download({
+    documentId: 5396.97,
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { DocumensoCore } from "@documenso/sdk-typescript/core.js";
+import { documentsDownload } from "@documenso/sdk-typescript/funcs/documentsDownload.js";
+
+// Use `DocumensoCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const documenso = new DocumensoCore({
+  apiKey: process.env["DOCUMENSO_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await documentsDownload(documenso, {
+    documentId: 5396.97,
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("documentsDownload failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DocumentDownloadRequest](../../models/operations/documentdownloadrequest.md)                                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.DocumentDownloadResponse](../../models/operations/documentdownloadresponse.md)\>**
+
+### Errors
+
+| Error Type                                 | Status Code                                | Content Type                               |
+| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| errors.DocumentDownloadBadRequestError     | 400                                        | application/json                           |
+| errors.DocumentDownloadUnauthorizedError   | 401                                        | application/json                           |
+| errors.DocumentDownloadForbiddenError      | 403                                        | application/json                           |
+| errors.DocumentDownloadNotFoundError       | 404                                        | application/json                           |
+| errors.DocumentDownloadInternalServerError | 500                                        | application/json                           |
+| errors.APIError                            | 4XX, 5XX                                   | \*/\*                                      |
+
+## downloadDeprecated
+
+Get a pre-signed download URL for the original or signed version of a document
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="document-downloadBeta" method="get" path="/document/{documentId}/download-beta" -->
+```typescript
+import { Documenso } from "@documenso/sdk-typescript";
+
+const documenso = new Documenso({
+  apiKey: process.env["DOCUMENSO_API_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await documenso.documents.downloadDeprecated({
+    documentId: 9550.11,
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { DocumensoCore } from "@documenso/sdk-typescript/core.js";
+import { documentsDownloadDeprecated } from "@documenso/sdk-typescript/funcs/documentsDownloadDeprecated.js";
+
+// Use `DocumensoCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const documenso = new DocumensoCore({
+  apiKey: process.env["DOCUMENSO_API_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await documentsDownloadDeprecated(documenso, {
+    documentId: 9550.11,
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("documentsDownloadDeprecated failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DocumentDownloadBetaRequest](../../models/operations/documentdownloadbetarequest.md)                                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.DocumentDownloadBetaResponse](../../models/operations/documentdownloadbetaresponse.md)\>**
+
+### Errors
+
+| Error Type                                     | Status Code                                    | Content Type                                   |
+| ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
+| errors.DocumentDownloadBetaBadRequestError     | 400                                            | application/json                               |
+| errors.DocumentDownloadBetaUnauthorizedError   | 401                                            | application/json                               |
+| errors.DocumentDownloadBetaForbiddenError      | 403                                            | application/json                               |
+| errors.DocumentDownloadBetaNotFoundError       | 404                                            | application/json                               |
+| errors.DocumentDownloadBetaInternalServerError | 500                                            | application/json                               |
 | errors.APIError                                | 4XX, 5XX                                       | \*/\*                                          |
 
 ## createV0
@@ -619,5 +877,7 @@ run();
 | Error Type                                                | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
 | errors.DocumentCreateDocumentTemporaryBadRequestError     | 400                                                       | application/json                                          |
+| errors.DocumentCreateDocumentTemporaryUnauthorizedError   | 401                                                       | application/json                                          |
+| errors.DocumentCreateDocumentTemporaryForbiddenError      | 403                                                       | application/json                                          |
 | errors.DocumentCreateDocumentTemporaryInternalServerError | 500                                                       | application/json                                          |
 | errors.APIError                                           | 4XX, 5XX                                                  | \*/\*                                                     |

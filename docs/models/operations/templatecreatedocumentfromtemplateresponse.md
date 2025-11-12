@@ -24,8 +24,9 @@ let value: TemplateCreateDocumentFromTemplateResponse = {
   teamId: 3542.33,
   folderId: "<id>",
   envelopeId: "<id>",
+  internalVersion: 4534.72,
   documentData: {
-    type: "BYTES",
+    type: "S3_PATH",
     id: "<id>",
     data: "<value>",
     initialData: "<value>",
@@ -37,32 +38,53 @@ let value: TemplateCreateDocumentFromTemplateResponse = {
     id: "<id>",
     subject: "<value>",
     message: "<value>",
-    timezone: "America/St_Vincent",
-    dateFormat: "<value>",
-    redirectUrl: null,
+    timezone: "Australia/Melbourne",
+    dateFormat: null,
+    redirectUrl: "https://energetic-swordfish.net/",
     typedSignatureEnabled: true,
     uploadSignatureEnabled: true,
-    drawSignatureEnabled: true,
+    drawSignatureEnabled: false,
     allowDictateNextSigner: false,
     language: "<value>",
     emailSettings: {},
     emailId: "<id>",
     emailReplyTo: "<value>",
   },
+  envelopeItems: [],
   folder: {
     id: "<id>",
     name: "<value>",
     type: "TEMPLATE",
-    visibility: "MANAGER_AND_ABOVE",
-    userId: 5322.52,
-    teamId: 4295.56,
-    pinned: true,
+    visibility: "EVERYONE",
+    userId: 3285.16,
+    teamId: 1418.4,
+    pinned: false,
     parentId: "<id>",
-    createdAt: "1733236008688",
-    updatedAt: "1735617418007",
+    createdAt: "1731033307570",
+    updatedAt: "1735632318003",
   },
   recipients: [],
-  fields: [],
+  fields: [
+    {
+      envelopeId: "<id>",
+      envelopeItemId: "<id>",
+      type: "EMAIL",
+      id: 9041.88,
+      secondaryId: "<id>",
+      recipientId: 6966.32,
+      page: 998.89,
+      positionX: "<value>",
+      positionY: "<value>",
+      width: "<value>",
+      height: "<value>",
+      customText: "<value>",
+      inserted: true,
+      fieldMeta: {
+        fontSize: 12,
+        type: "number",
+      },
+    },
+  ],
 };
 ```
 
@@ -74,8 +96,8 @@ let value: TemplateCreateDocumentFromTemplateResponse = {
 | `status`                                                                                                                                           | [operations.TemplateCreateDocumentFromTemplateStatus](../../models/operations/templatecreatedocumentfromtemplatestatus.md)                         | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
 | `source`                                                                                                                                           | [operations.TemplateCreateDocumentFromTemplateSource](../../models/operations/templatecreatedocumentfromtemplatesource.md)                         | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
 | `id`                                                                                                                                               | *number*                                                                                                                                           | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
-| `externalId`                                                                                                                                       | *string*                                                                                                                                           | :heavy_check_mark:                                                                                                                                 | A custom external ID you can use to identify the document.                                                                                         |
-| `userId`                                                                                                                                           | *number*                                                                                                                                           | :heavy_check_mark:                                                                                                                                 | The ID of the user that created this document.                                                                                                     |
+| `externalId`                                                                                                                                       | *string*                                                                                                                                           | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
+| `userId`                                                                                                                                           | *number*                                                                                                                                           | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
 | `authOptions`                                                                                                                                      | [operations.TemplateCreateDocumentFromTemplateAuthOptions](../../models/operations/templatecreatedocumentfromtemplateauthoptions.md)               | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
 | `formValues`                                                                                                                                       | Record<string, *operations.TemplateCreateDocumentFromTemplateFormValues*>                                                                          | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
 | `title`                                                                                                                                            | *string*                                                                                                                                           | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
@@ -86,10 +108,12 @@ let value: TemplateCreateDocumentFromTemplateResponse = {
 | `teamId`                                                                                                                                           | *number*                                                                                                                                           | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
 | `folderId`                                                                                                                                         | *string*                                                                                                                                           | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
 | `envelopeId`                                                                                                                                       | *string*                                                                                                                                           | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
-| `templateId`                                                                                                                                       | *number*                                                                                                                                           | :heavy_minus_sign:                                                                                                                                 | The ID of the template that the document was created from, if any.                                                                                 |
+| `internalVersion`                                                                                                                                  | *number*                                                                                                                                           | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
+| `templateId`                                                                                                                                       | *number*                                                                                                                                           | :heavy_minus_sign:                                                                                                                                 | N/A                                                                                                                                                |
 | `documentDataId`                                                                                                                                   | *string*                                                                                                                                           | :heavy_minus_sign:                                                                                                                                 | N/A                                                                                                                                                |
 | `documentData`                                                                                                                                     | [operations.TemplateCreateDocumentFromTemplateDocumentData](../../models/operations/templatecreatedocumentfromtemplatedocumentdata.md)             | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
 | `documentMeta`                                                                                                                                     | [operations.TemplateCreateDocumentFromTemplateDocumentMeta](../../models/operations/templatecreatedocumentfromtemplatedocumentmeta.md)             | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
+| `envelopeItems`                                                                                                                                    | [operations.TemplateCreateDocumentFromTemplateEnvelopeItem](../../models/operations/templatecreatedocumentfromtemplateenvelopeitem.md)[]           | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
 | `folder`                                                                                                                                           | [operations.TemplateCreateDocumentFromTemplateFolder](../../models/operations/templatecreatedocumentfromtemplatefolder.md)                         | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
 | `recipients`                                                                                                                                       | [operations.TemplateCreateDocumentFromTemplateRecipientResponse](../../models/operations/templatecreatedocumentfromtemplaterecipientresponse.md)[] | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |
 | `fields`                                                                                                                                           | [operations.TemplateCreateDocumentFromTemplateField](../../models/operations/templatecreatedocumentfromtemplatefield.md)[]                         | :heavy_check_mark:                                                                                                                                 | N/A                                                                                                                                                |

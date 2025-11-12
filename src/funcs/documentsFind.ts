@@ -39,6 +39,8 @@ export function documentsFind(
   Result<
     operations.DocumentFindResponse,
     | errors.DocumentFindBadRequestError
+    | errors.DocumentFindUnauthorizedError
+    | errors.DocumentFindForbiddenError
     | errors.DocumentFindNotFoundError
     | errors.DocumentFindInternalServerError
     | DocumensoError
@@ -67,6 +69,8 @@ async function $do(
     Result<
       operations.DocumentFindResponse,
       | errors.DocumentFindBadRequestError
+      | errors.DocumentFindUnauthorizedError
+      | errors.DocumentFindForbiddenError
       | errors.DocumentFindNotFoundError
       | errors.DocumentFindInternalServerError
       | DocumensoError
@@ -147,7 +151,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["400", "404", "4XX", "500", "5XX"],
+    errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -163,6 +167,8 @@ async function $do(
   const [result] = await M.match<
     operations.DocumentFindResponse,
     | errors.DocumentFindBadRequestError
+    | errors.DocumentFindUnauthorizedError
+    | errors.DocumentFindForbiddenError
     | errors.DocumentFindNotFoundError
     | errors.DocumentFindInternalServerError
     | DocumensoError
@@ -176,6 +182,8 @@ async function $do(
   >(
     M.json(200, operations.DocumentFindResponse$inboundSchema),
     M.jsonErr(400, errors.DocumentFindBadRequestError$inboundSchema),
+    M.jsonErr(401, errors.DocumentFindUnauthorizedError$inboundSchema),
+    M.jsonErr(403, errors.DocumentFindForbiddenError$inboundSchema),
     M.jsonErr(404, errors.DocumentFindNotFoundError$inboundSchema),
     M.jsonErr(500, errors.DocumentFindInternalServerError$inboundSchema),
     M.fail("4XX"),

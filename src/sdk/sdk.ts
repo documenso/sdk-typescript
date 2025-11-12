@@ -3,26 +3,38 @@
  */
 
 import { ClientSDK } from "../lib/sdks.js";
-import { Document } from "./document.js";
 import { Documents } from "./documents.js";
 import { Embedding } from "./embedding.js";
+import { EnvelopeItems } from "./envelopeitems.js";
+import { Envelopes } from "./envelopes.js";
+import { Folders } from "./folders.js";
 import { Template } from "./template.js";
 import { Templates } from "./templates.js";
 
 export class Documenso extends ClientSDK {
+  private _envelopes?: Envelopes;
+  get envelopes(): Envelopes {
+    return (this._envelopes ??= new Envelopes(this._options));
+  }
+
+  private _envelopeItems?: EnvelopeItems;
+  get envelopeItems(): EnvelopeItems {
+    return (this._envelopeItems ??= new EnvelopeItems(this._options));
+  }
+
   private _documents?: Documents;
   get documents(): Documents {
     return (this._documents ??= new Documents(this._options));
   }
 
-  private _document?: Document;
-  get document(): Document {
-    return (this._document ??= new Document(this._options));
-  }
-
   private _templates?: Templates;
   get templates(): Templates {
     return (this._templates ??= new Templates(this._options));
+  }
+
+  private _folders?: Folders;
+  get folders(): Folders {
+    return (this._folders ??= new Folders(this._options));
   }
 
   private _template?: Template;

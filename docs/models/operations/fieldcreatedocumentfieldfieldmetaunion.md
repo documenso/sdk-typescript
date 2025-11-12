@@ -3,6 +3,14 @@
 
 ## Supported Types
 
+### `operations.FieldCreateDocumentFieldFieldMetaSignatureResponse`
+
+```typescript
+const value: operations.FieldCreateDocumentFieldFieldMetaSignatureResponse = {
+  type: "signature",
+};
+```
+
 ### `operations.FieldCreateDocumentFieldFieldMetaInitialsResponse`
 
 ```typescript

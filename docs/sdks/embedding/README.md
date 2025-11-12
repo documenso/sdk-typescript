@@ -76,6 +76,8 @@ run();
 | Error Type                                                            | Status Code                                                           | Content Type                                                          |
 | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
 | errors.EmbeddingPresignCreateEmbeddingPresignTokenBadRequestError     | 400                                                                   | application/json                                                      |
+| errors.EmbeddingPresignCreateEmbeddingPresignTokenUnauthorizedError   | 401                                                                   | application/json                                                      |
+| errors.EmbeddingPresignCreateEmbeddingPresignTokenForbiddenError      | 403                                                                   | application/json                                                      |
 | errors.EmbeddingPresignCreateEmbeddingPresignTokenInternalServerError | 500                                                                   | application/json                                                      |
 | errors.APIError                                                       | 4XX, 5XX                                                              | \*/\*                                                                 |
 
@@ -151,5 +153,7 @@ run();
 | Error Type                                                            | Status Code                                                           | Content Type                                                          |
 | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
 | errors.EmbeddingPresignVerifyEmbeddingPresignTokenBadRequestError     | 400                                                                   | application/json                                                      |
+| errors.EmbeddingPresignVerifyEmbeddingPresignTokenUnauthorizedError   | 401                                                                   | application/json                                                      |
+| errors.EmbeddingPresignVerifyEmbeddingPresignTokenForbiddenError      | 403                                                                   | application/json                                                      |
 | errors.EmbeddingPresignVerifyEmbeddingPresignTokenInternalServerError | 500                                                                   | application/json                                                      |
 | errors.APIError                                                       | 4XX, 5XX                                                              | \*/\*                                                                 |

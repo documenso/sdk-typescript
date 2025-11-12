@@ -16,8 +16,8 @@ let value: EmbeddingPresignCreateEmbeddingPresignTokenResponse = {
 
 ## Fields
 
-| Field                      | Type                       | Required                   | Description                |
-| -------------------------- | -------------------------- | -------------------------- | -------------------------- |
-| `token`                    | *string*                   | :heavy_check_mark:         | N/A                        |
-| `expiresAt`                | *string*                   | :heavy_check_mark:         | N/A                        |
-| `expiresIn`                | *number*                   | :heavy_check_mark:         | Expiration time in seconds |
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `token`            | *string*           | :heavy_check_mark: | N/A                |
+| `expiresAt`        | *string*           | :heavy_check_mark: | N/A                |
+| `expiresIn`        | *number*           | :heavy_check_mark: | N/A                |

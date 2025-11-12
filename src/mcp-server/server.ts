@@ -13,10 +13,16 @@ import {
 } from "./resources.js";
 import { MCPScope } from "./scopes.js";
 import { createRegisterTool } from "./tools.js";
-import { tool$documentDocumentDownload } from "./tools/documentDocumentDownload.js";
+import { tool$documentsAttachmentsCreate } from "./tools/documentsAttachmentsCreate.js";
+import { tool$documentsAttachmentsDelete } from "./tools/documentsAttachmentsDelete.js";
+import { tool$documentsAttachmentsFind } from "./tools/documentsAttachmentsFind.js";
+import { tool$documentsAttachmentsUpdate } from "./tools/documentsAttachmentsUpdate.js";
+import { tool$documentsCreate } from "./tools/documentsCreate.js";
 import { tool$documentsCreateV0 } from "./tools/documentsCreateV0.js";
 import { tool$documentsDelete } from "./tools/documentsDelete.js";
 import { tool$documentsDistribute } from "./tools/documentsDistribute.js";
+import { tool$documentsDownload } from "./tools/documentsDownload.js";
+import { tool$documentsDownloadDeprecated } from "./tools/documentsDownloadDeprecated.js";
 import { tool$documentsDuplicate } from "./tools/documentsDuplicate.js";
 import { tool$documentsFieldsCreate } from "./tools/documentsFieldsCreate.js";
 import { tool$documentsFieldsCreateMany } from "./tools/documentsFieldsCreateMany.js";
@@ -36,6 +42,35 @@ import { tool$documentsRedistribute } from "./tools/documentsRedistribute.js";
 import { tool$documentsUpdate } from "./tools/documentsUpdate.js";
 import { tool$embeddingEmbeddingPresignCreateEmbeddingPresignToken } from "./tools/embeddingEmbeddingPresignCreateEmbeddingPresignToken.js";
 import { tool$embeddingEmbeddingPresignVerifyEmbeddingPresignToken } from "./tools/embeddingEmbeddingPresignVerifyEmbeddingPresignToken.js";
+import { tool$envelopeItemsEnvelopeItemDownload } from "./tools/envelopeItemsEnvelopeItemDownload.js";
+import { tool$envelopesAttachmentsCreate } from "./tools/envelopesAttachmentsCreate.js";
+import { tool$envelopesAttachmentsDelete } from "./tools/envelopesAttachmentsDelete.js";
+import { tool$envelopesAttachmentsFind } from "./tools/envelopesAttachmentsFind.js";
+import { tool$envelopesAttachmentsUpdate } from "./tools/envelopesAttachmentsUpdate.js";
+import { tool$envelopesCreate } from "./tools/envelopesCreate.js";
+import { tool$envelopesDelete } from "./tools/envelopesDelete.js";
+import { tool$envelopesDistribute } from "./tools/envelopesDistribute.js";
+import { tool$envelopesDuplicate } from "./tools/envelopesDuplicate.js";
+import { tool$envelopesFieldsCreateMany } from "./tools/envelopesFieldsCreateMany.js";
+import { tool$envelopesFieldsDelete } from "./tools/envelopesFieldsDelete.js";
+import { tool$envelopesFieldsGet } from "./tools/envelopesFieldsGet.js";
+import { tool$envelopesFieldsUpdateMany } from "./tools/envelopesFieldsUpdateMany.js";
+import { tool$envelopesGet } from "./tools/envelopesGet.js";
+import { tool$envelopesItemsCreateMany } from "./tools/envelopesItemsCreateMany.js";
+import { tool$envelopesItemsDelete } from "./tools/envelopesItemsDelete.js";
+import { tool$envelopesItemsUpdateMany } from "./tools/envelopesItemsUpdateMany.js";
+import { tool$envelopesRecipientsCreateMany } from "./tools/envelopesRecipientsCreateMany.js";
+import { tool$envelopesRecipientsDelete } from "./tools/envelopesRecipientsDelete.js";
+import { tool$envelopesRecipientsGet } from "./tools/envelopesRecipientsGet.js";
+import { tool$envelopesRecipientsUpdateMany } from "./tools/envelopesRecipientsUpdateMany.js";
+import { tool$envelopesRedistribute } from "./tools/envelopesRedistribute.js";
+import { tool$envelopesUpdate } from "./tools/envelopesUpdate.js";
+import { tool$envelopesUse } from "./tools/envelopesUse.js";
+import { tool$foldersCreate } from "./tools/foldersCreate.js";
+import { tool$foldersDelete } from "./tools/foldersDelete.js";
+import { tool$foldersFind } from "./tools/foldersFind.js";
+import { tool$foldersUpdate } from "./tools/foldersUpdate.js";
+import { tool$templatesCreate } from "./tools/templatesCreate.js";
 import { tool$templatesDelete } from "./tools/templatesDelete.js";
 import { tool$templatesDirectLinkCreate } from "./tools/templatesDirectLinkCreate.js";
 import { tool$templatesDirectLinkDelete } from "./tools/templatesDirectLinkDelete.js";
@@ -69,7 +104,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Documenso",
-    version: "0.4.0",
+    version: "0.5.0",
   });
 
   const client = new DocumensoCore({
@@ -99,24 +134,59 @@ export function createMCPServer(deps: {
   const register = { tool, resource, resourceTemplate, prompt };
   void register; // suppress unused warnings
 
+  tool(tool$envelopesGet);
+  tool(tool$envelopesCreate);
+  tool(tool$envelopesUse);
+  tool(tool$envelopesUpdate);
+  tool(tool$envelopesDelete);
+  tool(tool$envelopesDuplicate);
+  tool(tool$envelopesDistribute);
+  tool(tool$envelopesRedistribute);
+  tool(tool$envelopeItemsEnvelopeItemDownload);
   tool(tool$documentsGet);
   tool(tool$documentsFind);
+  tool(tool$documentsCreate);
   tool(tool$documentsUpdate);
   tool(tool$documentsDelete);
   tool(tool$documentsDuplicate);
   tool(tool$documentsDistribute);
   tool(tool$documentsRedistribute);
+  tool(tool$documentsDownload);
+  tool(tool$documentsDownloadDeprecated);
   tool(tool$documentsCreateV0);
-  tool(tool$documentDocumentDownload);
   tool(tool$templatesFind);
   tool(tool$templatesGet);
+  tool(tool$templatesCreate);
   tool(tool$templatesUpdate);
   tool(tool$templatesDuplicate);
   tool(tool$templatesDelete);
   tool(tool$templatesUse);
+  tool(tool$foldersFind);
+  tool(tool$foldersCreate);
+  tool(tool$foldersUpdate);
+  tool(tool$foldersDelete);
   tool(tool$templateTemplateCreateTemplateTemporary);
   tool(tool$embeddingEmbeddingPresignCreateEmbeddingPresignToken);
   tool(tool$embeddingEmbeddingPresignVerifyEmbeddingPresignToken);
+  tool(tool$envelopesAttachmentsFind);
+  tool(tool$envelopesAttachmentsCreate);
+  tool(tool$envelopesAttachmentsUpdate);
+  tool(tool$envelopesAttachmentsDelete);
+  tool(tool$envelopesItemsCreateMany);
+  tool(tool$envelopesItemsUpdateMany);
+  tool(tool$envelopesItemsDelete);
+  tool(tool$envelopesRecipientsGet);
+  tool(tool$envelopesRecipientsCreateMany);
+  tool(tool$envelopesRecipientsUpdateMany);
+  tool(tool$envelopesRecipientsDelete);
+  tool(tool$envelopesFieldsGet);
+  tool(tool$envelopesFieldsCreateMany);
+  tool(tool$envelopesFieldsUpdateMany);
+  tool(tool$envelopesFieldsDelete);
+  tool(tool$documentsAttachmentsCreate);
+  tool(tool$documentsAttachmentsUpdate);
+  tool(tool$documentsAttachmentsDelete);
+  tool(tool$documentsAttachmentsFind);
   tool(tool$documentsFieldsGet);
   tool(tool$documentsFieldsCreate);
   tool(tool$documentsFieldsCreateMany);

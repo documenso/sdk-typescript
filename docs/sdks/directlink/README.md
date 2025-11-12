@@ -81,6 +81,8 @@ run();
 | Error Type                                                 | Status Code                                                | Content Type                                               |
 | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
 | errors.TemplateCreateTemplateDirectLinkBadRequestError     | 400                                                        | application/json                                           |
+| errors.TemplateCreateTemplateDirectLinkUnauthorizedError   | 401                                                        | application/json                                           |
+| errors.TemplateCreateTemplateDirectLinkForbiddenError      | 403                                                        | application/json                                           |
 | errors.TemplateCreateTemplateDirectLinkInternalServerError | 500                                                        | application/json                                           |
 | errors.APIError                                            | 4XX, 5XX                                                   | \*/\*                                                      |
 
@@ -156,6 +158,8 @@ run();
 | Error Type                                                 | Status Code                                                | Content Type                                               |
 | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
 | errors.TemplateDeleteTemplateDirectLinkBadRequestError     | 400                                                        | application/json                                           |
+| errors.TemplateDeleteTemplateDirectLinkUnauthorizedError   | 401                                                        | application/json                                           |
+| errors.TemplateDeleteTemplateDirectLinkForbiddenError      | 403                                                        | application/json                                           |
 | errors.TemplateDeleteTemplateDirectLinkInternalServerError | 500                                                        | application/json                                           |
 | errors.APIError                                            | 4XX, 5XX                                                   | \*/\*                                                      |
 
@@ -233,5 +237,7 @@ run();
 | Error Type                                                 | Status Code                                                | Content Type                                               |
 | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
 | errors.TemplateToggleTemplateDirectLinkBadRequestError     | 400                                                        | application/json                                           |
+| errors.TemplateToggleTemplateDirectLinkUnauthorizedError   | 401                                                        | application/json                                           |
+| errors.TemplateToggleTemplateDirectLinkForbiddenError      | 403                                                        | application/json                                           |
 | errors.TemplateToggleTemplateDirectLinkInternalServerError | 500                                                        | application/json                                           |
 | errors.APIError                                            | 4XX, 5XX                                                   | \*/\*                                                      |
