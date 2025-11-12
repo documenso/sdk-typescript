@@ -339,7 +339,6 @@ actions:
     update:
       x-speakeasy-group: documents
       x-speakeasy-name-override: download-deprecated
-      x-speakeasy-ignore: true
 
   - target: $["paths"]["/template/field/update-many"]["post"]
     update:
