@@ -85,6 +85,10 @@ actions:
     update:
       x-speakeasy-group: envelopes.items
       x-speakeasy-name-override: delete
+  - target: $["paths"]["/envelope/item/{envelopeItemId}/download"]["get"]
+    update:
+      x-speakeasy-group: envelopes.items
+      x-speakeasy-name-override: download
 
   - target: $["paths"]["/document/recipient/{recipientId}"]["get"]
     update:
@@ -335,6 +339,10 @@ actions:
     update:
       x-speakeasy-group: documents
       x-speakeasy-name-override: download
+  - target: $["paths"]["/document/{documentId}/download-beta"]["get"]
+    update:
+      x-speakeasy-group: document
+      x-speakeasy-name-override: downloadDocument
 
   - target: $["paths"]["/template/field/update-many"]["post"]
     update:
