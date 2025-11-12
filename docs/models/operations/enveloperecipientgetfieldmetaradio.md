@@ -1,0 +1,24 @@
+# EnvelopeRecipientGetFieldMetaRadio
+
+## Example Usage
+
+```typescript
+import { EnvelopeRecipientGetFieldMetaRadio } from "@documenso/sdk-typescript/models/operations";
+
+let value: EnvelopeRecipientGetFieldMetaRadio = {
+  type: "radio",
+};
+```
+
+## Fields
+
+| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `label`                                                                                                | *string*                                                                                               | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `placeholder`                                                                                          | *string*                                                                                               | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `required`                                                                                             | *boolean*                                                                                              | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `readOnly`                                                                                             | *boolean*                                                                                              | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `fontSize`                                                                                             | *number*                                                                                               | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `type`                                                                                                 | [operations.EnvelopeRecipientGetTypeRadio](../../models/operations/enveloperecipientgettyperadio.md)   | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
+| `values`                                                                                               | [operations.EnvelopeRecipientGetValue1](../../models/operations/enveloperecipientgetvalue1.md)[]       | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
+| `direction`                                                                                            | [operations.EnvelopeRecipientGetDirection1](../../models/operations/enveloperecipientgetdirection1.md) | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |

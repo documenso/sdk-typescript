@@ -36,6 +36,8 @@ export function templatesDelete(
   Result<
     operations.TemplateDeleteTemplateResponse,
     | errors.TemplateDeleteTemplateBadRequestError
+    | errors.TemplateDeleteTemplateUnauthorizedError
+    | errors.TemplateDeleteTemplateForbiddenError
     | errors.TemplateDeleteTemplateInternalServerError
     | DocumensoError
     | ResponseValidationError
@@ -63,6 +65,8 @@ async function $do(
     Result<
       operations.TemplateDeleteTemplateResponse,
       | errors.TemplateDeleteTemplateBadRequestError
+      | errors.TemplateDeleteTemplateUnauthorizedError
+      | errors.TemplateDeleteTemplateForbiddenError
       | errors.TemplateDeleteTemplateInternalServerError
       | DocumensoError
       | ResponseValidationError
@@ -131,7 +135,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["400", "4XX", "500", "5XX"],
+    errorCodes: ["400", "401", "403", "4XX", "500", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -147,6 +151,8 @@ async function $do(
   const [result] = await M.match<
     operations.TemplateDeleteTemplateResponse,
     | errors.TemplateDeleteTemplateBadRequestError
+    | errors.TemplateDeleteTemplateUnauthorizedError
+    | errors.TemplateDeleteTemplateForbiddenError
     | errors.TemplateDeleteTemplateInternalServerError
     | DocumensoError
     | ResponseValidationError
@@ -159,6 +165,11 @@ async function $do(
   >(
     M.json(200, operations.TemplateDeleteTemplateResponse$inboundSchema),
     M.jsonErr(400, errors.TemplateDeleteTemplateBadRequestError$inboundSchema),
+    M.jsonErr(
+      401,
+      errors.TemplateDeleteTemplateUnauthorizedError$inboundSchema,
+    ),
+    M.jsonErr(403, errors.TemplateDeleteTemplateForbiddenError$inboundSchema),
     M.jsonErr(
       500,
       errors.TemplateDeleteTemplateInternalServerError$inboundSchema,

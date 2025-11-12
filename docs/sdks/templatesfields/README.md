@@ -102,6 +102,8 @@ run();
 | Error Type                                         | Status Code                                        | Content Type                                       |
 | -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
 | errors.FieldCreateTemplateFieldBadRequestError     | 400                                                | application/json                                   |
+| errors.FieldCreateTemplateFieldUnauthorizedError   | 401                                                | application/json                                   |
+| errors.FieldCreateTemplateFieldForbiddenError      | 403                                                | application/json                                   |
 | errors.FieldCreateTemplateFieldInternalServerError | 500                                                | application/json                                   |
 | errors.APIError                                    | 4XX, 5XX                                           | \*/\*                                              |
 
@@ -177,6 +179,8 @@ run();
 | Error Type                                      | Status Code                                     | Content Type                                    |
 | ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
 | errors.FieldGetTemplateFieldBadRequestError     | 400                                             | application/json                                |
+| errors.FieldGetTemplateFieldUnauthorizedError   | 401                                             | application/json                                |
+| errors.FieldGetTemplateFieldForbiddenError      | 403                                             | application/json                                |
 | errors.FieldGetTemplateFieldNotFoundError       | 404                                             | application/json                                |
 | errors.FieldGetTemplateFieldInternalServerError | 500                                             | application/json                                |
 | errors.APIError                                 | 4XX, 5XX                                        | \*/\*                                           |
@@ -275,6 +279,8 @@ run();
 | Error Type                                          | Status Code                                         | Content Type                                        |
 | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
 | errors.FieldCreateTemplateFieldsBadRequestError     | 400                                                 | application/json                                    |
+| errors.FieldCreateTemplateFieldsUnauthorizedError   | 401                                                 | application/json                                    |
+| errors.FieldCreateTemplateFieldsForbiddenError      | 403                                                 | application/json                                    |
 | errors.FieldCreateTemplateFieldsInternalServerError | 500                                                 | application/json                                    |
 | errors.APIError                                     | 4XX, 5XX                                            | \*/\*                                               |
 
@@ -358,6 +364,8 @@ run();
 | Error Type                                         | Status Code                                        | Content Type                                       |
 | -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
 | errors.FieldUpdateTemplateFieldBadRequestError     | 400                                                | application/json                                   |
+| errors.FieldUpdateTemplateFieldUnauthorizedError   | 401                                                | application/json                                   |
+| errors.FieldUpdateTemplateFieldForbiddenError      | 403                                                | application/json                                   |
 | errors.FieldUpdateTemplateFieldInternalServerError | 500                                                | application/json                                   |
 | errors.APIError                                    | 4XX, 5XX                                           | \*/\*                                              |
 
@@ -445,6 +453,8 @@ run();
 | Error Type                                          | Status Code                                         | Content Type                                        |
 | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
 | errors.FieldUpdateTemplateFieldsBadRequestError     | 400                                                 | application/json                                    |
+| errors.FieldUpdateTemplateFieldsUnauthorizedError   | 401                                                 | application/json                                    |
+| errors.FieldUpdateTemplateFieldsForbiddenError      | 403                                                 | application/json                                    |
 | errors.FieldUpdateTemplateFieldsInternalServerError | 500                                                 | application/json                                    |
 | errors.APIError                                     | 4XX, 5XX                                            | \*/\*                                               |
 
@@ -520,5 +530,7 @@ run();
 | Error Type                                         | Status Code                                        | Content Type                                       |
 | -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
 | errors.FieldDeleteTemplateFieldBadRequestError     | 400                                                | application/json                                   |
+| errors.FieldDeleteTemplateFieldUnauthorizedError   | 401                                                | application/json                                   |
+| errors.FieldDeleteTemplateFieldForbiddenError      | 403                                                | application/json                                   |
 | errors.FieldDeleteTemplateFieldInternalServerError | 500                                                | application/json                                   |
 | errors.APIError                                    | 4XX, 5XX                                           | \*/\*                                              |

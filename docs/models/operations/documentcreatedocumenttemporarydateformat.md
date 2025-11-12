@@ -1,7 +1,5 @@
 # DocumentCreateDocumentTemporaryDateFormat
 
-The date format to use for date fields and signing the document.
-
 ## Example Usage
 
 ```typescript

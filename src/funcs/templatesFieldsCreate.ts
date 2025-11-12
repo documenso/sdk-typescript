@@ -39,6 +39,8 @@ export function templatesFieldsCreate(
   Result<
     operations.FieldCreateTemplateFieldResponse,
     | errors.FieldCreateTemplateFieldBadRequestError
+    | errors.FieldCreateTemplateFieldUnauthorizedError
+    | errors.FieldCreateTemplateFieldForbiddenError
     | errors.FieldCreateTemplateFieldInternalServerError
     | DocumensoError
     | ResponseValidationError
@@ -66,6 +68,8 @@ async function $do(
     Result<
       operations.FieldCreateTemplateFieldResponse,
       | errors.FieldCreateTemplateFieldBadRequestError
+      | errors.FieldCreateTemplateFieldUnauthorizedError
+      | errors.FieldCreateTemplateFieldForbiddenError
       | errors.FieldCreateTemplateFieldInternalServerError
       | DocumensoError
       | ResponseValidationError
@@ -134,7 +138,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["400", "4XX", "500", "5XX"],
+    errorCodes: ["400", "401", "403", "4XX", "500", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -150,6 +154,8 @@ async function $do(
   const [result] = await M.match<
     operations.FieldCreateTemplateFieldResponse,
     | errors.FieldCreateTemplateFieldBadRequestError
+    | errors.FieldCreateTemplateFieldUnauthorizedError
+    | errors.FieldCreateTemplateFieldForbiddenError
     | errors.FieldCreateTemplateFieldInternalServerError
     | DocumensoError
     | ResponseValidationError
@@ -165,6 +171,11 @@ async function $do(
       400,
       errors.FieldCreateTemplateFieldBadRequestError$inboundSchema,
     ),
+    M.jsonErr(
+      401,
+      errors.FieldCreateTemplateFieldUnauthorizedError$inboundSchema,
+    ),
+    M.jsonErr(403, errors.FieldCreateTemplateFieldForbiddenError$inboundSchema),
     M.jsonErr(
       500,
       errors.FieldCreateTemplateFieldInternalServerError$inboundSchema,

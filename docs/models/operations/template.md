@@ -98,6 +98,7 @@ let value: Template = {
     createdAt: "1732915599752",
     updatedAt: "1735652941400",
   },
+  envelopeItems: [],
 };
 ```
 
@@ -127,3 +128,4 @@ let value: Template = {
 | `recipients`                                                                                                                                     | [operations.TemplateCreateTemplateTemporaryRecipient](../../models/operations/templatecreatetemplatetemporaryrecipient.md)[]                     | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
 | `fields`                                                                                                                                         | [operations.TemplateCreateTemplateTemporaryField](../../models/operations/templatecreatetemplatetemporaryfield.md)[]                             | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
 | `folder`                                                                                                                                         | [operations.TemplateCreateTemplateTemporaryFolder](../../models/operations/templatecreatetemplatetemporaryfolder.md)                             | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
+| `envelopeItems`                                                                                                                                  | [operations.TemplateCreateTemplateTemporaryEnvelopeItem](../../models/operations/templatecreatetemplatetemporaryenvelopeitem.md)[]               | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |

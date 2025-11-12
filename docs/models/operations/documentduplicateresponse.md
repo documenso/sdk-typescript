@@ -15,7 +15,7 @@ let value: DocumentDuplicateResponse = {
 
 ## Fields
 
-| Field                  | Type                   | Required               | Description            |
-| ---------------------- | ---------------------- | ---------------------- | ---------------------- |
-| `id`                   | *string*               | :heavy_check_mark:     | The envelope ID        |
-| `documentId`           | *number*               | :heavy_check_mark:     | The legacy document ID |
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `id`               | *string*           | :heavy_check_mark: | N/A                |
+| `documentId`       | *number*           | :heavy_check_mark: | N/A                |

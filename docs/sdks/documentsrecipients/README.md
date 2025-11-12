@@ -84,6 +84,8 @@ run();
 | Error Type                                              | Status Code                                             | Content Type                                            |
 | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
 | errors.RecipientGetDocumentRecipientBadRequestError     | 400                                                     | application/json                                        |
+| errors.RecipientGetDocumentRecipientUnauthorizedError   | 401                                                     | application/json                                        |
+| errors.RecipientGetDocumentRecipientForbiddenError      | 403                                                     | application/json                                        |
 | errors.RecipientGetDocumentRecipientNotFoundError       | 404                                                     | application/json                                        |
 | errors.RecipientGetDocumentRecipientInternalServerError | 500                                                     | application/json                                        |
 | errors.APIError                                         | 4XX, 5XX                                                | \*/\*                                                   |
@@ -170,6 +172,8 @@ run();
 | Error Type                                                 | Status Code                                                | Content Type                                               |
 | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
 | errors.RecipientCreateDocumentRecipientBadRequestError     | 400                                                        | application/json                                           |
+| errors.RecipientCreateDocumentRecipientUnauthorizedError   | 401                                                        | application/json                                           |
+| errors.RecipientCreateDocumentRecipientForbiddenError      | 403                                                        | application/json                                           |
 | errors.RecipientCreateDocumentRecipientInternalServerError | 500                                                        | application/json                                           |
 | errors.APIError                                            | 4XX, 5XX                                                   | \*/\*                                                      |
 
@@ -259,6 +263,8 @@ run();
 | Error Type                                                  | Status Code                                                 | Content Type                                                |
 | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
 | errors.RecipientCreateDocumentRecipientsBadRequestError     | 400                                                         | application/json                                            |
+| errors.RecipientCreateDocumentRecipientsUnauthorizedError   | 401                                                         | application/json                                            |
+| errors.RecipientCreateDocumentRecipientsForbiddenError      | 403                                                         | application/json                                            |
 | errors.RecipientCreateDocumentRecipientsInternalServerError | 500                                                         | application/json                                            |
 | errors.APIError                                             | 4XX, 5XX                                                    | \*/\*                                                       |
 
@@ -340,6 +346,8 @@ run();
 | Error Type                                                 | Status Code                                                | Content Type                                               |
 | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
 | errors.RecipientUpdateDocumentRecipientBadRequestError     | 400                                                        | application/json                                           |
+| errors.RecipientUpdateDocumentRecipientUnauthorizedError   | 401                                                        | application/json                                           |
+| errors.RecipientUpdateDocumentRecipientForbiddenError      | 403                                                        | application/json                                           |
 | errors.RecipientUpdateDocumentRecipientInternalServerError | 500                                                        | application/json                                           |
 | errors.APIError                                            | 4XX, 5XX                                                   | \*/\*                                                      |
 
@@ -417,6 +425,8 @@ run();
 | Error Type                                                  | Status Code                                                 | Content Type                                                |
 | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
 | errors.RecipientUpdateDocumentRecipientsBadRequestError     | 400                                                         | application/json                                            |
+| errors.RecipientUpdateDocumentRecipientsUnauthorizedError   | 401                                                         | application/json                                            |
+| errors.RecipientUpdateDocumentRecipientsForbiddenError      | 403                                                         | application/json                                            |
 | errors.RecipientUpdateDocumentRecipientsInternalServerError | 500                                                         | application/json                                            |
 | errors.APIError                                             | 4XX, 5XX                                                    | \*/\*                                                       |
 
@@ -492,5 +502,7 @@ run();
 | Error Type                                                 | Status Code                                                | Content Type                                               |
 | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
 | errors.RecipientDeleteDocumentRecipientBadRequestError     | 400                                                        | application/json                                           |
+| errors.RecipientDeleteDocumentRecipientUnauthorizedError   | 401                                                        | application/json                                           |
+| errors.RecipientDeleteDocumentRecipientForbiddenError      | 403                                                        | application/json                                           |
 | errors.RecipientDeleteDocumentRecipientInternalServerError | 500                                                        | application/json                                           |
 | errors.APIError                                            | 4XX, 5XX                                                   | \*/\*                                                      |

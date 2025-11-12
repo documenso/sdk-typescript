@@ -7,7 +7,7 @@ import * as operations from "../../models/operations/index.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
 const args = {
-  request: operations.DocumentDownloadRequest$inboundSchema,
+  request: operations.DocumentDownloadBetaRequest$inboundSchema,
 };
 
 export const tool$documentDocumentDownload: ToolDefinition<typeof args> = {
