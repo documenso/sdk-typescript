@@ -12,9 +12,7 @@ const args = {
 
 export const tool$documentDocumentDownload: ToolDefinition<typeof args> = {
   name: "document-document-download",
-  description: `Download document (beta)
-
-Get a pre-signed download URL for the original or signed version of a document`,
+  description: `Download document`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await documentDocumentDownload(
@@ -30,7 +28,7 @@ Get a pre-signed download URL for the original or signed version of a document`,
       };
     }
 
-    const value = result.value;
+    const value = result.value.result;
 
     return formatResult(value, apiCall);
   },

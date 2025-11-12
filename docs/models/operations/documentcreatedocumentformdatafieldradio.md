@@ -1,0 +1,28 @@
+# DocumentCreateDocumentFormDataFieldRadio
+
+## Example Usage
+
+```typescript
+import { DocumentCreateDocumentFormDataFieldRadio } from "@documenso/sdk-typescript/models/operations";
+
+let value: DocumentCreateDocumentFormDataFieldRadio = {
+  type: "RADIO",
+  pageNumber: 3696.86,
+  pageX: 5822.1,
+  pageY: 3762.29,
+  width: 9477.48,
+  height: 2294.32,
+};
+```
+
+## Fields
+
+| Field                                                                                                                                            | Type                                                                                                                                             | Required                                                                                                                                         | Description                                                                                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `type`                                                                                                                                           | [operations.DocumentCreateDocumentFormDataPayloadTypeRadio1](../../models/operations/documentcreatedocumentformdatapayloadtyperadio1.md)         | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
+| `fieldMeta`                                                                                                                                      | [operations.DocumentCreateDocumentFormDataPayloadFieldMetaRadio](../../models/operations/documentcreatedocumentformdatapayloadfieldmetaradio.md) | :heavy_minus_sign:                                                                                                                               | N/A                                                                                                                                              |
+| `pageNumber`                                                                                                                                     | *number*                                                                                                                                         | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
+| `pageX`                                                                                                                                          | *number*                                                                                                                                         | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
+| `pageY`                                                                                                                                          | *number*                                                                                                                                         | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
+| `width`                                                                                                                                          | *number*                                                                                                                                         | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
+| `height`                                                                                                                                         | *number*                                                                                                                                         | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |

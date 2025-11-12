@@ -17,7 +17,9 @@ let value: DocumentCreateDocumentTemporaryResponse = {
     userId: 4465.62,
     authOptions: {
       globalAccessAuth: [],
-      globalActionAuth: [],
+      globalActionAuth: [
+        "TWO_FACTOR_AUTH",
+      ],
     },
     formValues: {
       "key": "<value>",
@@ -30,6 +32,7 @@ let value: DocumentCreateDocumentTemporaryResponse = {
     teamId: 1389.58,
     folderId: "<id>",
     envelopeId: "<id>",
+    internalVersion: 2750.13,
     documentData: {
       type: "BYTES",
       id: "<id>",
@@ -39,44 +42,84 @@ let value: DocumentCreateDocumentTemporaryResponse = {
     },
     documentMeta: {
       signingOrder: "PARALLEL",
-      distributionMethod: "EMAIL",
+      distributionMethod: "NONE",
       id: "<id>",
-      subject: null,
+      subject: "<value>",
       message: "<value>",
-      timezone: null,
-      dateFormat: "<value>",
-      redirectUrl: "https://scornful-doubter.org/",
+      timezone: "Atlantic/Bermuda",
+      dateFormat: null,
+      redirectUrl: "https://kooky-bourgeoisie.org",
       typedSignatureEnabled: true,
-      uploadSignatureEnabled: false,
-      drawSignatureEnabled: false,
-      allowDictateNextSigner: false,
+      uploadSignatureEnabled: true,
+      drawSignatureEnabled: true,
+      allowDictateNextSigner: true,
       language: "<value>",
       emailSettings: {},
       emailId: "<id>",
       emailReplyTo: "<value>",
     },
+    envelopeItems: [],
     folder: {
       id: "<id>",
       name: "<value>",
-      type: "DOCUMENT",
+      type: "TEMPLATE",
       visibility: "ADMIN",
-      userId: 3810.18,
-      teamId: 9987.45,
+      userId: 184.31,
+      teamId: 5515.23,
       pinned: false,
       parentId: "<id>",
-      createdAt: "1727319290753",
-      updatedAt: "1735682218085",
+      createdAt: "1729648504916",
+      updatedAt: "1735626792060",
     },
-    recipients: [],
-    fields: [],
+    recipients: [
+      {
+        envelopeId: "<id>",
+        role: "APPROVER",
+        readStatus: "NOT_OPENED",
+        signingStatus: "NOT_SIGNED",
+        sendStatus: "NOT_SENT",
+        id: 3287.84,
+        email: "Raphael22@yahoo.com",
+        name: "<value>",
+        token: "<value>",
+        documentDeletedAt: "<value>",
+        expired: "<value>",
+        signedAt: "<value>",
+        authOptions: null,
+        signingOrder: 6218.85,
+        rejectionReason: "<value>",
+      },
+    ],
+    fields: [
+      {
+        envelopeId: "<id>",
+        envelopeItemId: "<id>",
+        type: "RADIO",
+        id: 4449.22,
+        secondaryId: "<id>",
+        recipientId: 5851.29,
+        page: 2573.19,
+        positionX: "<value>",
+        positionY: "<value>",
+        width: "<value>",
+        height: "<value>",
+        customText: "<value>",
+        inserted: true,
+        fieldMeta: {
+          fontSize: 12,
+          type: "radio",
+          direction: "vertical",
+        },
+      },
+    ],
   },
-  uploadUrl: "https://reasonable-receptor.info",
+  uploadUrl: "https://small-soybean.net/",
 };
 ```
 
 ## Fields
 
-| Field                                                                                | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `document`                                                                           | [operations.Document](../../models/operations/document.md)                           | :heavy_check_mark:                                                                   | N/A                                                                                  |
-| `uploadUrl`                                                                          | *string*                                                                             | :heavy_check_mark:                                                                   | The URL to upload the document PDF to. Use a PUT request with the file via form-data |
+| Field                                                                                                                    | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| `document`                                                                                                               | [operations.DocumentCreateDocumentTemporaryDocument](../../models/operations/documentcreatedocumenttemporarydocument.md) | :heavy_check_mark:                                                                                                       | N/A                                                                                                                      |
+| `uploadUrl`                                                                                                              | *string*                                                                                                                 | :heavy_check_mark:                                                                                                       | N/A                                                                                                                      |

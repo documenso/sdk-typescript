@@ -39,6 +39,8 @@ export function documentsRedistribute(
   Result<
     operations.DocumentRedistributeResponse,
     | errors.DocumentRedistributeBadRequestError
+    | errors.DocumentRedistributeUnauthorizedError
+    | errors.DocumentRedistributeForbiddenError
     | errors.DocumentRedistributeInternalServerError
     | DocumensoError
     | ResponseValidationError
@@ -66,6 +68,8 @@ async function $do(
     Result<
       operations.DocumentRedistributeResponse,
       | errors.DocumentRedistributeBadRequestError
+      | errors.DocumentRedistributeUnauthorizedError
+      | errors.DocumentRedistributeForbiddenError
       | errors.DocumentRedistributeInternalServerError
       | DocumensoError
       | ResponseValidationError
@@ -134,7 +138,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["400", "4XX", "500", "5XX"],
+    errorCodes: ["400", "401", "403", "4XX", "500", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -150,6 +154,8 @@ async function $do(
   const [result] = await M.match<
     operations.DocumentRedistributeResponse,
     | errors.DocumentRedistributeBadRequestError
+    | errors.DocumentRedistributeUnauthorizedError
+    | errors.DocumentRedistributeForbiddenError
     | errors.DocumentRedistributeInternalServerError
     | DocumensoError
     | ResponseValidationError
@@ -162,6 +168,8 @@ async function $do(
   >(
     M.json(200, operations.DocumentRedistributeResponse$inboundSchema),
     M.jsonErr(400, errors.DocumentRedistributeBadRequestError$inboundSchema),
+    M.jsonErr(401, errors.DocumentRedistributeUnauthorizedError$inboundSchema),
+    M.jsonErr(403, errors.DocumentRedistributeForbiddenError$inboundSchema),
     M.jsonErr(
       500,
       errors.DocumentRedistributeInternalServerError$inboundSchema,

@@ -68,10 +68,15 @@ let value: TemplateCreateTemplateTemporaryResponse = {
         secondaryId: "<id>",
         recipientId: 6489.9,
         page: 9528.83,
+        positionX: "<value>",
+        positionY: "<value>",
+        width: "<value>",
+        height: "<value>",
         customText: "<value>",
         inserted: false,
         fieldMeta: {
-          type: "text",
+          fontSize: 12,
+          type: "date",
         },
       },
     ],
@@ -87,8 +92,14 @@ let value: TemplateCreateTemplateTemporaryResponse = {
       createdAt: "1732915599752",
       updatedAt: "1735652941400",
     },
+    envelopeItems: [
+      {
+        id: "<id>",
+        envelopeId: "<id>",
+      },
+    ],
   },
-  uploadUrl: "https://huge-toaster.biz",
+  uploadUrl: "https://unwritten-diver.biz/",
 };
 ```
 

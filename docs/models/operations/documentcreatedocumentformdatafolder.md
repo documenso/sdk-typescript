@@ -1,0 +1,35 @@
+# DocumentCreateDocumentFormDataFolder
+
+## Example Usage
+
+```typescript
+import { DocumentCreateDocumentFormDataFolder } from "@documenso/sdk-typescript/models/operations";
+
+let value: DocumentCreateDocumentFormDataFolder = {
+  id: "<id>",
+  name: "<value>",
+  type: "DOCUMENT",
+  visibility: "EVERYONE",
+  userId: 350.84,
+  teamId: 258.81,
+  pinned: true,
+  parentId: "<id>",
+  createdAt: "1710732510987",
+  updatedAt: "1735629761780",
+};
+```
+
+## Fields
+
+| Field                                                                                                                                  | Type                                                                                                                                   | Required                                                                                                                               | Description                                                                                                                            |
+| -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                                                                                                                                   | *string*                                                                                                                               | :heavy_check_mark:                                                                                                                     | N/A                                                                                                                                    |
+| `name`                                                                                                                                 | *string*                                                                                                                               | :heavy_check_mark:                                                                                                                     | N/A                                                                                                                                    |
+| `type`                                                                                                                                 | [operations.DocumentCreateDocumentFormDataFolderType](../../models/operations/documentcreatedocumentformdatafoldertype.md)             | :heavy_check_mark:                                                                                                                     | N/A                                                                                                                                    |
+| `visibility`                                                                                                                           | [operations.DocumentCreateDocumentFormDataFolderVisibility](../../models/operations/documentcreatedocumentformdatafoldervisibility.md) | :heavy_check_mark:                                                                                                                     | N/A                                                                                                                                    |
+| `userId`                                                                                                                               | *number*                                                                                                                               | :heavy_check_mark:                                                                                                                     | N/A                                                                                                                                    |
+| `teamId`                                                                                                                               | *number*                                                                                                                               | :heavy_check_mark:                                                                                                                     | N/A                                                                                                                                    |
+| `pinned`                                                                                                                               | *boolean*                                                                                                                              | :heavy_check_mark:                                                                                                                     | N/A                                                                                                                                    |
+| `parentId`                                                                                                                             | *string*                                                                                                                               | :heavy_check_mark:                                                                                                                     | N/A                                                                                                                                    |
+| `createdAt`                                                                                                                            | *string*                                                                                                                               | :heavy_check_mark:                                                                                                                     | N/A                                                                                                                                    |
+| `updatedAt`                                                                                                                            | *string*                                                                                                                               | :heavy_check_mark:                                                                                                                     | N/A                                                                                                                                    |

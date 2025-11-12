@@ -86,6 +86,8 @@ run();
 | Error Type                            | Status Code                           | Content Type                          |
 | ------------------------------------- | ------------------------------------- | ------------------------------------- |
 | errors.DocumentGetBadRequestError     | 400                                   | application/json                      |
+| errors.DocumentGetUnauthorizedError   | 401                                   | application/json                      |
+| errors.DocumentGetForbiddenError      | 403                                   | application/json                      |
 | errors.DocumentGetNotFoundError       | 404                                   | application/json                      |
 | errors.DocumentGetInternalServerError | 500                                   | application/json                      |
 | errors.APIError                       | 4XX, 5XX                              | \*/\*                                 |
@@ -158,6 +160,8 @@ run();
 | Error Type                             | Status Code                            | Content Type                           |
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
 | errors.DocumentFindBadRequestError     | 400                                    | application/json                       |
+| errors.DocumentFindUnauthorizedError   | 401                                    | application/json                       |
+| errors.DocumentFindForbiddenError      | 403                                    | application/json                       |
 | errors.DocumentFindNotFoundError       | 404                                    | application/json                       |
 | errors.DocumentFindInternalServerError | 500                                    | application/json                       |
 | errors.APIError                        | 4XX, 5XX                               | \*/\*                                  |
@@ -234,6 +238,8 @@ run();
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | errors.DocumentUpdateBadRequestError     | 400                                      | application/json                         |
+| errors.DocumentUpdateUnauthorizedError   | 401                                      | application/json                         |
+| errors.DocumentUpdateForbiddenError      | 403                                      | application/json                         |
 | errors.DocumentUpdateInternalServerError | 500                                      | application/json                         |
 | errors.APIError                          | 4XX, 5XX                                 | \*/\*                                    |
 
@@ -309,6 +315,8 @@ run();
 | Error Type                               | Status Code                              | Content Type                             |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | errors.DocumentDeleteBadRequestError     | 400                                      | application/json                         |
+| errors.DocumentDeleteUnauthorizedError   | 401                                      | application/json                         |
+| errors.DocumentDeleteForbiddenError      | 403                                      | application/json                         |
 | errors.DocumentDeleteInternalServerError | 500                                      | application/json                         |
 | errors.APIError                          | 4XX, 5XX                                 | \*/\*                                    |
 
@@ -384,6 +392,8 @@ run();
 | Error Type                                  | Status Code                                 | Content Type                                |
 | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
 | errors.DocumentDuplicateBadRequestError     | 400                                         | application/json                            |
+| errors.DocumentDuplicateUnauthorizedError   | 401                                         | application/json                            |
+| errors.DocumentDuplicateForbiddenError      | 403                                         | application/json                            |
 | errors.DocumentDuplicateInternalServerError | 500                                         | application/json                            |
 | errors.APIError                             | 4XX, 5XX                                    | \*/\*                                       |
 
@@ -459,6 +469,8 @@ run();
 | Error Type                                   | Status Code                                  | Content Type                                 |
 | -------------------------------------------- | -------------------------------------------- | -------------------------------------------- |
 | errors.DocumentDistributeBadRequestError     | 400                                          | application/json                             |
+| errors.DocumentDistributeUnauthorizedError   | 401                                          | application/json                             |
+| errors.DocumentDistributeForbiddenError      | 403                                          | application/json                             |
 | errors.DocumentDistributeInternalServerError | 500                                          | application/json                             |
 | errors.APIError                              | 4XX, 5XX                                     | \*/\*                                        |
 
@@ -544,6 +556,8 @@ run();
 | Error Type                                     | Status Code                                    | Content Type                                   |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
 | errors.DocumentRedistributeBadRequestError     | 400                                            | application/json                               |
+| errors.DocumentRedistributeUnauthorizedError   | 401                                            | application/json                               |
+| errors.DocumentRedistributeForbiddenError      | 403                                            | application/json                               |
 | errors.DocumentRedistributeInternalServerError | 500                                            | application/json                               |
 | errors.APIError                                | 4XX, 5XX                                       | \*/\*                                          |
 
@@ -619,5 +633,7 @@ run();
 | Error Type                                                | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
 | errors.DocumentCreateDocumentTemporaryBadRequestError     | 400                                                       | application/json                                          |
+| errors.DocumentCreateDocumentTemporaryUnauthorizedError   | 401                                                       | application/json                                          |
+| errors.DocumentCreateDocumentTemporaryForbiddenError      | 403                                                       | application/json                                          |
 | errors.DocumentCreateDocumentTemporaryInternalServerError | 500                                                       | application/json                                          |
 | errors.APIError                                           | 4XX, 5XX                                                  | \*/\*                                                     |

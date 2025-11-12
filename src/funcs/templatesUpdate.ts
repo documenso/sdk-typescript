@@ -36,6 +36,8 @@ export function templatesUpdate(
   Result<
     operations.TemplateUpdateTemplateResponse,
     | errors.TemplateUpdateTemplateBadRequestError
+    | errors.TemplateUpdateTemplateUnauthorizedError
+    | errors.TemplateUpdateTemplateForbiddenError
     | errors.TemplateUpdateTemplateInternalServerError
     | DocumensoError
     | ResponseValidationError
@@ -63,6 +65,8 @@ async function $do(
     Result<
       operations.TemplateUpdateTemplateResponse,
       | errors.TemplateUpdateTemplateBadRequestError
+      | errors.TemplateUpdateTemplateUnauthorizedError
+      | errors.TemplateUpdateTemplateForbiddenError
       | errors.TemplateUpdateTemplateInternalServerError
       | DocumensoError
       | ResponseValidationError
@@ -131,7 +135,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["400", "4XX", "500", "5XX"],
+    errorCodes: ["400", "401", "403", "4XX", "500", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -147,6 +151,8 @@ async function $do(
   const [result] = await M.match<
     operations.TemplateUpdateTemplateResponse,
     | errors.TemplateUpdateTemplateBadRequestError
+    | errors.TemplateUpdateTemplateUnauthorizedError
+    | errors.TemplateUpdateTemplateForbiddenError
     | errors.TemplateUpdateTemplateInternalServerError
     | DocumensoError
     | ResponseValidationError
@@ -159,6 +165,11 @@ async function $do(
   >(
     M.json(200, operations.TemplateUpdateTemplateResponse$inboundSchema),
     M.jsonErr(400, errors.TemplateUpdateTemplateBadRequestError$inboundSchema),
+    M.jsonErr(
+      401,
+      errors.TemplateUpdateTemplateUnauthorizedError$inboundSchema,
+    ),
+    M.jsonErr(403, errors.TemplateUpdateTemplateForbiddenError$inboundSchema),
     M.jsonErr(
       500,
       errors.TemplateUpdateTemplateInternalServerError$inboundSchema,

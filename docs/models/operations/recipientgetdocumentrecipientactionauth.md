@@ -1,7 +1,5 @@
 # RecipientGetDocumentRecipientActionAuth
 
-The type of authentication required for the recipient to sign the document.
-
 ## Example Usage
 
 ```typescript

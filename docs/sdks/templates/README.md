@@ -80,6 +80,8 @@ run();
 | Error Type                                      | Status Code                                     | Content Type                                    |
 | ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
 | errors.TemplateFindTemplatesBadRequestError     | 400                                             | application/json                                |
+| errors.TemplateFindTemplatesUnauthorizedError   | 401                                             | application/json                                |
+| errors.TemplateFindTemplatesForbiddenError      | 403                                             | application/json                                |
 | errors.TemplateFindTemplatesNotFoundError       | 404                                             | application/json                                |
 | errors.TemplateFindTemplatesInternalServerError | 500                                             | application/json                                |
 | errors.APIError                                 | 4XX, 5XX                                        | \*/\*                                           |
@@ -156,6 +158,8 @@ run();
 | Error Type                                        | Status Code                                       | Content Type                                      |
 | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
 | errors.TemplateGetTemplateByIdBadRequestError     | 400                                               | application/json                                  |
+| errors.TemplateGetTemplateByIdUnauthorizedError   | 401                                               | application/json                                  |
+| errors.TemplateGetTemplateByIdForbiddenError      | 403                                               | application/json                                  |
 | errors.TemplateGetTemplateByIdNotFoundError       | 404                                               | application/json                                  |
 | errors.TemplateGetTemplateByIdInternalServerError | 500                                               | application/json                                  |
 | errors.APIError                                   | 4XX, 5XX                                          | \*/\*                                             |
@@ -232,6 +236,8 @@ run();
 | Error Type                                       | Status Code                                      | Content Type                                     |
 | ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
 | errors.TemplateUpdateTemplateBadRequestError     | 400                                              | application/json                                 |
+| errors.TemplateUpdateTemplateUnauthorizedError   | 401                                              | application/json                                 |
+| errors.TemplateUpdateTemplateForbiddenError      | 403                                              | application/json                                 |
 | errors.TemplateUpdateTemplateInternalServerError | 500                                              | application/json                                 |
 | errors.APIError                                  | 4XX, 5XX                                         | \*/\*                                            |
 
@@ -307,6 +313,8 @@ run();
 | Error Type                                          | Status Code                                         | Content Type                                        |
 | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
 | errors.TemplateDuplicateTemplateBadRequestError     | 400                                                 | application/json                                    |
+| errors.TemplateDuplicateTemplateUnauthorizedError   | 401                                                 | application/json                                    |
+| errors.TemplateDuplicateTemplateForbiddenError      | 403                                                 | application/json                                    |
 | errors.TemplateDuplicateTemplateInternalServerError | 500                                                 | application/json                                    |
 | errors.APIError                                     | 4XX, 5XX                                            | \*/\*                                               |
 
@@ -382,6 +390,8 @@ run();
 | Error Type                                       | Status Code                                      | Content Type                                     |
 | ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
 | errors.TemplateDeleteTemplateBadRequestError     | 400                                              | application/json                                 |
+| errors.TemplateDeleteTemplateUnauthorizedError   | 401                                              | application/json                                 |
+| errors.TemplateDeleteTemplateForbiddenError      | 403                                              | application/json                                 |
 | errors.TemplateDeleteTemplateInternalServerError | 500                                              | application/json                                 |
 | errors.APIError                                  | 4XX, 5XX                                         | \*/\*                                            |
 
@@ -459,5 +469,7 @@ run();
 | Error Type                                                   | Status Code                                                  | Content Type                                                 |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | errors.TemplateCreateDocumentFromTemplateBadRequestError     | 400                                                          | application/json                                             |
+| errors.TemplateCreateDocumentFromTemplateUnauthorizedError   | 401                                                          | application/json                                             |
+| errors.TemplateCreateDocumentFromTemplateForbiddenError      | 403                                                          | application/json                                             |
 | errors.TemplateCreateDocumentFromTemplateInternalServerError | 500                                                          | application/json                                             |
 | errors.APIError                                              | 4XX, 5XX                                                     | \*/\*                                                        |

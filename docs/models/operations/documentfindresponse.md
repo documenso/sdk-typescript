@@ -32,40 +32,23 @@ let value: DocumentFindResponse = {
       folderId: "<id>",
       useLegacyFieldInsertion: false,
       envelopeId: "<id>",
+      internalVersion: 8978.64,
       user: {
-        id: 4968.94,
+        id: 6143.21,
         name: "<value>",
-        email: "Jabari.Gleichner99@yahoo.com",
+        email: "Lizeth_Harvey@yahoo.com",
       },
-      recipients: [
-        {
-          envelopeId: "<id>",
-          role: "CC",
-          readStatus: "OPENED",
-          signingStatus: "NOT_SIGNED",
-          sendStatus: "NOT_SENT",
-          id: 2972.6,
-          email: "Sabryna98@gmail.com",
-          name: "<value>",
-          token: "<value>",
-          documentDeletedAt: "<value>",
-          expired: null,
-          signedAt: null,
-          authOptions: {
-            accessAuth: [],
-            actionAuth: [],
-          },
-          signingOrder: 839.49,
-          rejectionReason: "<value>",
-        },
-      ],
-      team: null,
+      recipients: [],
+      team: {
+        id: 2316.39,
+        url: "https://friendly-designation.org/",
+      },
     },
   ],
-  count: 3857.43,
-  currentPage: 1846.05,
-  perPage: 1717.5,
-  totalPages: 5717.91,
+  count: 1846.05,
+  currentPage: 1717.5,
+  perPage: 5717.91,
+  totalPages: 4907.67,
 };
 ```
 
@@ -74,7 +57,7 @@ let value: DocumentFindResponse = {
 | Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  |
 | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | `data`                                                                       | [operations.DocumentFindData](../../models/operations/documentfinddata.md)[] | :heavy_check_mark:                                                           | N/A                                                                          |
-| `count`                                                                      | *number*                                                                     | :heavy_check_mark:                                                           | The total number of items.                                                   |
-| `currentPage`                                                                | *number*                                                                     | :heavy_check_mark:                                                           | The current page number, starts at 1.                                        |
-| `perPage`                                                                    | *number*                                                                     | :heavy_check_mark:                                                           | The number of items per page.                                                |
-| `totalPages`                                                                 | *number*                                                                     | :heavy_check_mark:                                                           | The total number of pages.                                                   |
+| `count`                                                                      | *number*                                                                     | :heavy_check_mark:                                                           | N/A                                                                          |
+| `currentPage`                                                                | *number*                                                                     | :heavy_check_mark:                                                           | N/A                                                                          |
+| `perPage`                                                                    | *number*                                                                     | :heavy_check_mark:                                                           | N/A                                                                          |
+| `totalPages`                                                                 | *number*                                                                     | :heavy_check_mark:                                                           | N/A                                                                          |

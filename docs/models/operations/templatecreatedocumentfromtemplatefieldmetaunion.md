@@ -3,6 +3,14 @@
 
 ## Supported Types
 
+### `operations.TemplateCreateDocumentFromTemplateFieldMetaSignature`
+
+```typescript
+const value: operations.TemplateCreateDocumentFromTemplateFieldMetaSignature = {
+  type: "signature",
+};
+```
+
 ### `operations.TemplateCreateDocumentFromTemplateFieldMetaInitials`
 
 ```typescript

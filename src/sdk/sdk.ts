@@ -6,10 +6,43 @@ import { ClientSDK } from "../lib/sdks.js";
 import { Document } from "./document.js";
 import { Documents } from "./documents.js";
 import { Embedding } from "./embedding.js";
+import { Envelope } from "./envelope.js";
+import { EnvelopeAttachments } from "./envelopeattachments.js";
+import { EnvelopeFields } from "./envelopefields.js";
+import { EnvelopeItems } from "./envelopeitems.js";
+import { EnvelopeRecipients } from "./enveloperecipients.js";
+import { Folder } from "./folder.js";
 import { Template } from "./template.js";
 import { Templates } from "./templates.js";
 
 export class Documenso extends ClientSDK {
+  private _envelopeAttachments?: EnvelopeAttachments;
+  get envelopeAttachments(): EnvelopeAttachments {
+    return (this._envelopeAttachments ??= new EnvelopeAttachments(
+      this._options,
+    ));
+  }
+
+  private _envelopeItems?: EnvelopeItems;
+  get envelopeItems(): EnvelopeItems {
+    return (this._envelopeItems ??= new EnvelopeItems(this._options));
+  }
+
+  private _envelopeRecipients?: EnvelopeRecipients;
+  get envelopeRecipients(): EnvelopeRecipients {
+    return (this._envelopeRecipients ??= new EnvelopeRecipients(this._options));
+  }
+
+  private _envelopeFields?: EnvelopeFields;
+  get envelopeFields(): EnvelopeFields {
+    return (this._envelopeFields ??= new EnvelopeFields(this._options));
+  }
+
+  private _envelope?: Envelope;
+  get envelope(): Envelope {
+    return (this._envelope ??= new Envelope(this._options));
+  }
+
   private _documents?: Documents;
   get documents(): Documents {
     return (this._documents ??= new Documents(this._options));
@@ -23,6 +56,11 @@ export class Documenso extends ClientSDK {
   private _templates?: Templates;
   get templates(): Templates {
     return (this._templates ??= new Templates(this._options));
+  }
+
+  private _folder?: Folder;
+  get folder(): Folder {
+    return (this._folder ??= new Folder(this._options));
   }
 
   private _template?: Template;

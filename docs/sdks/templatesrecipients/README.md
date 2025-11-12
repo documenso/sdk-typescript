@@ -84,6 +84,8 @@ run();
 | Error Type                                              | Status Code                                             | Content Type                                            |
 | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
 | errors.RecipientGetTemplateRecipientBadRequestError     | 400                                                     | application/json                                        |
+| errors.RecipientGetTemplateRecipientUnauthorizedError   | 401                                                     | application/json                                        |
+| errors.RecipientGetTemplateRecipientForbiddenError      | 403                                                     | application/json                                        |
 | errors.RecipientGetTemplateRecipientNotFoundError       | 404                                                     | application/json                                        |
 | errors.RecipientGetTemplateRecipientInternalServerError | 500                                                     | application/json                                        |
 | errors.APIError                                         | 4XX, 5XX                                                | \*/\*                                                   |
@@ -170,6 +172,8 @@ run();
 | Error Type                                                 | Status Code                                                | Content Type                                               |
 | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
 | errors.RecipientCreateTemplateRecipientBadRequestError     | 400                                                        | application/json                                           |
+| errors.RecipientCreateTemplateRecipientUnauthorizedError   | 401                                                        | application/json                                           |
+| errors.RecipientCreateTemplateRecipientForbiddenError      | 403                                                        | application/json                                           |
 | errors.RecipientCreateTemplateRecipientInternalServerError | 500                                                        | application/json                                           |
 | errors.APIError                                            | 4XX, 5XX                                                   | \*/\*                                                      |
 
@@ -247,6 +251,8 @@ run();
 | Error Type                                                  | Status Code                                                 | Content Type                                                |
 | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
 | errors.RecipientCreateTemplateRecipientsBadRequestError     | 400                                                         | application/json                                            |
+| errors.RecipientCreateTemplateRecipientsUnauthorizedError   | 401                                                         | application/json                                            |
+| errors.RecipientCreateTemplateRecipientsForbiddenError      | 403                                                         | application/json                                            |
 | errors.RecipientCreateTemplateRecipientsInternalServerError | 500                                                         | application/json                                            |
 | errors.APIError                                             | 4XX, 5XX                                                    | \*/\*                                                       |
 
@@ -328,6 +334,8 @@ run();
 | Error Type                                                 | Status Code                                                | Content Type                                               |
 | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
 | errors.RecipientUpdateTemplateRecipientBadRequestError     | 400                                                        | application/json                                           |
+| errors.RecipientUpdateTemplateRecipientUnauthorizedError   | 401                                                        | application/json                                           |
+| errors.RecipientUpdateTemplateRecipientForbiddenError      | 403                                                        | application/json                                           |
 | errors.RecipientUpdateTemplateRecipientInternalServerError | 500                                                        | application/json                                           |
 | errors.APIError                                            | 4XX, 5XX                                                   | \*/\*                                                      |
 
@@ -413,6 +421,8 @@ run();
 | Error Type                                                  | Status Code                                                 | Content Type                                                |
 | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
 | errors.RecipientUpdateTemplateRecipientsBadRequestError     | 400                                                         | application/json                                            |
+| errors.RecipientUpdateTemplateRecipientsUnauthorizedError   | 401                                                         | application/json                                            |
+| errors.RecipientUpdateTemplateRecipientsForbiddenError      | 403                                                         | application/json                                            |
 | errors.RecipientUpdateTemplateRecipientsInternalServerError | 500                                                         | application/json                                            |
 | errors.APIError                                             | 4XX, 5XX                                                    | \*/\*                                                       |
 
@@ -488,5 +498,7 @@ run();
 | Error Type                                                 | Status Code                                                | Content Type                                               |
 | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
 | errors.RecipientDeleteTemplateRecipientBadRequestError     | 400                                                        | application/json                                           |
+| errors.RecipientDeleteTemplateRecipientUnauthorizedError   | 401                                                        | application/json                                           |
+| errors.RecipientDeleteTemplateRecipientForbiddenError      | 403                                                        | application/json                                           |
 | errors.RecipientDeleteTemplateRecipientInternalServerError | 500                                                        | application/json                                           |
 | errors.APIError                                            | 4XX, 5XX                                                   | \*/\*                                                      |

@@ -1,0 +1,28 @@
+# DocumentCreateDocumentFormDataFieldName
+
+## Example Usage
+
+```typescript
+import { DocumentCreateDocumentFormDataFieldName } from "@documenso/sdk-typescript/models/operations";
+
+let value: DocumentCreateDocumentFormDataFieldName = {
+  type: "NAME",
+  pageNumber: 2198.34,
+  pageX: 2743.54,
+  pageY: 8419.99,
+  width: 4187.12,
+  height: 9679.25,
+};
+```
+
+## Fields
+
+| Field                                                                                                                                          | Type                                                                                                                                           | Required                                                                                                                                       | Description                                                                                                                                    |
+| ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`                                                                                                                                         | [operations.DocumentCreateDocumentFormDataPayloadTypeName1](../../models/operations/documentcreatedocumentformdatapayloadtypename1.md)         | :heavy_check_mark:                                                                                                                             | N/A                                                                                                                                            |
+| `fieldMeta`                                                                                                                                    | [operations.DocumentCreateDocumentFormDataPayloadFieldMetaName](../../models/operations/documentcreatedocumentformdatapayloadfieldmetaname.md) | :heavy_minus_sign:                                                                                                                             | N/A                                                                                                                                            |
+| `pageNumber`                                                                                                                                   | *number*                                                                                                                                       | :heavy_check_mark:                                                                                                                             | N/A                                                                                                                                            |
+| `pageX`                                                                                                                                        | *number*                                                                                                                                       | :heavy_check_mark:                                                                                                                             | N/A                                                                                                                                            |
+| `pageY`                                                                                                                                        | *number*                                                                                                                                       | :heavy_check_mark:                                                                                                                             | N/A                                                                                                                                            |
+| `width`                                                                                                                                        | *number*                                                                                                                                       | :heavy_check_mark:                                                                                                                             | N/A                                                                                                                                            |
+| `height`                                                                                                                                       | *number*                                                                                                                                       | :heavy_check_mark:                                                                                                                             | N/A                                                                                                                                            |

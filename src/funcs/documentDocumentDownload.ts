@@ -26,10 +26,7 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Download document (beta)
- *
- * @remarks
- * Get a pre-signed download URL for the original or signed version of a document
+ * Download document
  */
 export function documentDocumentDownload(
   client: DocumensoCore,
@@ -39,6 +36,8 @@ export function documentDocumentDownload(
   Result<
     operations.DocumentDownloadResponse,
     | errors.DocumentDownloadBadRequestError
+    | errors.DocumentDownloadUnauthorizedError
+    | errors.DocumentDownloadForbiddenError
     | errors.DocumentDownloadNotFoundError
     | errors.DocumentDownloadInternalServerError
     | DocumensoError
@@ -67,6 +66,8 @@ async function $do(
     Result<
       operations.DocumentDownloadResponse,
       | errors.DocumentDownloadBadRequestError
+      | errors.DocumentDownloadUnauthorizedError
+      | errors.DocumentDownloadForbiddenError
       | errors.DocumentDownloadNotFoundError
       | errors.DocumentDownloadInternalServerError
       | DocumensoError
@@ -99,7 +100,7 @@ async function $do(
     }),
   };
 
-  const path = pathToFunc("/document/{documentId}/download-beta")(pathParams);
+  const path = pathToFunc("/document/{documentId}/download")(pathParams);
 
   const query = encodeFormQuery({
     "version": payload.version,
@@ -146,7 +147,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["400", "404", "4XX", "500", "5XX"],
+    errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -162,6 +163,8 @@ async function $do(
   const [result] = await M.match<
     operations.DocumentDownloadResponse,
     | errors.DocumentDownloadBadRequestError
+    | errors.DocumentDownloadUnauthorizedError
+    | errors.DocumentDownloadForbiddenError
     | errors.DocumentDownloadNotFoundError
     | errors.DocumentDownloadInternalServerError
     | DocumensoError
@@ -173,8 +176,13 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, operations.DocumentDownloadResponse$inboundSchema),
+    M.json(200, operations.DocumentDownloadResponse$inboundSchema, {
+      hdrs: true,
+      key: "Result",
+    }),
     M.jsonErr(400, errors.DocumentDownloadBadRequestError$inboundSchema),
+    M.jsonErr(401, errors.DocumentDownloadUnauthorizedError$inboundSchema),
+    M.jsonErr(403, errors.DocumentDownloadForbiddenError$inboundSchema),
     M.jsonErr(404, errors.DocumentDownloadNotFoundError$inboundSchema),
     M.jsonErr(500, errors.DocumentDownloadInternalServerError$inboundSchema),
     M.fail("4XX"),

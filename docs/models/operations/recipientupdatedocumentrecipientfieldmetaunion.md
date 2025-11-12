@@ -3,6 +3,14 @@
 
 ## Supported Types
 
+### `operations.RecipientUpdateDocumentRecipientFieldMetaSignature`
+
+```typescript
+const value: operations.RecipientUpdateDocumentRecipientFieldMetaSignature = {
+  type: "signature",
+};
+```
+
 ### `operations.RecipientUpdateDocumentRecipientFieldMetaInitials`
 
 ```typescript
