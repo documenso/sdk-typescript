@@ -321,11 +321,6 @@ actions:
     update:
       x-speakeasy-group: documents
       x-speakeasy-name-override: create
-    x-speakeasy-metadata:
-      type: method-name
-      after: sdk.documents.create()
-      reviewed_at: 1737284371636
-      created_at: 1737284351918
   - target: $["paths"]["/document/create/beta"]["post"]
     update:
       x-speakeasy-group: documents
