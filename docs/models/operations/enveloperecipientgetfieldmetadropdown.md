@@ -1,0 +1,24 @@
+# EnvelopeRecipientGetFieldMetaDropdown
+
+## Example Usage
+
+```typescript
+import { EnvelopeRecipientGetFieldMetaDropdown } from "@documenso/sdk-typescript/models/operations";
+
+let value: EnvelopeRecipientGetFieldMetaDropdown = {
+  type: "dropdown",
+};
+```
+
+## Fields
+
+| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `label`                                                                                                    | *string*                                                                                                   | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
+| `placeholder`                                                                                              | *string*                                                                                                   | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
+| `required`                                                                                                 | *boolean*                                                                                                  | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
+| `readOnly`                                                                                                 | *boolean*                                                                                                  | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
+| `fontSize`                                                                                                 | *number*                                                                                                   | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
+| `type`                                                                                                     | [operations.EnvelopeRecipientGetTypeDropdown](../../models/operations/enveloperecipientgettypedropdown.md) | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| `values`                                                                                                   | [operations.EnvelopeRecipientGetValue3](../../models/operations/enveloperecipientgetvalue3.md)[]           | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
+| `defaultValue`                                                                                             | *string*                                                                                                   | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |

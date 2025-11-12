@@ -10,6 +10,6 @@ let value: EmbeddingPresignCreateEmbeddingPresignTokenRequest = {};
 
 ## Fields
 
-| Field                                                 | Type                                                  | Required                                              | Description                                           |
-| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| `expiresIn`                                           | *number*                                              | :heavy_minus_sign:                                    | Expiration time in minutes (default: 60, max: 10,080) |
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `expiresIn`        | *number*           | :heavy_minus_sign: | N/A                |

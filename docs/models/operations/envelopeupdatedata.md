@@ -1,0 +1,20 @@
+# EnvelopeUpdateData
+
+## Example Usage
+
+```typescript
+import { EnvelopeUpdateData } from "@documenso/sdk-typescript/models/operations";
+
+let value: EnvelopeUpdateData = {};
+```
+
+## Fields
+
+| Field                                                                                                            | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `title`                                                                                                          | *string*                                                                                                         | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |
+| `externalId`                                                                                                     | *string*                                                                                                         | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |
+| `visibility`                                                                                                     | [operations.EnvelopeUpdateDataVisibility](../../models/operations/envelopeupdatedatavisibility.md)               | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |
+| `globalAccessAuth`                                                                                               | [operations.EnvelopeUpdateDataGlobalAccessAuth](../../models/operations/envelopeupdatedataglobalaccessauth.md)[] | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |
+| `globalActionAuth`                                                                                               | [operations.EnvelopeUpdateDataGlobalActionAuth](../../models/operations/envelopeupdatedataglobalactionauth.md)[] | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |
+| `folderId`                                                                                                       | *string*                                                                                                         | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |

@@ -32,10 +32,15 @@ let value: RecipientGetDocumentRecipientResponse = {
       secondaryId: "<id>",
       recipientId: 5000.26,
       page: 2647.84,
+      positionX: "<value>",
+      positionY: "<value>",
+      width: "<value>",
+      height: "<value>",
       customText: "<value>",
       inserted: true,
       fieldMeta: {
-        type: "name",
+        fontSize: 12,
+        type: "initials",
       },
     },
   ],
@@ -59,7 +64,7 @@ let value: RecipientGetDocumentRecipientResponse = {
 | `expired`                                                                                                                      | *string*                                                                                                                       | :heavy_check_mark:                                                                                                             | N/A                                                                                                                            |
 | `signedAt`                                                                                                                     | *string*                                                                                                                       | :heavy_check_mark:                                                                                                             | N/A                                                                                                                            |
 | `authOptions`                                                                                                                  | [operations.RecipientGetDocumentRecipientAuthOptions](../../models/operations/recipientgetdocumentrecipientauthoptions.md)     | :heavy_check_mark:                                                                                                             | N/A                                                                                                                            |
-| `signingOrder`                                                                                                                 | *number*                                                                                                                       | :heavy_check_mark:                                                                                                             | The order in which the recipient should sign the document. Only works if the document is set to sequential signing.            |
+| `signingOrder`                                                                                                                 | *number*                                                                                                                       | :heavy_check_mark:                                                                                                             | N/A                                                                                                                            |
 | `rejectionReason`                                                                                                              | *string*                                                                                                                       | :heavy_check_mark:                                                                                                             | N/A                                                                                                                            |
 | `fields`                                                                                                                       | [operations.RecipientGetDocumentRecipientField](../../models/operations/recipientgetdocumentrecipientfield.md)[]               | :heavy_check_mark:                                                                                                             | N/A                                                                                                                            |
 | `documentId`                                                                                                                   | *number*                                                                                                                       | :heavy_minus_sign:                                                                                                             | N/A                                                                                                                            |

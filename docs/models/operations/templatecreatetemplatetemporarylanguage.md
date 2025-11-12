@@ -1,7 +1,5 @@
 # TemplateCreateTemplateTemporaryLanguage
 
-The language to use for email communications with recipients.
-
 ## Example Usage
 
 ```typescript

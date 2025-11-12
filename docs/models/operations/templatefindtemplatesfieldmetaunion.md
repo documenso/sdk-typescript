@@ -3,6 +3,14 @@
 
 ## Supported Types
 
+### `operations.TemplateFindTemplatesFieldMetaSignature`
+
+```typescript
+const value: operations.TemplateFindTemplatesFieldMetaSignature = {
+  type: "signature",
+};
+```
+
 ### `operations.TemplateFindTemplatesFieldMetaInitials`
 
 ```typescript

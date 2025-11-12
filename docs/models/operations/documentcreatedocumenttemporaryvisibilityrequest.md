@@ -1,7 +1,5 @@
 # DocumentCreateDocumentTemporaryVisibilityRequest
 
-The visibility of the document.
-
 ## Example Usage
 
 ```typescript

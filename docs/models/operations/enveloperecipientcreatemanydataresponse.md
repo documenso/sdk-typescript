@@ -1,0 +1,50 @@
+# EnvelopeRecipientCreateManyDataResponse
+
+## Example Usage
+
+```typescript
+import { EnvelopeRecipientCreateManyDataResponse } from "@documenso/sdk-typescript/models/operations";
+
+let value: EnvelopeRecipientCreateManyDataResponse = {
+  envelopeId: "<id>",
+  role: "VIEWER",
+  readStatus: "NOT_OPENED",
+  signingStatus: "SIGNED",
+  sendStatus: "NOT_SENT",
+  id: 2513.2,
+  email: "Alfreda_Koch-Wyman36@gmail.com",
+  name: "<value>",
+  token: "<value>",
+  documentDeletedAt: null,
+  expired: "<value>",
+  signedAt: "<value>",
+  authOptions: {
+    accessAuth: [],
+    actionAuth: [
+      "ACCOUNT",
+    ],
+  },
+  signingOrder: 837.06,
+  rejectionReason: "<value>",
+};
+```
+
+## Fields
+
+| Field                                                                                                                      | Type                                                                                                                       | Required                                                                                                                   | Description                                                                                                                |
+| -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `envelopeId`                                                                                                               | *string*                                                                                                                   | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
+| `role`                                                                                                                     | [operations.EnvelopeRecipientCreateManyRoleResponse](../../models/operations/enveloperecipientcreatemanyroleresponse.md)   | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
+| `readStatus`                                                                                                               | [operations.EnvelopeRecipientCreateManyReadStatus](../../models/operations/enveloperecipientcreatemanyreadstatus.md)       | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
+| `signingStatus`                                                                                                            | [operations.EnvelopeRecipientCreateManySigningStatus](../../models/operations/enveloperecipientcreatemanysigningstatus.md) | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
+| `sendStatus`                                                                                                               | [operations.EnvelopeRecipientCreateManySendStatus](../../models/operations/enveloperecipientcreatemanysendstatus.md)       | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
+| `id`                                                                                                                       | *number*                                                                                                                   | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
+| `email`                                                                                                                    | *string*                                                                                                                   | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
+| `name`                                                                                                                     | *string*                                                                                                                   | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
+| `token`                                                                                                                    | *string*                                                                                                                   | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
+| `documentDeletedAt`                                                                                                        | *string*                                                                                                                   | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
+| `expired`                                                                                                                  | *string*                                                                                                                   | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
+| `signedAt`                                                                                                                 | *string*                                                                                                                   | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
+| `authOptions`                                                                                                              | [operations.EnvelopeRecipientCreateManyAuthOptions](../../models/operations/enveloperecipientcreatemanyauthoptions.md)     | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
+| `signingOrder`                                                                                                             | *number*                                                                                                                   | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
+| `rejectionReason`                                                                                                          | *string*                                                                                                                   | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |

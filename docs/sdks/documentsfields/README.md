@@ -84,6 +84,8 @@ run();
 | Error Type                                      | Status Code                                     | Content Type                                    |
 | ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
 | errors.FieldGetDocumentFieldBadRequestError     | 400                                             | application/json                                |
+| errors.FieldGetDocumentFieldUnauthorizedError   | 401                                             | application/json                                |
+| errors.FieldGetDocumentFieldForbiddenError      | 403                                             | application/json                                |
 | errors.FieldGetDocumentFieldNotFoundError       | 404                                             | application/json                                |
 | errors.FieldGetDocumentFieldInternalServerError | 500                                             | application/json                                |
 | errors.APIError                                 | 4XX, 5XX                                        | \*/\*                                           |
@@ -178,6 +180,8 @@ run();
 | Error Type                                         | Status Code                                        | Content Type                                       |
 | -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
 | errors.FieldCreateDocumentFieldBadRequestError     | 400                                                | application/json                                   |
+| errors.FieldCreateDocumentFieldUnauthorizedError   | 401                                                | application/json                                   |
+| errors.FieldCreateDocumentFieldForbiddenError      | 403                                                | application/json                                   |
 | errors.FieldCreateDocumentFieldInternalServerError | 500                                                | application/json                                   |
 | errors.APIError                                    | 4XX, 5XX                                           | \*/\*                                              |
 
@@ -275,6 +279,8 @@ run();
 | Error Type                                          | Status Code                                         | Content Type                                        |
 | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
 | errors.FieldCreateDocumentFieldsBadRequestError     | 400                                                 | application/json                                    |
+| errors.FieldCreateDocumentFieldsUnauthorizedError   | 401                                                 | application/json                                    |
+| errors.FieldCreateDocumentFieldsForbiddenError      | 403                                                 | application/json                                    |
 | errors.FieldCreateDocumentFieldsInternalServerError | 500                                                 | application/json                                    |
 | errors.APIError                                     | 4XX, 5XX                                            | \*/\*                                               |
 
@@ -358,6 +364,8 @@ run();
 | Error Type                                         | Status Code                                        | Content Type                                       |
 | -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
 | errors.FieldUpdateDocumentFieldBadRequestError     | 400                                                | application/json                                   |
+| errors.FieldUpdateDocumentFieldUnauthorizedError   | 401                                                | application/json                                   |
+| errors.FieldUpdateDocumentFieldForbiddenError      | 403                                                | application/json                                   |
 | errors.FieldUpdateDocumentFieldInternalServerError | 500                                                | application/json                                   |
 | errors.APIError                                    | 4XX, 5XX                                           | \*/\*                                              |
 
@@ -435,6 +443,8 @@ run();
 | Error Type                                          | Status Code                                         | Content Type                                        |
 | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
 | errors.FieldUpdateDocumentFieldsBadRequestError     | 400                                                 | application/json                                    |
+| errors.FieldUpdateDocumentFieldsUnauthorizedError   | 401                                                 | application/json                                    |
+| errors.FieldUpdateDocumentFieldsForbiddenError      | 403                                                 | application/json                                    |
 | errors.FieldUpdateDocumentFieldsInternalServerError | 500                                                 | application/json                                    |
 | errors.APIError                                     | 4XX, 5XX                                            | \*/\*                                               |
 
@@ -510,5 +520,7 @@ run();
 | Error Type                                         | Status Code                                        | Content Type                                       |
 | -------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------- |
 | errors.FieldDeleteDocumentFieldBadRequestError     | 400                                                | application/json                                   |
+| errors.FieldDeleteDocumentFieldUnauthorizedError   | 401                                                | application/json                                   |
+| errors.FieldDeleteDocumentFieldForbiddenError      | 403                                                | application/json                                   |
 | errors.FieldDeleteDocumentFieldInternalServerError | 500                                                | application/json                                   |
 | errors.APIError                                    | 4XX, 5XX                                           | \*/\*                                              |

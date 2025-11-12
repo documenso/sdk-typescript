@@ -39,6 +39,8 @@ export function templatesRecipientsGet(
   Result<
     operations.RecipientGetTemplateRecipientResponse,
     | errors.RecipientGetTemplateRecipientBadRequestError
+    | errors.RecipientGetTemplateRecipientUnauthorizedError
+    | errors.RecipientGetTemplateRecipientForbiddenError
     | errors.RecipientGetTemplateRecipientNotFoundError
     | errors.RecipientGetTemplateRecipientInternalServerError
     | DocumensoError
@@ -67,6 +69,8 @@ async function $do(
     Result<
       operations.RecipientGetTemplateRecipientResponse,
       | errors.RecipientGetTemplateRecipientBadRequestError
+      | errors.RecipientGetTemplateRecipientUnauthorizedError
+      | errors.RecipientGetTemplateRecipientForbiddenError
       | errors.RecipientGetTemplateRecipientNotFoundError
       | errors.RecipientGetTemplateRecipientInternalServerError
       | DocumensoError
@@ -144,7 +148,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["400", "404", "4XX", "500", "5XX"],
+    errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -160,6 +164,8 @@ async function $do(
   const [result] = await M.match<
     operations.RecipientGetTemplateRecipientResponse,
     | errors.RecipientGetTemplateRecipientBadRequestError
+    | errors.RecipientGetTemplateRecipientUnauthorizedError
+    | errors.RecipientGetTemplateRecipientForbiddenError
     | errors.RecipientGetTemplateRecipientNotFoundError
     | errors.RecipientGetTemplateRecipientInternalServerError
     | DocumensoError
@@ -175,6 +181,14 @@ async function $do(
     M.jsonErr(
       400,
       errors.RecipientGetTemplateRecipientBadRequestError$inboundSchema,
+    ),
+    M.jsonErr(
+      401,
+      errors.RecipientGetTemplateRecipientUnauthorizedError$inboundSchema,
+    ),
+    M.jsonErr(
+      403,
+      errors.RecipientGetTemplateRecipientForbiddenError$inboundSchema,
     ),
     M.jsonErr(
       404,

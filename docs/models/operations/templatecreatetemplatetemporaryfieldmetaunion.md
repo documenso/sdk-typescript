@@ -3,6 +3,14 @@
 
 ## Supported Types
 
+### `operations.TemplateCreateTemplateTemporaryFieldMetaSignature`
+
+```typescript
+const value: operations.TemplateCreateTemplateTemporaryFieldMetaSignature = {
+  type: "signature",
+};
+```
+
 ### `operations.TemplateCreateTemplateTemporaryFieldMetaInitials`
 
 ```typescript

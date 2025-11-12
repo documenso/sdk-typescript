@@ -99,6 +99,7 @@ let value: TemplateGetTemplateByIdResponse = {
     createdAt: "1722500604046",
     updatedAt: "1735660534658",
   },
+  envelopeItems: [],
 };
 ```
 
@@ -128,3 +129,4 @@ let value: TemplateGetTemplateByIdResponse = {
 | `recipients`                                                                                                                     | [operations.TemplateGetTemplateByIdRecipient](../../models/operations/templategettemplatebyidrecipient.md)[]                     | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
 | `fields`                                                                                                                         | [operations.TemplateGetTemplateByIdField](../../models/operations/templategettemplatebyidfield.md)[]                             | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
 | `folder`                                                                                                                         | [operations.TemplateGetTemplateByIdFolder](../../models/operations/templategettemplatebyidfolder.md)                             | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |
+| `envelopeItems`                                                                                                                  | [operations.TemplateGetTemplateByIdEnvelopeItem](../../models/operations/templategettemplatebyidenvelopeitem.md)[]               | :heavy_check_mark:                                                                                                               | N/A                                                                                                                              |

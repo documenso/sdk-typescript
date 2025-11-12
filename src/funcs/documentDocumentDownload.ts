@@ -33,14 +33,16 @@ import { Result } from "../types/fp.js";
  */
 export function documentDocumentDownload(
   client: DocumensoCore,
-  request: operations.DocumentDownloadRequest,
+  request: operations.DocumentDownloadBetaRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.DocumentDownloadResponse,
-    | errors.DocumentDownloadBadRequestError
-    | errors.DocumentDownloadNotFoundError
-    | errors.DocumentDownloadInternalServerError
+    operations.DocumentDownloadBetaResponse,
+    | errors.DocumentDownloadBetaBadRequestError
+    | errors.DocumentDownloadBetaUnauthorizedError
+    | errors.DocumentDownloadBetaForbiddenError
+    | errors.DocumentDownloadBetaNotFoundError
+    | errors.DocumentDownloadBetaInternalServerError
     | DocumensoError
     | ResponseValidationError
     | ConnectionError
@@ -60,15 +62,17 @@ export function documentDocumentDownload(
 
 async function $do(
   client: DocumensoCore,
-  request: operations.DocumentDownloadRequest,
+  request: operations.DocumentDownloadBetaRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      operations.DocumentDownloadResponse,
-      | errors.DocumentDownloadBadRequestError
-      | errors.DocumentDownloadNotFoundError
-      | errors.DocumentDownloadInternalServerError
+      operations.DocumentDownloadBetaResponse,
+      | errors.DocumentDownloadBetaBadRequestError
+      | errors.DocumentDownloadBetaUnauthorizedError
+      | errors.DocumentDownloadBetaForbiddenError
+      | errors.DocumentDownloadBetaNotFoundError
+      | errors.DocumentDownloadBetaInternalServerError
       | DocumensoError
       | ResponseValidationError
       | ConnectionError
@@ -83,7 +87,8 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.DocumentDownloadRequest$outboundSchema.parse(value),
+    (value) =>
+      operations.DocumentDownloadBetaRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -116,7 +121,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "document-download",
+    operationID: "document-downloadBeta",
     oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
@@ -146,7 +151,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["400", "404", "4XX", "500", "5XX"],
+    errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -160,10 +165,12 @@ async function $do(
   };
 
   const [result] = await M.match<
-    operations.DocumentDownloadResponse,
-    | errors.DocumentDownloadBadRequestError
-    | errors.DocumentDownloadNotFoundError
-    | errors.DocumentDownloadInternalServerError
+    operations.DocumentDownloadBetaResponse,
+    | errors.DocumentDownloadBetaBadRequestError
+    | errors.DocumentDownloadBetaUnauthorizedError
+    | errors.DocumentDownloadBetaForbiddenError
+    | errors.DocumentDownloadBetaNotFoundError
+    | errors.DocumentDownloadBetaInternalServerError
     | DocumensoError
     | ResponseValidationError
     | ConnectionError
@@ -173,10 +180,15 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, operations.DocumentDownloadResponse$inboundSchema),
-    M.jsonErr(400, errors.DocumentDownloadBadRequestError$inboundSchema),
-    M.jsonErr(404, errors.DocumentDownloadNotFoundError$inboundSchema),
-    M.jsonErr(500, errors.DocumentDownloadInternalServerError$inboundSchema),
+    M.json(200, operations.DocumentDownloadBetaResponse$inboundSchema),
+    M.jsonErr(400, errors.DocumentDownloadBetaBadRequestError$inboundSchema),
+    M.jsonErr(401, errors.DocumentDownloadBetaUnauthorizedError$inboundSchema),
+    M.jsonErr(403, errors.DocumentDownloadBetaForbiddenError$inboundSchema),
+    M.jsonErr(404, errors.DocumentDownloadBetaNotFoundError$inboundSchema),
+    M.jsonErr(
+      500,
+      errors.DocumentDownloadBetaInternalServerError$inboundSchema,
+    ),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });

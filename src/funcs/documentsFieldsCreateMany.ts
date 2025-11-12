@@ -39,6 +39,8 @@ export function documentsFieldsCreateMany(
   Result<
     operations.FieldCreateDocumentFieldsResponse,
     | errors.FieldCreateDocumentFieldsBadRequestError
+    | errors.FieldCreateDocumentFieldsUnauthorizedError
+    | errors.FieldCreateDocumentFieldsForbiddenError
     | errors.FieldCreateDocumentFieldsInternalServerError
     | DocumensoError
     | ResponseValidationError
@@ -66,6 +68,8 @@ async function $do(
     Result<
       operations.FieldCreateDocumentFieldsResponse,
       | errors.FieldCreateDocumentFieldsBadRequestError
+      | errors.FieldCreateDocumentFieldsUnauthorizedError
+      | errors.FieldCreateDocumentFieldsForbiddenError
       | errors.FieldCreateDocumentFieldsInternalServerError
       | DocumensoError
       | ResponseValidationError
@@ -134,7 +138,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["400", "4XX", "500", "5XX"],
+    errorCodes: ["400", "401", "403", "4XX", "500", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -150,6 +154,8 @@ async function $do(
   const [result] = await M.match<
     operations.FieldCreateDocumentFieldsResponse,
     | errors.FieldCreateDocumentFieldsBadRequestError
+    | errors.FieldCreateDocumentFieldsUnauthorizedError
+    | errors.FieldCreateDocumentFieldsForbiddenError
     | errors.FieldCreateDocumentFieldsInternalServerError
     | DocumensoError
     | ResponseValidationError
@@ -164,6 +170,14 @@ async function $do(
     M.jsonErr(
       400,
       errors.FieldCreateDocumentFieldsBadRequestError$inboundSchema,
+    ),
+    M.jsonErr(
+      401,
+      errors.FieldCreateDocumentFieldsUnauthorizedError$inboundSchema,
+    ),
+    M.jsonErr(
+      403,
+      errors.FieldCreateDocumentFieldsForbiddenError$inboundSchema,
     ),
     M.jsonErr(
       500,

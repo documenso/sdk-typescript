@@ -13,7 +13,7 @@ let value: DocumentRedistributeRequest = {
 
 ## Fields
 
-| Field                                                      | Type                                                       | Required                                                   | Description                                                |
-| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
-| `documentId`                                               | *number*                                                   | :heavy_check_mark:                                         | N/A                                                        |
-| `recipients`                                               | *number*[]                                                 | :heavy_check_mark:                                         | The IDs of the recipients to redistribute the document to. |
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `documentId`       | *number*           | :heavy_check_mark: | N/A                |
+| `recipients`       | *number*[]         | :heavy_check_mark: | N/A                |

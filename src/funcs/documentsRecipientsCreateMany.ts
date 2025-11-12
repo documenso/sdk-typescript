@@ -39,6 +39,8 @@ export function documentsRecipientsCreateMany(
   Result<
     operations.RecipientCreateDocumentRecipientsResponse,
     | errors.RecipientCreateDocumentRecipientsBadRequestError
+    | errors.RecipientCreateDocumentRecipientsUnauthorizedError
+    | errors.RecipientCreateDocumentRecipientsForbiddenError
     | errors.RecipientCreateDocumentRecipientsInternalServerError
     | DocumensoError
     | ResponseValidationError
@@ -66,6 +68,8 @@ async function $do(
     Result<
       operations.RecipientCreateDocumentRecipientsResponse,
       | errors.RecipientCreateDocumentRecipientsBadRequestError
+      | errors.RecipientCreateDocumentRecipientsUnauthorizedError
+      | errors.RecipientCreateDocumentRecipientsForbiddenError
       | errors.RecipientCreateDocumentRecipientsInternalServerError
       | DocumensoError
       | ResponseValidationError
@@ -136,7 +140,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["400", "4XX", "500", "5XX"],
+    errorCodes: ["400", "401", "403", "4XX", "500", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -152,6 +156,8 @@ async function $do(
   const [result] = await M.match<
     operations.RecipientCreateDocumentRecipientsResponse,
     | errors.RecipientCreateDocumentRecipientsBadRequestError
+    | errors.RecipientCreateDocumentRecipientsUnauthorizedError
+    | errors.RecipientCreateDocumentRecipientsForbiddenError
     | errors.RecipientCreateDocumentRecipientsInternalServerError
     | DocumensoError
     | ResponseValidationError
@@ -169,6 +175,14 @@ async function $do(
     M.jsonErr(
       400,
       errors.RecipientCreateDocumentRecipientsBadRequestError$inboundSchema,
+    ),
+    M.jsonErr(
+      401,
+      errors.RecipientCreateDocumentRecipientsUnauthorizedError$inboundSchema,
+    ),
+    M.jsonErr(
+      403,
+      errors.RecipientCreateDocumentRecipientsForbiddenError$inboundSchema,
     ),
     M.jsonErr(
       500,

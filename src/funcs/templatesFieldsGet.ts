@@ -39,6 +39,8 @@ export function templatesFieldsGet(
   Result<
     operations.FieldGetTemplateFieldResponse,
     | errors.FieldGetTemplateFieldBadRequestError
+    | errors.FieldGetTemplateFieldUnauthorizedError
+    | errors.FieldGetTemplateFieldForbiddenError
     | errors.FieldGetTemplateFieldNotFoundError
     | errors.FieldGetTemplateFieldInternalServerError
     | DocumensoError
@@ -67,6 +69,8 @@ async function $do(
     Result<
       operations.FieldGetTemplateFieldResponse,
       | errors.FieldGetTemplateFieldBadRequestError
+      | errors.FieldGetTemplateFieldUnauthorizedError
+      | errors.FieldGetTemplateFieldForbiddenError
       | errors.FieldGetTemplateFieldNotFoundError
       | errors.FieldGetTemplateFieldInternalServerError
       | DocumensoError
@@ -142,7 +146,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["400", "404", "4XX", "500", "5XX"],
+    errorCodes: ["400", "401", "403", "404", "4XX", "500", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -158,6 +162,8 @@ async function $do(
   const [result] = await M.match<
     operations.FieldGetTemplateFieldResponse,
     | errors.FieldGetTemplateFieldBadRequestError
+    | errors.FieldGetTemplateFieldUnauthorizedError
+    | errors.FieldGetTemplateFieldForbiddenError
     | errors.FieldGetTemplateFieldNotFoundError
     | errors.FieldGetTemplateFieldInternalServerError
     | DocumensoError
@@ -171,6 +177,8 @@ async function $do(
   >(
     M.json(200, operations.FieldGetTemplateFieldResponse$inboundSchema),
     M.jsonErr(400, errors.FieldGetTemplateFieldBadRequestError$inboundSchema),
+    M.jsonErr(401, errors.FieldGetTemplateFieldUnauthorizedError$inboundSchema),
+    M.jsonErr(403, errors.FieldGetTemplateFieldForbiddenError$inboundSchema),
     M.jsonErr(404, errors.FieldGetTemplateFieldNotFoundError$inboundSchema),
     M.jsonErr(
       500,
