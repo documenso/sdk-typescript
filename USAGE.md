@@ -7,8 +7,8 @@ const documenso = new Documenso({
 });
 
 async function run() {
-  const result = await documenso.documents.get({
-    documentId: 6150.61,
+  const result = await documenso.envelopes.get({
+    envelopeId: "<id>",
   });
 
   console.log(result);

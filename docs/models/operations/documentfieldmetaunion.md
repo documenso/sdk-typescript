@@ -3,6 +3,14 @@
 
 ## Supported Types
 
+### `operations.FieldMetaDocumentSignature`
+
+```typescript
+const value: operations.FieldMetaDocumentSignature = {
+  type: "signature",
+};
+```
+
 ### `operations.FieldMetaDocumentInitials`
 
 ```typescript

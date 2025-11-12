@@ -79,5 +79,7 @@ run();
 | Error Type                                                | Status Code                                               | Content Type                                              |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
 | errors.TemplateCreateTemplateTemporaryBadRequestError     | 400                                                       | application/json                                          |
+| errors.TemplateCreateTemplateTemporaryUnauthorizedError   | 401                                                       | application/json                                          |
+| errors.TemplateCreateTemplateTemporaryForbiddenError      | 403                                                       | application/json                                          |
 | errors.TemplateCreateTemplateTemporaryInternalServerError | 500                                                       | application/json                                          |
 | errors.APIError                                           | 4XX, 5XX                                                  | \*/\*                                                     |

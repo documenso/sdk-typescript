@@ -1,0 +1,21 @@
+# TemplateCreateDocumentFromTemplatePrefillFieldRadio
+
+## Example Usage
+
+```typescript
+import { TemplateCreateDocumentFromTemplatePrefillFieldRadio } from "@documenso/sdk-typescript/models/operations";
+
+let value: TemplateCreateDocumentFromTemplatePrefillFieldRadio = {
+  type: "radio",
+  id: 48.03,
+};
+```
+
+## Fields
+
+| Field                                                                                                                                                    | Type                                                                                                                                                     | Required                                                                                                                                                 | Description                                                                                                                                              |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`                                                                                                                                                   | [operations.TemplateCreateDocumentFromTemplatePrefillFieldTypeRadio](../../models/operations/templatecreatedocumentfromtemplateprefillfieldtyperadio.md) | :heavy_check_mark:                                                                                                                                       | N/A                                                                                                                                                      |
+| `label`                                                                                                                                                  | *string*                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                       | N/A                                                                                                                                                      |
+| `value`                                                                                                                                                  | *string*                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                       | N/A                                                                                                                                                      |
+| `id`                                                                                                                                                     | *number*                                                                                                                                                 | :heavy_check_mark:                                                                                                                                       | N/A                                                                                                                                                      |

@@ -36,6 +36,8 @@ export function templatesFieldsDelete(
   Result<
     operations.FieldDeleteTemplateFieldResponse,
     | errors.FieldDeleteTemplateFieldBadRequestError
+    | errors.FieldDeleteTemplateFieldUnauthorizedError
+    | errors.FieldDeleteTemplateFieldForbiddenError
     | errors.FieldDeleteTemplateFieldInternalServerError
     | DocumensoError
     | ResponseValidationError
@@ -63,6 +65,8 @@ async function $do(
     Result<
       operations.FieldDeleteTemplateFieldResponse,
       | errors.FieldDeleteTemplateFieldBadRequestError
+      | errors.FieldDeleteTemplateFieldUnauthorizedError
+      | errors.FieldDeleteTemplateFieldForbiddenError
       | errors.FieldDeleteTemplateFieldInternalServerError
       | DocumensoError
       | ResponseValidationError
@@ -131,7 +135,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["400", "4XX", "500", "5XX"],
+    errorCodes: ["400", "401", "403", "4XX", "500", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -147,6 +151,8 @@ async function $do(
   const [result] = await M.match<
     operations.FieldDeleteTemplateFieldResponse,
     | errors.FieldDeleteTemplateFieldBadRequestError
+    | errors.FieldDeleteTemplateFieldUnauthorizedError
+    | errors.FieldDeleteTemplateFieldForbiddenError
     | errors.FieldDeleteTemplateFieldInternalServerError
     | DocumensoError
     | ResponseValidationError
@@ -162,6 +168,11 @@ async function $do(
       400,
       errors.FieldDeleteTemplateFieldBadRequestError$inboundSchema,
     ),
+    M.jsonErr(
+      401,
+      errors.FieldDeleteTemplateFieldUnauthorizedError$inboundSchema,
+    ),
+    M.jsonErr(403, errors.FieldDeleteTemplateFieldForbiddenError$inboundSchema),
     M.jsonErr(
       500,
       errors.FieldDeleteTemplateFieldInternalServerError$inboundSchema,

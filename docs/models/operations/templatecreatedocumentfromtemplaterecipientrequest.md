@@ -13,8 +13,8 @@ let value: TemplateCreateDocumentFromTemplateRecipientRequest = {
 
 ## Fields
 
-| Field                                    | Type                                     | Required                                 | Description                              |
-| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| `id`                                     | *number*                                 | :heavy_check_mark:                       | The ID of the recipient in the template. |
-| `email`                                  | *string*                                 | :heavy_check_mark:                       | N/A                                      |
-| `name`                                   | *string*                                 | :heavy_minus_sign:                       | N/A                                      |
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `id`               | *number*           | :heavy_check_mark: | N/A                |
+| `email`            | *string*           | :heavy_check_mark: | N/A                |
+| `name`             | *string*           | :heavy_minus_sign: | N/A                |

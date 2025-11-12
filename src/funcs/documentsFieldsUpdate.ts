@@ -39,6 +39,8 @@ export function documentsFieldsUpdate(
   Result<
     operations.FieldUpdateDocumentFieldResponse,
     | errors.FieldUpdateDocumentFieldBadRequestError
+    | errors.FieldUpdateDocumentFieldUnauthorizedError
+    | errors.FieldUpdateDocumentFieldForbiddenError
     | errors.FieldUpdateDocumentFieldInternalServerError
     | DocumensoError
     | ResponseValidationError
@@ -66,6 +68,8 @@ async function $do(
     Result<
       operations.FieldUpdateDocumentFieldResponse,
       | errors.FieldUpdateDocumentFieldBadRequestError
+      | errors.FieldUpdateDocumentFieldUnauthorizedError
+      | errors.FieldUpdateDocumentFieldForbiddenError
       | errors.FieldUpdateDocumentFieldInternalServerError
       | DocumensoError
       | ResponseValidationError
@@ -134,7 +138,7 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["400", "4XX", "500", "5XX"],
+    errorCodes: ["400", "401", "403", "4XX", "500", "5XX"],
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });
@@ -150,6 +154,8 @@ async function $do(
   const [result] = await M.match<
     operations.FieldUpdateDocumentFieldResponse,
     | errors.FieldUpdateDocumentFieldBadRequestError
+    | errors.FieldUpdateDocumentFieldUnauthorizedError
+    | errors.FieldUpdateDocumentFieldForbiddenError
     | errors.FieldUpdateDocumentFieldInternalServerError
     | DocumensoError
     | ResponseValidationError
@@ -165,6 +171,11 @@ async function $do(
       400,
       errors.FieldUpdateDocumentFieldBadRequestError$inboundSchema,
     ),
+    M.jsonErr(
+      401,
+      errors.FieldUpdateDocumentFieldUnauthorizedError$inboundSchema,
+    ),
+    M.jsonErr(403, errors.FieldUpdateDocumentFieldForbiddenError$inboundSchema),
     M.jsonErr(
       500,
       errors.FieldUpdateDocumentFieldInternalServerError$inboundSchema,

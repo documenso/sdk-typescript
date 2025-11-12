@@ -15,9 +15,9 @@ export class Document extends ClientSDK {
    * Get a pre-signed download URL for the original or signed version of a document
    */
   async documentDownload(
-    request: operations.DocumentDownloadRequest,
+    request: operations.DocumentDownloadBetaRequest,
     options?: RequestOptions,
-  ): Promise<operations.DocumentDownloadResponse> {
+  ): Promise<operations.DocumentDownloadBetaResponse> {
     return unwrapAsync(documentDocumentDownload(
       this,
       request,

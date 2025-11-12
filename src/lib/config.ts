@@ -11,7 +11,7 @@ import { Params, pathToFunc } from "./url.js";
  * Contains the list of servers available to the SDK
  */
 export const ServerList = [
-  "https://app.documenso.com/api/v2-beta",
+  "https://app.documenso.com/api/v2",
 ] as const;
 
 export type SDKOptions = {
@@ -57,9 +57,9 @@ export function serverURLFromOptions(options: SDKOptions): URL | null {
 
 export const SDK_METADATA = {
   language: "typescript",
-  openapiDocVersion: "0.0.0",
-  sdkVersion: "0.4.0",
-  genVersion: "2.727.9",
+  openapiDocVersion: "1.0.0",
+  sdkVersion: "0.5.0",
+  genVersion: "2.750.0",
   userAgent:
-    "speakeasy-sdk/typescript 0.4.0 2.727.9 0.0.0 @documenso/sdk-typescript",
+    "speakeasy-sdk/typescript 0.5.0 2.750.0 1.0.0 @documenso/sdk-typescript",
 } as const;
