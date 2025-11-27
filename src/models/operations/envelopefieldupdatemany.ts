@@ -507,32 +507,32 @@ export type EnvelopeFieldUpdateManyDataSignature = {
 };
 
 export type EnvelopeFieldUpdateManyDataUnion =
-  | EnvelopeFieldUpdateManyDataSignature
-  | EnvelopeFieldUpdateManyDataFreeSignature
-  | EnvelopeFieldUpdateManyDataInitials
-  | EnvelopeFieldUpdateManyDataName
-  | EnvelopeFieldUpdateManyDataEmail
-  | EnvelopeFieldUpdateManyDataDate
-  | EnvelopeFieldUpdateManyDataText
-  | EnvelopeFieldUpdateManyDataNumber
-  | EnvelopeFieldUpdateManyDataRadio
-  | EnvelopeFieldUpdateManyDataCheckbox
-  | EnvelopeFieldUpdateManyDataDropdown;
+  | (EnvelopeFieldUpdateManyDataSignature & { type: "SIGNATURE" })
+  | (EnvelopeFieldUpdateManyDataFreeSignature & { type: "FREE_SIGNATURE" })
+  | (EnvelopeFieldUpdateManyDataInitials & { type: "INITIALS" })
+  | (EnvelopeFieldUpdateManyDataName & { type: "NAME" })
+  | (EnvelopeFieldUpdateManyDataEmail & { type: "EMAIL" })
+  | (EnvelopeFieldUpdateManyDataDate & { type: "DATE" })
+  | (EnvelopeFieldUpdateManyDataText & { type: "TEXT" })
+  | (EnvelopeFieldUpdateManyDataNumber & { type: "NUMBER" })
+  | (EnvelopeFieldUpdateManyDataRadio & { type: "RADIO" })
+  | (EnvelopeFieldUpdateManyDataCheckbox & { type: "CHECKBOX" })
+  | (EnvelopeFieldUpdateManyDataDropdown & { type: "DROPDOWN" });
 
 export type EnvelopeFieldUpdateManyRequest = {
   envelopeId: string;
   data: Array<
-    | EnvelopeFieldUpdateManyDataSignature
-    | EnvelopeFieldUpdateManyDataFreeSignature
-    | EnvelopeFieldUpdateManyDataInitials
-    | EnvelopeFieldUpdateManyDataName
-    | EnvelopeFieldUpdateManyDataEmail
-    | EnvelopeFieldUpdateManyDataDate
-    | EnvelopeFieldUpdateManyDataText
-    | EnvelopeFieldUpdateManyDataNumber
-    | EnvelopeFieldUpdateManyDataRadio
-    | EnvelopeFieldUpdateManyDataCheckbox
-    | EnvelopeFieldUpdateManyDataDropdown
+    | (EnvelopeFieldUpdateManyDataSignature & { type: "SIGNATURE" })
+    | (EnvelopeFieldUpdateManyDataFreeSignature & { type: "FREE_SIGNATURE" })
+    | (EnvelopeFieldUpdateManyDataInitials & { type: "INITIALS" })
+    | (EnvelopeFieldUpdateManyDataName & { type: "NAME" })
+    | (EnvelopeFieldUpdateManyDataEmail & { type: "EMAIL" })
+    | (EnvelopeFieldUpdateManyDataDate & { type: "DATE" })
+    | (EnvelopeFieldUpdateManyDataText & { type: "TEXT" })
+    | (EnvelopeFieldUpdateManyDataNumber & { type: "NUMBER" })
+    | (EnvelopeFieldUpdateManyDataRadio & { type: "RADIO" })
+    | (EnvelopeFieldUpdateManyDataCheckbox & { type: "CHECKBOX" })
+    | (EnvelopeFieldUpdateManyDataDropdown & { type: "DROPDOWN" })
   >;
 };
 
@@ -850,16 +850,16 @@ export type EnvelopeFieldUpdateManyFieldMetaSignatureResponse = {
 };
 
 export type EnvelopeFieldUpdateManyFieldMetaUnion =
-  | EnvelopeFieldUpdateManyFieldMetaSignatureResponse
-  | EnvelopeFieldUpdateManyFieldMetaInitialsResponse
-  | EnvelopeFieldUpdateManyFieldMetaNameResponse
-  | EnvelopeFieldUpdateManyFieldMetaEmailResponse
-  | EnvelopeFieldUpdateManyFieldMetaDateResponse
-  | EnvelopeFieldUpdateManyFieldMetaTextResponse
-  | EnvelopeFieldUpdateManyFieldMetaNumberResponse
-  | EnvelopeFieldUpdateManyFieldMetaRadioResponse
-  | EnvelopeFieldUpdateManyFieldMetaCheckboxResponse
-  | EnvelopeFieldUpdateManyFieldMetaDropdownResponse;
+  | (EnvelopeFieldUpdateManyFieldMetaSignatureResponse & { type: "signature" })
+  | (EnvelopeFieldUpdateManyFieldMetaInitialsResponse & { type: "initials" })
+  | (EnvelopeFieldUpdateManyFieldMetaNameResponse & { type: "name" })
+  | (EnvelopeFieldUpdateManyFieldMetaEmailResponse & { type: "email" })
+  | (EnvelopeFieldUpdateManyFieldMetaDateResponse & { type: "date" })
+  | (EnvelopeFieldUpdateManyFieldMetaTextResponse & { type: "text" })
+  | (EnvelopeFieldUpdateManyFieldMetaNumberResponse & { type: "number" })
+  | (EnvelopeFieldUpdateManyFieldMetaRadioResponse & { type: "radio" })
+  | (EnvelopeFieldUpdateManyFieldMetaCheckboxResponse & { type: "checkbox" })
+  | (EnvelopeFieldUpdateManyFieldMetaDropdownResponse & { type: "dropdown" });
 
 export type EnvelopeFieldUpdateManyDataResponse = {
   envelopeId: string;
@@ -876,16 +876,18 @@ export type EnvelopeFieldUpdateManyDataResponse = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | EnvelopeFieldUpdateManyFieldMetaSignatureResponse
-    | EnvelopeFieldUpdateManyFieldMetaInitialsResponse
-    | EnvelopeFieldUpdateManyFieldMetaNameResponse
-    | EnvelopeFieldUpdateManyFieldMetaEmailResponse
-    | EnvelopeFieldUpdateManyFieldMetaDateResponse
-    | EnvelopeFieldUpdateManyFieldMetaTextResponse
-    | EnvelopeFieldUpdateManyFieldMetaNumberResponse
-    | EnvelopeFieldUpdateManyFieldMetaRadioResponse
-    | EnvelopeFieldUpdateManyFieldMetaCheckboxResponse
-    | EnvelopeFieldUpdateManyFieldMetaDropdownResponse
+    | (EnvelopeFieldUpdateManyFieldMetaSignatureResponse & {
+      type: "signature";
+    })
+    | (EnvelopeFieldUpdateManyFieldMetaInitialsResponse & { type: "initials" })
+    | (EnvelopeFieldUpdateManyFieldMetaNameResponse & { type: "name" })
+    | (EnvelopeFieldUpdateManyFieldMetaEmailResponse & { type: "email" })
+    | (EnvelopeFieldUpdateManyFieldMetaDateResponse & { type: "date" })
+    | (EnvelopeFieldUpdateManyFieldMetaTextResponse & { type: "text" })
+    | (EnvelopeFieldUpdateManyFieldMetaNumberResponse & { type: "number" })
+    | (EnvelopeFieldUpdateManyFieldMetaRadioResponse & { type: "radio" })
+    | (EnvelopeFieldUpdateManyFieldMetaCheckboxResponse & { type: "checkbox" })
+    | (EnvelopeFieldUpdateManyFieldMetaDropdownResponse & { type: "dropdown" })
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -2857,31 +2859,55 @@ export const EnvelopeFieldUpdateManyDataUnion$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  z.lazy(() => EnvelopeFieldUpdateManyDataSignature$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataFreeSignature$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataInitials$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataName$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataEmail$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataDate$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataText$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataNumber$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataRadio$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataCheckbox$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataDropdown$inboundSchema),
+  z.lazy(() => EnvelopeFieldUpdateManyDataSignature$inboundSchema).and(
+    z.object({ type: z.literal("SIGNATURE") }),
+  ),
+  z.lazy(() => EnvelopeFieldUpdateManyDataFreeSignature$inboundSchema).and(
+    z.object({ type: z.literal("FREE_SIGNATURE") }),
+  ),
+  z.lazy(() => EnvelopeFieldUpdateManyDataInitials$inboundSchema).and(
+    z.object({ type: z.literal("INITIALS") }),
+  ),
+  z.lazy(() => EnvelopeFieldUpdateManyDataName$inboundSchema).and(
+    z.object({ type: z.literal("NAME") }),
+  ),
+  z.lazy(() => EnvelopeFieldUpdateManyDataEmail$inboundSchema).and(
+    z.object({ type: z.literal("EMAIL") }),
+  ),
+  z.lazy(() => EnvelopeFieldUpdateManyDataDate$inboundSchema).and(
+    z.object({ type: z.literal("DATE") }),
+  ),
+  z.lazy(() => EnvelopeFieldUpdateManyDataText$inboundSchema).and(
+    z.object({ type: z.literal("TEXT") }),
+  ),
+  z.lazy(() => EnvelopeFieldUpdateManyDataNumber$inboundSchema).and(
+    z.object({ type: z.literal("NUMBER") }),
+  ),
+  z.lazy(() => EnvelopeFieldUpdateManyDataRadio$inboundSchema).and(
+    z.object({ type: z.literal("RADIO") }),
+  ),
+  z.lazy(() => EnvelopeFieldUpdateManyDataCheckbox$inboundSchema).and(
+    z.object({ type: z.literal("CHECKBOX") }),
+  ),
+  z.lazy(() => EnvelopeFieldUpdateManyDataDropdown$inboundSchema).and(
+    z.object({ type: z.literal("DROPDOWN") }),
+  ),
 ]);
 /** @internal */
 export type EnvelopeFieldUpdateManyDataUnion$Outbound =
-  | EnvelopeFieldUpdateManyDataSignature$Outbound
-  | EnvelopeFieldUpdateManyDataFreeSignature$Outbound
-  | EnvelopeFieldUpdateManyDataInitials$Outbound
-  | EnvelopeFieldUpdateManyDataName$Outbound
-  | EnvelopeFieldUpdateManyDataEmail$Outbound
-  | EnvelopeFieldUpdateManyDataDate$Outbound
-  | EnvelopeFieldUpdateManyDataText$Outbound
-  | EnvelopeFieldUpdateManyDataNumber$Outbound
-  | EnvelopeFieldUpdateManyDataRadio$Outbound
-  | EnvelopeFieldUpdateManyDataCheckbox$Outbound
-  | EnvelopeFieldUpdateManyDataDropdown$Outbound;
+  | (EnvelopeFieldUpdateManyDataSignature$Outbound & { type: "SIGNATURE" })
+  | (EnvelopeFieldUpdateManyDataFreeSignature$Outbound & {
+    type: "FREE_SIGNATURE";
+  })
+  | (EnvelopeFieldUpdateManyDataInitials$Outbound & { type: "INITIALS" })
+  | (EnvelopeFieldUpdateManyDataName$Outbound & { type: "NAME" })
+  | (EnvelopeFieldUpdateManyDataEmail$Outbound & { type: "EMAIL" })
+  | (EnvelopeFieldUpdateManyDataDate$Outbound & { type: "DATE" })
+  | (EnvelopeFieldUpdateManyDataText$Outbound & { type: "TEXT" })
+  | (EnvelopeFieldUpdateManyDataNumber$Outbound & { type: "NUMBER" })
+  | (EnvelopeFieldUpdateManyDataRadio$Outbound & { type: "RADIO" })
+  | (EnvelopeFieldUpdateManyDataCheckbox$Outbound & { type: "CHECKBOX" })
+  | (EnvelopeFieldUpdateManyDataDropdown$Outbound & { type: "DROPDOWN" });
 
 /** @internal */
 export const EnvelopeFieldUpdateManyDataUnion$outboundSchema: z.ZodType<
@@ -2889,17 +2915,39 @@ export const EnvelopeFieldUpdateManyDataUnion$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EnvelopeFieldUpdateManyDataUnion
 > = z.union([
-  z.lazy(() => EnvelopeFieldUpdateManyDataSignature$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataFreeSignature$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataInitials$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataName$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataEmail$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataDate$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataText$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataNumber$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataRadio$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataCheckbox$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataDropdown$outboundSchema),
+  z.lazy(() => EnvelopeFieldUpdateManyDataSignature$outboundSchema).and(
+    z.object({ type: z.literal("SIGNATURE") }),
+  ),
+  z.lazy(() => EnvelopeFieldUpdateManyDataFreeSignature$outboundSchema).and(
+    z.object({ type: z.literal("FREE_SIGNATURE") }),
+  ),
+  z.lazy(() => EnvelopeFieldUpdateManyDataInitials$outboundSchema).and(
+    z.object({ type: z.literal("INITIALS") }),
+  ),
+  z.lazy(() => EnvelopeFieldUpdateManyDataName$outboundSchema).and(
+    z.object({ type: z.literal("NAME") }),
+  ),
+  z.lazy(() => EnvelopeFieldUpdateManyDataEmail$outboundSchema).and(
+    z.object({ type: z.literal("EMAIL") }),
+  ),
+  z.lazy(() => EnvelopeFieldUpdateManyDataDate$outboundSchema).and(
+    z.object({ type: z.literal("DATE") }),
+  ),
+  z.lazy(() => EnvelopeFieldUpdateManyDataText$outboundSchema).and(
+    z.object({ type: z.literal("TEXT") }),
+  ),
+  z.lazy(() => EnvelopeFieldUpdateManyDataNumber$outboundSchema).and(
+    z.object({ type: z.literal("NUMBER") }),
+  ),
+  z.lazy(() => EnvelopeFieldUpdateManyDataRadio$outboundSchema).and(
+    z.object({ type: z.literal("RADIO") }),
+  ),
+  z.lazy(() => EnvelopeFieldUpdateManyDataCheckbox$outboundSchema).and(
+    z.object({ type: z.literal("CHECKBOX") }),
+  ),
+  z.lazy(() => EnvelopeFieldUpdateManyDataDropdown$outboundSchema).and(
+    z.object({ type: z.literal("DROPDOWN") }),
+  ),
 ]);
 
 export function envelopeFieldUpdateManyDataUnionToJSON(
@@ -2930,17 +2978,39 @@ export const EnvelopeFieldUpdateManyRequest$inboundSchema: z.ZodType<
   envelopeId: z.string(),
   data: z.array(
     z.union([
-      z.lazy(() => EnvelopeFieldUpdateManyDataSignature$inboundSchema),
-      z.lazy(() => EnvelopeFieldUpdateManyDataFreeSignature$inboundSchema),
-      z.lazy(() => EnvelopeFieldUpdateManyDataInitials$inboundSchema),
-      z.lazy(() => EnvelopeFieldUpdateManyDataName$inboundSchema),
-      z.lazy(() => EnvelopeFieldUpdateManyDataEmail$inboundSchema),
-      z.lazy(() => EnvelopeFieldUpdateManyDataDate$inboundSchema),
-      z.lazy(() => EnvelopeFieldUpdateManyDataText$inboundSchema),
-      z.lazy(() => EnvelopeFieldUpdateManyDataNumber$inboundSchema),
-      z.lazy(() => EnvelopeFieldUpdateManyDataRadio$inboundSchema),
-      z.lazy(() => EnvelopeFieldUpdateManyDataCheckbox$inboundSchema),
-      z.lazy(() => EnvelopeFieldUpdateManyDataDropdown$inboundSchema),
+      z.lazy(() => EnvelopeFieldUpdateManyDataSignature$inboundSchema).and(
+        z.object({ type: z.literal("SIGNATURE") }),
+      ),
+      z.lazy(() => EnvelopeFieldUpdateManyDataFreeSignature$inboundSchema).and(
+        z.object({ type: z.literal("FREE_SIGNATURE") }),
+      ),
+      z.lazy(() => EnvelopeFieldUpdateManyDataInitials$inboundSchema).and(
+        z.object({ type: z.literal("INITIALS") }),
+      ),
+      z.lazy(() => EnvelopeFieldUpdateManyDataName$inboundSchema).and(
+        z.object({ type: z.literal("NAME") }),
+      ),
+      z.lazy(() => EnvelopeFieldUpdateManyDataEmail$inboundSchema).and(
+        z.object({ type: z.literal("EMAIL") }),
+      ),
+      z.lazy(() => EnvelopeFieldUpdateManyDataDate$inboundSchema).and(
+        z.object({ type: z.literal("DATE") }),
+      ),
+      z.lazy(() => EnvelopeFieldUpdateManyDataText$inboundSchema).and(
+        z.object({ type: z.literal("TEXT") }),
+      ),
+      z.lazy(() => EnvelopeFieldUpdateManyDataNumber$inboundSchema).and(
+        z.object({ type: z.literal("NUMBER") }),
+      ),
+      z.lazy(() => EnvelopeFieldUpdateManyDataRadio$inboundSchema).and(
+        z.object({ type: z.literal("RADIO") }),
+      ),
+      z.lazy(() => EnvelopeFieldUpdateManyDataCheckbox$inboundSchema).and(
+        z.object({ type: z.literal("CHECKBOX") }),
+      ),
+      z.lazy(() => EnvelopeFieldUpdateManyDataDropdown$inboundSchema).and(
+        z.object({ type: z.literal("DROPDOWN") }),
+      ),
     ]),
   ),
 });
@@ -2948,17 +3018,19 @@ export const EnvelopeFieldUpdateManyRequest$inboundSchema: z.ZodType<
 export type EnvelopeFieldUpdateManyRequest$Outbound = {
   envelopeId: string;
   data: Array<
-    | EnvelopeFieldUpdateManyDataSignature$Outbound
-    | EnvelopeFieldUpdateManyDataFreeSignature$Outbound
-    | EnvelopeFieldUpdateManyDataInitials$Outbound
-    | EnvelopeFieldUpdateManyDataName$Outbound
-    | EnvelopeFieldUpdateManyDataEmail$Outbound
-    | EnvelopeFieldUpdateManyDataDate$Outbound
-    | EnvelopeFieldUpdateManyDataText$Outbound
-    | EnvelopeFieldUpdateManyDataNumber$Outbound
-    | EnvelopeFieldUpdateManyDataRadio$Outbound
-    | EnvelopeFieldUpdateManyDataCheckbox$Outbound
-    | EnvelopeFieldUpdateManyDataDropdown$Outbound
+    | (EnvelopeFieldUpdateManyDataSignature$Outbound & { type: "SIGNATURE" })
+    | (EnvelopeFieldUpdateManyDataFreeSignature$Outbound & {
+      type: "FREE_SIGNATURE";
+    })
+    | (EnvelopeFieldUpdateManyDataInitials$Outbound & { type: "INITIALS" })
+    | (EnvelopeFieldUpdateManyDataName$Outbound & { type: "NAME" })
+    | (EnvelopeFieldUpdateManyDataEmail$Outbound & { type: "EMAIL" })
+    | (EnvelopeFieldUpdateManyDataDate$Outbound & { type: "DATE" })
+    | (EnvelopeFieldUpdateManyDataText$Outbound & { type: "TEXT" })
+    | (EnvelopeFieldUpdateManyDataNumber$Outbound & { type: "NUMBER" })
+    | (EnvelopeFieldUpdateManyDataRadio$Outbound & { type: "RADIO" })
+    | (EnvelopeFieldUpdateManyDataCheckbox$Outbound & { type: "CHECKBOX" })
+    | (EnvelopeFieldUpdateManyDataDropdown$Outbound & { type: "DROPDOWN" })
   >;
 };
 
@@ -2971,17 +3043,39 @@ export const EnvelopeFieldUpdateManyRequest$outboundSchema: z.ZodType<
   envelopeId: z.string(),
   data: z.array(
     z.union([
-      z.lazy(() => EnvelopeFieldUpdateManyDataSignature$outboundSchema),
-      z.lazy(() => EnvelopeFieldUpdateManyDataFreeSignature$outboundSchema),
-      z.lazy(() => EnvelopeFieldUpdateManyDataInitials$outboundSchema),
-      z.lazy(() => EnvelopeFieldUpdateManyDataName$outboundSchema),
-      z.lazy(() => EnvelopeFieldUpdateManyDataEmail$outboundSchema),
-      z.lazy(() => EnvelopeFieldUpdateManyDataDate$outboundSchema),
-      z.lazy(() => EnvelopeFieldUpdateManyDataText$outboundSchema),
-      z.lazy(() => EnvelopeFieldUpdateManyDataNumber$outboundSchema),
-      z.lazy(() => EnvelopeFieldUpdateManyDataRadio$outboundSchema),
-      z.lazy(() => EnvelopeFieldUpdateManyDataCheckbox$outboundSchema),
-      z.lazy(() => EnvelopeFieldUpdateManyDataDropdown$outboundSchema),
+      z.lazy(() => EnvelopeFieldUpdateManyDataSignature$outboundSchema).and(
+        z.object({ type: z.literal("SIGNATURE") }),
+      ),
+      z.lazy(() => EnvelopeFieldUpdateManyDataFreeSignature$outboundSchema).and(
+        z.object({ type: z.literal("FREE_SIGNATURE") }),
+      ),
+      z.lazy(() => EnvelopeFieldUpdateManyDataInitials$outboundSchema).and(
+        z.object({ type: z.literal("INITIALS") }),
+      ),
+      z.lazy(() => EnvelopeFieldUpdateManyDataName$outboundSchema).and(
+        z.object({ type: z.literal("NAME") }),
+      ),
+      z.lazy(() => EnvelopeFieldUpdateManyDataEmail$outboundSchema).and(
+        z.object({ type: z.literal("EMAIL") }),
+      ),
+      z.lazy(() => EnvelopeFieldUpdateManyDataDate$outboundSchema).and(
+        z.object({ type: z.literal("DATE") }),
+      ),
+      z.lazy(() => EnvelopeFieldUpdateManyDataText$outboundSchema).and(
+        z.object({ type: z.literal("TEXT") }),
+      ),
+      z.lazy(() => EnvelopeFieldUpdateManyDataNumber$outboundSchema).and(
+        z.object({ type: z.literal("NUMBER") }),
+      ),
+      z.lazy(() => EnvelopeFieldUpdateManyDataRadio$outboundSchema).and(
+        z.object({ type: z.literal("RADIO") }),
+      ),
+      z.lazy(() => EnvelopeFieldUpdateManyDataCheckbox$outboundSchema).and(
+        z.object({ type: z.literal("CHECKBOX") }),
+      ),
+      z.lazy(() => EnvelopeFieldUpdateManyDataDropdown$outboundSchema).and(
+        z.object({ type: z.literal("DROPDOWN") }),
+      ),
     ]),
   ),
 });
@@ -4106,29 +4200,54 @@ export const EnvelopeFieldUpdateManyFieldMetaUnion$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaSignatureResponse$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaInitialsResponse$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaNameResponse$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaEmailResponse$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaDateResponse$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaTextResponse$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaNumberResponse$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaRadioResponse$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaCheckboxResponse$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaDropdownResponse$inboundSchema),
+  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaSignatureResponse$inboundSchema)
+    .and(z.object({ type: z.literal("signature") })),
+  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaInitialsResponse$inboundSchema)
+    .and(z.object({ type: z.literal("initials") })),
+  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaNameResponse$inboundSchema).and(
+    z.object({ type: z.literal("name") }),
+  ),
+  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaEmailResponse$inboundSchema).and(
+    z.object({ type: z.literal("email") }),
+  ),
+  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaDateResponse$inboundSchema).and(
+    z.object({ type: z.literal("date") }),
+  ),
+  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaTextResponse$inboundSchema).and(
+    z.object({ type: z.literal("text") }),
+  ),
+  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaNumberResponse$inboundSchema)
+    .and(z.object({ type: z.literal("number") })),
+  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaRadioResponse$inboundSchema).and(
+    z.object({ type: z.literal("radio") }),
+  ),
+  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaCheckboxResponse$inboundSchema)
+    .and(z.object({ type: z.literal("checkbox") })),
+  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaDropdownResponse$inboundSchema)
+    .and(z.object({ type: z.literal("dropdown") })),
 ]);
 /** @internal */
 export type EnvelopeFieldUpdateManyFieldMetaUnion$Outbound =
-  | EnvelopeFieldUpdateManyFieldMetaSignatureResponse$Outbound
-  | EnvelopeFieldUpdateManyFieldMetaInitialsResponse$Outbound
-  | EnvelopeFieldUpdateManyFieldMetaNameResponse$Outbound
-  | EnvelopeFieldUpdateManyFieldMetaEmailResponse$Outbound
-  | EnvelopeFieldUpdateManyFieldMetaDateResponse$Outbound
-  | EnvelopeFieldUpdateManyFieldMetaTextResponse$Outbound
-  | EnvelopeFieldUpdateManyFieldMetaNumberResponse$Outbound
-  | EnvelopeFieldUpdateManyFieldMetaRadioResponse$Outbound
-  | EnvelopeFieldUpdateManyFieldMetaCheckboxResponse$Outbound
-  | EnvelopeFieldUpdateManyFieldMetaDropdownResponse$Outbound;
+  | (EnvelopeFieldUpdateManyFieldMetaSignatureResponse$Outbound & {
+    type: "signature";
+  })
+  | (EnvelopeFieldUpdateManyFieldMetaInitialsResponse$Outbound & {
+    type: "initials";
+  })
+  | (EnvelopeFieldUpdateManyFieldMetaNameResponse$Outbound & { type: "name" })
+  | (EnvelopeFieldUpdateManyFieldMetaEmailResponse$Outbound & { type: "email" })
+  | (EnvelopeFieldUpdateManyFieldMetaDateResponse$Outbound & { type: "date" })
+  | (EnvelopeFieldUpdateManyFieldMetaTextResponse$Outbound & { type: "text" })
+  | (EnvelopeFieldUpdateManyFieldMetaNumberResponse$Outbound & {
+    type: "number";
+  })
+  | (EnvelopeFieldUpdateManyFieldMetaRadioResponse$Outbound & { type: "radio" })
+  | (EnvelopeFieldUpdateManyFieldMetaCheckboxResponse$Outbound & {
+    type: "checkbox";
+  })
+  | (EnvelopeFieldUpdateManyFieldMetaDropdownResponse$Outbound & {
+    type: "dropdown";
+  });
 
 /** @internal */
 export const EnvelopeFieldUpdateManyFieldMetaUnion$outboundSchema: z.ZodType<
@@ -4136,18 +4255,29 @@ export const EnvelopeFieldUpdateManyFieldMetaUnion$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EnvelopeFieldUpdateManyFieldMetaUnion
 > = z.union([
-  z.lazy(() =>
-    EnvelopeFieldUpdateManyFieldMetaSignatureResponse$outboundSchema
+  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaSignatureResponse$outboundSchema)
+    .and(z.object({ type: z.literal("signature") })),
+  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaInitialsResponse$outboundSchema)
+    .and(z.object({ type: z.literal("initials") })),
+  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaNameResponse$outboundSchema).and(
+    z.object({ type: z.literal("name") }),
   ),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaInitialsResponse$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaNameResponse$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaEmailResponse$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaDateResponse$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaTextResponse$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaNumberResponse$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaRadioResponse$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaCheckboxResponse$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaDropdownResponse$outboundSchema),
+  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaEmailResponse$outboundSchema)
+    .and(z.object({ type: z.literal("email") })),
+  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaDateResponse$outboundSchema).and(
+    z.object({ type: z.literal("date") }),
+  ),
+  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaTextResponse$outboundSchema).and(
+    z.object({ type: z.literal("text") }),
+  ),
+  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaNumberResponse$outboundSchema)
+    .and(z.object({ type: z.literal("number") })),
+  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaRadioResponse$outboundSchema)
+    .and(z.object({ type: z.literal("radio") })),
+  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaCheckboxResponse$outboundSchema)
+    .and(z.object({ type: z.literal("checkbox") })),
+  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaDropdownResponse$outboundSchema)
+    .and(z.object({ type: z.literal("dropdown") })),
 ]);
 
 export function envelopeFieldUpdateManyFieldMetaUnionToJSON(
@@ -4193,24 +4323,28 @@ export const EnvelopeFieldUpdateManyDataResponse$inboundSchema: z.ZodType<
     z.union([
       z.lazy(() =>
         EnvelopeFieldUpdateManyFieldMetaSignatureResponse$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("signature") })),
       z.lazy(() =>
         EnvelopeFieldUpdateManyFieldMetaInitialsResponse$inboundSchema
-      ),
-      z.lazy(() => EnvelopeFieldUpdateManyFieldMetaNameResponse$inboundSchema),
-      z.lazy(() => EnvelopeFieldUpdateManyFieldMetaEmailResponse$inboundSchema),
-      z.lazy(() => EnvelopeFieldUpdateManyFieldMetaDateResponse$inboundSchema),
-      z.lazy(() => EnvelopeFieldUpdateManyFieldMetaTextResponse$inboundSchema),
-      z.lazy(() =>
-        EnvelopeFieldUpdateManyFieldMetaNumberResponse$inboundSchema
-      ),
-      z.lazy(() => EnvelopeFieldUpdateManyFieldMetaRadioResponse$inboundSchema),
+      ).and(z.object({ type: z.literal("initials") })),
+      z.lazy(() => EnvelopeFieldUpdateManyFieldMetaNameResponse$inboundSchema)
+        .and(z.object({ type: z.literal("name") })),
+      z.lazy(() => EnvelopeFieldUpdateManyFieldMetaEmailResponse$inboundSchema)
+        .and(z.object({ type: z.literal("email") })),
+      z.lazy(() => EnvelopeFieldUpdateManyFieldMetaDateResponse$inboundSchema)
+        .and(z.object({ type: z.literal("date") })),
+      z.lazy(() => EnvelopeFieldUpdateManyFieldMetaTextResponse$inboundSchema)
+        .and(z.object({ type: z.literal("text") })),
+      z.lazy(() => EnvelopeFieldUpdateManyFieldMetaNumberResponse$inboundSchema)
+        .and(z.object({ type: z.literal("number") })),
+      z.lazy(() => EnvelopeFieldUpdateManyFieldMetaRadioResponse$inboundSchema)
+        .and(z.object({ type: z.literal("radio") })),
       z.lazy(() =>
         EnvelopeFieldUpdateManyFieldMetaCheckboxResponse$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("checkbox") })),
       z.lazy(() =>
         EnvelopeFieldUpdateManyFieldMetaDropdownResponse$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("dropdown") })),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),
@@ -4232,16 +4366,30 @@ export type EnvelopeFieldUpdateManyDataResponse$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | EnvelopeFieldUpdateManyFieldMetaSignatureResponse$Outbound
-    | EnvelopeFieldUpdateManyFieldMetaInitialsResponse$Outbound
-    | EnvelopeFieldUpdateManyFieldMetaNameResponse$Outbound
-    | EnvelopeFieldUpdateManyFieldMetaEmailResponse$Outbound
-    | EnvelopeFieldUpdateManyFieldMetaDateResponse$Outbound
-    | EnvelopeFieldUpdateManyFieldMetaTextResponse$Outbound
-    | EnvelopeFieldUpdateManyFieldMetaNumberResponse$Outbound
-    | EnvelopeFieldUpdateManyFieldMetaRadioResponse$Outbound
-    | EnvelopeFieldUpdateManyFieldMetaCheckboxResponse$Outbound
-    | EnvelopeFieldUpdateManyFieldMetaDropdownResponse$Outbound
+    | (EnvelopeFieldUpdateManyFieldMetaSignatureResponse$Outbound & {
+      type: "signature";
+    })
+    | (EnvelopeFieldUpdateManyFieldMetaInitialsResponse$Outbound & {
+      type: "initials";
+    })
+    | (EnvelopeFieldUpdateManyFieldMetaNameResponse$Outbound & { type: "name" })
+    | (EnvelopeFieldUpdateManyFieldMetaEmailResponse$Outbound & {
+      type: "email";
+    })
+    | (EnvelopeFieldUpdateManyFieldMetaDateResponse$Outbound & { type: "date" })
+    | (EnvelopeFieldUpdateManyFieldMetaTextResponse$Outbound & { type: "text" })
+    | (EnvelopeFieldUpdateManyFieldMetaNumberResponse$Outbound & {
+      type: "number";
+    })
+    | (EnvelopeFieldUpdateManyFieldMetaRadioResponse$Outbound & {
+      type: "radio";
+    })
+    | (EnvelopeFieldUpdateManyFieldMetaCheckboxResponse$Outbound & {
+      type: "checkbox";
+    })
+    | (EnvelopeFieldUpdateManyFieldMetaDropdownResponse$Outbound & {
+      type: "dropdown";
+    })
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -4270,28 +4418,29 @@ export const EnvelopeFieldUpdateManyDataResponse$outboundSchema: z.ZodType<
     z.union([
       z.lazy(() =>
         EnvelopeFieldUpdateManyFieldMetaSignatureResponse$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("signature") })),
       z.lazy(() =>
         EnvelopeFieldUpdateManyFieldMetaInitialsResponse$outboundSchema
-      ),
-      z.lazy(() => EnvelopeFieldUpdateManyFieldMetaNameResponse$outboundSchema),
-      z.lazy(() =>
-        EnvelopeFieldUpdateManyFieldMetaEmailResponse$outboundSchema
-      ),
-      z.lazy(() => EnvelopeFieldUpdateManyFieldMetaDateResponse$outboundSchema),
-      z.lazy(() => EnvelopeFieldUpdateManyFieldMetaTextResponse$outboundSchema),
+      ).and(z.object({ type: z.literal("initials") })),
+      z.lazy(() => EnvelopeFieldUpdateManyFieldMetaNameResponse$outboundSchema)
+        .and(z.object({ type: z.literal("name") })),
+      z.lazy(() => EnvelopeFieldUpdateManyFieldMetaEmailResponse$outboundSchema)
+        .and(z.object({ type: z.literal("email") })),
+      z.lazy(() => EnvelopeFieldUpdateManyFieldMetaDateResponse$outboundSchema)
+        .and(z.object({ type: z.literal("date") })),
+      z.lazy(() => EnvelopeFieldUpdateManyFieldMetaTextResponse$outboundSchema)
+        .and(z.object({ type: z.literal("text") })),
       z.lazy(() =>
         EnvelopeFieldUpdateManyFieldMetaNumberResponse$outboundSchema
-      ),
-      z.lazy(() =>
-        EnvelopeFieldUpdateManyFieldMetaRadioResponse$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("number") })),
+      z.lazy(() => EnvelopeFieldUpdateManyFieldMetaRadioResponse$outboundSchema)
+        .and(z.object({ type: z.literal("radio") })),
       z.lazy(() =>
         EnvelopeFieldUpdateManyFieldMetaCheckboxResponse$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("checkbox") })),
       z.lazy(() =>
         EnvelopeFieldUpdateManyFieldMetaDropdownResponse$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("dropdown") })),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),

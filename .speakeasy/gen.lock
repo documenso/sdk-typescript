@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 2f28b0c4-e21c-47c4-aada-41da1a74c452
 management:
-  docChecksum: 116ba7919361be146e055162b18f18c5
+  docChecksum: 43164180bf606b18dd819e2a0d08ac75
   docVersion: 1.0.0
-  speakeasyVersion: 1.654.0
-  generationVersion: 2.750.0
-  releaseVersion: 0.5.0
-  configChecksum: 031f5a929f41512854fdb1c37fc90ec4
+  speakeasyVersion: 1.662.0
+  generationVersion: 2.763.3
+  releaseVersion: 0.5.1
+  configChecksum: b181ee3488a59110cda1b0f013810a7c
   repoURL: https://github.com/documenso/sdk-typescript.git
   installationURL: https://github.com/documenso/sdk-typescript
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.26.5
+    core: 3.26.10
     defaultEnabledRetries: 0.1.0
     enumUnions: 0.1.0
     enums: 2.83.0
@@ -1167,8 +1167,10 @@ generatedFiles:
   - docs/models/operations/envelopedistributeemailsettings.md
   - docs/models/operations/envelopedistributelanguage.md
   - docs/models/operations/envelopedistributemeta.md
+  - docs/models/operations/envelopedistributerecipient.md
   - docs/models/operations/envelopedistributerequest.md
   - docs/models/operations/envelopedistributeresponse.md
+  - docs/models/operations/envelopedistributerole.md
   - docs/models/operations/envelopeduplicaterequest.md
   - docs/models/operations/envelopeduplicateresponse.md
   - docs/models/operations/envelopefieldcreatemanydatacheckbox.md
@@ -1550,8 +1552,10 @@ generatedFiles:
   - docs/models/operations/enveloperecipientupdatemanyroleresponse.md
   - docs/models/operations/enveloperecipientupdatemanysendstatus.md
   - docs/models/operations/enveloperecipientupdatemanysigningstatus.md
+  - docs/models/operations/enveloperedistributerecipient.md
   - docs/models/operations/enveloperedistributerequest.md
   - docs/models/operations/enveloperedistributeresponse.md
+  - docs/models/operations/enveloperedistributerole.md
   - docs/models/operations/envelopeupdateauthoptions.md
   - docs/models/operations/envelopeupdatedata.md
   - docs/models/operations/envelopeupdatedataglobalaccessauth.md
@@ -1581,7 +1585,9 @@ generatedFiles:
   - docs/models/operations/envelopeusefile.md
   - docs/models/operations/envelopeuseidentifier.md
   - docs/models/operations/envelopeuselanguage.md
+  - docs/models/operations/envelopeuseoverride.md
   - docs/models/operations/envelopeusepayload.md
+  - docs/models/operations/envelopeusepayloadrecipient.md
   - docs/models/operations/envelopeuseprefillfieldcheckbox.md
   - docs/models/operations/envelopeuseprefillfielddate.md
   - docs/models/operations/envelopeuseprefillfielddropdown.md
@@ -1589,9 +1595,10 @@ generatedFiles:
   - docs/models/operations/envelopeuseprefillfieldradio.md
   - docs/models/operations/envelopeuseprefillfieldtext.md
   - docs/models/operations/envelopeuseprefillfieldunion.md
-  - docs/models/operations/envelopeuserecipient.md
+  - docs/models/operations/envelopeuserecipientresponse.md
   - docs/models/operations/envelopeuserequest.md
   - docs/models/operations/envelopeuseresponse.md
+  - docs/models/operations/envelopeuserole.md
   - docs/models/operations/envelopeusetypecheckbox.md
   - docs/models/operations/envelopeusetypedate.md
   - docs/models/operations/envelopeusetypedropdown.md
@@ -2456,7 +2463,6 @@ generatedFiles:
   - docs/models/operations/folderupdatefoldervisibilityresponse.md
   - docs/models/operations/orderbycolumn.md
   - docs/models/operations/orderbydirection.md
-  - docs/models/operations/override.md
   - docs/models/operations/queryparamsource.md
   - docs/models/operations/queryparamstatus.md
   - docs/models/operations/recipientcreatedocumentrecipientaccessauthrequest.md
@@ -2808,15 +2814,17 @@ generatedFiles:
   - docs/models/operations/template.md
   - docs/models/operations/templatecreatedocumentfromtemplateaccessauth.md
   - docs/models/operations/templatecreatedocumentfromtemplateactionauth.md
+  - docs/models/operations/templatecreatedocumentfromtemplateattachment.md
   - docs/models/operations/templatecreatedocumentfromtemplateauthoptions.md
   - docs/models/operations/templatecreatedocumentfromtemplatecustomdocumentdatum.md
+  - docs/models/operations/templatecreatedocumentfromtemplatedateformat.md
   - docs/models/operations/templatecreatedocumentfromtemplatedirection1.md
   - docs/models/operations/templatecreatedocumentfromtemplatedirection2.md
-  - docs/models/operations/templatecreatedocumentfromtemplatedistributionmethod.md
   - docs/models/operations/templatecreatedocumentfromtemplatedocumentdata.md
   - docs/models/operations/templatecreatedocumentfromtemplatedocumentdatatype.md
   - docs/models/operations/templatecreatedocumentfromtemplatedocumentmeta.md
-  - docs/models/operations/templatecreatedocumentfromtemplateemailsettings.md
+  - docs/models/operations/templatecreatedocumentfromtemplatedocumentmetadistributionmethod.md
+  - docs/models/operations/templatecreatedocumentfromtemplatedocumentmetaemailsettings.md
   - docs/models/operations/templatecreatedocumentfromtemplateenvelopeitem.md
   - docs/models/operations/templatecreatedocumentfromtemplatefield.md
   - docs/models/operations/templatecreatedocumentfromtemplatefieldmetacheckbox.md
@@ -2843,6 +2851,10 @@ generatedFiles:
   - docs/models/operations/templatecreatedocumentfromtemplateformvalues.md
   - docs/models/operations/templatecreatedocumentfromtemplateglobalaccessauth.md
   - docs/models/operations/templatecreatedocumentfromtemplateglobalactionauth.md
+  - docs/models/operations/templatecreatedocumentfromtemplatelanguage.md
+  - docs/models/operations/templatecreatedocumentfromtemplateoverride.md
+  - docs/models/operations/templatecreatedocumentfromtemplateoverridedistributionmethod.md
+  - docs/models/operations/templatecreatedocumentfromtemplateoverrideemailsettings.md
   - docs/models/operations/templatecreatedocumentfromtemplateprefillfieldcheckbox.md
   - docs/models/operations/templatecreatedocumentfromtemplateprefillfielddate.md
   - docs/models/operations/templatecreatedocumentfromtemplateprefillfielddropdown.md
@@ -2876,6 +2888,7 @@ generatedFiles:
   - docs/models/operations/templatecreatedocumentfromtemplatetextalign6.md
   - docs/models/operations/templatecreatedocumentfromtemplatetypeemail.md
   - docs/models/operations/templatecreatedocumentfromtemplatetypeinitials.md
+  - docs/models/operations/templatecreatedocumentfromtemplatetypelink.md
   - docs/models/operations/templatecreatedocumentfromtemplatetypename.md
   - docs/models/operations/templatecreatedocumentfromtemplatetypesignature.md
   - docs/models/operations/templatecreatedocumentfromtemplatevalue1.md
@@ -3544,6 +3557,7 @@ generatedFiles:
   - src/types/operations.ts
   - src/types/rfcdate.ts
   - src/types/streams.ts
+  - src/types/unrecognized.ts
   - tsconfig.json
 examples:
   document-findDocuments:
@@ -4388,10 +4402,10 @@ examples:
   envelope-use:
     speakeasy-default-envelope-use:
       requestBody:
-        multipart/form-data: {"payload": {"envelopeId": "<id>", "recipients": []}}
+        multipart/form-data: {"payload": {"envelopeId": "<id>"}}
       responses:
         "200":
-          application/json: {"id": "<id>"}
+          application/json: {"id": "<id>", "recipients": []}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "401":
@@ -4451,7 +4465,7 @@ examples:
         application/json: {"envelopeId": "<id>"}
       responses:
         "200":
-          application/json: {"success": false}
+          application/json: {"success": false, "id": "<id>", "recipients": [{"id": 9754.11, "name": "<value>", "email": "Jennie_Kuphal@hotmail.com", "token": "<value>", "role": "CC", "signingOrder": 3303.07, "signingUrl": "https://superb-other.name/"}]}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "401":
@@ -4466,7 +4480,7 @@ examples:
         application/json: {"envelopeId": "<id>", "recipients": []}
       responses:
         "200":
-          application/json: {"success": false}
+          application/json: {"success": false, "id": "<id>", "recipients": []}
         "400":
           application/json: {"message": "<value>", "code": "<value>"}
         "401":
@@ -4904,4 +4918,4 @@ examples:
           application/json: {"message": "<value>", "code": "<value>"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Typescript SDK Changes Detected:\n* `documenso.envelopes.get()`: **Added**\n* `documenso.envelopes.create()`: **Added**\n* `documenso.envelopes.use()`: **Added**\n* `documenso.envelopes.update()`: **Added**\n* `documenso.envelopes.delete()`: **Added**\n* `documenso.envelopes.duplicate()`: **Added**\n* `documenso.envelopes.distribute()`: **Added**\n* `documenso.envelopes.redistribute()`: **Added**\n* `documenso.envelopes.attachments.find()`: **Added**\n* `documenso.envelopes.attachments.create()`: **Added**\n* `documenso.envelopes.attachments.update()`: **Added**\n* `documenso.envelopes.attachments.delete()`: **Added**\n* `documenso.envelopes.items.createMany()`: **Added**\n* `documenso.envelopes.items.updateMany()`: **Added**\n* `documenso.envelopes.items.delete()`: **Added**\n* `documenso.envelopes.items.download()`: **Added**\n* `documenso.envelopes.recipients.get()`: **Added**\n* `documenso.envelopes.recipients.createMany()`: **Added**\n* `documenso.envelopes.recipients.updateMany()`: **Added**\n* `documenso.envelopes.recipients.delete()`: **Added**\n* `documenso.envelopes.fields.get()`: **Added**\n* `documenso.envelopes.fields.createMany()`: **Added**\n* `documenso.envelopes.fields.updateMany()`: **Added**\n* `documenso.envelopes.fields.delete()`: **Added**\n* `documenso.documents.create()`: **Added**\n* `documenso.documents.download()`: **Added**\n* `documenso.documents.attachments.create()`: **Added**\n* `documenso.documents.attachments.update()`: **Added**\n* `documenso.documents.attachments.delete()`: **Added**\n* `documenso.documents.attachments.find()`: **Added**\n* `documenso.document.documentDownload()`: **Added**\n* `documenso.templates.create()`: **Added**\n* `documenso.folders.find()`: **Added**\n* `documenso.folders.create()`: **Added**\n* `documenso.folders.update()`: **Added**\n* `documenso.folders.delete()`: **Added**\n* `documenso.document.documentDownload()`: **Deleted** **Breaking** :warning:\n* `documenso.documents.get()`: \n  *  `response` **Changed**\n  *  `error` **Changed**\n* `documenso.documents.find()`: \n  *  `response.data.[].internalVersion` **Added**\n  *  `error` **Changed**\n* `documenso.documents.update()`: \n  *  `response.internalversion` **Added**\n  *  `error` **Changed**\n* `documenso.documents.delete()`:  `error` **Changed**\n* `documenso.documents.duplicate()`:  `error` **Changed**\n* `documenso.documents.distribute()`: \n  *  `response.internalversion` **Added**\n  *  `error` **Changed**\n* `documenso.documents.redistribute()`:  `error` **Changed**\n* `documenso.documents.createV0()`: \n  *  `request` **Changed**\n  *  `response.document` **Changed**\n  *  `error` **Changed**\n* `documenso.documents.fields.get()`: \n  *  `response` **Changed**\n  *  `error` **Changed**\n* `documenso.documents.fields.create()`: \n  *  `request.field.[class].fieldMeta` **Changed**\n  *  `response` **Changed**\n  *  `error` **Changed**\n* `documenso.documents.fields.createMany()`: \n  *  `request.fields.[].[class].fieldMeta` **Changed**\n  *  `response.fields.[]` **Changed**\n  *  `error` **Changed**\n* `documenso.documents.fields.update()`: \n  *  `request.field.[class].fieldMeta` **Changed**\n  *  `response` **Changed**\n  *  `error` **Changed**\n* `documenso.documents.fields.updateMany()`: \n  *  `request.fields.[].[class].fieldMeta` **Changed**\n  *  `response.fields.[]` **Changed**\n  *  `error` **Changed**\n* `documenso.documents.fields.delete()`:  `error` **Changed**\n* `documenso.documents.recipients.get()`: \n  *  `response.fields.[]` **Changed**\n  *  `error` **Changed**\n* `documenso.documents.recipients.create()`:  `error` **Changed**\n* `documenso.documents.recipients.createMany()`:  `error` **Changed**\n* `documenso.documents.recipients.update()`: \n  *  `response.fields.[]` **Changed**\n  *  `error` **Changed**\n* `documenso.documents.recipients.updateMany()`: \n  *  `response.recipients.[].fields.[]` **Changed**\n  *  `error` **Changed**\n* `documenso.documents.recipients.delete()`:  `error` **Changed**\n* `documenso.templates.find()`: \n  *  `response.data.[].fields.[]` **Changed**\n  *  `error` **Changed**\n* `documenso.templates.get()`: \n  *  `response` **Changed**\n  *  `error` **Changed**\n* `documenso.templates.update()`:  `error` **Changed**\n* `documenso.templates.duplicate()`:  `error` **Changed**\n* `documenso.templates.delete()`:  `error` **Changed**\n* `documenso.templates.use()`: \n  *  `response` **Changed**\n  *  `error` **Changed**\n* `documenso.templates.fields.create()`: \n  *  `request.field.[class].fieldMeta` **Changed**\n  *  `response` **Changed**\n  *  `error` **Changed**\n* `documenso.templates.fields.get()`: \n  *  `response` **Changed**\n  *  `error` **Changed**\n* `documenso.templates.fields.createMany()`: \n  *  `request.fields.[].[class].fieldMeta` **Changed**\n  *  `response.fields.[]` **Changed**\n  *  `error` **Changed**\n* `documenso.templates.fields.update()`: \n  *  `request.field.[class].fieldMeta` **Changed**\n  *  `response` **Changed**\n  *  `error` **Changed**\n* `documenso.templates.fields.updateMany()`: \n  *  `request.fields.[].[class].fieldMeta` **Changed**\n  *  `response.fields.[]` **Changed**\n  *  `error` **Changed**\n* `documenso.templates.fields.delete()`:  `error` **Changed**\n* `documenso.templates.recipients.get()`: \n  *  `response.fields.[]` **Changed**\n  *  `error` **Changed**\n* `documenso.templates.recipients.create()`:  `error` **Changed**\n* `documenso.templates.recipients.createMany()`:  `error` **Changed**\n* `documenso.templates.recipients.update()`: \n  *  `response.fields.[]` **Changed**\n  *  `error` **Changed**\n* `documenso.templates.recipients.updateMany()`: \n  *  `response.recipients.[].fields.[]` **Changed**\n  *  `error` **Changed**\n* `documenso.templates.recipients.delete()`:  `error` **Changed**\n* `documenso.templates.directLink.create()`:  `error` **Changed**\n* `documenso.templates.directLink.delete()`:  `error` **Changed**\n* `documenso.templates.directLink.toggle()`:  `error` **Changed**\n* `documenso.template.templateCreateTemplateTemporary()`: \n  *  `request.attachments` **Added**\n  *  `response.template` **Changed**\n  *  `error` **Changed**\n* `documenso.embedding.embeddingPresignCreateEmbeddingPresignToken()`:  `error` **Changed**\n* `documenso.embedding.embeddingPresignVerifyEmbeddingPresignToken()`:  `error` **Changed**\n"
+releaseNotes: "## Typescript SDK Changes Detected:\n* `documenso.envelopes.create()`: \n  *  `request.payload` **Changed**\n* `documenso.envelopes.use()`: \n  *  `request.payload` **Changed**\n  *  `response.recipients` **Added**\n* `documenso.envelopes.distribute()`:  `response` **Changed**\n* `documenso.envelopes.redistribute()`:  `response` **Changed**\n* `documenso.documents.create()`: \n  *  `request.payload` **Changed**\n* `documenso.templates.create()`: \n  *  `request.payload` **Changed**\n* `documenso.templates.use()`:  `request` **Changed**\n"

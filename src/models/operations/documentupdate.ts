@@ -96,6 +96,10 @@ export const DocumentUpdateLanguage = {
   Es: "es",
   It: "it",
   Pl: "pl",
+  PtBR: "pt-BR",
+  Ja: "ja",
+  Ko: "ko",
+  Zh: "zh",
 } as const;
 export type DocumentUpdateLanguage = ClosedEnum<typeof DocumentUpdateLanguage>;
 

@@ -499,32 +499,32 @@ export type FieldCreateDocumentFieldsFieldSignature = {
 };
 
 export type FieldCreateDocumentFieldsFieldUnion =
-  | FieldCreateDocumentFieldsFieldSignature
-  | FieldCreateDocumentFieldsFieldFreeSignature
-  | FieldCreateDocumentFieldsFieldInitials
-  | FieldCreateDocumentFieldsFieldName
-  | FieldCreateDocumentFieldsFieldEmail
-  | FieldCreateDocumentFieldsFieldDate
-  | FieldCreateDocumentFieldsFieldText
-  | FieldCreateDocumentFieldsFieldNumber
-  | FieldCreateDocumentFieldsFieldRadio
-  | FieldCreateDocumentFieldsFieldCheckbox
-  | FieldCreateDocumentFieldsFieldDropdown;
+  | (FieldCreateDocumentFieldsFieldSignature & { type: "SIGNATURE" })
+  | (FieldCreateDocumentFieldsFieldFreeSignature & { type: "FREE_SIGNATURE" })
+  | (FieldCreateDocumentFieldsFieldInitials & { type: "INITIALS" })
+  | (FieldCreateDocumentFieldsFieldName & { type: "NAME" })
+  | (FieldCreateDocumentFieldsFieldEmail & { type: "EMAIL" })
+  | (FieldCreateDocumentFieldsFieldDate & { type: "DATE" })
+  | (FieldCreateDocumentFieldsFieldText & { type: "TEXT" })
+  | (FieldCreateDocumentFieldsFieldNumber & { type: "NUMBER" })
+  | (FieldCreateDocumentFieldsFieldRadio & { type: "RADIO" })
+  | (FieldCreateDocumentFieldsFieldCheckbox & { type: "CHECKBOX" })
+  | (FieldCreateDocumentFieldsFieldDropdown & { type: "DROPDOWN" });
 
 export type FieldCreateDocumentFieldsRequest = {
   documentId: number;
   fields: Array<
-    | FieldCreateDocumentFieldsFieldSignature
-    | FieldCreateDocumentFieldsFieldFreeSignature
-    | FieldCreateDocumentFieldsFieldInitials
-    | FieldCreateDocumentFieldsFieldName
-    | FieldCreateDocumentFieldsFieldEmail
-    | FieldCreateDocumentFieldsFieldDate
-    | FieldCreateDocumentFieldsFieldText
-    | FieldCreateDocumentFieldsFieldNumber
-    | FieldCreateDocumentFieldsFieldRadio
-    | FieldCreateDocumentFieldsFieldCheckbox
-    | FieldCreateDocumentFieldsFieldDropdown
+    | (FieldCreateDocumentFieldsFieldSignature & { type: "SIGNATURE" })
+    | (FieldCreateDocumentFieldsFieldFreeSignature & { type: "FREE_SIGNATURE" })
+    | (FieldCreateDocumentFieldsFieldInitials & { type: "INITIALS" })
+    | (FieldCreateDocumentFieldsFieldName & { type: "NAME" })
+    | (FieldCreateDocumentFieldsFieldEmail & { type: "EMAIL" })
+    | (FieldCreateDocumentFieldsFieldDate & { type: "DATE" })
+    | (FieldCreateDocumentFieldsFieldText & { type: "TEXT" })
+    | (FieldCreateDocumentFieldsFieldNumber & { type: "NUMBER" })
+    | (FieldCreateDocumentFieldsFieldRadio & { type: "RADIO" })
+    | (FieldCreateDocumentFieldsFieldCheckbox & { type: "CHECKBOX" })
+    | (FieldCreateDocumentFieldsFieldDropdown & { type: "DROPDOWN" })
   >;
 };
 
@@ -842,16 +842,18 @@ export type FieldCreateDocumentFieldsFieldMetaSignatureResponse = {
 };
 
 export type FieldCreateDocumentFieldsFieldMetaUnion =
-  | FieldCreateDocumentFieldsFieldMetaSignatureResponse
-  | FieldCreateDocumentFieldsFieldMetaInitialsResponse
-  | FieldCreateDocumentFieldsFieldMetaNameResponse
-  | FieldCreateDocumentFieldsFieldMetaEmailResponse
-  | FieldCreateDocumentFieldsFieldMetaDateResponse
-  | FieldCreateDocumentFieldsFieldMetaTextResponse
-  | FieldCreateDocumentFieldsFieldMetaNumberResponse
-  | FieldCreateDocumentFieldsFieldMetaRadioResponse
-  | FieldCreateDocumentFieldsFieldMetaCheckboxResponse
-  | FieldCreateDocumentFieldsFieldMetaDropdownResponse;
+  | (FieldCreateDocumentFieldsFieldMetaSignatureResponse & {
+    type: "signature";
+  })
+  | (FieldCreateDocumentFieldsFieldMetaInitialsResponse & { type: "initials" })
+  | (FieldCreateDocumentFieldsFieldMetaNameResponse & { type: "name" })
+  | (FieldCreateDocumentFieldsFieldMetaEmailResponse & { type: "email" })
+  | (FieldCreateDocumentFieldsFieldMetaDateResponse & { type: "date" })
+  | (FieldCreateDocumentFieldsFieldMetaTextResponse & { type: "text" })
+  | (FieldCreateDocumentFieldsFieldMetaNumberResponse & { type: "number" })
+  | (FieldCreateDocumentFieldsFieldMetaRadioResponse & { type: "radio" })
+  | (FieldCreateDocumentFieldsFieldMetaCheckboxResponse & { type: "checkbox" })
+  | (FieldCreateDocumentFieldsFieldMetaDropdownResponse & { type: "dropdown" });
 
 export type FieldCreateDocumentFieldsFieldResponse = {
   envelopeId: string;
@@ -868,16 +870,24 @@ export type FieldCreateDocumentFieldsFieldResponse = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | FieldCreateDocumentFieldsFieldMetaSignatureResponse
-    | FieldCreateDocumentFieldsFieldMetaInitialsResponse
-    | FieldCreateDocumentFieldsFieldMetaNameResponse
-    | FieldCreateDocumentFieldsFieldMetaEmailResponse
-    | FieldCreateDocumentFieldsFieldMetaDateResponse
-    | FieldCreateDocumentFieldsFieldMetaTextResponse
-    | FieldCreateDocumentFieldsFieldMetaNumberResponse
-    | FieldCreateDocumentFieldsFieldMetaRadioResponse
-    | FieldCreateDocumentFieldsFieldMetaCheckboxResponse
-    | FieldCreateDocumentFieldsFieldMetaDropdownResponse
+    | (FieldCreateDocumentFieldsFieldMetaSignatureResponse & {
+      type: "signature";
+    })
+    | (FieldCreateDocumentFieldsFieldMetaInitialsResponse & {
+      type: "initials";
+    })
+    | (FieldCreateDocumentFieldsFieldMetaNameResponse & { type: "name" })
+    | (FieldCreateDocumentFieldsFieldMetaEmailResponse & { type: "email" })
+    | (FieldCreateDocumentFieldsFieldMetaDateResponse & { type: "date" })
+    | (FieldCreateDocumentFieldsFieldMetaTextResponse & { type: "text" })
+    | (FieldCreateDocumentFieldsFieldMetaNumberResponse & { type: "number" })
+    | (FieldCreateDocumentFieldsFieldMetaRadioResponse & { type: "radio" })
+    | (FieldCreateDocumentFieldsFieldMetaCheckboxResponse & {
+      type: "checkbox";
+    })
+    | (FieldCreateDocumentFieldsFieldMetaDropdownResponse & {
+      type: "dropdown";
+    })
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -2845,31 +2855,55 @@ export const FieldCreateDocumentFieldsFieldUnion$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  z.lazy(() => FieldCreateDocumentFieldsFieldSignature$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldFreeSignature$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldInitials$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldName$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldEmail$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldDate$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldText$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldNumber$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldRadio$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldCheckbox$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldDropdown$inboundSchema),
+  z.lazy(() => FieldCreateDocumentFieldsFieldSignature$inboundSchema).and(
+    z.object({ type: z.literal("SIGNATURE") }),
+  ),
+  z.lazy(() => FieldCreateDocumentFieldsFieldFreeSignature$inboundSchema).and(
+    z.object({ type: z.literal("FREE_SIGNATURE") }),
+  ),
+  z.lazy(() => FieldCreateDocumentFieldsFieldInitials$inboundSchema).and(
+    z.object({ type: z.literal("INITIALS") }),
+  ),
+  z.lazy(() => FieldCreateDocumentFieldsFieldName$inboundSchema).and(
+    z.object({ type: z.literal("NAME") }),
+  ),
+  z.lazy(() => FieldCreateDocumentFieldsFieldEmail$inboundSchema).and(
+    z.object({ type: z.literal("EMAIL") }),
+  ),
+  z.lazy(() => FieldCreateDocumentFieldsFieldDate$inboundSchema).and(
+    z.object({ type: z.literal("DATE") }),
+  ),
+  z.lazy(() => FieldCreateDocumentFieldsFieldText$inboundSchema).and(
+    z.object({ type: z.literal("TEXT") }),
+  ),
+  z.lazy(() => FieldCreateDocumentFieldsFieldNumber$inboundSchema).and(
+    z.object({ type: z.literal("NUMBER") }),
+  ),
+  z.lazy(() => FieldCreateDocumentFieldsFieldRadio$inboundSchema).and(
+    z.object({ type: z.literal("RADIO") }),
+  ),
+  z.lazy(() => FieldCreateDocumentFieldsFieldCheckbox$inboundSchema).and(
+    z.object({ type: z.literal("CHECKBOX") }),
+  ),
+  z.lazy(() => FieldCreateDocumentFieldsFieldDropdown$inboundSchema).and(
+    z.object({ type: z.literal("DROPDOWN") }),
+  ),
 ]);
 /** @internal */
 export type FieldCreateDocumentFieldsFieldUnion$Outbound =
-  | FieldCreateDocumentFieldsFieldSignature$Outbound
-  | FieldCreateDocumentFieldsFieldFreeSignature$Outbound
-  | FieldCreateDocumentFieldsFieldInitials$Outbound
-  | FieldCreateDocumentFieldsFieldName$Outbound
-  | FieldCreateDocumentFieldsFieldEmail$Outbound
-  | FieldCreateDocumentFieldsFieldDate$Outbound
-  | FieldCreateDocumentFieldsFieldText$Outbound
-  | FieldCreateDocumentFieldsFieldNumber$Outbound
-  | FieldCreateDocumentFieldsFieldRadio$Outbound
-  | FieldCreateDocumentFieldsFieldCheckbox$Outbound
-  | FieldCreateDocumentFieldsFieldDropdown$Outbound;
+  | (FieldCreateDocumentFieldsFieldSignature$Outbound & { type: "SIGNATURE" })
+  | (FieldCreateDocumentFieldsFieldFreeSignature$Outbound & {
+    type: "FREE_SIGNATURE";
+  })
+  | (FieldCreateDocumentFieldsFieldInitials$Outbound & { type: "INITIALS" })
+  | (FieldCreateDocumentFieldsFieldName$Outbound & { type: "NAME" })
+  | (FieldCreateDocumentFieldsFieldEmail$Outbound & { type: "EMAIL" })
+  | (FieldCreateDocumentFieldsFieldDate$Outbound & { type: "DATE" })
+  | (FieldCreateDocumentFieldsFieldText$Outbound & { type: "TEXT" })
+  | (FieldCreateDocumentFieldsFieldNumber$Outbound & { type: "NUMBER" })
+  | (FieldCreateDocumentFieldsFieldRadio$Outbound & { type: "RADIO" })
+  | (FieldCreateDocumentFieldsFieldCheckbox$Outbound & { type: "CHECKBOX" })
+  | (FieldCreateDocumentFieldsFieldDropdown$Outbound & { type: "DROPDOWN" });
 
 /** @internal */
 export const FieldCreateDocumentFieldsFieldUnion$outboundSchema: z.ZodType<
@@ -2877,17 +2911,39 @@ export const FieldCreateDocumentFieldsFieldUnion$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FieldCreateDocumentFieldsFieldUnion
 > = z.union([
-  z.lazy(() => FieldCreateDocumentFieldsFieldSignature$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldFreeSignature$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldInitials$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldName$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldEmail$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldDate$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldText$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldNumber$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldRadio$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldCheckbox$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldDropdown$outboundSchema),
+  z.lazy(() => FieldCreateDocumentFieldsFieldSignature$outboundSchema).and(
+    z.object({ type: z.literal("SIGNATURE") }),
+  ),
+  z.lazy(() => FieldCreateDocumentFieldsFieldFreeSignature$outboundSchema).and(
+    z.object({ type: z.literal("FREE_SIGNATURE") }),
+  ),
+  z.lazy(() => FieldCreateDocumentFieldsFieldInitials$outboundSchema).and(
+    z.object({ type: z.literal("INITIALS") }),
+  ),
+  z.lazy(() => FieldCreateDocumentFieldsFieldName$outboundSchema).and(
+    z.object({ type: z.literal("NAME") }),
+  ),
+  z.lazy(() => FieldCreateDocumentFieldsFieldEmail$outboundSchema).and(
+    z.object({ type: z.literal("EMAIL") }),
+  ),
+  z.lazy(() => FieldCreateDocumentFieldsFieldDate$outboundSchema).and(
+    z.object({ type: z.literal("DATE") }),
+  ),
+  z.lazy(() => FieldCreateDocumentFieldsFieldText$outboundSchema).and(
+    z.object({ type: z.literal("TEXT") }),
+  ),
+  z.lazy(() => FieldCreateDocumentFieldsFieldNumber$outboundSchema).and(
+    z.object({ type: z.literal("NUMBER") }),
+  ),
+  z.lazy(() => FieldCreateDocumentFieldsFieldRadio$outboundSchema).and(
+    z.object({ type: z.literal("RADIO") }),
+  ),
+  z.lazy(() => FieldCreateDocumentFieldsFieldCheckbox$outboundSchema).and(
+    z.object({ type: z.literal("CHECKBOX") }),
+  ),
+  z.lazy(() => FieldCreateDocumentFieldsFieldDropdown$outboundSchema).and(
+    z.object({ type: z.literal("DROPDOWN") }),
+  ),
 ]);
 
 export function fieldCreateDocumentFieldsFieldUnionToJSON(
@@ -2919,17 +2975,38 @@ export const FieldCreateDocumentFieldsRequest$inboundSchema: z.ZodType<
   documentId: z.number(),
   fields: z.array(
     z.union([
-      z.lazy(() => FieldCreateDocumentFieldsFieldSignature$inboundSchema),
-      z.lazy(() => FieldCreateDocumentFieldsFieldFreeSignature$inboundSchema),
-      z.lazy(() => FieldCreateDocumentFieldsFieldInitials$inboundSchema),
-      z.lazy(() => FieldCreateDocumentFieldsFieldName$inboundSchema),
-      z.lazy(() => FieldCreateDocumentFieldsFieldEmail$inboundSchema),
-      z.lazy(() => FieldCreateDocumentFieldsFieldDate$inboundSchema),
-      z.lazy(() => FieldCreateDocumentFieldsFieldText$inboundSchema),
-      z.lazy(() => FieldCreateDocumentFieldsFieldNumber$inboundSchema),
-      z.lazy(() => FieldCreateDocumentFieldsFieldRadio$inboundSchema),
-      z.lazy(() => FieldCreateDocumentFieldsFieldCheckbox$inboundSchema),
-      z.lazy(() => FieldCreateDocumentFieldsFieldDropdown$inboundSchema),
+      z.lazy(() => FieldCreateDocumentFieldsFieldSignature$inboundSchema).and(
+        z.object({ type: z.literal("SIGNATURE") }),
+      ),
+      z.lazy(() => FieldCreateDocumentFieldsFieldFreeSignature$inboundSchema)
+        .and(z.object({ type: z.literal("FREE_SIGNATURE") })),
+      z.lazy(() => FieldCreateDocumentFieldsFieldInitials$inboundSchema).and(
+        z.object({ type: z.literal("INITIALS") }),
+      ),
+      z.lazy(() => FieldCreateDocumentFieldsFieldName$inboundSchema).and(
+        z.object({ type: z.literal("NAME") }),
+      ),
+      z.lazy(() => FieldCreateDocumentFieldsFieldEmail$inboundSchema).and(
+        z.object({ type: z.literal("EMAIL") }),
+      ),
+      z.lazy(() => FieldCreateDocumentFieldsFieldDate$inboundSchema).and(
+        z.object({ type: z.literal("DATE") }),
+      ),
+      z.lazy(() => FieldCreateDocumentFieldsFieldText$inboundSchema).and(
+        z.object({ type: z.literal("TEXT") }),
+      ),
+      z.lazy(() => FieldCreateDocumentFieldsFieldNumber$inboundSchema).and(
+        z.object({ type: z.literal("NUMBER") }),
+      ),
+      z.lazy(() => FieldCreateDocumentFieldsFieldRadio$inboundSchema).and(
+        z.object({ type: z.literal("RADIO") }),
+      ),
+      z.lazy(() => FieldCreateDocumentFieldsFieldCheckbox$inboundSchema).and(
+        z.object({ type: z.literal("CHECKBOX") }),
+      ),
+      z.lazy(() => FieldCreateDocumentFieldsFieldDropdown$inboundSchema).and(
+        z.object({ type: z.literal("DROPDOWN") }),
+      ),
     ]),
   ),
 });
@@ -2937,17 +3014,19 @@ export const FieldCreateDocumentFieldsRequest$inboundSchema: z.ZodType<
 export type FieldCreateDocumentFieldsRequest$Outbound = {
   documentId: number;
   fields: Array<
-    | FieldCreateDocumentFieldsFieldSignature$Outbound
-    | FieldCreateDocumentFieldsFieldFreeSignature$Outbound
-    | FieldCreateDocumentFieldsFieldInitials$Outbound
-    | FieldCreateDocumentFieldsFieldName$Outbound
-    | FieldCreateDocumentFieldsFieldEmail$Outbound
-    | FieldCreateDocumentFieldsFieldDate$Outbound
-    | FieldCreateDocumentFieldsFieldText$Outbound
-    | FieldCreateDocumentFieldsFieldNumber$Outbound
-    | FieldCreateDocumentFieldsFieldRadio$Outbound
-    | FieldCreateDocumentFieldsFieldCheckbox$Outbound
-    | FieldCreateDocumentFieldsFieldDropdown$Outbound
+    | (FieldCreateDocumentFieldsFieldSignature$Outbound & { type: "SIGNATURE" })
+    | (FieldCreateDocumentFieldsFieldFreeSignature$Outbound & {
+      type: "FREE_SIGNATURE";
+    })
+    | (FieldCreateDocumentFieldsFieldInitials$Outbound & { type: "INITIALS" })
+    | (FieldCreateDocumentFieldsFieldName$Outbound & { type: "NAME" })
+    | (FieldCreateDocumentFieldsFieldEmail$Outbound & { type: "EMAIL" })
+    | (FieldCreateDocumentFieldsFieldDate$Outbound & { type: "DATE" })
+    | (FieldCreateDocumentFieldsFieldText$Outbound & { type: "TEXT" })
+    | (FieldCreateDocumentFieldsFieldNumber$Outbound & { type: "NUMBER" })
+    | (FieldCreateDocumentFieldsFieldRadio$Outbound & { type: "RADIO" })
+    | (FieldCreateDocumentFieldsFieldCheckbox$Outbound & { type: "CHECKBOX" })
+    | (FieldCreateDocumentFieldsFieldDropdown$Outbound & { type: "DROPDOWN" })
   >;
 };
 
@@ -2960,17 +3039,38 @@ export const FieldCreateDocumentFieldsRequest$outboundSchema: z.ZodType<
   documentId: z.number(),
   fields: z.array(
     z.union([
-      z.lazy(() => FieldCreateDocumentFieldsFieldSignature$outboundSchema),
-      z.lazy(() => FieldCreateDocumentFieldsFieldFreeSignature$outboundSchema),
-      z.lazy(() => FieldCreateDocumentFieldsFieldInitials$outboundSchema),
-      z.lazy(() => FieldCreateDocumentFieldsFieldName$outboundSchema),
-      z.lazy(() => FieldCreateDocumentFieldsFieldEmail$outboundSchema),
-      z.lazy(() => FieldCreateDocumentFieldsFieldDate$outboundSchema),
-      z.lazy(() => FieldCreateDocumentFieldsFieldText$outboundSchema),
-      z.lazy(() => FieldCreateDocumentFieldsFieldNumber$outboundSchema),
-      z.lazy(() => FieldCreateDocumentFieldsFieldRadio$outboundSchema),
-      z.lazy(() => FieldCreateDocumentFieldsFieldCheckbox$outboundSchema),
-      z.lazy(() => FieldCreateDocumentFieldsFieldDropdown$outboundSchema),
+      z.lazy(() => FieldCreateDocumentFieldsFieldSignature$outboundSchema).and(
+        z.object({ type: z.literal("SIGNATURE") }),
+      ),
+      z.lazy(() => FieldCreateDocumentFieldsFieldFreeSignature$outboundSchema)
+        .and(z.object({ type: z.literal("FREE_SIGNATURE") })),
+      z.lazy(() => FieldCreateDocumentFieldsFieldInitials$outboundSchema).and(
+        z.object({ type: z.literal("INITIALS") }),
+      ),
+      z.lazy(() => FieldCreateDocumentFieldsFieldName$outboundSchema).and(
+        z.object({ type: z.literal("NAME") }),
+      ),
+      z.lazy(() => FieldCreateDocumentFieldsFieldEmail$outboundSchema).and(
+        z.object({ type: z.literal("EMAIL") }),
+      ),
+      z.lazy(() => FieldCreateDocumentFieldsFieldDate$outboundSchema).and(
+        z.object({ type: z.literal("DATE") }),
+      ),
+      z.lazy(() => FieldCreateDocumentFieldsFieldText$outboundSchema).and(
+        z.object({ type: z.literal("TEXT") }),
+      ),
+      z.lazy(() => FieldCreateDocumentFieldsFieldNumber$outboundSchema).and(
+        z.object({ type: z.literal("NUMBER") }),
+      ),
+      z.lazy(() => FieldCreateDocumentFieldsFieldRadio$outboundSchema).and(
+        z.object({ type: z.literal("RADIO") }),
+      ),
+      z.lazy(() => FieldCreateDocumentFieldsFieldCheckbox$outboundSchema).and(
+        z.object({ type: z.literal("CHECKBOX") }),
+      ),
+      z.lazy(() => FieldCreateDocumentFieldsFieldDropdown$outboundSchema).and(
+        z.object({ type: z.literal("DROPDOWN") }),
+      ),
     ]),
   ),
 });
@@ -4112,35 +4212,52 @@ export const FieldCreateDocumentFieldsFieldMetaUnion$inboundSchema: z.ZodType<
 > = z.union([
   z.lazy(() =>
     FieldCreateDocumentFieldsFieldMetaSignatureResponse$inboundSchema
-  ),
-  z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaInitialsResponse$inboundSchema
-  ),
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaNameResponse$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaEmailResponse$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaDateResponse$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaTextResponse$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaNumberResponse$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaRadioResponse$inboundSchema),
-  z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaCheckboxResponse$inboundSchema
-  ),
-  z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaDropdownResponse$inboundSchema
-  ),
+  ).and(z.object({ type: z.literal("signature") })),
+  z.lazy(() => FieldCreateDocumentFieldsFieldMetaInitialsResponse$inboundSchema)
+    .and(z.object({ type: z.literal("initials") })),
+  z.lazy(() => FieldCreateDocumentFieldsFieldMetaNameResponse$inboundSchema)
+    .and(z.object({ type: z.literal("name") })),
+  z.lazy(() => FieldCreateDocumentFieldsFieldMetaEmailResponse$inboundSchema)
+    .and(z.object({ type: z.literal("email") })),
+  z.lazy(() => FieldCreateDocumentFieldsFieldMetaDateResponse$inboundSchema)
+    .and(z.object({ type: z.literal("date") })),
+  z.lazy(() => FieldCreateDocumentFieldsFieldMetaTextResponse$inboundSchema)
+    .and(z.object({ type: z.literal("text") })),
+  z.lazy(() => FieldCreateDocumentFieldsFieldMetaNumberResponse$inboundSchema)
+    .and(z.object({ type: z.literal("number") })),
+  z.lazy(() => FieldCreateDocumentFieldsFieldMetaRadioResponse$inboundSchema)
+    .and(z.object({ type: z.literal("radio") })),
+  z.lazy(() => FieldCreateDocumentFieldsFieldMetaCheckboxResponse$inboundSchema)
+    .and(z.object({ type: z.literal("checkbox") })),
+  z.lazy(() => FieldCreateDocumentFieldsFieldMetaDropdownResponse$inboundSchema)
+    .and(z.object({ type: z.literal("dropdown") })),
 ]);
 /** @internal */
 export type FieldCreateDocumentFieldsFieldMetaUnion$Outbound =
-  | FieldCreateDocumentFieldsFieldMetaSignatureResponse$Outbound
-  | FieldCreateDocumentFieldsFieldMetaInitialsResponse$Outbound
-  | FieldCreateDocumentFieldsFieldMetaNameResponse$Outbound
-  | FieldCreateDocumentFieldsFieldMetaEmailResponse$Outbound
-  | FieldCreateDocumentFieldsFieldMetaDateResponse$Outbound
-  | FieldCreateDocumentFieldsFieldMetaTextResponse$Outbound
-  | FieldCreateDocumentFieldsFieldMetaNumberResponse$Outbound
-  | FieldCreateDocumentFieldsFieldMetaRadioResponse$Outbound
-  | FieldCreateDocumentFieldsFieldMetaCheckboxResponse$Outbound
-  | FieldCreateDocumentFieldsFieldMetaDropdownResponse$Outbound;
+  | (FieldCreateDocumentFieldsFieldMetaSignatureResponse$Outbound & {
+    type: "signature";
+  })
+  | (FieldCreateDocumentFieldsFieldMetaInitialsResponse$Outbound & {
+    type: "initials";
+  })
+  | (FieldCreateDocumentFieldsFieldMetaNameResponse$Outbound & { type: "name" })
+  | (FieldCreateDocumentFieldsFieldMetaEmailResponse$Outbound & {
+    type: "email";
+  })
+  | (FieldCreateDocumentFieldsFieldMetaDateResponse$Outbound & { type: "date" })
+  | (FieldCreateDocumentFieldsFieldMetaTextResponse$Outbound & { type: "text" })
+  | (FieldCreateDocumentFieldsFieldMetaNumberResponse$Outbound & {
+    type: "number";
+  })
+  | (FieldCreateDocumentFieldsFieldMetaRadioResponse$Outbound & {
+    type: "radio";
+  })
+  | (FieldCreateDocumentFieldsFieldMetaCheckboxResponse$Outbound & {
+    type: "checkbox";
+  })
+  | (FieldCreateDocumentFieldsFieldMetaDropdownResponse$Outbound & {
+    type: "dropdown";
+  });
 
 /** @internal */
 export const FieldCreateDocumentFieldsFieldMetaUnion$outboundSchema: z.ZodType<
@@ -4150,22 +4267,28 @@ export const FieldCreateDocumentFieldsFieldMetaUnion$outboundSchema: z.ZodType<
 > = z.union([
   z.lazy(() =>
     FieldCreateDocumentFieldsFieldMetaSignatureResponse$outboundSchema
-  ),
+  ).and(z.object({ type: z.literal("signature") })),
   z.lazy(() =>
     FieldCreateDocumentFieldsFieldMetaInitialsResponse$outboundSchema
-  ),
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaNameResponse$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaEmailResponse$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaDateResponse$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaTextResponse$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaNumberResponse$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaRadioResponse$outboundSchema),
+  ).and(z.object({ type: z.literal("initials") })),
+  z.lazy(() => FieldCreateDocumentFieldsFieldMetaNameResponse$outboundSchema)
+    .and(z.object({ type: z.literal("name") })),
+  z.lazy(() => FieldCreateDocumentFieldsFieldMetaEmailResponse$outboundSchema)
+    .and(z.object({ type: z.literal("email") })),
+  z.lazy(() => FieldCreateDocumentFieldsFieldMetaDateResponse$outboundSchema)
+    .and(z.object({ type: z.literal("date") })),
+  z.lazy(() => FieldCreateDocumentFieldsFieldMetaTextResponse$outboundSchema)
+    .and(z.object({ type: z.literal("text") })),
+  z.lazy(() => FieldCreateDocumentFieldsFieldMetaNumberResponse$outboundSchema)
+    .and(z.object({ type: z.literal("number") })),
+  z.lazy(() => FieldCreateDocumentFieldsFieldMetaRadioResponse$outboundSchema)
+    .and(z.object({ type: z.literal("radio") })),
   z.lazy(() =>
     FieldCreateDocumentFieldsFieldMetaCheckboxResponse$outboundSchema
-  ),
+  ).and(z.object({ type: z.literal("checkbox") })),
   z.lazy(() =>
     FieldCreateDocumentFieldsFieldMetaDropdownResponse$outboundSchema
-  ),
+  ).and(z.object({ type: z.literal("dropdown") })),
 ]);
 
 export function fieldCreateDocumentFieldsFieldMetaUnionToJSON(
@@ -4217,34 +4340,31 @@ export const FieldCreateDocumentFieldsFieldResponse$inboundSchema: z.ZodType<
     z.union([
       z.lazy(() =>
         FieldCreateDocumentFieldsFieldMetaSignatureResponse$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("signature") })),
       z.lazy(() =>
         FieldCreateDocumentFieldsFieldMetaInitialsResponse$inboundSchema
-      ),
-      z.lazy(() =>
-        FieldCreateDocumentFieldsFieldMetaNameResponse$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("initials") })),
+      z.lazy(() => FieldCreateDocumentFieldsFieldMetaNameResponse$inboundSchema)
+        .and(z.object({ type: z.literal("name") })),
       z.lazy(() =>
         FieldCreateDocumentFieldsFieldMetaEmailResponse$inboundSchema
-      ),
-      z.lazy(() =>
-        FieldCreateDocumentFieldsFieldMetaDateResponse$inboundSchema
-      ),
-      z.lazy(() =>
-        FieldCreateDocumentFieldsFieldMetaTextResponse$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("email") })),
+      z.lazy(() => FieldCreateDocumentFieldsFieldMetaDateResponse$inboundSchema)
+        .and(z.object({ type: z.literal("date") })),
+      z.lazy(() => FieldCreateDocumentFieldsFieldMetaTextResponse$inboundSchema)
+        .and(z.object({ type: z.literal("text") })),
       z.lazy(() =>
         FieldCreateDocumentFieldsFieldMetaNumberResponse$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("number") })),
       z.lazy(() =>
         FieldCreateDocumentFieldsFieldMetaRadioResponse$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("radio") })),
       z.lazy(() =>
         FieldCreateDocumentFieldsFieldMetaCheckboxResponse$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("checkbox") })),
       z.lazy(() =>
         FieldCreateDocumentFieldsFieldMetaDropdownResponse$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("dropdown") })),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),
@@ -4266,16 +4386,36 @@ export type FieldCreateDocumentFieldsFieldResponse$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | FieldCreateDocumentFieldsFieldMetaSignatureResponse$Outbound
-    | FieldCreateDocumentFieldsFieldMetaInitialsResponse$Outbound
-    | FieldCreateDocumentFieldsFieldMetaNameResponse$Outbound
-    | FieldCreateDocumentFieldsFieldMetaEmailResponse$Outbound
-    | FieldCreateDocumentFieldsFieldMetaDateResponse$Outbound
-    | FieldCreateDocumentFieldsFieldMetaTextResponse$Outbound
-    | FieldCreateDocumentFieldsFieldMetaNumberResponse$Outbound
-    | FieldCreateDocumentFieldsFieldMetaRadioResponse$Outbound
-    | FieldCreateDocumentFieldsFieldMetaCheckboxResponse$Outbound
-    | FieldCreateDocumentFieldsFieldMetaDropdownResponse$Outbound
+    | (FieldCreateDocumentFieldsFieldMetaSignatureResponse$Outbound & {
+      type: "signature";
+    })
+    | (FieldCreateDocumentFieldsFieldMetaInitialsResponse$Outbound & {
+      type: "initials";
+    })
+    | (FieldCreateDocumentFieldsFieldMetaNameResponse$Outbound & {
+      type: "name";
+    })
+    | (FieldCreateDocumentFieldsFieldMetaEmailResponse$Outbound & {
+      type: "email";
+    })
+    | (FieldCreateDocumentFieldsFieldMetaDateResponse$Outbound & {
+      type: "date";
+    })
+    | (FieldCreateDocumentFieldsFieldMetaTextResponse$Outbound & {
+      type: "text";
+    })
+    | (FieldCreateDocumentFieldsFieldMetaNumberResponse$Outbound & {
+      type: "number";
+    })
+    | (FieldCreateDocumentFieldsFieldMetaRadioResponse$Outbound & {
+      type: "radio";
+    })
+    | (FieldCreateDocumentFieldsFieldMetaCheckboxResponse$Outbound & {
+      type: "checkbox";
+    })
+    | (FieldCreateDocumentFieldsFieldMetaDropdownResponse$Outbound & {
+      type: "dropdown";
+    })
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -4304,34 +4444,34 @@ export const FieldCreateDocumentFieldsFieldResponse$outboundSchema: z.ZodType<
     z.union([
       z.lazy(() =>
         FieldCreateDocumentFieldsFieldMetaSignatureResponse$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("signature") })),
       z.lazy(() =>
         FieldCreateDocumentFieldsFieldMetaInitialsResponse$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("initials") })),
       z.lazy(() =>
         FieldCreateDocumentFieldsFieldMetaNameResponse$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("name") })),
       z.lazy(() =>
         FieldCreateDocumentFieldsFieldMetaEmailResponse$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("email") })),
       z.lazy(() =>
         FieldCreateDocumentFieldsFieldMetaDateResponse$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("date") })),
       z.lazy(() =>
         FieldCreateDocumentFieldsFieldMetaTextResponse$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("text") })),
       z.lazy(() =>
         FieldCreateDocumentFieldsFieldMetaNumberResponse$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("number") })),
       z.lazy(() =>
         FieldCreateDocumentFieldsFieldMetaRadioResponse$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("radio") })),
       z.lazy(() =>
         FieldCreateDocumentFieldsFieldMetaCheckboxResponse$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("checkbox") })),
       z.lazy(() =>
         FieldCreateDocumentFieldsFieldMetaDropdownResponse$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("dropdown") })),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),

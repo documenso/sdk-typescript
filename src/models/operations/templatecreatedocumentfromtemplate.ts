@@ -101,12 +101,112 @@ export type TemplateCreateDocumentFromTemplatePrefillFieldText = {
 };
 
 export type TemplateCreateDocumentFromTemplatePrefillFieldUnion =
-  | TemplateCreateDocumentFromTemplatePrefillFieldText
-  | TemplateCreateDocumentFromTemplatePrefillFieldNumber
-  | TemplateCreateDocumentFromTemplatePrefillFieldRadio
-  | TemplateCreateDocumentFromTemplatePrefillFieldCheckbox
-  | TemplateCreateDocumentFromTemplatePrefillFieldDropdown
-  | TemplateCreateDocumentFromTemplatePrefillFieldDate;
+  | (TemplateCreateDocumentFromTemplatePrefillFieldText & { type: "text" })
+  | (TemplateCreateDocumentFromTemplatePrefillFieldNumber & { type: "number" })
+  | (TemplateCreateDocumentFromTemplatePrefillFieldRadio & { type: "radio" })
+  | (TemplateCreateDocumentFromTemplatePrefillFieldCheckbox & {
+    type: "checkbox";
+  })
+  | (TemplateCreateDocumentFromTemplatePrefillFieldDropdown & {
+    type: "dropdown";
+  })
+  | (TemplateCreateDocumentFromTemplatePrefillFieldDate & { type: "date" });
+
+export const TemplateCreateDocumentFromTemplateDateFormat = {
+  YyyyMMddHhMmA: "yyyy-MM-dd hh:mm a",
+  YyyyMMdd: "yyyy-MM-dd",
+  DdMMSlashYyyy: "dd/MM/yyyy",
+  MmDdSlashYyyy: "MM/dd/yyyy",
+  YyMMdd: "yy-MM-dd",
+  MmmmDdCommaYyyy: "MMMM dd, yyyy",
+  EeeeMmmmDdCommaYyyy: "EEEE, MMMM dd, yyyy",
+  DdMMSlashYyyyHhMMA: "dd/MM/yyyy hh:mm a",
+  DdMMSlashYyyyHHmm: "dd/MM/yyyy HH:mm",
+  MmDdSlashYyyyHhMmA: "MM/dd/yyyy hh:mm a",
+  MmDdSlashYyyyHHmm: "MM/dd/yyyy HH:mm",
+  DdDotMmDotYyyy: "dd.MM.yyyy",
+  DdDotMmDotYyyyHHmm: "dd.MM.yyyy HH:mm",
+  YyyyMMddHHmm: "yyyy-MM-dd HH:mm",
+  YyMMddHhMmA: "yy-MM-dd hh:mm a",
+  YyMMddHHmm: "yy-MM-dd HH:mm",
+  YyyyMMddHHmmss: "yyyy-MM-dd HH:mm:ss",
+  MmmmDdCommaYyyyHhMmA: "MMMM dd, yyyy hh:mm a",
+  MmmmDdCommaYyyyHHmm: "MMMM dd, yyyy HH:mm",
+  EeeeMmmmDdCommaYyyyHhMmA: "EEEE, MMMM dd, yyyy hh:mm a",
+  EeeeMmmmDdCommaYyyyHHmm: "EEEE, MMMM dd, yyyy HH:mm",
+  Iso8601Full: "yyyy-MM-dd'T'HH:mm:ss.SSSXXX",
+} as const;
+export type TemplateCreateDocumentFromTemplateDateFormat = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateDateFormat
+>;
+
+export const TemplateCreateDocumentFromTemplateOverrideDistributionMethod = {
+  Email: "EMAIL",
+  None: "NONE",
+} as const;
+export type TemplateCreateDocumentFromTemplateOverrideDistributionMethod =
+  ClosedEnum<
+    typeof TemplateCreateDocumentFromTemplateOverrideDistributionMethod
+  >;
+
+export type TemplateCreateDocumentFromTemplateOverrideEmailSettings = {
+  recipientSigningRequest?: boolean | undefined;
+  recipientRemoved?: boolean | undefined;
+  recipientSigned?: boolean | undefined;
+  documentPending?: boolean | undefined;
+  documentCompleted?: boolean | undefined;
+  documentDeleted?: boolean | undefined;
+  ownerDocumentCompleted?: boolean | undefined;
+};
+
+export const TemplateCreateDocumentFromTemplateLanguage = {
+  De: "de",
+  En: "en",
+  Fr: "fr",
+  Es: "es",
+  It: "it",
+  Pl: "pl",
+  PtBR: "pt-BR",
+  Ja: "ja",
+  Ko: "ko",
+  Zh: "zh",
+} as const;
+export type TemplateCreateDocumentFromTemplateLanguage = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateLanguage
+>;
+
+export type TemplateCreateDocumentFromTemplateOverride = {
+  title?: string | undefined;
+  subject?: string | undefined;
+  message?: string | undefined;
+  timezone?: string | undefined;
+  dateFormat?: TemplateCreateDocumentFromTemplateDateFormat | undefined;
+  redirectUrl?: string | undefined;
+  distributionMethod?:
+    | TemplateCreateDocumentFromTemplateOverrideDistributionMethod
+    | undefined;
+  emailSettings?:
+    | TemplateCreateDocumentFromTemplateOverrideEmailSettings
+    | undefined;
+  language?: TemplateCreateDocumentFromTemplateLanguage | undefined;
+  typedSignatureEnabled?: boolean | undefined;
+  uploadSignatureEnabled?: boolean | undefined;
+  drawSignatureEnabled?: boolean | undefined;
+  allowDictateNextSigner?: boolean | undefined;
+};
+
+export const TemplateCreateDocumentFromTemplateTypeLink = {
+  Link: "link",
+} as const;
+export type TemplateCreateDocumentFromTemplateTypeLink = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateTypeLink
+>;
+
+export type TemplateCreateDocumentFromTemplateAttachment = {
+  label: string;
+  data: string;
+  type?: TemplateCreateDocumentFromTemplateTypeLink | undefined;
+};
 
 export type TemplateCreateDocumentFromTemplateRequest = {
   templateId: number;
@@ -119,14 +219,24 @@ export type TemplateCreateDocumentFromTemplateRequest = {
   folderId?: string | undefined;
   prefillFields?:
     | Array<
-      | TemplateCreateDocumentFromTemplatePrefillFieldText
-      | TemplateCreateDocumentFromTemplatePrefillFieldNumber
-      | TemplateCreateDocumentFromTemplatePrefillFieldRadio
-      | TemplateCreateDocumentFromTemplatePrefillFieldCheckbox
-      | TemplateCreateDocumentFromTemplatePrefillFieldDropdown
-      | TemplateCreateDocumentFromTemplatePrefillFieldDate
+      | (TemplateCreateDocumentFromTemplatePrefillFieldText & { type: "text" })
+      | (TemplateCreateDocumentFromTemplatePrefillFieldNumber & {
+        type: "number";
+      })
+      | (TemplateCreateDocumentFromTemplatePrefillFieldRadio & {
+        type: "radio";
+      })
+      | (TemplateCreateDocumentFromTemplatePrefillFieldCheckbox & {
+        type: "checkbox";
+      })
+      | (TemplateCreateDocumentFromTemplatePrefillFieldDropdown & {
+        type: "dropdown";
+      })
+      | (TemplateCreateDocumentFromTemplatePrefillFieldDate & { type: "date" })
     >
     | undefined;
+  override?: TemplateCreateDocumentFromTemplateOverride | undefined;
+  attachments?: Array<TemplateCreateDocumentFromTemplateAttachment> | undefined;
 };
 
 export const TemplateCreateDocumentFromTemplateVisibility = {
@@ -210,15 +320,17 @@ export type TemplateCreateDocumentFromTemplateSigningOrder = ClosedEnum<
   typeof TemplateCreateDocumentFromTemplateSigningOrder
 >;
 
-export const TemplateCreateDocumentFromTemplateDistributionMethod = {
-  Email: "EMAIL",
-  None: "NONE",
-} as const;
-export type TemplateCreateDocumentFromTemplateDistributionMethod = ClosedEnum<
-  typeof TemplateCreateDocumentFromTemplateDistributionMethod
->;
+export const TemplateCreateDocumentFromTemplateDocumentMetaDistributionMethod =
+  {
+    Email: "EMAIL",
+    None: "NONE",
+  } as const;
+export type TemplateCreateDocumentFromTemplateDocumentMetaDistributionMethod =
+  ClosedEnum<
+    typeof TemplateCreateDocumentFromTemplateDocumentMetaDistributionMethod
+  >;
 
-export type TemplateCreateDocumentFromTemplateEmailSettings = {
+export type TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings = {
   recipientSigningRequest?: boolean | undefined;
   recipientRemoved?: boolean | undefined;
   recipientSigned?: boolean | undefined;
@@ -230,7 +342,8 @@ export type TemplateCreateDocumentFromTemplateEmailSettings = {
 
 export type TemplateCreateDocumentFromTemplateDocumentMeta = {
   signingOrder: TemplateCreateDocumentFromTemplateSigningOrder;
-  distributionMethod: TemplateCreateDocumentFromTemplateDistributionMethod;
+  distributionMethod:
+    TemplateCreateDocumentFromTemplateDocumentMetaDistributionMethod;
   id: string;
   subject: string | null;
   message: string | null;
@@ -242,7 +355,9 @@ export type TemplateCreateDocumentFromTemplateDocumentMeta = {
   drawSignatureEnabled: boolean;
   allowDictateNextSigner: boolean;
   language: string;
-  emailSettings: TemplateCreateDocumentFromTemplateEmailSettings | null;
+  emailSettings:
+    | TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings
+    | null;
   emailId: string | null;
   emailReplyTo: string | null;
   password?: string | null | undefined;
@@ -676,16 +791,20 @@ export type TemplateCreateDocumentFromTemplateFieldMetaSignature = {
 };
 
 export type TemplateCreateDocumentFromTemplateFieldMetaUnion =
-  | TemplateCreateDocumentFromTemplateFieldMetaSignature
-  | TemplateCreateDocumentFromTemplateFieldMetaInitials
-  | TemplateCreateDocumentFromTemplateFieldMetaName
-  | TemplateCreateDocumentFromTemplateFieldMetaEmail
-  | TemplateCreateDocumentFromTemplateFieldMetaDate
-  | TemplateCreateDocumentFromTemplateFieldMetaText
-  | TemplateCreateDocumentFromTemplateFieldMetaNumber
-  | TemplateCreateDocumentFromTemplateFieldMetaRadio
-  | TemplateCreateDocumentFromTemplateFieldMetaCheckbox
-  | TemplateCreateDocumentFromTemplateFieldMetaDropdown;
+  | (TemplateCreateDocumentFromTemplateFieldMetaSignature & {
+    type: "signature";
+  })
+  | (TemplateCreateDocumentFromTemplateFieldMetaInitials & { type: "initials" })
+  | (TemplateCreateDocumentFromTemplateFieldMetaName & { type: "name" })
+  | (TemplateCreateDocumentFromTemplateFieldMetaEmail & { type: "email" })
+  | (TemplateCreateDocumentFromTemplateFieldMetaDate & { type: "date" })
+  | (TemplateCreateDocumentFromTemplateFieldMetaText & { type: "text" })
+  | (TemplateCreateDocumentFromTemplateFieldMetaNumber & { type: "number" })
+  | (TemplateCreateDocumentFromTemplateFieldMetaRadio & { type: "radio" })
+  | (TemplateCreateDocumentFromTemplateFieldMetaCheckbox & { type: "checkbox" })
+  | (TemplateCreateDocumentFromTemplateFieldMetaDropdown & {
+    type: "dropdown";
+  });
 
 export type TemplateCreateDocumentFromTemplateField = {
   envelopeId: string;
@@ -702,16 +821,24 @@ export type TemplateCreateDocumentFromTemplateField = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | TemplateCreateDocumentFromTemplateFieldMetaSignature
-    | TemplateCreateDocumentFromTemplateFieldMetaInitials
-    | TemplateCreateDocumentFromTemplateFieldMetaName
-    | TemplateCreateDocumentFromTemplateFieldMetaEmail
-    | TemplateCreateDocumentFromTemplateFieldMetaDate
-    | TemplateCreateDocumentFromTemplateFieldMetaText
-    | TemplateCreateDocumentFromTemplateFieldMetaNumber
-    | TemplateCreateDocumentFromTemplateFieldMetaRadio
-    | TemplateCreateDocumentFromTemplateFieldMetaCheckbox
-    | TemplateCreateDocumentFromTemplateFieldMetaDropdown
+    | (TemplateCreateDocumentFromTemplateFieldMetaSignature & {
+      type: "signature";
+    })
+    | (TemplateCreateDocumentFromTemplateFieldMetaInitials & {
+      type: "initials";
+    })
+    | (TemplateCreateDocumentFromTemplateFieldMetaName & { type: "name" })
+    | (TemplateCreateDocumentFromTemplateFieldMetaEmail & { type: "email" })
+    | (TemplateCreateDocumentFromTemplateFieldMetaDate & { type: "date" })
+    | (TemplateCreateDocumentFromTemplateFieldMetaText & { type: "text" })
+    | (TemplateCreateDocumentFromTemplateFieldMetaNumber & { type: "number" })
+    | (TemplateCreateDocumentFromTemplateFieldMetaRadio & { type: "radio" })
+    | (TemplateCreateDocumentFromTemplateFieldMetaCheckbox & {
+      type: "checkbox";
+    })
+    | (TemplateCreateDocumentFromTemplateFieldMetaDropdown & {
+      type: "dropdown";
+    })
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -1294,31 +1421,43 @@ export const TemplateCreateDocumentFromTemplatePrefillFieldUnion$inboundSchema:
   > = z.union([
     z.lazy(() =>
       TemplateCreateDocumentFromTemplatePrefillFieldText$inboundSchema
-    ),
+    ).and(z.object({ type: z.literal("text") })),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplatePrefillFieldNumber$inboundSchema
-    ),
+    ).and(z.object({ type: z.literal("number") })),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplatePrefillFieldRadio$inboundSchema
-    ),
+    ).and(z.object({ type: z.literal("radio") })),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplatePrefillFieldCheckbox$inboundSchema
-    ),
+    ).and(z.object({ type: z.literal("checkbox") })),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplatePrefillFieldDropdown$inboundSchema
-    ),
+    ).and(z.object({ type: z.literal("dropdown") })),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplatePrefillFieldDate$inboundSchema
-    ),
+    ).and(z.object({ type: z.literal("date") })),
   ]);
 /** @internal */
 export type TemplateCreateDocumentFromTemplatePrefillFieldUnion$Outbound =
-  | TemplateCreateDocumentFromTemplatePrefillFieldText$Outbound
-  | TemplateCreateDocumentFromTemplatePrefillFieldNumber$Outbound
-  | TemplateCreateDocumentFromTemplatePrefillFieldRadio$Outbound
-  | TemplateCreateDocumentFromTemplatePrefillFieldCheckbox$Outbound
-  | TemplateCreateDocumentFromTemplatePrefillFieldDropdown$Outbound
-  | TemplateCreateDocumentFromTemplatePrefillFieldDate$Outbound;
+  | (TemplateCreateDocumentFromTemplatePrefillFieldText$Outbound & {
+    type: "text";
+  })
+  | (TemplateCreateDocumentFromTemplatePrefillFieldNumber$Outbound & {
+    type: "number";
+  })
+  | (TemplateCreateDocumentFromTemplatePrefillFieldRadio$Outbound & {
+    type: "radio";
+  })
+  | (TemplateCreateDocumentFromTemplatePrefillFieldCheckbox$Outbound & {
+    type: "checkbox";
+  })
+  | (TemplateCreateDocumentFromTemplatePrefillFieldDropdown$Outbound & {
+    type: "dropdown";
+  })
+  | (TemplateCreateDocumentFromTemplatePrefillFieldDate$Outbound & {
+    type: "date";
+  });
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplatePrefillFieldUnion$outboundSchema:
@@ -1329,22 +1468,22 @@ export const TemplateCreateDocumentFromTemplatePrefillFieldUnion$outboundSchema:
   > = z.union([
     z.lazy(() =>
       TemplateCreateDocumentFromTemplatePrefillFieldText$outboundSchema
-    ),
+    ).and(z.object({ type: z.literal("text") })),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplatePrefillFieldNumber$outboundSchema
-    ),
+    ).and(z.object({ type: z.literal("number") })),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplatePrefillFieldRadio$outboundSchema
-    ),
+    ).and(z.object({ type: z.literal("radio") })),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplatePrefillFieldCheckbox$outboundSchema
-    ),
+    ).and(z.object({ type: z.literal("checkbox") })),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplatePrefillFieldDropdown$outboundSchema
-    ),
+    ).and(z.object({ type: z.literal("dropdown") })),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplatePrefillFieldDate$outboundSchema
-    ),
+    ).and(z.object({ type: z.literal("date") })),
   ]);
 
 export function templateCreateDocumentFromTemplatePrefillFieldUnionToJSON(
@@ -1374,6 +1513,270 @@ export function templateCreateDocumentFromTemplatePrefillFieldUnionFromJSON(
 }
 
 /** @internal */
+export const TemplateCreateDocumentFromTemplateDateFormat$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateDateFormat> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateDateFormat);
+/** @internal */
+export const TemplateCreateDocumentFromTemplateDateFormat$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateDateFormat> =
+    TemplateCreateDocumentFromTemplateDateFormat$inboundSchema;
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateOverrideDistributionMethod$inboundSchema:
+  z.ZodNativeEnum<
+    typeof TemplateCreateDocumentFromTemplateOverrideDistributionMethod
+  > = z.nativeEnum(
+    TemplateCreateDocumentFromTemplateOverrideDistributionMethod,
+  );
+/** @internal */
+export const TemplateCreateDocumentFromTemplateOverrideDistributionMethod$outboundSchema:
+  z.ZodNativeEnum<
+    typeof TemplateCreateDocumentFromTemplateOverrideDistributionMethod
+  > =
+    TemplateCreateDocumentFromTemplateOverrideDistributionMethod$inboundSchema;
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateOverrideEmailSettings$inboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateOverrideEmailSettings,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    recipientSigningRequest: z.boolean().default(true),
+    recipientRemoved: z.boolean().default(true),
+    recipientSigned: z.boolean().default(true),
+    documentPending: z.boolean().default(true),
+    documentCompleted: z.boolean().default(true),
+    documentDeleted: z.boolean().default(true),
+    ownerDocumentCompleted: z.boolean().default(true),
+  });
+/** @internal */
+export type TemplateCreateDocumentFromTemplateOverrideEmailSettings$Outbound = {
+  recipientSigningRequest: boolean;
+  recipientRemoved: boolean;
+  recipientSigned: boolean;
+  documentPending: boolean;
+  documentCompleted: boolean;
+  documentDeleted: boolean;
+  ownerDocumentCompleted: boolean;
+};
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateOverrideEmailSettings$outboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateOverrideEmailSettings$Outbound,
+    z.ZodTypeDef,
+    TemplateCreateDocumentFromTemplateOverrideEmailSettings
+  > = z.object({
+    recipientSigningRequest: z.boolean().default(true),
+    recipientRemoved: z.boolean().default(true),
+    recipientSigned: z.boolean().default(true),
+    documentPending: z.boolean().default(true),
+    documentCompleted: z.boolean().default(true),
+    documentDeleted: z.boolean().default(true),
+    ownerDocumentCompleted: z.boolean().default(true),
+  });
+
+export function templateCreateDocumentFromTemplateOverrideEmailSettingsToJSON(
+  templateCreateDocumentFromTemplateOverrideEmailSettings:
+    TemplateCreateDocumentFromTemplateOverrideEmailSettings,
+): string {
+  return JSON.stringify(
+    TemplateCreateDocumentFromTemplateOverrideEmailSettings$outboundSchema
+      .parse(templateCreateDocumentFromTemplateOverrideEmailSettings),
+  );
+}
+export function templateCreateDocumentFromTemplateOverrideEmailSettingsFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  TemplateCreateDocumentFromTemplateOverrideEmailSettings,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      TemplateCreateDocumentFromTemplateOverrideEmailSettings$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'TemplateCreateDocumentFromTemplateOverrideEmailSettings' from JSON`,
+  );
+}
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateLanguage$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateLanguage> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateLanguage);
+/** @internal */
+export const TemplateCreateDocumentFromTemplateLanguage$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateLanguage> =
+    TemplateCreateDocumentFromTemplateLanguage$inboundSchema;
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateOverride$inboundSchema:
+  z.ZodType<TemplateCreateDocumentFromTemplateOverride, z.ZodTypeDef, unknown> =
+    z.object({
+      title: z.string().optional(),
+      subject: z.string().optional(),
+      message: z.string().optional(),
+      timezone: z.string().optional(),
+      dateFormat: TemplateCreateDocumentFromTemplateDateFormat$inboundSchema
+        .optional(),
+      redirectUrl: z.string().optional(),
+      distributionMethod:
+        TemplateCreateDocumentFromTemplateOverrideDistributionMethod$inboundSchema
+          .optional(),
+      emailSettings: z.lazy(() =>
+        TemplateCreateDocumentFromTemplateOverrideEmailSettings$inboundSchema
+      ).optional(),
+      language: TemplateCreateDocumentFromTemplateLanguage$inboundSchema
+        .optional(),
+      typedSignatureEnabled: z.boolean().optional(),
+      uploadSignatureEnabled: z.boolean().optional(),
+      drawSignatureEnabled: z.boolean().optional(),
+      allowDictateNextSigner: z.boolean().optional(),
+    });
+/** @internal */
+export type TemplateCreateDocumentFromTemplateOverride$Outbound = {
+  title?: string | undefined;
+  subject?: string | undefined;
+  message?: string | undefined;
+  timezone?: string | undefined;
+  dateFormat?: string | undefined;
+  redirectUrl?: string | undefined;
+  distributionMethod?: string | undefined;
+  emailSettings?:
+    | TemplateCreateDocumentFromTemplateOverrideEmailSettings$Outbound
+    | undefined;
+  language?: string | undefined;
+  typedSignatureEnabled?: boolean | undefined;
+  uploadSignatureEnabled?: boolean | undefined;
+  drawSignatureEnabled?: boolean | undefined;
+  allowDictateNextSigner?: boolean | undefined;
+};
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateOverride$outboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateOverride$Outbound,
+    z.ZodTypeDef,
+    TemplateCreateDocumentFromTemplateOverride
+  > = z.object({
+    title: z.string().optional(),
+    subject: z.string().optional(),
+    message: z.string().optional(),
+    timezone: z.string().optional(),
+    dateFormat: TemplateCreateDocumentFromTemplateDateFormat$outboundSchema
+      .optional(),
+    redirectUrl: z.string().optional(),
+    distributionMethod:
+      TemplateCreateDocumentFromTemplateOverrideDistributionMethod$outboundSchema
+        .optional(),
+    emailSettings: z.lazy(() =>
+      TemplateCreateDocumentFromTemplateOverrideEmailSettings$outboundSchema
+    ).optional(),
+    language: TemplateCreateDocumentFromTemplateLanguage$outboundSchema
+      .optional(),
+    typedSignatureEnabled: z.boolean().optional(),
+    uploadSignatureEnabled: z.boolean().optional(),
+    drawSignatureEnabled: z.boolean().optional(),
+    allowDictateNextSigner: z.boolean().optional(),
+  });
+
+export function templateCreateDocumentFromTemplateOverrideToJSON(
+  templateCreateDocumentFromTemplateOverride:
+    TemplateCreateDocumentFromTemplateOverride,
+): string {
+  return JSON.stringify(
+    TemplateCreateDocumentFromTemplateOverride$outboundSchema.parse(
+      templateCreateDocumentFromTemplateOverride,
+    ),
+  );
+}
+export function templateCreateDocumentFromTemplateOverrideFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  TemplateCreateDocumentFromTemplateOverride,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      TemplateCreateDocumentFromTemplateOverride$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'TemplateCreateDocumentFromTemplateOverride' from JSON`,
+  );
+}
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateTypeLink$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTypeLink> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateTypeLink);
+/** @internal */
+export const TemplateCreateDocumentFromTemplateTypeLink$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTypeLink> =
+    TemplateCreateDocumentFromTemplateTypeLink$inboundSchema;
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateAttachment$inboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateAttachment,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    label: z.string(),
+    data: z.string(),
+    type: TemplateCreateDocumentFromTemplateTypeLink$inboundSchema.default(
+      "link",
+    ),
+  });
+/** @internal */
+export type TemplateCreateDocumentFromTemplateAttachment$Outbound = {
+  label: string;
+  data: string;
+  type: string;
+};
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateAttachment$outboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateAttachment$Outbound,
+    z.ZodTypeDef,
+    TemplateCreateDocumentFromTemplateAttachment
+  > = z.object({
+    label: z.string(),
+    data: z.string(),
+    type: TemplateCreateDocumentFromTemplateTypeLink$outboundSchema.default(
+      "link",
+    ),
+  });
+
+export function templateCreateDocumentFromTemplateAttachmentToJSON(
+  templateCreateDocumentFromTemplateAttachment:
+    TemplateCreateDocumentFromTemplateAttachment,
+): string {
+  return JSON.stringify(
+    TemplateCreateDocumentFromTemplateAttachment$outboundSchema.parse(
+      templateCreateDocumentFromTemplateAttachment,
+    ),
+  );
+}
+export function templateCreateDocumentFromTemplateAttachmentFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  TemplateCreateDocumentFromTemplateAttachment,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      TemplateCreateDocumentFromTemplateAttachment$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'TemplateCreateDocumentFromTemplateAttachment' from JSON`,
+  );
+}
+
+/** @internal */
 export const TemplateCreateDocumentFromTemplateRequest$inboundSchema: z.ZodType<
   TemplateCreateDocumentFromTemplateRequest,
   z.ZodTypeDef,
@@ -1397,23 +1800,29 @@ export const TemplateCreateDocumentFromTemplateRequest$inboundSchema: z.ZodType<
     z.union([
       z.lazy(() =>
         TemplateCreateDocumentFromTemplatePrefillFieldText$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("text") })),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplatePrefillFieldNumber$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("number") })),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplatePrefillFieldRadio$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("radio") })),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplatePrefillFieldCheckbox$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("checkbox") })),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplatePrefillFieldDropdown$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("dropdown") })),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplatePrefillFieldDate$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("date") })),
     ]),
+  ).optional(),
+  override: z.lazy(() =>
+    TemplateCreateDocumentFromTemplateOverride$inboundSchema
+  ).optional(),
+  attachments: z.array(
+    z.lazy(() => TemplateCreateDocumentFromTemplateAttachment$inboundSchema),
   ).optional(),
 });
 /** @internal */
@@ -1430,13 +1839,29 @@ export type TemplateCreateDocumentFromTemplateRequest$Outbound = {
   folderId?: string | undefined;
   prefillFields?:
     | Array<
-      | TemplateCreateDocumentFromTemplatePrefillFieldText$Outbound
-      | TemplateCreateDocumentFromTemplatePrefillFieldNumber$Outbound
-      | TemplateCreateDocumentFromTemplatePrefillFieldRadio$Outbound
-      | TemplateCreateDocumentFromTemplatePrefillFieldCheckbox$Outbound
-      | TemplateCreateDocumentFromTemplatePrefillFieldDropdown$Outbound
-      | TemplateCreateDocumentFromTemplatePrefillFieldDate$Outbound
+      | (TemplateCreateDocumentFromTemplatePrefillFieldText$Outbound & {
+        type: "text";
+      })
+      | (TemplateCreateDocumentFromTemplatePrefillFieldNumber$Outbound & {
+        type: "number";
+      })
+      | (TemplateCreateDocumentFromTemplatePrefillFieldRadio$Outbound & {
+        type: "radio";
+      })
+      | (TemplateCreateDocumentFromTemplatePrefillFieldCheckbox$Outbound & {
+        type: "checkbox";
+      })
+      | (TemplateCreateDocumentFromTemplatePrefillFieldDropdown$Outbound & {
+        type: "dropdown";
+      })
+      | (TemplateCreateDocumentFromTemplatePrefillFieldDate$Outbound & {
+        type: "date";
+      })
     >
+    | undefined;
+  override?: TemplateCreateDocumentFromTemplateOverride$Outbound | undefined;
+  attachments?:
+    | Array<TemplateCreateDocumentFromTemplateAttachment$Outbound>
     | undefined;
 };
 
@@ -1465,23 +1890,29 @@ export const TemplateCreateDocumentFromTemplateRequest$outboundSchema:
       z.union([
         z.lazy(() =>
           TemplateCreateDocumentFromTemplatePrefillFieldText$outboundSchema
-        ),
+        ).and(z.object({ type: z.literal("text") })),
         z.lazy(() =>
           TemplateCreateDocumentFromTemplatePrefillFieldNumber$outboundSchema
-        ),
+        ).and(z.object({ type: z.literal("number") })),
         z.lazy(() =>
           TemplateCreateDocumentFromTemplatePrefillFieldRadio$outboundSchema
-        ),
+        ).and(z.object({ type: z.literal("radio") })),
         z.lazy(() =>
           TemplateCreateDocumentFromTemplatePrefillFieldCheckbox$outboundSchema
-        ),
+        ).and(z.object({ type: z.literal("checkbox") })),
         z.lazy(() =>
           TemplateCreateDocumentFromTemplatePrefillFieldDropdown$outboundSchema
-        ),
+        ).and(z.object({ type: z.literal("dropdown") })),
         z.lazy(() =>
           TemplateCreateDocumentFromTemplatePrefillFieldDate$outboundSchema
-        ),
+        ).and(z.object({ type: z.literal("date") })),
       ]),
+    ).optional(),
+    override: z.lazy(() =>
+      TemplateCreateDocumentFromTemplateOverride$outboundSchema
+    ).optional(),
+    attachments: z.array(
+      z.lazy(() => TemplateCreateDocumentFromTemplateAttachment$outboundSchema),
     ).optional(),
   });
 
@@ -1745,18 +2176,23 @@ export const TemplateCreateDocumentFromTemplateSigningOrder$outboundSchema:
     TemplateCreateDocumentFromTemplateSigningOrder$inboundSchema;
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateDistributionMethod$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateDistributionMethod> =
-    z.nativeEnum(TemplateCreateDocumentFromTemplateDistributionMethod);
+export const TemplateCreateDocumentFromTemplateDocumentMetaDistributionMethod$inboundSchema:
+  z.ZodNativeEnum<
+    typeof TemplateCreateDocumentFromTemplateDocumentMetaDistributionMethod
+  > = z.nativeEnum(
+    TemplateCreateDocumentFromTemplateDocumentMetaDistributionMethod,
+  );
 /** @internal */
-export const TemplateCreateDocumentFromTemplateDistributionMethod$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateDistributionMethod> =
-    TemplateCreateDocumentFromTemplateDistributionMethod$inboundSchema;
+export const TemplateCreateDocumentFromTemplateDocumentMetaDistributionMethod$outboundSchema:
+  z.ZodNativeEnum<
+    typeof TemplateCreateDocumentFromTemplateDocumentMetaDistributionMethod
+  > =
+    TemplateCreateDocumentFromTemplateDocumentMetaDistributionMethod$inboundSchema;
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateEmailSettings$inboundSchema:
+export const TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings$inboundSchema:
   z.ZodType<
-    TemplateCreateDocumentFromTemplateEmailSettings,
+    TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings,
     z.ZodTypeDef,
     unknown
   > = z.object({
@@ -1769,22 +2205,23 @@ export const TemplateCreateDocumentFromTemplateEmailSettings$inboundSchema:
     ownerDocumentCompleted: z.boolean().default(true),
   });
 /** @internal */
-export type TemplateCreateDocumentFromTemplateEmailSettings$Outbound = {
-  recipientSigningRequest: boolean;
-  recipientRemoved: boolean;
-  recipientSigned: boolean;
-  documentPending: boolean;
-  documentCompleted: boolean;
-  documentDeleted: boolean;
-  ownerDocumentCompleted: boolean;
-};
+export type TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings$Outbound =
+  {
+    recipientSigningRequest: boolean;
+    recipientRemoved: boolean;
+    recipientSigned: boolean;
+    documentPending: boolean;
+    documentCompleted: boolean;
+    documentDeleted: boolean;
+    ownerDocumentCompleted: boolean;
+  };
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateEmailSettings$outboundSchema:
+export const TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings$outboundSchema:
   z.ZodType<
-    TemplateCreateDocumentFromTemplateEmailSettings$Outbound,
+    TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings$Outbound,
     z.ZodTypeDef,
-    TemplateCreateDocumentFromTemplateEmailSettings
+    TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings
   > = z.object({
     recipientSigningRequest: z.boolean().default(true),
     recipientRemoved: z.boolean().default(true),
@@ -1795,29 +2232,27 @@ export const TemplateCreateDocumentFromTemplateEmailSettings$outboundSchema:
     ownerDocumentCompleted: z.boolean().default(true),
   });
 
-export function templateCreateDocumentFromTemplateEmailSettingsToJSON(
-  templateCreateDocumentFromTemplateEmailSettings:
-    TemplateCreateDocumentFromTemplateEmailSettings,
+export function templateCreateDocumentFromTemplateDocumentMetaEmailSettingsToJSON(
+  templateCreateDocumentFromTemplateDocumentMetaEmailSettings:
+    TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings,
 ): string {
   return JSON.stringify(
-    TemplateCreateDocumentFromTemplateEmailSettings$outboundSchema.parse(
-      templateCreateDocumentFromTemplateEmailSettings,
-    ),
+    TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings$outboundSchema
+      .parse(templateCreateDocumentFromTemplateDocumentMetaEmailSettings),
   );
 }
-export function templateCreateDocumentFromTemplateEmailSettingsFromJSON(
+export function templateCreateDocumentFromTemplateDocumentMetaEmailSettingsFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  TemplateCreateDocumentFromTemplateEmailSettings,
+  TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      TemplateCreateDocumentFromTemplateEmailSettings$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'TemplateCreateDocumentFromTemplateEmailSettings' from JSON`,
+      TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings' from JSON`,
   );
 }
 
@@ -1830,7 +2265,7 @@ export const TemplateCreateDocumentFromTemplateDocumentMeta$inboundSchema:
   > = z.object({
     signingOrder: TemplateCreateDocumentFromTemplateSigningOrder$inboundSchema,
     distributionMethod:
-      TemplateCreateDocumentFromTemplateDistributionMethod$inboundSchema,
+      TemplateCreateDocumentFromTemplateDocumentMetaDistributionMethod$inboundSchema,
     id: z.string(),
     subject: z.nullable(z.string()),
     message: z.nullable(z.string()),
@@ -1844,7 +2279,7 @@ export const TemplateCreateDocumentFromTemplateDocumentMeta$inboundSchema:
     language: z.string(),
     emailSettings: z.nullable(
       z.lazy(() =>
-        TemplateCreateDocumentFromTemplateEmailSettings$inboundSchema
+        TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings$inboundSchema
       ),
     ),
     emailId: z.nullable(z.string()),
@@ -1868,7 +2303,7 @@ export type TemplateCreateDocumentFromTemplateDocumentMeta$Outbound = {
   allowDictateNextSigner: boolean;
   language: string;
   emailSettings:
-    | TemplateCreateDocumentFromTemplateEmailSettings$Outbound
+    | TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings$Outbound
     | null;
   emailId: string | null;
   emailReplyTo: string | null;
@@ -1885,7 +2320,7 @@ export const TemplateCreateDocumentFromTemplateDocumentMeta$outboundSchema:
   > = z.object({
     signingOrder: TemplateCreateDocumentFromTemplateSigningOrder$outboundSchema,
     distributionMethod:
-      TemplateCreateDocumentFromTemplateDistributionMethod$outboundSchema,
+      TemplateCreateDocumentFromTemplateDocumentMetaDistributionMethod$outboundSchema,
     id: z.string(),
     subject: z.nullable(z.string()),
     message: z.nullable(z.string()),
@@ -1899,7 +2334,7 @@ export const TemplateCreateDocumentFromTemplateDocumentMeta$outboundSchema:
     language: z.string(),
     emailSettings: z.nullable(
       z.lazy(() =>
-        TemplateCreateDocumentFromTemplateEmailSettings$outboundSchema
+        TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings$outboundSchema
       ),
     ),
     emailId: z.nullable(z.string()),
@@ -3431,41 +3866,62 @@ export const TemplateCreateDocumentFromTemplateFieldMetaUnion$inboundSchema:
   > = z.union([
     z.lazy(() =>
       TemplateCreateDocumentFromTemplateFieldMetaSignature$inboundSchema
-    ),
+    ).and(z.object({ type: z.literal("signature") })),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplateFieldMetaInitials$inboundSchema
-    ),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaName$inboundSchema),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaEmail$inboundSchema
-    ),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaDate$inboundSchema),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaText$inboundSchema),
+    ).and(z.object({ type: z.literal("initials") })),
+    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaName$inboundSchema)
+      .and(z.object({ type: z.literal("name") })),
+    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaEmail$inboundSchema)
+      .and(z.object({ type: z.literal("email") })),
+    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaDate$inboundSchema)
+      .and(z.object({ type: z.literal("date") })),
+    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaText$inboundSchema)
+      .and(z.object({ type: z.literal("text") })),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplateFieldMetaNumber$inboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaRadio$inboundSchema
-    ),
+    ).and(z.object({ type: z.literal("number") })),
+    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaRadio$inboundSchema)
+      .and(z.object({ type: z.literal("radio") })),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplateFieldMetaCheckbox$inboundSchema
-    ),
+    ).and(z.object({ type: z.literal("checkbox") })),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplateFieldMetaDropdown$inboundSchema
-    ),
+    ).and(z.object({ type: z.literal("dropdown") })),
   ]);
 /** @internal */
 export type TemplateCreateDocumentFromTemplateFieldMetaUnion$Outbound =
-  | TemplateCreateDocumentFromTemplateFieldMetaSignature$Outbound
-  | TemplateCreateDocumentFromTemplateFieldMetaInitials$Outbound
-  | TemplateCreateDocumentFromTemplateFieldMetaName$Outbound
-  | TemplateCreateDocumentFromTemplateFieldMetaEmail$Outbound
-  | TemplateCreateDocumentFromTemplateFieldMetaDate$Outbound
-  | TemplateCreateDocumentFromTemplateFieldMetaText$Outbound
-  | TemplateCreateDocumentFromTemplateFieldMetaNumber$Outbound
-  | TemplateCreateDocumentFromTemplateFieldMetaRadio$Outbound
-  | TemplateCreateDocumentFromTemplateFieldMetaCheckbox$Outbound
-  | TemplateCreateDocumentFromTemplateFieldMetaDropdown$Outbound;
+  | (TemplateCreateDocumentFromTemplateFieldMetaSignature$Outbound & {
+    type: "signature";
+  })
+  | (TemplateCreateDocumentFromTemplateFieldMetaInitials$Outbound & {
+    type: "initials";
+  })
+  | (TemplateCreateDocumentFromTemplateFieldMetaName$Outbound & {
+    type: "name";
+  })
+  | (TemplateCreateDocumentFromTemplateFieldMetaEmail$Outbound & {
+    type: "email";
+  })
+  | (TemplateCreateDocumentFromTemplateFieldMetaDate$Outbound & {
+    type: "date";
+  })
+  | (TemplateCreateDocumentFromTemplateFieldMetaText$Outbound & {
+    type: "text";
+  })
+  | (TemplateCreateDocumentFromTemplateFieldMetaNumber$Outbound & {
+    type: "number";
+  })
+  | (TemplateCreateDocumentFromTemplateFieldMetaRadio$Outbound & {
+    type: "radio";
+  })
+  | (TemplateCreateDocumentFromTemplateFieldMetaCheckbox$Outbound & {
+    type: "checkbox";
+  })
+  | (TemplateCreateDocumentFromTemplateFieldMetaDropdown$Outbound & {
+    type: "dropdown";
+  });
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateFieldMetaUnion$outboundSchema:
@@ -3476,34 +3932,31 @@ export const TemplateCreateDocumentFromTemplateFieldMetaUnion$outboundSchema:
   > = z.union([
     z.lazy(() =>
       TemplateCreateDocumentFromTemplateFieldMetaSignature$outboundSchema
-    ),
+    ).and(z.object({ type: z.literal("signature") })),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplateFieldMetaInitials$outboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaName$outboundSchema
-    ),
+    ).and(z.object({ type: z.literal("initials") })),
+    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaName$outboundSchema)
+      .and(z.object({ type: z.literal("name") })),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplateFieldMetaEmail$outboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaDate$outboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaText$outboundSchema
-    ),
+    ).and(z.object({ type: z.literal("email") })),
+    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaDate$outboundSchema)
+      .and(z.object({ type: z.literal("date") })),
+    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaText$outboundSchema)
+      .and(z.object({ type: z.literal("text") })),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplateFieldMetaNumber$outboundSchema
-    ),
+    ).and(z.object({ type: z.literal("number") })),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplateFieldMetaRadio$outboundSchema
-    ),
+    ).and(z.object({ type: z.literal("radio") })),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplateFieldMetaCheckbox$outboundSchema
-    ),
+    ).and(z.object({ type: z.literal("checkbox") })),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplateFieldMetaDropdown$outboundSchema
-    ),
+    ).and(z.object({ type: z.literal("dropdown") })),
   ]);
 
 export function templateCreateDocumentFromTemplateFieldMetaUnionToJSON(
@@ -3555,34 +4008,34 @@ export const TemplateCreateDocumentFromTemplateField$inboundSchema: z.ZodType<
     z.union([
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaSignature$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("signature") })),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaInitials$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("initials") })),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaName$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("name") })),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaEmail$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("email") })),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaDate$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("date") })),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaText$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("text") })),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaNumber$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("number") })),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaRadio$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("radio") })),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaCheckbox$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("checkbox") })),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaDropdown$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("dropdown") })),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),
@@ -3604,16 +4057,36 @@ export type TemplateCreateDocumentFromTemplateField$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | TemplateCreateDocumentFromTemplateFieldMetaSignature$Outbound
-    | TemplateCreateDocumentFromTemplateFieldMetaInitials$Outbound
-    | TemplateCreateDocumentFromTemplateFieldMetaName$Outbound
-    | TemplateCreateDocumentFromTemplateFieldMetaEmail$Outbound
-    | TemplateCreateDocumentFromTemplateFieldMetaDate$Outbound
-    | TemplateCreateDocumentFromTemplateFieldMetaText$Outbound
-    | TemplateCreateDocumentFromTemplateFieldMetaNumber$Outbound
-    | TemplateCreateDocumentFromTemplateFieldMetaRadio$Outbound
-    | TemplateCreateDocumentFromTemplateFieldMetaCheckbox$Outbound
-    | TemplateCreateDocumentFromTemplateFieldMetaDropdown$Outbound
+    | (TemplateCreateDocumentFromTemplateFieldMetaSignature$Outbound & {
+      type: "signature";
+    })
+    | (TemplateCreateDocumentFromTemplateFieldMetaInitials$Outbound & {
+      type: "initials";
+    })
+    | (TemplateCreateDocumentFromTemplateFieldMetaName$Outbound & {
+      type: "name";
+    })
+    | (TemplateCreateDocumentFromTemplateFieldMetaEmail$Outbound & {
+      type: "email";
+    })
+    | (TemplateCreateDocumentFromTemplateFieldMetaDate$Outbound & {
+      type: "date";
+    })
+    | (TemplateCreateDocumentFromTemplateFieldMetaText$Outbound & {
+      type: "text";
+    })
+    | (TemplateCreateDocumentFromTemplateFieldMetaNumber$Outbound & {
+      type: "number";
+    })
+    | (TemplateCreateDocumentFromTemplateFieldMetaRadio$Outbound & {
+      type: "radio";
+    })
+    | (TemplateCreateDocumentFromTemplateFieldMetaCheckbox$Outbound & {
+      type: "checkbox";
+    })
+    | (TemplateCreateDocumentFromTemplateFieldMetaDropdown$Outbound & {
+      type: "dropdown";
+    })
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -3642,34 +4115,34 @@ export const TemplateCreateDocumentFromTemplateField$outboundSchema: z.ZodType<
     z.union([
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaSignature$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("signature") })),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaInitials$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("initials") })),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaName$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("name") })),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaEmail$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("email") })),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaDate$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("date") })),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaText$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("text") })),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaNumber$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("number") })),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaRadio$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("radio") })),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaCheckbox$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("checkbox") })),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaDropdown$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("dropdown") })),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),

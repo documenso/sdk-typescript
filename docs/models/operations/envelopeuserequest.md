@@ -8,12 +8,6 @@ import { EnvelopeUseRequest } from "@documenso/sdk-typescript/models/operations"
 let value: EnvelopeUseRequest = {
   payload: {
     envelopeId: "<id>",
-    recipients: [
-      {
-        id: 9358.84,
-        email: "Lizeth_Rodriguez@gmail.com",
-      },
-    ],
   },
 };
 ```

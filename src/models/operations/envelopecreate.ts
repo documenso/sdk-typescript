@@ -581,17 +581,17 @@ export type EnvelopeCreateFieldSignature = {
 };
 
 export type EnvelopeCreateFieldUnion =
-  | EnvelopeCreateFieldSignature
-  | EnvelopeCreateFieldFreeSignature
-  | EnvelopeCreateFieldInitials
-  | EnvelopeCreateFieldName
-  | EnvelopeCreateFieldEmail
-  | EnvelopeCreateFieldDate
-  | EnvelopeCreateFieldText
-  | EnvelopeCreateFieldNumber
-  | EnvelopeCreateFieldRadio
-  | EnvelopeCreateFieldCheckbox
-  | EnvelopeCreateFieldDropdown;
+  | (EnvelopeCreateFieldSignature & { type: "SIGNATURE" })
+  | (EnvelopeCreateFieldFreeSignature & { type: "FREE_SIGNATURE" })
+  | (EnvelopeCreateFieldInitials & { type: "INITIALS" })
+  | (EnvelopeCreateFieldName & { type: "NAME" })
+  | (EnvelopeCreateFieldEmail & { type: "EMAIL" })
+  | (EnvelopeCreateFieldDate & { type: "DATE" })
+  | (EnvelopeCreateFieldText & { type: "TEXT" })
+  | (EnvelopeCreateFieldNumber & { type: "NUMBER" })
+  | (EnvelopeCreateFieldRadio & { type: "RADIO" })
+  | (EnvelopeCreateFieldCheckbox & { type: "CHECKBOX" })
+  | (EnvelopeCreateFieldDropdown & { type: "DROPDOWN" });
 
 export type EnvelopeCreateRecipient = {
   email: string;
@@ -602,17 +602,17 @@ export type EnvelopeCreateRecipient = {
   actionAuth?: Array<EnvelopeCreateActionAuth> | undefined;
   fields?:
     | Array<
-      | EnvelopeCreateFieldSignature
-      | EnvelopeCreateFieldFreeSignature
-      | EnvelopeCreateFieldInitials
-      | EnvelopeCreateFieldName
-      | EnvelopeCreateFieldEmail
-      | EnvelopeCreateFieldDate
-      | EnvelopeCreateFieldText
-      | EnvelopeCreateFieldNumber
-      | EnvelopeCreateFieldRadio
-      | EnvelopeCreateFieldCheckbox
-      | EnvelopeCreateFieldDropdown
+      | (EnvelopeCreateFieldSignature & { type: "SIGNATURE" })
+      | (EnvelopeCreateFieldFreeSignature & { type: "FREE_SIGNATURE" })
+      | (EnvelopeCreateFieldInitials & { type: "INITIALS" })
+      | (EnvelopeCreateFieldName & { type: "NAME" })
+      | (EnvelopeCreateFieldEmail & { type: "EMAIL" })
+      | (EnvelopeCreateFieldDate & { type: "DATE" })
+      | (EnvelopeCreateFieldText & { type: "TEXT" })
+      | (EnvelopeCreateFieldNumber & { type: "NUMBER" })
+      | (EnvelopeCreateFieldRadio & { type: "RADIO" })
+      | (EnvelopeCreateFieldCheckbox & { type: "CHECKBOX" })
+      | (EnvelopeCreateFieldDropdown & { type: "DROPDOWN" })
     >
     | undefined;
 };
@@ -668,6 +668,10 @@ export const EnvelopeCreateLanguage = {
   Es: "es",
   It: "it",
   Pl: "pl",
+  PtBR: "pt-BR",
+  Ja: "ja",
+  Ko: "ko",
+  Zh: "zh",
 } as const;
 export type EnvelopeCreateLanguage = ClosedEnum<typeof EnvelopeCreateLanguage>;
 
@@ -2950,31 +2954,53 @@ export const EnvelopeCreateFieldUnion$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  z.lazy(() => EnvelopeCreateFieldSignature$inboundSchema),
-  z.lazy(() => EnvelopeCreateFieldFreeSignature$inboundSchema),
-  z.lazy(() => EnvelopeCreateFieldInitials$inboundSchema),
-  z.lazy(() => EnvelopeCreateFieldName$inboundSchema),
-  z.lazy(() => EnvelopeCreateFieldEmail$inboundSchema),
-  z.lazy(() => EnvelopeCreateFieldDate$inboundSchema),
-  z.lazy(() => EnvelopeCreateFieldText$inboundSchema),
-  z.lazy(() => EnvelopeCreateFieldNumber$inboundSchema),
-  z.lazy(() => EnvelopeCreateFieldRadio$inboundSchema),
-  z.lazy(() => EnvelopeCreateFieldCheckbox$inboundSchema),
-  z.lazy(() => EnvelopeCreateFieldDropdown$inboundSchema),
+  z.lazy(() => EnvelopeCreateFieldSignature$inboundSchema).and(
+    z.object({ type: z.literal("SIGNATURE") }),
+  ),
+  z.lazy(() => EnvelopeCreateFieldFreeSignature$inboundSchema).and(
+    z.object({ type: z.literal("FREE_SIGNATURE") }),
+  ),
+  z.lazy(() => EnvelopeCreateFieldInitials$inboundSchema).and(
+    z.object({ type: z.literal("INITIALS") }),
+  ),
+  z.lazy(() => EnvelopeCreateFieldName$inboundSchema).and(
+    z.object({ type: z.literal("NAME") }),
+  ),
+  z.lazy(() => EnvelopeCreateFieldEmail$inboundSchema).and(
+    z.object({ type: z.literal("EMAIL") }),
+  ),
+  z.lazy(() => EnvelopeCreateFieldDate$inboundSchema).and(
+    z.object({ type: z.literal("DATE") }),
+  ),
+  z.lazy(() => EnvelopeCreateFieldText$inboundSchema).and(
+    z.object({ type: z.literal("TEXT") }),
+  ),
+  z.lazy(() => EnvelopeCreateFieldNumber$inboundSchema).and(
+    z.object({ type: z.literal("NUMBER") }),
+  ),
+  z.lazy(() => EnvelopeCreateFieldRadio$inboundSchema).and(
+    z.object({ type: z.literal("RADIO") }),
+  ),
+  z.lazy(() => EnvelopeCreateFieldCheckbox$inboundSchema).and(
+    z.object({ type: z.literal("CHECKBOX") }),
+  ),
+  z.lazy(() => EnvelopeCreateFieldDropdown$inboundSchema).and(
+    z.object({ type: z.literal("DROPDOWN") }),
+  ),
 ]);
 /** @internal */
 export type EnvelopeCreateFieldUnion$Outbound =
-  | EnvelopeCreateFieldSignature$Outbound
-  | EnvelopeCreateFieldFreeSignature$Outbound
-  | EnvelopeCreateFieldInitials$Outbound
-  | EnvelopeCreateFieldName$Outbound
-  | EnvelopeCreateFieldEmail$Outbound
-  | EnvelopeCreateFieldDate$Outbound
-  | EnvelopeCreateFieldText$Outbound
-  | EnvelopeCreateFieldNumber$Outbound
-  | EnvelopeCreateFieldRadio$Outbound
-  | EnvelopeCreateFieldCheckbox$Outbound
-  | EnvelopeCreateFieldDropdown$Outbound;
+  | (EnvelopeCreateFieldSignature$Outbound & { type: "SIGNATURE" })
+  | (EnvelopeCreateFieldFreeSignature$Outbound & { type: "FREE_SIGNATURE" })
+  | (EnvelopeCreateFieldInitials$Outbound & { type: "INITIALS" })
+  | (EnvelopeCreateFieldName$Outbound & { type: "NAME" })
+  | (EnvelopeCreateFieldEmail$Outbound & { type: "EMAIL" })
+  | (EnvelopeCreateFieldDate$Outbound & { type: "DATE" })
+  | (EnvelopeCreateFieldText$Outbound & { type: "TEXT" })
+  | (EnvelopeCreateFieldNumber$Outbound & { type: "NUMBER" })
+  | (EnvelopeCreateFieldRadio$Outbound & { type: "RADIO" })
+  | (EnvelopeCreateFieldCheckbox$Outbound & { type: "CHECKBOX" })
+  | (EnvelopeCreateFieldDropdown$Outbound & { type: "DROPDOWN" });
 
 /** @internal */
 export const EnvelopeCreateFieldUnion$outboundSchema: z.ZodType<
@@ -2982,17 +3008,39 @@ export const EnvelopeCreateFieldUnion$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EnvelopeCreateFieldUnion
 > = z.union([
-  z.lazy(() => EnvelopeCreateFieldSignature$outboundSchema),
-  z.lazy(() => EnvelopeCreateFieldFreeSignature$outboundSchema),
-  z.lazy(() => EnvelopeCreateFieldInitials$outboundSchema),
-  z.lazy(() => EnvelopeCreateFieldName$outboundSchema),
-  z.lazy(() => EnvelopeCreateFieldEmail$outboundSchema),
-  z.lazy(() => EnvelopeCreateFieldDate$outboundSchema),
-  z.lazy(() => EnvelopeCreateFieldText$outboundSchema),
-  z.lazy(() => EnvelopeCreateFieldNumber$outboundSchema),
-  z.lazy(() => EnvelopeCreateFieldRadio$outboundSchema),
-  z.lazy(() => EnvelopeCreateFieldCheckbox$outboundSchema),
-  z.lazy(() => EnvelopeCreateFieldDropdown$outboundSchema),
+  z.lazy(() => EnvelopeCreateFieldSignature$outboundSchema).and(
+    z.object({ type: z.literal("SIGNATURE") }),
+  ),
+  z.lazy(() => EnvelopeCreateFieldFreeSignature$outboundSchema).and(
+    z.object({ type: z.literal("FREE_SIGNATURE") }),
+  ),
+  z.lazy(() => EnvelopeCreateFieldInitials$outboundSchema).and(
+    z.object({ type: z.literal("INITIALS") }),
+  ),
+  z.lazy(() => EnvelopeCreateFieldName$outboundSchema).and(
+    z.object({ type: z.literal("NAME") }),
+  ),
+  z.lazy(() => EnvelopeCreateFieldEmail$outboundSchema).and(
+    z.object({ type: z.literal("EMAIL") }),
+  ),
+  z.lazy(() => EnvelopeCreateFieldDate$outboundSchema).and(
+    z.object({ type: z.literal("DATE") }),
+  ),
+  z.lazy(() => EnvelopeCreateFieldText$outboundSchema).and(
+    z.object({ type: z.literal("TEXT") }),
+  ),
+  z.lazy(() => EnvelopeCreateFieldNumber$outboundSchema).and(
+    z.object({ type: z.literal("NUMBER") }),
+  ),
+  z.lazy(() => EnvelopeCreateFieldRadio$outboundSchema).and(
+    z.object({ type: z.literal("RADIO") }),
+  ),
+  z.lazy(() => EnvelopeCreateFieldCheckbox$outboundSchema).and(
+    z.object({ type: z.literal("CHECKBOX") }),
+  ),
+  z.lazy(() => EnvelopeCreateFieldDropdown$outboundSchema).and(
+    z.object({ type: z.literal("DROPDOWN") }),
+  ),
 ]);
 
 export function envelopeCreateFieldUnionToJSON(
@@ -3026,17 +3074,39 @@ export const EnvelopeCreateRecipient$inboundSchema: z.ZodType<
   actionAuth: z.array(EnvelopeCreateActionAuth$inboundSchema).optional(),
   fields: z.array(
     z.union([
-      z.lazy(() => EnvelopeCreateFieldSignature$inboundSchema),
-      z.lazy(() => EnvelopeCreateFieldFreeSignature$inboundSchema),
-      z.lazy(() => EnvelopeCreateFieldInitials$inboundSchema),
-      z.lazy(() => EnvelopeCreateFieldName$inboundSchema),
-      z.lazy(() => EnvelopeCreateFieldEmail$inboundSchema),
-      z.lazy(() => EnvelopeCreateFieldDate$inboundSchema),
-      z.lazy(() => EnvelopeCreateFieldText$inboundSchema),
-      z.lazy(() => EnvelopeCreateFieldNumber$inboundSchema),
-      z.lazy(() => EnvelopeCreateFieldRadio$inboundSchema),
-      z.lazy(() => EnvelopeCreateFieldCheckbox$inboundSchema),
-      z.lazy(() => EnvelopeCreateFieldDropdown$inboundSchema),
+      z.lazy(() => EnvelopeCreateFieldSignature$inboundSchema).and(
+        z.object({ type: z.literal("SIGNATURE") }),
+      ),
+      z.lazy(() => EnvelopeCreateFieldFreeSignature$inboundSchema).and(
+        z.object({ type: z.literal("FREE_SIGNATURE") }),
+      ),
+      z.lazy(() => EnvelopeCreateFieldInitials$inboundSchema).and(
+        z.object({ type: z.literal("INITIALS") }),
+      ),
+      z.lazy(() => EnvelopeCreateFieldName$inboundSchema).and(
+        z.object({ type: z.literal("NAME") }),
+      ),
+      z.lazy(() => EnvelopeCreateFieldEmail$inboundSchema).and(
+        z.object({ type: z.literal("EMAIL") }),
+      ),
+      z.lazy(() => EnvelopeCreateFieldDate$inboundSchema).and(
+        z.object({ type: z.literal("DATE") }),
+      ),
+      z.lazy(() => EnvelopeCreateFieldText$inboundSchema).and(
+        z.object({ type: z.literal("TEXT") }),
+      ),
+      z.lazy(() => EnvelopeCreateFieldNumber$inboundSchema).and(
+        z.object({ type: z.literal("NUMBER") }),
+      ),
+      z.lazy(() => EnvelopeCreateFieldRadio$inboundSchema).and(
+        z.object({ type: z.literal("RADIO") }),
+      ),
+      z.lazy(() => EnvelopeCreateFieldCheckbox$inboundSchema).and(
+        z.object({ type: z.literal("CHECKBOX") }),
+      ),
+      z.lazy(() => EnvelopeCreateFieldDropdown$inboundSchema).and(
+        z.object({ type: z.literal("DROPDOWN") }),
+      ),
     ]),
   ).optional(),
 });
@@ -3050,17 +3120,17 @@ export type EnvelopeCreateRecipient$Outbound = {
   actionAuth?: Array<string> | undefined;
   fields?:
     | Array<
-      | EnvelopeCreateFieldSignature$Outbound
-      | EnvelopeCreateFieldFreeSignature$Outbound
-      | EnvelopeCreateFieldInitials$Outbound
-      | EnvelopeCreateFieldName$Outbound
-      | EnvelopeCreateFieldEmail$Outbound
-      | EnvelopeCreateFieldDate$Outbound
-      | EnvelopeCreateFieldText$Outbound
-      | EnvelopeCreateFieldNumber$Outbound
-      | EnvelopeCreateFieldRadio$Outbound
-      | EnvelopeCreateFieldCheckbox$Outbound
-      | EnvelopeCreateFieldDropdown$Outbound
+      | (EnvelopeCreateFieldSignature$Outbound & { type: "SIGNATURE" })
+      | (EnvelopeCreateFieldFreeSignature$Outbound & { type: "FREE_SIGNATURE" })
+      | (EnvelopeCreateFieldInitials$Outbound & { type: "INITIALS" })
+      | (EnvelopeCreateFieldName$Outbound & { type: "NAME" })
+      | (EnvelopeCreateFieldEmail$Outbound & { type: "EMAIL" })
+      | (EnvelopeCreateFieldDate$Outbound & { type: "DATE" })
+      | (EnvelopeCreateFieldText$Outbound & { type: "TEXT" })
+      | (EnvelopeCreateFieldNumber$Outbound & { type: "NUMBER" })
+      | (EnvelopeCreateFieldRadio$Outbound & { type: "RADIO" })
+      | (EnvelopeCreateFieldCheckbox$Outbound & { type: "CHECKBOX" })
+      | (EnvelopeCreateFieldDropdown$Outbound & { type: "DROPDOWN" })
     >
     | undefined;
 };
@@ -3079,17 +3149,39 @@ export const EnvelopeCreateRecipient$outboundSchema: z.ZodType<
   actionAuth: z.array(EnvelopeCreateActionAuth$outboundSchema).optional(),
   fields: z.array(
     z.union([
-      z.lazy(() => EnvelopeCreateFieldSignature$outboundSchema),
-      z.lazy(() => EnvelopeCreateFieldFreeSignature$outboundSchema),
-      z.lazy(() => EnvelopeCreateFieldInitials$outboundSchema),
-      z.lazy(() => EnvelopeCreateFieldName$outboundSchema),
-      z.lazy(() => EnvelopeCreateFieldEmail$outboundSchema),
-      z.lazy(() => EnvelopeCreateFieldDate$outboundSchema),
-      z.lazy(() => EnvelopeCreateFieldText$outboundSchema),
-      z.lazy(() => EnvelopeCreateFieldNumber$outboundSchema),
-      z.lazy(() => EnvelopeCreateFieldRadio$outboundSchema),
-      z.lazy(() => EnvelopeCreateFieldCheckbox$outboundSchema),
-      z.lazy(() => EnvelopeCreateFieldDropdown$outboundSchema),
+      z.lazy(() => EnvelopeCreateFieldSignature$outboundSchema).and(
+        z.object({ type: z.literal("SIGNATURE") }),
+      ),
+      z.lazy(() => EnvelopeCreateFieldFreeSignature$outboundSchema).and(
+        z.object({ type: z.literal("FREE_SIGNATURE") }),
+      ),
+      z.lazy(() => EnvelopeCreateFieldInitials$outboundSchema).and(
+        z.object({ type: z.literal("INITIALS") }),
+      ),
+      z.lazy(() => EnvelopeCreateFieldName$outboundSchema).and(
+        z.object({ type: z.literal("NAME") }),
+      ),
+      z.lazy(() => EnvelopeCreateFieldEmail$outboundSchema).and(
+        z.object({ type: z.literal("EMAIL") }),
+      ),
+      z.lazy(() => EnvelopeCreateFieldDate$outboundSchema).and(
+        z.object({ type: z.literal("DATE") }),
+      ),
+      z.lazy(() => EnvelopeCreateFieldText$outboundSchema).and(
+        z.object({ type: z.literal("TEXT") }),
+      ),
+      z.lazy(() => EnvelopeCreateFieldNumber$outboundSchema).and(
+        z.object({ type: z.literal("NUMBER") }),
+      ),
+      z.lazy(() => EnvelopeCreateFieldRadio$outboundSchema).and(
+        z.object({ type: z.literal("RADIO") }),
+      ),
+      z.lazy(() => EnvelopeCreateFieldCheckbox$outboundSchema).and(
+        z.object({ type: z.literal("CHECKBOX") }),
+      ),
+      z.lazy(() => EnvelopeCreateFieldDropdown$outboundSchema).and(
+        z.object({ type: z.literal("DROPDOWN") }),
+      ),
     ]),
   ).optional(),
 });

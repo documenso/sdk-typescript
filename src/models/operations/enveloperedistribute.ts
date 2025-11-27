@@ -4,6 +4,7 @@
 
 import * as z from "zod/v3";
 import { safeParse } from "../../lib/schemas.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -12,11 +13,34 @@ export type EnvelopeRedistributeRequest = {
   recipients: Array<number>;
 };
 
+export const EnvelopeRedistributeRole = {
+  Cc: "CC",
+  Signer: "SIGNER",
+  Viewer: "VIEWER",
+  Approver: "APPROVER",
+  Assistant: "ASSISTANT",
+} as const;
+export type EnvelopeRedistributeRole = ClosedEnum<
+  typeof EnvelopeRedistributeRole
+>;
+
+export type EnvelopeRedistributeRecipient = {
+  id: number;
+  name: string;
+  email: string;
+  token: string;
+  role: EnvelopeRedistributeRole;
+  signingOrder: number | null;
+  signingUrl: string;
+};
+
 /**
  * Successful response
  */
 export type EnvelopeRedistributeResponse = {
   success: boolean;
+  id: string;
+  recipients: Array<EnvelopeRedistributeRecipient>;
 };
 
 /** @internal */
@@ -64,16 +88,90 @@ export function envelopeRedistributeRequestFromJSON(
 }
 
 /** @internal */
+export const EnvelopeRedistributeRole$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeRedistributeRole
+> = z.nativeEnum(EnvelopeRedistributeRole);
+/** @internal */
+export const EnvelopeRedistributeRole$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeRedistributeRole
+> = EnvelopeRedistributeRole$inboundSchema;
+
+/** @internal */
+export const EnvelopeRedistributeRecipient$inboundSchema: z.ZodType<
+  EnvelopeRedistributeRecipient,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.number(),
+  name: z.string(),
+  email: z.string(),
+  token: z.string(),
+  role: EnvelopeRedistributeRole$inboundSchema,
+  signingOrder: z.nullable(z.number()),
+  signingUrl: z.string(),
+});
+/** @internal */
+export type EnvelopeRedistributeRecipient$Outbound = {
+  id: number;
+  name: string;
+  email: string;
+  token: string;
+  role: string;
+  signingOrder: number | null;
+  signingUrl: string;
+};
+
+/** @internal */
+export const EnvelopeRedistributeRecipient$outboundSchema: z.ZodType<
+  EnvelopeRedistributeRecipient$Outbound,
+  z.ZodTypeDef,
+  EnvelopeRedistributeRecipient
+> = z.object({
+  id: z.number(),
+  name: z.string(),
+  email: z.string(),
+  token: z.string(),
+  role: EnvelopeRedistributeRole$outboundSchema,
+  signingOrder: z.nullable(z.number()),
+  signingUrl: z.string(),
+});
+
+export function envelopeRedistributeRecipientToJSON(
+  envelopeRedistributeRecipient: EnvelopeRedistributeRecipient,
+): string {
+  return JSON.stringify(
+    EnvelopeRedistributeRecipient$outboundSchema.parse(
+      envelopeRedistributeRecipient,
+    ),
+  );
+}
+export function envelopeRedistributeRecipientFromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeRedistributeRecipient, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeRedistributeRecipient$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeRedistributeRecipient' from JSON`,
+  );
+}
+
+/** @internal */
 export const EnvelopeRedistributeResponse$inboundSchema: z.ZodType<
   EnvelopeRedistributeResponse,
   z.ZodTypeDef,
   unknown
 > = z.object({
   success: z.boolean(),
+  id: z.string(),
+  recipients: z.array(
+    z.lazy(() => EnvelopeRedistributeRecipient$inboundSchema),
+  ),
 });
 /** @internal */
 export type EnvelopeRedistributeResponse$Outbound = {
   success: boolean;
+  id: string;
+  recipients: Array<EnvelopeRedistributeRecipient$Outbound>;
 };
 
 /** @internal */
@@ -83,6 +181,10 @@ export const EnvelopeRedistributeResponse$outboundSchema: z.ZodType<
   EnvelopeRedistributeResponse
 > = z.object({
   success: z.boolean(),
+  id: z.string(),
+  recipients: z.array(
+    z.lazy(() => EnvelopeRedistributeRecipient$outboundSchema),
+  ),
 });
 
 export function envelopeRedistributeResponseToJSON(

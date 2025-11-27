@@ -1,13 +1,13 @@
-# EnvelopeUseRecipient
+# EnvelopeUsePayloadRecipient
 
 ## Example Usage
 
 ```typescript
-import { EnvelopeUseRecipient } from "@documenso/sdk-typescript/models/operations";
+import { EnvelopeUsePayloadRecipient } from "@documenso/sdk-typescript/models/operations";
 
-let value: EnvelopeUseRecipient = {
-  id: 8119.29,
-  email: "Maeve_Herman72@yahoo.com",
+let value: EnvelopeUsePayloadRecipient = {
+  id: 6142.44,
+  email: "Damien.Mante@yahoo.com",
 };
 ```
 

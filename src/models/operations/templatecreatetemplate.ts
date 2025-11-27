@@ -97,6 +97,10 @@ export const TemplateCreateTemplateLanguage = {
   Es: "es",
   It: "it",
   Pl: "pl",
+  PtBR: "pt-BR",
+  Ja: "ja",
+  Ko: "ko",
+  Zh: "zh",
 } as const;
 export type TemplateCreateTemplateLanguage = ClosedEnum<
   typeof TemplateCreateTemplateLanguage

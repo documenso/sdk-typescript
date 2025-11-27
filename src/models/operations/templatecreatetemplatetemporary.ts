@@ -96,6 +96,10 @@ export const TemplateCreateTemplateTemporaryLanguage = {
   Es: "es",
   It: "it",
   Pl: "pl",
+  PtBR: "pt-BR",
+  Ja: "ja",
+  Ko: "ko",
+  Zh: "zh",
 } as const;
 export type TemplateCreateTemplateTemporaryLanguage = ClosedEnum<
   typeof TemplateCreateTemplateTemporaryLanguage
@@ -677,16 +681,16 @@ export type TemplateCreateTemplateTemporaryFieldMetaSignature = {
 };
 
 export type TemplateCreateTemplateTemporaryFieldMetaUnion =
-  | TemplateCreateTemplateTemporaryFieldMetaSignature
-  | TemplateCreateTemplateTemporaryFieldMetaInitials
-  | TemplateCreateTemplateTemporaryFieldMetaName
-  | TemplateCreateTemplateTemporaryFieldMetaEmail
-  | TemplateCreateTemplateTemporaryFieldMetaDate
-  | TemplateCreateTemplateTemporaryFieldMetaText
-  | TemplateCreateTemplateTemporaryFieldMetaNumber
-  | TemplateCreateTemplateTemporaryFieldMetaRadio
-  | TemplateCreateTemplateTemporaryFieldMetaCheckbox
-  | TemplateCreateTemplateTemporaryFieldMetaDropdown;
+  | (TemplateCreateTemplateTemporaryFieldMetaSignature & { type: "signature" })
+  | (TemplateCreateTemplateTemporaryFieldMetaInitials & { type: "initials" })
+  | (TemplateCreateTemplateTemporaryFieldMetaName & { type: "name" })
+  | (TemplateCreateTemplateTemporaryFieldMetaEmail & { type: "email" })
+  | (TemplateCreateTemplateTemporaryFieldMetaDate & { type: "date" })
+  | (TemplateCreateTemplateTemporaryFieldMetaText & { type: "text" })
+  | (TemplateCreateTemplateTemporaryFieldMetaNumber & { type: "number" })
+  | (TemplateCreateTemplateTemporaryFieldMetaRadio & { type: "radio" })
+  | (TemplateCreateTemplateTemporaryFieldMetaCheckbox & { type: "checkbox" })
+  | (TemplateCreateTemplateTemporaryFieldMetaDropdown & { type: "dropdown" });
 
 export type TemplateCreateTemplateTemporaryField = {
   envelopeId: string;
@@ -703,16 +707,18 @@ export type TemplateCreateTemplateTemporaryField = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | TemplateCreateTemplateTemporaryFieldMetaSignature
-    | TemplateCreateTemplateTemporaryFieldMetaInitials
-    | TemplateCreateTemplateTemporaryFieldMetaName
-    | TemplateCreateTemplateTemporaryFieldMetaEmail
-    | TemplateCreateTemplateTemporaryFieldMetaDate
-    | TemplateCreateTemplateTemporaryFieldMetaText
-    | TemplateCreateTemplateTemporaryFieldMetaNumber
-    | TemplateCreateTemplateTemporaryFieldMetaRadio
-    | TemplateCreateTemplateTemporaryFieldMetaCheckbox
-    | TemplateCreateTemplateTemporaryFieldMetaDropdown
+    | (TemplateCreateTemplateTemporaryFieldMetaSignature & {
+      type: "signature";
+    })
+    | (TemplateCreateTemplateTemporaryFieldMetaInitials & { type: "initials" })
+    | (TemplateCreateTemplateTemporaryFieldMetaName & { type: "name" })
+    | (TemplateCreateTemplateTemporaryFieldMetaEmail & { type: "email" })
+    | (TemplateCreateTemplateTemporaryFieldMetaDate & { type: "date" })
+    | (TemplateCreateTemplateTemporaryFieldMetaText & { type: "text" })
+    | (TemplateCreateTemplateTemporaryFieldMetaNumber & { type: "number" })
+    | (TemplateCreateTemplateTemporaryFieldMetaRadio & { type: "radio" })
+    | (TemplateCreateTemplateTemporaryFieldMetaCheckbox & { type: "checkbox" })
+    | (TemplateCreateTemplateTemporaryFieldMetaDropdown & { type: "dropdown" })
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -3005,35 +3011,48 @@ export const TemplateCreateTemplateTemporaryFieldMetaUnion$inboundSchema:
   > = z.union([
     z.lazy(() =>
       TemplateCreateTemplateTemporaryFieldMetaSignature$inboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateTemplateTemporaryFieldMetaInitials$inboundSchema
-    ),
-    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaName$inboundSchema),
-    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaEmail$inboundSchema),
-    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaDate$inboundSchema),
-    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaText$inboundSchema),
-    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaNumber$inboundSchema),
-    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaRadio$inboundSchema),
-    z.lazy(() =>
-      TemplateCreateTemplateTemporaryFieldMetaCheckbox$inboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateTemplateTemporaryFieldMetaDropdown$inboundSchema
-    ),
+    ).and(z.object({ type: z.literal("signature") })),
+    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaInitials$inboundSchema)
+      .and(z.object({ type: z.literal("initials") })),
+    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaName$inboundSchema)
+      .and(z.object({ type: z.literal("name") })),
+    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaEmail$inboundSchema)
+      .and(z.object({ type: z.literal("email") })),
+    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaDate$inboundSchema)
+      .and(z.object({ type: z.literal("date") })),
+    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaText$inboundSchema)
+      .and(z.object({ type: z.literal("text") })),
+    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaNumber$inboundSchema)
+      .and(z.object({ type: z.literal("number") })),
+    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaRadio$inboundSchema)
+      .and(z.object({ type: z.literal("radio") })),
+    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaCheckbox$inboundSchema)
+      .and(z.object({ type: z.literal("checkbox") })),
+    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaDropdown$inboundSchema)
+      .and(z.object({ type: z.literal("dropdown") })),
   ]);
 /** @internal */
 export type TemplateCreateTemplateTemporaryFieldMetaUnion$Outbound =
-  | TemplateCreateTemplateTemporaryFieldMetaSignature$Outbound
-  | TemplateCreateTemplateTemporaryFieldMetaInitials$Outbound
-  | TemplateCreateTemplateTemporaryFieldMetaName$Outbound
-  | TemplateCreateTemplateTemporaryFieldMetaEmail$Outbound
-  | TemplateCreateTemplateTemporaryFieldMetaDate$Outbound
-  | TemplateCreateTemplateTemporaryFieldMetaText$Outbound
-  | TemplateCreateTemplateTemporaryFieldMetaNumber$Outbound
-  | TemplateCreateTemplateTemporaryFieldMetaRadio$Outbound
-  | TemplateCreateTemplateTemporaryFieldMetaCheckbox$Outbound
-  | TemplateCreateTemplateTemporaryFieldMetaDropdown$Outbound;
+  | (TemplateCreateTemplateTemporaryFieldMetaSignature$Outbound & {
+    type: "signature";
+  })
+  | (TemplateCreateTemplateTemporaryFieldMetaInitials$Outbound & {
+    type: "initials";
+  })
+  | (TemplateCreateTemplateTemporaryFieldMetaName$Outbound & { type: "name" })
+  | (TemplateCreateTemplateTemporaryFieldMetaEmail$Outbound & { type: "email" })
+  | (TemplateCreateTemplateTemporaryFieldMetaDate$Outbound & { type: "date" })
+  | (TemplateCreateTemplateTemporaryFieldMetaText$Outbound & { type: "text" })
+  | (TemplateCreateTemplateTemporaryFieldMetaNumber$Outbound & {
+    type: "number";
+  })
+  | (TemplateCreateTemplateTemporaryFieldMetaRadio$Outbound & { type: "radio" })
+  | (TemplateCreateTemplateTemporaryFieldMetaCheckbox$Outbound & {
+    type: "checkbox";
+  })
+  | (TemplateCreateTemplateTemporaryFieldMetaDropdown$Outbound & {
+    type: "dropdown";
+  });
 
 /** @internal */
 export const TemplateCreateTemplateTemporaryFieldMetaUnion$outboundSchema:
@@ -3044,22 +3063,28 @@ export const TemplateCreateTemplateTemporaryFieldMetaUnion$outboundSchema:
   > = z.union([
     z.lazy(() =>
       TemplateCreateTemplateTemporaryFieldMetaSignature$outboundSchema
-    ),
+    ).and(z.object({ type: z.literal("signature") })),
     z.lazy(() =>
       TemplateCreateTemplateTemporaryFieldMetaInitials$outboundSchema
-    ),
-    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaName$outboundSchema),
-    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaEmail$outboundSchema),
-    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaDate$outboundSchema),
-    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaText$outboundSchema),
-    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaNumber$outboundSchema),
-    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaRadio$outboundSchema),
+    ).and(z.object({ type: z.literal("initials") })),
+    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaName$outboundSchema)
+      .and(z.object({ type: z.literal("name") })),
+    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaEmail$outboundSchema)
+      .and(z.object({ type: z.literal("email") })),
+    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaDate$outboundSchema)
+      .and(z.object({ type: z.literal("date") })),
+    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaText$outboundSchema)
+      .and(z.object({ type: z.literal("text") })),
+    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaNumber$outboundSchema)
+      .and(z.object({ type: z.literal("number") })),
+    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaRadio$outboundSchema)
+      .and(z.object({ type: z.literal("radio") })),
     z.lazy(() =>
       TemplateCreateTemplateTemporaryFieldMetaCheckbox$outboundSchema
-    ),
+    ).and(z.object({ type: z.literal("checkbox") })),
     z.lazy(() =>
       TemplateCreateTemplateTemporaryFieldMetaDropdown$outboundSchema
-    ),
+    ).and(z.object({ type: z.literal("dropdown") })),
   ]);
 
 export function templateCreateTemplateTemporaryFieldMetaUnionToJSON(
@@ -3111,24 +3136,28 @@ export const TemplateCreateTemplateTemporaryField$inboundSchema: z.ZodType<
     z.union([
       z.lazy(() =>
         TemplateCreateTemplateTemporaryFieldMetaSignature$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("signature") })),
       z.lazy(() =>
         TemplateCreateTemplateTemporaryFieldMetaInitials$inboundSchema
-      ),
-      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaName$inboundSchema),
-      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaEmail$inboundSchema),
-      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaDate$inboundSchema),
-      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaText$inboundSchema),
-      z.lazy(() =>
-        TemplateCreateTemplateTemporaryFieldMetaNumber$inboundSchema
-      ),
-      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaRadio$inboundSchema),
+      ).and(z.object({ type: z.literal("initials") })),
+      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaName$inboundSchema)
+        .and(z.object({ type: z.literal("name") })),
+      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaEmail$inboundSchema)
+        .and(z.object({ type: z.literal("email") })),
+      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaDate$inboundSchema)
+        .and(z.object({ type: z.literal("date") })),
+      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaText$inboundSchema)
+        .and(z.object({ type: z.literal("text") })),
+      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaNumber$inboundSchema)
+        .and(z.object({ type: z.literal("number") })),
+      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaRadio$inboundSchema)
+        .and(z.object({ type: z.literal("radio") })),
       z.lazy(() =>
         TemplateCreateTemplateTemporaryFieldMetaCheckbox$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("checkbox") })),
       z.lazy(() =>
         TemplateCreateTemplateTemporaryFieldMetaDropdown$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("dropdown") })),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),
@@ -3150,16 +3179,30 @@ export type TemplateCreateTemplateTemporaryField$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | TemplateCreateTemplateTemporaryFieldMetaSignature$Outbound
-    | TemplateCreateTemplateTemporaryFieldMetaInitials$Outbound
-    | TemplateCreateTemplateTemporaryFieldMetaName$Outbound
-    | TemplateCreateTemplateTemporaryFieldMetaEmail$Outbound
-    | TemplateCreateTemplateTemporaryFieldMetaDate$Outbound
-    | TemplateCreateTemplateTemporaryFieldMetaText$Outbound
-    | TemplateCreateTemplateTemporaryFieldMetaNumber$Outbound
-    | TemplateCreateTemplateTemporaryFieldMetaRadio$Outbound
-    | TemplateCreateTemplateTemporaryFieldMetaCheckbox$Outbound
-    | TemplateCreateTemplateTemporaryFieldMetaDropdown$Outbound
+    | (TemplateCreateTemplateTemporaryFieldMetaSignature$Outbound & {
+      type: "signature";
+    })
+    | (TemplateCreateTemplateTemporaryFieldMetaInitials$Outbound & {
+      type: "initials";
+    })
+    | (TemplateCreateTemplateTemporaryFieldMetaName$Outbound & { type: "name" })
+    | (TemplateCreateTemplateTemporaryFieldMetaEmail$Outbound & {
+      type: "email";
+    })
+    | (TemplateCreateTemplateTemporaryFieldMetaDate$Outbound & { type: "date" })
+    | (TemplateCreateTemplateTemporaryFieldMetaText$Outbound & { type: "text" })
+    | (TemplateCreateTemplateTemporaryFieldMetaNumber$Outbound & {
+      type: "number";
+    })
+    | (TemplateCreateTemplateTemporaryFieldMetaRadio$Outbound & {
+      type: "radio";
+    })
+    | (TemplateCreateTemplateTemporaryFieldMetaCheckbox$Outbound & {
+      type: "checkbox";
+    })
+    | (TemplateCreateTemplateTemporaryFieldMetaDropdown$Outbound & {
+      type: "dropdown";
+    })
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -3188,28 +3231,29 @@ export const TemplateCreateTemplateTemporaryField$outboundSchema: z.ZodType<
     z.union([
       z.lazy(() =>
         TemplateCreateTemplateTemporaryFieldMetaSignature$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("signature") })),
       z.lazy(() =>
         TemplateCreateTemplateTemporaryFieldMetaInitials$outboundSchema
-      ),
-      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaName$outboundSchema),
-      z.lazy(() =>
-        TemplateCreateTemplateTemporaryFieldMetaEmail$outboundSchema
-      ),
-      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaDate$outboundSchema),
-      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaText$outboundSchema),
+      ).and(z.object({ type: z.literal("initials") })),
+      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaName$outboundSchema)
+        .and(z.object({ type: z.literal("name") })),
+      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaEmail$outboundSchema)
+        .and(z.object({ type: z.literal("email") })),
+      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaDate$outboundSchema)
+        .and(z.object({ type: z.literal("date") })),
+      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaText$outboundSchema)
+        .and(z.object({ type: z.literal("text") })),
       z.lazy(() =>
         TemplateCreateTemplateTemporaryFieldMetaNumber$outboundSchema
-      ),
-      z.lazy(() =>
-        TemplateCreateTemplateTemporaryFieldMetaRadio$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("number") })),
+      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaRadio$outboundSchema)
+        .and(z.object({ type: z.literal("radio") })),
       z.lazy(() =>
         TemplateCreateTemplateTemporaryFieldMetaCheckbox$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("checkbox") })),
       z.lazy(() =>
         TemplateCreateTemplateTemporaryFieldMetaDropdown$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("dropdown") })),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),

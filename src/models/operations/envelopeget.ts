@@ -464,16 +464,16 @@ export type EnvelopeGetFieldMetaSignature = {
 };
 
 export type EnvelopeGetFieldMetaUnion =
-  | EnvelopeGetFieldMetaSignature
-  | EnvelopeGetFieldMetaInitials
-  | EnvelopeGetFieldMetaName
-  | EnvelopeGetFieldMetaEmail
-  | EnvelopeGetFieldMetaDate
-  | EnvelopeGetFieldMetaText
-  | EnvelopeGetFieldMetaNumber
-  | EnvelopeGetFieldMetaRadio
-  | EnvelopeGetFieldMetaCheckbox
-  | EnvelopeGetFieldMetaDropdown;
+  | (EnvelopeGetFieldMetaSignature & { type: "signature" })
+  | (EnvelopeGetFieldMetaInitials & { type: "initials" })
+  | (EnvelopeGetFieldMetaName & { type: "name" })
+  | (EnvelopeGetFieldMetaEmail & { type: "email" })
+  | (EnvelopeGetFieldMetaDate & { type: "date" })
+  | (EnvelopeGetFieldMetaText & { type: "text" })
+  | (EnvelopeGetFieldMetaNumber & { type: "number" })
+  | (EnvelopeGetFieldMetaRadio & { type: "radio" })
+  | (EnvelopeGetFieldMetaCheckbox & { type: "checkbox" })
+  | (EnvelopeGetFieldMetaDropdown & { type: "dropdown" });
 
 export type EnvelopeGetField = {
   envelopeId: string;
@@ -490,16 +490,16 @@ export type EnvelopeGetField = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | EnvelopeGetFieldMetaSignature
-    | EnvelopeGetFieldMetaInitials
-    | EnvelopeGetFieldMetaName
-    | EnvelopeGetFieldMetaEmail
-    | EnvelopeGetFieldMetaDate
-    | EnvelopeGetFieldMetaText
-    | EnvelopeGetFieldMetaNumber
-    | EnvelopeGetFieldMetaRadio
-    | EnvelopeGetFieldMetaCheckbox
-    | EnvelopeGetFieldMetaDropdown
+    | (EnvelopeGetFieldMetaSignature & { type: "signature" })
+    | (EnvelopeGetFieldMetaInitials & { type: "initials" })
+    | (EnvelopeGetFieldMetaName & { type: "name" })
+    | (EnvelopeGetFieldMetaEmail & { type: "email" })
+    | (EnvelopeGetFieldMetaDate & { type: "date" })
+    | (EnvelopeGetFieldMetaText & { type: "text" })
+    | (EnvelopeGetFieldMetaNumber & { type: "number" })
+    | (EnvelopeGetFieldMetaRadio & { type: "radio" })
+    | (EnvelopeGetFieldMetaCheckbox & { type: "checkbox" })
+    | (EnvelopeGetFieldMetaDropdown & { type: "dropdown" })
     | null;
 };
 
@@ -2038,29 +2038,49 @@ export const EnvelopeGetFieldMetaUnion$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  z.lazy(() => EnvelopeGetFieldMetaSignature$inboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaInitials$inboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaName$inboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaEmail$inboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaDate$inboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaText$inboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaNumber$inboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaRadio$inboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaCheckbox$inboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaDropdown$inboundSchema),
+  z.lazy(() => EnvelopeGetFieldMetaSignature$inboundSchema).and(
+    z.object({ type: z.literal("signature") }),
+  ),
+  z.lazy(() => EnvelopeGetFieldMetaInitials$inboundSchema).and(
+    z.object({ type: z.literal("initials") }),
+  ),
+  z.lazy(() => EnvelopeGetFieldMetaName$inboundSchema).and(
+    z.object({ type: z.literal("name") }),
+  ),
+  z.lazy(() => EnvelopeGetFieldMetaEmail$inboundSchema).and(
+    z.object({ type: z.literal("email") }),
+  ),
+  z.lazy(() => EnvelopeGetFieldMetaDate$inboundSchema).and(
+    z.object({ type: z.literal("date") }),
+  ),
+  z.lazy(() => EnvelopeGetFieldMetaText$inboundSchema).and(
+    z.object({ type: z.literal("text") }),
+  ),
+  z.lazy(() => EnvelopeGetFieldMetaNumber$inboundSchema).and(
+    z.object({ type: z.literal("number") }),
+  ),
+  z.lazy(() => EnvelopeGetFieldMetaRadio$inboundSchema).and(
+    z.object({ type: z.literal("radio") }),
+  ),
+  z.lazy(() => EnvelopeGetFieldMetaCheckbox$inboundSchema).and(
+    z.object({ type: z.literal("checkbox") }),
+  ),
+  z.lazy(() => EnvelopeGetFieldMetaDropdown$inboundSchema).and(
+    z.object({ type: z.literal("dropdown") }),
+  ),
 ]);
 /** @internal */
 export type EnvelopeGetFieldMetaUnion$Outbound =
-  | EnvelopeGetFieldMetaSignature$Outbound
-  | EnvelopeGetFieldMetaInitials$Outbound
-  | EnvelopeGetFieldMetaName$Outbound
-  | EnvelopeGetFieldMetaEmail$Outbound
-  | EnvelopeGetFieldMetaDate$Outbound
-  | EnvelopeGetFieldMetaText$Outbound
-  | EnvelopeGetFieldMetaNumber$Outbound
-  | EnvelopeGetFieldMetaRadio$Outbound
-  | EnvelopeGetFieldMetaCheckbox$Outbound
-  | EnvelopeGetFieldMetaDropdown$Outbound;
+  | (EnvelopeGetFieldMetaSignature$Outbound & { type: "signature" })
+  | (EnvelopeGetFieldMetaInitials$Outbound & { type: "initials" })
+  | (EnvelopeGetFieldMetaName$Outbound & { type: "name" })
+  | (EnvelopeGetFieldMetaEmail$Outbound & { type: "email" })
+  | (EnvelopeGetFieldMetaDate$Outbound & { type: "date" })
+  | (EnvelopeGetFieldMetaText$Outbound & { type: "text" })
+  | (EnvelopeGetFieldMetaNumber$Outbound & { type: "number" })
+  | (EnvelopeGetFieldMetaRadio$Outbound & { type: "radio" })
+  | (EnvelopeGetFieldMetaCheckbox$Outbound & { type: "checkbox" })
+  | (EnvelopeGetFieldMetaDropdown$Outbound & { type: "dropdown" });
 
 /** @internal */
 export const EnvelopeGetFieldMetaUnion$outboundSchema: z.ZodType<
@@ -2068,16 +2088,36 @@ export const EnvelopeGetFieldMetaUnion$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EnvelopeGetFieldMetaUnion
 > = z.union([
-  z.lazy(() => EnvelopeGetFieldMetaSignature$outboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaInitials$outboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaName$outboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaEmail$outboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaDate$outboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaText$outboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaNumber$outboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaRadio$outboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaCheckbox$outboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaDropdown$outboundSchema),
+  z.lazy(() => EnvelopeGetFieldMetaSignature$outboundSchema).and(
+    z.object({ type: z.literal("signature") }),
+  ),
+  z.lazy(() => EnvelopeGetFieldMetaInitials$outboundSchema).and(
+    z.object({ type: z.literal("initials") }),
+  ),
+  z.lazy(() => EnvelopeGetFieldMetaName$outboundSchema).and(
+    z.object({ type: z.literal("name") }),
+  ),
+  z.lazy(() => EnvelopeGetFieldMetaEmail$outboundSchema).and(
+    z.object({ type: z.literal("email") }),
+  ),
+  z.lazy(() => EnvelopeGetFieldMetaDate$outboundSchema).and(
+    z.object({ type: z.literal("date") }),
+  ),
+  z.lazy(() => EnvelopeGetFieldMetaText$outboundSchema).and(
+    z.object({ type: z.literal("text") }),
+  ),
+  z.lazy(() => EnvelopeGetFieldMetaNumber$outboundSchema).and(
+    z.object({ type: z.literal("number") }),
+  ),
+  z.lazy(() => EnvelopeGetFieldMetaRadio$outboundSchema).and(
+    z.object({ type: z.literal("radio") }),
+  ),
+  z.lazy(() => EnvelopeGetFieldMetaCheckbox$outboundSchema).and(
+    z.object({ type: z.literal("checkbox") }),
+  ),
+  z.lazy(() => EnvelopeGetFieldMetaDropdown$outboundSchema).and(
+    z.object({ type: z.literal("dropdown") }),
+  ),
 ]);
 
 export function envelopeGetFieldMetaUnionToJSON(
@@ -2118,16 +2158,36 @@ export const EnvelopeGetField$inboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() => EnvelopeGetFieldMetaSignature$inboundSchema),
-      z.lazy(() => EnvelopeGetFieldMetaInitials$inboundSchema),
-      z.lazy(() => EnvelopeGetFieldMetaName$inboundSchema),
-      z.lazy(() => EnvelopeGetFieldMetaEmail$inboundSchema),
-      z.lazy(() => EnvelopeGetFieldMetaDate$inboundSchema),
-      z.lazy(() => EnvelopeGetFieldMetaText$inboundSchema),
-      z.lazy(() => EnvelopeGetFieldMetaNumber$inboundSchema),
-      z.lazy(() => EnvelopeGetFieldMetaRadio$inboundSchema),
-      z.lazy(() => EnvelopeGetFieldMetaCheckbox$inboundSchema),
-      z.lazy(() => EnvelopeGetFieldMetaDropdown$inboundSchema),
+      z.lazy(() => EnvelopeGetFieldMetaSignature$inboundSchema).and(
+        z.object({ type: z.literal("signature") }),
+      ),
+      z.lazy(() => EnvelopeGetFieldMetaInitials$inboundSchema).and(
+        z.object({ type: z.literal("initials") }),
+      ),
+      z.lazy(() => EnvelopeGetFieldMetaName$inboundSchema).and(
+        z.object({ type: z.literal("name") }),
+      ),
+      z.lazy(() => EnvelopeGetFieldMetaEmail$inboundSchema).and(
+        z.object({ type: z.literal("email") }),
+      ),
+      z.lazy(() => EnvelopeGetFieldMetaDate$inboundSchema).and(
+        z.object({ type: z.literal("date") }),
+      ),
+      z.lazy(() => EnvelopeGetFieldMetaText$inboundSchema).and(
+        z.object({ type: z.literal("text") }),
+      ),
+      z.lazy(() => EnvelopeGetFieldMetaNumber$inboundSchema).and(
+        z.object({ type: z.literal("number") }),
+      ),
+      z.lazy(() => EnvelopeGetFieldMetaRadio$inboundSchema).and(
+        z.object({ type: z.literal("radio") }),
+      ),
+      z.lazy(() => EnvelopeGetFieldMetaCheckbox$inboundSchema).and(
+        z.object({ type: z.literal("checkbox") }),
+      ),
+      z.lazy(() => EnvelopeGetFieldMetaDropdown$inboundSchema).and(
+        z.object({ type: z.literal("dropdown") }),
+      ),
     ]),
   ),
 });
@@ -2147,16 +2207,16 @@ export type EnvelopeGetField$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | EnvelopeGetFieldMetaSignature$Outbound
-    | EnvelopeGetFieldMetaInitials$Outbound
-    | EnvelopeGetFieldMetaName$Outbound
-    | EnvelopeGetFieldMetaEmail$Outbound
-    | EnvelopeGetFieldMetaDate$Outbound
-    | EnvelopeGetFieldMetaText$Outbound
-    | EnvelopeGetFieldMetaNumber$Outbound
-    | EnvelopeGetFieldMetaRadio$Outbound
-    | EnvelopeGetFieldMetaCheckbox$Outbound
-    | EnvelopeGetFieldMetaDropdown$Outbound
+    | (EnvelopeGetFieldMetaSignature$Outbound & { type: "signature" })
+    | (EnvelopeGetFieldMetaInitials$Outbound & { type: "initials" })
+    | (EnvelopeGetFieldMetaName$Outbound & { type: "name" })
+    | (EnvelopeGetFieldMetaEmail$Outbound & { type: "email" })
+    | (EnvelopeGetFieldMetaDate$Outbound & { type: "date" })
+    | (EnvelopeGetFieldMetaText$Outbound & { type: "text" })
+    | (EnvelopeGetFieldMetaNumber$Outbound & { type: "number" })
+    | (EnvelopeGetFieldMetaRadio$Outbound & { type: "radio" })
+    | (EnvelopeGetFieldMetaCheckbox$Outbound & { type: "checkbox" })
+    | (EnvelopeGetFieldMetaDropdown$Outbound & { type: "dropdown" })
     | null;
 };
 
@@ -2181,16 +2241,36 @@ export const EnvelopeGetField$outboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() => EnvelopeGetFieldMetaSignature$outboundSchema),
-      z.lazy(() => EnvelopeGetFieldMetaInitials$outboundSchema),
-      z.lazy(() => EnvelopeGetFieldMetaName$outboundSchema),
-      z.lazy(() => EnvelopeGetFieldMetaEmail$outboundSchema),
-      z.lazy(() => EnvelopeGetFieldMetaDate$outboundSchema),
-      z.lazy(() => EnvelopeGetFieldMetaText$outboundSchema),
-      z.lazy(() => EnvelopeGetFieldMetaNumber$outboundSchema),
-      z.lazy(() => EnvelopeGetFieldMetaRadio$outboundSchema),
-      z.lazy(() => EnvelopeGetFieldMetaCheckbox$outboundSchema),
-      z.lazy(() => EnvelopeGetFieldMetaDropdown$outboundSchema),
+      z.lazy(() => EnvelopeGetFieldMetaSignature$outboundSchema).and(
+        z.object({ type: z.literal("signature") }),
+      ),
+      z.lazy(() => EnvelopeGetFieldMetaInitials$outboundSchema).and(
+        z.object({ type: z.literal("initials") }),
+      ),
+      z.lazy(() => EnvelopeGetFieldMetaName$outboundSchema).and(
+        z.object({ type: z.literal("name") }),
+      ),
+      z.lazy(() => EnvelopeGetFieldMetaEmail$outboundSchema).and(
+        z.object({ type: z.literal("email") }),
+      ),
+      z.lazy(() => EnvelopeGetFieldMetaDate$outboundSchema).and(
+        z.object({ type: z.literal("date") }),
+      ),
+      z.lazy(() => EnvelopeGetFieldMetaText$outboundSchema).and(
+        z.object({ type: z.literal("text") }),
+      ),
+      z.lazy(() => EnvelopeGetFieldMetaNumber$outboundSchema).and(
+        z.object({ type: z.literal("number") }),
+      ),
+      z.lazy(() => EnvelopeGetFieldMetaRadio$outboundSchema).and(
+        z.object({ type: z.literal("radio") }),
+      ),
+      z.lazy(() => EnvelopeGetFieldMetaCheckbox$outboundSchema).and(
+        z.object({ type: z.literal("checkbox") }),
+      ),
+      z.lazy(() => EnvelopeGetFieldMetaDropdown$outboundSchema).and(
+        z.object({ type: z.literal("dropdown") }),
+      ),
     ]),
   ),
 });

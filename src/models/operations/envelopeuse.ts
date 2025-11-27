@@ -8,7 +8,7 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type EnvelopeUseRecipient = {
+export type EnvelopeUsePayloadRecipient = {
   id: number;
   email: string;
   name?: string | undefined;
@@ -100,12 +100,12 @@ export type EnvelopeUsePrefillFieldText = {
 };
 
 export type EnvelopeUsePrefillFieldUnion =
-  | EnvelopeUsePrefillFieldText
-  | EnvelopeUsePrefillFieldNumber
-  | EnvelopeUsePrefillFieldRadio
-  | EnvelopeUsePrefillFieldCheckbox
-  | EnvelopeUsePrefillFieldDropdown
-  | EnvelopeUsePrefillFieldDate;
+  | (EnvelopeUsePrefillFieldText & { type: "text" })
+  | (EnvelopeUsePrefillFieldNumber & { type: "number" })
+  | (EnvelopeUsePrefillFieldRadio & { type: "radio" })
+  | (EnvelopeUsePrefillFieldCheckbox & { type: "checkbox" })
+  | (EnvelopeUsePrefillFieldDropdown & { type: "dropdown" })
+  | (EnvelopeUsePrefillFieldDate & { type: "date" });
 
 export const EnvelopeUseDateFormat = {
   YyyyMMddHhMmA: "yyyy-MM-dd hh:mm a",
@@ -158,10 +158,14 @@ export const EnvelopeUseLanguage = {
   Es: "es",
   It: "it",
   Pl: "pl",
+  PtBR: "pt-BR",
+  Ja: "ja",
+  Ko: "ko",
+  Zh: "zh",
 } as const;
 export type EnvelopeUseLanguage = ClosedEnum<typeof EnvelopeUseLanguage>;
 
-export type Override = {
+export type EnvelopeUseOverride = {
   title?: string | undefined;
   subject?: string | undefined;
   message?: string | undefined;
@@ -191,21 +195,21 @@ export type EnvelopeUseAttachment = {
 export type EnvelopeUsePayload = {
   envelopeId: string;
   externalId?: string | undefined;
-  recipients: Array<EnvelopeUseRecipient>;
+  recipients?: Array<EnvelopeUsePayloadRecipient> | undefined;
   distributeDocument?: boolean | undefined;
   customDocumentData?: Array<EnvelopeUseCustomDocumentDatum> | undefined;
   folderId?: string | undefined;
   prefillFields?:
     | Array<
-      | EnvelopeUsePrefillFieldText
-      | EnvelopeUsePrefillFieldNumber
-      | EnvelopeUsePrefillFieldRadio
-      | EnvelopeUsePrefillFieldCheckbox
-      | EnvelopeUsePrefillFieldDropdown
-      | EnvelopeUsePrefillFieldDate
+      | (EnvelopeUsePrefillFieldText & { type: "text" })
+      | (EnvelopeUsePrefillFieldNumber & { type: "number" })
+      | (EnvelopeUsePrefillFieldRadio & { type: "radio" })
+      | (EnvelopeUsePrefillFieldCheckbox & { type: "checkbox" })
+      | (EnvelopeUsePrefillFieldDropdown & { type: "dropdown" })
+      | (EnvelopeUsePrefillFieldDate & { type: "date" })
     >
     | undefined;
-  override?: Override | undefined;
+  override?: EnvelopeUseOverride | undefined;
   attachments?: Array<EnvelopeUseAttachment> | undefined;
 };
 
@@ -219,16 +223,36 @@ export type EnvelopeUseRequest = {
   files?: Array<EnvelopeUseFile> | undefined;
 };
 
+export const EnvelopeUseRole = {
+  Cc: "CC",
+  Signer: "SIGNER",
+  Viewer: "VIEWER",
+  Approver: "APPROVER",
+  Assistant: "ASSISTANT",
+} as const;
+export type EnvelopeUseRole = ClosedEnum<typeof EnvelopeUseRole>;
+
+export type EnvelopeUseRecipientResponse = {
+  id: number;
+  name: string;
+  email: string;
+  token: string;
+  role: EnvelopeUseRole;
+  signingOrder: number | null;
+  signingUrl: string;
+};
+
 /**
  * Successful response
  */
 export type EnvelopeUseResponse = {
   id: string;
+  recipients: Array<EnvelopeUseRecipientResponse>;
 };
 
 /** @internal */
-export const EnvelopeUseRecipient$inboundSchema: z.ZodType<
-  EnvelopeUseRecipient,
+export const EnvelopeUsePayloadRecipient$inboundSchema: z.ZodType<
+  EnvelopeUsePayloadRecipient,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -238,7 +262,7 @@ export const EnvelopeUseRecipient$inboundSchema: z.ZodType<
   signingOrder: z.number().optional(),
 });
 /** @internal */
-export type EnvelopeUseRecipient$Outbound = {
+export type EnvelopeUsePayloadRecipient$Outbound = {
   id: number;
   email: string;
   name?: string | undefined;
@@ -246,10 +270,10 @@ export type EnvelopeUseRecipient$Outbound = {
 };
 
 /** @internal */
-export const EnvelopeUseRecipient$outboundSchema: z.ZodType<
-  EnvelopeUseRecipient$Outbound,
+export const EnvelopeUsePayloadRecipient$outboundSchema: z.ZodType<
+  EnvelopeUsePayloadRecipient$Outbound,
   z.ZodTypeDef,
-  EnvelopeUseRecipient
+  EnvelopeUsePayloadRecipient
 > = z.object({
   id: z.number(),
   email: z.string(),
@@ -257,20 +281,22 @@ export const EnvelopeUseRecipient$outboundSchema: z.ZodType<
   signingOrder: z.number().optional(),
 });
 
-export function envelopeUseRecipientToJSON(
-  envelopeUseRecipient: EnvelopeUseRecipient,
+export function envelopeUsePayloadRecipientToJSON(
+  envelopeUsePayloadRecipient: EnvelopeUsePayloadRecipient,
 ): string {
   return JSON.stringify(
-    EnvelopeUseRecipient$outboundSchema.parse(envelopeUseRecipient),
+    EnvelopeUsePayloadRecipient$outboundSchema.parse(
+      envelopeUsePayloadRecipient,
+    ),
   );
 }
-export function envelopeUseRecipientFromJSON(
+export function envelopeUsePayloadRecipientFromJSON(
   jsonString: string,
-): SafeParseResult<EnvelopeUseRecipient, SDKValidationError> {
+): SafeParseResult<EnvelopeUsePayloadRecipient, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => EnvelopeUseRecipient$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeUseRecipient' from JSON`,
+    (x) => EnvelopeUsePayloadRecipient$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeUsePayloadRecipient' from JSON`,
   );
 }
 
@@ -714,21 +740,33 @@ export const EnvelopeUsePrefillFieldUnion$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  z.lazy(() => EnvelopeUsePrefillFieldText$inboundSchema),
-  z.lazy(() => EnvelopeUsePrefillFieldNumber$inboundSchema),
-  z.lazy(() => EnvelopeUsePrefillFieldRadio$inboundSchema),
-  z.lazy(() => EnvelopeUsePrefillFieldCheckbox$inboundSchema),
-  z.lazy(() => EnvelopeUsePrefillFieldDropdown$inboundSchema),
-  z.lazy(() => EnvelopeUsePrefillFieldDate$inboundSchema),
+  z.lazy(() => EnvelopeUsePrefillFieldText$inboundSchema).and(
+    z.object({ type: z.literal("text") }),
+  ),
+  z.lazy(() => EnvelopeUsePrefillFieldNumber$inboundSchema).and(
+    z.object({ type: z.literal("number") }),
+  ),
+  z.lazy(() => EnvelopeUsePrefillFieldRadio$inboundSchema).and(
+    z.object({ type: z.literal("radio") }),
+  ),
+  z.lazy(() => EnvelopeUsePrefillFieldCheckbox$inboundSchema).and(
+    z.object({ type: z.literal("checkbox") }),
+  ),
+  z.lazy(() => EnvelopeUsePrefillFieldDropdown$inboundSchema).and(
+    z.object({ type: z.literal("dropdown") }),
+  ),
+  z.lazy(() => EnvelopeUsePrefillFieldDate$inboundSchema).and(
+    z.object({ type: z.literal("date") }),
+  ),
 ]);
 /** @internal */
 export type EnvelopeUsePrefillFieldUnion$Outbound =
-  | EnvelopeUsePrefillFieldText$Outbound
-  | EnvelopeUsePrefillFieldNumber$Outbound
-  | EnvelopeUsePrefillFieldRadio$Outbound
-  | EnvelopeUsePrefillFieldCheckbox$Outbound
-  | EnvelopeUsePrefillFieldDropdown$Outbound
-  | EnvelopeUsePrefillFieldDate$Outbound;
+  | (EnvelopeUsePrefillFieldText$Outbound & { type: "text" })
+  | (EnvelopeUsePrefillFieldNumber$Outbound & { type: "number" })
+  | (EnvelopeUsePrefillFieldRadio$Outbound & { type: "radio" })
+  | (EnvelopeUsePrefillFieldCheckbox$Outbound & { type: "checkbox" })
+  | (EnvelopeUsePrefillFieldDropdown$Outbound & { type: "dropdown" })
+  | (EnvelopeUsePrefillFieldDate$Outbound & { type: "date" });
 
 /** @internal */
 export const EnvelopeUsePrefillFieldUnion$outboundSchema: z.ZodType<
@@ -736,12 +774,24 @@ export const EnvelopeUsePrefillFieldUnion$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EnvelopeUsePrefillFieldUnion
 > = z.union([
-  z.lazy(() => EnvelopeUsePrefillFieldText$outboundSchema),
-  z.lazy(() => EnvelopeUsePrefillFieldNumber$outboundSchema),
-  z.lazy(() => EnvelopeUsePrefillFieldRadio$outboundSchema),
-  z.lazy(() => EnvelopeUsePrefillFieldCheckbox$outboundSchema),
-  z.lazy(() => EnvelopeUsePrefillFieldDropdown$outboundSchema),
-  z.lazy(() => EnvelopeUsePrefillFieldDate$outboundSchema),
+  z.lazy(() => EnvelopeUsePrefillFieldText$outboundSchema).and(
+    z.object({ type: z.literal("text") }),
+  ),
+  z.lazy(() => EnvelopeUsePrefillFieldNumber$outboundSchema).and(
+    z.object({ type: z.literal("number") }),
+  ),
+  z.lazy(() => EnvelopeUsePrefillFieldRadio$outboundSchema).and(
+    z.object({ type: z.literal("radio") }),
+  ),
+  z.lazy(() => EnvelopeUsePrefillFieldCheckbox$outboundSchema).and(
+    z.object({ type: z.literal("checkbox") }),
+  ),
+  z.lazy(() => EnvelopeUsePrefillFieldDropdown$outboundSchema).and(
+    z.object({ type: z.literal("dropdown") }),
+  ),
+  z.lazy(() => EnvelopeUsePrefillFieldDate$outboundSchema).and(
+    z.object({ type: z.literal("date") }),
+  ),
 ]);
 
 export function envelopeUsePrefillFieldUnionToJSON(
@@ -848,8 +898,8 @@ export const EnvelopeUseLanguage$outboundSchema: z.ZodNativeEnum<
 > = EnvelopeUseLanguage$inboundSchema;
 
 /** @internal */
-export const Override$inboundSchema: z.ZodType<
-  Override,
+export const EnvelopeUseOverride$inboundSchema: z.ZodType<
+  EnvelopeUseOverride,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -869,7 +919,7 @@ export const Override$inboundSchema: z.ZodType<
   allowDictateNextSigner: z.boolean().optional(),
 });
 /** @internal */
-export type Override$Outbound = {
+export type EnvelopeUseOverride$Outbound = {
   title?: string | undefined;
   subject?: string | undefined;
   message?: string | undefined;
@@ -886,10 +936,10 @@ export type Override$Outbound = {
 };
 
 /** @internal */
-export const Override$outboundSchema: z.ZodType<
-  Override$Outbound,
+export const EnvelopeUseOverride$outboundSchema: z.ZodType<
+  EnvelopeUseOverride$Outbound,
   z.ZodTypeDef,
-  Override
+  EnvelopeUseOverride
 > = z.object({
   title: z.string().optional(),
   subject: z.string().optional(),
@@ -907,16 +957,20 @@ export const Override$outboundSchema: z.ZodType<
   allowDictateNextSigner: z.boolean().optional(),
 });
 
-export function overrideToJSON(override: Override): string {
-  return JSON.stringify(Override$outboundSchema.parse(override));
+export function envelopeUseOverrideToJSON(
+  envelopeUseOverride: EnvelopeUseOverride,
+): string {
+  return JSON.stringify(
+    EnvelopeUseOverride$outboundSchema.parse(envelopeUseOverride),
+  );
 }
-export function overrideFromJSON(
+export function envelopeUseOverrideFromJSON(
   jsonString: string,
-): SafeParseResult<Override, SDKValidationError> {
+): SafeParseResult<EnvelopeUseOverride, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Override$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Override' from JSON`,
+    (x) => EnvelopeUseOverride$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeUseOverride' from JSON`,
   );
 }
 
@@ -982,7 +1036,8 @@ export const EnvelopeUsePayload$inboundSchema: z.ZodType<
 > = z.object({
   envelopeId: z.string(),
   externalId: z.string().optional(),
-  recipients: z.array(z.lazy(() => EnvelopeUseRecipient$inboundSchema)),
+  recipients: z.array(z.lazy(() => EnvelopeUsePayloadRecipient$inboundSchema))
+    .optional(),
   distributeDocument: z.boolean().optional(),
   customDocumentData: z.array(
     z.lazy(() => EnvelopeUseCustomDocumentDatum$inboundSchema),
@@ -990,15 +1045,27 @@ export const EnvelopeUsePayload$inboundSchema: z.ZodType<
   folderId: z.string().optional(),
   prefillFields: z.array(
     z.union([
-      z.lazy(() => EnvelopeUsePrefillFieldText$inboundSchema),
-      z.lazy(() => EnvelopeUsePrefillFieldNumber$inboundSchema),
-      z.lazy(() => EnvelopeUsePrefillFieldRadio$inboundSchema),
-      z.lazy(() => EnvelopeUsePrefillFieldCheckbox$inboundSchema),
-      z.lazy(() => EnvelopeUsePrefillFieldDropdown$inboundSchema),
-      z.lazy(() => EnvelopeUsePrefillFieldDate$inboundSchema),
+      z.lazy(() => EnvelopeUsePrefillFieldText$inboundSchema).and(
+        z.object({ type: z.literal("text") }),
+      ),
+      z.lazy(() => EnvelopeUsePrefillFieldNumber$inboundSchema).and(
+        z.object({ type: z.literal("number") }),
+      ),
+      z.lazy(() => EnvelopeUsePrefillFieldRadio$inboundSchema).and(
+        z.object({ type: z.literal("radio") }),
+      ),
+      z.lazy(() => EnvelopeUsePrefillFieldCheckbox$inboundSchema).and(
+        z.object({ type: z.literal("checkbox") }),
+      ),
+      z.lazy(() => EnvelopeUsePrefillFieldDropdown$inboundSchema).and(
+        z.object({ type: z.literal("dropdown") }),
+      ),
+      z.lazy(() => EnvelopeUsePrefillFieldDate$inboundSchema).and(
+        z.object({ type: z.literal("date") }),
+      ),
     ]),
   ).optional(),
-  override: z.lazy(() => Override$inboundSchema).optional(),
+  override: z.lazy(() => EnvelopeUseOverride$inboundSchema).optional(),
   attachments: z.array(z.lazy(() => EnvelopeUseAttachment$inboundSchema))
     .optional(),
 });
@@ -1006,7 +1073,7 @@ export const EnvelopeUsePayload$inboundSchema: z.ZodType<
 export type EnvelopeUsePayload$Outbound = {
   envelopeId: string;
   externalId?: string | undefined;
-  recipients: Array<EnvelopeUseRecipient$Outbound>;
+  recipients?: Array<EnvelopeUsePayloadRecipient$Outbound> | undefined;
   distributeDocument?: boolean | undefined;
   customDocumentData?:
     | Array<EnvelopeUseCustomDocumentDatum$Outbound>
@@ -1014,15 +1081,15 @@ export type EnvelopeUsePayload$Outbound = {
   folderId?: string | undefined;
   prefillFields?:
     | Array<
-      | EnvelopeUsePrefillFieldText$Outbound
-      | EnvelopeUsePrefillFieldNumber$Outbound
-      | EnvelopeUsePrefillFieldRadio$Outbound
-      | EnvelopeUsePrefillFieldCheckbox$Outbound
-      | EnvelopeUsePrefillFieldDropdown$Outbound
-      | EnvelopeUsePrefillFieldDate$Outbound
+      | (EnvelopeUsePrefillFieldText$Outbound & { type: "text" })
+      | (EnvelopeUsePrefillFieldNumber$Outbound & { type: "number" })
+      | (EnvelopeUsePrefillFieldRadio$Outbound & { type: "radio" })
+      | (EnvelopeUsePrefillFieldCheckbox$Outbound & { type: "checkbox" })
+      | (EnvelopeUsePrefillFieldDropdown$Outbound & { type: "dropdown" })
+      | (EnvelopeUsePrefillFieldDate$Outbound & { type: "date" })
     >
     | undefined;
-  override?: Override$Outbound | undefined;
+  override?: EnvelopeUseOverride$Outbound | undefined;
   attachments?: Array<EnvelopeUseAttachment$Outbound> | undefined;
 };
 
@@ -1034,7 +1101,8 @@ export const EnvelopeUsePayload$outboundSchema: z.ZodType<
 > = z.object({
   envelopeId: z.string(),
   externalId: z.string().optional(),
-  recipients: z.array(z.lazy(() => EnvelopeUseRecipient$outboundSchema)),
+  recipients: z.array(z.lazy(() => EnvelopeUsePayloadRecipient$outboundSchema))
+    .optional(),
   distributeDocument: z.boolean().optional(),
   customDocumentData: z.array(
     z.lazy(() => EnvelopeUseCustomDocumentDatum$outboundSchema),
@@ -1042,15 +1110,27 @@ export const EnvelopeUsePayload$outboundSchema: z.ZodType<
   folderId: z.string().optional(),
   prefillFields: z.array(
     z.union([
-      z.lazy(() => EnvelopeUsePrefillFieldText$outboundSchema),
-      z.lazy(() => EnvelopeUsePrefillFieldNumber$outboundSchema),
-      z.lazy(() => EnvelopeUsePrefillFieldRadio$outboundSchema),
-      z.lazy(() => EnvelopeUsePrefillFieldCheckbox$outboundSchema),
-      z.lazy(() => EnvelopeUsePrefillFieldDropdown$outboundSchema),
-      z.lazy(() => EnvelopeUsePrefillFieldDate$outboundSchema),
+      z.lazy(() => EnvelopeUsePrefillFieldText$outboundSchema).and(
+        z.object({ type: z.literal("text") }),
+      ),
+      z.lazy(() => EnvelopeUsePrefillFieldNumber$outboundSchema).and(
+        z.object({ type: z.literal("number") }),
+      ),
+      z.lazy(() => EnvelopeUsePrefillFieldRadio$outboundSchema).and(
+        z.object({ type: z.literal("radio") }),
+      ),
+      z.lazy(() => EnvelopeUsePrefillFieldCheckbox$outboundSchema).and(
+        z.object({ type: z.literal("checkbox") }),
+      ),
+      z.lazy(() => EnvelopeUsePrefillFieldDropdown$outboundSchema).and(
+        z.object({ type: z.literal("dropdown") }),
+      ),
+      z.lazy(() => EnvelopeUsePrefillFieldDate$outboundSchema).and(
+        z.object({ type: z.literal("date") }),
+      ),
     ]),
   ).optional(),
-  override: z.lazy(() => Override$outboundSchema).optional(),
+  override: z.lazy(() => EnvelopeUseOverride$outboundSchema).optional(),
   attachments: z.array(z.lazy(() => EnvelopeUseAttachment$outboundSchema))
     .optional(),
 });
@@ -1165,16 +1245,86 @@ export function envelopeUseRequestFromJSON(
 }
 
 /** @internal */
+export const EnvelopeUseRole$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeUseRole
+> = z.nativeEnum(EnvelopeUseRole);
+/** @internal */
+export const EnvelopeUseRole$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeUseRole
+> = EnvelopeUseRole$inboundSchema;
+
+/** @internal */
+export const EnvelopeUseRecipientResponse$inboundSchema: z.ZodType<
+  EnvelopeUseRecipientResponse,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.number(),
+  name: z.string(),
+  email: z.string(),
+  token: z.string(),
+  role: EnvelopeUseRole$inboundSchema,
+  signingOrder: z.nullable(z.number()),
+  signingUrl: z.string(),
+});
+/** @internal */
+export type EnvelopeUseRecipientResponse$Outbound = {
+  id: number;
+  name: string;
+  email: string;
+  token: string;
+  role: string;
+  signingOrder: number | null;
+  signingUrl: string;
+};
+
+/** @internal */
+export const EnvelopeUseRecipientResponse$outboundSchema: z.ZodType<
+  EnvelopeUseRecipientResponse$Outbound,
+  z.ZodTypeDef,
+  EnvelopeUseRecipientResponse
+> = z.object({
+  id: z.number(),
+  name: z.string(),
+  email: z.string(),
+  token: z.string(),
+  role: EnvelopeUseRole$outboundSchema,
+  signingOrder: z.nullable(z.number()),
+  signingUrl: z.string(),
+});
+
+export function envelopeUseRecipientResponseToJSON(
+  envelopeUseRecipientResponse: EnvelopeUseRecipientResponse,
+): string {
+  return JSON.stringify(
+    EnvelopeUseRecipientResponse$outboundSchema.parse(
+      envelopeUseRecipientResponse,
+    ),
+  );
+}
+export function envelopeUseRecipientResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeUseRecipientResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeUseRecipientResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeUseRecipientResponse' from JSON`,
+  );
+}
+
+/** @internal */
 export const EnvelopeUseResponse$inboundSchema: z.ZodType<
   EnvelopeUseResponse,
   z.ZodTypeDef,
   unknown
 > = z.object({
   id: z.string(),
+  recipients: z.array(z.lazy(() => EnvelopeUseRecipientResponse$inboundSchema)),
 });
 /** @internal */
 export type EnvelopeUseResponse$Outbound = {
   id: string;
+  recipients: Array<EnvelopeUseRecipientResponse$Outbound>;
 };
 
 /** @internal */
@@ -1184,6 +1334,9 @@ export const EnvelopeUseResponse$outboundSchema: z.ZodType<
   EnvelopeUseResponse
 > = z.object({
   id: z.string(),
+  recipients: z.array(
+    z.lazy(() => EnvelopeUseRecipientResponse$outboundSchema),
+  ),
 });
 
 export function envelopeUseResponseToJSON(

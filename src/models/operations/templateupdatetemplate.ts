@@ -113,6 +113,10 @@ export const TemplateUpdateTemplateLanguage = {
   Es: "es",
   It: "it",
   Pl: "pl",
+  PtBR: "pt-BR",
+  Ja: "ja",
+  Ko: "ko",
+  Zh: "zh",
 } as const;
 export type TemplateUpdateTemplateLanguage = ClosedEnum<
   typeof TemplateUpdateTemplateLanguage

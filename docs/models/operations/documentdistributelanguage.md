@@ -5,11 +5,11 @@
 ```typescript
 import { DocumentDistributeLanguage } from "@documenso/sdk-typescript/models/operations";
 
-let value: DocumentDistributeLanguage = "en";
+let value: DocumentDistributeLanguage = "fr";
 ```
 
 ## Values
 
 ```typescript
-"de" | "en" | "fr" | "es" | "it" | "pl"
+"de" | "en" | "fr" | "es" | "it" | "pl" | "pt-BR" | "ja" | "ko" | "zh"
 ```
