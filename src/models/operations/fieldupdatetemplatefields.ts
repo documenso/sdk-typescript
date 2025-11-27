@@ -499,32 +499,32 @@ export type FieldUpdateTemplateFieldsFieldSignature = {
 };
 
 export type FieldUpdateTemplateFieldsFieldUnion =
-  | FieldUpdateTemplateFieldsFieldSignature
-  | FieldUpdateTemplateFieldsFieldFreeSignature
-  | FieldUpdateTemplateFieldsFieldInitials
-  | FieldUpdateTemplateFieldsFieldName
-  | FieldUpdateTemplateFieldsFieldEmail
-  | FieldUpdateTemplateFieldsFieldDate
-  | FieldUpdateTemplateFieldsFieldText
-  | FieldUpdateTemplateFieldsFieldNumber
-  | FieldUpdateTemplateFieldsFieldRadio
-  | FieldUpdateTemplateFieldsFieldCheckbox
-  | FieldUpdateTemplateFieldsFieldDropdown;
+  | (FieldUpdateTemplateFieldsFieldSignature & { type: "SIGNATURE" })
+  | (FieldUpdateTemplateFieldsFieldFreeSignature & { type: "FREE_SIGNATURE" })
+  | (FieldUpdateTemplateFieldsFieldInitials & { type: "INITIALS" })
+  | (FieldUpdateTemplateFieldsFieldName & { type: "NAME" })
+  | (FieldUpdateTemplateFieldsFieldEmail & { type: "EMAIL" })
+  | (FieldUpdateTemplateFieldsFieldDate & { type: "DATE" })
+  | (FieldUpdateTemplateFieldsFieldText & { type: "TEXT" })
+  | (FieldUpdateTemplateFieldsFieldNumber & { type: "NUMBER" })
+  | (FieldUpdateTemplateFieldsFieldRadio & { type: "RADIO" })
+  | (FieldUpdateTemplateFieldsFieldCheckbox & { type: "CHECKBOX" })
+  | (FieldUpdateTemplateFieldsFieldDropdown & { type: "DROPDOWN" });
 
 export type FieldUpdateTemplateFieldsRequest = {
   templateId: number;
   fields: Array<
-    | FieldUpdateTemplateFieldsFieldSignature
-    | FieldUpdateTemplateFieldsFieldFreeSignature
-    | FieldUpdateTemplateFieldsFieldInitials
-    | FieldUpdateTemplateFieldsFieldName
-    | FieldUpdateTemplateFieldsFieldEmail
-    | FieldUpdateTemplateFieldsFieldDate
-    | FieldUpdateTemplateFieldsFieldText
-    | FieldUpdateTemplateFieldsFieldNumber
-    | FieldUpdateTemplateFieldsFieldRadio
-    | FieldUpdateTemplateFieldsFieldCheckbox
-    | FieldUpdateTemplateFieldsFieldDropdown
+    | (FieldUpdateTemplateFieldsFieldSignature & { type: "SIGNATURE" })
+    | (FieldUpdateTemplateFieldsFieldFreeSignature & { type: "FREE_SIGNATURE" })
+    | (FieldUpdateTemplateFieldsFieldInitials & { type: "INITIALS" })
+    | (FieldUpdateTemplateFieldsFieldName & { type: "NAME" })
+    | (FieldUpdateTemplateFieldsFieldEmail & { type: "EMAIL" })
+    | (FieldUpdateTemplateFieldsFieldDate & { type: "DATE" })
+    | (FieldUpdateTemplateFieldsFieldText & { type: "TEXT" })
+    | (FieldUpdateTemplateFieldsFieldNumber & { type: "NUMBER" })
+    | (FieldUpdateTemplateFieldsFieldRadio & { type: "RADIO" })
+    | (FieldUpdateTemplateFieldsFieldCheckbox & { type: "CHECKBOX" })
+    | (FieldUpdateTemplateFieldsFieldDropdown & { type: "DROPDOWN" })
   >;
 };
 
@@ -842,16 +842,18 @@ export type FieldUpdateTemplateFieldsFieldMetaSignatureResponse = {
 };
 
 export type FieldUpdateTemplateFieldsFieldMetaUnion =
-  | FieldUpdateTemplateFieldsFieldMetaSignatureResponse
-  | FieldUpdateTemplateFieldsFieldMetaInitialsResponse
-  | FieldUpdateTemplateFieldsFieldMetaNameResponse
-  | FieldUpdateTemplateFieldsFieldMetaEmailResponse
-  | FieldUpdateTemplateFieldsFieldMetaDateResponse
-  | FieldUpdateTemplateFieldsFieldMetaTextResponse
-  | FieldUpdateTemplateFieldsFieldMetaNumberResponse
-  | FieldUpdateTemplateFieldsFieldMetaRadioResponse
-  | FieldUpdateTemplateFieldsFieldMetaCheckboxResponse
-  | FieldUpdateTemplateFieldsFieldMetaDropdownResponse;
+  | (FieldUpdateTemplateFieldsFieldMetaSignatureResponse & {
+    type: "signature";
+  })
+  | (FieldUpdateTemplateFieldsFieldMetaInitialsResponse & { type: "initials" })
+  | (FieldUpdateTemplateFieldsFieldMetaNameResponse & { type: "name" })
+  | (FieldUpdateTemplateFieldsFieldMetaEmailResponse & { type: "email" })
+  | (FieldUpdateTemplateFieldsFieldMetaDateResponse & { type: "date" })
+  | (FieldUpdateTemplateFieldsFieldMetaTextResponse & { type: "text" })
+  | (FieldUpdateTemplateFieldsFieldMetaNumberResponse & { type: "number" })
+  | (FieldUpdateTemplateFieldsFieldMetaRadioResponse & { type: "radio" })
+  | (FieldUpdateTemplateFieldsFieldMetaCheckboxResponse & { type: "checkbox" })
+  | (FieldUpdateTemplateFieldsFieldMetaDropdownResponse & { type: "dropdown" });
 
 export type FieldUpdateTemplateFieldsFieldResponse = {
   envelopeId: string;
@@ -868,16 +870,24 @@ export type FieldUpdateTemplateFieldsFieldResponse = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | FieldUpdateTemplateFieldsFieldMetaSignatureResponse
-    | FieldUpdateTemplateFieldsFieldMetaInitialsResponse
-    | FieldUpdateTemplateFieldsFieldMetaNameResponse
-    | FieldUpdateTemplateFieldsFieldMetaEmailResponse
-    | FieldUpdateTemplateFieldsFieldMetaDateResponse
-    | FieldUpdateTemplateFieldsFieldMetaTextResponse
-    | FieldUpdateTemplateFieldsFieldMetaNumberResponse
-    | FieldUpdateTemplateFieldsFieldMetaRadioResponse
-    | FieldUpdateTemplateFieldsFieldMetaCheckboxResponse
-    | FieldUpdateTemplateFieldsFieldMetaDropdownResponse
+    | (FieldUpdateTemplateFieldsFieldMetaSignatureResponse & {
+      type: "signature";
+    })
+    | (FieldUpdateTemplateFieldsFieldMetaInitialsResponse & {
+      type: "initials";
+    })
+    | (FieldUpdateTemplateFieldsFieldMetaNameResponse & { type: "name" })
+    | (FieldUpdateTemplateFieldsFieldMetaEmailResponse & { type: "email" })
+    | (FieldUpdateTemplateFieldsFieldMetaDateResponse & { type: "date" })
+    | (FieldUpdateTemplateFieldsFieldMetaTextResponse & { type: "text" })
+    | (FieldUpdateTemplateFieldsFieldMetaNumberResponse & { type: "number" })
+    | (FieldUpdateTemplateFieldsFieldMetaRadioResponse & { type: "radio" })
+    | (FieldUpdateTemplateFieldsFieldMetaCheckboxResponse & {
+      type: "checkbox";
+    })
+    | (FieldUpdateTemplateFieldsFieldMetaDropdownResponse & {
+      type: "dropdown";
+    })
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -2845,31 +2855,55 @@ export const FieldUpdateTemplateFieldsFieldUnion$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  z.lazy(() => FieldUpdateTemplateFieldsFieldSignature$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldFreeSignature$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldInitials$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldName$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldEmail$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldDate$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldText$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldNumber$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldRadio$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldCheckbox$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldDropdown$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldSignature$inboundSchema).and(
+    z.object({ type: z.literal("SIGNATURE") }),
+  ),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldFreeSignature$inboundSchema).and(
+    z.object({ type: z.literal("FREE_SIGNATURE") }),
+  ),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldInitials$inboundSchema).and(
+    z.object({ type: z.literal("INITIALS") }),
+  ),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldName$inboundSchema).and(
+    z.object({ type: z.literal("NAME") }),
+  ),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldEmail$inboundSchema).and(
+    z.object({ type: z.literal("EMAIL") }),
+  ),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldDate$inboundSchema).and(
+    z.object({ type: z.literal("DATE") }),
+  ),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldText$inboundSchema).and(
+    z.object({ type: z.literal("TEXT") }),
+  ),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldNumber$inboundSchema).and(
+    z.object({ type: z.literal("NUMBER") }),
+  ),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldRadio$inboundSchema).and(
+    z.object({ type: z.literal("RADIO") }),
+  ),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldCheckbox$inboundSchema).and(
+    z.object({ type: z.literal("CHECKBOX") }),
+  ),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldDropdown$inboundSchema).and(
+    z.object({ type: z.literal("DROPDOWN") }),
+  ),
 ]);
 /** @internal */
 export type FieldUpdateTemplateFieldsFieldUnion$Outbound =
-  | FieldUpdateTemplateFieldsFieldSignature$Outbound
-  | FieldUpdateTemplateFieldsFieldFreeSignature$Outbound
-  | FieldUpdateTemplateFieldsFieldInitials$Outbound
-  | FieldUpdateTemplateFieldsFieldName$Outbound
-  | FieldUpdateTemplateFieldsFieldEmail$Outbound
-  | FieldUpdateTemplateFieldsFieldDate$Outbound
-  | FieldUpdateTemplateFieldsFieldText$Outbound
-  | FieldUpdateTemplateFieldsFieldNumber$Outbound
-  | FieldUpdateTemplateFieldsFieldRadio$Outbound
-  | FieldUpdateTemplateFieldsFieldCheckbox$Outbound
-  | FieldUpdateTemplateFieldsFieldDropdown$Outbound;
+  | (FieldUpdateTemplateFieldsFieldSignature$Outbound & { type: "SIGNATURE" })
+  | (FieldUpdateTemplateFieldsFieldFreeSignature$Outbound & {
+    type: "FREE_SIGNATURE";
+  })
+  | (FieldUpdateTemplateFieldsFieldInitials$Outbound & { type: "INITIALS" })
+  | (FieldUpdateTemplateFieldsFieldName$Outbound & { type: "NAME" })
+  | (FieldUpdateTemplateFieldsFieldEmail$Outbound & { type: "EMAIL" })
+  | (FieldUpdateTemplateFieldsFieldDate$Outbound & { type: "DATE" })
+  | (FieldUpdateTemplateFieldsFieldText$Outbound & { type: "TEXT" })
+  | (FieldUpdateTemplateFieldsFieldNumber$Outbound & { type: "NUMBER" })
+  | (FieldUpdateTemplateFieldsFieldRadio$Outbound & { type: "RADIO" })
+  | (FieldUpdateTemplateFieldsFieldCheckbox$Outbound & { type: "CHECKBOX" })
+  | (FieldUpdateTemplateFieldsFieldDropdown$Outbound & { type: "DROPDOWN" });
 
 /** @internal */
 export const FieldUpdateTemplateFieldsFieldUnion$outboundSchema: z.ZodType<
@@ -2877,17 +2911,39 @@ export const FieldUpdateTemplateFieldsFieldUnion$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FieldUpdateTemplateFieldsFieldUnion
 > = z.union([
-  z.lazy(() => FieldUpdateTemplateFieldsFieldSignature$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldFreeSignature$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldInitials$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldName$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldEmail$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldDate$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldText$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldNumber$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldRadio$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldCheckbox$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldDropdown$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldSignature$outboundSchema).and(
+    z.object({ type: z.literal("SIGNATURE") }),
+  ),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldFreeSignature$outboundSchema).and(
+    z.object({ type: z.literal("FREE_SIGNATURE") }),
+  ),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldInitials$outboundSchema).and(
+    z.object({ type: z.literal("INITIALS") }),
+  ),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldName$outboundSchema).and(
+    z.object({ type: z.literal("NAME") }),
+  ),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldEmail$outboundSchema).and(
+    z.object({ type: z.literal("EMAIL") }),
+  ),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldDate$outboundSchema).and(
+    z.object({ type: z.literal("DATE") }),
+  ),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldText$outboundSchema).and(
+    z.object({ type: z.literal("TEXT") }),
+  ),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldNumber$outboundSchema).and(
+    z.object({ type: z.literal("NUMBER") }),
+  ),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldRadio$outboundSchema).and(
+    z.object({ type: z.literal("RADIO") }),
+  ),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldCheckbox$outboundSchema).and(
+    z.object({ type: z.literal("CHECKBOX") }),
+  ),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldDropdown$outboundSchema).and(
+    z.object({ type: z.literal("DROPDOWN") }),
+  ),
 ]);
 
 export function fieldUpdateTemplateFieldsFieldUnionToJSON(
@@ -2919,17 +2975,38 @@ export const FieldUpdateTemplateFieldsRequest$inboundSchema: z.ZodType<
   templateId: z.number(),
   fields: z.array(
     z.union([
-      z.lazy(() => FieldUpdateTemplateFieldsFieldSignature$inboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFieldFreeSignature$inboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFieldInitials$inboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFieldName$inboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFieldEmail$inboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFieldDate$inboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFieldText$inboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFieldNumber$inboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFieldRadio$inboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFieldCheckbox$inboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFieldDropdown$inboundSchema),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldSignature$inboundSchema).and(
+        z.object({ type: z.literal("SIGNATURE") }),
+      ),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldFreeSignature$inboundSchema)
+        .and(z.object({ type: z.literal("FREE_SIGNATURE") })),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldInitials$inboundSchema).and(
+        z.object({ type: z.literal("INITIALS") }),
+      ),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldName$inboundSchema).and(
+        z.object({ type: z.literal("NAME") }),
+      ),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldEmail$inboundSchema).and(
+        z.object({ type: z.literal("EMAIL") }),
+      ),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldDate$inboundSchema).and(
+        z.object({ type: z.literal("DATE") }),
+      ),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldText$inboundSchema).and(
+        z.object({ type: z.literal("TEXT") }),
+      ),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldNumber$inboundSchema).and(
+        z.object({ type: z.literal("NUMBER") }),
+      ),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldRadio$inboundSchema).and(
+        z.object({ type: z.literal("RADIO") }),
+      ),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldCheckbox$inboundSchema).and(
+        z.object({ type: z.literal("CHECKBOX") }),
+      ),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldDropdown$inboundSchema).and(
+        z.object({ type: z.literal("DROPDOWN") }),
+      ),
     ]),
   ),
 });
@@ -2937,17 +3014,19 @@ export const FieldUpdateTemplateFieldsRequest$inboundSchema: z.ZodType<
 export type FieldUpdateTemplateFieldsRequest$Outbound = {
   templateId: number;
   fields: Array<
-    | FieldUpdateTemplateFieldsFieldSignature$Outbound
-    | FieldUpdateTemplateFieldsFieldFreeSignature$Outbound
-    | FieldUpdateTemplateFieldsFieldInitials$Outbound
-    | FieldUpdateTemplateFieldsFieldName$Outbound
-    | FieldUpdateTemplateFieldsFieldEmail$Outbound
-    | FieldUpdateTemplateFieldsFieldDate$Outbound
-    | FieldUpdateTemplateFieldsFieldText$Outbound
-    | FieldUpdateTemplateFieldsFieldNumber$Outbound
-    | FieldUpdateTemplateFieldsFieldRadio$Outbound
-    | FieldUpdateTemplateFieldsFieldCheckbox$Outbound
-    | FieldUpdateTemplateFieldsFieldDropdown$Outbound
+    | (FieldUpdateTemplateFieldsFieldSignature$Outbound & { type: "SIGNATURE" })
+    | (FieldUpdateTemplateFieldsFieldFreeSignature$Outbound & {
+      type: "FREE_SIGNATURE";
+    })
+    | (FieldUpdateTemplateFieldsFieldInitials$Outbound & { type: "INITIALS" })
+    | (FieldUpdateTemplateFieldsFieldName$Outbound & { type: "NAME" })
+    | (FieldUpdateTemplateFieldsFieldEmail$Outbound & { type: "EMAIL" })
+    | (FieldUpdateTemplateFieldsFieldDate$Outbound & { type: "DATE" })
+    | (FieldUpdateTemplateFieldsFieldText$Outbound & { type: "TEXT" })
+    | (FieldUpdateTemplateFieldsFieldNumber$Outbound & { type: "NUMBER" })
+    | (FieldUpdateTemplateFieldsFieldRadio$Outbound & { type: "RADIO" })
+    | (FieldUpdateTemplateFieldsFieldCheckbox$Outbound & { type: "CHECKBOX" })
+    | (FieldUpdateTemplateFieldsFieldDropdown$Outbound & { type: "DROPDOWN" })
   >;
 };
 
@@ -2960,17 +3039,38 @@ export const FieldUpdateTemplateFieldsRequest$outboundSchema: z.ZodType<
   templateId: z.number(),
   fields: z.array(
     z.union([
-      z.lazy(() => FieldUpdateTemplateFieldsFieldSignature$outboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFieldFreeSignature$outboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFieldInitials$outboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFieldName$outboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFieldEmail$outboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFieldDate$outboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFieldText$outboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFieldNumber$outboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFieldRadio$outboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFieldCheckbox$outboundSchema),
-      z.lazy(() => FieldUpdateTemplateFieldsFieldDropdown$outboundSchema),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldSignature$outboundSchema).and(
+        z.object({ type: z.literal("SIGNATURE") }),
+      ),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldFreeSignature$outboundSchema)
+        .and(z.object({ type: z.literal("FREE_SIGNATURE") })),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldInitials$outboundSchema).and(
+        z.object({ type: z.literal("INITIALS") }),
+      ),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldName$outboundSchema).and(
+        z.object({ type: z.literal("NAME") }),
+      ),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldEmail$outboundSchema).and(
+        z.object({ type: z.literal("EMAIL") }),
+      ),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldDate$outboundSchema).and(
+        z.object({ type: z.literal("DATE") }),
+      ),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldText$outboundSchema).and(
+        z.object({ type: z.literal("TEXT") }),
+      ),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldNumber$outboundSchema).and(
+        z.object({ type: z.literal("NUMBER") }),
+      ),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldRadio$outboundSchema).and(
+        z.object({ type: z.literal("RADIO") }),
+      ),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldCheckbox$outboundSchema).and(
+        z.object({ type: z.literal("CHECKBOX") }),
+      ),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldDropdown$outboundSchema).and(
+        z.object({ type: z.literal("DROPDOWN") }),
+      ),
     ]),
   ),
 });
@@ -4112,35 +4212,52 @@ export const FieldUpdateTemplateFieldsFieldMetaUnion$inboundSchema: z.ZodType<
 > = z.union([
   z.lazy(() =>
     FieldUpdateTemplateFieldsFieldMetaSignatureResponse$inboundSchema
-  ),
-  z.lazy(() =>
-    FieldUpdateTemplateFieldsFieldMetaInitialsResponse$inboundSchema
-  ),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaNameResponse$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaEmailResponse$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaDateResponse$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaTextResponse$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaNumberResponse$inboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaRadioResponse$inboundSchema),
-  z.lazy(() =>
-    FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$inboundSchema
-  ),
-  z.lazy(() =>
-    FieldUpdateTemplateFieldsFieldMetaDropdownResponse$inboundSchema
-  ),
+  ).and(z.object({ type: z.literal("signature") })),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaInitialsResponse$inboundSchema)
+    .and(z.object({ type: z.literal("initials") })),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaNameResponse$inboundSchema)
+    .and(z.object({ type: z.literal("name") })),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaEmailResponse$inboundSchema)
+    .and(z.object({ type: z.literal("email") })),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaDateResponse$inboundSchema)
+    .and(z.object({ type: z.literal("date") })),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaTextResponse$inboundSchema)
+    .and(z.object({ type: z.literal("text") })),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaNumberResponse$inboundSchema)
+    .and(z.object({ type: z.literal("number") })),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaRadioResponse$inboundSchema)
+    .and(z.object({ type: z.literal("radio") })),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$inboundSchema)
+    .and(z.object({ type: z.literal("checkbox") })),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaDropdownResponse$inboundSchema)
+    .and(z.object({ type: z.literal("dropdown") })),
 ]);
 /** @internal */
 export type FieldUpdateTemplateFieldsFieldMetaUnion$Outbound =
-  | FieldUpdateTemplateFieldsFieldMetaSignatureResponse$Outbound
-  | FieldUpdateTemplateFieldsFieldMetaInitialsResponse$Outbound
-  | FieldUpdateTemplateFieldsFieldMetaNameResponse$Outbound
-  | FieldUpdateTemplateFieldsFieldMetaEmailResponse$Outbound
-  | FieldUpdateTemplateFieldsFieldMetaDateResponse$Outbound
-  | FieldUpdateTemplateFieldsFieldMetaTextResponse$Outbound
-  | FieldUpdateTemplateFieldsFieldMetaNumberResponse$Outbound
-  | FieldUpdateTemplateFieldsFieldMetaRadioResponse$Outbound
-  | FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$Outbound
-  | FieldUpdateTemplateFieldsFieldMetaDropdownResponse$Outbound;
+  | (FieldUpdateTemplateFieldsFieldMetaSignatureResponse$Outbound & {
+    type: "signature";
+  })
+  | (FieldUpdateTemplateFieldsFieldMetaInitialsResponse$Outbound & {
+    type: "initials";
+  })
+  | (FieldUpdateTemplateFieldsFieldMetaNameResponse$Outbound & { type: "name" })
+  | (FieldUpdateTemplateFieldsFieldMetaEmailResponse$Outbound & {
+    type: "email";
+  })
+  | (FieldUpdateTemplateFieldsFieldMetaDateResponse$Outbound & { type: "date" })
+  | (FieldUpdateTemplateFieldsFieldMetaTextResponse$Outbound & { type: "text" })
+  | (FieldUpdateTemplateFieldsFieldMetaNumberResponse$Outbound & {
+    type: "number";
+  })
+  | (FieldUpdateTemplateFieldsFieldMetaRadioResponse$Outbound & {
+    type: "radio";
+  })
+  | (FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$Outbound & {
+    type: "checkbox";
+  })
+  | (FieldUpdateTemplateFieldsFieldMetaDropdownResponse$Outbound & {
+    type: "dropdown";
+  });
 
 /** @internal */
 export const FieldUpdateTemplateFieldsFieldMetaUnion$outboundSchema: z.ZodType<
@@ -4150,22 +4267,28 @@ export const FieldUpdateTemplateFieldsFieldMetaUnion$outboundSchema: z.ZodType<
 > = z.union([
   z.lazy(() =>
     FieldUpdateTemplateFieldsFieldMetaSignatureResponse$outboundSchema
-  ),
+  ).and(z.object({ type: z.literal("signature") })),
   z.lazy(() =>
     FieldUpdateTemplateFieldsFieldMetaInitialsResponse$outboundSchema
-  ),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaNameResponse$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaEmailResponse$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaDateResponse$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaTextResponse$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaNumberResponse$outboundSchema),
-  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaRadioResponse$outboundSchema),
+  ).and(z.object({ type: z.literal("initials") })),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaNameResponse$outboundSchema)
+    .and(z.object({ type: z.literal("name") })),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaEmailResponse$outboundSchema)
+    .and(z.object({ type: z.literal("email") })),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaDateResponse$outboundSchema)
+    .and(z.object({ type: z.literal("date") })),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaTextResponse$outboundSchema)
+    .and(z.object({ type: z.literal("text") })),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaNumberResponse$outboundSchema)
+    .and(z.object({ type: z.literal("number") })),
+  z.lazy(() => FieldUpdateTemplateFieldsFieldMetaRadioResponse$outboundSchema)
+    .and(z.object({ type: z.literal("radio") })),
   z.lazy(() =>
     FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$outboundSchema
-  ),
+  ).and(z.object({ type: z.literal("checkbox") })),
   z.lazy(() =>
     FieldUpdateTemplateFieldsFieldMetaDropdownResponse$outboundSchema
-  ),
+  ).and(z.object({ type: z.literal("dropdown") })),
 ]);
 
 export function fieldUpdateTemplateFieldsFieldMetaUnionToJSON(
@@ -4217,34 +4340,31 @@ export const FieldUpdateTemplateFieldsFieldResponse$inboundSchema: z.ZodType<
     z.union([
       z.lazy(() =>
         FieldUpdateTemplateFieldsFieldMetaSignatureResponse$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("signature") })),
       z.lazy(() =>
         FieldUpdateTemplateFieldsFieldMetaInitialsResponse$inboundSchema
-      ),
-      z.lazy(() =>
-        FieldUpdateTemplateFieldsFieldMetaNameResponse$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("initials") })),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldMetaNameResponse$inboundSchema)
+        .and(z.object({ type: z.literal("name") })),
       z.lazy(() =>
         FieldUpdateTemplateFieldsFieldMetaEmailResponse$inboundSchema
-      ),
-      z.lazy(() =>
-        FieldUpdateTemplateFieldsFieldMetaDateResponse$inboundSchema
-      ),
-      z.lazy(() =>
-        FieldUpdateTemplateFieldsFieldMetaTextResponse$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("email") })),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldMetaDateResponse$inboundSchema)
+        .and(z.object({ type: z.literal("date") })),
+      z.lazy(() => FieldUpdateTemplateFieldsFieldMetaTextResponse$inboundSchema)
+        .and(z.object({ type: z.literal("text") })),
       z.lazy(() =>
         FieldUpdateTemplateFieldsFieldMetaNumberResponse$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("number") })),
       z.lazy(() =>
         FieldUpdateTemplateFieldsFieldMetaRadioResponse$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("radio") })),
       z.lazy(() =>
         FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("checkbox") })),
       z.lazy(() =>
         FieldUpdateTemplateFieldsFieldMetaDropdownResponse$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("dropdown") })),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),
@@ -4266,16 +4386,36 @@ export type FieldUpdateTemplateFieldsFieldResponse$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | FieldUpdateTemplateFieldsFieldMetaSignatureResponse$Outbound
-    | FieldUpdateTemplateFieldsFieldMetaInitialsResponse$Outbound
-    | FieldUpdateTemplateFieldsFieldMetaNameResponse$Outbound
-    | FieldUpdateTemplateFieldsFieldMetaEmailResponse$Outbound
-    | FieldUpdateTemplateFieldsFieldMetaDateResponse$Outbound
-    | FieldUpdateTemplateFieldsFieldMetaTextResponse$Outbound
-    | FieldUpdateTemplateFieldsFieldMetaNumberResponse$Outbound
-    | FieldUpdateTemplateFieldsFieldMetaRadioResponse$Outbound
-    | FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$Outbound
-    | FieldUpdateTemplateFieldsFieldMetaDropdownResponse$Outbound
+    | (FieldUpdateTemplateFieldsFieldMetaSignatureResponse$Outbound & {
+      type: "signature";
+    })
+    | (FieldUpdateTemplateFieldsFieldMetaInitialsResponse$Outbound & {
+      type: "initials";
+    })
+    | (FieldUpdateTemplateFieldsFieldMetaNameResponse$Outbound & {
+      type: "name";
+    })
+    | (FieldUpdateTemplateFieldsFieldMetaEmailResponse$Outbound & {
+      type: "email";
+    })
+    | (FieldUpdateTemplateFieldsFieldMetaDateResponse$Outbound & {
+      type: "date";
+    })
+    | (FieldUpdateTemplateFieldsFieldMetaTextResponse$Outbound & {
+      type: "text";
+    })
+    | (FieldUpdateTemplateFieldsFieldMetaNumberResponse$Outbound & {
+      type: "number";
+    })
+    | (FieldUpdateTemplateFieldsFieldMetaRadioResponse$Outbound & {
+      type: "radio";
+    })
+    | (FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$Outbound & {
+      type: "checkbox";
+    })
+    | (FieldUpdateTemplateFieldsFieldMetaDropdownResponse$Outbound & {
+      type: "dropdown";
+    })
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -4304,34 +4444,34 @@ export const FieldUpdateTemplateFieldsFieldResponse$outboundSchema: z.ZodType<
     z.union([
       z.lazy(() =>
         FieldUpdateTemplateFieldsFieldMetaSignatureResponse$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("signature") })),
       z.lazy(() =>
         FieldUpdateTemplateFieldsFieldMetaInitialsResponse$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("initials") })),
       z.lazy(() =>
         FieldUpdateTemplateFieldsFieldMetaNameResponse$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("name") })),
       z.lazy(() =>
         FieldUpdateTemplateFieldsFieldMetaEmailResponse$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("email") })),
       z.lazy(() =>
         FieldUpdateTemplateFieldsFieldMetaDateResponse$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("date") })),
       z.lazy(() =>
         FieldUpdateTemplateFieldsFieldMetaTextResponse$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("text") })),
       z.lazy(() =>
         FieldUpdateTemplateFieldsFieldMetaNumberResponse$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("number") })),
       z.lazy(() =>
         FieldUpdateTemplateFieldsFieldMetaRadioResponse$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("radio") })),
       z.lazy(() =>
         FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("checkbox") })),
       z.lazy(() =>
         FieldUpdateTemplateFieldsFieldMetaDropdownResponse$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("dropdown") })),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),

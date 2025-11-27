@@ -193,7 +193,6 @@ async function run() {
   const result = await documenso.envelopes.use({
     payload: {
       envelopeId: "<id>",
-      recipients: [],
     },
   });
 
@@ -221,7 +220,6 @@ async function run() {
   const res = await envelopesUse(documenso, {
     payload: {
       envelopeId: "<id>",
-      recipients: [],
     },
   });
   if (res.ok) {

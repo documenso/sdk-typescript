@@ -5,11 +5,11 @@
 ```typescript
 import { DocumentCreateLanguage } from "@documenso/sdk-typescript/models/operations";
 
-let value: DocumentCreateLanguage = "pl";
+let value: DocumentCreateLanguage = "zh";
 ```
 
 ## Values
 
 ```typescript
-"de" | "en" | "fr" | "es" | "it" | "pl"
+"de" | "en" | "fr" | "es" | "it" | "pl" | "pt-BR" | "ja" | "ko" | "zh"
 ```

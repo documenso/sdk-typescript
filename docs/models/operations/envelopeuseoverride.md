@@ -1,11 +1,11 @@
-# Override
+# EnvelopeUseOverride
 
 ## Example Usage
 
 ```typescript
-import { Override } from "@documenso/sdk-typescript/models/operations";
+import { EnvelopeUseOverride } from "@documenso/sdk-typescript/models/operations";
 
-let value: Override = {};
+let value: EnvelopeUseOverride = {};
 ```
 
 ## Fields

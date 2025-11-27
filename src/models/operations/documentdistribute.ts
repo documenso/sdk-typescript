@@ -51,6 +51,10 @@ export const DocumentDistributeLanguage = {
   Es: "es",
   It: "it",
   Pl: "pl",
+  PtBR: "pt-BR",
+  Ja: "ja",
+  Ko: "ko",
+  Zh: "zh",
 } as const;
 export type DocumentDistributeLanguage = ClosedEnum<
   typeof DocumentDistributeLanguage

@@ -386,16 +386,16 @@ export type RecipientGetTemplateRecipientFieldMetaSignature = {
 };
 
 export type RecipientGetTemplateRecipientFieldMetaUnion =
-  | RecipientGetTemplateRecipientFieldMetaSignature
-  | RecipientGetTemplateRecipientFieldMetaInitials
-  | RecipientGetTemplateRecipientFieldMetaName
-  | RecipientGetTemplateRecipientFieldMetaEmail
-  | RecipientGetTemplateRecipientFieldMetaDate
-  | RecipientGetTemplateRecipientFieldMetaText
-  | RecipientGetTemplateRecipientFieldMetaNumber
-  | RecipientGetTemplateRecipientFieldMetaRadio
-  | RecipientGetTemplateRecipientFieldMetaCheckbox
-  | RecipientGetTemplateRecipientFieldMetaDropdown;
+  | (RecipientGetTemplateRecipientFieldMetaSignature & { type: "signature" })
+  | (RecipientGetTemplateRecipientFieldMetaInitials & { type: "initials" })
+  | (RecipientGetTemplateRecipientFieldMetaName & { type: "name" })
+  | (RecipientGetTemplateRecipientFieldMetaEmail & { type: "email" })
+  | (RecipientGetTemplateRecipientFieldMetaDate & { type: "date" })
+  | (RecipientGetTemplateRecipientFieldMetaText & { type: "text" })
+  | (RecipientGetTemplateRecipientFieldMetaNumber & { type: "number" })
+  | (RecipientGetTemplateRecipientFieldMetaRadio & { type: "radio" })
+  | (RecipientGetTemplateRecipientFieldMetaCheckbox & { type: "checkbox" })
+  | (RecipientGetTemplateRecipientFieldMetaDropdown & { type: "dropdown" });
 
 export type RecipientGetTemplateRecipientField = {
   envelopeId: string;
@@ -412,16 +412,16 @@ export type RecipientGetTemplateRecipientField = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | RecipientGetTemplateRecipientFieldMetaSignature
-    | RecipientGetTemplateRecipientFieldMetaInitials
-    | RecipientGetTemplateRecipientFieldMetaName
-    | RecipientGetTemplateRecipientFieldMetaEmail
-    | RecipientGetTemplateRecipientFieldMetaDate
-    | RecipientGetTemplateRecipientFieldMetaText
-    | RecipientGetTemplateRecipientFieldMetaNumber
-    | RecipientGetTemplateRecipientFieldMetaRadio
-    | RecipientGetTemplateRecipientFieldMetaCheckbox
-    | RecipientGetTemplateRecipientFieldMetaDropdown
+    | (RecipientGetTemplateRecipientFieldMetaSignature & { type: "signature" })
+    | (RecipientGetTemplateRecipientFieldMetaInitials & { type: "initials" })
+    | (RecipientGetTemplateRecipientFieldMetaName & { type: "name" })
+    | (RecipientGetTemplateRecipientFieldMetaEmail & { type: "email" })
+    | (RecipientGetTemplateRecipientFieldMetaDate & { type: "date" })
+    | (RecipientGetTemplateRecipientFieldMetaText & { type: "text" })
+    | (RecipientGetTemplateRecipientFieldMetaNumber & { type: "number" })
+    | (RecipientGetTemplateRecipientFieldMetaRadio & { type: "radio" })
+    | (RecipientGetTemplateRecipientFieldMetaCheckbox & { type: "checkbox" })
+    | (RecipientGetTemplateRecipientFieldMetaDropdown & { type: "dropdown" })
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -1693,29 +1693,52 @@ export const RecipientGetTemplateRecipientFieldMetaUnion$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.union([
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaSignature$inboundSchema),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaInitials$inboundSchema),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaName$inboundSchema),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaEmail$inboundSchema),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaDate$inboundSchema),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaText$inboundSchema),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaNumber$inboundSchema),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaRadio$inboundSchema),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaCheckbox$inboundSchema),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaDropdown$inboundSchema),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaSignature$inboundSchema)
+      .and(z.object({ type: z.literal("signature") })),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaInitials$inboundSchema)
+      .and(z.object({ type: z.literal("initials") })),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaName$inboundSchema).and(
+      z.object({ type: z.literal("name") }),
+    ),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaEmail$inboundSchema).and(
+      z.object({ type: z.literal("email") }),
+    ),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaDate$inboundSchema).and(
+      z.object({ type: z.literal("date") }),
+    ),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaText$inboundSchema).and(
+      z.object({ type: z.literal("text") }),
+    ),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaNumber$inboundSchema)
+      .and(z.object({ type: z.literal("number") })),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaRadio$inboundSchema).and(
+      z.object({ type: z.literal("radio") }),
+    ),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaCheckbox$inboundSchema)
+      .and(z.object({ type: z.literal("checkbox") })),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaDropdown$inboundSchema)
+      .and(z.object({ type: z.literal("dropdown") })),
   ]);
 /** @internal */
 export type RecipientGetTemplateRecipientFieldMetaUnion$Outbound =
-  | RecipientGetTemplateRecipientFieldMetaSignature$Outbound
-  | RecipientGetTemplateRecipientFieldMetaInitials$Outbound
-  | RecipientGetTemplateRecipientFieldMetaName$Outbound
-  | RecipientGetTemplateRecipientFieldMetaEmail$Outbound
-  | RecipientGetTemplateRecipientFieldMetaDate$Outbound
-  | RecipientGetTemplateRecipientFieldMetaText$Outbound
-  | RecipientGetTemplateRecipientFieldMetaNumber$Outbound
-  | RecipientGetTemplateRecipientFieldMetaRadio$Outbound
-  | RecipientGetTemplateRecipientFieldMetaCheckbox$Outbound
-  | RecipientGetTemplateRecipientFieldMetaDropdown$Outbound;
+  | (RecipientGetTemplateRecipientFieldMetaSignature$Outbound & {
+    type: "signature";
+  })
+  | (RecipientGetTemplateRecipientFieldMetaInitials$Outbound & {
+    type: "initials";
+  })
+  | (RecipientGetTemplateRecipientFieldMetaName$Outbound & { type: "name" })
+  | (RecipientGetTemplateRecipientFieldMetaEmail$Outbound & { type: "email" })
+  | (RecipientGetTemplateRecipientFieldMetaDate$Outbound & { type: "date" })
+  | (RecipientGetTemplateRecipientFieldMetaText$Outbound & { type: "text" })
+  | (RecipientGetTemplateRecipientFieldMetaNumber$Outbound & { type: "number" })
+  | (RecipientGetTemplateRecipientFieldMetaRadio$Outbound & { type: "radio" })
+  | (RecipientGetTemplateRecipientFieldMetaCheckbox$Outbound & {
+    type: "checkbox";
+  })
+  | (RecipientGetTemplateRecipientFieldMetaDropdown$Outbound & {
+    type: "dropdown";
+  });
 
 /** @internal */
 export const RecipientGetTemplateRecipientFieldMetaUnion$outboundSchema:
@@ -1724,18 +1747,29 @@ export const RecipientGetTemplateRecipientFieldMetaUnion$outboundSchema:
     z.ZodTypeDef,
     RecipientGetTemplateRecipientFieldMetaUnion
   > = z.union([
-    z.lazy(() =>
-      RecipientGetTemplateRecipientFieldMetaSignature$outboundSchema
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaSignature$outboundSchema)
+      .and(z.object({ type: z.literal("signature") })),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaInitials$outboundSchema)
+      .and(z.object({ type: z.literal("initials") })),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaName$outboundSchema).and(
+      z.object({ type: z.literal("name") }),
     ),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaInitials$outboundSchema),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaName$outboundSchema),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaEmail$outboundSchema),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaDate$outboundSchema),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaText$outboundSchema),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaNumber$outboundSchema),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaRadio$outboundSchema),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaCheckbox$outboundSchema),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaDropdown$outboundSchema),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaEmail$outboundSchema)
+      .and(z.object({ type: z.literal("email") })),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaDate$outboundSchema).and(
+      z.object({ type: z.literal("date") }),
+    ),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaText$outboundSchema).and(
+      z.object({ type: z.literal("text") }),
+    ),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaNumber$outboundSchema)
+      .and(z.object({ type: z.literal("number") })),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaRadio$outboundSchema)
+      .and(z.object({ type: z.literal("radio") })),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaCheckbox$outboundSchema)
+      .and(z.object({ type: z.literal("checkbox") })),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaDropdown$outboundSchema)
+      .and(z.object({ type: z.literal("dropdown") })),
   ]);
 
 export function recipientGetTemplateRecipientFieldMetaUnionToJSON(
@@ -1787,22 +1821,25 @@ export const RecipientGetTemplateRecipientField$inboundSchema: z.ZodType<
     z.union([
       z.lazy(() =>
         RecipientGetTemplateRecipientFieldMetaSignature$inboundSchema
-      ),
-      z.lazy(() =>
-        RecipientGetTemplateRecipientFieldMetaInitials$inboundSchema
-      ),
-      z.lazy(() => RecipientGetTemplateRecipientFieldMetaName$inboundSchema),
-      z.lazy(() => RecipientGetTemplateRecipientFieldMetaEmail$inboundSchema),
-      z.lazy(() => RecipientGetTemplateRecipientFieldMetaDate$inboundSchema),
-      z.lazy(() => RecipientGetTemplateRecipientFieldMetaText$inboundSchema),
-      z.lazy(() => RecipientGetTemplateRecipientFieldMetaNumber$inboundSchema),
-      z.lazy(() => RecipientGetTemplateRecipientFieldMetaRadio$inboundSchema),
-      z.lazy(() =>
-        RecipientGetTemplateRecipientFieldMetaCheckbox$inboundSchema
-      ),
-      z.lazy(() =>
-        RecipientGetTemplateRecipientFieldMetaDropdown$inboundSchema
-      ),
+      ).and(z.object({ type: z.literal("signature") })),
+      z.lazy(() => RecipientGetTemplateRecipientFieldMetaInitials$inboundSchema)
+        .and(z.object({ type: z.literal("initials") })),
+      z.lazy(() => RecipientGetTemplateRecipientFieldMetaName$inboundSchema)
+        .and(z.object({ type: z.literal("name") })),
+      z.lazy(() => RecipientGetTemplateRecipientFieldMetaEmail$inboundSchema)
+        .and(z.object({ type: z.literal("email") })),
+      z.lazy(() => RecipientGetTemplateRecipientFieldMetaDate$inboundSchema)
+        .and(z.object({ type: z.literal("date") })),
+      z.lazy(() => RecipientGetTemplateRecipientFieldMetaText$inboundSchema)
+        .and(z.object({ type: z.literal("text") })),
+      z.lazy(() => RecipientGetTemplateRecipientFieldMetaNumber$inboundSchema)
+        .and(z.object({ type: z.literal("number") })),
+      z.lazy(() => RecipientGetTemplateRecipientFieldMetaRadio$inboundSchema)
+        .and(z.object({ type: z.literal("radio") })),
+      z.lazy(() => RecipientGetTemplateRecipientFieldMetaCheckbox$inboundSchema)
+        .and(z.object({ type: z.literal("checkbox") })),
+      z.lazy(() => RecipientGetTemplateRecipientFieldMetaDropdown$inboundSchema)
+        .and(z.object({ type: z.literal("dropdown") })),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),
@@ -1824,16 +1861,26 @@ export type RecipientGetTemplateRecipientField$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | RecipientGetTemplateRecipientFieldMetaSignature$Outbound
-    | RecipientGetTemplateRecipientFieldMetaInitials$Outbound
-    | RecipientGetTemplateRecipientFieldMetaName$Outbound
-    | RecipientGetTemplateRecipientFieldMetaEmail$Outbound
-    | RecipientGetTemplateRecipientFieldMetaDate$Outbound
-    | RecipientGetTemplateRecipientFieldMetaText$Outbound
-    | RecipientGetTemplateRecipientFieldMetaNumber$Outbound
-    | RecipientGetTemplateRecipientFieldMetaRadio$Outbound
-    | RecipientGetTemplateRecipientFieldMetaCheckbox$Outbound
-    | RecipientGetTemplateRecipientFieldMetaDropdown$Outbound
+    | (RecipientGetTemplateRecipientFieldMetaSignature$Outbound & {
+      type: "signature";
+    })
+    | (RecipientGetTemplateRecipientFieldMetaInitials$Outbound & {
+      type: "initials";
+    })
+    | (RecipientGetTemplateRecipientFieldMetaName$Outbound & { type: "name" })
+    | (RecipientGetTemplateRecipientFieldMetaEmail$Outbound & { type: "email" })
+    | (RecipientGetTemplateRecipientFieldMetaDate$Outbound & { type: "date" })
+    | (RecipientGetTemplateRecipientFieldMetaText$Outbound & { type: "text" })
+    | (RecipientGetTemplateRecipientFieldMetaNumber$Outbound & {
+      type: "number";
+    })
+    | (RecipientGetTemplateRecipientFieldMetaRadio$Outbound & { type: "radio" })
+    | (RecipientGetTemplateRecipientFieldMetaCheckbox$Outbound & {
+      type: "checkbox";
+    })
+    | (RecipientGetTemplateRecipientFieldMetaDropdown$Outbound & {
+      type: "dropdown";
+    })
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -1862,22 +1909,28 @@ export const RecipientGetTemplateRecipientField$outboundSchema: z.ZodType<
     z.union([
       z.lazy(() =>
         RecipientGetTemplateRecipientFieldMetaSignature$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("signature") })),
       z.lazy(() =>
         RecipientGetTemplateRecipientFieldMetaInitials$outboundSchema
-      ),
-      z.lazy(() => RecipientGetTemplateRecipientFieldMetaName$outboundSchema),
-      z.lazy(() => RecipientGetTemplateRecipientFieldMetaEmail$outboundSchema),
-      z.lazy(() => RecipientGetTemplateRecipientFieldMetaDate$outboundSchema),
-      z.lazy(() => RecipientGetTemplateRecipientFieldMetaText$outboundSchema),
-      z.lazy(() => RecipientGetTemplateRecipientFieldMetaNumber$outboundSchema),
-      z.lazy(() => RecipientGetTemplateRecipientFieldMetaRadio$outboundSchema),
+      ).and(z.object({ type: z.literal("initials") })),
+      z.lazy(() => RecipientGetTemplateRecipientFieldMetaName$outboundSchema)
+        .and(z.object({ type: z.literal("name") })),
+      z.lazy(() => RecipientGetTemplateRecipientFieldMetaEmail$outboundSchema)
+        .and(z.object({ type: z.literal("email") })),
+      z.lazy(() => RecipientGetTemplateRecipientFieldMetaDate$outboundSchema)
+        .and(z.object({ type: z.literal("date") })),
+      z.lazy(() => RecipientGetTemplateRecipientFieldMetaText$outboundSchema)
+        .and(z.object({ type: z.literal("text") })),
+      z.lazy(() => RecipientGetTemplateRecipientFieldMetaNumber$outboundSchema)
+        .and(z.object({ type: z.literal("number") })),
+      z.lazy(() => RecipientGetTemplateRecipientFieldMetaRadio$outboundSchema)
+        .and(z.object({ type: z.literal("radio") })),
       z.lazy(() =>
         RecipientGetTemplateRecipientFieldMetaCheckbox$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("checkbox") })),
       z.lazy(() =>
         RecipientGetTemplateRecipientFieldMetaDropdown$outboundSchema
-      ),
+      ).and(z.object({ type: z.literal("dropdown") })),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),

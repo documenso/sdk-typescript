@@ -519,16 +519,16 @@ export type TemplateGetTemplateByIdFieldMetaSignature = {
 };
 
 export type TemplateGetTemplateByIdFieldMetaUnion =
-  | TemplateGetTemplateByIdFieldMetaSignature
-  | TemplateGetTemplateByIdFieldMetaInitials
-  | TemplateGetTemplateByIdFieldMetaName
-  | TemplateGetTemplateByIdFieldMetaEmail
-  | TemplateGetTemplateByIdFieldMetaDate
-  | TemplateGetTemplateByIdFieldMetaText
-  | TemplateGetTemplateByIdFieldMetaNumber
-  | TemplateGetTemplateByIdFieldMetaRadio
-  | TemplateGetTemplateByIdFieldMetaCheckbox
-  | TemplateGetTemplateByIdFieldMetaDropdown;
+  | (TemplateGetTemplateByIdFieldMetaSignature & { type: "signature" })
+  | (TemplateGetTemplateByIdFieldMetaInitials & { type: "initials" })
+  | (TemplateGetTemplateByIdFieldMetaName & { type: "name" })
+  | (TemplateGetTemplateByIdFieldMetaEmail & { type: "email" })
+  | (TemplateGetTemplateByIdFieldMetaDate & { type: "date" })
+  | (TemplateGetTemplateByIdFieldMetaText & { type: "text" })
+  | (TemplateGetTemplateByIdFieldMetaNumber & { type: "number" })
+  | (TemplateGetTemplateByIdFieldMetaRadio & { type: "radio" })
+  | (TemplateGetTemplateByIdFieldMetaCheckbox & { type: "checkbox" })
+  | (TemplateGetTemplateByIdFieldMetaDropdown & { type: "dropdown" });
 
 export type TemplateGetTemplateByIdField = {
   envelopeId: string;
@@ -545,16 +545,16 @@ export type TemplateGetTemplateByIdField = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | TemplateGetTemplateByIdFieldMetaSignature
-    | TemplateGetTemplateByIdFieldMetaInitials
-    | TemplateGetTemplateByIdFieldMetaName
-    | TemplateGetTemplateByIdFieldMetaEmail
-    | TemplateGetTemplateByIdFieldMetaDate
-    | TemplateGetTemplateByIdFieldMetaText
-    | TemplateGetTemplateByIdFieldMetaNumber
-    | TemplateGetTemplateByIdFieldMetaRadio
-    | TemplateGetTemplateByIdFieldMetaCheckbox
-    | TemplateGetTemplateByIdFieldMetaDropdown
+    | (TemplateGetTemplateByIdFieldMetaSignature & { type: "signature" })
+    | (TemplateGetTemplateByIdFieldMetaInitials & { type: "initials" })
+    | (TemplateGetTemplateByIdFieldMetaName & { type: "name" })
+    | (TemplateGetTemplateByIdFieldMetaEmail & { type: "email" })
+    | (TemplateGetTemplateByIdFieldMetaDate & { type: "date" })
+    | (TemplateGetTemplateByIdFieldMetaText & { type: "text" })
+    | (TemplateGetTemplateByIdFieldMetaNumber & { type: "number" })
+    | (TemplateGetTemplateByIdFieldMetaRadio & { type: "radio" })
+    | (TemplateGetTemplateByIdFieldMetaCheckbox & { type: "checkbox" })
+    | (TemplateGetTemplateByIdFieldMetaDropdown & { type: "dropdown" })
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -2331,29 +2331,49 @@ export const TemplateGetTemplateByIdFieldMetaUnion$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaSignature$inboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaInitials$inboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaName$inboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaEmail$inboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaDate$inboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaText$inboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaNumber$inboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaRadio$inboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaCheckbox$inboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaDropdown$inboundSchema),
+  z.lazy(() => TemplateGetTemplateByIdFieldMetaSignature$inboundSchema).and(
+    z.object({ type: z.literal("signature") }),
+  ),
+  z.lazy(() => TemplateGetTemplateByIdFieldMetaInitials$inboundSchema).and(
+    z.object({ type: z.literal("initials") }),
+  ),
+  z.lazy(() => TemplateGetTemplateByIdFieldMetaName$inboundSchema).and(
+    z.object({ type: z.literal("name") }),
+  ),
+  z.lazy(() => TemplateGetTemplateByIdFieldMetaEmail$inboundSchema).and(
+    z.object({ type: z.literal("email") }),
+  ),
+  z.lazy(() => TemplateGetTemplateByIdFieldMetaDate$inboundSchema).and(
+    z.object({ type: z.literal("date") }),
+  ),
+  z.lazy(() => TemplateGetTemplateByIdFieldMetaText$inboundSchema).and(
+    z.object({ type: z.literal("text") }),
+  ),
+  z.lazy(() => TemplateGetTemplateByIdFieldMetaNumber$inboundSchema).and(
+    z.object({ type: z.literal("number") }),
+  ),
+  z.lazy(() => TemplateGetTemplateByIdFieldMetaRadio$inboundSchema).and(
+    z.object({ type: z.literal("radio") }),
+  ),
+  z.lazy(() => TemplateGetTemplateByIdFieldMetaCheckbox$inboundSchema).and(
+    z.object({ type: z.literal("checkbox") }),
+  ),
+  z.lazy(() => TemplateGetTemplateByIdFieldMetaDropdown$inboundSchema).and(
+    z.object({ type: z.literal("dropdown") }),
+  ),
 ]);
 /** @internal */
 export type TemplateGetTemplateByIdFieldMetaUnion$Outbound =
-  | TemplateGetTemplateByIdFieldMetaSignature$Outbound
-  | TemplateGetTemplateByIdFieldMetaInitials$Outbound
-  | TemplateGetTemplateByIdFieldMetaName$Outbound
-  | TemplateGetTemplateByIdFieldMetaEmail$Outbound
-  | TemplateGetTemplateByIdFieldMetaDate$Outbound
-  | TemplateGetTemplateByIdFieldMetaText$Outbound
-  | TemplateGetTemplateByIdFieldMetaNumber$Outbound
-  | TemplateGetTemplateByIdFieldMetaRadio$Outbound
-  | TemplateGetTemplateByIdFieldMetaCheckbox$Outbound
-  | TemplateGetTemplateByIdFieldMetaDropdown$Outbound;
+  | (TemplateGetTemplateByIdFieldMetaSignature$Outbound & { type: "signature" })
+  | (TemplateGetTemplateByIdFieldMetaInitials$Outbound & { type: "initials" })
+  | (TemplateGetTemplateByIdFieldMetaName$Outbound & { type: "name" })
+  | (TemplateGetTemplateByIdFieldMetaEmail$Outbound & { type: "email" })
+  | (TemplateGetTemplateByIdFieldMetaDate$Outbound & { type: "date" })
+  | (TemplateGetTemplateByIdFieldMetaText$Outbound & { type: "text" })
+  | (TemplateGetTemplateByIdFieldMetaNumber$Outbound & { type: "number" })
+  | (TemplateGetTemplateByIdFieldMetaRadio$Outbound & { type: "radio" })
+  | (TemplateGetTemplateByIdFieldMetaCheckbox$Outbound & { type: "checkbox" })
+  | (TemplateGetTemplateByIdFieldMetaDropdown$Outbound & { type: "dropdown" });
 
 /** @internal */
 export const TemplateGetTemplateByIdFieldMetaUnion$outboundSchema: z.ZodType<
@@ -2361,16 +2381,36 @@ export const TemplateGetTemplateByIdFieldMetaUnion$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TemplateGetTemplateByIdFieldMetaUnion
 > = z.union([
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaSignature$outboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaInitials$outboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaName$outboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaEmail$outboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaDate$outboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaText$outboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaNumber$outboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaRadio$outboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaCheckbox$outboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaDropdown$outboundSchema),
+  z.lazy(() => TemplateGetTemplateByIdFieldMetaSignature$outboundSchema).and(
+    z.object({ type: z.literal("signature") }),
+  ),
+  z.lazy(() => TemplateGetTemplateByIdFieldMetaInitials$outboundSchema).and(
+    z.object({ type: z.literal("initials") }),
+  ),
+  z.lazy(() => TemplateGetTemplateByIdFieldMetaName$outboundSchema).and(
+    z.object({ type: z.literal("name") }),
+  ),
+  z.lazy(() => TemplateGetTemplateByIdFieldMetaEmail$outboundSchema).and(
+    z.object({ type: z.literal("email") }),
+  ),
+  z.lazy(() => TemplateGetTemplateByIdFieldMetaDate$outboundSchema).and(
+    z.object({ type: z.literal("date") }),
+  ),
+  z.lazy(() => TemplateGetTemplateByIdFieldMetaText$outboundSchema).and(
+    z.object({ type: z.literal("text") }),
+  ),
+  z.lazy(() => TemplateGetTemplateByIdFieldMetaNumber$outboundSchema).and(
+    z.object({ type: z.literal("number") }),
+  ),
+  z.lazy(() => TemplateGetTemplateByIdFieldMetaRadio$outboundSchema).and(
+    z.object({ type: z.literal("radio") }),
+  ),
+  z.lazy(() => TemplateGetTemplateByIdFieldMetaCheckbox$outboundSchema).and(
+    z.object({ type: z.literal("checkbox") }),
+  ),
+  z.lazy(() => TemplateGetTemplateByIdFieldMetaDropdown$outboundSchema).and(
+    z.object({ type: z.literal("dropdown") }),
+  ),
 ]);
 
 export function templateGetTemplateByIdFieldMetaUnionToJSON(
@@ -2414,16 +2454,36 @@ export const TemplateGetTemplateByIdField$inboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() => TemplateGetTemplateByIdFieldMetaSignature$inboundSchema),
-      z.lazy(() => TemplateGetTemplateByIdFieldMetaInitials$inboundSchema),
-      z.lazy(() => TemplateGetTemplateByIdFieldMetaName$inboundSchema),
-      z.lazy(() => TemplateGetTemplateByIdFieldMetaEmail$inboundSchema),
-      z.lazy(() => TemplateGetTemplateByIdFieldMetaDate$inboundSchema),
-      z.lazy(() => TemplateGetTemplateByIdFieldMetaText$inboundSchema),
-      z.lazy(() => TemplateGetTemplateByIdFieldMetaNumber$inboundSchema),
-      z.lazy(() => TemplateGetTemplateByIdFieldMetaRadio$inboundSchema),
-      z.lazy(() => TemplateGetTemplateByIdFieldMetaCheckbox$inboundSchema),
-      z.lazy(() => TemplateGetTemplateByIdFieldMetaDropdown$inboundSchema),
+      z.lazy(() => TemplateGetTemplateByIdFieldMetaSignature$inboundSchema).and(
+        z.object({ type: z.literal("signature") }),
+      ),
+      z.lazy(() => TemplateGetTemplateByIdFieldMetaInitials$inboundSchema).and(
+        z.object({ type: z.literal("initials") }),
+      ),
+      z.lazy(() => TemplateGetTemplateByIdFieldMetaName$inboundSchema).and(
+        z.object({ type: z.literal("name") }),
+      ),
+      z.lazy(() => TemplateGetTemplateByIdFieldMetaEmail$inboundSchema).and(
+        z.object({ type: z.literal("email") }),
+      ),
+      z.lazy(() => TemplateGetTemplateByIdFieldMetaDate$inboundSchema).and(
+        z.object({ type: z.literal("date") }),
+      ),
+      z.lazy(() => TemplateGetTemplateByIdFieldMetaText$inboundSchema).and(
+        z.object({ type: z.literal("text") }),
+      ),
+      z.lazy(() => TemplateGetTemplateByIdFieldMetaNumber$inboundSchema).and(
+        z.object({ type: z.literal("number") }),
+      ),
+      z.lazy(() => TemplateGetTemplateByIdFieldMetaRadio$inboundSchema).and(
+        z.object({ type: z.literal("radio") }),
+      ),
+      z.lazy(() => TemplateGetTemplateByIdFieldMetaCheckbox$inboundSchema).and(
+        z.object({ type: z.literal("checkbox") }),
+      ),
+      z.lazy(() => TemplateGetTemplateByIdFieldMetaDropdown$inboundSchema).and(
+        z.object({ type: z.literal("dropdown") }),
+      ),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),
@@ -2445,16 +2505,18 @@ export type TemplateGetTemplateByIdField$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | TemplateGetTemplateByIdFieldMetaSignature$Outbound
-    | TemplateGetTemplateByIdFieldMetaInitials$Outbound
-    | TemplateGetTemplateByIdFieldMetaName$Outbound
-    | TemplateGetTemplateByIdFieldMetaEmail$Outbound
-    | TemplateGetTemplateByIdFieldMetaDate$Outbound
-    | TemplateGetTemplateByIdFieldMetaText$Outbound
-    | TemplateGetTemplateByIdFieldMetaNumber$Outbound
-    | TemplateGetTemplateByIdFieldMetaRadio$Outbound
-    | TemplateGetTemplateByIdFieldMetaCheckbox$Outbound
-    | TemplateGetTemplateByIdFieldMetaDropdown$Outbound
+    | (TemplateGetTemplateByIdFieldMetaSignature$Outbound & {
+      type: "signature";
+    })
+    | (TemplateGetTemplateByIdFieldMetaInitials$Outbound & { type: "initials" })
+    | (TemplateGetTemplateByIdFieldMetaName$Outbound & { type: "name" })
+    | (TemplateGetTemplateByIdFieldMetaEmail$Outbound & { type: "email" })
+    | (TemplateGetTemplateByIdFieldMetaDate$Outbound & { type: "date" })
+    | (TemplateGetTemplateByIdFieldMetaText$Outbound & { type: "text" })
+    | (TemplateGetTemplateByIdFieldMetaNumber$Outbound & { type: "number" })
+    | (TemplateGetTemplateByIdFieldMetaRadio$Outbound & { type: "radio" })
+    | (TemplateGetTemplateByIdFieldMetaCheckbox$Outbound & { type: "checkbox" })
+    | (TemplateGetTemplateByIdFieldMetaDropdown$Outbound & { type: "dropdown" })
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -2481,16 +2543,35 @@ export const TemplateGetTemplateByIdField$outboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() => TemplateGetTemplateByIdFieldMetaSignature$outboundSchema),
-      z.lazy(() => TemplateGetTemplateByIdFieldMetaInitials$outboundSchema),
-      z.lazy(() => TemplateGetTemplateByIdFieldMetaName$outboundSchema),
-      z.lazy(() => TemplateGetTemplateByIdFieldMetaEmail$outboundSchema),
-      z.lazy(() => TemplateGetTemplateByIdFieldMetaDate$outboundSchema),
-      z.lazy(() => TemplateGetTemplateByIdFieldMetaText$outboundSchema),
-      z.lazy(() => TemplateGetTemplateByIdFieldMetaNumber$outboundSchema),
-      z.lazy(() => TemplateGetTemplateByIdFieldMetaRadio$outboundSchema),
-      z.lazy(() => TemplateGetTemplateByIdFieldMetaCheckbox$outboundSchema),
-      z.lazy(() => TemplateGetTemplateByIdFieldMetaDropdown$outboundSchema),
+      z.lazy(() => TemplateGetTemplateByIdFieldMetaSignature$outboundSchema)
+        .and(z.object({ type: z.literal("signature") })),
+      z.lazy(() => TemplateGetTemplateByIdFieldMetaInitials$outboundSchema).and(
+        z.object({ type: z.literal("initials") }),
+      ),
+      z.lazy(() => TemplateGetTemplateByIdFieldMetaName$outboundSchema).and(
+        z.object({ type: z.literal("name") }),
+      ),
+      z.lazy(() => TemplateGetTemplateByIdFieldMetaEmail$outboundSchema).and(
+        z.object({ type: z.literal("email") }),
+      ),
+      z.lazy(() => TemplateGetTemplateByIdFieldMetaDate$outboundSchema).and(
+        z.object({ type: z.literal("date") }),
+      ),
+      z.lazy(() => TemplateGetTemplateByIdFieldMetaText$outboundSchema).and(
+        z.object({ type: z.literal("text") }),
+      ),
+      z.lazy(() => TemplateGetTemplateByIdFieldMetaNumber$outboundSchema).and(
+        z.object({ type: z.literal("number") }),
+      ),
+      z.lazy(() => TemplateGetTemplateByIdFieldMetaRadio$outboundSchema).and(
+        z.object({ type: z.literal("radio") }),
+      ),
+      z.lazy(() => TemplateGetTemplateByIdFieldMetaCheckbox$outboundSchema).and(
+        z.object({ type: z.literal("checkbox") }),
+      ),
+      z.lazy(() => TemplateGetTemplateByIdFieldMetaDropdown$outboundSchema).and(
+        z.object({ type: z.literal("dropdown") }),
+      ),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),

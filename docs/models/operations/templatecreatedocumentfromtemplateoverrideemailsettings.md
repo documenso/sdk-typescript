@@ -1,11 +1,11 @@
-# TemplateCreateDocumentFromTemplateEmailSettings
+# TemplateCreateDocumentFromTemplateOverrideEmailSettings
 
 ## Example Usage
 
 ```typescript
-import { TemplateCreateDocumentFromTemplateEmailSettings } from "@documenso/sdk-typescript/models/operations";
+import { TemplateCreateDocumentFromTemplateOverrideEmailSettings } from "@documenso/sdk-typescript/models/operations";
 
-let value: TemplateCreateDocumentFromTemplateEmailSettings = {};
+let value: TemplateCreateDocumentFromTemplateOverrideEmailSettings = {};
 ```
 
 ## Fields
