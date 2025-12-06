@@ -293,11 +293,11 @@ main()
 <details open>
 <summary>Available methods</summary>
 
-### [document](docs/sdks/document/README.md)
+### [Document](docs/sdks/document/README.md)
 
 * [documentDownload](docs/sdks/document/README.md#documentdownload) - Download document (beta)
 
-### [documents](docs/sdks/documents/README.md)
+### [Documents](docs/sdks/documents/README.md)
 
 * [get](docs/sdks/documents/README.md#get) - Get document
 * [find](docs/sdks/documents/README.md#find) - Find documents
@@ -310,14 +310,14 @@ main()
 * [download](docs/sdks/documents/README.md#download) - Download document
 * [createV0](docs/sdks/documents/README.md#createv0) - Create document
 
-#### [documents.attachments](docs/sdks/documentsattachments/README.md)
+#### [Documents.Attachments](docs/sdks/documentsattachments/README.md)
 
 * [create](docs/sdks/documentsattachments/README.md#create) - Create attachment
 * [update](docs/sdks/documentsattachments/README.md#update) - Update attachment
 * [delete](docs/sdks/documentsattachments/README.md#delete) - Delete attachment
 * [find](docs/sdks/documentsattachments/README.md#find) - Find attachments
 
-#### [documents.fields](docs/sdks/documentsfields/README.md)
+#### [Documents.Fields](docs/sdks/documentsfields/README.md)
 
 * [get](docs/sdks/documentsfields/README.md#get) - Get document field
 * [create](docs/sdks/documentsfields/README.md#create) - Create document field
@@ -326,7 +326,7 @@ main()
 * [updateMany](docs/sdks/documentsfields/README.md#updatemany) - Update document fields
 * [delete](docs/sdks/documentsfields/README.md#delete) - Delete document field
 
-#### [documents.recipients](docs/sdks/documentsrecipients/README.md)
+#### [Documents.Recipients](docs/sdks/documentsrecipients/README.md)
 
 * [get](docs/sdks/documentsrecipients/README.md#get) - Get document recipient
 * [create](docs/sdks/documentsrecipients/README.md#create) - Create document recipient
@@ -335,12 +335,12 @@ main()
 * [updateMany](docs/sdks/documentsrecipients/README.md#updatemany) - Update document recipients
 * [delete](docs/sdks/documentsrecipients/README.md#delete) - Delete document recipient
 
-### [embedding](docs/sdks/embedding/README.md)
+### [Embedding](docs/sdks/embedding/README.md)
 
 * [embeddingPresignCreateEmbeddingPresignToken](docs/sdks/embedding/README.md#embeddingpresigncreateembeddingpresigntoken) - Create embedding presign token
 * [embeddingPresignVerifyEmbeddingPresignToken](docs/sdks/embedding/README.md#embeddingpresignverifyembeddingpresigntoken) - Verify embedding presign token
 
-### [envelopes](docs/sdks/envelopes/README.md)
+### [Envelopes](docs/sdks/envelopes/README.md)
 
 * [get](docs/sdks/envelopes/README.md#get) - Get envelope
 * [create](docs/sdks/envelopes/README.md#create) - Create envelope
@@ -351,46 +351,46 @@ main()
 * [distribute](docs/sdks/envelopes/README.md#distribute) - Distribute envelope
 * [redistribute](docs/sdks/envelopes/README.md#redistribute) - Redistribute envelope
 
-#### [envelopes.attachments](docs/sdks/envelopesattachments/README.md)
+#### [Envelopes.Attachments](docs/sdks/envelopesattachments/README.md)
 
 * [find](docs/sdks/envelopesattachments/README.md#find) - Find attachments
 * [create](docs/sdks/envelopesattachments/README.md#create) - Create attachment
 * [update](docs/sdks/envelopesattachments/README.md#update) - Update attachment
 * [delete](docs/sdks/envelopesattachments/README.md#delete) - Delete attachment
 
-#### [envelopes.fields](docs/sdks/envelopesfields/README.md)
+#### [Envelopes.Fields](docs/sdks/envelopesfields/README.md)
 
 * [get](docs/sdks/envelopesfields/README.md#get) - Get envelope field
 * [createMany](docs/sdks/envelopesfields/README.md#createmany) - Create envelope fields
 * [updateMany](docs/sdks/envelopesfields/README.md#updatemany) - Update envelope fields
 * [delete](docs/sdks/envelopesfields/README.md#delete) - Delete envelope field
 
-#### [envelopes.items](docs/sdks/items/README.md)
+#### [Envelopes.Items](docs/sdks/items/README.md)
 
 * [createMany](docs/sdks/items/README.md#createmany) - Create envelope items
 * [updateMany](docs/sdks/items/README.md#updatemany) - Update envelope items
 * [delete](docs/sdks/items/README.md#delete) - Delete envelope item
 * [download](docs/sdks/items/README.md#download) - Download an envelope item
 
-#### [envelopes.recipients](docs/sdks/envelopesrecipients/README.md)
+#### [Envelopes.Recipients](docs/sdks/envelopesrecipients/README.md)
 
 * [get](docs/sdks/envelopesrecipients/README.md#get) - Get envelope recipient
 * [createMany](docs/sdks/envelopesrecipients/README.md#createmany) - Create envelope recipients
 * [updateMany](docs/sdks/envelopesrecipients/README.md#updatemany) - Update envelope recipients
 * [delete](docs/sdks/envelopesrecipients/README.md#delete) - Delete envelope recipient
 
-### [folders](docs/sdks/folders/README.md)
+### [Folders](docs/sdks/folders/README.md)
 
 * [find](docs/sdks/folders/README.md#find) - Find folders
 * [create](docs/sdks/folders/README.md#create) - Create new folder
 * [update](docs/sdks/folders/README.md#update) - Update folder
 * [delete](docs/sdks/folders/README.md#delete) - Delete folder
 
-### [template](docs/sdks/template/README.md)
+### [Template](docs/sdks/template/README.md)
 
 * [templateCreateTemplateTemporary](docs/sdks/template/README.md#templatecreatetemplatetemporary) - Create template
 
-### [templates](docs/sdks/templates/README.md)
+### [Templates](docs/sdks/templates/README.md)
 
 * [find](docs/sdks/templates/README.md#find) - Find templates
 * [get](docs/sdks/templates/README.md#get) - Get template
@@ -400,13 +400,13 @@ main()
 * [delete](docs/sdks/templates/README.md#delete) - Delete template
 * [use](docs/sdks/templates/README.md#use) - Use template
 
-#### [templates.directLink](docs/sdks/directlink/README.md)
+#### [Templates.DirectLink](docs/sdks/directlink/README.md)
 
 * [create](docs/sdks/directlink/README.md#create) - Create direct link
 * [delete](docs/sdks/directlink/README.md#delete) - Delete direct link
 * [toggle](docs/sdks/directlink/README.md#toggle) - Toggle direct link
 
-#### [templates.fields](docs/sdks/templatesfields/README.md)
+#### [Templates.Fields](docs/sdks/templatesfields/README.md)
 
 * [create](docs/sdks/templatesfields/README.md#create) - Create template field
 * [get](docs/sdks/templatesfields/README.md#get) - Get template field
@@ -415,7 +415,7 @@ main()
 * [updateMany](docs/sdks/templatesfields/README.md#updatemany) - Update template fields
 * [delete](docs/sdks/templatesfields/README.md#delete) - Delete template field
 
-#### [templates.recipients](docs/sdks/templatesrecipients/README.md)
+#### [Templates.Recipients](docs/sdks/templatesrecipients/README.md)
 
 * [get](docs/sdks/templatesrecipients/README.md#get) - Get template recipient
 * [create](docs/sdks/templatesrecipients/README.md#create) - Create template recipient

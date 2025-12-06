@@ -1,5 +1,4 @@
-# EnvelopesRecipients
-(*envelopes.recipients*)
+# Envelopes.Recipients
 
 ## Overview
 

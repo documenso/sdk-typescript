@@ -5,11 +5,11 @@
 ```typescript
 import { EnvelopeUseLanguage } from "@documenso/sdk-typescript/models/operations";
 
-let value: EnvelopeUseLanguage = "it";
+let value: EnvelopeUseLanguage = "nl";
 ```
 
 ## Values
 
 ```typescript
-"de" | "en" | "fr" | "es" | "it" | "pl" | "pt-BR" | "ja" | "ko" | "zh"
+"de" | "en" | "fr" | "es" | "it" | "nl" | "pl" | "pt-BR" | "ja" | "ko" | "zh"
 ```

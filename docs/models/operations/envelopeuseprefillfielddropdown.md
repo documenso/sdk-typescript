@@ -13,9 +13,9 @@ let value: EnvelopeUsePrefillFieldDropdown = {
 
 ## Fields
 
-| Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `type`                                                                                   | [operations.EnvelopeUseTypeDropdown](../../models/operations/envelopeusetypedropdown.md) | :heavy_check_mark:                                                                       | N/A                                                                                      |
-| `label`                                                                                  | *string*                                                                                 | :heavy_minus_sign:                                                                       | N/A                                                                                      |
-| `value`                                                                                  | *string*                                                                                 | :heavy_minus_sign:                                                                       | N/A                                                                                      |
-| `id`                                                                                     | *number*                                                                                 | :heavy_check_mark:                                                                       | N/A                                                                                      |
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `type`             | *"dropdown"*       | :heavy_check_mark: | N/A                |
+| `label`            | *string*           | :heavy_minus_sign: | N/A                |
+| `value`            | *string*           | :heavy_minus_sign: | N/A                |
+| `id`               | *number*           | :heavy_check_mark: | N/A                |

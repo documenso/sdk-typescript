@@ -13,10 +13,10 @@ let value: EnvelopeUsePrefillFieldText = {
 
 ## Fields
 
-| Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `type`                                                                           | [operations.EnvelopeUseTypeText](../../models/operations/envelopeusetypetext.md) | :heavy_check_mark:                                                               | N/A                                                                              |
-| `label`                                                                          | *string*                                                                         | :heavy_minus_sign:                                                               | N/A                                                                              |
-| `placeholder`                                                                    | *string*                                                                         | :heavy_minus_sign:                                                               | N/A                                                                              |
-| `value`                                                                          | *string*                                                                         | :heavy_minus_sign:                                                               | N/A                                                                              |
-| `id`                                                                             | *number*                                                                         | :heavy_check_mark:                                                               | N/A                                                                              |
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `type`             | *"text"*           | :heavy_check_mark: | N/A                |
+| `label`            | *string*           | :heavy_minus_sign: | N/A                |
+| `placeholder`      | *string*           | :heavy_minus_sign: | N/A                |
+| `value`            | *string*           | :heavy_minus_sign: | N/A                |
+| `id`               | *number*           | :heavy_check_mark: | N/A                |
