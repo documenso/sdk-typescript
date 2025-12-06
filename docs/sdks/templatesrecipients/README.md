@@ -1,5 +1,4 @@
-# TemplatesRecipients
-(*templates.recipients*)
+# Templates.Recipients
 
 ## Overview
 

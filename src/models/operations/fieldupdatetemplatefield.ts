@@ -8,18 +8,11 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export const FieldUpdateTemplateFieldTypeDropdownRequest1 = {
-  Dropdown: "DROPDOWN",
-} as const;
-export type FieldUpdateTemplateFieldTypeDropdownRequest1 = ClosedEnum<
-  typeof FieldUpdateTemplateFieldTypeDropdownRequest1
->;
-
-export const FieldUpdateTemplateFieldTypeDropdownRequest2 = {
+export const FieldUpdateTemplateFieldTypeDropdownEnum = {
   Dropdown: "dropdown",
 } as const;
-export type FieldUpdateTemplateFieldTypeDropdownRequest2 = ClosedEnum<
-  typeof FieldUpdateTemplateFieldTypeDropdownRequest2
+export type FieldUpdateTemplateFieldTypeDropdownEnum = ClosedEnum<
+  typeof FieldUpdateTemplateFieldTypeDropdownEnum
 >;
 
 export type FieldUpdateTemplateFieldValueDropdown = {
@@ -32,13 +25,13 @@ export type FieldUpdateTemplateFieldFieldMetaDropdownRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: FieldUpdateTemplateFieldTypeDropdownRequest2;
+  type: FieldUpdateTemplateFieldTypeDropdownEnum;
   values?: Array<FieldUpdateTemplateFieldValueDropdown> | undefined;
   defaultValue?: string | undefined;
 };
 
 export type FieldUpdateTemplateFieldFieldDropdown = {
-  type: FieldUpdateTemplateFieldTypeDropdownRequest1;
+  type: "DROPDOWN";
   fieldMeta?: FieldUpdateTemplateFieldFieldMetaDropdownRequest | undefined;
   id: number;
   pageNumber?: number | undefined;
@@ -48,18 +41,11 @@ export type FieldUpdateTemplateFieldFieldDropdown = {
   height?: number | undefined;
 };
 
-export const FieldUpdateTemplateFieldTypeCheckboxRequest1 = {
-  Checkbox: "CHECKBOX",
-} as const;
-export type FieldUpdateTemplateFieldTypeCheckboxRequest1 = ClosedEnum<
-  typeof FieldUpdateTemplateFieldTypeCheckboxRequest1
->;
-
-export const FieldUpdateTemplateFieldTypeCheckboxRequest2 = {
+export const FieldUpdateTemplateFieldTypeCheckboxEnum = {
   Checkbox: "checkbox",
 } as const;
-export type FieldUpdateTemplateFieldTypeCheckboxRequest2 = ClosedEnum<
-  typeof FieldUpdateTemplateFieldTypeCheckboxRequest2
+export type FieldUpdateTemplateFieldTypeCheckboxEnum = ClosedEnum<
+  typeof FieldUpdateTemplateFieldTypeCheckboxEnum
 >;
 
 export type FieldUpdateTemplateFieldValueCheckbox = {
@@ -82,7 +68,7 @@ export type FieldUpdateTemplateFieldFieldMetaCheckboxRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: FieldUpdateTemplateFieldTypeCheckboxRequest2;
+  type: FieldUpdateTemplateFieldTypeCheckboxEnum;
   values?: Array<FieldUpdateTemplateFieldValueCheckbox> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
@@ -90,7 +76,7 @@ export type FieldUpdateTemplateFieldFieldMetaCheckboxRequest = {
 };
 
 export type FieldUpdateTemplateFieldFieldCheckbox = {
-  type: FieldUpdateTemplateFieldTypeCheckboxRequest1;
+  type: "CHECKBOX";
   fieldMeta?: FieldUpdateTemplateFieldFieldMetaCheckboxRequest | undefined;
   id: number;
   pageNumber?: number | undefined;
@@ -100,18 +86,11 @@ export type FieldUpdateTemplateFieldFieldCheckbox = {
   height?: number | undefined;
 };
 
-export const FieldUpdateTemplateFieldTypeRadioRequest1 = {
-  Radio: "RADIO",
-} as const;
-export type FieldUpdateTemplateFieldTypeRadioRequest1 = ClosedEnum<
-  typeof FieldUpdateTemplateFieldTypeRadioRequest1
->;
-
-export const FieldUpdateTemplateFieldTypeRadioRequest2 = {
+export const FieldUpdateTemplateFieldTypeRadioEnum = {
   Radio: "radio",
 } as const;
-export type FieldUpdateTemplateFieldTypeRadioRequest2 = ClosedEnum<
-  typeof FieldUpdateTemplateFieldTypeRadioRequest2
+export type FieldUpdateTemplateFieldTypeRadioEnum = ClosedEnum<
+  typeof FieldUpdateTemplateFieldTypeRadioEnum
 >;
 
 export type FieldUpdateTemplateFieldValueRadio = {
@@ -134,13 +113,13 @@ export type FieldUpdateTemplateFieldFieldMetaRadioRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: FieldUpdateTemplateFieldTypeRadioRequest2;
+  type: FieldUpdateTemplateFieldTypeRadioEnum;
   values?: Array<FieldUpdateTemplateFieldValueRadio> | undefined;
   direction?: FieldUpdateTemplateFieldDirectionRadio | undefined;
 };
 
 export type FieldUpdateTemplateFieldFieldRadio = {
-  type: FieldUpdateTemplateFieldTypeRadioRequest1;
+  type: "RADIO";
   fieldMeta?: FieldUpdateTemplateFieldFieldMetaRadioRequest | undefined;
   id: number;
   pageNumber?: number | undefined;
@@ -150,18 +129,11 @@ export type FieldUpdateTemplateFieldFieldRadio = {
   height?: number | undefined;
 };
 
-export const FieldUpdateTemplateFieldTypeNumberRequest1 = {
-  Number: "NUMBER",
-} as const;
-export type FieldUpdateTemplateFieldTypeNumberRequest1 = ClosedEnum<
-  typeof FieldUpdateTemplateFieldTypeNumberRequest1
->;
-
-export const FieldUpdateTemplateFieldTypeNumberRequest2 = {
+export const FieldUpdateTemplateFieldTypeNumberEnum = {
   Number: "number",
 } as const;
-export type FieldUpdateTemplateFieldTypeNumberRequest2 = ClosedEnum<
-  typeof FieldUpdateTemplateFieldTypeNumberRequest2
+export type FieldUpdateTemplateFieldTypeNumberEnum = ClosedEnum<
+  typeof FieldUpdateTemplateFieldTypeNumberEnum
 >;
 
 export const FieldUpdateTemplateFieldTextAlignNumber = {
@@ -188,7 +160,7 @@ export type FieldUpdateTemplateFieldFieldMetaNumberRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: FieldUpdateTemplateFieldTypeNumberRequest2;
+  type: FieldUpdateTemplateFieldTypeNumberEnum;
   numberFormat?: string | null | undefined;
   value?: string | undefined;
   minValue?: number | null | undefined;
@@ -203,7 +175,7 @@ export type FieldUpdateTemplateFieldFieldMetaNumberRequest = {
 };
 
 export type FieldUpdateTemplateFieldFieldNumber = {
-  type: FieldUpdateTemplateFieldTypeNumberRequest1;
+  type: "NUMBER";
   fieldMeta?: FieldUpdateTemplateFieldFieldMetaNumberRequest | undefined;
   id: number;
   pageNumber?: number | undefined;
@@ -213,18 +185,11 @@ export type FieldUpdateTemplateFieldFieldNumber = {
   height?: number | undefined;
 };
 
-export const FieldUpdateTemplateFieldTypeTextRequest1 = {
-  Text: "TEXT",
-} as const;
-export type FieldUpdateTemplateFieldTypeTextRequest1 = ClosedEnum<
-  typeof FieldUpdateTemplateFieldTypeTextRequest1
->;
-
-export const FieldUpdateTemplateFieldTypeTextRequest2 = {
+export const FieldUpdateTemplateFieldTypeTextEnum = {
   Text: "text",
 } as const;
-export type FieldUpdateTemplateFieldTypeTextRequest2 = ClosedEnum<
-  typeof FieldUpdateTemplateFieldTypeTextRequest2
+export type FieldUpdateTemplateFieldTypeTextEnum = ClosedEnum<
+  typeof FieldUpdateTemplateFieldTypeTextEnum
 >;
 
 export const FieldUpdateTemplateFieldTextAlignText = {
@@ -251,7 +216,7 @@ export type FieldUpdateTemplateFieldFieldMetaTextRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: FieldUpdateTemplateFieldTypeTextRequest2;
+  type: FieldUpdateTemplateFieldTypeTextEnum;
   text?: string | undefined;
   characterLimit?: number | undefined;
   textAlign?: FieldUpdateTemplateFieldTextAlignText | undefined;
@@ -261,7 +226,7 @@ export type FieldUpdateTemplateFieldFieldMetaTextRequest = {
 };
 
 export type FieldUpdateTemplateFieldFieldText = {
-  type: FieldUpdateTemplateFieldTypeTextRequest1;
+  type: "TEXT";
   fieldMeta?: FieldUpdateTemplateFieldFieldMetaTextRequest | undefined;
   id: number;
   pageNumber?: number | undefined;
@@ -271,18 +236,11 @@ export type FieldUpdateTemplateFieldFieldText = {
   height?: number | undefined;
 };
 
-export const FieldUpdateTemplateFieldTypeDateRequest1 = {
-  Date: "DATE",
-} as const;
-export type FieldUpdateTemplateFieldTypeDateRequest1 = ClosedEnum<
-  typeof FieldUpdateTemplateFieldTypeDateRequest1
->;
-
-export const FieldUpdateTemplateFieldTypeDateRequest2 = {
+export const FieldUpdateTemplateFieldTypeDateEnum = {
   Date: "date",
 } as const;
-export type FieldUpdateTemplateFieldTypeDateRequest2 = ClosedEnum<
-  typeof FieldUpdateTemplateFieldTypeDateRequest2
+export type FieldUpdateTemplateFieldTypeDateEnum = ClosedEnum<
+  typeof FieldUpdateTemplateFieldTypeDateEnum
 >;
 
 export const FieldUpdateTemplateFieldTextAlignDate = {
@@ -300,12 +258,12 @@ export type FieldUpdateTemplateFieldFieldMetaDateRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: FieldUpdateTemplateFieldTypeDateRequest2;
+  type: FieldUpdateTemplateFieldTypeDateEnum;
   textAlign?: FieldUpdateTemplateFieldTextAlignDate | undefined;
 };
 
 export type FieldUpdateTemplateFieldFieldDate = {
-  type: FieldUpdateTemplateFieldTypeDateRequest1;
+  type: "DATE";
   fieldMeta?: FieldUpdateTemplateFieldFieldMetaDateRequest | undefined;
   id: number;
   pageNumber?: number | undefined;
@@ -315,18 +273,11 @@ export type FieldUpdateTemplateFieldFieldDate = {
   height?: number | undefined;
 };
 
-export const FieldUpdateTemplateFieldTypeEmailRequest1 = {
-  Email: "EMAIL",
-} as const;
-export type FieldUpdateTemplateFieldTypeEmailRequest1 = ClosedEnum<
-  typeof FieldUpdateTemplateFieldTypeEmailRequest1
->;
-
-export const FieldUpdateTemplateFieldTypeEmailRequest2 = {
+export const FieldUpdateTemplateFieldTypeEmailEnum = {
   Email: "email",
 } as const;
-export type FieldUpdateTemplateFieldTypeEmailRequest2 = ClosedEnum<
-  typeof FieldUpdateTemplateFieldTypeEmailRequest2
+export type FieldUpdateTemplateFieldTypeEmailEnum = ClosedEnum<
+  typeof FieldUpdateTemplateFieldTypeEmailEnum
 >;
 
 export const FieldUpdateTemplateFieldTextAlignEmail = {
@@ -344,12 +295,12 @@ export type FieldUpdateTemplateFieldFieldMetaEmailRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: FieldUpdateTemplateFieldTypeEmailRequest2;
+  type: FieldUpdateTemplateFieldTypeEmailEnum;
   textAlign?: FieldUpdateTemplateFieldTextAlignEmail | undefined;
 };
 
 export type FieldUpdateTemplateFieldFieldEmail = {
-  type: FieldUpdateTemplateFieldTypeEmailRequest1;
+  type: "EMAIL";
   fieldMeta?: FieldUpdateTemplateFieldFieldMetaEmailRequest | undefined;
   id: number;
   pageNumber?: number | undefined;
@@ -359,18 +310,11 @@ export type FieldUpdateTemplateFieldFieldEmail = {
   height?: number | undefined;
 };
 
-export const FieldUpdateTemplateFieldTypeNameRequest1 = {
-  Name: "NAME",
-} as const;
-export type FieldUpdateTemplateFieldTypeNameRequest1 = ClosedEnum<
-  typeof FieldUpdateTemplateFieldTypeNameRequest1
->;
-
-export const FieldUpdateTemplateFieldTypeNameRequest2 = {
+export const FieldUpdateTemplateFieldTypeNameEnum = {
   Name: "name",
 } as const;
-export type FieldUpdateTemplateFieldTypeNameRequest2 = ClosedEnum<
-  typeof FieldUpdateTemplateFieldTypeNameRequest2
+export type FieldUpdateTemplateFieldTypeNameEnum = ClosedEnum<
+  typeof FieldUpdateTemplateFieldTypeNameEnum
 >;
 
 export const FieldUpdateTemplateFieldTextAlignName = {
@@ -388,12 +332,12 @@ export type FieldUpdateTemplateFieldFieldMetaNameRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: FieldUpdateTemplateFieldTypeNameRequest2;
+  type: FieldUpdateTemplateFieldTypeNameEnum;
   textAlign?: FieldUpdateTemplateFieldTextAlignName | undefined;
 };
 
 export type FieldUpdateTemplateFieldFieldName = {
-  type: FieldUpdateTemplateFieldTypeNameRequest1;
+  type: "NAME";
   fieldMeta?: FieldUpdateTemplateFieldFieldMetaNameRequest | undefined;
   id: number;
   pageNumber?: number | undefined;
@@ -403,18 +347,11 @@ export type FieldUpdateTemplateFieldFieldName = {
   height?: number | undefined;
 };
 
-export const FieldUpdateTemplateFieldTypeInitialsRequest1 = {
-  Initials: "INITIALS",
-} as const;
-export type FieldUpdateTemplateFieldTypeInitialsRequest1 = ClosedEnum<
-  typeof FieldUpdateTemplateFieldTypeInitialsRequest1
->;
-
-export const FieldUpdateTemplateFieldTypeInitialsRequest2 = {
+export const FieldUpdateTemplateFieldTypeInitialsEnum = {
   Initials: "initials",
 } as const;
-export type FieldUpdateTemplateFieldTypeInitialsRequest2 = ClosedEnum<
-  typeof FieldUpdateTemplateFieldTypeInitialsRequest2
+export type FieldUpdateTemplateFieldTypeInitialsEnum = ClosedEnum<
+  typeof FieldUpdateTemplateFieldTypeInitialsEnum
 >;
 
 export const FieldUpdateTemplateFieldTextAlignInitials = {
@@ -432,12 +369,12 @@ export type FieldUpdateTemplateFieldFieldMetaInitialsRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: FieldUpdateTemplateFieldTypeInitialsRequest2;
+  type: FieldUpdateTemplateFieldTypeInitialsEnum;
   textAlign?: FieldUpdateTemplateFieldTextAlignInitials | undefined;
 };
 
 export type FieldUpdateTemplateFieldFieldInitials = {
-  type: FieldUpdateTemplateFieldTypeInitialsRequest1;
+  type: "INITIALS";
   fieldMeta?: FieldUpdateTemplateFieldFieldMetaInitialsRequest | undefined;
   id: number;
   pageNumber?: number | undefined;
@@ -447,15 +384,8 @@ export type FieldUpdateTemplateFieldFieldInitials = {
   height?: number | undefined;
 };
 
-export const FieldUpdateTemplateFieldTypeFreeSignature = {
-  FreeSignature: "FREE_SIGNATURE",
-} as const;
-export type FieldUpdateTemplateFieldTypeFreeSignature = ClosedEnum<
-  typeof FieldUpdateTemplateFieldTypeFreeSignature
->;
-
 export type FieldUpdateTemplateFieldFieldFreeSignature = {
-  type: FieldUpdateTemplateFieldTypeFreeSignature;
+  type: "FREE_SIGNATURE";
   id: number;
   pageNumber?: number | undefined;
   pageX?: number | undefined;
@@ -464,18 +394,11 @@ export type FieldUpdateTemplateFieldFieldFreeSignature = {
   height?: number | undefined;
 };
 
-export const FieldUpdateTemplateFieldTypeSignatureRequest1 = {
-  Signature: "SIGNATURE",
-} as const;
-export type FieldUpdateTemplateFieldTypeSignatureRequest1 = ClosedEnum<
-  typeof FieldUpdateTemplateFieldTypeSignatureRequest1
->;
-
-export const FieldUpdateTemplateFieldTypeSignatureRequest2 = {
+export const FieldUpdateTemplateFieldTypeSignatureEnum = {
   Signature: "signature",
 } as const;
-export type FieldUpdateTemplateFieldTypeSignatureRequest2 = ClosedEnum<
-  typeof FieldUpdateTemplateFieldTypeSignatureRequest2
+export type FieldUpdateTemplateFieldTypeSignatureEnum = ClosedEnum<
+  typeof FieldUpdateTemplateFieldTypeSignatureEnum
 >;
 
 export type FieldUpdateTemplateFieldFieldMetaSignatureRequest = {
@@ -484,11 +407,11 @@ export type FieldUpdateTemplateFieldFieldMetaSignatureRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: FieldUpdateTemplateFieldTypeSignatureRequest2;
+  type: FieldUpdateTemplateFieldTypeSignatureEnum;
 };
 
 export type FieldUpdateTemplateFieldFieldSignature = {
-  type: FieldUpdateTemplateFieldTypeSignatureRequest1;
+  type: "SIGNATURE";
   fieldMeta?: FieldUpdateTemplateFieldFieldMetaSignatureRequest | undefined;
   id: number;
   pageNumber?: number | undefined;
@@ -499,35 +422,35 @@ export type FieldUpdateTemplateFieldFieldSignature = {
 };
 
 export type FieldUpdateTemplateFieldFieldUnion =
-  | (FieldUpdateTemplateFieldFieldSignature & { type: "SIGNATURE" })
-  | (FieldUpdateTemplateFieldFieldFreeSignature & { type: "FREE_SIGNATURE" })
-  | (FieldUpdateTemplateFieldFieldInitials & { type: "INITIALS" })
-  | (FieldUpdateTemplateFieldFieldName & { type: "NAME" })
-  | (FieldUpdateTemplateFieldFieldEmail & { type: "EMAIL" })
-  | (FieldUpdateTemplateFieldFieldDate & { type: "DATE" })
-  | (FieldUpdateTemplateFieldFieldText & { type: "TEXT" })
-  | (FieldUpdateTemplateFieldFieldNumber & { type: "NUMBER" })
-  | (FieldUpdateTemplateFieldFieldRadio & { type: "RADIO" })
-  | (FieldUpdateTemplateFieldFieldCheckbox & { type: "CHECKBOX" })
-  | (FieldUpdateTemplateFieldFieldDropdown & { type: "DROPDOWN" });
+  | FieldUpdateTemplateFieldFieldSignature
+  | FieldUpdateTemplateFieldFieldFreeSignature
+  | FieldUpdateTemplateFieldFieldInitials
+  | FieldUpdateTemplateFieldFieldName
+  | FieldUpdateTemplateFieldFieldEmail
+  | FieldUpdateTemplateFieldFieldDate
+  | FieldUpdateTemplateFieldFieldText
+  | FieldUpdateTemplateFieldFieldNumber
+  | FieldUpdateTemplateFieldFieldRadio
+  | FieldUpdateTemplateFieldFieldCheckbox
+  | FieldUpdateTemplateFieldFieldDropdown;
 
 export type FieldUpdateTemplateFieldRequest = {
   templateId: number;
   field:
-    | (FieldUpdateTemplateFieldFieldSignature & { type: "SIGNATURE" })
-    | (FieldUpdateTemplateFieldFieldFreeSignature & { type: "FREE_SIGNATURE" })
-    | (FieldUpdateTemplateFieldFieldInitials & { type: "INITIALS" })
-    | (FieldUpdateTemplateFieldFieldName & { type: "NAME" })
-    | (FieldUpdateTemplateFieldFieldEmail & { type: "EMAIL" })
-    | (FieldUpdateTemplateFieldFieldDate & { type: "DATE" })
-    | (FieldUpdateTemplateFieldFieldText & { type: "TEXT" })
-    | (FieldUpdateTemplateFieldFieldNumber & { type: "NUMBER" })
-    | (FieldUpdateTemplateFieldFieldRadio & { type: "RADIO" })
-    | (FieldUpdateTemplateFieldFieldCheckbox & { type: "CHECKBOX" })
-    | (FieldUpdateTemplateFieldFieldDropdown & { type: "DROPDOWN" });
+    | FieldUpdateTemplateFieldFieldSignature
+    | FieldUpdateTemplateFieldFieldFreeSignature
+    | FieldUpdateTemplateFieldFieldInitials
+    | FieldUpdateTemplateFieldFieldName
+    | FieldUpdateTemplateFieldFieldEmail
+    | FieldUpdateTemplateFieldFieldDate
+    | FieldUpdateTemplateFieldFieldText
+    | FieldUpdateTemplateFieldFieldNumber
+    | FieldUpdateTemplateFieldFieldRadio
+    | FieldUpdateTemplateFieldFieldCheckbox
+    | FieldUpdateTemplateFieldFieldDropdown;
 };
 
-export const FieldUpdateTemplateFieldTypeResponse = {
+export const FieldUpdateTemplateFieldTypeResponseEnum = {
   Signature: "SIGNATURE",
   FreeSignature: "FREE_SIGNATURE",
   Initials: "INITIALS",
@@ -540,15 +463,8 @@ export const FieldUpdateTemplateFieldTypeResponse = {
   Checkbox: "CHECKBOX",
   Dropdown: "DROPDOWN",
 } as const;
-export type FieldUpdateTemplateFieldTypeResponse = ClosedEnum<
-  typeof FieldUpdateTemplateFieldTypeResponse
->;
-
-export const FieldUpdateTemplateFieldFieldMetaTypeDropdown = {
-  Dropdown: "dropdown",
-} as const;
-export type FieldUpdateTemplateFieldFieldMetaTypeDropdown = ClosedEnum<
-  typeof FieldUpdateTemplateFieldFieldMetaTypeDropdown
+export type FieldUpdateTemplateFieldTypeResponseEnum = ClosedEnum<
+  typeof FieldUpdateTemplateFieldTypeResponseEnum
 >;
 
 export type FieldUpdateTemplateFieldValueResponse3 = {
@@ -561,17 +477,10 @@ export type FieldUpdateTemplateFieldFieldMetaDropdownResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: FieldUpdateTemplateFieldFieldMetaTypeDropdown;
+  type: "dropdown";
   values?: Array<FieldUpdateTemplateFieldValueResponse3> | undefined;
   defaultValue?: string | undefined;
 };
-
-export const FieldUpdateTemplateFieldFieldMetaTypeCheckbox = {
-  Checkbox: "checkbox",
-} as const;
-export type FieldUpdateTemplateFieldFieldMetaTypeCheckbox = ClosedEnum<
-  typeof FieldUpdateTemplateFieldFieldMetaTypeCheckbox
->;
 
 export type FieldUpdateTemplateFieldValueResponse2 = {
   id: number;
@@ -593,19 +502,12 @@ export type FieldUpdateTemplateFieldFieldMetaCheckboxResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: FieldUpdateTemplateFieldFieldMetaTypeCheckbox;
+  type: "checkbox";
   values?: Array<FieldUpdateTemplateFieldValueResponse2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
   direction?: FieldUpdateTemplateFieldDirectionResponse2 | undefined;
 };
-
-export const FieldUpdateTemplateFieldFieldMetaTypeRadio = {
-  Radio: "radio",
-} as const;
-export type FieldUpdateTemplateFieldFieldMetaTypeRadio = ClosedEnum<
-  typeof FieldUpdateTemplateFieldFieldMetaTypeRadio
->;
 
 export type FieldUpdateTemplateFieldValueResponse1 = {
   id: number;
@@ -627,17 +529,10 @@ export type FieldUpdateTemplateFieldFieldMetaRadioResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: FieldUpdateTemplateFieldFieldMetaTypeRadio;
+  type: "radio";
   values?: Array<FieldUpdateTemplateFieldValueResponse1> | undefined;
   direction?: FieldUpdateTemplateFieldDirectionResponse1 | undefined;
 };
-
-export const FieldUpdateTemplateFieldFieldMetaTypeNumber = {
-  Number: "number",
-} as const;
-export type FieldUpdateTemplateFieldFieldMetaTypeNumber = ClosedEnum<
-  typeof FieldUpdateTemplateFieldFieldMetaTypeNumber
->;
 
 export const FieldUpdateTemplateFieldTextAlignResponse6 = {
   Left: "left",
@@ -663,7 +558,7 @@ export type FieldUpdateTemplateFieldFieldMetaNumberResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: FieldUpdateTemplateFieldFieldMetaTypeNumber;
+  type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
   minValue?: number | null | undefined;
@@ -676,13 +571,6 @@ export type FieldUpdateTemplateFieldFieldMetaNumberResponse = {
     | null
     | undefined;
 };
-
-export const FieldUpdateTemplateFieldFieldMetaTypeText = {
-  Text: "text",
-} as const;
-export type FieldUpdateTemplateFieldFieldMetaTypeText = ClosedEnum<
-  typeof FieldUpdateTemplateFieldFieldMetaTypeText
->;
 
 export const FieldUpdateTemplateFieldTextAlignResponse5 = {
   Left: "left",
@@ -708,7 +596,7 @@ export type FieldUpdateTemplateFieldFieldMetaTextResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: FieldUpdateTemplateFieldFieldMetaTypeText;
+  type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
   textAlign?: FieldUpdateTemplateFieldTextAlignResponse5 | undefined;
@@ -719,13 +607,6 @@ export type FieldUpdateTemplateFieldFieldMetaTextResponse = {
     | null
     | undefined;
 };
-
-export const FieldUpdateTemplateFieldFieldMetaTypeDate = {
-  Date: "date",
-} as const;
-export type FieldUpdateTemplateFieldFieldMetaTypeDate = ClosedEnum<
-  typeof FieldUpdateTemplateFieldFieldMetaTypeDate
->;
 
 export const FieldUpdateTemplateFieldTextAlignResponse4 = {
   Left: "left",
@@ -742,16 +623,9 @@ export type FieldUpdateTemplateFieldFieldMetaDateResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: FieldUpdateTemplateFieldFieldMetaTypeDate;
+  type: "date";
   textAlign?: FieldUpdateTemplateFieldTextAlignResponse4 | undefined;
 };
-
-export const FieldUpdateTemplateFieldFieldMetaTypeEmail = {
-  Email: "email",
-} as const;
-export type FieldUpdateTemplateFieldFieldMetaTypeEmail = ClosedEnum<
-  typeof FieldUpdateTemplateFieldFieldMetaTypeEmail
->;
 
 export const FieldUpdateTemplateFieldTextAlignResponse3 = {
   Left: "left",
@@ -768,16 +642,9 @@ export type FieldUpdateTemplateFieldFieldMetaEmailResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: FieldUpdateTemplateFieldFieldMetaTypeEmail;
+  type: "email";
   textAlign?: FieldUpdateTemplateFieldTextAlignResponse3 | undefined;
 };
-
-export const FieldUpdateTemplateFieldFieldMetaTypeName = {
-  Name: "name",
-} as const;
-export type FieldUpdateTemplateFieldFieldMetaTypeName = ClosedEnum<
-  typeof FieldUpdateTemplateFieldFieldMetaTypeName
->;
 
 export const FieldUpdateTemplateFieldTextAlignResponse2 = {
   Left: "left",
@@ -794,16 +661,9 @@ export type FieldUpdateTemplateFieldFieldMetaNameResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: FieldUpdateTemplateFieldFieldMetaTypeName;
+  type: "name";
   textAlign?: FieldUpdateTemplateFieldTextAlignResponse2 | undefined;
 };
-
-export const FieldUpdateTemplateFieldFieldMetaTypeInitials = {
-  Initials: "initials",
-} as const;
-export type FieldUpdateTemplateFieldFieldMetaTypeInitials = ClosedEnum<
-  typeof FieldUpdateTemplateFieldFieldMetaTypeInitials
->;
 
 export const FieldUpdateTemplateFieldTextAlignResponse1 = {
   Left: "left",
@@ -820,16 +680,9 @@ export type FieldUpdateTemplateFieldFieldMetaInitialsResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: FieldUpdateTemplateFieldFieldMetaTypeInitials;
+  type: "initials";
   textAlign?: FieldUpdateTemplateFieldTextAlignResponse1 | undefined;
 };
-
-export const FieldUpdateTemplateFieldFieldMetaTypeSignature = {
-  Signature: "signature",
-} as const;
-export type FieldUpdateTemplateFieldFieldMetaTypeSignature = ClosedEnum<
-  typeof FieldUpdateTemplateFieldFieldMetaTypeSignature
->;
 
 export type FieldUpdateTemplateFieldFieldMetaSignatureResponse = {
   label?: string | undefined;
@@ -837,20 +690,20 @@ export type FieldUpdateTemplateFieldFieldMetaSignatureResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: FieldUpdateTemplateFieldFieldMetaTypeSignature;
+  type: "signature";
 };
 
 export type FieldUpdateTemplateFieldFieldMetaUnion =
-  | (FieldUpdateTemplateFieldFieldMetaSignatureResponse & { type: "signature" })
-  | (FieldUpdateTemplateFieldFieldMetaInitialsResponse & { type: "initials" })
-  | (FieldUpdateTemplateFieldFieldMetaNameResponse & { type: "name" })
-  | (FieldUpdateTemplateFieldFieldMetaEmailResponse & { type: "email" })
-  | (FieldUpdateTemplateFieldFieldMetaDateResponse & { type: "date" })
-  | (FieldUpdateTemplateFieldFieldMetaTextResponse & { type: "text" })
-  | (FieldUpdateTemplateFieldFieldMetaNumberResponse & { type: "number" })
-  | (FieldUpdateTemplateFieldFieldMetaRadioResponse & { type: "radio" })
-  | (FieldUpdateTemplateFieldFieldMetaCheckboxResponse & { type: "checkbox" })
-  | (FieldUpdateTemplateFieldFieldMetaDropdownResponse & { type: "dropdown" });
+  | FieldUpdateTemplateFieldFieldMetaSignatureResponse
+  | FieldUpdateTemplateFieldFieldMetaInitialsResponse
+  | FieldUpdateTemplateFieldFieldMetaNameResponse
+  | FieldUpdateTemplateFieldFieldMetaEmailResponse
+  | FieldUpdateTemplateFieldFieldMetaDateResponse
+  | FieldUpdateTemplateFieldFieldMetaTextResponse
+  | FieldUpdateTemplateFieldFieldMetaNumberResponse
+  | FieldUpdateTemplateFieldFieldMetaRadioResponse
+  | FieldUpdateTemplateFieldFieldMetaCheckboxResponse
+  | FieldUpdateTemplateFieldFieldMetaDropdownResponse;
 
 /**
  * Successful response
@@ -858,7 +711,7 @@ export type FieldUpdateTemplateFieldFieldMetaUnion =
 export type FieldUpdateTemplateFieldResponse = {
   envelopeId: string;
   envelopeItemId: string;
-  type: FieldUpdateTemplateFieldTypeResponse;
+  type: FieldUpdateTemplateFieldTypeResponseEnum;
   id: number;
   secondaryId: string;
   recipientId: number;
@@ -870,40 +723,29 @@ export type FieldUpdateTemplateFieldResponse = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | (FieldUpdateTemplateFieldFieldMetaSignatureResponse & {
-      type: "signature";
-    })
-    | (FieldUpdateTemplateFieldFieldMetaInitialsResponse & { type: "initials" })
-    | (FieldUpdateTemplateFieldFieldMetaNameResponse & { type: "name" })
-    | (FieldUpdateTemplateFieldFieldMetaEmailResponse & { type: "email" })
-    | (FieldUpdateTemplateFieldFieldMetaDateResponse & { type: "date" })
-    | (FieldUpdateTemplateFieldFieldMetaTextResponse & { type: "text" })
-    | (FieldUpdateTemplateFieldFieldMetaNumberResponse & { type: "number" })
-    | (FieldUpdateTemplateFieldFieldMetaRadioResponse & { type: "radio" })
-    | (FieldUpdateTemplateFieldFieldMetaCheckboxResponse & { type: "checkbox" })
-    | (FieldUpdateTemplateFieldFieldMetaDropdownResponse & { type: "dropdown" })
+    | FieldUpdateTemplateFieldFieldMetaSignatureResponse
+    | FieldUpdateTemplateFieldFieldMetaInitialsResponse
+    | FieldUpdateTemplateFieldFieldMetaNameResponse
+    | FieldUpdateTemplateFieldFieldMetaEmailResponse
+    | FieldUpdateTemplateFieldFieldMetaDateResponse
+    | FieldUpdateTemplateFieldFieldMetaTextResponse
+    | FieldUpdateTemplateFieldFieldMetaNumberResponse
+    | FieldUpdateTemplateFieldFieldMetaRadioResponse
+    | FieldUpdateTemplateFieldFieldMetaCheckboxResponse
+    | FieldUpdateTemplateFieldFieldMetaDropdownResponse
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
 };
 
 /** @internal */
-export const FieldUpdateTemplateFieldTypeDropdownRequest1$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeDropdownRequest1> = z
-    .nativeEnum(FieldUpdateTemplateFieldTypeDropdownRequest1);
+export const FieldUpdateTemplateFieldTypeDropdownEnum$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeDropdownEnum> = z
+    .nativeEnum(FieldUpdateTemplateFieldTypeDropdownEnum);
 /** @internal */
-export const FieldUpdateTemplateFieldTypeDropdownRequest1$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeDropdownRequest1> =
-    FieldUpdateTemplateFieldTypeDropdownRequest1$inboundSchema;
-
-/** @internal */
-export const FieldUpdateTemplateFieldTypeDropdownRequest2$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeDropdownRequest2> = z
-    .nativeEnum(FieldUpdateTemplateFieldTypeDropdownRequest2);
-/** @internal */
-export const FieldUpdateTemplateFieldTypeDropdownRequest2$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeDropdownRequest2> =
-    FieldUpdateTemplateFieldTypeDropdownRequest2$inboundSchema;
+export const FieldUpdateTemplateFieldTypeDropdownEnum$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeDropdownEnum> =
+    FieldUpdateTemplateFieldTypeDropdownEnum$inboundSchema;
 
 /** @internal */
 export const FieldUpdateTemplateFieldValueDropdown$inboundSchema: z.ZodType<
@@ -959,7 +801,7 @@ export const FieldUpdateTemplateFieldFieldMetaDropdownRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldTypeDropdownRequest2$inboundSchema,
+    type: FieldUpdateTemplateFieldTypeDropdownEnum$inboundSchema,
     values: z.array(
       z.lazy(() => FieldUpdateTemplateFieldValueDropdown$inboundSchema),
     ).optional(),
@@ -989,7 +831,7 @@ export const FieldUpdateTemplateFieldFieldMetaDropdownRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldTypeDropdownRequest2$outboundSchema,
+    type: FieldUpdateTemplateFieldTypeDropdownEnum$outboundSchema,
     values: z.array(
       z.lazy(() => FieldUpdateTemplateFieldValueDropdown$outboundSchema),
     ).optional(),
@@ -1028,7 +870,7 @@ export const FieldUpdateTemplateFieldFieldDropdown$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: FieldUpdateTemplateFieldTypeDropdownRequest1$inboundSchema,
+  type: z.literal("DROPDOWN"),
   fieldMeta: z.lazy(() =>
     FieldUpdateTemplateFieldFieldMetaDropdownRequest$inboundSchema
   ).optional(),
@@ -1041,7 +883,7 @@ export const FieldUpdateTemplateFieldFieldDropdown$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type FieldUpdateTemplateFieldFieldDropdown$Outbound = {
-  type: string;
+  type: "DROPDOWN";
   fieldMeta?:
     | FieldUpdateTemplateFieldFieldMetaDropdownRequest$Outbound
     | undefined;
@@ -1059,7 +901,7 @@ export const FieldUpdateTemplateFieldFieldDropdown$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FieldUpdateTemplateFieldFieldDropdown
 > = z.object({
-  type: FieldUpdateTemplateFieldTypeDropdownRequest1$outboundSchema,
+  type: z.literal("DROPDOWN"),
   fieldMeta: z.lazy(() =>
     FieldUpdateTemplateFieldFieldMetaDropdownRequest$outboundSchema
   ).optional(),
@@ -1092,22 +934,13 @@ export function fieldUpdateTemplateFieldFieldDropdownFromJSON(
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldTypeCheckboxRequest1$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeCheckboxRequest1> = z
-    .nativeEnum(FieldUpdateTemplateFieldTypeCheckboxRequest1);
+export const FieldUpdateTemplateFieldTypeCheckboxEnum$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeCheckboxEnum> = z
+    .nativeEnum(FieldUpdateTemplateFieldTypeCheckboxEnum);
 /** @internal */
-export const FieldUpdateTemplateFieldTypeCheckboxRequest1$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeCheckboxRequest1> =
-    FieldUpdateTemplateFieldTypeCheckboxRequest1$inboundSchema;
-
-/** @internal */
-export const FieldUpdateTemplateFieldTypeCheckboxRequest2$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeCheckboxRequest2> = z
-    .nativeEnum(FieldUpdateTemplateFieldTypeCheckboxRequest2);
-/** @internal */
-export const FieldUpdateTemplateFieldTypeCheckboxRequest2$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeCheckboxRequest2> =
-    FieldUpdateTemplateFieldTypeCheckboxRequest2$inboundSchema;
+export const FieldUpdateTemplateFieldTypeCheckboxEnum$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeCheckboxEnum> =
+    FieldUpdateTemplateFieldTypeCheckboxEnum$inboundSchema;
 
 /** @internal */
 export const FieldUpdateTemplateFieldValueCheckbox$inboundSchema: z.ZodType<
@@ -1178,7 +1011,7 @@ export const FieldUpdateTemplateFieldFieldMetaCheckboxRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldTypeCheckboxRequest2$inboundSchema,
+    type: FieldUpdateTemplateFieldTypeCheckboxEnum$inboundSchema,
     values: z.array(
       z.lazy(() => FieldUpdateTemplateFieldValueCheckbox$inboundSchema),
     ).optional(),
@@ -1214,7 +1047,7 @@ export const FieldUpdateTemplateFieldFieldMetaCheckboxRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldTypeCheckboxRequest2$outboundSchema,
+    type: FieldUpdateTemplateFieldTypeCheckboxEnum$outboundSchema,
     values: z.array(
       z.lazy(() => FieldUpdateTemplateFieldValueCheckbox$outboundSchema),
     ).optional(),
@@ -1257,7 +1090,7 @@ export const FieldUpdateTemplateFieldFieldCheckbox$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: FieldUpdateTemplateFieldTypeCheckboxRequest1$inboundSchema,
+  type: z.literal("CHECKBOX"),
   fieldMeta: z.lazy(() =>
     FieldUpdateTemplateFieldFieldMetaCheckboxRequest$inboundSchema
   ).optional(),
@@ -1270,7 +1103,7 @@ export const FieldUpdateTemplateFieldFieldCheckbox$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type FieldUpdateTemplateFieldFieldCheckbox$Outbound = {
-  type: string;
+  type: "CHECKBOX";
   fieldMeta?:
     | FieldUpdateTemplateFieldFieldMetaCheckboxRequest$Outbound
     | undefined;
@@ -1288,7 +1121,7 @@ export const FieldUpdateTemplateFieldFieldCheckbox$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FieldUpdateTemplateFieldFieldCheckbox
 > = z.object({
-  type: FieldUpdateTemplateFieldTypeCheckboxRequest1$outboundSchema,
+  type: z.literal("CHECKBOX"),
   fieldMeta: z.lazy(() =>
     FieldUpdateTemplateFieldFieldMetaCheckboxRequest$outboundSchema
   ).optional(),
@@ -1321,22 +1154,14 @@ export function fieldUpdateTemplateFieldFieldCheckboxFromJSON(
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldTypeRadioRequest1$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeRadioRequest1> = z
-    .nativeEnum(FieldUpdateTemplateFieldTypeRadioRequest1);
+export const FieldUpdateTemplateFieldTypeRadioEnum$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeRadioEnum> = z.nativeEnum(
+    FieldUpdateTemplateFieldTypeRadioEnum,
+  );
 /** @internal */
-export const FieldUpdateTemplateFieldTypeRadioRequest1$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeRadioRequest1> =
-    FieldUpdateTemplateFieldTypeRadioRequest1$inboundSchema;
-
-/** @internal */
-export const FieldUpdateTemplateFieldTypeRadioRequest2$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeRadioRequest2> = z
-    .nativeEnum(FieldUpdateTemplateFieldTypeRadioRequest2);
-/** @internal */
-export const FieldUpdateTemplateFieldTypeRadioRequest2$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeRadioRequest2> =
-    FieldUpdateTemplateFieldTypeRadioRequest2$inboundSchema;
+export const FieldUpdateTemplateFieldTypeRadioEnum$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeRadioEnum> =
+    FieldUpdateTemplateFieldTypeRadioEnum$inboundSchema;
 
 /** @internal */
 export const FieldUpdateTemplateFieldValueRadio$inboundSchema: z.ZodType<
@@ -1408,7 +1233,7 @@ export const FieldUpdateTemplateFieldFieldMetaRadioRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldTypeRadioRequest2$inboundSchema,
+    type: FieldUpdateTemplateFieldTypeRadioEnum$inboundSchema,
     values: z.array(
       z.lazy(() => FieldUpdateTemplateFieldValueRadio$inboundSchema),
     ).optional(),
@@ -1440,7 +1265,7 @@ export const FieldUpdateTemplateFieldFieldMetaRadioRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldTypeRadioRequest2$outboundSchema,
+    type: FieldUpdateTemplateFieldTypeRadioEnum$outboundSchema,
     values: z.array(
       z.lazy(() => FieldUpdateTemplateFieldValueRadio$outboundSchema),
     ).optional(),
@@ -1481,7 +1306,7 @@ export const FieldUpdateTemplateFieldFieldRadio$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: FieldUpdateTemplateFieldTypeRadioRequest1$inboundSchema,
+  type: z.literal("RADIO"),
   fieldMeta: z.lazy(() =>
     FieldUpdateTemplateFieldFieldMetaRadioRequest$inboundSchema
   ).optional(),
@@ -1494,7 +1319,7 @@ export const FieldUpdateTemplateFieldFieldRadio$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type FieldUpdateTemplateFieldFieldRadio$Outbound = {
-  type: string;
+  type: "RADIO";
   fieldMeta?:
     | FieldUpdateTemplateFieldFieldMetaRadioRequest$Outbound
     | undefined;
@@ -1512,7 +1337,7 @@ export const FieldUpdateTemplateFieldFieldRadio$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FieldUpdateTemplateFieldFieldRadio
 > = z.object({
-  type: FieldUpdateTemplateFieldTypeRadioRequest1$outboundSchema,
+  type: z.literal("RADIO"),
   fieldMeta: z.lazy(() =>
     FieldUpdateTemplateFieldFieldMetaRadioRequest$outboundSchema
   ).optional(),
@@ -1545,22 +1370,14 @@ export function fieldUpdateTemplateFieldFieldRadioFromJSON(
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldTypeNumberRequest1$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeNumberRequest1> = z
-    .nativeEnum(FieldUpdateTemplateFieldTypeNumberRequest1);
+export const FieldUpdateTemplateFieldTypeNumberEnum$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeNumberEnum> = z.nativeEnum(
+    FieldUpdateTemplateFieldTypeNumberEnum,
+  );
 /** @internal */
-export const FieldUpdateTemplateFieldTypeNumberRequest1$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeNumberRequest1> =
-    FieldUpdateTemplateFieldTypeNumberRequest1$inboundSchema;
-
-/** @internal */
-export const FieldUpdateTemplateFieldTypeNumberRequest2$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeNumberRequest2> = z
-    .nativeEnum(FieldUpdateTemplateFieldTypeNumberRequest2);
-/** @internal */
-export const FieldUpdateTemplateFieldTypeNumberRequest2$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeNumberRequest2> =
-    FieldUpdateTemplateFieldTypeNumberRequest2$inboundSchema;
+export const FieldUpdateTemplateFieldTypeNumberEnum$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeNumberEnum> =
+    FieldUpdateTemplateFieldTypeNumberEnum$inboundSchema;
 
 /** @internal */
 export const FieldUpdateTemplateFieldTextAlignNumber$inboundSchema:
@@ -1592,7 +1409,7 @@ export const FieldUpdateTemplateFieldFieldMetaNumberRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldTypeNumberRequest2$inboundSchema,
+    type: FieldUpdateTemplateFieldTypeNumberEnum$inboundSchema,
     numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
     minValue: z.nullable(z.number()).optional(),
@@ -1634,7 +1451,7 @@ export const FieldUpdateTemplateFieldFieldMetaNumberRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldTypeNumberRequest2$outboundSchema,
+    type: FieldUpdateTemplateFieldTypeNumberEnum$outboundSchema,
     numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
     minValue: z.nullable(z.number()).optional(),
@@ -1680,7 +1497,7 @@ export const FieldUpdateTemplateFieldFieldNumber$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: FieldUpdateTemplateFieldTypeNumberRequest1$inboundSchema,
+  type: z.literal("NUMBER"),
   fieldMeta: z.lazy(() =>
     FieldUpdateTemplateFieldFieldMetaNumberRequest$inboundSchema
   ).optional(),
@@ -1693,7 +1510,7 @@ export const FieldUpdateTemplateFieldFieldNumber$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type FieldUpdateTemplateFieldFieldNumber$Outbound = {
-  type: string;
+  type: "NUMBER";
   fieldMeta?:
     | FieldUpdateTemplateFieldFieldMetaNumberRequest$Outbound
     | undefined;
@@ -1711,7 +1528,7 @@ export const FieldUpdateTemplateFieldFieldNumber$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FieldUpdateTemplateFieldFieldNumber
 > = z.object({
-  type: FieldUpdateTemplateFieldTypeNumberRequest1$outboundSchema,
+  type: z.literal("NUMBER"),
   fieldMeta: z.lazy(() =>
     FieldUpdateTemplateFieldFieldMetaNumberRequest$outboundSchema
   ).optional(),
@@ -1744,22 +1561,14 @@ export function fieldUpdateTemplateFieldFieldNumberFromJSON(
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldTypeTextRequest1$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeTextRequest1> = z
-    .nativeEnum(FieldUpdateTemplateFieldTypeTextRequest1);
+export const FieldUpdateTemplateFieldTypeTextEnum$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeTextEnum> = z.nativeEnum(
+    FieldUpdateTemplateFieldTypeTextEnum,
+  );
 /** @internal */
-export const FieldUpdateTemplateFieldTypeTextRequest1$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeTextRequest1> =
-    FieldUpdateTemplateFieldTypeTextRequest1$inboundSchema;
-
-/** @internal */
-export const FieldUpdateTemplateFieldTypeTextRequest2$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeTextRequest2> = z
-    .nativeEnum(FieldUpdateTemplateFieldTypeTextRequest2);
-/** @internal */
-export const FieldUpdateTemplateFieldTypeTextRequest2$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeTextRequest2> =
-    FieldUpdateTemplateFieldTypeTextRequest2$inboundSchema;
+export const FieldUpdateTemplateFieldTypeTextEnum$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeTextEnum> =
+    FieldUpdateTemplateFieldTypeTextEnum$inboundSchema;
 
 /** @internal */
 export const FieldUpdateTemplateFieldTextAlignText$inboundSchema:
@@ -1792,7 +1601,7 @@ export const FieldUpdateTemplateFieldFieldMetaTextRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldTypeTextRequest2$inboundSchema,
+    type: FieldUpdateTemplateFieldTypeTextEnum$inboundSchema,
     text: z.string().optional(),
     characterLimit: z.number().optional(),
     textAlign: FieldUpdateTemplateFieldTextAlignText$inboundSchema.optional(),
@@ -1830,7 +1639,7 @@ export const FieldUpdateTemplateFieldFieldMetaTextRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldTypeTextRequest2$outboundSchema,
+    type: FieldUpdateTemplateFieldTypeTextEnum$outboundSchema,
     text: z.string().optional(),
     characterLimit: z.number().optional(),
     textAlign: FieldUpdateTemplateFieldTextAlignText$outboundSchema.optional(),
@@ -1873,7 +1682,7 @@ export const FieldUpdateTemplateFieldFieldText$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: FieldUpdateTemplateFieldTypeTextRequest1$inboundSchema,
+  type: z.literal("TEXT"),
   fieldMeta: z.lazy(() =>
     FieldUpdateTemplateFieldFieldMetaTextRequest$inboundSchema
   ).optional(),
@@ -1886,7 +1695,7 @@ export const FieldUpdateTemplateFieldFieldText$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type FieldUpdateTemplateFieldFieldText$Outbound = {
-  type: string;
+  type: "TEXT";
   fieldMeta?: FieldUpdateTemplateFieldFieldMetaTextRequest$Outbound | undefined;
   id: number;
   pageNumber?: number | undefined;
@@ -1902,7 +1711,7 @@ export const FieldUpdateTemplateFieldFieldText$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FieldUpdateTemplateFieldFieldText
 > = z.object({
-  type: FieldUpdateTemplateFieldTypeTextRequest1$outboundSchema,
+  type: z.literal("TEXT"),
   fieldMeta: z.lazy(() =>
     FieldUpdateTemplateFieldFieldMetaTextRequest$outboundSchema
   ).optional(),
@@ -1934,22 +1743,14 @@ export function fieldUpdateTemplateFieldFieldTextFromJSON(
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldTypeDateRequest1$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeDateRequest1> = z
-    .nativeEnum(FieldUpdateTemplateFieldTypeDateRequest1);
+export const FieldUpdateTemplateFieldTypeDateEnum$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeDateEnum> = z.nativeEnum(
+    FieldUpdateTemplateFieldTypeDateEnum,
+  );
 /** @internal */
-export const FieldUpdateTemplateFieldTypeDateRequest1$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeDateRequest1> =
-    FieldUpdateTemplateFieldTypeDateRequest1$inboundSchema;
-
-/** @internal */
-export const FieldUpdateTemplateFieldTypeDateRequest2$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeDateRequest2> = z
-    .nativeEnum(FieldUpdateTemplateFieldTypeDateRequest2);
-/** @internal */
-export const FieldUpdateTemplateFieldTypeDateRequest2$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeDateRequest2> =
-    FieldUpdateTemplateFieldTypeDateRequest2$inboundSchema;
+export const FieldUpdateTemplateFieldTypeDateEnum$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeDateEnum> =
+    FieldUpdateTemplateFieldTypeDateEnum$inboundSchema;
 
 /** @internal */
 export const FieldUpdateTemplateFieldTextAlignDate$inboundSchema:
@@ -1973,7 +1774,7 @@ export const FieldUpdateTemplateFieldFieldMetaDateRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldTypeDateRequest2$inboundSchema,
+    type: FieldUpdateTemplateFieldTypeDateEnum$inboundSchema,
     textAlign: FieldUpdateTemplateFieldTextAlignDate$inboundSchema.optional(),
   });
 /** @internal */
@@ -1999,7 +1800,7 @@ export const FieldUpdateTemplateFieldFieldMetaDateRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldTypeDateRequest2$outboundSchema,
+    type: FieldUpdateTemplateFieldTypeDateEnum$outboundSchema,
     textAlign: FieldUpdateTemplateFieldTextAlignDate$outboundSchema.optional(),
   });
 
@@ -2035,7 +1836,7 @@ export const FieldUpdateTemplateFieldFieldDate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: FieldUpdateTemplateFieldTypeDateRequest1$inboundSchema,
+  type: z.literal("DATE"),
   fieldMeta: z.lazy(() =>
     FieldUpdateTemplateFieldFieldMetaDateRequest$inboundSchema
   ).optional(),
@@ -2048,7 +1849,7 @@ export const FieldUpdateTemplateFieldFieldDate$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type FieldUpdateTemplateFieldFieldDate$Outbound = {
-  type: string;
+  type: "DATE";
   fieldMeta?: FieldUpdateTemplateFieldFieldMetaDateRequest$Outbound | undefined;
   id: number;
   pageNumber?: number | undefined;
@@ -2064,7 +1865,7 @@ export const FieldUpdateTemplateFieldFieldDate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FieldUpdateTemplateFieldFieldDate
 > = z.object({
-  type: FieldUpdateTemplateFieldTypeDateRequest1$outboundSchema,
+  type: z.literal("DATE"),
   fieldMeta: z.lazy(() =>
     FieldUpdateTemplateFieldFieldMetaDateRequest$outboundSchema
   ).optional(),
@@ -2096,22 +1897,14 @@ export function fieldUpdateTemplateFieldFieldDateFromJSON(
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldTypeEmailRequest1$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeEmailRequest1> = z
-    .nativeEnum(FieldUpdateTemplateFieldTypeEmailRequest1);
+export const FieldUpdateTemplateFieldTypeEmailEnum$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeEmailEnum> = z.nativeEnum(
+    FieldUpdateTemplateFieldTypeEmailEnum,
+  );
 /** @internal */
-export const FieldUpdateTemplateFieldTypeEmailRequest1$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeEmailRequest1> =
-    FieldUpdateTemplateFieldTypeEmailRequest1$inboundSchema;
-
-/** @internal */
-export const FieldUpdateTemplateFieldTypeEmailRequest2$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeEmailRequest2> = z
-    .nativeEnum(FieldUpdateTemplateFieldTypeEmailRequest2);
-/** @internal */
-export const FieldUpdateTemplateFieldTypeEmailRequest2$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeEmailRequest2> =
-    FieldUpdateTemplateFieldTypeEmailRequest2$inboundSchema;
+export const FieldUpdateTemplateFieldTypeEmailEnum$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeEmailEnum> =
+    FieldUpdateTemplateFieldTypeEmailEnum$inboundSchema;
 
 /** @internal */
 export const FieldUpdateTemplateFieldTextAlignEmail$inboundSchema:
@@ -2135,7 +1928,7 @@ export const FieldUpdateTemplateFieldFieldMetaEmailRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldTypeEmailRequest2$inboundSchema,
+    type: FieldUpdateTemplateFieldTypeEmailEnum$inboundSchema,
     textAlign: FieldUpdateTemplateFieldTextAlignEmail$inboundSchema.optional(),
   });
 /** @internal */
@@ -2161,7 +1954,7 @@ export const FieldUpdateTemplateFieldFieldMetaEmailRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldTypeEmailRequest2$outboundSchema,
+    type: FieldUpdateTemplateFieldTypeEmailEnum$outboundSchema,
     textAlign: FieldUpdateTemplateFieldTextAlignEmail$outboundSchema.optional(),
   });
 
@@ -2197,7 +1990,7 @@ export const FieldUpdateTemplateFieldFieldEmail$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: FieldUpdateTemplateFieldTypeEmailRequest1$inboundSchema,
+  type: z.literal("EMAIL"),
   fieldMeta: z.lazy(() =>
     FieldUpdateTemplateFieldFieldMetaEmailRequest$inboundSchema
   ).optional(),
@@ -2210,7 +2003,7 @@ export const FieldUpdateTemplateFieldFieldEmail$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type FieldUpdateTemplateFieldFieldEmail$Outbound = {
-  type: string;
+  type: "EMAIL";
   fieldMeta?:
     | FieldUpdateTemplateFieldFieldMetaEmailRequest$Outbound
     | undefined;
@@ -2228,7 +2021,7 @@ export const FieldUpdateTemplateFieldFieldEmail$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FieldUpdateTemplateFieldFieldEmail
 > = z.object({
-  type: FieldUpdateTemplateFieldTypeEmailRequest1$outboundSchema,
+  type: z.literal("EMAIL"),
   fieldMeta: z.lazy(() =>
     FieldUpdateTemplateFieldFieldMetaEmailRequest$outboundSchema
   ).optional(),
@@ -2261,22 +2054,14 @@ export function fieldUpdateTemplateFieldFieldEmailFromJSON(
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldTypeNameRequest1$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeNameRequest1> = z
-    .nativeEnum(FieldUpdateTemplateFieldTypeNameRequest1);
+export const FieldUpdateTemplateFieldTypeNameEnum$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeNameEnum> = z.nativeEnum(
+    FieldUpdateTemplateFieldTypeNameEnum,
+  );
 /** @internal */
-export const FieldUpdateTemplateFieldTypeNameRequest1$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeNameRequest1> =
-    FieldUpdateTemplateFieldTypeNameRequest1$inboundSchema;
-
-/** @internal */
-export const FieldUpdateTemplateFieldTypeNameRequest2$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeNameRequest2> = z
-    .nativeEnum(FieldUpdateTemplateFieldTypeNameRequest2);
-/** @internal */
-export const FieldUpdateTemplateFieldTypeNameRequest2$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeNameRequest2> =
-    FieldUpdateTemplateFieldTypeNameRequest2$inboundSchema;
+export const FieldUpdateTemplateFieldTypeNameEnum$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeNameEnum> =
+    FieldUpdateTemplateFieldTypeNameEnum$inboundSchema;
 
 /** @internal */
 export const FieldUpdateTemplateFieldTextAlignName$inboundSchema:
@@ -2300,7 +2085,7 @@ export const FieldUpdateTemplateFieldFieldMetaNameRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldTypeNameRequest2$inboundSchema,
+    type: FieldUpdateTemplateFieldTypeNameEnum$inboundSchema,
     textAlign: FieldUpdateTemplateFieldTextAlignName$inboundSchema.optional(),
   });
 /** @internal */
@@ -2326,7 +2111,7 @@ export const FieldUpdateTemplateFieldFieldMetaNameRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldTypeNameRequest2$outboundSchema,
+    type: FieldUpdateTemplateFieldTypeNameEnum$outboundSchema,
     textAlign: FieldUpdateTemplateFieldTextAlignName$outboundSchema.optional(),
   });
 
@@ -2362,7 +2147,7 @@ export const FieldUpdateTemplateFieldFieldName$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: FieldUpdateTemplateFieldTypeNameRequest1$inboundSchema,
+  type: z.literal("NAME"),
   fieldMeta: z.lazy(() =>
     FieldUpdateTemplateFieldFieldMetaNameRequest$inboundSchema
   ).optional(),
@@ -2375,7 +2160,7 @@ export const FieldUpdateTemplateFieldFieldName$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type FieldUpdateTemplateFieldFieldName$Outbound = {
-  type: string;
+  type: "NAME";
   fieldMeta?: FieldUpdateTemplateFieldFieldMetaNameRequest$Outbound | undefined;
   id: number;
   pageNumber?: number | undefined;
@@ -2391,7 +2176,7 @@ export const FieldUpdateTemplateFieldFieldName$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FieldUpdateTemplateFieldFieldName
 > = z.object({
-  type: FieldUpdateTemplateFieldTypeNameRequest1$outboundSchema,
+  type: z.literal("NAME"),
   fieldMeta: z.lazy(() =>
     FieldUpdateTemplateFieldFieldMetaNameRequest$outboundSchema
   ).optional(),
@@ -2423,22 +2208,13 @@ export function fieldUpdateTemplateFieldFieldNameFromJSON(
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldTypeInitialsRequest1$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeInitialsRequest1> = z
-    .nativeEnum(FieldUpdateTemplateFieldTypeInitialsRequest1);
+export const FieldUpdateTemplateFieldTypeInitialsEnum$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeInitialsEnum> = z
+    .nativeEnum(FieldUpdateTemplateFieldTypeInitialsEnum);
 /** @internal */
-export const FieldUpdateTemplateFieldTypeInitialsRequest1$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeInitialsRequest1> =
-    FieldUpdateTemplateFieldTypeInitialsRequest1$inboundSchema;
-
-/** @internal */
-export const FieldUpdateTemplateFieldTypeInitialsRequest2$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeInitialsRequest2> = z
-    .nativeEnum(FieldUpdateTemplateFieldTypeInitialsRequest2);
-/** @internal */
-export const FieldUpdateTemplateFieldTypeInitialsRequest2$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeInitialsRequest2> =
-    FieldUpdateTemplateFieldTypeInitialsRequest2$inboundSchema;
+export const FieldUpdateTemplateFieldTypeInitialsEnum$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeInitialsEnum> =
+    FieldUpdateTemplateFieldTypeInitialsEnum$inboundSchema;
 
 /** @internal */
 export const FieldUpdateTemplateFieldTextAlignInitials$inboundSchema:
@@ -2461,7 +2237,7 @@ export const FieldUpdateTemplateFieldFieldMetaInitialsRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldTypeInitialsRequest2$inboundSchema,
+    type: FieldUpdateTemplateFieldTypeInitialsEnum$inboundSchema,
     textAlign: FieldUpdateTemplateFieldTextAlignInitials$inboundSchema
       .optional(),
   });
@@ -2488,7 +2264,7 @@ export const FieldUpdateTemplateFieldFieldMetaInitialsRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldTypeInitialsRequest2$outboundSchema,
+    type: FieldUpdateTemplateFieldTypeInitialsEnum$outboundSchema,
     textAlign: FieldUpdateTemplateFieldTextAlignInitials$outboundSchema
       .optional(),
   });
@@ -2525,7 +2301,7 @@ export const FieldUpdateTemplateFieldFieldInitials$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: FieldUpdateTemplateFieldTypeInitialsRequest1$inboundSchema,
+  type: z.literal("INITIALS"),
   fieldMeta: z.lazy(() =>
     FieldUpdateTemplateFieldFieldMetaInitialsRequest$inboundSchema
   ).optional(),
@@ -2538,7 +2314,7 @@ export const FieldUpdateTemplateFieldFieldInitials$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type FieldUpdateTemplateFieldFieldInitials$Outbound = {
-  type: string;
+  type: "INITIALS";
   fieldMeta?:
     | FieldUpdateTemplateFieldFieldMetaInitialsRequest$Outbound
     | undefined;
@@ -2556,7 +2332,7 @@ export const FieldUpdateTemplateFieldFieldInitials$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FieldUpdateTemplateFieldFieldInitials
 > = z.object({
-  type: FieldUpdateTemplateFieldTypeInitialsRequest1$outboundSchema,
+  type: z.literal("INITIALS"),
   fieldMeta: z.lazy(() =>
     FieldUpdateTemplateFieldFieldMetaInitialsRequest$outboundSchema
   ).optional(),
@@ -2589,19 +2365,10 @@ export function fieldUpdateTemplateFieldFieldInitialsFromJSON(
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldTypeFreeSignature$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeFreeSignature> = z
-    .nativeEnum(FieldUpdateTemplateFieldTypeFreeSignature);
-/** @internal */
-export const FieldUpdateTemplateFieldTypeFreeSignature$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeFreeSignature> =
-    FieldUpdateTemplateFieldTypeFreeSignature$inboundSchema;
-
-/** @internal */
 export const FieldUpdateTemplateFieldFieldFreeSignature$inboundSchema:
   z.ZodType<FieldUpdateTemplateFieldFieldFreeSignature, z.ZodTypeDef, unknown> =
     z.object({
-      type: FieldUpdateTemplateFieldTypeFreeSignature$inboundSchema,
+      type: z.literal("FREE_SIGNATURE"),
       id: z.number(),
       pageNumber: z.number().optional(),
       pageX: z.number().optional(),
@@ -2611,7 +2378,7 @@ export const FieldUpdateTemplateFieldFieldFreeSignature$inboundSchema:
     });
 /** @internal */
 export type FieldUpdateTemplateFieldFieldFreeSignature$Outbound = {
-  type: string;
+  type: "FREE_SIGNATURE";
   id: number;
   pageNumber?: number | undefined;
   pageX?: number | undefined;
@@ -2627,7 +2394,7 @@ export const FieldUpdateTemplateFieldFieldFreeSignature$outboundSchema:
     z.ZodTypeDef,
     FieldUpdateTemplateFieldFieldFreeSignature
   > = z.object({
-    type: FieldUpdateTemplateFieldTypeFreeSignature$outboundSchema,
+    type: z.literal("FREE_SIGNATURE"),
     id: z.number(),
     pageNumber: z.number().optional(),
     pageX: z.number().optional(),
@@ -2663,22 +2430,13 @@ export function fieldUpdateTemplateFieldFieldFreeSignatureFromJSON(
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldTypeSignatureRequest1$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeSignatureRequest1> = z
-    .nativeEnum(FieldUpdateTemplateFieldTypeSignatureRequest1);
+export const FieldUpdateTemplateFieldTypeSignatureEnum$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeSignatureEnum> = z
+    .nativeEnum(FieldUpdateTemplateFieldTypeSignatureEnum);
 /** @internal */
-export const FieldUpdateTemplateFieldTypeSignatureRequest1$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeSignatureRequest1> =
-    FieldUpdateTemplateFieldTypeSignatureRequest1$inboundSchema;
-
-/** @internal */
-export const FieldUpdateTemplateFieldTypeSignatureRequest2$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeSignatureRequest2> = z
-    .nativeEnum(FieldUpdateTemplateFieldTypeSignatureRequest2);
-/** @internal */
-export const FieldUpdateTemplateFieldTypeSignatureRequest2$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeSignatureRequest2> =
-    FieldUpdateTemplateFieldTypeSignatureRequest2$inboundSchema;
+export const FieldUpdateTemplateFieldTypeSignatureEnum$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeSignatureEnum> =
+    FieldUpdateTemplateFieldTypeSignatureEnum$inboundSchema;
 
 /** @internal */
 export const FieldUpdateTemplateFieldFieldMetaSignatureRequest$inboundSchema:
@@ -2692,7 +2450,7 @@ export const FieldUpdateTemplateFieldFieldMetaSignatureRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldTypeSignatureRequest2$inboundSchema,
+    type: FieldUpdateTemplateFieldTypeSignatureEnum$inboundSchema,
   });
 /** @internal */
 export type FieldUpdateTemplateFieldFieldMetaSignatureRequest$Outbound = {
@@ -2716,7 +2474,7 @@ export const FieldUpdateTemplateFieldFieldMetaSignatureRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldTypeSignatureRequest2$outboundSchema,
+    type: FieldUpdateTemplateFieldTypeSignatureEnum$outboundSchema,
   });
 
 export function fieldUpdateTemplateFieldFieldMetaSignatureRequestToJSON(
@@ -2751,7 +2509,7 @@ export const FieldUpdateTemplateFieldFieldSignature$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: FieldUpdateTemplateFieldTypeSignatureRequest1$inboundSchema,
+  type: z.literal("SIGNATURE"),
   fieldMeta: z.lazy(() =>
     FieldUpdateTemplateFieldFieldMetaSignatureRequest$inboundSchema
   ).optional(),
@@ -2764,7 +2522,7 @@ export const FieldUpdateTemplateFieldFieldSignature$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type FieldUpdateTemplateFieldFieldSignature$Outbound = {
-  type: string;
+  type: "SIGNATURE";
   fieldMeta?:
     | FieldUpdateTemplateFieldFieldMetaSignatureRequest$Outbound
     | undefined;
@@ -2782,7 +2540,7 @@ export const FieldUpdateTemplateFieldFieldSignature$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FieldUpdateTemplateFieldFieldSignature
 > = z.object({
-  type: FieldUpdateTemplateFieldTypeSignatureRequest1$outboundSchema,
+  type: z.literal("SIGNATURE"),
   fieldMeta: z.lazy(() =>
     FieldUpdateTemplateFieldFieldMetaSignatureRequest$outboundSchema
   ).optional(),
@@ -2821,55 +2579,31 @@ export const FieldUpdateTemplateFieldFieldUnion$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  z.lazy(() => FieldUpdateTemplateFieldFieldSignature$inboundSchema).and(
-    z.object({ type: z.literal("SIGNATURE") }),
-  ),
-  z.lazy(() => FieldUpdateTemplateFieldFieldFreeSignature$inboundSchema).and(
-    z.object({ type: z.literal("FREE_SIGNATURE") }),
-  ),
-  z.lazy(() => FieldUpdateTemplateFieldFieldInitials$inboundSchema).and(
-    z.object({ type: z.literal("INITIALS") }),
-  ),
-  z.lazy(() => FieldUpdateTemplateFieldFieldName$inboundSchema).and(
-    z.object({ type: z.literal("NAME") }),
-  ),
-  z.lazy(() => FieldUpdateTemplateFieldFieldEmail$inboundSchema).and(
-    z.object({ type: z.literal("EMAIL") }),
-  ),
-  z.lazy(() => FieldUpdateTemplateFieldFieldDate$inboundSchema).and(
-    z.object({ type: z.literal("DATE") }),
-  ),
-  z.lazy(() => FieldUpdateTemplateFieldFieldText$inboundSchema).and(
-    z.object({ type: z.literal("TEXT") }),
-  ),
-  z.lazy(() => FieldUpdateTemplateFieldFieldNumber$inboundSchema).and(
-    z.object({ type: z.literal("NUMBER") }),
-  ),
-  z.lazy(() => FieldUpdateTemplateFieldFieldRadio$inboundSchema).and(
-    z.object({ type: z.literal("RADIO") }),
-  ),
-  z.lazy(() => FieldUpdateTemplateFieldFieldCheckbox$inboundSchema).and(
-    z.object({ type: z.literal("CHECKBOX") }),
-  ),
-  z.lazy(() => FieldUpdateTemplateFieldFieldDropdown$inboundSchema).and(
-    z.object({ type: z.literal("DROPDOWN") }),
-  ),
+  z.lazy(() => FieldUpdateTemplateFieldFieldSignature$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldFreeSignature$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldInitials$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldName$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldEmail$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldDate$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldText$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldNumber$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldRadio$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldCheckbox$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldDropdown$inboundSchema),
 ]);
 /** @internal */
 export type FieldUpdateTemplateFieldFieldUnion$Outbound =
-  | (FieldUpdateTemplateFieldFieldSignature$Outbound & { type: "SIGNATURE" })
-  | (FieldUpdateTemplateFieldFieldFreeSignature$Outbound & {
-    type: "FREE_SIGNATURE";
-  })
-  | (FieldUpdateTemplateFieldFieldInitials$Outbound & { type: "INITIALS" })
-  | (FieldUpdateTemplateFieldFieldName$Outbound & { type: "NAME" })
-  | (FieldUpdateTemplateFieldFieldEmail$Outbound & { type: "EMAIL" })
-  | (FieldUpdateTemplateFieldFieldDate$Outbound & { type: "DATE" })
-  | (FieldUpdateTemplateFieldFieldText$Outbound & { type: "TEXT" })
-  | (FieldUpdateTemplateFieldFieldNumber$Outbound & { type: "NUMBER" })
-  | (FieldUpdateTemplateFieldFieldRadio$Outbound & { type: "RADIO" })
-  | (FieldUpdateTemplateFieldFieldCheckbox$Outbound & { type: "CHECKBOX" })
-  | (FieldUpdateTemplateFieldFieldDropdown$Outbound & { type: "DROPDOWN" });
+  | FieldUpdateTemplateFieldFieldSignature$Outbound
+  | FieldUpdateTemplateFieldFieldFreeSignature$Outbound
+  | FieldUpdateTemplateFieldFieldInitials$Outbound
+  | FieldUpdateTemplateFieldFieldName$Outbound
+  | FieldUpdateTemplateFieldFieldEmail$Outbound
+  | FieldUpdateTemplateFieldFieldDate$Outbound
+  | FieldUpdateTemplateFieldFieldText$Outbound
+  | FieldUpdateTemplateFieldFieldNumber$Outbound
+  | FieldUpdateTemplateFieldFieldRadio$Outbound
+  | FieldUpdateTemplateFieldFieldCheckbox$Outbound
+  | FieldUpdateTemplateFieldFieldDropdown$Outbound;
 
 /** @internal */
 export const FieldUpdateTemplateFieldFieldUnion$outboundSchema: z.ZodType<
@@ -2877,39 +2611,17 @@ export const FieldUpdateTemplateFieldFieldUnion$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FieldUpdateTemplateFieldFieldUnion
 > = z.union([
-  z.lazy(() => FieldUpdateTemplateFieldFieldSignature$outboundSchema).and(
-    z.object({ type: z.literal("SIGNATURE") }),
-  ),
-  z.lazy(() => FieldUpdateTemplateFieldFieldFreeSignature$outboundSchema).and(
-    z.object({ type: z.literal("FREE_SIGNATURE") }),
-  ),
-  z.lazy(() => FieldUpdateTemplateFieldFieldInitials$outboundSchema).and(
-    z.object({ type: z.literal("INITIALS") }),
-  ),
-  z.lazy(() => FieldUpdateTemplateFieldFieldName$outboundSchema).and(
-    z.object({ type: z.literal("NAME") }),
-  ),
-  z.lazy(() => FieldUpdateTemplateFieldFieldEmail$outboundSchema).and(
-    z.object({ type: z.literal("EMAIL") }),
-  ),
-  z.lazy(() => FieldUpdateTemplateFieldFieldDate$outboundSchema).and(
-    z.object({ type: z.literal("DATE") }),
-  ),
-  z.lazy(() => FieldUpdateTemplateFieldFieldText$outboundSchema).and(
-    z.object({ type: z.literal("TEXT") }),
-  ),
-  z.lazy(() => FieldUpdateTemplateFieldFieldNumber$outboundSchema).and(
-    z.object({ type: z.literal("NUMBER") }),
-  ),
-  z.lazy(() => FieldUpdateTemplateFieldFieldRadio$outboundSchema).and(
-    z.object({ type: z.literal("RADIO") }),
-  ),
-  z.lazy(() => FieldUpdateTemplateFieldFieldCheckbox$outboundSchema).and(
-    z.object({ type: z.literal("CHECKBOX") }),
-  ),
-  z.lazy(() => FieldUpdateTemplateFieldFieldDropdown$outboundSchema).and(
-    z.object({ type: z.literal("DROPDOWN") }),
-  ),
+  z.lazy(() => FieldUpdateTemplateFieldFieldSignature$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldFreeSignature$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldInitials$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldName$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldEmail$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldDate$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldText$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldNumber$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldRadio$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldCheckbox$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldDropdown$outboundSchema),
 ]);
 
 export function fieldUpdateTemplateFieldFieldUnionToJSON(
@@ -2940,58 +2652,34 @@ export const FieldUpdateTemplateFieldRequest$inboundSchema: z.ZodType<
 > = z.object({
   templateId: z.number(),
   field: z.union([
-    z.lazy(() => FieldUpdateTemplateFieldFieldSignature$inboundSchema).and(
-      z.object({ type: z.literal("SIGNATURE") }),
-    ),
-    z.lazy(() => FieldUpdateTemplateFieldFieldFreeSignature$inboundSchema).and(
-      z.object({ type: z.literal("FREE_SIGNATURE") }),
-    ),
-    z.lazy(() => FieldUpdateTemplateFieldFieldInitials$inboundSchema).and(
-      z.object({ type: z.literal("INITIALS") }),
-    ),
-    z.lazy(() => FieldUpdateTemplateFieldFieldName$inboundSchema).and(
-      z.object({ type: z.literal("NAME") }),
-    ),
-    z.lazy(() => FieldUpdateTemplateFieldFieldEmail$inboundSchema).and(
-      z.object({ type: z.literal("EMAIL") }),
-    ),
-    z.lazy(() => FieldUpdateTemplateFieldFieldDate$inboundSchema).and(
-      z.object({ type: z.literal("DATE") }),
-    ),
-    z.lazy(() => FieldUpdateTemplateFieldFieldText$inboundSchema).and(
-      z.object({ type: z.literal("TEXT") }),
-    ),
-    z.lazy(() => FieldUpdateTemplateFieldFieldNumber$inboundSchema).and(
-      z.object({ type: z.literal("NUMBER") }),
-    ),
-    z.lazy(() => FieldUpdateTemplateFieldFieldRadio$inboundSchema).and(
-      z.object({ type: z.literal("RADIO") }),
-    ),
-    z.lazy(() => FieldUpdateTemplateFieldFieldCheckbox$inboundSchema).and(
-      z.object({ type: z.literal("CHECKBOX") }),
-    ),
-    z.lazy(() => FieldUpdateTemplateFieldFieldDropdown$inboundSchema).and(
-      z.object({ type: z.literal("DROPDOWN") }),
-    ),
+    z.lazy(() => FieldUpdateTemplateFieldFieldSignature$inboundSchema),
+    z.lazy(() => FieldUpdateTemplateFieldFieldFreeSignature$inboundSchema),
+    z.lazy(() => FieldUpdateTemplateFieldFieldInitials$inboundSchema),
+    z.lazy(() => FieldUpdateTemplateFieldFieldName$inboundSchema),
+    z.lazy(() => FieldUpdateTemplateFieldFieldEmail$inboundSchema),
+    z.lazy(() => FieldUpdateTemplateFieldFieldDate$inboundSchema),
+    z.lazy(() => FieldUpdateTemplateFieldFieldText$inboundSchema),
+    z.lazy(() => FieldUpdateTemplateFieldFieldNumber$inboundSchema),
+    z.lazy(() => FieldUpdateTemplateFieldFieldRadio$inboundSchema),
+    z.lazy(() => FieldUpdateTemplateFieldFieldCheckbox$inboundSchema),
+    z.lazy(() => FieldUpdateTemplateFieldFieldDropdown$inboundSchema),
   ]),
 });
 /** @internal */
 export type FieldUpdateTemplateFieldRequest$Outbound = {
   templateId: number;
   field:
-    | (FieldUpdateTemplateFieldFieldSignature$Outbound & { type: "SIGNATURE" })
-    | (FieldUpdateTemplateFieldFieldFreeSignature$Outbound & {
-      type: "FREE_SIGNATURE";
-    })
-    | (FieldUpdateTemplateFieldFieldInitials$Outbound & { type: "INITIALS" })
-    | (FieldUpdateTemplateFieldFieldName$Outbound & { type: "NAME" })
-    | (FieldUpdateTemplateFieldFieldEmail$Outbound & { type: "EMAIL" })
-    | (FieldUpdateTemplateFieldFieldDate$Outbound & { type: "DATE" })
-    | (FieldUpdateTemplateFieldFieldText$Outbound & { type: "TEXT" })
-    | (FieldUpdateTemplateFieldFieldNumber$Outbound & { type: "NUMBER" })
-    | (FieldUpdateTemplateFieldFieldRadio$Outbound & { type: "RADIO" })
-    | (FieldUpdateTemplateFieldFieldCheckbox$Outbound & { type: "CHECKBOX" })
-    | (FieldUpdateTemplateFieldFieldDropdown$Outbound & { type: "DROPDOWN" });
+    | FieldUpdateTemplateFieldFieldSignature$Outbound
+    | FieldUpdateTemplateFieldFieldFreeSignature$Outbound
+    | FieldUpdateTemplateFieldFieldInitials$Outbound
+    | FieldUpdateTemplateFieldFieldName$Outbound
+    | FieldUpdateTemplateFieldFieldEmail$Outbound
+    | FieldUpdateTemplateFieldFieldDate$Outbound
+    | FieldUpdateTemplateFieldFieldText$Outbound
+    | FieldUpdateTemplateFieldFieldNumber$Outbound
+    | FieldUpdateTemplateFieldFieldRadio$Outbound
+    | FieldUpdateTemplateFieldFieldCheckbox$Outbound
+    | FieldUpdateTemplateFieldFieldDropdown$Outbound;
 };
 
 /** @internal */
@@ -3002,39 +2690,17 @@ export const FieldUpdateTemplateFieldRequest$outboundSchema: z.ZodType<
 > = z.object({
   templateId: z.number(),
   field: z.union([
-    z.lazy(() => FieldUpdateTemplateFieldFieldSignature$outboundSchema).and(
-      z.object({ type: z.literal("SIGNATURE") }),
-    ),
-    z.lazy(() => FieldUpdateTemplateFieldFieldFreeSignature$outboundSchema).and(
-      z.object({ type: z.literal("FREE_SIGNATURE") }),
-    ),
-    z.lazy(() => FieldUpdateTemplateFieldFieldInitials$outboundSchema).and(
-      z.object({ type: z.literal("INITIALS") }),
-    ),
-    z.lazy(() => FieldUpdateTemplateFieldFieldName$outboundSchema).and(
-      z.object({ type: z.literal("NAME") }),
-    ),
-    z.lazy(() => FieldUpdateTemplateFieldFieldEmail$outboundSchema).and(
-      z.object({ type: z.literal("EMAIL") }),
-    ),
-    z.lazy(() => FieldUpdateTemplateFieldFieldDate$outboundSchema).and(
-      z.object({ type: z.literal("DATE") }),
-    ),
-    z.lazy(() => FieldUpdateTemplateFieldFieldText$outboundSchema).and(
-      z.object({ type: z.literal("TEXT") }),
-    ),
-    z.lazy(() => FieldUpdateTemplateFieldFieldNumber$outboundSchema).and(
-      z.object({ type: z.literal("NUMBER") }),
-    ),
-    z.lazy(() => FieldUpdateTemplateFieldFieldRadio$outboundSchema).and(
-      z.object({ type: z.literal("RADIO") }),
-    ),
-    z.lazy(() => FieldUpdateTemplateFieldFieldCheckbox$outboundSchema).and(
-      z.object({ type: z.literal("CHECKBOX") }),
-    ),
-    z.lazy(() => FieldUpdateTemplateFieldFieldDropdown$outboundSchema).and(
-      z.object({ type: z.literal("DROPDOWN") }),
-    ),
+    z.lazy(() => FieldUpdateTemplateFieldFieldSignature$outboundSchema),
+    z.lazy(() => FieldUpdateTemplateFieldFieldFreeSignature$outboundSchema),
+    z.lazy(() => FieldUpdateTemplateFieldFieldInitials$outboundSchema),
+    z.lazy(() => FieldUpdateTemplateFieldFieldName$outboundSchema),
+    z.lazy(() => FieldUpdateTemplateFieldFieldEmail$outboundSchema),
+    z.lazy(() => FieldUpdateTemplateFieldFieldDate$outboundSchema),
+    z.lazy(() => FieldUpdateTemplateFieldFieldText$outboundSchema),
+    z.lazy(() => FieldUpdateTemplateFieldFieldNumber$outboundSchema),
+    z.lazy(() => FieldUpdateTemplateFieldFieldRadio$outboundSchema),
+    z.lazy(() => FieldUpdateTemplateFieldFieldCheckbox$outboundSchema),
+    z.lazy(() => FieldUpdateTemplateFieldFieldDropdown$outboundSchema),
   ]),
 });
 
@@ -3058,23 +2724,13 @@ export function fieldUpdateTemplateFieldRequestFromJSON(
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldTypeResponse$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeResponse> = z.nativeEnum(
-    FieldUpdateTemplateFieldTypeResponse,
-  );
+export const FieldUpdateTemplateFieldTypeResponseEnum$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeResponseEnum> = z
+    .nativeEnum(FieldUpdateTemplateFieldTypeResponseEnum);
 /** @internal */
-export const FieldUpdateTemplateFieldTypeResponse$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeResponse> =
-    FieldUpdateTemplateFieldTypeResponse$inboundSchema;
-
-/** @internal */
-export const FieldUpdateTemplateFieldFieldMetaTypeDropdown$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldFieldMetaTypeDropdown> = z
-    .nativeEnum(FieldUpdateTemplateFieldFieldMetaTypeDropdown);
-/** @internal */
-export const FieldUpdateTemplateFieldFieldMetaTypeDropdown$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldFieldMetaTypeDropdown> =
-    FieldUpdateTemplateFieldFieldMetaTypeDropdown$inboundSchema;
+export const FieldUpdateTemplateFieldTypeResponseEnum$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTypeResponseEnum> =
+    FieldUpdateTemplateFieldTypeResponseEnum$inboundSchema;
 
 /** @internal */
 export const FieldUpdateTemplateFieldValueResponse3$inboundSchema: z.ZodType<
@@ -3131,7 +2787,7 @@ export const FieldUpdateTemplateFieldFieldMetaDropdownResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldFieldMetaTypeDropdown$inboundSchema,
+    type: z.literal("dropdown"),
     values: z.array(
       z.lazy(() => FieldUpdateTemplateFieldValueResponse3$inboundSchema),
     ).optional(),
@@ -3144,7 +2800,7 @@ export type FieldUpdateTemplateFieldFieldMetaDropdownResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "dropdown";
   values?: Array<FieldUpdateTemplateFieldValueResponse3$Outbound> | undefined;
   defaultValue?: string | undefined;
 };
@@ -3161,7 +2817,7 @@ export const FieldUpdateTemplateFieldFieldMetaDropdownResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldFieldMetaTypeDropdown$outboundSchema,
+    type: z.literal("dropdown"),
     values: z.array(
       z.lazy(() => FieldUpdateTemplateFieldValueResponse3$outboundSchema),
     ).optional(),
@@ -3193,15 +2849,6 @@ export function fieldUpdateTemplateFieldFieldMetaDropdownResponseFromJSON(
     `Failed to parse 'FieldUpdateTemplateFieldFieldMetaDropdownResponse' from JSON`,
   );
 }
-
-/** @internal */
-export const FieldUpdateTemplateFieldFieldMetaTypeCheckbox$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldFieldMetaTypeCheckbox> = z
-    .nativeEnum(FieldUpdateTemplateFieldFieldMetaTypeCheckbox);
-/** @internal */
-export const FieldUpdateTemplateFieldFieldMetaTypeCheckbox$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldFieldMetaTypeCheckbox> =
-    FieldUpdateTemplateFieldFieldMetaTypeCheckbox$inboundSchema;
 
 /** @internal */
 export const FieldUpdateTemplateFieldValueResponse2$inboundSchema: z.ZodType<
@@ -3273,7 +2920,7 @@ export const FieldUpdateTemplateFieldFieldMetaCheckboxResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldFieldMetaTypeCheckbox$inboundSchema,
+    type: z.literal("checkbox"),
     values: z.array(
       z.lazy(() => FieldUpdateTemplateFieldValueResponse2$inboundSchema),
     ).optional(),
@@ -3290,7 +2937,7 @@ export type FieldUpdateTemplateFieldFieldMetaCheckboxResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "checkbox";
   values?: Array<FieldUpdateTemplateFieldValueResponse2$Outbound> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
@@ -3309,7 +2956,7 @@ export const FieldUpdateTemplateFieldFieldMetaCheckboxResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldFieldMetaTypeCheckbox$outboundSchema,
+    type: z.literal("checkbox"),
     values: z.array(
       z.lazy(() => FieldUpdateTemplateFieldValueResponse2$outboundSchema),
     ).optional(),
@@ -3344,15 +2991,6 @@ export function fieldUpdateTemplateFieldFieldMetaCheckboxResponseFromJSON(
     `Failed to parse 'FieldUpdateTemplateFieldFieldMetaCheckboxResponse' from JSON`,
   );
 }
-
-/** @internal */
-export const FieldUpdateTemplateFieldFieldMetaTypeRadio$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldFieldMetaTypeRadio> = z
-    .nativeEnum(FieldUpdateTemplateFieldFieldMetaTypeRadio);
-/** @internal */
-export const FieldUpdateTemplateFieldFieldMetaTypeRadio$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldFieldMetaTypeRadio> =
-    FieldUpdateTemplateFieldFieldMetaTypeRadio$inboundSchema;
 
 /** @internal */
 export const FieldUpdateTemplateFieldValueResponse1$inboundSchema: z.ZodType<
@@ -3424,7 +3062,7 @@ export const FieldUpdateTemplateFieldFieldMetaRadioResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldFieldMetaTypeRadio$inboundSchema,
+    type: z.literal("radio"),
     values: z.array(
       z.lazy(() => FieldUpdateTemplateFieldValueResponse1$inboundSchema),
     ).optional(),
@@ -3439,7 +3077,7 @@ export type FieldUpdateTemplateFieldFieldMetaRadioResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "radio";
   values?: Array<FieldUpdateTemplateFieldValueResponse1$Outbound> | undefined;
   direction: string;
 };
@@ -3456,7 +3094,7 @@ export const FieldUpdateTemplateFieldFieldMetaRadioResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldFieldMetaTypeRadio$outboundSchema,
+    type: z.literal("radio"),
     values: z.array(
       z.lazy(() => FieldUpdateTemplateFieldValueResponse1$outboundSchema),
     ).optional(),
@@ -3491,15 +3129,6 @@ export function fieldUpdateTemplateFieldFieldMetaRadioResponseFromJSON(
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldFieldMetaTypeNumber$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldFieldMetaTypeNumber> = z
-    .nativeEnum(FieldUpdateTemplateFieldFieldMetaTypeNumber);
-/** @internal */
-export const FieldUpdateTemplateFieldFieldMetaTypeNumber$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldFieldMetaTypeNumber> =
-    FieldUpdateTemplateFieldFieldMetaTypeNumber$inboundSchema;
-
-/** @internal */
 export const FieldUpdateTemplateFieldTextAlignResponse6$inboundSchema:
   z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTextAlignResponse6> = z
     .nativeEnum(FieldUpdateTemplateFieldTextAlignResponse6);
@@ -3529,7 +3158,7 @@ export const FieldUpdateTemplateFieldFieldMetaNumberResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldFieldMetaTypeNumber$inboundSchema,
+    type: z.literal("number"),
     numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
     minValue: z.nullable(z.number()).optional(),
@@ -3549,7 +3178,7 @@ export type FieldUpdateTemplateFieldFieldMetaNumberResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
   minValue?: number | null | undefined;
@@ -3572,7 +3201,7 @@ export const FieldUpdateTemplateFieldFieldMetaNumberResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldFieldMetaTypeNumber$outboundSchema,
+    type: z.literal("number"),
     numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
     minValue: z.nullable(z.number()).optional(),
@@ -3613,15 +3242,6 @@ export function fieldUpdateTemplateFieldFieldMetaNumberResponseFromJSON(
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldFieldMetaTypeText$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldFieldMetaTypeText> = z
-    .nativeEnum(FieldUpdateTemplateFieldFieldMetaTypeText);
-/** @internal */
-export const FieldUpdateTemplateFieldFieldMetaTypeText$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldFieldMetaTypeText> =
-    FieldUpdateTemplateFieldFieldMetaTypeText$inboundSchema;
-
-/** @internal */
 export const FieldUpdateTemplateFieldTextAlignResponse5$inboundSchema:
   z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTextAlignResponse5> = z
     .nativeEnum(FieldUpdateTemplateFieldTextAlignResponse5);
@@ -3651,7 +3271,7 @@ export const FieldUpdateTemplateFieldFieldMetaTextResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldFieldMetaTypeText$inboundSchema,
+    type: z.literal("text"),
     text: z.string().optional(),
     characterLimit: z.number().optional(),
     textAlign: FieldUpdateTemplateFieldTextAlignResponse5$inboundSchema
@@ -3669,7 +3289,7 @@ export type FieldUpdateTemplateFieldFieldMetaTextResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
   textAlign?: string | undefined;
@@ -3690,7 +3310,7 @@ export const FieldUpdateTemplateFieldFieldMetaTextResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldFieldMetaTypeText$outboundSchema,
+    type: z.literal("text"),
     text: z.string().optional(),
     characterLimit: z.number().optional(),
     textAlign: FieldUpdateTemplateFieldTextAlignResponse5$outboundSchema
@@ -3729,15 +3349,6 @@ export function fieldUpdateTemplateFieldFieldMetaTextResponseFromJSON(
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldFieldMetaTypeDate$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldFieldMetaTypeDate> = z
-    .nativeEnum(FieldUpdateTemplateFieldFieldMetaTypeDate);
-/** @internal */
-export const FieldUpdateTemplateFieldFieldMetaTypeDate$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldFieldMetaTypeDate> =
-    FieldUpdateTemplateFieldFieldMetaTypeDate$inboundSchema;
-
-/** @internal */
 export const FieldUpdateTemplateFieldTextAlignResponse4$inboundSchema:
   z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTextAlignResponse4> = z
     .nativeEnum(FieldUpdateTemplateFieldTextAlignResponse4);
@@ -3758,7 +3369,7 @@ export const FieldUpdateTemplateFieldFieldMetaDateResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldFieldMetaTypeDate$inboundSchema,
+    type: z.literal("date"),
     textAlign: FieldUpdateTemplateFieldTextAlignResponse4$inboundSchema
       .optional(),
   });
@@ -3769,7 +3380,7 @@ export type FieldUpdateTemplateFieldFieldMetaDateResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "date";
   textAlign?: string | undefined;
 };
 
@@ -3785,7 +3396,7 @@ export const FieldUpdateTemplateFieldFieldMetaDateResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldFieldMetaTypeDate$outboundSchema,
+    type: z.literal("date"),
     textAlign: FieldUpdateTemplateFieldTextAlignResponse4$outboundSchema
       .optional(),
   });
@@ -3817,15 +3428,6 @@ export function fieldUpdateTemplateFieldFieldMetaDateResponseFromJSON(
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldFieldMetaTypeEmail$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldFieldMetaTypeEmail> = z
-    .nativeEnum(FieldUpdateTemplateFieldFieldMetaTypeEmail);
-/** @internal */
-export const FieldUpdateTemplateFieldFieldMetaTypeEmail$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldFieldMetaTypeEmail> =
-    FieldUpdateTemplateFieldFieldMetaTypeEmail$inboundSchema;
-
-/** @internal */
 export const FieldUpdateTemplateFieldTextAlignResponse3$inboundSchema:
   z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTextAlignResponse3> = z
     .nativeEnum(FieldUpdateTemplateFieldTextAlignResponse3);
@@ -3846,7 +3448,7 @@ export const FieldUpdateTemplateFieldFieldMetaEmailResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldFieldMetaTypeEmail$inboundSchema,
+    type: z.literal("email"),
     textAlign: FieldUpdateTemplateFieldTextAlignResponse3$inboundSchema
       .optional(),
   });
@@ -3857,7 +3459,7 @@ export type FieldUpdateTemplateFieldFieldMetaEmailResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "email";
   textAlign?: string | undefined;
 };
 
@@ -3873,7 +3475,7 @@ export const FieldUpdateTemplateFieldFieldMetaEmailResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldFieldMetaTypeEmail$outboundSchema,
+    type: z.literal("email"),
     textAlign: FieldUpdateTemplateFieldTextAlignResponse3$outboundSchema
       .optional(),
   });
@@ -3905,15 +3507,6 @@ export function fieldUpdateTemplateFieldFieldMetaEmailResponseFromJSON(
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldFieldMetaTypeName$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldFieldMetaTypeName> = z
-    .nativeEnum(FieldUpdateTemplateFieldFieldMetaTypeName);
-/** @internal */
-export const FieldUpdateTemplateFieldFieldMetaTypeName$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldFieldMetaTypeName> =
-    FieldUpdateTemplateFieldFieldMetaTypeName$inboundSchema;
-
-/** @internal */
 export const FieldUpdateTemplateFieldTextAlignResponse2$inboundSchema:
   z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTextAlignResponse2> = z
     .nativeEnum(FieldUpdateTemplateFieldTextAlignResponse2);
@@ -3934,7 +3527,7 @@ export const FieldUpdateTemplateFieldFieldMetaNameResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldFieldMetaTypeName$inboundSchema,
+    type: z.literal("name"),
     textAlign: FieldUpdateTemplateFieldTextAlignResponse2$inboundSchema
       .optional(),
   });
@@ -3945,7 +3538,7 @@ export type FieldUpdateTemplateFieldFieldMetaNameResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "name";
   textAlign?: string | undefined;
 };
 
@@ -3961,7 +3554,7 @@ export const FieldUpdateTemplateFieldFieldMetaNameResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldFieldMetaTypeName$outboundSchema,
+    type: z.literal("name"),
     textAlign: FieldUpdateTemplateFieldTextAlignResponse2$outboundSchema
       .optional(),
   });
@@ -3993,15 +3586,6 @@ export function fieldUpdateTemplateFieldFieldMetaNameResponseFromJSON(
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldFieldMetaTypeInitials$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldFieldMetaTypeInitials> = z
-    .nativeEnum(FieldUpdateTemplateFieldFieldMetaTypeInitials);
-/** @internal */
-export const FieldUpdateTemplateFieldFieldMetaTypeInitials$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldFieldMetaTypeInitials> =
-    FieldUpdateTemplateFieldFieldMetaTypeInitials$inboundSchema;
-
-/** @internal */
 export const FieldUpdateTemplateFieldTextAlignResponse1$inboundSchema:
   z.ZodNativeEnum<typeof FieldUpdateTemplateFieldTextAlignResponse1> = z
     .nativeEnum(FieldUpdateTemplateFieldTextAlignResponse1);
@@ -4022,7 +3606,7 @@ export const FieldUpdateTemplateFieldFieldMetaInitialsResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldFieldMetaTypeInitials$inboundSchema,
+    type: z.literal("initials"),
     textAlign: FieldUpdateTemplateFieldTextAlignResponse1$inboundSchema
       .optional(),
   });
@@ -4033,7 +3617,7 @@ export type FieldUpdateTemplateFieldFieldMetaInitialsResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "initials";
   textAlign?: string | undefined;
 };
 
@@ -4049,7 +3633,7 @@ export const FieldUpdateTemplateFieldFieldMetaInitialsResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldFieldMetaTypeInitials$outboundSchema,
+    type: z.literal("initials"),
     textAlign: FieldUpdateTemplateFieldTextAlignResponse1$outboundSchema
       .optional(),
   });
@@ -4081,15 +3665,6 @@ export function fieldUpdateTemplateFieldFieldMetaInitialsResponseFromJSON(
 }
 
 /** @internal */
-export const FieldUpdateTemplateFieldFieldMetaTypeSignature$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldFieldMetaTypeSignature> = z
-    .nativeEnum(FieldUpdateTemplateFieldFieldMetaTypeSignature);
-/** @internal */
-export const FieldUpdateTemplateFieldFieldMetaTypeSignature$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldFieldMetaTypeSignature> =
-    FieldUpdateTemplateFieldFieldMetaTypeSignature$inboundSchema;
-
-/** @internal */
 export const FieldUpdateTemplateFieldFieldMetaSignatureResponse$inboundSchema:
   z.ZodType<
     FieldUpdateTemplateFieldFieldMetaSignatureResponse,
@@ -4101,7 +3676,7 @@ export const FieldUpdateTemplateFieldFieldMetaSignatureResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldFieldMetaTypeSignature$inboundSchema,
+    type: z.literal("signature"),
   });
 /** @internal */
 export type FieldUpdateTemplateFieldFieldMetaSignatureResponse$Outbound = {
@@ -4110,7 +3685,7 @@ export type FieldUpdateTemplateFieldFieldMetaSignatureResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "signature";
 };
 
 /** @internal */
@@ -4125,7 +3700,7 @@ export const FieldUpdateTemplateFieldFieldMetaSignatureResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: FieldUpdateTemplateFieldFieldMetaTypeSignature$outboundSchema,
+    type: z.literal("signature"),
   });
 
 export function fieldUpdateTemplateFieldFieldMetaSignatureResponseToJSON(
@@ -4160,56 +3735,31 @@ export const FieldUpdateTemplateFieldFieldMetaUnion$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  z.lazy(() => FieldUpdateTemplateFieldFieldMetaSignatureResponse$inboundSchema)
-    .and(z.object({ type: z.literal("signature") })),
-  z.lazy(() => FieldUpdateTemplateFieldFieldMetaInitialsResponse$inboundSchema)
-    .and(z.object({ type: z.literal("initials") })),
-  z.lazy(() => FieldUpdateTemplateFieldFieldMetaNameResponse$inboundSchema).and(
-    z.object({ type: z.literal("name") }),
+  z.lazy(() =>
+    FieldUpdateTemplateFieldFieldMetaSignatureResponse$inboundSchema
   ),
-  z.lazy(() => FieldUpdateTemplateFieldFieldMetaEmailResponse$inboundSchema)
-    .and(z.object({ type: z.literal("email") })),
-  z.lazy(() => FieldUpdateTemplateFieldFieldMetaDateResponse$inboundSchema).and(
-    z.object({ type: z.literal("date") }),
-  ),
-  z.lazy(() => FieldUpdateTemplateFieldFieldMetaTextResponse$inboundSchema).and(
-    z.object({ type: z.literal("text") }),
-  ),
-  z.lazy(() => FieldUpdateTemplateFieldFieldMetaNumberResponse$inboundSchema)
-    .and(z.object({ type: z.literal("number") })),
-  z.lazy(() => FieldUpdateTemplateFieldFieldMetaRadioResponse$inboundSchema)
-    .and(z.object({ type: z.literal("radio") })),
-  z.lazy(() => FieldUpdateTemplateFieldFieldMetaCheckboxResponse$inboundSchema)
-    .and(z.object({ type: z.literal("checkbox") })),
-  z.lazy(() => FieldUpdateTemplateFieldFieldMetaDropdownResponse$inboundSchema)
-    .and(z.object({ type: z.literal("dropdown") })),
+  z.lazy(() => FieldUpdateTemplateFieldFieldMetaInitialsResponse$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldMetaNameResponse$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldMetaEmailResponse$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldMetaDateResponse$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldMetaTextResponse$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldMetaNumberResponse$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldMetaRadioResponse$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldMetaCheckboxResponse$inboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldMetaDropdownResponse$inboundSchema),
 ]);
 /** @internal */
 export type FieldUpdateTemplateFieldFieldMetaUnion$Outbound =
-  | (FieldUpdateTemplateFieldFieldMetaSignatureResponse$Outbound & {
-    type: "signature";
-  })
-  | (FieldUpdateTemplateFieldFieldMetaInitialsResponse$Outbound & {
-    type: "initials";
-  })
-  | (FieldUpdateTemplateFieldFieldMetaNameResponse$Outbound & { type: "name" })
-  | (FieldUpdateTemplateFieldFieldMetaEmailResponse$Outbound & {
-    type: "email";
-  })
-  | (FieldUpdateTemplateFieldFieldMetaDateResponse$Outbound & { type: "date" })
-  | (FieldUpdateTemplateFieldFieldMetaTextResponse$Outbound & { type: "text" })
-  | (FieldUpdateTemplateFieldFieldMetaNumberResponse$Outbound & {
-    type: "number";
-  })
-  | (FieldUpdateTemplateFieldFieldMetaRadioResponse$Outbound & {
-    type: "radio";
-  })
-  | (FieldUpdateTemplateFieldFieldMetaCheckboxResponse$Outbound & {
-    type: "checkbox";
-  })
-  | (FieldUpdateTemplateFieldFieldMetaDropdownResponse$Outbound & {
-    type: "dropdown";
-  });
+  | FieldUpdateTemplateFieldFieldMetaSignatureResponse$Outbound
+  | FieldUpdateTemplateFieldFieldMetaInitialsResponse$Outbound
+  | FieldUpdateTemplateFieldFieldMetaNameResponse$Outbound
+  | FieldUpdateTemplateFieldFieldMetaEmailResponse$Outbound
+  | FieldUpdateTemplateFieldFieldMetaDateResponse$Outbound
+  | FieldUpdateTemplateFieldFieldMetaTextResponse$Outbound
+  | FieldUpdateTemplateFieldFieldMetaNumberResponse$Outbound
+  | FieldUpdateTemplateFieldFieldMetaRadioResponse$Outbound
+  | FieldUpdateTemplateFieldFieldMetaCheckboxResponse$Outbound
+  | FieldUpdateTemplateFieldFieldMetaDropdownResponse$Outbound;
 
 /** @internal */
 export const FieldUpdateTemplateFieldFieldMetaUnion$outboundSchema: z.ZodType<
@@ -4219,25 +3769,22 @@ export const FieldUpdateTemplateFieldFieldMetaUnion$outboundSchema: z.ZodType<
 > = z.union([
   z.lazy(() =>
     FieldUpdateTemplateFieldFieldMetaSignatureResponse$outboundSchema
-  ).and(z.object({ type: z.literal("signature") })),
-  z.lazy(() => FieldUpdateTemplateFieldFieldMetaInitialsResponse$outboundSchema)
-    .and(z.object({ type: z.literal("initials") })),
-  z.lazy(() => FieldUpdateTemplateFieldFieldMetaNameResponse$outboundSchema)
-    .and(z.object({ type: z.literal("name") })),
-  z.lazy(() => FieldUpdateTemplateFieldFieldMetaEmailResponse$outboundSchema)
-    .and(z.object({ type: z.literal("email") })),
-  z.lazy(() => FieldUpdateTemplateFieldFieldMetaDateResponse$outboundSchema)
-    .and(z.object({ type: z.literal("date") })),
-  z.lazy(() => FieldUpdateTemplateFieldFieldMetaTextResponse$outboundSchema)
-    .and(z.object({ type: z.literal("text") })),
-  z.lazy(() => FieldUpdateTemplateFieldFieldMetaNumberResponse$outboundSchema)
-    .and(z.object({ type: z.literal("number") })),
-  z.lazy(() => FieldUpdateTemplateFieldFieldMetaRadioResponse$outboundSchema)
-    .and(z.object({ type: z.literal("radio") })),
-  z.lazy(() => FieldUpdateTemplateFieldFieldMetaCheckboxResponse$outboundSchema)
-    .and(z.object({ type: z.literal("checkbox") })),
-  z.lazy(() => FieldUpdateTemplateFieldFieldMetaDropdownResponse$outboundSchema)
-    .and(z.object({ type: z.literal("dropdown") })),
+  ),
+  z.lazy(() =>
+    FieldUpdateTemplateFieldFieldMetaInitialsResponse$outboundSchema
+  ),
+  z.lazy(() => FieldUpdateTemplateFieldFieldMetaNameResponse$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldMetaEmailResponse$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldMetaDateResponse$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldMetaTextResponse$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldMetaNumberResponse$outboundSchema),
+  z.lazy(() => FieldUpdateTemplateFieldFieldMetaRadioResponse$outboundSchema),
+  z.lazy(() =>
+    FieldUpdateTemplateFieldFieldMetaCheckboxResponse$outboundSchema
+  ),
+  z.lazy(() =>
+    FieldUpdateTemplateFieldFieldMetaDropdownResponse$outboundSchema
+  ),
 ]);
 
 export function fieldUpdateTemplateFieldFieldMetaUnionToJSON(
@@ -4269,7 +3816,7 @@ export const FieldUpdateTemplateFieldResponse$inboundSchema: z.ZodType<
 > = z.object({
   envelopeId: z.string(),
   envelopeItemId: z.string(),
-  type: FieldUpdateTemplateFieldTypeResponse$inboundSchema,
+  type: FieldUpdateTemplateFieldTypeResponseEnum$inboundSchema,
   id: z.number(),
   secondaryId: z.string(),
   recipientId: z.number(),
@@ -4284,29 +3831,28 @@ export const FieldUpdateTemplateFieldResponse$inboundSchema: z.ZodType<
     z.union([
       z.lazy(() =>
         FieldUpdateTemplateFieldFieldMetaSignatureResponse$inboundSchema
-      ).and(z.object({ type: z.literal("signature") })),
+      ),
       z.lazy(() =>
         FieldUpdateTemplateFieldFieldMetaInitialsResponse$inboundSchema
-      ).and(z.object({ type: z.literal("initials") })),
-      z.lazy(() => FieldUpdateTemplateFieldFieldMetaNameResponse$inboundSchema)
-        .and(z.object({ type: z.literal("name") })),
-      z.lazy(() => FieldUpdateTemplateFieldFieldMetaEmailResponse$inboundSchema)
-        .and(z.object({ type: z.literal("email") })),
-      z.lazy(() => FieldUpdateTemplateFieldFieldMetaDateResponse$inboundSchema)
-        .and(z.object({ type: z.literal("date") })),
-      z.lazy(() => FieldUpdateTemplateFieldFieldMetaTextResponse$inboundSchema)
-        .and(z.object({ type: z.literal("text") })),
+      ),
+      z.lazy(() => FieldUpdateTemplateFieldFieldMetaNameResponse$inboundSchema),
+      z.lazy(() =>
+        FieldUpdateTemplateFieldFieldMetaEmailResponse$inboundSchema
+      ),
+      z.lazy(() => FieldUpdateTemplateFieldFieldMetaDateResponse$inboundSchema),
+      z.lazy(() => FieldUpdateTemplateFieldFieldMetaTextResponse$inboundSchema),
       z.lazy(() =>
         FieldUpdateTemplateFieldFieldMetaNumberResponse$inboundSchema
-      ).and(z.object({ type: z.literal("number") })),
-      z.lazy(() => FieldUpdateTemplateFieldFieldMetaRadioResponse$inboundSchema)
-        .and(z.object({ type: z.literal("radio") })),
+      ),
+      z.lazy(() =>
+        FieldUpdateTemplateFieldFieldMetaRadioResponse$inboundSchema
+      ),
       z.lazy(() =>
         FieldUpdateTemplateFieldFieldMetaCheckboxResponse$inboundSchema
-      ).and(z.object({ type: z.literal("checkbox") })),
+      ),
       z.lazy(() =>
         FieldUpdateTemplateFieldFieldMetaDropdownResponse$inboundSchema
-      ).and(z.object({ type: z.literal("dropdown") })),
+      ),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),
@@ -4328,36 +3874,16 @@ export type FieldUpdateTemplateFieldResponse$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | (FieldUpdateTemplateFieldFieldMetaSignatureResponse$Outbound & {
-      type: "signature";
-    })
-    | (FieldUpdateTemplateFieldFieldMetaInitialsResponse$Outbound & {
-      type: "initials";
-    })
-    | (FieldUpdateTemplateFieldFieldMetaNameResponse$Outbound & {
-      type: "name";
-    })
-    | (FieldUpdateTemplateFieldFieldMetaEmailResponse$Outbound & {
-      type: "email";
-    })
-    | (FieldUpdateTemplateFieldFieldMetaDateResponse$Outbound & {
-      type: "date";
-    })
-    | (FieldUpdateTemplateFieldFieldMetaTextResponse$Outbound & {
-      type: "text";
-    })
-    | (FieldUpdateTemplateFieldFieldMetaNumberResponse$Outbound & {
-      type: "number";
-    })
-    | (FieldUpdateTemplateFieldFieldMetaRadioResponse$Outbound & {
-      type: "radio";
-    })
-    | (FieldUpdateTemplateFieldFieldMetaCheckboxResponse$Outbound & {
-      type: "checkbox";
-    })
-    | (FieldUpdateTemplateFieldFieldMetaDropdownResponse$Outbound & {
-      type: "dropdown";
-    })
+    | FieldUpdateTemplateFieldFieldMetaSignatureResponse$Outbound
+    | FieldUpdateTemplateFieldFieldMetaInitialsResponse$Outbound
+    | FieldUpdateTemplateFieldFieldMetaNameResponse$Outbound
+    | FieldUpdateTemplateFieldFieldMetaEmailResponse$Outbound
+    | FieldUpdateTemplateFieldFieldMetaDateResponse$Outbound
+    | FieldUpdateTemplateFieldFieldMetaTextResponse$Outbound
+    | FieldUpdateTemplateFieldFieldMetaNumberResponse$Outbound
+    | FieldUpdateTemplateFieldFieldMetaRadioResponse$Outbound
+    | FieldUpdateTemplateFieldFieldMetaCheckboxResponse$Outbound
+    | FieldUpdateTemplateFieldFieldMetaDropdownResponse$Outbound
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -4371,7 +3897,7 @@ export const FieldUpdateTemplateFieldResponse$outboundSchema: z.ZodType<
 > = z.object({
   envelopeId: z.string(),
   envelopeItemId: z.string(),
-  type: FieldUpdateTemplateFieldTypeResponse$outboundSchema,
+  type: FieldUpdateTemplateFieldTypeResponseEnum$outboundSchema,
   id: z.number(),
   secondaryId: z.string(),
   recipientId: z.number(),
@@ -4386,31 +3912,34 @@ export const FieldUpdateTemplateFieldResponse$outboundSchema: z.ZodType<
     z.union([
       z.lazy(() =>
         FieldUpdateTemplateFieldFieldMetaSignatureResponse$outboundSchema
-      ).and(z.object({ type: z.literal("signature") })),
+      ),
       z.lazy(() =>
         FieldUpdateTemplateFieldFieldMetaInitialsResponse$outboundSchema
-      ).and(z.object({ type: z.literal("initials") })),
-      z.lazy(() => FieldUpdateTemplateFieldFieldMetaNameResponse$outboundSchema)
-        .and(z.object({ type: z.literal("name") })),
+      ),
+      z.lazy(() =>
+        FieldUpdateTemplateFieldFieldMetaNameResponse$outboundSchema
+      ),
       z.lazy(() =>
         FieldUpdateTemplateFieldFieldMetaEmailResponse$outboundSchema
-      ).and(z.object({ type: z.literal("email") })),
-      z.lazy(() => FieldUpdateTemplateFieldFieldMetaDateResponse$outboundSchema)
-        .and(z.object({ type: z.literal("date") })),
-      z.lazy(() => FieldUpdateTemplateFieldFieldMetaTextResponse$outboundSchema)
-        .and(z.object({ type: z.literal("text") })),
+      ),
+      z.lazy(() =>
+        FieldUpdateTemplateFieldFieldMetaDateResponse$outboundSchema
+      ),
+      z.lazy(() =>
+        FieldUpdateTemplateFieldFieldMetaTextResponse$outboundSchema
+      ),
       z.lazy(() =>
         FieldUpdateTemplateFieldFieldMetaNumberResponse$outboundSchema
-      ).and(z.object({ type: z.literal("number") })),
+      ),
       z.lazy(() =>
         FieldUpdateTemplateFieldFieldMetaRadioResponse$outboundSchema
-      ).and(z.object({ type: z.literal("radio") })),
+      ),
       z.lazy(() =>
         FieldUpdateTemplateFieldFieldMetaCheckboxResponse$outboundSchema
-      ).and(z.object({ type: z.literal("checkbox") })),
+      ),
       z.lazy(() =>
         FieldUpdateTemplateFieldFieldMetaDropdownResponse$outboundSchema
-      ).and(z.object({ type: z.literal("dropdown") })),
+      ),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),

@@ -13,9 +13,9 @@ let value: EnvelopeUsePrefillFieldRadio = {
 
 ## Fields
 
-| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `type`                                                                             | [operations.EnvelopeUseTypeRadio](../../models/operations/envelopeusetyperadio.md) | :heavy_check_mark:                                                                 | N/A                                                                                |
-| `label`                                                                            | *string*                                                                           | :heavy_minus_sign:                                                                 | N/A                                                                                |
-| `value`                                                                            | *string*                                                                           | :heavy_minus_sign:                                                                 | N/A                                                                                |
-| `id`                                                                               | *number*                                                                           | :heavy_check_mark:                                                                 | N/A                                                                                |
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `type`             | *"radio"*          | :heavy_check_mark: | N/A                |
+| `label`            | *string*           | :heavy_minus_sign: | N/A                |
+| `value`            | *string*           | :heavy_minus_sign: | N/A                |
+| `id`               | *number*           | :heavy_check_mark: | N/A                |

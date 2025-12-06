@@ -72,7 +72,7 @@ export type RecipientGetTemplateRecipientAuthOptions = {
   actionAuth: Array<RecipientGetTemplateRecipientActionAuth>;
 };
 
-export const RecipientGetTemplateRecipientType = {
+export const RecipientGetTemplateRecipientTypeEnum = {
   Signature: "SIGNATURE",
   FreeSignature: "FREE_SIGNATURE",
   Initials: "INITIALS",
@@ -85,15 +85,8 @@ export const RecipientGetTemplateRecipientType = {
   Checkbox: "CHECKBOX",
   Dropdown: "DROPDOWN",
 } as const;
-export type RecipientGetTemplateRecipientType = ClosedEnum<
-  typeof RecipientGetTemplateRecipientType
->;
-
-export const RecipientGetTemplateRecipientTypeDropdown = {
-  Dropdown: "dropdown",
-} as const;
-export type RecipientGetTemplateRecipientTypeDropdown = ClosedEnum<
-  typeof RecipientGetTemplateRecipientTypeDropdown
+export type RecipientGetTemplateRecipientTypeEnum = ClosedEnum<
+  typeof RecipientGetTemplateRecipientTypeEnum
 >;
 
 export type RecipientGetTemplateRecipientValue3 = {
@@ -106,17 +99,10 @@ export type RecipientGetTemplateRecipientFieldMetaDropdown = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: RecipientGetTemplateRecipientTypeDropdown;
+  type: "dropdown";
   values?: Array<RecipientGetTemplateRecipientValue3> | undefined;
   defaultValue?: string | undefined;
 };
-
-export const RecipientGetTemplateRecipientTypeCheckbox = {
-  Checkbox: "checkbox",
-} as const;
-export type RecipientGetTemplateRecipientTypeCheckbox = ClosedEnum<
-  typeof RecipientGetTemplateRecipientTypeCheckbox
->;
 
 export type RecipientGetTemplateRecipientValue2 = {
   id: number;
@@ -138,19 +124,12 @@ export type RecipientGetTemplateRecipientFieldMetaCheckbox = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: RecipientGetTemplateRecipientTypeCheckbox;
+  type: "checkbox";
   values?: Array<RecipientGetTemplateRecipientValue2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
   direction?: RecipientGetTemplateRecipientDirection2 | undefined;
 };
-
-export const RecipientGetTemplateRecipientTypeRadio = {
-  Radio: "radio",
-} as const;
-export type RecipientGetTemplateRecipientTypeRadio = ClosedEnum<
-  typeof RecipientGetTemplateRecipientTypeRadio
->;
 
 export type RecipientGetTemplateRecipientValue1 = {
   id: number;
@@ -172,17 +151,10 @@ export type RecipientGetTemplateRecipientFieldMetaRadio = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: RecipientGetTemplateRecipientTypeRadio;
+  type: "radio";
   values?: Array<RecipientGetTemplateRecipientValue1> | undefined;
   direction?: RecipientGetTemplateRecipientDirection1 | undefined;
 };
-
-export const RecipientGetTemplateRecipientTypeNumber = {
-  Number: "number",
-} as const;
-export type RecipientGetTemplateRecipientTypeNumber = ClosedEnum<
-  typeof RecipientGetTemplateRecipientTypeNumber
->;
 
 export const RecipientGetTemplateRecipientTextAlign6 = {
   Left: "left",
@@ -208,7 +180,7 @@ export type RecipientGetTemplateRecipientFieldMetaNumber = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: RecipientGetTemplateRecipientTypeNumber;
+  type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
   minValue?: number | null | undefined;
@@ -221,13 +193,6 @@ export type RecipientGetTemplateRecipientFieldMetaNumber = {
     | null
     | undefined;
 };
-
-export const RecipientGetTemplateRecipientTypeText = {
-  Text: "text",
-} as const;
-export type RecipientGetTemplateRecipientTypeText = ClosedEnum<
-  typeof RecipientGetTemplateRecipientTypeText
->;
 
 export const RecipientGetTemplateRecipientTextAlign5 = {
   Left: "left",
@@ -253,7 +218,7 @@ export type RecipientGetTemplateRecipientFieldMetaText = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: RecipientGetTemplateRecipientTypeText;
+  type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
   textAlign?: RecipientGetTemplateRecipientTextAlign5 | undefined;
@@ -264,13 +229,6 @@ export type RecipientGetTemplateRecipientFieldMetaText = {
     | null
     | undefined;
 };
-
-export const RecipientGetTemplateRecipientTypeDate = {
-  Date: "date",
-} as const;
-export type RecipientGetTemplateRecipientTypeDate = ClosedEnum<
-  typeof RecipientGetTemplateRecipientTypeDate
->;
 
 export const RecipientGetTemplateRecipientTextAlign4 = {
   Left: "left",
@@ -287,16 +245,9 @@ export type RecipientGetTemplateRecipientFieldMetaDate = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: RecipientGetTemplateRecipientTypeDate;
+  type: "date";
   textAlign?: RecipientGetTemplateRecipientTextAlign4 | undefined;
 };
-
-export const RecipientGetTemplateRecipientTypeEmail = {
-  Email: "email",
-} as const;
-export type RecipientGetTemplateRecipientTypeEmail = ClosedEnum<
-  typeof RecipientGetTemplateRecipientTypeEmail
->;
 
 export const RecipientGetTemplateRecipientTextAlign3 = {
   Left: "left",
@@ -313,16 +264,9 @@ export type RecipientGetTemplateRecipientFieldMetaEmail = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: RecipientGetTemplateRecipientTypeEmail;
+  type: "email";
   textAlign?: RecipientGetTemplateRecipientTextAlign3 | undefined;
 };
-
-export const RecipientGetTemplateRecipientTypeName = {
-  Name: "name",
-} as const;
-export type RecipientGetTemplateRecipientTypeName = ClosedEnum<
-  typeof RecipientGetTemplateRecipientTypeName
->;
 
 export const RecipientGetTemplateRecipientTextAlign2 = {
   Left: "left",
@@ -339,16 +283,9 @@ export type RecipientGetTemplateRecipientFieldMetaName = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: RecipientGetTemplateRecipientTypeName;
+  type: "name";
   textAlign?: RecipientGetTemplateRecipientTextAlign2 | undefined;
 };
-
-export const RecipientGetTemplateRecipientTypeInitials = {
-  Initials: "initials",
-} as const;
-export type RecipientGetTemplateRecipientTypeInitials = ClosedEnum<
-  typeof RecipientGetTemplateRecipientTypeInitials
->;
 
 export const RecipientGetTemplateRecipientTextAlign1 = {
   Left: "left",
@@ -365,16 +302,9 @@ export type RecipientGetTemplateRecipientFieldMetaInitials = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: RecipientGetTemplateRecipientTypeInitials;
+  type: "initials";
   textAlign?: RecipientGetTemplateRecipientTextAlign1 | undefined;
 };
-
-export const RecipientGetTemplateRecipientTypeSignature = {
-  Signature: "signature",
-} as const;
-export type RecipientGetTemplateRecipientTypeSignature = ClosedEnum<
-  typeof RecipientGetTemplateRecipientTypeSignature
->;
 
 export type RecipientGetTemplateRecipientFieldMetaSignature = {
   label?: string | undefined;
@@ -382,25 +312,25 @@ export type RecipientGetTemplateRecipientFieldMetaSignature = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: RecipientGetTemplateRecipientTypeSignature;
+  type: "signature";
 };
 
 export type RecipientGetTemplateRecipientFieldMetaUnion =
-  | (RecipientGetTemplateRecipientFieldMetaSignature & { type: "signature" })
-  | (RecipientGetTemplateRecipientFieldMetaInitials & { type: "initials" })
-  | (RecipientGetTemplateRecipientFieldMetaName & { type: "name" })
-  | (RecipientGetTemplateRecipientFieldMetaEmail & { type: "email" })
-  | (RecipientGetTemplateRecipientFieldMetaDate & { type: "date" })
-  | (RecipientGetTemplateRecipientFieldMetaText & { type: "text" })
-  | (RecipientGetTemplateRecipientFieldMetaNumber & { type: "number" })
-  | (RecipientGetTemplateRecipientFieldMetaRadio & { type: "radio" })
-  | (RecipientGetTemplateRecipientFieldMetaCheckbox & { type: "checkbox" })
-  | (RecipientGetTemplateRecipientFieldMetaDropdown & { type: "dropdown" });
+  | RecipientGetTemplateRecipientFieldMetaSignature
+  | RecipientGetTemplateRecipientFieldMetaInitials
+  | RecipientGetTemplateRecipientFieldMetaName
+  | RecipientGetTemplateRecipientFieldMetaEmail
+  | RecipientGetTemplateRecipientFieldMetaDate
+  | RecipientGetTemplateRecipientFieldMetaText
+  | RecipientGetTemplateRecipientFieldMetaNumber
+  | RecipientGetTemplateRecipientFieldMetaRadio
+  | RecipientGetTemplateRecipientFieldMetaCheckbox
+  | RecipientGetTemplateRecipientFieldMetaDropdown;
 
 export type RecipientGetTemplateRecipientField = {
   envelopeId: string;
   envelopeItemId: string;
-  type: RecipientGetTemplateRecipientType;
+  type: RecipientGetTemplateRecipientTypeEnum;
   id: number;
   secondaryId: string;
   recipientId: number;
@@ -412,16 +342,16 @@ export type RecipientGetTemplateRecipientField = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | (RecipientGetTemplateRecipientFieldMetaSignature & { type: "signature" })
-    | (RecipientGetTemplateRecipientFieldMetaInitials & { type: "initials" })
-    | (RecipientGetTemplateRecipientFieldMetaName & { type: "name" })
-    | (RecipientGetTemplateRecipientFieldMetaEmail & { type: "email" })
-    | (RecipientGetTemplateRecipientFieldMetaDate & { type: "date" })
-    | (RecipientGetTemplateRecipientFieldMetaText & { type: "text" })
-    | (RecipientGetTemplateRecipientFieldMetaNumber & { type: "number" })
-    | (RecipientGetTemplateRecipientFieldMetaRadio & { type: "radio" })
-    | (RecipientGetTemplateRecipientFieldMetaCheckbox & { type: "checkbox" })
-    | (RecipientGetTemplateRecipientFieldMetaDropdown & { type: "dropdown" })
+    | RecipientGetTemplateRecipientFieldMetaSignature
+    | RecipientGetTemplateRecipientFieldMetaInitials
+    | RecipientGetTemplateRecipientFieldMetaName
+    | RecipientGetTemplateRecipientFieldMetaEmail
+    | RecipientGetTemplateRecipientFieldMetaDate
+    | RecipientGetTemplateRecipientFieldMetaText
+    | RecipientGetTemplateRecipientFieldMetaNumber
+    | RecipientGetTemplateRecipientFieldMetaRadio
+    | RecipientGetTemplateRecipientFieldMetaCheckbox
+    | RecipientGetTemplateRecipientFieldMetaDropdown
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -599,22 +529,14 @@ export function recipientGetTemplateRecipientAuthOptionsFromJSON(
 }
 
 /** @internal */
-export const RecipientGetTemplateRecipientType$inboundSchema: z.ZodNativeEnum<
-  typeof RecipientGetTemplateRecipientType
-> = z.nativeEnum(RecipientGetTemplateRecipientType);
+export const RecipientGetTemplateRecipientTypeEnum$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientGetTemplateRecipientTypeEnum> = z.nativeEnum(
+    RecipientGetTemplateRecipientTypeEnum,
+  );
 /** @internal */
-export const RecipientGetTemplateRecipientType$outboundSchema: z.ZodNativeEnum<
-  typeof RecipientGetTemplateRecipientType
-> = RecipientGetTemplateRecipientType$inboundSchema;
-
-/** @internal */
-export const RecipientGetTemplateRecipientTypeDropdown$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientGetTemplateRecipientTypeDropdown> = z
-    .nativeEnum(RecipientGetTemplateRecipientTypeDropdown);
-/** @internal */
-export const RecipientGetTemplateRecipientTypeDropdown$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientGetTemplateRecipientTypeDropdown> =
-    RecipientGetTemplateRecipientTypeDropdown$inboundSchema;
+export const RecipientGetTemplateRecipientTypeEnum$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientGetTemplateRecipientTypeEnum> =
+    RecipientGetTemplateRecipientTypeEnum$inboundSchema;
 
 /** @internal */
 export const RecipientGetTemplateRecipientValue3$inboundSchema: z.ZodType<
@@ -670,7 +592,7 @@ export const RecipientGetTemplateRecipientFieldMetaDropdown$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientGetTemplateRecipientTypeDropdown$inboundSchema,
+    type: z.literal("dropdown"),
     values: z.array(
       z.lazy(() => RecipientGetTemplateRecipientValue3$inboundSchema),
     ).optional(),
@@ -683,7 +605,7 @@ export type RecipientGetTemplateRecipientFieldMetaDropdown$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "dropdown";
   values?: Array<RecipientGetTemplateRecipientValue3$Outbound> | undefined;
   defaultValue?: string | undefined;
 };
@@ -700,7 +622,7 @@ export const RecipientGetTemplateRecipientFieldMetaDropdown$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientGetTemplateRecipientTypeDropdown$outboundSchema,
+    type: z.literal("dropdown"),
     values: z.array(
       z.lazy(() => RecipientGetTemplateRecipientValue3$outboundSchema),
     ).optional(),
@@ -732,15 +654,6 @@ export function recipientGetTemplateRecipientFieldMetaDropdownFromJSON(
     `Failed to parse 'RecipientGetTemplateRecipientFieldMetaDropdown' from JSON`,
   );
 }
-
-/** @internal */
-export const RecipientGetTemplateRecipientTypeCheckbox$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientGetTemplateRecipientTypeCheckbox> = z
-    .nativeEnum(RecipientGetTemplateRecipientTypeCheckbox);
-/** @internal */
-export const RecipientGetTemplateRecipientTypeCheckbox$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientGetTemplateRecipientTypeCheckbox> =
-    RecipientGetTemplateRecipientTypeCheckbox$inboundSchema;
 
 /** @internal */
 export const RecipientGetTemplateRecipientValue2$inboundSchema: z.ZodType<
@@ -811,7 +724,7 @@ export const RecipientGetTemplateRecipientFieldMetaCheckbox$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientGetTemplateRecipientTypeCheckbox$inboundSchema,
+    type: z.literal("checkbox"),
     values: z.array(
       z.lazy(() => RecipientGetTemplateRecipientValue2$inboundSchema),
     ).optional(),
@@ -828,7 +741,7 @@ export type RecipientGetTemplateRecipientFieldMetaCheckbox$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "checkbox";
   values?: Array<RecipientGetTemplateRecipientValue2$Outbound> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
@@ -847,7 +760,7 @@ export const RecipientGetTemplateRecipientFieldMetaCheckbox$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientGetTemplateRecipientTypeCheckbox$outboundSchema,
+    type: z.literal("checkbox"),
     values: z.array(
       z.lazy(() => RecipientGetTemplateRecipientValue2$outboundSchema),
     ).optional(),
@@ -883,16 +796,6 @@ export function recipientGetTemplateRecipientFieldMetaCheckboxFromJSON(
     `Failed to parse 'RecipientGetTemplateRecipientFieldMetaCheckbox' from JSON`,
   );
 }
-
-/** @internal */
-export const RecipientGetTemplateRecipientTypeRadio$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientGetTemplateRecipientTypeRadio> = z.nativeEnum(
-    RecipientGetTemplateRecipientTypeRadio,
-  );
-/** @internal */
-export const RecipientGetTemplateRecipientTypeRadio$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientGetTemplateRecipientTypeRadio> =
-    RecipientGetTemplateRecipientTypeRadio$inboundSchema;
 
 /** @internal */
 export const RecipientGetTemplateRecipientValue1$inboundSchema: z.ZodType<
@@ -963,7 +866,7 @@ export const RecipientGetTemplateRecipientFieldMetaRadio$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientGetTemplateRecipientTypeRadio$inboundSchema,
+    type: z.literal("radio"),
     values: z.array(
       z.lazy(() => RecipientGetTemplateRecipientValue1$inboundSchema),
     ).optional(),
@@ -978,7 +881,7 @@ export type RecipientGetTemplateRecipientFieldMetaRadio$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "radio";
   values?: Array<RecipientGetTemplateRecipientValue1$Outbound> | undefined;
   direction: string;
 };
@@ -995,7 +898,7 @@ export const RecipientGetTemplateRecipientFieldMetaRadio$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientGetTemplateRecipientTypeRadio$outboundSchema,
+    type: z.literal("radio"),
     values: z.array(
       z.lazy(() => RecipientGetTemplateRecipientValue1$outboundSchema),
     ).optional(),
@@ -1031,15 +934,6 @@ export function recipientGetTemplateRecipientFieldMetaRadioFromJSON(
 }
 
 /** @internal */
-export const RecipientGetTemplateRecipientTypeNumber$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientGetTemplateRecipientTypeNumber> = z
-    .nativeEnum(RecipientGetTemplateRecipientTypeNumber);
-/** @internal */
-export const RecipientGetTemplateRecipientTypeNumber$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientGetTemplateRecipientTypeNumber> =
-    RecipientGetTemplateRecipientTypeNumber$inboundSchema;
-
-/** @internal */
 export const RecipientGetTemplateRecipientTextAlign6$inboundSchema:
   z.ZodNativeEnum<typeof RecipientGetTemplateRecipientTextAlign6> = z
     .nativeEnum(RecipientGetTemplateRecipientTextAlign6);
@@ -1069,7 +963,7 @@ export const RecipientGetTemplateRecipientFieldMetaNumber$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientGetTemplateRecipientTypeNumber$inboundSchema,
+    type: z.literal("number"),
     numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
     minValue: z.nullable(z.number()).optional(),
@@ -1088,7 +982,7 @@ export type RecipientGetTemplateRecipientFieldMetaNumber$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
   minValue?: number | null | undefined;
@@ -1111,7 +1005,7 @@ export const RecipientGetTemplateRecipientFieldMetaNumber$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientGetTemplateRecipientTypeNumber$outboundSchema,
+    type: z.literal("number"),
     numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
     minValue: z.nullable(z.number()).optional(),
@@ -1152,16 +1046,6 @@ export function recipientGetTemplateRecipientFieldMetaNumberFromJSON(
 }
 
 /** @internal */
-export const RecipientGetTemplateRecipientTypeText$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientGetTemplateRecipientTypeText> = z.nativeEnum(
-    RecipientGetTemplateRecipientTypeText,
-  );
-/** @internal */
-export const RecipientGetTemplateRecipientTypeText$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientGetTemplateRecipientTypeText> =
-    RecipientGetTemplateRecipientTypeText$inboundSchema;
-
-/** @internal */
 export const RecipientGetTemplateRecipientTextAlign5$inboundSchema:
   z.ZodNativeEnum<typeof RecipientGetTemplateRecipientTextAlign5> = z
     .nativeEnum(RecipientGetTemplateRecipientTextAlign5);
@@ -1188,7 +1072,7 @@ export const RecipientGetTemplateRecipientFieldMetaText$inboundSchema:
       required: z.boolean().optional(),
       readOnly: z.boolean().optional(),
       fontSize: z.number().default(12),
-      type: RecipientGetTemplateRecipientTypeText$inboundSchema,
+      type: z.literal("text"),
       text: z.string().optional(),
       characterLimit: z.number().optional(),
       textAlign: RecipientGetTemplateRecipientTextAlign5$inboundSchema
@@ -1206,7 +1090,7 @@ export type RecipientGetTemplateRecipientFieldMetaText$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
   textAlign?: string | undefined;
@@ -1227,7 +1111,7 @@ export const RecipientGetTemplateRecipientFieldMetaText$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientGetTemplateRecipientTypeText$outboundSchema,
+    type: z.literal("text"),
     text: z.string().optional(),
     characterLimit: z.number().optional(),
     textAlign: RecipientGetTemplateRecipientTextAlign5$outboundSchema
@@ -1266,16 +1150,6 @@ export function recipientGetTemplateRecipientFieldMetaTextFromJSON(
 }
 
 /** @internal */
-export const RecipientGetTemplateRecipientTypeDate$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientGetTemplateRecipientTypeDate> = z.nativeEnum(
-    RecipientGetTemplateRecipientTypeDate,
-  );
-/** @internal */
-export const RecipientGetTemplateRecipientTypeDate$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientGetTemplateRecipientTypeDate> =
-    RecipientGetTemplateRecipientTypeDate$inboundSchema;
-
-/** @internal */
 export const RecipientGetTemplateRecipientTextAlign4$inboundSchema:
   z.ZodNativeEnum<typeof RecipientGetTemplateRecipientTextAlign4> = z
     .nativeEnum(RecipientGetTemplateRecipientTextAlign4);
@@ -1293,7 +1167,7 @@ export const RecipientGetTemplateRecipientFieldMetaDate$inboundSchema:
       required: z.boolean().optional(),
       readOnly: z.boolean().optional(),
       fontSize: z.number().default(12),
-      type: RecipientGetTemplateRecipientTypeDate$inboundSchema,
+      type: z.literal("date"),
       textAlign: RecipientGetTemplateRecipientTextAlign4$inboundSchema
         .optional(),
     });
@@ -1304,7 +1178,7 @@ export type RecipientGetTemplateRecipientFieldMetaDate$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "date";
   textAlign?: string | undefined;
 };
 
@@ -1320,7 +1194,7 @@ export const RecipientGetTemplateRecipientFieldMetaDate$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientGetTemplateRecipientTypeDate$outboundSchema,
+    type: z.literal("date"),
     textAlign: RecipientGetTemplateRecipientTextAlign4$outboundSchema
       .optional(),
   });
@@ -1352,16 +1226,6 @@ export function recipientGetTemplateRecipientFieldMetaDateFromJSON(
 }
 
 /** @internal */
-export const RecipientGetTemplateRecipientTypeEmail$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientGetTemplateRecipientTypeEmail> = z.nativeEnum(
-    RecipientGetTemplateRecipientTypeEmail,
-  );
-/** @internal */
-export const RecipientGetTemplateRecipientTypeEmail$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientGetTemplateRecipientTypeEmail> =
-    RecipientGetTemplateRecipientTypeEmail$inboundSchema;
-
-/** @internal */
 export const RecipientGetTemplateRecipientTextAlign3$inboundSchema:
   z.ZodNativeEnum<typeof RecipientGetTemplateRecipientTextAlign3> = z
     .nativeEnum(RecipientGetTemplateRecipientTextAlign3);
@@ -1382,7 +1246,7 @@ export const RecipientGetTemplateRecipientFieldMetaEmail$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientGetTemplateRecipientTypeEmail$inboundSchema,
+    type: z.literal("email"),
     textAlign: RecipientGetTemplateRecipientTextAlign3$inboundSchema.optional(),
   });
 /** @internal */
@@ -1392,7 +1256,7 @@ export type RecipientGetTemplateRecipientFieldMetaEmail$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "email";
   textAlign?: string | undefined;
 };
 
@@ -1408,7 +1272,7 @@ export const RecipientGetTemplateRecipientFieldMetaEmail$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientGetTemplateRecipientTypeEmail$outboundSchema,
+    type: z.literal("email"),
     textAlign: RecipientGetTemplateRecipientTextAlign3$outboundSchema
       .optional(),
   });
@@ -1440,16 +1304,6 @@ export function recipientGetTemplateRecipientFieldMetaEmailFromJSON(
 }
 
 /** @internal */
-export const RecipientGetTemplateRecipientTypeName$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientGetTemplateRecipientTypeName> = z.nativeEnum(
-    RecipientGetTemplateRecipientTypeName,
-  );
-/** @internal */
-export const RecipientGetTemplateRecipientTypeName$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientGetTemplateRecipientTypeName> =
-    RecipientGetTemplateRecipientTypeName$inboundSchema;
-
-/** @internal */
 export const RecipientGetTemplateRecipientTextAlign2$inboundSchema:
   z.ZodNativeEnum<typeof RecipientGetTemplateRecipientTextAlign2> = z
     .nativeEnum(RecipientGetTemplateRecipientTextAlign2);
@@ -1467,7 +1321,7 @@ export const RecipientGetTemplateRecipientFieldMetaName$inboundSchema:
       required: z.boolean().optional(),
       readOnly: z.boolean().optional(),
       fontSize: z.number().default(12),
-      type: RecipientGetTemplateRecipientTypeName$inboundSchema,
+      type: z.literal("name"),
       textAlign: RecipientGetTemplateRecipientTextAlign2$inboundSchema
         .optional(),
     });
@@ -1478,7 +1332,7 @@ export type RecipientGetTemplateRecipientFieldMetaName$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "name";
   textAlign?: string | undefined;
 };
 
@@ -1494,7 +1348,7 @@ export const RecipientGetTemplateRecipientFieldMetaName$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientGetTemplateRecipientTypeName$outboundSchema,
+    type: z.literal("name"),
     textAlign: RecipientGetTemplateRecipientTextAlign2$outboundSchema
       .optional(),
   });
@@ -1526,15 +1380,6 @@ export function recipientGetTemplateRecipientFieldMetaNameFromJSON(
 }
 
 /** @internal */
-export const RecipientGetTemplateRecipientTypeInitials$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientGetTemplateRecipientTypeInitials> = z
-    .nativeEnum(RecipientGetTemplateRecipientTypeInitials);
-/** @internal */
-export const RecipientGetTemplateRecipientTypeInitials$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientGetTemplateRecipientTypeInitials> =
-    RecipientGetTemplateRecipientTypeInitials$inboundSchema;
-
-/** @internal */
 export const RecipientGetTemplateRecipientTextAlign1$inboundSchema:
   z.ZodNativeEnum<typeof RecipientGetTemplateRecipientTextAlign1> = z
     .nativeEnum(RecipientGetTemplateRecipientTextAlign1);
@@ -1555,7 +1400,7 @@ export const RecipientGetTemplateRecipientFieldMetaInitials$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientGetTemplateRecipientTypeInitials$inboundSchema,
+    type: z.literal("initials"),
     textAlign: RecipientGetTemplateRecipientTextAlign1$inboundSchema.optional(),
   });
 /** @internal */
@@ -1565,7 +1410,7 @@ export type RecipientGetTemplateRecipientFieldMetaInitials$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "initials";
   textAlign?: string | undefined;
 };
 
@@ -1581,7 +1426,7 @@ export const RecipientGetTemplateRecipientFieldMetaInitials$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientGetTemplateRecipientTypeInitials$outboundSchema,
+    type: z.literal("initials"),
     textAlign: RecipientGetTemplateRecipientTextAlign1$outboundSchema
       .optional(),
   });
@@ -1613,15 +1458,6 @@ export function recipientGetTemplateRecipientFieldMetaInitialsFromJSON(
 }
 
 /** @internal */
-export const RecipientGetTemplateRecipientTypeSignature$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientGetTemplateRecipientTypeSignature> = z
-    .nativeEnum(RecipientGetTemplateRecipientTypeSignature);
-/** @internal */
-export const RecipientGetTemplateRecipientTypeSignature$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientGetTemplateRecipientTypeSignature> =
-    RecipientGetTemplateRecipientTypeSignature$inboundSchema;
-
-/** @internal */
 export const RecipientGetTemplateRecipientFieldMetaSignature$inboundSchema:
   z.ZodType<
     RecipientGetTemplateRecipientFieldMetaSignature,
@@ -1633,7 +1469,7 @@ export const RecipientGetTemplateRecipientFieldMetaSignature$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientGetTemplateRecipientTypeSignature$inboundSchema,
+    type: z.literal("signature"),
   });
 /** @internal */
 export type RecipientGetTemplateRecipientFieldMetaSignature$Outbound = {
@@ -1642,7 +1478,7 @@ export type RecipientGetTemplateRecipientFieldMetaSignature$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "signature";
 };
 
 /** @internal */
@@ -1657,7 +1493,7 @@ export const RecipientGetTemplateRecipientFieldMetaSignature$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientGetTemplateRecipientTypeSignature$outboundSchema,
+    type: z.literal("signature"),
   });
 
 export function recipientGetTemplateRecipientFieldMetaSignatureToJSON(
@@ -1693,52 +1529,29 @@ export const RecipientGetTemplateRecipientFieldMetaUnion$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.union([
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaSignature$inboundSchema)
-      .and(z.object({ type: z.literal("signature") })),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaInitials$inboundSchema)
-      .and(z.object({ type: z.literal("initials") })),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaName$inboundSchema).and(
-      z.object({ type: z.literal("name") }),
-    ),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaEmail$inboundSchema).and(
-      z.object({ type: z.literal("email") }),
-    ),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaDate$inboundSchema).and(
-      z.object({ type: z.literal("date") }),
-    ),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaText$inboundSchema).and(
-      z.object({ type: z.literal("text") }),
-    ),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaNumber$inboundSchema)
-      .and(z.object({ type: z.literal("number") })),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaRadio$inboundSchema).and(
-      z.object({ type: z.literal("radio") }),
-    ),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaCheckbox$inboundSchema)
-      .and(z.object({ type: z.literal("checkbox") })),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaDropdown$inboundSchema)
-      .and(z.object({ type: z.literal("dropdown") })),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaSignature$inboundSchema),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaInitials$inboundSchema),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaName$inboundSchema),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaEmail$inboundSchema),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaDate$inboundSchema),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaText$inboundSchema),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaNumber$inboundSchema),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaRadio$inboundSchema),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaCheckbox$inboundSchema),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaDropdown$inboundSchema),
   ]);
 /** @internal */
 export type RecipientGetTemplateRecipientFieldMetaUnion$Outbound =
-  | (RecipientGetTemplateRecipientFieldMetaSignature$Outbound & {
-    type: "signature";
-  })
-  | (RecipientGetTemplateRecipientFieldMetaInitials$Outbound & {
-    type: "initials";
-  })
-  | (RecipientGetTemplateRecipientFieldMetaName$Outbound & { type: "name" })
-  | (RecipientGetTemplateRecipientFieldMetaEmail$Outbound & { type: "email" })
-  | (RecipientGetTemplateRecipientFieldMetaDate$Outbound & { type: "date" })
-  | (RecipientGetTemplateRecipientFieldMetaText$Outbound & { type: "text" })
-  | (RecipientGetTemplateRecipientFieldMetaNumber$Outbound & { type: "number" })
-  | (RecipientGetTemplateRecipientFieldMetaRadio$Outbound & { type: "radio" })
-  | (RecipientGetTemplateRecipientFieldMetaCheckbox$Outbound & {
-    type: "checkbox";
-  })
-  | (RecipientGetTemplateRecipientFieldMetaDropdown$Outbound & {
-    type: "dropdown";
-  });
+  | RecipientGetTemplateRecipientFieldMetaSignature$Outbound
+  | RecipientGetTemplateRecipientFieldMetaInitials$Outbound
+  | RecipientGetTemplateRecipientFieldMetaName$Outbound
+  | RecipientGetTemplateRecipientFieldMetaEmail$Outbound
+  | RecipientGetTemplateRecipientFieldMetaDate$Outbound
+  | RecipientGetTemplateRecipientFieldMetaText$Outbound
+  | RecipientGetTemplateRecipientFieldMetaNumber$Outbound
+  | RecipientGetTemplateRecipientFieldMetaRadio$Outbound
+  | RecipientGetTemplateRecipientFieldMetaCheckbox$Outbound
+  | RecipientGetTemplateRecipientFieldMetaDropdown$Outbound;
 
 /** @internal */
 export const RecipientGetTemplateRecipientFieldMetaUnion$outboundSchema:
@@ -1747,29 +1560,18 @@ export const RecipientGetTemplateRecipientFieldMetaUnion$outboundSchema:
     z.ZodTypeDef,
     RecipientGetTemplateRecipientFieldMetaUnion
   > = z.union([
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaSignature$outboundSchema)
-      .and(z.object({ type: z.literal("signature") })),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaInitials$outboundSchema)
-      .and(z.object({ type: z.literal("initials") })),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaName$outboundSchema).and(
-      z.object({ type: z.literal("name") }),
+    z.lazy(() =>
+      RecipientGetTemplateRecipientFieldMetaSignature$outboundSchema
     ),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaEmail$outboundSchema)
-      .and(z.object({ type: z.literal("email") })),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaDate$outboundSchema).and(
-      z.object({ type: z.literal("date") }),
-    ),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaText$outboundSchema).and(
-      z.object({ type: z.literal("text") }),
-    ),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaNumber$outboundSchema)
-      .and(z.object({ type: z.literal("number") })),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaRadio$outboundSchema)
-      .and(z.object({ type: z.literal("radio") })),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaCheckbox$outboundSchema)
-      .and(z.object({ type: z.literal("checkbox") })),
-    z.lazy(() => RecipientGetTemplateRecipientFieldMetaDropdown$outboundSchema)
-      .and(z.object({ type: z.literal("dropdown") })),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaInitials$outboundSchema),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaName$outboundSchema),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaEmail$outboundSchema),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaDate$outboundSchema),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaText$outboundSchema),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaNumber$outboundSchema),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaRadio$outboundSchema),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaCheckbox$outboundSchema),
+    z.lazy(() => RecipientGetTemplateRecipientFieldMetaDropdown$outboundSchema),
   ]);
 
 export function recipientGetTemplateRecipientFieldMetaUnionToJSON(
@@ -1806,7 +1608,7 @@ export const RecipientGetTemplateRecipientField$inboundSchema: z.ZodType<
 > = z.object({
   envelopeId: z.string(),
   envelopeItemId: z.string(),
-  type: RecipientGetTemplateRecipientType$inboundSchema,
+  type: RecipientGetTemplateRecipientTypeEnum$inboundSchema,
   id: z.number(),
   secondaryId: z.string(),
   recipientId: z.number(),
@@ -1821,25 +1623,22 @@ export const RecipientGetTemplateRecipientField$inboundSchema: z.ZodType<
     z.union([
       z.lazy(() =>
         RecipientGetTemplateRecipientFieldMetaSignature$inboundSchema
-      ).and(z.object({ type: z.literal("signature") })),
-      z.lazy(() => RecipientGetTemplateRecipientFieldMetaInitials$inboundSchema)
-        .and(z.object({ type: z.literal("initials") })),
-      z.lazy(() => RecipientGetTemplateRecipientFieldMetaName$inboundSchema)
-        .and(z.object({ type: z.literal("name") })),
-      z.lazy(() => RecipientGetTemplateRecipientFieldMetaEmail$inboundSchema)
-        .and(z.object({ type: z.literal("email") })),
-      z.lazy(() => RecipientGetTemplateRecipientFieldMetaDate$inboundSchema)
-        .and(z.object({ type: z.literal("date") })),
-      z.lazy(() => RecipientGetTemplateRecipientFieldMetaText$inboundSchema)
-        .and(z.object({ type: z.literal("text") })),
-      z.lazy(() => RecipientGetTemplateRecipientFieldMetaNumber$inboundSchema)
-        .and(z.object({ type: z.literal("number") })),
-      z.lazy(() => RecipientGetTemplateRecipientFieldMetaRadio$inboundSchema)
-        .and(z.object({ type: z.literal("radio") })),
-      z.lazy(() => RecipientGetTemplateRecipientFieldMetaCheckbox$inboundSchema)
-        .and(z.object({ type: z.literal("checkbox") })),
-      z.lazy(() => RecipientGetTemplateRecipientFieldMetaDropdown$inboundSchema)
-        .and(z.object({ type: z.literal("dropdown") })),
+      ),
+      z.lazy(() =>
+        RecipientGetTemplateRecipientFieldMetaInitials$inboundSchema
+      ),
+      z.lazy(() => RecipientGetTemplateRecipientFieldMetaName$inboundSchema),
+      z.lazy(() => RecipientGetTemplateRecipientFieldMetaEmail$inboundSchema),
+      z.lazy(() => RecipientGetTemplateRecipientFieldMetaDate$inboundSchema),
+      z.lazy(() => RecipientGetTemplateRecipientFieldMetaText$inboundSchema),
+      z.lazy(() => RecipientGetTemplateRecipientFieldMetaNumber$inboundSchema),
+      z.lazy(() => RecipientGetTemplateRecipientFieldMetaRadio$inboundSchema),
+      z.lazy(() =>
+        RecipientGetTemplateRecipientFieldMetaCheckbox$inboundSchema
+      ),
+      z.lazy(() =>
+        RecipientGetTemplateRecipientFieldMetaDropdown$inboundSchema
+      ),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),
@@ -1861,26 +1660,16 @@ export type RecipientGetTemplateRecipientField$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | (RecipientGetTemplateRecipientFieldMetaSignature$Outbound & {
-      type: "signature";
-    })
-    | (RecipientGetTemplateRecipientFieldMetaInitials$Outbound & {
-      type: "initials";
-    })
-    | (RecipientGetTemplateRecipientFieldMetaName$Outbound & { type: "name" })
-    | (RecipientGetTemplateRecipientFieldMetaEmail$Outbound & { type: "email" })
-    | (RecipientGetTemplateRecipientFieldMetaDate$Outbound & { type: "date" })
-    | (RecipientGetTemplateRecipientFieldMetaText$Outbound & { type: "text" })
-    | (RecipientGetTemplateRecipientFieldMetaNumber$Outbound & {
-      type: "number";
-    })
-    | (RecipientGetTemplateRecipientFieldMetaRadio$Outbound & { type: "radio" })
-    | (RecipientGetTemplateRecipientFieldMetaCheckbox$Outbound & {
-      type: "checkbox";
-    })
-    | (RecipientGetTemplateRecipientFieldMetaDropdown$Outbound & {
-      type: "dropdown";
-    })
+    | RecipientGetTemplateRecipientFieldMetaSignature$Outbound
+    | RecipientGetTemplateRecipientFieldMetaInitials$Outbound
+    | RecipientGetTemplateRecipientFieldMetaName$Outbound
+    | RecipientGetTemplateRecipientFieldMetaEmail$Outbound
+    | RecipientGetTemplateRecipientFieldMetaDate$Outbound
+    | RecipientGetTemplateRecipientFieldMetaText$Outbound
+    | RecipientGetTemplateRecipientFieldMetaNumber$Outbound
+    | RecipientGetTemplateRecipientFieldMetaRadio$Outbound
+    | RecipientGetTemplateRecipientFieldMetaCheckbox$Outbound
+    | RecipientGetTemplateRecipientFieldMetaDropdown$Outbound
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -1894,7 +1683,7 @@ export const RecipientGetTemplateRecipientField$outboundSchema: z.ZodType<
 > = z.object({
   envelopeId: z.string(),
   envelopeItemId: z.string(),
-  type: RecipientGetTemplateRecipientType$outboundSchema,
+  type: RecipientGetTemplateRecipientTypeEnum$outboundSchema,
   id: z.number(),
   secondaryId: z.string(),
   recipientId: z.number(),
@@ -1909,28 +1698,22 @@ export const RecipientGetTemplateRecipientField$outboundSchema: z.ZodType<
     z.union([
       z.lazy(() =>
         RecipientGetTemplateRecipientFieldMetaSignature$outboundSchema
-      ).and(z.object({ type: z.literal("signature") })),
+      ),
       z.lazy(() =>
         RecipientGetTemplateRecipientFieldMetaInitials$outboundSchema
-      ).and(z.object({ type: z.literal("initials") })),
-      z.lazy(() => RecipientGetTemplateRecipientFieldMetaName$outboundSchema)
-        .and(z.object({ type: z.literal("name") })),
-      z.lazy(() => RecipientGetTemplateRecipientFieldMetaEmail$outboundSchema)
-        .and(z.object({ type: z.literal("email") })),
-      z.lazy(() => RecipientGetTemplateRecipientFieldMetaDate$outboundSchema)
-        .and(z.object({ type: z.literal("date") })),
-      z.lazy(() => RecipientGetTemplateRecipientFieldMetaText$outboundSchema)
-        .and(z.object({ type: z.literal("text") })),
-      z.lazy(() => RecipientGetTemplateRecipientFieldMetaNumber$outboundSchema)
-        .and(z.object({ type: z.literal("number") })),
-      z.lazy(() => RecipientGetTemplateRecipientFieldMetaRadio$outboundSchema)
-        .and(z.object({ type: z.literal("radio") })),
+      ),
+      z.lazy(() => RecipientGetTemplateRecipientFieldMetaName$outboundSchema),
+      z.lazy(() => RecipientGetTemplateRecipientFieldMetaEmail$outboundSchema),
+      z.lazy(() => RecipientGetTemplateRecipientFieldMetaDate$outboundSchema),
+      z.lazy(() => RecipientGetTemplateRecipientFieldMetaText$outboundSchema),
+      z.lazy(() => RecipientGetTemplateRecipientFieldMetaNumber$outboundSchema),
+      z.lazy(() => RecipientGetTemplateRecipientFieldMetaRadio$outboundSchema),
       z.lazy(() =>
         RecipientGetTemplateRecipientFieldMetaCheckbox$outboundSchema
-      ).and(z.object({ type: z.literal("checkbox") })),
+      ),
       z.lazy(() =>
         RecipientGetTemplateRecipientFieldMetaDropdown$outboundSchema
-      ).and(z.object({ type: z.literal("dropdown") })),
+      ),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),

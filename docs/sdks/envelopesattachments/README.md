@@ -1,5 +1,4 @@
-# EnvelopesAttachments
-(*envelopes.attachments*)
+# Envelopes.Attachments
 
 ## Overview
 
