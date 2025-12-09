@@ -8,6 +8,17 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
+export const EnvelopeRecipientCreateManyEmailEnum = {
+  Unknown: "",
+} as const;
+export type EnvelopeRecipientCreateManyEmailEnum = ClosedEnum<
+  typeof EnvelopeRecipientCreateManyEmailEnum
+>;
+
+export type EnvelopeRecipientCreateManyEmailUnion =
+  | EnvelopeRecipientCreateManyEmailEnum
+  | string;
+
 export const EnvelopeRecipientCreateManyRoleRequest = {
   Cc: "CC",
   Signer: "SIGNER",
@@ -39,7 +50,7 @@ export type EnvelopeRecipientCreateManyActionAuthRequest = ClosedEnum<
 >;
 
 export type EnvelopeRecipientCreateManyDataRequest = {
-  email: string;
+  email: EnvelopeRecipientCreateManyEmailEnum | string;
   name: string;
   role: EnvelopeRecipientCreateManyRoleRequest;
   signingOrder?: number | undefined;
@@ -88,28 +99,28 @@ export type EnvelopeRecipientCreateManySendStatus = ClosedEnum<
   typeof EnvelopeRecipientCreateManySendStatus
 >;
 
-export const EnvelopeRecipientCreateManyAccessAuthResponse = {
+export const EnvelopeRecipientCreateManyAuthOptionsAccessAuth = {
   Account: "ACCOUNT",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
 } as const;
-export type EnvelopeRecipientCreateManyAccessAuthResponse = ClosedEnum<
-  typeof EnvelopeRecipientCreateManyAccessAuthResponse
+export type EnvelopeRecipientCreateManyAuthOptionsAccessAuth = ClosedEnum<
+  typeof EnvelopeRecipientCreateManyAuthOptionsAccessAuth
 >;
 
-export const EnvelopeRecipientCreateManyActionAuthResponse = {
+export const EnvelopeRecipientCreateManyAuthOptionsActionAuth = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
   Password: "PASSWORD",
   ExplicitNone: "EXPLICIT_NONE",
 } as const;
-export type EnvelopeRecipientCreateManyActionAuthResponse = ClosedEnum<
-  typeof EnvelopeRecipientCreateManyActionAuthResponse
+export type EnvelopeRecipientCreateManyAuthOptionsActionAuth = ClosedEnum<
+  typeof EnvelopeRecipientCreateManyAuthOptionsActionAuth
 >;
 
 export type EnvelopeRecipientCreateManyAuthOptions = {
-  accessAuth: Array<EnvelopeRecipientCreateManyAccessAuthResponse>;
-  actionAuth: Array<EnvelopeRecipientCreateManyActionAuthResponse>;
+  accessAuth: Array<EnvelopeRecipientCreateManyAuthOptionsAccessAuth>;
+  actionAuth: Array<EnvelopeRecipientCreateManyAuthOptionsActionAuth>;
 };
 
 export type EnvelopeRecipientCreateManyDataResponse = {
@@ -136,6 +147,52 @@ export type EnvelopeRecipientCreateManyDataResponse = {
 export type EnvelopeRecipientCreateManyResponse = {
   data: Array<EnvelopeRecipientCreateManyDataResponse>;
 };
+
+/** @internal */
+export const EnvelopeRecipientCreateManyEmailEnum$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyEmailEnum> = z.nativeEnum(
+    EnvelopeRecipientCreateManyEmailEnum,
+  );
+/** @internal */
+export const EnvelopeRecipientCreateManyEmailEnum$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyEmailEnum> =
+    EnvelopeRecipientCreateManyEmailEnum$inboundSchema;
+
+/** @internal */
+export const EnvelopeRecipientCreateManyEmailUnion$inboundSchema: z.ZodType<
+  EnvelopeRecipientCreateManyEmailUnion,
+  z.ZodTypeDef,
+  unknown
+> = z.union([EnvelopeRecipientCreateManyEmailEnum$inboundSchema, z.string()]);
+/** @internal */
+export type EnvelopeRecipientCreateManyEmailUnion$Outbound = string | string;
+
+/** @internal */
+export const EnvelopeRecipientCreateManyEmailUnion$outboundSchema: z.ZodType<
+  EnvelopeRecipientCreateManyEmailUnion$Outbound,
+  z.ZodTypeDef,
+  EnvelopeRecipientCreateManyEmailUnion
+> = z.union([EnvelopeRecipientCreateManyEmailEnum$outboundSchema, z.string()]);
+
+export function envelopeRecipientCreateManyEmailUnionToJSON(
+  envelopeRecipientCreateManyEmailUnion: EnvelopeRecipientCreateManyEmailUnion,
+): string {
+  return JSON.stringify(
+    EnvelopeRecipientCreateManyEmailUnion$outboundSchema.parse(
+      envelopeRecipientCreateManyEmailUnion,
+    ),
+  );
+}
+export function envelopeRecipientCreateManyEmailUnionFromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeRecipientCreateManyEmailUnion, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      EnvelopeRecipientCreateManyEmailUnion$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeRecipientCreateManyEmailUnion' from JSON`,
+  );
+}
 
 /** @internal */
 export const EnvelopeRecipientCreateManyRoleRequest$inboundSchema:
@@ -171,7 +228,10 @@ export const EnvelopeRecipientCreateManyDataRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  email: z.string(),
+  email: z.union([
+    EnvelopeRecipientCreateManyEmailEnum$inboundSchema,
+    z.string(),
+  ]),
   name: z.string(),
   role: EnvelopeRecipientCreateManyRoleRequest$inboundSchema,
   signingOrder: z.number().optional(),
@@ -184,7 +244,7 @@ export const EnvelopeRecipientCreateManyDataRequest$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type EnvelopeRecipientCreateManyDataRequest$Outbound = {
-  email: string;
+  email: string | string;
   name: string;
   role: string;
   signingOrder?: number | undefined;
@@ -198,7 +258,10 @@ export const EnvelopeRecipientCreateManyDataRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EnvelopeRecipientCreateManyDataRequest
 > = z.object({
-  email: z.string(),
+  email: z.union([
+    EnvelopeRecipientCreateManyEmailEnum$outboundSchema,
+    z.string(),
+  ]),
   name: z.string(),
   role: EnvelopeRecipientCreateManyRoleRequest$outboundSchema,
   signingOrder: z.number().optional(),
@@ -319,22 +382,22 @@ export const EnvelopeRecipientCreateManySendStatus$outboundSchema:
     EnvelopeRecipientCreateManySendStatus$inboundSchema;
 
 /** @internal */
-export const EnvelopeRecipientCreateManyAccessAuthResponse$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyAccessAuthResponse> = z
-    .nativeEnum(EnvelopeRecipientCreateManyAccessAuthResponse);
+export const EnvelopeRecipientCreateManyAuthOptionsAccessAuth$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyAuthOptionsAccessAuth> = z
+    .nativeEnum(EnvelopeRecipientCreateManyAuthOptionsAccessAuth);
 /** @internal */
-export const EnvelopeRecipientCreateManyAccessAuthResponse$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyAccessAuthResponse> =
-    EnvelopeRecipientCreateManyAccessAuthResponse$inboundSchema;
+export const EnvelopeRecipientCreateManyAuthOptionsAccessAuth$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyAuthOptionsAccessAuth> =
+    EnvelopeRecipientCreateManyAuthOptionsAccessAuth$inboundSchema;
 
 /** @internal */
-export const EnvelopeRecipientCreateManyActionAuthResponse$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyActionAuthResponse> = z
-    .nativeEnum(EnvelopeRecipientCreateManyActionAuthResponse);
+export const EnvelopeRecipientCreateManyAuthOptionsActionAuth$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyAuthOptionsActionAuth> = z
+    .nativeEnum(EnvelopeRecipientCreateManyAuthOptionsActionAuth);
 /** @internal */
-export const EnvelopeRecipientCreateManyActionAuthResponse$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyActionAuthResponse> =
-    EnvelopeRecipientCreateManyActionAuthResponse$inboundSchema;
+export const EnvelopeRecipientCreateManyAuthOptionsActionAuth$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyAuthOptionsActionAuth> =
+    EnvelopeRecipientCreateManyAuthOptionsActionAuth$inboundSchema;
 
 /** @internal */
 export const EnvelopeRecipientCreateManyAuthOptions$inboundSchema: z.ZodType<
@@ -343,10 +406,10 @@ export const EnvelopeRecipientCreateManyAuthOptions$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   accessAuth: z.array(
-    EnvelopeRecipientCreateManyAccessAuthResponse$inboundSchema,
+    EnvelopeRecipientCreateManyAuthOptionsAccessAuth$inboundSchema,
   ),
   actionAuth: z.array(
-    EnvelopeRecipientCreateManyActionAuthResponse$inboundSchema,
+    EnvelopeRecipientCreateManyAuthOptionsActionAuth$inboundSchema,
   ),
 });
 /** @internal */
@@ -362,10 +425,10 @@ export const EnvelopeRecipientCreateManyAuthOptions$outboundSchema: z.ZodType<
   EnvelopeRecipientCreateManyAuthOptions
 > = z.object({
   accessAuth: z.array(
-    EnvelopeRecipientCreateManyAccessAuthResponse$outboundSchema,
+    EnvelopeRecipientCreateManyAuthOptionsAccessAuth$outboundSchema,
   ),
   actionAuth: z.array(
-    EnvelopeRecipientCreateManyActionAuthResponse$outboundSchema,
+    EnvelopeRecipientCreateManyAuthOptionsActionAuth$outboundSchema,
   ),
 });
 

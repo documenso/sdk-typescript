@@ -92,28 +92,28 @@ export type RecipientCreateDocumentRecipientsSendStatus = ClosedEnum<
   typeof RecipientCreateDocumentRecipientsSendStatus
 >;
 
-export const RecipientCreateDocumentRecipientsAccessAuthResponse = {
+export const RecipientCreateDocumentRecipientsAuthOptionsAccessAuth = {
   Account: "ACCOUNT",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
 } as const;
-export type RecipientCreateDocumentRecipientsAccessAuthResponse = ClosedEnum<
-  typeof RecipientCreateDocumentRecipientsAccessAuthResponse
+export type RecipientCreateDocumentRecipientsAuthOptionsAccessAuth = ClosedEnum<
+  typeof RecipientCreateDocumentRecipientsAuthOptionsAccessAuth
 >;
 
-export const RecipientCreateDocumentRecipientsActionAuthResponse = {
+export const RecipientCreateDocumentRecipientsAuthOptionsActionAuth = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
   Password: "PASSWORD",
   ExplicitNone: "EXPLICIT_NONE",
 } as const;
-export type RecipientCreateDocumentRecipientsActionAuthResponse = ClosedEnum<
-  typeof RecipientCreateDocumentRecipientsActionAuthResponse
+export type RecipientCreateDocumentRecipientsAuthOptionsActionAuth = ClosedEnum<
+  typeof RecipientCreateDocumentRecipientsAuthOptionsActionAuth
 >;
 
 export type RecipientCreateDocumentRecipientsAuthOptions = {
-  accessAuth: Array<RecipientCreateDocumentRecipientsAccessAuthResponse>;
-  actionAuth: Array<RecipientCreateDocumentRecipientsActionAuthResponse>;
+  accessAuth: Array<RecipientCreateDocumentRecipientsAuthOptionsAccessAuth>;
+  actionAuth: Array<RecipientCreateDocumentRecipientsAuthOptionsActionAuth>;
 };
 
 export type RecipientCreateDocumentRecipientsRecipientResponse = {
@@ -339,22 +339,26 @@ export const RecipientCreateDocumentRecipientsSendStatus$outboundSchema:
     RecipientCreateDocumentRecipientsSendStatus$inboundSchema;
 
 /** @internal */
-export const RecipientCreateDocumentRecipientsAccessAuthResponse$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientCreateDocumentRecipientsAccessAuthResponse> =
-    z.nativeEnum(RecipientCreateDocumentRecipientsAccessAuthResponse);
+export const RecipientCreateDocumentRecipientsAuthOptionsAccessAuth$inboundSchema:
+  z.ZodNativeEnum<
+    typeof RecipientCreateDocumentRecipientsAuthOptionsAccessAuth
+  > = z.nativeEnum(RecipientCreateDocumentRecipientsAuthOptionsAccessAuth);
 /** @internal */
-export const RecipientCreateDocumentRecipientsAccessAuthResponse$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientCreateDocumentRecipientsAccessAuthResponse> =
-    RecipientCreateDocumentRecipientsAccessAuthResponse$inboundSchema;
+export const RecipientCreateDocumentRecipientsAuthOptionsAccessAuth$outboundSchema:
+  z.ZodNativeEnum<
+    typeof RecipientCreateDocumentRecipientsAuthOptionsAccessAuth
+  > = RecipientCreateDocumentRecipientsAuthOptionsAccessAuth$inboundSchema;
 
 /** @internal */
-export const RecipientCreateDocumentRecipientsActionAuthResponse$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientCreateDocumentRecipientsActionAuthResponse> =
-    z.nativeEnum(RecipientCreateDocumentRecipientsActionAuthResponse);
+export const RecipientCreateDocumentRecipientsAuthOptionsActionAuth$inboundSchema:
+  z.ZodNativeEnum<
+    typeof RecipientCreateDocumentRecipientsAuthOptionsActionAuth
+  > = z.nativeEnum(RecipientCreateDocumentRecipientsAuthOptionsActionAuth);
 /** @internal */
-export const RecipientCreateDocumentRecipientsActionAuthResponse$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientCreateDocumentRecipientsActionAuthResponse> =
-    RecipientCreateDocumentRecipientsActionAuthResponse$inboundSchema;
+export const RecipientCreateDocumentRecipientsAuthOptionsActionAuth$outboundSchema:
+  z.ZodNativeEnum<
+    typeof RecipientCreateDocumentRecipientsAuthOptionsActionAuth
+  > = RecipientCreateDocumentRecipientsAuthOptionsActionAuth$inboundSchema;
 
 /** @internal */
 export const RecipientCreateDocumentRecipientsAuthOptions$inboundSchema:
@@ -364,10 +368,10 @@ export const RecipientCreateDocumentRecipientsAuthOptions$inboundSchema:
     unknown
   > = z.object({
     accessAuth: z.array(
-      RecipientCreateDocumentRecipientsAccessAuthResponse$inboundSchema,
+      RecipientCreateDocumentRecipientsAuthOptionsAccessAuth$inboundSchema,
     ),
     actionAuth: z.array(
-      RecipientCreateDocumentRecipientsActionAuthResponse$inboundSchema,
+      RecipientCreateDocumentRecipientsAuthOptionsActionAuth$inboundSchema,
     ),
   });
 /** @internal */
@@ -384,10 +388,10 @@ export const RecipientCreateDocumentRecipientsAuthOptions$outboundSchema:
     RecipientCreateDocumentRecipientsAuthOptions
   > = z.object({
     accessAuth: z.array(
-      RecipientCreateDocumentRecipientsAccessAuthResponse$outboundSchema,
+      RecipientCreateDocumentRecipientsAuthOptionsAccessAuth$outboundSchema,
     ),
     actionAuth: z.array(
-      RecipientCreateDocumentRecipientsActionAuthResponse$outboundSchema,
+      RecipientCreateDocumentRecipientsAuthOptionsActionAuth$outboundSchema,
     ),
   });
 

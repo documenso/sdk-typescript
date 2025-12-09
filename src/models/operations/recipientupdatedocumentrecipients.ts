@@ -93,31 +93,31 @@ export type RecipientUpdateDocumentRecipientsSendStatus = ClosedEnum<
   typeof RecipientUpdateDocumentRecipientsSendStatus
 >;
 
-export const RecipientUpdateDocumentRecipientsAccessAuthResponse = {
+export const RecipientUpdateDocumentRecipientsAuthOptionsAccessAuth = {
   Account: "ACCOUNT",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
 } as const;
-export type RecipientUpdateDocumentRecipientsAccessAuthResponse = ClosedEnum<
-  typeof RecipientUpdateDocumentRecipientsAccessAuthResponse
+export type RecipientUpdateDocumentRecipientsAuthOptionsAccessAuth = ClosedEnum<
+  typeof RecipientUpdateDocumentRecipientsAuthOptionsAccessAuth
 >;
 
-export const RecipientUpdateDocumentRecipientsActionAuthResponse = {
+export const RecipientUpdateDocumentRecipientsAuthOptionsActionAuth = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
   Password: "PASSWORD",
   ExplicitNone: "EXPLICIT_NONE",
 } as const;
-export type RecipientUpdateDocumentRecipientsActionAuthResponse = ClosedEnum<
-  typeof RecipientUpdateDocumentRecipientsActionAuthResponse
+export type RecipientUpdateDocumentRecipientsAuthOptionsActionAuth = ClosedEnum<
+  typeof RecipientUpdateDocumentRecipientsAuthOptionsActionAuth
 >;
 
 export type RecipientUpdateDocumentRecipientsAuthOptions = {
-  accessAuth: Array<RecipientUpdateDocumentRecipientsAccessAuthResponse>;
-  actionAuth: Array<RecipientUpdateDocumentRecipientsActionAuthResponse>;
+  accessAuth: Array<RecipientUpdateDocumentRecipientsAuthOptionsAccessAuth>;
+  actionAuth: Array<RecipientUpdateDocumentRecipientsAuthOptionsActionAuth>;
 };
 
-export const RecipientUpdateDocumentRecipientsType = {
+export const RecipientUpdateDocumentRecipientsTypeEnum = {
   Signature: "SIGNATURE",
   FreeSignature: "FREE_SIGNATURE",
   Initials: "INITIALS",
@@ -130,15 +130,8 @@ export const RecipientUpdateDocumentRecipientsType = {
   Checkbox: "CHECKBOX",
   Dropdown: "DROPDOWN",
 } as const;
-export type RecipientUpdateDocumentRecipientsType = ClosedEnum<
-  typeof RecipientUpdateDocumentRecipientsType
->;
-
-export const RecipientUpdateDocumentRecipientsTypeDropdown = {
-  Dropdown: "dropdown",
-} as const;
-export type RecipientUpdateDocumentRecipientsTypeDropdown = ClosedEnum<
-  typeof RecipientUpdateDocumentRecipientsTypeDropdown
+export type RecipientUpdateDocumentRecipientsTypeEnum = ClosedEnum<
+  typeof RecipientUpdateDocumentRecipientsTypeEnum
 >;
 
 export type RecipientUpdateDocumentRecipientsValue3 = {
@@ -151,17 +144,10 @@ export type RecipientUpdateDocumentRecipientsFieldMetaDropdown = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: RecipientUpdateDocumentRecipientsTypeDropdown;
+  type: "dropdown";
   values?: Array<RecipientUpdateDocumentRecipientsValue3> | undefined;
   defaultValue?: string | undefined;
 };
-
-export const RecipientUpdateDocumentRecipientsTypeCheckbox = {
-  Checkbox: "checkbox",
-} as const;
-export type RecipientUpdateDocumentRecipientsTypeCheckbox = ClosedEnum<
-  typeof RecipientUpdateDocumentRecipientsTypeCheckbox
->;
 
 export type RecipientUpdateDocumentRecipientsValue2 = {
   id: number;
@@ -183,19 +169,12 @@ export type RecipientUpdateDocumentRecipientsFieldMetaCheckbox = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: RecipientUpdateDocumentRecipientsTypeCheckbox;
+  type: "checkbox";
   values?: Array<RecipientUpdateDocumentRecipientsValue2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
   direction?: RecipientUpdateDocumentRecipientsDirection2 | undefined;
 };
-
-export const RecipientUpdateDocumentRecipientsTypeRadio = {
-  Radio: "radio",
-} as const;
-export type RecipientUpdateDocumentRecipientsTypeRadio = ClosedEnum<
-  typeof RecipientUpdateDocumentRecipientsTypeRadio
->;
 
 export type RecipientUpdateDocumentRecipientsValue1 = {
   id: number;
@@ -217,17 +196,10 @@ export type RecipientUpdateDocumentRecipientsFieldMetaRadio = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: RecipientUpdateDocumentRecipientsTypeRadio;
+  type: "radio";
   values?: Array<RecipientUpdateDocumentRecipientsValue1> | undefined;
   direction?: RecipientUpdateDocumentRecipientsDirection1 | undefined;
 };
-
-export const RecipientUpdateDocumentRecipientsTypeNumber = {
-  Number: "number",
-} as const;
-export type RecipientUpdateDocumentRecipientsTypeNumber = ClosedEnum<
-  typeof RecipientUpdateDocumentRecipientsTypeNumber
->;
 
 export const RecipientUpdateDocumentRecipientsTextAlign6 = {
   Left: "left",
@@ -253,7 +225,7 @@ export type RecipientUpdateDocumentRecipientsFieldMetaNumber = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: RecipientUpdateDocumentRecipientsTypeNumber;
+  type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
   minValue?: number | null | undefined;
@@ -266,13 +238,6 @@ export type RecipientUpdateDocumentRecipientsFieldMetaNumber = {
     | null
     | undefined;
 };
-
-export const RecipientUpdateDocumentRecipientsTypeText = {
-  Text: "text",
-} as const;
-export type RecipientUpdateDocumentRecipientsTypeText = ClosedEnum<
-  typeof RecipientUpdateDocumentRecipientsTypeText
->;
 
 export const RecipientUpdateDocumentRecipientsTextAlign5 = {
   Left: "left",
@@ -298,7 +263,7 @@ export type RecipientUpdateDocumentRecipientsFieldMetaText = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: RecipientUpdateDocumentRecipientsTypeText;
+  type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
   textAlign?: RecipientUpdateDocumentRecipientsTextAlign5 | undefined;
@@ -309,13 +274,6 @@ export type RecipientUpdateDocumentRecipientsFieldMetaText = {
     | null
     | undefined;
 };
-
-export const RecipientUpdateDocumentRecipientsTypeDate = {
-  Date: "date",
-} as const;
-export type RecipientUpdateDocumentRecipientsTypeDate = ClosedEnum<
-  typeof RecipientUpdateDocumentRecipientsTypeDate
->;
 
 export const RecipientUpdateDocumentRecipientsTextAlign4 = {
   Left: "left",
@@ -332,16 +290,9 @@ export type RecipientUpdateDocumentRecipientsFieldMetaDate = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: RecipientUpdateDocumentRecipientsTypeDate;
+  type: "date";
   textAlign?: RecipientUpdateDocumentRecipientsTextAlign4 | undefined;
 };
-
-export const RecipientUpdateDocumentRecipientsTypeEmail = {
-  Email: "email",
-} as const;
-export type RecipientUpdateDocumentRecipientsTypeEmail = ClosedEnum<
-  typeof RecipientUpdateDocumentRecipientsTypeEmail
->;
 
 export const RecipientUpdateDocumentRecipientsTextAlign3 = {
   Left: "left",
@@ -358,16 +309,9 @@ export type RecipientUpdateDocumentRecipientsFieldMetaEmail = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: RecipientUpdateDocumentRecipientsTypeEmail;
+  type: "email";
   textAlign?: RecipientUpdateDocumentRecipientsTextAlign3 | undefined;
 };
-
-export const RecipientUpdateDocumentRecipientsTypeName = {
-  Name: "name",
-} as const;
-export type RecipientUpdateDocumentRecipientsTypeName = ClosedEnum<
-  typeof RecipientUpdateDocumentRecipientsTypeName
->;
 
 export const RecipientUpdateDocumentRecipientsTextAlign2 = {
   Left: "left",
@@ -384,16 +328,9 @@ export type RecipientUpdateDocumentRecipientsFieldMetaName = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: RecipientUpdateDocumentRecipientsTypeName;
+  type: "name";
   textAlign?: RecipientUpdateDocumentRecipientsTextAlign2 | undefined;
 };
-
-export const RecipientUpdateDocumentRecipientsTypeInitials = {
-  Initials: "initials",
-} as const;
-export type RecipientUpdateDocumentRecipientsTypeInitials = ClosedEnum<
-  typeof RecipientUpdateDocumentRecipientsTypeInitials
->;
 
 export const RecipientUpdateDocumentRecipientsTextAlign1 = {
   Left: "left",
@@ -410,16 +347,9 @@ export type RecipientUpdateDocumentRecipientsFieldMetaInitials = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: RecipientUpdateDocumentRecipientsTypeInitials;
+  type: "initials";
   textAlign?: RecipientUpdateDocumentRecipientsTextAlign1 | undefined;
 };
-
-export const RecipientUpdateDocumentRecipientsTypeSignature = {
-  Signature: "signature",
-} as const;
-export type RecipientUpdateDocumentRecipientsTypeSignature = ClosedEnum<
-  typeof RecipientUpdateDocumentRecipientsTypeSignature
->;
 
 export type RecipientUpdateDocumentRecipientsFieldMetaSignature = {
   label?: string | undefined;
@@ -427,27 +357,25 @@ export type RecipientUpdateDocumentRecipientsFieldMetaSignature = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: RecipientUpdateDocumentRecipientsTypeSignature;
+  type: "signature";
 };
 
 export type RecipientUpdateDocumentRecipientsFieldMetaUnion =
-  | (RecipientUpdateDocumentRecipientsFieldMetaSignature & {
-    type: "signature";
-  })
-  | (RecipientUpdateDocumentRecipientsFieldMetaInitials & { type: "initials" })
-  | (RecipientUpdateDocumentRecipientsFieldMetaName & { type: "name" })
-  | (RecipientUpdateDocumentRecipientsFieldMetaEmail & { type: "email" })
-  | (RecipientUpdateDocumentRecipientsFieldMetaDate & { type: "date" })
-  | (RecipientUpdateDocumentRecipientsFieldMetaText & { type: "text" })
-  | (RecipientUpdateDocumentRecipientsFieldMetaNumber & { type: "number" })
-  | (RecipientUpdateDocumentRecipientsFieldMetaRadio & { type: "radio" })
-  | (RecipientUpdateDocumentRecipientsFieldMetaCheckbox & { type: "checkbox" })
-  | (RecipientUpdateDocumentRecipientsFieldMetaDropdown & { type: "dropdown" });
+  | RecipientUpdateDocumentRecipientsFieldMetaSignature
+  | RecipientUpdateDocumentRecipientsFieldMetaInitials
+  | RecipientUpdateDocumentRecipientsFieldMetaName
+  | RecipientUpdateDocumentRecipientsFieldMetaEmail
+  | RecipientUpdateDocumentRecipientsFieldMetaDate
+  | RecipientUpdateDocumentRecipientsFieldMetaText
+  | RecipientUpdateDocumentRecipientsFieldMetaNumber
+  | RecipientUpdateDocumentRecipientsFieldMetaRadio
+  | RecipientUpdateDocumentRecipientsFieldMetaCheckbox
+  | RecipientUpdateDocumentRecipientsFieldMetaDropdown;
 
 export type RecipientUpdateDocumentRecipientsField = {
   envelopeId: string;
   envelopeItemId: string;
-  type: RecipientUpdateDocumentRecipientsType;
+  type: RecipientUpdateDocumentRecipientsTypeEnum;
   id: number;
   secondaryId: string;
   recipientId: number;
@@ -459,24 +387,16 @@ export type RecipientUpdateDocumentRecipientsField = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | (RecipientUpdateDocumentRecipientsFieldMetaSignature & {
-      type: "signature";
-    })
-    | (RecipientUpdateDocumentRecipientsFieldMetaInitials & {
-      type: "initials";
-    })
-    | (RecipientUpdateDocumentRecipientsFieldMetaName & { type: "name" })
-    | (RecipientUpdateDocumentRecipientsFieldMetaEmail & { type: "email" })
-    | (RecipientUpdateDocumentRecipientsFieldMetaDate & { type: "date" })
-    | (RecipientUpdateDocumentRecipientsFieldMetaText & { type: "text" })
-    | (RecipientUpdateDocumentRecipientsFieldMetaNumber & { type: "number" })
-    | (RecipientUpdateDocumentRecipientsFieldMetaRadio & { type: "radio" })
-    | (RecipientUpdateDocumentRecipientsFieldMetaCheckbox & {
-      type: "checkbox";
-    })
-    | (RecipientUpdateDocumentRecipientsFieldMetaDropdown & {
-      type: "dropdown";
-    })
+    | RecipientUpdateDocumentRecipientsFieldMetaSignature
+    | RecipientUpdateDocumentRecipientsFieldMetaInitials
+    | RecipientUpdateDocumentRecipientsFieldMetaName
+    | RecipientUpdateDocumentRecipientsFieldMetaEmail
+    | RecipientUpdateDocumentRecipientsFieldMetaDate
+    | RecipientUpdateDocumentRecipientsFieldMetaText
+    | RecipientUpdateDocumentRecipientsFieldMetaNumber
+    | RecipientUpdateDocumentRecipientsFieldMetaRadio
+    | RecipientUpdateDocumentRecipientsFieldMetaCheckbox
+    | RecipientUpdateDocumentRecipientsFieldMetaDropdown
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -710,22 +630,26 @@ export const RecipientUpdateDocumentRecipientsSendStatus$outboundSchema:
     RecipientUpdateDocumentRecipientsSendStatus$inboundSchema;
 
 /** @internal */
-export const RecipientUpdateDocumentRecipientsAccessAuthResponse$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsAccessAuthResponse> =
-    z.nativeEnum(RecipientUpdateDocumentRecipientsAccessAuthResponse);
+export const RecipientUpdateDocumentRecipientsAuthOptionsAccessAuth$inboundSchema:
+  z.ZodNativeEnum<
+    typeof RecipientUpdateDocumentRecipientsAuthOptionsAccessAuth
+  > = z.nativeEnum(RecipientUpdateDocumentRecipientsAuthOptionsAccessAuth);
 /** @internal */
-export const RecipientUpdateDocumentRecipientsAccessAuthResponse$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsAccessAuthResponse> =
-    RecipientUpdateDocumentRecipientsAccessAuthResponse$inboundSchema;
+export const RecipientUpdateDocumentRecipientsAuthOptionsAccessAuth$outboundSchema:
+  z.ZodNativeEnum<
+    typeof RecipientUpdateDocumentRecipientsAuthOptionsAccessAuth
+  > = RecipientUpdateDocumentRecipientsAuthOptionsAccessAuth$inboundSchema;
 
 /** @internal */
-export const RecipientUpdateDocumentRecipientsActionAuthResponse$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsActionAuthResponse> =
-    z.nativeEnum(RecipientUpdateDocumentRecipientsActionAuthResponse);
+export const RecipientUpdateDocumentRecipientsAuthOptionsActionAuth$inboundSchema:
+  z.ZodNativeEnum<
+    typeof RecipientUpdateDocumentRecipientsAuthOptionsActionAuth
+  > = z.nativeEnum(RecipientUpdateDocumentRecipientsAuthOptionsActionAuth);
 /** @internal */
-export const RecipientUpdateDocumentRecipientsActionAuthResponse$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsActionAuthResponse> =
-    RecipientUpdateDocumentRecipientsActionAuthResponse$inboundSchema;
+export const RecipientUpdateDocumentRecipientsAuthOptionsActionAuth$outboundSchema:
+  z.ZodNativeEnum<
+    typeof RecipientUpdateDocumentRecipientsAuthOptionsActionAuth
+  > = RecipientUpdateDocumentRecipientsAuthOptionsActionAuth$inboundSchema;
 
 /** @internal */
 export const RecipientUpdateDocumentRecipientsAuthOptions$inboundSchema:
@@ -735,10 +659,10 @@ export const RecipientUpdateDocumentRecipientsAuthOptions$inboundSchema:
     unknown
   > = z.object({
     accessAuth: z.array(
-      RecipientUpdateDocumentRecipientsAccessAuthResponse$inboundSchema,
+      RecipientUpdateDocumentRecipientsAuthOptionsAccessAuth$inboundSchema,
     ),
     actionAuth: z.array(
-      RecipientUpdateDocumentRecipientsActionAuthResponse$inboundSchema,
+      RecipientUpdateDocumentRecipientsAuthOptionsActionAuth$inboundSchema,
     ),
   });
 /** @internal */
@@ -755,10 +679,10 @@ export const RecipientUpdateDocumentRecipientsAuthOptions$outboundSchema:
     RecipientUpdateDocumentRecipientsAuthOptions
   > = z.object({
     accessAuth: z.array(
-      RecipientUpdateDocumentRecipientsAccessAuthResponse$outboundSchema,
+      RecipientUpdateDocumentRecipientsAuthOptionsAccessAuth$outboundSchema,
     ),
     actionAuth: z.array(
-      RecipientUpdateDocumentRecipientsActionAuthResponse$outboundSchema,
+      RecipientUpdateDocumentRecipientsAuthOptionsActionAuth$outboundSchema,
     ),
   });
 
@@ -789,23 +713,13 @@ export function recipientUpdateDocumentRecipientsAuthOptionsFromJSON(
 }
 
 /** @internal */
-export const RecipientUpdateDocumentRecipientsType$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsType> = z.nativeEnum(
-    RecipientUpdateDocumentRecipientsType,
-  );
+export const RecipientUpdateDocumentRecipientsTypeEnum$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsTypeEnum> = z
+    .nativeEnum(RecipientUpdateDocumentRecipientsTypeEnum);
 /** @internal */
-export const RecipientUpdateDocumentRecipientsType$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsType> =
-    RecipientUpdateDocumentRecipientsType$inboundSchema;
-
-/** @internal */
-export const RecipientUpdateDocumentRecipientsTypeDropdown$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsTypeDropdown> = z
-    .nativeEnum(RecipientUpdateDocumentRecipientsTypeDropdown);
-/** @internal */
-export const RecipientUpdateDocumentRecipientsTypeDropdown$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsTypeDropdown> =
-    RecipientUpdateDocumentRecipientsTypeDropdown$inboundSchema;
+export const RecipientUpdateDocumentRecipientsTypeEnum$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsTypeEnum> =
+    RecipientUpdateDocumentRecipientsTypeEnum$inboundSchema;
 
 /** @internal */
 export const RecipientUpdateDocumentRecipientsValue3$inboundSchema: z.ZodType<
@@ -867,7 +781,7 @@ export const RecipientUpdateDocumentRecipientsFieldMetaDropdown$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientUpdateDocumentRecipientsTypeDropdown$inboundSchema,
+    type: z.literal("dropdown"),
     values: z.array(
       z.lazy(() => RecipientUpdateDocumentRecipientsValue3$inboundSchema),
     ).optional(),
@@ -880,7 +794,7 @@ export type RecipientUpdateDocumentRecipientsFieldMetaDropdown$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "dropdown";
   values?: Array<RecipientUpdateDocumentRecipientsValue3$Outbound> | undefined;
   defaultValue?: string | undefined;
 };
@@ -897,7 +811,7 @@ export const RecipientUpdateDocumentRecipientsFieldMetaDropdown$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientUpdateDocumentRecipientsTypeDropdown$outboundSchema,
+    type: z.literal("dropdown"),
     values: z.array(
       z.lazy(() => RecipientUpdateDocumentRecipientsValue3$outboundSchema),
     ).optional(),
@@ -929,15 +843,6 @@ export function recipientUpdateDocumentRecipientsFieldMetaDropdownFromJSON(
     `Failed to parse 'RecipientUpdateDocumentRecipientsFieldMetaDropdown' from JSON`,
   );
 }
-
-/** @internal */
-export const RecipientUpdateDocumentRecipientsTypeCheckbox$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsTypeCheckbox> = z
-    .nativeEnum(RecipientUpdateDocumentRecipientsTypeCheckbox);
-/** @internal */
-export const RecipientUpdateDocumentRecipientsTypeCheckbox$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsTypeCheckbox> =
-    RecipientUpdateDocumentRecipientsTypeCheckbox$inboundSchema;
 
 /** @internal */
 export const RecipientUpdateDocumentRecipientsValue2$inboundSchema: z.ZodType<
@@ -1014,7 +919,7 @@ export const RecipientUpdateDocumentRecipientsFieldMetaCheckbox$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientUpdateDocumentRecipientsTypeCheckbox$inboundSchema,
+    type: z.literal("checkbox"),
     values: z.array(
       z.lazy(() => RecipientUpdateDocumentRecipientsValue2$inboundSchema),
     ).optional(),
@@ -1030,7 +935,7 @@ export type RecipientUpdateDocumentRecipientsFieldMetaCheckbox$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "checkbox";
   values?: Array<RecipientUpdateDocumentRecipientsValue2$Outbound> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
@@ -1049,7 +954,7 @@ export const RecipientUpdateDocumentRecipientsFieldMetaCheckbox$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientUpdateDocumentRecipientsTypeCheckbox$outboundSchema,
+    type: z.literal("checkbox"),
     values: z.array(
       z.lazy(() => RecipientUpdateDocumentRecipientsValue2$outboundSchema),
     ).optional(),
@@ -1084,15 +989,6 @@ export function recipientUpdateDocumentRecipientsFieldMetaCheckboxFromJSON(
     `Failed to parse 'RecipientUpdateDocumentRecipientsFieldMetaCheckbox' from JSON`,
   );
 }
-
-/** @internal */
-export const RecipientUpdateDocumentRecipientsTypeRadio$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsTypeRadio> = z
-    .nativeEnum(RecipientUpdateDocumentRecipientsTypeRadio);
-/** @internal */
-export const RecipientUpdateDocumentRecipientsTypeRadio$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsTypeRadio> =
-    RecipientUpdateDocumentRecipientsTypeRadio$inboundSchema;
 
 /** @internal */
 export const RecipientUpdateDocumentRecipientsValue1$inboundSchema: z.ZodType<
@@ -1169,7 +1065,7 @@ export const RecipientUpdateDocumentRecipientsFieldMetaRadio$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientUpdateDocumentRecipientsTypeRadio$inboundSchema,
+    type: z.literal("radio"),
     values: z.array(
       z.lazy(() => RecipientUpdateDocumentRecipientsValue1$inboundSchema),
     ).optional(),
@@ -1183,7 +1079,7 @@ export type RecipientUpdateDocumentRecipientsFieldMetaRadio$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "radio";
   values?: Array<RecipientUpdateDocumentRecipientsValue1$Outbound> | undefined;
   direction: string;
 };
@@ -1200,7 +1096,7 @@ export const RecipientUpdateDocumentRecipientsFieldMetaRadio$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientUpdateDocumentRecipientsTypeRadio$outboundSchema,
+    type: z.literal("radio"),
     values: z.array(
       z.lazy(() => RecipientUpdateDocumentRecipientsValue1$outboundSchema),
     ).optional(),
@@ -1235,15 +1131,6 @@ export function recipientUpdateDocumentRecipientsFieldMetaRadioFromJSON(
 }
 
 /** @internal */
-export const RecipientUpdateDocumentRecipientsTypeNumber$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsTypeNumber> = z
-    .nativeEnum(RecipientUpdateDocumentRecipientsTypeNumber);
-/** @internal */
-export const RecipientUpdateDocumentRecipientsTypeNumber$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsTypeNumber> =
-    RecipientUpdateDocumentRecipientsTypeNumber$inboundSchema;
-
-/** @internal */
 export const RecipientUpdateDocumentRecipientsTextAlign6$inboundSchema:
   z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsTextAlign6> = z
     .nativeEnum(RecipientUpdateDocumentRecipientsTextAlign6);
@@ -1273,7 +1160,7 @@ export const RecipientUpdateDocumentRecipientsFieldMetaNumber$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientUpdateDocumentRecipientsTypeNumber$inboundSchema,
+    type: z.literal("number"),
     numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
     minValue: z.nullable(z.number()).optional(),
@@ -1293,7 +1180,7 @@ export type RecipientUpdateDocumentRecipientsFieldMetaNumber$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
   minValue?: number | null | undefined;
@@ -1316,7 +1203,7 @@ export const RecipientUpdateDocumentRecipientsFieldMetaNumber$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientUpdateDocumentRecipientsTypeNumber$outboundSchema,
+    type: z.literal("number"),
     numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
     minValue: z.nullable(z.number()).optional(),
@@ -1357,15 +1244,6 @@ export function recipientUpdateDocumentRecipientsFieldMetaNumberFromJSON(
 }
 
 /** @internal */
-export const RecipientUpdateDocumentRecipientsTypeText$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsTypeText> = z
-    .nativeEnum(RecipientUpdateDocumentRecipientsTypeText);
-/** @internal */
-export const RecipientUpdateDocumentRecipientsTypeText$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsTypeText> =
-    RecipientUpdateDocumentRecipientsTypeText$inboundSchema;
-
-/** @internal */
 export const RecipientUpdateDocumentRecipientsTextAlign5$inboundSchema:
   z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsTextAlign5> = z
     .nativeEnum(RecipientUpdateDocumentRecipientsTextAlign5);
@@ -1395,7 +1273,7 @@ export const RecipientUpdateDocumentRecipientsFieldMetaText$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientUpdateDocumentRecipientsTypeText$inboundSchema,
+    type: z.literal("text"),
     text: z.string().optional(),
     characterLimit: z.number().optional(),
     textAlign: RecipientUpdateDocumentRecipientsTextAlign5$inboundSchema
@@ -1413,7 +1291,7 @@ export type RecipientUpdateDocumentRecipientsFieldMetaText$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
   textAlign?: string | undefined;
@@ -1434,7 +1312,7 @@ export const RecipientUpdateDocumentRecipientsFieldMetaText$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientUpdateDocumentRecipientsTypeText$outboundSchema,
+    type: z.literal("text"),
     text: z.string().optional(),
     characterLimit: z.number().optional(),
     textAlign: RecipientUpdateDocumentRecipientsTextAlign5$outboundSchema
@@ -1473,15 +1351,6 @@ export function recipientUpdateDocumentRecipientsFieldMetaTextFromJSON(
 }
 
 /** @internal */
-export const RecipientUpdateDocumentRecipientsTypeDate$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsTypeDate> = z
-    .nativeEnum(RecipientUpdateDocumentRecipientsTypeDate);
-/** @internal */
-export const RecipientUpdateDocumentRecipientsTypeDate$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsTypeDate> =
-    RecipientUpdateDocumentRecipientsTypeDate$inboundSchema;
-
-/** @internal */
 export const RecipientUpdateDocumentRecipientsTextAlign4$inboundSchema:
   z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsTextAlign4> = z
     .nativeEnum(RecipientUpdateDocumentRecipientsTextAlign4);
@@ -1502,7 +1371,7 @@ export const RecipientUpdateDocumentRecipientsFieldMetaDate$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientUpdateDocumentRecipientsTypeDate$inboundSchema,
+    type: z.literal("date"),
     textAlign: RecipientUpdateDocumentRecipientsTextAlign4$inboundSchema
       .optional(),
   });
@@ -1513,7 +1382,7 @@ export type RecipientUpdateDocumentRecipientsFieldMetaDate$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "date";
   textAlign?: string | undefined;
 };
 
@@ -1529,7 +1398,7 @@ export const RecipientUpdateDocumentRecipientsFieldMetaDate$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientUpdateDocumentRecipientsTypeDate$outboundSchema,
+    type: z.literal("date"),
     textAlign: RecipientUpdateDocumentRecipientsTextAlign4$outboundSchema
       .optional(),
   });
@@ -1561,15 +1430,6 @@ export function recipientUpdateDocumentRecipientsFieldMetaDateFromJSON(
 }
 
 /** @internal */
-export const RecipientUpdateDocumentRecipientsTypeEmail$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsTypeEmail> = z
-    .nativeEnum(RecipientUpdateDocumentRecipientsTypeEmail);
-/** @internal */
-export const RecipientUpdateDocumentRecipientsTypeEmail$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsTypeEmail> =
-    RecipientUpdateDocumentRecipientsTypeEmail$inboundSchema;
-
-/** @internal */
 export const RecipientUpdateDocumentRecipientsTextAlign3$inboundSchema:
   z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsTextAlign3> = z
     .nativeEnum(RecipientUpdateDocumentRecipientsTextAlign3);
@@ -1590,7 +1450,7 @@ export const RecipientUpdateDocumentRecipientsFieldMetaEmail$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientUpdateDocumentRecipientsTypeEmail$inboundSchema,
+    type: z.literal("email"),
     textAlign: RecipientUpdateDocumentRecipientsTextAlign3$inboundSchema
       .optional(),
   });
@@ -1601,7 +1461,7 @@ export type RecipientUpdateDocumentRecipientsFieldMetaEmail$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "email";
   textAlign?: string | undefined;
 };
 
@@ -1617,7 +1477,7 @@ export const RecipientUpdateDocumentRecipientsFieldMetaEmail$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientUpdateDocumentRecipientsTypeEmail$outboundSchema,
+    type: z.literal("email"),
     textAlign: RecipientUpdateDocumentRecipientsTextAlign3$outboundSchema
       .optional(),
   });
@@ -1649,15 +1509,6 @@ export function recipientUpdateDocumentRecipientsFieldMetaEmailFromJSON(
 }
 
 /** @internal */
-export const RecipientUpdateDocumentRecipientsTypeName$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsTypeName> = z
-    .nativeEnum(RecipientUpdateDocumentRecipientsTypeName);
-/** @internal */
-export const RecipientUpdateDocumentRecipientsTypeName$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsTypeName> =
-    RecipientUpdateDocumentRecipientsTypeName$inboundSchema;
-
-/** @internal */
 export const RecipientUpdateDocumentRecipientsTextAlign2$inboundSchema:
   z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsTextAlign2> = z
     .nativeEnum(RecipientUpdateDocumentRecipientsTextAlign2);
@@ -1678,7 +1529,7 @@ export const RecipientUpdateDocumentRecipientsFieldMetaName$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientUpdateDocumentRecipientsTypeName$inboundSchema,
+    type: z.literal("name"),
     textAlign: RecipientUpdateDocumentRecipientsTextAlign2$inboundSchema
       .optional(),
   });
@@ -1689,7 +1540,7 @@ export type RecipientUpdateDocumentRecipientsFieldMetaName$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "name";
   textAlign?: string | undefined;
 };
 
@@ -1705,7 +1556,7 @@ export const RecipientUpdateDocumentRecipientsFieldMetaName$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientUpdateDocumentRecipientsTypeName$outboundSchema,
+    type: z.literal("name"),
     textAlign: RecipientUpdateDocumentRecipientsTextAlign2$outboundSchema
       .optional(),
   });
@@ -1737,15 +1588,6 @@ export function recipientUpdateDocumentRecipientsFieldMetaNameFromJSON(
 }
 
 /** @internal */
-export const RecipientUpdateDocumentRecipientsTypeInitials$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsTypeInitials> = z
-    .nativeEnum(RecipientUpdateDocumentRecipientsTypeInitials);
-/** @internal */
-export const RecipientUpdateDocumentRecipientsTypeInitials$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsTypeInitials> =
-    RecipientUpdateDocumentRecipientsTypeInitials$inboundSchema;
-
-/** @internal */
 export const RecipientUpdateDocumentRecipientsTextAlign1$inboundSchema:
   z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsTextAlign1> = z
     .nativeEnum(RecipientUpdateDocumentRecipientsTextAlign1);
@@ -1766,7 +1608,7 @@ export const RecipientUpdateDocumentRecipientsFieldMetaInitials$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientUpdateDocumentRecipientsTypeInitials$inboundSchema,
+    type: z.literal("initials"),
     textAlign: RecipientUpdateDocumentRecipientsTextAlign1$inboundSchema
       .optional(),
   });
@@ -1777,7 +1619,7 @@ export type RecipientUpdateDocumentRecipientsFieldMetaInitials$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "initials";
   textAlign?: string | undefined;
 };
 
@@ -1793,7 +1635,7 @@ export const RecipientUpdateDocumentRecipientsFieldMetaInitials$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientUpdateDocumentRecipientsTypeInitials$outboundSchema,
+    type: z.literal("initials"),
     textAlign: RecipientUpdateDocumentRecipientsTextAlign1$outboundSchema
       .optional(),
   });
@@ -1825,15 +1667,6 @@ export function recipientUpdateDocumentRecipientsFieldMetaInitialsFromJSON(
 }
 
 /** @internal */
-export const RecipientUpdateDocumentRecipientsTypeSignature$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsTypeSignature> = z
-    .nativeEnum(RecipientUpdateDocumentRecipientsTypeSignature);
-/** @internal */
-export const RecipientUpdateDocumentRecipientsTypeSignature$outboundSchema:
-  z.ZodNativeEnum<typeof RecipientUpdateDocumentRecipientsTypeSignature> =
-    RecipientUpdateDocumentRecipientsTypeSignature$inboundSchema;
-
-/** @internal */
 export const RecipientUpdateDocumentRecipientsFieldMetaSignature$inboundSchema:
   z.ZodType<
     RecipientUpdateDocumentRecipientsFieldMetaSignature,
@@ -1845,7 +1678,7 @@ export const RecipientUpdateDocumentRecipientsFieldMetaSignature$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientUpdateDocumentRecipientsTypeSignature$inboundSchema,
+    type: z.literal("signature"),
   });
 /** @internal */
 export type RecipientUpdateDocumentRecipientsFieldMetaSignature$Outbound = {
@@ -1854,7 +1687,7 @@ export type RecipientUpdateDocumentRecipientsFieldMetaSignature$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "signature";
 };
 
 /** @internal */
@@ -1869,7 +1702,7 @@ export const RecipientUpdateDocumentRecipientsFieldMetaSignature$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: RecipientUpdateDocumentRecipientsTypeSignature$outboundSchema,
+    type: z.literal("signature"),
   });
 
 export function recipientUpdateDocumentRecipientsFieldMetaSignatureToJSON(
@@ -1907,55 +1740,37 @@ export const RecipientUpdateDocumentRecipientsFieldMetaUnion$inboundSchema:
   > = z.union([
     z.lazy(() =>
       RecipientUpdateDocumentRecipientsFieldMetaSignature$inboundSchema
-    ).and(z.object({ type: z.literal("signature") })),
+    ),
     z.lazy(() =>
       RecipientUpdateDocumentRecipientsFieldMetaInitials$inboundSchema
-    ).and(z.object({ type: z.literal("initials") })),
-    z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaName$inboundSchema)
-      .and(z.object({ type: z.literal("name") })),
-    z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaEmail$inboundSchema)
-      .and(z.object({ type: z.literal("email") })),
-    z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaDate$inboundSchema)
-      .and(z.object({ type: z.literal("date") })),
-    z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaText$inboundSchema)
-      .and(z.object({ type: z.literal("text") })),
-    z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaNumber$inboundSchema)
-      .and(z.object({ type: z.literal("number") })),
-    z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaRadio$inboundSchema)
-      .and(z.object({ type: z.literal("radio") })),
+    ),
+    z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaName$inboundSchema),
+    z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaEmail$inboundSchema),
+    z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaDate$inboundSchema),
+    z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaText$inboundSchema),
+    z.lazy(() =>
+      RecipientUpdateDocumentRecipientsFieldMetaNumber$inboundSchema
+    ),
+    z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaRadio$inboundSchema),
     z.lazy(() =>
       RecipientUpdateDocumentRecipientsFieldMetaCheckbox$inboundSchema
-    ).and(z.object({ type: z.literal("checkbox") })),
+    ),
     z.lazy(() =>
       RecipientUpdateDocumentRecipientsFieldMetaDropdown$inboundSchema
-    ).and(z.object({ type: z.literal("dropdown") })),
+    ),
   ]);
 /** @internal */
 export type RecipientUpdateDocumentRecipientsFieldMetaUnion$Outbound =
-  | (RecipientUpdateDocumentRecipientsFieldMetaSignature$Outbound & {
-    type: "signature";
-  })
-  | (RecipientUpdateDocumentRecipientsFieldMetaInitials$Outbound & {
-    type: "initials";
-  })
-  | (RecipientUpdateDocumentRecipientsFieldMetaName$Outbound & { type: "name" })
-  | (RecipientUpdateDocumentRecipientsFieldMetaEmail$Outbound & {
-    type: "email";
-  })
-  | (RecipientUpdateDocumentRecipientsFieldMetaDate$Outbound & { type: "date" })
-  | (RecipientUpdateDocumentRecipientsFieldMetaText$Outbound & { type: "text" })
-  | (RecipientUpdateDocumentRecipientsFieldMetaNumber$Outbound & {
-    type: "number";
-  })
-  | (RecipientUpdateDocumentRecipientsFieldMetaRadio$Outbound & {
-    type: "radio";
-  })
-  | (RecipientUpdateDocumentRecipientsFieldMetaCheckbox$Outbound & {
-    type: "checkbox";
-  })
-  | (RecipientUpdateDocumentRecipientsFieldMetaDropdown$Outbound & {
-    type: "dropdown";
-  });
+  | RecipientUpdateDocumentRecipientsFieldMetaSignature$Outbound
+  | RecipientUpdateDocumentRecipientsFieldMetaInitials$Outbound
+  | RecipientUpdateDocumentRecipientsFieldMetaName$Outbound
+  | RecipientUpdateDocumentRecipientsFieldMetaEmail$Outbound
+  | RecipientUpdateDocumentRecipientsFieldMetaDate$Outbound
+  | RecipientUpdateDocumentRecipientsFieldMetaText$Outbound
+  | RecipientUpdateDocumentRecipientsFieldMetaNumber$Outbound
+  | RecipientUpdateDocumentRecipientsFieldMetaRadio$Outbound
+  | RecipientUpdateDocumentRecipientsFieldMetaCheckbox$Outbound
+  | RecipientUpdateDocumentRecipientsFieldMetaDropdown$Outbound;
 
 /** @internal */
 export const RecipientUpdateDocumentRecipientsFieldMetaUnion$outboundSchema:
@@ -1966,29 +1781,28 @@ export const RecipientUpdateDocumentRecipientsFieldMetaUnion$outboundSchema:
   > = z.union([
     z.lazy(() =>
       RecipientUpdateDocumentRecipientsFieldMetaSignature$outboundSchema
-    ).and(z.object({ type: z.literal("signature") })),
+    ),
     z.lazy(() =>
       RecipientUpdateDocumentRecipientsFieldMetaInitials$outboundSchema
-    ).and(z.object({ type: z.literal("initials") })),
-    z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaName$outboundSchema)
-      .and(z.object({ type: z.literal("name") })),
-    z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaEmail$outboundSchema)
-      .and(z.object({ type: z.literal("email") })),
-    z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaDate$outboundSchema)
-      .and(z.object({ type: z.literal("date") })),
-    z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaText$outboundSchema)
-      .and(z.object({ type: z.literal("text") })),
+    ),
+    z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaName$outboundSchema),
+    z.lazy(() =>
+      RecipientUpdateDocumentRecipientsFieldMetaEmail$outboundSchema
+    ),
+    z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaDate$outboundSchema),
+    z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaText$outboundSchema),
     z.lazy(() =>
       RecipientUpdateDocumentRecipientsFieldMetaNumber$outboundSchema
-    ).and(z.object({ type: z.literal("number") })),
-    z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaRadio$outboundSchema)
-      .and(z.object({ type: z.literal("radio") })),
+    ),
+    z.lazy(() =>
+      RecipientUpdateDocumentRecipientsFieldMetaRadio$outboundSchema
+    ),
     z.lazy(() =>
       RecipientUpdateDocumentRecipientsFieldMetaCheckbox$outboundSchema
-    ).and(z.object({ type: z.literal("checkbox") })),
+    ),
     z.lazy(() =>
       RecipientUpdateDocumentRecipientsFieldMetaDropdown$outboundSchema
-    ).and(z.object({ type: z.literal("dropdown") })),
+    ),
   ]);
 
 export function recipientUpdateDocumentRecipientsFieldMetaUnionToJSON(
@@ -2025,7 +1839,7 @@ export const RecipientUpdateDocumentRecipientsField$inboundSchema: z.ZodType<
 > = z.object({
   envelopeId: z.string(),
   envelopeItemId: z.string(),
-  type: RecipientUpdateDocumentRecipientsType$inboundSchema,
+  type: RecipientUpdateDocumentRecipientsTypeEnum$inboundSchema,
   id: z.number(),
   secondaryId: z.string(),
   recipientId: z.number(),
@@ -2040,31 +1854,34 @@ export const RecipientUpdateDocumentRecipientsField$inboundSchema: z.ZodType<
     z.union([
       z.lazy(() =>
         RecipientUpdateDocumentRecipientsFieldMetaSignature$inboundSchema
-      ).and(z.object({ type: z.literal("signature") })),
+      ),
       z.lazy(() =>
         RecipientUpdateDocumentRecipientsFieldMetaInitials$inboundSchema
-      ).and(z.object({ type: z.literal("initials") })),
-      z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaName$inboundSchema)
-        .and(z.object({ type: z.literal("name") })),
+      ),
+      z.lazy(() =>
+        RecipientUpdateDocumentRecipientsFieldMetaName$inboundSchema
+      ),
       z.lazy(() =>
         RecipientUpdateDocumentRecipientsFieldMetaEmail$inboundSchema
-      ).and(z.object({ type: z.literal("email") })),
-      z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaDate$inboundSchema)
-        .and(z.object({ type: z.literal("date") })),
-      z.lazy(() => RecipientUpdateDocumentRecipientsFieldMetaText$inboundSchema)
-        .and(z.object({ type: z.literal("text") })),
+      ),
+      z.lazy(() =>
+        RecipientUpdateDocumentRecipientsFieldMetaDate$inboundSchema
+      ),
+      z.lazy(() =>
+        RecipientUpdateDocumentRecipientsFieldMetaText$inboundSchema
+      ),
       z.lazy(() =>
         RecipientUpdateDocumentRecipientsFieldMetaNumber$inboundSchema
-      ).and(z.object({ type: z.literal("number") })),
+      ),
       z.lazy(() =>
         RecipientUpdateDocumentRecipientsFieldMetaRadio$inboundSchema
-      ).and(z.object({ type: z.literal("radio") })),
+      ),
       z.lazy(() =>
         RecipientUpdateDocumentRecipientsFieldMetaCheckbox$inboundSchema
-      ).and(z.object({ type: z.literal("checkbox") })),
+      ),
       z.lazy(() =>
         RecipientUpdateDocumentRecipientsFieldMetaDropdown$inboundSchema
-      ).and(z.object({ type: z.literal("dropdown") })),
+      ),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),
@@ -2086,36 +1903,16 @@ export type RecipientUpdateDocumentRecipientsField$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | (RecipientUpdateDocumentRecipientsFieldMetaSignature$Outbound & {
-      type: "signature";
-    })
-    | (RecipientUpdateDocumentRecipientsFieldMetaInitials$Outbound & {
-      type: "initials";
-    })
-    | (RecipientUpdateDocumentRecipientsFieldMetaName$Outbound & {
-      type: "name";
-    })
-    | (RecipientUpdateDocumentRecipientsFieldMetaEmail$Outbound & {
-      type: "email";
-    })
-    | (RecipientUpdateDocumentRecipientsFieldMetaDate$Outbound & {
-      type: "date";
-    })
-    | (RecipientUpdateDocumentRecipientsFieldMetaText$Outbound & {
-      type: "text";
-    })
-    | (RecipientUpdateDocumentRecipientsFieldMetaNumber$Outbound & {
-      type: "number";
-    })
-    | (RecipientUpdateDocumentRecipientsFieldMetaRadio$Outbound & {
-      type: "radio";
-    })
-    | (RecipientUpdateDocumentRecipientsFieldMetaCheckbox$Outbound & {
-      type: "checkbox";
-    })
-    | (RecipientUpdateDocumentRecipientsFieldMetaDropdown$Outbound & {
-      type: "dropdown";
-    })
+    | RecipientUpdateDocumentRecipientsFieldMetaSignature$Outbound
+    | RecipientUpdateDocumentRecipientsFieldMetaInitials$Outbound
+    | RecipientUpdateDocumentRecipientsFieldMetaName$Outbound
+    | RecipientUpdateDocumentRecipientsFieldMetaEmail$Outbound
+    | RecipientUpdateDocumentRecipientsFieldMetaDate$Outbound
+    | RecipientUpdateDocumentRecipientsFieldMetaText$Outbound
+    | RecipientUpdateDocumentRecipientsFieldMetaNumber$Outbound
+    | RecipientUpdateDocumentRecipientsFieldMetaRadio$Outbound
+    | RecipientUpdateDocumentRecipientsFieldMetaCheckbox$Outbound
+    | RecipientUpdateDocumentRecipientsFieldMetaDropdown$Outbound
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -2129,7 +1926,7 @@ export const RecipientUpdateDocumentRecipientsField$outboundSchema: z.ZodType<
 > = z.object({
   envelopeId: z.string(),
   envelopeItemId: z.string(),
-  type: RecipientUpdateDocumentRecipientsType$outboundSchema,
+  type: RecipientUpdateDocumentRecipientsTypeEnum$outboundSchema,
   id: z.number(),
   secondaryId: z.string(),
   recipientId: z.number(),
@@ -2144,34 +1941,34 @@ export const RecipientUpdateDocumentRecipientsField$outboundSchema: z.ZodType<
     z.union([
       z.lazy(() =>
         RecipientUpdateDocumentRecipientsFieldMetaSignature$outboundSchema
-      ).and(z.object({ type: z.literal("signature") })),
+      ),
       z.lazy(() =>
         RecipientUpdateDocumentRecipientsFieldMetaInitials$outboundSchema
-      ).and(z.object({ type: z.literal("initials") })),
+      ),
       z.lazy(() =>
         RecipientUpdateDocumentRecipientsFieldMetaName$outboundSchema
-      ).and(z.object({ type: z.literal("name") })),
+      ),
       z.lazy(() =>
         RecipientUpdateDocumentRecipientsFieldMetaEmail$outboundSchema
-      ).and(z.object({ type: z.literal("email") })),
+      ),
       z.lazy(() =>
         RecipientUpdateDocumentRecipientsFieldMetaDate$outboundSchema
-      ).and(z.object({ type: z.literal("date") })),
+      ),
       z.lazy(() =>
         RecipientUpdateDocumentRecipientsFieldMetaText$outboundSchema
-      ).and(z.object({ type: z.literal("text") })),
+      ),
       z.lazy(() =>
         RecipientUpdateDocumentRecipientsFieldMetaNumber$outboundSchema
-      ).and(z.object({ type: z.literal("number") })),
+      ),
       z.lazy(() =>
         RecipientUpdateDocumentRecipientsFieldMetaRadio$outboundSchema
-      ).and(z.object({ type: z.literal("radio") })),
+      ),
       z.lazy(() =>
         RecipientUpdateDocumentRecipientsFieldMetaCheckbox$outboundSchema
-      ).and(z.object({ type: z.literal("checkbox") })),
+      ),
       z.lazy(() =>
         RecipientUpdateDocumentRecipientsFieldMetaDropdown$outboundSchema
-      ).and(z.object({ type: z.literal("dropdown") })),
+      ),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),

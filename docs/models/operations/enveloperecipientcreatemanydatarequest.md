@@ -6,9 +6,9 @@
 import { EnvelopeRecipientCreateManyDataRequest } from "@documenso/sdk-typescript/models/operations";
 
 let value: EnvelopeRecipientCreateManyDataRequest = {
-  email: "Zora_Bode@gmail.com",
+  email: "",
   name: "<value>",
-  role: "APPROVER",
+  role: "ASSISTANT",
 };
 ```
 
@@ -16,7 +16,7 @@ let value: EnvelopeRecipientCreateManyDataRequest = {
 
 | Field                                                                                                                                | Type                                                                                                                                 | Required                                                                                                                             | Description                                                                                                                          |
 | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `email`                                                                                                                              | *string*                                                                                                                             | :heavy_check_mark:                                                                                                                   | N/A                                                                                                                                  |
+| `email`                                                                                                                              | *operations.EnvelopeRecipientCreateManyEmailUnion*                                                                                   | :heavy_check_mark:                                                                                                                   | N/A                                                                                                                                  |
 | `name`                                                                                                                               | *string*                                                                                                                             | :heavy_check_mark:                                                                                                                   | N/A                                                                                                                                  |
 | `role`                                                                                                                               | [operations.EnvelopeRecipientCreateManyRoleRequest](../../models/operations/enveloperecipientcreatemanyrolerequest.md)               | :heavy_check_mark:                                                                                                                   | N/A                                                                                                                                  |
 | `signingOrder`                                                                                                                       | *number*                                                                                                                             | :heavy_minus_sign:                                                                                                                   | N/A                                                                                                                                  |

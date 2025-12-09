@@ -1,5 +1,4 @@
 # Embedding
-(*embedding*)
 
 ## Overview
 

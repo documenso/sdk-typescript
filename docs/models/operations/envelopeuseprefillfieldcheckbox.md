@@ -13,9 +13,9 @@ let value: EnvelopeUsePrefillFieldCheckbox = {
 
 ## Fields
 
-| Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `type`                                                                                   | [operations.EnvelopeUseTypeCheckbox](../../models/operations/envelopeusetypecheckbox.md) | :heavy_check_mark:                                                                       | N/A                                                                                      |
-| `label`                                                                                  | *string*                                                                                 | :heavy_minus_sign:                                                                       | N/A                                                                                      |
-| `value`                                                                                  | *string*[]                                                                               | :heavy_minus_sign:                                                                       | N/A                                                                                      |
-| `id`                                                                                     | *number*                                                                                 | :heavy_check_mark:                                                                       | N/A                                                                                      |
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `type`             | *"checkbox"*       | :heavy_check_mark: | N/A                |
+| `label`            | *string*           | :heavy_minus_sign: | N/A                |
+| `value`            | *string*[]         | :heavy_minus_sign: | N/A                |
+| `id`               | *number*           | :heavy_check_mark: | N/A                |

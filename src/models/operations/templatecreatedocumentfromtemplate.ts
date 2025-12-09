@@ -8,9 +8,20 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
+export const TemplateCreateDocumentFromTemplateEmailEnum = {
+  Unknown: "",
+} as const;
+export type TemplateCreateDocumentFromTemplateEmailEnum = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateEmailEnum
+>;
+
+export type TemplateCreateDocumentFromTemplateEmailUnion =
+  | TemplateCreateDocumentFromTemplateEmailEnum
+  | string;
+
 export type TemplateCreateDocumentFromTemplateRecipientRequest = {
   id: number;
-  email: string;
+  email: TemplateCreateDocumentFromTemplateEmailEnum | string;
   name?: string | undefined;
 };
 
@@ -19,81 +30,43 @@ export type TemplateCreateDocumentFromTemplateCustomDocumentDatum = {
   envelopeItemId: string;
 };
 
-export const TemplateCreateDocumentFromTemplatePrefillFieldTypeDate = {
-  Date: "date",
-} as const;
-export type TemplateCreateDocumentFromTemplatePrefillFieldTypeDate = ClosedEnum<
-  typeof TemplateCreateDocumentFromTemplatePrefillFieldTypeDate
->;
-
 export type TemplateCreateDocumentFromTemplatePrefillFieldDate = {
-  type: TemplateCreateDocumentFromTemplatePrefillFieldTypeDate;
+  type: "date";
   value?: string | undefined;
   id: number;
 };
 
-export const TemplateCreateDocumentFromTemplatePrefillFieldTypeDropdown = {
-  Dropdown: "dropdown",
-} as const;
-export type TemplateCreateDocumentFromTemplatePrefillFieldTypeDropdown =
-  ClosedEnum<typeof TemplateCreateDocumentFromTemplatePrefillFieldTypeDropdown>;
-
 export type TemplateCreateDocumentFromTemplatePrefillFieldDropdown = {
-  type: TemplateCreateDocumentFromTemplatePrefillFieldTypeDropdown;
+  type: "dropdown";
   label?: string | undefined;
   value?: string | undefined;
   id: number;
 };
 
-export const TemplateCreateDocumentFromTemplatePrefillFieldTypeCheckbox = {
-  Checkbox: "checkbox",
-} as const;
-export type TemplateCreateDocumentFromTemplatePrefillFieldTypeCheckbox =
-  ClosedEnum<typeof TemplateCreateDocumentFromTemplatePrefillFieldTypeCheckbox>;
-
 export type TemplateCreateDocumentFromTemplatePrefillFieldCheckbox = {
-  type: TemplateCreateDocumentFromTemplatePrefillFieldTypeCheckbox;
+  type: "checkbox";
   label?: string | undefined;
   value?: Array<string> | undefined;
   id: number;
 };
 
-export const TemplateCreateDocumentFromTemplatePrefillFieldTypeRadio = {
-  Radio: "radio",
-} as const;
-export type TemplateCreateDocumentFromTemplatePrefillFieldTypeRadio =
-  ClosedEnum<typeof TemplateCreateDocumentFromTemplatePrefillFieldTypeRadio>;
-
 export type TemplateCreateDocumentFromTemplatePrefillFieldRadio = {
-  type: TemplateCreateDocumentFromTemplatePrefillFieldTypeRadio;
+  type: "radio";
   label?: string | undefined;
   value?: string | undefined;
   id: number;
 };
 
-export const TemplateCreateDocumentFromTemplatePrefillFieldTypeNumber = {
-  Number: "number",
-} as const;
-export type TemplateCreateDocumentFromTemplatePrefillFieldTypeNumber =
-  ClosedEnum<typeof TemplateCreateDocumentFromTemplatePrefillFieldTypeNumber>;
-
 export type TemplateCreateDocumentFromTemplatePrefillFieldNumber = {
-  type: TemplateCreateDocumentFromTemplatePrefillFieldTypeNumber;
+  type: "number";
   label?: string | undefined;
   placeholder?: string | undefined;
   value?: string | undefined;
   id: number;
 };
 
-export const TemplateCreateDocumentFromTemplatePrefillFieldTypeText = {
-  Text: "text",
-} as const;
-export type TemplateCreateDocumentFromTemplatePrefillFieldTypeText = ClosedEnum<
-  typeof TemplateCreateDocumentFromTemplatePrefillFieldTypeText
->;
-
 export type TemplateCreateDocumentFromTemplatePrefillFieldText = {
-  type: TemplateCreateDocumentFromTemplatePrefillFieldTypeText;
+  type: "text";
   label?: string | undefined;
   placeholder?: string | undefined;
   value?: string | undefined;
@@ -101,16 +74,12 @@ export type TemplateCreateDocumentFromTemplatePrefillFieldText = {
 };
 
 export type TemplateCreateDocumentFromTemplatePrefillFieldUnion =
-  | (TemplateCreateDocumentFromTemplatePrefillFieldText & { type: "text" })
-  | (TemplateCreateDocumentFromTemplatePrefillFieldNumber & { type: "number" })
-  | (TemplateCreateDocumentFromTemplatePrefillFieldRadio & { type: "radio" })
-  | (TemplateCreateDocumentFromTemplatePrefillFieldCheckbox & {
-    type: "checkbox";
-  })
-  | (TemplateCreateDocumentFromTemplatePrefillFieldDropdown & {
-    type: "dropdown";
-  })
-  | (TemplateCreateDocumentFromTemplatePrefillFieldDate & { type: "date" });
+  | TemplateCreateDocumentFromTemplatePrefillFieldText
+  | TemplateCreateDocumentFromTemplatePrefillFieldNumber
+  | TemplateCreateDocumentFromTemplatePrefillFieldRadio
+  | TemplateCreateDocumentFromTemplatePrefillFieldCheckbox
+  | TemplateCreateDocumentFromTemplatePrefillFieldDropdown
+  | TemplateCreateDocumentFromTemplatePrefillFieldDate;
 
 export const TemplateCreateDocumentFromTemplateDateFormat = {
   YyyyMMddHhMmA: "yyyy-MM-dd hh:mm a",
@@ -165,6 +134,7 @@ export const TemplateCreateDocumentFromTemplateLanguage = {
   Fr: "fr",
   Es: "es",
   It: "it",
+  Nl: "nl",
   Pl: "pl",
   PtBR: "pt-BR",
   Ja: "ja",
@@ -210,6 +180,7 @@ export type TemplateCreateDocumentFromTemplateAttachment = {
 
 export type TemplateCreateDocumentFromTemplateRequest = {
   templateId: number;
+  externalId?: string | undefined;
   recipients: Array<TemplateCreateDocumentFromTemplateRecipientRequest>;
   distributeDocument?: boolean | undefined;
   customDocumentDataId?: string | undefined;
@@ -219,20 +190,12 @@ export type TemplateCreateDocumentFromTemplateRequest = {
   folderId?: string | undefined;
   prefillFields?:
     | Array<
-      | (TemplateCreateDocumentFromTemplatePrefillFieldText & { type: "text" })
-      | (TemplateCreateDocumentFromTemplatePrefillFieldNumber & {
-        type: "number";
-      })
-      | (TemplateCreateDocumentFromTemplatePrefillFieldRadio & {
-        type: "radio";
-      })
-      | (TemplateCreateDocumentFromTemplatePrefillFieldCheckbox & {
-        type: "checkbox";
-      })
-      | (TemplateCreateDocumentFromTemplatePrefillFieldDropdown & {
-        type: "dropdown";
-      })
-      | (TemplateCreateDocumentFromTemplatePrefillFieldDate & { type: "date" })
+      | TemplateCreateDocumentFromTemplatePrefillFieldText
+      | TemplateCreateDocumentFromTemplatePrefillFieldNumber
+      | TemplateCreateDocumentFromTemplatePrefillFieldRadio
+      | TemplateCreateDocumentFromTemplatePrefillFieldCheckbox
+      | TemplateCreateDocumentFromTemplatePrefillFieldDropdown
+      | TemplateCreateDocumentFromTemplatePrefillFieldDate
     >
     | undefined;
   override?: TemplateCreateDocumentFromTemplateOverride | undefined;
@@ -479,7 +442,7 @@ export type TemplateCreateDocumentFromTemplateRecipientResponse = {
   templateId?: number | null | undefined;
 };
 
-export const TemplateCreateDocumentFromTemplateFieldType = {
+export const TemplateCreateDocumentFromTemplateFieldTypeEnum = {
   Signature: "SIGNATURE",
   FreeSignature: "FREE_SIGNATURE",
   Initials: "INITIALS",
@@ -492,15 +455,9 @@ export const TemplateCreateDocumentFromTemplateFieldType = {
   Checkbox: "CHECKBOX",
   Dropdown: "DROPDOWN",
 } as const;
-export type TemplateCreateDocumentFromTemplateFieldType = ClosedEnum<
-  typeof TemplateCreateDocumentFromTemplateFieldType
+export type TemplateCreateDocumentFromTemplateFieldTypeEnum = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateFieldTypeEnum
 >;
-
-export const TemplateCreateDocumentFromTemplateFieldMetaTypeDropdown = {
-  Dropdown: "dropdown",
-} as const;
-export type TemplateCreateDocumentFromTemplateFieldMetaTypeDropdown =
-  ClosedEnum<typeof TemplateCreateDocumentFromTemplateFieldMetaTypeDropdown>;
 
 export type TemplateCreateDocumentFromTemplateValue3 = {
   value: string;
@@ -512,16 +469,10 @@ export type TemplateCreateDocumentFromTemplateFieldMetaDropdown = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateCreateDocumentFromTemplateFieldMetaTypeDropdown;
+  type: "dropdown";
   values?: Array<TemplateCreateDocumentFromTemplateValue3> | undefined;
   defaultValue?: string | undefined;
 };
-
-export const TemplateCreateDocumentFromTemplateFieldMetaTypeCheckbox = {
-  Checkbox: "checkbox",
-} as const;
-export type TemplateCreateDocumentFromTemplateFieldMetaTypeCheckbox =
-  ClosedEnum<typeof TemplateCreateDocumentFromTemplateFieldMetaTypeCheckbox>;
 
 export type TemplateCreateDocumentFromTemplateValue2 = {
   id: number;
@@ -543,19 +494,12 @@ export type TemplateCreateDocumentFromTemplateFieldMetaCheckbox = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateCreateDocumentFromTemplateFieldMetaTypeCheckbox;
+  type: "checkbox";
   values?: Array<TemplateCreateDocumentFromTemplateValue2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
   direction?: TemplateCreateDocumentFromTemplateDirection2 | undefined;
 };
-
-export const TemplateCreateDocumentFromTemplateFieldMetaTypeRadio = {
-  Radio: "radio",
-} as const;
-export type TemplateCreateDocumentFromTemplateFieldMetaTypeRadio = ClosedEnum<
-  typeof TemplateCreateDocumentFromTemplateFieldMetaTypeRadio
->;
 
 export type TemplateCreateDocumentFromTemplateValue1 = {
   id: number;
@@ -577,17 +521,10 @@ export type TemplateCreateDocumentFromTemplateFieldMetaRadio = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateCreateDocumentFromTemplateFieldMetaTypeRadio;
+  type: "radio";
   values?: Array<TemplateCreateDocumentFromTemplateValue1> | undefined;
   direction?: TemplateCreateDocumentFromTemplateDirection1 | undefined;
 };
-
-export const TemplateCreateDocumentFromTemplateFieldMetaTypeNumber = {
-  Number: "number",
-} as const;
-export type TemplateCreateDocumentFromTemplateFieldMetaTypeNumber = ClosedEnum<
-  typeof TemplateCreateDocumentFromTemplateFieldMetaTypeNumber
->;
 
 export const TemplateCreateDocumentFromTemplateTextAlign6 = {
   Left: "left",
@@ -613,7 +550,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaNumber = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateCreateDocumentFromTemplateFieldMetaTypeNumber;
+  type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
   minValue?: number | null | undefined;
@@ -626,13 +563,6 @@ export type TemplateCreateDocumentFromTemplateFieldMetaNumber = {
     | null
     | undefined;
 };
-
-export const TemplateCreateDocumentFromTemplateFieldMetaTypeText = {
-  Text: "text",
-} as const;
-export type TemplateCreateDocumentFromTemplateFieldMetaTypeText = ClosedEnum<
-  typeof TemplateCreateDocumentFromTemplateFieldMetaTypeText
->;
 
 export const TemplateCreateDocumentFromTemplateTextAlign5 = {
   Left: "left",
@@ -658,7 +588,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaText = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateCreateDocumentFromTemplateFieldMetaTypeText;
+  type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
   textAlign?: TemplateCreateDocumentFromTemplateTextAlign5 | undefined;
@@ -669,13 +599,6 @@ export type TemplateCreateDocumentFromTemplateFieldMetaText = {
     | null
     | undefined;
 };
-
-export const TemplateCreateDocumentFromTemplateFieldMetaTypeDate = {
-  Date: "date",
-} as const;
-export type TemplateCreateDocumentFromTemplateFieldMetaTypeDate = ClosedEnum<
-  typeof TemplateCreateDocumentFromTemplateFieldMetaTypeDate
->;
 
 export const TemplateCreateDocumentFromTemplateTextAlign4 = {
   Left: "left",
@@ -692,16 +615,9 @@ export type TemplateCreateDocumentFromTemplateFieldMetaDate = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateCreateDocumentFromTemplateFieldMetaTypeDate;
+  type: "date";
   textAlign?: TemplateCreateDocumentFromTemplateTextAlign4 | undefined;
 };
-
-export const TemplateCreateDocumentFromTemplateTypeEmail = {
-  Email: "email",
-} as const;
-export type TemplateCreateDocumentFromTemplateTypeEmail = ClosedEnum<
-  typeof TemplateCreateDocumentFromTemplateTypeEmail
->;
 
 export const TemplateCreateDocumentFromTemplateTextAlign3 = {
   Left: "left",
@@ -718,16 +634,9 @@ export type TemplateCreateDocumentFromTemplateFieldMetaEmail = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateCreateDocumentFromTemplateTypeEmail;
+  type: "email";
   textAlign?: TemplateCreateDocumentFromTemplateTextAlign3 | undefined;
 };
-
-export const TemplateCreateDocumentFromTemplateTypeName = {
-  Name: "name",
-} as const;
-export type TemplateCreateDocumentFromTemplateTypeName = ClosedEnum<
-  typeof TemplateCreateDocumentFromTemplateTypeName
->;
 
 export const TemplateCreateDocumentFromTemplateTextAlign2 = {
   Left: "left",
@@ -744,16 +653,9 @@ export type TemplateCreateDocumentFromTemplateFieldMetaName = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateCreateDocumentFromTemplateTypeName;
+  type: "name";
   textAlign?: TemplateCreateDocumentFromTemplateTextAlign2 | undefined;
 };
-
-export const TemplateCreateDocumentFromTemplateTypeInitials = {
-  Initials: "initials",
-} as const;
-export type TemplateCreateDocumentFromTemplateTypeInitials = ClosedEnum<
-  typeof TemplateCreateDocumentFromTemplateTypeInitials
->;
 
 export const TemplateCreateDocumentFromTemplateTextAlign1 = {
   Left: "left",
@@ -770,16 +672,9 @@ export type TemplateCreateDocumentFromTemplateFieldMetaInitials = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateCreateDocumentFromTemplateTypeInitials;
+  type: "initials";
   textAlign?: TemplateCreateDocumentFromTemplateTextAlign1 | undefined;
 };
-
-export const TemplateCreateDocumentFromTemplateTypeSignature = {
-  Signature: "signature",
-} as const;
-export type TemplateCreateDocumentFromTemplateTypeSignature = ClosedEnum<
-  typeof TemplateCreateDocumentFromTemplateTypeSignature
->;
 
 export type TemplateCreateDocumentFromTemplateFieldMetaSignature = {
   label?: string | undefined;
@@ -787,29 +682,25 @@ export type TemplateCreateDocumentFromTemplateFieldMetaSignature = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateCreateDocumentFromTemplateTypeSignature;
+  type: "signature";
 };
 
 export type TemplateCreateDocumentFromTemplateFieldMetaUnion =
-  | (TemplateCreateDocumentFromTemplateFieldMetaSignature & {
-    type: "signature";
-  })
-  | (TemplateCreateDocumentFromTemplateFieldMetaInitials & { type: "initials" })
-  | (TemplateCreateDocumentFromTemplateFieldMetaName & { type: "name" })
-  | (TemplateCreateDocumentFromTemplateFieldMetaEmail & { type: "email" })
-  | (TemplateCreateDocumentFromTemplateFieldMetaDate & { type: "date" })
-  | (TemplateCreateDocumentFromTemplateFieldMetaText & { type: "text" })
-  | (TemplateCreateDocumentFromTemplateFieldMetaNumber & { type: "number" })
-  | (TemplateCreateDocumentFromTemplateFieldMetaRadio & { type: "radio" })
-  | (TemplateCreateDocumentFromTemplateFieldMetaCheckbox & { type: "checkbox" })
-  | (TemplateCreateDocumentFromTemplateFieldMetaDropdown & {
-    type: "dropdown";
-  });
+  | TemplateCreateDocumentFromTemplateFieldMetaSignature
+  | TemplateCreateDocumentFromTemplateFieldMetaInitials
+  | TemplateCreateDocumentFromTemplateFieldMetaName
+  | TemplateCreateDocumentFromTemplateFieldMetaEmail
+  | TemplateCreateDocumentFromTemplateFieldMetaDate
+  | TemplateCreateDocumentFromTemplateFieldMetaText
+  | TemplateCreateDocumentFromTemplateFieldMetaNumber
+  | TemplateCreateDocumentFromTemplateFieldMetaRadio
+  | TemplateCreateDocumentFromTemplateFieldMetaCheckbox
+  | TemplateCreateDocumentFromTemplateFieldMetaDropdown;
 
 export type TemplateCreateDocumentFromTemplateField = {
   envelopeId: string;
   envelopeItemId: string;
-  type: TemplateCreateDocumentFromTemplateFieldType;
+  type: TemplateCreateDocumentFromTemplateFieldTypeEnum;
   id: number;
   secondaryId: string;
   recipientId: number;
@@ -821,24 +712,16 @@ export type TemplateCreateDocumentFromTemplateField = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | (TemplateCreateDocumentFromTemplateFieldMetaSignature & {
-      type: "signature";
-    })
-    | (TemplateCreateDocumentFromTemplateFieldMetaInitials & {
-      type: "initials";
-    })
-    | (TemplateCreateDocumentFromTemplateFieldMetaName & { type: "name" })
-    | (TemplateCreateDocumentFromTemplateFieldMetaEmail & { type: "email" })
-    | (TemplateCreateDocumentFromTemplateFieldMetaDate & { type: "date" })
-    | (TemplateCreateDocumentFromTemplateFieldMetaText & { type: "text" })
-    | (TemplateCreateDocumentFromTemplateFieldMetaNumber & { type: "number" })
-    | (TemplateCreateDocumentFromTemplateFieldMetaRadio & { type: "radio" })
-    | (TemplateCreateDocumentFromTemplateFieldMetaCheckbox & {
-      type: "checkbox";
-    })
-    | (TemplateCreateDocumentFromTemplateFieldMetaDropdown & {
-      type: "dropdown";
-    })
+    | TemplateCreateDocumentFromTemplateFieldMetaSignature
+    | TemplateCreateDocumentFromTemplateFieldMetaInitials
+    | TemplateCreateDocumentFromTemplateFieldMetaName
+    | TemplateCreateDocumentFromTemplateFieldMetaEmail
+    | TemplateCreateDocumentFromTemplateFieldMetaDate
+    | TemplateCreateDocumentFromTemplateFieldMetaText
+    | TemplateCreateDocumentFromTemplateFieldMetaNumber
+    | TemplateCreateDocumentFromTemplateFieldMetaRadio
+    | TemplateCreateDocumentFromTemplateFieldMetaCheckbox
+    | TemplateCreateDocumentFromTemplateFieldMetaDropdown
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -876,6 +759,67 @@ export type TemplateCreateDocumentFromTemplateResponse = {
 };
 
 /** @internal */
+export const TemplateCreateDocumentFromTemplateEmailEnum$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateEmailEnum> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateEmailEnum);
+/** @internal */
+export const TemplateCreateDocumentFromTemplateEmailEnum$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateEmailEnum> =
+    TemplateCreateDocumentFromTemplateEmailEnum$inboundSchema;
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateEmailUnion$inboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateEmailUnion,
+    z.ZodTypeDef,
+    unknown
+  > = z.union([
+    TemplateCreateDocumentFromTemplateEmailEnum$inboundSchema,
+    z.string(),
+  ]);
+/** @internal */
+export type TemplateCreateDocumentFromTemplateEmailUnion$Outbound =
+  | string
+  | string;
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateEmailUnion$outboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateEmailUnion$Outbound,
+    z.ZodTypeDef,
+    TemplateCreateDocumentFromTemplateEmailUnion
+  > = z.union([
+    TemplateCreateDocumentFromTemplateEmailEnum$outboundSchema,
+    z.string(),
+  ]);
+
+export function templateCreateDocumentFromTemplateEmailUnionToJSON(
+  templateCreateDocumentFromTemplateEmailUnion:
+    TemplateCreateDocumentFromTemplateEmailUnion,
+): string {
+  return JSON.stringify(
+    TemplateCreateDocumentFromTemplateEmailUnion$outboundSchema.parse(
+      templateCreateDocumentFromTemplateEmailUnion,
+    ),
+  );
+}
+export function templateCreateDocumentFromTemplateEmailUnionFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  TemplateCreateDocumentFromTemplateEmailUnion,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      TemplateCreateDocumentFromTemplateEmailUnion$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'TemplateCreateDocumentFromTemplateEmailUnion' from JSON`,
+  );
+}
+
+/** @internal */
 export const TemplateCreateDocumentFromTemplateRecipientRequest$inboundSchema:
   z.ZodType<
     TemplateCreateDocumentFromTemplateRecipientRequest,
@@ -883,13 +827,16 @@ export const TemplateCreateDocumentFromTemplateRecipientRequest$inboundSchema:
     unknown
   > = z.object({
     id: z.number(),
-    email: z.string(),
+    email: z.union([
+      TemplateCreateDocumentFromTemplateEmailEnum$inboundSchema,
+      z.string(),
+    ]),
     name: z.string().optional(),
   });
 /** @internal */
 export type TemplateCreateDocumentFromTemplateRecipientRequest$Outbound = {
   id: number;
-  email: string;
+  email: string | string;
   name?: string | undefined;
 };
 
@@ -901,7 +848,10 @@ export const TemplateCreateDocumentFromTemplateRecipientRequest$outboundSchema:
     TemplateCreateDocumentFromTemplateRecipientRequest
   > = z.object({
     id: z.number(),
-    email: z.string(),
+    email: z.union([
+      TemplateCreateDocumentFromTemplateEmailEnum$outboundSchema,
+      z.string(),
+    ]),
     name: z.string().optional(),
   });
 
@@ -985,30 +935,19 @@ export function templateCreateDocumentFromTemplateCustomDocumentDatumFromJSON(
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplatePrefillFieldTypeDate$inboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplatePrefillFieldTypeDate
-  > = z.nativeEnum(TemplateCreateDocumentFromTemplatePrefillFieldTypeDate);
-/** @internal */
-export const TemplateCreateDocumentFromTemplatePrefillFieldTypeDate$outboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplatePrefillFieldTypeDate
-  > = TemplateCreateDocumentFromTemplatePrefillFieldTypeDate$inboundSchema;
-
-/** @internal */
 export const TemplateCreateDocumentFromTemplatePrefillFieldDate$inboundSchema:
   z.ZodType<
     TemplateCreateDocumentFromTemplatePrefillFieldDate,
     z.ZodTypeDef,
     unknown
   > = z.object({
-    type: TemplateCreateDocumentFromTemplatePrefillFieldTypeDate$inboundSchema,
+    type: z.literal("date"),
     value: z.string().optional(),
     id: z.number(),
   });
 /** @internal */
 export type TemplateCreateDocumentFromTemplatePrefillFieldDate$Outbound = {
-  type: string;
+  type: "date";
   value?: string | undefined;
   id: number;
 };
@@ -1020,7 +959,7 @@ export const TemplateCreateDocumentFromTemplatePrefillFieldDate$outboundSchema:
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplatePrefillFieldDate
   > = z.object({
-    type: TemplateCreateDocumentFromTemplatePrefillFieldTypeDate$outboundSchema,
+    type: z.literal("date"),
     value: z.string().optional(),
     id: z.number(),
   });
@@ -1052,32 +991,20 @@ export function templateCreateDocumentFromTemplatePrefillFieldDateFromJSON(
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplatePrefillFieldTypeDropdown$inboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplatePrefillFieldTypeDropdown
-  > = z.nativeEnum(TemplateCreateDocumentFromTemplatePrefillFieldTypeDropdown);
-/** @internal */
-export const TemplateCreateDocumentFromTemplatePrefillFieldTypeDropdown$outboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplatePrefillFieldTypeDropdown
-  > = TemplateCreateDocumentFromTemplatePrefillFieldTypeDropdown$inboundSchema;
-
-/** @internal */
 export const TemplateCreateDocumentFromTemplatePrefillFieldDropdown$inboundSchema:
   z.ZodType<
     TemplateCreateDocumentFromTemplatePrefillFieldDropdown,
     z.ZodTypeDef,
     unknown
   > = z.object({
-    type:
-      TemplateCreateDocumentFromTemplatePrefillFieldTypeDropdown$inboundSchema,
+    type: z.literal("dropdown"),
     label: z.string().optional(),
     value: z.string().optional(),
     id: z.number(),
   });
 /** @internal */
 export type TemplateCreateDocumentFromTemplatePrefillFieldDropdown$Outbound = {
-  type: string;
+  type: "dropdown";
   label?: string | undefined;
   value?: string | undefined;
   id: number;
@@ -1090,8 +1017,7 @@ export const TemplateCreateDocumentFromTemplatePrefillFieldDropdown$outboundSche
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplatePrefillFieldDropdown
   > = z.object({
-    type:
-      TemplateCreateDocumentFromTemplatePrefillFieldTypeDropdown$outboundSchema,
+    type: z.literal("dropdown"),
     label: z.string().optional(),
     value: z.string().optional(),
     id: z.number(),
@@ -1123,32 +1049,20 @@ export function templateCreateDocumentFromTemplatePrefillFieldDropdownFromJSON(
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplatePrefillFieldTypeCheckbox$inboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplatePrefillFieldTypeCheckbox
-  > = z.nativeEnum(TemplateCreateDocumentFromTemplatePrefillFieldTypeCheckbox);
-/** @internal */
-export const TemplateCreateDocumentFromTemplatePrefillFieldTypeCheckbox$outboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplatePrefillFieldTypeCheckbox
-  > = TemplateCreateDocumentFromTemplatePrefillFieldTypeCheckbox$inboundSchema;
-
-/** @internal */
 export const TemplateCreateDocumentFromTemplatePrefillFieldCheckbox$inboundSchema:
   z.ZodType<
     TemplateCreateDocumentFromTemplatePrefillFieldCheckbox,
     z.ZodTypeDef,
     unknown
   > = z.object({
-    type:
-      TemplateCreateDocumentFromTemplatePrefillFieldTypeCheckbox$inboundSchema,
+    type: z.literal("checkbox"),
     label: z.string().optional(),
     value: z.array(z.string()).optional(),
     id: z.number(),
   });
 /** @internal */
 export type TemplateCreateDocumentFromTemplatePrefillFieldCheckbox$Outbound = {
-  type: string;
+  type: "checkbox";
   label?: string | undefined;
   value?: Array<string> | undefined;
   id: number;
@@ -1161,8 +1075,7 @@ export const TemplateCreateDocumentFromTemplatePrefillFieldCheckbox$outboundSche
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplatePrefillFieldCheckbox
   > = z.object({
-    type:
-      TemplateCreateDocumentFromTemplatePrefillFieldTypeCheckbox$outboundSchema,
+    type: z.literal("checkbox"),
     label: z.string().optional(),
     value: z.array(z.string()).optional(),
     id: z.number(),
@@ -1194,31 +1107,20 @@ export function templateCreateDocumentFromTemplatePrefillFieldCheckboxFromJSON(
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplatePrefillFieldTypeRadio$inboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplatePrefillFieldTypeRadio
-  > = z.nativeEnum(TemplateCreateDocumentFromTemplatePrefillFieldTypeRadio);
-/** @internal */
-export const TemplateCreateDocumentFromTemplatePrefillFieldTypeRadio$outboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplatePrefillFieldTypeRadio
-  > = TemplateCreateDocumentFromTemplatePrefillFieldTypeRadio$inboundSchema;
-
-/** @internal */
 export const TemplateCreateDocumentFromTemplatePrefillFieldRadio$inboundSchema:
   z.ZodType<
     TemplateCreateDocumentFromTemplatePrefillFieldRadio,
     z.ZodTypeDef,
     unknown
   > = z.object({
-    type: TemplateCreateDocumentFromTemplatePrefillFieldTypeRadio$inboundSchema,
+    type: z.literal("radio"),
     label: z.string().optional(),
     value: z.string().optional(),
     id: z.number(),
   });
 /** @internal */
 export type TemplateCreateDocumentFromTemplatePrefillFieldRadio$Outbound = {
-  type: string;
+  type: "radio";
   label?: string | undefined;
   value?: string | undefined;
   id: number;
@@ -1231,8 +1133,7 @@ export const TemplateCreateDocumentFromTemplatePrefillFieldRadio$outboundSchema:
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplatePrefillFieldRadio
   > = z.object({
-    type:
-      TemplateCreateDocumentFromTemplatePrefillFieldTypeRadio$outboundSchema,
+    type: z.literal("radio"),
     label: z.string().optional(),
     value: z.string().optional(),
     id: z.number(),
@@ -1265,25 +1166,13 @@ export function templateCreateDocumentFromTemplatePrefillFieldRadioFromJSON(
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplatePrefillFieldTypeNumber$inboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplatePrefillFieldTypeNumber
-  > = z.nativeEnum(TemplateCreateDocumentFromTemplatePrefillFieldTypeNumber);
-/** @internal */
-export const TemplateCreateDocumentFromTemplatePrefillFieldTypeNumber$outboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplatePrefillFieldTypeNumber
-  > = TemplateCreateDocumentFromTemplatePrefillFieldTypeNumber$inboundSchema;
-
-/** @internal */
 export const TemplateCreateDocumentFromTemplatePrefillFieldNumber$inboundSchema:
   z.ZodType<
     TemplateCreateDocumentFromTemplatePrefillFieldNumber,
     z.ZodTypeDef,
     unknown
   > = z.object({
-    type:
-      TemplateCreateDocumentFromTemplatePrefillFieldTypeNumber$inboundSchema,
+    type: z.literal("number"),
     label: z.string().optional(),
     placeholder: z.string().optional(),
     value: z.string().optional(),
@@ -1291,7 +1180,7 @@ export const TemplateCreateDocumentFromTemplatePrefillFieldNumber$inboundSchema:
   });
 /** @internal */
 export type TemplateCreateDocumentFromTemplatePrefillFieldNumber$Outbound = {
-  type: string;
+  type: "number";
   label?: string | undefined;
   placeholder?: string | undefined;
   value?: string | undefined;
@@ -1305,8 +1194,7 @@ export const TemplateCreateDocumentFromTemplatePrefillFieldNumber$outboundSchema
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplatePrefillFieldNumber
   > = z.object({
-    type:
-      TemplateCreateDocumentFromTemplatePrefillFieldTypeNumber$outboundSchema,
+    type: z.literal("number"),
     label: z.string().optional(),
     placeholder: z.string().optional(),
     value: z.string().optional(),
@@ -1340,24 +1228,13 @@ export function templateCreateDocumentFromTemplatePrefillFieldNumberFromJSON(
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplatePrefillFieldTypeText$inboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplatePrefillFieldTypeText
-  > = z.nativeEnum(TemplateCreateDocumentFromTemplatePrefillFieldTypeText);
-/** @internal */
-export const TemplateCreateDocumentFromTemplatePrefillFieldTypeText$outboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplatePrefillFieldTypeText
-  > = TemplateCreateDocumentFromTemplatePrefillFieldTypeText$inboundSchema;
-
-/** @internal */
 export const TemplateCreateDocumentFromTemplatePrefillFieldText$inboundSchema:
   z.ZodType<
     TemplateCreateDocumentFromTemplatePrefillFieldText,
     z.ZodTypeDef,
     unknown
   > = z.object({
-    type: TemplateCreateDocumentFromTemplatePrefillFieldTypeText$inboundSchema,
+    type: z.literal("text"),
     label: z.string().optional(),
     placeholder: z.string().optional(),
     value: z.string().optional(),
@@ -1365,7 +1242,7 @@ export const TemplateCreateDocumentFromTemplatePrefillFieldText$inboundSchema:
   });
 /** @internal */
 export type TemplateCreateDocumentFromTemplatePrefillFieldText$Outbound = {
-  type: string;
+  type: "text";
   label?: string | undefined;
   placeholder?: string | undefined;
   value?: string | undefined;
@@ -1379,7 +1256,7 @@ export const TemplateCreateDocumentFromTemplatePrefillFieldText$outboundSchema:
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplatePrefillFieldText
   > = z.object({
-    type: TemplateCreateDocumentFromTemplatePrefillFieldTypeText$outboundSchema,
+    type: z.literal("text"),
     label: z.string().optional(),
     placeholder: z.string().optional(),
     value: z.string().optional(),
@@ -1421,43 +1298,31 @@ export const TemplateCreateDocumentFromTemplatePrefillFieldUnion$inboundSchema:
   > = z.union([
     z.lazy(() =>
       TemplateCreateDocumentFromTemplatePrefillFieldText$inboundSchema
-    ).and(z.object({ type: z.literal("text") })),
+    ),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplatePrefillFieldNumber$inboundSchema
-    ).and(z.object({ type: z.literal("number") })),
+    ),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplatePrefillFieldRadio$inboundSchema
-    ).and(z.object({ type: z.literal("radio") })),
+    ),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplatePrefillFieldCheckbox$inboundSchema
-    ).and(z.object({ type: z.literal("checkbox") })),
+    ),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplatePrefillFieldDropdown$inboundSchema
-    ).and(z.object({ type: z.literal("dropdown") })),
+    ),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplatePrefillFieldDate$inboundSchema
-    ).and(z.object({ type: z.literal("date") })),
+    ),
   ]);
 /** @internal */
 export type TemplateCreateDocumentFromTemplatePrefillFieldUnion$Outbound =
-  | (TemplateCreateDocumentFromTemplatePrefillFieldText$Outbound & {
-    type: "text";
-  })
-  | (TemplateCreateDocumentFromTemplatePrefillFieldNumber$Outbound & {
-    type: "number";
-  })
-  | (TemplateCreateDocumentFromTemplatePrefillFieldRadio$Outbound & {
-    type: "radio";
-  })
-  | (TemplateCreateDocumentFromTemplatePrefillFieldCheckbox$Outbound & {
-    type: "checkbox";
-  })
-  | (TemplateCreateDocumentFromTemplatePrefillFieldDropdown$Outbound & {
-    type: "dropdown";
-  })
-  | (TemplateCreateDocumentFromTemplatePrefillFieldDate$Outbound & {
-    type: "date";
-  });
+  | TemplateCreateDocumentFromTemplatePrefillFieldText$Outbound
+  | TemplateCreateDocumentFromTemplatePrefillFieldNumber$Outbound
+  | TemplateCreateDocumentFromTemplatePrefillFieldRadio$Outbound
+  | TemplateCreateDocumentFromTemplatePrefillFieldCheckbox$Outbound
+  | TemplateCreateDocumentFromTemplatePrefillFieldDropdown$Outbound
+  | TemplateCreateDocumentFromTemplatePrefillFieldDate$Outbound;
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplatePrefillFieldUnion$outboundSchema:
@@ -1468,22 +1333,22 @@ export const TemplateCreateDocumentFromTemplatePrefillFieldUnion$outboundSchema:
   > = z.union([
     z.lazy(() =>
       TemplateCreateDocumentFromTemplatePrefillFieldText$outboundSchema
-    ).and(z.object({ type: z.literal("text") })),
+    ),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplatePrefillFieldNumber$outboundSchema
-    ).and(z.object({ type: z.literal("number") })),
+    ),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplatePrefillFieldRadio$outboundSchema
-    ).and(z.object({ type: z.literal("radio") })),
+    ),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplatePrefillFieldCheckbox$outboundSchema
-    ).and(z.object({ type: z.literal("checkbox") })),
+    ),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplatePrefillFieldDropdown$outboundSchema
-    ).and(z.object({ type: z.literal("dropdown") })),
+    ),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplatePrefillFieldDate$outboundSchema
-    ).and(z.object({ type: z.literal("date") })),
+    ),
   ]);
 
 export function templateCreateDocumentFromTemplatePrefillFieldUnionToJSON(
@@ -1783,6 +1648,7 @@ export const TemplateCreateDocumentFromTemplateRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   templateId: z.number(),
+  externalId: z.string().optional(),
   recipients: z.array(
     z.lazy(() =>
       TemplateCreateDocumentFromTemplateRecipientRequest$inboundSchema
@@ -1800,22 +1666,22 @@ export const TemplateCreateDocumentFromTemplateRequest$inboundSchema: z.ZodType<
     z.union([
       z.lazy(() =>
         TemplateCreateDocumentFromTemplatePrefillFieldText$inboundSchema
-      ).and(z.object({ type: z.literal("text") })),
+      ),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplatePrefillFieldNumber$inboundSchema
-      ).and(z.object({ type: z.literal("number") })),
+      ),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplatePrefillFieldRadio$inboundSchema
-      ).and(z.object({ type: z.literal("radio") })),
+      ),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplatePrefillFieldCheckbox$inboundSchema
-      ).and(z.object({ type: z.literal("checkbox") })),
+      ),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplatePrefillFieldDropdown$inboundSchema
-      ).and(z.object({ type: z.literal("dropdown") })),
+      ),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplatePrefillFieldDate$inboundSchema
-      ).and(z.object({ type: z.literal("date") })),
+      ),
     ]),
   ).optional(),
   override: z.lazy(() =>
@@ -1828,6 +1694,7 @@ export const TemplateCreateDocumentFromTemplateRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type TemplateCreateDocumentFromTemplateRequest$Outbound = {
   templateId: number;
+  externalId?: string | undefined;
   recipients: Array<
     TemplateCreateDocumentFromTemplateRecipientRequest$Outbound
   >;
@@ -1839,24 +1706,12 @@ export type TemplateCreateDocumentFromTemplateRequest$Outbound = {
   folderId?: string | undefined;
   prefillFields?:
     | Array<
-      | (TemplateCreateDocumentFromTemplatePrefillFieldText$Outbound & {
-        type: "text";
-      })
-      | (TemplateCreateDocumentFromTemplatePrefillFieldNumber$Outbound & {
-        type: "number";
-      })
-      | (TemplateCreateDocumentFromTemplatePrefillFieldRadio$Outbound & {
-        type: "radio";
-      })
-      | (TemplateCreateDocumentFromTemplatePrefillFieldCheckbox$Outbound & {
-        type: "checkbox";
-      })
-      | (TemplateCreateDocumentFromTemplatePrefillFieldDropdown$Outbound & {
-        type: "dropdown";
-      })
-      | (TemplateCreateDocumentFromTemplatePrefillFieldDate$Outbound & {
-        type: "date";
-      })
+      | TemplateCreateDocumentFromTemplatePrefillFieldText$Outbound
+      | TemplateCreateDocumentFromTemplatePrefillFieldNumber$Outbound
+      | TemplateCreateDocumentFromTemplatePrefillFieldRadio$Outbound
+      | TemplateCreateDocumentFromTemplatePrefillFieldCheckbox$Outbound
+      | TemplateCreateDocumentFromTemplatePrefillFieldDropdown$Outbound
+      | TemplateCreateDocumentFromTemplatePrefillFieldDate$Outbound
     >
     | undefined;
   override?: TemplateCreateDocumentFromTemplateOverride$Outbound | undefined;
@@ -1873,6 +1728,7 @@ export const TemplateCreateDocumentFromTemplateRequest$outboundSchema:
     TemplateCreateDocumentFromTemplateRequest
   > = z.object({
     templateId: z.number(),
+    externalId: z.string().optional(),
     recipients: z.array(
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateRecipientRequest$outboundSchema
@@ -1890,22 +1746,22 @@ export const TemplateCreateDocumentFromTemplateRequest$outboundSchema:
       z.union([
         z.lazy(() =>
           TemplateCreateDocumentFromTemplatePrefillFieldText$outboundSchema
-        ).and(z.object({ type: z.literal("text") })),
+        ),
         z.lazy(() =>
           TemplateCreateDocumentFromTemplatePrefillFieldNumber$outboundSchema
-        ).and(z.object({ type: z.literal("number") })),
+        ),
         z.lazy(() =>
           TemplateCreateDocumentFromTemplatePrefillFieldRadio$outboundSchema
-        ).and(z.object({ type: z.literal("radio") })),
+        ),
         z.lazy(() =>
           TemplateCreateDocumentFromTemplatePrefillFieldCheckbox$outboundSchema
-        ).and(z.object({ type: z.literal("checkbox") })),
+        ),
         z.lazy(() =>
           TemplateCreateDocumentFromTemplatePrefillFieldDropdown$outboundSchema
-        ).and(z.object({ type: z.literal("dropdown") })),
+        ),
         z.lazy(() =>
           TemplateCreateDocumentFromTemplatePrefillFieldDate$outboundSchema
-        ).and(z.object({ type: z.literal("date") })),
+        ),
       ]),
     ).optional(),
     override: z.lazy(() =>
@@ -2741,24 +2597,13 @@ export function templateCreateDocumentFromTemplateRecipientResponseFromJSON(
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldType$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFieldType> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateFieldType);
+export const TemplateCreateDocumentFromTemplateFieldTypeEnum$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFieldTypeEnum> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateFieldTypeEnum);
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldType$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFieldType> =
-    TemplateCreateDocumentFromTemplateFieldType$inboundSchema;
-
-/** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTypeDropdown$inboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTypeDropdown
-  > = z.nativeEnum(TemplateCreateDocumentFromTemplateFieldMetaTypeDropdown);
-/** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTypeDropdown$outboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTypeDropdown
-  > = TemplateCreateDocumentFromTemplateFieldMetaTypeDropdown$inboundSchema;
+export const TemplateCreateDocumentFromTemplateFieldTypeEnum$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFieldTypeEnum> =
+    TemplateCreateDocumentFromTemplateFieldTypeEnum$inboundSchema;
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateValue3$inboundSchema: z.ZodType<
@@ -2820,7 +2665,7 @@ export const TemplateCreateDocumentFromTemplateFieldMetaDropdown$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateDocumentFromTemplateFieldMetaTypeDropdown$inboundSchema,
+    type: z.literal("dropdown"),
     values: z.array(
       z.lazy(() => TemplateCreateDocumentFromTemplateValue3$inboundSchema),
     ).optional(),
@@ -2833,7 +2678,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaDropdown$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "dropdown";
   values?: Array<TemplateCreateDocumentFromTemplateValue3$Outbound> | undefined;
   defaultValue?: string | undefined;
 };
@@ -2850,8 +2695,7 @@ export const TemplateCreateDocumentFromTemplateFieldMetaDropdown$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type:
-      TemplateCreateDocumentFromTemplateFieldMetaTypeDropdown$outboundSchema,
+    type: z.literal("dropdown"),
     values: z.array(
       z.lazy(() => TemplateCreateDocumentFromTemplateValue3$outboundSchema),
     ).optional(),
@@ -2883,17 +2727,6 @@ export function templateCreateDocumentFromTemplateFieldMetaDropdownFromJSON(
     `Failed to parse 'TemplateCreateDocumentFromTemplateFieldMetaDropdown' from JSON`,
   );
 }
-
-/** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTypeCheckbox$inboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTypeCheckbox
-  > = z.nativeEnum(TemplateCreateDocumentFromTemplateFieldMetaTypeCheckbox);
-/** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTypeCheckbox$outboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTypeCheckbox
-  > = TemplateCreateDocumentFromTemplateFieldMetaTypeCheckbox$inboundSchema;
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateValue2$inboundSchema: z.ZodType<
@@ -2970,7 +2803,7 @@ export const TemplateCreateDocumentFromTemplateFieldMetaCheckbox$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateDocumentFromTemplateFieldMetaTypeCheckbox$inboundSchema,
+    type: z.literal("checkbox"),
     values: z.array(
       z.lazy(() => TemplateCreateDocumentFromTemplateValue2$inboundSchema),
     ).optional(),
@@ -2986,7 +2819,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaCheckbox$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "checkbox";
   values?: Array<TemplateCreateDocumentFromTemplateValue2$Outbound> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
@@ -3005,8 +2838,7 @@ export const TemplateCreateDocumentFromTemplateFieldMetaCheckbox$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type:
-      TemplateCreateDocumentFromTemplateFieldMetaTypeCheckbox$outboundSchema,
+    type: z.literal("checkbox"),
     values: z.array(
       z.lazy(() => TemplateCreateDocumentFromTemplateValue2$outboundSchema),
     ).optional(),
@@ -3041,15 +2873,6 @@ export function templateCreateDocumentFromTemplateFieldMetaCheckboxFromJSON(
     `Failed to parse 'TemplateCreateDocumentFromTemplateFieldMetaCheckbox' from JSON`,
   );
 }
-
-/** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTypeRadio$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFieldMetaTypeRadio> =
-    z.nativeEnum(TemplateCreateDocumentFromTemplateFieldMetaTypeRadio);
-/** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTypeRadio$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFieldMetaTypeRadio> =
-    TemplateCreateDocumentFromTemplateFieldMetaTypeRadio$inboundSchema;
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateValue1$inboundSchema: z.ZodType<
@@ -3126,7 +2949,7 @@ export const TemplateCreateDocumentFromTemplateFieldMetaRadio$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateDocumentFromTemplateFieldMetaTypeRadio$inboundSchema,
+    type: z.literal("radio"),
     values: z.array(
       z.lazy(() => TemplateCreateDocumentFromTemplateValue1$inboundSchema),
     ).optional(),
@@ -3140,7 +2963,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaRadio$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "radio";
   values?: Array<TemplateCreateDocumentFromTemplateValue1$Outbound> | undefined;
   direction: string;
 };
@@ -3157,7 +2980,7 @@ export const TemplateCreateDocumentFromTemplateFieldMetaRadio$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateDocumentFromTemplateFieldMetaTypeRadio$outboundSchema,
+    type: z.literal("radio"),
     values: z.array(
       z.lazy(() => TemplateCreateDocumentFromTemplateValue1$outboundSchema),
     ).optional(),
@@ -3192,17 +3015,6 @@ export function templateCreateDocumentFromTemplateFieldMetaRadioFromJSON(
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTypeNumber$inboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTypeNumber
-  > = z.nativeEnum(TemplateCreateDocumentFromTemplateFieldMetaTypeNumber);
-/** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTypeNumber$outboundSchema:
-  z.ZodNativeEnum<
-    typeof TemplateCreateDocumentFromTemplateFieldMetaTypeNumber
-  > = TemplateCreateDocumentFromTemplateFieldMetaTypeNumber$inboundSchema;
-
-/** @internal */
 export const TemplateCreateDocumentFromTemplateTextAlign6$inboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign6> = z
     .nativeEnum(TemplateCreateDocumentFromTemplateTextAlign6);
@@ -3232,7 +3044,7 @@ export const TemplateCreateDocumentFromTemplateFieldMetaNumber$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateDocumentFromTemplateFieldMetaTypeNumber$inboundSchema,
+    type: z.literal("number"),
     numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
     minValue: z.nullable(z.number()).optional(),
@@ -3252,7 +3064,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaNumber$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
   minValue?: number | null | undefined;
@@ -3275,7 +3087,7 @@ export const TemplateCreateDocumentFromTemplateFieldMetaNumber$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateDocumentFromTemplateFieldMetaTypeNumber$outboundSchema,
+    type: z.literal("number"),
     numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
     minValue: z.nullable(z.number()).optional(),
@@ -3316,15 +3128,6 @@ export function templateCreateDocumentFromTemplateFieldMetaNumberFromJSON(
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTypeText$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFieldMetaTypeText> =
-    z.nativeEnum(TemplateCreateDocumentFromTemplateFieldMetaTypeText);
-/** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTypeText$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFieldMetaTypeText> =
-    TemplateCreateDocumentFromTemplateFieldMetaTypeText$inboundSchema;
-
-/** @internal */
 export const TemplateCreateDocumentFromTemplateTextAlign5$inboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign5> = z
     .nativeEnum(TemplateCreateDocumentFromTemplateTextAlign5);
@@ -3354,7 +3157,7 @@ export const TemplateCreateDocumentFromTemplateFieldMetaText$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateDocumentFromTemplateFieldMetaTypeText$inboundSchema,
+    type: z.literal("text"),
     text: z.string().optional(),
     characterLimit: z.number().optional(),
     textAlign: TemplateCreateDocumentFromTemplateTextAlign5$inboundSchema
@@ -3372,7 +3175,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaText$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
   textAlign?: string | undefined;
@@ -3393,7 +3196,7 @@ export const TemplateCreateDocumentFromTemplateFieldMetaText$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateDocumentFromTemplateFieldMetaTypeText$outboundSchema,
+    type: z.literal("text"),
     text: z.string().optional(),
     characterLimit: z.number().optional(),
     textAlign: TemplateCreateDocumentFromTemplateTextAlign5$outboundSchema
@@ -3432,15 +3235,6 @@ export function templateCreateDocumentFromTemplateFieldMetaTextFromJSON(
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTypeDate$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFieldMetaTypeDate> =
-    z.nativeEnum(TemplateCreateDocumentFromTemplateFieldMetaTypeDate);
-/** @internal */
-export const TemplateCreateDocumentFromTemplateFieldMetaTypeDate$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFieldMetaTypeDate> =
-    TemplateCreateDocumentFromTemplateFieldMetaTypeDate$inboundSchema;
-
-/** @internal */
 export const TemplateCreateDocumentFromTemplateTextAlign4$inboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign4> = z
     .nativeEnum(TemplateCreateDocumentFromTemplateTextAlign4);
@@ -3461,7 +3255,7 @@ export const TemplateCreateDocumentFromTemplateFieldMetaDate$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateDocumentFromTemplateFieldMetaTypeDate$inboundSchema,
+    type: z.literal("date"),
     textAlign: TemplateCreateDocumentFromTemplateTextAlign4$inboundSchema
       .optional(),
   });
@@ -3472,7 +3266,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaDate$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "date";
   textAlign?: string | undefined;
 };
 
@@ -3488,7 +3282,7 @@ export const TemplateCreateDocumentFromTemplateFieldMetaDate$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateDocumentFromTemplateFieldMetaTypeDate$outboundSchema,
+    type: z.literal("date"),
     textAlign: TemplateCreateDocumentFromTemplateTextAlign4$outboundSchema
       .optional(),
   });
@@ -3520,15 +3314,6 @@ export function templateCreateDocumentFromTemplateFieldMetaDateFromJSON(
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateTypeEmail$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTypeEmail> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateTypeEmail);
-/** @internal */
-export const TemplateCreateDocumentFromTemplateTypeEmail$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTypeEmail> =
-    TemplateCreateDocumentFromTemplateTypeEmail$inboundSchema;
-
-/** @internal */
 export const TemplateCreateDocumentFromTemplateTextAlign3$inboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign3> = z
     .nativeEnum(TemplateCreateDocumentFromTemplateTextAlign3);
@@ -3549,7 +3334,7 @@ export const TemplateCreateDocumentFromTemplateFieldMetaEmail$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateDocumentFromTemplateTypeEmail$inboundSchema,
+    type: z.literal("email"),
     textAlign: TemplateCreateDocumentFromTemplateTextAlign3$inboundSchema
       .optional(),
   });
@@ -3560,7 +3345,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaEmail$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "email";
   textAlign?: string | undefined;
 };
 
@@ -3576,7 +3361,7 @@ export const TemplateCreateDocumentFromTemplateFieldMetaEmail$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateDocumentFromTemplateTypeEmail$outboundSchema,
+    type: z.literal("email"),
     textAlign: TemplateCreateDocumentFromTemplateTextAlign3$outboundSchema
       .optional(),
   });
@@ -3608,15 +3393,6 @@ export function templateCreateDocumentFromTemplateFieldMetaEmailFromJSON(
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateTypeName$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTypeName> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateTypeName);
-/** @internal */
-export const TemplateCreateDocumentFromTemplateTypeName$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTypeName> =
-    TemplateCreateDocumentFromTemplateTypeName$inboundSchema;
-
-/** @internal */
 export const TemplateCreateDocumentFromTemplateTextAlign2$inboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign2> = z
     .nativeEnum(TemplateCreateDocumentFromTemplateTextAlign2);
@@ -3637,7 +3413,7 @@ export const TemplateCreateDocumentFromTemplateFieldMetaName$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateDocumentFromTemplateTypeName$inboundSchema,
+    type: z.literal("name"),
     textAlign: TemplateCreateDocumentFromTemplateTextAlign2$inboundSchema
       .optional(),
   });
@@ -3648,7 +3424,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaName$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "name";
   textAlign?: string | undefined;
 };
 
@@ -3664,7 +3440,7 @@ export const TemplateCreateDocumentFromTemplateFieldMetaName$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateDocumentFromTemplateTypeName$outboundSchema,
+    type: z.literal("name"),
     textAlign: TemplateCreateDocumentFromTemplateTextAlign2$outboundSchema
       .optional(),
   });
@@ -3696,15 +3472,6 @@ export function templateCreateDocumentFromTemplateFieldMetaNameFromJSON(
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateTypeInitials$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTypeInitials> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateTypeInitials);
-/** @internal */
-export const TemplateCreateDocumentFromTemplateTypeInitials$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTypeInitials> =
-    TemplateCreateDocumentFromTemplateTypeInitials$inboundSchema;
-
-/** @internal */
 export const TemplateCreateDocumentFromTemplateTextAlign1$inboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign1> = z
     .nativeEnum(TemplateCreateDocumentFromTemplateTextAlign1);
@@ -3725,7 +3492,7 @@ export const TemplateCreateDocumentFromTemplateFieldMetaInitials$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateDocumentFromTemplateTypeInitials$inboundSchema,
+    type: z.literal("initials"),
     textAlign: TemplateCreateDocumentFromTemplateTextAlign1$inboundSchema
       .optional(),
   });
@@ -3736,7 +3503,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaInitials$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "initials";
   textAlign?: string | undefined;
 };
 
@@ -3752,7 +3519,7 @@ export const TemplateCreateDocumentFromTemplateFieldMetaInitials$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateDocumentFromTemplateTypeInitials$outboundSchema,
+    type: z.literal("initials"),
     textAlign: TemplateCreateDocumentFromTemplateTextAlign1$outboundSchema
       .optional(),
   });
@@ -3784,15 +3551,6 @@ export function templateCreateDocumentFromTemplateFieldMetaInitialsFromJSON(
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateTypeSignature$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTypeSignature> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateTypeSignature);
-/** @internal */
-export const TemplateCreateDocumentFromTemplateTypeSignature$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTypeSignature> =
-    TemplateCreateDocumentFromTemplateTypeSignature$inboundSchema;
-
-/** @internal */
 export const TemplateCreateDocumentFromTemplateFieldMetaSignature$inboundSchema:
   z.ZodType<
     TemplateCreateDocumentFromTemplateFieldMetaSignature,
@@ -3804,7 +3562,7 @@ export const TemplateCreateDocumentFromTemplateFieldMetaSignature$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateDocumentFromTemplateTypeSignature$inboundSchema,
+    type: z.literal("signature"),
   });
 /** @internal */
 export type TemplateCreateDocumentFromTemplateFieldMetaSignature$Outbound = {
@@ -3813,7 +3571,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaSignature$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "signature";
 };
 
 /** @internal */
@@ -3828,7 +3586,7 @@ export const TemplateCreateDocumentFromTemplateFieldMetaSignature$outboundSchema
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateDocumentFromTemplateTypeSignature$outboundSchema,
+    type: z.literal("signature"),
   });
 
 export function templateCreateDocumentFromTemplateFieldMetaSignatureToJSON(
@@ -3866,62 +3624,41 @@ export const TemplateCreateDocumentFromTemplateFieldMetaUnion$inboundSchema:
   > = z.union([
     z.lazy(() =>
       TemplateCreateDocumentFromTemplateFieldMetaSignature$inboundSchema
-    ).and(z.object({ type: z.literal("signature") })),
+    ),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplateFieldMetaInitials$inboundSchema
-    ).and(z.object({ type: z.literal("initials") })),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaName$inboundSchema)
-      .and(z.object({ type: z.literal("name") })),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaEmail$inboundSchema)
-      .and(z.object({ type: z.literal("email") })),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaDate$inboundSchema)
-      .and(z.object({ type: z.literal("date") })),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaText$inboundSchema)
-      .and(z.object({ type: z.literal("text") })),
+    ),
+    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaName$inboundSchema),
+    z.lazy(() =>
+      TemplateCreateDocumentFromTemplateFieldMetaEmail$inboundSchema
+    ),
+    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaDate$inboundSchema),
+    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaText$inboundSchema),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplateFieldMetaNumber$inboundSchema
-    ).and(z.object({ type: z.literal("number") })),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaRadio$inboundSchema)
-      .and(z.object({ type: z.literal("radio") })),
+    ),
+    z.lazy(() =>
+      TemplateCreateDocumentFromTemplateFieldMetaRadio$inboundSchema
+    ),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplateFieldMetaCheckbox$inboundSchema
-    ).and(z.object({ type: z.literal("checkbox") })),
+    ),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplateFieldMetaDropdown$inboundSchema
-    ).and(z.object({ type: z.literal("dropdown") })),
+    ),
   ]);
 /** @internal */
 export type TemplateCreateDocumentFromTemplateFieldMetaUnion$Outbound =
-  | (TemplateCreateDocumentFromTemplateFieldMetaSignature$Outbound & {
-    type: "signature";
-  })
-  | (TemplateCreateDocumentFromTemplateFieldMetaInitials$Outbound & {
-    type: "initials";
-  })
-  | (TemplateCreateDocumentFromTemplateFieldMetaName$Outbound & {
-    type: "name";
-  })
-  | (TemplateCreateDocumentFromTemplateFieldMetaEmail$Outbound & {
-    type: "email";
-  })
-  | (TemplateCreateDocumentFromTemplateFieldMetaDate$Outbound & {
-    type: "date";
-  })
-  | (TemplateCreateDocumentFromTemplateFieldMetaText$Outbound & {
-    type: "text";
-  })
-  | (TemplateCreateDocumentFromTemplateFieldMetaNumber$Outbound & {
-    type: "number";
-  })
-  | (TemplateCreateDocumentFromTemplateFieldMetaRadio$Outbound & {
-    type: "radio";
-  })
-  | (TemplateCreateDocumentFromTemplateFieldMetaCheckbox$Outbound & {
-    type: "checkbox";
-  })
-  | (TemplateCreateDocumentFromTemplateFieldMetaDropdown$Outbound & {
-    type: "dropdown";
-  });
+  | TemplateCreateDocumentFromTemplateFieldMetaSignature$Outbound
+  | TemplateCreateDocumentFromTemplateFieldMetaInitials$Outbound
+  | TemplateCreateDocumentFromTemplateFieldMetaName$Outbound
+  | TemplateCreateDocumentFromTemplateFieldMetaEmail$Outbound
+  | TemplateCreateDocumentFromTemplateFieldMetaDate$Outbound
+  | TemplateCreateDocumentFromTemplateFieldMetaText$Outbound
+  | TemplateCreateDocumentFromTemplateFieldMetaNumber$Outbound
+  | TemplateCreateDocumentFromTemplateFieldMetaRadio$Outbound
+  | TemplateCreateDocumentFromTemplateFieldMetaCheckbox$Outbound
+  | TemplateCreateDocumentFromTemplateFieldMetaDropdown$Outbound;
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateFieldMetaUnion$outboundSchema:
@@ -3932,31 +3669,34 @@ export const TemplateCreateDocumentFromTemplateFieldMetaUnion$outboundSchema:
   > = z.union([
     z.lazy(() =>
       TemplateCreateDocumentFromTemplateFieldMetaSignature$outboundSchema
-    ).and(z.object({ type: z.literal("signature") })),
+    ),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplateFieldMetaInitials$outboundSchema
-    ).and(z.object({ type: z.literal("initials") })),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaName$outboundSchema)
-      .and(z.object({ type: z.literal("name") })),
+    ),
+    z.lazy(() =>
+      TemplateCreateDocumentFromTemplateFieldMetaName$outboundSchema
+    ),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplateFieldMetaEmail$outboundSchema
-    ).and(z.object({ type: z.literal("email") })),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaDate$outboundSchema)
-      .and(z.object({ type: z.literal("date") })),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaText$outboundSchema)
-      .and(z.object({ type: z.literal("text") })),
+    ),
+    z.lazy(() =>
+      TemplateCreateDocumentFromTemplateFieldMetaDate$outboundSchema
+    ),
+    z.lazy(() =>
+      TemplateCreateDocumentFromTemplateFieldMetaText$outboundSchema
+    ),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplateFieldMetaNumber$outboundSchema
-    ).and(z.object({ type: z.literal("number") })),
+    ),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplateFieldMetaRadio$outboundSchema
-    ).and(z.object({ type: z.literal("radio") })),
+    ),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplateFieldMetaCheckbox$outboundSchema
-    ).and(z.object({ type: z.literal("checkbox") })),
+    ),
     z.lazy(() =>
       TemplateCreateDocumentFromTemplateFieldMetaDropdown$outboundSchema
-    ).and(z.object({ type: z.literal("dropdown") })),
+    ),
   ]);
 
 export function templateCreateDocumentFromTemplateFieldMetaUnionToJSON(
@@ -3993,7 +3733,7 @@ export const TemplateCreateDocumentFromTemplateField$inboundSchema: z.ZodType<
 > = z.object({
   envelopeId: z.string(),
   envelopeItemId: z.string(),
-  type: TemplateCreateDocumentFromTemplateFieldType$inboundSchema,
+  type: TemplateCreateDocumentFromTemplateFieldTypeEnum$inboundSchema,
   id: z.number(),
   secondaryId: z.string(),
   recipientId: z.number(),
@@ -4008,34 +3748,34 @@ export const TemplateCreateDocumentFromTemplateField$inboundSchema: z.ZodType<
     z.union([
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaSignature$inboundSchema
-      ).and(z.object({ type: z.literal("signature") })),
+      ),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaInitials$inboundSchema
-      ).and(z.object({ type: z.literal("initials") })),
+      ),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaName$inboundSchema
-      ).and(z.object({ type: z.literal("name") })),
+      ),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaEmail$inboundSchema
-      ).and(z.object({ type: z.literal("email") })),
+      ),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaDate$inboundSchema
-      ).and(z.object({ type: z.literal("date") })),
+      ),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaText$inboundSchema
-      ).and(z.object({ type: z.literal("text") })),
+      ),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaNumber$inboundSchema
-      ).and(z.object({ type: z.literal("number") })),
+      ),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaRadio$inboundSchema
-      ).and(z.object({ type: z.literal("radio") })),
+      ),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaCheckbox$inboundSchema
-      ).and(z.object({ type: z.literal("checkbox") })),
+      ),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaDropdown$inboundSchema
-      ).and(z.object({ type: z.literal("dropdown") })),
+      ),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),
@@ -4057,36 +3797,16 @@ export type TemplateCreateDocumentFromTemplateField$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | (TemplateCreateDocumentFromTemplateFieldMetaSignature$Outbound & {
-      type: "signature";
-    })
-    | (TemplateCreateDocumentFromTemplateFieldMetaInitials$Outbound & {
-      type: "initials";
-    })
-    | (TemplateCreateDocumentFromTemplateFieldMetaName$Outbound & {
-      type: "name";
-    })
-    | (TemplateCreateDocumentFromTemplateFieldMetaEmail$Outbound & {
-      type: "email";
-    })
-    | (TemplateCreateDocumentFromTemplateFieldMetaDate$Outbound & {
-      type: "date";
-    })
-    | (TemplateCreateDocumentFromTemplateFieldMetaText$Outbound & {
-      type: "text";
-    })
-    | (TemplateCreateDocumentFromTemplateFieldMetaNumber$Outbound & {
-      type: "number";
-    })
-    | (TemplateCreateDocumentFromTemplateFieldMetaRadio$Outbound & {
-      type: "radio";
-    })
-    | (TemplateCreateDocumentFromTemplateFieldMetaCheckbox$Outbound & {
-      type: "checkbox";
-    })
-    | (TemplateCreateDocumentFromTemplateFieldMetaDropdown$Outbound & {
-      type: "dropdown";
-    })
+    | TemplateCreateDocumentFromTemplateFieldMetaSignature$Outbound
+    | TemplateCreateDocumentFromTemplateFieldMetaInitials$Outbound
+    | TemplateCreateDocumentFromTemplateFieldMetaName$Outbound
+    | TemplateCreateDocumentFromTemplateFieldMetaEmail$Outbound
+    | TemplateCreateDocumentFromTemplateFieldMetaDate$Outbound
+    | TemplateCreateDocumentFromTemplateFieldMetaText$Outbound
+    | TemplateCreateDocumentFromTemplateFieldMetaNumber$Outbound
+    | TemplateCreateDocumentFromTemplateFieldMetaRadio$Outbound
+    | TemplateCreateDocumentFromTemplateFieldMetaCheckbox$Outbound
+    | TemplateCreateDocumentFromTemplateFieldMetaDropdown$Outbound
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -4100,7 +3820,7 @@ export const TemplateCreateDocumentFromTemplateField$outboundSchema: z.ZodType<
 > = z.object({
   envelopeId: z.string(),
   envelopeItemId: z.string(),
-  type: TemplateCreateDocumentFromTemplateFieldType$outboundSchema,
+  type: TemplateCreateDocumentFromTemplateFieldTypeEnum$outboundSchema,
   id: z.number(),
   secondaryId: z.string(),
   recipientId: z.number(),
@@ -4115,34 +3835,34 @@ export const TemplateCreateDocumentFromTemplateField$outboundSchema: z.ZodType<
     z.union([
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaSignature$outboundSchema
-      ).and(z.object({ type: z.literal("signature") })),
+      ),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaInitials$outboundSchema
-      ).and(z.object({ type: z.literal("initials") })),
+      ),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaName$outboundSchema
-      ).and(z.object({ type: z.literal("name") })),
+      ),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaEmail$outboundSchema
-      ).and(z.object({ type: z.literal("email") })),
+      ),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaDate$outboundSchema
-      ).and(z.object({ type: z.literal("date") })),
+      ),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaText$outboundSchema
-      ).and(z.object({ type: z.literal("text") })),
+      ),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaNumber$outboundSchema
-      ).and(z.object({ type: z.literal("number") })),
+      ),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaRadio$outboundSchema
-      ).and(z.object({ type: z.literal("radio") })),
+      ),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaCheckbox$outboundSchema
-      ).and(z.object({ type: z.literal("checkbox") })),
+      ),
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaDropdown$outboundSchema
-      ).and(z.object({ type: z.literal("dropdown") })),
+      ),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),

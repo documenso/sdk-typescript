@@ -42,6 +42,7 @@ import { tool$documentsRedistribute } from "./tools/documentsRedistribute.js";
 import { tool$documentsUpdate } from "./tools/documentsUpdate.js";
 import { tool$embeddingEmbeddingPresignCreateEmbeddingPresignToken } from "./tools/embeddingEmbeddingPresignCreateEmbeddingPresignToken.js";
 import { tool$embeddingEmbeddingPresignVerifyEmbeddingPresignToken } from "./tools/embeddingEmbeddingPresignVerifyEmbeddingPresignToken.js";
+import { tool$envelopeEnvelopeAuditLogFind } from "./tools/envelopeEnvelopeAuditLogFind.js";
 import { tool$envelopesAttachmentsCreate } from "./tools/envelopesAttachmentsCreate.js";
 import { tool$envelopesAttachmentsDelete } from "./tools/envelopesAttachmentsDelete.js";
 import { tool$envelopesAttachmentsFind } from "./tools/envelopesAttachmentsFind.js";
@@ -104,7 +105,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Documenso",
-    version: "0.5.1",
+    version: "0.6.0",
   });
 
   const client = new DocumensoCore({
@@ -142,6 +143,7 @@ export function createMCPServer(deps: {
   tool(tool$envelopesDuplicate);
   tool(tool$envelopesDistribute);
   tool(tool$envelopesRedistribute);
+  tool(tool$envelopeEnvelopeAuditLogFind);
   tool(tool$documentsGet);
   tool(tool$documentsFind);
   tool(tool$documentsCreate);

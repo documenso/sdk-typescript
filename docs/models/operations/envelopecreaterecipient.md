@@ -6,9 +6,9 @@
 import { EnvelopeCreateRecipient } from "@documenso/sdk-typescript/models/operations";
 
 let value: EnvelopeCreateRecipient = {
-  email: "Emile.Davis79@gmail.com",
+  email: "",
   name: "<value>",
-  role: "APPROVER",
+  role: "SIGNER",
 };
 ```
 
@@ -16,7 +16,7 @@ let value: EnvelopeCreateRecipient = {
 
 | Field                                                                                        | Type                                                                                         | Required                                                                                     | Description                                                                                  |
 | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `email`                                                                                      | *string*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |
+| `email`                                                                                      | *operations.EnvelopeCreateEmailUnion*                                                        | :heavy_check_mark:                                                                           | N/A                                                                                          |
 | `name`                                                                                       | *string*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |
 | `role`                                                                                       | [operations.EnvelopeCreateRole](../../models/operations/envelopecreaterole.md)               | :heavy_check_mark:                                                                           | N/A                                                                                          |
 | `signingOrder`                                                                               | *number*                                                                                     | :heavy_minus_sign:                                                                           | N/A                                                                                          |

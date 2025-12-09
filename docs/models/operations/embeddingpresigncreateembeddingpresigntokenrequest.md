@@ -13,3 +13,4 @@ let value: EmbeddingPresignCreateEmbeddingPresignTokenRequest = {};
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `expiresIn`        | *number*           | :heavy_minus_sign: | N/A                |
+| `scope`            | *string*           | :heavy_minus_sign: | N/A                |

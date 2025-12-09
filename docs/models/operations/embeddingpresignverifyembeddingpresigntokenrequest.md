@@ -15,3 +15,4 @@ let value: EmbeddingPresignVerifyEmbeddingPresignTokenRequest = {
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `token`            | *string*           | :heavy_check_mark: | N/A                |
+| `scope`            | *string*           | :heavy_minus_sign: | N/A                |

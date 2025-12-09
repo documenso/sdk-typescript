@@ -13,8 +13,8 @@ let value: EnvelopeUsePrefillFieldDate = {
 
 ## Fields
 
-| Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `type`                                                                           | [operations.EnvelopeUseTypeDate](../../models/operations/envelopeusetypedate.md) | :heavy_check_mark:                                                               | N/A                                                                              |
-| `value`                                                                          | *string*                                                                         | :heavy_minus_sign:                                                               | N/A                                                                              |
-| `id`                                                                             | *number*                                                                         | :heavy_check_mark:                                                               | N/A                                                                              |
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `type`             | *"date"*           | :heavy_check_mark: | N/A                |
+| `value`            | *string*           | :heavy_minus_sign: | N/A                |
+| `id`               | *number*           | :heavy_check_mark: | N/A                |

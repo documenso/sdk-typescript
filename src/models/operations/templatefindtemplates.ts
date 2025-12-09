@@ -45,12 +45,12 @@ export type TemplateFindTemplatesRequest = {
   folderId?: string | undefined;
 };
 
-export const TemplateFindTemplatesDataType = {
+export const TemplateFindTemplatesDataTypeEnum = {
   Public: "PUBLIC",
   Private: "PRIVATE",
 } as const;
-export type TemplateFindTemplatesDataType = ClosedEnum<
-  typeof TemplateFindTemplatesDataType
+export type TemplateFindTemplatesDataTypeEnum = ClosedEnum<
+  typeof TemplateFindTemplatesDataTypeEnum
 >;
 
 export const TemplateFindTemplatesVisibility = {
@@ -90,7 +90,7 @@ export type TemplateFindTemplatesTeam = {
   url: string;
 };
 
-export const TemplateFindTemplatesFieldType = {
+export const TemplateFindTemplatesFieldTypeEnum = {
   Signature: "SIGNATURE",
   FreeSignature: "FREE_SIGNATURE",
   Initials: "INITIALS",
@@ -103,15 +103,8 @@ export const TemplateFindTemplatesFieldType = {
   Checkbox: "CHECKBOX",
   Dropdown: "DROPDOWN",
 } as const;
-export type TemplateFindTemplatesFieldType = ClosedEnum<
-  typeof TemplateFindTemplatesFieldType
->;
-
-export const TemplateFindTemplatesTypeDropdown = {
-  Dropdown: "dropdown",
-} as const;
-export type TemplateFindTemplatesTypeDropdown = ClosedEnum<
-  typeof TemplateFindTemplatesTypeDropdown
+export type TemplateFindTemplatesFieldTypeEnum = ClosedEnum<
+  typeof TemplateFindTemplatesFieldTypeEnum
 >;
 
 export type TemplateFindTemplatesValue3 = {
@@ -124,17 +117,10 @@ export type TemplateFindTemplatesFieldMetaDropdown = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateFindTemplatesTypeDropdown;
+  type: "dropdown";
   values?: Array<TemplateFindTemplatesValue3> | undefined;
   defaultValue?: string | undefined;
 };
-
-export const TemplateFindTemplatesTypeCheckbox = {
-  Checkbox: "checkbox",
-} as const;
-export type TemplateFindTemplatesTypeCheckbox = ClosedEnum<
-  typeof TemplateFindTemplatesTypeCheckbox
->;
 
 export type TemplateFindTemplatesValue2 = {
   id: number;
@@ -156,19 +142,12 @@ export type TemplateFindTemplatesFieldMetaCheckbox = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateFindTemplatesTypeCheckbox;
+  type: "checkbox";
   values?: Array<TemplateFindTemplatesValue2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
   direction?: TemplateFindTemplatesDirection2 | undefined;
 };
-
-export const TemplateFindTemplatesTypeRadio = {
-  Radio: "radio",
-} as const;
-export type TemplateFindTemplatesTypeRadio = ClosedEnum<
-  typeof TemplateFindTemplatesTypeRadio
->;
 
 export type TemplateFindTemplatesValue1 = {
   id: number;
@@ -190,17 +169,10 @@ export type TemplateFindTemplatesFieldMetaRadio = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateFindTemplatesTypeRadio;
+  type: "radio";
   values?: Array<TemplateFindTemplatesValue1> | undefined;
   direction?: TemplateFindTemplatesDirection1 | undefined;
 };
-
-export const TemplateFindTemplatesTypeNumber = {
-  Number: "number",
-} as const;
-export type TemplateFindTemplatesTypeNumber = ClosedEnum<
-  typeof TemplateFindTemplatesTypeNumber
->;
 
 export const TemplateFindTemplatesTextAlign6 = {
   Left: "left",
@@ -226,7 +198,7 @@ export type TemplateFindTemplatesFieldMetaNumber = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateFindTemplatesTypeNumber;
+  type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
   minValue?: number | null | undefined;
@@ -236,13 +208,6 @@ export type TemplateFindTemplatesFieldMetaNumber = {
   letterSpacing?: number | null | undefined;
   verticalAlign?: TemplateFindTemplatesVerticalAlign2 | null | undefined;
 };
-
-export const TemplateFindTemplatesTypeText = {
-  Text: "text",
-} as const;
-export type TemplateFindTemplatesTypeText = ClosedEnum<
-  typeof TemplateFindTemplatesTypeText
->;
 
 export const TemplateFindTemplatesTextAlign5 = {
   Left: "left",
@@ -268,7 +233,7 @@ export type TemplateFindTemplatesFieldMetaText = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateFindTemplatesTypeText;
+  type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
   textAlign?: TemplateFindTemplatesTextAlign5 | undefined;
@@ -276,13 +241,6 @@ export type TemplateFindTemplatesFieldMetaText = {
   letterSpacing?: number | null | undefined;
   verticalAlign?: TemplateFindTemplatesVerticalAlign1 | null | undefined;
 };
-
-export const TemplateFindTemplatesTypeDate = {
-  Date: "date",
-} as const;
-export type TemplateFindTemplatesTypeDate = ClosedEnum<
-  typeof TemplateFindTemplatesTypeDate
->;
 
 export const TemplateFindTemplatesTextAlign4 = {
   Left: "left",
@@ -299,16 +257,9 @@ export type TemplateFindTemplatesFieldMetaDate = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateFindTemplatesTypeDate;
+  type: "date";
   textAlign?: TemplateFindTemplatesTextAlign4 | undefined;
 };
-
-export const TemplateFindTemplatesTypeEmail = {
-  Email: "email",
-} as const;
-export type TemplateFindTemplatesTypeEmail = ClosedEnum<
-  typeof TemplateFindTemplatesTypeEmail
->;
 
 export const TemplateFindTemplatesTextAlign3 = {
   Left: "left",
@@ -325,16 +276,9 @@ export type TemplateFindTemplatesFieldMetaEmail = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateFindTemplatesTypeEmail;
+  type: "email";
   textAlign?: TemplateFindTemplatesTextAlign3 | undefined;
 };
-
-export const TemplateFindTemplatesTypeName = {
-  Name: "name",
-} as const;
-export type TemplateFindTemplatesTypeName = ClosedEnum<
-  typeof TemplateFindTemplatesTypeName
->;
 
 export const TemplateFindTemplatesTextAlign2 = {
   Left: "left",
@@ -351,16 +295,9 @@ export type TemplateFindTemplatesFieldMetaName = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateFindTemplatesTypeName;
+  type: "name";
   textAlign?: TemplateFindTemplatesTextAlign2 | undefined;
 };
-
-export const TemplateFindTemplatesTypeInitials = {
-  Initials: "initials",
-} as const;
-export type TemplateFindTemplatesTypeInitials = ClosedEnum<
-  typeof TemplateFindTemplatesTypeInitials
->;
 
 export const TemplateFindTemplatesTextAlign1 = {
   Left: "left",
@@ -377,16 +314,9 @@ export type TemplateFindTemplatesFieldMetaInitials = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateFindTemplatesTypeInitials;
+  type: "initials";
   textAlign?: TemplateFindTemplatesTextAlign1 | undefined;
 };
-
-export const TemplateFindTemplatesTypeSignature = {
-  Signature: "signature",
-} as const;
-export type TemplateFindTemplatesTypeSignature = ClosedEnum<
-  typeof TemplateFindTemplatesTypeSignature
->;
 
 export type TemplateFindTemplatesFieldMetaSignature = {
   label?: string | undefined;
@@ -394,25 +324,25 @@ export type TemplateFindTemplatesFieldMetaSignature = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateFindTemplatesTypeSignature;
+  type: "signature";
 };
 
 export type TemplateFindTemplatesFieldMetaUnion =
-  | (TemplateFindTemplatesFieldMetaSignature & { type: "signature" })
-  | (TemplateFindTemplatesFieldMetaInitials & { type: "initials" })
-  | (TemplateFindTemplatesFieldMetaName & { type: "name" })
-  | (TemplateFindTemplatesFieldMetaEmail & { type: "email" })
-  | (TemplateFindTemplatesFieldMetaDate & { type: "date" })
-  | (TemplateFindTemplatesFieldMetaText & { type: "text" })
-  | (TemplateFindTemplatesFieldMetaNumber & { type: "number" })
-  | (TemplateFindTemplatesFieldMetaRadio & { type: "radio" })
-  | (TemplateFindTemplatesFieldMetaCheckbox & { type: "checkbox" })
-  | (TemplateFindTemplatesFieldMetaDropdown & { type: "dropdown" });
+  | TemplateFindTemplatesFieldMetaSignature
+  | TemplateFindTemplatesFieldMetaInitials
+  | TemplateFindTemplatesFieldMetaName
+  | TemplateFindTemplatesFieldMetaEmail
+  | TemplateFindTemplatesFieldMetaDate
+  | TemplateFindTemplatesFieldMetaText
+  | TemplateFindTemplatesFieldMetaNumber
+  | TemplateFindTemplatesFieldMetaRadio
+  | TemplateFindTemplatesFieldMetaCheckbox
+  | TemplateFindTemplatesFieldMetaDropdown;
 
 export type TemplateFindTemplatesField = {
   envelopeId: string;
   envelopeItemId: string;
-  type: TemplateFindTemplatesFieldType;
+  type: TemplateFindTemplatesFieldTypeEnum;
   id: number;
   secondaryId: string;
   recipientId: number;
@@ -424,16 +354,16 @@ export type TemplateFindTemplatesField = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | (TemplateFindTemplatesFieldMetaSignature & { type: "signature" })
-    | (TemplateFindTemplatesFieldMetaInitials & { type: "initials" })
-    | (TemplateFindTemplatesFieldMetaName & { type: "name" })
-    | (TemplateFindTemplatesFieldMetaEmail & { type: "email" })
-    | (TemplateFindTemplatesFieldMetaDate & { type: "date" })
-    | (TemplateFindTemplatesFieldMetaText & { type: "text" })
-    | (TemplateFindTemplatesFieldMetaNumber & { type: "number" })
-    | (TemplateFindTemplatesFieldMetaRadio & { type: "radio" })
-    | (TemplateFindTemplatesFieldMetaCheckbox & { type: "checkbox" })
-    | (TemplateFindTemplatesFieldMetaDropdown & { type: "dropdown" })
+    | TemplateFindTemplatesFieldMetaSignature
+    | TemplateFindTemplatesFieldMetaInitials
+    | TemplateFindTemplatesFieldMetaName
+    | TemplateFindTemplatesFieldMetaEmail
+    | TemplateFindTemplatesFieldMetaDate
+    | TemplateFindTemplatesFieldMetaText
+    | TemplateFindTemplatesFieldMetaNumber
+    | TemplateFindTemplatesFieldMetaRadio
+    | TemplateFindTemplatesFieldMetaCheckbox
+    | TemplateFindTemplatesFieldMetaDropdown
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -546,7 +476,7 @@ export type TemplateFindTemplatesDirectLink = {
 };
 
 export type TemplateFindTemplatesData = {
-  type: TemplateFindTemplatesDataType;
+  type: TemplateFindTemplatesDataTypeEnum;
   visibility: TemplateFindTemplatesVisibility;
   id: number;
   externalId: string | null;
@@ -643,13 +573,13 @@ export function templateFindTemplatesRequestFromJSON(
 }
 
 /** @internal */
-export const TemplateFindTemplatesDataType$inboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesDataType
-> = z.nativeEnum(TemplateFindTemplatesDataType);
+export const TemplateFindTemplatesDataTypeEnum$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesDataTypeEnum
+> = z.nativeEnum(TemplateFindTemplatesDataTypeEnum);
 /** @internal */
-export const TemplateFindTemplatesDataType$outboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesDataType
-> = TemplateFindTemplatesDataType$inboundSchema;
+export const TemplateFindTemplatesDataTypeEnum$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesDataTypeEnum
+> = TemplateFindTemplatesDataTypeEnum$inboundSchema;
 
 /** @internal */
 export const TemplateFindTemplatesVisibility$inboundSchema: z.ZodNativeEnum<
@@ -775,22 +705,13 @@ export function templateFindTemplatesTeamFromJSON(
 }
 
 /** @internal */
-export const TemplateFindTemplatesFieldType$inboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesFieldType
-> = z.nativeEnum(TemplateFindTemplatesFieldType);
+export const TemplateFindTemplatesFieldTypeEnum$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesFieldTypeEnum
+> = z.nativeEnum(TemplateFindTemplatesFieldTypeEnum);
 /** @internal */
-export const TemplateFindTemplatesFieldType$outboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesFieldType
-> = TemplateFindTemplatesFieldType$inboundSchema;
-
-/** @internal */
-export const TemplateFindTemplatesTypeDropdown$inboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesTypeDropdown
-> = z.nativeEnum(TemplateFindTemplatesTypeDropdown);
-/** @internal */
-export const TemplateFindTemplatesTypeDropdown$outboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesTypeDropdown
-> = TemplateFindTemplatesTypeDropdown$inboundSchema;
+export const TemplateFindTemplatesFieldTypeEnum$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesFieldTypeEnum
+> = TemplateFindTemplatesFieldTypeEnum$inboundSchema;
 
 /** @internal */
 export const TemplateFindTemplatesValue3$inboundSchema: z.ZodType<
@@ -844,7 +765,7 @@ export const TemplateFindTemplatesFieldMetaDropdown$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: TemplateFindTemplatesTypeDropdown$inboundSchema,
+  type: z.literal("dropdown"),
   values: z.array(z.lazy(() => TemplateFindTemplatesValue3$inboundSchema))
     .optional(),
   defaultValue: z.string().optional(),
@@ -856,7 +777,7 @@ export type TemplateFindTemplatesFieldMetaDropdown$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "dropdown";
   values?: Array<TemplateFindTemplatesValue3$Outbound> | undefined;
   defaultValue?: string | undefined;
 };
@@ -872,7 +793,7 @@ export const TemplateFindTemplatesFieldMetaDropdown$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: TemplateFindTemplatesTypeDropdown$outboundSchema,
+  type: z.literal("dropdown"),
   values: z.array(z.lazy(() => TemplateFindTemplatesValue3$outboundSchema))
     .optional(),
   defaultValue: z.string().optional(),
@@ -898,15 +819,6 @@ export function templateFindTemplatesFieldMetaDropdownFromJSON(
     `Failed to parse 'TemplateFindTemplatesFieldMetaDropdown' from JSON`,
   );
 }
-
-/** @internal */
-export const TemplateFindTemplatesTypeCheckbox$inboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesTypeCheckbox
-> = z.nativeEnum(TemplateFindTemplatesTypeCheckbox);
-/** @internal */
-export const TemplateFindTemplatesTypeCheckbox$outboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesTypeCheckbox
-> = TemplateFindTemplatesTypeCheckbox$inboundSchema;
 
 /** @internal */
 export const TemplateFindTemplatesValue2$inboundSchema: z.ZodType<
@@ -975,7 +887,7 @@ export const TemplateFindTemplatesFieldMetaCheckbox$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: TemplateFindTemplatesTypeCheckbox$inboundSchema,
+  type: z.literal("checkbox"),
   values: z.array(z.lazy(() => TemplateFindTemplatesValue2$inboundSchema))
     .optional(),
   validationRule: z.string().optional(),
@@ -989,7 +901,7 @@ export type TemplateFindTemplatesFieldMetaCheckbox$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "checkbox";
   values?: Array<TemplateFindTemplatesValue2$Outbound> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
@@ -1007,7 +919,7 @@ export const TemplateFindTemplatesFieldMetaCheckbox$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: TemplateFindTemplatesTypeCheckbox$outboundSchema,
+  type: z.literal("checkbox"),
   values: z.array(z.lazy(() => TemplateFindTemplatesValue2$outboundSchema))
     .optional(),
   validationRule: z.string().optional(),
@@ -1035,15 +947,6 @@ export function templateFindTemplatesFieldMetaCheckboxFromJSON(
     `Failed to parse 'TemplateFindTemplatesFieldMetaCheckbox' from JSON`,
   );
 }
-
-/** @internal */
-export const TemplateFindTemplatesTypeRadio$inboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesTypeRadio
-> = z.nativeEnum(TemplateFindTemplatesTypeRadio);
-/** @internal */
-export const TemplateFindTemplatesTypeRadio$outboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesTypeRadio
-> = TemplateFindTemplatesTypeRadio$inboundSchema;
 
 /** @internal */
 export const TemplateFindTemplatesValue1$inboundSchema: z.ZodType<
@@ -1112,7 +1015,7 @@ export const TemplateFindTemplatesFieldMetaRadio$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: TemplateFindTemplatesTypeRadio$inboundSchema,
+  type: z.literal("radio"),
   values: z.array(z.lazy(() => TemplateFindTemplatesValue1$inboundSchema))
     .optional(),
   direction: TemplateFindTemplatesDirection1$inboundSchema.default("vertical"),
@@ -1124,7 +1027,7 @@ export type TemplateFindTemplatesFieldMetaRadio$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "radio";
   values?: Array<TemplateFindTemplatesValue1$Outbound> | undefined;
   direction: string;
 };
@@ -1140,7 +1043,7 @@ export const TemplateFindTemplatesFieldMetaRadio$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: TemplateFindTemplatesTypeRadio$outboundSchema,
+  type: z.literal("radio"),
   values: z.array(z.lazy(() => TemplateFindTemplatesValue1$outboundSchema))
     .optional(),
   direction: TemplateFindTemplatesDirection1$outboundSchema.default("vertical"),
@@ -1165,15 +1068,6 @@ export function templateFindTemplatesFieldMetaRadioFromJSON(
     `Failed to parse 'TemplateFindTemplatesFieldMetaRadio' from JSON`,
   );
 }
-
-/** @internal */
-export const TemplateFindTemplatesTypeNumber$inboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesTypeNumber
-> = z.nativeEnum(TemplateFindTemplatesTypeNumber);
-/** @internal */
-export const TemplateFindTemplatesTypeNumber$outboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesTypeNumber
-> = TemplateFindTemplatesTypeNumber$inboundSchema;
 
 /** @internal */
 export const TemplateFindTemplatesTextAlign6$inboundSchema: z.ZodNativeEnum<
@@ -1204,7 +1098,7 @@ export const TemplateFindTemplatesFieldMetaNumber$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: TemplateFindTemplatesTypeNumber$inboundSchema,
+  type: z.literal("number"),
   numberFormat: z.nullable(z.string()).optional(),
   value: z.string().optional(),
   minValue: z.nullable(z.number()).optional(),
@@ -1222,7 +1116,7 @@ export type TemplateFindTemplatesFieldMetaNumber$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
   minValue?: number | null | undefined;
@@ -1244,7 +1138,7 @@ export const TemplateFindTemplatesFieldMetaNumber$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: TemplateFindTemplatesTypeNumber$outboundSchema,
+  type: z.literal("number"),
   numberFormat: z.nullable(z.string()).optional(),
   value: z.string().optional(),
   minValue: z.nullable(z.number()).optional(),
@@ -1277,15 +1171,6 @@ export function templateFindTemplatesFieldMetaNumberFromJSON(
 }
 
 /** @internal */
-export const TemplateFindTemplatesTypeText$inboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesTypeText
-> = z.nativeEnum(TemplateFindTemplatesTypeText);
-/** @internal */
-export const TemplateFindTemplatesTypeText$outboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesTypeText
-> = TemplateFindTemplatesTypeText$inboundSchema;
-
-/** @internal */
 export const TemplateFindTemplatesTextAlign5$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesTextAlign5
 > = z.nativeEnum(TemplateFindTemplatesTextAlign5);
@@ -1314,7 +1199,7 @@ export const TemplateFindTemplatesFieldMetaText$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: TemplateFindTemplatesTypeText$inboundSchema,
+  type: z.literal("text"),
   text: z.string().optional(),
   characterLimit: z.number().optional(),
   textAlign: TemplateFindTemplatesTextAlign5$inboundSchema.optional(),
@@ -1330,7 +1215,7 @@ export type TemplateFindTemplatesFieldMetaText$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
   textAlign?: string | undefined;
@@ -1350,7 +1235,7 @@ export const TemplateFindTemplatesFieldMetaText$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: TemplateFindTemplatesTypeText$outboundSchema,
+  type: z.literal("text"),
   text: z.string().optional(),
   characterLimit: z.number().optional(),
   textAlign: TemplateFindTemplatesTextAlign5$outboundSchema.optional(),
@@ -1381,15 +1266,6 @@ export function templateFindTemplatesFieldMetaTextFromJSON(
 }
 
 /** @internal */
-export const TemplateFindTemplatesTypeDate$inboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesTypeDate
-> = z.nativeEnum(TemplateFindTemplatesTypeDate);
-/** @internal */
-export const TemplateFindTemplatesTypeDate$outboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesTypeDate
-> = TemplateFindTemplatesTypeDate$inboundSchema;
-
-/** @internal */
 export const TemplateFindTemplatesTextAlign4$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesTextAlign4
 > = z.nativeEnum(TemplateFindTemplatesTextAlign4);
@@ -1409,7 +1285,7 @@ export const TemplateFindTemplatesFieldMetaDate$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: TemplateFindTemplatesTypeDate$inboundSchema,
+  type: z.literal("date"),
   textAlign: TemplateFindTemplatesTextAlign4$inboundSchema.optional(),
 });
 /** @internal */
@@ -1419,7 +1295,7 @@ export type TemplateFindTemplatesFieldMetaDate$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "date";
   textAlign?: string | undefined;
 };
 
@@ -1434,7 +1310,7 @@ export const TemplateFindTemplatesFieldMetaDate$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: TemplateFindTemplatesTypeDate$outboundSchema,
+  type: z.literal("date"),
   textAlign: TemplateFindTemplatesTextAlign4$outboundSchema.optional(),
 });
 
@@ -1459,15 +1335,6 @@ export function templateFindTemplatesFieldMetaDateFromJSON(
 }
 
 /** @internal */
-export const TemplateFindTemplatesTypeEmail$inboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesTypeEmail
-> = z.nativeEnum(TemplateFindTemplatesTypeEmail);
-/** @internal */
-export const TemplateFindTemplatesTypeEmail$outboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesTypeEmail
-> = TemplateFindTemplatesTypeEmail$inboundSchema;
-
-/** @internal */
 export const TemplateFindTemplatesTextAlign3$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesTextAlign3
 > = z.nativeEnum(TemplateFindTemplatesTextAlign3);
@@ -1487,7 +1354,7 @@ export const TemplateFindTemplatesFieldMetaEmail$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: TemplateFindTemplatesTypeEmail$inboundSchema,
+  type: z.literal("email"),
   textAlign: TemplateFindTemplatesTextAlign3$inboundSchema.optional(),
 });
 /** @internal */
@@ -1497,7 +1364,7 @@ export type TemplateFindTemplatesFieldMetaEmail$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "email";
   textAlign?: string | undefined;
 };
 
@@ -1512,7 +1379,7 @@ export const TemplateFindTemplatesFieldMetaEmail$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: TemplateFindTemplatesTypeEmail$outboundSchema,
+  type: z.literal("email"),
   textAlign: TemplateFindTemplatesTextAlign3$outboundSchema.optional(),
 });
 
@@ -1537,15 +1404,6 @@ export function templateFindTemplatesFieldMetaEmailFromJSON(
 }
 
 /** @internal */
-export const TemplateFindTemplatesTypeName$inboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesTypeName
-> = z.nativeEnum(TemplateFindTemplatesTypeName);
-/** @internal */
-export const TemplateFindTemplatesTypeName$outboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesTypeName
-> = TemplateFindTemplatesTypeName$inboundSchema;
-
-/** @internal */
 export const TemplateFindTemplatesTextAlign2$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesTextAlign2
 > = z.nativeEnum(TemplateFindTemplatesTextAlign2);
@@ -1565,7 +1423,7 @@ export const TemplateFindTemplatesFieldMetaName$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: TemplateFindTemplatesTypeName$inboundSchema,
+  type: z.literal("name"),
   textAlign: TemplateFindTemplatesTextAlign2$inboundSchema.optional(),
 });
 /** @internal */
@@ -1575,7 +1433,7 @@ export type TemplateFindTemplatesFieldMetaName$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "name";
   textAlign?: string | undefined;
 };
 
@@ -1590,7 +1448,7 @@ export const TemplateFindTemplatesFieldMetaName$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: TemplateFindTemplatesTypeName$outboundSchema,
+  type: z.literal("name"),
   textAlign: TemplateFindTemplatesTextAlign2$outboundSchema.optional(),
 });
 
@@ -1615,15 +1473,6 @@ export function templateFindTemplatesFieldMetaNameFromJSON(
 }
 
 /** @internal */
-export const TemplateFindTemplatesTypeInitials$inboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesTypeInitials
-> = z.nativeEnum(TemplateFindTemplatesTypeInitials);
-/** @internal */
-export const TemplateFindTemplatesTypeInitials$outboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesTypeInitials
-> = TemplateFindTemplatesTypeInitials$inboundSchema;
-
-/** @internal */
 export const TemplateFindTemplatesTextAlign1$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesTextAlign1
 > = z.nativeEnum(TemplateFindTemplatesTextAlign1);
@@ -1643,7 +1492,7 @@ export const TemplateFindTemplatesFieldMetaInitials$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: TemplateFindTemplatesTypeInitials$inboundSchema,
+  type: z.literal("initials"),
   textAlign: TemplateFindTemplatesTextAlign1$inboundSchema.optional(),
 });
 /** @internal */
@@ -1653,7 +1502,7 @@ export type TemplateFindTemplatesFieldMetaInitials$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "initials";
   textAlign?: string | undefined;
 };
 
@@ -1668,7 +1517,7 @@ export const TemplateFindTemplatesFieldMetaInitials$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: TemplateFindTemplatesTypeInitials$outboundSchema,
+  type: z.literal("initials"),
   textAlign: TemplateFindTemplatesTextAlign1$outboundSchema.optional(),
 });
 
@@ -1694,15 +1543,6 @@ export function templateFindTemplatesFieldMetaInitialsFromJSON(
 }
 
 /** @internal */
-export const TemplateFindTemplatesTypeSignature$inboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesTypeSignature
-> = z.nativeEnum(TemplateFindTemplatesTypeSignature);
-/** @internal */
-export const TemplateFindTemplatesTypeSignature$outboundSchema: z.ZodNativeEnum<
-  typeof TemplateFindTemplatesTypeSignature
-> = TemplateFindTemplatesTypeSignature$inboundSchema;
-
-/** @internal */
 export const TemplateFindTemplatesFieldMetaSignature$inboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMetaSignature,
   z.ZodTypeDef,
@@ -1713,7 +1553,7 @@ export const TemplateFindTemplatesFieldMetaSignature$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: TemplateFindTemplatesTypeSignature$inboundSchema,
+  type: z.literal("signature"),
 });
 /** @internal */
 export type TemplateFindTemplatesFieldMetaSignature$Outbound = {
@@ -1722,7 +1562,7 @@ export type TemplateFindTemplatesFieldMetaSignature$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "signature";
 };
 
 /** @internal */
@@ -1736,7 +1576,7 @@ export const TemplateFindTemplatesFieldMetaSignature$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: TemplateFindTemplatesTypeSignature$outboundSchema,
+  type: z.literal("signature"),
 });
 
 export function templateFindTemplatesFieldMetaSignatureToJSON(
@@ -1771,49 +1611,29 @@ export const TemplateFindTemplatesFieldMetaUnion$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  z.lazy(() => TemplateFindTemplatesFieldMetaSignature$inboundSchema).and(
-    z.object({ type: z.literal("signature") }),
-  ),
-  z.lazy(() => TemplateFindTemplatesFieldMetaInitials$inboundSchema).and(
-    z.object({ type: z.literal("initials") }),
-  ),
-  z.lazy(() => TemplateFindTemplatesFieldMetaName$inboundSchema).and(
-    z.object({ type: z.literal("name") }),
-  ),
-  z.lazy(() => TemplateFindTemplatesFieldMetaEmail$inboundSchema).and(
-    z.object({ type: z.literal("email") }),
-  ),
-  z.lazy(() => TemplateFindTemplatesFieldMetaDate$inboundSchema).and(
-    z.object({ type: z.literal("date") }),
-  ),
-  z.lazy(() => TemplateFindTemplatesFieldMetaText$inboundSchema).and(
-    z.object({ type: z.literal("text") }),
-  ),
-  z.lazy(() => TemplateFindTemplatesFieldMetaNumber$inboundSchema).and(
-    z.object({ type: z.literal("number") }),
-  ),
-  z.lazy(() => TemplateFindTemplatesFieldMetaRadio$inboundSchema).and(
-    z.object({ type: z.literal("radio") }),
-  ),
-  z.lazy(() => TemplateFindTemplatesFieldMetaCheckbox$inboundSchema).and(
-    z.object({ type: z.literal("checkbox") }),
-  ),
-  z.lazy(() => TemplateFindTemplatesFieldMetaDropdown$inboundSchema).and(
-    z.object({ type: z.literal("dropdown") }),
-  ),
+  z.lazy(() => TemplateFindTemplatesFieldMetaSignature$inboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaInitials$inboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaName$inboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaEmail$inboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaDate$inboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaText$inboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaNumber$inboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaRadio$inboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaCheckbox$inboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaDropdown$inboundSchema),
 ]);
 /** @internal */
 export type TemplateFindTemplatesFieldMetaUnion$Outbound =
-  | (TemplateFindTemplatesFieldMetaSignature$Outbound & { type: "signature" })
-  | (TemplateFindTemplatesFieldMetaInitials$Outbound & { type: "initials" })
-  | (TemplateFindTemplatesFieldMetaName$Outbound & { type: "name" })
-  | (TemplateFindTemplatesFieldMetaEmail$Outbound & { type: "email" })
-  | (TemplateFindTemplatesFieldMetaDate$Outbound & { type: "date" })
-  | (TemplateFindTemplatesFieldMetaText$Outbound & { type: "text" })
-  | (TemplateFindTemplatesFieldMetaNumber$Outbound & { type: "number" })
-  | (TemplateFindTemplatesFieldMetaRadio$Outbound & { type: "radio" })
-  | (TemplateFindTemplatesFieldMetaCheckbox$Outbound & { type: "checkbox" })
-  | (TemplateFindTemplatesFieldMetaDropdown$Outbound & { type: "dropdown" });
+  | TemplateFindTemplatesFieldMetaSignature$Outbound
+  | TemplateFindTemplatesFieldMetaInitials$Outbound
+  | TemplateFindTemplatesFieldMetaName$Outbound
+  | TemplateFindTemplatesFieldMetaEmail$Outbound
+  | TemplateFindTemplatesFieldMetaDate$Outbound
+  | TemplateFindTemplatesFieldMetaText$Outbound
+  | TemplateFindTemplatesFieldMetaNumber$Outbound
+  | TemplateFindTemplatesFieldMetaRadio$Outbound
+  | TemplateFindTemplatesFieldMetaCheckbox$Outbound
+  | TemplateFindTemplatesFieldMetaDropdown$Outbound;
 
 /** @internal */
 export const TemplateFindTemplatesFieldMetaUnion$outboundSchema: z.ZodType<
@@ -1821,36 +1641,16 @@ export const TemplateFindTemplatesFieldMetaUnion$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TemplateFindTemplatesFieldMetaUnion
 > = z.union([
-  z.lazy(() => TemplateFindTemplatesFieldMetaSignature$outboundSchema).and(
-    z.object({ type: z.literal("signature") }),
-  ),
-  z.lazy(() => TemplateFindTemplatesFieldMetaInitials$outboundSchema).and(
-    z.object({ type: z.literal("initials") }),
-  ),
-  z.lazy(() => TemplateFindTemplatesFieldMetaName$outboundSchema).and(
-    z.object({ type: z.literal("name") }),
-  ),
-  z.lazy(() => TemplateFindTemplatesFieldMetaEmail$outboundSchema).and(
-    z.object({ type: z.literal("email") }),
-  ),
-  z.lazy(() => TemplateFindTemplatesFieldMetaDate$outboundSchema).and(
-    z.object({ type: z.literal("date") }),
-  ),
-  z.lazy(() => TemplateFindTemplatesFieldMetaText$outboundSchema).and(
-    z.object({ type: z.literal("text") }),
-  ),
-  z.lazy(() => TemplateFindTemplatesFieldMetaNumber$outboundSchema).and(
-    z.object({ type: z.literal("number") }),
-  ),
-  z.lazy(() => TemplateFindTemplatesFieldMetaRadio$outboundSchema).and(
-    z.object({ type: z.literal("radio") }),
-  ),
-  z.lazy(() => TemplateFindTemplatesFieldMetaCheckbox$outboundSchema).and(
-    z.object({ type: z.literal("checkbox") }),
-  ),
-  z.lazy(() => TemplateFindTemplatesFieldMetaDropdown$outboundSchema).and(
-    z.object({ type: z.literal("dropdown") }),
-  ),
+  z.lazy(() => TemplateFindTemplatesFieldMetaSignature$outboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaInitials$outboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaName$outboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaEmail$outboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaDate$outboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaText$outboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaNumber$outboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaRadio$outboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaCheckbox$outboundSchema),
+  z.lazy(() => TemplateFindTemplatesFieldMetaDropdown$outboundSchema),
 ]);
 
 export function templateFindTemplatesFieldMetaUnionToJSON(
@@ -1881,7 +1681,7 @@ export const TemplateFindTemplatesField$inboundSchema: z.ZodType<
 > = z.object({
   envelopeId: z.string(),
   envelopeItemId: z.string(),
-  type: TemplateFindTemplatesFieldType$inboundSchema,
+  type: TemplateFindTemplatesFieldTypeEnum$inboundSchema,
   id: z.number(),
   secondaryId: z.string(),
   recipientId: z.number(),
@@ -1894,36 +1694,16 @@ export const TemplateFindTemplatesField$inboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() => TemplateFindTemplatesFieldMetaSignature$inboundSchema).and(
-        z.object({ type: z.literal("signature") }),
-      ),
-      z.lazy(() => TemplateFindTemplatesFieldMetaInitials$inboundSchema).and(
-        z.object({ type: z.literal("initials") }),
-      ),
-      z.lazy(() => TemplateFindTemplatesFieldMetaName$inboundSchema).and(
-        z.object({ type: z.literal("name") }),
-      ),
-      z.lazy(() => TemplateFindTemplatesFieldMetaEmail$inboundSchema).and(
-        z.object({ type: z.literal("email") }),
-      ),
-      z.lazy(() => TemplateFindTemplatesFieldMetaDate$inboundSchema).and(
-        z.object({ type: z.literal("date") }),
-      ),
-      z.lazy(() => TemplateFindTemplatesFieldMetaText$inboundSchema).and(
-        z.object({ type: z.literal("text") }),
-      ),
-      z.lazy(() => TemplateFindTemplatesFieldMetaNumber$inboundSchema).and(
-        z.object({ type: z.literal("number") }),
-      ),
-      z.lazy(() => TemplateFindTemplatesFieldMetaRadio$inboundSchema).and(
-        z.object({ type: z.literal("radio") }),
-      ),
-      z.lazy(() => TemplateFindTemplatesFieldMetaCheckbox$inboundSchema).and(
-        z.object({ type: z.literal("checkbox") }),
-      ),
-      z.lazy(() => TemplateFindTemplatesFieldMetaDropdown$inboundSchema).and(
-        z.object({ type: z.literal("dropdown") }),
-      ),
+      z.lazy(() => TemplateFindTemplatesFieldMetaSignature$inboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaInitials$inboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaName$inboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaEmail$inboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaDate$inboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaText$inboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaNumber$inboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaRadio$inboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaCheckbox$inboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaDropdown$inboundSchema),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),
@@ -1945,16 +1725,16 @@ export type TemplateFindTemplatesField$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | (TemplateFindTemplatesFieldMetaSignature$Outbound & { type: "signature" })
-    | (TemplateFindTemplatesFieldMetaInitials$Outbound & { type: "initials" })
-    | (TemplateFindTemplatesFieldMetaName$Outbound & { type: "name" })
-    | (TemplateFindTemplatesFieldMetaEmail$Outbound & { type: "email" })
-    | (TemplateFindTemplatesFieldMetaDate$Outbound & { type: "date" })
-    | (TemplateFindTemplatesFieldMetaText$Outbound & { type: "text" })
-    | (TemplateFindTemplatesFieldMetaNumber$Outbound & { type: "number" })
-    | (TemplateFindTemplatesFieldMetaRadio$Outbound & { type: "radio" })
-    | (TemplateFindTemplatesFieldMetaCheckbox$Outbound & { type: "checkbox" })
-    | (TemplateFindTemplatesFieldMetaDropdown$Outbound & { type: "dropdown" })
+    | TemplateFindTemplatesFieldMetaSignature$Outbound
+    | TemplateFindTemplatesFieldMetaInitials$Outbound
+    | TemplateFindTemplatesFieldMetaName$Outbound
+    | TemplateFindTemplatesFieldMetaEmail$Outbound
+    | TemplateFindTemplatesFieldMetaDate$Outbound
+    | TemplateFindTemplatesFieldMetaText$Outbound
+    | TemplateFindTemplatesFieldMetaNumber$Outbound
+    | TemplateFindTemplatesFieldMetaRadio$Outbound
+    | TemplateFindTemplatesFieldMetaCheckbox$Outbound
+    | TemplateFindTemplatesFieldMetaDropdown$Outbound
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -1968,7 +1748,7 @@ export const TemplateFindTemplatesField$outboundSchema: z.ZodType<
 > = z.object({
   envelopeId: z.string(),
   envelopeItemId: z.string(),
-  type: TemplateFindTemplatesFieldType$outboundSchema,
+  type: TemplateFindTemplatesFieldTypeEnum$outboundSchema,
   id: z.number(),
   secondaryId: z.string(),
   recipientId: z.number(),
@@ -1981,36 +1761,16 @@ export const TemplateFindTemplatesField$outboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() => TemplateFindTemplatesFieldMetaSignature$outboundSchema).and(
-        z.object({ type: z.literal("signature") }),
-      ),
-      z.lazy(() => TemplateFindTemplatesFieldMetaInitials$outboundSchema).and(
-        z.object({ type: z.literal("initials") }),
-      ),
-      z.lazy(() => TemplateFindTemplatesFieldMetaName$outboundSchema).and(
-        z.object({ type: z.literal("name") }),
-      ),
-      z.lazy(() => TemplateFindTemplatesFieldMetaEmail$outboundSchema).and(
-        z.object({ type: z.literal("email") }),
-      ),
-      z.lazy(() => TemplateFindTemplatesFieldMetaDate$outboundSchema).and(
-        z.object({ type: z.literal("date") }),
-      ),
-      z.lazy(() => TemplateFindTemplatesFieldMetaText$outboundSchema).and(
-        z.object({ type: z.literal("text") }),
-      ),
-      z.lazy(() => TemplateFindTemplatesFieldMetaNumber$outboundSchema).and(
-        z.object({ type: z.literal("number") }),
-      ),
-      z.lazy(() => TemplateFindTemplatesFieldMetaRadio$outboundSchema).and(
-        z.object({ type: z.literal("radio") }),
-      ),
-      z.lazy(() => TemplateFindTemplatesFieldMetaCheckbox$outboundSchema).and(
-        z.object({ type: z.literal("checkbox") }),
-      ),
-      z.lazy(() => TemplateFindTemplatesFieldMetaDropdown$outboundSchema).and(
-        z.object({ type: z.literal("dropdown") }),
-      ),
+      z.lazy(() => TemplateFindTemplatesFieldMetaSignature$outboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaInitials$outboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaName$outboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaEmail$outboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaDate$outboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaText$outboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaNumber$outboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaRadio$outboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaCheckbox$outboundSchema),
+      z.lazy(() => TemplateFindTemplatesFieldMetaDropdown$outboundSchema),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),
@@ -2345,7 +2105,7 @@ export const TemplateFindTemplatesData$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: TemplateFindTemplatesDataType$inboundSchema,
+  type: TemplateFindTemplatesDataTypeEnum$inboundSchema,
   visibility: TemplateFindTemplatesVisibility$inboundSchema,
   id: z.number(),
   externalId: z.nullable(z.string()),
@@ -2406,7 +2166,7 @@ export const TemplateFindTemplatesData$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TemplateFindTemplatesData
 > = z.object({
-  type: TemplateFindTemplatesDataType$outboundSchema,
+  type: TemplateFindTemplatesDataTypeEnum$outboundSchema,
   visibility: TemplateFindTemplatesVisibility$outboundSchema,
   id: z.number(),
   externalId: z.nullable(z.string()),

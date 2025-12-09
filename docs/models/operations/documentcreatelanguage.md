@@ -11,5 +11,5 @@ let value: DocumentCreateLanguage = "zh";
 ## Values
 
 ```typescript
-"de" | "en" | "fr" | "es" | "it" | "pl" | "pt-BR" | "ja" | "ko" | "zh"
+"de" | "en" | "fr" | "es" | "it" | "nl" | "pl" | "pt-BR" | "ja" | "ko" | "zh"
 ```
