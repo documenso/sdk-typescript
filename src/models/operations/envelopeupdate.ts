@@ -94,6 +94,7 @@ export const EnvelopeUpdateLanguage = {
   Fr: "fr",
   Es: "es",
   It: "it",
+  Nl: "nl",
   Pl: "pl",
   PtBR: "pt-BR",
   Ja: "ja",

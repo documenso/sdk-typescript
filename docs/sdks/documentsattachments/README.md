@@ -1,5 +1,4 @@
-# DocumentsAttachments
-(*documents.attachments*)
+# Documents.Attachments
 
 ## Overview
 

@@ -95,6 +95,7 @@ export const TemplateCreateTemplateTemporaryLanguage = {
   Fr: "fr",
   Es: "es",
   It: "it",
+  Nl: "nl",
   Pl: "pl",
   PtBR: "pt-BR",
   Ja: "ja",
@@ -164,12 +165,12 @@ export type TemplateCreateTemplateTemporaryRequest = {
   attachments?: Array<TemplateCreateTemplateTemporaryAttachment> | undefined;
 };
 
-export const TemplateCreateTemplateTemporaryTypeResponse = {
+export const TemplateCreateTemplateTemporaryTypeResponseEnum = {
   Public: "PUBLIC",
   Private: "PRIVATE",
 } as const;
-export type TemplateCreateTemplateTemporaryTypeResponse = ClosedEnum<
-  typeof TemplateCreateTemplateTemporaryTypeResponse
+export type TemplateCreateTemplateTemporaryTypeResponseEnum = ClosedEnum<
+  typeof TemplateCreateTemplateTemporaryTypeResponseEnum
 >;
 
 export const TemplateCreateTemplateTemporaryVisibilityResponse = {
@@ -367,7 +368,7 @@ export type TemplateCreateTemplateTemporaryRecipient = {
   templateId?: number | null | undefined;
 };
 
-export const TemplateCreateTemplateTemporaryFieldType = {
+export const TemplateCreateTemplateTemporaryFieldTypeEnum = {
   Signature: "SIGNATURE",
   FreeSignature: "FREE_SIGNATURE",
   Initials: "INITIALS",
@@ -380,15 +381,8 @@ export const TemplateCreateTemplateTemporaryFieldType = {
   Checkbox: "CHECKBOX",
   Dropdown: "DROPDOWN",
 } as const;
-export type TemplateCreateTemplateTemporaryFieldType = ClosedEnum<
-  typeof TemplateCreateTemplateTemporaryFieldType
->;
-
-export const TemplateCreateTemplateTemporaryTypeDropdown = {
-  Dropdown: "dropdown",
-} as const;
-export type TemplateCreateTemplateTemporaryTypeDropdown = ClosedEnum<
-  typeof TemplateCreateTemplateTemporaryTypeDropdown
+export type TemplateCreateTemplateTemporaryFieldTypeEnum = ClosedEnum<
+  typeof TemplateCreateTemplateTemporaryFieldTypeEnum
 >;
 
 export type TemplateCreateTemplateTemporaryValue3 = {
@@ -401,17 +395,10 @@ export type TemplateCreateTemplateTemporaryFieldMetaDropdown = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateCreateTemplateTemporaryTypeDropdown;
+  type: "dropdown";
   values?: Array<TemplateCreateTemplateTemporaryValue3> | undefined;
   defaultValue?: string | undefined;
 };
-
-export const TemplateCreateTemplateTemporaryTypeCheckbox = {
-  Checkbox: "checkbox",
-} as const;
-export type TemplateCreateTemplateTemporaryTypeCheckbox = ClosedEnum<
-  typeof TemplateCreateTemplateTemporaryTypeCheckbox
->;
 
 export type TemplateCreateTemplateTemporaryValue2 = {
   id: number;
@@ -433,19 +420,12 @@ export type TemplateCreateTemplateTemporaryFieldMetaCheckbox = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateCreateTemplateTemporaryTypeCheckbox;
+  type: "checkbox";
   values?: Array<TemplateCreateTemplateTemporaryValue2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
   direction?: TemplateCreateTemplateTemporaryDirection2 | undefined;
 };
-
-export const TemplateCreateTemplateTemporaryTypeRadio = {
-  Radio: "radio",
-} as const;
-export type TemplateCreateTemplateTemporaryTypeRadio = ClosedEnum<
-  typeof TemplateCreateTemplateTemporaryTypeRadio
->;
 
 export type TemplateCreateTemplateTemporaryValue1 = {
   id: number;
@@ -467,17 +447,10 @@ export type TemplateCreateTemplateTemporaryFieldMetaRadio = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateCreateTemplateTemporaryTypeRadio;
+  type: "radio";
   values?: Array<TemplateCreateTemplateTemporaryValue1> | undefined;
   direction?: TemplateCreateTemplateTemporaryDirection1 | undefined;
 };
-
-export const TemplateCreateTemplateTemporaryTypeNumber = {
-  Number: "number",
-} as const;
-export type TemplateCreateTemplateTemporaryTypeNumber = ClosedEnum<
-  typeof TemplateCreateTemplateTemporaryTypeNumber
->;
 
 export const TemplateCreateTemplateTemporaryTextAlign6 = {
   Left: "left",
@@ -503,7 +476,7 @@ export type TemplateCreateTemplateTemporaryFieldMetaNumber = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateCreateTemplateTemporaryTypeNumber;
+  type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
   minValue?: number | null | undefined;
@@ -516,13 +489,6 @@ export type TemplateCreateTemplateTemporaryFieldMetaNumber = {
     | null
     | undefined;
 };
-
-export const TemplateCreateTemplateTemporaryTypeText = {
-  Text: "text",
-} as const;
-export type TemplateCreateTemplateTemporaryTypeText = ClosedEnum<
-  typeof TemplateCreateTemplateTemporaryTypeText
->;
 
 export const TemplateCreateTemplateTemporaryTextAlign5 = {
   Left: "left",
@@ -548,7 +514,7 @@ export type TemplateCreateTemplateTemporaryFieldMetaText = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateCreateTemplateTemporaryTypeText;
+  type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
   textAlign?: TemplateCreateTemplateTemporaryTextAlign5 | undefined;
@@ -559,13 +525,6 @@ export type TemplateCreateTemplateTemporaryFieldMetaText = {
     | null
     | undefined;
 };
-
-export const TemplateCreateTemplateTemporaryTypeDate = {
-  Date: "date",
-} as const;
-export type TemplateCreateTemplateTemporaryTypeDate = ClosedEnum<
-  typeof TemplateCreateTemplateTemporaryTypeDate
->;
 
 export const TemplateCreateTemplateTemporaryTextAlign4 = {
   Left: "left",
@@ -582,16 +541,9 @@ export type TemplateCreateTemplateTemporaryFieldMetaDate = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateCreateTemplateTemporaryTypeDate;
+  type: "date";
   textAlign?: TemplateCreateTemplateTemporaryTextAlign4 | undefined;
 };
-
-export const TemplateCreateTemplateTemporaryTypeEmail = {
-  Email: "email",
-} as const;
-export type TemplateCreateTemplateTemporaryTypeEmail = ClosedEnum<
-  typeof TemplateCreateTemplateTemporaryTypeEmail
->;
 
 export const TemplateCreateTemplateTemporaryTextAlign3 = {
   Left: "left",
@@ -608,16 +560,9 @@ export type TemplateCreateTemplateTemporaryFieldMetaEmail = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateCreateTemplateTemporaryTypeEmail;
+  type: "email";
   textAlign?: TemplateCreateTemplateTemporaryTextAlign3 | undefined;
 };
-
-export const TemplateCreateTemplateTemporaryTypeName = {
-  Name: "name",
-} as const;
-export type TemplateCreateTemplateTemporaryTypeName = ClosedEnum<
-  typeof TemplateCreateTemplateTemporaryTypeName
->;
 
 export const TemplateCreateTemplateTemporaryTextAlign2 = {
   Left: "left",
@@ -634,16 +579,9 @@ export type TemplateCreateTemplateTemporaryFieldMetaName = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateCreateTemplateTemporaryTypeName;
+  type: "name";
   textAlign?: TemplateCreateTemplateTemporaryTextAlign2 | undefined;
 };
-
-export const TemplateCreateTemplateTemporaryTypeInitials = {
-  Initials: "initials",
-} as const;
-export type TemplateCreateTemplateTemporaryTypeInitials = ClosedEnum<
-  typeof TemplateCreateTemplateTemporaryTypeInitials
->;
 
 export const TemplateCreateTemplateTemporaryTextAlign1 = {
   Left: "left",
@@ -660,16 +598,9 @@ export type TemplateCreateTemplateTemporaryFieldMetaInitials = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateCreateTemplateTemporaryTypeInitials;
+  type: "initials";
   textAlign?: TemplateCreateTemplateTemporaryTextAlign1 | undefined;
 };
-
-export const TemplateCreateTemplateTemporaryTypeSignature = {
-  Signature: "signature",
-} as const;
-export type TemplateCreateTemplateTemporaryTypeSignature = ClosedEnum<
-  typeof TemplateCreateTemplateTemporaryTypeSignature
->;
 
 export type TemplateCreateTemplateTemporaryFieldMetaSignature = {
   label?: string | undefined;
@@ -677,25 +608,25 @@ export type TemplateCreateTemplateTemporaryFieldMetaSignature = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: TemplateCreateTemplateTemporaryTypeSignature;
+  type: "signature";
 };
 
 export type TemplateCreateTemplateTemporaryFieldMetaUnion =
-  | (TemplateCreateTemplateTemporaryFieldMetaSignature & { type: "signature" })
-  | (TemplateCreateTemplateTemporaryFieldMetaInitials & { type: "initials" })
-  | (TemplateCreateTemplateTemporaryFieldMetaName & { type: "name" })
-  | (TemplateCreateTemplateTemporaryFieldMetaEmail & { type: "email" })
-  | (TemplateCreateTemplateTemporaryFieldMetaDate & { type: "date" })
-  | (TemplateCreateTemplateTemporaryFieldMetaText & { type: "text" })
-  | (TemplateCreateTemplateTemporaryFieldMetaNumber & { type: "number" })
-  | (TemplateCreateTemplateTemporaryFieldMetaRadio & { type: "radio" })
-  | (TemplateCreateTemplateTemporaryFieldMetaCheckbox & { type: "checkbox" })
-  | (TemplateCreateTemplateTemporaryFieldMetaDropdown & { type: "dropdown" });
+  | TemplateCreateTemplateTemporaryFieldMetaSignature
+  | TemplateCreateTemplateTemporaryFieldMetaInitials
+  | TemplateCreateTemplateTemporaryFieldMetaName
+  | TemplateCreateTemplateTemporaryFieldMetaEmail
+  | TemplateCreateTemplateTemporaryFieldMetaDate
+  | TemplateCreateTemplateTemporaryFieldMetaText
+  | TemplateCreateTemplateTemporaryFieldMetaNumber
+  | TemplateCreateTemplateTemporaryFieldMetaRadio
+  | TemplateCreateTemplateTemporaryFieldMetaCheckbox
+  | TemplateCreateTemplateTemporaryFieldMetaDropdown;
 
 export type TemplateCreateTemplateTemporaryField = {
   envelopeId: string;
   envelopeItemId: string;
-  type: TemplateCreateTemplateTemporaryFieldType;
+  type: TemplateCreateTemplateTemporaryFieldTypeEnum;
   id: number;
   secondaryId: string;
   recipientId: number;
@@ -707,18 +638,16 @@ export type TemplateCreateTemplateTemporaryField = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | (TemplateCreateTemplateTemporaryFieldMetaSignature & {
-      type: "signature";
-    })
-    | (TemplateCreateTemplateTemporaryFieldMetaInitials & { type: "initials" })
-    | (TemplateCreateTemplateTemporaryFieldMetaName & { type: "name" })
-    | (TemplateCreateTemplateTemporaryFieldMetaEmail & { type: "email" })
-    | (TemplateCreateTemplateTemporaryFieldMetaDate & { type: "date" })
-    | (TemplateCreateTemplateTemporaryFieldMetaText & { type: "text" })
-    | (TemplateCreateTemplateTemporaryFieldMetaNumber & { type: "number" })
-    | (TemplateCreateTemplateTemporaryFieldMetaRadio & { type: "radio" })
-    | (TemplateCreateTemplateTemporaryFieldMetaCheckbox & { type: "checkbox" })
-    | (TemplateCreateTemplateTemporaryFieldMetaDropdown & { type: "dropdown" })
+    | TemplateCreateTemplateTemporaryFieldMetaSignature
+    | TemplateCreateTemplateTemporaryFieldMetaInitials
+    | TemplateCreateTemplateTemporaryFieldMetaName
+    | TemplateCreateTemplateTemporaryFieldMetaEmail
+    | TemplateCreateTemplateTemporaryFieldMetaDate
+    | TemplateCreateTemplateTemporaryFieldMetaText
+    | TemplateCreateTemplateTemporaryFieldMetaNumber
+    | TemplateCreateTemplateTemporaryFieldMetaRadio
+    | TemplateCreateTemplateTemporaryFieldMetaCheckbox
+    | TemplateCreateTemplateTemporaryFieldMetaDropdown
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -760,7 +689,7 @@ export type TemplateCreateTemplateTemporaryEnvelopeItem = {
 };
 
 export type Template = {
-  type: TemplateCreateTemplateTemporaryTypeResponse;
+  type: TemplateCreateTemplateTemporaryTypeResponseEnum;
   visibility: TemplateCreateTemplateTemporaryVisibilityResponse;
   id: number;
   externalId: string | null;
@@ -1196,13 +1125,13 @@ export function templateCreateTemplateTemporaryRequestFromJSON(
 }
 
 /** @internal */
-export const TemplateCreateTemplateTemporaryTypeResponse$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTypeResponse> = z
-    .nativeEnum(TemplateCreateTemplateTemporaryTypeResponse);
+export const TemplateCreateTemplateTemporaryTypeResponseEnum$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTypeResponseEnum> = z
+    .nativeEnum(TemplateCreateTemplateTemporaryTypeResponseEnum);
 /** @internal */
-export const TemplateCreateTemplateTemporaryTypeResponse$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTypeResponse> =
-    TemplateCreateTemplateTemporaryTypeResponse$inboundSchema;
+export const TemplateCreateTemplateTemporaryTypeResponseEnum$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTypeResponseEnum> =
+    TemplateCreateTemplateTemporaryTypeResponseEnum$inboundSchema;
 
 /** @internal */
 export const TemplateCreateTemplateTemporaryVisibilityResponse$inboundSchema:
@@ -1908,22 +1837,13 @@ export function templateCreateTemplateTemporaryRecipientFromJSON(
 }
 
 /** @internal */
-export const TemplateCreateTemplateTemporaryFieldType$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryFieldType> = z
-    .nativeEnum(TemplateCreateTemplateTemporaryFieldType);
+export const TemplateCreateTemplateTemporaryFieldTypeEnum$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryFieldTypeEnum> = z
+    .nativeEnum(TemplateCreateTemplateTemporaryFieldTypeEnum);
 /** @internal */
-export const TemplateCreateTemplateTemporaryFieldType$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryFieldType> =
-    TemplateCreateTemplateTemporaryFieldType$inboundSchema;
-
-/** @internal */
-export const TemplateCreateTemplateTemporaryTypeDropdown$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTypeDropdown> = z
-    .nativeEnum(TemplateCreateTemplateTemporaryTypeDropdown);
-/** @internal */
-export const TemplateCreateTemplateTemporaryTypeDropdown$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTypeDropdown> =
-    TemplateCreateTemplateTemporaryTypeDropdown$inboundSchema;
+export const TemplateCreateTemplateTemporaryFieldTypeEnum$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryFieldTypeEnum> =
+    TemplateCreateTemplateTemporaryFieldTypeEnum$inboundSchema;
 
 /** @internal */
 export const TemplateCreateTemplateTemporaryValue3$inboundSchema: z.ZodType<
@@ -1979,7 +1899,7 @@ export const TemplateCreateTemplateTemporaryFieldMetaDropdown$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateTemplateTemporaryTypeDropdown$inboundSchema,
+    type: z.literal("dropdown"),
     values: z.array(
       z.lazy(() => TemplateCreateTemplateTemporaryValue3$inboundSchema),
     ).optional(),
@@ -1992,7 +1912,7 @@ export type TemplateCreateTemplateTemporaryFieldMetaDropdown$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "dropdown";
   values?: Array<TemplateCreateTemplateTemporaryValue3$Outbound> | undefined;
   defaultValue?: string | undefined;
 };
@@ -2009,7 +1929,7 @@ export const TemplateCreateTemplateTemporaryFieldMetaDropdown$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateTemplateTemporaryTypeDropdown$outboundSchema,
+    type: z.literal("dropdown"),
     values: z.array(
       z.lazy(() => TemplateCreateTemplateTemporaryValue3$outboundSchema),
     ).optional(),
@@ -2041,15 +1961,6 @@ export function templateCreateTemplateTemporaryFieldMetaDropdownFromJSON(
     `Failed to parse 'TemplateCreateTemplateTemporaryFieldMetaDropdown' from JSON`,
   );
 }
-
-/** @internal */
-export const TemplateCreateTemplateTemporaryTypeCheckbox$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTypeCheckbox> = z
-    .nativeEnum(TemplateCreateTemplateTemporaryTypeCheckbox);
-/** @internal */
-export const TemplateCreateTemplateTemporaryTypeCheckbox$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTypeCheckbox> =
-    TemplateCreateTemplateTemporaryTypeCheckbox$inboundSchema;
 
 /** @internal */
 export const TemplateCreateTemplateTemporaryValue2$inboundSchema: z.ZodType<
@@ -2120,7 +2031,7 @@ export const TemplateCreateTemplateTemporaryFieldMetaCheckbox$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateTemplateTemporaryTypeCheckbox$inboundSchema,
+    type: z.literal("checkbox"),
     values: z.array(
       z.lazy(() => TemplateCreateTemplateTemporaryValue2$inboundSchema),
     ).optional(),
@@ -2137,7 +2048,7 @@ export type TemplateCreateTemplateTemporaryFieldMetaCheckbox$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "checkbox";
   values?: Array<TemplateCreateTemplateTemporaryValue2$Outbound> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
@@ -2156,7 +2067,7 @@ export const TemplateCreateTemplateTemporaryFieldMetaCheckbox$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateTemplateTemporaryTypeCheckbox$outboundSchema,
+    type: z.literal("checkbox"),
     values: z.array(
       z.lazy(() => TemplateCreateTemplateTemporaryValue2$outboundSchema),
     ).optional(),
@@ -2192,15 +2103,6 @@ export function templateCreateTemplateTemporaryFieldMetaCheckboxFromJSON(
     `Failed to parse 'TemplateCreateTemplateTemporaryFieldMetaCheckbox' from JSON`,
   );
 }
-
-/** @internal */
-export const TemplateCreateTemplateTemporaryTypeRadio$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTypeRadio> = z
-    .nativeEnum(TemplateCreateTemplateTemporaryTypeRadio);
-/** @internal */
-export const TemplateCreateTemplateTemporaryTypeRadio$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTypeRadio> =
-    TemplateCreateTemplateTemporaryTypeRadio$inboundSchema;
 
 /** @internal */
 export const TemplateCreateTemplateTemporaryValue1$inboundSchema: z.ZodType<
@@ -2271,7 +2173,7 @@ export const TemplateCreateTemplateTemporaryFieldMetaRadio$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateTemplateTemporaryTypeRadio$inboundSchema,
+    type: z.literal("radio"),
     values: z.array(
       z.lazy(() => TemplateCreateTemplateTemporaryValue1$inboundSchema),
     ).optional(),
@@ -2286,7 +2188,7 @@ export type TemplateCreateTemplateTemporaryFieldMetaRadio$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "radio";
   values?: Array<TemplateCreateTemplateTemporaryValue1$Outbound> | undefined;
   direction: string;
 };
@@ -2303,7 +2205,7 @@ export const TemplateCreateTemplateTemporaryFieldMetaRadio$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateTemplateTemporaryTypeRadio$outboundSchema,
+    type: z.literal("radio"),
     values: z.array(
       z.lazy(() => TemplateCreateTemplateTemporaryValue1$outboundSchema),
     ).optional(),
@@ -2339,15 +2241,6 @@ export function templateCreateTemplateTemporaryFieldMetaRadioFromJSON(
 }
 
 /** @internal */
-export const TemplateCreateTemplateTemporaryTypeNumber$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTypeNumber> = z
-    .nativeEnum(TemplateCreateTemplateTemporaryTypeNumber);
-/** @internal */
-export const TemplateCreateTemplateTemporaryTypeNumber$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTypeNumber> =
-    TemplateCreateTemplateTemporaryTypeNumber$inboundSchema;
-
-/** @internal */
 export const TemplateCreateTemplateTemporaryTextAlign6$inboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTextAlign6> = z
     .nativeEnum(TemplateCreateTemplateTemporaryTextAlign6);
@@ -2377,7 +2270,7 @@ export const TemplateCreateTemplateTemporaryFieldMetaNumber$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateTemplateTemporaryTypeNumber$inboundSchema,
+    type: z.literal("number"),
     numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
     minValue: z.nullable(z.number()).optional(),
@@ -2397,7 +2290,7 @@ export type TemplateCreateTemplateTemporaryFieldMetaNumber$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
   minValue?: number | null | undefined;
@@ -2420,7 +2313,7 @@ export const TemplateCreateTemplateTemporaryFieldMetaNumber$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateTemplateTemporaryTypeNumber$outboundSchema,
+    type: z.literal("number"),
     numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
     minValue: z.nullable(z.number()).optional(),
@@ -2461,15 +2354,6 @@ export function templateCreateTemplateTemporaryFieldMetaNumberFromJSON(
 }
 
 /** @internal */
-export const TemplateCreateTemplateTemporaryTypeText$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTypeText> = z
-    .nativeEnum(TemplateCreateTemplateTemporaryTypeText);
-/** @internal */
-export const TemplateCreateTemplateTemporaryTypeText$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTypeText> =
-    TemplateCreateTemplateTemporaryTypeText$inboundSchema;
-
-/** @internal */
 export const TemplateCreateTemplateTemporaryTextAlign5$inboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTextAlign5> = z
     .nativeEnum(TemplateCreateTemplateTemporaryTextAlign5);
@@ -2499,7 +2383,7 @@ export const TemplateCreateTemplateTemporaryFieldMetaText$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateTemplateTemporaryTypeText$inboundSchema,
+    type: z.literal("text"),
     text: z.string().optional(),
     characterLimit: z.number().optional(),
     textAlign: TemplateCreateTemplateTemporaryTextAlign5$inboundSchema
@@ -2517,7 +2401,7 @@ export type TemplateCreateTemplateTemporaryFieldMetaText$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
   textAlign?: string | undefined;
@@ -2538,7 +2422,7 @@ export const TemplateCreateTemplateTemporaryFieldMetaText$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateTemplateTemporaryTypeText$outboundSchema,
+    type: z.literal("text"),
     text: z.string().optional(),
     characterLimit: z.number().optional(),
     textAlign: TemplateCreateTemplateTemporaryTextAlign5$outboundSchema
@@ -2577,15 +2461,6 @@ export function templateCreateTemplateTemporaryFieldMetaTextFromJSON(
 }
 
 /** @internal */
-export const TemplateCreateTemplateTemporaryTypeDate$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTypeDate> = z
-    .nativeEnum(TemplateCreateTemplateTemporaryTypeDate);
-/** @internal */
-export const TemplateCreateTemplateTemporaryTypeDate$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTypeDate> =
-    TemplateCreateTemplateTemporaryTypeDate$inboundSchema;
-
-/** @internal */
 export const TemplateCreateTemplateTemporaryTextAlign4$inboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTextAlign4> = z
     .nativeEnum(TemplateCreateTemplateTemporaryTextAlign4);
@@ -2606,7 +2481,7 @@ export const TemplateCreateTemplateTemporaryFieldMetaDate$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateTemplateTemporaryTypeDate$inboundSchema,
+    type: z.literal("date"),
     textAlign: TemplateCreateTemplateTemporaryTextAlign4$inboundSchema
       .optional(),
   });
@@ -2617,7 +2492,7 @@ export type TemplateCreateTemplateTemporaryFieldMetaDate$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "date";
   textAlign?: string | undefined;
 };
 
@@ -2633,7 +2508,7 @@ export const TemplateCreateTemplateTemporaryFieldMetaDate$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateTemplateTemporaryTypeDate$outboundSchema,
+    type: z.literal("date"),
     textAlign: TemplateCreateTemplateTemporaryTextAlign4$outboundSchema
       .optional(),
   });
@@ -2665,15 +2540,6 @@ export function templateCreateTemplateTemporaryFieldMetaDateFromJSON(
 }
 
 /** @internal */
-export const TemplateCreateTemplateTemporaryTypeEmail$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTypeEmail> = z
-    .nativeEnum(TemplateCreateTemplateTemporaryTypeEmail);
-/** @internal */
-export const TemplateCreateTemplateTemporaryTypeEmail$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTypeEmail> =
-    TemplateCreateTemplateTemporaryTypeEmail$inboundSchema;
-
-/** @internal */
 export const TemplateCreateTemplateTemporaryTextAlign3$inboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTextAlign3> = z
     .nativeEnum(TemplateCreateTemplateTemporaryTextAlign3);
@@ -2694,7 +2560,7 @@ export const TemplateCreateTemplateTemporaryFieldMetaEmail$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateTemplateTemporaryTypeEmail$inboundSchema,
+    type: z.literal("email"),
     textAlign: TemplateCreateTemplateTemporaryTextAlign3$inboundSchema
       .optional(),
   });
@@ -2705,7 +2571,7 @@ export type TemplateCreateTemplateTemporaryFieldMetaEmail$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "email";
   textAlign?: string | undefined;
 };
 
@@ -2721,7 +2587,7 @@ export const TemplateCreateTemplateTemporaryFieldMetaEmail$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateTemplateTemporaryTypeEmail$outboundSchema,
+    type: z.literal("email"),
     textAlign: TemplateCreateTemplateTemporaryTextAlign3$outboundSchema
       .optional(),
   });
@@ -2753,15 +2619,6 @@ export function templateCreateTemplateTemporaryFieldMetaEmailFromJSON(
 }
 
 /** @internal */
-export const TemplateCreateTemplateTemporaryTypeName$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTypeName> = z
-    .nativeEnum(TemplateCreateTemplateTemporaryTypeName);
-/** @internal */
-export const TemplateCreateTemplateTemporaryTypeName$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTypeName> =
-    TemplateCreateTemplateTemporaryTypeName$inboundSchema;
-
-/** @internal */
 export const TemplateCreateTemplateTemporaryTextAlign2$inboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTextAlign2> = z
     .nativeEnum(TemplateCreateTemplateTemporaryTextAlign2);
@@ -2782,7 +2639,7 @@ export const TemplateCreateTemplateTemporaryFieldMetaName$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateTemplateTemporaryTypeName$inboundSchema,
+    type: z.literal("name"),
     textAlign: TemplateCreateTemplateTemporaryTextAlign2$inboundSchema
       .optional(),
   });
@@ -2793,7 +2650,7 @@ export type TemplateCreateTemplateTemporaryFieldMetaName$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "name";
   textAlign?: string | undefined;
 };
 
@@ -2809,7 +2666,7 @@ export const TemplateCreateTemplateTemporaryFieldMetaName$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateTemplateTemporaryTypeName$outboundSchema,
+    type: z.literal("name"),
     textAlign: TemplateCreateTemplateTemporaryTextAlign2$outboundSchema
       .optional(),
   });
@@ -2841,15 +2698,6 @@ export function templateCreateTemplateTemporaryFieldMetaNameFromJSON(
 }
 
 /** @internal */
-export const TemplateCreateTemplateTemporaryTypeInitials$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTypeInitials> = z
-    .nativeEnum(TemplateCreateTemplateTemporaryTypeInitials);
-/** @internal */
-export const TemplateCreateTemplateTemporaryTypeInitials$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTypeInitials> =
-    TemplateCreateTemplateTemporaryTypeInitials$inboundSchema;
-
-/** @internal */
 export const TemplateCreateTemplateTemporaryTextAlign1$inboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTextAlign1> = z
     .nativeEnum(TemplateCreateTemplateTemporaryTextAlign1);
@@ -2870,7 +2718,7 @@ export const TemplateCreateTemplateTemporaryFieldMetaInitials$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateTemplateTemporaryTypeInitials$inboundSchema,
+    type: z.literal("initials"),
     textAlign: TemplateCreateTemplateTemporaryTextAlign1$inboundSchema
       .optional(),
   });
@@ -2881,7 +2729,7 @@ export type TemplateCreateTemplateTemporaryFieldMetaInitials$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "initials";
   textAlign?: string | undefined;
 };
 
@@ -2897,7 +2745,7 @@ export const TemplateCreateTemplateTemporaryFieldMetaInitials$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateTemplateTemporaryTypeInitials$outboundSchema,
+    type: z.literal("initials"),
     textAlign: TemplateCreateTemplateTemporaryTextAlign1$outboundSchema
       .optional(),
   });
@@ -2929,15 +2777,6 @@ export function templateCreateTemplateTemporaryFieldMetaInitialsFromJSON(
 }
 
 /** @internal */
-export const TemplateCreateTemplateTemporaryTypeSignature$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTypeSignature> = z
-    .nativeEnum(TemplateCreateTemplateTemporaryTypeSignature);
-/** @internal */
-export const TemplateCreateTemplateTemporaryTypeSignature$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryTypeSignature> =
-    TemplateCreateTemplateTemporaryTypeSignature$inboundSchema;
-
-/** @internal */
 export const TemplateCreateTemplateTemporaryFieldMetaSignature$inboundSchema:
   z.ZodType<
     TemplateCreateTemplateTemporaryFieldMetaSignature,
@@ -2949,7 +2788,7 @@ export const TemplateCreateTemplateTemporaryFieldMetaSignature$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateTemplateTemporaryTypeSignature$inboundSchema,
+    type: z.literal("signature"),
   });
 /** @internal */
 export type TemplateCreateTemplateTemporaryFieldMetaSignature$Outbound = {
@@ -2958,7 +2797,7 @@ export type TemplateCreateTemplateTemporaryFieldMetaSignature$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "signature";
 };
 
 /** @internal */
@@ -2973,7 +2812,7 @@ export const TemplateCreateTemplateTemporaryFieldMetaSignature$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: TemplateCreateTemplateTemporaryTypeSignature$outboundSchema,
+    type: z.literal("signature"),
   });
 
 export function templateCreateTemplateTemporaryFieldMetaSignatureToJSON(
@@ -3011,48 +2850,35 @@ export const TemplateCreateTemplateTemporaryFieldMetaUnion$inboundSchema:
   > = z.union([
     z.lazy(() =>
       TemplateCreateTemplateTemporaryFieldMetaSignature$inboundSchema
-    ).and(z.object({ type: z.literal("signature") })),
-    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaInitials$inboundSchema)
-      .and(z.object({ type: z.literal("initials") })),
-    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaName$inboundSchema)
-      .and(z.object({ type: z.literal("name") })),
-    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaEmail$inboundSchema)
-      .and(z.object({ type: z.literal("email") })),
-    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaDate$inboundSchema)
-      .and(z.object({ type: z.literal("date") })),
-    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaText$inboundSchema)
-      .and(z.object({ type: z.literal("text") })),
-    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaNumber$inboundSchema)
-      .and(z.object({ type: z.literal("number") })),
-    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaRadio$inboundSchema)
-      .and(z.object({ type: z.literal("radio") })),
-    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaCheckbox$inboundSchema)
-      .and(z.object({ type: z.literal("checkbox") })),
-    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaDropdown$inboundSchema)
-      .and(z.object({ type: z.literal("dropdown") })),
+    ),
+    z.lazy(() =>
+      TemplateCreateTemplateTemporaryFieldMetaInitials$inboundSchema
+    ),
+    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaName$inboundSchema),
+    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaEmail$inboundSchema),
+    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaDate$inboundSchema),
+    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaText$inboundSchema),
+    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaNumber$inboundSchema),
+    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaRadio$inboundSchema),
+    z.lazy(() =>
+      TemplateCreateTemplateTemporaryFieldMetaCheckbox$inboundSchema
+    ),
+    z.lazy(() =>
+      TemplateCreateTemplateTemporaryFieldMetaDropdown$inboundSchema
+    ),
   ]);
 /** @internal */
 export type TemplateCreateTemplateTemporaryFieldMetaUnion$Outbound =
-  | (TemplateCreateTemplateTemporaryFieldMetaSignature$Outbound & {
-    type: "signature";
-  })
-  | (TemplateCreateTemplateTemporaryFieldMetaInitials$Outbound & {
-    type: "initials";
-  })
-  | (TemplateCreateTemplateTemporaryFieldMetaName$Outbound & { type: "name" })
-  | (TemplateCreateTemplateTemporaryFieldMetaEmail$Outbound & { type: "email" })
-  | (TemplateCreateTemplateTemporaryFieldMetaDate$Outbound & { type: "date" })
-  | (TemplateCreateTemplateTemporaryFieldMetaText$Outbound & { type: "text" })
-  | (TemplateCreateTemplateTemporaryFieldMetaNumber$Outbound & {
-    type: "number";
-  })
-  | (TemplateCreateTemplateTemporaryFieldMetaRadio$Outbound & { type: "radio" })
-  | (TemplateCreateTemplateTemporaryFieldMetaCheckbox$Outbound & {
-    type: "checkbox";
-  })
-  | (TemplateCreateTemplateTemporaryFieldMetaDropdown$Outbound & {
-    type: "dropdown";
-  });
+  | TemplateCreateTemplateTemporaryFieldMetaSignature$Outbound
+  | TemplateCreateTemplateTemporaryFieldMetaInitials$Outbound
+  | TemplateCreateTemplateTemporaryFieldMetaName$Outbound
+  | TemplateCreateTemplateTemporaryFieldMetaEmail$Outbound
+  | TemplateCreateTemplateTemporaryFieldMetaDate$Outbound
+  | TemplateCreateTemplateTemporaryFieldMetaText$Outbound
+  | TemplateCreateTemplateTemporaryFieldMetaNumber$Outbound
+  | TemplateCreateTemplateTemporaryFieldMetaRadio$Outbound
+  | TemplateCreateTemplateTemporaryFieldMetaCheckbox$Outbound
+  | TemplateCreateTemplateTemporaryFieldMetaDropdown$Outbound;
 
 /** @internal */
 export const TemplateCreateTemplateTemporaryFieldMetaUnion$outboundSchema:
@@ -3063,28 +2889,22 @@ export const TemplateCreateTemplateTemporaryFieldMetaUnion$outboundSchema:
   > = z.union([
     z.lazy(() =>
       TemplateCreateTemplateTemporaryFieldMetaSignature$outboundSchema
-    ).and(z.object({ type: z.literal("signature") })),
+    ),
     z.lazy(() =>
       TemplateCreateTemplateTemporaryFieldMetaInitials$outboundSchema
-    ).and(z.object({ type: z.literal("initials") })),
-    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaName$outboundSchema)
-      .and(z.object({ type: z.literal("name") })),
-    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaEmail$outboundSchema)
-      .and(z.object({ type: z.literal("email") })),
-    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaDate$outboundSchema)
-      .and(z.object({ type: z.literal("date") })),
-    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaText$outboundSchema)
-      .and(z.object({ type: z.literal("text") })),
-    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaNumber$outboundSchema)
-      .and(z.object({ type: z.literal("number") })),
-    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaRadio$outboundSchema)
-      .and(z.object({ type: z.literal("radio") })),
+    ),
+    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaName$outboundSchema),
+    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaEmail$outboundSchema),
+    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaDate$outboundSchema),
+    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaText$outboundSchema),
+    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaNumber$outboundSchema),
+    z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaRadio$outboundSchema),
     z.lazy(() =>
       TemplateCreateTemplateTemporaryFieldMetaCheckbox$outboundSchema
-    ).and(z.object({ type: z.literal("checkbox") })),
+    ),
     z.lazy(() =>
       TemplateCreateTemplateTemporaryFieldMetaDropdown$outboundSchema
-    ).and(z.object({ type: z.literal("dropdown") })),
+    ),
   ]);
 
 export function templateCreateTemplateTemporaryFieldMetaUnionToJSON(
@@ -3121,7 +2941,7 @@ export const TemplateCreateTemplateTemporaryField$inboundSchema: z.ZodType<
 > = z.object({
   envelopeId: z.string(),
   envelopeItemId: z.string(),
-  type: TemplateCreateTemplateTemporaryFieldType$inboundSchema,
+  type: TemplateCreateTemplateTemporaryFieldTypeEnum$inboundSchema,
   id: z.number(),
   secondaryId: z.string(),
   recipientId: z.number(),
@@ -3136,28 +2956,24 @@ export const TemplateCreateTemplateTemporaryField$inboundSchema: z.ZodType<
     z.union([
       z.lazy(() =>
         TemplateCreateTemplateTemporaryFieldMetaSignature$inboundSchema
-      ).and(z.object({ type: z.literal("signature") })),
+      ),
       z.lazy(() =>
         TemplateCreateTemplateTemporaryFieldMetaInitials$inboundSchema
-      ).and(z.object({ type: z.literal("initials") })),
-      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaName$inboundSchema)
-        .and(z.object({ type: z.literal("name") })),
-      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaEmail$inboundSchema)
-        .and(z.object({ type: z.literal("email") })),
-      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaDate$inboundSchema)
-        .and(z.object({ type: z.literal("date") })),
-      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaText$inboundSchema)
-        .and(z.object({ type: z.literal("text") })),
-      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaNumber$inboundSchema)
-        .and(z.object({ type: z.literal("number") })),
-      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaRadio$inboundSchema)
-        .and(z.object({ type: z.literal("radio") })),
+      ),
+      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaName$inboundSchema),
+      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaEmail$inboundSchema),
+      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaDate$inboundSchema),
+      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaText$inboundSchema),
+      z.lazy(() =>
+        TemplateCreateTemplateTemporaryFieldMetaNumber$inboundSchema
+      ),
+      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaRadio$inboundSchema),
       z.lazy(() =>
         TemplateCreateTemplateTemporaryFieldMetaCheckbox$inboundSchema
-      ).and(z.object({ type: z.literal("checkbox") })),
+      ),
       z.lazy(() =>
         TemplateCreateTemplateTemporaryFieldMetaDropdown$inboundSchema
-      ).and(z.object({ type: z.literal("dropdown") })),
+      ),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),
@@ -3179,30 +2995,16 @@ export type TemplateCreateTemplateTemporaryField$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | (TemplateCreateTemplateTemporaryFieldMetaSignature$Outbound & {
-      type: "signature";
-    })
-    | (TemplateCreateTemplateTemporaryFieldMetaInitials$Outbound & {
-      type: "initials";
-    })
-    | (TemplateCreateTemplateTemporaryFieldMetaName$Outbound & { type: "name" })
-    | (TemplateCreateTemplateTemporaryFieldMetaEmail$Outbound & {
-      type: "email";
-    })
-    | (TemplateCreateTemplateTemporaryFieldMetaDate$Outbound & { type: "date" })
-    | (TemplateCreateTemplateTemporaryFieldMetaText$Outbound & { type: "text" })
-    | (TemplateCreateTemplateTemporaryFieldMetaNumber$Outbound & {
-      type: "number";
-    })
-    | (TemplateCreateTemplateTemporaryFieldMetaRadio$Outbound & {
-      type: "radio";
-    })
-    | (TemplateCreateTemplateTemporaryFieldMetaCheckbox$Outbound & {
-      type: "checkbox";
-    })
-    | (TemplateCreateTemplateTemporaryFieldMetaDropdown$Outbound & {
-      type: "dropdown";
-    })
+    | TemplateCreateTemplateTemporaryFieldMetaSignature$Outbound
+    | TemplateCreateTemplateTemporaryFieldMetaInitials$Outbound
+    | TemplateCreateTemplateTemporaryFieldMetaName$Outbound
+    | TemplateCreateTemplateTemporaryFieldMetaEmail$Outbound
+    | TemplateCreateTemplateTemporaryFieldMetaDate$Outbound
+    | TemplateCreateTemplateTemporaryFieldMetaText$Outbound
+    | TemplateCreateTemplateTemporaryFieldMetaNumber$Outbound
+    | TemplateCreateTemplateTemporaryFieldMetaRadio$Outbound
+    | TemplateCreateTemplateTemporaryFieldMetaCheckbox$Outbound
+    | TemplateCreateTemplateTemporaryFieldMetaDropdown$Outbound
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -3216,7 +3018,7 @@ export const TemplateCreateTemplateTemporaryField$outboundSchema: z.ZodType<
 > = z.object({
   envelopeId: z.string(),
   envelopeItemId: z.string(),
-  type: TemplateCreateTemplateTemporaryFieldType$outboundSchema,
+  type: TemplateCreateTemplateTemporaryFieldTypeEnum$outboundSchema,
   id: z.number(),
   secondaryId: z.string(),
   recipientId: z.number(),
@@ -3231,29 +3033,28 @@ export const TemplateCreateTemplateTemporaryField$outboundSchema: z.ZodType<
     z.union([
       z.lazy(() =>
         TemplateCreateTemplateTemporaryFieldMetaSignature$outboundSchema
-      ).and(z.object({ type: z.literal("signature") })),
+      ),
       z.lazy(() =>
         TemplateCreateTemplateTemporaryFieldMetaInitials$outboundSchema
-      ).and(z.object({ type: z.literal("initials") })),
-      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaName$outboundSchema)
-        .and(z.object({ type: z.literal("name") })),
-      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaEmail$outboundSchema)
-        .and(z.object({ type: z.literal("email") })),
-      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaDate$outboundSchema)
-        .and(z.object({ type: z.literal("date") })),
-      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaText$outboundSchema)
-        .and(z.object({ type: z.literal("text") })),
+      ),
+      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaName$outboundSchema),
+      z.lazy(() =>
+        TemplateCreateTemplateTemporaryFieldMetaEmail$outboundSchema
+      ),
+      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaDate$outboundSchema),
+      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaText$outboundSchema),
       z.lazy(() =>
         TemplateCreateTemplateTemporaryFieldMetaNumber$outboundSchema
-      ).and(z.object({ type: z.literal("number") })),
-      z.lazy(() => TemplateCreateTemplateTemporaryFieldMetaRadio$outboundSchema)
-        .and(z.object({ type: z.literal("radio") })),
+      ),
+      z.lazy(() =>
+        TemplateCreateTemplateTemporaryFieldMetaRadio$outboundSchema
+      ),
       z.lazy(() =>
         TemplateCreateTemplateTemporaryFieldMetaCheckbox$outboundSchema
-      ).and(z.object({ type: z.literal("checkbox") })),
+      ),
       z.lazy(() =>
         TemplateCreateTemplateTemporaryFieldMetaDropdown$outboundSchema
-      ).and(z.object({ type: z.literal("dropdown") })),
+      ),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),
@@ -3426,7 +3227,7 @@ export const Template$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: TemplateCreateTemplateTemporaryTypeResponse$inboundSchema,
+  type: TemplateCreateTemplateTemporaryTypeResponseEnum$inboundSchema,
   visibility: TemplateCreateTemplateTemporaryVisibilityResponse$inboundSchema,
   id: z.number(),
   externalId: z.nullable(z.string()),
@@ -3500,7 +3301,7 @@ export const Template$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Template
 > = z.object({
-  type: TemplateCreateTemplateTemporaryTypeResponse$outboundSchema,
+  type: TemplateCreateTemplateTemporaryTypeResponseEnum$outboundSchema,
   visibility: TemplateCreateTemplateTemporaryVisibilityResponse$outboundSchema,
   id: z.number(),
   externalId: z.nullable(z.string()),

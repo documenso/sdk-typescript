@@ -7,14 +7,14 @@ import { TemplateCreateDocumentFromTemplateRecipientRequest } from "@documenso/s
 
 let value: TemplateCreateDocumentFromTemplateRecipientRequest = {
   id: 5893.61,
-  email: "Gerald55@gmail.com",
+  email: "",
 };
 ```
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `id`               | *number*           | :heavy_check_mark: | N/A                |
-| `email`            | *string*           | :heavy_check_mark: | N/A                |
-| `name`             | *string*           | :heavy_minus_sign: | N/A                |
+| Field                                                     | Type                                                      | Required                                                  | Description                                               |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| `id`                                                      | *number*                                                  | :heavy_check_mark:                                        | N/A                                                       |
+| `email`                                                   | *operations.TemplateCreateDocumentFromTemplateEmailUnion* | :heavy_check_mark:                                        | N/A                                                       |
+| `name`                                                    | *string*                                                  | :heavy_minus_sign:                                        | N/A                                                       |

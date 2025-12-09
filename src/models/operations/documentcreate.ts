@@ -66,18 +66,11 @@ export type DocumentCreateActionAuth = ClosedEnum<
   typeof DocumentCreateActionAuth
 >;
 
-export const DocumentCreateTypeDropdown1 = {
-  Dropdown: "DROPDOWN",
-} as const;
-export type DocumentCreateTypeDropdown1 = ClosedEnum<
-  typeof DocumentCreateTypeDropdown1
->;
-
-export const DocumentCreateTypeDropdown2 = {
+export const DocumentCreateTypeDropdownEnum = {
   Dropdown: "dropdown",
 } as const;
-export type DocumentCreateTypeDropdown2 = ClosedEnum<
-  typeof DocumentCreateTypeDropdown2
+export type DocumentCreateTypeDropdownEnum = ClosedEnum<
+  typeof DocumentCreateTypeDropdownEnum
 >;
 
 export type DocumentCreateValueDropdown = {
@@ -90,13 +83,13 @@ export type DocumentCreateFieldMetaDropdown = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentCreateTypeDropdown2;
+  type: DocumentCreateTypeDropdownEnum;
   values?: Array<DocumentCreateValueDropdown> | undefined;
   defaultValue?: string | undefined;
 };
 
 export type DocumentCreateFieldDropdown = {
-  type: DocumentCreateTypeDropdown1;
+  type: "DROPDOWN";
   fieldMeta?: DocumentCreateFieldMetaDropdown | undefined;
   pageNumber: number;
   pageX: number;
@@ -105,18 +98,11 @@ export type DocumentCreateFieldDropdown = {
   height: number;
 };
 
-export const DocumentCreateTypeCheckbox1 = {
-  Checkbox: "CHECKBOX",
-} as const;
-export type DocumentCreateTypeCheckbox1 = ClosedEnum<
-  typeof DocumentCreateTypeCheckbox1
->;
-
-export const DocumentCreateTypeCheckbox2 = {
+export const DocumentCreateTypeCheckboxEnum = {
   Checkbox: "checkbox",
 } as const;
-export type DocumentCreateTypeCheckbox2 = ClosedEnum<
-  typeof DocumentCreateTypeCheckbox2
+export type DocumentCreateTypeCheckboxEnum = ClosedEnum<
+  typeof DocumentCreateTypeCheckboxEnum
 >;
 
 export type DocumentCreateValueCheckbox = {
@@ -139,7 +125,7 @@ export type DocumentCreateFieldMetaCheckbox = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentCreateTypeCheckbox2;
+  type: DocumentCreateTypeCheckboxEnum;
   values?: Array<DocumentCreateValueCheckbox> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
@@ -147,7 +133,7 @@ export type DocumentCreateFieldMetaCheckbox = {
 };
 
 export type DocumentCreateFieldCheckbox = {
-  type: DocumentCreateTypeCheckbox1;
+  type: "CHECKBOX";
   fieldMeta?: DocumentCreateFieldMetaCheckbox | undefined;
   pageNumber: number;
   pageX: number;
@@ -156,18 +142,11 @@ export type DocumentCreateFieldCheckbox = {
   height: number;
 };
 
-export const DocumentCreateTypeRadio1 = {
-  Radio: "RADIO",
-} as const;
-export type DocumentCreateTypeRadio1 = ClosedEnum<
-  typeof DocumentCreateTypeRadio1
->;
-
-export const DocumentCreateTypeRadio2 = {
+export const DocumentCreateTypeRadioEnum = {
   Radio: "radio",
 } as const;
-export type DocumentCreateTypeRadio2 = ClosedEnum<
-  typeof DocumentCreateTypeRadio2
+export type DocumentCreateTypeRadioEnum = ClosedEnum<
+  typeof DocumentCreateTypeRadioEnum
 >;
 
 export type DocumentCreateValueRadio = {
@@ -190,13 +169,13 @@ export type DocumentCreateFieldMetaRadio = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentCreateTypeRadio2;
+  type: DocumentCreateTypeRadioEnum;
   values?: Array<DocumentCreateValueRadio> | undefined;
   direction?: DocumentCreateDirectionRadio | undefined;
 };
 
 export type DocumentCreateFieldRadio = {
-  type: DocumentCreateTypeRadio1;
+  type: "RADIO";
   fieldMeta?: DocumentCreateFieldMetaRadio | undefined;
   pageNumber: number;
   pageX: number;
@@ -205,18 +184,11 @@ export type DocumentCreateFieldRadio = {
   height: number;
 };
 
-export const DocumentCreateTypeNumber1 = {
-  Number: "NUMBER",
-} as const;
-export type DocumentCreateTypeNumber1 = ClosedEnum<
-  typeof DocumentCreateTypeNumber1
->;
-
-export const DocumentCreateTypeNumber2 = {
+export const DocumentCreateTypeNumberEnum = {
   Number: "number",
 } as const;
-export type DocumentCreateTypeNumber2 = ClosedEnum<
-  typeof DocumentCreateTypeNumber2
+export type DocumentCreateTypeNumberEnum = ClosedEnum<
+  typeof DocumentCreateTypeNumberEnum
 >;
 
 export const DocumentCreateTextAlignNumber = {
@@ -243,7 +215,7 @@ export type DocumentCreateFieldMetaNumber = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentCreateTypeNumber2;
+  type: DocumentCreateTypeNumberEnum;
   numberFormat?: string | null | undefined;
   value?: string | undefined;
   minValue?: number | null | undefined;
@@ -255,7 +227,7 @@ export type DocumentCreateFieldMetaNumber = {
 };
 
 export type DocumentCreateFieldNumber = {
-  type: DocumentCreateTypeNumber1;
+  type: "NUMBER";
   fieldMeta?: DocumentCreateFieldMetaNumber | undefined;
   pageNumber: number;
   pageX: number;
@@ -264,18 +236,11 @@ export type DocumentCreateFieldNumber = {
   height: number;
 };
 
-export const DocumentCreateTypeText1 = {
-  Text: "TEXT",
-} as const;
-export type DocumentCreateTypeText1 = ClosedEnum<
-  typeof DocumentCreateTypeText1
->;
-
-export const DocumentCreateTypeText2 = {
+export const DocumentCreateTypeTextEnum = {
   Text: "text",
 } as const;
-export type DocumentCreateTypeText2 = ClosedEnum<
-  typeof DocumentCreateTypeText2
+export type DocumentCreateTypeTextEnum = ClosedEnum<
+  typeof DocumentCreateTypeTextEnum
 >;
 
 export const DocumentCreateTextAlignText = {
@@ -302,7 +267,7 @@ export type DocumentCreateFieldMetaText = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentCreateTypeText2;
+  type: DocumentCreateTypeTextEnum;
   text?: string | undefined;
   characterLimit?: number | undefined;
   textAlign?: DocumentCreateTextAlignText | undefined;
@@ -312,7 +277,7 @@ export type DocumentCreateFieldMetaText = {
 };
 
 export type DocumentCreateFieldText = {
-  type: DocumentCreateTypeText1;
+  type: "TEXT";
   fieldMeta?: DocumentCreateFieldMetaText | undefined;
   pageNumber: number;
   pageX: number;
@@ -321,18 +286,11 @@ export type DocumentCreateFieldText = {
   height: number;
 };
 
-export const DocumentCreateTypeDate1 = {
-  Date: "DATE",
-} as const;
-export type DocumentCreateTypeDate1 = ClosedEnum<
-  typeof DocumentCreateTypeDate1
->;
-
-export const DocumentCreateTypeDate2 = {
+export const DocumentCreateTypeDateEnum = {
   Date: "date",
 } as const;
-export type DocumentCreateTypeDate2 = ClosedEnum<
-  typeof DocumentCreateTypeDate2
+export type DocumentCreateTypeDateEnum = ClosedEnum<
+  typeof DocumentCreateTypeDateEnum
 >;
 
 export const DocumentCreateTextAlignDate = {
@@ -350,12 +308,12 @@ export type DocumentCreateFieldMetaDate = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentCreateTypeDate2;
+  type: DocumentCreateTypeDateEnum;
   textAlign?: DocumentCreateTextAlignDate | undefined;
 };
 
 export type DocumentCreateFieldDate = {
-  type: DocumentCreateTypeDate1;
+  type: "DATE";
   fieldMeta?: DocumentCreateFieldMetaDate | undefined;
   pageNumber: number;
   pageX: number;
@@ -364,18 +322,11 @@ export type DocumentCreateFieldDate = {
   height: number;
 };
 
-export const DocumentCreateTypeEmail1 = {
-  Email: "EMAIL",
-} as const;
-export type DocumentCreateTypeEmail1 = ClosedEnum<
-  typeof DocumentCreateTypeEmail1
->;
-
-export const DocumentCreateTypeEmail2 = {
+export const DocumentCreateTypeEmailEnum = {
   Email: "email",
 } as const;
-export type DocumentCreateTypeEmail2 = ClosedEnum<
-  typeof DocumentCreateTypeEmail2
+export type DocumentCreateTypeEmailEnum = ClosedEnum<
+  typeof DocumentCreateTypeEmailEnum
 >;
 
 export const DocumentCreateTextAlignEmail = {
@@ -393,12 +344,12 @@ export type DocumentCreateFieldMetaEmail = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentCreateTypeEmail2;
+  type: DocumentCreateTypeEmailEnum;
   textAlign?: DocumentCreateTextAlignEmail | undefined;
 };
 
 export type DocumentCreateFieldEmail = {
-  type: DocumentCreateTypeEmail1;
+  type: "EMAIL";
   fieldMeta?: DocumentCreateFieldMetaEmail | undefined;
   pageNumber: number;
   pageX: number;
@@ -407,18 +358,11 @@ export type DocumentCreateFieldEmail = {
   height: number;
 };
 
-export const DocumentCreateTypeName1 = {
-  Name: "NAME",
-} as const;
-export type DocumentCreateTypeName1 = ClosedEnum<
-  typeof DocumentCreateTypeName1
->;
-
-export const DocumentCreateTypeName2 = {
+export const DocumentCreateTypeNameEnum = {
   Name: "name",
 } as const;
-export type DocumentCreateTypeName2 = ClosedEnum<
-  typeof DocumentCreateTypeName2
+export type DocumentCreateTypeNameEnum = ClosedEnum<
+  typeof DocumentCreateTypeNameEnum
 >;
 
 export const DocumentCreateTextAlignName = {
@@ -436,12 +380,12 @@ export type DocumentCreateFieldMetaName = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentCreateTypeName2;
+  type: DocumentCreateTypeNameEnum;
   textAlign?: DocumentCreateTextAlignName | undefined;
 };
 
 export type DocumentCreateFieldName = {
-  type: DocumentCreateTypeName1;
+  type: "NAME";
   fieldMeta?: DocumentCreateFieldMetaName | undefined;
   pageNumber: number;
   pageX: number;
@@ -450,18 +394,11 @@ export type DocumentCreateFieldName = {
   height: number;
 };
 
-export const DocumentCreateTypeInitials1 = {
-  Initials: "INITIALS",
-} as const;
-export type DocumentCreateTypeInitials1 = ClosedEnum<
-  typeof DocumentCreateTypeInitials1
->;
-
-export const DocumentCreateTypeInitials2 = {
+export const DocumentCreateTypeInitialsEnum = {
   Initials: "initials",
 } as const;
-export type DocumentCreateTypeInitials2 = ClosedEnum<
-  typeof DocumentCreateTypeInitials2
+export type DocumentCreateTypeInitialsEnum = ClosedEnum<
+  typeof DocumentCreateTypeInitialsEnum
 >;
 
 export const DocumentCreateTextAlignInitials = {
@@ -479,12 +416,12 @@ export type DocumentCreateFieldMetaInitials = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentCreateTypeInitials2;
+  type: DocumentCreateTypeInitialsEnum;
   textAlign?: DocumentCreateTextAlignInitials | undefined;
 };
 
 export type DocumentCreateFieldInitials = {
-  type: DocumentCreateTypeInitials1;
+  type: "INITIALS";
   fieldMeta?: DocumentCreateFieldMetaInitials | undefined;
   pageNumber: number;
   pageX: number;
@@ -493,15 +430,8 @@ export type DocumentCreateFieldInitials = {
   height: number;
 };
 
-export const DocumentCreateTypeFreeSignature = {
-  FreeSignature: "FREE_SIGNATURE",
-} as const;
-export type DocumentCreateTypeFreeSignature = ClosedEnum<
-  typeof DocumentCreateTypeFreeSignature
->;
-
 export type DocumentCreateFieldFreeSignature = {
-  type: DocumentCreateTypeFreeSignature;
+  type: "FREE_SIGNATURE";
   pageNumber: number;
   pageX: number;
   pageY: number;
@@ -509,18 +439,11 @@ export type DocumentCreateFieldFreeSignature = {
   height: number;
 };
 
-export const DocumentCreateTypeSignature1 = {
-  Signature: "SIGNATURE",
-} as const;
-export type DocumentCreateTypeSignature1 = ClosedEnum<
-  typeof DocumentCreateTypeSignature1
->;
-
-export const DocumentCreateTypeSignature2 = {
+export const DocumentCreateTypeSignatureEnum = {
   Signature: "signature",
 } as const;
-export type DocumentCreateTypeSignature2 = ClosedEnum<
-  typeof DocumentCreateTypeSignature2
+export type DocumentCreateTypeSignatureEnum = ClosedEnum<
+  typeof DocumentCreateTypeSignatureEnum
 >;
 
 export type DocumentCreateFieldMetaSignature = {
@@ -529,11 +452,11 @@ export type DocumentCreateFieldMetaSignature = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentCreateTypeSignature2;
+  type: DocumentCreateTypeSignatureEnum;
 };
 
 export type DocumentCreateFieldSignature = {
-  type: DocumentCreateTypeSignature1;
+  type: "SIGNATURE";
   fieldMeta?: DocumentCreateFieldMetaSignature | undefined;
   pageNumber: number;
   pageX: number;
@@ -543,17 +466,17 @@ export type DocumentCreateFieldSignature = {
 };
 
 export type DocumentCreateFieldUnion =
-  | (DocumentCreateFieldSignature & { type: "SIGNATURE" })
-  | (DocumentCreateFieldFreeSignature & { type: "FREE_SIGNATURE" })
-  | (DocumentCreateFieldInitials & { type: "INITIALS" })
-  | (DocumentCreateFieldName & { type: "NAME" })
-  | (DocumentCreateFieldEmail & { type: "EMAIL" })
-  | (DocumentCreateFieldDate & { type: "DATE" })
-  | (DocumentCreateFieldText & { type: "TEXT" })
-  | (DocumentCreateFieldNumber & { type: "NUMBER" })
-  | (DocumentCreateFieldRadio & { type: "RADIO" })
-  | (DocumentCreateFieldCheckbox & { type: "CHECKBOX" })
-  | (DocumentCreateFieldDropdown & { type: "DROPDOWN" });
+  | DocumentCreateFieldSignature
+  | DocumentCreateFieldFreeSignature
+  | DocumentCreateFieldInitials
+  | DocumentCreateFieldName
+  | DocumentCreateFieldEmail
+  | DocumentCreateFieldDate
+  | DocumentCreateFieldText
+  | DocumentCreateFieldNumber
+  | DocumentCreateFieldRadio
+  | DocumentCreateFieldCheckbox
+  | DocumentCreateFieldDropdown;
 
 export type DocumentCreateRecipient = {
   email: string;
@@ -564,17 +487,17 @@ export type DocumentCreateRecipient = {
   actionAuth?: Array<DocumentCreateActionAuth> | undefined;
   fields?:
     | Array<
-      | (DocumentCreateFieldSignature & { type: "SIGNATURE" })
-      | (DocumentCreateFieldFreeSignature & { type: "FREE_SIGNATURE" })
-      | (DocumentCreateFieldInitials & { type: "INITIALS" })
-      | (DocumentCreateFieldName & { type: "NAME" })
-      | (DocumentCreateFieldEmail & { type: "EMAIL" })
-      | (DocumentCreateFieldDate & { type: "DATE" })
-      | (DocumentCreateFieldText & { type: "TEXT" })
-      | (DocumentCreateFieldNumber & { type: "NUMBER" })
-      | (DocumentCreateFieldRadio & { type: "RADIO" })
-      | (DocumentCreateFieldCheckbox & { type: "CHECKBOX" })
-      | (DocumentCreateFieldDropdown & { type: "DROPDOWN" })
+      | DocumentCreateFieldSignature
+      | DocumentCreateFieldFreeSignature
+      | DocumentCreateFieldInitials
+      | DocumentCreateFieldName
+      | DocumentCreateFieldEmail
+      | DocumentCreateFieldDate
+      | DocumentCreateFieldText
+      | DocumentCreateFieldNumber
+      | DocumentCreateFieldRadio
+      | DocumentCreateFieldCheckbox
+      | DocumentCreateFieldDropdown
     >
     | undefined;
 };
@@ -640,6 +563,7 @@ export const DocumentCreateLanguage = {
   Fr: "fr",
   Es: "es",
   It: "it",
+  Nl: "nl",
   Pl: "pl",
   PtBR: "pt-BR",
   Ja: "ja",
@@ -795,22 +719,13 @@ export const DocumentCreateActionAuth$outboundSchema: z.ZodNativeEnum<
 > = DocumentCreateActionAuth$inboundSchema;
 
 /** @internal */
-export const DocumentCreateTypeDropdown1$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeDropdown1
-> = z.nativeEnum(DocumentCreateTypeDropdown1);
+export const DocumentCreateTypeDropdownEnum$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateTypeDropdownEnum
+> = z.nativeEnum(DocumentCreateTypeDropdownEnum);
 /** @internal */
-export const DocumentCreateTypeDropdown1$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeDropdown1
-> = DocumentCreateTypeDropdown1$inboundSchema;
-
-/** @internal */
-export const DocumentCreateTypeDropdown2$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeDropdown2
-> = z.nativeEnum(DocumentCreateTypeDropdown2);
-/** @internal */
-export const DocumentCreateTypeDropdown2$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeDropdown2
-> = DocumentCreateTypeDropdown2$inboundSchema;
+export const DocumentCreateTypeDropdownEnum$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateTypeDropdownEnum
+> = DocumentCreateTypeDropdownEnum$inboundSchema;
 
 /** @internal */
 export const DocumentCreateValueDropdown$inboundSchema: z.ZodType<
@@ -864,7 +779,7 @@ export const DocumentCreateFieldMetaDropdown$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentCreateTypeDropdown2$inboundSchema,
+  type: DocumentCreateTypeDropdownEnum$inboundSchema,
   values: z.array(z.lazy(() => DocumentCreateValueDropdown$inboundSchema))
     .optional(),
   defaultValue: z.string().optional(),
@@ -892,7 +807,7 @@ export const DocumentCreateFieldMetaDropdown$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentCreateTypeDropdown2$outboundSchema,
+  type: DocumentCreateTypeDropdownEnum$outboundSchema,
   values: z.array(z.lazy(() => DocumentCreateValueDropdown$outboundSchema))
     .optional(),
   defaultValue: z.string().optional(),
@@ -923,7 +838,7 @@ export const DocumentCreateFieldDropdown$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: DocumentCreateTypeDropdown1$inboundSchema,
+  type: z.literal("DROPDOWN"),
   fieldMeta: z.lazy(() => DocumentCreateFieldMetaDropdown$inboundSchema)
     .optional(),
   pageNumber: z.number(),
@@ -934,7 +849,7 @@ export const DocumentCreateFieldDropdown$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type DocumentCreateFieldDropdown$Outbound = {
-  type: string;
+  type: "DROPDOWN";
   fieldMeta?: DocumentCreateFieldMetaDropdown$Outbound | undefined;
   pageNumber: number;
   pageX: number;
@@ -949,7 +864,7 @@ export const DocumentCreateFieldDropdown$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentCreateFieldDropdown
 > = z.object({
-  type: DocumentCreateTypeDropdown1$outboundSchema,
+  type: z.literal("DROPDOWN"),
   fieldMeta: z.lazy(() => DocumentCreateFieldMetaDropdown$outboundSchema)
     .optional(),
   pageNumber: z.number(),
@@ -979,22 +894,13 @@ export function documentCreateFieldDropdownFromJSON(
 }
 
 /** @internal */
-export const DocumentCreateTypeCheckbox1$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeCheckbox1
-> = z.nativeEnum(DocumentCreateTypeCheckbox1);
+export const DocumentCreateTypeCheckboxEnum$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateTypeCheckboxEnum
+> = z.nativeEnum(DocumentCreateTypeCheckboxEnum);
 /** @internal */
-export const DocumentCreateTypeCheckbox1$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeCheckbox1
-> = DocumentCreateTypeCheckbox1$inboundSchema;
-
-/** @internal */
-export const DocumentCreateTypeCheckbox2$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeCheckbox2
-> = z.nativeEnum(DocumentCreateTypeCheckbox2);
-/** @internal */
-export const DocumentCreateTypeCheckbox2$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeCheckbox2
-> = DocumentCreateTypeCheckbox2$inboundSchema;
+export const DocumentCreateTypeCheckboxEnum$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateTypeCheckboxEnum
+> = DocumentCreateTypeCheckboxEnum$inboundSchema;
 
 /** @internal */
 export const DocumentCreateValueCheckbox$inboundSchema: z.ZodType<
@@ -1063,7 +969,7 @@ export const DocumentCreateFieldMetaCheckbox$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentCreateTypeCheckbox2$inboundSchema,
+  type: DocumentCreateTypeCheckboxEnum$inboundSchema,
   values: z.array(z.lazy(() => DocumentCreateValueCheckbox$inboundSchema))
     .optional(),
   validationRule: z.string().optional(),
@@ -1095,7 +1001,7 @@ export const DocumentCreateFieldMetaCheckbox$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentCreateTypeCheckbox2$outboundSchema,
+  type: DocumentCreateTypeCheckboxEnum$outboundSchema,
   values: z.array(z.lazy(() => DocumentCreateValueCheckbox$outboundSchema))
     .optional(),
   validationRule: z.string().optional(),
@@ -1128,7 +1034,7 @@ export const DocumentCreateFieldCheckbox$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: DocumentCreateTypeCheckbox1$inboundSchema,
+  type: z.literal("CHECKBOX"),
   fieldMeta: z.lazy(() => DocumentCreateFieldMetaCheckbox$inboundSchema)
     .optional(),
   pageNumber: z.number(),
@@ -1139,7 +1045,7 @@ export const DocumentCreateFieldCheckbox$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type DocumentCreateFieldCheckbox$Outbound = {
-  type: string;
+  type: "CHECKBOX";
   fieldMeta?: DocumentCreateFieldMetaCheckbox$Outbound | undefined;
   pageNumber: number;
   pageX: number;
@@ -1154,7 +1060,7 @@ export const DocumentCreateFieldCheckbox$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentCreateFieldCheckbox
 > = z.object({
-  type: DocumentCreateTypeCheckbox1$outboundSchema,
+  type: z.literal("CHECKBOX"),
   fieldMeta: z.lazy(() => DocumentCreateFieldMetaCheckbox$outboundSchema)
     .optional(),
   pageNumber: z.number(),
@@ -1184,22 +1090,13 @@ export function documentCreateFieldCheckboxFromJSON(
 }
 
 /** @internal */
-export const DocumentCreateTypeRadio1$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeRadio1
-> = z.nativeEnum(DocumentCreateTypeRadio1);
+export const DocumentCreateTypeRadioEnum$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateTypeRadioEnum
+> = z.nativeEnum(DocumentCreateTypeRadioEnum);
 /** @internal */
-export const DocumentCreateTypeRadio1$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeRadio1
-> = DocumentCreateTypeRadio1$inboundSchema;
-
-/** @internal */
-export const DocumentCreateTypeRadio2$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeRadio2
-> = z.nativeEnum(DocumentCreateTypeRadio2);
-/** @internal */
-export const DocumentCreateTypeRadio2$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeRadio2
-> = DocumentCreateTypeRadio2$inboundSchema;
+export const DocumentCreateTypeRadioEnum$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateTypeRadioEnum
+> = DocumentCreateTypeRadioEnum$inboundSchema;
 
 /** @internal */
 export const DocumentCreateValueRadio$inboundSchema: z.ZodType<
@@ -1266,7 +1163,7 @@ export const DocumentCreateFieldMetaRadio$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentCreateTypeRadio2$inboundSchema,
+  type: DocumentCreateTypeRadioEnum$inboundSchema,
   values: z.array(z.lazy(() => DocumentCreateValueRadio$inboundSchema))
     .optional(),
   direction: DocumentCreateDirectionRadio$inboundSchema.default("vertical"),
@@ -1294,7 +1191,7 @@ export const DocumentCreateFieldMetaRadio$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentCreateTypeRadio2$outboundSchema,
+  type: DocumentCreateTypeRadioEnum$outboundSchema,
   values: z.array(z.lazy(() => DocumentCreateValueRadio$outboundSchema))
     .optional(),
   direction: DocumentCreateDirectionRadio$outboundSchema.default("vertical"),
@@ -1325,7 +1222,7 @@ export const DocumentCreateFieldRadio$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: DocumentCreateTypeRadio1$inboundSchema,
+  type: z.literal("RADIO"),
   fieldMeta: z.lazy(() => DocumentCreateFieldMetaRadio$inboundSchema)
     .optional(),
   pageNumber: z.number(),
@@ -1336,7 +1233,7 @@ export const DocumentCreateFieldRadio$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type DocumentCreateFieldRadio$Outbound = {
-  type: string;
+  type: "RADIO";
   fieldMeta?: DocumentCreateFieldMetaRadio$Outbound | undefined;
   pageNumber: number;
   pageX: number;
@@ -1351,7 +1248,7 @@ export const DocumentCreateFieldRadio$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentCreateFieldRadio
 > = z.object({
-  type: DocumentCreateTypeRadio1$outboundSchema,
+  type: z.literal("RADIO"),
   fieldMeta: z.lazy(() => DocumentCreateFieldMetaRadio$outboundSchema)
     .optional(),
   pageNumber: z.number(),
@@ -1379,22 +1276,13 @@ export function documentCreateFieldRadioFromJSON(
 }
 
 /** @internal */
-export const DocumentCreateTypeNumber1$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeNumber1
-> = z.nativeEnum(DocumentCreateTypeNumber1);
+export const DocumentCreateTypeNumberEnum$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateTypeNumberEnum
+> = z.nativeEnum(DocumentCreateTypeNumberEnum);
 /** @internal */
-export const DocumentCreateTypeNumber1$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeNumber1
-> = DocumentCreateTypeNumber1$inboundSchema;
-
-/** @internal */
-export const DocumentCreateTypeNumber2$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeNumber2
-> = z.nativeEnum(DocumentCreateTypeNumber2);
-/** @internal */
-export const DocumentCreateTypeNumber2$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeNumber2
-> = DocumentCreateTypeNumber2$inboundSchema;
+export const DocumentCreateTypeNumberEnum$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateTypeNumberEnum
+> = DocumentCreateTypeNumberEnum$inboundSchema;
 
 /** @internal */
 export const DocumentCreateTextAlignNumber$inboundSchema: z.ZodNativeEnum<
@@ -1425,7 +1313,7 @@ export const DocumentCreateFieldMetaNumber$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentCreateTypeNumber2$inboundSchema,
+  type: DocumentCreateTypeNumberEnum$inboundSchema,
   numberFormat: z.nullable(z.string()).optional(),
   value: z.string().optional(),
   minValue: z.nullable(z.number()).optional(),
@@ -1465,7 +1353,7 @@ export const DocumentCreateFieldMetaNumber$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentCreateTypeNumber2$outboundSchema,
+  type: DocumentCreateTypeNumberEnum$outboundSchema,
   numberFormat: z.nullable(z.string()).optional(),
   value: z.string().optional(),
   minValue: z.nullable(z.number()).optional(),
@@ -1502,7 +1390,7 @@ export const DocumentCreateFieldNumber$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: DocumentCreateTypeNumber1$inboundSchema,
+  type: z.literal("NUMBER"),
   fieldMeta: z.lazy(() => DocumentCreateFieldMetaNumber$inboundSchema)
     .optional(),
   pageNumber: z.number(),
@@ -1513,7 +1401,7 @@ export const DocumentCreateFieldNumber$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type DocumentCreateFieldNumber$Outbound = {
-  type: string;
+  type: "NUMBER";
   fieldMeta?: DocumentCreateFieldMetaNumber$Outbound | undefined;
   pageNumber: number;
   pageX: number;
@@ -1528,7 +1416,7 @@ export const DocumentCreateFieldNumber$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentCreateFieldNumber
 > = z.object({
-  type: DocumentCreateTypeNumber1$outboundSchema,
+  type: z.literal("NUMBER"),
   fieldMeta: z.lazy(() => DocumentCreateFieldMetaNumber$outboundSchema)
     .optional(),
   pageNumber: z.number(),
@@ -1556,22 +1444,13 @@ export function documentCreateFieldNumberFromJSON(
 }
 
 /** @internal */
-export const DocumentCreateTypeText1$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeText1
-> = z.nativeEnum(DocumentCreateTypeText1);
+export const DocumentCreateTypeTextEnum$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateTypeTextEnum
+> = z.nativeEnum(DocumentCreateTypeTextEnum);
 /** @internal */
-export const DocumentCreateTypeText1$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeText1
-> = DocumentCreateTypeText1$inboundSchema;
-
-/** @internal */
-export const DocumentCreateTypeText2$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeText2
-> = z.nativeEnum(DocumentCreateTypeText2);
-/** @internal */
-export const DocumentCreateTypeText2$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeText2
-> = DocumentCreateTypeText2$inboundSchema;
+export const DocumentCreateTypeTextEnum$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateTypeTextEnum
+> = DocumentCreateTypeTextEnum$inboundSchema;
 
 /** @internal */
 export const DocumentCreateTextAlignText$inboundSchema: z.ZodNativeEnum<
@@ -1602,7 +1481,7 @@ export const DocumentCreateFieldMetaText$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentCreateTypeText2$inboundSchema,
+  type: DocumentCreateTypeTextEnum$inboundSchema,
   text: z.string().optional(),
   characterLimit: z.number().optional(),
   textAlign: DocumentCreateTextAlignText$inboundSchema.optional(),
@@ -1638,7 +1517,7 @@ export const DocumentCreateFieldMetaText$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentCreateTypeText2$outboundSchema,
+  type: DocumentCreateTypeTextEnum$outboundSchema,
   text: z.string().optional(),
   characterLimit: z.number().optional(),
   textAlign: DocumentCreateTextAlignText$outboundSchema.optional(),
@@ -1673,7 +1552,7 @@ export const DocumentCreateFieldText$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: DocumentCreateTypeText1$inboundSchema,
+  type: z.literal("TEXT"),
   fieldMeta: z.lazy(() => DocumentCreateFieldMetaText$inboundSchema).optional(),
   pageNumber: z.number(),
   pageX: z.number(),
@@ -1683,7 +1562,7 @@ export const DocumentCreateFieldText$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type DocumentCreateFieldText$Outbound = {
-  type: string;
+  type: "TEXT";
   fieldMeta?: DocumentCreateFieldMetaText$Outbound | undefined;
   pageNumber: number;
   pageX: number;
@@ -1698,7 +1577,7 @@ export const DocumentCreateFieldText$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentCreateFieldText
 > = z.object({
-  type: DocumentCreateTypeText1$outboundSchema,
+  type: z.literal("TEXT"),
   fieldMeta: z.lazy(() => DocumentCreateFieldMetaText$outboundSchema)
     .optional(),
   pageNumber: z.number(),
@@ -1726,22 +1605,13 @@ export function documentCreateFieldTextFromJSON(
 }
 
 /** @internal */
-export const DocumentCreateTypeDate1$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeDate1
-> = z.nativeEnum(DocumentCreateTypeDate1);
+export const DocumentCreateTypeDateEnum$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateTypeDateEnum
+> = z.nativeEnum(DocumentCreateTypeDateEnum);
 /** @internal */
-export const DocumentCreateTypeDate1$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeDate1
-> = DocumentCreateTypeDate1$inboundSchema;
-
-/** @internal */
-export const DocumentCreateTypeDate2$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeDate2
-> = z.nativeEnum(DocumentCreateTypeDate2);
-/** @internal */
-export const DocumentCreateTypeDate2$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeDate2
-> = DocumentCreateTypeDate2$inboundSchema;
+export const DocumentCreateTypeDateEnum$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateTypeDateEnum
+> = DocumentCreateTypeDateEnum$inboundSchema;
 
 /** @internal */
 export const DocumentCreateTextAlignDate$inboundSchema: z.ZodNativeEnum<
@@ -1763,7 +1633,7 @@ export const DocumentCreateFieldMetaDate$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentCreateTypeDate2$inboundSchema,
+  type: DocumentCreateTypeDateEnum$inboundSchema,
   textAlign: DocumentCreateTextAlignDate$inboundSchema.optional(),
 });
 /** @internal */
@@ -1788,7 +1658,7 @@ export const DocumentCreateFieldMetaDate$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentCreateTypeDate2$outboundSchema,
+  type: DocumentCreateTypeDateEnum$outboundSchema,
   textAlign: DocumentCreateTextAlignDate$outboundSchema.optional(),
 });
 
@@ -1817,7 +1687,7 @@ export const DocumentCreateFieldDate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: DocumentCreateTypeDate1$inboundSchema,
+  type: z.literal("DATE"),
   fieldMeta: z.lazy(() => DocumentCreateFieldMetaDate$inboundSchema).optional(),
   pageNumber: z.number(),
   pageX: z.number(),
@@ -1827,7 +1697,7 @@ export const DocumentCreateFieldDate$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type DocumentCreateFieldDate$Outbound = {
-  type: string;
+  type: "DATE";
   fieldMeta?: DocumentCreateFieldMetaDate$Outbound | undefined;
   pageNumber: number;
   pageX: number;
@@ -1842,7 +1712,7 @@ export const DocumentCreateFieldDate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentCreateFieldDate
 > = z.object({
-  type: DocumentCreateTypeDate1$outboundSchema,
+  type: z.literal("DATE"),
   fieldMeta: z.lazy(() => DocumentCreateFieldMetaDate$outboundSchema)
     .optional(),
   pageNumber: z.number(),
@@ -1870,22 +1740,13 @@ export function documentCreateFieldDateFromJSON(
 }
 
 /** @internal */
-export const DocumentCreateTypeEmail1$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeEmail1
-> = z.nativeEnum(DocumentCreateTypeEmail1);
+export const DocumentCreateTypeEmailEnum$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateTypeEmailEnum
+> = z.nativeEnum(DocumentCreateTypeEmailEnum);
 /** @internal */
-export const DocumentCreateTypeEmail1$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeEmail1
-> = DocumentCreateTypeEmail1$inboundSchema;
-
-/** @internal */
-export const DocumentCreateTypeEmail2$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeEmail2
-> = z.nativeEnum(DocumentCreateTypeEmail2);
-/** @internal */
-export const DocumentCreateTypeEmail2$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeEmail2
-> = DocumentCreateTypeEmail2$inboundSchema;
+export const DocumentCreateTypeEmailEnum$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateTypeEmailEnum
+> = DocumentCreateTypeEmailEnum$inboundSchema;
 
 /** @internal */
 export const DocumentCreateTextAlignEmail$inboundSchema: z.ZodNativeEnum<
@@ -1907,7 +1768,7 @@ export const DocumentCreateFieldMetaEmail$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentCreateTypeEmail2$inboundSchema,
+  type: DocumentCreateTypeEmailEnum$inboundSchema,
   textAlign: DocumentCreateTextAlignEmail$inboundSchema.optional(),
 });
 /** @internal */
@@ -1932,7 +1793,7 @@ export const DocumentCreateFieldMetaEmail$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentCreateTypeEmail2$outboundSchema,
+  type: DocumentCreateTypeEmailEnum$outboundSchema,
   textAlign: DocumentCreateTextAlignEmail$outboundSchema.optional(),
 });
 
@@ -1961,7 +1822,7 @@ export const DocumentCreateFieldEmail$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: DocumentCreateTypeEmail1$inboundSchema,
+  type: z.literal("EMAIL"),
   fieldMeta: z.lazy(() => DocumentCreateFieldMetaEmail$inboundSchema)
     .optional(),
   pageNumber: z.number(),
@@ -1972,7 +1833,7 @@ export const DocumentCreateFieldEmail$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type DocumentCreateFieldEmail$Outbound = {
-  type: string;
+  type: "EMAIL";
   fieldMeta?: DocumentCreateFieldMetaEmail$Outbound | undefined;
   pageNumber: number;
   pageX: number;
@@ -1987,7 +1848,7 @@ export const DocumentCreateFieldEmail$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentCreateFieldEmail
 > = z.object({
-  type: DocumentCreateTypeEmail1$outboundSchema,
+  type: z.literal("EMAIL"),
   fieldMeta: z.lazy(() => DocumentCreateFieldMetaEmail$outboundSchema)
     .optional(),
   pageNumber: z.number(),
@@ -2015,22 +1876,13 @@ export function documentCreateFieldEmailFromJSON(
 }
 
 /** @internal */
-export const DocumentCreateTypeName1$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeName1
-> = z.nativeEnum(DocumentCreateTypeName1);
+export const DocumentCreateTypeNameEnum$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateTypeNameEnum
+> = z.nativeEnum(DocumentCreateTypeNameEnum);
 /** @internal */
-export const DocumentCreateTypeName1$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeName1
-> = DocumentCreateTypeName1$inboundSchema;
-
-/** @internal */
-export const DocumentCreateTypeName2$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeName2
-> = z.nativeEnum(DocumentCreateTypeName2);
-/** @internal */
-export const DocumentCreateTypeName2$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeName2
-> = DocumentCreateTypeName2$inboundSchema;
+export const DocumentCreateTypeNameEnum$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateTypeNameEnum
+> = DocumentCreateTypeNameEnum$inboundSchema;
 
 /** @internal */
 export const DocumentCreateTextAlignName$inboundSchema: z.ZodNativeEnum<
@@ -2052,7 +1904,7 @@ export const DocumentCreateFieldMetaName$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentCreateTypeName2$inboundSchema,
+  type: DocumentCreateTypeNameEnum$inboundSchema,
   textAlign: DocumentCreateTextAlignName$inboundSchema.optional(),
 });
 /** @internal */
@@ -2077,7 +1929,7 @@ export const DocumentCreateFieldMetaName$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentCreateTypeName2$outboundSchema,
+  type: DocumentCreateTypeNameEnum$outboundSchema,
   textAlign: DocumentCreateTextAlignName$outboundSchema.optional(),
 });
 
@@ -2106,7 +1958,7 @@ export const DocumentCreateFieldName$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: DocumentCreateTypeName1$inboundSchema,
+  type: z.literal("NAME"),
   fieldMeta: z.lazy(() => DocumentCreateFieldMetaName$inboundSchema).optional(),
   pageNumber: z.number(),
   pageX: z.number(),
@@ -2116,7 +1968,7 @@ export const DocumentCreateFieldName$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type DocumentCreateFieldName$Outbound = {
-  type: string;
+  type: "NAME";
   fieldMeta?: DocumentCreateFieldMetaName$Outbound | undefined;
   pageNumber: number;
   pageX: number;
@@ -2131,7 +1983,7 @@ export const DocumentCreateFieldName$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentCreateFieldName
 > = z.object({
-  type: DocumentCreateTypeName1$outboundSchema,
+  type: z.literal("NAME"),
   fieldMeta: z.lazy(() => DocumentCreateFieldMetaName$outboundSchema)
     .optional(),
   pageNumber: z.number(),
@@ -2159,22 +2011,13 @@ export function documentCreateFieldNameFromJSON(
 }
 
 /** @internal */
-export const DocumentCreateTypeInitials1$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeInitials1
-> = z.nativeEnum(DocumentCreateTypeInitials1);
+export const DocumentCreateTypeInitialsEnum$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateTypeInitialsEnum
+> = z.nativeEnum(DocumentCreateTypeInitialsEnum);
 /** @internal */
-export const DocumentCreateTypeInitials1$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeInitials1
-> = DocumentCreateTypeInitials1$inboundSchema;
-
-/** @internal */
-export const DocumentCreateTypeInitials2$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeInitials2
-> = z.nativeEnum(DocumentCreateTypeInitials2);
-/** @internal */
-export const DocumentCreateTypeInitials2$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeInitials2
-> = DocumentCreateTypeInitials2$inboundSchema;
+export const DocumentCreateTypeInitialsEnum$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateTypeInitialsEnum
+> = DocumentCreateTypeInitialsEnum$inboundSchema;
 
 /** @internal */
 export const DocumentCreateTextAlignInitials$inboundSchema: z.ZodNativeEnum<
@@ -2196,7 +2039,7 @@ export const DocumentCreateFieldMetaInitials$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentCreateTypeInitials2$inboundSchema,
+  type: DocumentCreateTypeInitialsEnum$inboundSchema,
   textAlign: DocumentCreateTextAlignInitials$inboundSchema.optional(),
 });
 /** @internal */
@@ -2221,7 +2064,7 @@ export const DocumentCreateFieldMetaInitials$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentCreateTypeInitials2$outboundSchema,
+  type: DocumentCreateTypeInitialsEnum$outboundSchema,
   textAlign: DocumentCreateTextAlignInitials$outboundSchema.optional(),
 });
 
@@ -2250,7 +2093,7 @@ export const DocumentCreateFieldInitials$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: DocumentCreateTypeInitials1$inboundSchema,
+  type: z.literal("INITIALS"),
   fieldMeta: z.lazy(() => DocumentCreateFieldMetaInitials$inboundSchema)
     .optional(),
   pageNumber: z.number(),
@@ -2261,7 +2104,7 @@ export const DocumentCreateFieldInitials$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type DocumentCreateFieldInitials$Outbound = {
-  type: string;
+  type: "INITIALS";
   fieldMeta?: DocumentCreateFieldMetaInitials$Outbound | undefined;
   pageNumber: number;
   pageX: number;
@@ -2276,7 +2119,7 @@ export const DocumentCreateFieldInitials$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentCreateFieldInitials
 > = z.object({
-  type: DocumentCreateTypeInitials1$outboundSchema,
+  type: z.literal("INITIALS"),
   fieldMeta: z.lazy(() => DocumentCreateFieldMetaInitials$outboundSchema)
     .optional(),
   pageNumber: z.number(),
@@ -2306,21 +2149,12 @@ export function documentCreateFieldInitialsFromJSON(
 }
 
 /** @internal */
-export const DocumentCreateTypeFreeSignature$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeFreeSignature
-> = z.nativeEnum(DocumentCreateTypeFreeSignature);
-/** @internal */
-export const DocumentCreateTypeFreeSignature$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeFreeSignature
-> = DocumentCreateTypeFreeSignature$inboundSchema;
-
-/** @internal */
 export const DocumentCreateFieldFreeSignature$inboundSchema: z.ZodType<
   DocumentCreateFieldFreeSignature,
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: DocumentCreateTypeFreeSignature$inboundSchema,
+  type: z.literal("FREE_SIGNATURE"),
   pageNumber: z.number(),
   pageX: z.number(),
   pageY: z.number(),
@@ -2329,7 +2163,7 @@ export const DocumentCreateFieldFreeSignature$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type DocumentCreateFieldFreeSignature$Outbound = {
-  type: string;
+  type: "FREE_SIGNATURE";
   pageNumber: number;
   pageX: number;
   pageY: number;
@@ -2343,7 +2177,7 @@ export const DocumentCreateFieldFreeSignature$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentCreateFieldFreeSignature
 > = z.object({
-  type: DocumentCreateTypeFreeSignature$outboundSchema,
+  type: z.literal("FREE_SIGNATURE"),
   pageNumber: z.number(),
   pageX: z.number(),
   pageY: z.number(),
@@ -2371,22 +2205,13 @@ export function documentCreateFieldFreeSignatureFromJSON(
 }
 
 /** @internal */
-export const DocumentCreateTypeSignature1$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeSignature1
-> = z.nativeEnum(DocumentCreateTypeSignature1);
+export const DocumentCreateTypeSignatureEnum$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateTypeSignatureEnum
+> = z.nativeEnum(DocumentCreateTypeSignatureEnum);
 /** @internal */
-export const DocumentCreateTypeSignature1$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeSignature1
-> = DocumentCreateTypeSignature1$inboundSchema;
-
-/** @internal */
-export const DocumentCreateTypeSignature2$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeSignature2
-> = z.nativeEnum(DocumentCreateTypeSignature2);
-/** @internal */
-export const DocumentCreateTypeSignature2$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateTypeSignature2
-> = DocumentCreateTypeSignature2$inboundSchema;
+export const DocumentCreateTypeSignatureEnum$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateTypeSignatureEnum
+> = DocumentCreateTypeSignatureEnum$inboundSchema;
 
 /** @internal */
 export const DocumentCreateFieldMetaSignature$inboundSchema: z.ZodType<
@@ -2399,7 +2224,7 @@ export const DocumentCreateFieldMetaSignature$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentCreateTypeSignature2$inboundSchema,
+  type: DocumentCreateTypeSignatureEnum$inboundSchema,
 });
 /** @internal */
 export type DocumentCreateFieldMetaSignature$Outbound = {
@@ -2422,7 +2247,7 @@ export const DocumentCreateFieldMetaSignature$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentCreateTypeSignature2$outboundSchema,
+  type: DocumentCreateTypeSignatureEnum$outboundSchema,
 });
 
 export function documentCreateFieldMetaSignatureToJSON(
@@ -2450,7 +2275,7 @@ export const DocumentCreateFieldSignature$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: DocumentCreateTypeSignature1$inboundSchema,
+  type: z.literal("SIGNATURE"),
   fieldMeta: z.lazy(() => DocumentCreateFieldMetaSignature$inboundSchema)
     .optional(),
   pageNumber: z.number(),
@@ -2461,7 +2286,7 @@ export const DocumentCreateFieldSignature$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type DocumentCreateFieldSignature$Outbound = {
-  type: string;
+  type: "SIGNATURE";
   fieldMeta?: DocumentCreateFieldMetaSignature$Outbound | undefined;
   pageNumber: number;
   pageX: number;
@@ -2476,7 +2301,7 @@ export const DocumentCreateFieldSignature$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentCreateFieldSignature
 > = z.object({
-  type: DocumentCreateTypeSignature1$outboundSchema,
+  type: z.literal("SIGNATURE"),
   fieldMeta: z.lazy(() => DocumentCreateFieldMetaSignature$outboundSchema)
     .optional(),
   pageNumber: z.number(),
@@ -2511,53 +2336,31 @@ export const DocumentCreateFieldUnion$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  z.lazy(() => DocumentCreateFieldSignature$inboundSchema).and(
-    z.object({ type: z.literal("SIGNATURE") }),
-  ),
-  z.lazy(() => DocumentCreateFieldFreeSignature$inboundSchema).and(
-    z.object({ type: z.literal("FREE_SIGNATURE") }),
-  ),
-  z.lazy(() => DocumentCreateFieldInitials$inboundSchema).and(
-    z.object({ type: z.literal("INITIALS") }),
-  ),
-  z.lazy(() => DocumentCreateFieldName$inboundSchema).and(
-    z.object({ type: z.literal("NAME") }),
-  ),
-  z.lazy(() => DocumentCreateFieldEmail$inboundSchema).and(
-    z.object({ type: z.literal("EMAIL") }),
-  ),
-  z.lazy(() => DocumentCreateFieldDate$inboundSchema).and(
-    z.object({ type: z.literal("DATE") }),
-  ),
-  z.lazy(() => DocumentCreateFieldText$inboundSchema).and(
-    z.object({ type: z.literal("TEXT") }),
-  ),
-  z.lazy(() => DocumentCreateFieldNumber$inboundSchema).and(
-    z.object({ type: z.literal("NUMBER") }),
-  ),
-  z.lazy(() => DocumentCreateFieldRadio$inboundSchema).and(
-    z.object({ type: z.literal("RADIO") }),
-  ),
-  z.lazy(() => DocumentCreateFieldCheckbox$inboundSchema).and(
-    z.object({ type: z.literal("CHECKBOX") }),
-  ),
-  z.lazy(() => DocumentCreateFieldDropdown$inboundSchema).and(
-    z.object({ type: z.literal("DROPDOWN") }),
-  ),
+  z.lazy(() => DocumentCreateFieldSignature$inboundSchema),
+  z.lazy(() => DocumentCreateFieldFreeSignature$inboundSchema),
+  z.lazy(() => DocumentCreateFieldInitials$inboundSchema),
+  z.lazy(() => DocumentCreateFieldName$inboundSchema),
+  z.lazy(() => DocumentCreateFieldEmail$inboundSchema),
+  z.lazy(() => DocumentCreateFieldDate$inboundSchema),
+  z.lazy(() => DocumentCreateFieldText$inboundSchema),
+  z.lazy(() => DocumentCreateFieldNumber$inboundSchema),
+  z.lazy(() => DocumentCreateFieldRadio$inboundSchema),
+  z.lazy(() => DocumentCreateFieldCheckbox$inboundSchema),
+  z.lazy(() => DocumentCreateFieldDropdown$inboundSchema),
 ]);
 /** @internal */
 export type DocumentCreateFieldUnion$Outbound =
-  | (DocumentCreateFieldSignature$Outbound & { type: "SIGNATURE" })
-  | (DocumentCreateFieldFreeSignature$Outbound & { type: "FREE_SIGNATURE" })
-  | (DocumentCreateFieldInitials$Outbound & { type: "INITIALS" })
-  | (DocumentCreateFieldName$Outbound & { type: "NAME" })
-  | (DocumentCreateFieldEmail$Outbound & { type: "EMAIL" })
-  | (DocumentCreateFieldDate$Outbound & { type: "DATE" })
-  | (DocumentCreateFieldText$Outbound & { type: "TEXT" })
-  | (DocumentCreateFieldNumber$Outbound & { type: "NUMBER" })
-  | (DocumentCreateFieldRadio$Outbound & { type: "RADIO" })
-  | (DocumentCreateFieldCheckbox$Outbound & { type: "CHECKBOX" })
-  | (DocumentCreateFieldDropdown$Outbound & { type: "DROPDOWN" });
+  | DocumentCreateFieldSignature$Outbound
+  | DocumentCreateFieldFreeSignature$Outbound
+  | DocumentCreateFieldInitials$Outbound
+  | DocumentCreateFieldName$Outbound
+  | DocumentCreateFieldEmail$Outbound
+  | DocumentCreateFieldDate$Outbound
+  | DocumentCreateFieldText$Outbound
+  | DocumentCreateFieldNumber$Outbound
+  | DocumentCreateFieldRadio$Outbound
+  | DocumentCreateFieldCheckbox$Outbound
+  | DocumentCreateFieldDropdown$Outbound;
 
 /** @internal */
 export const DocumentCreateFieldUnion$outboundSchema: z.ZodType<
@@ -2565,39 +2368,17 @@ export const DocumentCreateFieldUnion$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentCreateFieldUnion
 > = z.union([
-  z.lazy(() => DocumentCreateFieldSignature$outboundSchema).and(
-    z.object({ type: z.literal("SIGNATURE") }),
-  ),
-  z.lazy(() => DocumentCreateFieldFreeSignature$outboundSchema).and(
-    z.object({ type: z.literal("FREE_SIGNATURE") }),
-  ),
-  z.lazy(() => DocumentCreateFieldInitials$outboundSchema).and(
-    z.object({ type: z.literal("INITIALS") }),
-  ),
-  z.lazy(() => DocumentCreateFieldName$outboundSchema).and(
-    z.object({ type: z.literal("NAME") }),
-  ),
-  z.lazy(() => DocumentCreateFieldEmail$outboundSchema).and(
-    z.object({ type: z.literal("EMAIL") }),
-  ),
-  z.lazy(() => DocumentCreateFieldDate$outboundSchema).and(
-    z.object({ type: z.literal("DATE") }),
-  ),
-  z.lazy(() => DocumentCreateFieldText$outboundSchema).and(
-    z.object({ type: z.literal("TEXT") }),
-  ),
-  z.lazy(() => DocumentCreateFieldNumber$outboundSchema).and(
-    z.object({ type: z.literal("NUMBER") }),
-  ),
-  z.lazy(() => DocumentCreateFieldRadio$outboundSchema).and(
-    z.object({ type: z.literal("RADIO") }),
-  ),
-  z.lazy(() => DocumentCreateFieldCheckbox$outboundSchema).and(
-    z.object({ type: z.literal("CHECKBOX") }),
-  ),
-  z.lazy(() => DocumentCreateFieldDropdown$outboundSchema).and(
-    z.object({ type: z.literal("DROPDOWN") }),
-  ),
+  z.lazy(() => DocumentCreateFieldSignature$outboundSchema),
+  z.lazy(() => DocumentCreateFieldFreeSignature$outboundSchema),
+  z.lazy(() => DocumentCreateFieldInitials$outboundSchema),
+  z.lazy(() => DocumentCreateFieldName$outboundSchema),
+  z.lazy(() => DocumentCreateFieldEmail$outboundSchema),
+  z.lazy(() => DocumentCreateFieldDate$outboundSchema),
+  z.lazy(() => DocumentCreateFieldText$outboundSchema),
+  z.lazy(() => DocumentCreateFieldNumber$outboundSchema),
+  z.lazy(() => DocumentCreateFieldRadio$outboundSchema),
+  z.lazy(() => DocumentCreateFieldCheckbox$outboundSchema),
+  z.lazy(() => DocumentCreateFieldDropdown$outboundSchema),
 ]);
 
 export function documentCreateFieldUnionToJSON(
@@ -2631,39 +2412,17 @@ export const DocumentCreateRecipient$inboundSchema: z.ZodType<
   actionAuth: z.array(DocumentCreateActionAuth$inboundSchema).optional(),
   fields: z.array(
     z.union([
-      z.lazy(() => DocumentCreateFieldSignature$inboundSchema).and(
-        z.object({ type: z.literal("SIGNATURE") }),
-      ),
-      z.lazy(() => DocumentCreateFieldFreeSignature$inboundSchema).and(
-        z.object({ type: z.literal("FREE_SIGNATURE") }),
-      ),
-      z.lazy(() => DocumentCreateFieldInitials$inboundSchema).and(
-        z.object({ type: z.literal("INITIALS") }),
-      ),
-      z.lazy(() => DocumentCreateFieldName$inboundSchema).and(
-        z.object({ type: z.literal("NAME") }),
-      ),
-      z.lazy(() => DocumentCreateFieldEmail$inboundSchema).and(
-        z.object({ type: z.literal("EMAIL") }),
-      ),
-      z.lazy(() => DocumentCreateFieldDate$inboundSchema).and(
-        z.object({ type: z.literal("DATE") }),
-      ),
-      z.lazy(() => DocumentCreateFieldText$inboundSchema).and(
-        z.object({ type: z.literal("TEXT") }),
-      ),
-      z.lazy(() => DocumentCreateFieldNumber$inboundSchema).and(
-        z.object({ type: z.literal("NUMBER") }),
-      ),
-      z.lazy(() => DocumentCreateFieldRadio$inboundSchema).and(
-        z.object({ type: z.literal("RADIO") }),
-      ),
-      z.lazy(() => DocumentCreateFieldCheckbox$inboundSchema).and(
-        z.object({ type: z.literal("CHECKBOX") }),
-      ),
-      z.lazy(() => DocumentCreateFieldDropdown$inboundSchema).and(
-        z.object({ type: z.literal("DROPDOWN") }),
-      ),
+      z.lazy(() => DocumentCreateFieldSignature$inboundSchema),
+      z.lazy(() => DocumentCreateFieldFreeSignature$inboundSchema),
+      z.lazy(() => DocumentCreateFieldInitials$inboundSchema),
+      z.lazy(() => DocumentCreateFieldName$inboundSchema),
+      z.lazy(() => DocumentCreateFieldEmail$inboundSchema),
+      z.lazy(() => DocumentCreateFieldDate$inboundSchema),
+      z.lazy(() => DocumentCreateFieldText$inboundSchema),
+      z.lazy(() => DocumentCreateFieldNumber$inboundSchema),
+      z.lazy(() => DocumentCreateFieldRadio$inboundSchema),
+      z.lazy(() => DocumentCreateFieldCheckbox$inboundSchema),
+      z.lazy(() => DocumentCreateFieldDropdown$inboundSchema),
     ]),
   ).optional(),
 });
@@ -2677,17 +2436,17 @@ export type DocumentCreateRecipient$Outbound = {
   actionAuth?: Array<string> | undefined;
   fields?:
     | Array<
-      | (DocumentCreateFieldSignature$Outbound & { type: "SIGNATURE" })
-      | (DocumentCreateFieldFreeSignature$Outbound & { type: "FREE_SIGNATURE" })
-      | (DocumentCreateFieldInitials$Outbound & { type: "INITIALS" })
-      | (DocumentCreateFieldName$Outbound & { type: "NAME" })
-      | (DocumentCreateFieldEmail$Outbound & { type: "EMAIL" })
-      | (DocumentCreateFieldDate$Outbound & { type: "DATE" })
-      | (DocumentCreateFieldText$Outbound & { type: "TEXT" })
-      | (DocumentCreateFieldNumber$Outbound & { type: "NUMBER" })
-      | (DocumentCreateFieldRadio$Outbound & { type: "RADIO" })
-      | (DocumentCreateFieldCheckbox$Outbound & { type: "CHECKBOX" })
-      | (DocumentCreateFieldDropdown$Outbound & { type: "DROPDOWN" })
+      | DocumentCreateFieldSignature$Outbound
+      | DocumentCreateFieldFreeSignature$Outbound
+      | DocumentCreateFieldInitials$Outbound
+      | DocumentCreateFieldName$Outbound
+      | DocumentCreateFieldEmail$Outbound
+      | DocumentCreateFieldDate$Outbound
+      | DocumentCreateFieldText$Outbound
+      | DocumentCreateFieldNumber$Outbound
+      | DocumentCreateFieldRadio$Outbound
+      | DocumentCreateFieldCheckbox$Outbound
+      | DocumentCreateFieldDropdown$Outbound
     >
     | undefined;
 };
@@ -2706,39 +2465,17 @@ export const DocumentCreateRecipient$outboundSchema: z.ZodType<
   actionAuth: z.array(DocumentCreateActionAuth$outboundSchema).optional(),
   fields: z.array(
     z.union([
-      z.lazy(() => DocumentCreateFieldSignature$outboundSchema).and(
-        z.object({ type: z.literal("SIGNATURE") }),
-      ),
-      z.lazy(() => DocumentCreateFieldFreeSignature$outboundSchema).and(
-        z.object({ type: z.literal("FREE_SIGNATURE") }),
-      ),
-      z.lazy(() => DocumentCreateFieldInitials$outboundSchema).and(
-        z.object({ type: z.literal("INITIALS") }),
-      ),
-      z.lazy(() => DocumentCreateFieldName$outboundSchema).and(
-        z.object({ type: z.literal("NAME") }),
-      ),
-      z.lazy(() => DocumentCreateFieldEmail$outboundSchema).and(
-        z.object({ type: z.literal("EMAIL") }),
-      ),
-      z.lazy(() => DocumentCreateFieldDate$outboundSchema).and(
-        z.object({ type: z.literal("DATE") }),
-      ),
-      z.lazy(() => DocumentCreateFieldText$outboundSchema).and(
-        z.object({ type: z.literal("TEXT") }),
-      ),
-      z.lazy(() => DocumentCreateFieldNumber$outboundSchema).and(
-        z.object({ type: z.literal("NUMBER") }),
-      ),
-      z.lazy(() => DocumentCreateFieldRadio$outboundSchema).and(
-        z.object({ type: z.literal("RADIO") }),
-      ),
-      z.lazy(() => DocumentCreateFieldCheckbox$outboundSchema).and(
-        z.object({ type: z.literal("CHECKBOX") }),
-      ),
-      z.lazy(() => DocumentCreateFieldDropdown$outboundSchema).and(
-        z.object({ type: z.literal("DROPDOWN") }),
-      ),
+      z.lazy(() => DocumentCreateFieldSignature$outboundSchema),
+      z.lazy(() => DocumentCreateFieldFreeSignature$outboundSchema),
+      z.lazy(() => DocumentCreateFieldInitials$outboundSchema),
+      z.lazy(() => DocumentCreateFieldName$outboundSchema),
+      z.lazy(() => DocumentCreateFieldEmail$outboundSchema),
+      z.lazy(() => DocumentCreateFieldDate$outboundSchema),
+      z.lazy(() => DocumentCreateFieldText$outboundSchema),
+      z.lazy(() => DocumentCreateFieldNumber$outboundSchema),
+      z.lazy(() => DocumentCreateFieldRadio$outboundSchema),
+      z.lazy(() => DocumentCreateFieldCheckbox$outboundSchema),
+      z.lazy(() => DocumentCreateFieldDropdown$outboundSchema),
     ]),
   ).optional(),
 });

@@ -25,6 +25,7 @@ export * from "./envelopeattachmentcreate.js";
 export * from "./envelopeattachmentdelete.js";
 export * from "./envelopeattachmentfind.js";
 export * from "./envelopeattachmentupdate.js";
+export * from "./envelopeauditlogfind.js";
 export * from "./envelopecreate.js";
 export * from "./envelopedelete.js";
 export * from "./envelopedistribute.js";

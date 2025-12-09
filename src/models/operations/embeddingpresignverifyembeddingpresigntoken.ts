@@ -9,6 +9,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type EmbeddingPresignVerifyEmbeddingPresignTokenRequest = {
   token: string;
+  scope?: string | undefined;
 };
 
 /**
@@ -26,10 +27,12 @@ export const EmbeddingPresignVerifyEmbeddingPresignTokenRequest$inboundSchema:
     unknown
   > = z.object({
     token: z.string(),
+    scope: z.string().optional(),
   });
 /** @internal */
 export type EmbeddingPresignVerifyEmbeddingPresignTokenRequest$Outbound = {
   token: string;
+  scope?: string | undefined;
 };
 
 /** @internal */
@@ -40,6 +43,7 @@ export const EmbeddingPresignVerifyEmbeddingPresignTokenRequest$outboundSchema:
     EmbeddingPresignVerifyEmbeddingPresignTokenRequest
   > = z.object({
     token: z.string(),
+    scope: z.string().optional(),
   });
 
 export function embeddingPresignVerifyEmbeddingPresignTokenRequestToJSON(

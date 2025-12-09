@@ -35,16 +35,20 @@ export const QueryParamStatus = {
  */
 export type QueryParamStatus = ClosedEnum<typeof QueryParamStatus>;
 
-export const OrderByColumn = {
+export const DocumentFindOrderByColumn = {
   CreatedAt: "createdAt",
 } as const;
-export type OrderByColumn = ClosedEnum<typeof OrderByColumn>;
+export type DocumentFindOrderByColumn = ClosedEnum<
+  typeof DocumentFindOrderByColumn
+>;
 
-export const OrderByDirection = {
+export const DocumentFindOrderByDirection = {
   Asc: "asc",
   Desc: "desc",
 } as const;
-export type OrderByDirection = ClosedEnum<typeof OrderByDirection>;
+export type DocumentFindOrderByDirection = ClosedEnum<
+  typeof DocumentFindOrderByDirection
+>;
 
 export type DocumentFindRequest = {
   /**
@@ -75,8 +79,8 @@ export type DocumentFindRequest = {
    * Filter documents by folder ID
    */
   folderId?: string | undefined;
-  orderByColumn?: OrderByColumn | undefined;
-  orderByDirection?: OrderByDirection | undefined;
+  orderByColumn?: DocumentFindOrderByColumn | undefined;
+  orderByDirection?: DocumentFindOrderByDirection | undefined;
 };
 
 export const DocumentFindVisibility = {
@@ -94,12 +98,12 @@ export const DataStatus = {
 } as const;
 export type DataStatus = ClosedEnum<typeof DataStatus>;
 
-export const DataSource = {
+export const DocumentFindDataSource = {
   Document: "DOCUMENT",
   Template: "TEMPLATE",
   TemplateDirectLink: "TEMPLATE_DIRECT_LINK",
 } as const;
-export type DataSource = ClosedEnum<typeof DataSource>;
+export type DocumentFindDataSource = ClosedEnum<typeof DocumentFindDataSource>;
 
 export const DocumentFindGlobalAccessAuth = {
   Account: "ACCOUNT",
@@ -210,7 +214,7 @@ export type DocumentFindTeam = {
 export type DocumentFindData = {
   visibility: DocumentFindVisibility;
   status: DataStatus;
-  source: DataSource;
+  source: DocumentFindDataSource;
   id: number;
   externalId: string | null;
   userId: number;
@@ -263,22 +267,22 @@ export const QueryParamStatus$outboundSchema: z.ZodNativeEnum<
 > = QueryParamStatus$inboundSchema;
 
 /** @internal */
-export const OrderByColumn$inboundSchema: z.ZodNativeEnum<
-  typeof OrderByColumn
-> = z.nativeEnum(OrderByColumn);
+export const DocumentFindOrderByColumn$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentFindOrderByColumn
+> = z.nativeEnum(DocumentFindOrderByColumn);
 /** @internal */
-export const OrderByColumn$outboundSchema: z.ZodNativeEnum<
-  typeof OrderByColumn
-> = OrderByColumn$inboundSchema;
+export const DocumentFindOrderByColumn$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentFindOrderByColumn
+> = DocumentFindOrderByColumn$inboundSchema;
 
 /** @internal */
-export const OrderByDirection$inboundSchema: z.ZodNativeEnum<
-  typeof OrderByDirection
-> = z.nativeEnum(OrderByDirection);
+export const DocumentFindOrderByDirection$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentFindOrderByDirection
+> = z.nativeEnum(DocumentFindOrderByDirection);
 /** @internal */
-export const OrderByDirection$outboundSchema: z.ZodNativeEnum<
-  typeof OrderByDirection
-> = OrderByDirection$inboundSchema;
+export const DocumentFindOrderByDirection$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentFindOrderByDirection
+> = DocumentFindOrderByDirection$inboundSchema;
 
 /** @internal */
 export const DocumentFindRequest$inboundSchema: z.ZodType<
@@ -293,8 +297,8 @@ export const DocumentFindRequest$inboundSchema: z.ZodType<
   source: QueryParamSource$inboundSchema.optional(),
   status: QueryParamStatus$inboundSchema.optional(),
   folderId: z.string().optional(),
-  orderByColumn: OrderByColumn$inboundSchema.optional(),
-  orderByDirection: OrderByDirection$inboundSchema.default("desc"),
+  orderByColumn: DocumentFindOrderByColumn$inboundSchema.optional(),
+  orderByDirection: DocumentFindOrderByDirection$inboundSchema.default("desc"),
 });
 /** @internal */
 export type DocumentFindRequest$Outbound = {
@@ -322,8 +326,8 @@ export const DocumentFindRequest$outboundSchema: z.ZodType<
   source: QueryParamSource$outboundSchema.optional(),
   status: QueryParamStatus$outboundSchema.optional(),
   folderId: z.string().optional(),
-  orderByColumn: OrderByColumn$outboundSchema.optional(),
-  orderByDirection: OrderByDirection$outboundSchema.default("desc"),
+  orderByColumn: DocumentFindOrderByColumn$outboundSchema.optional(),
+  orderByDirection: DocumentFindOrderByDirection$outboundSchema.default("desc"),
 });
 
 export function documentFindRequestToJSON(
@@ -360,11 +364,13 @@ export const DataStatus$outboundSchema: z.ZodNativeEnum<typeof DataStatus> =
   DataStatus$inboundSchema;
 
 /** @internal */
-export const DataSource$inboundSchema: z.ZodNativeEnum<typeof DataSource> = z
-  .nativeEnum(DataSource);
+export const DocumentFindDataSource$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentFindDataSource
+> = z.nativeEnum(DocumentFindDataSource);
 /** @internal */
-export const DataSource$outboundSchema: z.ZodNativeEnum<typeof DataSource> =
-  DataSource$inboundSchema;
+export const DocumentFindDataSource$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentFindDataSource
+> = DocumentFindDataSource$inboundSchema;
 
 /** @internal */
 export const DocumentFindGlobalAccessAuth$inboundSchema: z.ZodNativeEnum<
@@ -743,7 +749,7 @@ export const DocumentFindData$inboundSchema: z.ZodType<
 > = z.object({
   visibility: DocumentFindVisibility$inboundSchema,
   status: DataStatus$inboundSchema,
-  source: DataSource$inboundSchema,
+  source: DocumentFindDataSource$inboundSchema,
   id: z.number(),
   externalId: z.nullable(z.string()),
   userId: z.number(),
@@ -802,7 +808,7 @@ export const DocumentFindData$outboundSchema: z.ZodType<
 > = z.object({
   visibility: DocumentFindVisibility$outboundSchema,
   status: DataStatus$outboundSchema,
-  source: DataSource$outboundSchema,
+  source: DocumentFindDataSource$outboundSchema,
   id: z.number(),
   externalId: z.nullable(z.string()),
   userId: z.number(),

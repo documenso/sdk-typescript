@@ -70,18 +70,11 @@ export type DocumentCreateDocumentTemporaryActionAuthRequest = ClosedEnum<
   typeof DocumentCreateDocumentTemporaryActionAuthRequest
 >;
 
-export const DocumentCreateDocumentTemporaryRecipientTypeDropdown1 = {
-  Dropdown: "DROPDOWN",
-} as const;
-export type DocumentCreateDocumentTemporaryRecipientTypeDropdown1 = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryRecipientTypeDropdown1
->;
-
-export const DocumentCreateDocumentTemporaryRecipientTypeDropdown2 = {
+export const DocumentCreateDocumentTemporaryTypeDropdownEnum = {
   Dropdown: "dropdown",
 } as const;
-export type DocumentCreateDocumentTemporaryRecipientTypeDropdown2 = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryRecipientTypeDropdown2
+export type DocumentCreateDocumentTemporaryTypeDropdownEnum = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryTypeDropdownEnum
 >;
 
 export type DocumentCreateDocumentTemporaryValueDropdown = {
@@ -94,13 +87,13 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaDropdown = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentCreateDocumentTemporaryRecipientTypeDropdown2;
+  type: DocumentCreateDocumentTemporaryTypeDropdownEnum;
   values?: Array<DocumentCreateDocumentTemporaryValueDropdown> | undefined;
   defaultValue?: string | undefined;
 };
 
 export type DocumentCreateDocumentTemporaryFieldDropdown = {
-  type: DocumentCreateDocumentTemporaryRecipientTypeDropdown1;
+  type: "DROPDOWN";
   fieldMeta?:
     | DocumentCreateDocumentTemporaryRecipientFieldMetaDropdown
     | undefined;
@@ -111,18 +104,11 @@ export type DocumentCreateDocumentTemporaryFieldDropdown = {
   height: number;
 };
 
-export const DocumentCreateDocumentTemporaryRecipientTypeCheckbox1 = {
-  Checkbox: "CHECKBOX",
-} as const;
-export type DocumentCreateDocumentTemporaryRecipientTypeCheckbox1 = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryRecipientTypeCheckbox1
->;
-
-export const DocumentCreateDocumentTemporaryRecipientTypeCheckbox2 = {
+export const DocumentCreateDocumentTemporaryTypeCheckboxEnum = {
   Checkbox: "checkbox",
 } as const;
-export type DocumentCreateDocumentTemporaryRecipientTypeCheckbox2 = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryRecipientTypeCheckbox2
+export type DocumentCreateDocumentTemporaryTypeCheckboxEnum = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryTypeCheckboxEnum
 >;
 
 export type DocumentCreateDocumentTemporaryValueCheckbox = {
@@ -145,7 +131,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaCheckbox = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentCreateDocumentTemporaryRecipientTypeCheckbox2;
+  type: DocumentCreateDocumentTemporaryTypeCheckboxEnum;
   values?: Array<DocumentCreateDocumentTemporaryValueCheckbox> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
@@ -153,7 +139,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaCheckbox = {
 };
 
 export type DocumentCreateDocumentTemporaryFieldCheckbox = {
-  type: DocumentCreateDocumentTemporaryRecipientTypeCheckbox1;
+  type: "CHECKBOX";
   fieldMeta?:
     | DocumentCreateDocumentTemporaryRecipientFieldMetaCheckbox
     | undefined;
@@ -164,18 +150,11 @@ export type DocumentCreateDocumentTemporaryFieldCheckbox = {
   height: number;
 };
 
-export const DocumentCreateDocumentTemporaryRecipientTypeRadio1 = {
-  Radio: "RADIO",
-} as const;
-export type DocumentCreateDocumentTemporaryRecipientTypeRadio1 = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryRecipientTypeRadio1
->;
-
-export const DocumentCreateDocumentTemporaryRecipientTypeRadio2 = {
+export const DocumentCreateDocumentTemporaryTypeRadioEnum = {
   Radio: "radio",
 } as const;
-export type DocumentCreateDocumentTemporaryRecipientTypeRadio2 = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryRecipientTypeRadio2
+export type DocumentCreateDocumentTemporaryTypeRadioEnum = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryTypeRadioEnum
 >;
 
 export type DocumentCreateDocumentTemporaryValueRadio = {
@@ -198,13 +177,13 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaRadio = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentCreateDocumentTemporaryRecipientTypeRadio2;
+  type: DocumentCreateDocumentTemporaryTypeRadioEnum;
   values?: Array<DocumentCreateDocumentTemporaryValueRadio> | undefined;
   direction?: DocumentCreateDocumentTemporaryDirectionRadio | undefined;
 };
 
 export type DocumentCreateDocumentTemporaryFieldRadio = {
-  type: DocumentCreateDocumentTemporaryRecipientTypeRadio1;
+  type: "RADIO";
   fieldMeta?:
     | DocumentCreateDocumentTemporaryRecipientFieldMetaRadio
     | undefined;
@@ -215,18 +194,11 @@ export type DocumentCreateDocumentTemporaryFieldRadio = {
   height: number;
 };
 
-export const DocumentCreateDocumentTemporaryRecipientTypeNumber1 = {
-  Number: "NUMBER",
-} as const;
-export type DocumentCreateDocumentTemporaryRecipientTypeNumber1 = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryRecipientTypeNumber1
->;
-
-export const DocumentCreateDocumentTemporaryRecipientTypeNumber2 = {
+export const DocumentCreateDocumentTemporaryTypeNumberEnum = {
   Number: "number",
 } as const;
-export type DocumentCreateDocumentTemporaryRecipientTypeNumber2 = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryRecipientTypeNumber2
+export type DocumentCreateDocumentTemporaryTypeNumberEnum = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryTypeNumberEnum
 >;
 
 export const DocumentCreateDocumentTemporaryTextAlignNumber = {
@@ -253,7 +225,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaNumber = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentCreateDocumentTemporaryRecipientTypeNumber2;
+  type: DocumentCreateDocumentTemporaryTypeNumberEnum;
   numberFormat?: string | null | undefined;
   value?: string | undefined;
   minValue?: number | null | undefined;
@@ -268,7 +240,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaNumber = {
 };
 
 export type DocumentCreateDocumentTemporaryFieldNumber = {
-  type: DocumentCreateDocumentTemporaryRecipientTypeNumber1;
+  type: "NUMBER";
   fieldMeta?:
     | DocumentCreateDocumentTemporaryRecipientFieldMetaNumber
     | undefined;
@@ -279,18 +251,11 @@ export type DocumentCreateDocumentTemporaryFieldNumber = {
   height: number;
 };
 
-export const DocumentCreateDocumentTemporaryRecipientTypeText1 = {
-  Text: "TEXT",
-} as const;
-export type DocumentCreateDocumentTemporaryRecipientTypeText1 = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryRecipientTypeText1
->;
-
-export const DocumentCreateDocumentTemporaryRecipientTypeText2 = {
+export const DocumentCreateDocumentTemporaryTypeTextEnum = {
   Text: "text",
 } as const;
-export type DocumentCreateDocumentTemporaryRecipientTypeText2 = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryRecipientTypeText2
+export type DocumentCreateDocumentTemporaryTypeTextEnum = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryTypeTextEnum
 >;
 
 export const DocumentCreateDocumentTemporaryTextAlignText = {
@@ -317,7 +282,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaText = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentCreateDocumentTemporaryRecipientTypeText2;
+  type: DocumentCreateDocumentTemporaryTypeTextEnum;
   text?: string | undefined;
   characterLimit?: number | undefined;
   textAlign?: DocumentCreateDocumentTemporaryTextAlignText | undefined;
@@ -330,7 +295,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaText = {
 };
 
 export type DocumentCreateDocumentTemporaryFieldText = {
-  type: DocumentCreateDocumentTemporaryRecipientTypeText1;
+  type: "TEXT";
   fieldMeta?: DocumentCreateDocumentTemporaryRecipientFieldMetaText | undefined;
   pageNumber: number;
   pageX: number;
@@ -339,18 +304,11 @@ export type DocumentCreateDocumentTemporaryFieldText = {
   height: number;
 };
 
-export const DocumentCreateDocumentTemporaryRecipientTypeDate1 = {
-  Date: "DATE",
-} as const;
-export type DocumentCreateDocumentTemporaryRecipientTypeDate1 = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryRecipientTypeDate1
->;
-
-export const DocumentCreateDocumentTemporaryRecipientTypeDate2 = {
+export const DocumentCreateDocumentTemporaryTypeDateEnum = {
   Date: "date",
 } as const;
-export type DocumentCreateDocumentTemporaryRecipientTypeDate2 = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryRecipientTypeDate2
+export type DocumentCreateDocumentTemporaryTypeDateEnum = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryTypeDateEnum
 >;
 
 export const DocumentCreateDocumentTemporaryTextAlignDate = {
@@ -368,12 +326,12 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaDate = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentCreateDocumentTemporaryRecipientTypeDate2;
+  type: DocumentCreateDocumentTemporaryTypeDateEnum;
   textAlign?: DocumentCreateDocumentTemporaryTextAlignDate | undefined;
 };
 
 export type DocumentCreateDocumentTemporaryFieldDate = {
-  type: DocumentCreateDocumentTemporaryRecipientTypeDate1;
+  type: "DATE";
   fieldMeta?: DocumentCreateDocumentTemporaryRecipientFieldMetaDate | undefined;
   pageNumber: number;
   pageX: number;
@@ -382,18 +340,11 @@ export type DocumentCreateDocumentTemporaryFieldDate = {
   height: number;
 };
 
-export const DocumentCreateDocumentTemporaryRecipientTypeEmail1 = {
-  Email: "EMAIL",
-} as const;
-export type DocumentCreateDocumentTemporaryRecipientTypeEmail1 = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryRecipientTypeEmail1
->;
-
-export const DocumentCreateDocumentTemporaryRecipientTypeEmail2 = {
+export const DocumentCreateDocumentTemporaryTypeEmailEnum = {
   Email: "email",
 } as const;
-export type DocumentCreateDocumentTemporaryRecipientTypeEmail2 = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryRecipientTypeEmail2
+export type DocumentCreateDocumentTemporaryTypeEmailEnum = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryTypeEmailEnum
 >;
 
 export const DocumentCreateDocumentTemporaryTextAlignEmail = {
@@ -411,12 +362,12 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaEmail = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentCreateDocumentTemporaryRecipientTypeEmail2;
+  type: DocumentCreateDocumentTemporaryTypeEmailEnum;
   textAlign?: DocumentCreateDocumentTemporaryTextAlignEmail | undefined;
 };
 
 export type DocumentCreateDocumentTemporaryFieldEmail = {
-  type: DocumentCreateDocumentTemporaryRecipientTypeEmail1;
+  type: "EMAIL";
   fieldMeta?:
     | DocumentCreateDocumentTemporaryRecipientFieldMetaEmail
     | undefined;
@@ -427,18 +378,11 @@ export type DocumentCreateDocumentTemporaryFieldEmail = {
   height: number;
 };
 
-export const DocumentCreateDocumentTemporaryRecipientTypeName1 = {
-  Name: "NAME",
-} as const;
-export type DocumentCreateDocumentTemporaryRecipientTypeName1 = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryRecipientTypeName1
->;
-
-export const DocumentCreateDocumentTemporaryRecipientTypeName2 = {
+export const DocumentCreateDocumentTemporaryTypeNameEnum = {
   Name: "name",
 } as const;
-export type DocumentCreateDocumentTemporaryRecipientTypeName2 = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryRecipientTypeName2
+export type DocumentCreateDocumentTemporaryTypeNameEnum = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryTypeNameEnum
 >;
 
 export const DocumentCreateDocumentTemporaryTextAlignName = {
@@ -456,12 +400,12 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaName = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentCreateDocumentTemporaryRecipientTypeName2;
+  type: DocumentCreateDocumentTemporaryTypeNameEnum;
   textAlign?: DocumentCreateDocumentTemporaryTextAlignName | undefined;
 };
 
 export type DocumentCreateDocumentTemporaryFieldName = {
-  type: DocumentCreateDocumentTemporaryRecipientTypeName1;
+  type: "NAME";
   fieldMeta?: DocumentCreateDocumentTemporaryRecipientFieldMetaName | undefined;
   pageNumber: number;
   pageX: number;
@@ -470,18 +414,11 @@ export type DocumentCreateDocumentTemporaryFieldName = {
   height: number;
 };
 
-export const DocumentCreateDocumentTemporaryRecipientTypeInitials1 = {
-  Initials: "INITIALS",
-} as const;
-export type DocumentCreateDocumentTemporaryRecipientTypeInitials1 = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryRecipientTypeInitials1
->;
-
-export const DocumentCreateDocumentTemporaryRecipientTypeInitials2 = {
+export const DocumentCreateDocumentTemporaryTypeInitialsEnum = {
   Initials: "initials",
 } as const;
-export type DocumentCreateDocumentTemporaryRecipientTypeInitials2 = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryRecipientTypeInitials2
+export type DocumentCreateDocumentTemporaryTypeInitialsEnum = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryTypeInitialsEnum
 >;
 
 export const DocumentCreateDocumentTemporaryTextAlignInitials = {
@@ -499,12 +436,12 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaInitials = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentCreateDocumentTemporaryRecipientTypeInitials2;
+  type: DocumentCreateDocumentTemporaryTypeInitialsEnum;
   textAlign?: DocumentCreateDocumentTemporaryTextAlignInitials | undefined;
 };
 
 export type DocumentCreateDocumentTemporaryFieldInitials = {
-  type: DocumentCreateDocumentTemporaryRecipientTypeInitials1;
+  type: "INITIALS";
   fieldMeta?:
     | DocumentCreateDocumentTemporaryRecipientFieldMetaInitials
     | undefined;
@@ -515,15 +452,8 @@ export type DocumentCreateDocumentTemporaryFieldInitials = {
   height: number;
 };
 
-export const DocumentCreateDocumentTemporaryTypeFreeSignature = {
-  FreeSignature: "FREE_SIGNATURE",
-} as const;
-export type DocumentCreateDocumentTemporaryTypeFreeSignature = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryTypeFreeSignature
->;
-
 export type DocumentCreateDocumentTemporaryFieldFreeSignature = {
-  type: DocumentCreateDocumentTemporaryTypeFreeSignature;
+  type: "FREE_SIGNATURE";
   pageNumber: number;
   pageX: number;
   pageY: number;
@@ -531,18 +461,11 @@ export type DocumentCreateDocumentTemporaryFieldFreeSignature = {
   height: number;
 };
 
-export const DocumentCreateDocumentTemporaryRecipientTypeSignature1 = {
-  Signature: "SIGNATURE",
-} as const;
-export type DocumentCreateDocumentTemporaryRecipientTypeSignature1 = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryRecipientTypeSignature1
->;
-
-export const DocumentCreateDocumentTemporaryRecipientTypeSignature2 = {
+export const DocumentCreateDocumentTemporaryTypeSignatureEnum = {
   Signature: "signature",
 } as const;
-export type DocumentCreateDocumentTemporaryRecipientTypeSignature2 = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryRecipientTypeSignature2
+export type DocumentCreateDocumentTemporaryTypeSignatureEnum = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryTypeSignatureEnum
 >;
 
 export type DocumentCreateDocumentTemporaryRecipientFieldMetaSignature = {
@@ -551,11 +474,11 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaSignature = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentCreateDocumentTemporaryRecipientTypeSignature2;
+  type: DocumentCreateDocumentTemporaryTypeSignatureEnum;
 };
 
 export type DocumentCreateDocumentTemporaryFieldSignature = {
-  type: DocumentCreateDocumentTemporaryRecipientTypeSignature1;
+  type: "SIGNATURE";
   fieldMeta?:
     | DocumentCreateDocumentTemporaryRecipientFieldMetaSignature
     | undefined;
@@ -567,19 +490,17 @@ export type DocumentCreateDocumentTemporaryFieldSignature = {
 };
 
 export type DocumentCreateDocumentTemporaryFieldUnion =
-  | (DocumentCreateDocumentTemporaryFieldSignature & { type: "SIGNATURE" })
-  | (DocumentCreateDocumentTemporaryFieldFreeSignature & {
-    type: "FREE_SIGNATURE";
-  })
-  | (DocumentCreateDocumentTemporaryFieldInitials & { type: "INITIALS" })
-  | (DocumentCreateDocumentTemporaryFieldName & { type: "NAME" })
-  | (DocumentCreateDocumentTemporaryFieldEmail & { type: "EMAIL" })
-  | (DocumentCreateDocumentTemporaryFieldDate & { type: "DATE" })
-  | (DocumentCreateDocumentTemporaryFieldText & { type: "TEXT" })
-  | (DocumentCreateDocumentTemporaryFieldNumber & { type: "NUMBER" })
-  | (DocumentCreateDocumentTemporaryFieldRadio & { type: "RADIO" })
-  | (DocumentCreateDocumentTemporaryFieldCheckbox & { type: "CHECKBOX" })
-  | (DocumentCreateDocumentTemporaryFieldDropdown & { type: "DROPDOWN" });
+  | DocumentCreateDocumentTemporaryFieldSignature
+  | DocumentCreateDocumentTemporaryFieldFreeSignature
+  | DocumentCreateDocumentTemporaryFieldInitials
+  | DocumentCreateDocumentTemporaryFieldName
+  | DocumentCreateDocumentTemporaryFieldEmail
+  | DocumentCreateDocumentTemporaryFieldDate
+  | DocumentCreateDocumentTemporaryFieldText
+  | DocumentCreateDocumentTemporaryFieldNumber
+  | DocumentCreateDocumentTemporaryFieldRadio
+  | DocumentCreateDocumentTemporaryFieldCheckbox
+  | DocumentCreateDocumentTemporaryFieldDropdown;
 
 export type DocumentCreateDocumentTemporaryRecipientRequest = {
   email: string;
@@ -594,19 +515,17 @@ export type DocumentCreateDocumentTemporaryRecipientRequest = {
     | undefined;
   fields?:
     | Array<
-      | (DocumentCreateDocumentTemporaryFieldSignature & { type: "SIGNATURE" })
-      | (DocumentCreateDocumentTemporaryFieldFreeSignature & {
-        type: "FREE_SIGNATURE";
-      })
-      | (DocumentCreateDocumentTemporaryFieldInitials & { type: "INITIALS" })
-      | (DocumentCreateDocumentTemporaryFieldName & { type: "NAME" })
-      | (DocumentCreateDocumentTemporaryFieldEmail & { type: "EMAIL" })
-      | (DocumentCreateDocumentTemporaryFieldDate & { type: "DATE" })
-      | (DocumentCreateDocumentTemporaryFieldText & { type: "TEXT" })
-      | (DocumentCreateDocumentTemporaryFieldNumber & { type: "NUMBER" })
-      | (DocumentCreateDocumentTemporaryFieldRadio & { type: "RADIO" })
-      | (DocumentCreateDocumentTemporaryFieldCheckbox & { type: "CHECKBOX" })
-      | (DocumentCreateDocumentTemporaryFieldDropdown & { type: "DROPDOWN" })
+      | DocumentCreateDocumentTemporaryFieldSignature
+      | DocumentCreateDocumentTemporaryFieldFreeSignature
+      | DocumentCreateDocumentTemporaryFieldInitials
+      | DocumentCreateDocumentTemporaryFieldName
+      | DocumentCreateDocumentTemporaryFieldEmail
+      | DocumentCreateDocumentTemporaryFieldDate
+      | DocumentCreateDocumentTemporaryFieldText
+      | DocumentCreateDocumentTemporaryFieldNumber
+      | DocumentCreateDocumentTemporaryFieldRadio
+      | DocumentCreateDocumentTemporaryFieldCheckbox
+      | DocumentCreateDocumentTemporaryFieldDropdown
     >
     | undefined;
 };
@@ -674,6 +593,7 @@ export const DocumentCreateDocumentTemporaryLanguage = {
   Fr: "fr",
   Es: "es",
   It: "it",
+  Nl: "nl",
   Pl: "pl",
   PtBR: "pt-BR",
   Ja: "ja",
@@ -956,7 +876,7 @@ export type DocumentRecipient = {
   templateId?: number | null | undefined;
 };
 
-export const DocumentFieldType = {
+export const DocumentFieldTypeEnum = {
   Signature: "SIGNATURE",
   FreeSignature: "FREE_SIGNATURE",
   Initials: "INITIALS",
@@ -969,12 +889,7 @@ export const DocumentFieldType = {
   Checkbox: "CHECKBOX",
   Dropdown: "DROPDOWN",
 } as const;
-export type DocumentFieldType = ClosedEnum<typeof DocumentFieldType>;
-
-export const DocumentTypeDropdown = {
-  Dropdown: "dropdown",
-} as const;
-export type DocumentTypeDropdown = ClosedEnum<typeof DocumentTypeDropdown>;
+export type DocumentFieldTypeEnum = ClosedEnum<typeof DocumentFieldTypeEnum>;
 
 export type DocumentValue3 = {
   value: string;
@@ -986,15 +901,10 @@ export type FieldMetaDocumentDropdown = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentTypeDropdown;
+  type: "dropdown";
   values?: Array<DocumentValue3> | undefined;
   defaultValue?: string | undefined;
 };
-
-export const DocumentTypeCheckbox = {
-  Checkbox: "checkbox",
-} as const;
-export type DocumentTypeCheckbox = ClosedEnum<typeof DocumentTypeCheckbox>;
 
 export type DocumentValue2 = {
   id: number;
@@ -1014,17 +924,12 @@ export type FieldMetaDocumentCheckbox = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentTypeCheckbox;
+  type: "checkbox";
   values?: Array<DocumentValue2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
   direction?: DocumentDirection2 | undefined;
 };
-
-export const DocumentTypeRadio = {
-  Radio: "radio",
-} as const;
-export type DocumentTypeRadio = ClosedEnum<typeof DocumentTypeRadio>;
 
 export type DocumentValue1 = {
   id: number;
@@ -1044,15 +949,10 @@ export type FieldMetaDocumentRadio = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentTypeRadio;
+  type: "radio";
   values?: Array<DocumentValue1> | undefined;
   direction?: DocumentDirection1 | undefined;
 };
-
-export const DocumentTypeNumber = {
-  Number: "number",
-} as const;
-export type DocumentTypeNumber = ClosedEnum<typeof DocumentTypeNumber>;
 
 export const DocumentTextAlign6 = {
   Left: "left",
@@ -1074,7 +974,7 @@ export type FieldMetaDocumentNumber = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentTypeNumber;
+  type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
   minValue?: number | null | undefined;
@@ -1084,11 +984,6 @@ export type FieldMetaDocumentNumber = {
   letterSpacing?: number | null | undefined;
   verticalAlign?: DocumentVerticalAlign2 | null | undefined;
 };
-
-export const DocumentTypeText = {
-  Text: "text",
-} as const;
-export type DocumentTypeText = ClosedEnum<typeof DocumentTypeText>;
 
 export const DocumentTextAlign5 = {
   Left: "left",
@@ -1110,7 +1005,7 @@ export type FieldMetaDocumentText = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentTypeText;
+  type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
   textAlign?: DocumentTextAlign5 | undefined;
@@ -1118,11 +1013,6 @@ export type FieldMetaDocumentText = {
   letterSpacing?: number | null | undefined;
   verticalAlign?: DocumentVerticalAlign1 | null | undefined;
 };
-
-export const DocumentTypeDate = {
-  Date: "date",
-} as const;
-export type DocumentTypeDate = ClosedEnum<typeof DocumentTypeDate>;
 
 export const DocumentTextAlign4 = {
   Left: "left",
@@ -1137,14 +1027,9 @@ export type FieldMetaDocumentDate = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentTypeDate;
+  type: "date";
   textAlign?: DocumentTextAlign4 | undefined;
 };
-
-export const DocumentTypeEmail = {
-  Email: "email",
-} as const;
-export type DocumentTypeEmail = ClosedEnum<typeof DocumentTypeEmail>;
 
 export const DocumentTextAlign3 = {
   Left: "left",
@@ -1159,14 +1044,9 @@ export type FieldMetaDocumentEmail = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentTypeEmail;
+  type: "email";
   textAlign?: DocumentTextAlign3 | undefined;
 };
-
-export const DocumentTypeName = {
-  Name: "name",
-} as const;
-export type DocumentTypeName = ClosedEnum<typeof DocumentTypeName>;
 
 export const DocumentTextAlign2 = {
   Left: "left",
@@ -1181,14 +1061,9 @@ export type FieldMetaDocumentName = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentTypeName;
+  type: "name";
   textAlign?: DocumentTextAlign2 | undefined;
 };
-
-export const DocumentTypeInitials = {
-  Initials: "initials",
-} as const;
-export type DocumentTypeInitials = ClosedEnum<typeof DocumentTypeInitials>;
 
 export const DocumentTextAlign1 = {
   Left: "left",
@@ -1203,14 +1078,9 @@ export type FieldMetaDocumentInitials = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentTypeInitials;
+  type: "initials";
   textAlign?: DocumentTextAlign1 | undefined;
 };
-
-export const DocumentTypeSignature = {
-  Signature: "signature",
-} as const;
-export type DocumentTypeSignature = ClosedEnum<typeof DocumentTypeSignature>;
 
 export type FieldMetaDocumentSignature = {
   label?: string | undefined;
@@ -1218,25 +1088,25 @@ export type FieldMetaDocumentSignature = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
-  type: DocumentTypeSignature;
+  type: "signature";
 };
 
 export type DocumentFieldMetaUnion =
-  | (FieldMetaDocumentSignature & { type: "signature" })
-  | (FieldMetaDocumentInitials & { type: "initials" })
-  | (FieldMetaDocumentName & { type: "name" })
-  | (FieldMetaDocumentEmail & { type: "email" })
-  | (FieldMetaDocumentDate & { type: "date" })
-  | (FieldMetaDocumentText & { type: "text" })
-  | (FieldMetaDocumentNumber & { type: "number" })
-  | (FieldMetaDocumentRadio & { type: "radio" })
-  | (FieldMetaDocumentCheckbox & { type: "checkbox" })
-  | (FieldMetaDocumentDropdown & { type: "dropdown" });
+  | FieldMetaDocumentSignature
+  | FieldMetaDocumentInitials
+  | FieldMetaDocumentName
+  | FieldMetaDocumentEmail
+  | FieldMetaDocumentDate
+  | FieldMetaDocumentText
+  | FieldMetaDocumentNumber
+  | FieldMetaDocumentRadio
+  | FieldMetaDocumentCheckbox
+  | FieldMetaDocumentDropdown;
 
 export type DocumentField = {
   envelopeId: string;
   envelopeItemId: string;
-  type: DocumentFieldType;
+  type: DocumentFieldTypeEnum;
   id: number;
   secondaryId: string;
   recipientId: number;
@@ -1248,16 +1118,16 @@ export type DocumentField = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | (FieldMetaDocumentSignature & { type: "signature" })
-    | (FieldMetaDocumentInitials & { type: "initials" })
-    | (FieldMetaDocumentName & { type: "name" })
-    | (FieldMetaDocumentEmail & { type: "email" })
-    | (FieldMetaDocumentDate & { type: "date" })
-    | (FieldMetaDocumentText & { type: "text" })
-    | (FieldMetaDocumentNumber & { type: "number" })
-    | (FieldMetaDocumentRadio & { type: "radio" })
-    | (FieldMetaDocumentCheckbox & { type: "checkbox" })
-    | (FieldMetaDocumentDropdown & { type: "dropdown" })
+    | FieldMetaDocumentSignature
+    | FieldMetaDocumentInitials
+    | FieldMetaDocumentName
+    | FieldMetaDocumentEmail
+    | FieldMetaDocumentDate
+    | FieldMetaDocumentText
+    | FieldMetaDocumentNumber
+    | FieldMetaDocumentRadio
+    | FieldMetaDocumentCheckbox
+    | FieldMetaDocumentDropdown
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -1405,26 +1275,13 @@ export const DocumentCreateDocumentTemporaryActionAuthRequest$outboundSchema:
     DocumentCreateDocumentTemporaryActionAuthRequest$inboundSchema;
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeDropdown1$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryRecipientTypeDropdown1
-  > = z.nativeEnum(DocumentCreateDocumentTemporaryRecipientTypeDropdown1);
+export const DocumentCreateDocumentTemporaryTypeDropdownEnum$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeDropdownEnum> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryTypeDropdownEnum);
 /** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeDropdown1$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryRecipientTypeDropdown1
-  > = DocumentCreateDocumentTemporaryRecipientTypeDropdown1$inboundSchema;
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeDropdown2$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryRecipientTypeDropdown2
-  > = z.nativeEnum(DocumentCreateDocumentTemporaryRecipientTypeDropdown2);
-/** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeDropdown2$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryRecipientTypeDropdown2
-  > = DocumentCreateDocumentTemporaryRecipientTypeDropdown2$inboundSchema;
+export const DocumentCreateDocumentTemporaryTypeDropdownEnum$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeDropdownEnum> =
+    DocumentCreateDocumentTemporaryTypeDropdownEnum$inboundSchema;
 
 /** @internal */
 export const DocumentCreateDocumentTemporaryValueDropdown$inboundSchema:
@@ -1488,7 +1345,7 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaDropdown$inboundSc
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: DocumentCreateDocumentTemporaryRecipientTypeDropdown2$inboundSchema,
+    type: DocumentCreateDocumentTemporaryTypeDropdownEnum$inboundSchema,
     values: z.array(
       z.lazy(() => DocumentCreateDocumentTemporaryValueDropdown$inboundSchema),
     ).optional(),
@@ -1521,7 +1378,7 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaDropdown$outboundS
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: DocumentCreateDocumentTemporaryRecipientTypeDropdown2$outboundSchema,
+    type: DocumentCreateDocumentTemporaryTypeDropdownEnum$outboundSchema,
     values: z.array(
       z.lazy(() => DocumentCreateDocumentTemporaryValueDropdown$outboundSchema),
     ).optional(),
@@ -1559,7 +1416,7 @@ export const DocumentCreateDocumentTemporaryFieldDropdown$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({
-    type: DocumentCreateDocumentTemporaryRecipientTypeDropdown1$inboundSchema,
+    type: z.literal("DROPDOWN"),
     fieldMeta: z.lazy(() =>
       DocumentCreateDocumentTemporaryRecipientFieldMetaDropdown$inboundSchema
     ).optional(),
@@ -1571,7 +1428,7 @@ export const DocumentCreateDocumentTemporaryFieldDropdown$inboundSchema:
   });
 /** @internal */
 export type DocumentCreateDocumentTemporaryFieldDropdown$Outbound = {
-  type: string;
+  type: "DROPDOWN";
   fieldMeta?:
     | DocumentCreateDocumentTemporaryRecipientFieldMetaDropdown$Outbound
     | undefined;
@@ -1589,7 +1446,7 @@ export const DocumentCreateDocumentTemporaryFieldDropdown$outboundSchema:
     z.ZodTypeDef,
     DocumentCreateDocumentTemporaryFieldDropdown
   > = z.object({
-    type: DocumentCreateDocumentTemporaryRecipientTypeDropdown1$outboundSchema,
+    type: z.literal("DROPDOWN"),
     fieldMeta: z.lazy(() =>
       DocumentCreateDocumentTemporaryRecipientFieldMetaDropdown$outboundSchema
     ).optional(),
@@ -1627,26 +1484,13 @@ export function documentCreateDocumentTemporaryFieldDropdownFromJSON(
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeCheckbox1$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryRecipientTypeCheckbox1
-  > = z.nativeEnum(DocumentCreateDocumentTemporaryRecipientTypeCheckbox1);
+export const DocumentCreateDocumentTemporaryTypeCheckboxEnum$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeCheckboxEnum> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryTypeCheckboxEnum);
 /** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeCheckbox1$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryRecipientTypeCheckbox1
-  > = DocumentCreateDocumentTemporaryRecipientTypeCheckbox1$inboundSchema;
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeCheckbox2$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryRecipientTypeCheckbox2
-  > = z.nativeEnum(DocumentCreateDocumentTemporaryRecipientTypeCheckbox2);
-/** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeCheckbox2$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryRecipientTypeCheckbox2
-  > = DocumentCreateDocumentTemporaryRecipientTypeCheckbox2$inboundSchema;
+export const DocumentCreateDocumentTemporaryTypeCheckboxEnum$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeCheckboxEnum> =
+    DocumentCreateDocumentTemporaryTypeCheckboxEnum$inboundSchema;
 
 /** @internal */
 export const DocumentCreateDocumentTemporaryValueCheckbox$inboundSchema:
@@ -1725,7 +1569,7 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaCheckbox$inboundSc
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: DocumentCreateDocumentTemporaryRecipientTypeCheckbox2$inboundSchema,
+    type: DocumentCreateDocumentTemporaryTypeCheckboxEnum$inboundSchema,
     values: z.array(
       z.lazy(() => DocumentCreateDocumentTemporaryValueCheckbox$inboundSchema),
     ).optional(),
@@ -1763,7 +1607,7 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaCheckbox$outboundS
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: DocumentCreateDocumentTemporaryRecipientTypeCheckbox2$outboundSchema,
+    type: DocumentCreateDocumentTemporaryTypeCheckboxEnum$outboundSchema,
     values: z.array(
       z.lazy(() => DocumentCreateDocumentTemporaryValueCheckbox$outboundSchema),
     ).optional(),
@@ -1804,7 +1648,7 @@ export const DocumentCreateDocumentTemporaryFieldCheckbox$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({
-    type: DocumentCreateDocumentTemporaryRecipientTypeCheckbox1$inboundSchema,
+    type: z.literal("CHECKBOX"),
     fieldMeta: z.lazy(() =>
       DocumentCreateDocumentTemporaryRecipientFieldMetaCheckbox$inboundSchema
     ).optional(),
@@ -1816,7 +1660,7 @@ export const DocumentCreateDocumentTemporaryFieldCheckbox$inboundSchema:
   });
 /** @internal */
 export type DocumentCreateDocumentTemporaryFieldCheckbox$Outbound = {
-  type: string;
+  type: "CHECKBOX";
   fieldMeta?:
     | DocumentCreateDocumentTemporaryRecipientFieldMetaCheckbox$Outbound
     | undefined;
@@ -1834,7 +1678,7 @@ export const DocumentCreateDocumentTemporaryFieldCheckbox$outboundSchema:
     z.ZodTypeDef,
     DocumentCreateDocumentTemporaryFieldCheckbox
   > = z.object({
-    type: DocumentCreateDocumentTemporaryRecipientTypeCheckbox1$outboundSchema,
+    type: z.literal("CHECKBOX"),
     fieldMeta: z.lazy(() =>
       DocumentCreateDocumentTemporaryRecipientFieldMetaCheckbox$outboundSchema
     ).optional(),
@@ -1872,22 +1716,13 @@ export function documentCreateDocumentTemporaryFieldCheckboxFromJSON(
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeRadio1$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRecipientTypeRadio1> = z
-    .nativeEnum(DocumentCreateDocumentTemporaryRecipientTypeRadio1);
+export const DocumentCreateDocumentTemporaryTypeRadioEnum$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeRadioEnum> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryTypeRadioEnum);
 /** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeRadio1$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRecipientTypeRadio1> =
-    DocumentCreateDocumentTemporaryRecipientTypeRadio1$inboundSchema;
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeRadio2$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRecipientTypeRadio2> = z
-    .nativeEnum(DocumentCreateDocumentTemporaryRecipientTypeRadio2);
-/** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeRadio2$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRecipientTypeRadio2> =
-    DocumentCreateDocumentTemporaryRecipientTypeRadio2$inboundSchema;
+export const DocumentCreateDocumentTemporaryTypeRadioEnum$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeRadioEnum> =
+    DocumentCreateDocumentTemporaryTypeRadioEnum$inboundSchema;
 
 /** @internal */
 export const DocumentCreateDocumentTemporaryValueRadio$inboundSchema: z.ZodType<
@@ -1965,7 +1800,7 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaRadio$inboundSchem
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: DocumentCreateDocumentTemporaryRecipientTypeRadio2$inboundSchema,
+    type: DocumentCreateDocumentTemporaryTypeRadioEnum$inboundSchema,
     values: z.array(
       z.lazy(() => DocumentCreateDocumentTemporaryValueRadio$inboundSchema),
     ).optional(),
@@ -1998,7 +1833,7 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaRadio$outboundSche
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: DocumentCreateDocumentTemporaryRecipientTypeRadio2$outboundSchema,
+    type: DocumentCreateDocumentTemporaryTypeRadioEnum$outboundSchema,
     values: z.array(
       z.lazy(() => DocumentCreateDocumentTemporaryValueRadio$outboundSchema),
     ).optional(),
@@ -2037,7 +1872,7 @@ export const DocumentCreateDocumentTemporaryFieldRadio$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: DocumentCreateDocumentTemporaryRecipientTypeRadio1$inboundSchema,
+  type: z.literal("RADIO"),
   fieldMeta: z.lazy(() =>
     DocumentCreateDocumentTemporaryRecipientFieldMetaRadio$inboundSchema
   ).optional(),
@@ -2049,7 +1884,7 @@ export const DocumentCreateDocumentTemporaryFieldRadio$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type DocumentCreateDocumentTemporaryFieldRadio$Outbound = {
-  type: string;
+  type: "RADIO";
   fieldMeta?:
     | DocumentCreateDocumentTemporaryRecipientFieldMetaRadio$Outbound
     | undefined;
@@ -2067,7 +1902,7 @@ export const DocumentCreateDocumentTemporaryFieldRadio$outboundSchema:
     z.ZodTypeDef,
     DocumentCreateDocumentTemporaryFieldRadio
   > = z.object({
-    type: DocumentCreateDocumentTemporaryRecipientTypeRadio1$outboundSchema,
+    type: z.literal("RADIO"),
     fieldMeta: z.lazy(() =>
       DocumentCreateDocumentTemporaryRecipientFieldMetaRadio$outboundSchema
     ).optional(),
@@ -2105,22 +1940,13 @@ export function documentCreateDocumentTemporaryFieldRadioFromJSON(
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeNumber1$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRecipientTypeNumber1> =
-    z.nativeEnum(DocumentCreateDocumentTemporaryRecipientTypeNumber1);
+export const DocumentCreateDocumentTemporaryTypeNumberEnum$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeNumberEnum> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryTypeNumberEnum);
 /** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeNumber1$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRecipientTypeNumber1> =
-    DocumentCreateDocumentTemporaryRecipientTypeNumber1$inboundSchema;
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeNumber2$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRecipientTypeNumber2> =
-    z.nativeEnum(DocumentCreateDocumentTemporaryRecipientTypeNumber2);
-/** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeNumber2$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRecipientTypeNumber2> =
-    DocumentCreateDocumentTemporaryRecipientTypeNumber2$inboundSchema;
+export const DocumentCreateDocumentTemporaryTypeNumberEnum$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeNumberEnum> =
+    DocumentCreateDocumentTemporaryTypeNumberEnum$inboundSchema;
 
 /** @internal */
 export const DocumentCreateDocumentTemporaryTextAlignNumber$inboundSchema:
@@ -2152,7 +1978,7 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaNumber$inboundSche
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: DocumentCreateDocumentTemporaryRecipientTypeNumber2$inboundSchema,
+    type: DocumentCreateDocumentTemporaryTypeNumberEnum$inboundSchema,
     numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
     minValue: z.nullable(z.number()).optional(),
@@ -2195,7 +2021,7 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaNumber$outboundSch
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: DocumentCreateDocumentTemporaryRecipientTypeNumber2$outboundSchema,
+    type: DocumentCreateDocumentTemporaryTypeNumberEnum$outboundSchema,
     numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
     minValue: z.nullable(z.number()).optional(),
@@ -2237,7 +2063,7 @@ export function documentCreateDocumentTemporaryRecipientFieldMetaNumberFromJSON(
 export const DocumentCreateDocumentTemporaryFieldNumber$inboundSchema:
   z.ZodType<DocumentCreateDocumentTemporaryFieldNumber, z.ZodTypeDef, unknown> =
     z.object({
-      type: DocumentCreateDocumentTemporaryRecipientTypeNumber1$inboundSchema,
+      type: z.literal("NUMBER"),
       fieldMeta: z.lazy(() =>
         DocumentCreateDocumentTemporaryRecipientFieldMetaNumber$inboundSchema
       ).optional(),
@@ -2249,7 +2075,7 @@ export const DocumentCreateDocumentTemporaryFieldNumber$inboundSchema:
     });
 /** @internal */
 export type DocumentCreateDocumentTemporaryFieldNumber$Outbound = {
-  type: string;
+  type: "NUMBER";
   fieldMeta?:
     | DocumentCreateDocumentTemporaryRecipientFieldMetaNumber$Outbound
     | undefined;
@@ -2267,7 +2093,7 @@ export const DocumentCreateDocumentTemporaryFieldNumber$outboundSchema:
     z.ZodTypeDef,
     DocumentCreateDocumentTemporaryFieldNumber
   > = z.object({
-    type: DocumentCreateDocumentTemporaryRecipientTypeNumber1$outboundSchema,
+    type: z.literal("NUMBER"),
     fieldMeta: z.lazy(() =>
       DocumentCreateDocumentTemporaryRecipientFieldMetaNumber$outboundSchema
     ).optional(),
@@ -2305,22 +2131,13 @@ export function documentCreateDocumentTemporaryFieldNumberFromJSON(
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeText1$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRecipientTypeText1> = z
-    .nativeEnum(DocumentCreateDocumentTemporaryRecipientTypeText1);
+export const DocumentCreateDocumentTemporaryTypeTextEnum$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeTextEnum> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryTypeTextEnum);
 /** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeText1$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRecipientTypeText1> =
-    DocumentCreateDocumentTemporaryRecipientTypeText1$inboundSchema;
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeText2$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRecipientTypeText2> = z
-    .nativeEnum(DocumentCreateDocumentTemporaryRecipientTypeText2);
-/** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeText2$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRecipientTypeText2> =
-    DocumentCreateDocumentTemporaryRecipientTypeText2$inboundSchema;
+export const DocumentCreateDocumentTemporaryTypeTextEnum$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeTextEnum> =
+    DocumentCreateDocumentTemporaryTypeTextEnum$inboundSchema;
 
 /** @internal */
 export const DocumentCreateDocumentTemporaryTextAlignText$inboundSchema:
@@ -2352,7 +2169,7 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaText$inboundSchema
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: DocumentCreateDocumentTemporaryRecipientTypeText2$inboundSchema,
+    type: DocumentCreateDocumentTemporaryTypeTextEnum$inboundSchema,
     text: z.string().optional(),
     characterLimit: z.number().optional(),
     textAlign: DocumentCreateDocumentTemporaryTextAlignText$inboundSchema
@@ -2391,7 +2208,7 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaText$outboundSchem
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: DocumentCreateDocumentTemporaryRecipientTypeText2$outboundSchema,
+    type: DocumentCreateDocumentTemporaryTypeTextEnum$outboundSchema,
     text: z.string().optional(),
     characterLimit: z.number().optional(),
     textAlign: DocumentCreateDocumentTemporaryTextAlignText$outboundSchema
@@ -2435,7 +2252,7 @@ export const DocumentCreateDocumentTemporaryFieldText$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: DocumentCreateDocumentTemporaryRecipientTypeText1$inboundSchema,
+  type: z.literal("TEXT"),
   fieldMeta: z.lazy(() =>
     DocumentCreateDocumentTemporaryRecipientFieldMetaText$inboundSchema
   ).optional(),
@@ -2447,7 +2264,7 @@ export const DocumentCreateDocumentTemporaryFieldText$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type DocumentCreateDocumentTemporaryFieldText$Outbound = {
-  type: string;
+  type: "TEXT";
   fieldMeta?:
     | DocumentCreateDocumentTemporaryRecipientFieldMetaText$Outbound
     | undefined;
@@ -2464,7 +2281,7 @@ export const DocumentCreateDocumentTemporaryFieldText$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentCreateDocumentTemporaryFieldText
 > = z.object({
-  type: DocumentCreateDocumentTemporaryRecipientTypeText1$outboundSchema,
+  type: z.literal("TEXT"),
   fieldMeta: z.lazy(() =>
     DocumentCreateDocumentTemporaryRecipientFieldMetaText$outboundSchema
   ).optional(),
@@ -2502,22 +2319,13 @@ export function documentCreateDocumentTemporaryFieldTextFromJSON(
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeDate1$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRecipientTypeDate1> = z
-    .nativeEnum(DocumentCreateDocumentTemporaryRecipientTypeDate1);
+export const DocumentCreateDocumentTemporaryTypeDateEnum$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeDateEnum> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryTypeDateEnum);
 /** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeDate1$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRecipientTypeDate1> =
-    DocumentCreateDocumentTemporaryRecipientTypeDate1$inboundSchema;
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeDate2$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRecipientTypeDate2> = z
-    .nativeEnum(DocumentCreateDocumentTemporaryRecipientTypeDate2);
-/** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeDate2$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRecipientTypeDate2> =
-    DocumentCreateDocumentTemporaryRecipientTypeDate2$inboundSchema;
+export const DocumentCreateDocumentTemporaryTypeDateEnum$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeDateEnum> =
+    DocumentCreateDocumentTemporaryTypeDateEnum$inboundSchema;
 
 /** @internal */
 export const DocumentCreateDocumentTemporaryTextAlignDate$inboundSchema:
@@ -2540,7 +2348,7 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaDate$inboundSchema
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: DocumentCreateDocumentTemporaryRecipientTypeDate2$inboundSchema,
+    type: DocumentCreateDocumentTemporaryTypeDateEnum$inboundSchema,
     textAlign: DocumentCreateDocumentTemporaryTextAlignDate$inboundSchema
       .optional(),
   });
@@ -2567,7 +2375,7 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaDate$outboundSchem
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: DocumentCreateDocumentTemporaryRecipientTypeDate2$outboundSchema,
+    type: DocumentCreateDocumentTemporaryTypeDateEnum$outboundSchema,
     textAlign: DocumentCreateDocumentTemporaryTextAlignDate$outboundSchema
       .optional(),
   });
@@ -2604,7 +2412,7 @@ export const DocumentCreateDocumentTemporaryFieldDate$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: DocumentCreateDocumentTemporaryRecipientTypeDate1$inboundSchema,
+  type: z.literal("DATE"),
   fieldMeta: z.lazy(() =>
     DocumentCreateDocumentTemporaryRecipientFieldMetaDate$inboundSchema
   ).optional(),
@@ -2616,7 +2424,7 @@ export const DocumentCreateDocumentTemporaryFieldDate$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type DocumentCreateDocumentTemporaryFieldDate$Outbound = {
-  type: string;
+  type: "DATE";
   fieldMeta?:
     | DocumentCreateDocumentTemporaryRecipientFieldMetaDate$Outbound
     | undefined;
@@ -2633,7 +2441,7 @@ export const DocumentCreateDocumentTemporaryFieldDate$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentCreateDocumentTemporaryFieldDate
 > = z.object({
-  type: DocumentCreateDocumentTemporaryRecipientTypeDate1$outboundSchema,
+  type: z.literal("DATE"),
   fieldMeta: z.lazy(() =>
     DocumentCreateDocumentTemporaryRecipientFieldMetaDate$outboundSchema
   ).optional(),
@@ -2671,22 +2479,13 @@ export function documentCreateDocumentTemporaryFieldDateFromJSON(
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeEmail1$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRecipientTypeEmail1> = z
-    .nativeEnum(DocumentCreateDocumentTemporaryRecipientTypeEmail1);
+export const DocumentCreateDocumentTemporaryTypeEmailEnum$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeEmailEnum> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryTypeEmailEnum);
 /** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeEmail1$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRecipientTypeEmail1> =
-    DocumentCreateDocumentTemporaryRecipientTypeEmail1$inboundSchema;
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeEmail2$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRecipientTypeEmail2> = z
-    .nativeEnum(DocumentCreateDocumentTemporaryRecipientTypeEmail2);
-/** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeEmail2$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRecipientTypeEmail2> =
-    DocumentCreateDocumentTemporaryRecipientTypeEmail2$inboundSchema;
+export const DocumentCreateDocumentTemporaryTypeEmailEnum$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeEmailEnum> =
+    DocumentCreateDocumentTemporaryTypeEmailEnum$inboundSchema;
 
 /** @internal */
 export const DocumentCreateDocumentTemporaryTextAlignEmail$inboundSchema:
@@ -2709,7 +2508,7 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaEmail$inboundSchem
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: DocumentCreateDocumentTemporaryRecipientTypeEmail2$inboundSchema,
+    type: DocumentCreateDocumentTemporaryTypeEmailEnum$inboundSchema,
     textAlign: DocumentCreateDocumentTemporaryTextAlignEmail$inboundSchema
       .optional(),
   });
@@ -2736,7 +2535,7 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaEmail$outboundSche
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: DocumentCreateDocumentTemporaryRecipientTypeEmail2$outboundSchema,
+    type: DocumentCreateDocumentTemporaryTypeEmailEnum$outboundSchema,
     textAlign: DocumentCreateDocumentTemporaryTextAlignEmail$outboundSchema
       .optional(),
   });
@@ -2772,7 +2571,7 @@ export const DocumentCreateDocumentTemporaryFieldEmail$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: DocumentCreateDocumentTemporaryRecipientTypeEmail1$inboundSchema,
+  type: z.literal("EMAIL"),
   fieldMeta: z.lazy(() =>
     DocumentCreateDocumentTemporaryRecipientFieldMetaEmail$inboundSchema
   ).optional(),
@@ -2784,7 +2583,7 @@ export const DocumentCreateDocumentTemporaryFieldEmail$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type DocumentCreateDocumentTemporaryFieldEmail$Outbound = {
-  type: string;
+  type: "EMAIL";
   fieldMeta?:
     | DocumentCreateDocumentTemporaryRecipientFieldMetaEmail$Outbound
     | undefined;
@@ -2802,7 +2601,7 @@ export const DocumentCreateDocumentTemporaryFieldEmail$outboundSchema:
     z.ZodTypeDef,
     DocumentCreateDocumentTemporaryFieldEmail
   > = z.object({
-    type: DocumentCreateDocumentTemporaryRecipientTypeEmail1$outboundSchema,
+    type: z.literal("EMAIL"),
     fieldMeta: z.lazy(() =>
       DocumentCreateDocumentTemporaryRecipientFieldMetaEmail$outboundSchema
     ).optional(),
@@ -2840,22 +2639,13 @@ export function documentCreateDocumentTemporaryFieldEmailFromJSON(
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeName1$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRecipientTypeName1> = z
-    .nativeEnum(DocumentCreateDocumentTemporaryRecipientTypeName1);
+export const DocumentCreateDocumentTemporaryTypeNameEnum$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeNameEnum> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryTypeNameEnum);
 /** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeName1$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRecipientTypeName1> =
-    DocumentCreateDocumentTemporaryRecipientTypeName1$inboundSchema;
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeName2$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRecipientTypeName2> = z
-    .nativeEnum(DocumentCreateDocumentTemporaryRecipientTypeName2);
-/** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeName2$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRecipientTypeName2> =
-    DocumentCreateDocumentTemporaryRecipientTypeName2$inboundSchema;
+export const DocumentCreateDocumentTemporaryTypeNameEnum$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeNameEnum> =
+    DocumentCreateDocumentTemporaryTypeNameEnum$inboundSchema;
 
 /** @internal */
 export const DocumentCreateDocumentTemporaryTextAlignName$inboundSchema:
@@ -2878,7 +2668,7 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaName$inboundSchema
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: DocumentCreateDocumentTemporaryRecipientTypeName2$inboundSchema,
+    type: DocumentCreateDocumentTemporaryTypeNameEnum$inboundSchema,
     textAlign: DocumentCreateDocumentTemporaryTextAlignName$inboundSchema
       .optional(),
   });
@@ -2905,7 +2695,7 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaName$outboundSchem
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: DocumentCreateDocumentTemporaryRecipientTypeName2$outboundSchema,
+    type: DocumentCreateDocumentTemporaryTypeNameEnum$outboundSchema,
     textAlign: DocumentCreateDocumentTemporaryTextAlignName$outboundSchema
       .optional(),
   });
@@ -2942,7 +2732,7 @@ export const DocumentCreateDocumentTemporaryFieldName$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: DocumentCreateDocumentTemporaryRecipientTypeName1$inboundSchema,
+  type: z.literal("NAME"),
   fieldMeta: z.lazy(() =>
     DocumentCreateDocumentTemporaryRecipientFieldMetaName$inboundSchema
   ).optional(),
@@ -2954,7 +2744,7 @@ export const DocumentCreateDocumentTemporaryFieldName$inboundSchema: z.ZodType<
 });
 /** @internal */
 export type DocumentCreateDocumentTemporaryFieldName$Outbound = {
-  type: string;
+  type: "NAME";
   fieldMeta?:
     | DocumentCreateDocumentTemporaryRecipientFieldMetaName$Outbound
     | undefined;
@@ -2971,7 +2761,7 @@ export const DocumentCreateDocumentTemporaryFieldName$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentCreateDocumentTemporaryFieldName
 > = z.object({
-  type: DocumentCreateDocumentTemporaryRecipientTypeName1$outboundSchema,
+  type: z.literal("NAME"),
   fieldMeta: z.lazy(() =>
     DocumentCreateDocumentTemporaryRecipientFieldMetaName$outboundSchema
   ).optional(),
@@ -3009,26 +2799,13 @@ export function documentCreateDocumentTemporaryFieldNameFromJSON(
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeInitials1$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryRecipientTypeInitials1
-  > = z.nativeEnum(DocumentCreateDocumentTemporaryRecipientTypeInitials1);
+export const DocumentCreateDocumentTemporaryTypeInitialsEnum$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeInitialsEnum> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryTypeInitialsEnum);
 /** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeInitials1$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryRecipientTypeInitials1
-  > = DocumentCreateDocumentTemporaryRecipientTypeInitials1$inboundSchema;
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeInitials2$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryRecipientTypeInitials2
-  > = z.nativeEnum(DocumentCreateDocumentTemporaryRecipientTypeInitials2);
-/** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeInitials2$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryRecipientTypeInitials2
-  > = DocumentCreateDocumentTemporaryRecipientTypeInitials2$inboundSchema;
+export const DocumentCreateDocumentTemporaryTypeInitialsEnum$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeInitialsEnum> =
+    DocumentCreateDocumentTemporaryTypeInitialsEnum$inboundSchema;
 
 /** @internal */
 export const DocumentCreateDocumentTemporaryTextAlignInitials$inboundSchema:
@@ -3051,7 +2828,7 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaInitials$inboundSc
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: DocumentCreateDocumentTemporaryRecipientTypeInitials2$inboundSchema,
+    type: DocumentCreateDocumentTemporaryTypeInitialsEnum$inboundSchema,
     textAlign: DocumentCreateDocumentTemporaryTextAlignInitials$inboundSchema
       .optional(),
   });
@@ -3079,7 +2856,7 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaInitials$outboundS
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: DocumentCreateDocumentTemporaryRecipientTypeInitials2$outboundSchema,
+    type: DocumentCreateDocumentTemporaryTypeInitialsEnum$outboundSchema,
     textAlign: DocumentCreateDocumentTemporaryTextAlignInitials$outboundSchema
       .optional(),
   });
@@ -3115,7 +2892,7 @@ export const DocumentCreateDocumentTemporaryFieldInitials$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({
-    type: DocumentCreateDocumentTemporaryRecipientTypeInitials1$inboundSchema,
+    type: z.literal("INITIALS"),
     fieldMeta: z.lazy(() =>
       DocumentCreateDocumentTemporaryRecipientFieldMetaInitials$inboundSchema
     ).optional(),
@@ -3127,7 +2904,7 @@ export const DocumentCreateDocumentTemporaryFieldInitials$inboundSchema:
   });
 /** @internal */
 export type DocumentCreateDocumentTemporaryFieldInitials$Outbound = {
-  type: string;
+  type: "INITIALS";
   fieldMeta?:
     | DocumentCreateDocumentTemporaryRecipientFieldMetaInitials$Outbound
     | undefined;
@@ -3145,7 +2922,7 @@ export const DocumentCreateDocumentTemporaryFieldInitials$outboundSchema:
     z.ZodTypeDef,
     DocumentCreateDocumentTemporaryFieldInitials
   > = z.object({
-    type: DocumentCreateDocumentTemporaryRecipientTypeInitials1$outboundSchema,
+    type: z.literal("INITIALS"),
     fieldMeta: z.lazy(() =>
       DocumentCreateDocumentTemporaryRecipientFieldMetaInitials$outboundSchema
     ).optional(),
@@ -3183,22 +2960,13 @@ export function documentCreateDocumentTemporaryFieldInitialsFromJSON(
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryTypeFreeSignature$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeFreeSignature> = z
-    .nativeEnum(DocumentCreateDocumentTemporaryTypeFreeSignature);
-/** @internal */
-export const DocumentCreateDocumentTemporaryTypeFreeSignature$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeFreeSignature> =
-    DocumentCreateDocumentTemporaryTypeFreeSignature$inboundSchema;
-
-/** @internal */
 export const DocumentCreateDocumentTemporaryFieldFreeSignature$inboundSchema:
   z.ZodType<
     DocumentCreateDocumentTemporaryFieldFreeSignature,
     z.ZodTypeDef,
     unknown
   > = z.object({
-    type: DocumentCreateDocumentTemporaryTypeFreeSignature$inboundSchema,
+    type: z.literal("FREE_SIGNATURE"),
     pageNumber: z.number(),
     pageX: z.number(),
     pageY: z.number(),
@@ -3207,7 +2975,7 @@ export const DocumentCreateDocumentTemporaryFieldFreeSignature$inboundSchema:
   });
 /** @internal */
 export type DocumentCreateDocumentTemporaryFieldFreeSignature$Outbound = {
-  type: string;
+  type: "FREE_SIGNATURE";
   pageNumber: number;
   pageX: number;
   pageY: number;
@@ -3222,7 +2990,7 @@ export const DocumentCreateDocumentTemporaryFieldFreeSignature$outboundSchema:
     z.ZodTypeDef,
     DocumentCreateDocumentTemporaryFieldFreeSignature
   > = z.object({
-    type: DocumentCreateDocumentTemporaryTypeFreeSignature$outboundSchema,
+    type: z.literal("FREE_SIGNATURE"),
     pageNumber: z.number(),
     pageX: z.number(),
     pageY: z.number(),
@@ -3257,26 +3025,13 @@ export function documentCreateDocumentTemporaryFieldFreeSignatureFromJSON(
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeSignature1$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryRecipientTypeSignature1
-  > = z.nativeEnum(DocumentCreateDocumentTemporaryRecipientTypeSignature1);
+export const DocumentCreateDocumentTemporaryTypeSignatureEnum$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeSignatureEnum> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryTypeSignatureEnum);
 /** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeSignature1$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryRecipientTypeSignature1
-  > = DocumentCreateDocumentTemporaryRecipientTypeSignature1$inboundSchema;
-
-/** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeSignature2$inboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryRecipientTypeSignature2
-  > = z.nativeEnum(DocumentCreateDocumentTemporaryRecipientTypeSignature2);
-/** @internal */
-export const DocumentCreateDocumentTemporaryRecipientTypeSignature2$outboundSchema:
-  z.ZodNativeEnum<
-    typeof DocumentCreateDocumentTemporaryRecipientTypeSignature2
-  > = DocumentCreateDocumentTemporaryRecipientTypeSignature2$inboundSchema;
+export const DocumentCreateDocumentTemporaryTypeSignatureEnum$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeSignatureEnum> =
+    DocumentCreateDocumentTemporaryTypeSignatureEnum$inboundSchema;
 
 /** @internal */
 export const DocumentCreateDocumentTemporaryRecipientFieldMetaSignature$inboundSchema:
@@ -3290,7 +3045,7 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaSignature$inboundS
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: DocumentCreateDocumentTemporaryRecipientTypeSignature2$inboundSchema,
+    type: DocumentCreateDocumentTemporaryTypeSignatureEnum$inboundSchema,
   });
 /** @internal */
 export type DocumentCreateDocumentTemporaryRecipientFieldMetaSignature$Outbound =
@@ -3315,7 +3070,7 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaSignature$outbound
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
-    type: DocumentCreateDocumentTemporaryRecipientTypeSignature2$outboundSchema,
+    type: DocumentCreateDocumentTemporaryTypeSignatureEnum$outboundSchema,
   });
 
 export function documentCreateDocumentTemporaryRecipientFieldMetaSignatureToJSON(
@@ -3349,7 +3104,7 @@ export const DocumentCreateDocumentTemporaryFieldSignature$inboundSchema:
     z.ZodTypeDef,
     unknown
   > = z.object({
-    type: DocumentCreateDocumentTemporaryRecipientTypeSignature1$inboundSchema,
+    type: z.literal("SIGNATURE"),
     fieldMeta: z.lazy(() =>
       DocumentCreateDocumentTemporaryRecipientFieldMetaSignature$inboundSchema
     ).optional(),
@@ -3361,7 +3116,7 @@ export const DocumentCreateDocumentTemporaryFieldSignature$inboundSchema:
   });
 /** @internal */
 export type DocumentCreateDocumentTemporaryFieldSignature$Outbound = {
-  type: string;
+  type: "SIGNATURE";
   fieldMeta?:
     | DocumentCreateDocumentTemporaryRecipientFieldMetaSignature$Outbound
     | undefined;
@@ -3379,7 +3134,7 @@ export const DocumentCreateDocumentTemporaryFieldSignature$outboundSchema:
     z.ZodTypeDef,
     DocumentCreateDocumentTemporaryFieldSignature
   > = z.object({
-    type: DocumentCreateDocumentTemporaryRecipientTypeSignature1$outboundSchema,
+    type: z.literal("SIGNATURE"),
     fieldMeta: z.lazy(() =>
       DocumentCreateDocumentTemporaryRecipientFieldMetaSignature$outboundSchema
     ).optional(),
@@ -3422,62 +3177,31 @@ export const DocumentCreateDocumentTemporaryFieldUnion$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldSignature$inboundSchema).and(
-    z.object({ type: z.literal("SIGNATURE") }),
-  ),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldFreeSignature$inboundSchema)
-    .and(z.object({ type: z.literal("FREE_SIGNATURE") })),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldInitials$inboundSchema).and(
-    z.object({ type: z.literal("INITIALS") }),
-  ),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldName$inboundSchema).and(
-    z.object({ type: z.literal("NAME") }),
-  ),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldEmail$inboundSchema).and(
-    z.object({ type: z.literal("EMAIL") }),
-  ),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldDate$inboundSchema).and(
-    z.object({ type: z.literal("DATE") }),
-  ),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldText$inboundSchema).and(
-    z.object({ type: z.literal("TEXT") }),
-  ),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldNumber$inboundSchema).and(
-    z.object({ type: z.literal("NUMBER") }),
-  ),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldRadio$inboundSchema).and(
-    z.object({ type: z.literal("RADIO") }),
-  ),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldCheckbox$inboundSchema).and(
-    z.object({ type: z.literal("CHECKBOX") }),
-  ),
-  z.lazy(() => DocumentCreateDocumentTemporaryFieldDropdown$inboundSchema).and(
-    z.object({ type: z.literal("DROPDOWN") }),
-  ),
+  z.lazy(() => DocumentCreateDocumentTemporaryFieldSignature$inboundSchema),
+  z.lazy(() => DocumentCreateDocumentTemporaryFieldFreeSignature$inboundSchema),
+  z.lazy(() => DocumentCreateDocumentTemporaryFieldInitials$inboundSchema),
+  z.lazy(() => DocumentCreateDocumentTemporaryFieldName$inboundSchema),
+  z.lazy(() => DocumentCreateDocumentTemporaryFieldEmail$inboundSchema),
+  z.lazy(() => DocumentCreateDocumentTemporaryFieldDate$inboundSchema),
+  z.lazy(() => DocumentCreateDocumentTemporaryFieldText$inboundSchema),
+  z.lazy(() => DocumentCreateDocumentTemporaryFieldNumber$inboundSchema),
+  z.lazy(() => DocumentCreateDocumentTemporaryFieldRadio$inboundSchema),
+  z.lazy(() => DocumentCreateDocumentTemporaryFieldCheckbox$inboundSchema),
+  z.lazy(() => DocumentCreateDocumentTemporaryFieldDropdown$inboundSchema),
 ]);
 /** @internal */
 export type DocumentCreateDocumentTemporaryFieldUnion$Outbound =
-  | (DocumentCreateDocumentTemporaryFieldSignature$Outbound & {
-    type: "SIGNATURE";
-  })
-  | (DocumentCreateDocumentTemporaryFieldFreeSignature$Outbound & {
-    type: "FREE_SIGNATURE";
-  })
-  | (DocumentCreateDocumentTemporaryFieldInitials$Outbound & {
-    type: "INITIALS";
-  })
-  | (DocumentCreateDocumentTemporaryFieldName$Outbound & { type: "NAME" })
-  | (DocumentCreateDocumentTemporaryFieldEmail$Outbound & { type: "EMAIL" })
-  | (DocumentCreateDocumentTemporaryFieldDate$Outbound & { type: "DATE" })
-  | (DocumentCreateDocumentTemporaryFieldText$Outbound & { type: "TEXT" })
-  | (DocumentCreateDocumentTemporaryFieldNumber$Outbound & { type: "NUMBER" })
-  | (DocumentCreateDocumentTemporaryFieldRadio$Outbound & { type: "RADIO" })
-  | (DocumentCreateDocumentTemporaryFieldCheckbox$Outbound & {
-    type: "CHECKBOX";
-  })
-  | (DocumentCreateDocumentTemporaryFieldDropdown$Outbound & {
-    type: "DROPDOWN";
-  });
+  | DocumentCreateDocumentTemporaryFieldSignature$Outbound
+  | DocumentCreateDocumentTemporaryFieldFreeSignature$Outbound
+  | DocumentCreateDocumentTemporaryFieldInitials$Outbound
+  | DocumentCreateDocumentTemporaryFieldName$Outbound
+  | DocumentCreateDocumentTemporaryFieldEmail$Outbound
+  | DocumentCreateDocumentTemporaryFieldDate$Outbound
+  | DocumentCreateDocumentTemporaryFieldText$Outbound
+  | DocumentCreateDocumentTemporaryFieldNumber$Outbound
+  | DocumentCreateDocumentTemporaryFieldRadio$Outbound
+  | DocumentCreateDocumentTemporaryFieldCheckbox$Outbound
+  | DocumentCreateDocumentTemporaryFieldDropdown$Outbound;
 
 /** @internal */
 export const DocumentCreateDocumentTemporaryFieldUnion$outboundSchema:
@@ -3486,35 +3210,19 @@ export const DocumentCreateDocumentTemporaryFieldUnion$outboundSchema:
     z.ZodTypeDef,
     DocumentCreateDocumentTemporaryFieldUnion
   > = z.union([
-    z.lazy(() => DocumentCreateDocumentTemporaryFieldSignature$outboundSchema)
-      .and(z.object({ type: z.literal("SIGNATURE") })),
+    z.lazy(() => DocumentCreateDocumentTemporaryFieldSignature$outboundSchema),
     z.lazy(() =>
       DocumentCreateDocumentTemporaryFieldFreeSignature$outboundSchema
-    ).and(z.object({ type: z.literal("FREE_SIGNATURE") })),
-    z.lazy(() => DocumentCreateDocumentTemporaryFieldInitials$outboundSchema)
-      .and(z.object({ type: z.literal("INITIALS") })),
-    z.lazy(() => DocumentCreateDocumentTemporaryFieldName$outboundSchema).and(
-      z.object({ type: z.literal("NAME") }),
     ),
-    z.lazy(() => DocumentCreateDocumentTemporaryFieldEmail$outboundSchema).and(
-      z.object({ type: z.literal("EMAIL") }),
-    ),
-    z.lazy(() => DocumentCreateDocumentTemporaryFieldDate$outboundSchema).and(
-      z.object({ type: z.literal("DATE") }),
-    ),
-    z.lazy(() => DocumentCreateDocumentTemporaryFieldText$outboundSchema).and(
-      z.object({ type: z.literal("TEXT") }),
-    ),
-    z.lazy(() => DocumentCreateDocumentTemporaryFieldNumber$outboundSchema).and(
-      z.object({ type: z.literal("NUMBER") }),
-    ),
-    z.lazy(() => DocumentCreateDocumentTemporaryFieldRadio$outboundSchema).and(
-      z.object({ type: z.literal("RADIO") }),
-    ),
-    z.lazy(() => DocumentCreateDocumentTemporaryFieldCheckbox$outboundSchema)
-      .and(z.object({ type: z.literal("CHECKBOX") })),
-    z.lazy(() => DocumentCreateDocumentTemporaryFieldDropdown$outboundSchema)
-      .and(z.object({ type: z.literal("DROPDOWN") })),
+    z.lazy(() => DocumentCreateDocumentTemporaryFieldInitials$outboundSchema),
+    z.lazy(() => DocumentCreateDocumentTemporaryFieldName$outboundSchema),
+    z.lazy(() => DocumentCreateDocumentTemporaryFieldEmail$outboundSchema),
+    z.lazy(() => DocumentCreateDocumentTemporaryFieldDate$outboundSchema),
+    z.lazy(() => DocumentCreateDocumentTemporaryFieldText$outboundSchema),
+    z.lazy(() => DocumentCreateDocumentTemporaryFieldNumber$outboundSchema),
+    z.lazy(() => DocumentCreateDocumentTemporaryFieldRadio$outboundSchema),
+    z.lazy(() => DocumentCreateDocumentTemporaryFieldCheckbox$outboundSchema),
+    z.lazy(() => DocumentCreateDocumentTemporaryFieldDropdown$outboundSchema),
   ]);
 
 export function documentCreateDocumentTemporaryFieldUnionToJSON(
@@ -3564,28 +3272,25 @@ export const DocumentCreateDocumentTemporaryRecipientRequest$inboundSchema:
       z.union([
         z.lazy(() =>
           DocumentCreateDocumentTemporaryFieldSignature$inboundSchema
-        ).and(z.object({ type: z.literal("SIGNATURE") })),
+        ),
         z.lazy(() =>
           DocumentCreateDocumentTemporaryFieldFreeSignature$inboundSchema
-        ).and(z.object({ type: z.literal("FREE_SIGNATURE") })),
-        z.lazy(() => DocumentCreateDocumentTemporaryFieldInitials$inboundSchema)
-          .and(z.object({ type: z.literal("INITIALS") })),
-        z.lazy(() => DocumentCreateDocumentTemporaryFieldName$inboundSchema)
-          .and(z.object({ type: z.literal("NAME") })),
-        z.lazy(() => DocumentCreateDocumentTemporaryFieldEmail$inboundSchema)
-          .and(z.object({ type: z.literal("EMAIL") })),
-        z.lazy(() => DocumentCreateDocumentTemporaryFieldDate$inboundSchema)
-          .and(z.object({ type: z.literal("DATE") })),
-        z.lazy(() => DocumentCreateDocumentTemporaryFieldText$inboundSchema)
-          .and(z.object({ type: z.literal("TEXT") })),
-        z.lazy(() => DocumentCreateDocumentTemporaryFieldNumber$inboundSchema)
-          .and(z.object({ type: z.literal("NUMBER") })),
-        z.lazy(() => DocumentCreateDocumentTemporaryFieldRadio$inboundSchema)
-          .and(z.object({ type: z.literal("RADIO") })),
-        z.lazy(() => DocumentCreateDocumentTemporaryFieldCheckbox$inboundSchema)
-          .and(z.object({ type: z.literal("CHECKBOX") })),
-        z.lazy(() => DocumentCreateDocumentTemporaryFieldDropdown$inboundSchema)
-          .and(z.object({ type: z.literal("DROPDOWN") })),
+        ),
+        z.lazy(() =>
+          DocumentCreateDocumentTemporaryFieldInitials$inboundSchema
+        ),
+        z.lazy(() => DocumentCreateDocumentTemporaryFieldName$inboundSchema),
+        z.lazy(() => DocumentCreateDocumentTemporaryFieldEmail$inboundSchema),
+        z.lazy(() => DocumentCreateDocumentTemporaryFieldDate$inboundSchema),
+        z.lazy(() => DocumentCreateDocumentTemporaryFieldText$inboundSchema),
+        z.lazy(() => DocumentCreateDocumentTemporaryFieldNumber$inboundSchema),
+        z.lazy(() => DocumentCreateDocumentTemporaryFieldRadio$inboundSchema),
+        z.lazy(() =>
+          DocumentCreateDocumentTemporaryFieldCheckbox$inboundSchema
+        ),
+        z.lazy(() =>
+          DocumentCreateDocumentTemporaryFieldDropdown$inboundSchema
+        ),
       ]),
     ).optional(),
   });
@@ -3599,29 +3304,17 @@ export type DocumentCreateDocumentTemporaryRecipientRequest$Outbound = {
   actionAuth?: Array<string> | undefined;
   fields?:
     | Array<
-      | (DocumentCreateDocumentTemporaryFieldSignature$Outbound & {
-        type: "SIGNATURE";
-      })
-      | (DocumentCreateDocumentTemporaryFieldFreeSignature$Outbound & {
-        type: "FREE_SIGNATURE";
-      })
-      | (DocumentCreateDocumentTemporaryFieldInitials$Outbound & {
-        type: "INITIALS";
-      })
-      | (DocumentCreateDocumentTemporaryFieldName$Outbound & { type: "NAME" })
-      | (DocumentCreateDocumentTemporaryFieldEmail$Outbound & { type: "EMAIL" })
-      | (DocumentCreateDocumentTemporaryFieldDate$Outbound & { type: "DATE" })
-      | (DocumentCreateDocumentTemporaryFieldText$Outbound & { type: "TEXT" })
-      | (DocumentCreateDocumentTemporaryFieldNumber$Outbound & {
-        type: "NUMBER";
-      })
-      | (DocumentCreateDocumentTemporaryFieldRadio$Outbound & { type: "RADIO" })
-      | (DocumentCreateDocumentTemporaryFieldCheckbox$Outbound & {
-        type: "CHECKBOX";
-      })
-      | (DocumentCreateDocumentTemporaryFieldDropdown$Outbound & {
-        type: "DROPDOWN";
-      })
+      | DocumentCreateDocumentTemporaryFieldSignature$Outbound
+      | DocumentCreateDocumentTemporaryFieldFreeSignature$Outbound
+      | DocumentCreateDocumentTemporaryFieldInitials$Outbound
+      | DocumentCreateDocumentTemporaryFieldName$Outbound
+      | DocumentCreateDocumentTemporaryFieldEmail$Outbound
+      | DocumentCreateDocumentTemporaryFieldDate$Outbound
+      | DocumentCreateDocumentTemporaryFieldText$Outbound
+      | DocumentCreateDocumentTemporaryFieldNumber$Outbound
+      | DocumentCreateDocumentTemporaryFieldRadio$Outbound
+      | DocumentCreateDocumentTemporaryFieldCheckbox$Outbound
+      | DocumentCreateDocumentTemporaryFieldDropdown$Outbound
     >
     | undefined;
 };
@@ -3647,31 +3340,25 @@ export const DocumentCreateDocumentTemporaryRecipientRequest$outboundSchema:
       z.union([
         z.lazy(() =>
           DocumentCreateDocumentTemporaryFieldSignature$outboundSchema
-        ).and(z.object({ type: z.literal("SIGNATURE") })),
+        ),
         z.lazy(() =>
           DocumentCreateDocumentTemporaryFieldFreeSignature$outboundSchema
-        ).and(z.object({ type: z.literal("FREE_SIGNATURE") })),
+        ),
         z.lazy(() =>
           DocumentCreateDocumentTemporaryFieldInitials$outboundSchema
-        ).and(z.object({ type: z.literal("INITIALS") })),
-        z.lazy(() => DocumentCreateDocumentTemporaryFieldName$outboundSchema)
-          .and(z.object({ type: z.literal("NAME") })),
-        z.lazy(() => DocumentCreateDocumentTemporaryFieldEmail$outboundSchema)
-          .and(z.object({ type: z.literal("EMAIL") })),
-        z.lazy(() => DocumentCreateDocumentTemporaryFieldDate$outboundSchema)
-          .and(z.object({ type: z.literal("DATE") })),
-        z.lazy(() => DocumentCreateDocumentTemporaryFieldText$outboundSchema)
-          .and(z.object({ type: z.literal("TEXT") })),
-        z.lazy(() => DocumentCreateDocumentTemporaryFieldNumber$outboundSchema)
-          .and(z.object({ type: z.literal("NUMBER") })),
-        z.lazy(() => DocumentCreateDocumentTemporaryFieldRadio$outboundSchema)
-          .and(z.object({ type: z.literal("RADIO") })),
+        ),
+        z.lazy(() => DocumentCreateDocumentTemporaryFieldName$outboundSchema),
+        z.lazy(() => DocumentCreateDocumentTemporaryFieldEmail$outboundSchema),
+        z.lazy(() => DocumentCreateDocumentTemporaryFieldDate$outboundSchema),
+        z.lazy(() => DocumentCreateDocumentTemporaryFieldText$outboundSchema),
+        z.lazy(() => DocumentCreateDocumentTemporaryFieldNumber$outboundSchema),
+        z.lazy(() => DocumentCreateDocumentTemporaryFieldRadio$outboundSchema),
         z.lazy(() =>
           DocumentCreateDocumentTemporaryFieldCheckbox$outboundSchema
-        ).and(z.object({ type: z.literal("CHECKBOX") })),
+        ),
         z.lazy(() =>
           DocumentCreateDocumentTemporaryFieldDropdown$outboundSchema
-        ).and(z.object({ type: z.literal("DROPDOWN") })),
+        ),
       ]),
     ).optional(),
   });
@@ -4800,22 +4487,13 @@ export function documentRecipientFromJSON(
 }
 
 /** @internal */
-export const DocumentFieldType$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentFieldType
-> = z.nativeEnum(DocumentFieldType);
+export const DocumentFieldTypeEnum$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentFieldTypeEnum
+> = z.nativeEnum(DocumentFieldTypeEnum);
 /** @internal */
-export const DocumentFieldType$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentFieldType
-> = DocumentFieldType$inboundSchema;
-
-/** @internal */
-export const DocumentTypeDropdown$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentTypeDropdown
-> = z.nativeEnum(DocumentTypeDropdown);
-/** @internal */
-export const DocumentTypeDropdown$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentTypeDropdown
-> = DocumentTypeDropdown$inboundSchema;
+export const DocumentFieldTypeEnum$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentFieldTypeEnum
+> = DocumentFieldTypeEnum$inboundSchema;
 
 /** @internal */
 export const DocumentValue3$inboundSchema: z.ZodType<
@@ -4863,7 +4541,7 @@ export const FieldMetaDocumentDropdown$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentTypeDropdown$inboundSchema,
+  type: z.literal("dropdown"),
   values: z.array(z.lazy(() => DocumentValue3$inboundSchema)).optional(),
   defaultValue: z.string().optional(),
 });
@@ -4874,7 +4552,7 @@ export type FieldMetaDocumentDropdown$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "dropdown";
   values?: Array<DocumentValue3$Outbound> | undefined;
   defaultValue?: string | undefined;
 };
@@ -4890,7 +4568,7 @@ export const FieldMetaDocumentDropdown$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentTypeDropdown$outboundSchema,
+  type: z.literal("dropdown"),
   values: z.array(z.lazy(() => DocumentValue3$outboundSchema)).optional(),
   defaultValue: z.string().optional(),
 });
@@ -4911,15 +4589,6 @@ export function fieldMetaDocumentDropdownFromJSON(
     `Failed to parse 'FieldMetaDocumentDropdown' from JSON`,
   );
 }
-
-/** @internal */
-export const DocumentTypeCheckbox$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentTypeCheckbox
-> = z.nativeEnum(DocumentTypeCheckbox);
-/** @internal */
-export const DocumentTypeCheckbox$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentTypeCheckbox
-> = DocumentTypeCheckbox$inboundSchema;
 
 /** @internal */
 export const DocumentValue2$inboundSchema: z.ZodType<
@@ -4982,7 +4651,7 @@ export const FieldMetaDocumentCheckbox$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentTypeCheckbox$inboundSchema,
+  type: z.literal("checkbox"),
   values: z.array(z.lazy(() => DocumentValue2$inboundSchema)).optional(),
   validationRule: z.string().optional(),
   validationLength: z.number().optional(),
@@ -4995,7 +4664,7 @@ export type FieldMetaDocumentCheckbox$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "checkbox";
   values?: Array<DocumentValue2$Outbound> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
@@ -5013,7 +4682,7 @@ export const FieldMetaDocumentCheckbox$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentTypeCheckbox$outboundSchema,
+  type: z.literal("checkbox"),
   values: z.array(z.lazy(() => DocumentValue2$outboundSchema)).optional(),
   validationRule: z.string().optional(),
   validationLength: z.number().optional(),
@@ -5036,15 +4705,6 @@ export function fieldMetaDocumentCheckboxFromJSON(
     `Failed to parse 'FieldMetaDocumentCheckbox' from JSON`,
   );
 }
-
-/** @internal */
-export const DocumentTypeRadio$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentTypeRadio
-> = z.nativeEnum(DocumentTypeRadio);
-/** @internal */
-export const DocumentTypeRadio$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentTypeRadio
-> = DocumentTypeRadio$inboundSchema;
 
 /** @internal */
 export const DocumentValue1$inboundSchema: z.ZodType<
@@ -5107,7 +4767,7 @@ export const FieldMetaDocumentRadio$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentTypeRadio$inboundSchema,
+  type: z.literal("radio"),
   values: z.array(z.lazy(() => DocumentValue1$inboundSchema)).optional(),
   direction: DocumentDirection1$inboundSchema.default("vertical"),
 });
@@ -5118,7 +4778,7 @@ export type FieldMetaDocumentRadio$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "radio";
   values?: Array<DocumentValue1$Outbound> | undefined;
   direction: string;
 };
@@ -5134,7 +4794,7 @@ export const FieldMetaDocumentRadio$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentTypeRadio$outboundSchema,
+  type: z.literal("radio"),
   values: z.array(z.lazy(() => DocumentValue1$outboundSchema)).optional(),
   direction: DocumentDirection1$outboundSchema.default("vertical"),
 });
@@ -5155,15 +4815,6 @@ export function fieldMetaDocumentRadioFromJSON(
     `Failed to parse 'FieldMetaDocumentRadio' from JSON`,
   );
 }
-
-/** @internal */
-export const DocumentTypeNumber$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentTypeNumber
-> = z.nativeEnum(DocumentTypeNumber);
-/** @internal */
-export const DocumentTypeNumber$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentTypeNumber
-> = DocumentTypeNumber$inboundSchema;
 
 /** @internal */
 export const DocumentTextAlign6$inboundSchema: z.ZodNativeEnum<
@@ -5194,7 +4845,7 @@ export const FieldMetaDocumentNumber$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentTypeNumber$inboundSchema,
+  type: z.literal("number"),
   numberFormat: z.nullable(z.string()).optional(),
   value: z.string().optional(),
   minValue: z.nullable(z.number()).optional(),
@@ -5211,7 +4862,7 @@ export type FieldMetaDocumentNumber$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
   minValue?: number | null | undefined;
@@ -5233,7 +4884,7 @@ export const FieldMetaDocumentNumber$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentTypeNumber$outboundSchema,
+  type: z.literal("number"),
   numberFormat: z.nullable(z.string()).optional(),
   value: z.string().optional(),
   minValue: z.nullable(z.number()).optional(),
@@ -5260,15 +4911,6 @@ export function fieldMetaDocumentNumberFromJSON(
     `Failed to parse 'FieldMetaDocumentNumber' from JSON`,
   );
 }
-
-/** @internal */
-export const DocumentTypeText$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentTypeText
-> = z.nativeEnum(DocumentTypeText);
-/** @internal */
-export const DocumentTypeText$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentTypeText
-> = DocumentTypeText$inboundSchema;
 
 /** @internal */
 export const DocumentTextAlign5$inboundSchema: z.ZodNativeEnum<
@@ -5299,7 +4941,7 @@ export const FieldMetaDocumentText$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentTypeText$inboundSchema,
+  type: z.literal("text"),
   text: z.string().optional(),
   characterLimit: z.number().optional(),
   textAlign: DocumentTextAlign5$inboundSchema.optional(),
@@ -5314,7 +4956,7 @@ export type FieldMetaDocumentText$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
   textAlign?: string | undefined;
@@ -5334,7 +4976,7 @@ export const FieldMetaDocumentText$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentTypeText$outboundSchema,
+  type: z.literal("text"),
   text: z.string().optional(),
   characterLimit: z.number().optional(),
   textAlign: DocumentTextAlign5$outboundSchema.optional(),
@@ -5361,15 +5003,6 @@ export function fieldMetaDocumentTextFromJSON(
 }
 
 /** @internal */
-export const DocumentTypeDate$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentTypeDate
-> = z.nativeEnum(DocumentTypeDate);
-/** @internal */
-export const DocumentTypeDate$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentTypeDate
-> = DocumentTypeDate$inboundSchema;
-
-/** @internal */
 export const DocumentTextAlign4$inboundSchema: z.ZodNativeEnum<
   typeof DocumentTextAlign4
 > = z.nativeEnum(DocumentTextAlign4);
@@ -5389,7 +5022,7 @@ export const FieldMetaDocumentDate$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentTypeDate$inboundSchema,
+  type: z.literal("date"),
   textAlign: DocumentTextAlign4$inboundSchema.optional(),
 });
 /** @internal */
@@ -5399,7 +5032,7 @@ export type FieldMetaDocumentDate$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "date";
   textAlign?: string | undefined;
 };
 
@@ -5414,7 +5047,7 @@ export const FieldMetaDocumentDate$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentTypeDate$outboundSchema,
+  type: z.literal("date"),
   textAlign: DocumentTextAlign4$outboundSchema.optional(),
 });
 
@@ -5436,15 +5069,6 @@ export function fieldMetaDocumentDateFromJSON(
 }
 
 /** @internal */
-export const DocumentTypeEmail$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentTypeEmail
-> = z.nativeEnum(DocumentTypeEmail);
-/** @internal */
-export const DocumentTypeEmail$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentTypeEmail
-> = DocumentTypeEmail$inboundSchema;
-
-/** @internal */
 export const DocumentTextAlign3$inboundSchema: z.ZodNativeEnum<
   typeof DocumentTextAlign3
 > = z.nativeEnum(DocumentTextAlign3);
@@ -5464,7 +5088,7 @@ export const FieldMetaDocumentEmail$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentTypeEmail$inboundSchema,
+  type: z.literal("email"),
   textAlign: DocumentTextAlign3$inboundSchema.optional(),
 });
 /** @internal */
@@ -5474,7 +5098,7 @@ export type FieldMetaDocumentEmail$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "email";
   textAlign?: string | undefined;
 };
 
@@ -5489,7 +5113,7 @@ export const FieldMetaDocumentEmail$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentTypeEmail$outboundSchema,
+  type: z.literal("email"),
   textAlign: DocumentTextAlign3$outboundSchema.optional(),
 });
 
@@ -5511,15 +5135,6 @@ export function fieldMetaDocumentEmailFromJSON(
 }
 
 /** @internal */
-export const DocumentTypeName$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentTypeName
-> = z.nativeEnum(DocumentTypeName);
-/** @internal */
-export const DocumentTypeName$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentTypeName
-> = DocumentTypeName$inboundSchema;
-
-/** @internal */
 export const DocumentTextAlign2$inboundSchema: z.ZodNativeEnum<
   typeof DocumentTextAlign2
 > = z.nativeEnum(DocumentTextAlign2);
@@ -5539,7 +5154,7 @@ export const FieldMetaDocumentName$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentTypeName$inboundSchema,
+  type: z.literal("name"),
   textAlign: DocumentTextAlign2$inboundSchema.optional(),
 });
 /** @internal */
@@ -5549,7 +5164,7 @@ export type FieldMetaDocumentName$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "name";
   textAlign?: string | undefined;
 };
 
@@ -5564,7 +5179,7 @@ export const FieldMetaDocumentName$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentTypeName$outboundSchema,
+  type: z.literal("name"),
   textAlign: DocumentTextAlign2$outboundSchema.optional(),
 });
 
@@ -5586,15 +5201,6 @@ export function fieldMetaDocumentNameFromJSON(
 }
 
 /** @internal */
-export const DocumentTypeInitials$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentTypeInitials
-> = z.nativeEnum(DocumentTypeInitials);
-/** @internal */
-export const DocumentTypeInitials$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentTypeInitials
-> = DocumentTypeInitials$inboundSchema;
-
-/** @internal */
 export const DocumentTextAlign1$inboundSchema: z.ZodNativeEnum<
   typeof DocumentTextAlign1
 > = z.nativeEnum(DocumentTextAlign1);
@@ -5614,7 +5220,7 @@ export const FieldMetaDocumentInitials$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentTypeInitials$inboundSchema,
+  type: z.literal("initials"),
   textAlign: DocumentTextAlign1$inboundSchema.optional(),
 });
 /** @internal */
@@ -5624,7 +5230,7 @@ export type FieldMetaDocumentInitials$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "initials";
   textAlign?: string | undefined;
 };
 
@@ -5639,7 +5245,7 @@ export const FieldMetaDocumentInitials$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentTypeInitials$outboundSchema,
+  type: z.literal("initials"),
   textAlign: DocumentTextAlign1$outboundSchema.optional(),
 });
 
@@ -5661,15 +5267,6 @@ export function fieldMetaDocumentInitialsFromJSON(
 }
 
 /** @internal */
-export const DocumentTypeSignature$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentTypeSignature
-> = z.nativeEnum(DocumentTypeSignature);
-/** @internal */
-export const DocumentTypeSignature$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentTypeSignature
-> = DocumentTypeSignature$inboundSchema;
-
-/** @internal */
 export const FieldMetaDocumentSignature$inboundSchema: z.ZodType<
   FieldMetaDocumentSignature,
   z.ZodTypeDef,
@@ -5680,7 +5277,7 @@ export const FieldMetaDocumentSignature$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentTypeSignature$inboundSchema,
+  type: z.literal("signature"),
 });
 /** @internal */
 export type FieldMetaDocumentSignature$Outbound = {
@@ -5689,7 +5286,7 @@ export type FieldMetaDocumentSignature$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
-  type: string;
+  type: "signature";
 };
 
 /** @internal */
@@ -5703,7 +5300,7 @@ export const FieldMetaDocumentSignature$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
-  type: DocumentTypeSignature$outboundSchema,
+  type: z.literal("signature"),
 });
 
 export function fieldMetaDocumentSignatureToJSON(
@@ -5729,49 +5326,29 @@ export const DocumentFieldMetaUnion$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  z.lazy(() => FieldMetaDocumentSignature$inboundSchema).and(
-    z.object({ type: z.literal("signature") }),
-  ),
-  z.lazy(() => FieldMetaDocumentInitials$inboundSchema).and(
-    z.object({ type: z.literal("initials") }),
-  ),
-  z.lazy(() => FieldMetaDocumentName$inboundSchema).and(
-    z.object({ type: z.literal("name") }),
-  ),
-  z.lazy(() => FieldMetaDocumentEmail$inboundSchema).and(
-    z.object({ type: z.literal("email") }),
-  ),
-  z.lazy(() => FieldMetaDocumentDate$inboundSchema).and(
-    z.object({ type: z.literal("date") }),
-  ),
-  z.lazy(() => FieldMetaDocumentText$inboundSchema).and(
-    z.object({ type: z.literal("text") }),
-  ),
-  z.lazy(() => FieldMetaDocumentNumber$inboundSchema).and(
-    z.object({ type: z.literal("number") }),
-  ),
-  z.lazy(() => FieldMetaDocumentRadio$inboundSchema).and(
-    z.object({ type: z.literal("radio") }),
-  ),
-  z.lazy(() => FieldMetaDocumentCheckbox$inboundSchema).and(
-    z.object({ type: z.literal("checkbox") }),
-  ),
-  z.lazy(() => FieldMetaDocumentDropdown$inboundSchema).and(
-    z.object({ type: z.literal("dropdown") }),
-  ),
+  z.lazy(() => FieldMetaDocumentSignature$inboundSchema),
+  z.lazy(() => FieldMetaDocumentInitials$inboundSchema),
+  z.lazy(() => FieldMetaDocumentName$inboundSchema),
+  z.lazy(() => FieldMetaDocumentEmail$inboundSchema),
+  z.lazy(() => FieldMetaDocumentDate$inboundSchema),
+  z.lazy(() => FieldMetaDocumentText$inboundSchema),
+  z.lazy(() => FieldMetaDocumentNumber$inboundSchema),
+  z.lazy(() => FieldMetaDocumentRadio$inboundSchema),
+  z.lazy(() => FieldMetaDocumentCheckbox$inboundSchema),
+  z.lazy(() => FieldMetaDocumentDropdown$inboundSchema),
 ]);
 /** @internal */
 export type DocumentFieldMetaUnion$Outbound =
-  | (FieldMetaDocumentSignature$Outbound & { type: "signature" })
-  | (FieldMetaDocumentInitials$Outbound & { type: "initials" })
-  | (FieldMetaDocumentName$Outbound & { type: "name" })
-  | (FieldMetaDocumentEmail$Outbound & { type: "email" })
-  | (FieldMetaDocumentDate$Outbound & { type: "date" })
-  | (FieldMetaDocumentText$Outbound & { type: "text" })
-  | (FieldMetaDocumentNumber$Outbound & { type: "number" })
-  | (FieldMetaDocumentRadio$Outbound & { type: "radio" })
-  | (FieldMetaDocumentCheckbox$Outbound & { type: "checkbox" })
-  | (FieldMetaDocumentDropdown$Outbound & { type: "dropdown" });
+  | FieldMetaDocumentSignature$Outbound
+  | FieldMetaDocumentInitials$Outbound
+  | FieldMetaDocumentName$Outbound
+  | FieldMetaDocumentEmail$Outbound
+  | FieldMetaDocumentDate$Outbound
+  | FieldMetaDocumentText$Outbound
+  | FieldMetaDocumentNumber$Outbound
+  | FieldMetaDocumentRadio$Outbound
+  | FieldMetaDocumentCheckbox$Outbound
+  | FieldMetaDocumentDropdown$Outbound;
 
 /** @internal */
 export const DocumentFieldMetaUnion$outboundSchema: z.ZodType<
@@ -5779,36 +5356,16 @@ export const DocumentFieldMetaUnion$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentFieldMetaUnion
 > = z.union([
-  z.lazy(() => FieldMetaDocumentSignature$outboundSchema).and(
-    z.object({ type: z.literal("signature") }),
-  ),
-  z.lazy(() => FieldMetaDocumentInitials$outboundSchema).and(
-    z.object({ type: z.literal("initials") }),
-  ),
-  z.lazy(() => FieldMetaDocumentName$outboundSchema).and(
-    z.object({ type: z.literal("name") }),
-  ),
-  z.lazy(() => FieldMetaDocumentEmail$outboundSchema).and(
-    z.object({ type: z.literal("email") }),
-  ),
-  z.lazy(() => FieldMetaDocumentDate$outboundSchema).and(
-    z.object({ type: z.literal("date") }),
-  ),
-  z.lazy(() => FieldMetaDocumentText$outboundSchema).and(
-    z.object({ type: z.literal("text") }),
-  ),
-  z.lazy(() => FieldMetaDocumentNumber$outboundSchema).and(
-    z.object({ type: z.literal("number") }),
-  ),
-  z.lazy(() => FieldMetaDocumentRadio$outboundSchema).and(
-    z.object({ type: z.literal("radio") }),
-  ),
-  z.lazy(() => FieldMetaDocumentCheckbox$outboundSchema).and(
-    z.object({ type: z.literal("checkbox") }),
-  ),
-  z.lazy(() => FieldMetaDocumentDropdown$outboundSchema).and(
-    z.object({ type: z.literal("dropdown") }),
-  ),
+  z.lazy(() => FieldMetaDocumentSignature$outboundSchema),
+  z.lazy(() => FieldMetaDocumentInitials$outboundSchema),
+  z.lazy(() => FieldMetaDocumentName$outboundSchema),
+  z.lazy(() => FieldMetaDocumentEmail$outboundSchema),
+  z.lazy(() => FieldMetaDocumentDate$outboundSchema),
+  z.lazy(() => FieldMetaDocumentText$outboundSchema),
+  z.lazy(() => FieldMetaDocumentNumber$outboundSchema),
+  z.lazy(() => FieldMetaDocumentRadio$outboundSchema),
+  z.lazy(() => FieldMetaDocumentCheckbox$outboundSchema),
+  z.lazy(() => FieldMetaDocumentDropdown$outboundSchema),
 ]);
 
 export function documentFieldMetaUnionToJSON(
@@ -5836,7 +5393,7 @@ export const DocumentField$inboundSchema: z.ZodType<
 > = z.object({
   envelopeId: z.string(),
   envelopeItemId: z.string(),
-  type: DocumentFieldType$inboundSchema,
+  type: DocumentFieldTypeEnum$inboundSchema,
   id: z.number(),
   secondaryId: z.string(),
   recipientId: z.number(),
@@ -5849,36 +5406,16 @@ export const DocumentField$inboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() => FieldMetaDocumentSignature$inboundSchema).and(
-        z.object({ type: z.literal("signature") }),
-      ),
-      z.lazy(() => FieldMetaDocumentInitials$inboundSchema).and(
-        z.object({ type: z.literal("initials") }),
-      ),
-      z.lazy(() => FieldMetaDocumentName$inboundSchema).and(
-        z.object({ type: z.literal("name") }),
-      ),
-      z.lazy(() => FieldMetaDocumentEmail$inboundSchema).and(
-        z.object({ type: z.literal("email") }),
-      ),
-      z.lazy(() => FieldMetaDocumentDate$inboundSchema).and(
-        z.object({ type: z.literal("date") }),
-      ),
-      z.lazy(() => FieldMetaDocumentText$inboundSchema).and(
-        z.object({ type: z.literal("text") }),
-      ),
-      z.lazy(() => FieldMetaDocumentNumber$inboundSchema).and(
-        z.object({ type: z.literal("number") }),
-      ),
-      z.lazy(() => FieldMetaDocumentRadio$inboundSchema).and(
-        z.object({ type: z.literal("radio") }),
-      ),
-      z.lazy(() => FieldMetaDocumentCheckbox$inboundSchema).and(
-        z.object({ type: z.literal("checkbox") }),
-      ),
-      z.lazy(() => FieldMetaDocumentDropdown$inboundSchema).and(
-        z.object({ type: z.literal("dropdown") }),
-      ),
+      z.lazy(() => FieldMetaDocumentSignature$inboundSchema),
+      z.lazy(() => FieldMetaDocumentInitials$inboundSchema),
+      z.lazy(() => FieldMetaDocumentName$inboundSchema),
+      z.lazy(() => FieldMetaDocumentEmail$inboundSchema),
+      z.lazy(() => FieldMetaDocumentDate$inboundSchema),
+      z.lazy(() => FieldMetaDocumentText$inboundSchema),
+      z.lazy(() => FieldMetaDocumentNumber$inboundSchema),
+      z.lazy(() => FieldMetaDocumentRadio$inboundSchema),
+      z.lazy(() => FieldMetaDocumentCheckbox$inboundSchema),
+      z.lazy(() => FieldMetaDocumentDropdown$inboundSchema),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),
@@ -5900,16 +5437,16 @@ export type DocumentField$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | (FieldMetaDocumentSignature$Outbound & { type: "signature" })
-    | (FieldMetaDocumentInitials$Outbound & { type: "initials" })
-    | (FieldMetaDocumentName$Outbound & { type: "name" })
-    | (FieldMetaDocumentEmail$Outbound & { type: "email" })
-    | (FieldMetaDocumentDate$Outbound & { type: "date" })
-    | (FieldMetaDocumentText$Outbound & { type: "text" })
-    | (FieldMetaDocumentNumber$Outbound & { type: "number" })
-    | (FieldMetaDocumentRadio$Outbound & { type: "radio" })
-    | (FieldMetaDocumentCheckbox$Outbound & { type: "checkbox" })
-    | (FieldMetaDocumentDropdown$Outbound & { type: "dropdown" })
+    | FieldMetaDocumentSignature$Outbound
+    | FieldMetaDocumentInitials$Outbound
+    | FieldMetaDocumentName$Outbound
+    | FieldMetaDocumentEmail$Outbound
+    | FieldMetaDocumentDate$Outbound
+    | FieldMetaDocumentText$Outbound
+    | FieldMetaDocumentNumber$Outbound
+    | FieldMetaDocumentRadio$Outbound
+    | FieldMetaDocumentCheckbox$Outbound
+    | FieldMetaDocumentDropdown$Outbound
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -5923,7 +5460,7 @@ export const DocumentField$outboundSchema: z.ZodType<
 > = z.object({
   envelopeId: z.string(),
   envelopeItemId: z.string(),
-  type: DocumentFieldType$outboundSchema,
+  type: DocumentFieldTypeEnum$outboundSchema,
   id: z.number(),
   secondaryId: z.string(),
   recipientId: z.number(),
@@ -5936,36 +5473,16 @@ export const DocumentField$outboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() => FieldMetaDocumentSignature$outboundSchema).and(
-        z.object({ type: z.literal("signature") }),
-      ),
-      z.lazy(() => FieldMetaDocumentInitials$outboundSchema).and(
-        z.object({ type: z.literal("initials") }),
-      ),
-      z.lazy(() => FieldMetaDocumentName$outboundSchema).and(
-        z.object({ type: z.literal("name") }),
-      ),
-      z.lazy(() => FieldMetaDocumentEmail$outboundSchema).and(
-        z.object({ type: z.literal("email") }),
-      ),
-      z.lazy(() => FieldMetaDocumentDate$outboundSchema).and(
-        z.object({ type: z.literal("date") }),
-      ),
-      z.lazy(() => FieldMetaDocumentText$outboundSchema).and(
-        z.object({ type: z.literal("text") }),
-      ),
-      z.lazy(() => FieldMetaDocumentNumber$outboundSchema).and(
-        z.object({ type: z.literal("number") }),
-      ),
-      z.lazy(() => FieldMetaDocumentRadio$outboundSchema).and(
-        z.object({ type: z.literal("radio") }),
-      ),
-      z.lazy(() => FieldMetaDocumentCheckbox$outboundSchema).and(
-        z.object({ type: z.literal("checkbox") }),
-      ),
-      z.lazy(() => FieldMetaDocumentDropdown$outboundSchema).and(
-        z.object({ type: z.literal("dropdown") }),
-      ),
+      z.lazy(() => FieldMetaDocumentSignature$outboundSchema),
+      z.lazy(() => FieldMetaDocumentInitials$outboundSchema),
+      z.lazy(() => FieldMetaDocumentName$outboundSchema),
+      z.lazy(() => FieldMetaDocumentEmail$outboundSchema),
+      z.lazy(() => FieldMetaDocumentDate$outboundSchema),
+      z.lazy(() => FieldMetaDocumentText$outboundSchema),
+      z.lazy(() => FieldMetaDocumentNumber$outboundSchema),
+      z.lazy(() => FieldMetaDocumentRadio$outboundSchema),
+      z.lazy(() => FieldMetaDocumentCheckbox$outboundSchema),
+      z.lazy(() => FieldMetaDocumentDropdown$outboundSchema),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),

@@ -1,21 +1,21 @@
-speakeasyVersion: 1.662.0
+speakeasyVersion: 1.672.0
 sources:
     Documenso v2 beta API:
         sourceNamespace: documenso-v-2-beta-api
-        sourceRevisionDigest: sha256:1b7f45966886df9285171a20e382cde3665198062649690e3b58901188ba41ce
-        sourceBlobDigest: sha256:5be99e9e1ec427c47aab5d2cdd4fe44d5994fed3ab10710a5f72018954fa6a0d
+        sourceRevisionDigest: sha256:6cb559a8486bd68420703e77bf0c22a769afee0eb1d5ca1d7b59cf2c88a42921
+        sourceBlobDigest: sha256:6e7da0c55e0aacb4c4e01f92ef35ae0f8524227c623170167c3ae363d3bf2828
         tags:
             - latest
-            - speakeasy-sdk-regen-1763166235
+            - speakeasy-sdk-regen-1764807953
             - 1.0.0
 targets:
     documenso:
         source: Documenso v2 beta API
         sourceNamespace: documenso-v-2-beta-api
-        sourceRevisionDigest: sha256:1b7f45966886df9285171a20e382cde3665198062649690e3b58901188ba41ce
-        sourceBlobDigest: sha256:5be99e9e1ec427c47aab5d2cdd4fe44d5994fed3ab10710a5f72018954fa6a0d
+        sourceRevisionDigest: sha256:6cb559a8486bd68420703e77bf0c22a769afee0eb1d5ca1d7b59cf2c88a42921
+        sourceBlobDigest: sha256:6e7da0c55e0aacb4c4e01f92ef35ae0f8524227c623170167c3ae363d3bf2828
         codeSamplesNamespace: documenso-v-2-beta-api-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:ab36ab96353557d2b036cae34235619877ba19e62936cc1f217eff85e65d5ba0
+        codeSamplesRevisionDigest: sha256:98d4af339482bfabd0cba5665c6d5fe20e25e683c51fe15893fbda785f0ed406
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
