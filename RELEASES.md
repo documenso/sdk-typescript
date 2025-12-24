@@ -99,3 +99,13 @@ Based on:
 - [typescript v0.6.0] .
 ### Releases
 - [NPM v0.6.0] https://www.npmjs.com/package/@documenso/sdk-typescript/v/0.6.0 - .
+
+## 2025-12-24 06:09:02
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.680.5 (2.788.7) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.6.1] .
+### Releases
+- [NPM v0.6.1] https://www.npmjs.com/package/@documenso/sdk-typescript/v/0.6.1 - .

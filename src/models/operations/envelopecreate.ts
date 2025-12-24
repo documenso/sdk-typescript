@@ -650,6 +650,7 @@ export type EnvelopeCreateAttachment = {
 export type EnvelopeCreatePayload = {
   title: string;
   type: EnvelopeCreateTypeEnum;
+  delegatedDocumentOwner?: string | undefined;
   externalId?: string | undefined;
   visibility?: EnvelopeCreateVisibility | undefined;
   globalAccessAuth?: Array<EnvelopeCreateGlobalAccessAuth> | undefined;
@@ -3234,6 +3235,7 @@ export const EnvelopeCreatePayload$inboundSchema: z.ZodType<
 > = z.object({
   title: z.string(),
   type: EnvelopeCreateTypeEnum$inboundSchema,
+  delegatedDocumentOwner: z.string().optional(),
   externalId: z.string().optional(),
   visibility: EnvelopeCreateVisibility$inboundSchema.optional(),
   globalAccessAuth: z.array(EnvelopeCreateGlobalAccessAuth$inboundSchema)
@@ -3253,6 +3255,7 @@ export const EnvelopeCreatePayload$inboundSchema: z.ZodType<
 export type EnvelopeCreatePayload$Outbound = {
   title: string;
   type: string;
+  delegatedDocumentOwner?: string | undefined;
   externalId?: string | undefined;
   visibility?: string | undefined;
   globalAccessAuth?: Array<string> | undefined;
@@ -3272,6 +3275,7 @@ export const EnvelopeCreatePayload$outboundSchema: z.ZodType<
 > = z.object({
   title: z.string(),
   type: EnvelopeCreateTypeEnum$outboundSchema,
+  delegatedDocumentOwner: z.string().optional(),
   externalId: z.string().optional(),
   visibility: EnvelopeCreateVisibility$outboundSchema.optional(),
   globalAccessAuth: z.array(EnvelopeCreateGlobalAccessAuth$outboundSchema)

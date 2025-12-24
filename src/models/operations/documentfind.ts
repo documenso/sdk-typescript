@@ -11,7 +11,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 /**
  * Filter documents by how it was created.
  */
-export const QueryParamSource = {
+export const DocumentFindQueryParamSource = {
   Document: "DOCUMENT",
   Template: "TEMPLATE",
   TemplateDirectLink: "TEMPLATE_DIRECT_LINK",
@@ -19,12 +19,14 @@ export const QueryParamSource = {
 /**
  * Filter documents by how it was created.
  */
-export type QueryParamSource = ClosedEnum<typeof QueryParamSource>;
+export type DocumentFindQueryParamSource = ClosedEnum<
+  typeof DocumentFindQueryParamSource
+>;
 
 /**
  * Filter documents by the current status
  */
-export const QueryParamStatus = {
+export const DocumentFindQueryParamStatus = {
   Draft: "DRAFT",
   Pending: "PENDING",
   Completed: "COMPLETED",
@@ -33,7 +35,9 @@ export const QueryParamStatus = {
 /**
  * Filter documents by the current status
  */
-export type QueryParamStatus = ClosedEnum<typeof QueryParamStatus>;
+export type DocumentFindQueryParamStatus = ClosedEnum<
+  typeof DocumentFindQueryParamStatus
+>;
 
 export const DocumentFindOrderByColumn = {
   CreatedAt: "createdAt",
@@ -70,11 +74,11 @@ export type DocumentFindRequest = {
   /**
    * Filter documents by how it was created.
    */
-  source?: QueryParamSource | undefined;
+  source?: DocumentFindQueryParamSource | undefined;
   /**
    * Filter documents by the current status
    */
-  status?: QueryParamStatus | undefined;
+  status?: DocumentFindQueryParamStatus | undefined;
   /**
    * Filter documents by folder ID
    */
@@ -90,13 +94,13 @@ export const DocumentFindVisibility = {
 } as const;
 export type DocumentFindVisibility = ClosedEnum<typeof DocumentFindVisibility>;
 
-export const DataStatus = {
+export const DocumentFindDataStatus = {
   Draft: "DRAFT",
   Pending: "PENDING",
   Completed: "COMPLETED",
   Rejected: "REJECTED",
 } as const;
-export type DataStatus = ClosedEnum<typeof DataStatus>;
+export type DocumentFindDataStatus = ClosedEnum<typeof DocumentFindDataStatus>;
 
 export const DocumentFindDataSource = {
   Document: "DOCUMENT",
@@ -213,7 +217,7 @@ export type DocumentFindTeam = {
 
 export type DocumentFindData = {
   visibility: DocumentFindVisibility;
-  status: DataStatus;
+  status: DocumentFindDataStatus;
   source: DocumentFindDataSource;
   id: number;
   externalId: string | null;
@@ -249,22 +253,22 @@ export type DocumentFindResponse = {
 };
 
 /** @internal */
-export const QueryParamSource$inboundSchema: z.ZodNativeEnum<
-  typeof QueryParamSource
-> = z.nativeEnum(QueryParamSource);
+export const DocumentFindQueryParamSource$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentFindQueryParamSource
+> = z.nativeEnum(DocumentFindQueryParamSource);
 /** @internal */
-export const QueryParamSource$outboundSchema: z.ZodNativeEnum<
-  typeof QueryParamSource
-> = QueryParamSource$inboundSchema;
+export const DocumentFindQueryParamSource$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentFindQueryParamSource
+> = DocumentFindQueryParamSource$inboundSchema;
 
 /** @internal */
-export const QueryParamStatus$inboundSchema: z.ZodNativeEnum<
-  typeof QueryParamStatus
-> = z.nativeEnum(QueryParamStatus);
+export const DocumentFindQueryParamStatus$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentFindQueryParamStatus
+> = z.nativeEnum(DocumentFindQueryParamStatus);
 /** @internal */
-export const QueryParamStatus$outboundSchema: z.ZodNativeEnum<
-  typeof QueryParamStatus
-> = QueryParamStatus$inboundSchema;
+export const DocumentFindQueryParamStatus$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentFindQueryParamStatus
+> = DocumentFindQueryParamStatus$inboundSchema;
 
 /** @internal */
 export const DocumentFindOrderByColumn$inboundSchema: z.ZodNativeEnum<
@@ -294,8 +298,8 @@ export const DocumentFindRequest$inboundSchema: z.ZodType<
   page: z.number().optional(),
   perPage: z.number().optional(),
   templateId: z.number().optional(),
-  source: QueryParamSource$inboundSchema.optional(),
-  status: QueryParamStatus$inboundSchema.optional(),
+  source: DocumentFindQueryParamSource$inboundSchema.optional(),
+  status: DocumentFindQueryParamStatus$inboundSchema.optional(),
   folderId: z.string().optional(),
   orderByColumn: DocumentFindOrderByColumn$inboundSchema.optional(),
   orderByDirection: DocumentFindOrderByDirection$inboundSchema.default("desc"),
@@ -323,8 +327,8 @@ export const DocumentFindRequest$outboundSchema: z.ZodType<
   page: z.number().optional(),
   perPage: z.number().optional(),
   templateId: z.number().optional(),
-  source: QueryParamSource$outboundSchema.optional(),
-  status: QueryParamStatus$outboundSchema.optional(),
+  source: DocumentFindQueryParamSource$outboundSchema.optional(),
+  status: DocumentFindQueryParamStatus$outboundSchema.optional(),
   folderId: z.string().optional(),
   orderByColumn: DocumentFindOrderByColumn$outboundSchema.optional(),
   orderByDirection: DocumentFindOrderByDirection$outboundSchema.default("desc"),
@@ -357,11 +361,13 @@ export const DocumentFindVisibility$outboundSchema: z.ZodNativeEnum<
 > = DocumentFindVisibility$inboundSchema;
 
 /** @internal */
-export const DataStatus$inboundSchema: z.ZodNativeEnum<typeof DataStatus> = z
-  .nativeEnum(DataStatus);
+export const DocumentFindDataStatus$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentFindDataStatus
+> = z.nativeEnum(DocumentFindDataStatus);
 /** @internal */
-export const DataStatus$outboundSchema: z.ZodNativeEnum<typeof DataStatus> =
-  DataStatus$inboundSchema;
+export const DocumentFindDataStatus$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentFindDataStatus
+> = DocumentFindDataStatus$inboundSchema;
 
 /** @internal */
 export const DocumentFindDataSource$inboundSchema: z.ZodNativeEnum<
@@ -748,7 +754,7 @@ export const DocumentFindData$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   visibility: DocumentFindVisibility$inboundSchema,
-  status: DataStatus$inboundSchema,
+  status: DocumentFindDataStatus$inboundSchema,
   source: DocumentFindDataSource$inboundSchema,
   id: z.number(),
   externalId: z.nullable(z.string()),
@@ -807,7 +813,7 @@ export const DocumentFindData$outboundSchema: z.ZodType<
   DocumentFindData
 > = z.object({
   visibility: DocumentFindVisibility$outboundSchema,
-  status: DataStatus$outboundSchema,
+  status: DocumentFindDataStatus$outboundSchema,
   source: DocumentFindDataSource$outboundSchema,
   id: z.number(),
   externalId: z.nullable(z.string()),

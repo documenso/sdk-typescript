@@ -10,7 +10,7 @@ let value: EnvelopeAuditLogFindData18 = {
   recipientName: "<value>",
   recipientId: 3751.76,
   recipientRole: "<value>",
-  actionAuth: [],
+  accessAuth: [],
 };
 ```
 
@@ -22,4 +22,4 @@ let value: EnvelopeAuditLogFindData18 = {
 | `recipientName`                                                                                            | *string*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
 | `recipientId`                                                                                              | *number*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
 | `recipientRole`                                                                                            | *string*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
-| `actionAuth`                                                                                               | [operations.EnvelopeAuditLogFindActionAuth1](../../models/operations/envelopeauditlogfindactionauth1.md)[] | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| `accessAuth`                                                                                               | [operations.EnvelopeAuditLogFindAccessAuth2](../../models/operations/envelopeauditlogfindaccessauth2.md)[] | :heavy_check_mark:                                                                                         | N/A                                                                                                        |

@@ -8,39 +8,39 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export const DocumentUpdateDataVisibility = {
+export const DocumentUpdateVisibilityRequest = {
   Everyone: "EVERYONE",
   ManagerAndAbove: "MANAGER_AND_ABOVE",
   Admin: "ADMIN",
 } as const;
-export type DocumentUpdateDataVisibility = ClosedEnum<
-  typeof DocumentUpdateDataVisibility
+export type DocumentUpdateVisibilityRequest = ClosedEnum<
+  typeof DocumentUpdateVisibilityRequest
 >;
 
-export const DocumentUpdateDataGlobalAccessAuth = {
+export const DocumentUpdateGlobalAccessAuthRequest = {
   Account: "ACCOUNT",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
 } as const;
-export type DocumentUpdateDataGlobalAccessAuth = ClosedEnum<
-  typeof DocumentUpdateDataGlobalAccessAuth
+export type DocumentUpdateGlobalAccessAuthRequest = ClosedEnum<
+  typeof DocumentUpdateGlobalAccessAuthRequest
 >;
 
-export const DocumentUpdateDataGlobalActionAuth = {
+export const DocumentUpdateGlobalActionAuthRequest = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
   Password: "PASSWORD",
 } as const;
-export type DocumentUpdateDataGlobalActionAuth = ClosedEnum<
-  typeof DocumentUpdateDataGlobalActionAuth
+export type DocumentUpdateGlobalActionAuthRequest = ClosedEnum<
+  typeof DocumentUpdateGlobalActionAuthRequest
 >;
 
 export type DocumentUpdateData = {
   title?: string | undefined;
   externalId?: string | null | undefined;
-  visibility?: DocumentUpdateDataVisibility | undefined;
-  globalAccessAuth?: Array<DocumentUpdateDataGlobalAccessAuth> | undefined;
-  globalActionAuth?: Array<DocumentUpdateDataGlobalActionAuth> | undefined;
+  visibility?: DocumentUpdateVisibilityRequest | undefined;
+  globalAccessAuth?: Array<DocumentUpdateGlobalAccessAuthRequest> | undefined;
+  globalActionAuth?: Array<DocumentUpdateGlobalActionAuthRequest> | undefined;
   useLegacyFieldInsertion?: boolean | undefined;
   folderId?: string | null | undefined;
 };
@@ -214,31 +214,33 @@ export type DocumentUpdateResponse = {
 };
 
 /** @internal */
-export const DocumentUpdateDataVisibility$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentUpdateDataVisibility
-> = z.nativeEnum(DocumentUpdateDataVisibility);
+export const DocumentUpdateVisibilityRequest$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentUpdateVisibilityRequest
+> = z.nativeEnum(DocumentUpdateVisibilityRequest);
 /** @internal */
-export const DocumentUpdateDataVisibility$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentUpdateDataVisibility
-> = DocumentUpdateDataVisibility$inboundSchema;
+export const DocumentUpdateVisibilityRequest$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentUpdateVisibilityRequest
+> = DocumentUpdateVisibilityRequest$inboundSchema;
 
 /** @internal */
-export const DocumentUpdateDataGlobalAccessAuth$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentUpdateDataGlobalAccessAuth
-> = z.nativeEnum(DocumentUpdateDataGlobalAccessAuth);
+export const DocumentUpdateGlobalAccessAuthRequest$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentUpdateGlobalAccessAuthRequest> = z.nativeEnum(
+    DocumentUpdateGlobalAccessAuthRequest,
+  );
 /** @internal */
-export const DocumentUpdateDataGlobalAccessAuth$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentUpdateDataGlobalAccessAuth
-> = DocumentUpdateDataGlobalAccessAuth$inboundSchema;
+export const DocumentUpdateGlobalAccessAuthRequest$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentUpdateGlobalAccessAuthRequest> =
+    DocumentUpdateGlobalAccessAuthRequest$inboundSchema;
 
 /** @internal */
-export const DocumentUpdateDataGlobalActionAuth$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentUpdateDataGlobalActionAuth
-> = z.nativeEnum(DocumentUpdateDataGlobalActionAuth);
+export const DocumentUpdateGlobalActionAuthRequest$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentUpdateGlobalActionAuthRequest> = z.nativeEnum(
+    DocumentUpdateGlobalActionAuthRequest,
+  );
 /** @internal */
-export const DocumentUpdateDataGlobalActionAuth$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentUpdateDataGlobalActionAuth
-> = DocumentUpdateDataGlobalActionAuth$inboundSchema;
+export const DocumentUpdateGlobalActionAuthRequest$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentUpdateGlobalActionAuthRequest> =
+    DocumentUpdateGlobalActionAuthRequest$inboundSchema;
 
 /** @internal */
 export const DocumentUpdateData$inboundSchema: z.ZodType<
@@ -248,10 +250,10 @@ export const DocumentUpdateData$inboundSchema: z.ZodType<
 > = z.object({
   title: z.string().optional(),
   externalId: z.nullable(z.string()).optional(),
-  visibility: DocumentUpdateDataVisibility$inboundSchema.optional(),
-  globalAccessAuth: z.array(DocumentUpdateDataGlobalAccessAuth$inboundSchema)
+  visibility: DocumentUpdateVisibilityRequest$inboundSchema.optional(),
+  globalAccessAuth: z.array(DocumentUpdateGlobalAccessAuthRequest$inboundSchema)
     .optional(),
-  globalActionAuth: z.array(DocumentUpdateDataGlobalActionAuth$inboundSchema)
+  globalActionAuth: z.array(DocumentUpdateGlobalActionAuthRequest$inboundSchema)
     .optional(),
   useLegacyFieldInsertion: z.boolean().optional(),
   folderId: z.nullable(z.string()).optional(),
@@ -275,11 +277,13 @@ export const DocumentUpdateData$outboundSchema: z.ZodType<
 > = z.object({
   title: z.string().optional(),
   externalId: z.nullable(z.string()).optional(),
-  visibility: DocumentUpdateDataVisibility$outboundSchema.optional(),
-  globalAccessAuth: z.array(DocumentUpdateDataGlobalAccessAuth$outboundSchema)
-    .optional(),
-  globalActionAuth: z.array(DocumentUpdateDataGlobalActionAuth$outboundSchema)
-    .optional(),
+  visibility: DocumentUpdateVisibilityRequest$outboundSchema.optional(),
+  globalAccessAuth: z.array(
+    DocumentUpdateGlobalAccessAuthRequest$outboundSchema,
+  ).optional(),
+  globalActionAuth: z.array(
+    DocumentUpdateGlobalActionAuthRequest$outboundSchema,
+  ).optional(),
   useLegacyFieldInsertion: z.boolean().optional(),
   folderId: z.nullable(z.string()).optional(),
 });
