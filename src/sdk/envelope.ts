@@ -3,11 +3,30 @@
  */
 
 import { envelopeEnvelopeAuditLogFind } from "../funcs/envelopeEnvelopeAuditLogFind.js";
+import { envelopeEnvelopeFind } from "../funcs/envelopeEnvelopeFind.js";
+import { envelopeEnvelopeGetMany } from "../funcs/envelopeEnvelopeGetMany.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 
 export class Envelope extends ClientSDK {
+  /**
+   * Find envelopes
+   *
+   * @remarks
+   * Find envelopes based on search criteria
+   */
+  async envelopeFind(
+    request: operations.EnvelopeFindRequest,
+    options?: RequestOptions,
+  ): Promise<operations.EnvelopeFindResponse> {
+    return unwrapAsync(envelopeEnvelopeFind(
+      this,
+      request,
+      options,
+    ));
+  }
+
   /**
    * Get envelope audit logs
    *
@@ -19,6 +38,23 @@ export class Envelope extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.EnvelopeAuditLogFindResponse> {
     return unwrapAsync(envelopeEnvelopeAuditLogFind(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get multiple envelopes
+   *
+   * @remarks
+   * Retrieve multiple envelopes by their IDs
+   */
+  async envelopeGetMany(
+    request: operations.EnvelopeGetManyRequest,
+    options?: RequestOptions,
+  ): Promise<operations.EnvelopeGetManyResponse> {
+    return unwrapAsync(envelopeEnvelopeGetMany(
       this,
       request,
       options,

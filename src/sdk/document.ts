@@ -3,11 +3,29 @@
  */
 
 import { documentDocumentDownload } from "../funcs/documentDocumentDownload.js";
+import { documentDocumentGetMany } from "../funcs/documentDocumentGetMany.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 
 export class Document extends ClientSDK {
+  /**
+   * Get multiple documents
+   *
+   * @remarks
+   * Retrieve multiple documents by their IDs
+   */
+  async documentGetMany(
+    request: operations.DocumentGetManyRequest,
+    options?: RequestOptions,
+  ): Promise<operations.DocumentGetManyResponse> {
+    return unwrapAsync(documentDocumentGetMany(
+      this,
+      request,
+      options,
+    ));
+  }
+
   /**
    * Download document (beta)
    *

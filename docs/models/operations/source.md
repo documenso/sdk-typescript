@@ -3,10 +3,10 @@
 
 ## Supported Types
 
-### `operations.SourceDocument`
+### `operations.EnvelopeAuditLogFindSourceDocument`
 
 ```typescript
-const value: operations.SourceDocument = {
+const value: operations.EnvelopeAuditLogFindSourceDocument = {
   type: "DOCUMENT",
 };
 ```

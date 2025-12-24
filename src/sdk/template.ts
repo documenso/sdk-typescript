@@ -3,11 +3,29 @@
  */
 
 import { templateTemplateCreateTemplateTemporary } from "../funcs/templateTemplateCreateTemplateTemporary.js";
+import { templateTemplateGetMany } from "../funcs/templateTemplateGetMany.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 
 export class Template extends ClientSDK {
+  /**
+   * Get multiple templates
+   *
+   * @remarks
+   * Retrieve multiple templates by their IDs
+   */
+  async templateGetMany(
+    request: operations.TemplateGetManyRequest,
+    options?: RequestOptions,
+  ): Promise<operations.TemplateGetManyResponse> {
+    return unwrapAsync(templateTemplateGetMany(
+      this,
+      request,
+      options,
+    ));
+  }
+
   /**
    * Create template
    *

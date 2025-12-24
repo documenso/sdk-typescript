@@ -8,39 +8,39 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export const EnvelopeUpdateDataVisibility = {
+export const EnvelopeUpdateVisibilityRequest = {
   Everyone: "EVERYONE",
   ManagerAndAbove: "MANAGER_AND_ABOVE",
   Admin: "ADMIN",
 } as const;
-export type EnvelopeUpdateDataVisibility = ClosedEnum<
-  typeof EnvelopeUpdateDataVisibility
+export type EnvelopeUpdateVisibilityRequest = ClosedEnum<
+  typeof EnvelopeUpdateVisibilityRequest
 >;
 
-export const EnvelopeUpdateDataGlobalAccessAuth = {
+export const EnvelopeUpdateGlobalAccessAuthRequest = {
   Account: "ACCOUNT",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
 } as const;
-export type EnvelopeUpdateDataGlobalAccessAuth = ClosedEnum<
-  typeof EnvelopeUpdateDataGlobalAccessAuth
+export type EnvelopeUpdateGlobalAccessAuthRequest = ClosedEnum<
+  typeof EnvelopeUpdateGlobalAccessAuthRequest
 >;
 
-export const EnvelopeUpdateDataGlobalActionAuth = {
+export const EnvelopeUpdateGlobalActionAuthRequest = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
   Password: "PASSWORD",
 } as const;
-export type EnvelopeUpdateDataGlobalActionAuth = ClosedEnum<
-  typeof EnvelopeUpdateDataGlobalActionAuth
+export type EnvelopeUpdateGlobalActionAuthRequest = ClosedEnum<
+  typeof EnvelopeUpdateGlobalActionAuthRequest
 >;
 
 export type EnvelopeUpdateData = {
   title?: string | undefined;
   externalId?: string | null | undefined;
-  visibility?: EnvelopeUpdateDataVisibility | undefined;
-  globalAccessAuth?: Array<EnvelopeUpdateDataGlobalAccessAuth> | undefined;
-  globalActionAuth?: Array<EnvelopeUpdateDataGlobalActionAuth> | undefined;
+  visibility?: EnvelopeUpdateVisibilityRequest | undefined;
+  globalAccessAuth?: Array<EnvelopeUpdateGlobalAccessAuthRequest> | undefined;
+  globalActionAuth?: Array<EnvelopeUpdateGlobalActionAuthRequest> | undefined;
   folderId?: string | null | undefined;
 };
 
@@ -228,31 +228,33 @@ export type EnvelopeUpdateResponse = {
 };
 
 /** @internal */
-export const EnvelopeUpdateDataVisibility$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeUpdateDataVisibility
-> = z.nativeEnum(EnvelopeUpdateDataVisibility);
+export const EnvelopeUpdateVisibilityRequest$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeUpdateVisibilityRequest
+> = z.nativeEnum(EnvelopeUpdateVisibilityRequest);
 /** @internal */
-export const EnvelopeUpdateDataVisibility$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeUpdateDataVisibility
-> = EnvelopeUpdateDataVisibility$inboundSchema;
+export const EnvelopeUpdateVisibilityRequest$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeUpdateVisibilityRequest
+> = EnvelopeUpdateVisibilityRequest$inboundSchema;
 
 /** @internal */
-export const EnvelopeUpdateDataGlobalAccessAuth$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeUpdateDataGlobalAccessAuth
-> = z.nativeEnum(EnvelopeUpdateDataGlobalAccessAuth);
+export const EnvelopeUpdateGlobalAccessAuthRequest$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeUpdateGlobalAccessAuthRequest> = z.nativeEnum(
+    EnvelopeUpdateGlobalAccessAuthRequest,
+  );
 /** @internal */
-export const EnvelopeUpdateDataGlobalAccessAuth$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeUpdateDataGlobalAccessAuth
-> = EnvelopeUpdateDataGlobalAccessAuth$inboundSchema;
+export const EnvelopeUpdateGlobalAccessAuthRequest$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeUpdateGlobalAccessAuthRequest> =
+    EnvelopeUpdateGlobalAccessAuthRequest$inboundSchema;
 
 /** @internal */
-export const EnvelopeUpdateDataGlobalActionAuth$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeUpdateDataGlobalActionAuth
-> = z.nativeEnum(EnvelopeUpdateDataGlobalActionAuth);
+export const EnvelopeUpdateGlobalActionAuthRequest$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeUpdateGlobalActionAuthRequest> = z.nativeEnum(
+    EnvelopeUpdateGlobalActionAuthRequest,
+  );
 /** @internal */
-export const EnvelopeUpdateDataGlobalActionAuth$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeUpdateDataGlobalActionAuth
-> = EnvelopeUpdateDataGlobalActionAuth$inboundSchema;
+export const EnvelopeUpdateGlobalActionAuthRequest$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeUpdateGlobalActionAuthRequest> =
+    EnvelopeUpdateGlobalActionAuthRequest$inboundSchema;
 
 /** @internal */
 export const EnvelopeUpdateData$inboundSchema: z.ZodType<
@@ -262,10 +264,10 @@ export const EnvelopeUpdateData$inboundSchema: z.ZodType<
 > = z.object({
   title: z.string().optional(),
   externalId: z.nullable(z.string()).optional(),
-  visibility: EnvelopeUpdateDataVisibility$inboundSchema.optional(),
-  globalAccessAuth: z.array(EnvelopeUpdateDataGlobalAccessAuth$inboundSchema)
+  visibility: EnvelopeUpdateVisibilityRequest$inboundSchema.optional(),
+  globalAccessAuth: z.array(EnvelopeUpdateGlobalAccessAuthRequest$inboundSchema)
     .optional(),
-  globalActionAuth: z.array(EnvelopeUpdateDataGlobalActionAuth$inboundSchema)
+  globalActionAuth: z.array(EnvelopeUpdateGlobalActionAuthRequest$inboundSchema)
     .optional(),
   folderId: z.nullable(z.string()).optional(),
 });
@@ -287,11 +289,13 @@ export const EnvelopeUpdateData$outboundSchema: z.ZodType<
 > = z.object({
   title: z.string().optional(),
   externalId: z.nullable(z.string()).optional(),
-  visibility: EnvelopeUpdateDataVisibility$outboundSchema.optional(),
-  globalAccessAuth: z.array(EnvelopeUpdateDataGlobalAccessAuth$outboundSchema)
-    .optional(),
-  globalActionAuth: z.array(EnvelopeUpdateDataGlobalActionAuth$outboundSchema)
-    .optional(),
+  visibility: EnvelopeUpdateVisibilityRequest$outboundSchema.optional(),
+  globalAccessAuth: z.array(
+    EnvelopeUpdateGlobalAccessAuthRequest$outboundSchema,
+  ).optional(),
+  globalActionAuth: z.array(
+    EnvelopeUpdateGlobalActionAuthRequest$outboundSchema,
+  ).optional(),
   folderId: z.nullable(z.string()).optional(),
 });
 

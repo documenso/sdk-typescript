@@ -8,19 +8,19 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export const FolderUpdateFolderDataVisibility = {
+export const FolderUpdateFolderVisibilityRequest = {
   Everyone: "EVERYONE",
   ManagerAndAbove: "MANAGER_AND_ABOVE",
   Admin: "ADMIN",
 } as const;
-export type FolderUpdateFolderDataVisibility = ClosedEnum<
-  typeof FolderUpdateFolderDataVisibility
+export type FolderUpdateFolderVisibilityRequest = ClosedEnum<
+  typeof FolderUpdateFolderVisibilityRequest
 >;
 
 export type FolderUpdateFolderData = {
   name?: string | undefined;
   parentId?: string | null | undefined;
-  visibility?: FolderUpdateFolderDataVisibility | undefined;
+  visibility?: FolderUpdateFolderVisibilityRequest | undefined;
   pinned?: boolean | undefined;
 };
 
@@ -61,13 +61,13 @@ export type FolderUpdateFolderResponse = {
 };
 
 /** @internal */
-export const FolderUpdateFolderDataVisibility$inboundSchema: z.ZodNativeEnum<
-  typeof FolderUpdateFolderDataVisibility
-> = z.nativeEnum(FolderUpdateFolderDataVisibility);
+export const FolderUpdateFolderVisibilityRequest$inboundSchema: z.ZodNativeEnum<
+  typeof FolderUpdateFolderVisibilityRequest
+> = z.nativeEnum(FolderUpdateFolderVisibilityRequest);
 /** @internal */
-export const FolderUpdateFolderDataVisibility$outboundSchema: z.ZodNativeEnum<
-  typeof FolderUpdateFolderDataVisibility
-> = FolderUpdateFolderDataVisibility$inboundSchema;
+export const FolderUpdateFolderVisibilityRequest$outboundSchema:
+  z.ZodNativeEnum<typeof FolderUpdateFolderVisibilityRequest> =
+    FolderUpdateFolderVisibilityRequest$inboundSchema;
 
 /** @internal */
 export const FolderUpdateFolderData$inboundSchema: z.ZodType<
@@ -77,7 +77,7 @@ export const FolderUpdateFolderData$inboundSchema: z.ZodType<
 > = z.object({
   name: z.string().optional(),
   parentId: z.nullable(z.string()).optional(),
-  visibility: FolderUpdateFolderDataVisibility$inboundSchema.optional(),
+  visibility: FolderUpdateFolderVisibilityRequest$inboundSchema.optional(),
   pinned: z.boolean().optional(),
 });
 /** @internal */
@@ -96,7 +96,7 @@ export const FolderUpdateFolderData$outboundSchema: z.ZodType<
 > = z.object({
   name: z.string().optional(),
   parentId: z.nullable(z.string()).optional(),
-  visibility: FolderUpdateFolderDataVisibility$outboundSchema.optional(),
+  visibility: FolderUpdateFolderVisibilityRequest$outboundSchema.optional(),
   pinned: z.boolean().optional(),
 });
 

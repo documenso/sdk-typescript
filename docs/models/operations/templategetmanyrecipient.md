@@ -1,0 +1,50 @@
+# TemplateGetManyRecipient
+
+## Example Usage
+
+```typescript
+import { TemplateGetManyRecipient } from "@documenso/sdk-typescript/models/operations";
+
+let value: TemplateGetManyRecipient = {
+  envelopeId: "<id>",
+  role: "CC",
+  readStatus: "OPENED",
+  signingStatus: "SIGNED",
+  sendStatus: "NOT_SENT",
+  id: 9189.57,
+  email: "Kameron87@yahoo.com",
+  name: "<value>",
+  token: "<value>",
+  documentDeletedAt: null,
+  expired: "<value>",
+  signedAt: "<value>",
+  authOptions: {
+    accessAuth: [],
+    actionAuth: [],
+  },
+  signingOrder: null,
+  rejectionReason: "<value>",
+};
+```
+
+## Fields
+
+| Field                                                                                                            | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `envelopeId`                                                                                                     | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `role`                                                                                                           | [operations.TemplateGetManyRole](../../models/operations/templategetmanyrole.md)                                 | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `readStatus`                                                                                                     | [operations.TemplateGetManyReadStatus](../../models/operations/templategetmanyreadstatus.md)                     | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `signingStatus`                                                                                                  | [operations.TemplateGetManySigningStatus](../../models/operations/templategetmanysigningstatus.md)               | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `sendStatus`                                                                                                     | [operations.TemplateGetManySendStatus](../../models/operations/templategetmanysendstatus.md)                     | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `id`                                                                                                             | *number*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `email`                                                                                                          | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `name`                                                                                                           | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `token`                                                                                                          | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `documentDeletedAt`                                                                                              | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `expired`                                                                                                        | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `signedAt`                                                                                                       | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `authOptions`                                                                                                    | [operations.TemplateGetManyRecipientAuthOptions](../../models/operations/templategetmanyrecipientauthoptions.md) | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `signingOrder`                                                                                                   | *number*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `rejectionReason`                                                                                                | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `documentId`                                                                                                     | *number*                                                                                                         | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |
+| `templateId`                                                                                                     | *number*                                                                                                         | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |

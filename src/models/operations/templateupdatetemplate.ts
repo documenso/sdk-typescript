@@ -8,31 +8,31 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export const TemplateUpdateTemplateDataVisibility = {
+export const TemplateUpdateTemplateVisibilityRequest = {
   Everyone: "EVERYONE",
   ManagerAndAbove: "MANAGER_AND_ABOVE",
   Admin: "ADMIN",
 } as const;
-export type TemplateUpdateTemplateDataVisibility = ClosedEnum<
-  typeof TemplateUpdateTemplateDataVisibility
+export type TemplateUpdateTemplateVisibilityRequest = ClosedEnum<
+  typeof TemplateUpdateTemplateVisibilityRequest
 >;
 
-export const TemplateUpdateTemplateDataGlobalAccessAuth = {
+export const TemplateUpdateTemplateGlobalAccessAuthRequest = {
   Account: "ACCOUNT",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
 } as const;
-export type TemplateUpdateTemplateDataGlobalAccessAuth = ClosedEnum<
-  typeof TemplateUpdateTemplateDataGlobalAccessAuth
+export type TemplateUpdateTemplateGlobalAccessAuthRequest = ClosedEnum<
+  typeof TemplateUpdateTemplateGlobalAccessAuthRequest
 >;
 
-export const TemplateUpdateTemplateDataGlobalActionAuth = {
+export const TemplateUpdateTemplateGlobalActionAuthRequest = {
   Account: "ACCOUNT",
   Passkey: "PASSKEY",
   TwoFactorAuth: "TWO_FACTOR_AUTH",
   Password: "PASSWORD",
 } as const;
-export type TemplateUpdateTemplateDataGlobalActionAuth = ClosedEnum<
-  typeof TemplateUpdateTemplateDataGlobalActionAuth
+export type TemplateUpdateTemplateGlobalActionAuthRequest = ClosedEnum<
+  typeof TemplateUpdateTemplateGlobalActionAuthRequest
 >;
 
 export const TemplateUpdateTemplateDataType = {
@@ -46,12 +46,12 @@ export type TemplateUpdateTemplateDataType = ClosedEnum<
 export type TemplateUpdateTemplateData = {
   title?: string | undefined;
   externalId?: string | null | undefined;
-  visibility?: TemplateUpdateTemplateDataVisibility | undefined;
+  visibility?: TemplateUpdateTemplateVisibilityRequest | undefined;
   globalAccessAuth?:
-    | Array<TemplateUpdateTemplateDataGlobalAccessAuth>
+    | Array<TemplateUpdateTemplateGlobalAccessAuthRequest>
     | undefined;
   globalActionAuth?:
-    | Array<TemplateUpdateTemplateDataGlobalActionAuth>
+    | Array<TemplateUpdateTemplateGlobalActionAuthRequest>
     | undefined;
   publicTitle?: string | undefined;
   publicDescription?: string | undefined;
@@ -218,32 +218,31 @@ export type TemplateUpdateTemplateResponse = {
 };
 
 /** @internal */
-export const TemplateUpdateTemplateDataVisibility$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateDataVisibility> = z.nativeEnum(
-    TemplateUpdateTemplateDataVisibility,
-  );
+export const TemplateUpdateTemplateVisibilityRequest$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateVisibilityRequest> = z
+    .nativeEnum(TemplateUpdateTemplateVisibilityRequest);
 /** @internal */
-export const TemplateUpdateTemplateDataVisibility$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateDataVisibility> =
-    TemplateUpdateTemplateDataVisibility$inboundSchema;
+export const TemplateUpdateTemplateVisibilityRequest$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateVisibilityRequest> =
+    TemplateUpdateTemplateVisibilityRequest$inboundSchema;
 
 /** @internal */
-export const TemplateUpdateTemplateDataGlobalAccessAuth$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateDataGlobalAccessAuth> = z
-    .nativeEnum(TemplateUpdateTemplateDataGlobalAccessAuth);
+export const TemplateUpdateTemplateGlobalAccessAuthRequest$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateGlobalAccessAuthRequest> = z
+    .nativeEnum(TemplateUpdateTemplateGlobalAccessAuthRequest);
 /** @internal */
-export const TemplateUpdateTemplateDataGlobalAccessAuth$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateDataGlobalAccessAuth> =
-    TemplateUpdateTemplateDataGlobalAccessAuth$inboundSchema;
+export const TemplateUpdateTemplateGlobalAccessAuthRequest$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateGlobalAccessAuthRequest> =
+    TemplateUpdateTemplateGlobalAccessAuthRequest$inboundSchema;
 
 /** @internal */
-export const TemplateUpdateTemplateDataGlobalActionAuth$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateDataGlobalActionAuth> = z
-    .nativeEnum(TemplateUpdateTemplateDataGlobalActionAuth);
+export const TemplateUpdateTemplateGlobalActionAuthRequest$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateGlobalActionAuthRequest> = z
+    .nativeEnum(TemplateUpdateTemplateGlobalActionAuthRequest);
 /** @internal */
-export const TemplateUpdateTemplateDataGlobalActionAuth$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateDataGlobalActionAuth> =
-    TemplateUpdateTemplateDataGlobalActionAuth$inboundSchema;
+export const TemplateUpdateTemplateGlobalActionAuthRequest$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateGlobalActionAuthRequest> =
+    TemplateUpdateTemplateGlobalActionAuthRequest$inboundSchema;
 
 /** @internal */
 export const TemplateUpdateTemplateDataType$inboundSchema: z.ZodNativeEnum<
@@ -262,12 +261,12 @@ export const TemplateUpdateTemplateData$inboundSchema: z.ZodType<
 > = z.object({
   title: z.string().optional(),
   externalId: z.nullable(z.string()).optional(),
-  visibility: TemplateUpdateTemplateDataVisibility$inboundSchema.optional(),
+  visibility: TemplateUpdateTemplateVisibilityRequest$inboundSchema.optional(),
   globalAccessAuth: z.array(
-    TemplateUpdateTemplateDataGlobalAccessAuth$inboundSchema,
+    TemplateUpdateTemplateGlobalAccessAuthRequest$inboundSchema,
   ).optional(),
   globalActionAuth: z.array(
-    TemplateUpdateTemplateDataGlobalActionAuth$inboundSchema,
+    TemplateUpdateTemplateGlobalActionAuthRequest$inboundSchema,
   ).optional(),
   publicTitle: z.string().optional(),
   publicDescription: z.string().optional(),
@@ -297,12 +296,12 @@ export const TemplateUpdateTemplateData$outboundSchema: z.ZodType<
 > = z.object({
   title: z.string().optional(),
   externalId: z.nullable(z.string()).optional(),
-  visibility: TemplateUpdateTemplateDataVisibility$outboundSchema.optional(),
+  visibility: TemplateUpdateTemplateVisibilityRequest$outboundSchema.optional(),
   globalAccessAuth: z.array(
-    TemplateUpdateTemplateDataGlobalAccessAuth$outboundSchema,
+    TemplateUpdateTemplateGlobalAccessAuthRequest$outboundSchema,
   ).optional(),
   globalActionAuth: z.array(
-    TemplateUpdateTemplateDataGlobalActionAuth$outboundSchema,
+    TemplateUpdateTemplateGlobalActionAuthRequest$outboundSchema,
   ).optional(),
   publicTitle: z.string().optional(),
   publicDescription: z.string().optional(),

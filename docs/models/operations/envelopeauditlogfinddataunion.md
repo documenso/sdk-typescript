@@ -110,6 +110,22 @@ const value: operations.DataDocumentMovedToTeam = {
 };
 ```
 
+### `operations.DataDocumentDelegatedOwnerCreated`
+
+```typescript
+const value: operations.DataDocumentDelegatedOwnerCreated = {
+  type: "DOCUMENT_DELEGATED_OWNER_CREATED",
+  data: {
+    delegatedOwnerName: "<value>",
+    delegatedOwnerEmail: "<value>",
+    teamName: "<value>",
+  },
+  id: "<id>",
+  createdAt: "1733496142223",
+  envelopeId: "<id>",
+};
+```
+
 ### `operations.DataDocumentFieldsAutoInserted`
 
 ```typescript

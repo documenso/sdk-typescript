@@ -14,6 +14,7 @@ import {
 import { MCPScope } from "./scopes.js";
 import { createRegisterTool } from "./tools.js";
 import { tool$documentDocumentDownload } from "./tools/documentDocumentDownload.js";
+import { tool$documentDocumentGetMany } from "./tools/documentDocumentGetMany.js";
 import { tool$documentsAttachmentsCreate } from "./tools/documentsAttachmentsCreate.js";
 import { tool$documentsAttachmentsDelete } from "./tools/documentsAttachmentsDelete.js";
 import { tool$documentsAttachmentsFind } from "./tools/documentsAttachmentsFind.js";
@@ -43,6 +44,8 @@ import { tool$documentsUpdate } from "./tools/documentsUpdate.js";
 import { tool$embeddingEmbeddingPresignCreateEmbeddingPresignToken } from "./tools/embeddingEmbeddingPresignCreateEmbeddingPresignToken.js";
 import { tool$embeddingEmbeddingPresignVerifyEmbeddingPresignToken } from "./tools/embeddingEmbeddingPresignVerifyEmbeddingPresignToken.js";
 import { tool$envelopeEnvelopeAuditLogFind } from "./tools/envelopeEnvelopeAuditLogFind.js";
+import { tool$envelopeEnvelopeFind } from "./tools/envelopeEnvelopeFind.js";
+import { tool$envelopeEnvelopeGetMany } from "./tools/envelopeEnvelopeGetMany.js";
 import { tool$envelopesAttachmentsCreate } from "./tools/envelopesAttachmentsCreate.js";
 import { tool$envelopesAttachmentsDelete } from "./tools/envelopesAttachmentsDelete.js";
 import { tool$envelopesAttachmentsFind } from "./tools/envelopesAttachmentsFind.js";
@@ -94,6 +97,7 @@ import { tool$templatesRecipientsUpdateMany } from "./tools/templatesRecipientsU
 import { tool$templatesUpdate } from "./tools/templatesUpdate.js";
 import { tool$templatesUse } from "./tools/templatesUse.js";
 import { tool$templateTemplateCreateTemplateTemporary } from "./tools/templateTemplateCreateTemplateTemporary.js";
+import { tool$templateTemplateGetMany } from "./tools/templateTemplateGetMany.js";
 
 export function createMCPServer(deps: {
   logger: ConsoleLogger;
@@ -105,7 +109,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Documenso",
-    version: "0.6.0",
+    version: "0.6.1",
   });
 
   const client = new DocumensoCore({
@@ -143,7 +147,9 @@ export function createMCPServer(deps: {
   tool(tool$envelopesDuplicate);
   tool(tool$envelopesDistribute);
   tool(tool$envelopesRedistribute);
+  tool(tool$envelopeEnvelopeFind);
   tool(tool$envelopeEnvelopeAuditLogFind);
+  tool(tool$envelopeEnvelopeGetMany);
   tool(tool$documentsGet);
   tool(tool$documentsFind);
   tool(tool$documentsCreate);
@@ -154,6 +160,7 @@ export function createMCPServer(deps: {
   tool(tool$documentsRedistribute);
   tool(tool$documentsDownload);
   tool(tool$documentsCreateV0);
+  tool(tool$documentDocumentGetMany);
   tool(tool$documentDocumentDownload);
   tool(tool$templatesFind);
   tool(tool$templatesGet);
@@ -166,6 +173,7 @@ export function createMCPServer(deps: {
   tool(tool$foldersCreate);
   tool(tool$foldersUpdate);
   tool(tool$foldersDelete);
+  tool(tool$templateTemplateGetMany);
   tool(tool$templateTemplateCreateTemplateTemporary);
   tool(tool$embeddingEmbeddingPresignCreateEmbeddingPresignToken);
   tool(tool$embeddingEmbeddingPresignVerifyEmbeddingPresignToken);
