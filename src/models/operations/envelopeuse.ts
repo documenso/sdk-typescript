@@ -166,6 +166,8 @@ export type EnvelopeUseAttachment = {
   type?: EnvelopeUseTypeLink | undefined;
 };
 
+export type EnvelopeUseFormValues = string | boolean | number;
+
 export type EnvelopeUsePayload = {
   envelopeId: string;
   externalId?: string | undefined;
@@ -185,6 +187,7 @@ export type EnvelopeUsePayload = {
     | undefined;
   override?: EnvelopeUseOverride | undefined;
   attachments?: Array<EnvelopeUseAttachment> | undefined;
+  formValues?: { [k: string]: string | boolean | number } | undefined;
 };
 
 export type EnvelopeUseFile = {
@@ -967,6 +970,39 @@ export function envelopeUseAttachmentFromJSON(
 }
 
 /** @internal */
+export const EnvelopeUseFormValues$inboundSchema: z.ZodType<
+  EnvelopeUseFormValues,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.boolean(), z.number()]);
+/** @internal */
+export type EnvelopeUseFormValues$Outbound = string | boolean | number;
+
+/** @internal */
+export const EnvelopeUseFormValues$outboundSchema: z.ZodType<
+  EnvelopeUseFormValues$Outbound,
+  z.ZodTypeDef,
+  EnvelopeUseFormValues
+> = z.union([z.string(), z.boolean(), z.number()]);
+
+export function envelopeUseFormValuesToJSON(
+  envelopeUseFormValues: EnvelopeUseFormValues,
+): string {
+  return JSON.stringify(
+    EnvelopeUseFormValues$outboundSchema.parse(envelopeUseFormValues),
+  );
+}
+export function envelopeUseFormValuesFromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeUseFormValues, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeUseFormValues$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeUseFormValues' from JSON`,
+  );
+}
+
+/** @internal */
 export const EnvelopeUsePayload$inboundSchema: z.ZodType<
   EnvelopeUsePayload,
   z.ZodTypeDef,
@@ -994,6 +1030,8 @@ export const EnvelopeUsePayload$inboundSchema: z.ZodType<
   override: z.lazy(() => EnvelopeUseOverride$inboundSchema).optional(),
   attachments: z.array(z.lazy(() => EnvelopeUseAttachment$inboundSchema))
     .optional(),
+  formValues: z.record(z.union([z.string(), z.boolean(), z.number()]))
+    .optional(),
 });
 /** @internal */
 export type EnvelopeUsePayload$Outbound = {
@@ -1017,6 +1055,7 @@ export type EnvelopeUsePayload$Outbound = {
     | undefined;
   override?: EnvelopeUseOverride$Outbound | undefined;
   attachments?: Array<EnvelopeUseAttachment$Outbound> | undefined;
+  formValues?: { [k: string]: string | boolean | number } | undefined;
 };
 
 /** @internal */
@@ -1046,6 +1085,8 @@ export const EnvelopeUsePayload$outboundSchema: z.ZodType<
   ).optional(),
   override: z.lazy(() => EnvelopeUseOverride$outboundSchema).optional(),
   attachments: z.array(z.lazy(() => EnvelopeUseAttachment$outboundSchema))
+    .optional(),
+  formValues: z.record(z.union([z.string(), z.boolean(), z.number()]))
     .optional(),
 });
 
