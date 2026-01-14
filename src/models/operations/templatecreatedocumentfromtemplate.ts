@@ -178,6 +178,11 @@ export type TemplateCreateDocumentFromTemplateAttachment = {
   type?: TemplateCreateDocumentFromTemplateTypeLink | undefined;
 };
 
+export type TemplateCreateDocumentFromTemplateFormValuesRequest =
+  | string
+  | boolean
+  | number;
+
 export type TemplateCreateDocumentFromTemplateRequest = {
   templateId: number;
   externalId?: string | undefined;
@@ -200,6 +205,7 @@ export type TemplateCreateDocumentFromTemplateRequest = {
     | undefined;
   override?: TemplateCreateDocumentFromTemplateOverride | undefined;
   attachments?: Array<TemplateCreateDocumentFromTemplateAttachment> | undefined;
+  formValues?: { [k: string]: string | boolean | number } | undefined;
 };
 
 export const TemplateCreateDocumentFromTemplateVisibility = {
@@ -253,7 +259,7 @@ export type TemplateCreateDocumentFromTemplateAuthOptions = {
   globalActionAuth: Array<TemplateCreateDocumentFromTemplateGlobalActionAuth>;
 };
 
-export type TemplateCreateDocumentFromTemplateFormValues =
+export type TemplateCreateDocumentFromTemplateFormValuesResponse =
   | string
   | boolean
   | number;
@@ -1642,6 +1648,53 @@ export function templateCreateDocumentFromTemplateAttachmentFromJSON(
 }
 
 /** @internal */
+export const TemplateCreateDocumentFromTemplateFormValuesRequest$inboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateFormValuesRequest,
+    z.ZodTypeDef,
+    unknown
+  > = z.union([z.string(), z.boolean(), z.number()]);
+/** @internal */
+export type TemplateCreateDocumentFromTemplateFormValuesRequest$Outbound =
+  | string
+  | boolean
+  | number;
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateFormValuesRequest$outboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateFormValuesRequest$Outbound,
+    z.ZodTypeDef,
+    TemplateCreateDocumentFromTemplateFormValuesRequest
+  > = z.union([z.string(), z.boolean(), z.number()]);
+
+export function templateCreateDocumentFromTemplateFormValuesRequestToJSON(
+  templateCreateDocumentFromTemplateFormValuesRequest:
+    TemplateCreateDocumentFromTemplateFormValuesRequest,
+): string {
+  return JSON.stringify(
+    TemplateCreateDocumentFromTemplateFormValuesRequest$outboundSchema.parse(
+      templateCreateDocumentFromTemplateFormValuesRequest,
+    ),
+  );
+}
+export function templateCreateDocumentFromTemplateFormValuesRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  TemplateCreateDocumentFromTemplateFormValuesRequest,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      TemplateCreateDocumentFromTemplateFormValuesRequest$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'TemplateCreateDocumentFromTemplateFormValuesRequest' from JSON`,
+  );
+}
+
+/** @internal */
 export const TemplateCreateDocumentFromTemplateRequest$inboundSchema: z.ZodType<
   TemplateCreateDocumentFromTemplateRequest,
   z.ZodTypeDef,
@@ -1690,6 +1743,8 @@ export const TemplateCreateDocumentFromTemplateRequest$inboundSchema: z.ZodType<
   attachments: z.array(
     z.lazy(() => TemplateCreateDocumentFromTemplateAttachment$inboundSchema),
   ).optional(),
+  formValues: z.record(z.union([z.string(), z.boolean(), z.number()]))
+    .optional(),
 });
 /** @internal */
 export type TemplateCreateDocumentFromTemplateRequest$Outbound = {
@@ -1718,6 +1773,7 @@ export type TemplateCreateDocumentFromTemplateRequest$Outbound = {
   attachments?:
     | Array<TemplateCreateDocumentFromTemplateAttachment$Outbound>
     | undefined;
+  formValues?: { [k: string]: string | boolean | number } | undefined;
 };
 
 /** @internal */
@@ -1770,6 +1826,8 @@ export const TemplateCreateDocumentFromTemplateRequest$outboundSchema:
     attachments: z.array(
       z.lazy(() => TemplateCreateDocumentFromTemplateAttachment$outboundSchema),
     ).optional(),
+    formValues: z.record(z.union([z.string(), z.boolean(), z.number()]))
+      .optional(),
   });
 
 export function templateCreateDocumentFromTemplateRequestToJSON(
@@ -1905,49 +1963,49 @@ export function templateCreateDocumentFromTemplateAuthOptionsFromJSON(
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFormValues$inboundSchema:
+export const TemplateCreateDocumentFromTemplateFormValuesResponse$inboundSchema:
   z.ZodType<
-    TemplateCreateDocumentFromTemplateFormValues,
+    TemplateCreateDocumentFromTemplateFormValuesResponse,
     z.ZodTypeDef,
     unknown
   > = z.union([z.string(), z.boolean(), z.number()]);
 /** @internal */
-export type TemplateCreateDocumentFromTemplateFormValues$Outbound =
+export type TemplateCreateDocumentFromTemplateFormValuesResponse$Outbound =
   | string
   | boolean
   | number;
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateFormValues$outboundSchema:
+export const TemplateCreateDocumentFromTemplateFormValuesResponse$outboundSchema:
   z.ZodType<
-    TemplateCreateDocumentFromTemplateFormValues$Outbound,
+    TemplateCreateDocumentFromTemplateFormValuesResponse$Outbound,
     z.ZodTypeDef,
-    TemplateCreateDocumentFromTemplateFormValues
+    TemplateCreateDocumentFromTemplateFormValuesResponse
   > = z.union([z.string(), z.boolean(), z.number()]);
 
-export function templateCreateDocumentFromTemplateFormValuesToJSON(
-  templateCreateDocumentFromTemplateFormValues:
-    TemplateCreateDocumentFromTemplateFormValues,
+export function templateCreateDocumentFromTemplateFormValuesResponseToJSON(
+  templateCreateDocumentFromTemplateFormValuesResponse:
+    TemplateCreateDocumentFromTemplateFormValuesResponse,
 ): string {
   return JSON.stringify(
-    TemplateCreateDocumentFromTemplateFormValues$outboundSchema.parse(
-      templateCreateDocumentFromTemplateFormValues,
+    TemplateCreateDocumentFromTemplateFormValuesResponse$outboundSchema.parse(
+      templateCreateDocumentFromTemplateFormValuesResponse,
     ),
   );
 }
-export function templateCreateDocumentFromTemplateFormValuesFromJSON(
+export function templateCreateDocumentFromTemplateFormValuesResponseFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  TemplateCreateDocumentFromTemplateFormValues,
+  TemplateCreateDocumentFromTemplateFormValuesResponse,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      TemplateCreateDocumentFromTemplateFormValues$inboundSchema.parse(
+      TemplateCreateDocumentFromTemplateFormValuesResponse$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'TemplateCreateDocumentFromTemplateFormValues' from JSON`,
+    `Failed to parse 'TemplateCreateDocumentFromTemplateFormValuesResponse' from JSON`,
   );
 }
 
