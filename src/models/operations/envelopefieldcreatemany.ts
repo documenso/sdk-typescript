@@ -8,458 +8,37 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export const EnvelopeFieldCreateManyTypeDropdownEnum = {
-  Dropdown: "dropdown",
-} as const;
-export type EnvelopeFieldCreateManyTypeDropdownEnum = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTypeDropdownEnum
->;
-
-export type EnvelopeFieldCreateManyValueDropdown = {
-  value: string;
-};
-
-export type EnvelopeFieldCreateManyFieldMetaDropdownRequest = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  fontSize?: number | undefined;
-  type: EnvelopeFieldCreateManyTypeDropdownEnum;
-  values?: Array<EnvelopeFieldCreateManyValueDropdown> | undefined;
-  defaultValue?: string | undefined;
-};
-
-export type EnvelopeFieldCreateManyDataDropdown = {
-  type: "DROPDOWN";
-  fieldMeta?: EnvelopeFieldCreateManyFieldMetaDropdownRequest | undefined;
+export type EnvelopeFieldCreateManyDataRequest2 = {
+  placeholder: string;
+  width?: number | undefined;
+  height?: number | undefined;
+  matchAll?: boolean | undefined;
   recipientId: number;
   envelopeItemId?: string | undefined;
+};
+
+export type EnvelopeFieldCreateManyDataRequest1 = {
   page: number;
   positionX: number;
   positionY: number;
   width: number;
   height: number;
-};
-
-export const EnvelopeFieldCreateManyTypeCheckboxEnum = {
-  Checkbox: "checkbox",
-} as const;
-export type EnvelopeFieldCreateManyTypeCheckboxEnum = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTypeCheckboxEnum
->;
-
-export type EnvelopeFieldCreateManyValueCheckbox = {
-  id: number;
-  checked: boolean;
-  value: string;
-};
-
-export const EnvelopeFieldCreateManyDirectionCheckbox = {
-  Vertical: "vertical",
-  Horizontal: "horizontal",
-} as const;
-export type EnvelopeFieldCreateManyDirectionCheckbox = ClosedEnum<
-  typeof EnvelopeFieldCreateManyDirectionCheckbox
->;
-
-export type EnvelopeFieldCreateManyFieldMetaCheckboxRequest = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  fontSize?: number | undefined;
-  type: EnvelopeFieldCreateManyTypeCheckboxEnum;
-  values?: Array<EnvelopeFieldCreateManyValueCheckbox> | undefined;
-  validationRule?: string | undefined;
-  validationLength?: number | undefined;
-  direction?: EnvelopeFieldCreateManyDirectionCheckbox | undefined;
-};
-
-export type EnvelopeFieldCreateManyDataCheckbox = {
-  type: "CHECKBOX";
-  fieldMeta?: EnvelopeFieldCreateManyFieldMetaCheckboxRequest | undefined;
   recipientId: number;
   envelopeItemId?: string | undefined;
-  page: number;
-  positionX: number;
-  positionY: number;
-  width: number;
-  height: number;
-};
-
-export const EnvelopeFieldCreateManyTypeRadioEnum = {
-  Radio: "radio",
-} as const;
-export type EnvelopeFieldCreateManyTypeRadioEnum = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTypeRadioEnum
->;
-
-export type EnvelopeFieldCreateManyValueRadio = {
-  id: number;
-  checked: boolean;
-  value: string;
-};
-
-export const EnvelopeFieldCreateManyDirectionRadio = {
-  Vertical: "vertical",
-  Horizontal: "horizontal",
-} as const;
-export type EnvelopeFieldCreateManyDirectionRadio = ClosedEnum<
-  typeof EnvelopeFieldCreateManyDirectionRadio
->;
-
-export type EnvelopeFieldCreateManyFieldMetaRadioRequest = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  fontSize?: number | undefined;
-  type: EnvelopeFieldCreateManyTypeRadioEnum;
-  values?: Array<EnvelopeFieldCreateManyValueRadio> | undefined;
-  direction?: EnvelopeFieldCreateManyDirectionRadio | undefined;
-};
-
-export type EnvelopeFieldCreateManyDataRadio = {
-  type: "RADIO";
-  fieldMeta?: EnvelopeFieldCreateManyFieldMetaRadioRequest | undefined;
-  recipientId: number;
-  envelopeItemId?: string | undefined;
-  page: number;
-  positionX: number;
-  positionY: number;
-  width: number;
-  height: number;
-};
-
-export const EnvelopeFieldCreateManyTypeNumberEnum = {
-  Number: "number",
-} as const;
-export type EnvelopeFieldCreateManyTypeNumberEnum = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTypeNumberEnum
->;
-
-export const EnvelopeFieldCreateManyTextAlignNumber = {
-  Left: "left",
-  Center: "center",
-  Right: "right",
-} as const;
-export type EnvelopeFieldCreateManyTextAlignNumber = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTextAlignNumber
->;
-
-export const EnvelopeFieldCreateManyVerticalAlignNumber = {
-  Top: "top",
-  Middle: "middle",
-  Bottom: "bottom",
-} as const;
-export type EnvelopeFieldCreateManyVerticalAlignNumber = ClosedEnum<
-  typeof EnvelopeFieldCreateManyVerticalAlignNumber
->;
-
-export type EnvelopeFieldCreateManyFieldMetaNumberRequest = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  fontSize?: number | undefined;
-  type: EnvelopeFieldCreateManyTypeNumberEnum;
-  numberFormat?: string | null | undefined;
-  value?: string | undefined;
-  minValue?: number | null | undefined;
-  maxValue?: number | null | undefined;
-  textAlign?: EnvelopeFieldCreateManyTextAlignNumber | undefined;
-  lineHeight?: number | null | undefined;
-  letterSpacing?: number | null | undefined;
-  verticalAlign?: EnvelopeFieldCreateManyVerticalAlignNumber | null | undefined;
-};
-
-export type EnvelopeFieldCreateManyDataNumber = {
-  type: "NUMBER";
-  fieldMeta?: EnvelopeFieldCreateManyFieldMetaNumberRequest | undefined;
-  recipientId: number;
-  envelopeItemId?: string | undefined;
-  page: number;
-  positionX: number;
-  positionY: number;
-  width: number;
-  height: number;
-};
-
-export const EnvelopeFieldCreateManyTypeTextEnum = {
-  Text: "text",
-} as const;
-export type EnvelopeFieldCreateManyTypeTextEnum = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTypeTextEnum
->;
-
-export const EnvelopeFieldCreateManyTextAlignText = {
-  Left: "left",
-  Center: "center",
-  Right: "right",
-} as const;
-export type EnvelopeFieldCreateManyTextAlignText = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTextAlignText
->;
-
-export const EnvelopeFieldCreateManyVerticalAlignText = {
-  Top: "top",
-  Middle: "middle",
-  Bottom: "bottom",
-} as const;
-export type EnvelopeFieldCreateManyVerticalAlignText = ClosedEnum<
-  typeof EnvelopeFieldCreateManyVerticalAlignText
->;
-
-export type EnvelopeFieldCreateManyFieldMetaTextRequest = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  fontSize?: number | undefined;
-  type: EnvelopeFieldCreateManyTypeTextEnum;
-  text?: string | undefined;
-  characterLimit?: number | undefined;
-  textAlign?: EnvelopeFieldCreateManyTextAlignText | undefined;
-  lineHeight?: number | null | undefined;
-  letterSpacing?: number | null | undefined;
-  verticalAlign?: EnvelopeFieldCreateManyVerticalAlignText | null | undefined;
-};
-
-export type EnvelopeFieldCreateManyDataText = {
-  type: "TEXT";
-  fieldMeta?: EnvelopeFieldCreateManyFieldMetaTextRequest | undefined;
-  recipientId: number;
-  envelopeItemId?: string | undefined;
-  page: number;
-  positionX: number;
-  positionY: number;
-  width: number;
-  height: number;
-};
-
-export const EnvelopeFieldCreateManyTypeDateEnum = {
-  Date: "date",
-} as const;
-export type EnvelopeFieldCreateManyTypeDateEnum = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTypeDateEnum
->;
-
-export const EnvelopeFieldCreateManyTextAlignDate = {
-  Left: "left",
-  Center: "center",
-  Right: "right",
-} as const;
-export type EnvelopeFieldCreateManyTextAlignDate = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTextAlignDate
->;
-
-export type EnvelopeFieldCreateManyFieldMetaDateRequest = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  fontSize?: number | undefined;
-  type: EnvelopeFieldCreateManyTypeDateEnum;
-  textAlign?: EnvelopeFieldCreateManyTextAlignDate | undefined;
-};
-
-export type EnvelopeFieldCreateManyDataDate = {
-  type: "DATE";
-  fieldMeta?: EnvelopeFieldCreateManyFieldMetaDateRequest | undefined;
-  recipientId: number;
-  envelopeItemId?: string | undefined;
-  page: number;
-  positionX: number;
-  positionY: number;
-  width: number;
-  height: number;
-};
-
-export const EnvelopeFieldCreateManyTypeEmailEnum = {
-  Email: "email",
-} as const;
-export type EnvelopeFieldCreateManyTypeEmailEnum = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTypeEmailEnum
->;
-
-export const EnvelopeFieldCreateManyTextAlignEmail = {
-  Left: "left",
-  Center: "center",
-  Right: "right",
-} as const;
-export type EnvelopeFieldCreateManyTextAlignEmail = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTextAlignEmail
->;
-
-export type EnvelopeFieldCreateManyFieldMetaEmailRequest = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  fontSize?: number | undefined;
-  type: EnvelopeFieldCreateManyTypeEmailEnum;
-  textAlign?: EnvelopeFieldCreateManyTextAlignEmail | undefined;
-};
-
-export type EnvelopeFieldCreateManyDataEmail = {
-  type: "EMAIL";
-  fieldMeta?: EnvelopeFieldCreateManyFieldMetaEmailRequest | undefined;
-  recipientId: number;
-  envelopeItemId?: string | undefined;
-  page: number;
-  positionX: number;
-  positionY: number;
-  width: number;
-  height: number;
-};
-
-export const EnvelopeFieldCreateManyTypeNameEnum = {
-  Name: "name",
-} as const;
-export type EnvelopeFieldCreateManyTypeNameEnum = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTypeNameEnum
->;
-
-export const EnvelopeFieldCreateManyTextAlignName = {
-  Left: "left",
-  Center: "center",
-  Right: "right",
-} as const;
-export type EnvelopeFieldCreateManyTextAlignName = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTextAlignName
->;
-
-export type EnvelopeFieldCreateManyFieldMetaNameRequest = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  fontSize?: number | undefined;
-  type: EnvelopeFieldCreateManyTypeNameEnum;
-  textAlign?: EnvelopeFieldCreateManyTextAlignName | undefined;
-};
-
-export type EnvelopeFieldCreateManyDataName = {
-  type: "NAME";
-  fieldMeta?: EnvelopeFieldCreateManyFieldMetaNameRequest | undefined;
-  recipientId: number;
-  envelopeItemId?: string | undefined;
-  page: number;
-  positionX: number;
-  positionY: number;
-  width: number;
-  height: number;
-};
-
-export const EnvelopeFieldCreateManyTypeInitialsEnum = {
-  Initials: "initials",
-} as const;
-export type EnvelopeFieldCreateManyTypeInitialsEnum = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTypeInitialsEnum
->;
-
-export const EnvelopeFieldCreateManyTextAlignInitials = {
-  Left: "left",
-  Center: "center",
-  Right: "right",
-} as const;
-export type EnvelopeFieldCreateManyTextAlignInitials = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTextAlignInitials
->;
-
-export type EnvelopeFieldCreateManyFieldMetaInitialsRequest = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  fontSize?: number | undefined;
-  type: EnvelopeFieldCreateManyTypeInitialsEnum;
-  textAlign?: EnvelopeFieldCreateManyTextAlignInitials | undefined;
-};
-
-export type EnvelopeFieldCreateManyDataInitials = {
-  type: "INITIALS";
-  fieldMeta?: EnvelopeFieldCreateManyFieldMetaInitialsRequest | undefined;
-  recipientId: number;
-  envelopeItemId?: string | undefined;
-  page: number;
-  positionX: number;
-  positionY: number;
-  width: number;
-  height: number;
-};
-
-export type EnvelopeFieldCreateManyDataFreeSignature = {
-  type: "FREE_SIGNATURE";
-  recipientId: number;
-  envelopeItemId?: string | undefined;
-  page: number;
-  positionX: number;
-  positionY: number;
-  width: number;
-  height: number;
-};
-
-export const EnvelopeFieldCreateManyTypeSignatureEnum = {
-  Signature: "signature",
-} as const;
-export type EnvelopeFieldCreateManyTypeSignatureEnum = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTypeSignatureEnum
->;
-
-export type EnvelopeFieldCreateManyFieldMetaSignatureRequest = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  fontSize?: number | undefined;
-  type: EnvelopeFieldCreateManyTypeSignatureEnum;
-};
-
-export type EnvelopeFieldCreateManyDataSignature = {
-  type: "SIGNATURE";
-  fieldMeta?: EnvelopeFieldCreateManyFieldMetaSignatureRequest | undefined;
-  recipientId: number;
-  envelopeItemId?: string | undefined;
-  page: number;
-  positionX: number;
-  positionY: number;
-  width: number;
-  height: number;
 };
 
 export type EnvelopeFieldCreateManyDataUnion =
-  | EnvelopeFieldCreateManyDataSignature
-  | EnvelopeFieldCreateManyDataFreeSignature
-  | EnvelopeFieldCreateManyDataInitials
-  | EnvelopeFieldCreateManyDataName
-  | EnvelopeFieldCreateManyDataEmail
-  | EnvelopeFieldCreateManyDataDate
-  | EnvelopeFieldCreateManyDataText
-  | EnvelopeFieldCreateManyDataNumber
-  | EnvelopeFieldCreateManyDataRadio
-  | EnvelopeFieldCreateManyDataCheckbox
-  | EnvelopeFieldCreateManyDataDropdown;
+  | EnvelopeFieldCreateManyDataRequest1
+  | EnvelopeFieldCreateManyDataRequest2;
 
 export type EnvelopeFieldCreateManyRequest = {
   envelopeId: string;
   data: Array<
-    | EnvelopeFieldCreateManyDataSignature
-    | EnvelopeFieldCreateManyDataFreeSignature
-    | EnvelopeFieldCreateManyDataInitials
-    | EnvelopeFieldCreateManyDataName
-    | EnvelopeFieldCreateManyDataEmail
-    | EnvelopeFieldCreateManyDataDate
-    | EnvelopeFieldCreateManyDataText
-    | EnvelopeFieldCreateManyDataNumber
-    | EnvelopeFieldCreateManyDataRadio
-    | EnvelopeFieldCreateManyDataCheckbox
-    | EnvelopeFieldCreateManyDataDropdown
+    EnvelopeFieldCreateManyDataRequest1 | EnvelopeFieldCreateManyDataRequest2
   >;
 };
 
-export const EnvelopeFieldCreateManyTypeResponseEnum = {
+export const EnvelopeFieldCreateManyTypeEnum = {
   Signature: "SIGNATURE",
   FreeSignature: "FREE_SIGNATURE",
   Initials: "INITIALS",
@@ -472,96 +51,96 @@ export const EnvelopeFieldCreateManyTypeResponseEnum = {
   Checkbox: "CHECKBOX",
   Dropdown: "DROPDOWN",
 } as const;
-export type EnvelopeFieldCreateManyTypeResponseEnum = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTypeResponseEnum
+export type EnvelopeFieldCreateManyTypeEnum = ClosedEnum<
+  typeof EnvelopeFieldCreateManyTypeEnum
 >;
 
-export type EnvelopeFieldCreateManyValueResponse3 = {
+export type EnvelopeFieldCreateManyValue3 = {
   value: string;
 };
 
-export type EnvelopeFieldCreateManyFieldMetaDropdownResponse = {
+export type EnvelopeFieldCreateManyFieldMetaDropdown = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
   type: "dropdown";
-  values?: Array<EnvelopeFieldCreateManyValueResponse3> | undefined;
+  values?: Array<EnvelopeFieldCreateManyValue3> | undefined;
   defaultValue?: string | undefined;
 };
 
-export type EnvelopeFieldCreateManyValueResponse2 = {
+export type EnvelopeFieldCreateManyValue2 = {
   id: number;
   checked: boolean;
   value: string;
 };
 
-export const EnvelopeFieldCreateManyDirectionResponse2 = {
+export const EnvelopeFieldCreateManyDirection2 = {
   Vertical: "vertical",
   Horizontal: "horizontal",
 } as const;
-export type EnvelopeFieldCreateManyDirectionResponse2 = ClosedEnum<
-  typeof EnvelopeFieldCreateManyDirectionResponse2
+export type EnvelopeFieldCreateManyDirection2 = ClosedEnum<
+  typeof EnvelopeFieldCreateManyDirection2
 >;
 
-export type EnvelopeFieldCreateManyFieldMetaCheckboxResponse = {
+export type EnvelopeFieldCreateManyFieldMetaCheckbox = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
   type: "checkbox";
-  values?: Array<EnvelopeFieldCreateManyValueResponse2> | undefined;
+  values?: Array<EnvelopeFieldCreateManyValue2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
-  direction?: EnvelopeFieldCreateManyDirectionResponse2 | undefined;
+  direction?: EnvelopeFieldCreateManyDirection2 | undefined;
 };
 
-export type EnvelopeFieldCreateManyValueResponse1 = {
+export type EnvelopeFieldCreateManyValue1 = {
   id: number;
   checked: boolean;
   value: string;
 };
 
-export const EnvelopeFieldCreateManyDirectionResponse1 = {
+export const EnvelopeFieldCreateManyDirection1 = {
   Vertical: "vertical",
   Horizontal: "horizontal",
 } as const;
-export type EnvelopeFieldCreateManyDirectionResponse1 = ClosedEnum<
-  typeof EnvelopeFieldCreateManyDirectionResponse1
+export type EnvelopeFieldCreateManyDirection1 = ClosedEnum<
+  typeof EnvelopeFieldCreateManyDirection1
 >;
 
-export type EnvelopeFieldCreateManyFieldMetaRadioResponse = {
+export type EnvelopeFieldCreateManyFieldMetaRadio = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
   type: "radio";
-  values?: Array<EnvelopeFieldCreateManyValueResponse1> | undefined;
-  direction?: EnvelopeFieldCreateManyDirectionResponse1 | undefined;
+  values?: Array<EnvelopeFieldCreateManyValue1> | undefined;
+  direction?: EnvelopeFieldCreateManyDirection1 | undefined;
 };
 
-export const EnvelopeFieldCreateManyTextAlignResponse6 = {
+export const EnvelopeFieldCreateManyTextAlign6 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeFieldCreateManyTextAlignResponse6 = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTextAlignResponse6
+export type EnvelopeFieldCreateManyTextAlign6 = ClosedEnum<
+  typeof EnvelopeFieldCreateManyTextAlign6
 >;
 
-export const EnvelopeFieldCreateManyVerticalAlignResponse2 = {
+export const EnvelopeFieldCreateManyVerticalAlign2 = {
   Top: "top",
   Middle: "middle",
   Bottom: "bottom",
 } as const;
-export type EnvelopeFieldCreateManyVerticalAlignResponse2 = ClosedEnum<
-  typeof EnvelopeFieldCreateManyVerticalAlignResponse2
+export type EnvelopeFieldCreateManyVerticalAlign2 = ClosedEnum<
+  typeof EnvelopeFieldCreateManyVerticalAlign2
 >;
 
-export type EnvelopeFieldCreateManyFieldMetaNumberResponse = {
+export type EnvelopeFieldCreateManyFieldMetaNumber = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -572,34 +151,31 @@ export type EnvelopeFieldCreateManyFieldMetaNumberResponse = {
   value?: string | undefined;
   minValue?: number | null | undefined;
   maxValue?: number | null | undefined;
-  textAlign?: EnvelopeFieldCreateManyTextAlignResponse6 | undefined;
+  textAlign?: EnvelopeFieldCreateManyTextAlign6 | undefined;
   lineHeight?: number | null | undefined;
   letterSpacing?: number | null | undefined;
-  verticalAlign?:
-    | EnvelopeFieldCreateManyVerticalAlignResponse2
-    | null
-    | undefined;
+  verticalAlign?: EnvelopeFieldCreateManyVerticalAlign2 | null | undefined;
 };
 
-export const EnvelopeFieldCreateManyTextAlignResponse5 = {
+export const EnvelopeFieldCreateManyTextAlign5 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeFieldCreateManyTextAlignResponse5 = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTextAlignResponse5
+export type EnvelopeFieldCreateManyTextAlign5 = ClosedEnum<
+  typeof EnvelopeFieldCreateManyTextAlign5
 >;
 
-export const EnvelopeFieldCreateManyVerticalAlignResponse1 = {
+export const EnvelopeFieldCreateManyVerticalAlign1 = {
   Top: "top",
   Middle: "middle",
   Bottom: "bottom",
 } as const;
-export type EnvelopeFieldCreateManyVerticalAlignResponse1 = ClosedEnum<
-  typeof EnvelopeFieldCreateManyVerticalAlignResponse1
+export type EnvelopeFieldCreateManyVerticalAlign1 = ClosedEnum<
+  typeof EnvelopeFieldCreateManyVerticalAlign1
 >;
 
-export type EnvelopeFieldCreateManyFieldMetaTextResponse = {
+export type EnvelopeFieldCreateManyFieldMetaText = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -608,92 +184,89 @@ export type EnvelopeFieldCreateManyFieldMetaTextResponse = {
   type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
-  textAlign?: EnvelopeFieldCreateManyTextAlignResponse5 | undefined;
+  textAlign?: EnvelopeFieldCreateManyTextAlign5 | undefined;
   lineHeight?: number | null | undefined;
   letterSpacing?: number | null | undefined;
-  verticalAlign?:
-    | EnvelopeFieldCreateManyVerticalAlignResponse1
-    | null
-    | undefined;
+  verticalAlign?: EnvelopeFieldCreateManyVerticalAlign1 | null | undefined;
 };
 
-export const EnvelopeFieldCreateManyTextAlignResponse4 = {
+export const EnvelopeFieldCreateManyTextAlign4 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeFieldCreateManyTextAlignResponse4 = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTextAlignResponse4
+export type EnvelopeFieldCreateManyTextAlign4 = ClosedEnum<
+  typeof EnvelopeFieldCreateManyTextAlign4
 >;
 
-export type EnvelopeFieldCreateManyFieldMetaDateResponse = {
+export type EnvelopeFieldCreateManyFieldMetaDate = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
   type: "date";
-  textAlign?: EnvelopeFieldCreateManyTextAlignResponse4 | undefined;
+  textAlign?: EnvelopeFieldCreateManyTextAlign4 | undefined;
 };
 
-export const EnvelopeFieldCreateManyTextAlignResponse3 = {
+export const EnvelopeFieldCreateManyTextAlign3 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeFieldCreateManyTextAlignResponse3 = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTextAlignResponse3
+export type EnvelopeFieldCreateManyTextAlign3 = ClosedEnum<
+  typeof EnvelopeFieldCreateManyTextAlign3
 >;
 
-export type EnvelopeFieldCreateManyFieldMetaEmailResponse = {
+export type EnvelopeFieldCreateManyFieldMetaEmail = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
   type: "email";
-  textAlign?: EnvelopeFieldCreateManyTextAlignResponse3 | undefined;
+  textAlign?: EnvelopeFieldCreateManyTextAlign3 | undefined;
 };
 
-export const EnvelopeFieldCreateManyTextAlignResponse2 = {
+export const EnvelopeFieldCreateManyTextAlign2 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeFieldCreateManyTextAlignResponse2 = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTextAlignResponse2
+export type EnvelopeFieldCreateManyTextAlign2 = ClosedEnum<
+  typeof EnvelopeFieldCreateManyTextAlign2
 >;
 
-export type EnvelopeFieldCreateManyFieldMetaNameResponse = {
+export type EnvelopeFieldCreateManyFieldMetaName = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
   type: "name";
-  textAlign?: EnvelopeFieldCreateManyTextAlignResponse2 | undefined;
+  textAlign?: EnvelopeFieldCreateManyTextAlign2 | undefined;
 };
 
-export const EnvelopeFieldCreateManyTextAlignResponse1 = {
+export const EnvelopeFieldCreateManyTextAlign1 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeFieldCreateManyTextAlignResponse1 = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTextAlignResponse1
+export type EnvelopeFieldCreateManyTextAlign1 = ClosedEnum<
+  typeof EnvelopeFieldCreateManyTextAlign1
 >;
 
-export type EnvelopeFieldCreateManyFieldMetaInitialsResponse = {
+export type EnvelopeFieldCreateManyFieldMetaInitials = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
   type: "initials";
-  textAlign?: EnvelopeFieldCreateManyTextAlignResponse1 | undefined;
+  textAlign?: EnvelopeFieldCreateManyTextAlign1 | undefined;
 };
 
-export type EnvelopeFieldCreateManyFieldMetaSignatureResponse = {
+export type EnvelopeFieldCreateManyFieldMetaSignature = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -703,21 +276,21 @@ export type EnvelopeFieldCreateManyFieldMetaSignatureResponse = {
 };
 
 export type EnvelopeFieldCreateManyFieldMetaUnion =
-  | EnvelopeFieldCreateManyFieldMetaSignatureResponse
-  | EnvelopeFieldCreateManyFieldMetaInitialsResponse
-  | EnvelopeFieldCreateManyFieldMetaNameResponse
-  | EnvelopeFieldCreateManyFieldMetaEmailResponse
-  | EnvelopeFieldCreateManyFieldMetaDateResponse
-  | EnvelopeFieldCreateManyFieldMetaTextResponse
-  | EnvelopeFieldCreateManyFieldMetaNumberResponse
-  | EnvelopeFieldCreateManyFieldMetaRadioResponse
-  | EnvelopeFieldCreateManyFieldMetaCheckboxResponse
-  | EnvelopeFieldCreateManyFieldMetaDropdownResponse;
+  | EnvelopeFieldCreateManyFieldMetaSignature
+  | EnvelopeFieldCreateManyFieldMetaInitials
+  | EnvelopeFieldCreateManyFieldMetaName
+  | EnvelopeFieldCreateManyFieldMetaEmail
+  | EnvelopeFieldCreateManyFieldMetaDate
+  | EnvelopeFieldCreateManyFieldMetaText
+  | EnvelopeFieldCreateManyFieldMetaNumber
+  | EnvelopeFieldCreateManyFieldMetaRadio
+  | EnvelopeFieldCreateManyFieldMetaCheckbox
+  | EnvelopeFieldCreateManyFieldMetaDropdown;
 
 export type EnvelopeFieldCreateManyDataResponse = {
   envelopeId: string;
   envelopeItemId: string;
-  type: EnvelopeFieldCreateManyTypeResponseEnum;
+  type: EnvelopeFieldCreateManyTypeEnum;
   id: number;
   secondaryId: string;
   recipientId: number;
@@ -729,16 +302,16 @@ export type EnvelopeFieldCreateManyDataResponse = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | EnvelopeFieldCreateManyFieldMetaSignatureResponse
-    | EnvelopeFieldCreateManyFieldMetaInitialsResponse
-    | EnvelopeFieldCreateManyFieldMetaNameResponse
-    | EnvelopeFieldCreateManyFieldMetaEmailResponse
-    | EnvelopeFieldCreateManyFieldMetaDateResponse
-    | EnvelopeFieldCreateManyFieldMetaTextResponse
-    | EnvelopeFieldCreateManyFieldMetaNumberResponse
-    | EnvelopeFieldCreateManyFieldMetaRadioResponse
-    | EnvelopeFieldCreateManyFieldMetaCheckboxResponse
-    | EnvelopeFieldCreateManyFieldMetaDropdownResponse
+    | EnvelopeFieldCreateManyFieldMetaSignature
+    | EnvelopeFieldCreateManyFieldMetaInitials
+    | EnvelopeFieldCreateManyFieldMetaName
+    | EnvelopeFieldCreateManyFieldMetaEmail
+    | EnvelopeFieldCreateManyFieldMetaDate
+    | EnvelopeFieldCreateManyFieldMetaText
+    | EnvelopeFieldCreateManyFieldMetaNumber
+    | EnvelopeFieldCreateManyFieldMetaRadio
+    | EnvelopeFieldCreateManyFieldMetaCheckbox
+    | EnvelopeFieldCreateManyFieldMetaDropdown
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -752,1859 +325,119 @@ export type EnvelopeFieldCreateManyResponse = {
 };
 
 /** @internal */
-export const EnvelopeFieldCreateManyTypeDropdownEnum$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTypeDropdownEnum> = z
-    .nativeEnum(EnvelopeFieldCreateManyTypeDropdownEnum);
-/** @internal */
-export const EnvelopeFieldCreateManyTypeDropdownEnum$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTypeDropdownEnum> =
-    EnvelopeFieldCreateManyTypeDropdownEnum$inboundSchema;
-
-/** @internal */
-export const EnvelopeFieldCreateManyValueDropdown$inboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyValueDropdown,
+export const EnvelopeFieldCreateManyDataRequest2$inboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyDataRequest2,
   z.ZodTypeDef,
   unknown
 > = z.object({
-  value: z.string(),
-});
-/** @internal */
-export type EnvelopeFieldCreateManyValueDropdown$Outbound = {
-  value: string;
-};
-
-/** @internal */
-export const EnvelopeFieldCreateManyValueDropdown$outboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyValueDropdown$Outbound,
-  z.ZodTypeDef,
-  EnvelopeFieldCreateManyValueDropdown
-> = z.object({
-  value: z.string(),
-});
-
-export function envelopeFieldCreateManyValueDropdownToJSON(
-  envelopeFieldCreateManyValueDropdown: EnvelopeFieldCreateManyValueDropdown,
-): string {
-  return JSON.stringify(
-    EnvelopeFieldCreateManyValueDropdown$outboundSchema.parse(
-      envelopeFieldCreateManyValueDropdown,
-    ),
-  );
-}
-export function envelopeFieldCreateManyValueDropdownFromJSON(
-  jsonString: string,
-): SafeParseResult<EnvelopeFieldCreateManyValueDropdown, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      EnvelopeFieldCreateManyValueDropdown$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeFieldCreateManyValueDropdown' from JSON`,
-  );
-}
-
-/** @internal */
-export const EnvelopeFieldCreateManyFieldMetaDropdownRequest$inboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaDropdownRequest,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: EnvelopeFieldCreateManyTypeDropdownEnum$inboundSchema,
-    values: z.array(
-      z.lazy(() => EnvelopeFieldCreateManyValueDropdown$inboundSchema),
-    ).optional(),
-    defaultValue: z.string().optional(),
-  });
-/** @internal */
-export type EnvelopeFieldCreateManyFieldMetaDropdownRequest$Outbound = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  fontSize: number;
-  type: string;
-  values?: Array<EnvelopeFieldCreateManyValueDropdown$Outbound> | undefined;
-  defaultValue?: string | undefined;
-};
-
-/** @internal */
-export const EnvelopeFieldCreateManyFieldMetaDropdownRequest$outboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaDropdownRequest$Outbound,
-    z.ZodTypeDef,
-    EnvelopeFieldCreateManyFieldMetaDropdownRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: EnvelopeFieldCreateManyTypeDropdownEnum$outboundSchema,
-    values: z.array(
-      z.lazy(() => EnvelopeFieldCreateManyValueDropdown$outboundSchema),
-    ).optional(),
-    defaultValue: z.string().optional(),
-  });
-
-export function envelopeFieldCreateManyFieldMetaDropdownRequestToJSON(
-  envelopeFieldCreateManyFieldMetaDropdownRequest:
-    EnvelopeFieldCreateManyFieldMetaDropdownRequest,
-): string {
-  return JSON.stringify(
-    EnvelopeFieldCreateManyFieldMetaDropdownRequest$outboundSchema.parse(
-      envelopeFieldCreateManyFieldMetaDropdownRequest,
-    ),
-  );
-}
-export function envelopeFieldCreateManyFieldMetaDropdownRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  EnvelopeFieldCreateManyFieldMetaDropdownRequest,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      EnvelopeFieldCreateManyFieldMetaDropdownRequest$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaDropdownRequest' from JSON`,
-  );
-}
-
-/** @internal */
-export const EnvelopeFieldCreateManyDataDropdown$inboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyDataDropdown,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  type: z.literal("DROPDOWN"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldCreateManyFieldMetaDropdownRequest$inboundSchema
-  ).optional(),
+  placeholder: z.string(),
+  width: z.number().optional(),
+  height: z.number().optional(),
+  matchAll: z.boolean().optional(),
   recipientId: z.number(),
   envelopeItemId: z.string().optional(),
+});
+/** @internal */
+export type EnvelopeFieldCreateManyDataRequest2$Outbound = {
+  placeholder: string;
+  width?: number | undefined;
+  height?: number | undefined;
+  matchAll?: boolean | undefined;
+  recipientId: number;
+  envelopeItemId?: string | undefined;
+};
+
+/** @internal */
+export const EnvelopeFieldCreateManyDataRequest2$outboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyDataRequest2$Outbound,
+  z.ZodTypeDef,
+  EnvelopeFieldCreateManyDataRequest2
+> = z.object({
+  placeholder: z.string(),
+  width: z.number().optional(),
+  height: z.number().optional(),
+  matchAll: z.boolean().optional(),
+  recipientId: z.number(),
+  envelopeItemId: z.string().optional(),
+});
+
+export function envelopeFieldCreateManyDataRequest2ToJSON(
+  envelopeFieldCreateManyDataRequest2: EnvelopeFieldCreateManyDataRequest2,
+): string {
+  return JSON.stringify(
+    EnvelopeFieldCreateManyDataRequest2$outboundSchema.parse(
+      envelopeFieldCreateManyDataRequest2,
+    ),
+  );
+}
+export function envelopeFieldCreateManyDataRequest2FromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeFieldCreateManyDataRequest2, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      EnvelopeFieldCreateManyDataRequest2$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeFieldCreateManyDataRequest2' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeFieldCreateManyDataRequest1$inboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyDataRequest1,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
   page: z.number(),
   positionX: z.number(),
   positionY: z.number(),
   width: z.number(),
   height: z.number(),
+  recipientId: z.number(),
+  envelopeItemId: z.string().optional(),
 });
 /** @internal */
-export type EnvelopeFieldCreateManyDataDropdown$Outbound = {
-  type: "DROPDOWN";
-  fieldMeta?:
-    | EnvelopeFieldCreateManyFieldMetaDropdownRequest$Outbound
-    | undefined;
-  recipientId: number;
-  envelopeItemId?: string | undefined;
+export type EnvelopeFieldCreateManyDataRequest1$Outbound = {
   page: number;
   positionX: number;
   positionY: number;
   width: number;
   height: number;
-};
-
-/** @internal */
-export const EnvelopeFieldCreateManyDataDropdown$outboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyDataDropdown$Outbound,
-  z.ZodTypeDef,
-  EnvelopeFieldCreateManyDataDropdown
-> = z.object({
-  type: z.literal("DROPDOWN"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldCreateManyFieldMetaDropdownRequest$outboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number(),
-  positionX: z.number(),
-  positionY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
-
-export function envelopeFieldCreateManyDataDropdownToJSON(
-  envelopeFieldCreateManyDataDropdown: EnvelopeFieldCreateManyDataDropdown,
-): string {
-  return JSON.stringify(
-    EnvelopeFieldCreateManyDataDropdown$outboundSchema.parse(
-      envelopeFieldCreateManyDataDropdown,
-    ),
-  );
-}
-export function envelopeFieldCreateManyDataDropdownFromJSON(
-  jsonString: string,
-): SafeParseResult<EnvelopeFieldCreateManyDataDropdown, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      EnvelopeFieldCreateManyDataDropdown$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeFieldCreateManyDataDropdown' from JSON`,
-  );
-}
-
-/** @internal */
-export const EnvelopeFieldCreateManyTypeCheckboxEnum$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTypeCheckboxEnum> = z
-    .nativeEnum(EnvelopeFieldCreateManyTypeCheckboxEnum);
-/** @internal */
-export const EnvelopeFieldCreateManyTypeCheckboxEnum$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTypeCheckboxEnum> =
-    EnvelopeFieldCreateManyTypeCheckboxEnum$inboundSchema;
-
-/** @internal */
-export const EnvelopeFieldCreateManyValueCheckbox$inboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyValueCheckbox,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
-/** @internal */
-export type EnvelopeFieldCreateManyValueCheckbox$Outbound = {
-  id: number;
-  checked: boolean;
-  value: string;
-};
-
-/** @internal */
-export const EnvelopeFieldCreateManyValueCheckbox$outboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyValueCheckbox$Outbound,
-  z.ZodTypeDef,
-  EnvelopeFieldCreateManyValueCheckbox
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
-
-export function envelopeFieldCreateManyValueCheckboxToJSON(
-  envelopeFieldCreateManyValueCheckbox: EnvelopeFieldCreateManyValueCheckbox,
-): string {
-  return JSON.stringify(
-    EnvelopeFieldCreateManyValueCheckbox$outboundSchema.parse(
-      envelopeFieldCreateManyValueCheckbox,
-    ),
-  );
-}
-export function envelopeFieldCreateManyValueCheckboxFromJSON(
-  jsonString: string,
-): SafeParseResult<EnvelopeFieldCreateManyValueCheckbox, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      EnvelopeFieldCreateManyValueCheckbox$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeFieldCreateManyValueCheckbox' from JSON`,
-  );
-}
-
-/** @internal */
-export const EnvelopeFieldCreateManyDirectionCheckbox$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyDirectionCheckbox> = z
-    .nativeEnum(EnvelopeFieldCreateManyDirectionCheckbox);
-/** @internal */
-export const EnvelopeFieldCreateManyDirectionCheckbox$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyDirectionCheckbox> =
-    EnvelopeFieldCreateManyDirectionCheckbox$inboundSchema;
-
-/** @internal */
-export const EnvelopeFieldCreateManyFieldMetaCheckboxRequest$inboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaCheckboxRequest,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: EnvelopeFieldCreateManyTypeCheckboxEnum$inboundSchema,
-    values: z.array(
-      z.lazy(() => EnvelopeFieldCreateManyValueCheckbox$inboundSchema),
-    ).optional(),
-    validationRule: z.string().optional(),
-    validationLength: z.number().optional(),
-    direction: EnvelopeFieldCreateManyDirectionCheckbox$inboundSchema.default(
-      "vertical",
-    ),
-  });
-/** @internal */
-export type EnvelopeFieldCreateManyFieldMetaCheckboxRequest$Outbound = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  fontSize: number;
-  type: string;
-  values?: Array<EnvelopeFieldCreateManyValueCheckbox$Outbound> | undefined;
-  validationRule?: string | undefined;
-  validationLength?: number | undefined;
-  direction: string;
-};
-
-/** @internal */
-export const EnvelopeFieldCreateManyFieldMetaCheckboxRequest$outboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaCheckboxRequest$Outbound,
-    z.ZodTypeDef,
-    EnvelopeFieldCreateManyFieldMetaCheckboxRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: EnvelopeFieldCreateManyTypeCheckboxEnum$outboundSchema,
-    values: z.array(
-      z.lazy(() => EnvelopeFieldCreateManyValueCheckbox$outboundSchema),
-    ).optional(),
-    validationRule: z.string().optional(),
-    validationLength: z.number().optional(),
-    direction: EnvelopeFieldCreateManyDirectionCheckbox$outboundSchema.default(
-      "vertical",
-    ),
-  });
-
-export function envelopeFieldCreateManyFieldMetaCheckboxRequestToJSON(
-  envelopeFieldCreateManyFieldMetaCheckboxRequest:
-    EnvelopeFieldCreateManyFieldMetaCheckboxRequest,
-): string {
-  return JSON.stringify(
-    EnvelopeFieldCreateManyFieldMetaCheckboxRequest$outboundSchema.parse(
-      envelopeFieldCreateManyFieldMetaCheckboxRequest,
-    ),
-  );
-}
-export function envelopeFieldCreateManyFieldMetaCheckboxRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  EnvelopeFieldCreateManyFieldMetaCheckboxRequest,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      EnvelopeFieldCreateManyFieldMetaCheckboxRequest$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaCheckboxRequest' from JSON`,
-  );
-}
-
-/** @internal */
-export const EnvelopeFieldCreateManyDataCheckbox$inboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyDataCheckbox,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  type: z.literal("CHECKBOX"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldCreateManyFieldMetaCheckboxRequest$inboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number(),
-  positionX: z.number(),
-  positionY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
-/** @internal */
-export type EnvelopeFieldCreateManyDataCheckbox$Outbound = {
-  type: "CHECKBOX";
-  fieldMeta?:
-    | EnvelopeFieldCreateManyFieldMetaCheckboxRequest$Outbound
-    | undefined;
   recipientId: number;
   envelopeItemId?: string | undefined;
-  page: number;
-  positionX: number;
-  positionY: number;
-  width: number;
-  height: number;
 };
 
 /** @internal */
-export const EnvelopeFieldCreateManyDataCheckbox$outboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyDataCheckbox$Outbound,
+export const EnvelopeFieldCreateManyDataRequest1$outboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyDataRequest1$Outbound,
   z.ZodTypeDef,
-  EnvelopeFieldCreateManyDataCheckbox
+  EnvelopeFieldCreateManyDataRequest1
 > = z.object({
-  type: z.literal("CHECKBOX"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldCreateManyFieldMetaCheckboxRequest$outboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  envelopeItemId: z.string().optional(),
   page: z.number(),
   positionX: z.number(),
   positionY: z.number(),
   width: z.number(),
   height: z.number(),
+  recipientId: z.number(),
+  envelopeItemId: z.string().optional(),
 });
 
-export function envelopeFieldCreateManyDataCheckboxToJSON(
-  envelopeFieldCreateManyDataCheckbox: EnvelopeFieldCreateManyDataCheckbox,
+export function envelopeFieldCreateManyDataRequest1ToJSON(
+  envelopeFieldCreateManyDataRequest1: EnvelopeFieldCreateManyDataRequest1,
 ): string {
   return JSON.stringify(
-    EnvelopeFieldCreateManyDataCheckbox$outboundSchema.parse(
-      envelopeFieldCreateManyDataCheckbox,
+    EnvelopeFieldCreateManyDataRequest1$outboundSchema.parse(
+      envelopeFieldCreateManyDataRequest1,
     ),
   );
 }
-export function envelopeFieldCreateManyDataCheckboxFromJSON(
+export function envelopeFieldCreateManyDataRequest1FromJSON(
   jsonString: string,
-): SafeParseResult<EnvelopeFieldCreateManyDataCheckbox, SDKValidationError> {
+): SafeParseResult<EnvelopeFieldCreateManyDataRequest1, SDKValidationError> {
   return safeParse(
     jsonString,
     (x) =>
-      EnvelopeFieldCreateManyDataCheckbox$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeFieldCreateManyDataCheckbox' from JSON`,
-  );
-}
-
-/** @internal */
-export const EnvelopeFieldCreateManyTypeRadioEnum$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTypeRadioEnum> = z.nativeEnum(
-    EnvelopeFieldCreateManyTypeRadioEnum,
-  );
-/** @internal */
-export const EnvelopeFieldCreateManyTypeRadioEnum$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTypeRadioEnum> =
-    EnvelopeFieldCreateManyTypeRadioEnum$inboundSchema;
-
-/** @internal */
-export const EnvelopeFieldCreateManyValueRadio$inboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyValueRadio,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
-/** @internal */
-export type EnvelopeFieldCreateManyValueRadio$Outbound = {
-  id: number;
-  checked: boolean;
-  value: string;
-};
-
-/** @internal */
-export const EnvelopeFieldCreateManyValueRadio$outboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyValueRadio$Outbound,
-  z.ZodTypeDef,
-  EnvelopeFieldCreateManyValueRadio
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
-
-export function envelopeFieldCreateManyValueRadioToJSON(
-  envelopeFieldCreateManyValueRadio: EnvelopeFieldCreateManyValueRadio,
-): string {
-  return JSON.stringify(
-    EnvelopeFieldCreateManyValueRadio$outboundSchema.parse(
-      envelopeFieldCreateManyValueRadio,
-    ),
-  );
-}
-export function envelopeFieldCreateManyValueRadioFromJSON(
-  jsonString: string,
-): SafeParseResult<EnvelopeFieldCreateManyValueRadio, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => EnvelopeFieldCreateManyValueRadio$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeFieldCreateManyValueRadio' from JSON`,
-  );
-}
-
-/** @internal */
-export const EnvelopeFieldCreateManyDirectionRadio$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyDirectionRadio> = z.nativeEnum(
-    EnvelopeFieldCreateManyDirectionRadio,
-  );
-/** @internal */
-export const EnvelopeFieldCreateManyDirectionRadio$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyDirectionRadio> =
-    EnvelopeFieldCreateManyDirectionRadio$inboundSchema;
-
-/** @internal */
-export const EnvelopeFieldCreateManyFieldMetaRadioRequest$inboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaRadioRequest,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: EnvelopeFieldCreateManyTypeRadioEnum$inboundSchema,
-    values: z.array(
-      z.lazy(() => EnvelopeFieldCreateManyValueRadio$inboundSchema),
-    ).optional(),
-    direction: EnvelopeFieldCreateManyDirectionRadio$inboundSchema.default(
-      "vertical",
-    ),
-  });
-/** @internal */
-export type EnvelopeFieldCreateManyFieldMetaRadioRequest$Outbound = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  fontSize: number;
-  type: string;
-  values?: Array<EnvelopeFieldCreateManyValueRadio$Outbound> | undefined;
-  direction: string;
-};
-
-/** @internal */
-export const EnvelopeFieldCreateManyFieldMetaRadioRequest$outboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaRadioRequest$Outbound,
-    z.ZodTypeDef,
-    EnvelopeFieldCreateManyFieldMetaRadioRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: EnvelopeFieldCreateManyTypeRadioEnum$outboundSchema,
-    values: z.array(
-      z.lazy(() => EnvelopeFieldCreateManyValueRadio$outboundSchema),
-    ).optional(),
-    direction: EnvelopeFieldCreateManyDirectionRadio$outboundSchema.default(
-      "vertical",
-    ),
-  });
-
-export function envelopeFieldCreateManyFieldMetaRadioRequestToJSON(
-  envelopeFieldCreateManyFieldMetaRadioRequest:
-    EnvelopeFieldCreateManyFieldMetaRadioRequest,
-): string {
-  return JSON.stringify(
-    EnvelopeFieldCreateManyFieldMetaRadioRequest$outboundSchema.parse(
-      envelopeFieldCreateManyFieldMetaRadioRequest,
-    ),
-  );
-}
-export function envelopeFieldCreateManyFieldMetaRadioRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  EnvelopeFieldCreateManyFieldMetaRadioRequest,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      EnvelopeFieldCreateManyFieldMetaRadioRequest$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaRadioRequest' from JSON`,
-  );
-}
-
-/** @internal */
-export const EnvelopeFieldCreateManyDataRadio$inboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyDataRadio,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  type: z.literal("RADIO"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldCreateManyFieldMetaRadioRequest$inboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number(),
-  positionX: z.number(),
-  positionY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
-/** @internal */
-export type EnvelopeFieldCreateManyDataRadio$Outbound = {
-  type: "RADIO";
-  fieldMeta?: EnvelopeFieldCreateManyFieldMetaRadioRequest$Outbound | undefined;
-  recipientId: number;
-  envelopeItemId?: string | undefined;
-  page: number;
-  positionX: number;
-  positionY: number;
-  width: number;
-  height: number;
-};
-
-/** @internal */
-export const EnvelopeFieldCreateManyDataRadio$outboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyDataRadio$Outbound,
-  z.ZodTypeDef,
-  EnvelopeFieldCreateManyDataRadio
-> = z.object({
-  type: z.literal("RADIO"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldCreateManyFieldMetaRadioRequest$outboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number(),
-  positionX: z.number(),
-  positionY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
-
-export function envelopeFieldCreateManyDataRadioToJSON(
-  envelopeFieldCreateManyDataRadio: EnvelopeFieldCreateManyDataRadio,
-): string {
-  return JSON.stringify(
-    EnvelopeFieldCreateManyDataRadio$outboundSchema.parse(
-      envelopeFieldCreateManyDataRadio,
-    ),
-  );
-}
-export function envelopeFieldCreateManyDataRadioFromJSON(
-  jsonString: string,
-): SafeParseResult<EnvelopeFieldCreateManyDataRadio, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => EnvelopeFieldCreateManyDataRadio$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeFieldCreateManyDataRadio' from JSON`,
-  );
-}
-
-/** @internal */
-export const EnvelopeFieldCreateManyTypeNumberEnum$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTypeNumberEnum> = z.nativeEnum(
-    EnvelopeFieldCreateManyTypeNumberEnum,
-  );
-/** @internal */
-export const EnvelopeFieldCreateManyTypeNumberEnum$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTypeNumberEnum> =
-    EnvelopeFieldCreateManyTypeNumberEnum$inboundSchema;
-
-/** @internal */
-export const EnvelopeFieldCreateManyTextAlignNumber$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignNumber> = z.nativeEnum(
-    EnvelopeFieldCreateManyTextAlignNumber,
-  );
-/** @internal */
-export const EnvelopeFieldCreateManyTextAlignNumber$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignNumber> =
-    EnvelopeFieldCreateManyTextAlignNumber$inboundSchema;
-
-/** @internal */
-export const EnvelopeFieldCreateManyVerticalAlignNumber$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyVerticalAlignNumber> = z
-    .nativeEnum(EnvelopeFieldCreateManyVerticalAlignNumber);
-/** @internal */
-export const EnvelopeFieldCreateManyVerticalAlignNumber$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyVerticalAlignNumber> =
-    EnvelopeFieldCreateManyVerticalAlignNumber$inboundSchema;
-
-/** @internal */
-export const EnvelopeFieldCreateManyFieldMetaNumberRequest$inboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaNumberRequest,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: EnvelopeFieldCreateManyTypeNumberEnum$inboundSchema,
-    numberFormat: z.nullable(z.string()).optional(),
-    value: z.string().optional(),
-    minValue: z.nullable(z.number()).optional(),
-    maxValue: z.nullable(z.number()).optional(),
-    textAlign: EnvelopeFieldCreateManyTextAlignNumber$inboundSchema.optional(),
-    lineHeight: z.nullable(z.number()).optional(),
-    letterSpacing: z.nullable(z.number()).optional(),
-    verticalAlign: z.nullable(
-      EnvelopeFieldCreateManyVerticalAlignNumber$inboundSchema,
-    ).optional(),
-  });
-/** @internal */
-export type EnvelopeFieldCreateManyFieldMetaNumberRequest$Outbound = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  fontSize: number;
-  type: string;
-  numberFormat?: string | null | undefined;
-  value?: string | undefined;
-  minValue?: number | null | undefined;
-  maxValue?: number | null | undefined;
-  textAlign?: string | undefined;
-  lineHeight?: number | null | undefined;
-  letterSpacing?: number | null | undefined;
-  verticalAlign?: string | null | undefined;
-};
-
-/** @internal */
-export const EnvelopeFieldCreateManyFieldMetaNumberRequest$outboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaNumberRequest$Outbound,
-    z.ZodTypeDef,
-    EnvelopeFieldCreateManyFieldMetaNumberRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: EnvelopeFieldCreateManyTypeNumberEnum$outboundSchema,
-    numberFormat: z.nullable(z.string()).optional(),
-    value: z.string().optional(),
-    minValue: z.nullable(z.number()).optional(),
-    maxValue: z.nullable(z.number()).optional(),
-    textAlign: EnvelopeFieldCreateManyTextAlignNumber$outboundSchema.optional(),
-    lineHeight: z.nullable(z.number()).optional(),
-    letterSpacing: z.nullable(z.number()).optional(),
-    verticalAlign: z.nullable(
-      EnvelopeFieldCreateManyVerticalAlignNumber$outboundSchema,
-    ).optional(),
-  });
-
-export function envelopeFieldCreateManyFieldMetaNumberRequestToJSON(
-  envelopeFieldCreateManyFieldMetaNumberRequest:
-    EnvelopeFieldCreateManyFieldMetaNumberRequest,
-): string {
-  return JSON.stringify(
-    EnvelopeFieldCreateManyFieldMetaNumberRequest$outboundSchema.parse(
-      envelopeFieldCreateManyFieldMetaNumberRequest,
-    ),
-  );
-}
-export function envelopeFieldCreateManyFieldMetaNumberRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  EnvelopeFieldCreateManyFieldMetaNumberRequest,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      EnvelopeFieldCreateManyFieldMetaNumberRequest$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaNumberRequest' from JSON`,
-  );
-}
-
-/** @internal */
-export const EnvelopeFieldCreateManyDataNumber$inboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyDataNumber,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  type: z.literal("NUMBER"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldCreateManyFieldMetaNumberRequest$inboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number(),
-  positionX: z.number(),
-  positionY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
-/** @internal */
-export type EnvelopeFieldCreateManyDataNumber$Outbound = {
-  type: "NUMBER";
-  fieldMeta?:
-    | EnvelopeFieldCreateManyFieldMetaNumberRequest$Outbound
-    | undefined;
-  recipientId: number;
-  envelopeItemId?: string | undefined;
-  page: number;
-  positionX: number;
-  positionY: number;
-  width: number;
-  height: number;
-};
-
-/** @internal */
-export const EnvelopeFieldCreateManyDataNumber$outboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyDataNumber$Outbound,
-  z.ZodTypeDef,
-  EnvelopeFieldCreateManyDataNumber
-> = z.object({
-  type: z.literal("NUMBER"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldCreateManyFieldMetaNumberRequest$outboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number(),
-  positionX: z.number(),
-  positionY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
-
-export function envelopeFieldCreateManyDataNumberToJSON(
-  envelopeFieldCreateManyDataNumber: EnvelopeFieldCreateManyDataNumber,
-): string {
-  return JSON.stringify(
-    EnvelopeFieldCreateManyDataNumber$outboundSchema.parse(
-      envelopeFieldCreateManyDataNumber,
-    ),
-  );
-}
-export function envelopeFieldCreateManyDataNumberFromJSON(
-  jsonString: string,
-): SafeParseResult<EnvelopeFieldCreateManyDataNumber, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => EnvelopeFieldCreateManyDataNumber$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeFieldCreateManyDataNumber' from JSON`,
-  );
-}
-
-/** @internal */
-export const EnvelopeFieldCreateManyTypeTextEnum$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeFieldCreateManyTypeTextEnum
-> = z.nativeEnum(EnvelopeFieldCreateManyTypeTextEnum);
-/** @internal */
-export const EnvelopeFieldCreateManyTypeTextEnum$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTypeTextEnum> =
-    EnvelopeFieldCreateManyTypeTextEnum$inboundSchema;
-
-/** @internal */
-export const EnvelopeFieldCreateManyTextAlignText$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignText> = z.nativeEnum(
-    EnvelopeFieldCreateManyTextAlignText,
-  );
-/** @internal */
-export const EnvelopeFieldCreateManyTextAlignText$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignText> =
-    EnvelopeFieldCreateManyTextAlignText$inboundSchema;
-
-/** @internal */
-export const EnvelopeFieldCreateManyVerticalAlignText$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyVerticalAlignText> = z
-    .nativeEnum(EnvelopeFieldCreateManyVerticalAlignText);
-/** @internal */
-export const EnvelopeFieldCreateManyVerticalAlignText$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyVerticalAlignText> =
-    EnvelopeFieldCreateManyVerticalAlignText$inboundSchema;
-
-/** @internal */
-export const EnvelopeFieldCreateManyFieldMetaTextRequest$inboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaTextRequest,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: EnvelopeFieldCreateManyTypeTextEnum$inboundSchema,
-    text: z.string().optional(),
-    characterLimit: z.number().optional(),
-    textAlign: EnvelopeFieldCreateManyTextAlignText$inboundSchema.optional(),
-    lineHeight: z.nullable(z.number()).optional(),
-    letterSpacing: z.nullable(z.number()).optional(),
-    verticalAlign: z.nullable(
-      EnvelopeFieldCreateManyVerticalAlignText$inboundSchema,
-    ).optional(),
-  });
-/** @internal */
-export type EnvelopeFieldCreateManyFieldMetaTextRequest$Outbound = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  fontSize: number;
-  type: string;
-  text?: string | undefined;
-  characterLimit?: number | undefined;
-  textAlign?: string | undefined;
-  lineHeight?: number | null | undefined;
-  letterSpacing?: number | null | undefined;
-  verticalAlign?: string | null | undefined;
-};
-
-/** @internal */
-export const EnvelopeFieldCreateManyFieldMetaTextRequest$outboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaTextRequest$Outbound,
-    z.ZodTypeDef,
-    EnvelopeFieldCreateManyFieldMetaTextRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: EnvelopeFieldCreateManyTypeTextEnum$outboundSchema,
-    text: z.string().optional(),
-    characterLimit: z.number().optional(),
-    textAlign: EnvelopeFieldCreateManyTextAlignText$outboundSchema.optional(),
-    lineHeight: z.nullable(z.number()).optional(),
-    letterSpacing: z.nullable(z.number()).optional(),
-    verticalAlign: z.nullable(
-      EnvelopeFieldCreateManyVerticalAlignText$outboundSchema,
-    ).optional(),
-  });
-
-export function envelopeFieldCreateManyFieldMetaTextRequestToJSON(
-  envelopeFieldCreateManyFieldMetaTextRequest:
-    EnvelopeFieldCreateManyFieldMetaTextRequest,
-): string {
-  return JSON.stringify(
-    EnvelopeFieldCreateManyFieldMetaTextRequest$outboundSchema.parse(
-      envelopeFieldCreateManyFieldMetaTextRequest,
-    ),
-  );
-}
-export function envelopeFieldCreateManyFieldMetaTextRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  EnvelopeFieldCreateManyFieldMetaTextRequest,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      EnvelopeFieldCreateManyFieldMetaTextRequest$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaTextRequest' from JSON`,
-  );
-}
-
-/** @internal */
-export const EnvelopeFieldCreateManyDataText$inboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyDataText,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  type: z.literal("TEXT"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldCreateManyFieldMetaTextRequest$inboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number(),
-  positionX: z.number(),
-  positionY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
-/** @internal */
-export type EnvelopeFieldCreateManyDataText$Outbound = {
-  type: "TEXT";
-  fieldMeta?: EnvelopeFieldCreateManyFieldMetaTextRequest$Outbound | undefined;
-  recipientId: number;
-  envelopeItemId?: string | undefined;
-  page: number;
-  positionX: number;
-  positionY: number;
-  width: number;
-  height: number;
-};
-
-/** @internal */
-export const EnvelopeFieldCreateManyDataText$outboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyDataText$Outbound,
-  z.ZodTypeDef,
-  EnvelopeFieldCreateManyDataText
-> = z.object({
-  type: z.literal("TEXT"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldCreateManyFieldMetaTextRequest$outboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number(),
-  positionX: z.number(),
-  positionY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
-
-export function envelopeFieldCreateManyDataTextToJSON(
-  envelopeFieldCreateManyDataText: EnvelopeFieldCreateManyDataText,
-): string {
-  return JSON.stringify(
-    EnvelopeFieldCreateManyDataText$outboundSchema.parse(
-      envelopeFieldCreateManyDataText,
-    ),
-  );
-}
-export function envelopeFieldCreateManyDataTextFromJSON(
-  jsonString: string,
-): SafeParseResult<EnvelopeFieldCreateManyDataText, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => EnvelopeFieldCreateManyDataText$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeFieldCreateManyDataText' from JSON`,
-  );
-}
-
-/** @internal */
-export const EnvelopeFieldCreateManyTypeDateEnum$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeFieldCreateManyTypeDateEnum
-> = z.nativeEnum(EnvelopeFieldCreateManyTypeDateEnum);
-/** @internal */
-export const EnvelopeFieldCreateManyTypeDateEnum$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTypeDateEnum> =
-    EnvelopeFieldCreateManyTypeDateEnum$inboundSchema;
-
-/** @internal */
-export const EnvelopeFieldCreateManyTextAlignDate$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignDate> = z.nativeEnum(
-    EnvelopeFieldCreateManyTextAlignDate,
-  );
-/** @internal */
-export const EnvelopeFieldCreateManyTextAlignDate$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignDate> =
-    EnvelopeFieldCreateManyTextAlignDate$inboundSchema;
-
-/** @internal */
-export const EnvelopeFieldCreateManyFieldMetaDateRequest$inboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaDateRequest,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: EnvelopeFieldCreateManyTypeDateEnum$inboundSchema,
-    textAlign: EnvelopeFieldCreateManyTextAlignDate$inboundSchema.optional(),
-  });
-/** @internal */
-export type EnvelopeFieldCreateManyFieldMetaDateRequest$Outbound = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  fontSize: number;
-  type: string;
-  textAlign?: string | undefined;
-};
-
-/** @internal */
-export const EnvelopeFieldCreateManyFieldMetaDateRequest$outboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaDateRequest$Outbound,
-    z.ZodTypeDef,
-    EnvelopeFieldCreateManyFieldMetaDateRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: EnvelopeFieldCreateManyTypeDateEnum$outboundSchema,
-    textAlign: EnvelopeFieldCreateManyTextAlignDate$outboundSchema.optional(),
-  });
-
-export function envelopeFieldCreateManyFieldMetaDateRequestToJSON(
-  envelopeFieldCreateManyFieldMetaDateRequest:
-    EnvelopeFieldCreateManyFieldMetaDateRequest,
-): string {
-  return JSON.stringify(
-    EnvelopeFieldCreateManyFieldMetaDateRequest$outboundSchema.parse(
-      envelopeFieldCreateManyFieldMetaDateRequest,
-    ),
-  );
-}
-export function envelopeFieldCreateManyFieldMetaDateRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  EnvelopeFieldCreateManyFieldMetaDateRequest,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      EnvelopeFieldCreateManyFieldMetaDateRequest$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaDateRequest' from JSON`,
-  );
-}
-
-/** @internal */
-export const EnvelopeFieldCreateManyDataDate$inboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyDataDate,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  type: z.literal("DATE"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldCreateManyFieldMetaDateRequest$inboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number(),
-  positionX: z.number(),
-  positionY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
-/** @internal */
-export type EnvelopeFieldCreateManyDataDate$Outbound = {
-  type: "DATE";
-  fieldMeta?: EnvelopeFieldCreateManyFieldMetaDateRequest$Outbound | undefined;
-  recipientId: number;
-  envelopeItemId?: string | undefined;
-  page: number;
-  positionX: number;
-  positionY: number;
-  width: number;
-  height: number;
-};
-
-/** @internal */
-export const EnvelopeFieldCreateManyDataDate$outboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyDataDate$Outbound,
-  z.ZodTypeDef,
-  EnvelopeFieldCreateManyDataDate
-> = z.object({
-  type: z.literal("DATE"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldCreateManyFieldMetaDateRequest$outboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number(),
-  positionX: z.number(),
-  positionY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
-
-export function envelopeFieldCreateManyDataDateToJSON(
-  envelopeFieldCreateManyDataDate: EnvelopeFieldCreateManyDataDate,
-): string {
-  return JSON.stringify(
-    EnvelopeFieldCreateManyDataDate$outboundSchema.parse(
-      envelopeFieldCreateManyDataDate,
-    ),
-  );
-}
-export function envelopeFieldCreateManyDataDateFromJSON(
-  jsonString: string,
-): SafeParseResult<EnvelopeFieldCreateManyDataDate, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => EnvelopeFieldCreateManyDataDate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeFieldCreateManyDataDate' from JSON`,
-  );
-}
-
-/** @internal */
-export const EnvelopeFieldCreateManyTypeEmailEnum$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTypeEmailEnum> = z.nativeEnum(
-    EnvelopeFieldCreateManyTypeEmailEnum,
-  );
-/** @internal */
-export const EnvelopeFieldCreateManyTypeEmailEnum$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTypeEmailEnum> =
-    EnvelopeFieldCreateManyTypeEmailEnum$inboundSchema;
-
-/** @internal */
-export const EnvelopeFieldCreateManyTextAlignEmail$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignEmail> = z.nativeEnum(
-    EnvelopeFieldCreateManyTextAlignEmail,
-  );
-/** @internal */
-export const EnvelopeFieldCreateManyTextAlignEmail$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignEmail> =
-    EnvelopeFieldCreateManyTextAlignEmail$inboundSchema;
-
-/** @internal */
-export const EnvelopeFieldCreateManyFieldMetaEmailRequest$inboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaEmailRequest,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: EnvelopeFieldCreateManyTypeEmailEnum$inboundSchema,
-    textAlign: EnvelopeFieldCreateManyTextAlignEmail$inboundSchema.optional(),
-  });
-/** @internal */
-export type EnvelopeFieldCreateManyFieldMetaEmailRequest$Outbound = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  fontSize: number;
-  type: string;
-  textAlign?: string | undefined;
-};
-
-/** @internal */
-export const EnvelopeFieldCreateManyFieldMetaEmailRequest$outboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaEmailRequest$Outbound,
-    z.ZodTypeDef,
-    EnvelopeFieldCreateManyFieldMetaEmailRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: EnvelopeFieldCreateManyTypeEmailEnum$outboundSchema,
-    textAlign: EnvelopeFieldCreateManyTextAlignEmail$outboundSchema.optional(),
-  });
-
-export function envelopeFieldCreateManyFieldMetaEmailRequestToJSON(
-  envelopeFieldCreateManyFieldMetaEmailRequest:
-    EnvelopeFieldCreateManyFieldMetaEmailRequest,
-): string {
-  return JSON.stringify(
-    EnvelopeFieldCreateManyFieldMetaEmailRequest$outboundSchema.parse(
-      envelopeFieldCreateManyFieldMetaEmailRequest,
-    ),
-  );
-}
-export function envelopeFieldCreateManyFieldMetaEmailRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  EnvelopeFieldCreateManyFieldMetaEmailRequest,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      EnvelopeFieldCreateManyFieldMetaEmailRequest$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaEmailRequest' from JSON`,
-  );
-}
-
-/** @internal */
-export const EnvelopeFieldCreateManyDataEmail$inboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyDataEmail,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  type: z.literal("EMAIL"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldCreateManyFieldMetaEmailRequest$inboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number(),
-  positionX: z.number(),
-  positionY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
-/** @internal */
-export type EnvelopeFieldCreateManyDataEmail$Outbound = {
-  type: "EMAIL";
-  fieldMeta?: EnvelopeFieldCreateManyFieldMetaEmailRequest$Outbound | undefined;
-  recipientId: number;
-  envelopeItemId?: string | undefined;
-  page: number;
-  positionX: number;
-  positionY: number;
-  width: number;
-  height: number;
-};
-
-/** @internal */
-export const EnvelopeFieldCreateManyDataEmail$outboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyDataEmail$Outbound,
-  z.ZodTypeDef,
-  EnvelopeFieldCreateManyDataEmail
-> = z.object({
-  type: z.literal("EMAIL"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldCreateManyFieldMetaEmailRequest$outboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number(),
-  positionX: z.number(),
-  positionY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
-
-export function envelopeFieldCreateManyDataEmailToJSON(
-  envelopeFieldCreateManyDataEmail: EnvelopeFieldCreateManyDataEmail,
-): string {
-  return JSON.stringify(
-    EnvelopeFieldCreateManyDataEmail$outboundSchema.parse(
-      envelopeFieldCreateManyDataEmail,
-    ),
-  );
-}
-export function envelopeFieldCreateManyDataEmailFromJSON(
-  jsonString: string,
-): SafeParseResult<EnvelopeFieldCreateManyDataEmail, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => EnvelopeFieldCreateManyDataEmail$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeFieldCreateManyDataEmail' from JSON`,
-  );
-}
-
-/** @internal */
-export const EnvelopeFieldCreateManyTypeNameEnum$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeFieldCreateManyTypeNameEnum
-> = z.nativeEnum(EnvelopeFieldCreateManyTypeNameEnum);
-/** @internal */
-export const EnvelopeFieldCreateManyTypeNameEnum$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTypeNameEnum> =
-    EnvelopeFieldCreateManyTypeNameEnum$inboundSchema;
-
-/** @internal */
-export const EnvelopeFieldCreateManyTextAlignName$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignName> = z.nativeEnum(
-    EnvelopeFieldCreateManyTextAlignName,
-  );
-/** @internal */
-export const EnvelopeFieldCreateManyTextAlignName$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignName> =
-    EnvelopeFieldCreateManyTextAlignName$inboundSchema;
-
-/** @internal */
-export const EnvelopeFieldCreateManyFieldMetaNameRequest$inboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaNameRequest,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: EnvelopeFieldCreateManyTypeNameEnum$inboundSchema,
-    textAlign: EnvelopeFieldCreateManyTextAlignName$inboundSchema.optional(),
-  });
-/** @internal */
-export type EnvelopeFieldCreateManyFieldMetaNameRequest$Outbound = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  fontSize: number;
-  type: string;
-  textAlign?: string | undefined;
-};
-
-/** @internal */
-export const EnvelopeFieldCreateManyFieldMetaNameRequest$outboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaNameRequest$Outbound,
-    z.ZodTypeDef,
-    EnvelopeFieldCreateManyFieldMetaNameRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: EnvelopeFieldCreateManyTypeNameEnum$outboundSchema,
-    textAlign: EnvelopeFieldCreateManyTextAlignName$outboundSchema.optional(),
-  });
-
-export function envelopeFieldCreateManyFieldMetaNameRequestToJSON(
-  envelopeFieldCreateManyFieldMetaNameRequest:
-    EnvelopeFieldCreateManyFieldMetaNameRequest,
-): string {
-  return JSON.stringify(
-    EnvelopeFieldCreateManyFieldMetaNameRequest$outboundSchema.parse(
-      envelopeFieldCreateManyFieldMetaNameRequest,
-    ),
-  );
-}
-export function envelopeFieldCreateManyFieldMetaNameRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  EnvelopeFieldCreateManyFieldMetaNameRequest,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      EnvelopeFieldCreateManyFieldMetaNameRequest$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaNameRequest' from JSON`,
-  );
-}
-
-/** @internal */
-export const EnvelopeFieldCreateManyDataName$inboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyDataName,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  type: z.literal("NAME"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldCreateManyFieldMetaNameRequest$inboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number(),
-  positionX: z.number(),
-  positionY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
-/** @internal */
-export type EnvelopeFieldCreateManyDataName$Outbound = {
-  type: "NAME";
-  fieldMeta?: EnvelopeFieldCreateManyFieldMetaNameRequest$Outbound | undefined;
-  recipientId: number;
-  envelopeItemId?: string | undefined;
-  page: number;
-  positionX: number;
-  positionY: number;
-  width: number;
-  height: number;
-};
-
-/** @internal */
-export const EnvelopeFieldCreateManyDataName$outboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyDataName$Outbound,
-  z.ZodTypeDef,
-  EnvelopeFieldCreateManyDataName
-> = z.object({
-  type: z.literal("NAME"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldCreateManyFieldMetaNameRequest$outboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number(),
-  positionX: z.number(),
-  positionY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
-
-export function envelopeFieldCreateManyDataNameToJSON(
-  envelopeFieldCreateManyDataName: EnvelopeFieldCreateManyDataName,
-): string {
-  return JSON.stringify(
-    EnvelopeFieldCreateManyDataName$outboundSchema.parse(
-      envelopeFieldCreateManyDataName,
-    ),
-  );
-}
-export function envelopeFieldCreateManyDataNameFromJSON(
-  jsonString: string,
-): SafeParseResult<EnvelopeFieldCreateManyDataName, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => EnvelopeFieldCreateManyDataName$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeFieldCreateManyDataName' from JSON`,
-  );
-}
-
-/** @internal */
-export const EnvelopeFieldCreateManyTypeInitialsEnum$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTypeInitialsEnum> = z
-    .nativeEnum(EnvelopeFieldCreateManyTypeInitialsEnum);
-/** @internal */
-export const EnvelopeFieldCreateManyTypeInitialsEnum$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTypeInitialsEnum> =
-    EnvelopeFieldCreateManyTypeInitialsEnum$inboundSchema;
-
-/** @internal */
-export const EnvelopeFieldCreateManyTextAlignInitials$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignInitials> = z
-    .nativeEnum(EnvelopeFieldCreateManyTextAlignInitials);
-/** @internal */
-export const EnvelopeFieldCreateManyTextAlignInitials$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignInitials> =
-    EnvelopeFieldCreateManyTextAlignInitials$inboundSchema;
-
-/** @internal */
-export const EnvelopeFieldCreateManyFieldMetaInitialsRequest$inboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaInitialsRequest,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: EnvelopeFieldCreateManyTypeInitialsEnum$inboundSchema,
-    textAlign: EnvelopeFieldCreateManyTextAlignInitials$inboundSchema
-      .optional(),
-  });
-/** @internal */
-export type EnvelopeFieldCreateManyFieldMetaInitialsRequest$Outbound = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  fontSize: number;
-  type: string;
-  textAlign?: string | undefined;
-};
-
-/** @internal */
-export const EnvelopeFieldCreateManyFieldMetaInitialsRequest$outboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaInitialsRequest$Outbound,
-    z.ZodTypeDef,
-    EnvelopeFieldCreateManyFieldMetaInitialsRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: EnvelopeFieldCreateManyTypeInitialsEnum$outboundSchema,
-    textAlign: EnvelopeFieldCreateManyTextAlignInitials$outboundSchema
-      .optional(),
-  });
-
-export function envelopeFieldCreateManyFieldMetaInitialsRequestToJSON(
-  envelopeFieldCreateManyFieldMetaInitialsRequest:
-    EnvelopeFieldCreateManyFieldMetaInitialsRequest,
-): string {
-  return JSON.stringify(
-    EnvelopeFieldCreateManyFieldMetaInitialsRequest$outboundSchema.parse(
-      envelopeFieldCreateManyFieldMetaInitialsRequest,
-    ),
-  );
-}
-export function envelopeFieldCreateManyFieldMetaInitialsRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  EnvelopeFieldCreateManyFieldMetaInitialsRequest,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      EnvelopeFieldCreateManyFieldMetaInitialsRequest$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaInitialsRequest' from JSON`,
-  );
-}
-
-/** @internal */
-export const EnvelopeFieldCreateManyDataInitials$inboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyDataInitials,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  type: z.literal("INITIALS"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldCreateManyFieldMetaInitialsRequest$inboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number(),
-  positionX: z.number(),
-  positionY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
-/** @internal */
-export type EnvelopeFieldCreateManyDataInitials$Outbound = {
-  type: "INITIALS";
-  fieldMeta?:
-    | EnvelopeFieldCreateManyFieldMetaInitialsRequest$Outbound
-    | undefined;
-  recipientId: number;
-  envelopeItemId?: string | undefined;
-  page: number;
-  positionX: number;
-  positionY: number;
-  width: number;
-  height: number;
-};
-
-/** @internal */
-export const EnvelopeFieldCreateManyDataInitials$outboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyDataInitials$Outbound,
-  z.ZodTypeDef,
-  EnvelopeFieldCreateManyDataInitials
-> = z.object({
-  type: z.literal("INITIALS"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldCreateManyFieldMetaInitialsRequest$outboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number(),
-  positionX: z.number(),
-  positionY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
-
-export function envelopeFieldCreateManyDataInitialsToJSON(
-  envelopeFieldCreateManyDataInitials: EnvelopeFieldCreateManyDataInitials,
-): string {
-  return JSON.stringify(
-    EnvelopeFieldCreateManyDataInitials$outboundSchema.parse(
-      envelopeFieldCreateManyDataInitials,
-    ),
-  );
-}
-export function envelopeFieldCreateManyDataInitialsFromJSON(
-  jsonString: string,
-): SafeParseResult<EnvelopeFieldCreateManyDataInitials, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      EnvelopeFieldCreateManyDataInitials$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeFieldCreateManyDataInitials' from JSON`,
-  );
-}
-
-/** @internal */
-export const EnvelopeFieldCreateManyDataFreeSignature$inboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyDataFreeSignature,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  type: z.literal("FREE_SIGNATURE"),
-  recipientId: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number(),
-  positionX: z.number(),
-  positionY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
-/** @internal */
-export type EnvelopeFieldCreateManyDataFreeSignature$Outbound = {
-  type: "FREE_SIGNATURE";
-  recipientId: number;
-  envelopeItemId?: string | undefined;
-  page: number;
-  positionX: number;
-  positionY: number;
-  width: number;
-  height: number;
-};
-
-/** @internal */
-export const EnvelopeFieldCreateManyDataFreeSignature$outboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyDataFreeSignature$Outbound,
-  z.ZodTypeDef,
-  EnvelopeFieldCreateManyDataFreeSignature
-> = z.object({
-  type: z.literal("FREE_SIGNATURE"),
-  recipientId: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number(),
-  positionX: z.number(),
-  positionY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
-
-export function envelopeFieldCreateManyDataFreeSignatureToJSON(
-  envelopeFieldCreateManyDataFreeSignature:
-    EnvelopeFieldCreateManyDataFreeSignature,
-): string {
-  return JSON.stringify(
-    EnvelopeFieldCreateManyDataFreeSignature$outboundSchema.parse(
-      envelopeFieldCreateManyDataFreeSignature,
-    ),
-  );
-}
-export function envelopeFieldCreateManyDataFreeSignatureFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  EnvelopeFieldCreateManyDataFreeSignature,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      EnvelopeFieldCreateManyDataFreeSignature$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'EnvelopeFieldCreateManyDataFreeSignature' from JSON`,
-  );
-}
-
-/** @internal */
-export const EnvelopeFieldCreateManyTypeSignatureEnum$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTypeSignatureEnum> = z
-    .nativeEnum(EnvelopeFieldCreateManyTypeSignatureEnum);
-/** @internal */
-export const EnvelopeFieldCreateManyTypeSignatureEnum$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTypeSignatureEnum> =
-    EnvelopeFieldCreateManyTypeSignatureEnum$inboundSchema;
-
-/** @internal */
-export const EnvelopeFieldCreateManyFieldMetaSignatureRequest$inboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaSignatureRequest,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: EnvelopeFieldCreateManyTypeSignatureEnum$inboundSchema,
-  });
-/** @internal */
-export type EnvelopeFieldCreateManyFieldMetaSignatureRequest$Outbound = {
-  label?: string | undefined;
-  placeholder?: string | undefined;
-  required?: boolean | undefined;
-  readOnly?: boolean | undefined;
-  fontSize: number;
-  type: string;
-};
-
-/** @internal */
-export const EnvelopeFieldCreateManyFieldMetaSignatureRequest$outboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaSignatureRequest$Outbound,
-    z.ZodTypeDef,
-    EnvelopeFieldCreateManyFieldMetaSignatureRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: EnvelopeFieldCreateManyTypeSignatureEnum$outboundSchema,
-  });
-
-export function envelopeFieldCreateManyFieldMetaSignatureRequestToJSON(
-  envelopeFieldCreateManyFieldMetaSignatureRequest:
-    EnvelopeFieldCreateManyFieldMetaSignatureRequest,
-): string {
-  return JSON.stringify(
-    EnvelopeFieldCreateManyFieldMetaSignatureRequest$outboundSchema.parse(
-      envelopeFieldCreateManyFieldMetaSignatureRequest,
-    ),
-  );
-}
-export function envelopeFieldCreateManyFieldMetaSignatureRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  EnvelopeFieldCreateManyFieldMetaSignatureRequest,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      EnvelopeFieldCreateManyFieldMetaSignatureRequest$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaSignatureRequest' from JSON`,
-  );
-}
-
-/** @internal */
-export const EnvelopeFieldCreateManyDataSignature$inboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyDataSignature,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  type: z.literal("SIGNATURE"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldCreateManyFieldMetaSignatureRequest$inboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number(),
-  positionX: z.number(),
-  positionY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
-/** @internal */
-export type EnvelopeFieldCreateManyDataSignature$Outbound = {
-  type: "SIGNATURE";
-  fieldMeta?:
-    | EnvelopeFieldCreateManyFieldMetaSignatureRequest$Outbound
-    | undefined;
-  recipientId: number;
-  envelopeItemId?: string | undefined;
-  page: number;
-  positionX: number;
-  positionY: number;
-  width: number;
-  height: number;
-};
-
-/** @internal */
-export const EnvelopeFieldCreateManyDataSignature$outboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyDataSignature$Outbound,
-  z.ZodTypeDef,
-  EnvelopeFieldCreateManyDataSignature
-> = z.object({
-  type: z.literal("SIGNATURE"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldCreateManyFieldMetaSignatureRequest$outboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number(),
-  positionX: z.number(),
-  positionY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
-
-export function envelopeFieldCreateManyDataSignatureToJSON(
-  envelopeFieldCreateManyDataSignature: EnvelopeFieldCreateManyDataSignature,
-): string {
-  return JSON.stringify(
-    EnvelopeFieldCreateManyDataSignature$outboundSchema.parse(
-      envelopeFieldCreateManyDataSignature,
-    ),
-  );
-}
-export function envelopeFieldCreateManyDataSignatureFromJSON(
-  jsonString: string,
-): SafeParseResult<EnvelopeFieldCreateManyDataSignature, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      EnvelopeFieldCreateManyDataSignature$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeFieldCreateManyDataSignature' from JSON`,
+      EnvelopeFieldCreateManyDataRequest1$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeFieldCreateManyDataRequest1' from JSON`,
   );
 }
 
@@ -2614,31 +447,13 @@ export const EnvelopeFieldCreateManyDataUnion$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  z.lazy(() => EnvelopeFieldCreateManyDataSignature$inboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyDataFreeSignature$inboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyDataInitials$inboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyDataName$inboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyDataEmail$inboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyDataDate$inboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyDataText$inboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyDataNumber$inboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyDataRadio$inboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyDataCheckbox$inboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyDataDropdown$inboundSchema),
+  z.lazy(() => EnvelopeFieldCreateManyDataRequest1$inboundSchema),
+  z.lazy(() => EnvelopeFieldCreateManyDataRequest2$inboundSchema),
 ]);
 /** @internal */
 export type EnvelopeFieldCreateManyDataUnion$Outbound =
-  | EnvelopeFieldCreateManyDataSignature$Outbound
-  | EnvelopeFieldCreateManyDataFreeSignature$Outbound
-  | EnvelopeFieldCreateManyDataInitials$Outbound
-  | EnvelopeFieldCreateManyDataName$Outbound
-  | EnvelopeFieldCreateManyDataEmail$Outbound
-  | EnvelopeFieldCreateManyDataDate$Outbound
-  | EnvelopeFieldCreateManyDataText$Outbound
-  | EnvelopeFieldCreateManyDataNumber$Outbound
-  | EnvelopeFieldCreateManyDataRadio$Outbound
-  | EnvelopeFieldCreateManyDataCheckbox$Outbound
-  | EnvelopeFieldCreateManyDataDropdown$Outbound;
+  | EnvelopeFieldCreateManyDataRequest1$Outbound
+  | EnvelopeFieldCreateManyDataRequest2$Outbound;
 
 /** @internal */
 export const EnvelopeFieldCreateManyDataUnion$outboundSchema: z.ZodType<
@@ -2646,17 +461,8 @@ export const EnvelopeFieldCreateManyDataUnion$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EnvelopeFieldCreateManyDataUnion
 > = z.union([
-  z.lazy(() => EnvelopeFieldCreateManyDataSignature$outboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyDataFreeSignature$outboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyDataInitials$outboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyDataName$outboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyDataEmail$outboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyDataDate$outboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyDataText$outboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyDataNumber$outboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyDataRadio$outboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyDataCheckbox$outboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyDataDropdown$outboundSchema),
+  z.lazy(() => EnvelopeFieldCreateManyDataRequest1$outboundSchema),
+  z.lazy(() => EnvelopeFieldCreateManyDataRequest2$outboundSchema),
 ]);
 
 export function envelopeFieldCreateManyDataUnionToJSON(
@@ -2687,17 +493,8 @@ export const EnvelopeFieldCreateManyRequest$inboundSchema: z.ZodType<
   envelopeId: z.string(),
   data: z.array(
     z.union([
-      z.lazy(() => EnvelopeFieldCreateManyDataSignature$inboundSchema),
-      z.lazy(() => EnvelopeFieldCreateManyDataFreeSignature$inboundSchema),
-      z.lazy(() => EnvelopeFieldCreateManyDataInitials$inboundSchema),
-      z.lazy(() => EnvelopeFieldCreateManyDataName$inboundSchema),
-      z.lazy(() => EnvelopeFieldCreateManyDataEmail$inboundSchema),
-      z.lazy(() => EnvelopeFieldCreateManyDataDate$inboundSchema),
-      z.lazy(() => EnvelopeFieldCreateManyDataText$inboundSchema),
-      z.lazy(() => EnvelopeFieldCreateManyDataNumber$inboundSchema),
-      z.lazy(() => EnvelopeFieldCreateManyDataRadio$inboundSchema),
-      z.lazy(() => EnvelopeFieldCreateManyDataCheckbox$inboundSchema),
-      z.lazy(() => EnvelopeFieldCreateManyDataDropdown$inboundSchema),
+      z.lazy(() => EnvelopeFieldCreateManyDataRequest1$inboundSchema),
+      z.lazy(() => EnvelopeFieldCreateManyDataRequest2$inboundSchema),
     ]),
   ),
 });
@@ -2705,17 +502,8 @@ export const EnvelopeFieldCreateManyRequest$inboundSchema: z.ZodType<
 export type EnvelopeFieldCreateManyRequest$Outbound = {
   envelopeId: string;
   data: Array<
-    | EnvelopeFieldCreateManyDataSignature$Outbound
-    | EnvelopeFieldCreateManyDataFreeSignature$Outbound
-    | EnvelopeFieldCreateManyDataInitials$Outbound
-    | EnvelopeFieldCreateManyDataName$Outbound
-    | EnvelopeFieldCreateManyDataEmail$Outbound
-    | EnvelopeFieldCreateManyDataDate$Outbound
-    | EnvelopeFieldCreateManyDataText$Outbound
-    | EnvelopeFieldCreateManyDataNumber$Outbound
-    | EnvelopeFieldCreateManyDataRadio$Outbound
-    | EnvelopeFieldCreateManyDataCheckbox$Outbound
-    | EnvelopeFieldCreateManyDataDropdown$Outbound
+    | EnvelopeFieldCreateManyDataRequest1$Outbound
+    | EnvelopeFieldCreateManyDataRequest2$Outbound
   >;
 };
 
@@ -2728,17 +516,8 @@ export const EnvelopeFieldCreateManyRequest$outboundSchema: z.ZodType<
   envelopeId: z.string(),
   data: z.array(
     z.union([
-      z.lazy(() => EnvelopeFieldCreateManyDataSignature$outboundSchema),
-      z.lazy(() => EnvelopeFieldCreateManyDataFreeSignature$outboundSchema),
-      z.lazy(() => EnvelopeFieldCreateManyDataInitials$outboundSchema),
-      z.lazy(() => EnvelopeFieldCreateManyDataName$outboundSchema),
-      z.lazy(() => EnvelopeFieldCreateManyDataEmail$outboundSchema),
-      z.lazy(() => EnvelopeFieldCreateManyDataDate$outboundSchema),
-      z.lazy(() => EnvelopeFieldCreateManyDataText$outboundSchema),
-      z.lazy(() => EnvelopeFieldCreateManyDataNumber$outboundSchema),
-      z.lazy(() => EnvelopeFieldCreateManyDataRadio$outboundSchema),
-      z.lazy(() => EnvelopeFieldCreateManyDataCheckbox$outboundSchema),
-      z.lazy(() => EnvelopeFieldCreateManyDataDropdown$outboundSchema),
+      z.lazy(() => EnvelopeFieldCreateManyDataRequest1$outboundSchema),
+      z.lazy(() => EnvelopeFieldCreateManyDataRequest2$outboundSchema),
     ]),
   ),
 });
@@ -2763,134 +542,129 @@ export function envelopeFieldCreateManyRequestFromJSON(
 }
 
 /** @internal */
-export const EnvelopeFieldCreateManyTypeResponseEnum$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTypeResponseEnum> = z
-    .nativeEnum(EnvelopeFieldCreateManyTypeResponseEnum);
+export const EnvelopeFieldCreateManyTypeEnum$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldCreateManyTypeEnum
+> = z.nativeEnum(EnvelopeFieldCreateManyTypeEnum);
 /** @internal */
-export const EnvelopeFieldCreateManyTypeResponseEnum$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTypeResponseEnum> =
-    EnvelopeFieldCreateManyTypeResponseEnum$inboundSchema;
+export const EnvelopeFieldCreateManyTypeEnum$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldCreateManyTypeEnum
+> = EnvelopeFieldCreateManyTypeEnum$inboundSchema;
 
 /** @internal */
-export const EnvelopeFieldCreateManyValueResponse3$inboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyValueResponse3,
+export const EnvelopeFieldCreateManyValue3$inboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyValue3,
   z.ZodTypeDef,
   unknown
 > = z.object({
   value: z.string(),
 });
 /** @internal */
-export type EnvelopeFieldCreateManyValueResponse3$Outbound = {
+export type EnvelopeFieldCreateManyValue3$Outbound = {
   value: string;
 };
 
 /** @internal */
-export const EnvelopeFieldCreateManyValueResponse3$outboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyValueResponse3$Outbound,
+export const EnvelopeFieldCreateManyValue3$outboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyValue3$Outbound,
   z.ZodTypeDef,
-  EnvelopeFieldCreateManyValueResponse3
+  EnvelopeFieldCreateManyValue3
 > = z.object({
   value: z.string(),
 });
 
-export function envelopeFieldCreateManyValueResponse3ToJSON(
-  envelopeFieldCreateManyValueResponse3: EnvelopeFieldCreateManyValueResponse3,
+export function envelopeFieldCreateManyValue3ToJSON(
+  envelopeFieldCreateManyValue3: EnvelopeFieldCreateManyValue3,
 ): string {
   return JSON.stringify(
-    EnvelopeFieldCreateManyValueResponse3$outboundSchema.parse(
-      envelopeFieldCreateManyValueResponse3,
+    EnvelopeFieldCreateManyValue3$outboundSchema.parse(
+      envelopeFieldCreateManyValue3,
     ),
   );
 }
-export function envelopeFieldCreateManyValueResponse3FromJSON(
+export function envelopeFieldCreateManyValue3FromJSON(
   jsonString: string,
-): SafeParseResult<EnvelopeFieldCreateManyValueResponse3, SDKValidationError> {
+): SafeParseResult<EnvelopeFieldCreateManyValue3, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      EnvelopeFieldCreateManyValueResponse3$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeFieldCreateManyValueResponse3' from JSON`,
+    (x) => EnvelopeFieldCreateManyValue3$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeFieldCreateManyValue3' from JSON`,
   );
 }
 
 /** @internal */
-export const EnvelopeFieldCreateManyFieldMetaDropdownResponse$inboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaDropdownResponse,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: z.literal("dropdown"),
-    values: z.array(
-      z.lazy(() => EnvelopeFieldCreateManyValueResponse3$inboundSchema),
-    ).optional(),
-    defaultValue: z.string().optional(),
-  });
+export const EnvelopeFieldCreateManyFieldMetaDropdown$inboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyFieldMetaDropdown,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  fontSize: z.number().default(12),
+  type: z.literal("dropdown"),
+  values: z.array(z.lazy(() => EnvelopeFieldCreateManyValue3$inboundSchema))
+    .optional(),
+  defaultValue: z.string().optional(),
+});
 /** @internal */
-export type EnvelopeFieldCreateManyFieldMetaDropdownResponse$Outbound = {
+export type EnvelopeFieldCreateManyFieldMetaDropdown$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
   type: "dropdown";
-  values?: Array<EnvelopeFieldCreateManyValueResponse3$Outbound> | undefined;
+  values?: Array<EnvelopeFieldCreateManyValue3$Outbound> | undefined;
   defaultValue?: string | undefined;
 };
 
 /** @internal */
-export const EnvelopeFieldCreateManyFieldMetaDropdownResponse$outboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaDropdownResponse$Outbound,
-    z.ZodTypeDef,
-    EnvelopeFieldCreateManyFieldMetaDropdownResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: z.literal("dropdown"),
-    values: z.array(
-      z.lazy(() => EnvelopeFieldCreateManyValueResponse3$outboundSchema),
-    ).optional(),
-    defaultValue: z.string().optional(),
-  });
+export const EnvelopeFieldCreateManyFieldMetaDropdown$outboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyFieldMetaDropdown$Outbound,
+  z.ZodTypeDef,
+  EnvelopeFieldCreateManyFieldMetaDropdown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  fontSize: z.number().default(12),
+  type: z.literal("dropdown"),
+  values: z.array(z.lazy(() => EnvelopeFieldCreateManyValue3$outboundSchema))
+    .optional(),
+  defaultValue: z.string().optional(),
+});
 
-export function envelopeFieldCreateManyFieldMetaDropdownResponseToJSON(
-  envelopeFieldCreateManyFieldMetaDropdownResponse:
-    EnvelopeFieldCreateManyFieldMetaDropdownResponse,
+export function envelopeFieldCreateManyFieldMetaDropdownToJSON(
+  envelopeFieldCreateManyFieldMetaDropdown:
+    EnvelopeFieldCreateManyFieldMetaDropdown,
 ): string {
   return JSON.stringify(
-    EnvelopeFieldCreateManyFieldMetaDropdownResponse$outboundSchema.parse(
-      envelopeFieldCreateManyFieldMetaDropdownResponse,
+    EnvelopeFieldCreateManyFieldMetaDropdown$outboundSchema.parse(
+      envelopeFieldCreateManyFieldMetaDropdown,
     ),
   );
 }
-export function envelopeFieldCreateManyFieldMetaDropdownResponseFromJSON(
+export function envelopeFieldCreateManyFieldMetaDropdownFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  EnvelopeFieldCreateManyFieldMetaDropdownResponse,
+  EnvelopeFieldCreateManyFieldMetaDropdown,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      EnvelopeFieldCreateManyFieldMetaDropdownResponse$inboundSchema.parse(
+      EnvelopeFieldCreateManyFieldMetaDropdown$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaDropdownResponse' from JSON`,
+    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaDropdown' from JSON`,
   );
 }
 
 /** @internal */
-export const EnvelopeFieldCreateManyValueResponse2$inboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyValueResponse2,
+export const EnvelopeFieldCreateManyValue2$inboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyValue2,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -2899,140 +673,135 @@ export const EnvelopeFieldCreateManyValueResponse2$inboundSchema: z.ZodType<
   value: z.string(),
 });
 /** @internal */
-export type EnvelopeFieldCreateManyValueResponse2$Outbound = {
+export type EnvelopeFieldCreateManyValue2$Outbound = {
   id: number;
   checked: boolean;
   value: string;
 };
 
 /** @internal */
-export const EnvelopeFieldCreateManyValueResponse2$outboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyValueResponse2$Outbound,
+export const EnvelopeFieldCreateManyValue2$outboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyValue2$Outbound,
   z.ZodTypeDef,
-  EnvelopeFieldCreateManyValueResponse2
+  EnvelopeFieldCreateManyValue2
 > = z.object({
   id: z.number(),
   checked: z.boolean(),
   value: z.string(),
 });
 
-export function envelopeFieldCreateManyValueResponse2ToJSON(
-  envelopeFieldCreateManyValueResponse2: EnvelopeFieldCreateManyValueResponse2,
+export function envelopeFieldCreateManyValue2ToJSON(
+  envelopeFieldCreateManyValue2: EnvelopeFieldCreateManyValue2,
 ): string {
   return JSON.stringify(
-    EnvelopeFieldCreateManyValueResponse2$outboundSchema.parse(
-      envelopeFieldCreateManyValueResponse2,
+    EnvelopeFieldCreateManyValue2$outboundSchema.parse(
+      envelopeFieldCreateManyValue2,
     ),
   );
 }
-export function envelopeFieldCreateManyValueResponse2FromJSON(
+export function envelopeFieldCreateManyValue2FromJSON(
   jsonString: string,
-): SafeParseResult<EnvelopeFieldCreateManyValueResponse2, SDKValidationError> {
+): SafeParseResult<EnvelopeFieldCreateManyValue2, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      EnvelopeFieldCreateManyValueResponse2$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeFieldCreateManyValueResponse2' from JSON`,
+    (x) => EnvelopeFieldCreateManyValue2$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeFieldCreateManyValue2' from JSON`,
   );
 }
 
 /** @internal */
-export const EnvelopeFieldCreateManyDirectionResponse2$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyDirectionResponse2> = z
-    .nativeEnum(EnvelopeFieldCreateManyDirectionResponse2);
+export const EnvelopeFieldCreateManyDirection2$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldCreateManyDirection2
+> = z.nativeEnum(EnvelopeFieldCreateManyDirection2);
 /** @internal */
-export const EnvelopeFieldCreateManyDirectionResponse2$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyDirectionResponse2> =
-    EnvelopeFieldCreateManyDirectionResponse2$inboundSchema;
+export const EnvelopeFieldCreateManyDirection2$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldCreateManyDirection2
+> = EnvelopeFieldCreateManyDirection2$inboundSchema;
 
 /** @internal */
-export const EnvelopeFieldCreateManyFieldMetaCheckboxResponse$inboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaCheckboxResponse,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: z.literal("checkbox"),
-    values: z.array(
-      z.lazy(() => EnvelopeFieldCreateManyValueResponse2$inboundSchema),
-    ).optional(),
-    validationRule: z.string().optional(),
-    validationLength: z.number().optional(),
-    direction: EnvelopeFieldCreateManyDirectionResponse2$inboundSchema.default(
-      "vertical",
-    ),
-  });
+export const EnvelopeFieldCreateManyFieldMetaCheckbox$inboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyFieldMetaCheckbox,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  fontSize: z.number().default(12),
+  type: z.literal("checkbox"),
+  values: z.array(z.lazy(() => EnvelopeFieldCreateManyValue2$inboundSchema))
+    .optional(),
+  validationRule: z.string().optional(),
+  validationLength: z.number().optional(),
+  direction: EnvelopeFieldCreateManyDirection2$inboundSchema.default(
+    "vertical",
+  ),
+});
 /** @internal */
-export type EnvelopeFieldCreateManyFieldMetaCheckboxResponse$Outbound = {
+export type EnvelopeFieldCreateManyFieldMetaCheckbox$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
   type: "checkbox";
-  values?: Array<EnvelopeFieldCreateManyValueResponse2$Outbound> | undefined;
+  values?: Array<EnvelopeFieldCreateManyValue2$Outbound> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
   direction: string;
 };
 
 /** @internal */
-export const EnvelopeFieldCreateManyFieldMetaCheckboxResponse$outboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaCheckboxResponse$Outbound,
-    z.ZodTypeDef,
-    EnvelopeFieldCreateManyFieldMetaCheckboxResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: z.literal("checkbox"),
-    values: z.array(
-      z.lazy(() => EnvelopeFieldCreateManyValueResponse2$outboundSchema),
-    ).optional(),
-    validationRule: z.string().optional(),
-    validationLength: z.number().optional(),
-    direction: EnvelopeFieldCreateManyDirectionResponse2$outboundSchema.default(
-      "vertical",
-    ),
-  });
+export const EnvelopeFieldCreateManyFieldMetaCheckbox$outboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyFieldMetaCheckbox$Outbound,
+  z.ZodTypeDef,
+  EnvelopeFieldCreateManyFieldMetaCheckbox
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  fontSize: z.number().default(12),
+  type: z.literal("checkbox"),
+  values: z.array(z.lazy(() => EnvelopeFieldCreateManyValue2$outboundSchema))
+    .optional(),
+  validationRule: z.string().optional(),
+  validationLength: z.number().optional(),
+  direction: EnvelopeFieldCreateManyDirection2$outboundSchema.default(
+    "vertical",
+  ),
+});
 
-export function envelopeFieldCreateManyFieldMetaCheckboxResponseToJSON(
-  envelopeFieldCreateManyFieldMetaCheckboxResponse:
-    EnvelopeFieldCreateManyFieldMetaCheckboxResponse,
+export function envelopeFieldCreateManyFieldMetaCheckboxToJSON(
+  envelopeFieldCreateManyFieldMetaCheckbox:
+    EnvelopeFieldCreateManyFieldMetaCheckbox,
 ): string {
   return JSON.stringify(
-    EnvelopeFieldCreateManyFieldMetaCheckboxResponse$outboundSchema.parse(
-      envelopeFieldCreateManyFieldMetaCheckboxResponse,
+    EnvelopeFieldCreateManyFieldMetaCheckbox$outboundSchema.parse(
+      envelopeFieldCreateManyFieldMetaCheckbox,
     ),
   );
 }
-export function envelopeFieldCreateManyFieldMetaCheckboxResponseFromJSON(
+export function envelopeFieldCreateManyFieldMetaCheckboxFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  EnvelopeFieldCreateManyFieldMetaCheckboxResponse,
+  EnvelopeFieldCreateManyFieldMetaCheckbox,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      EnvelopeFieldCreateManyFieldMetaCheckboxResponse$inboundSchema.parse(
+      EnvelopeFieldCreateManyFieldMetaCheckbox$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaCheckboxResponse' from JSON`,
+    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaCheckbox' from JSON`,
   );
 }
 
 /** @internal */
-export const EnvelopeFieldCreateManyValueResponse1$inboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyValueResponse1,
+export const EnvelopeFieldCreateManyValue1$inboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyValue1,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -3041,176 +810,163 @@ export const EnvelopeFieldCreateManyValueResponse1$inboundSchema: z.ZodType<
   value: z.string(),
 });
 /** @internal */
-export type EnvelopeFieldCreateManyValueResponse1$Outbound = {
+export type EnvelopeFieldCreateManyValue1$Outbound = {
   id: number;
   checked: boolean;
   value: string;
 };
 
 /** @internal */
-export const EnvelopeFieldCreateManyValueResponse1$outboundSchema: z.ZodType<
-  EnvelopeFieldCreateManyValueResponse1$Outbound,
+export const EnvelopeFieldCreateManyValue1$outboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyValue1$Outbound,
   z.ZodTypeDef,
-  EnvelopeFieldCreateManyValueResponse1
+  EnvelopeFieldCreateManyValue1
 > = z.object({
   id: z.number(),
   checked: z.boolean(),
   value: z.string(),
 });
 
-export function envelopeFieldCreateManyValueResponse1ToJSON(
-  envelopeFieldCreateManyValueResponse1: EnvelopeFieldCreateManyValueResponse1,
+export function envelopeFieldCreateManyValue1ToJSON(
+  envelopeFieldCreateManyValue1: EnvelopeFieldCreateManyValue1,
 ): string {
   return JSON.stringify(
-    EnvelopeFieldCreateManyValueResponse1$outboundSchema.parse(
-      envelopeFieldCreateManyValueResponse1,
+    EnvelopeFieldCreateManyValue1$outboundSchema.parse(
+      envelopeFieldCreateManyValue1,
     ),
   );
 }
-export function envelopeFieldCreateManyValueResponse1FromJSON(
+export function envelopeFieldCreateManyValue1FromJSON(
   jsonString: string,
-): SafeParseResult<EnvelopeFieldCreateManyValueResponse1, SDKValidationError> {
+): SafeParseResult<EnvelopeFieldCreateManyValue1, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) =>
-      EnvelopeFieldCreateManyValueResponse1$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeFieldCreateManyValueResponse1' from JSON`,
+    (x) => EnvelopeFieldCreateManyValue1$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeFieldCreateManyValue1' from JSON`,
   );
 }
 
 /** @internal */
-export const EnvelopeFieldCreateManyDirectionResponse1$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyDirectionResponse1> = z
-    .nativeEnum(EnvelopeFieldCreateManyDirectionResponse1);
+export const EnvelopeFieldCreateManyDirection1$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldCreateManyDirection1
+> = z.nativeEnum(EnvelopeFieldCreateManyDirection1);
 /** @internal */
-export const EnvelopeFieldCreateManyDirectionResponse1$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyDirectionResponse1> =
-    EnvelopeFieldCreateManyDirectionResponse1$inboundSchema;
+export const EnvelopeFieldCreateManyDirection1$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldCreateManyDirection1
+> = EnvelopeFieldCreateManyDirection1$inboundSchema;
 
 /** @internal */
-export const EnvelopeFieldCreateManyFieldMetaRadioResponse$inboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaRadioResponse,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: z.literal("radio"),
-    values: z.array(
-      z.lazy(() => EnvelopeFieldCreateManyValueResponse1$inboundSchema),
-    ).optional(),
-    direction: EnvelopeFieldCreateManyDirectionResponse1$inboundSchema.default(
-      "vertical",
-    ),
-  });
+export const EnvelopeFieldCreateManyFieldMetaRadio$inboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyFieldMetaRadio,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  fontSize: z.number().default(12),
+  type: z.literal("radio"),
+  values: z.array(z.lazy(() => EnvelopeFieldCreateManyValue1$inboundSchema))
+    .optional(),
+  direction: EnvelopeFieldCreateManyDirection1$inboundSchema.default(
+    "vertical",
+  ),
+});
 /** @internal */
-export type EnvelopeFieldCreateManyFieldMetaRadioResponse$Outbound = {
+export type EnvelopeFieldCreateManyFieldMetaRadio$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
   type: "radio";
-  values?: Array<EnvelopeFieldCreateManyValueResponse1$Outbound> | undefined;
+  values?: Array<EnvelopeFieldCreateManyValue1$Outbound> | undefined;
   direction: string;
 };
 
 /** @internal */
-export const EnvelopeFieldCreateManyFieldMetaRadioResponse$outboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaRadioResponse$Outbound,
-    z.ZodTypeDef,
-    EnvelopeFieldCreateManyFieldMetaRadioResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: z.literal("radio"),
-    values: z.array(
-      z.lazy(() => EnvelopeFieldCreateManyValueResponse1$outboundSchema),
-    ).optional(),
-    direction: EnvelopeFieldCreateManyDirectionResponse1$outboundSchema.default(
-      "vertical",
-    ),
-  });
+export const EnvelopeFieldCreateManyFieldMetaRadio$outboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyFieldMetaRadio$Outbound,
+  z.ZodTypeDef,
+  EnvelopeFieldCreateManyFieldMetaRadio
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  fontSize: z.number().default(12),
+  type: z.literal("radio"),
+  values: z.array(z.lazy(() => EnvelopeFieldCreateManyValue1$outboundSchema))
+    .optional(),
+  direction: EnvelopeFieldCreateManyDirection1$outboundSchema.default(
+    "vertical",
+  ),
+});
 
-export function envelopeFieldCreateManyFieldMetaRadioResponseToJSON(
-  envelopeFieldCreateManyFieldMetaRadioResponse:
-    EnvelopeFieldCreateManyFieldMetaRadioResponse,
+export function envelopeFieldCreateManyFieldMetaRadioToJSON(
+  envelopeFieldCreateManyFieldMetaRadio: EnvelopeFieldCreateManyFieldMetaRadio,
 ): string {
   return JSON.stringify(
-    EnvelopeFieldCreateManyFieldMetaRadioResponse$outboundSchema.parse(
-      envelopeFieldCreateManyFieldMetaRadioResponse,
+    EnvelopeFieldCreateManyFieldMetaRadio$outboundSchema.parse(
+      envelopeFieldCreateManyFieldMetaRadio,
     ),
   );
 }
-export function envelopeFieldCreateManyFieldMetaRadioResponseFromJSON(
+export function envelopeFieldCreateManyFieldMetaRadioFromJSON(
   jsonString: string,
-): SafeParseResult<
-  EnvelopeFieldCreateManyFieldMetaRadioResponse,
-  SDKValidationError
-> {
+): SafeParseResult<EnvelopeFieldCreateManyFieldMetaRadio, SDKValidationError> {
   return safeParse(
     jsonString,
     (x) =>
-      EnvelopeFieldCreateManyFieldMetaRadioResponse$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaRadioResponse' from JSON`,
+      EnvelopeFieldCreateManyFieldMetaRadio$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaRadio' from JSON`,
   );
 }
 
 /** @internal */
-export const EnvelopeFieldCreateManyTextAlignResponse6$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignResponse6> = z
-    .nativeEnum(EnvelopeFieldCreateManyTextAlignResponse6);
+export const EnvelopeFieldCreateManyTextAlign6$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldCreateManyTextAlign6
+> = z.nativeEnum(EnvelopeFieldCreateManyTextAlign6);
 /** @internal */
-export const EnvelopeFieldCreateManyTextAlignResponse6$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignResponse6> =
-    EnvelopeFieldCreateManyTextAlignResponse6$inboundSchema;
+export const EnvelopeFieldCreateManyTextAlign6$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldCreateManyTextAlign6
+> = EnvelopeFieldCreateManyTextAlign6$inboundSchema;
 
 /** @internal */
-export const EnvelopeFieldCreateManyVerticalAlignResponse2$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyVerticalAlignResponse2> = z
-    .nativeEnum(EnvelopeFieldCreateManyVerticalAlignResponse2);
+export const EnvelopeFieldCreateManyVerticalAlign2$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyVerticalAlign2> = z.nativeEnum(
+    EnvelopeFieldCreateManyVerticalAlign2,
+  );
 /** @internal */
-export const EnvelopeFieldCreateManyVerticalAlignResponse2$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyVerticalAlignResponse2> =
-    EnvelopeFieldCreateManyVerticalAlignResponse2$inboundSchema;
+export const EnvelopeFieldCreateManyVerticalAlign2$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyVerticalAlign2> =
+    EnvelopeFieldCreateManyVerticalAlign2$inboundSchema;
 
 /** @internal */
-export const EnvelopeFieldCreateManyFieldMetaNumberResponse$inboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaNumberResponse,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: z.literal("number"),
-    numberFormat: z.nullable(z.string()).optional(),
-    value: z.string().optional(),
-    minValue: z.nullable(z.number()).optional(),
-    maxValue: z.nullable(z.number()).optional(),
-    textAlign: EnvelopeFieldCreateManyTextAlignResponse6$inboundSchema
-      .optional(),
-    lineHeight: z.nullable(z.number()).optional(),
-    letterSpacing: z.nullable(z.number()).optional(),
-    verticalAlign: z.nullable(
-      EnvelopeFieldCreateManyVerticalAlignResponse2$inboundSchema,
-    ).optional(),
-  });
+export const EnvelopeFieldCreateManyFieldMetaNumber$inboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyFieldMetaNumber,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  fontSize: z.number().default(12),
+  type: z.literal("number"),
+  numberFormat: z.nullable(z.string()).optional(),
+  value: z.string().optional(),
+  minValue: z.nullable(z.number()).optional(),
+  maxValue: z.nullable(z.number()).optional(),
+  textAlign: EnvelopeFieldCreateManyTextAlign6$inboundSchema.optional(),
+  lineHeight: z.nullable(z.number()).optional(),
+  letterSpacing: z.nullable(z.number()).optional(),
+  verticalAlign: z.nullable(EnvelopeFieldCreateManyVerticalAlign2$inboundSchema)
+    .optional(),
+});
 /** @internal */
-export type EnvelopeFieldCreateManyFieldMetaNumberResponse$Outbound = {
+export type EnvelopeFieldCreateManyFieldMetaNumber$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -3228,100 +984,91 @@ export type EnvelopeFieldCreateManyFieldMetaNumberResponse$Outbound = {
 };
 
 /** @internal */
-export const EnvelopeFieldCreateManyFieldMetaNumberResponse$outboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaNumberResponse$Outbound,
-    z.ZodTypeDef,
-    EnvelopeFieldCreateManyFieldMetaNumberResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: z.literal("number"),
-    numberFormat: z.nullable(z.string()).optional(),
-    value: z.string().optional(),
-    minValue: z.nullable(z.number()).optional(),
-    maxValue: z.nullable(z.number()).optional(),
-    textAlign: EnvelopeFieldCreateManyTextAlignResponse6$outboundSchema
-      .optional(),
-    lineHeight: z.nullable(z.number()).optional(),
-    letterSpacing: z.nullable(z.number()).optional(),
-    verticalAlign: z.nullable(
-      EnvelopeFieldCreateManyVerticalAlignResponse2$outboundSchema,
-    ).optional(),
-  });
+export const EnvelopeFieldCreateManyFieldMetaNumber$outboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyFieldMetaNumber$Outbound,
+  z.ZodTypeDef,
+  EnvelopeFieldCreateManyFieldMetaNumber
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  fontSize: z.number().default(12),
+  type: z.literal("number"),
+  numberFormat: z.nullable(z.string()).optional(),
+  value: z.string().optional(),
+  minValue: z.nullable(z.number()).optional(),
+  maxValue: z.nullable(z.number()).optional(),
+  textAlign: EnvelopeFieldCreateManyTextAlign6$outboundSchema.optional(),
+  lineHeight: z.nullable(z.number()).optional(),
+  letterSpacing: z.nullable(z.number()).optional(),
+  verticalAlign: z.nullable(
+    EnvelopeFieldCreateManyVerticalAlign2$outboundSchema,
+  ).optional(),
+});
 
-export function envelopeFieldCreateManyFieldMetaNumberResponseToJSON(
-  envelopeFieldCreateManyFieldMetaNumberResponse:
-    EnvelopeFieldCreateManyFieldMetaNumberResponse,
+export function envelopeFieldCreateManyFieldMetaNumberToJSON(
+  envelopeFieldCreateManyFieldMetaNumber:
+    EnvelopeFieldCreateManyFieldMetaNumber,
 ): string {
   return JSON.stringify(
-    EnvelopeFieldCreateManyFieldMetaNumberResponse$outboundSchema.parse(
-      envelopeFieldCreateManyFieldMetaNumberResponse,
+    EnvelopeFieldCreateManyFieldMetaNumber$outboundSchema.parse(
+      envelopeFieldCreateManyFieldMetaNumber,
     ),
   );
 }
-export function envelopeFieldCreateManyFieldMetaNumberResponseFromJSON(
+export function envelopeFieldCreateManyFieldMetaNumberFromJSON(
   jsonString: string,
-): SafeParseResult<
-  EnvelopeFieldCreateManyFieldMetaNumberResponse,
-  SDKValidationError
-> {
+): SafeParseResult<EnvelopeFieldCreateManyFieldMetaNumber, SDKValidationError> {
   return safeParse(
     jsonString,
     (x) =>
-      EnvelopeFieldCreateManyFieldMetaNumberResponse$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaNumberResponse' from JSON`,
+      EnvelopeFieldCreateManyFieldMetaNumber$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaNumber' from JSON`,
   );
 }
 
 /** @internal */
-export const EnvelopeFieldCreateManyTextAlignResponse5$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignResponse5> = z
-    .nativeEnum(EnvelopeFieldCreateManyTextAlignResponse5);
+export const EnvelopeFieldCreateManyTextAlign5$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldCreateManyTextAlign5
+> = z.nativeEnum(EnvelopeFieldCreateManyTextAlign5);
 /** @internal */
-export const EnvelopeFieldCreateManyTextAlignResponse5$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignResponse5> =
-    EnvelopeFieldCreateManyTextAlignResponse5$inboundSchema;
+export const EnvelopeFieldCreateManyTextAlign5$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldCreateManyTextAlign5
+> = EnvelopeFieldCreateManyTextAlign5$inboundSchema;
 
 /** @internal */
-export const EnvelopeFieldCreateManyVerticalAlignResponse1$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyVerticalAlignResponse1> = z
-    .nativeEnum(EnvelopeFieldCreateManyVerticalAlignResponse1);
+export const EnvelopeFieldCreateManyVerticalAlign1$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyVerticalAlign1> = z.nativeEnum(
+    EnvelopeFieldCreateManyVerticalAlign1,
+  );
 /** @internal */
-export const EnvelopeFieldCreateManyVerticalAlignResponse1$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyVerticalAlignResponse1> =
-    EnvelopeFieldCreateManyVerticalAlignResponse1$inboundSchema;
+export const EnvelopeFieldCreateManyVerticalAlign1$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyVerticalAlign1> =
+    EnvelopeFieldCreateManyVerticalAlign1$inboundSchema;
 
 /** @internal */
-export const EnvelopeFieldCreateManyFieldMetaTextResponse$inboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaTextResponse,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: z.literal("text"),
-    text: z.string().optional(),
-    characterLimit: z.number().optional(),
-    textAlign: EnvelopeFieldCreateManyTextAlignResponse5$inboundSchema
-      .optional(),
-    lineHeight: z.nullable(z.number()).optional(),
-    letterSpacing: z.nullable(z.number()).optional(),
-    verticalAlign: z.nullable(
-      EnvelopeFieldCreateManyVerticalAlignResponse1$inboundSchema,
-    ).optional(),
-  });
+export const EnvelopeFieldCreateManyFieldMetaText$inboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyFieldMetaText,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  fontSize: z.number().default(12),
+  type: z.literal("text"),
+  text: z.string().optional(),
+  characterLimit: z.number().optional(),
+  textAlign: EnvelopeFieldCreateManyTextAlign5$inboundSchema.optional(),
+  lineHeight: z.nullable(z.number()).optional(),
+  letterSpacing: z.nullable(z.number()).optional(),
+  verticalAlign: z.nullable(EnvelopeFieldCreateManyVerticalAlign1$inboundSchema)
+    .optional(),
+});
 /** @internal */
-export type EnvelopeFieldCreateManyFieldMetaTextResponse$Outbound = {
+export type EnvelopeFieldCreateManyFieldMetaText$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -3337,82 +1084,72 @@ export type EnvelopeFieldCreateManyFieldMetaTextResponse$Outbound = {
 };
 
 /** @internal */
-export const EnvelopeFieldCreateManyFieldMetaTextResponse$outboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaTextResponse$Outbound,
-    z.ZodTypeDef,
-    EnvelopeFieldCreateManyFieldMetaTextResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: z.literal("text"),
-    text: z.string().optional(),
-    characterLimit: z.number().optional(),
-    textAlign: EnvelopeFieldCreateManyTextAlignResponse5$outboundSchema
-      .optional(),
-    lineHeight: z.nullable(z.number()).optional(),
-    letterSpacing: z.nullable(z.number()).optional(),
-    verticalAlign: z.nullable(
-      EnvelopeFieldCreateManyVerticalAlignResponse1$outboundSchema,
-    ).optional(),
-  });
+export const EnvelopeFieldCreateManyFieldMetaText$outboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyFieldMetaText$Outbound,
+  z.ZodTypeDef,
+  EnvelopeFieldCreateManyFieldMetaText
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  fontSize: z.number().default(12),
+  type: z.literal("text"),
+  text: z.string().optional(),
+  characterLimit: z.number().optional(),
+  textAlign: EnvelopeFieldCreateManyTextAlign5$outboundSchema.optional(),
+  lineHeight: z.nullable(z.number()).optional(),
+  letterSpacing: z.nullable(z.number()).optional(),
+  verticalAlign: z.nullable(
+    EnvelopeFieldCreateManyVerticalAlign1$outboundSchema,
+  ).optional(),
+});
 
-export function envelopeFieldCreateManyFieldMetaTextResponseToJSON(
-  envelopeFieldCreateManyFieldMetaTextResponse:
-    EnvelopeFieldCreateManyFieldMetaTextResponse,
+export function envelopeFieldCreateManyFieldMetaTextToJSON(
+  envelopeFieldCreateManyFieldMetaText: EnvelopeFieldCreateManyFieldMetaText,
 ): string {
   return JSON.stringify(
-    EnvelopeFieldCreateManyFieldMetaTextResponse$outboundSchema.parse(
-      envelopeFieldCreateManyFieldMetaTextResponse,
+    EnvelopeFieldCreateManyFieldMetaText$outboundSchema.parse(
+      envelopeFieldCreateManyFieldMetaText,
     ),
   );
 }
-export function envelopeFieldCreateManyFieldMetaTextResponseFromJSON(
+export function envelopeFieldCreateManyFieldMetaTextFromJSON(
   jsonString: string,
-): SafeParseResult<
-  EnvelopeFieldCreateManyFieldMetaTextResponse,
-  SDKValidationError
-> {
+): SafeParseResult<EnvelopeFieldCreateManyFieldMetaText, SDKValidationError> {
   return safeParse(
     jsonString,
     (x) =>
-      EnvelopeFieldCreateManyFieldMetaTextResponse$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaTextResponse' from JSON`,
+      EnvelopeFieldCreateManyFieldMetaText$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaText' from JSON`,
   );
 }
 
 /** @internal */
-export const EnvelopeFieldCreateManyTextAlignResponse4$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignResponse4> = z
-    .nativeEnum(EnvelopeFieldCreateManyTextAlignResponse4);
+export const EnvelopeFieldCreateManyTextAlign4$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldCreateManyTextAlign4
+> = z.nativeEnum(EnvelopeFieldCreateManyTextAlign4);
 /** @internal */
-export const EnvelopeFieldCreateManyTextAlignResponse4$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignResponse4> =
-    EnvelopeFieldCreateManyTextAlignResponse4$inboundSchema;
+export const EnvelopeFieldCreateManyTextAlign4$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldCreateManyTextAlign4
+> = EnvelopeFieldCreateManyTextAlign4$inboundSchema;
 
 /** @internal */
-export const EnvelopeFieldCreateManyFieldMetaDateResponse$inboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaDateResponse,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: z.literal("date"),
-    textAlign: EnvelopeFieldCreateManyTextAlignResponse4$inboundSchema
-      .optional(),
-  });
+export const EnvelopeFieldCreateManyFieldMetaDate$inboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyFieldMetaDate,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  fontSize: z.number().default(12),
+  type: z.literal("date"),
+  textAlign: EnvelopeFieldCreateManyTextAlign4$inboundSchema.optional(),
+});
 /** @internal */
-export type EnvelopeFieldCreateManyFieldMetaDateResponse$Outbound = {
+export type EnvelopeFieldCreateManyFieldMetaDate$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -3423,75 +1160,65 @@ export type EnvelopeFieldCreateManyFieldMetaDateResponse$Outbound = {
 };
 
 /** @internal */
-export const EnvelopeFieldCreateManyFieldMetaDateResponse$outboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaDateResponse$Outbound,
-    z.ZodTypeDef,
-    EnvelopeFieldCreateManyFieldMetaDateResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: z.literal("date"),
-    textAlign: EnvelopeFieldCreateManyTextAlignResponse4$outboundSchema
-      .optional(),
-  });
+export const EnvelopeFieldCreateManyFieldMetaDate$outboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyFieldMetaDate$Outbound,
+  z.ZodTypeDef,
+  EnvelopeFieldCreateManyFieldMetaDate
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  fontSize: z.number().default(12),
+  type: z.literal("date"),
+  textAlign: EnvelopeFieldCreateManyTextAlign4$outboundSchema.optional(),
+});
 
-export function envelopeFieldCreateManyFieldMetaDateResponseToJSON(
-  envelopeFieldCreateManyFieldMetaDateResponse:
-    EnvelopeFieldCreateManyFieldMetaDateResponse,
+export function envelopeFieldCreateManyFieldMetaDateToJSON(
+  envelopeFieldCreateManyFieldMetaDate: EnvelopeFieldCreateManyFieldMetaDate,
 ): string {
   return JSON.stringify(
-    EnvelopeFieldCreateManyFieldMetaDateResponse$outboundSchema.parse(
-      envelopeFieldCreateManyFieldMetaDateResponse,
+    EnvelopeFieldCreateManyFieldMetaDate$outboundSchema.parse(
+      envelopeFieldCreateManyFieldMetaDate,
     ),
   );
 }
-export function envelopeFieldCreateManyFieldMetaDateResponseFromJSON(
+export function envelopeFieldCreateManyFieldMetaDateFromJSON(
   jsonString: string,
-): SafeParseResult<
-  EnvelopeFieldCreateManyFieldMetaDateResponse,
-  SDKValidationError
-> {
+): SafeParseResult<EnvelopeFieldCreateManyFieldMetaDate, SDKValidationError> {
   return safeParse(
     jsonString,
     (x) =>
-      EnvelopeFieldCreateManyFieldMetaDateResponse$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaDateResponse' from JSON`,
+      EnvelopeFieldCreateManyFieldMetaDate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaDate' from JSON`,
   );
 }
 
 /** @internal */
-export const EnvelopeFieldCreateManyTextAlignResponse3$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignResponse3> = z
-    .nativeEnum(EnvelopeFieldCreateManyTextAlignResponse3);
+export const EnvelopeFieldCreateManyTextAlign3$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldCreateManyTextAlign3
+> = z.nativeEnum(EnvelopeFieldCreateManyTextAlign3);
 /** @internal */
-export const EnvelopeFieldCreateManyTextAlignResponse3$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignResponse3> =
-    EnvelopeFieldCreateManyTextAlignResponse3$inboundSchema;
+export const EnvelopeFieldCreateManyTextAlign3$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldCreateManyTextAlign3
+> = EnvelopeFieldCreateManyTextAlign3$inboundSchema;
 
 /** @internal */
-export const EnvelopeFieldCreateManyFieldMetaEmailResponse$inboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaEmailResponse,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: z.literal("email"),
-    textAlign: EnvelopeFieldCreateManyTextAlignResponse3$inboundSchema
-      .optional(),
-  });
+export const EnvelopeFieldCreateManyFieldMetaEmail$inboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyFieldMetaEmail,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  fontSize: z.number().default(12),
+  type: z.literal("email"),
+  textAlign: EnvelopeFieldCreateManyTextAlign3$inboundSchema.optional(),
+});
 /** @internal */
-export type EnvelopeFieldCreateManyFieldMetaEmailResponse$Outbound = {
+export type EnvelopeFieldCreateManyFieldMetaEmail$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -3502,75 +1229,65 @@ export type EnvelopeFieldCreateManyFieldMetaEmailResponse$Outbound = {
 };
 
 /** @internal */
-export const EnvelopeFieldCreateManyFieldMetaEmailResponse$outboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaEmailResponse$Outbound,
-    z.ZodTypeDef,
-    EnvelopeFieldCreateManyFieldMetaEmailResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: z.literal("email"),
-    textAlign: EnvelopeFieldCreateManyTextAlignResponse3$outboundSchema
-      .optional(),
-  });
+export const EnvelopeFieldCreateManyFieldMetaEmail$outboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyFieldMetaEmail$Outbound,
+  z.ZodTypeDef,
+  EnvelopeFieldCreateManyFieldMetaEmail
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  fontSize: z.number().default(12),
+  type: z.literal("email"),
+  textAlign: EnvelopeFieldCreateManyTextAlign3$outboundSchema.optional(),
+});
 
-export function envelopeFieldCreateManyFieldMetaEmailResponseToJSON(
-  envelopeFieldCreateManyFieldMetaEmailResponse:
-    EnvelopeFieldCreateManyFieldMetaEmailResponse,
+export function envelopeFieldCreateManyFieldMetaEmailToJSON(
+  envelopeFieldCreateManyFieldMetaEmail: EnvelopeFieldCreateManyFieldMetaEmail,
 ): string {
   return JSON.stringify(
-    EnvelopeFieldCreateManyFieldMetaEmailResponse$outboundSchema.parse(
-      envelopeFieldCreateManyFieldMetaEmailResponse,
+    EnvelopeFieldCreateManyFieldMetaEmail$outboundSchema.parse(
+      envelopeFieldCreateManyFieldMetaEmail,
     ),
   );
 }
-export function envelopeFieldCreateManyFieldMetaEmailResponseFromJSON(
+export function envelopeFieldCreateManyFieldMetaEmailFromJSON(
   jsonString: string,
-): SafeParseResult<
-  EnvelopeFieldCreateManyFieldMetaEmailResponse,
-  SDKValidationError
-> {
+): SafeParseResult<EnvelopeFieldCreateManyFieldMetaEmail, SDKValidationError> {
   return safeParse(
     jsonString,
     (x) =>
-      EnvelopeFieldCreateManyFieldMetaEmailResponse$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaEmailResponse' from JSON`,
+      EnvelopeFieldCreateManyFieldMetaEmail$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaEmail' from JSON`,
   );
 }
 
 /** @internal */
-export const EnvelopeFieldCreateManyTextAlignResponse2$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignResponse2> = z
-    .nativeEnum(EnvelopeFieldCreateManyTextAlignResponse2);
+export const EnvelopeFieldCreateManyTextAlign2$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldCreateManyTextAlign2
+> = z.nativeEnum(EnvelopeFieldCreateManyTextAlign2);
 /** @internal */
-export const EnvelopeFieldCreateManyTextAlignResponse2$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignResponse2> =
-    EnvelopeFieldCreateManyTextAlignResponse2$inboundSchema;
+export const EnvelopeFieldCreateManyTextAlign2$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldCreateManyTextAlign2
+> = EnvelopeFieldCreateManyTextAlign2$inboundSchema;
 
 /** @internal */
-export const EnvelopeFieldCreateManyFieldMetaNameResponse$inboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaNameResponse,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: z.literal("name"),
-    textAlign: EnvelopeFieldCreateManyTextAlignResponse2$inboundSchema
-      .optional(),
-  });
+export const EnvelopeFieldCreateManyFieldMetaName$inboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyFieldMetaName,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  fontSize: z.number().default(12),
+  type: z.literal("name"),
+  textAlign: EnvelopeFieldCreateManyTextAlign2$inboundSchema.optional(),
+});
 /** @internal */
-export type EnvelopeFieldCreateManyFieldMetaNameResponse$Outbound = {
+export type EnvelopeFieldCreateManyFieldMetaName$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -3581,75 +1298,65 @@ export type EnvelopeFieldCreateManyFieldMetaNameResponse$Outbound = {
 };
 
 /** @internal */
-export const EnvelopeFieldCreateManyFieldMetaNameResponse$outboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaNameResponse$Outbound,
-    z.ZodTypeDef,
-    EnvelopeFieldCreateManyFieldMetaNameResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: z.literal("name"),
-    textAlign: EnvelopeFieldCreateManyTextAlignResponse2$outboundSchema
-      .optional(),
-  });
+export const EnvelopeFieldCreateManyFieldMetaName$outboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyFieldMetaName$Outbound,
+  z.ZodTypeDef,
+  EnvelopeFieldCreateManyFieldMetaName
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  fontSize: z.number().default(12),
+  type: z.literal("name"),
+  textAlign: EnvelopeFieldCreateManyTextAlign2$outboundSchema.optional(),
+});
 
-export function envelopeFieldCreateManyFieldMetaNameResponseToJSON(
-  envelopeFieldCreateManyFieldMetaNameResponse:
-    EnvelopeFieldCreateManyFieldMetaNameResponse,
+export function envelopeFieldCreateManyFieldMetaNameToJSON(
+  envelopeFieldCreateManyFieldMetaName: EnvelopeFieldCreateManyFieldMetaName,
 ): string {
   return JSON.stringify(
-    EnvelopeFieldCreateManyFieldMetaNameResponse$outboundSchema.parse(
-      envelopeFieldCreateManyFieldMetaNameResponse,
+    EnvelopeFieldCreateManyFieldMetaName$outboundSchema.parse(
+      envelopeFieldCreateManyFieldMetaName,
     ),
   );
 }
-export function envelopeFieldCreateManyFieldMetaNameResponseFromJSON(
+export function envelopeFieldCreateManyFieldMetaNameFromJSON(
   jsonString: string,
-): SafeParseResult<
-  EnvelopeFieldCreateManyFieldMetaNameResponse,
-  SDKValidationError
-> {
+): SafeParseResult<EnvelopeFieldCreateManyFieldMetaName, SDKValidationError> {
   return safeParse(
     jsonString,
     (x) =>
-      EnvelopeFieldCreateManyFieldMetaNameResponse$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaNameResponse' from JSON`,
+      EnvelopeFieldCreateManyFieldMetaName$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaName' from JSON`,
   );
 }
 
 /** @internal */
-export const EnvelopeFieldCreateManyTextAlignResponse1$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignResponse1> = z
-    .nativeEnum(EnvelopeFieldCreateManyTextAlignResponse1);
+export const EnvelopeFieldCreateManyTextAlign1$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldCreateManyTextAlign1
+> = z.nativeEnum(EnvelopeFieldCreateManyTextAlign1);
 /** @internal */
-export const EnvelopeFieldCreateManyTextAlignResponse1$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignResponse1> =
-    EnvelopeFieldCreateManyTextAlignResponse1$inboundSchema;
+export const EnvelopeFieldCreateManyTextAlign1$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldCreateManyTextAlign1
+> = EnvelopeFieldCreateManyTextAlign1$inboundSchema;
 
 /** @internal */
-export const EnvelopeFieldCreateManyFieldMetaInitialsResponse$inboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaInitialsResponse,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: z.literal("initials"),
-    textAlign: EnvelopeFieldCreateManyTextAlignResponse1$inboundSchema
-      .optional(),
-  });
+export const EnvelopeFieldCreateManyFieldMetaInitials$inboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyFieldMetaInitials,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  fontSize: z.number().default(12),
+  type: z.literal("initials"),
+  textAlign: EnvelopeFieldCreateManyTextAlign1$inboundSchema.optional(),
+});
 /** @internal */
-export type EnvelopeFieldCreateManyFieldMetaInitialsResponse$Outbound = {
+export type EnvelopeFieldCreateManyFieldMetaInitials$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -3660,64 +1367,61 @@ export type EnvelopeFieldCreateManyFieldMetaInitialsResponse$Outbound = {
 };
 
 /** @internal */
-export const EnvelopeFieldCreateManyFieldMetaInitialsResponse$outboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaInitialsResponse$Outbound,
-    z.ZodTypeDef,
-    EnvelopeFieldCreateManyFieldMetaInitialsResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: z.literal("initials"),
-    textAlign: EnvelopeFieldCreateManyTextAlignResponse1$outboundSchema
-      .optional(),
-  });
+export const EnvelopeFieldCreateManyFieldMetaInitials$outboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyFieldMetaInitials$Outbound,
+  z.ZodTypeDef,
+  EnvelopeFieldCreateManyFieldMetaInitials
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  fontSize: z.number().default(12),
+  type: z.literal("initials"),
+  textAlign: EnvelopeFieldCreateManyTextAlign1$outboundSchema.optional(),
+});
 
-export function envelopeFieldCreateManyFieldMetaInitialsResponseToJSON(
-  envelopeFieldCreateManyFieldMetaInitialsResponse:
-    EnvelopeFieldCreateManyFieldMetaInitialsResponse,
+export function envelopeFieldCreateManyFieldMetaInitialsToJSON(
+  envelopeFieldCreateManyFieldMetaInitials:
+    EnvelopeFieldCreateManyFieldMetaInitials,
 ): string {
   return JSON.stringify(
-    EnvelopeFieldCreateManyFieldMetaInitialsResponse$outboundSchema.parse(
-      envelopeFieldCreateManyFieldMetaInitialsResponse,
+    EnvelopeFieldCreateManyFieldMetaInitials$outboundSchema.parse(
+      envelopeFieldCreateManyFieldMetaInitials,
     ),
   );
 }
-export function envelopeFieldCreateManyFieldMetaInitialsResponseFromJSON(
+export function envelopeFieldCreateManyFieldMetaInitialsFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  EnvelopeFieldCreateManyFieldMetaInitialsResponse,
+  EnvelopeFieldCreateManyFieldMetaInitials,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      EnvelopeFieldCreateManyFieldMetaInitialsResponse$inboundSchema.parse(
+      EnvelopeFieldCreateManyFieldMetaInitials$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaInitialsResponse' from JSON`,
+    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaInitials' from JSON`,
   );
 }
 
 /** @internal */
-export const EnvelopeFieldCreateManyFieldMetaSignatureResponse$inboundSchema:
-  z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaSignatureResponse,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    type: z.literal("signature"),
-  });
+export const EnvelopeFieldCreateManyFieldMetaSignature$inboundSchema: z.ZodType<
+  EnvelopeFieldCreateManyFieldMetaSignature,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  label: z.string().optional(),
+  placeholder: z.string().optional(),
+  required: z.boolean().optional(),
+  readOnly: z.boolean().optional(),
+  fontSize: z.number().default(12),
+  type: z.literal("signature"),
+});
 /** @internal */
-export type EnvelopeFieldCreateManyFieldMetaSignatureResponse$Outbound = {
+export type EnvelopeFieldCreateManyFieldMetaSignature$Outbound = {
   label?: string | undefined;
   placeholder?: string | undefined;
   required?: boolean | undefined;
@@ -3727,11 +1431,11 @@ export type EnvelopeFieldCreateManyFieldMetaSignatureResponse$Outbound = {
 };
 
 /** @internal */
-export const EnvelopeFieldCreateManyFieldMetaSignatureResponse$outboundSchema:
+export const EnvelopeFieldCreateManyFieldMetaSignature$outboundSchema:
   z.ZodType<
-    EnvelopeFieldCreateManyFieldMetaSignatureResponse$Outbound,
+    EnvelopeFieldCreateManyFieldMetaSignature$Outbound,
     z.ZodTypeDef,
-    EnvelopeFieldCreateManyFieldMetaSignatureResponse
+    EnvelopeFieldCreateManyFieldMetaSignature
   > = z.object({
     label: z.string().optional(),
     placeholder: z.string().optional(),
@@ -3741,29 +1445,29 @@ export const EnvelopeFieldCreateManyFieldMetaSignatureResponse$outboundSchema:
     type: z.literal("signature"),
   });
 
-export function envelopeFieldCreateManyFieldMetaSignatureResponseToJSON(
-  envelopeFieldCreateManyFieldMetaSignatureResponse:
-    EnvelopeFieldCreateManyFieldMetaSignatureResponse,
+export function envelopeFieldCreateManyFieldMetaSignatureToJSON(
+  envelopeFieldCreateManyFieldMetaSignature:
+    EnvelopeFieldCreateManyFieldMetaSignature,
 ): string {
   return JSON.stringify(
-    EnvelopeFieldCreateManyFieldMetaSignatureResponse$outboundSchema.parse(
-      envelopeFieldCreateManyFieldMetaSignatureResponse,
+    EnvelopeFieldCreateManyFieldMetaSignature$outboundSchema.parse(
+      envelopeFieldCreateManyFieldMetaSignature,
     ),
   );
 }
-export function envelopeFieldCreateManyFieldMetaSignatureResponseFromJSON(
+export function envelopeFieldCreateManyFieldMetaSignatureFromJSON(
   jsonString: string,
 ): SafeParseResult<
-  EnvelopeFieldCreateManyFieldMetaSignatureResponse,
+  EnvelopeFieldCreateManyFieldMetaSignature,
   SDKValidationError
 > {
   return safeParse(
     jsonString,
     (x) =>
-      EnvelopeFieldCreateManyFieldMetaSignatureResponse$inboundSchema.parse(
+      EnvelopeFieldCreateManyFieldMetaSignature$inboundSchema.parse(
         JSON.parse(x),
       ),
-    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaSignatureResponse' from JSON`,
+    `Failed to parse 'EnvelopeFieldCreateManyFieldMetaSignature' from JSON`,
   );
 }
 
@@ -3773,29 +1477,29 @@ export const EnvelopeFieldCreateManyFieldMetaUnion$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  z.lazy(() => EnvelopeFieldCreateManyFieldMetaSignatureResponse$inboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyFieldMetaInitialsResponse$inboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyFieldMetaNameResponse$inboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyFieldMetaEmailResponse$inboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyFieldMetaDateResponse$inboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyFieldMetaTextResponse$inboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyFieldMetaNumberResponse$inboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyFieldMetaRadioResponse$inboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyFieldMetaCheckboxResponse$inboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyFieldMetaDropdownResponse$inboundSchema),
+  z.lazy(() => EnvelopeFieldCreateManyFieldMetaSignature$inboundSchema),
+  z.lazy(() => EnvelopeFieldCreateManyFieldMetaInitials$inboundSchema),
+  z.lazy(() => EnvelopeFieldCreateManyFieldMetaName$inboundSchema),
+  z.lazy(() => EnvelopeFieldCreateManyFieldMetaEmail$inboundSchema),
+  z.lazy(() => EnvelopeFieldCreateManyFieldMetaDate$inboundSchema),
+  z.lazy(() => EnvelopeFieldCreateManyFieldMetaText$inboundSchema),
+  z.lazy(() => EnvelopeFieldCreateManyFieldMetaNumber$inboundSchema),
+  z.lazy(() => EnvelopeFieldCreateManyFieldMetaRadio$inboundSchema),
+  z.lazy(() => EnvelopeFieldCreateManyFieldMetaCheckbox$inboundSchema),
+  z.lazy(() => EnvelopeFieldCreateManyFieldMetaDropdown$inboundSchema),
 ]);
 /** @internal */
 export type EnvelopeFieldCreateManyFieldMetaUnion$Outbound =
-  | EnvelopeFieldCreateManyFieldMetaSignatureResponse$Outbound
-  | EnvelopeFieldCreateManyFieldMetaInitialsResponse$Outbound
-  | EnvelopeFieldCreateManyFieldMetaNameResponse$Outbound
-  | EnvelopeFieldCreateManyFieldMetaEmailResponse$Outbound
-  | EnvelopeFieldCreateManyFieldMetaDateResponse$Outbound
-  | EnvelopeFieldCreateManyFieldMetaTextResponse$Outbound
-  | EnvelopeFieldCreateManyFieldMetaNumberResponse$Outbound
-  | EnvelopeFieldCreateManyFieldMetaRadioResponse$Outbound
-  | EnvelopeFieldCreateManyFieldMetaCheckboxResponse$Outbound
-  | EnvelopeFieldCreateManyFieldMetaDropdownResponse$Outbound;
+  | EnvelopeFieldCreateManyFieldMetaSignature$Outbound
+  | EnvelopeFieldCreateManyFieldMetaInitials$Outbound
+  | EnvelopeFieldCreateManyFieldMetaName$Outbound
+  | EnvelopeFieldCreateManyFieldMetaEmail$Outbound
+  | EnvelopeFieldCreateManyFieldMetaDate$Outbound
+  | EnvelopeFieldCreateManyFieldMetaText$Outbound
+  | EnvelopeFieldCreateManyFieldMetaNumber$Outbound
+  | EnvelopeFieldCreateManyFieldMetaRadio$Outbound
+  | EnvelopeFieldCreateManyFieldMetaCheckbox$Outbound
+  | EnvelopeFieldCreateManyFieldMetaDropdown$Outbound;
 
 /** @internal */
 export const EnvelopeFieldCreateManyFieldMetaUnion$outboundSchema: z.ZodType<
@@ -3803,18 +1507,16 @@ export const EnvelopeFieldCreateManyFieldMetaUnion$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EnvelopeFieldCreateManyFieldMetaUnion
 > = z.union([
-  z.lazy(() =>
-    EnvelopeFieldCreateManyFieldMetaSignatureResponse$outboundSchema
-  ),
-  z.lazy(() => EnvelopeFieldCreateManyFieldMetaInitialsResponse$outboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyFieldMetaNameResponse$outboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyFieldMetaEmailResponse$outboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyFieldMetaDateResponse$outboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyFieldMetaTextResponse$outboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyFieldMetaNumberResponse$outboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyFieldMetaRadioResponse$outboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyFieldMetaCheckboxResponse$outboundSchema),
-  z.lazy(() => EnvelopeFieldCreateManyFieldMetaDropdownResponse$outboundSchema),
+  z.lazy(() => EnvelopeFieldCreateManyFieldMetaSignature$outboundSchema),
+  z.lazy(() => EnvelopeFieldCreateManyFieldMetaInitials$outboundSchema),
+  z.lazy(() => EnvelopeFieldCreateManyFieldMetaName$outboundSchema),
+  z.lazy(() => EnvelopeFieldCreateManyFieldMetaEmail$outboundSchema),
+  z.lazy(() => EnvelopeFieldCreateManyFieldMetaDate$outboundSchema),
+  z.lazy(() => EnvelopeFieldCreateManyFieldMetaText$outboundSchema),
+  z.lazy(() => EnvelopeFieldCreateManyFieldMetaNumber$outboundSchema),
+  z.lazy(() => EnvelopeFieldCreateManyFieldMetaRadio$outboundSchema),
+  z.lazy(() => EnvelopeFieldCreateManyFieldMetaCheckbox$outboundSchema),
+  z.lazy(() => EnvelopeFieldCreateManyFieldMetaDropdown$outboundSchema),
 ]);
 
 export function envelopeFieldCreateManyFieldMetaUnionToJSON(
@@ -3845,7 +1547,7 @@ export const EnvelopeFieldCreateManyDataResponse$inboundSchema: z.ZodType<
 > = z.object({
   envelopeId: z.string(),
   envelopeItemId: z.string(),
-  type: EnvelopeFieldCreateManyTypeResponseEnum$inboundSchema,
+  type: EnvelopeFieldCreateManyTypeEnum$inboundSchema,
   id: z.number(),
   secondaryId: z.string(),
   recipientId: z.number(),
@@ -3858,26 +1560,16 @@ export const EnvelopeFieldCreateManyDataResponse$inboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() =>
-        EnvelopeFieldCreateManyFieldMetaSignatureResponse$inboundSchema
-      ),
-      z.lazy(() =>
-        EnvelopeFieldCreateManyFieldMetaInitialsResponse$inboundSchema
-      ),
-      z.lazy(() => EnvelopeFieldCreateManyFieldMetaNameResponse$inboundSchema),
-      z.lazy(() => EnvelopeFieldCreateManyFieldMetaEmailResponse$inboundSchema),
-      z.lazy(() => EnvelopeFieldCreateManyFieldMetaDateResponse$inboundSchema),
-      z.lazy(() => EnvelopeFieldCreateManyFieldMetaTextResponse$inboundSchema),
-      z.lazy(() =>
-        EnvelopeFieldCreateManyFieldMetaNumberResponse$inboundSchema
-      ),
-      z.lazy(() => EnvelopeFieldCreateManyFieldMetaRadioResponse$inboundSchema),
-      z.lazy(() =>
-        EnvelopeFieldCreateManyFieldMetaCheckboxResponse$inboundSchema
-      ),
-      z.lazy(() =>
-        EnvelopeFieldCreateManyFieldMetaDropdownResponse$inboundSchema
-      ),
+      z.lazy(() => EnvelopeFieldCreateManyFieldMetaSignature$inboundSchema),
+      z.lazy(() => EnvelopeFieldCreateManyFieldMetaInitials$inboundSchema),
+      z.lazy(() => EnvelopeFieldCreateManyFieldMetaName$inboundSchema),
+      z.lazy(() => EnvelopeFieldCreateManyFieldMetaEmail$inboundSchema),
+      z.lazy(() => EnvelopeFieldCreateManyFieldMetaDate$inboundSchema),
+      z.lazy(() => EnvelopeFieldCreateManyFieldMetaText$inboundSchema),
+      z.lazy(() => EnvelopeFieldCreateManyFieldMetaNumber$inboundSchema),
+      z.lazy(() => EnvelopeFieldCreateManyFieldMetaRadio$inboundSchema),
+      z.lazy(() => EnvelopeFieldCreateManyFieldMetaCheckbox$inboundSchema),
+      z.lazy(() => EnvelopeFieldCreateManyFieldMetaDropdown$inboundSchema),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),
@@ -3899,16 +1591,16 @@ export type EnvelopeFieldCreateManyDataResponse$Outbound = {
   customText: string;
   inserted: boolean;
   fieldMeta:
-    | EnvelopeFieldCreateManyFieldMetaSignatureResponse$Outbound
-    | EnvelopeFieldCreateManyFieldMetaInitialsResponse$Outbound
-    | EnvelopeFieldCreateManyFieldMetaNameResponse$Outbound
-    | EnvelopeFieldCreateManyFieldMetaEmailResponse$Outbound
-    | EnvelopeFieldCreateManyFieldMetaDateResponse$Outbound
-    | EnvelopeFieldCreateManyFieldMetaTextResponse$Outbound
-    | EnvelopeFieldCreateManyFieldMetaNumberResponse$Outbound
-    | EnvelopeFieldCreateManyFieldMetaRadioResponse$Outbound
-    | EnvelopeFieldCreateManyFieldMetaCheckboxResponse$Outbound
-    | EnvelopeFieldCreateManyFieldMetaDropdownResponse$Outbound
+    | EnvelopeFieldCreateManyFieldMetaSignature$Outbound
+    | EnvelopeFieldCreateManyFieldMetaInitials$Outbound
+    | EnvelopeFieldCreateManyFieldMetaName$Outbound
+    | EnvelopeFieldCreateManyFieldMetaEmail$Outbound
+    | EnvelopeFieldCreateManyFieldMetaDate$Outbound
+    | EnvelopeFieldCreateManyFieldMetaText$Outbound
+    | EnvelopeFieldCreateManyFieldMetaNumber$Outbound
+    | EnvelopeFieldCreateManyFieldMetaRadio$Outbound
+    | EnvelopeFieldCreateManyFieldMetaCheckbox$Outbound
+    | EnvelopeFieldCreateManyFieldMetaDropdown$Outbound
     | null;
   documentId?: number | null | undefined;
   templateId?: number | null | undefined;
@@ -3922,7 +1614,7 @@ export const EnvelopeFieldCreateManyDataResponse$outboundSchema: z.ZodType<
 > = z.object({
   envelopeId: z.string(),
   envelopeItemId: z.string(),
-  type: EnvelopeFieldCreateManyTypeResponseEnum$outboundSchema,
+  type: EnvelopeFieldCreateManyTypeEnum$outboundSchema,
   id: z.number(),
   secondaryId: z.string(),
   recipientId: z.number(),
@@ -3935,30 +1627,16 @@ export const EnvelopeFieldCreateManyDataResponse$outboundSchema: z.ZodType<
   inserted: z.boolean(),
   fieldMeta: z.nullable(
     z.union([
-      z.lazy(() =>
-        EnvelopeFieldCreateManyFieldMetaSignatureResponse$outboundSchema
-      ),
-      z.lazy(() =>
-        EnvelopeFieldCreateManyFieldMetaInitialsResponse$outboundSchema
-      ),
-      z.lazy(() => EnvelopeFieldCreateManyFieldMetaNameResponse$outboundSchema),
-      z.lazy(() =>
-        EnvelopeFieldCreateManyFieldMetaEmailResponse$outboundSchema
-      ),
-      z.lazy(() => EnvelopeFieldCreateManyFieldMetaDateResponse$outboundSchema),
-      z.lazy(() => EnvelopeFieldCreateManyFieldMetaTextResponse$outboundSchema),
-      z.lazy(() =>
-        EnvelopeFieldCreateManyFieldMetaNumberResponse$outboundSchema
-      ),
-      z.lazy(() =>
-        EnvelopeFieldCreateManyFieldMetaRadioResponse$outboundSchema
-      ),
-      z.lazy(() =>
-        EnvelopeFieldCreateManyFieldMetaCheckboxResponse$outboundSchema
-      ),
-      z.lazy(() =>
-        EnvelopeFieldCreateManyFieldMetaDropdownResponse$outboundSchema
-      ),
+      z.lazy(() => EnvelopeFieldCreateManyFieldMetaSignature$outboundSchema),
+      z.lazy(() => EnvelopeFieldCreateManyFieldMetaInitials$outboundSchema),
+      z.lazy(() => EnvelopeFieldCreateManyFieldMetaName$outboundSchema),
+      z.lazy(() => EnvelopeFieldCreateManyFieldMetaEmail$outboundSchema),
+      z.lazy(() => EnvelopeFieldCreateManyFieldMetaDate$outboundSchema),
+      z.lazy(() => EnvelopeFieldCreateManyFieldMetaText$outboundSchema),
+      z.lazy(() => EnvelopeFieldCreateManyFieldMetaNumber$outboundSchema),
+      z.lazy(() => EnvelopeFieldCreateManyFieldMetaRadio$outboundSchema),
+      z.lazy(() => EnvelopeFieldCreateManyFieldMetaCheckbox$outboundSchema),
+      z.lazy(() => EnvelopeFieldCreateManyFieldMetaDropdown$outboundSchema),
     ]),
   ),
   documentId: z.nullable(z.number()).optional(),

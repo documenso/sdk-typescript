@@ -309,7 +309,7 @@ main()
 * [distribute](docs/sdks/documents/README.md#distribute) - Distribute document
 * [redistribute](docs/sdks/documents/README.md#redistribute) - Redistribute document
 * [download](docs/sdks/documents/README.md#download) - Download document
-* [createV0](docs/sdks/documents/README.md#createv0) - Create document
+* [~~createV0~~](docs/sdks/documents/README.md#createv0) - Create document :warning: **Deprecated**
 
 #### [Documents.Attachments](docs/sdks/documentsattachments/README.md)
 
