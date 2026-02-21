@@ -104,6 +104,7 @@ export type TemplateUpdateTemplateEmailSettings = {
   documentCompleted?: boolean | undefined;
   documentDeleted?: boolean | undefined;
   ownerDocumentCompleted?: boolean | undefined;
+  ownerRecipientExpired?: boolean | undefined;
 };
 
 export const TemplateUpdateTemplateLanguage = {
@@ -358,6 +359,7 @@ export const TemplateUpdateTemplateEmailSettings$inboundSchema: z.ZodType<
   documentCompleted: z.boolean().default(true),
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
+  ownerRecipientExpired: z.boolean().default(true),
 });
 /** @internal */
 export type TemplateUpdateTemplateEmailSettings$Outbound = {
@@ -368,6 +370,7 @@ export type TemplateUpdateTemplateEmailSettings$Outbound = {
   documentCompleted: boolean;
   documentDeleted: boolean;
   ownerDocumentCompleted: boolean;
+  ownerRecipientExpired: boolean;
 };
 
 /** @internal */
@@ -383,6 +386,7 @@ export const TemplateUpdateTemplateEmailSettings$outboundSchema: z.ZodType<
   documentCompleted: z.boolean().default(true),
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
+  ownerRecipientExpired: z.boolean().default(true),
 });
 
 export function templateUpdateTemplateEmailSettingsToJSON(

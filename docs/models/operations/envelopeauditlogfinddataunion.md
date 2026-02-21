@@ -561,3 +561,19 @@ const value: operations.DataRecipientDeleted = {
 };
 ```
 
+### `operations.DataDocumentRecipientExpired`
+
+```typescript
+const value: operations.DataDocumentRecipientExpired = {
+  type: "DOCUMENT_RECIPIENT_EXPIRED",
+  data: {
+    recipientEmail: "<value>",
+    recipientName: "<value>",
+    recipientId: 8760.58,
+  },
+  id: "<id>",
+  createdAt: "1735430669557",
+  envelopeId: "<id>",
+};
+```
+

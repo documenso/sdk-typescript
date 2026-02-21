@@ -57,14 +57,18 @@ let value: EnvelopeFindResponse = {
           token: "<value>",
           documentDeletedAt: "<value>",
           expired: "<value>",
+          expiresAt: "1764510134943",
+          expirationNotifiedAt: "<value>",
           signedAt: "<value>",
           authOptions: {
             accessAuth: [
               "ACCOUNT",
             ],
-            actionAuth: [],
+            actionAuth: [
+              "EXPLICIT_NONE",
+            ],
           },
-          signingOrder: 5953.15,
+          signingOrder: 2057.3,
           rejectionReason: "<value>",
         },
       ],
@@ -74,10 +78,10 @@ let value: EnvelopeFindResponse = {
       },
     },
   ],
-  count: 2057.3,
-  currentPage: 1450.99,
-  perPage: 8617.97,
-  totalPages: 4346.68,
+  count: 4346.68,
+  currentPage: 6234.32,
+  perPage: 9826.96,
+  totalPages: 5533.91,
 };
 ```
 

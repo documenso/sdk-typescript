@@ -45,20 +45,22 @@ let value: DocumentGetManyData = {
       token: "<value>",
       documentDeletedAt: "<value>",
       expired: "<value>",
+      expiresAt: "1740381343127",
+      expirationNotifiedAt: null,
       signedAt: "<value>",
       authOptions: {
         accessAuth: [
-          "ACCOUNT",
+          "TWO_FACTOR_AUTH",
         ],
         actionAuth: [],
       },
-      signingOrder: null,
+      signingOrder: 8083.2,
       rejectionReason: "<value>",
     },
   ],
   team: {
-    id: 7630.95,
-    url: "https://numb-spring.info",
+    id: 4826.98,
+    url: "https://robust-backbone.biz/",
   },
 };
 ```

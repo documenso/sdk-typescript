@@ -22,6 +22,10 @@ let value: DocumentCreateDocumentTemporaryDocumentMeta = {
   emailSettings: {},
   emailId: "<id>",
   emailReplyTo: "<value>",
+  envelopeExpirationPeriod: {
+    unit: "day",
+    amount: 658704,
+  },
 };
 ```
 
@@ -45,5 +49,6 @@ let value: DocumentCreateDocumentTemporaryDocumentMeta = {
 | `emailSettings`                                                                                | [operations.DocumentEmailSettings](../../models/operations/documentemailsettings.md)           | :heavy_check_mark:                                                                             | N/A                                                                                            |
 | `emailId`                                                                                      | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
 | `emailReplyTo`                                                                                 | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| `envelopeExpirationPeriod`                                                                     | *operations.DocumentEnvelopeExpirationPeriodUnion*                                             | :heavy_check_mark:                                                                             | N/A                                                                                            |
 | `password`                                                                                     | *string*                                                                                       | :heavy_minus_sign:                                                                             | N/A                                                                                            |
 | `documentId`                                                                                   | *number*                                                                                       | :heavy_minus_sign:                                                                             | N/A                                                                                            |

@@ -83,14 +83,14 @@ let value: TemplateCreateTemplateTemporaryResponse = {
     folder: {
       id: "<id>",
       name: "<value>",
-      type: "DOCUMENT",
+      type: "TEMPLATE",
       visibility: "EVERYONE",
-      userId: 2470.86,
-      teamId: 8054.81,
-      pinned: true,
-      parentId: "<id>",
-      createdAt: "1732915599752",
-      updatedAt: "1735652941400",
+      userId: 7117.7,
+      teamId: 9120.37,
+      pinned: false,
+      parentId: null,
+      createdAt: "1705299366497",
+      updatedAt: "1735672258347",
     },
     envelopeItems: [
       {

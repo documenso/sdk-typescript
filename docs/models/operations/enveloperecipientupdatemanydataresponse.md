@@ -17,12 +17,16 @@ let value: EnvelopeRecipientUpdateManyDataResponse = {
   token: "<value>",
   documentDeletedAt: "<value>",
   expired: "<value>",
+  expiresAt: null,
+  expirationNotifiedAt: "<value>",
   signedAt: null,
   authOptions: {
-    accessAuth: [],
+    accessAuth: [
+      "TWO_FACTOR_AUTH",
+    ],
     actionAuth: [],
   },
-  signingOrder: 8305.41,
+  signingOrder: 1678.67,
   rejectionReason: "<value>",
 };
 ```
@@ -42,6 +46,8 @@ let value: EnvelopeRecipientUpdateManyDataResponse = {
 | `token`                                                                                                                    | *string*                                                                                                                   | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
 | `documentDeletedAt`                                                                                                        | *string*                                                                                                                   | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
 | `expired`                                                                                                                  | *string*                                                                                                                   | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
+| `expiresAt`                                                                                                                | *string*                                                                                                                   | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
+| `expirationNotifiedAt`                                                                                                     | *string*                                                                                                                   | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
 | `signedAt`                                                                                                                 | *string*                                                                                                                   | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
 | `authOptions`                                                                                                              | [operations.EnvelopeRecipientUpdateManyAuthOptions](../../models/operations/enveloperecipientupdatemanyauthoptions.md)     | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |
 | `signingOrder`                                                                                                             | *number*                                                                                                                   | :heavy_check_mark:                                                                                                         | N/A                                                                                                                        |

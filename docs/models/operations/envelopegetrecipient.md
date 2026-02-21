@@ -17,12 +17,18 @@ let value: EnvelopeGetRecipient = {
   token: "<value>",
   documentDeletedAt: "<value>",
   expired: "<value>",
+  expiresAt: "1766978330473",
+  expirationNotifiedAt: "<value>",
   signedAt: "<value>",
   authOptions: {
-    accessAuth: [],
-    actionAuth: [],
+    accessAuth: [
+      "ACCOUNT",
+    ],
+    actionAuth: [
+      "PASSKEY",
+    ],
   },
-  signingOrder: 6543.97,
+  signingOrder: 2091.82,
   rejectionReason: "<value>",
 };
 ```
@@ -42,6 +48,8 @@ let value: EnvelopeGetRecipient = {
 | `token`                                                                                                  | *string*                                                                                                 | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
 | `documentDeletedAt`                                                                                      | *string*                                                                                                 | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
 | `expired`                                                                                                | *string*                                                                                                 | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
+| `expiresAt`                                                                                              | *string*                                                                                                 | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
+| `expirationNotifiedAt`                                                                                   | *string*                                                                                                 | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
 | `signedAt`                                                                                               | *string*                                                                                                 | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
 | `authOptions`                                                                                            | [operations.EnvelopeGetRecipientAuthOptions](../../models/operations/envelopegetrecipientauthoptions.md) | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
 | `signingOrder`                                                                                           | *number*                                                                                                 | :heavy_check_mark:                                                                                       | N/A                                                                                                      |

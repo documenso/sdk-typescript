@@ -22,6 +22,10 @@ let value: DocumentGetDocumentMeta = {
   emailSettings: {},
   emailId: "<id>",
   emailReplyTo: "<value>",
+  envelopeExpirationPeriod: {
+    unit: "day",
+    amount: 936406,
+  },
 };
 ```
 
@@ -45,5 +49,6 @@ let value: DocumentGetDocumentMeta = {
 | `emailSettings`                                                                                      | [operations.DocumentGetEmailSettings](../../models/operations/documentgetemailsettings.md)           | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `emailId`                                                                                            | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `emailReplyTo`                                                                                       | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| `envelopeExpirationPeriod`                                                                           | *operations.DocumentGetEnvelopeExpirationPeriodUnion*                                                | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `password`                                                                                           | *string*                                                                                             | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |
 | `documentId`                                                                                         | *number*                                                                                             | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |

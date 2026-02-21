@@ -21,26 +21,26 @@ let value: RecipientUpdateTemplateRecipientsResponse = {
       token: "<value>",
       documentDeletedAt: "<value>",
       expired: "<value>",
+      expiresAt: "1752306933161",
+      expirationNotifiedAt: "<value>",
       signedAt: "<value>",
       authOptions: {
-        accessAuth: [
-          "ACCOUNT",
-        ],
+        accessAuth: [],
         actionAuth: [
-          "ACCOUNT",
+          "PASSKEY",
         ],
       },
-      signingOrder: 4661.45,
+      signingOrder: 3253.6,
       rejectionReason: "<value>",
       fields: [
         {
           envelopeId: "<id>",
           envelopeItemId: "<id>",
           type: "DATE",
-          id: 7418.3,
+          id: 4748.46,
           secondaryId: "<id>",
-          recipientId: 5371.46,
-          page: 4748.46,
+          recipientId: 359.84,
+          page: 1160.41,
           positionX: "<value>",
           positionY: "<value>",
           width: "<value>",
@@ -49,7 +49,7 @@ let value: RecipientUpdateTemplateRecipientsResponse = {
           inserted: true,
           fieldMeta: {
             fontSize: 12,
-            type: "name",
+            type: "email",
           },
         },
       ],

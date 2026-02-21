@@ -137,6 +137,8 @@ export type DocumentGetManyRecipient = {
   token: string;
   documentDeletedAt: string | null;
   expired: string | null;
+  expiresAt: string | null;
+  expirationNotifiedAt: string | null;
   signedAt: string | null;
   authOptions: DocumentGetManyRecipientAuthOptions | null;
   signingOrder: number | null;
@@ -503,6 +505,8 @@ export const DocumentGetManyRecipient$inboundSchema: z.ZodType<
   token: z.string(),
   documentDeletedAt: z.nullable(z.string()),
   expired: z.nullable(z.string()),
+  expiresAt: z.nullable(z.string()),
+  expirationNotifiedAt: z.nullable(z.string()),
   signedAt: z.nullable(z.string()),
   authOptions: z.nullable(
     z.lazy(() => DocumentGetManyRecipientAuthOptions$inboundSchema),
@@ -525,6 +529,8 @@ export type DocumentGetManyRecipient$Outbound = {
   token: string;
   documentDeletedAt: string | null;
   expired: string | null;
+  expiresAt: string | null;
+  expirationNotifiedAt: string | null;
   signedAt: string | null;
   authOptions: DocumentGetManyRecipientAuthOptions$Outbound | null;
   signingOrder: number | null;
@@ -550,6 +556,8 @@ export const DocumentGetManyRecipient$outboundSchema: z.ZodType<
   token: z.string(),
   documentDeletedAt: z.nullable(z.string()),
   expired: z.nullable(z.string()),
+  expiresAt: z.nullable(z.string()),
+  expirationNotifiedAt: z.nullable(z.string()),
   signedAt: z.nullable(z.string()),
   authOptions: z.nullable(
     z.lazy(() => DocumentGetManyRecipientAuthOptions$outboundSchema),

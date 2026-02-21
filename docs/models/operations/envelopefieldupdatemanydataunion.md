@@ -3,102 +3,102 @@
 
 ## Supported Types
 
-### `operations.DataSignature`
+### `operations.EnvelopeFieldUpdateManyDataSignature`
 
 ```typescript
-const value: operations.DataSignature = {
+const value: operations.EnvelopeFieldUpdateManyDataSignature = {
   type: "SIGNATURE",
-  id: 5747.21,
+  id: 5833.77,
 };
 ```
 
-### `operations.DataFreeSignature`
+### `operations.EnvelopeFieldUpdateManyDataFreeSignature`
 
 ```typescript
-const value: operations.DataFreeSignature = {
+const value: operations.EnvelopeFieldUpdateManyDataFreeSignature = {
   type: "FREE_SIGNATURE",
-  id: 8109.39,
+  id: 5704.86,
 };
 ```
 
-### `operations.DataInitials`
+### `operations.EnvelopeFieldUpdateManyDataInitials`
 
 ```typescript
-const value: operations.DataInitials = {
+const value: operations.EnvelopeFieldUpdateManyDataInitials = {
   type: "INITIALS",
-  id: 4365.45,
+  id: 3824.08,
 };
 ```
 
-### `operations.DataName`
+### `operations.EnvelopeFieldUpdateManyDataName`
 
 ```typescript
-const value: operations.DataName = {
+const value: operations.EnvelopeFieldUpdateManyDataName = {
   type: "NAME",
-  id: 5586.06,
+  id: 2990.5,
 };
 ```
 
-### `operations.DataEmail`
+### `operations.EnvelopeFieldUpdateManyDataEmail`
 
 ```typescript
-const value: operations.DataEmail = {
+const value: operations.EnvelopeFieldUpdateManyDataEmail = {
   type: "EMAIL",
-  id: 5567.85,
+  id: 5112.08,
 };
 ```
 
-### `operations.DataDate`
+### `operations.EnvelopeFieldUpdateManyDataDate`
 
 ```typescript
-const value: operations.DataDate = {
+const value: operations.EnvelopeFieldUpdateManyDataDate = {
   type: "DATE",
-  id: 3983.48,
+  id: 3791.12,
 };
 ```
 
-### `operations.DataText`
+### `operations.EnvelopeFieldUpdateManyDataText`
 
 ```typescript
-const value: operations.DataText = {
+const value: operations.EnvelopeFieldUpdateManyDataText = {
   type: "TEXT",
-  id: 4330.23,
+  id: 5141.87,
 };
 ```
 
-### `operations.DataNumber`
+### `operations.EnvelopeFieldUpdateManyDataNumber`
 
 ```typescript
-const value: operations.DataNumber = {
+const value: operations.EnvelopeFieldUpdateManyDataNumber = {
   type: "NUMBER",
-  id: 3390.29,
+  id: 3337.35,
 };
 ```
 
-### `operations.DataRadio`
+### `operations.EnvelopeFieldUpdateManyDataRadio`
 
 ```typescript
-const value: operations.DataRadio = {
+const value: operations.EnvelopeFieldUpdateManyDataRadio = {
   type: "RADIO",
-  id: 3828.9,
+  id: 8407.08,
 };
 ```
 
-### `operations.DataCheckbox`
+### `operations.EnvelopeFieldUpdateManyDataCheckbox`
 
 ```typescript
-const value: operations.DataCheckbox = {
+const value: operations.EnvelopeFieldUpdateManyDataCheckbox = {
   type: "CHECKBOX",
-  id: 7838.08,
+  id: 1378.35,
 };
 ```
 
-### `operations.DataDropdown`
+### `operations.EnvelopeFieldUpdateManyDataDropdown`
 
 ```typescript
-const value: operations.DataDropdown = {
+const value: operations.EnvelopeFieldUpdateManyDataDropdown = {
   type: "DROPDOWN",
-  id: 111.68,
+  id: 5488.4,
 };
 ```
 

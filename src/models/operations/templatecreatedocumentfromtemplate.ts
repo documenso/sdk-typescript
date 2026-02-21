@@ -126,6 +126,7 @@ export type TemplateCreateDocumentFromTemplateOverrideEmailSettings = {
   documentCompleted?: boolean | undefined;
   documentDeleted?: boolean | undefined;
   ownerDocumentCompleted?: boolean | undefined;
+  ownerRecipientExpired?: boolean | undefined;
 };
 
 export const TemplateCreateDocumentFromTemplateLanguage = {
@@ -145,6 +146,31 @@ export type TemplateCreateDocumentFromTemplateLanguage = ClosedEnum<
   typeof TemplateCreateDocumentFromTemplateLanguage
 >;
 
+export type TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2 =
+  {
+    disabled: boolean;
+  };
+
+export const TemplateCreateDocumentFromTemplateOverrideUnit = {
+  Day: "day",
+  Week: "week",
+  Month: "month",
+  Year: "year",
+} as const;
+export type TemplateCreateDocumentFromTemplateOverrideUnit = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateOverrideUnit
+>;
+
+export type TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1 =
+  {
+    unit: TemplateCreateDocumentFromTemplateOverrideUnit;
+    amount: number;
+  };
+
+export type TemplateCreateDocumentFromTemplateOverrideEnvelopeExpirationPeriodUnion =
+  | TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1
+  | TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2;
+
 export type TemplateCreateDocumentFromTemplateOverride = {
   title?: string | undefined;
   subject?: string | undefined;
@@ -163,6 +189,11 @@ export type TemplateCreateDocumentFromTemplateOverride = {
   uploadSignatureEnabled?: boolean | undefined;
   drawSignatureEnabled?: boolean | undefined;
   allowDictateNextSigner?: boolean | undefined;
+  envelopeExpirationPeriod?:
+    | TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1
+    | TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2
+    | null
+    | undefined;
 };
 
 export const TemplateCreateDocumentFromTemplateTypeLink = {
@@ -307,7 +338,33 @@ export type TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings = {
   documentCompleted?: boolean | undefined;
   documentDeleted?: boolean | undefined;
   ownerDocumentCompleted?: boolean | undefined;
+  ownerRecipientExpired?: boolean | undefined;
 };
+
+export type TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2 =
+  {
+    disabled: boolean;
+  };
+
+export const TemplateCreateDocumentFromTemplateUnitResponse = {
+  Day: "day",
+  Week: "week",
+  Month: "month",
+  Year: "year",
+} as const;
+export type TemplateCreateDocumentFromTemplateUnitResponse = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateUnitResponse
+>;
+
+export type TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1 =
+  {
+    unit: TemplateCreateDocumentFromTemplateUnitResponse;
+    amount: number;
+  };
+
+export type TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponseUnion =
+  | TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1
+  | TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2;
 
 export type TemplateCreateDocumentFromTemplateDocumentMeta = {
   signingOrder: TemplateCreateDocumentFromTemplateSigningOrder;
@@ -329,6 +386,10 @@ export type TemplateCreateDocumentFromTemplateDocumentMeta = {
     | null;
   emailId: string | null;
   emailReplyTo: string | null;
+  envelopeExpirationPeriod:
+    | TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1
+    | TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2
+    | null;
   password?: string | null | undefined;
   documentId?: number | undefined;
 };
@@ -440,6 +501,8 @@ export type TemplateCreateDocumentFromTemplateRecipientResponse = {
   token: string;
   documentDeletedAt: string | null;
   expired: string | null;
+  expiresAt: string | null;
+  expirationNotifiedAt: string | null;
   signedAt: string | null;
   authOptions: TemplateCreateDocumentFromTemplateRecipientAuthOptions | null;
   signingOrder: number | null;
@@ -1420,6 +1483,7 @@ export const TemplateCreateDocumentFromTemplateOverrideEmailSettings$inboundSche
     documentCompleted: z.boolean().default(true),
     documentDeleted: z.boolean().default(true),
     ownerDocumentCompleted: z.boolean().default(true),
+    ownerRecipientExpired: z.boolean().default(true),
   });
 /** @internal */
 export type TemplateCreateDocumentFromTemplateOverrideEmailSettings$Outbound = {
@@ -1430,6 +1494,7 @@ export type TemplateCreateDocumentFromTemplateOverrideEmailSettings$Outbound = {
   documentCompleted: boolean;
   documentDeleted: boolean;
   ownerDocumentCompleted: boolean;
+  ownerRecipientExpired: boolean;
 };
 
 /** @internal */
@@ -1446,6 +1511,7 @@ export const TemplateCreateDocumentFromTemplateOverrideEmailSettings$outboundSch
     documentCompleted: z.boolean().default(true),
     documentDeleted: z.boolean().default(true),
     ownerDocumentCompleted: z.boolean().default(true),
+    ownerRecipientExpired: z.boolean().default(true),
   });
 
 export function templateCreateDocumentFromTemplateOverrideEmailSettingsToJSON(
@@ -1482,6 +1548,180 @@ export const TemplateCreateDocumentFromTemplateLanguage$outboundSchema:
     TemplateCreateDocumentFromTemplateLanguage$inboundSchema;
 
 /** @internal */
+export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2$inboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    disabled: z.boolean(),
+  });
+/** @internal */
+export type TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2$Outbound =
+  {
+    disabled: boolean;
+  };
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2$outboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2$Outbound,
+    z.ZodTypeDef,
+    TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2
+  > = z.object({
+    disabled: z.boolean(),
+  });
+
+export function templateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2ToJSON(
+  templateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2:
+    TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2,
+): string {
+  return JSON.stringify(
+    TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2$outboundSchema
+      .parse(
+        templateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2,
+      ),
+  );
+}
+export function templateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2FromJSON(
+  jsonString: string,
+): SafeParseResult<
+  TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2' from JSON`,
+  );
+}
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateOverrideUnit$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverrideUnit> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateOverrideUnit);
+/** @internal */
+export const TemplateCreateDocumentFromTemplateOverrideUnit$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverrideUnit> =
+    TemplateCreateDocumentFromTemplateOverrideUnit$inboundSchema;
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1$inboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    unit: TemplateCreateDocumentFromTemplateOverrideUnit$inboundSchema,
+    amount: z.number().int(),
+  });
+/** @internal */
+export type TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1$Outbound =
+  {
+    unit: string;
+    amount: number;
+  };
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1$outboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1$Outbound,
+    z.ZodTypeDef,
+    TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1
+  > = z.object({
+    unit: TemplateCreateDocumentFromTemplateOverrideUnit$outboundSchema,
+    amount: z.number().int(),
+  });
+
+export function templateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1ToJSON(
+  templateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1:
+    TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1,
+): string {
+  return JSON.stringify(
+    TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1$outboundSchema
+      .parse(
+        templateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1,
+      ),
+  );
+}
+export function templateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1FromJSON(
+  jsonString: string,
+): SafeParseResult<
+  TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1' from JSON`,
+  );
+}
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateOverrideEnvelopeExpirationPeriodUnion$inboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateOverrideEnvelopeExpirationPeriodUnion,
+    z.ZodTypeDef,
+    unknown
+  > = z.union([
+    z.lazy(() =>
+      TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1$inboundSchema
+    ),
+    z.lazy(() =>
+      TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2$inboundSchema
+    ),
+  ]);
+/** @internal */
+export type TemplateCreateDocumentFromTemplateOverrideEnvelopeExpirationPeriodUnion$Outbound =
+  | TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1$Outbound
+  | TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2$Outbound;
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateOverrideEnvelopeExpirationPeriodUnion$outboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateOverrideEnvelopeExpirationPeriodUnion$Outbound,
+    z.ZodTypeDef,
+    TemplateCreateDocumentFromTemplateOverrideEnvelopeExpirationPeriodUnion
+  > = z.union([
+    z.lazy(() =>
+      TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1$outboundSchema
+    ),
+    z.lazy(() =>
+      TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2$outboundSchema
+    ),
+  ]);
+
+export function templateCreateDocumentFromTemplateOverrideEnvelopeExpirationPeriodUnionToJSON(
+  templateCreateDocumentFromTemplateOverrideEnvelopeExpirationPeriodUnion:
+    TemplateCreateDocumentFromTemplateOverrideEnvelopeExpirationPeriodUnion,
+): string {
+  return JSON.stringify(
+    TemplateCreateDocumentFromTemplateOverrideEnvelopeExpirationPeriodUnion$outboundSchema
+      .parse(
+        templateCreateDocumentFromTemplateOverrideEnvelopeExpirationPeriodUnion,
+      ),
+  );
+}
+export function templateCreateDocumentFromTemplateOverrideEnvelopeExpirationPeriodUnionFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  TemplateCreateDocumentFromTemplateOverrideEnvelopeExpirationPeriodUnion,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      TemplateCreateDocumentFromTemplateOverrideEnvelopeExpirationPeriodUnion$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'TemplateCreateDocumentFromTemplateOverrideEnvelopeExpirationPeriodUnion' from JSON`,
+  );
+}
+
+/** @internal */
 export const TemplateCreateDocumentFromTemplateOverride$inboundSchema:
   z.ZodType<TemplateCreateDocumentFromTemplateOverride, z.ZodTypeDef, unknown> =
     z.object({
@@ -1504,6 +1744,16 @@ export const TemplateCreateDocumentFromTemplateOverride$inboundSchema:
       uploadSignatureEnabled: z.boolean().optional(),
       drawSignatureEnabled: z.boolean().optional(),
       allowDictateNextSigner: z.boolean().optional(),
+      envelopeExpirationPeriod: z.nullable(
+        z.union([
+          z.lazy(() =>
+            TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1$inboundSchema
+          ),
+          z.lazy(() =>
+            TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2$inboundSchema
+          ),
+        ]),
+      ).optional(),
     });
 /** @internal */
 export type TemplateCreateDocumentFromTemplateOverride$Outbound = {
@@ -1522,6 +1772,11 @@ export type TemplateCreateDocumentFromTemplateOverride$Outbound = {
   uploadSignatureEnabled?: boolean | undefined;
   drawSignatureEnabled?: boolean | undefined;
   allowDictateNextSigner?: boolean | undefined;
+  envelopeExpirationPeriod?:
+    | TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1$Outbound
+    | TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2$Outbound
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -1550,6 +1805,16 @@ export const TemplateCreateDocumentFromTemplateOverride$outboundSchema:
     uploadSignatureEnabled: z.boolean().optional(),
     drawSignatureEnabled: z.boolean().optional(),
     allowDictateNextSigner: z.boolean().optional(),
+    envelopeExpirationPeriod: z.nullable(
+      z.union([
+        z.lazy(() =>
+          TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1$outboundSchema
+        ),
+        z.lazy(() =>
+          TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2$outboundSchema
+        ),
+      ]),
+    ).optional(),
   });
 
 export function templateCreateDocumentFromTemplateOverrideToJSON(
@@ -2117,6 +2382,7 @@ export const TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings$inbound
     documentCompleted: z.boolean().default(true),
     documentDeleted: z.boolean().default(true),
     ownerDocumentCompleted: z.boolean().default(true),
+    ownerRecipientExpired: z.boolean().default(true),
   });
 /** @internal */
 export type TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings$Outbound =
@@ -2128,6 +2394,7 @@ export type TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings$Outbound
     documentCompleted: boolean;
     documentDeleted: boolean;
     ownerDocumentCompleted: boolean;
+    ownerRecipientExpired: boolean;
   };
 
 /** @internal */
@@ -2144,6 +2411,7 @@ export const TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings$outboun
     documentCompleted: z.boolean().default(true),
     documentDeleted: z.boolean().default(true),
     ownerDocumentCompleted: z.boolean().default(true),
+    ownerRecipientExpired: z.boolean().default(true),
   });
 
 export function templateCreateDocumentFromTemplateDocumentMetaEmailSettingsToJSON(
@@ -2167,6 +2435,180 @@ export function templateCreateDocumentFromTemplateDocumentMetaEmailSettingsFromJ
       TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings$inboundSchema
         .parse(JSON.parse(x)),
     `Failed to parse 'TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings' from JSON`,
+  );
+}
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2$inboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    disabled: z.boolean(),
+  });
+/** @internal */
+export type TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2$Outbound =
+  {
+    disabled: boolean;
+  };
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2$outboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2$Outbound,
+    z.ZodTypeDef,
+    TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2
+  > = z.object({
+    disabled: z.boolean(),
+  });
+
+export function templateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2ToJSON(
+  templateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2:
+    TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2,
+): string {
+  return JSON.stringify(
+    TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2$outboundSchema
+      .parse(
+        templateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2,
+      ),
+  );
+}
+export function templateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2FromJSON(
+  jsonString: string,
+): SafeParseResult<
+  TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2' from JSON`,
+  );
+}
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateUnitResponse$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateUnitResponse> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateUnitResponse);
+/** @internal */
+export const TemplateCreateDocumentFromTemplateUnitResponse$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateUnitResponse> =
+    TemplateCreateDocumentFromTemplateUnitResponse$inboundSchema;
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1$inboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    unit: TemplateCreateDocumentFromTemplateUnitResponse$inboundSchema,
+    amount: z.number().int(),
+  });
+/** @internal */
+export type TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1$Outbound =
+  {
+    unit: string;
+    amount: number;
+  };
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1$outboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1$Outbound,
+    z.ZodTypeDef,
+    TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1
+  > = z.object({
+    unit: TemplateCreateDocumentFromTemplateUnitResponse$outboundSchema,
+    amount: z.number().int(),
+  });
+
+export function templateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1ToJSON(
+  templateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1:
+    TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1,
+): string {
+  return JSON.stringify(
+    TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1$outboundSchema
+      .parse(
+        templateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1,
+      ),
+  );
+}
+export function templateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1FromJSON(
+  jsonString: string,
+): SafeParseResult<
+  TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1' from JSON`,
+  );
+}
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponseUnion$inboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponseUnion,
+    z.ZodTypeDef,
+    unknown
+  > = z.union([
+    z.lazy(() =>
+      TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1$inboundSchema
+    ),
+    z.lazy(() =>
+      TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2$inboundSchema
+    ),
+  ]);
+/** @internal */
+export type TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponseUnion$Outbound =
+  | TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1$Outbound
+  | TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2$Outbound;
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponseUnion$outboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponseUnion$Outbound,
+    z.ZodTypeDef,
+    TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponseUnion
+  > = z.union([
+    z.lazy(() =>
+      TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1$outboundSchema
+    ),
+    z.lazy(() =>
+      TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2$outboundSchema
+    ),
+  ]);
+
+export function templateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponseUnionToJSON(
+  templateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponseUnion:
+    TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponseUnion,
+): string {
+  return JSON.stringify(
+    TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponseUnion$outboundSchema
+      .parse(
+        templateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponseUnion,
+      ),
+  );
+}
+export function templateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponseUnionFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponseUnion,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponseUnion$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponseUnion' from JSON`,
   );
 }
 
@@ -2198,6 +2640,16 @@ export const TemplateCreateDocumentFromTemplateDocumentMeta$inboundSchema:
     ),
     emailId: z.nullable(z.string()),
     emailReplyTo: z.nullable(z.string()),
+    envelopeExpirationPeriod: z.nullable(
+      z.union([
+        z.lazy(() =>
+          TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1$inboundSchema
+        ),
+        z.lazy(() =>
+          TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2$inboundSchema
+        ),
+      ]),
+    ),
     password: z.nullable(z.string()).default(null),
     documentId: z.number().default(-1),
   });
@@ -2221,6 +2673,10 @@ export type TemplateCreateDocumentFromTemplateDocumentMeta$Outbound = {
     | null;
   emailId: string | null;
   emailReplyTo: string | null;
+  envelopeExpirationPeriod:
+    | TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1$Outbound
+    | TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2$Outbound
+    | null;
   password: string | null;
   documentId: number;
 };
@@ -2253,6 +2709,16 @@ export const TemplateCreateDocumentFromTemplateDocumentMeta$outboundSchema:
     ),
     emailId: z.nullable(z.string()),
     emailReplyTo: z.nullable(z.string()),
+    envelopeExpirationPeriod: z.nullable(
+      z.union([
+        z.lazy(() =>
+          TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1$outboundSchema
+        ),
+        z.lazy(() =>
+          TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2$outboundSchema
+        ),
+      ]),
+    ),
     password: z.nullable(z.string()).default(null),
     documentId: z.number().default(-1),
   });
@@ -2563,6 +3029,8 @@ export const TemplateCreateDocumentFromTemplateRecipientResponse$inboundSchema:
     token: z.string(),
     documentDeletedAt: z.nullable(z.string()),
     expired: z.nullable(z.string()),
+    expiresAt: z.nullable(z.string()),
+    expirationNotifiedAt: z.nullable(z.string()),
     signedAt: z.nullable(z.string()),
     authOptions: z.nullable(
       z.lazy(() =>
@@ -2587,6 +3055,8 @@ export type TemplateCreateDocumentFromTemplateRecipientResponse$Outbound = {
   token: string;
   documentDeletedAt: string | null;
   expired: string | null;
+  expiresAt: string | null;
+  expirationNotifiedAt: string | null;
   signedAt: string | null;
   authOptions:
     | TemplateCreateDocumentFromTemplateRecipientAuthOptions$Outbound
@@ -2616,6 +3086,8 @@ export const TemplateCreateDocumentFromTemplateRecipientResponse$outboundSchema:
     token: z.string(),
     documentDeletedAt: z.nullable(z.string()),
     expired: z.nullable(z.string()),
+    expiresAt: z.nullable(z.string()),
+    expirationNotifiedAt: z.nullable(z.string()),
     signedAt: z.nullable(z.string()),
     authOptions: z.nullable(
       z.lazy(() =>

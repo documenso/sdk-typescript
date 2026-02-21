@@ -243,6 +243,8 @@ export type EnvelopeFindRecipient = {
   token: string;
   documentDeletedAt: string | null;
   expired: string | null;
+  expiresAt: string | null;
+  expirationNotifiedAt: string | null;
   signedAt: string | null;
   authOptions: EnvelopeFindRecipientAuthOptions | null;
   signingOrder: number | null;
@@ -702,6 +704,8 @@ export const EnvelopeFindRecipient$inboundSchema: z.ZodType<
   token: z.string(),
   documentDeletedAt: z.nullable(z.string()),
   expired: z.nullable(z.string()),
+  expiresAt: z.nullable(z.string()),
+  expirationNotifiedAt: z.nullable(z.string()),
   signedAt: z.nullable(z.string()),
   authOptions: z.nullable(
     z.lazy(() => EnvelopeFindRecipientAuthOptions$inboundSchema),
@@ -722,6 +726,8 @@ export type EnvelopeFindRecipient$Outbound = {
   token: string;
   documentDeletedAt: string | null;
   expired: string | null;
+  expiresAt: string | null;
+  expirationNotifiedAt: string | null;
   signedAt: string | null;
   authOptions: EnvelopeFindRecipientAuthOptions$Outbound | null;
   signingOrder: number | null;
@@ -745,6 +751,8 @@ export const EnvelopeFindRecipient$outboundSchema: z.ZodType<
   token: z.string(),
   documentDeletedAt: z.nullable(z.string()),
   expired: z.nullable(z.string()),
+  expiresAt: z.nullable(z.string()),
+  expirationNotifiedAt: z.nullable(z.string()),
   signedAt: z.nullable(z.string()),
   authOptions: z.nullable(
     z.lazy(() => EnvelopeFindRecipientAuthOptions$outboundSchema),

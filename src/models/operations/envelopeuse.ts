@@ -122,6 +122,7 @@ export type EnvelopeUseEmailSettings = {
   documentCompleted?: boolean | undefined;
   documentDeleted?: boolean | undefined;
   ownerDocumentCompleted?: boolean | undefined;
+  ownerRecipientExpired?: boolean | undefined;
 };
 
 export const EnvelopeUseLanguage = {
@@ -139,6 +140,27 @@ export const EnvelopeUseLanguage = {
 } as const;
 export type EnvelopeUseLanguage = ClosedEnum<typeof EnvelopeUseLanguage>;
 
+export type EnvelopeUseEnvelopeExpirationPeriod2 = {
+  disabled: boolean;
+};
+
+export const EnvelopeUseUnit = {
+  Day: "day",
+  Week: "week",
+  Month: "month",
+  Year: "year",
+} as const;
+export type EnvelopeUseUnit = ClosedEnum<typeof EnvelopeUseUnit>;
+
+export type EnvelopeUseEnvelopeExpirationPeriod1 = {
+  unit: EnvelopeUseUnit;
+  amount: number;
+};
+
+export type EnvelopeUseEnvelopeExpirationPeriodUnion =
+  | EnvelopeUseEnvelopeExpirationPeriod1
+  | EnvelopeUseEnvelopeExpirationPeriod2;
+
 export type EnvelopeUseOverride = {
   title?: string | undefined;
   subject?: string | undefined;
@@ -153,6 +175,11 @@ export type EnvelopeUseOverride = {
   uploadSignatureEnabled?: boolean | undefined;
   drawSignatureEnabled?: boolean | undefined;
   allowDictateNextSigner?: boolean | undefined;
+  envelopeExpirationPeriod?:
+    | EnvelopeUseEnvelopeExpirationPeriod1
+    | EnvelopeUseEnvelopeExpirationPeriod2
+    | null
+    | undefined;
 };
 
 export const EnvelopeUseTypeLink = {
@@ -785,6 +812,7 @@ export const EnvelopeUseEmailSettings$inboundSchema: z.ZodType<
   documentCompleted: z.boolean().default(true),
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
+  ownerRecipientExpired: z.boolean().default(true),
 });
 /** @internal */
 export type EnvelopeUseEmailSettings$Outbound = {
@@ -795,6 +823,7 @@ export type EnvelopeUseEmailSettings$Outbound = {
   documentCompleted: boolean;
   documentDeleted: boolean;
   ownerDocumentCompleted: boolean;
+  ownerRecipientExpired: boolean;
 };
 
 /** @internal */
@@ -810,6 +839,7 @@ export const EnvelopeUseEmailSettings$outboundSchema: z.ZodType<
   documentCompleted: z.boolean().default(true),
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
+  ownerRecipientExpired: z.boolean().default(true),
 });
 
 export function envelopeUseEmailSettingsToJSON(
@@ -839,6 +869,152 @@ export const EnvelopeUseLanguage$outboundSchema: z.ZodNativeEnum<
 > = EnvelopeUseLanguage$inboundSchema;
 
 /** @internal */
+export const EnvelopeUseEnvelopeExpirationPeriod2$inboundSchema: z.ZodType<
+  EnvelopeUseEnvelopeExpirationPeriod2,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  disabled: z.boolean(),
+});
+/** @internal */
+export type EnvelopeUseEnvelopeExpirationPeriod2$Outbound = {
+  disabled: boolean;
+};
+
+/** @internal */
+export const EnvelopeUseEnvelopeExpirationPeriod2$outboundSchema: z.ZodType<
+  EnvelopeUseEnvelopeExpirationPeriod2$Outbound,
+  z.ZodTypeDef,
+  EnvelopeUseEnvelopeExpirationPeriod2
+> = z.object({
+  disabled: z.boolean(),
+});
+
+export function envelopeUseEnvelopeExpirationPeriod2ToJSON(
+  envelopeUseEnvelopeExpirationPeriod2: EnvelopeUseEnvelopeExpirationPeriod2,
+): string {
+  return JSON.stringify(
+    EnvelopeUseEnvelopeExpirationPeriod2$outboundSchema.parse(
+      envelopeUseEnvelopeExpirationPeriod2,
+    ),
+  );
+}
+export function envelopeUseEnvelopeExpirationPeriod2FromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeUseEnvelopeExpirationPeriod2, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      EnvelopeUseEnvelopeExpirationPeriod2$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeUseEnvelopeExpirationPeriod2' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeUseUnit$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeUseUnit
+> = z.nativeEnum(EnvelopeUseUnit);
+/** @internal */
+export const EnvelopeUseUnit$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeUseUnit
+> = EnvelopeUseUnit$inboundSchema;
+
+/** @internal */
+export const EnvelopeUseEnvelopeExpirationPeriod1$inboundSchema: z.ZodType<
+  EnvelopeUseEnvelopeExpirationPeriod1,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  unit: EnvelopeUseUnit$inboundSchema,
+  amount: z.number().int(),
+});
+/** @internal */
+export type EnvelopeUseEnvelopeExpirationPeriod1$Outbound = {
+  unit: string;
+  amount: number;
+};
+
+/** @internal */
+export const EnvelopeUseEnvelopeExpirationPeriod1$outboundSchema: z.ZodType<
+  EnvelopeUseEnvelopeExpirationPeriod1$Outbound,
+  z.ZodTypeDef,
+  EnvelopeUseEnvelopeExpirationPeriod1
+> = z.object({
+  unit: EnvelopeUseUnit$outboundSchema,
+  amount: z.number().int(),
+});
+
+export function envelopeUseEnvelopeExpirationPeriod1ToJSON(
+  envelopeUseEnvelopeExpirationPeriod1: EnvelopeUseEnvelopeExpirationPeriod1,
+): string {
+  return JSON.stringify(
+    EnvelopeUseEnvelopeExpirationPeriod1$outboundSchema.parse(
+      envelopeUseEnvelopeExpirationPeriod1,
+    ),
+  );
+}
+export function envelopeUseEnvelopeExpirationPeriod1FromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeUseEnvelopeExpirationPeriod1, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      EnvelopeUseEnvelopeExpirationPeriod1$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeUseEnvelopeExpirationPeriod1' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeUseEnvelopeExpirationPeriodUnion$inboundSchema: z.ZodType<
+  EnvelopeUseEnvelopeExpirationPeriodUnion,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  z.lazy(() => EnvelopeUseEnvelopeExpirationPeriod1$inboundSchema),
+  z.lazy(() => EnvelopeUseEnvelopeExpirationPeriod2$inboundSchema),
+]);
+/** @internal */
+export type EnvelopeUseEnvelopeExpirationPeriodUnion$Outbound =
+  | EnvelopeUseEnvelopeExpirationPeriod1$Outbound
+  | EnvelopeUseEnvelopeExpirationPeriod2$Outbound;
+
+/** @internal */
+export const EnvelopeUseEnvelopeExpirationPeriodUnion$outboundSchema: z.ZodType<
+  EnvelopeUseEnvelopeExpirationPeriodUnion$Outbound,
+  z.ZodTypeDef,
+  EnvelopeUseEnvelopeExpirationPeriodUnion
+> = z.union([
+  z.lazy(() => EnvelopeUseEnvelopeExpirationPeriod1$outboundSchema),
+  z.lazy(() => EnvelopeUseEnvelopeExpirationPeriod2$outboundSchema),
+]);
+
+export function envelopeUseEnvelopeExpirationPeriodUnionToJSON(
+  envelopeUseEnvelopeExpirationPeriodUnion:
+    EnvelopeUseEnvelopeExpirationPeriodUnion,
+): string {
+  return JSON.stringify(
+    EnvelopeUseEnvelopeExpirationPeriodUnion$outboundSchema.parse(
+      envelopeUseEnvelopeExpirationPeriodUnion,
+    ),
+  );
+}
+export function envelopeUseEnvelopeExpirationPeriodUnionFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  EnvelopeUseEnvelopeExpirationPeriodUnion,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      EnvelopeUseEnvelopeExpirationPeriodUnion$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'EnvelopeUseEnvelopeExpirationPeriodUnion' from JSON`,
+  );
+}
+
+/** @internal */
 export const EnvelopeUseOverride$inboundSchema: z.ZodType<
   EnvelopeUseOverride,
   z.ZodTypeDef,
@@ -858,6 +1034,12 @@ export const EnvelopeUseOverride$inboundSchema: z.ZodType<
   uploadSignatureEnabled: z.boolean().optional(),
   drawSignatureEnabled: z.boolean().optional(),
   allowDictateNextSigner: z.boolean().optional(),
+  envelopeExpirationPeriod: z.nullable(
+    z.union([
+      z.lazy(() => EnvelopeUseEnvelopeExpirationPeriod1$inboundSchema),
+      z.lazy(() => EnvelopeUseEnvelopeExpirationPeriod2$inboundSchema),
+    ]),
+  ).optional(),
 });
 /** @internal */
 export type EnvelopeUseOverride$Outbound = {
@@ -874,6 +1056,11 @@ export type EnvelopeUseOverride$Outbound = {
   uploadSignatureEnabled?: boolean | undefined;
   drawSignatureEnabled?: boolean | undefined;
   allowDictateNextSigner?: boolean | undefined;
+  envelopeExpirationPeriod?:
+    | EnvelopeUseEnvelopeExpirationPeriod1$Outbound
+    | EnvelopeUseEnvelopeExpirationPeriod2$Outbound
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -896,6 +1083,12 @@ export const EnvelopeUseOverride$outboundSchema: z.ZodType<
   uploadSignatureEnabled: z.boolean().optional(),
   drawSignatureEnabled: z.boolean().optional(),
   allowDictateNextSigner: z.boolean().optional(),
+  envelopeExpirationPeriod: z.nullable(
+    z.union([
+      z.lazy(() => EnvelopeUseEnvelopeExpirationPeriod1$outboundSchema),
+      z.lazy(() => EnvelopeUseEnvelopeExpirationPeriod2$outboundSchema),
+    ]),
+  ).optional(),
 });
 
 export function envelopeUseOverrideToJSON(

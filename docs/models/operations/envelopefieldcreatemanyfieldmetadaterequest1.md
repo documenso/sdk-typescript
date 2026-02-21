@@ -1,0 +1,23 @@
+# EnvelopeFieldCreateManyFieldMetaDateRequest1
+
+## Example Usage
+
+```typescript
+import { EnvelopeFieldCreateManyFieldMetaDateRequest1 } from "@documenso/sdk-typescript/models/operations";
+
+let value: EnvelopeFieldCreateManyFieldMetaDateRequest1 = {
+  type: "date",
+};
+```
+
+## Fields
+
+| Field                                                                                                                | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
+| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `label`                                                                                                              | *string*                                                                                                             | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `placeholder`                                                                                                        | *string*                                                                                                             | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `required`                                                                                                           | *boolean*                                                                                                            | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `readOnly`                                                                                                           | *boolean*                                                                                                            | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `fontSize`                                                                                                           | *number*                                                                                                             | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `type`                                                                                                               | [operations.EnvelopeFieldCreateManyTypeDateEnum1](../../models/operations/envelopefieldcreatemanytypedateenum1.md)   | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
+| `textAlign`                                                                                                          | [operations.EnvelopeFieldCreateManyTextAlignDate1](../../models/operations/envelopefieldcreatemanytextaligndate1.md) | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
