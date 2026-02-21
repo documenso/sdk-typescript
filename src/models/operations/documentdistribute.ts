@@ -69,6 +69,7 @@ export type DocumentDistributeEmailSettings = {
   documentCompleted?: boolean | undefined;
   documentDeleted?: boolean | undefined;
   ownerDocumentCompleted?: boolean | undefined;
+  ownerRecipientExpired?: boolean | undefined;
 };
 
 export type DocumentDistributeMeta = {
@@ -209,6 +210,7 @@ export const DocumentDistributeEmailSettings$inboundSchema: z.ZodType<
   documentCompleted: z.boolean().default(true),
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
+  ownerRecipientExpired: z.boolean().default(true),
 });
 /** @internal */
 export type DocumentDistributeEmailSettings$Outbound = {
@@ -219,6 +221,7 @@ export type DocumentDistributeEmailSettings$Outbound = {
   documentCompleted: boolean;
   documentDeleted: boolean;
   ownerDocumentCompleted: boolean;
+  ownerRecipientExpired: boolean;
 };
 
 /** @internal */
@@ -234,6 +237,7 @@ export const DocumentDistributeEmailSettings$outboundSchema: z.ZodType<
   documentCompleted: z.boolean().default(true),
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
+  ownerRecipientExpired: z.boolean().default(true),
 });
 
 export function documentDistributeEmailSettingsToJSON(

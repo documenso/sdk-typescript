@@ -17,15 +17,15 @@ let value: EnvelopeGetManyRecipient = {
   token: "<value>",
   documentDeletedAt: "<value>",
   expired: "<value>",
-  signedAt: "<value>",
+  expiresAt: "1747274478259",
+  expirationNotifiedAt: "<value>",
+  signedAt: null,
   authOptions: {
-    accessAuth: [
-      "ACCOUNT",
-    ],
+    accessAuth: [],
     actionAuth: [],
   },
-  signingOrder: 2425.54,
-  rejectionReason: null,
+  signingOrder: null,
+  rejectionReason: "<value>",
 };
 ```
 
@@ -44,6 +44,8 @@ let value: EnvelopeGetManyRecipient = {
 | `token`                                                                                                          | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
 | `documentDeletedAt`                                                                                              | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
 | `expired`                                                                                                        | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `expiresAt`                                                                                                      | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `expirationNotifiedAt`                                                                                           | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
 | `signedAt`                                                                                                       | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
 | `authOptions`                                                                                                    | [operations.EnvelopeGetManyRecipientAuthOptions](../../models/operations/envelopegetmanyrecipientauthoptions.md) | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
 | `signingOrder`                                                                                                   | *number*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |

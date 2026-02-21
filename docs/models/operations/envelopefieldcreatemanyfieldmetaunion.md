@@ -3,82 +3,82 @@
 
 ## Supported Types
 
-### `operations.EnvelopeFieldCreateManyFieldMetaSignature`
+### `operations.EnvelopeFieldCreateManyFieldMetaSignatureResponse`
 
 ```typescript
-const value: operations.EnvelopeFieldCreateManyFieldMetaSignature = {
+const value: operations.EnvelopeFieldCreateManyFieldMetaSignatureResponse = {
   type: "signature",
 };
 ```
 
-### `operations.EnvelopeFieldCreateManyFieldMetaInitials`
+### `operations.EnvelopeFieldCreateManyFieldMetaInitialsResponse`
 
 ```typescript
-const value: operations.EnvelopeFieldCreateManyFieldMetaInitials = {
+const value: operations.EnvelopeFieldCreateManyFieldMetaInitialsResponse = {
   type: "initials",
 };
 ```
 
-### `operations.EnvelopeFieldCreateManyFieldMetaName`
+### `operations.EnvelopeFieldCreateManyFieldMetaNameResponse`
 
 ```typescript
-const value: operations.EnvelopeFieldCreateManyFieldMetaName = {
+const value: operations.EnvelopeFieldCreateManyFieldMetaNameResponse = {
   type: "name",
 };
 ```
 
-### `operations.EnvelopeFieldCreateManyFieldMetaEmail`
+### `operations.EnvelopeFieldCreateManyFieldMetaEmailResponse`
 
 ```typescript
-const value: operations.EnvelopeFieldCreateManyFieldMetaEmail = {
+const value: operations.EnvelopeFieldCreateManyFieldMetaEmailResponse = {
   type: "email",
 };
 ```
 
-### `operations.EnvelopeFieldCreateManyFieldMetaDate`
+### `operations.EnvelopeFieldCreateManyFieldMetaDateResponse`
 
 ```typescript
-const value: operations.EnvelopeFieldCreateManyFieldMetaDate = {
+const value: operations.EnvelopeFieldCreateManyFieldMetaDateResponse = {
   type: "date",
 };
 ```
 
-### `operations.EnvelopeFieldCreateManyFieldMetaText`
+### `operations.EnvelopeFieldCreateManyFieldMetaTextResponse`
 
 ```typescript
-const value: operations.EnvelopeFieldCreateManyFieldMetaText = {
+const value: operations.EnvelopeFieldCreateManyFieldMetaTextResponse = {
   type: "text",
 };
 ```
 
-### `operations.EnvelopeFieldCreateManyFieldMetaNumber`
+### `operations.EnvelopeFieldCreateManyFieldMetaNumberResponse`
 
 ```typescript
-const value: operations.EnvelopeFieldCreateManyFieldMetaNumber = {
+const value: operations.EnvelopeFieldCreateManyFieldMetaNumberResponse = {
   type: "number",
 };
 ```
 
-### `operations.EnvelopeFieldCreateManyFieldMetaRadio`
+### `operations.EnvelopeFieldCreateManyFieldMetaRadioResponse`
 
 ```typescript
-const value: operations.EnvelopeFieldCreateManyFieldMetaRadio = {
+const value: operations.EnvelopeFieldCreateManyFieldMetaRadioResponse = {
   type: "radio",
 };
 ```
 
-### `operations.EnvelopeFieldCreateManyFieldMetaCheckbox`
+### `operations.EnvelopeFieldCreateManyFieldMetaCheckboxResponse`
 
 ```typescript
-const value: operations.EnvelopeFieldCreateManyFieldMetaCheckbox = {
+const value: operations.EnvelopeFieldCreateManyFieldMetaCheckboxResponse = {
   type: "checkbox",
 };
 ```
 
-### `operations.EnvelopeFieldCreateManyFieldMetaDropdown`
+### `operations.EnvelopeFieldCreateManyFieldMetaDropdownResponse`
 
 ```typescript
-const value: operations.EnvelopeFieldCreateManyFieldMetaDropdown = {
+const value: operations.EnvelopeFieldCreateManyFieldMetaDropdownResponse = {
   type: "dropdown",
 };
 ```

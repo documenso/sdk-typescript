@@ -87,6 +87,7 @@ export type TemplateCreateTemplateTemporaryMetaEmailSettings = {
   documentCompleted?: boolean | undefined;
   documentDeleted?: boolean | undefined;
   ownerDocumentCompleted?: boolean | undefined;
+  ownerRecipientExpired?: boolean | undefined;
 };
 
 export const TemplateCreateTemplateTemporaryLanguage = {
@@ -247,6 +248,7 @@ export type TemplateCreateTemplateTemporaryTemplateMetaEmailSettings = {
   documentCompleted?: boolean | undefined;
   documentDeleted?: boolean | undefined;
   ownerDocumentCompleted?: boolean | undefined;
+  ownerRecipientExpired?: boolean | undefined;
 };
 
 export type TemplateCreateTemplateTemporaryTemplateMeta = {
@@ -360,6 +362,8 @@ export type TemplateCreateTemplateTemporaryRecipient = {
   token: string;
   documentDeletedAt: string | null;
   expired: string | null;
+  expiresAt: string | null;
+  expirationNotifiedAt: string | null;
   signedAt: string | null;
   authOptions: TemplateCreateTemplateTemporaryRecipientAuthOptions | null;
   signingOrder: number | null;
@@ -796,6 +800,7 @@ export const TemplateCreateTemplateTemporaryMetaEmailSettings$inboundSchema:
     documentCompleted: z.boolean().default(true),
     documentDeleted: z.boolean().default(true),
     ownerDocumentCompleted: z.boolean().default(true),
+    ownerRecipientExpired: z.boolean().default(true),
   });
 /** @internal */
 export type TemplateCreateTemplateTemporaryMetaEmailSettings$Outbound = {
@@ -806,6 +811,7 @@ export type TemplateCreateTemplateTemporaryMetaEmailSettings$Outbound = {
   documentCompleted: boolean;
   documentDeleted: boolean;
   ownerDocumentCompleted: boolean;
+  ownerRecipientExpired: boolean;
 };
 
 /** @internal */
@@ -822,6 +828,7 @@ export const TemplateCreateTemplateTemporaryMetaEmailSettings$outboundSchema:
     documentCompleted: z.boolean().default(true),
     documentDeleted: z.boolean().default(true),
     ownerDocumentCompleted: z.boolean().default(true),
+    ownerRecipientExpired: z.boolean().default(true),
   });
 
 export function templateCreateTemplateTemporaryMetaEmailSettingsToJSON(
@@ -1335,6 +1342,7 @@ export const TemplateCreateTemplateTemporaryTemplateMetaEmailSettings$inboundSch
     documentCompleted: z.boolean().default(true),
     documentDeleted: z.boolean().default(true),
     ownerDocumentCompleted: z.boolean().default(true),
+    ownerRecipientExpired: z.boolean().default(true),
   });
 /** @internal */
 export type TemplateCreateTemplateTemporaryTemplateMetaEmailSettings$Outbound =
@@ -1346,6 +1354,7 @@ export type TemplateCreateTemplateTemporaryTemplateMetaEmailSettings$Outbound =
     documentCompleted: boolean;
     documentDeleted: boolean;
     ownerDocumentCompleted: boolean;
+    ownerRecipientExpired: boolean;
   };
 
 /** @internal */
@@ -1362,6 +1371,7 @@ export const TemplateCreateTemplateTemporaryTemplateMetaEmailSettings$outboundSc
     documentCompleted: z.boolean().default(true),
     documentDeleted: z.boolean().default(true),
     ownerDocumentCompleted: z.boolean().default(true),
+    ownerRecipientExpired: z.boolean().default(true),
   });
 
 export function templateCreateTemplateTemporaryTemplateMetaEmailSettingsToJSON(
@@ -1747,6 +1757,8 @@ export const TemplateCreateTemplateTemporaryRecipient$inboundSchema: z.ZodType<
   token: z.string(),
   documentDeletedAt: z.nullable(z.string()),
   expired: z.nullable(z.string()),
+  expiresAt: z.nullable(z.string()),
+  expirationNotifiedAt: z.nullable(z.string()),
   signedAt: z.nullable(z.string()),
   authOptions: z.nullable(
     z.lazy(() =>
@@ -1771,6 +1783,8 @@ export type TemplateCreateTemplateTemporaryRecipient$Outbound = {
   token: string;
   documentDeletedAt: string | null;
   expired: string | null;
+  expiresAt: string | null;
+  expirationNotifiedAt: string | null;
   signedAt: string | null;
   authOptions:
     | TemplateCreateTemplateTemporaryRecipientAuthOptions$Outbound
@@ -1798,6 +1812,8 @@ export const TemplateCreateTemplateTemporaryRecipient$outboundSchema: z.ZodType<
   token: z.string(),
   documentDeletedAt: z.nullable(z.string()),
   expired: z.nullable(z.string()),
+  expiresAt: z.nullable(z.string()),
+  expirationNotifiedAt: z.nullable(z.string()),
   signedAt: z.nullable(z.string()),
   authOptions: z.nullable(
     z.lazy(() =>

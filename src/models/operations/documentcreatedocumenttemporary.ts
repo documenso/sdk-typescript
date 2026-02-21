@@ -612,7 +612,31 @@ export type DocumentCreateDocumentTemporaryMetaEmailSettings = {
   documentCompleted?: boolean | undefined;
   documentDeleted?: boolean | undefined;
   ownerDocumentCompleted?: boolean | undefined;
+  ownerRecipientExpired?: boolean | undefined;
 };
+
+export type DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2 = {
+  disabled: boolean;
+};
+
+export const DocumentCreateDocumentTemporaryMetaUnit = {
+  Day: "day",
+  Week: "week",
+  Month: "month",
+  Year: "year",
+} as const;
+export type DocumentCreateDocumentTemporaryMetaUnit = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryMetaUnit
+>;
+
+export type DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1 = {
+  unit: DocumentCreateDocumentTemporaryMetaUnit;
+  amount: number;
+};
+
+export type DocumentCreateDocumentTemporaryMetaEnvelopeExpirationPeriodUnion =
+  | DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1
+  | DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2;
 
 export type DocumentCreateDocumentTemporaryMeta = {
   subject?: string | undefined;
@@ -633,6 +657,11 @@ export type DocumentCreateDocumentTemporaryMeta = {
   emailReplyTo?: string | null | undefined;
   emailSettings?:
     | DocumentCreateDocumentTemporaryMetaEmailSettings
+    | null
+    | undefined;
+  envelopeExpirationPeriod?:
+    | DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1
+    | DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2
     | null
     | undefined;
 };
@@ -746,7 +775,29 @@ export type DocumentEmailSettings = {
   documentCompleted?: boolean | undefined;
   documentDeleted?: boolean | undefined;
   ownerDocumentCompleted?: boolean | undefined;
+  ownerRecipientExpired?: boolean | undefined;
 };
+
+export type EnvelopeExpirationPeriodDocument2 = {
+  disabled: boolean;
+};
+
+export const DocumentUnit = {
+  Day: "day",
+  Week: "week",
+  Month: "month",
+  Year: "year",
+} as const;
+export type DocumentUnit = ClosedEnum<typeof DocumentUnit>;
+
+export type EnvelopeExpirationPeriodDocument1 = {
+  unit: DocumentUnit;
+  amount: number;
+};
+
+export type DocumentEnvelopeExpirationPeriodUnion =
+  | EnvelopeExpirationPeriodDocument1
+  | EnvelopeExpirationPeriodDocument2;
 
 export type DocumentCreateDocumentTemporaryDocumentMeta = {
   signingOrder: DocumentSigningOrder;
@@ -765,6 +816,10 @@ export type DocumentCreateDocumentTemporaryDocumentMeta = {
   emailSettings: DocumentEmailSettings | null;
   emailId: string | null;
   emailReplyTo: string | null;
+  envelopeExpirationPeriod:
+    | EnvelopeExpirationPeriodDocument1
+    | EnvelopeExpirationPeriodDocument2
+    | null;
   password?: string | null | undefined;
   documentId?: number | undefined;
 };
@@ -868,6 +923,8 @@ export type DocumentRecipient = {
   token: string;
   documentDeletedAt: string | null;
   expired: string | null;
+  expiresAt: string | null;
+  expirationNotifiedAt: string | null;
   signedAt: string | null;
   authOptions: DocumentCreateDocumentTemporaryRecipientAuthOptions | null;
   signingOrder: number | null;
@@ -3507,6 +3564,7 @@ export const DocumentCreateDocumentTemporaryMetaEmailSettings$inboundSchema:
     documentCompleted: z.boolean().default(true),
     documentDeleted: z.boolean().default(true),
     ownerDocumentCompleted: z.boolean().default(true),
+    ownerRecipientExpired: z.boolean().default(true),
   });
 /** @internal */
 export type DocumentCreateDocumentTemporaryMetaEmailSettings$Outbound = {
@@ -3517,6 +3575,7 @@ export type DocumentCreateDocumentTemporaryMetaEmailSettings$Outbound = {
   documentCompleted: boolean;
   documentDeleted: boolean;
   ownerDocumentCompleted: boolean;
+  ownerRecipientExpired: boolean;
 };
 
 /** @internal */
@@ -3533,6 +3592,7 @@ export const DocumentCreateDocumentTemporaryMetaEmailSettings$outboundSchema:
     documentCompleted: z.boolean().default(true),
     documentDeleted: z.boolean().default(true),
     ownerDocumentCompleted: z.boolean().default(true),
+    ownerRecipientExpired: z.boolean().default(true),
   });
 
 export function documentCreateDocumentTemporaryMetaEmailSettingsToJSON(
@@ -3558,6 +3618,174 @@ export function documentCreateDocumentTemporaryMetaEmailSettingsFromJSON(
         JSON.parse(x),
       ),
     `Failed to parse 'DocumentCreateDocumentTemporaryMetaEmailSettings' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2$inboundSchema:
+  z.ZodType<
+    DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    disabled: z.boolean(),
+  });
+/** @internal */
+export type DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2$Outbound =
+  {
+    disabled: boolean;
+  };
+
+/** @internal */
+export const DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2$outboundSchema:
+  z.ZodType<
+    DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2$Outbound,
+    z.ZodTypeDef,
+    DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2
+  > = z.object({
+    disabled: z.boolean(),
+  });
+
+export function documentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2ToJSON(
+  documentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2:
+    DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2,
+): string {
+  return JSON.stringify(
+    DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2$outboundSchema
+      .parse(documentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2),
+  );
+}
+export function documentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2FromJSON(
+  jsonString: string,
+): SafeParseResult<
+  DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentCreateDocumentTemporaryMetaUnit$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryMetaUnit> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryMetaUnit);
+/** @internal */
+export const DocumentCreateDocumentTemporaryMetaUnit$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryMetaUnit> =
+    DocumentCreateDocumentTemporaryMetaUnit$inboundSchema;
+
+/** @internal */
+export const DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1$inboundSchema:
+  z.ZodType<
+    DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    unit: DocumentCreateDocumentTemporaryMetaUnit$inboundSchema,
+    amount: z.number().int(),
+  });
+/** @internal */
+export type DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1$Outbound =
+  {
+    unit: string;
+    amount: number;
+  };
+
+/** @internal */
+export const DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1$outboundSchema:
+  z.ZodType<
+    DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1$Outbound,
+    z.ZodTypeDef,
+    DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1
+  > = z.object({
+    unit: DocumentCreateDocumentTemporaryMetaUnit$outboundSchema,
+    amount: z.number().int(),
+  });
+
+export function documentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1ToJSON(
+  documentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1:
+    DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1,
+): string {
+  return JSON.stringify(
+    DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1$outboundSchema
+      .parse(documentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1),
+  );
+}
+export function documentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1FromJSON(
+  jsonString: string,
+): SafeParseResult<
+  DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentCreateDocumentTemporaryMetaEnvelopeExpirationPeriodUnion$inboundSchema:
+  z.ZodType<
+    DocumentCreateDocumentTemporaryMetaEnvelopeExpirationPeriodUnion,
+    z.ZodTypeDef,
+    unknown
+  > = z.union([
+    z.lazy(() =>
+      DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1$inboundSchema
+    ),
+    z.lazy(() =>
+      DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2$inboundSchema
+    ),
+  ]);
+/** @internal */
+export type DocumentCreateDocumentTemporaryMetaEnvelopeExpirationPeriodUnion$Outbound =
+  | DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1$Outbound
+  | DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2$Outbound;
+
+/** @internal */
+export const DocumentCreateDocumentTemporaryMetaEnvelopeExpirationPeriodUnion$outboundSchema:
+  z.ZodType<
+    DocumentCreateDocumentTemporaryMetaEnvelopeExpirationPeriodUnion$Outbound,
+    z.ZodTypeDef,
+    DocumentCreateDocumentTemporaryMetaEnvelopeExpirationPeriodUnion
+  > = z.union([
+    z.lazy(() =>
+      DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1$outboundSchema
+    ),
+    z.lazy(() =>
+      DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2$outboundSchema
+    ),
+  ]);
+
+export function documentCreateDocumentTemporaryMetaEnvelopeExpirationPeriodUnionToJSON(
+  documentCreateDocumentTemporaryMetaEnvelopeExpirationPeriodUnion:
+    DocumentCreateDocumentTemporaryMetaEnvelopeExpirationPeriodUnion,
+): string {
+  return JSON.stringify(
+    DocumentCreateDocumentTemporaryMetaEnvelopeExpirationPeriodUnion$outboundSchema
+      .parse(documentCreateDocumentTemporaryMetaEnvelopeExpirationPeriodUnion),
+  );
+}
+export function documentCreateDocumentTemporaryMetaEnvelopeExpirationPeriodUnionFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  DocumentCreateDocumentTemporaryMetaEnvelopeExpirationPeriodUnion,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      DocumentCreateDocumentTemporaryMetaEnvelopeExpirationPeriodUnion$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'DocumentCreateDocumentTemporaryMetaEnvelopeExpirationPeriodUnion' from JSON`,
   );
 }
 
@@ -3590,6 +3818,16 @@ export const DocumentCreateDocumentTemporaryMeta$inboundSchema: z.ZodType<
       DocumentCreateDocumentTemporaryMetaEmailSettings$inboundSchema
     ),
   ).optional(),
+  envelopeExpirationPeriod: z.nullable(
+    z.union([
+      z.lazy(() =>
+        DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1$inboundSchema
+      ),
+      z.lazy(() =>
+        DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2$inboundSchema
+      ),
+    ]),
+  ).optional(),
 });
 /** @internal */
 export type DocumentCreateDocumentTemporaryMeta$Outbound = {
@@ -3609,6 +3847,11 @@ export type DocumentCreateDocumentTemporaryMeta$Outbound = {
   emailReplyTo?: string | null | undefined;
   emailSettings?:
     | DocumentCreateDocumentTemporaryMetaEmailSettings$Outbound
+    | null
+    | undefined;
+  envelopeExpirationPeriod?:
+    | DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1$Outbound
+    | DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2$Outbound
     | null
     | undefined;
 };
@@ -3642,6 +3885,16 @@ export const DocumentCreateDocumentTemporaryMeta$outboundSchema: z.ZodType<
     z.lazy(() =>
       DocumentCreateDocumentTemporaryMetaEmailSettings$outboundSchema
     ),
+  ).optional(),
+  envelopeExpirationPeriod: z.nullable(
+    z.union([
+      z.lazy(() =>
+        DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1$outboundSchema
+      ),
+      z.lazy(() =>
+        DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2$outboundSchema
+      ),
+    ]),
   ).optional(),
 });
 
@@ -3995,6 +4248,7 @@ export const DocumentEmailSettings$inboundSchema: z.ZodType<
   documentCompleted: z.boolean().default(true),
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
+  ownerRecipientExpired: z.boolean().default(true),
 });
 /** @internal */
 export type DocumentEmailSettings$Outbound = {
@@ -4005,6 +4259,7 @@ export type DocumentEmailSettings$Outbound = {
   documentCompleted: boolean;
   documentDeleted: boolean;
   ownerDocumentCompleted: boolean;
+  ownerRecipientExpired: boolean;
 };
 
 /** @internal */
@@ -4020,6 +4275,7 @@ export const DocumentEmailSettings$outboundSchema: z.ZodType<
   documentCompleted: z.boolean().default(true),
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
+  ownerRecipientExpired: z.boolean().default(true),
 });
 
 export function documentEmailSettingsToJSON(
@@ -4036,6 +4292,142 @@ export function documentEmailSettingsFromJSON(
     jsonString,
     (x) => DocumentEmailSettings$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'DocumentEmailSettings' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeExpirationPeriodDocument2$inboundSchema: z.ZodType<
+  EnvelopeExpirationPeriodDocument2,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  disabled: z.boolean(),
+});
+/** @internal */
+export type EnvelopeExpirationPeriodDocument2$Outbound = {
+  disabled: boolean;
+};
+
+/** @internal */
+export const EnvelopeExpirationPeriodDocument2$outboundSchema: z.ZodType<
+  EnvelopeExpirationPeriodDocument2$Outbound,
+  z.ZodTypeDef,
+  EnvelopeExpirationPeriodDocument2
+> = z.object({
+  disabled: z.boolean(),
+});
+
+export function envelopeExpirationPeriodDocument2ToJSON(
+  envelopeExpirationPeriodDocument2: EnvelopeExpirationPeriodDocument2,
+): string {
+  return JSON.stringify(
+    EnvelopeExpirationPeriodDocument2$outboundSchema.parse(
+      envelopeExpirationPeriodDocument2,
+    ),
+  );
+}
+export function envelopeExpirationPeriodDocument2FromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeExpirationPeriodDocument2, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeExpirationPeriodDocument2$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeExpirationPeriodDocument2' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentUnit$inboundSchema: z.ZodNativeEnum<typeof DocumentUnit> =
+  z.nativeEnum(DocumentUnit);
+/** @internal */
+export const DocumentUnit$outboundSchema: z.ZodNativeEnum<typeof DocumentUnit> =
+  DocumentUnit$inboundSchema;
+
+/** @internal */
+export const EnvelopeExpirationPeriodDocument1$inboundSchema: z.ZodType<
+  EnvelopeExpirationPeriodDocument1,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  unit: DocumentUnit$inboundSchema,
+  amount: z.number().int(),
+});
+/** @internal */
+export type EnvelopeExpirationPeriodDocument1$Outbound = {
+  unit: string;
+  amount: number;
+};
+
+/** @internal */
+export const EnvelopeExpirationPeriodDocument1$outboundSchema: z.ZodType<
+  EnvelopeExpirationPeriodDocument1$Outbound,
+  z.ZodTypeDef,
+  EnvelopeExpirationPeriodDocument1
+> = z.object({
+  unit: DocumentUnit$outboundSchema,
+  amount: z.number().int(),
+});
+
+export function envelopeExpirationPeriodDocument1ToJSON(
+  envelopeExpirationPeriodDocument1: EnvelopeExpirationPeriodDocument1,
+): string {
+  return JSON.stringify(
+    EnvelopeExpirationPeriodDocument1$outboundSchema.parse(
+      envelopeExpirationPeriodDocument1,
+    ),
+  );
+}
+export function envelopeExpirationPeriodDocument1FromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeExpirationPeriodDocument1, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeExpirationPeriodDocument1$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeExpirationPeriodDocument1' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentEnvelopeExpirationPeriodUnion$inboundSchema: z.ZodType<
+  DocumentEnvelopeExpirationPeriodUnion,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  z.lazy(() => EnvelopeExpirationPeriodDocument1$inboundSchema),
+  z.lazy(() => EnvelopeExpirationPeriodDocument2$inboundSchema),
+]);
+/** @internal */
+export type DocumentEnvelopeExpirationPeriodUnion$Outbound =
+  | EnvelopeExpirationPeriodDocument1$Outbound
+  | EnvelopeExpirationPeriodDocument2$Outbound;
+
+/** @internal */
+export const DocumentEnvelopeExpirationPeriodUnion$outboundSchema: z.ZodType<
+  DocumentEnvelopeExpirationPeriodUnion$Outbound,
+  z.ZodTypeDef,
+  DocumentEnvelopeExpirationPeriodUnion
+> = z.union([
+  z.lazy(() => EnvelopeExpirationPeriodDocument1$outboundSchema),
+  z.lazy(() => EnvelopeExpirationPeriodDocument2$outboundSchema),
+]);
+
+export function documentEnvelopeExpirationPeriodUnionToJSON(
+  documentEnvelopeExpirationPeriodUnion: DocumentEnvelopeExpirationPeriodUnion,
+): string {
+  return JSON.stringify(
+    DocumentEnvelopeExpirationPeriodUnion$outboundSchema.parse(
+      documentEnvelopeExpirationPeriodUnion,
+    ),
+  );
+}
+export function documentEnvelopeExpirationPeriodUnionFromJSON(
+  jsonString: string,
+): SafeParseResult<DocumentEnvelopeExpirationPeriodUnion, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      DocumentEnvelopeExpirationPeriodUnion$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentEnvelopeExpirationPeriodUnion' from JSON`,
   );
 }
 
@@ -4064,6 +4456,12 @@ export const DocumentCreateDocumentTemporaryDocumentMeta$inboundSchema:
     ),
     emailId: z.nullable(z.string()),
     emailReplyTo: z.nullable(z.string()),
+    envelopeExpirationPeriod: z.nullable(
+      z.union([
+        z.lazy(() => EnvelopeExpirationPeriodDocument1$inboundSchema),
+        z.lazy(() => EnvelopeExpirationPeriodDocument2$inboundSchema),
+      ]),
+    ),
     password: z.nullable(z.string()).default(null),
     documentId: z.number().default(-1),
   });
@@ -4085,6 +4483,10 @@ export type DocumentCreateDocumentTemporaryDocumentMeta$Outbound = {
   emailSettings: DocumentEmailSettings$Outbound | null;
   emailId: string | null;
   emailReplyTo: string | null;
+  envelopeExpirationPeriod:
+    | EnvelopeExpirationPeriodDocument1$Outbound
+    | EnvelopeExpirationPeriodDocument2$Outbound
+    | null;
   password: string | null;
   documentId: number;
 };
@@ -4114,6 +4516,12 @@ export const DocumentCreateDocumentTemporaryDocumentMeta$outboundSchema:
     ),
     emailId: z.nullable(z.string()),
     emailReplyTo: z.nullable(z.string()),
+    envelopeExpirationPeriod: z.nullable(
+      z.union([
+        z.lazy(() => EnvelopeExpirationPeriodDocument1$outboundSchema),
+        z.lazy(() => EnvelopeExpirationPeriodDocument2$outboundSchema),
+      ]),
+    ),
     password: z.nullable(z.string()).default(null),
     documentId: z.number().default(-1),
   });
@@ -4406,6 +4814,8 @@ export const DocumentRecipient$inboundSchema: z.ZodType<
   token: z.string(),
   documentDeletedAt: z.nullable(z.string()),
   expired: z.nullable(z.string()),
+  expiresAt: z.nullable(z.string()),
+  expirationNotifiedAt: z.nullable(z.string()),
   signedAt: z.nullable(z.string()),
   authOptions: z.nullable(
     z.lazy(() =>
@@ -4430,6 +4840,8 @@ export type DocumentRecipient$Outbound = {
   token: string;
   documentDeletedAt: string | null;
   expired: string | null;
+  expiresAt: string | null;
+  expirationNotifiedAt: string | null;
   signedAt: string | null;
   authOptions:
     | DocumentCreateDocumentTemporaryRecipientAuthOptions$Outbound
@@ -4457,6 +4869,8 @@ export const DocumentRecipient$outboundSchema: z.ZodType<
   token: z.string(),
   documentDeletedAt: z.nullable(z.string()),
   expired: z.nullable(z.string()),
+  expiresAt: z.nullable(z.string()),
+  expirationNotifiedAt: z.nullable(z.string()),
   signedAt: z.nullable(z.string()),
   authOptions: z.nullable(
     z.lazy(() =>

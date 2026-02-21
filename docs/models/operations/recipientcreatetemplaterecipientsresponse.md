@@ -21,16 +21,18 @@ let value: RecipientCreateTemplateRecipientsResponse = {
       token: "<value>",
       documentDeletedAt: "<value>",
       expired: "<value>",
-      signedAt: "<value>",
+      expiresAt: "1756705523940",
+      expirationNotifiedAt: "<value>",
+      signedAt: null,
       authOptions: {
         accessAuth: [
-          "ACCOUNT",
+          "TWO_FACTOR_AUTH",
         ],
         actionAuth: [
-          "EXPLICIT_NONE",
+          "PASSKEY",
         ],
       },
-      signingOrder: 325.59,
+      signingOrder: 578.71,
       rejectionReason: "<value>",
     },
   ],

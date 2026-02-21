@@ -128,6 +128,8 @@ export type RecipientCreateDocumentRecipientsRecipientResponse = {
   token: string;
   documentDeletedAt: string | null;
   expired: string | null;
+  expiresAt: string | null;
+  expirationNotifiedAt: string | null;
   signedAt: string | null;
   authOptions: RecipientCreateDocumentRecipientsAuthOptions | null;
   signingOrder: number | null;
@@ -439,6 +441,8 @@ export const RecipientCreateDocumentRecipientsRecipientResponse$inboundSchema:
     token: z.string(),
     documentDeletedAt: z.nullable(z.string()),
     expired: z.nullable(z.string()),
+    expiresAt: z.nullable(z.string()),
+    expirationNotifiedAt: z.nullable(z.string()),
     signedAt: z.nullable(z.string()),
     authOptions: z.nullable(
       z.lazy(() => RecipientCreateDocumentRecipientsAuthOptions$inboundSchema),
@@ -461,6 +465,8 @@ export type RecipientCreateDocumentRecipientsRecipientResponse$Outbound = {
   token: string;
   documentDeletedAt: string | null;
   expired: string | null;
+  expiresAt: string | null;
+  expirationNotifiedAt: string | null;
   signedAt: string | null;
   authOptions: RecipientCreateDocumentRecipientsAuthOptions$Outbound | null;
   signingOrder: number | null;
@@ -488,6 +494,8 @@ export const RecipientCreateDocumentRecipientsRecipientResponse$outboundSchema:
     token: z.string(),
     documentDeletedAt: z.nullable(z.string()),
     expired: z.nullable(z.string()),
+    expiresAt: z.nullable(z.string()),
+    expirationNotifiedAt: z.nullable(z.string()),
     signedAt: z.nullable(z.string()),
     authOptions: z.nullable(
       z.lazy(() => RecipientCreateDocumentRecipientsAuthOptions$outboundSchema),

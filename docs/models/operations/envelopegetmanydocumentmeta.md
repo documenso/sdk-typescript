@@ -22,6 +22,10 @@ let value: EnvelopeGetManyDocumentMeta = {
   emailSettings: {},
   emailId: "<id>",
   emailReplyTo: "<value>",
+  envelopeExpirationPeriod: {
+    unit: "year",
+    amount: 810643,
+  },
 };
 ```
 
@@ -45,3 +49,4 @@ let value: EnvelopeGetManyDocumentMeta = {
 | `emailSettings`                                                                                              | [operations.EnvelopeGetManyEmailSettings](../../models/operations/envelopegetmanyemailsettings.md)           | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `emailId`                                                                                                    | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
 | `emailReplyTo`                                                                                               | *string*                                                                                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| `envelopeExpirationPeriod`                                                                                   | *operations.EnvelopeGetManyEnvelopeExpirationPeriodUnion*                                                    | :heavy_check_mark:                                                                                           | N/A                                                                                                          |

@@ -17,14 +17,14 @@ let value: DocumentRecipient = {
   token: "<value>",
   documentDeletedAt: "<value>",
   expired: "<value>",
+  expiresAt: "1765859237644",
+  expirationNotifiedAt: "<value>",
   signedAt: "<value>",
   authOptions: {
     accessAuth: [],
-    actionAuth: [
-      "TWO_FACTOR_AUTH",
-    ],
+    actionAuth: [],
   },
-  signingOrder: 827.39,
+  signingOrder: 5872.81,
   rejectionReason: "<value>",
 };
 ```
@@ -44,6 +44,8 @@ let value: DocumentRecipient = {
 | `token`                                                                                                                                          | *string*                                                                                                                                         | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
 | `documentDeletedAt`                                                                                                                              | *string*                                                                                                                                         | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
 | `expired`                                                                                                                                        | *string*                                                                                                                                         | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
+| `expiresAt`                                                                                                                                      | *string*                                                                                                                                         | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
+| `expirationNotifiedAt`                                                                                                                           | *string*                                                                                                                                         | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
 | `signedAt`                                                                                                                                       | *string*                                                                                                                                         | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
 | `authOptions`                                                                                                                                    | [operations.DocumentCreateDocumentTemporaryRecipientAuthOptions](../../models/operations/documentcreatedocumenttemporaryrecipientauthoptions.md) | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |
 | `signingOrder`                                                                                                                                   | *number*                                                                                                                                         | :heavy_check_mark:                                                                                                                               | N/A                                                                                                                                              |

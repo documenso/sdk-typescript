@@ -40,6 +40,25 @@ export type EnvelopeAuditLogFindRequest = {
   orderByDirection?: EnvelopeAuditLogFindOrderByDirection | undefined;
 };
 
+export type EnvelopeAuditLogFindData33 = {
+  recipientEmail: string;
+  recipientName: string;
+  recipientId: number;
+};
+
+export type DataDocumentRecipientExpired = {
+  type: "DOCUMENT_RECIPIENT_EXPIRED";
+  data: EnvelopeAuditLogFindData33;
+  id: string;
+  createdAt: string;
+  envelopeId: string;
+  name?: string | null | undefined;
+  email?: string | null | undefined;
+  userId?: number | null | undefined;
+  userAgent?: string | null | undefined;
+  ipAddress?: string | null | undefined;
+};
+
 export type EnvelopeAuditLogFindData32 = {
   recipientEmail: string;
   recipientName: string;
@@ -1330,7 +1349,8 @@ export type EnvelopeAuditLogFindDataUnion =
   | DataFieldUpdated
   | DataRecipientCreated
   | DataRecipientUpdated
-  | DataRecipientDeleted;
+  | DataRecipientDeleted
+  | DataDocumentRecipientExpired;
 
 /**
  * Successful response
@@ -1369,6 +1389,7 @@ export type EnvelopeAuditLogFindResponse = {
     | DataRecipientCreated
     | DataRecipientUpdated
     | DataRecipientDeleted
+    | DataDocumentRecipientExpired
   >;
   count: number;
   currentPage: number;
@@ -1447,6 +1468,119 @@ export function envelopeAuditLogFindRequestFromJSON(
     jsonString,
     (x) => EnvelopeAuditLogFindRequest$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'EnvelopeAuditLogFindRequest' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeAuditLogFindData33$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData33,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  recipientEmail: z.string(),
+  recipientName: z.string(),
+  recipientId: z.number(),
+});
+/** @internal */
+export type EnvelopeAuditLogFindData33$Outbound = {
+  recipientEmail: string;
+  recipientName: string;
+  recipientId: number;
+};
+
+/** @internal */
+export const EnvelopeAuditLogFindData33$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData33$Outbound,
+  z.ZodTypeDef,
+  EnvelopeAuditLogFindData33
+> = z.object({
+  recipientEmail: z.string(),
+  recipientName: z.string(),
+  recipientId: z.number(),
+});
+
+export function envelopeAuditLogFindData33ToJSON(
+  envelopeAuditLogFindData33: EnvelopeAuditLogFindData33,
+): string {
+  return JSON.stringify(
+    EnvelopeAuditLogFindData33$outboundSchema.parse(envelopeAuditLogFindData33),
+  );
+}
+export function envelopeAuditLogFindData33FromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeAuditLogFindData33, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeAuditLogFindData33$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData33' from JSON`,
+  );
+}
+
+/** @internal */
+export const DataDocumentRecipientExpired$inboundSchema: z.ZodType<
+  DataDocumentRecipientExpired,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: z.literal("DOCUMENT_RECIPIENT_EXPIRED"),
+  data: z.lazy(() => EnvelopeAuditLogFindData33$inboundSchema),
+  id: z.string(),
+  createdAt: z.string(),
+  envelopeId: z.string(),
+  name: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
+  userId: z.nullable(z.number()).optional(),
+  userAgent: z.nullable(z.string()).optional(),
+  ipAddress: z.nullable(z.string()).optional(),
+});
+/** @internal */
+export type DataDocumentRecipientExpired$Outbound = {
+  type: "DOCUMENT_RECIPIENT_EXPIRED";
+  data: EnvelopeAuditLogFindData33$Outbound;
+  id: string;
+  createdAt: string;
+  envelopeId: string;
+  name?: string | null | undefined;
+  email?: string | null | undefined;
+  userId?: number | null | undefined;
+  userAgent?: string | null | undefined;
+  ipAddress?: string | null | undefined;
+};
+
+/** @internal */
+export const DataDocumentRecipientExpired$outboundSchema: z.ZodType<
+  DataDocumentRecipientExpired$Outbound,
+  z.ZodTypeDef,
+  DataDocumentRecipientExpired
+> = z.object({
+  type: z.literal("DOCUMENT_RECIPIENT_EXPIRED"),
+  data: z.lazy(() => EnvelopeAuditLogFindData33$outboundSchema),
+  id: z.string(),
+  createdAt: z.string(),
+  envelopeId: z.string(),
+  name: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
+  userId: z.nullable(z.number()).optional(),
+  userAgent: z.nullable(z.string()).optional(),
+  ipAddress: z.nullable(z.string()).optional(),
+});
+
+export function dataDocumentRecipientExpiredToJSON(
+  dataDocumentRecipientExpired: DataDocumentRecipientExpired,
+): string {
+  return JSON.stringify(
+    DataDocumentRecipientExpired$outboundSchema.parse(
+      dataDocumentRecipientExpired,
+    ),
+  );
+}
+export function dataDocumentRecipientExpiredFromJSON(
+  jsonString: string,
+): SafeParseResult<DataDocumentRecipientExpired, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DataDocumentRecipientExpired$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DataDocumentRecipientExpired' from JSON`,
   );
 }
 
@@ -8154,6 +8288,7 @@ export const EnvelopeAuditLogFindDataUnion$inboundSchema: z.ZodType<
   z.lazy(() => DataRecipientCreated$inboundSchema),
   z.lazy(() => DataRecipientUpdated$inboundSchema),
   z.lazy(() => DataRecipientDeleted$inboundSchema),
+  z.lazy(() => DataDocumentRecipientExpired$inboundSchema),
 ]);
 /** @internal */
 export type EnvelopeAuditLogFindDataUnion$Outbound =
@@ -8188,7 +8323,8 @@ export type EnvelopeAuditLogFindDataUnion$Outbound =
   | DataFieldUpdated$Outbound
   | DataRecipientCreated$Outbound
   | DataRecipientUpdated$Outbound
-  | DataRecipientDeleted$Outbound;
+  | DataRecipientDeleted$Outbound
+  | DataDocumentRecipientExpired$Outbound;
 
 /** @internal */
 export const EnvelopeAuditLogFindDataUnion$outboundSchema: z.ZodType<
@@ -8228,6 +8364,7 @@ export const EnvelopeAuditLogFindDataUnion$outboundSchema: z.ZodType<
   z.lazy(() => DataRecipientCreated$outboundSchema),
   z.lazy(() => DataRecipientUpdated$outboundSchema),
   z.lazy(() => DataRecipientDeleted$outboundSchema),
+  z.lazy(() => DataDocumentRecipientExpired$outboundSchema),
 ]);
 
 export function envelopeAuditLogFindDataUnionToJSON(
@@ -8289,6 +8426,7 @@ export const EnvelopeAuditLogFindResponse$inboundSchema: z.ZodType<
       z.lazy(() => DataRecipientCreated$inboundSchema),
       z.lazy(() => DataRecipientUpdated$inboundSchema),
       z.lazy(() => DataRecipientDeleted$inboundSchema),
+      z.lazy(() => DataDocumentRecipientExpired$inboundSchema),
     ]),
   ),
   count: z.number(),
@@ -8331,6 +8469,7 @@ export type EnvelopeAuditLogFindResponse$Outbound = {
     | DataRecipientCreated$Outbound
     | DataRecipientUpdated$Outbound
     | DataRecipientDeleted$Outbound
+    | DataDocumentRecipientExpired$Outbound
   >;
   count: number;
   currentPage: number;
@@ -8378,6 +8517,7 @@ export const EnvelopeAuditLogFindResponse$outboundSchema: z.ZodType<
       z.lazy(() => DataRecipientCreated$outboundSchema),
       z.lazy(() => DataRecipientUpdated$outboundSchema),
       z.lazy(() => DataRecipientDeleted$outboundSchema),
+      z.lazy(() => DataDocumentRecipientExpired$outboundSchema),
     ]),
   ),
   count: z.number(),

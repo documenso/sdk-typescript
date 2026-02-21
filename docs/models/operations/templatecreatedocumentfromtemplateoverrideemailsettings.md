@@ -19,3 +19,4 @@ let value: TemplateCreateDocumentFromTemplateOverrideEmailSettings = {};
 | `documentCompleted`       | *boolean*                 | :heavy_minus_sign:        | N/A                       |
 | `documentDeleted`         | *boolean*                 | :heavy_minus_sign:        | N/A                       |
 | `ownerDocumentCompleted`  | *boolean*                 | :heavy_minus_sign:        | N/A                       |
+| `ownerRecipientExpired`   | *boolean*                 | :heavy_minus_sign:        | N/A                       |

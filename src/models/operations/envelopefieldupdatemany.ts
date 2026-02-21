@@ -30,7 +30,7 @@ export type EnvelopeFieldUpdateManyFieldMetaDropdownRequest = {
   defaultValue?: string | undefined;
 };
 
-export type DataDropdown = {
+export type EnvelopeFieldUpdateManyDataDropdown = {
   type: "DROPDOWN";
   fieldMeta?: EnvelopeFieldUpdateManyFieldMetaDropdownRequest | undefined;
   id: number;
@@ -76,7 +76,7 @@ export type EnvelopeFieldUpdateManyFieldMetaCheckboxRequest = {
   direction?: EnvelopeFieldUpdateManyDirectionCheckbox | undefined;
 };
 
-export type DataCheckbox = {
+export type EnvelopeFieldUpdateManyDataCheckbox = {
   type: "CHECKBOX";
   fieldMeta?: EnvelopeFieldUpdateManyFieldMetaCheckboxRequest | undefined;
   id: number;
@@ -120,7 +120,7 @@ export type EnvelopeFieldUpdateManyFieldMetaRadioRequest = {
   direction?: EnvelopeFieldUpdateManyDirectionRadio | undefined;
 };
 
-export type DataRadio = {
+export type EnvelopeFieldUpdateManyDataRadio = {
   type: "RADIO";
   fieldMeta?: EnvelopeFieldUpdateManyFieldMetaRadioRequest | undefined;
   id: number;
@@ -174,7 +174,7 @@ export type EnvelopeFieldUpdateManyFieldMetaNumberRequest = {
   verticalAlign?: EnvelopeFieldUpdateManyVerticalAlignNumber | null | undefined;
 };
 
-export type DataNumber = {
+export type EnvelopeFieldUpdateManyDataNumber = {
   type: "NUMBER";
   fieldMeta?: EnvelopeFieldUpdateManyFieldMetaNumberRequest | undefined;
   id: number;
@@ -226,7 +226,7 @@ export type EnvelopeFieldUpdateManyFieldMetaTextRequest = {
   verticalAlign?: EnvelopeFieldUpdateManyVerticalAlignText | null | undefined;
 };
 
-export type DataText = {
+export type EnvelopeFieldUpdateManyDataText = {
   type: "TEXT";
   fieldMeta?: EnvelopeFieldUpdateManyFieldMetaTextRequest | undefined;
   id: number;
@@ -264,7 +264,7 @@ export type EnvelopeFieldUpdateManyFieldMetaDateRequest = {
   textAlign?: EnvelopeFieldUpdateManyTextAlignDate | undefined;
 };
 
-export type DataDate = {
+export type EnvelopeFieldUpdateManyDataDate = {
   type: "DATE";
   fieldMeta?: EnvelopeFieldUpdateManyFieldMetaDateRequest | undefined;
   id: number;
@@ -302,7 +302,7 @@ export type EnvelopeFieldUpdateManyFieldMetaEmailRequest = {
   textAlign?: EnvelopeFieldUpdateManyTextAlignEmail | undefined;
 };
 
-export type DataEmail = {
+export type EnvelopeFieldUpdateManyDataEmail = {
   type: "EMAIL";
   fieldMeta?: EnvelopeFieldUpdateManyFieldMetaEmailRequest | undefined;
   id: number;
@@ -340,7 +340,7 @@ export type EnvelopeFieldUpdateManyFieldMetaNameRequest = {
   textAlign?: EnvelopeFieldUpdateManyTextAlignName | undefined;
 };
 
-export type DataName = {
+export type EnvelopeFieldUpdateManyDataName = {
   type: "NAME";
   fieldMeta?: EnvelopeFieldUpdateManyFieldMetaNameRequest | undefined;
   id: number;
@@ -378,7 +378,7 @@ export type EnvelopeFieldUpdateManyFieldMetaInitialsRequest = {
   textAlign?: EnvelopeFieldUpdateManyTextAlignInitials | undefined;
 };
 
-export type DataInitials = {
+export type EnvelopeFieldUpdateManyDataInitials = {
   type: "INITIALS";
   fieldMeta?: EnvelopeFieldUpdateManyFieldMetaInitialsRequest | undefined;
   id: number;
@@ -390,7 +390,7 @@ export type DataInitials = {
   height?: number | undefined;
 };
 
-export type DataFreeSignature = {
+export type EnvelopeFieldUpdateManyDataFreeSignature = {
   type: "FREE_SIGNATURE";
   id: number;
   envelopeItemId?: string | undefined;
@@ -417,7 +417,7 @@ export type EnvelopeFieldUpdateManyFieldMetaSignatureRequest = {
   type: EnvelopeFieldUpdateManyTypeSignatureEnum;
 };
 
-export type DataSignature = {
+export type EnvelopeFieldUpdateManyDataSignature = {
   type: "SIGNATURE";
   fieldMeta?: EnvelopeFieldUpdateManyFieldMetaSignatureRequest | undefined;
   id: number;
@@ -430,32 +430,32 @@ export type DataSignature = {
 };
 
 export type EnvelopeFieldUpdateManyDataUnion =
-  | DataSignature
-  | DataFreeSignature
-  | DataInitials
-  | DataName
-  | DataEmail
-  | DataDate
-  | DataText
-  | DataNumber
-  | DataRadio
-  | DataCheckbox
-  | DataDropdown;
+  | EnvelopeFieldUpdateManyDataSignature
+  | EnvelopeFieldUpdateManyDataFreeSignature
+  | EnvelopeFieldUpdateManyDataInitials
+  | EnvelopeFieldUpdateManyDataName
+  | EnvelopeFieldUpdateManyDataEmail
+  | EnvelopeFieldUpdateManyDataDate
+  | EnvelopeFieldUpdateManyDataText
+  | EnvelopeFieldUpdateManyDataNumber
+  | EnvelopeFieldUpdateManyDataRadio
+  | EnvelopeFieldUpdateManyDataCheckbox
+  | EnvelopeFieldUpdateManyDataDropdown;
 
 export type EnvelopeFieldUpdateManyRequest = {
   envelopeId: string;
   data: Array<
-    | DataSignature
-    | DataFreeSignature
-    | DataInitials
-    | DataName
-    | DataEmail
-    | DataDate
-    | DataText
-    | DataNumber
-    | DataRadio
-    | DataCheckbox
-    | DataDropdown
+    | EnvelopeFieldUpdateManyDataSignature
+    | EnvelopeFieldUpdateManyDataFreeSignature
+    | EnvelopeFieldUpdateManyDataInitials
+    | EnvelopeFieldUpdateManyDataName
+    | EnvelopeFieldUpdateManyDataEmail
+    | EnvelopeFieldUpdateManyDataDate
+    | EnvelopeFieldUpdateManyDataText
+    | EnvelopeFieldUpdateManyDataNumber
+    | EnvelopeFieldUpdateManyDataRadio
+    | EnvelopeFieldUpdateManyDataCheckbox
+    | EnvelopeFieldUpdateManyDataDropdown
   >;
 };
 
@@ -878,8 +878,8 @@ export function envelopeFieldUpdateManyFieldMetaDropdownRequestFromJSON(
 }
 
 /** @internal */
-export const DataDropdown$inboundSchema: z.ZodType<
-  DataDropdown,
+export const EnvelopeFieldUpdateManyDataDropdown$inboundSchema: z.ZodType<
+  EnvelopeFieldUpdateManyDataDropdown,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -896,7 +896,7 @@ export const DataDropdown$inboundSchema: z.ZodType<
   height: z.number().optional(),
 });
 /** @internal */
-export type DataDropdown$Outbound = {
+export type EnvelopeFieldUpdateManyDataDropdown$Outbound = {
   type: "DROPDOWN";
   fieldMeta?:
     | EnvelopeFieldUpdateManyFieldMetaDropdownRequest$Outbound
@@ -911,10 +911,10 @@ export type DataDropdown$Outbound = {
 };
 
 /** @internal */
-export const DataDropdown$outboundSchema: z.ZodType<
-  DataDropdown$Outbound,
+export const EnvelopeFieldUpdateManyDataDropdown$outboundSchema: z.ZodType<
+  EnvelopeFieldUpdateManyDataDropdown$Outbound,
   z.ZodTypeDef,
-  DataDropdown
+  EnvelopeFieldUpdateManyDataDropdown
 > = z.object({
   type: z.literal("DROPDOWN"),
   fieldMeta: z.lazy(() =>
@@ -929,16 +929,23 @@ export const DataDropdown$outboundSchema: z.ZodType<
   height: z.number().optional(),
 });
 
-export function dataDropdownToJSON(dataDropdown: DataDropdown): string {
-  return JSON.stringify(DataDropdown$outboundSchema.parse(dataDropdown));
+export function envelopeFieldUpdateManyDataDropdownToJSON(
+  envelopeFieldUpdateManyDataDropdown: EnvelopeFieldUpdateManyDataDropdown,
+): string {
+  return JSON.stringify(
+    EnvelopeFieldUpdateManyDataDropdown$outboundSchema.parse(
+      envelopeFieldUpdateManyDataDropdown,
+    ),
+  );
 }
-export function dataDropdownFromJSON(
+export function envelopeFieldUpdateManyDataDropdownFromJSON(
   jsonString: string,
-): SafeParseResult<DataDropdown, SDKValidationError> {
+): SafeParseResult<EnvelopeFieldUpdateManyDataDropdown, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => DataDropdown$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DataDropdown' from JSON`,
+    (x) =>
+      EnvelopeFieldUpdateManyDataDropdown$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeFieldUpdateManyDataDropdown' from JSON`,
   );
 }
 
@@ -1094,8 +1101,8 @@ export function envelopeFieldUpdateManyFieldMetaCheckboxRequestFromJSON(
 }
 
 /** @internal */
-export const DataCheckbox$inboundSchema: z.ZodType<
-  DataCheckbox,
+export const EnvelopeFieldUpdateManyDataCheckbox$inboundSchema: z.ZodType<
+  EnvelopeFieldUpdateManyDataCheckbox,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -1112,7 +1119,7 @@ export const DataCheckbox$inboundSchema: z.ZodType<
   height: z.number().optional(),
 });
 /** @internal */
-export type DataCheckbox$Outbound = {
+export type EnvelopeFieldUpdateManyDataCheckbox$Outbound = {
   type: "CHECKBOX";
   fieldMeta?:
     | EnvelopeFieldUpdateManyFieldMetaCheckboxRequest$Outbound
@@ -1127,10 +1134,10 @@ export type DataCheckbox$Outbound = {
 };
 
 /** @internal */
-export const DataCheckbox$outboundSchema: z.ZodType<
-  DataCheckbox$Outbound,
+export const EnvelopeFieldUpdateManyDataCheckbox$outboundSchema: z.ZodType<
+  EnvelopeFieldUpdateManyDataCheckbox$Outbound,
   z.ZodTypeDef,
-  DataCheckbox
+  EnvelopeFieldUpdateManyDataCheckbox
 > = z.object({
   type: z.literal("CHECKBOX"),
   fieldMeta: z.lazy(() =>
@@ -1145,16 +1152,23 @@ export const DataCheckbox$outboundSchema: z.ZodType<
   height: z.number().optional(),
 });
 
-export function dataCheckboxToJSON(dataCheckbox: DataCheckbox): string {
-  return JSON.stringify(DataCheckbox$outboundSchema.parse(dataCheckbox));
+export function envelopeFieldUpdateManyDataCheckboxToJSON(
+  envelopeFieldUpdateManyDataCheckbox: EnvelopeFieldUpdateManyDataCheckbox,
+): string {
+  return JSON.stringify(
+    EnvelopeFieldUpdateManyDataCheckbox$outboundSchema.parse(
+      envelopeFieldUpdateManyDataCheckbox,
+    ),
+  );
 }
-export function dataCheckboxFromJSON(
+export function envelopeFieldUpdateManyDataCheckboxFromJSON(
   jsonString: string,
-): SafeParseResult<DataCheckbox, SDKValidationError> {
+): SafeParseResult<EnvelopeFieldUpdateManyDataCheckbox, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => DataCheckbox$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DataCheckbox' from JSON`,
+    (x) =>
+      EnvelopeFieldUpdateManyDataCheckbox$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeFieldUpdateManyDataCheckbox' from JSON`,
   );
 }
 
@@ -1305,8 +1319,8 @@ export function envelopeFieldUpdateManyFieldMetaRadioRequestFromJSON(
 }
 
 /** @internal */
-export const DataRadio$inboundSchema: z.ZodType<
-  DataRadio,
+export const EnvelopeFieldUpdateManyDataRadio$inboundSchema: z.ZodType<
+  EnvelopeFieldUpdateManyDataRadio,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -1323,7 +1337,7 @@ export const DataRadio$inboundSchema: z.ZodType<
   height: z.number().optional(),
 });
 /** @internal */
-export type DataRadio$Outbound = {
+export type EnvelopeFieldUpdateManyDataRadio$Outbound = {
   type: "RADIO";
   fieldMeta?: EnvelopeFieldUpdateManyFieldMetaRadioRequest$Outbound | undefined;
   id: number;
@@ -1336,10 +1350,10 @@ export type DataRadio$Outbound = {
 };
 
 /** @internal */
-export const DataRadio$outboundSchema: z.ZodType<
-  DataRadio$Outbound,
+export const EnvelopeFieldUpdateManyDataRadio$outboundSchema: z.ZodType<
+  EnvelopeFieldUpdateManyDataRadio$Outbound,
   z.ZodTypeDef,
-  DataRadio
+  EnvelopeFieldUpdateManyDataRadio
 > = z.object({
   type: z.literal("RADIO"),
   fieldMeta: z.lazy(() =>
@@ -1354,16 +1368,22 @@ export const DataRadio$outboundSchema: z.ZodType<
   height: z.number().optional(),
 });
 
-export function dataRadioToJSON(dataRadio: DataRadio): string {
-  return JSON.stringify(DataRadio$outboundSchema.parse(dataRadio));
+export function envelopeFieldUpdateManyDataRadioToJSON(
+  envelopeFieldUpdateManyDataRadio: EnvelopeFieldUpdateManyDataRadio,
+): string {
+  return JSON.stringify(
+    EnvelopeFieldUpdateManyDataRadio$outboundSchema.parse(
+      envelopeFieldUpdateManyDataRadio,
+    ),
+  );
 }
-export function dataRadioFromJSON(
+export function envelopeFieldUpdateManyDataRadioFromJSON(
   jsonString: string,
-): SafeParseResult<DataRadio, SDKValidationError> {
+): SafeParseResult<EnvelopeFieldUpdateManyDataRadio, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => DataRadio$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DataRadio' from JSON`,
+    (x) => EnvelopeFieldUpdateManyDataRadio$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeFieldUpdateManyDataRadio' from JSON`,
   );
 }
 
@@ -1490,8 +1510,8 @@ export function envelopeFieldUpdateManyFieldMetaNumberRequestFromJSON(
 }
 
 /** @internal */
-export const DataNumber$inboundSchema: z.ZodType<
-  DataNumber,
+export const EnvelopeFieldUpdateManyDataNumber$inboundSchema: z.ZodType<
+  EnvelopeFieldUpdateManyDataNumber,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -1508,7 +1528,7 @@ export const DataNumber$inboundSchema: z.ZodType<
   height: z.number().optional(),
 });
 /** @internal */
-export type DataNumber$Outbound = {
+export type EnvelopeFieldUpdateManyDataNumber$Outbound = {
   type: "NUMBER";
   fieldMeta?:
     | EnvelopeFieldUpdateManyFieldMetaNumberRequest$Outbound
@@ -1523,10 +1543,10 @@ export type DataNumber$Outbound = {
 };
 
 /** @internal */
-export const DataNumber$outboundSchema: z.ZodType<
-  DataNumber$Outbound,
+export const EnvelopeFieldUpdateManyDataNumber$outboundSchema: z.ZodType<
+  EnvelopeFieldUpdateManyDataNumber$Outbound,
   z.ZodTypeDef,
-  DataNumber
+  EnvelopeFieldUpdateManyDataNumber
 > = z.object({
   type: z.literal("NUMBER"),
   fieldMeta: z.lazy(() =>
@@ -1541,16 +1561,22 @@ export const DataNumber$outboundSchema: z.ZodType<
   height: z.number().optional(),
 });
 
-export function dataNumberToJSON(dataNumber: DataNumber): string {
-  return JSON.stringify(DataNumber$outboundSchema.parse(dataNumber));
+export function envelopeFieldUpdateManyDataNumberToJSON(
+  envelopeFieldUpdateManyDataNumber: EnvelopeFieldUpdateManyDataNumber,
+): string {
+  return JSON.stringify(
+    EnvelopeFieldUpdateManyDataNumber$outboundSchema.parse(
+      envelopeFieldUpdateManyDataNumber,
+    ),
+  );
 }
-export function dataNumberFromJSON(
+export function envelopeFieldUpdateManyDataNumberFromJSON(
   jsonString: string,
-): SafeParseResult<DataNumber, SDKValidationError> {
+): SafeParseResult<EnvelopeFieldUpdateManyDataNumber, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => DataNumber$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DataNumber' from JSON`,
+    (x) => EnvelopeFieldUpdateManyDataNumber$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeFieldUpdateManyDataNumber' from JSON`,
   );
 }
 
@@ -1670,8 +1696,8 @@ export function envelopeFieldUpdateManyFieldMetaTextRequestFromJSON(
 }
 
 /** @internal */
-export const DataText$inboundSchema: z.ZodType<
-  DataText,
+export const EnvelopeFieldUpdateManyDataText$inboundSchema: z.ZodType<
+  EnvelopeFieldUpdateManyDataText,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -1688,7 +1714,7 @@ export const DataText$inboundSchema: z.ZodType<
   height: z.number().optional(),
 });
 /** @internal */
-export type DataText$Outbound = {
+export type EnvelopeFieldUpdateManyDataText$Outbound = {
   type: "TEXT";
   fieldMeta?: EnvelopeFieldUpdateManyFieldMetaTextRequest$Outbound | undefined;
   id: number;
@@ -1701,10 +1727,10 @@ export type DataText$Outbound = {
 };
 
 /** @internal */
-export const DataText$outboundSchema: z.ZodType<
-  DataText$Outbound,
+export const EnvelopeFieldUpdateManyDataText$outboundSchema: z.ZodType<
+  EnvelopeFieldUpdateManyDataText$Outbound,
   z.ZodTypeDef,
-  DataText
+  EnvelopeFieldUpdateManyDataText
 > = z.object({
   type: z.literal("TEXT"),
   fieldMeta: z.lazy(() =>
@@ -1719,16 +1745,22 @@ export const DataText$outboundSchema: z.ZodType<
   height: z.number().optional(),
 });
 
-export function dataTextToJSON(dataText: DataText): string {
-  return JSON.stringify(DataText$outboundSchema.parse(dataText));
+export function envelopeFieldUpdateManyDataTextToJSON(
+  envelopeFieldUpdateManyDataText: EnvelopeFieldUpdateManyDataText,
+): string {
+  return JSON.stringify(
+    EnvelopeFieldUpdateManyDataText$outboundSchema.parse(
+      envelopeFieldUpdateManyDataText,
+    ),
+  );
 }
-export function dataTextFromJSON(
+export function envelopeFieldUpdateManyDataTextFromJSON(
   jsonString: string,
-): SafeParseResult<DataText, SDKValidationError> {
+): SafeParseResult<EnvelopeFieldUpdateManyDataText, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => DataText$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DataText' from JSON`,
+    (x) => EnvelopeFieldUpdateManyDataText$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeFieldUpdateManyDataText' from JSON`,
   );
 }
 
@@ -1820,8 +1852,8 @@ export function envelopeFieldUpdateManyFieldMetaDateRequestFromJSON(
 }
 
 /** @internal */
-export const DataDate$inboundSchema: z.ZodType<
-  DataDate,
+export const EnvelopeFieldUpdateManyDataDate$inboundSchema: z.ZodType<
+  EnvelopeFieldUpdateManyDataDate,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -1838,7 +1870,7 @@ export const DataDate$inboundSchema: z.ZodType<
   height: z.number().optional(),
 });
 /** @internal */
-export type DataDate$Outbound = {
+export type EnvelopeFieldUpdateManyDataDate$Outbound = {
   type: "DATE";
   fieldMeta?: EnvelopeFieldUpdateManyFieldMetaDateRequest$Outbound | undefined;
   id: number;
@@ -1851,10 +1883,10 @@ export type DataDate$Outbound = {
 };
 
 /** @internal */
-export const DataDate$outboundSchema: z.ZodType<
-  DataDate$Outbound,
+export const EnvelopeFieldUpdateManyDataDate$outboundSchema: z.ZodType<
+  EnvelopeFieldUpdateManyDataDate$Outbound,
   z.ZodTypeDef,
-  DataDate
+  EnvelopeFieldUpdateManyDataDate
 > = z.object({
   type: z.literal("DATE"),
   fieldMeta: z.lazy(() =>
@@ -1869,16 +1901,22 @@ export const DataDate$outboundSchema: z.ZodType<
   height: z.number().optional(),
 });
 
-export function dataDateToJSON(dataDate: DataDate): string {
-  return JSON.stringify(DataDate$outboundSchema.parse(dataDate));
+export function envelopeFieldUpdateManyDataDateToJSON(
+  envelopeFieldUpdateManyDataDate: EnvelopeFieldUpdateManyDataDate,
+): string {
+  return JSON.stringify(
+    EnvelopeFieldUpdateManyDataDate$outboundSchema.parse(
+      envelopeFieldUpdateManyDataDate,
+    ),
+  );
 }
-export function dataDateFromJSON(
+export function envelopeFieldUpdateManyDataDateFromJSON(
   jsonString: string,
-): SafeParseResult<DataDate, SDKValidationError> {
+): SafeParseResult<EnvelopeFieldUpdateManyDataDate, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => DataDate$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DataDate' from JSON`,
+    (x) => EnvelopeFieldUpdateManyDataDate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeFieldUpdateManyDataDate' from JSON`,
   );
 }
 
@@ -1971,8 +2009,8 @@ export function envelopeFieldUpdateManyFieldMetaEmailRequestFromJSON(
 }
 
 /** @internal */
-export const DataEmail$inboundSchema: z.ZodType<
-  DataEmail,
+export const EnvelopeFieldUpdateManyDataEmail$inboundSchema: z.ZodType<
+  EnvelopeFieldUpdateManyDataEmail,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -1989,7 +2027,7 @@ export const DataEmail$inboundSchema: z.ZodType<
   height: z.number().optional(),
 });
 /** @internal */
-export type DataEmail$Outbound = {
+export type EnvelopeFieldUpdateManyDataEmail$Outbound = {
   type: "EMAIL";
   fieldMeta?: EnvelopeFieldUpdateManyFieldMetaEmailRequest$Outbound | undefined;
   id: number;
@@ -2002,10 +2040,10 @@ export type DataEmail$Outbound = {
 };
 
 /** @internal */
-export const DataEmail$outboundSchema: z.ZodType<
-  DataEmail$Outbound,
+export const EnvelopeFieldUpdateManyDataEmail$outboundSchema: z.ZodType<
+  EnvelopeFieldUpdateManyDataEmail$Outbound,
   z.ZodTypeDef,
-  DataEmail
+  EnvelopeFieldUpdateManyDataEmail
 > = z.object({
   type: z.literal("EMAIL"),
   fieldMeta: z.lazy(() =>
@@ -2020,16 +2058,22 @@ export const DataEmail$outboundSchema: z.ZodType<
   height: z.number().optional(),
 });
 
-export function dataEmailToJSON(dataEmail: DataEmail): string {
-  return JSON.stringify(DataEmail$outboundSchema.parse(dataEmail));
+export function envelopeFieldUpdateManyDataEmailToJSON(
+  envelopeFieldUpdateManyDataEmail: EnvelopeFieldUpdateManyDataEmail,
+): string {
+  return JSON.stringify(
+    EnvelopeFieldUpdateManyDataEmail$outboundSchema.parse(
+      envelopeFieldUpdateManyDataEmail,
+    ),
+  );
 }
-export function dataEmailFromJSON(
+export function envelopeFieldUpdateManyDataEmailFromJSON(
   jsonString: string,
-): SafeParseResult<DataEmail, SDKValidationError> {
+): SafeParseResult<EnvelopeFieldUpdateManyDataEmail, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => DataEmail$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DataEmail' from JSON`,
+    (x) => EnvelopeFieldUpdateManyDataEmail$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeFieldUpdateManyDataEmail' from JSON`,
   );
 }
 
@@ -2121,8 +2165,8 @@ export function envelopeFieldUpdateManyFieldMetaNameRequestFromJSON(
 }
 
 /** @internal */
-export const DataName$inboundSchema: z.ZodType<
-  DataName,
+export const EnvelopeFieldUpdateManyDataName$inboundSchema: z.ZodType<
+  EnvelopeFieldUpdateManyDataName,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -2139,7 +2183,7 @@ export const DataName$inboundSchema: z.ZodType<
   height: z.number().optional(),
 });
 /** @internal */
-export type DataName$Outbound = {
+export type EnvelopeFieldUpdateManyDataName$Outbound = {
   type: "NAME";
   fieldMeta?: EnvelopeFieldUpdateManyFieldMetaNameRequest$Outbound | undefined;
   id: number;
@@ -2152,10 +2196,10 @@ export type DataName$Outbound = {
 };
 
 /** @internal */
-export const DataName$outboundSchema: z.ZodType<
-  DataName$Outbound,
+export const EnvelopeFieldUpdateManyDataName$outboundSchema: z.ZodType<
+  EnvelopeFieldUpdateManyDataName$Outbound,
   z.ZodTypeDef,
-  DataName
+  EnvelopeFieldUpdateManyDataName
 > = z.object({
   type: z.literal("NAME"),
   fieldMeta: z.lazy(() =>
@@ -2170,16 +2214,22 @@ export const DataName$outboundSchema: z.ZodType<
   height: z.number().optional(),
 });
 
-export function dataNameToJSON(dataName: DataName): string {
-  return JSON.stringify(DataName$outboundSchema.parse(dataName));
+export function envelopeFieldUpdateManyDataNameToJSON(
+  envelopeFieldUpdateManyDataName: EnvelopeFieldUpdateManyDataName,
+): string {
+  return JSON.stringify(
+    EnvelopeFieldUpdateManyDataName$outboundSchema.parse(
+      envelopeFieldUpdateManyDataName,
+    ),
+  );
 }
-export function dataNameFromJSON(
+export function envelopeFieldUpdateManyDataNameFromJSON(
   jsonString: string,
-): SafeParseResult<DataName, SDKValidationError> {
+): SafeParseResult<EnvelopeFieldUpdateManyDataName, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => DataName$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DataName' from JSON`,
+    (x) => EnvelopeFieldUpdateManyDataName$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeFieldUpdateManyDataName' from JSON`,
   );
 }
 
@@ -2272,8 +2322,8 @@ export function envelopeFieldUpdateManyFieldMetaInitialsRequestFromJSON(
 }
 
 /** @internal */
-export const DataInitials$inboundSchema: z.ZodType<
-  DataInitials,
+export const EnvelopeFieldUpdateManyDataInitials$inboundSchema: z.ZodType<
+  EnvelopeFieldUpdateManyDataInitials,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -2290,7 +2340,7 @@ export const DataInitials$inboundSchema: z.ZodType<
   height: z.number().optional(),
 });
 /** @internal */
-export type DataInitials$Outbound = {
+export type EnvelopeFieldUpdateManyDataInitials$Outbound = {
   type: "INITIALS";
   fieldMeta?:
     | EnvelopeFieldUpdateManyFieldMetaInitialsRequest$Outbound
@@ -2305,10 +2355,10 @@ export type DataInitials$Outbound = {
 };
 
 /** @internal */
-export const DataInitials$outboundSchema: z.ZodType<
-  DataInitials$Outbound,
+export const EnvelopeFieldUpdateManyDataInitials$outboundSchema: z.ZodType<
+  EnvelopeFieldUpdateManyDataInitials$Outbound,
   z.ZodTypeDef,
-  DataInitials
+  EnvelopeFieldUpdateManyDataInitials
 > = z.object({
   type: z.literal("INITIALS"),
   fieldMeta: z.lazy(() =>
@@ -2323,22 +2373,29 @@ export const DataInitials$outboundSchema: z.ZodType<
   height: z.number().optional(),
 });
 
-export function dataInitialsToJSON(dataInitials: DataInitials): string {
-  return JSON.stringify(DataInitials$outboundSchema.parse(dataInitials));
+export function envelopeFieldUpdateManyDataInitialsToJSON(
+  envelopeFieldUpdateManyDataInitials: EnvelopeFieldUpdateManyDataInitials,
+): string {
+  return JSON.stringify(
+    EnvelopeFieldUpdateManyDataInitials$outboundSchema.parse(
+      envelopeFieldUpdateManyDataInitials,
+    ),
+  );
 }
-export function dataInitialsFromJSON(
+export function envelopeFieldUpdateManyDataInitialsFromJSON(
   jsonString: string,
-): SafeParseResult<DataInitials, SDKValidationError> {
+): SafeParseResult<EnvelopeFieldUpdateManyDataInitials, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => DataInitials$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DataInitials' from JSON`,
+    (x) =>
+      EnvelopeFieldUpdateManyDataInitials$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeFieldUpdateManyDataInitials' from JSON`,
   );
 }
 
 /** @internal */
-export const DataFreeSignature$inboundSchema: z.ZodType<
-  DataFreeSignature,
+export const EnvelopeFieldUpdateManyDataFreeSignature$inboundSchema: z.ZodType<
+  EnvelopeFieldUpdateManyDataFreeSignature,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -2352,7 +2409,7 @@ export const DataFreeSignature$inboundSchema: z.ZodType<
   height: z.number().optional(),
 });
 /** @internal */
-export type DataFreeSignature$Outbound = {
+export type EnvelopeFieldUpdateManyDataFreeSignature$Outbound = {
   type: "FREE_SIGNATURE";
   id: number;
   envelopeItemId?: string | undefined;
@@ -2364,10 +2421,10 @@ export type DataFreeSignature$Outbound = {
 };
 
 /** @internal */
-export const DataFreeSignature$outboundSchema: z.ZodType<
-  DataFreeSignature$Outbound,
+export const EnvelopeFieldUpdateManyDataFreeSignature$outboundSchema: z.ZodType<
+  EnvelopeFieldUpdateManyDataFreeSignature$Outbound,
   z.ZodTypeDef,
-  DataFreeSignature
+  EnvelopeFieldUpdateManyDataFreeSignature
 > = z.object({
   type: z.literal("FREE_SIGNATURE"),
   id: z.number(),
@@ -2379,20 +2436,29 @@ export const DataFreeSignature$outboundSchema: z.ZodType<
   height: z.number().optional(),
 });
 
-export function dataFreeSignatureToJSON(
-  dataFreeSignature: DataFreeSignature,
+export function envelopeFieldUpdateManyDataFreeSignatureToJSON(
+  envelopeFieldUpdateManyDataFreeSignature:
+    EnvelopeFieldUpdateManyDataFreeSignature,
 ): string {
   return JSON.stringify(
-    DataFreeSignature$outboundSchema.parse(dataFreeSignature),
+    EnvelopeFieldUpdateManyDataFreeSignature$outboundSchema.parse(
+      envelopeFieldUpdateManyDataFreeSignature,
+    ),
   );
 }
-export function dataFreeSignatureFromJSON(
+export function envelopeFieldUpdateManyDataFreeSignatureFromJSON(
   jsonString: string,
-): SafeParseResult<DataFreeSignature, SDKValidationError> {
+): SafeParseResult<
+  EnvelopeFieldUpdateManyDataFreeSignature,
+  SDKValidationError
+> {
   return safeParse(
     jsonString,
-    (x) => DataFreeSignature$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DataFreeSignature' from JSON`,
+    (x) =>
+      EnvelopeFieldUpdateManyDataFreeSignature$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'EnvelopeFieldUpdateManyDataFreeSignature' from JSON`,
   );
 }
 
@@ -2471,8 +2537,8 @@ export function envelopeFieldUpdateManyFieldMetaSignatureRequestFromJSON(
 }
 
 /** @internal */
-export const DataSignature$inboundSchema: z.ZodType<
-  DataSignature,
+export const EnvelopeFieldUpdateManyDataSignature$inboundSchema: z.ZodType<
+  EnvelopeFieldUpdateManyDataSignature,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -2489,7 +2555,7 @@ export const DataSignature$inboundSchema: z.ZodType<
   height: z.number().optional(),
 });
 /** @internal */
-export type DataSignature$Outbound = {
+export type EnvelopeFieldUpdateManyDataSignature$Outbound = {
   type: "SIGNATURE";
   fieldMeta?:
     | EnvelopeFieldUpdateManyFieldMetaSignatureRequest$Outbound
@@ -2504,10 +2570,10 @@ export type DataSignature$Outbound = {
 };
 
 /** @internal */
-export const DataSignature$outboundSchema: z.ZodType<
-  DataSignature$Outbound,
+export const EnvelopeFieldUpdateManyDataSignature$outboundSchema: z.ZodType<
+  EnvelopeFieldUpdateManyDataSignature$Outbound,
   z.ZodTypeDef,
-  DataSignature
+  EnvelopeFieldUpdateManyDataSignature
 > = z.object({
   type: z.literal("SIGNATURE"),
   fieldMeta: z.lazy(() =>
@@ -2522,16 +2588,23 @@ export const DataSignature$outboundSchema: z.ZodType<
   height: z.number().optional(),
 });
 
-export function dataSignatureToJSON(dataSignature: DataSignature): string {
-  return JSON.stringify(DataSignature$outboundSchema.parse(dataSignature));
+export function envelopeFieldUpdateManyDataSignatureToJSON(
+  envelopeFieldUpdateManyDataSignature: EnvelopeFieldUpdateManyDataSignature,
+): string {
+  return JSON.stringify(
+    EnvelopeFieldUpdateManyDataSignature$outboundSchema.parse(
+      envelopeFieldUpdateManyDataSignature,
+    ),
+  );
 }
-export function dataSignatureFromJSON(
+export function envelopeFieldUpdateManyDataSignatureFromJSON(
   jsonString: string,
-): SafeParseResult<DataSignature, SDKValidationError> {
+): SafeParseResult<EnvelopeFieldUpdateManyDataSignature, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => DataSignature$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DataSignature' from JSON`,
+    (x) =>
+      EnvelopeFieldUpdateManyDataSignature$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeFieldUpdateManyDataSignature' from JSON`,
   );
 }
 
@@ -2541,31 +2614,31 @@ export const EnvelopeFieldUpdateManyDataUnion$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  z.lazy(() => DataSignature$inboundSchema),
-  z.lazy(() => DataFreeSignature$inboundSchema),
-  z.lazy(() => DataInitials$inboundSchema),
-  z.lazy(() => DataName$inboundSchema),
-  z.lazy(() => DataEmail$inboundSchema),
-  z.lazy(() => DataDate$inboundSchema),
-  z.lazy(() => DataText$inboundSchema),
-  z.lazy(() => DataNumber$inboundSchema),
-  z.lazy(() => DataRadio$inboundSchema),
-  z.lazy(() => DataCheckbox$inboundSchema),
-  z.lazy(() => DataDropdown$inboundSchema),
+  z.lazy(() => EnvelopeFieldUpdateManyDataSignature$inboundSchema),
+  z.lazy(() => EnvelopeFieldUpdateManyDataFreeSignature$inboundSchema),
+  z.lazy(() => EnvelopeFieldUpdateManyDataInitials$inboundSchema),
+  z.lazy(() => EnvelopeFieldUpdateManyDataName$inboundSchema),
+  z.lazy(() => EnvelopeFieldUpdateManyDataEmail$inboundSchema),
+  z.lazy(() => EnvelopeFieldUpdateManyDataDate$inboundSchema),
+  z.lazy(() => EnvelopeFieldUpdateManyDataText$inboundSchema),
+  z.lazy(() => EnvelopeFieldUpdateManyDataNumber$inboundSchema),
+  z.lazy(() => EnvelopeFieldUpdateManyDataRadio$inboundSchema),
+  z.lazy(() => EnvelopeFieldUpdateManyDataCheckbox$inboundSchema),
+  z.lazy(() => EnvelopeFieldUpdateManyDataDropdown$inboundSchema),
 ]);
 /** @internal */
 export type EnvelopeFieldUpdateManyDataUnion$Outbound =
-  | DataSignature$Outbound
-  | DataFreeSignature$Outbound
-  | DataInitials$Outbound
-  | DataName$Outbound
-  | DataEmail$Outbound
-  | DataDate$Outbound
-  | DataText$Outbound
-  | DataNumber$Outbound
-  | DataRadio$Outbound
-  | DataCheckbox$Outbound
-  | DataDropdown$Outbound;
+  | EnvelopeFieldUpdateManyDataSignature$Outbound
+  | EnvelopeFieldUpdateManyDataFreeSignature$Outbound
+  | EnvelopeFieldUpdateManyDataInitials$Outbound
+  | EnvelopeFieldUpdateManyDataName$Outbound
+  | EnvelopeFieldUpdateManyDataEmail$Outbound
+  | EnvelopeFieldUpdateManyDataDate$Outbound
+  | EnvelopeFieldUpdateManyDataText$Outbound
+  | EnvelopeFieldUpdateManyDataNumber$Outbound
+  | EnvelopeFieldUpdateManyDataRadio$Outbound
+  | EnvelopeFieldUpdateManyDataCheckbox$Outbound
+  | EnvelopeFieldUpdateManyDataDropdown$Outbound;
 
 /** @internal */
 export const EnvelopeFieldUpdateManyDataUnion$outboundSchema: z.ZodType<
@@ -2573,17 +2646,17 @@ export const EnvelopeFieldUpdateManyDataUnion$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EnvelopeFieldUpdateManyDataUnion
 > = z.union([
-  z.lazy(() => DataSignature$outboundSchema),
-  z.lazy(() => DataFreeSignature$outboundSchema),
-  z.lazy(() => DataInitials$outboundSchema),
-  z.lazy(() => DataName$outboundSchema),
-  z.lazy(() => DataEmail$outboundSchema),
-  z.lazy(() => DataDate$outboundSchema),
-  z.lazy(() => DataText$outboundSchema),
-  z.lazy(() => DataNumber$outboundSchema),
-  z.lazy(() => DataRadio$outboundSchema),
-  z.lazy(() => DataCheckbox$outboundSchema),
-  z.lazy(() => DataDropdown$outboundSchema),
+  z.lazy(() => EnvelopeFieldUpdateManyDataSignature$outboundSchema),
+  z.lazy(() => EnvelopeFieldUpdateManyDataFreeSignature$outboundSchema),
+  z.lazy(() => EnvelopeFieldUpdateManyDataInitials$outboundSchema),
+  z.lazy(() => EnvelopeFieldUpdateManyDataName$outboundSchema),
+  z.lazy(() => EnvelopeFieldUpdateManyDataEmail$outboundSchema),
+  z.lazy(() => EnvelopeFieldUpdateManyDataDate$outboundSchema),
+  z.lazy(() => EnvelopeFieldUpdateManyDataText$outboundSchema),
+  z.lazy(() => EnvelopeFieldUpdateManyDataNumber$outboundSchema),
+  z.lazy(() => EnvelopeFieldUpdateManyDataRadio$outboundSchema),
+  z.lazy(() => EnvelopeFieldUpdateManyDataCheckbox$outboundSchema),
+  z.lazy(() => EnvelopeFieldUpdateManyDataDropdown$outboundSchema),
 ]);
 
 export function envelopeFieldUpdateManyDataUnionToJSON(
@@ -2614,17 +2687,17 @@ export const EnvelopeFieldUpdateManyRequest$inboundSchema: z.ZodType<
   envelopeId: z.string(),
   data: z.array(
     z.union([
-      z.lazy(() => DataSignature$inboundSchema),
-      z.lazy(() => DataFreeSignature$inboundSchema),
-      z.lazy(() => DataInitials$inboundSchema),
-      z.lazy(() => DataName$inboundSchema),
-      z.lazy(() => DataEmail$inboundSchema),
-      z.lazy(() => DataDate$inboundSchema),
-      z.lazy(() => DataText$inboundSchema),
-      z.lazy(() => DataNumber$inboundSchema),
-      z.lazy(() => DataRadio$inboundSchema),
-      z.lazy(() => DataCheckbox$inboundSchema),
-      z.lazy(() => DataDropdown$inboundSchema),
+      z.lazy(() => EnvelopeFieldUpdateManyDataSignature$inboundSchema),
+      z.lazy(() => EnvelopeFieldUpdateManyDataFreeSignature$inboundSchema),
+      z.lazy(() => EnvelopeFieldUpdateManyDataInitials$inboundSchema),
+      z.lazy(() => EnvelopeFieldUpdateManyDataName$inboundSchema),
+      z.lazy(() => EnvelopeFieldUpdateManyDataEmail$inboundSchema),
+      z.lazy(() => EnvelopeFieldUpdateManyDataDate$inboundSchema),
+      z.lazy(() => EnvelopeFieldUpdateManyDataText$inboundSchema),
+      z.lazy(() => EnvelopeFieldUpdateManyDataNumber$inboundSchema),
+      z.lazy(() => EnvelopeFieldUpdateManyDataRadio$inboundSchema),
+      z.lazy(() => EnvelopeFieldUpdateManyDataCheckbox$inboundSchema),
+      z.lazy(() => EnvelopeFieldUpdateManyDataDropdown$inboundSchema),
     ]),
   ),
 });
@@ -2632,17 +2705,17 @@ export const EnvelopeFieldUpdateManyRequest$inboundSchema: z.ZodType<
 export type EnvelopeFieldUpdateManyRequest$Outbound = {
   envelopeId: string;
   data: Array<
-    | DataSignature$Outbound
-    | DataFreeSignature$Outbound
-    | DataInitials$Outbound
-    | DataName$Outbound
-    | DataEmail$Outbound
-    | DataDate$Outbound
-    | DataText$Outbound
-    | DataNumber$Outbound
-    | DataRadio$Outbound
-    | DataCheckbox$Outbound
-    | DataDropdown$Outbound
+    | EnvelopeFieldUpdateManyDataSignature$Outbound
+    | EnvelopeFieldUpdateManyDataFreeSignature$Outbound
+    | EnvelopeFieldUpdateManyDataInitials$Outbound
+    | EnvelopeFieldUpdateManyDataName$Outbound
+    | EnvelopeFieldUpdateManyDataEmail$Outbound
+    | EnvelopeFieldUpdateManyDataDate$Outbound
+    | EnvelopeFieldUpdateManyDataText$Outbound
+    | EnvelopeFieldUpdateManyDataNumber$Outbound
+    | EnvelopeFieldUpdateManyDataRadio$Outbound
+    | EnvelopeFieldUpdateManyDataCheckbox$Outbound
+    | EnvelopeFieldUpdateManyDataDropdown$Outbound
   >;
 };
 
@@ -2655,17 +2728,17 @@ export const EnvelopeFieldUpdateManyRequest$outboundSchema: z.ZodType<
   envelopeId: z.string(),
   data: z.array(
     z.union([
-      z.lazy(() => DataSignature$outboundSchema),
-      z.lazy(() => DataFreeSignature$outboundSchema),
-      z.lazy(() => DataInitials$outboundSchema),
-      z.lazy(() => DataName$outboundSchema),
-      z.lazy(() => DataEmail$outboundSchema),
-      z.lazy(() => DataDate$outboundSchema),
-      z.lazy(() => DataText$outboundSchema),
-      z.lazy(() => DataNumber$outboundSchema),
-      z.lazy(() => DataRadio$outboundSchema),
-      z.lazy(() => DataCheckbox$outboundSchema),
-      z.lazy(() => DataDropdown$outboundSchema),
+      z.lazy(() => EnvelopeFieldUpdateManyDataSignature$outboundSchema),
+      z.lazy(() => EnvelopeFieldUpdateManyDataFreeSignature$outboundSchema),
+      z.lazy(() => EnvelopeFieldUpdateManyDataInitials$outboundSchema),
+      z.lazy(() => EnvelopeFieldUpdateManyDataName$outboundSchema),
+      z.lazy(() => EnvelopeFieldUpdateManyDataEmail$outboundSchema),
+      z.lazy(() => EnvelopeFieldUpdateManyDataDate$outboundSchema),
+      z.lazy(() => EnvelopeFieldUpdateManyDataText$outboundSchema),
+      z.lazy(() => EnvelopeFieldUpdateManyDataNumber$outboundSchema),
+      z.lazy(() => EnvelopeFieldUpdateManyDataRadio$outboundSchema),
+      z.lazy(() => EnvelopeFieldUpdateManyDataCheckbox$outboundSchema),
+      z.lazy(() => EnvelopeFieldUpdateManyDataDropdown$outboundSchema),
     ]),
   ),
 });

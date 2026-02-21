@@ -1,0 +1,31 @@
+# EnvelopeFieldCreateManyDataDate1
+
+## Example Usage
+
+```typescript
+import { EnvelopeFieldCreateManyDataDate1 } from "@documenso/sdk-typescript/models/operations";
+
+let value: EnvelopeFieldCreateManyDataDate1 = {
+  type: "DATE",
+  recipientId: 5035.26,
+  page: 8822.23,
+  positionX: 3051.55,
+  positionY: 2644.29,
+  width: 1890.06,
+  height: 1220.9,
+};
+```
+
+## Fields
+
+| Field                                                                                                                              | Type                                                                                                                               | Required                                                                                                                           | Description                                                                                                                        |
+| ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `type`                                                                                                                             | *"DATE"*                                                                                                                           | :heavy_check_mark:                                                                                                                 | N/A                                                                                                                                |
+| `fieldMeta`                                                                                                                        | [operations.EnvelopeFieldCreateManyFieldMetaDateRequest1](../../models/operations/envelopefieldcreatemanyfieldmetadaterequest1.md) | :heavy_minus_sign:                                                                                                                 | N/A                                                                                                                                |
+| `recipientId`                                                                                                                      | *number*                                                                                                                           | :heavy_check_mark:                                                                                                                 | N/A                                                                                                                                |
+| `envelopeItemId`                                                                                                                   | *string*                                                                                                                           | :heavy_minus_sign:                                                                                                                 | N/A                                                                                                                                |
+| `page`                                                                                                                             | *number*                                                                                                                           | :heavy_check_mark:                                                                                                                 | N/A                                                                                                                                |
+| `positionX`                                                                                                                        | *number*                                                                                                                           | :heavy_check_mark:                                                                                                                 | N/A                                                                                                                                |
+| `positionY`                                                                                                                        | *number*                                                                                                                           | :heavy_check_mark:                                                                                                                 | N/A                                                                                                                                |
+| `width`                                                                                                                            | *number*                                                                                                                           | :heavy_check_mark:                                                                                                                 | N/A                                                                                                                                |
+| `height`                                                                                                                           | *number*                                                                                                                           | :heavy_check_mark:                                                                                                                 | N/A                                                                                                                                |

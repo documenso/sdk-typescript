@@ -1,0 +1,23 @@
+# EnvelopeFieldCreateManyFieldMetaEmailRequest2
+
+## Example Usage
+
+```typescript
+import { EnvelopeFieldCreateManyFieldMetaEmailRequest2 } from "@documenso/sdk-typescript/models/operations";
+
+let value: EnvelopeFieldCreateManyFieldMetaEmailRequest2 = {
+  type: "email",
+};
+```
+
+## Fields
+
+| Field                                                                                                                  | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `label`                                                                                                                | *string*                                                                                                               | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `placeholder`                                                                                                          | *string*                                                                                                               | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `required`                                                                                                             | *boolean*                                                                                                              | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `readOnly`                                                                                                             | *boolean*                                                                                                              | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `fontSize`                                                                                                             | *number*                                                                                                               | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
+| `type`                                                                                                                 | [operations.EnvelopeFieldCreateManyTypeEmailEnum2](../../models/operations/envelopefieldcreatemanytypeemailenum2.md)   | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
+| `textAlign`                                                                                                            | [operations.EnvelopeFieldCreateManyTextAlignEmail2](../../models/operations/envelopefieldcreatemanytextalignemail2.md) | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |

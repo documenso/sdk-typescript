@@ -13,7 +13,7 @@ let value: EnvelopeFieldCreateManyRequest = {
 
 ## Fields
 
-| Field                                           | Type                                            | Required                                        | Description                                     |
-| ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
-| `envelopeId`                                    | *string*                                        | :heavy_check_mark:                              | N/A                                             |
-| `data`                                          | *operations.EnvelopeFieldCreateManyDataUnion*[] | :heavy_check_mark:                              | N/A                                             |
+| Field                                            | Type                                             | Required                                         | Description                                      |
+| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
+| `envelopeId`                                     | *string*                                         | :heavy_check_mark:                               | N/A                                              |
+| `data`                                           | *operations.EnvelopeFieldCreateManyDataUnion1*[] | :heavy_check_mark:                               | N/A                                              |

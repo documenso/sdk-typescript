@@ -580,7 +580,29 @@ export type DocumentCreateEmailSettings = {
   documentCompleted?: boolean | undefined;
   documentDeleted?: boolean | undefined;
   ownerDocumentCompleted?: boolean | undefined;
+  ownerRecipientExpired?: boolean | undefined;
 };
+
+export type DocumentCreateEnvelopeExpirationPeriod2 = {
+  disabled: boolean;
+};
+
+export const DocumentCreateUnit = {
+  Day: "day",
+  Week: "week",
+  Month: "month",
+  Year: "year",
+} as const;
+export type DocumentCreateUnit = ClosedEnum<typeof DocumentCreateUnit>;
+
+export type DocumentCreateEnvelopeExpirationPeriod1 = {
+  unit: DocumentCreateUnit;
+  amount: number;
+};
+
+export type DocumentCreateEnvelopeExpirationPeriodUnion =
+  | DocumentCreateEnvelopeExpirationPeriod1
+  | DocumentCreateEnvelopeExpirationPeriod2;
 
 export type DocumentCreateMeta = {
   subject?: string | undefined;
@@ -598,6 +620,11 @@ export type DocumentCreateMeta = {
   emailId?: string | null | undefined;
   emailReplyTo?: string | null | undefined;
   emailSettings?: DocumentCreateEmailSettings | null | undefined;
+  envelopeExpirationPeriod?:
+    | DocumentCreateEnvelopeExpirationPeriod1
+    | DocumentCreateEnvelopeExpirationPeriod2
+    | null
+    | undefined;
 };
 
 export type DocumentCreatePayload = {
@@ -2600,6 +2627,7 @@ export const DocumentCreateEmailSettings$inboundSchema: z.ZodType<
   documentCompleted: z.boolean().default(true),
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
+  ownerRecipientExpired: z.boolean().default(true),
 });
 /** @internal */
 export type DocumentCreateEmailSettings$Outbound = {
@@ -2610,6 +2638,7 @@ export type DocumentCreateEmailSettings$Outbound = {
   documentCompleted: boolean;
   documentDeleted: boolean;
   ownerDocumentCompleted: boolean;
+  ownerRecipientExpired: boolean;
 };
 
 /** @internal */
@@ -2625,6 +2654,7 @@ export const DocumentCreateEmailSettings$outboundSchema: z.ZodType<
   documentCompleted: z.boolean().default(true),
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
+  ownerRecipientExpired: z.boolean().default(true),
 });
 
 export function documentCreateEmailSettingsToJSON(
@@ -2643,6 +2673,166 @@ export function documentCreateEmailSettingsFromJSON(
     jsonString,
     (x) => DocumentCreateEmailSettings$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'DocumentCreateEmailSettings' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentCreateEnvelopeExpirationPeriod2$inboundSchema: z.ZodType<
+  DocumentCreateEnvelopeExpirationPeriod2,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  disabled: z.boolean(),
+});
+/** @internal */
+export type DocumentCreateEnvelopeExpirationPeriod2$Outbound = {
+  disabled: boolean;
+};
+
+/** @internal */
+export const DocumentCreateEnvelopeExpirationPeriod2$outboundSchema: z.ZodType<
+  DocumentCreateEnvelopeExpirationPeriod2$Outbound,
+  z.ZodTypeDef,
+  DocumentCreateEnvelopeExpirationPeriod2
+> = z.object({
+  disabled: z.boolean(),
+});
+
+export function documentCreateEnvelopeExpirationPeriod2ToJSON(
+  documentCreateEnvelopeExpirationPeriod2:
+    DocumentCreateEnvelopeExpirationPeriod2,
+): string {
+  return JSON.stringify(
+    DocumentCreateEnvelopeExpirationPeriod2$outboundSchema.parse(
+      documentCreateEnvelopeExpirationPeriod2,
+    ),
+  );
+}
+export function documentCreateEnvelopeExpirationPeriod2FromJSON(
+  jsonString: string,
+): SafeParseResult<
+  DocumentCreateEnvelopeExpirationPeriod2,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      DocumentCreateEnvelopeExpirationPeriod2$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'DocumentCreateEnvelopeExpirationPeriod2' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentCreateUnit$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateUnit
+> = z.nativeEnum(DocumentCreateUnit);
+/** @internal */
+export const DocumentCreateUnit$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateUnit
+> = DocumentCreateUnit$inboundSchema;
+
+/** @internal */
+export const DocumentCreateEnvelopeExpirationPeriod1$inboundSchema: z.ZodType<
+  DocumentCreateEnvelopeExpirationPeriod1,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  unit: DocumentCreateUnit$inboundSchema,
+  amount: z.number().int(),
+});
+/** @internal */
+export type DocumentCreateEnvelopeExpirationPeriod1$Outbound = {
+  unit: string;
+  amount: number;
+};
+
+/** @internal */
+export const DocumentCreateEnvelopeExpirationPeriod1$outboundSchema: z.ZodType<
+  DocumentCreateEnvelopeExpirationPeriod1$Outbound,
+  z.ZodTypeDef,
+  DocumentCreateEnvelopeExpirationPeriod1
+> = z.object({
+  unit: DocumentCreateUnit$outboundSchema,
+  amount: z.number().int(),
+});
+
+export function documentCreateEnvelopeExpirationPeriod1ToJSON(
+  documentCreateEnvelopeExpirationPeriod1:
+    DocumentCreateEnvelopeExpirationPeriod1,
+): string {
+  return JSON.stringify(
+    DocumentCreateEnvelopeExpirationPeriod1$outboundSchema.parse(
+      documentCreateEnvelopeExpirationPeriod1,
+    ),
+  );
+}
+export function documentCreateEnvelopeExpirationPeriod1FromJSON(
+  jsonString: string,
+): SafeParseResult<
+  DocumentCreateEnvelopeExpirationPeriod1,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      DocumentCreateEnvelopeExpirationPeriod1$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'DocumentCreateEnvelopeExpirationPeriod1' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentCreateEnvelopeExpirationPeriodUnion$inboundSchema:
+  z.ZodType<
+    DocumentCreateEnvelopeExpirationPeriodUnion,
+    z.ZodTypeDef,
+    unknown
+  > = z.union([
+    z.lazy(() => DocumentCreateEnvelopeExpirationPeriod1$inboundSchema),
+    z.lazy(() => DocumentCreateEnvelopeExpirationPeriod2$inboundSchema),
+  ]);
+/** @internal */
+export type DocumentCreateEnvelopeExpirationPeriodUnion$Outbound =
+  | DocumentCreateEnvelopeExpirationPeriod1$Outbound
+  | DocumentCreateEnvelopeExpirationPeriod2$Outbound;
+
+/** @internal */
+export const DocumentCreateEnvelopeExpirationPeriodUnion$outboundSchema:
+  z.ZodType<
+    DocumentCreateEnvelopeExpirationPeriodUnion$Outbound,
+    z.ZodTypeDef,
+    DocumentCreateEnvelopeExpirationPeriodUnion
+  > = z.union([
+    z.lazy(() => DocumentCreateEnvelopeExpirationPeriod1$outboundSchema),
+    z.lazy(() => DocumentCreateEnvelopeExpirationPeriod2$outboundSchema),
+  ]);
+
+export function documentCreateEnvelopeExpirationPeriodUnionToJSON(
+  documentCreateEnvelopeExpirationPeriodUnion:
+    DocumentCreateEnvelopeExpirationPeriodUnion,
+): string {
+  return JSON.stringify(
+    DocumentCreateEnvelopeExpirationPeriodUnion$outboundSchema.parse(
+      documentCreateEnvelopeExpirationPeriodUnion,
+    ),
+  );
+}
+export function documentCreateEnvelopeExpirationPeriodUnionFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  DocumentCreateEnvelopeExpirationPeriodUnion,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      DocumentCreateEnvelopeExpirationPeriodUnion$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'DocumentCreateEnvelopeExpirationPeriodUnion' from JSON`,
   );
 }
 
@@ -2669,6 +2859,12 @@ export const DocumentCreateMeta$inboundSchema: z.ZodType<
   emailSettings: z.nullable(
     z.lazy(() => DocumentCreateEmailSettings$inboundSchema),
   ).optional(),
+  envelopeExpirationPeriod: z.nullable(
+    z.union([
+      z.lazy(() => DocumentCreateEnvelopeExpirationPeriod1$inboundSchema),
+      z.lazy(() => DocumentCreateEnvelopeExpirationPeriod2$inboundSchema),
+    ]),
+  ).optional(),
 });
 /** @internal */
 export type DocumentCreateMeta$Outbound = {
@@ -2687,6 +2883,11 @@ export type DocumentCreateMeta$Outbound = {
   emailId?: string | null | undefined;
   emailReplyTo?: string | null | undefined;
   emailSettings?: DocumentCreateEmailSettings$Outbound | null | undefined;
+  envelopeExpirationPeriod?:
+    | DocumentCreateEnvelopeExpirationPeriod1$Outbound
+    | DocumentCreateEnvelopeExpirationPeriod2$Outbound
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -2712,6 +2913,12 @@ export const DocumentCreateMeta$outboundSchema: z.ZodType<
   emailReplyTo: z.nullable(z.string()).optional(),
   emailSettings: z.nullable(
     z.lazy(() => DocumentCreateEmailSettings$outboundSchema),
+  ).optional(),
+  envelopeExpirationPeriod: z.nullable(
+    z.union([
+      z.lazy(() => DocumentCreateEnvelopeExpirationPeriod1$outboundSchema),
+      z.lazy(() => DocumentCreateEnvelopeExpirationPeriod2$outboundSchema),
+    ]),
   ).optional(),
 });
 

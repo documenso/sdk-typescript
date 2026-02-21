@@ -54,19 +54,28 @@ let value: EnvelopeGetResponse = {
     emailSettings: {},
     emailId: null,
     emailReplyTo: "<value>",
+    envelopeExpirationPeriod: {
+      unit: "month",
+      amount: 104154,
+    },
   },
   recipients: [],
   fields: [],
   envelopeItems: [],
-  directLink: null,
+  directLink: {
+    directTemplateRecipientId: 4451.07,
+    enabled: false,
+    id: "<id>",
+    token: "<value>",
+  },
   team: {
-    id: 3530.25,
-    url: "https://junior-lounge.biz/",
+    id: 2739.09,
+    url: "https://fatal-governance.biz",
   },
   user: {
-    id: 8051.74,
+    id: 2095.1,
     name: "<value>",
-    email: "Gerry90@gmail.com",
+    email: "Stewart_Littel@gmail.com",
   },
 };
 ```

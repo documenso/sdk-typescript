@@ -22,6 +22,10 @@ let value: EnvelopeGetDocumentMeta = {
   emailSettings: null,
   emailId: "<id>",
   emailReplyTo: "<value>",
+  envelopeExpirationPeriod: {
+    unit: "month",
+    amount: 104154,
+  },
 };
 ```
 
@@ -45,3 +49,4 @@ let value: EnvelopeGetDocumentMeta = {
 | `emailSettings`                                                                                      | [operations.EnvelopeGetEmailSettings](../../models/operations/envelopegetemailsettings.md)           | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `emailId`                                                                                            | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
 | `emailReplyTo`                                                                                       | *string*                                                                                             | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| `envelopeExpirationPeriod`                                                                           | *operations.EnvelopeGetEnvelopeExpirationPeriodUnion*                                                | :heavy_check_mark:                                                                                   | N/A                                                                                                  |

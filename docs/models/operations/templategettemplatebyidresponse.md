@@ -80,9 +80,18 @@ let value: TemplateGetTemplateByIdResponse = {
       token: "<value>",
       documentDeletedAt: "<value>",
       expired: "<value>",
+      expiresAt: "1738311232456",
+      expirationNotifiedAt: "<value>",
       signedAt: "<value>",
-      authOptions: null,
-      signingOrder: 3803.25,
+      authOptions: {
+        accessAuth: [
+          "ACCOUNT",
+        ],
+        actionAuth: [
+          "EXPLICIT_NONE",
+        ],
+      },
+      signingOrder: 8177.94,
       rejectionReason: "<value>",
     },
   ],
@@ -92,14 +101,19 @@ let value: TemplateGetTemplateByIdResponse = {
     name: "<value>",
     type: "DOCUMENT",
     visibility: "EVERYONE",
-    userId: 7521.2,
-    teamId: 4101.26,
-    pinned: true,
-    parentId: "<id>",
-    createdAt: "1722500604046",
-    updatedAt: "1735660534658",
+    userId: 5245.21,
+    teamId: 5817.8,
+    pinned: false,
+    parentId: null,
+    createdAt: "1721788921344",
+    updatedAt: "1735684131878",
   },
-  envelopeItems: [],
+  envelopeItems: [
+    {
+      id: "<id>",
+      envelopeId: "<id>",
+    },
+  ],
 };
 ```
 

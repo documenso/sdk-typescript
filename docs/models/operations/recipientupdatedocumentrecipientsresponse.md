@@ -21,14 +21,16 @@ let value: RecipientUpdateDocumentRecipientsResponse = {
       token: "<value>",
       documentDeletedAt: "<value>",
       expired: "<value>",
+      expiresAt: "1759450223424",
+      expirationNotifiedAt: null,
       signedAt: "<value>",
       authOptions: {
         accessAuth: [],
         actionAuth: [
-          "PASSWORD",
+          "PASSKEY",
         ],
       },
-      signingOrder: null,
+      signingOrder: 1673.23,
       rejectionReason: "<value>",
       fields: [],
     },

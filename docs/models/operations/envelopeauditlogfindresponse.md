@@ -10,12 +10,11 @@ import { EnvelopeAuditLogFindResponse } from "@documenso/sdk-typescript/models/o
 let value: EnvelopeAuditLogFindResponse = {
   data: [
     {
-      type: "RECIPIENT_DELETED",
+      type: "DOCUMENT_RECIPIENT_EXPIRED",
       data: {
         recipientEmail: "<value>",
         recipientName: "<value>",
-        recipientId: 206.74,
-        recipientRole: "<value>",
+        recipientId: 8760.58,
       },
       id: "<id>",
       createdAt: "1730695663303",

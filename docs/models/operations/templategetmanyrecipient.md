@@ -17,12 +17,11 @@ let value: TemplateGetManyRecipient = {
   token: "<value>",
   documentDeletedAt: null,
   expired: "<value>",
+  expiresAt: "1743921162960",
+  expirationNotifiedAt: "<value>",
   signedAt: "<value>",
-  authOptions: {
-    accessAuth: [],
-    actionAuth: [],
-  },
-  signingOrder: null,
+  authOptions: null,
+  signingOrder: 4414.35,
   rejectionReason: "<value>",
 };
 ```
@@ -42,6 +41,8 @@ let value: TemplateGetManyRecipient = {
 | `token`                                                                                                          | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
 | `documentDeletedAt`                                                                                              | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
 | `expired`                                                                                                        | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `expiresAt`                                                                                                      | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `expirationNotifiedAt`                                                                                           | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
 | `signedAt`                                                                                                       | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
 | `authOptions`                                                                                                    | [operations.TemplateGetManyRecipientAuthOptions](../../models/operations/templategetmanyrecipientauthoptions.md) | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
 | `signingOrder`                                                                                                   | *number*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
