@@ -11,5 +11,5 @@ let value: EnvelopeGetManyTemplateType = "PRIVATE";
 ## Values
 
 ```typescript
-"PUBLIC" | "PRIVATE"
+"PUBLIC" | "PRIVATE" | "ORGANISATION"
 ```

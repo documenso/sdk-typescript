@@ -50,7 +50,16 @@ let value: TemplateCreateDocumentFromTemplateResponse = {
     emailId: "<id>",
     emailReplyTo: "<value>",
     envelopeExpirationPeriod: {
-      disabled: false,
+      disabled: true,
+    },
+    reminderSettings: {
+      sendAfter: {
+        disabled: true,
+      },
+      repeatEvery: {
+        unit: "month",
+        amount: 553044,
+      },
     },
   },
   envelopeItems: [],

@@ -1,11 +1,11 @@
-# Change
+# Change2
 
 ## Example Usage
 
 ```typescript
-import { Change } from "@documenso/sdk-typescript/models/operations";
+import { Change2 } from "@documenso/sdk-typescript/models/operations";
 
-let value: Change = {
+let value: Change2 = {
   type: "REDIRECT_URL",
   from: "<value>",
   to: "<value>",

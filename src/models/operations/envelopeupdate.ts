@@ -35,6 +35,13 @@ export type EnvelopeUpdateGlobalActionAuthRequest = ClosedEnum<
   typeof EnvelopeUpdateGlobalActionAuthRequest
 >;
 
+export const TemplateTypeRequest = {
+  Public: "PUBLIC",
+  Private: "PRIVATE",
+  Organisation: "ORGANISATION",
+} as const;
+export type TemplateTypeRequest = ClosedEnum<typeof TemplateTypeRequest>;
+
 export type EnvelopeUpdateData = {
   title?: string | undefined;
   externalId?: string | null | undefined;
@@ -42,6 +49,7 @@ export type EnvelopeUpdateData = {
   globalAccessAuth?: Array<EnvelopeUpdateGlobalAccessAuthRequest> | undefined;
   globalActionAuth?: Array<EnvelopeUpdateGlobalActionAuthRequest> | undefined;
   folderId?: string | null | undefined;
+  templateType?: TemplateTypeRequest | undefined;
 };
 
 export const EnvelopeUpdateDateFormat = {
@@ -112,28 +120,80 @@ export type EnvelopeUpdateEmailSettings = {
   documentDeleted?: boolean | undefined;
   ownerDocumentCompleted?: boolean | undefined;
   ownerRecipientExpired?: boolean | undefined;
+  ownerDocumentCreated?: boolean | undefined;
 };
 
 export type EnvelopeUpdateEnvelopeExpirationPeriod2 = {
-  disabled: boolean;
+  disabled: true;
 };
 
-export const EnvelopeUpdateUnit = {
+export const EnvelopeUpdateEnvelopeExpirationPeriodUnit = {
   Day: "day",
   Week: "week",
   Month: "month",
   Year: "year",
 } as const;
-export type EnvelopeUpdateUnit = ClosedEnum<typeof EnvelopeUpdateUnit>;
+export type EnvelopeUpdateEnvelopeExpirationPeriodUnit = ClosedEnum<
+  typeof EnvelopeUpdateEnvelopeExpirationPeriodUnit
+>;
 
 export type EnvelopeUpdateEnvelopeExpirationPeriod1 = {
-  unit: EnvelopeUpdateUnit;
+  unit: EnvelopeUpdateEnvelopeExpirationPeriodUnit;
   amount: number;
 };
 
 export type EnvelopeUpdateEnvelopeExpirationPeriodUnion =
   | EnvelopeUpdateEnvelopeExpirationPeriod1
   | EnvelopeUpdateEnvelopeExpirationPeriod2;
+
+export type EnvelopeUpdateSendAfter2 = {
+  disabled: true;
+};
+
+export const EnvelopeUpdateSendAfterUnit = {
+  Day: "day",
+  Week: "week",
+  Month: "month",
+} as const;
+export type EnvelopeUpdateSendAfterUnit = ClosedEnum<
+  typeof EnvelopeUpdateSendAfterUnit
+>;
+
+export type EnvelopeUpdateSendAfter1 = {
+  unit: EnvelopeUpdateSendAfterUnit;
+  amount: number;
+};
+
+export type EnvelopeUpdateSendAfterUnion =
+  | EnvelopeUpdateSendAfter1
+  | EnvelopeUpdateSendAfter2;
+
+export type EnvelopeUpdateRepeatEvery2 = {
+  disabled: true;
+};
+
+export const EnvelopeUpdateRepeatEveryUnit = {
+  Day: "day",
+  Week: "week",
+  Month: "month",
+} as const;
+export type EnvelopeUpdateRepeatEveryUnit = ClosedEnum<
+  typeof EnvelopeUpdateRepeatEveryUnit
+>;
+
+export type EnvelopeUpdateRepeatEvery1 = {
+  unit: EnvelopeUpdateRepeatEveryUnit;
+  amount: number;
+};
+
+export type EnvelopeUpdateRepeatEveryUnion =
+  | EnvelopeUpdateRepeatEvery1
+  | EnvelopeUpdateRepeatEvery2;
+
+export type EnvelopeUpdateReminderSettings = {
+  sendAfter: EnvelopeUpdateSendAfter1 | EnvelopeUpdateSendAfter2;
+  repeatEvery: EnvelopeUpdateRepeatEvery1 | EnvelopeUpdateRepeatEvery2;
+};
 
 export type EnvelopeUpdateMeta = {
   subject?: string | undefined;
@@ -156,6 +216,7 @@ export type EnvelopeUpdateMeta = {
     | EnvelopeUpdateEnvelopeExpirationPeriod2
     | null
     | undefined;
+  reminderSettings?: EnvelopeUpdateReminderSettings | null | undefined;
 };
 
 export type EnvelopeUpdateRequest = {
@@ -194,12 +255,13 @@ export type EnvelopeUpdateVisibilityResponse = ClosedEnum<
   typeof EnvelopeUpdateVisibilityResponse
 >;
 
-export const EnvelopeUpdateTemplateType = {
+export const EnvelopeUpdateTemplateTypeResponse = {
   Public: "PUBLIC",
   Private: "PRIVATE",
+  Organisation: "ORGANISATION",
 } as const;
-export type EnvelopeUpdateTemplateType = ClosedEnum<
-  typeof EnvelopeUpdateTemplateType
+export type EnvelopeUpdateTemplateTypeResponse = ClosedEnum<
+  typeof EnvelopeUpdateTemplateTypeResponse
 >;
 
 export const EnvelopeUpdateGlobalAccessAuthResponse = {
@@ -236,7 +298,7 @@ export type EnvelopeUpdateResponse = {
   status: EnvelopeUpdateStatus;
   source: EnvelopeUpdateSource;
   visibility: EnvelopeUpdateVisibilityResponse;
-  templateType: EnvelopeUpdateTemplateType;
+  templateType: EnvelopeUpdateTemplateTypeResponse;
   id: string;
   secondaryId: string;
   externalId: string | null;
@@ -284,6 +346,15 @@ export const EnvelopeUpdateGlobalActionAuthRequest$outboundSchema:
     EnvelopeUpdateGlobalActionAuthRequest$inboundSchema;
 
 /** @internal */
+export const TemplateTypeRequest$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateTypeRequest
+> = z.nativeEnum(TemplateTypeRequest);
+/** @internal */
+export const TemplateTypeRequest$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateTypeRequest
+> = TemplateTypeRequest$inboundSchema;
+
+/** @internal */
 export const EnvelopeUpdateData$inboundSchema: z.ZodType<
   EnvelopeUpdateData,
   z.ZodTypeDef,
@@ -297,6 +368,7 @@ export const EnvelopeUpdateData$inboundSchema: z.ZodType<
   globalActionAuth: z.array(EnvelopeUpdateGlobalActionAuthRequest$inboundSchema)
     .optional(),
   folderId: z.nullable(z.string()).optional(),
+  templateType: TemplateTypeRequest$inboundSchema.optional(),
 });
 /** @internal */
 export type EnvelopeUpdateData$Outbound = {
@@ -306,6 +378,7 @@ export type EnvelopeUpdateData$Outbound = {
   globalAccessAuth?: Array<string> | undefined;
   globalActionAuth?: Array<string> | undefined;
   folderId?: string | null | undefined;
+  templateType?: string | undefined;
 };
 
 /** @internal */
@@ -324,6 +397,7 @@ export const EnvelopeUpdateData$outboundSchema: z.ZodType<
     EnvelopeUpdateGlobalActionAuthRequest$outboundSchema,
   ).optional(),
   folderId: z.nullable(z.string()).optional(),
+  templateType: TemplateTypeRequest$outboundSchema.optional(),
 });
 
 export function envelopeUpdateDataToJSON(
@@ -393,6 +467,7 @@ export const EnvelopeUpdateEmailSettings$inboundSchema: z.ZodType<
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
   ownerRecipientExpired: z.boolean().default(true),
+  ownerDocumentCreated: z.boolean().default(true),
 });
 /** @internal */
 export type EnvelopeUpdateEmailSettings$Outbound = {
@@ -404,6 +479,7 @@ export type EnvelopeUpdateEmailSettings$Outbound = {
   documentDeleted: boolean;
   ownerDocumentCompleted: boolean;
   ownerRecipientExpired: boolean;
+  ownerDocumentCreated: boolean;
 };
 
 /** @internal */
@@ -420,6 +496,7 @@ export const EnvelopeUpdateEmailSettings$outboundSchema: z.ZodType<
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
   ownerRecipientExpired: z.boolean().default(true),
+  ownerDocumentCreated: z.boolean().default(true),
 });
 
 export function envelopeUpdateEmailSettingsToJSON(
@@ -447,11 +524,11 @@ export const EnvelopeUpdateEnvelopeExpirationPeriod2$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  disabled: z.boolean(),
+  disabled: z.literal(true),
 });
 /** @internal */
 export type EnvelopeUpdateEnvelopeExpirationPeriod2$Outbound = {
-  disabled: boolean;
+  disabled: true;
 };
 
 /** @internal */
@@ -460,7 +537,7 @@ export const EnvelopeUpdateEnvelopeExpirationPeriod2$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EnvelopeUpdateEnvelopeExpirationPeriod2
 > = z.object({
-  disabled: z.boolean(),
+  disabled: z.literal(true),
 });
 
 export function envelopeUpdateEnvelopeExpirationPeriod2ToJSON(
@@ -490,13 +567,13 @@ export function envelopeUpdateEnvelopeExpirationPeriod2FromJSON(
 }
 
 /** @internal */
-export const EnvelopeUpdateUnit$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeUpdateUnit
-> = z.nativeEnum(EnvelopeUpdateUnit);
+export const EnvelopeUpdateEnvelopeExpirationPeriodUnit$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeUpdateEnvelopeExpirationPeriodUnit> = z
+    .nativeEnum(EnvelopeUpdateEnvelopeExpirationPeriodUnit);
 /** @internal */
-export const EnvelopeUpdateUnit$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeUpdateUnit
-> = EnvelopeUpdateUnit$inboundSchema;
+export const EnvelopeUpdateEnvelopeExpirationPeriodUnit$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeUpdateEnvelopeExpirationPeriodUnit> =
+    EnvelopeUpdateEnvelopeExpirationPeriodUnit$inboundSchema;
 
 /** @internal */
 export const EnvelopeUpdateEnvelopeExpirationPeriod1$inboundSchema: z.ZodType<
@@ -504,7 +581,7 @@ export const EnvelopeUpdateEnvelopeExpirationPeriod1$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  unit: EnvelopeUpdateUnit$inboundSchema,
+  unit: EnvelopeUpdateEnvelopeExpirationPeriodUnit$inboundSchema,
   amount: z.number().int(),
 });
 /** @internal */
@@ -519,7 +596,7 @@ export const EnvelopeUpdateEnvelopeExpirationPeriod1$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EnvelopeUpdateEnvelopeExpirationPeriod1
 > = z.object({
-  unit: EnvelopeUpdateUnit$outboundSchema,
+  unit: EnvelopeUpdateEnvelopeExpirationPeriodUnit$outboundSchema,
   amount: z.number().int(),
 });
 
@@ -602,6 +679,332 @@ export function envelopeUpdateEnvelopeExpirationPeriodUnionFromJSON(
 }
 
 /** @internal */
+export const EnvelopeUpdateSendAfter2$inboundSchema: z.ZodType<
+  EnvelopeUpdateSendAfter2,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  disabled: z.literal(true),
+});
+/** @internal */
+export type EnvelopeUpdateSendAfter2$Outbound = {
+  disabled: true;
+};
+
+/** @internal */
+export const EnvelopeUpdateSendAfter2$outboundSchema: z.ZodType<
+  EnvelopeUpdateSendAfter2$Outbound,
+  z.ZodTypeDef,
+  EnvelopeUpdateSendAfter2
+> = z.object({
+  disabled: z.literal(true),
+});
+
+export function envelopeUpdateSendAfter2ToJSON(
+  envelopeUpdateSendAfter2: EnvelopeUpdateSendAfter2,
+): string {
+  return JSON.stringify(
+    EnvelopeUpdateSendAfter2$outboundSchema.parse(envelopeUpdateSendAfter2),
+  );
+}
+export function envelopeUpdateSendAfter2FromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeUpdateSendAfter2, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeUpdateSendAfter2$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeUpdateSendAfter2' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeUpdateSendAfterUnit$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeUpdateSendAfterUnit
+> = z.nativeEnum(EnvelopeUpdateSendAfterUnit);
+/** @internal */
+export const EnvelopeUpdateSendAfterUnit$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeUpdateSendAfterUnit
+> = EnvelopeUpdateSendAfterUnit$inboundSchema;
+
+/** @internal */
+export const EnvelopeUpdateSendAfter1$inboundSchema: z.ZodType<
+  EnvelopeUpdateSendAfter1,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  unit: EnvelopeUpdateSendAfterUnit$inboundSchema,
+  amount: z.number().int(),
+});
+/** @internal */
+export type EnvelopeUpdateSendAfter1$Outbound = {
+  unit: string;
+  amount: number;
+};
+
+/** @internal */
+export const EnvelopeUpdateSendAfter1$outboundSchema: z.ZodType<
+  EnvelopeUpdateSendAfter1$Outbound,
+  z.ZodTypeDef,
+  EnvelopeUpdateSendAfter1
+> = z.object({
+  unit: EnvelopeUpdateSendAfterUnit$outboundSchema,
+  amount: z.number().int(),
+});
+
+export function envelopeUpdateSendAfter1ToJSON(
+  envelopeUpdateSendAfter1: EnvelopeUpdateSendAfter1,
+): string {
+  return JSON.stringify(
+    EnvelopeUpdateSendAfter1$outboundSchema.parse(envelopeUpdateSendAfter1),
+  );
+}
+export function envelopeUpdateSendAfter1FromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeUpdateSendAfter1, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeUpdateSendAfter1$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeUpdateSendAfter1' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeUpdateSendAfterUnion$inboundSchema: z.ZodType<
+  EnvelopeUpdateSendAfterUnion,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  z.lazy(() => EnvelopeUpdateSendAfter1$inboundSchema),
+  z.lazy(() => EnvelopeUpdateSendAfter2$inboundSchema),
+]);
+/** @internal */
+export type EnvelopeUpdateSendAfterUnion$Outbound =
+  | EnvelopeUpdateSendAfter1$Outbound
+  | EnvelopeUpdateSendAfter2$Outbound;
+
+/** @internal */
+export const EnvelopeUpdateSendAfterUnion$outboundSchema: z.ZodType<
+  EnvelopeUpdateSendAfterUnion$Outbound,
+  z.ZodTypeDef,
+  EnvelopeUpdateSendAfterUnion
+> = z.union([
+  z.lazy(() => EnvelopeUpdateSendAfter1$outboundSchema),
+  z.lazy(() => EnvelopeUpdateSendAfter2$outboundSchema),
+]);
+
+export function envelopeUpdateSendAfterUnionToJSON(
+  envelopeUpdateSendAfterUnion: EnvelopeUpdateSendAfterUnion,
+): string {
+  return JSON.stringify(
+    EnvelopeUpdateSendAfterUnion$outboundSchema.parse(
+      envelopeUpdateSendAfterUnion,
+    ),
+  );
+}
+export function envelopeUpdateSendAfterUnionFromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeUpdateSendAfterUnion, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeUpdateSendAfterUnion$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeUpdateSendAfterUnion' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeUpdateRepeatEvery2$inboundSchema: z.ZodType<
+  EnvelopeUpdateRepeatEvery2,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  disabled: z.literal(true),
+});
+/** @internal */
+export type EnvelopeUpdateRepeatEvery2$Outbound = {
+  disabled: true;
+};
+
+/** @internal */
+export const EnvelopeUpdateRepeatEvery2$outboundSchema: z.ZodType<
+  EnvelopeUpdateRepeatEvery2$Outbound,
+  z.ZodTypeDef,
+  EnvelopeUpdateRepeatEvery2
+> = z.object({
+  disabled: z.literal(true),
+});
+
+export function envelopeUpdateRepeatEvery2ToJSON(
+  envelopeUpdateRepeatEvery2: EnvelopeUpdateRepeatEvery2,
+): string {
+  return JSON.stringify(
+    EnvelopeUpdateRepeatEvery2$outboundSchema.parse(envelopeUpdateRepeatEvery2),
+  );
+}
+export function envelopeUpdateRepeatEvery2FromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeUpdateRepeatEvery2, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeUpdateRepeatEvery2$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeUpdateRepeatEvery2' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeUpdateRepeatEveryUnit$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeUpdateRepeatEveryUnit
+> = z.nativeEnum(EnvelopeUpdateRepeatEveryUnit);
+/** @internal */
+export const EnvelopeUpdateRepeatEveryUnit$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeUpdateRepeatEveryUnit
+> = EnvelopeUpdateRepeatEveryUnit$inboundSchema;
+
+/** @internal */
+export const EnvelopeUpdateRepeatEvery1$inboundSchema: z.ZodType<
+  EnvelopeUpdateRepeatEvery1,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  unit: EnvelopeUpdateRepeatEveryUnit$inboundSchema,
+  amount: z.number().int(),
+});
+/** @internal */
+export type EnvelopeUpdateRepeatEvery1$Outbound = {
+  unit: string;
+  amount: number;
+};
+
+/** @internal */
+export const EnvelopeUpdateRepeatEvery1$outboundSchema: z.ZodType<
+  EnvelopeUpdateRepeatEvery1$Outbound,
+  z.ZodTypeDef,
+  EnvelopeUpdateRepeatEvery1
+> = z.object({
+  unit: EnvelopeUpdateRepeatEveryUnit$outboundSchema,
+  amount: z.number().int(),
+});
+
+export function envelopeUpdateRepeatEvery1ToJSON(
+  envelopeUpdateRepeatEvery1: EnvelopeUpdateRepeatEvery1,
+): string {
+  return JSON.stringify(
+    EnvelopeUpdateRepeatEvery1$outboundSchema.parse(envelopeUpdateRepeatEvery1),
+  );
+}
+export function envelopeUpdateRepeatEvery1FromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeUpdateRepeatEvery1, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeUpdateRepeatEvery1$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeUpdateRepeatEvery1' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeUpdateRepeatEveryUnion$inboundSchema: z.ZodType<
+  EnvelopeUpdateRepeatEveryUnion,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  z.lazy(() => EnvelopeUpdateRepeatEvery1$inboundSchema),
+  z.lazy(() => EnvelopeUpdateRepeatEvery2$inboundSchema),
+]);
+/** @internal */
+export type EnvelopeUpdateRepeatEveryUnion$Outbound =
+  | EnvelopeUpdateRepeatEvery1$Outbound
+  | EnvelopeUpdateRepeatEvery2$Outbound;
+
+/** @internal */
+export const EnvelopeUpdateRepeatEveryUnion$outboundSchema: z.ZodType<
+  EnvelopeUpdateRepeatEveryUnion$Outbound,
+  z.ZodTypeDef,
+  EnvelopeUpdateRepeatEveryUnion
+> = z.union([
+  z.lazy(() => EnvelopeUpdateRepeatEvery1$outboundSchema),
+  z.lazy(() => EnvelopeUpdateRepeatEvery2$outboundSchema),
+]);
+
+export function envelopeUpdateRepeatEveryUnionToJSON(
+  envelopeUpdateRepeatEveryUnion: EnvelopeUpdateRepeatEveryUnion,
+): string {
+  return JSON.stringify(
+    EnvelopeUpdateRepeatEveryUnion$outboundSchema.parse(
+      envelopeUpdateRepeatEveryUnion,
+    ),
+  );
+}
+export function envelopeUpdateRepeatEveryUnionFromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeUpdateRepeatEveryUnion, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeUpdateRepeatEveryUnion$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeUpdateRepeatEveryUnion' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeUpdateReminderSettings$inboundSchema: z.ZodType<
+  EnvelopeUpdateReminderSettings,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  sendAfter: z.union([
+    z.lazy(() => EnvelopeUpdateSendAfter1$inboundSchema),
+    z.lazy(() => EnvelopeUpdateSendAfter2$inboundSchema),
+  ]),
+  repeatEvery: z.union([
+    z.lazy(() => EnvelopeUpdateRepeatEvery1$inboundSchema),
+    z.lazy(() => EnvelopeUpdateRepeatEvery2$inboundSchema),
+  ]),
+});
+/** @internal */
+export type EnvelopeUpdateReminderSettings$Outbound = {
+  sendAfter:
+    | EnvelopeUpdateSendAfter1$Outbound
+    | EnvelopeUpdateSendAfter2$Outbound;
+  repeatEvery:
+    | EnvelopeUpdateRepeatEvery1$Outbound
+    | EnvelopeUpdateRepeatEvery2$Outbound;
+};
+
+/** @internal */
+export const EnvelopeUpdateReminderSettings$outboundSchema: z.ZodType<
+  EnvelopeUpdateReminderSettings$Outbound,
+  z.ZodTypeDef,
+  EnvelopeUpdateReminderSettings
+> = z.object({
+  sendAfter: z.union([
+    z.lazy(() => EnvelopeUpdateSendAfter1$outboundSchema),
+    z.lazy(() => EnvelopeUpdateSendAfter2$outboundSchema),
+  ]),
+  repeatEvery: z.union([
+    z.lazy(() => EnvelopeUpdateRepeatEvery1$outboundSchema),
+    z.lazy(() => EnvelopeUpdateRepeatEvery2$outboundSchema),
+  ]),
+});
+
+export function envelopeUpdateReminderSettingsToJSON(
+  envelopeUpdateReminderSettings: EnvelopeUpdateReminderSettings,
+): string {
+  return JSON.stringify(
+    EnvelopeUpdateReminderSettings$outboundSchema.parse(
+      envelopeUpdateReminderSettings,
+    ),
+  );
+}
+export function envelopeUpdateReminderSettingsFromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeUpdateReminderSettings, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeUpdateReminderSettings$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeUpdateReminderSettings' from JSON`,
+  );
+}
+
+/** @internal */
 export const EnvelopeUpdateMeta$inboundSchema: z.ZodType<
   EnvelopeUpdateMeta,
   z.ZodTypeDef,
@@ -630,6 +1033,9 @@ export const EnvelopeUpdateMeta$inboundSchema: z.ZodType<
       z.lazy(() => EnvelopeUpdateEnvelopeExpirationPeriod2$inboundSchema),
     ]),
   ).optional(),
+  reminderSettings: z.nullable(
+    z.lazy(() => EnvelopeUpdateReminderSettings$inboundSchema),
+  ).optional(),
 });
 /** @internal */
 export type EnvelopeUpdateMeta$Outbound = {
@@ -653,6 +1059,7 @@ export type EnvelopeUpdateMeta$Outbound = {
     | EnvelopeUpdateEnvelopeExpirationPeriod2$Outbound
     | null
     | undefined;
+  reminderSettings?: EnvelopeUpdateReminderSettings$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -684,6 +1091,9 @@ export const EnvelopeUpdateMeta$outboundSchema: z.ZodType<
       z.lazy(() => EnvelopeUpdateEnvelopeExpirationPeriod1$outboundSchema),
       z.lazy(() => EnvelopeUpdateEnvelopeExpirationPeriod2$outboundSchema),
     ]),
+  ).optional(),
+  reminderSettings: z.nullable(
+    z.lazy(() => EnvelopeUpdateReminderSettings$outboundSchema),
   ).optional(),
 });
 
@@ -786,13 +1196,13 @@ export const EnvelopeUpdateVisibilityResponse$outboundSchema: z.ZodNativeEnum<
 > = EnvelopeUpdateVisibilityResponse$inboundSchema;
 
 /** @internal */
-export const EnvelopeUpdateTemplateType$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeUpdateTemplateType
-> = z.nativeEnum(EnvelopeUpdateTemplateType);
+export const EnvelopeUpdateTemplateTypeResponse$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeUpdateTemplateTypeResponse
+> = z.nativeEnum(EnvelopeUpdateTemplateTypeResponse);
 /** @internal */
-export const EnvelopeUpdateTemplateType$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeUpdateTemplateType
-> = EnvelopeUpdateTemplateType$inboundSchema;
+export const EnvelopeUpdateTemplateTypeResponse$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeUpdateTemplateTypeResponse
+> = EnvelopeUpdateTemplateTypeResponse$inboundSchema;
 
 /** @internal */
 export const EnvelopeUpdateGlobalAccessAuthResponse$inboundSchema:
@@ -908,7 +1318,7 @@ export const EnvelopeUpdateResponse$inboundSchema: z.ZodType<
   status: EnvelopeUpdateStatus$inboundSchema,
   source: EnvelopeUpdateSource$inboundSchema,
   visibility: EnvelopeUpdateVisibilityResponse$inboundSchema,
-  templateType: EnvelopeUpdateTemplateType$inboundSchema,
+  templateType: EnvelopeUpdateTemplateTypeResponse$inboundSchema,
   id: z.string(),
   secondaryId: z.string(),
   externalId: z.nullable(z.string()),
@@ -965,7 +1375,7 @@ export const EnvelopeUpdateResponse$outboundSchema: z.ZodType<
   status: EnvelopeUpdateStatus$outboundSchema,
   source: EnvelopeUpdateSource$outboundSchema,
   visibility: EnvelopeUpdateVisibilityResponse$outboundSchema,
-  templateType: EnvelopeUpdateTemplateType$outboundSchema,
+  templateType: EnvelopeUpdateTemplateTypeResponse$outboundSchema,
   id: z.string(),
   secondaryId: z.string(),
   externalId: z.nullable(z.string()),

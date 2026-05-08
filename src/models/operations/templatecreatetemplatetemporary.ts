@@ -38,6 +38,7 @@ export type TemplateCreateTemplateTemporaryGlobalActionAuthRequest = ClosedEnum<
 export const TemplateCreateTemplateTemporaryTypeRequest = {
   Public: "PUBLIC",
   Private: "PRIVATE",
+  Organisation: "ORGANISATION",
 } as const;
 export type TemplateCreateTemplateTemporaryTypeRequest = ClosedEnum<
   typeof TemplateCreateTemplateTemporaryTypeRequest
@@ -88,6 +89,7 @@ export type TemplateCreateTemplateTemporaryMetaEmailSettings = {
   documentDeleted?: boolean | undefined;
   ownerDocumentCompleted?: boolean | undefined;
   ownerRecipientExpired?: boolean | undefined;
+  ownerDocumentCreated?: boolean | undefined;
 };
 
 export const TemplateCreateTemplateTemporaryLanguage = {
@@ -169,6 +171,7 @@ export type TemplateCreateTemplateTemporaryRequest = {
 export const TemplateCreateTemplateTemporaryTypeResponseEnum = {
   Public: "PUBLIC",
   Private: "PRIVATE",
+  Organisation: "ORGANISATION",
 } as const;
 export type TemplateCreateTemplateTemporaryTypeResponseEnum = ClosedEnum<
   typeof TemplateCreateTemplateTemporaryTypeResponseEnum
@@ -249,6 +252,7 @@ export type TemplateCreateTemplateTemporaryTemplateMetaEmailSettings = {
   documentDeleted?: boolean | undefined;
   ownerDocumentCompleted?: boolean | undefined;
   ownerRecipientExpired?: boolean | undefined;
+  ownerDocumentCreated?: boolean | undefined;
 };
 
 export type TemplateCreateTemplateTemporaryTemplateMeta = {
@@ -801,6 +805,7 @@ export const TemplateCreateTemplateTemporaryMetaEmailSettings$inboundSchema:
     documentDeleted: z.boolean().default(true),
     ownerDocumentCompleted: z.boolean().default(true),
     ownerRecipientExpired: z.boolean().default(true),
+    ownerDocumentCreated: z.boolean().default(true),
   });
 /** @internal */
 export type TemplateCreateTemplateTemporaryMetaEmailSettings$Outbound = {
@@ -812,6 +817,7 @@ export type TemplateCreateTemplateTemporaryMetaEmailSettings$Outbound = {
   documentDeleted: boolean;
   ownerDocumentCompleted: boolean;
   ownerRecipientExpired: boolean;
+  ownerDocumentCreated: boolean;
 };
 
 /** @internal */
@@ -829,6 +835,7 @@ export const TemplateCreateTemplateTemporaryMetaEmailSettings$outboundSchema:
     documentDeleted: z.boolean().default(true),
     ownerDocumentCompleted: z.boolean().default(true),
     ownerRecipientExpired: z.boolean().default(true),
+    ownerDocumentCreated: z.boolean().default(true),
   });
 
 export function templateCreateTemplateTemporaryMetaEmailSettingsToJSON(
@@ -1343,6 +1350,7 @@ export const TemplateCreateTemplateTemporaryTemplateMetaEmailSettings$inboundSch
     documentDeleted: z.boolean().default(true),
     ownerDocumentCompleted: z.boolean().default(true),
     ownerRecipientExpired: z.boolean().default(true),
+    ownerDocumentCreated: z.boolean().default(true),
   });
 /** @internal */
 export type TemplateCreateTemplateTemporaryTemplateMetaEmailSettings$Outbound =
@@ -1355,6 +1363,7 @@ export type TemplateCreateTemplateTemporaryTemplateMetaEmailSettings$Outbound =
     documentDeleted: boolean;
     ownerDocumentCompleted: boolean;
     ownerRecipientExpired: boolean;
+    ownerDocumentCreated: boolean;
   };
 
 /** @internal */
@@ -1372,6 +1381,7 @@ export const TemplateCreateTemplateTemporaryTemplateMetaEmailSettings$outboundSc
     documentDeleted: z.boolean().default(true),
     ownerDocumentCompleted: z.boolean().default(true),
     ownerRecipientExpired: z.boolean().default(true),
+    ownerDocumentCreated: z.boolean().default(true),
   });
 
 export function templateCreateTemplateTemporaryTemplateMetaEmailSettingsToJSON(

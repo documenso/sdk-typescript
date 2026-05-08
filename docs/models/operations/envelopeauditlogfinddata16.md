@@ -6,16 +6,16 @@
 import { EnvelopeAuditLogFindData16 } from "@documenso/sdk-typescript/models/operations";
 
 let value: EnvelopeAuditLogFindData16 = {
-  changes: [
-    {
-      type: "PASSWORD",
-    },
+  from: [
+    "<value 1>",
   ],
+  to: [],
 };
 ```
 
 ## Fields
 
-| Field                       | Type                        | Required                    | Description                 |
-| --------------------------- | --------------------------- | --------------------------- | --------------------------- |
-| `changes`                   | *operations.ChangeUnion1*[] | :heavy_check_mark:          | N/A                         |
+| Field                   | Type                    | Required                | Description             |
+| ----------------------- | ----------------------- | ----------------------- | ----------------------- |
+| `from`                  | *operations.FromUnion2* | :heavy_check_mark:      | N/A                     |
+| `to`                    | *operations.ToUnion2*   | :heavy_check_mark:      | N/A                     |

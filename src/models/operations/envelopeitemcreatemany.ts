@@ -26,6 +26,7 @@ export type EnvelopeItemCreateManyData = {
   title: string;
   envelopeId: string;
   order: number;
+  documentDataId: string;
 };
 
 /**
@@ -184,6 +185,7 @@ export const EnvelopeItemCreateManyData$inboundSchema: z.ZodType<
   title: z.string(),
   envelopeId: z.string(),
   order: z.number(),
+  documentDataId: z.string(),
 });
 /** @internal */
 export type EnvelopeItemCreateManyData$Outbound = {
@@ -191,6 +193,7 @@ export type EnvelopeItemCreateManyData$Outbound = {
   title: string;
   envelopeId: string;
   order: number;
+  documentDataId: string;
 };
 
 /** @internal */
@@ -203,6 +206,7 @@ export const EnvelopeItemCreateManyData$outboundSchema: z.ZodType<
   title: z.string(),
   envelopeId: z.string(),
   order: z.number(),
+  documentDataId: z.string(),
 });
 
 export function envelopeItemCreateManyDataToJSON(

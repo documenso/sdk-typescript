@@ -43,6 +43,7 @@ export type EnvelopeGetVisibility = ClosedEnum<typeof EnvelopeGetVisibility>;
 export const EnvelopeGetTemplateType = {
   Public: "PUBLIC",
   Private: "PRIVATE",
+  Organisation: "ORGANISATION",
 } as const;
 export type EnvelopeGetTemplateType = ClosedEnum<
   typeof EnvelopeGetTemplateType
@@ -98,10 +99,11 @@ export type EnvelopeGetEmailSettings = {
   documentDeleted?: boolean | undefined;
   ownerDocumentCompleted?: boolean | undefined;
   ownerRecipientExpired?: boolean | undefined;
+  ownerDocumentCreated?: boolean | undefined;
 };
 
 export type EnvelopeGetEnvelopeExpirationPeriod2 = {
-  disabled: boolean;
+  disabled: true;
 };
 
 export const EnvelopeGetUnit = {
@@ -477,6 +479,7 @@ export type EnvelopeGetField = {
 
 export type EnvelopeGetEnvelopeItem = {
   envelopeId: string;
+  documentDataId: string;
   id: string;
   title: string;
   order: number;
@@ -744,6 +747,7 @@ export const EnvelopeGetEmailSettings$inboundSchema: z.ZodType<
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
   ownerRecipientExpired: z.boolean().default(true),
+  ownerDocumentCreated: z.boolean().default(true),
 });
 /** @internal */
 export type EnvelopeGetEmailSettings$Outbound = {
@@ -755,6 +759,7 @@ export type EnvelopeGetEmailSettings$Outbound = {
   documentDeleted: boolean;
   ownerDocumentCompleted: boolean;
   ownerRecipientExpired: boolean;
+  ownerDocumentCreated: boolean;
 };
 
 /** @internal */
@@ -771,6 +776,7 @@ export const EnvelopeGetEmailSettings$outboundSchema: z.ZodType<
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
   ownerRecipientExpired: z.boolean().default(true),
+  ownerDocumentCreated: z.boolean().default(true),
 });
 
 export function envelopeGetEmailSettingsToJSON(
@@ -796,11 +802,11 @@ export const EnvelopeGetEnvelopeExpirationPeriod2$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  disabled: z.boolean(),
+  disabled: z.literal(true),
 });
 /** @internal */
 export type EnvelopeGetEnvelopeExpirationPeriod2$Outbound = {
-  disabled: boolean;
+  disabled: true;
 };
 
 /** @internal */
@@ -809,7 +815,7 @@ export const EnvelopeGetEnvelopeExpirationPeriod2$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EnvelopeGetEnvelopeExpirationPeriod2
 > = z.object({
-  disabled: z.boolean(),
+  disabled: z.literal(true),
 });
 
 export function envelopeGetEnvelopeExpirationPeriod2ToJSON(
@@ -2272,6 +2278,7 @@ export const EnvelopeGetEnvelopeItem$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   envelopeId: z.string(),
+  documentDataId: z.string(),
   id: z.string(),
   title: z.string(),
   order: z.number(),
@@ -2279,6 +2286,7 @@ export const EnvelopeGetEnvelopeItem$inboundSchema: z.ZodType<
 /** @internal */
 export type EnvelopeGetEnvelopeItem$Outbound = {
   envelopeId: string;
+  documentDataId: string;
   id: string;
   title: string;
   order: number;
@@ -2291,6 +2299,7 @@ export const EnvelopeGetEnvelopeItem$outboundSchema: z.ZodType<
   EnvelopeGetEnvelopeItem
 > = z.object({
   envelopeId: z.string(),
+  documentDataId: z.string(),
   id: z.string(),
   title: z.string(),
   order: z.number(),

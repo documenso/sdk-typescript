@@ -101,28 +101,80 @@ export type DocumentGetEmailSettings = {
   documentDeleted?: boolean | undefined;
   ownerDocumentCompleted?: boolean | undefined;
   ownerRecipientExpired?: boolean | undefined;
+  ownerDocumentCreated?: boolean | undefined;
 };
 
 export type DocumentGetEnvelopeExpirationPeriod2 = {
-  disabled: boolean;
+  disabled: true;
 };
 
-export const DocumentGetUnit = {
+export const DocumentGetEnvelopeExpirationPeriodUnit = {
   Day: "day",
   Week: "week",
   Month: "month",
   Year: "year",
 } as const;
-export type DocumentGetUnit = ClosedEnum<typeof DocumentGetUnit>;
+export type DocumentGetEnvelopeExpirationPeriodUnit = ClosedEnum<
+  typeof DocumentGetEnvelopeExpirationPeriodUnit
+>;
 
 export type DocumentGetEnvelopeExpirationPeriod1 = {
-  unit: DocumentGetUnit;
+  unit: DocumentGetEnvelopeExpirationPeriodUnit;
   amount: number;
 };
 
 export type DocumentGetEnvelopeExpirationPeriodUnion =
   | DocumentGetEnvelopeExpirationPeriod1
   | DocumentGetEnvelopeExpirationPeriod2;
+
+export type DocumentGetSendAfter2 = {
+  disabled: true;
+};
+
+export const DocumentGetSendAfterUnit = {
+  Day: "day",
+  Week: "week",
+  Month: "month",
+} as const;
+export type DocumentGetSendAfterUnit = ClosedEnum<
+  typeof DocumentGetSendAfterUnit
+>;
+
+export type DocumentGetSendAfter1 = {
+  unit: DocumentGetSendAfterUnit;
+  amount: number;
+};
+
+export type DocumentGetSendAfterUnion =
+  | DocumentGetSendAfter1
+  | DocumentGetSendAfter2;
+
+export type DocumentGetRepeatEvery2 = {
+  disabled: true;
+};
+
+export const DocumentGetRepeatEveryUnit = {
+  Day: "day",
+  Week: "week",
+  Month: "month",
+} as const;
+export type DocumentGetRepeatEveryUnit = ClosedEnum<
+  typeof DocumentGetRepeatEveryUnit
+>;
+
+export type DocumentGetRepeatEvery1 = {
+  unit: DocumentGetRepeatEveryUnit;
+  amount: number;
+};
+
+export type DocumentGetRepeatEveryUnion =
+  | DocumentGetRepeatEvery1
+  | DocumentGetRepeatEvery2;
+
+export type DocumentGetReminderSettings = {
+  sendAfter: DocumentGetSendAfter1 | DocumentGetSendAfter2;
+  repeatEvery: DocumentGetRepeatEvery1 | DocumentGetRepeatEvery2;
+};
 
 export type DocumentGetDocumentMeta = {
   signingOrder: DocumentGetSigningOrder;
@@ -145,6 +197,7 @@ export type DocumentGetDocumentMeta = {
     | DocumentGetEnvelopeExpirationPeriod1
     | DocumentGetEnvelopeExpirationPeriod2
     | null;
+  reminderSettings: DocumentGetReminderSettings | null;
   password?: string | null | undefined;
   documentId?: number | undefined;
 };
@@ -799,6 +852,7 @@ export const DocumentGetEmailSettings$inboundSchema: z.ZodType<
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
   ownerRecipientExpired: z.boolean().default(true),
+  ownerDocumentCreated: z.boolean().default(true),
 });
 /** @internal */
 export type DocumentGetEmailSettings$Outbound = {
@@ -810,6 +864,7 @@ export type DocumentGetEmailSettings$Outbound = {
   documentDeleted: boolean;
   ownerDocumentCompleted: boolean;
   ownerRecipientExpired: boolean;
+  ownerDocumentCreated: boolean;
 };
 
 /** @internal */
@@ -826,6 +881,7 @@ export const DocumentGetEmailSettings$outboundSchema: z.ZodType<
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
   ownerRecipientExpired: z.boolean().default(true),
+  ownerDocumentCreated: z.boolean().default(true),
 });
 
 export function documentGetEmailSettingsToJSON(
@@ -851,11 +907,11 @@ export const DocumentGetEnvelopeExpirationPeriod2$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  disabled: z.boolean(),
+  disabled: z.literal(true),
 });
 /** @internal */
 export type DocumentGetEnvelopeExpirationPeriod2$Outbound = {
-  disabled: boolean;
+  disabled: true;
 };
 
 /** @internal */
@@ -864,7 +920,7 @@ export const DocumentGetEnvelopeExpirationPeriod2$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentGetEnvelopeExpirationPeriod2
 > = z.object({
-  disabled: z.boolean(),
+  disabled: z.literal(true),
 });
 
 export function documentGetEnvelopeExpirationPeriod2ToJSON(
@@ -888,13 +944,13 @@ export function documentGetEnvelopeExpirationPeriod2FromJSON(
 }
 
 /** @internal */
-export const DocumentGetUnit$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentGetUnit
-> = z.nativeEnum(DocumentGetUnit);
+export const DocumentGetEnvelopeExpirationPeriodUnit$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetEnvelopeExpirationPeriodUnit> = z
+    .nativeEnum(DocumentGetEnvelopeExpirationPeriodUnit);
 /** @internal */
-export const DocumentGetUnit$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentGetUnit
-> = DocumentGetUnit$inboundSchema;
+export const DocumentGetEnvelopeExpirationPeriodUnit$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentGetEnvelopeExpirationPeriodUnit> =
+    DocumentGetEnvelopeExpirationPeriodUnit$inboundSchema;
 
 /** @internal */
 export const DocumentGetEnvelopeExpirationPeriod1$inboundSchema: z.ZodType<
@@ -902,7 +958,7 @@ export const DocumentGetEnvelopeExpirationPeriod1$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  unit: DocumentGetUnit$inboundSchema,
+  unit: DocumentGetEnvelopeExpirationPeriodUnit$inboundSchema,
   amount: z.number().int(),
 });
 /** @internal */
@@ -917,7 +973,7 @@ export const DocumentGetEnvelopeExpirationPeriod1$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentGetEnvelopeExpirationPeriod1
 > = z.object({
-  unit: DocumentGetUnit$outboundSchema,
+  unit: DocumentGetEnvelopeExpirationPeriodUnit$outboundSchema,
   amount: z.number().int(),
 });
 
@@ -992,6 +1048,328 @@ export function documentGetEnvelopeExpirationPeriodUnionFromJSON(
 }
 
 /** @internal */
+export const DocumentGetSendAfter2$inboundSchema: z.ZodType<
+  DocumentGetSendAfter2,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  disabled: z.literal(true),
+});
+/** @internal */
+export type DocumentGetSendAfter2$Outbound = {
+  disabled: true;
+};
+
+/** @internal */
+export const DocumentGetSendAfter2$outboundSchema: z.ZodType<
+  DocumentGetSendAfter2$Outbound,
+  z.ZodTypeDef,
+  DocumentGetSendAfter2
+> = z.object({
+  disabled: z.literal(true),
+});
+
+export function documentGetSendAfter2ToJSON(
+  documentGetSendAfter2: DocumentGetSendAfter2,
+): string {
+  return JSON.stringify(
+    DocumentGetSendAfter2$outboundSchema.parse(documentGetSendAfter2),
+  );
+}
+export function documentGetSendAfter2FromJSON(
+  jsonString: string,
+): SafeParseResult<DocumentGetSendAfter2, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DocumentGetSendAfter2$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentGetSendAfter2' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentGetSendAfterUnit$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentGetSendAfterUnit
+> = z.nativeEnum(DocumentGetSendAfterUnit);
+/** @internal */
+export const DocumentGetSendAfterUnit$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentGetSendAfterUnit
+> = DocumentGetSendAfterUnit$inboundSchema;
+
+/** @internal */
+export const DocumentGetSendAfter1$inboundSchema: z.ZodType<
+  DocumentGetSendAfter1,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  unit: DocumentGetSendAfterUnit$inboundSchema,
+  amount: z.number().int(),
+});
+/** @internal */
+export type DocumentGetSendAfter1$Outbound = {
+  unit: string;
+  amount: number;
+};
+
+/** @internal */
+export const DocumentGetSendAfter1$outboundSchema: z.ZodType<
+  DocumentGetSendAfter1$Outbound,
+  z.ZodTypeDef,
+  DocumentGetSendAfter1
+> = z.object({
+  unit: DocumentGetSendAfterUnit$outboundSchema,
+  amount: z.number().int(),
+});
+
+export function documentGetSendAfter1ToJSON(
+  documentGetSendAfter1: DocumentGetSendAfter1,
+): string {
+  return JSON.stringify(
+    DocumentGetSendAfter1$outboundSchema.parse(documentGetSendAfter1),
+  );
+}
+export function documentGetSendAfter1FromJSON(
+  jsonString: string,
+): SafeParseResult<DocumentGetSendAfter1, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DocumentGetSendAfter1$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentGetSendAfter1' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentGetSendAfterUnion$inboundSchema: z.ZodType<
+  DocumentGetSendAfterUnion,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  z.lazy(() => DocumentGetSendAfter1$inboundSchema),
+  z.lazy(() => DocumentGetSendAfter2$inboundSchema),
+]);
+/** @internal */
+export type DocumentGetSendAfterUnion$Outbound =
+  | DocumentGetSendAfter1$Outbound
+  | DocumentGetSendAfter2$Outbound;
+
+/** @internal */
+export const DocumentGetSendAfterUnion$outboundSchema: z.ZodType<
+  DocumentGetSendAfterUnion$Outbound,
+  z.ZodTypeDef,
+  DocumentGetSendAfterUnion
+> = z.union([
+  z.lazy(() => DocumentGetSendAfter1$outboundSchema),
+  z.lazy(() => DocumentGetSendAfter2$outboundSchema),
+]);
+
+export function documentGetSendAfterUnionToJSON(
+  documentGetSendAfterUnion: DocumentGetSendAfterUnion,
+): string {
+  return JSON.stringify(
+    DocumentGetSendAfterUnion$outboundSchema.parse(documentGetSendAfterUnion),
+  );
+}
+export function documentGetSendAfterUnionFromJSON(
+  jsonString: string,
+): SafeParseResult<DocumentGetSendAfterUnion, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DocumentGetSendAfterUnion$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentGetSendAfterUnion' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentGetRepeatEvery2$inboundSchema: z.ZodType<
+  DocumentGetRepeatEvery2,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  disabled: z.literal(true),
+});
+/** @internal */
+export type DocumentGetRepeatEvery2$Outbound = {
+  disabled: true;
+};
+
+/** @internal */
+export const DocumentGetRepeatEvery2$outboundSchema: z.ZodType<
+  DocumentGetRepeatEvery2$Outbound,
+  z.ZodTypeDef,
+  DocumentGetRepeatEvery2
+> = z.object({
+  disabled: z.literal(true),
+});
+
+export function documentGetRepeatEvery2ToJSON(
+  documentGetRepeatEvery2: DocumentGetRepeatEvery2,
+): string {
+  return JSON.stringify(
+    DocumentGetRepeatEvery2$outboundSchema.parse(documentGetRepeatEvery2),
+  );
+}
+export function documentGetRepeatEvery2FromJSON(
+  jsonString: string,
+): SafeParseResult<DocumentGetRepeatEvery2, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DocumentGetRepeatEvery2$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentGetRepeatEvery2' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentGetRepeatEveryUnit$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentGetRepeatEveryUnit
+> = z.nativeEnum(DocumentGetRepeatEveryUnit);
+/** @internal */
+export const DocumentGetRepeatEveryUnit$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentGetRepeatEveryUnit
+> = DocumentGetRepeatEveryUnit$inboundSchema;
+
+/** @internal */
+export const DocumentGetRepeatEvery1$inboundSchema: z.ZodType<
+  DocumentGetRepeatEvery1,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  unit: DocumentGetRepeatEveryUnit$inboundSchema,
+  amount: z.number().int(),
+});
+/** @internal */
+export type DocumentGetRepeatEvery1$Outbound = {
+  unit: string;
+  amount: number;
+};
+
+/** @internal */
+export const DocumentGetRepeatEvery1$outboundSchema: z.ZodType<
+  DocumentGetRepeatEvery1$Outbound,
+  z.ZodTypeDef,
+  DocumentGetRepeatEvery1
+> = z.object({
+  unit: DocumentGetRepeatEveryUnit$outboundSchema,
+  amount: z.number().int(),
+});
+
+export function documentGetRepeatEvery1ToJSON(
+  documentGetRepeatEvery1: DocumentGetRepeatEvery1,
+): string {
+  return JSON.stringify(
+    DocumentGetRepeatEvery1$outboundSchema.parse(documentGetRepeatEvery1),
+  );
+}
+export function documentGetRepeatEvery1FromJSON(
+  jsonString: string,
+): SafeParseResult<DocumentGetRepeatEvery1, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DocumentGetRepeatEvery1$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentGetRepeatEvery1' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentGetRepeatEveryUnion$inboundSchema: z.ZodType<
+  DocumentGetRepeatEveryUnion,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  z.lazy(() => DocumentGetRepeatEvery1$inboundSchema),
+  z.lazy(() => DocumentGetRepeatEvery2$inboundSchema),
+]);
+/** @internal */
+export type DocumentGetRepeatEveryUnion$Outbound =
+  | DocumentGetRepeatEvery1$Outbound
+  | DocumentGetRepeatEvery2$Outbound;
+
+/** @internal */
+export const DocumentGetRepeatEveryUnion$outboundSchema: z.ZodType<
+  DocumentGetRepeatEveryUnion$Outbound,
+  z.ZodTypeDef,
+  DocumentGetRepeatEveryUnion
+> = z.union([
+  z.lazy(() => DocumentGetRepeatEvery1$outboundSchema),
+  z.lazy(() => DocumentGetRepeatEvery2$outboundSchema),
+]);
+
+export function documentGetRepeatEveryUnionToJSON(
+  documentGetRepeatEveryUnion: DocumentGetRepeatEveryUnion,
+): string {
+  return JSON.stringify(
+    DocumentGetRepeatEveryUnion$outboundSchema.parse(
+      documentGetRepeatEveryUnion,
+    ),
+  );
+}
+export function documentGetRepeatEveryUnionFromJSON(
+  jsonString: string,
+): SafeParseResult<DocumentGetRepeatEveryUnion, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DocumentGetRepeatEveryUnion$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentGetRepeatEveryUnion' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentGetReminderSettings$inboundSchema: z.ZodType<
+  DocumentGetReminderSettings,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  sendAfter: z.union([
+    z.lazy(() => DocumentGetSendAfter1$inboundSchema),
+    z.lazy(() => DocumentGetSendAfter2$inboundSchema),
+  ]),
+  repeatEvery: z.union([
+    z.lazy(() => DocumentGetRepeatEvery1$inboundSchema),
+    z.lazy(() => DocumentGetRepeatEvery2$inboundSchema),
+  ]),
+});
+/** @internal */
+export type DocumentGetReminderSettings$Outbound = {
+  sendAfter: DocumentGetSendAfter1$Outbound | DocumentGetSendAfter2$Outbound;
+  repeatEvery:
+    | DocumentGetRepeatEvery1$Outbound
+    | DocumentGetRepeatEvery2$Outbound;
+};
+
+/** @internal */
+export const DocumentGetReminderSettings$outboundSchema: z.ZodType<
+  DocumentGetReminderSettings$Outbound,
+  z.ZodTypeDef,
+  DocumentGetReminderSettings
+> = z.object({
+  sendAfter: z.union([
+    z.lazy(() => DocumentGetSendAfter1$outboundSchema),
+    z.lazy(() => DocumentGetSendAfter2$outboundSchema),
+  ]),
+  repeatEvery: z.union([
+    z.lazy(() => DocumentGetRepeatEvery1$outboundSchema),
+    z.lazy(() => DocumentGetRepeatEvery2$outboundSchema),
+  ]),
+});
+
+export function documentGetReminderSettingsToJSON(
+  documentGetReminderSettings: DocumentGetReminderSettings,
+): string {
+  return JSON.stringify(
+    DocumentGetReminderSettings$outboundSchema.parse(
+      documentGetReminderSettings,
+    ),
+  );
+}
+export function documentGetReminderSettingsFromJSON(
+  jsonString: string,
+): SafeParseResult<DocumentGetReminderSettings, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DocumentGetReminderSettings$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentGetReminderSettings' from JSON`,
+  );
+}
+
+/** @internal */
 export const DocumentGetDocumentMeta$inboundSchema: z.ZodType<
   DocumentGetDocumentMeta,
   z.ZodTypeDef,
@@ -1021,6 +1399,9 @@ export const DocumentGetDocumentMeta$inboundSchema: z.ZodType<
       z.lazy(() => DocumentGetEnvelopeExpirationPeriod2$inboundSchema),
     ]),
   ),
+  reminderSettings: z.nullable(
+    z.lazy(() => DocumentGetReminderSettings$inboundSchema),
+  ),
   password: z.nullable(z.string()).default(null),
   documentId: z.number().default(-1),
 });
@@ -1046,6 +1427,7 @@ export type DocumentGetDocumentMeta$Outbound = {
     | DocumentGetEnvelopeExpirationPeriod1$Outbound
     | DocumentGetEnvelopeExpirationPeriod2$Outbound
     | null;
+  reminderSettings: DocumentGetReminderSettings$Outbound | null;
   password: string | null;
   documentId: number;
 };
@@ -1079,6 +1461,9 @@ export const DocumentGetDocumentMeta$outboundSchema: z.ZodType<
       z.lazy(() => DocumentGetEnvelopeExpirationPeriod1$outboundSchema),
       z.lazy(() => DocumentGetEnvelopeExpirationPeriod2$outboundSchema),
     ]),
+  ),
+  reminderSettings: z.nullable(
+    z.lazy(() => DocumentGetReminderSettings$outboundSchema),
   ),
   password: z.nullable(z.string()).default(null),
   documentId: z.number().default(-1),

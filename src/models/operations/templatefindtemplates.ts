@@ -14,6 +14,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 export const TemplateFindTemplatesQueryParamType = {
   Public: "PUBLIC",
   Private: "PRIVATE",
+  Organisation: "ORGANISATION",
 } as const;
 /**
  * Filter templates by type.
@@ -48,6 +49,7 @@ export type TemplateFindTemplatesRequest = {
 export const TemplateFindTemplatesDataTypeEnum = {
   Public: "PUBLIC",
   Private: "PRIVATE",
+  Organisation: "ORGANISATION",
 } as const;
 export type TemplateFindTemplatesDataTypeEnum = ClosedEnum<
   typeof TemplateFindTemplatesDataTypeEnum
@@ -88,6 +90,7 @@ export type TemplateFindTemplatesAuthOptions = {
 export type TemplateFindTemplatesTeam = {
   id: number;
   url: string;
+  name: string;
 };
 
 export const TemplateFindTemplatesFieldTypeEnum = {
@@ -672,11 +675,13 @@ export const TemplateFindTemplatesTeam$inboundSchema: z.ZodType<
 > = z.object({
   id: z.number(),
   url: z.string(),
+  name: z.string(),
 });
 /** @internal */
 export type TemplateFindTemplatesTeam$Outbound = {
   id: number;
   url: string;
+  name: string;
 };
 
 /** @internal */
@@ -687,6 +692,7 @@ export const TemplateFindTemplatesTeam$outboundSchema: z.ZodType<
 > = z.object({
   id: z.number(),
   url: z.string(),
+  name: z.string(),
 });
 
 export function templateFindTemplatesTeamToJSON(

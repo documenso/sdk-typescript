@@ -11,7 +11,7 @@ let value: EnvelopeGetManyData = {
   status: "PENDING",
   source: "TEMPLATE_DIRECT_LINK",
   visibility: "MANAGER_AND_ABOVE",
-  templateType: "PRIVATE",
+  templateType: "ORGANISATION",
   id: "<id>",
   secondaryId: "<id>",
   externalId: "<id>",
@@ -107,6 +107,7 @@ let value: EnvelopeGetManyData = {
   envelopeItems: [
     {
       envelopeId: "<id>",
+      documentDataId: "<id>",
       id: "<id>",
       title: "<value>",
       order: 1536.19,

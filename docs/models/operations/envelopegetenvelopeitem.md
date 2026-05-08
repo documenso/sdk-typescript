@@ -7,6 +7,7 @@ import { EnvelopeGetEnvelopeItem } from "@documenso/sdk-typescript/models/operat
 
 let value: EnvelopeGetEnvelopeItem = {
   envelopeId: "<id>",
+  documentDataId: "<id>",
   id: "<id>",
   title: "<value>",
   order: 2097.05,
@@ -18,6 +19,7 @@ let value: EnvelopeGetEnvelopeItem = {
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `envelopeId`       | *string*           | :heavy_check_mark: | N/A                |
+| `documentDataId`   | *string*           | :heavy_check_mark: | N/A                |
 | `id`               | *string*           | :heavy_check_mark: | N/A                |
 | `title`            | *string*           | :heavy_check_mark: | N/A                |
 | `order`            | *number*           | :heavy_check_mark: | N/A                |

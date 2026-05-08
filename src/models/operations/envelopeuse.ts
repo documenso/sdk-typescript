@@ -123,6 +123,7 @@ export type EnvelopeUseEmailSettings = {
   documentDeleted?: boolean | undefined;
   ownerDocumentCompleted?: boolean | undefined;
   ownerRecipientExpired?: boolean | undefined;
+  ownerDocumentCreated?: boolean | undefined;
 };
 
 export const EnvelopeUseLanguage = {
@@ -141,7 +142,7 @@ export const EnvelopeUseLanguage = {
 export type EnvelopeUseLanguage = ClosedEnum<typeof EnvelopeUseLanguage>;
 
 export type EnvelopeUseEnvelopeExpirationPeriod2 = {
-  disabled: boolean;
+  disabled: true;
 };
 
 export const EnvelopeUseUnit = {
@@ -813,6 +814,7 @@ export const EnvelopeUseEmailSettings$inboundSchema: z.ZodType<
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
   ownerRecipientExpired: z.boolean().default(true),
+  ownerDocumentCreated: z.boolean().default(true),
 });
 /** @internal */
 export type EnvelopeUseEmailSettings$Outbound = {
@@ -824,6 +826,7 @@ export type EnvelopeUseEmailSettings$Outbound = {
   documentDeleted: boolean;
   ownerDocumentCompleted: boolean;
   ownerRecipientExpired: boolean;
+  ownerDocumentCreated: boolean;
 };
 
 /** @internal */
@@ -840,6 +843,7 @@ export const EnvelopeUseEmailSettings$outboundSchema: z.ZodType<
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
   ownerRecipientExpired: z.boolean().default(true),
+  ownerDocumentCreated: z.boolean().default(true),
 });
 
 export function envelopeUseEmailSettingsToJSON(
@@ -874,11 +878,11 @@ export const EnvelopeUseEnvelopeExpirationPeriod2$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  disabled: z.boolean(),
+  disabled: z.literal(true),
 });
 /** @internal */
 export type EnvelopeUseEnvelopeExpirationPeriod2$Outbound = {
-  disabled: boolean;
+  disabled: true;
 };
 
 /** @internal */
@@ -887,7 +891,7 @@ export const EnvelopeUseEnvelopeExpirationPeriod2$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EnvelopeUseEnvelopeExpirationPeriod2
 > = z.object({
-  disabled: z.boolean(),
+  disabled: z.literal(true),
 });
 
 export function envelopeUseEnvelopeExpirationPeriod2ToJSON(

@@ -14,12 +14,12 @@ let value: DataDocumentFieldPrefilled = {
     recipientRole: "<value>",
     fieldId: "<id>",
     field: {
-      type: "FREE_SIGNATURE",
+      type: "SIGNATURE",
       data: "<value>",
     },
   },
   id: "<id>",
-  createdAt: "1721369507607",
+  createdAt: "1720949639913",
   envelopeId: "<id>",
 };
 ```
@@ -29,7 +29,7 @@ let value: DataDocumentFieldPrefilled = {
 | Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
 | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | `type`                                                                                         | *"DOCUMENT_FIELD_PREFILLED"*                                                                   | :heavy_check_mark:                                                                             | N/A                                                                                            |
-| `data`                                                                                         | [operations.EnvelopeAuditLogFindData12](../../models/operations/envelopeauditlogfinddata12.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| `data`                                                                                         | [operations.EnvelopeAuditLogFindData14](../../models/operations/envelopeauditlogfinddata14.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |
 | `id`                                                                                           | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
 | `createdAt`                                                                                    | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
 | `envelopeId`                                                                                   | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |

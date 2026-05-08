@@ -6,12 +6,12 @@
 import { EnvelopeAuditLogFindData6 } from "@documenso/sdk-typescript/models/operations";
 
 let value: EnvelopeAuditLogFindData6 = {
-  type: "HARD",
+  transactionId: "<id>",
 };
 ```
 
 ## Fields
 
-| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `type`                                                                                             | [operations.EnvelopeAuditLogFindTypeEnum](../../models/operations/envelopeauditlogfindtypeenum.md) | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `transactionId`    | *string*           | :heavy_check_mark: | N/A                |

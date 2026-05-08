@@ -7,6 +7,7 @@ import { EnvelopeGetManyEnvelopeItem } from "@documenso/sdk-typescript/models/op
 
 let value: EnvelopeGetManyEnvelopeItem = {
   envelopeId: "<id>",
+  documentDataId: "<id>",
   id: "<id>",
   title: "<value>",
   order: 8195.96,
@@ -18,6 +19,7 @@ let value: EnvelopeGetManyEnvelopeItem = {
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `envelopeId`       | *string*           | :heavy_check_mark: | N/A                |
+| `documentDataId`   | *string*           | :heavy_check_mark: | N/A                |
 | `id`               | *string*           | :heavy_check_mark: | N/A                |
 | `title`            | *string*           | :heavy_check_mark: | N/A                |
 | `order`            | *number*           | :heavy_check_mark: | N/A                |

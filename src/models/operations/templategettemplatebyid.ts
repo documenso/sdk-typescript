@@ -15,6 +15,7 @@ export type TemplateGetTemplateByIdRequest = {
 export const TemplateGetTemplateByIdTypeEnum = {
   Public: "PUBLIC",
   Private: "PRIVATE",
+  Organisation: "ORGANISATION",
 } as const;
 export type TemplateGetTemplateByIdTypeEnum = ClosedEnum<
   typeof TemplateGetTemplateByIdTypeEnum
@@ -94,6 +95,7 @@ export type TemplateGetTemplateByIdEmailSettings = {
   documentDeleted?: boolean | undefined;
   ownerDocumentCompleted?: boolean | undefined;
   ownerRecipientExpired?: boolean | undefined;
+  ownerDocumentCreated?: boolean | undefined;
 };
 
 export type TemplateGetTemplateByIdTemplateMeta = {
@@ -790,6 +792,7 @@ export const TemplateGetTemplateByIdEmailSettings$inboundSchema: z.ZodType<
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
   ownerRecipientExpired: z.boolean().default(true),
+  ownerDocumentCreated: z.boolean().default(true),
 });
 /** @internal */
 export type TemplateGetTemplateByIdEmailSettings$Outbound = {
@@ -801,6 +804,7 @@ export type TemplateGetTemplateByIdEmailSettings$Outbound = {
   documentDeleted: boolean;
   ownerDocumentCompleted: boolean;
   ownerRecipientExpired: boolean;
+  ownerDocumentCreated: boolean;
 };
 
 /** @internal */
@@ -817,6 +821,7 @@ export const TemplateGetTemplateByIdEmailSettings$outboundSchema: z.ZodType<
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
   ownerRecipientExpired: z.boolean().default(true),
+  ownerDocumentCreated: z.boolean().default(true),
 });
 
 export function templateGetTemplateByIdEmailSettingsToJSON(

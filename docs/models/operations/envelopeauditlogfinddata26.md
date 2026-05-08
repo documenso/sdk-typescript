@@ -10,7 +10,5 @@ let value: EnvelopeAuditLogFindData26 = {};
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `from`             | *string*           | :heavy_minus_sign: | N/A                |
-| `to`               | *string*           | :heavy_minus_sign: | N/A                |
+| Field       | Type        | Required    | Description |
+| ----------- | ----------- | ----------- | ----------- |

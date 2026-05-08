@@ -20,7 +20,7 @@ const value:
 const value:
   operations.TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2 =
     {
-      disabled: false,
+      disabled: true,
     };
 ```
 

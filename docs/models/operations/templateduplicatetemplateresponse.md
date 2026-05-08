@@ -8,7 +8,7 @@ Successful response
 import { TemplateDuplicateTemplateResponse } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateDuplicateTemplateResponse = {
-  type: "PRIVATE",
+  type: "ORGANISATION",
   visibility: "EVERYONE",
   id: 1503.76,
   externalId: "<id>",

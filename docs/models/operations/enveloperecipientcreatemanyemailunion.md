@@ -12,6 +12,6 @@ const value: operations.EnvelopeRecipientCreateManyEmailEnum = "";
 ### `string`
 
 ```typescript
-const value: string = "Cade_Ritchie12@hotmail.com";
+const value: string = "<value>";
 ```
 

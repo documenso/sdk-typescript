@@ -12,7 +12,7 @@ let value: DataEmailSent = {
     recipientName: "<value>",
     recipientId: 9335.74,
     recipientRole: "<value>",
-    emailType: "DOCUMENT_COMPLETED",
+    emailType: "REMINDER",
     isResending: false,
   },
   id: "<id>",
@@ -26,7 +26,7 @@ let value: DataEmailSent = {
 | Field                                                                                        | Type                                                                                         | Required                                                                                     | Description                                                                                  |
 | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | `type`                                                                                       | *"EMAIL_SENT"*                                                                               | :heavy_check_mark:                                                                           | N/A                                                                                          |
-| `data`                                                                                       | [operations.EnvelopeAuditLogFindData3](../../models/operations/envelopeauditlogfinddata3.md) | :heavy_check_mark:                                                                           | N/A                                                                                          |
+| `data`                                                                                       | [operations.EnvelopeAuditLogFindData5](../../models/operations/envelopeauditlogfinddata5.md) | :heavy_check_mark:                                                                           | N/A                                                                                          |
 | `id`                                                                                         | *string*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |
 | `createdAt`                                                                                  | *string*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |
 | `envelopeId`                                                                                 | *string*                                                                                     | :heavy_check_mark:                                                                           | N/A                                                                                          |

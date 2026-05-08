@@ -7,7 +7,7 @@ import { TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2 } f
 
 let value: TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2 =
   {
-    disabled: false,
+    disabled: true,
   };
 ```
 
@@ -15,4 +15,4 @@ let value: TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2 =
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `disabled`         | *boolean*          | :heavy_check_mark: | N/A                |
+| `disabled`         | *true*             | :heavy_check_mark: | N/A                |

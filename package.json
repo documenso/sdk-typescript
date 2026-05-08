@@ -1,6 +1,6 @@
 {
   "name": "@documenso/sdk-typescript",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "author": "Speakeasy",
   "bin": {
     "mcp": "bin/mcp-server.js"

@@ -54,6 +54,15 @@ let value: Document = {
       unit: "day",
       amount: 658704,
     },
+    reminderSettings: {
+      sendAfter: {
+        unit: "day",
+        amount: 852106,
+      },
+      repeatEvery: {
+        disabled: true,
+      },
+    },
   },
   envelopeItems: [
     {
@@ -64,61 +73,17 @@ let value: Document = {
   folder: {
     id: "<id>",
     name: "<value>",
-    type: "DOCUMENT",
+    type: "TEMPLATE",
     visibility: "ADMIN",
-    userId: 9145.72,
-    teamId: 8500.19,
-    pinned: true,
+    userId: 8500.19,
+    teamId: 2164.05,
+    pinned: false,
     parentId: "<id>",
-    createdAt: "1721766691836",
-    updatedAt: "1735617214764",
+    createdAt: "1709269048177",
+    updatedAt: "1735686057640",
   },
-  recipients: [
-    {
-      envelopeId: "<id>",
-      role: "SIGNER",
-      readStatus: "NOT_OPENED",
-      signingStatus: "REJECTED",
-      sendStatus: "NOT_SENT",
-      id: 6986.77,
-      email: "Adrain_Feil34@hotmail.com",
-      name: "<value>",
-      token: "<value>",
-      documentDeletedAt: "<value>",
-      expired: "<value>",
-      expiresAt: "1752980741485",
-      expirationNotifiedAt: "<value>",
-      signedAt: "<value>",
-      authOptions: {
-        accessAuth: [],
-        actionAuth: [],
-      },
-      signingOrder: null,
-      rejectionReason: "<value>",
-    },
-  ],
-  fields: [
-    {
-      envelopeId: "<id>",
-      envelopeItemId: "<id>",
-      type: "FREE_SIGNATURE",
-      id: 9636.63,
-      secondaryId: "<id>",
-      recipientId: 9386.83,
-      page: 7565.1,
-      positionX: "<value>",
-      positionY: "<value>",
-      width: "<value>",
-      height: "<value>",
-      customText: "<value>",
-      inserted: false,
-      fieldMeta: {
-        fontSize: 12,
-        type: "checkbox",
-        direction: "vertical",
-      },
-    },
-  ],
+  recipients: [],
+  fields: [],
 };
 ```
 

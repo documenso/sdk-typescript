@@ -6,16 +6,13 @@
 import { EnvelopeAuditLogFindData7 } from "@documenso/sdk-typescript/models/operations";
 
 let value: EnvelopeAuditLogFindData7 = {
-  movedByUserId: 217.24,
-  fromPersonalAccount: false,
-  toTeamId: 3704.84,
+  title: "<value>",
 };
 ```
 
 ## Fields
 
-| Field                 | Type                  | Required              | Description           |
-| --------------------- | --------------------- | --------------------- | --------------------- |
-| `movedByUserId`       | *number*              | :heavy_check_mark:    | N/A                   |
-| `fromPersonalAccount` | *boolean*             | :heavy_check_mark:    | N/A                   |
-| `toTeamId`            | *number*              | :heavy_check_mark:    | N/A                   |
+| Field               | Type                | Required            | Description         |
+| ------------------- | ------------------- | ------------------- | ------------------- |
+| `title`             | *string*            | :heavy_check_mark:  | N/A                 |
+| `source`            | *operations.Source* | :heavy_minus_sign:  | N/A                 |

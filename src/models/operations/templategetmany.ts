@@ -15,6 +15,7 @@ export type TemplateGetManyRequest = {
 export const TemplateGetManyTypeEnum = {
   Public: "PUBLIC",
   Private: "PRIVATE",
+  Organisation: "ORGANISATION",
 } as const;
 export type TemplateGetManyTypeEnum = ClosedEnum<
   typeof TemplateGetManyTypeEnum
@@ -55,6 +56,7 @@ export type TemplateGetManyAuthOptions = {
 export type TemplateGetManyTeam = {
   id: number;
   url: string;
+  name: string;
 };
 
 export const TemplateGetManyFieldTypeEnum = {
@@ -598,11 +600,13 @@ export const TemplateGetManyTeam$inboundSchema: z.ZodType<
 > = z.object({
   id: z.number(),
   url: z.string(),
+  name: z.string(),
 });
 /** @internal */
 export type TemplateGetManyTeam$Outbound = {
   id: number;
   url: string;
+  name: string;
 };
 
 /** @internal */
@@ -613,6 +617,7 @@ export const TemplateGetManyTeam$outboundSchema: z.ZodType<
 > = z.object({
   id: z.number(),
   url: z.string(),
+  name: z.string(),
 });
 
 export function templateGetManyTeamToJSON(

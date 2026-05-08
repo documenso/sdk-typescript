@@ -39,6 +39,7 @@ export type TemplateCreateTemplateGlobalActionAuth = ClosedEnum<
 export const TemplateCreateTemplateType = {
   Public: "PUBLIC",
   Private: "PRIVATE",
+  Organisation: "ORGANISATION",
 } as const;
 export type TemplateCreateTemplateType = ClosedEnum<
   typeof TemplateCreateTemplateType
@@ -89,6 +90,7 @@ export type TemplateCreateTemplateEmailSettings = {
   documentDeleted?: boolean | undefined;
   ownerDocumentCompleted?: boolean | undefined;
   ownerRecipientExpired?: boolean | undefined;
+  ownerDocumentCreated?: boolean | undefined;
 };
 
 export const TemplateCreateTemplateLanguage = {
@@ -249,6 +251,7 @@ export const TemplateCreateTemplateEmailSettings$inboundSchema: z.ZodType<
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
   ownerRecipientExpired: z.boolean().default(true),
+  ownerDocumentCreated: z.boolean().default(true),
 });
 /** @internal */
 export type TemplateCreateTemplateEmailSettings$Outbound = {
@@ -260,6 +263,7 @@ export type TemplateCreateTemplateEmailSettings$Outbound = {
   documentDeleted: boolean;
   ownerDocumentCompleted: boolean;
   ownerRecipientExpired: boolean;
+  ownerDocumentCreated: boolean;
 };
 
 /** @internal */
@@ -276,6 +280,7 @@ export const TemplateCreateTemplateEmailSettings$outboundSchema: z.ZodType<
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
   ownerRecipientExpired: z.boolean().default(true),
+  ownerDocumentCreated: z.boolean().default(true),
 });
 
 export function templateCreateTemplateEmailSettingsToJSON(

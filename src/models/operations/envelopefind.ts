@@ -145,6 +145,7 @@ export type EnvelopeFindVisibility = ClosedEnum<typeof EnvelopeFindVisibility>;
 export const EnvelopeFindTemplateType = {
   Public: "PUBLIC",
   Private: "PRIVATE",
+  Organisation: "ORGANISATION",
 } as const;
 export type EnvelopeFindTemplateType = ClosedEnum<
   typeof EnvelopeFindTemplateType

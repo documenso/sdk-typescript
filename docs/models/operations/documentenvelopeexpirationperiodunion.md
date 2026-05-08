@@ -16,7 +16,7 @@ const value: operations.EnvelopeExpirationPeriodDocument1 = {
 
 ```typescript
 const value: operations.EnvelopeExpirationPeriodDocument2 = {
-  disabled: false,
+  disabled: true,
 };
 ```
 

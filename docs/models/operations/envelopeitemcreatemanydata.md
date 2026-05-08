@@ -10,6 +10,7 @@ let value: EnvelopeItemCreateManyData = {
   title: "<value>",
   envelopeId: "<id>",
   order: 8429.43,
+  documentDataId: "<id>",
 };
 ```
 
@@ -21,3 +22,4 @@ let value: EnvelopeItemCreateManyData = {
 | `title`            | *string*           | :heavy_check_mark: | N/A                |
 | `envelopeId`       | *string*           | :heavy_check_mark: | N/A                |
 | `order`            | *number*           | :heavy_check_mark: | N/A                |
+| `documentDataId`   | *string*           | :heavy_check_mark: | N/A                |

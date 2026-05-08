@@ -33,6 +33,42 @@ const value: operations.DataEnvelopeItemDeleted = {
 };
 ```
 
+### `operations.DataEnvelopeItemUpdated`
+
+```typescript
+const value: operations.DataEnvelopeItemUpdated = {
+  type: "ENVELOPE_ITEM_UPDATED",
+  data: {
+    envelopeItemId: "<id>",
+    changes: [
+      {
+        field: "<value>",
+        from: "<value>",
+        to: "<value>",
+      },
+    ],
+  },
+  id: "<id>",
+  createdAt: "1735532989032",
+  envelopeId: "<id>",
+};
+```
+
+### `operations.DataEnvelopeItemPdfReplaced`
+
+```typescript
+const value: operations.DataEnvelopeItemPdfReplaced = {
+  type: "ENVELOPE_ITEM_PDF_REPLACED",
+  data: {
+    envelopeItemId: "<id>",
+    envelopeItemTitle: "<value>",
+  },
+  id: "<id>",
+  createdAt: "1734782391118",
+  envelopeId: "<id>",
+};
+```
+
 ### `operations.DataEmailSent`
 
 ```typescript
@@ -43,7 +79,7 @@ const value: operations.DataEmailSent = {
     recipientName: "<value>",
     recipientId: 9335.74,
     recipientRole: "<value>",
-    emailType: "DOCUMENT_COMPLETED",
+    emailType: "REMINDER",
     isResending: false,
   },
   id: "<id>",
@@ -189,12 +225,12 @@ const value: operations.DataDocumentFieldPrefilled = {
     recipientRole: "<value>",
     fieldId: "<id>",
     field: {
-      type: "FREE_SIGNATURE",
+      type: "SIGNATURE",
       data: "<value>",
     },
   },
   id: "<id>",
-  createdAt: "1721369507607",
+  createdAt: "1720949639913",
   envelopeId: "<id>",
 };
 ```

@@ -14,4 +14,4 @@ let value: DocumentGetEnvelopeExpirationPeriod2 = {
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `disabled`         | *boolean*          | :heavy_check_mark: | N/A                |
+| `disabled`         | *true*             | :heavy_check_mark: | N/A                |
