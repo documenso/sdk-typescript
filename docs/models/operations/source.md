@@ -26,7 +26,7 @@ const value: operations.SourceTemplate = {
 const value: operations.SourceTemplateDirectLink = {
   type: "TEMPLATE_DIRECT_LINK",
   templateId: 8199.09,
-  directRecipientEmail: "Claire.Murazik68@yahoo.com",
+  directRecipientEmail: "<value>",
 };
 ```
 

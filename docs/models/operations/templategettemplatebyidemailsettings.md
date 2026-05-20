@@ -20,3 +20,4 @@ let value: TemplateGetTemplateByIdEmailSettings = {};
 | `documentDeleted`         | *boolean*                 | :heavy_minus_sign:        | N/A                       |
 | `ownerDocumentCompleted`  | *boolean*                 | :heavy_minus_sign:        | N/A                       |
 | `ownerRecipientExpired`   | *boolean*                 | :heavy_minus_sign:        | N/A                       |
+| `ownerDocumentCreated`    | *boolean*                 | :heavy_minus_sign:        | N/A                       |

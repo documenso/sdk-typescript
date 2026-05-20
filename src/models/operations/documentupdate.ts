@@ -49,12 +49,15 @@ export const DocumentUpdateDateFormat = {
   YyyyMMddHhMmA: "yyyy-MM-dd hh:mm a",
   YyyyMMdd: "yyyy-MM-dd",
   DdMMSlashYyyy: "dd/MM/yyyy",
+  DdMMDashYyyy: "dd-MM-yyyy",
   MmDdSlashYyyy: "MM/dd/yyyy",
   YyMMdd: "yy-MM-dd",
   MmmmDdCommaYyyy: "MMMM dd, yyyy",
   EeeeMmmmDdCommaYyyy: "EEEE, MMMM dd, yyyy",
   DdMMSlashYyyyHhMMA: "dd/MM/yyyy hh:mm a",
   DdMMSlashYyyyHHmm: "dd/MM/yyyy HH:mm",
+  DdMMDashYyyyHhMMA: "dd-MM-yyyy hh:mm a",
+  DdMMDashYyyyHHmm: "dd-MM-yyyy HH:mm",
   MmDdSlashYyyyHhMmA: "MM/dd/yyyy hh:mm a",
   MmDdSlashYyyyHHmm: "MM/dd/yyyy HH:mm",
   DdDotMmDotYyyy: "dd.MM.yyyy",
@@ -113,28 +116,80 @@ export type DocumentUpdateEmailSettings = {
   documentDeleted?: boolean | undefined;
   ownerDocumentCompleted?: boolean | undefined;
   ownerRecipientExpired?: boolean | undefined;
+  ownerDocumentCreated?: boolean | undefined;
 };
 
 export type DocumentUpdateEnvelopeExpirationPeriod2 = {
-  disabled: boolean;
+  disabled: true;
 };
 
-export const DocumentUpdateUnit = {
+export const DocumentUpdateEnvelopeExpirationPeriodUnit = {
   Day: "day",
   Week: "week",
   Month: "month",
   Year: "year",
 } as const;
-export type DocumentUpdateUnit = ClosedEnum<typeof DocumentUpdateUnit>;
+export type DocumentUpdateEnvelopeExpirationPeriodUnit = ClosedEnum<
+  typeof DocumentUpdateEnvelopeExpirationPeriodUnit
+>;
 
 export type DocumentUpdateEnvelopeExpirationPeriod1 = {
-  unit: DocumentUpdateUnit;
+  unit: DocumentUpdateEnvelopeExpirationPeriodUnit;
   amount: number;
 };
 
 export type DocumentUpdateEnvelopeExpirationPeriodUnion =
   | DocumentUpdateEnvelopeExpirationPeriod1
   | DocumentUpdateEnvelopeExpirationPeriod2;
+
+export type DocumentUpdateSendAfter2 = {
+  disabled: true;
+};
+
+export const DocumentUpdateSendAfterUnit = {
+  Day: "day",
+  Week: "week",
+  Month: "month",
+} as const;
+export type DocumentUpdateSendAfterUnit = ClosedEnum<
+  typeof DocumentUpdateSendAfterUnit
+>;
+
+export type DocumentUpdateSendAfter1 = {
+  unit: DocumentUpdateSendAfterUnit;
+  amount: number;
+};
+
+export type DocumentUpdateSendAfterUnion =
+  | DocumentUpdateSendAfter1
+  | DocumentUpdateSendAfter2;
+
+export type DocumentUpdateRepeatEvery2 = {
+  disabled: true;
+};
+
+export const DocumentUpdateRepeatEveryUnit = {
+  Day: "day",
+  Week: "week",
+  Month: "month",
+} as const;
+export type DocumentUpdateRepeatEveryUnit = ClosedEnum<
+  typeof DocumentUpdateRepeatEveryUnit
+>;
+
+export type DocumentUpdateRepeatEvery1 = {
+  unit: DocumentUpdateRepeatEveryUnit;
+  amount: number;
+};
+
+export type DocumentUpdateRepeatEveryUnion =
+  | DocumentUpdateRepeatEvery1
+  | DocumentUpdateRepeatEvery2;
+
+export type DocumentUpdateReminderSettings = {
+  sendAfter: DocumentUpdateSendAfter1 | DocumentUpdateSendAfter2;
+  repeatEvery: DocumentUpdateRepeatEvery1 | DocumentUpdateRepeatEvery2;
+};
 
 export type DocumentUpdateMeta = {
   subject?: string | undefined;
@@ -157,6 +212,7 @@ export type DocumentUpdateMeta = {
     | DocumentUpdateEnvelopeExpirationPeriod2
     | null
     | undefined;
+  reminderSettings?: DocumentUpdateReminderSettings | null | undefined;
 };
 
 export type DocumentUpdateRequest = {
@@ -382,6 +438,7 @@ export const DocumentUpdateEmailSettings$inboundSchema: z.ZodType<
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
   ownerRecipientExpired: z.boolean().default(true),
+  ownerDocumentCreated: z.boolean().default(true),
 });
 /** @internal */
 export type DocumentUpdateEmailSettings$Outbound = {
@@ -393,6 +450,7 @@ export type DocumentUpdateEmailSettings$Outbound = {
   documentDeleted: boolean;
   ownerDocumentCompleted: boolean;
   ownerRecipientExpired: boolean;
+  ownerDocumentCreated: boolean;
 };
 
 /** @internal */
@@ -409,6 +467,7 @@ export const DocumentUpdateEmailSettings$outboundSchema: z.ZodType<
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
   ownerRecipientExpired: z.boolean().default(true),
+  ownerDocumentCreated: z.boolean().default(true),
 });
 
 export function documentUpdateEmailSettingsToJSON(
@@ -436,11 +495,11 @@ export const DocumentUpdateEnvelopeExpirationPeriod2$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  disabled: z.boolean(),
+  disabled: z.literal(true),
 });
 /** @internal */
 export type DocumentUpdateEnvelopeExpirationPeriod2$Outbound = {
-  disabled: boolean;
+  disabled: true;
 };
 
 /** @internal */
@@ -449,7 +508,7 @@ export const DocumentUpdateEnvelopeExpirationPeriod2$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentUpdateEnvelopeExpirationPeriod2
 > = z.object({
-  disabled: z.boolean(),
+  disabled: z.literal(true),
 });
 
 export function documentUpdateEnvelopeExpirationPeriod2ToJSON(
@@ -479,13 +538,13 @@ export function documentUpdateEnvelopeExpirationPeriod2FromJSON(
 }
 
 /** @internal */
-export const DocumentUpdateUnit$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentUpdateUnit
-> = z.nativeEnum(DocumentUpdateUnit);
+export const DocumentUpdateEnvelopeExpirationPeriodUnit$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentUpdateEnvelopeExpirationPeriodUnit> = z
+    .nativeEnum(DocumentUpdateEnvelopeExpirationPeriodUnit);
 /** @internal */
-export const DocumentUpdateUnit$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentUpdateUnit
-> = DocumentUpdateUnit$inboundSchema;
+export const DocumentUpdateEnvelopeExpirationPeriodUnit$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentUpdateEnvelopeExpirationPeriodUnit> =
+    DocumentUpdateEnvelopeExpirationPeriodUnit$inboundSchema;
 
 /** @internal */
 export const DocumentUpdateEnvelopeExpirationPeriod1$inboundSchema: z.ZodType<
@@ -493,7 +552,7 @@ export const DocumentUpdateEnvelopeExpirationPeriod1$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  unit: DocumentUpdateUnit$inboundSchema,
+  unit: DocumentUpdateEnvelopeExpirationPeriodUnit$inboundSchema,
   amount: z.number().int(),
 });
 /** @internal */
@@ -508,7 +567,7 @@ export const DocumentUpdateEnvelopeExpirationPeriod1$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentUpdateEnvelopeExpirationPeriod1
 > = z.object({
-  unit: DocumentUpdateUnit$outboundSchema,
+  unit: DocumentUpdateEnvelopeExpirationPeriodUnit$outboundSchema,
   amount: z.number().int(),
 });
 
@@ -591,6 +650,332 @@ export function documentUpdateEnvelopeExpirationPeriodUnionFromJSON(
 }
 
 /** @internal */
+export const DocumentUpdateSendAfter2$inboundSchema: z.ZodType<
+  DocumentUpdateSendAfter2,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  disabled: z.literal(true),
+});
+/** @internal */
+export type DocumentUpdateSendAfter2$Outbound = {
+  disabled: true;
+};
+
+/** @internal */
+export const DocumentUpdateSendAfter2$outboundSchema: z.ZodType<
+  DocumentUpdateSendAfter2$Outbound,
+  z.ZodTypeDef,
+  DocumentUpdateSendAfter2
+> = z.object({
+  disabled: z.literal(true),
+});
+
+export function documentUpdateSendAfter2ToJSON(
+  documentUpdateSendAfter2: DocumentUpdateSendAfter2,
+): string {
+  return JSON.stringify(
+    DocumentUpdateSendAfter2$outboundSchema.parse(documentUpdateSendAfter2),
+  );
+}
+export function documentUpdateSendAfter2FromJSON(
+  jsonString: string,
+): SafeParseResult<DocumentUpdateSendAfter2, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DocumentUpdateSendAfter2$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentUpdateSendAfter2' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentUpdateSendAfterUnit$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentUpdateSendAfterUnit
+> = z.nativeEnum(DocumentUpdateSendAfterUnit);
+/** @internal */
+export const DocumentUpdateSendAfterUnit$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentUpdateSendAfterUnit
+> = DocumentUpdateSendAfterUnit$inboundSchema;
+
+/** @internal */
+export const DocumentUpdateSendAfter1$inboundSchema: z.ZodType<
+  DocumentUpdateSendAfter1,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  unit: DocumentUpdateSendAfterUnit$inboundSchema,
+  amount: z.number().int(),
+});
+/** @internal */
+export type DocumentUpdateSendAfter1$Outbound = {
+  unit: string;
+  amount: number;
+};
+
+/** @internal */
+export const DocumentUpdateSendAfter1$outboundSchema: z.ZodType<
+  DocumentUpdateSendAfter1$Outbound,
+  z.ZodTypeDef,
+  DocumentUpdateSendAfter1
+> = z.object({
+  unit: DocumentUpdateSendAfterUnit$outboundSchema,
+  amount: z.number().int(),
+});
+
+export function documentUpdateSendAfter1ToJSON(
+  documentUpdateSendAfter1: DocumentUpdateSendAfter1,
+): string {
+  return JSON.stringify(
+    DocumentUpdateSendAfter1$outboundSchema.parse(documentUpdateSendAfter1),
+  );
+}
+export function documentUpdateSendAfter1FromJSON(
+  jsonString: string,
+): SafeParseResult<DocumentUpdateSendAfter1, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DocumentUpdateSendAfter1$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentUpdateSendAfter1' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentUpdateSendAfterUnion$inboundSchema: z.ZodType<
+  DocumentUpdateSendAfterUnion,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  z.lazy(() => DocumentUpdateSendAfter1$inboundSchema),
+  z.lazy(() => DocumentUpdateSendAfter2$inboundSchema),
+]);
+/** @internal */
+export type DocumentUpdateSendAfterUnion$Outbound =
+  | DocumentUpdateSendAfter1$Outbound
+  | DocumentUpdateSendAfter2$Outbound;
+
+/** @internal */
+export const DocumentUpdateSendAfterUnion$outboundSchema: z.ZodType<
+  DocumentUpdateSendAfterUnion$Outbound,
+  z.ZodTypeDef,
+  DocumentUpdateSendAfterUnion
+> = z.union([
+  z.lazy(() => DocumentUpdateSendAfter1$outboundSchema),
+  z.lazy(() => DocumentUpdateSendAfter2$outboundSchema),
+]);
+
+export function documentUpdateSendAfterUnionToJSON(
+  documentUpdateSendAfterUnion: DocumentUpdateSendAfterUnion,
+): string {
+  return JSON.stringify(
+    DocumentUpdateSendAfterUnion$outboundSchema.parse(
+      documentUpdateSendAfterUnion,
+    ),
+  );
+}
+export function documentUpdateSendAfterUnionFromJSON(
+  jsonString: string,
+): SafeParseResult<DocumentUpdateSendAfterUnion, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DocumentUpdateSendAfterUnion$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentUpdateSendAfterUnion' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentUpdateRepeatEvery2$inboundSchema: z.ZodType<
+  DocumentUpdateRepeatEvery2,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  disabled: z.literal(true),
+});
+/** @internal */
+export type DocumentUpdateRepeatEvery2$Outbound = {
+  disabled: true;
+};
+
+/** @internal */
+export const DocumentUpdateRepeatEvery2$outboundSchema: z.ZodType<
+  DocumentUpdateRepeatEvery2$Outbound,
+  z.ZodTypeDef,
+  DocumentUpdateRepeatEvery2
+> = z.object({
+  disabled: z.literal(true),
+});
+
+export function documentUpdateRepeatEvery2ToJSON(
+  documentUpdateRepeatEvery2: DocumentUpdateRepeatEvery2,
+): string {
+  return JSON.stringify(
+    DocumentUpdateRepeatEvery2$outboundSchema.parse(documentUpdateRepeatEvery2),
+  );
+}
+export function documentUpdateRepeatEvery2FromJSON(
+  jsonString: string,
+): SafeParseResult<DocumentUpdateRepeatEvery2, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DocumentUpdateRepeatEvery2$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentUpdateRepeatEvery2' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentUpdateRepeatEveryUnit$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentUpdateRepeatEveryUnit
+> = z.nativeEnum(DocumentUpdateRepeatEveryUnit);
+/** @internal */
+export const DocumentUpdateRepeatEveryUnit$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentUpdateRepeatEveryUnit
+> = DocumentUpdateRepeatEveryUnit$inboundSchema;
+
+/** @internal */
+export const DocumentUpdateRepeatEvery1$inboundSchema: z.ZodType<
+  DocumentUpdateRepeatEvery1,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  unit: DocumentUpdateRepeatEveryUnit$inboundSchema,
+  amount: z.number().int(),
+});
+/** @internal */
+export type DocumentUpdateRepeatEvery1$Outbound = {
+  unit: string;
+  amount: number;
+};
+
+/** @internal */
+export const DocumentUpdateRepeatEvery1$outboundSchema: z.ZodType<
+  DocumentUpdateRepeatEvery1$Outbound,
+  z.ZodTypeDef,
+  DocumentUpdateRepeatEvery1
+> = z.object({
+  unit: DocumentUpdateRepeatEveryUnit$outboundSchema,
+  amount: z.number().int(),
+});
+
+export function documentUpdateRepeatEvery1ToJSON(
+  documentUpdateRepeatEvery1: DocumentUpdateRepeatEvery1,
+): string {
+  return JSON.stringify(
+    DocumentUpdateRepeatEvery1$outboundSchema.parse(documentUpdateRepeatEvery1),
+  );
+}
+export function documentUpdateRepeatEvery1FromJSON(
+  jsonString: string,
+): SafeParseResult<DocumentUpdateRepeatEvery1, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DocumentUpdateRepeatEvery1$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentUpdateRepeatEvery1' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentUpdateRepeatEveryUnion$inboundSchema: z.ZodType<
+  DocumentUpdateRepeatEveryUnion,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  z.lazy(() => DocumentUpdateRepeatEvery1$inboundSchema),
+  z.lazy(() => DocumentUpdateRepeatEvery2$inboundSchema),
+]);
+/** @internal */
+export type DocumentUpdateRepeatEveryUnion$Outbound =
+  | DocumentUpdateRepeatEvery1$Outbound
+  | DocumentUpdateRepeatEvery2$Outbound;
+
+/** @internal */
+export const DocumentUpdateRepeatEveryUnion$outboundSchema: z.ZodType<
+  DocumentUpdateRepeatEveryUnion$Outbound,
+  z.ZodTypeDef,
+  DocumentUpdateRepeatEveryUnion
+> = z.union([
+  z.lazy(() => DocumentUpdateRepeatEvery1$outboundSchema),
+  z.lazy(() => DocumentUpdateRepeatEvery2$outboundSchema),
+]);
+
+export function documentUpdateRepeatEveryUnionToJSON(
+  documentUpdateRepeatEveryUnion: DocumentUpdateRepeatEveryUnion,
+): string {
+  return JSON.stringify(
+    DocumentUpdateRepeatEveryUnion$outboundSchema.parse(
+      documentUpdateRepeatEveryUnion,
+    ),
+  );
+}
+export function documentUpdateRepeatEveryUnionFromJSON(
+  jsonString: string,
+): SafeParseResult<DocumentUpdateRepeatEveryUnion, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DocumentUpdateRepeatEveryUnion$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentUpdateRepeatEveryUnion' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentUpdateReminderSettings$inboundSchema: z.ZodType<
+  DocumentUpdateReminderSettings,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  sendAfter: z.union([
+    z.lazy(() => DocumentUpdateSendAfter1$inboundSchema),
+    z.lazy(() => DocumentUpdateSendAfter2$inboundSchema),
+  ]),
+  repeatEvery: z.union([
+    z.lazy(() => DocumentUpdateRepeatEvery1$inboundSchema),
+    z.lazy(() => DocumentUpdateRepeatEvery2$inboundSchema),
+  ]),
+});
+/** @internal */
+export type DocumentUpdateReminderSettings$Outbound = {
+  sendAfter:
+    | DocumentUpdateSendAfter1$Outbound
+    | DocumentUpdateSendAfter2$Outbound;
+  repeatEvery:
+    | DocumentUpdateRepeatEvery1$Outbound
+    | DocumentUpdateRepeatEvery2$Outbound;
+};
+
+/** @internal */
+export const DocumentUpdateReminderSettings$outboundSchema: z.ZodType<
+  DocumentUpdateReminderSettings$Outbound,
+  z.ZodTypeDef,
+  DocumentUpdateReminderSettings
+> = z.object({
+  sendAfter: z.union([
+    z.lazy(() => DocumentUpdateSendAfter1$outboundSchema),
+    z.lazy(() => DocumentUpdateSendAfter2$outboundSchema),
+  ]),
+  repeatEvery: z.union([
+    z.lazy(() => DocumentUpdateRepeatEvery1$outboundSchema),
+    z.lazy(() => DocumentUpdateRepeatEvery2$outboundSchema),
+  ]),
+});
+
+export function documentUpdateReminderSettingsToJSON(
+  documentUpdateReminderSettings: DocumentUpdateReminderSettings,
+): string {
+  return JSON.stringify(
+    DocumentUpdateReminderSettings$outboundSchema.parse(
+      documentUpdateReminderSettings,
+    ),
+  );
+}
+export function documentUpdateReminderSettingsFromJSON(
+  jsonString: string,
+): SafeParseResult<DocumentUpdateReminderSettings, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DocumentUpdateReminderSettings$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentUpdateReminderSettings' from JSON`,
+  );
+}
+
+/** @internal */
 export const DocumentUpdateMeta$inboundSchema: z.ZodType<
   DocumentUpdateMeta,
   z.ZodTypeDef,
@@ -619,6 +1004,9 @@ export const DocumentUpdateMeta$inboundSchema: z.ZodType<
       z.lazy(() => DocumentUpdateEnvelopeExpirationPeriod2$inboundSchema),
     ]),
   ).optional(),
+  reminderSettings: z.nullable(
+    z.lazy(() => DocumentUpdateReminderSettings$inboundSchema),
+  ).optional(),
 });
 /** @internal */
 export type DocumentUpdateMeta$Outbound = {
@@ -642,6 +1030,7 @@ export type DocumentUpdateMeta$Outbound = {
     | DocumentUpdateEnvelopeExpirationPeriod2$Outbound
     | null
     | undefined;
+  reminderSettings?: DocumentUpdateReminderSettings$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -673,6 +1062,9 @@ export const DocumentUpdateMeta$outboundSchema: z.ZodType<
       z.lazy(() => DocumentUpdateEnvelopeExpirationPeriod1$outboundSchema),
       z.lazy(() => DocumentUpdateEnvelopeExpirationPeriod2$outboundSchema),
     ]),
+  ).optional(),
+  reminderSettings: z.nullable(
+    z.lazy(() => DocumentUpdateReminderSettings$outboundSchema),
   ).optional(),
 });
 

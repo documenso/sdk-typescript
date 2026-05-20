@@ -7,7 +7,7 @@ import { TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2 } f
 
 let value: TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2 =
   {
-    disabled: false,
+    disabled: true,
   };
 ```
 
@@ -15,4 +15,4 @@ let value: TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2 =
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `disabled`         | *boolean*          | :heavy_check_mark: | N/A                |
+| `disabled`         | *true*             | :heavy_check_mark: | N/A                |

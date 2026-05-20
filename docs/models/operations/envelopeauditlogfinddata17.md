@@ -6,22 +6,18 @@
 import { EnvelopeAuditLogFindData17 } from "@documenso/sdk-typescript/models/operations";
 
 let value: EnvelopeAuditLogFindData17 = {
-  recipientEmail: "<value>",
-  recipientName: "<value>",
-  recipientId: 3302.37,
-  recipientRole: "<value>",
-  accessAuth: [
-    "TWO_FACTOR_AUTH",
+  from: [
+    "<value 1>",
+    "<value 2>",
+    "<value 3>",
   ],
+  to: "<value>",
 };
 ```
 
 ## Fields
 
-| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `recipientEmail`                                                                                           | *string*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
-| `recipientName`                                                                                            | *string*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
-| `recipientId`                                                                                              | *number*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
-| `recipientRole`                                                                                            | *string*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
-| `accessAuth`                                                                                               | [operations.EnvelopeAuditLogFindAccessAuth1](../../models/operations/envelopeauditlogfindaccessauth1.md)[] | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| Field                   | Type                    | Required                | Description             |
+| ----------------------- | ----------------------- | ----------------------- | ----------------------- |
+| `from`                  | *operations.FromUnion3* | :heavy_check_mark:      | N/A                     |
+| `to`                    | *operations.ToUnion3*   | :heavy_check_mark:      | N/A                     |

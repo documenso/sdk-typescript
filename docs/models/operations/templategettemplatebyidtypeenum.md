@@ -5,11 +5,11 @@
 ```typescript
 import { TemplateGetTemplateByIdTypeEnum } from "@documenso/sdk-typescript/models/operations";
 
-let value: TemplateGetTemplateByIdTypeEnum = "PUBLIC";
+let value: TemplateGetTemplateByIdTypeEnum = "PRIVATE";
 ```
 
 ## Values
 
 ```typescript
-"PUBLIC" | "PRIVATE"
+"PUBLIC" | "PRIVATE" | "ORGANISATION"
 ```

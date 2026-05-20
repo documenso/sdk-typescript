@@ -21,6 +21,7 @@ let value: EnvelopeGetManyField = {
   inserted: true,
   fieldMeta: {
     fontSize: 12,
+    overflow: "auto",
     type: "signature",
   },
 };

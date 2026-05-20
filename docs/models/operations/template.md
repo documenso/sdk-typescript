@@ -6,7 +6,7 @@
 import { Template } from "@documenso/sdk-typescript/models/operations";
 
 let value: Template = {
-  type: "PUBLIC",
+  type: "PRIVATE",
   visibility: "EVERYONE",
   id: 284.99,
   externalId: "<id>",

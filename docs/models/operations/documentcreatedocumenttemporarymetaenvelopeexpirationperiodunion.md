@@ -18,7 +18,7 @@ const value:
 ```typescript
 const value:
   operations.DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2 = {
-    disabled: false,
+    disabled: true,
   };
 ```
 

@@ -89,6 +89,16 @@ export type RecipientGetDocumentRecipientTypeEnum = ClosedEnum<
   typeof RecipientGetDocumentRecipientTypeEnum
 >;
 
+export const RecipientGetDocumentRecipientOverflow10 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type RecipientGetDocumentRecipientOverflow10 = ClosedEnum<
+  typeof RecipientGetDocumentRecipientOverflow10
+>;
+
 export type RecipientGetDocumentRecipientValue3 = {
   value: string;
 };
@@ -99,10 +109,21 @@ export type RecipientGetDocumentRecipientFieldMetaDropdown = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: RecipientGetDocumentRecipientOverflow10 | undefined;
   type: "dropdown";
   values?: Array<RecipientGetDocumentRecipientValue3> | undefined;
   defaultValue?: string | undefined;
 };
+
+export const RecipientGetDocumentRecipientOverflow9 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type RecipientGetDocumentRecipientOverflow9 = ClosedEnum<
+  typeof RecipientGetDocumentRecipientOverflow9
+>;
 
 export type RecipientGetDocumentRecipientValue2 = {
   id: number;
@@ -124,12 +145,23 @@ export type RecipientGetDocumentRecipientFieldMetaCheckbox = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: RecipientGetDocumentRecipientOverflow9 | undefined;
   type: "checkbox";
   values?: Array<RecipientGetDocumentRecipientValue2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
   direction?: RecipientGetDocumentRecipientDirection2 | undefined;
 };
+
+export const RecipientGetDocumentRecipientOverflow8 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type RecipientGetDocumentRecipientOverflow8 = ClosedEnum<
+  typeof RecipientGetDocumentRecipientOverflow8
+>;
 
 export type RecipientGetDocumentRecipientValue1 = {
   id: number;
@@ -151,10 +183,21 @@ export type RecipientGetDocumentRecipientFieldMetaRadio = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: RecipientGetDocumentRecipientOverflow8 | undefined;
   type: "radio";
   values?: Array<RecipientGetDocumentRecipientValue1> | undefined;
   direction?: RecipientGetDocumentRecipientDirection1 | undefined;
 };
+
+export const RecipientGetDocumentRecipientOverflow7 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type RecipientGetDocumentRecipientOverflow7 = ClosedEnum<
+  typeof RecipientGetDocumentRecipientOverflow7
+>;
 
 export const RecipientGetDocumentRecipientTextAlign6 = {
   Left: "left",
@@ -180,6 +223,7 @@ export type RecipientGetDocumentRecipientFieldMetaNumber = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: RecipientGetDocumentRecipientOverflow7 | undefined;
   type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
@@ -193,6 +237,16 @@ export type RecipientGetDocumentRecipientFieldMetaNumber = {
     | null
     | undefined;
 };
+
+export const RecipientGetDocumentRecipientOverflow6 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type RecipientGetDocumentRecipientOverflow6 = ClosedEnum<
+  typeof RecipientGetDocumentRecipientOverflow6
+>;
 
 export const RecipientGetDocumentRecipientTextAlign5 = {
   Left: "left",
@@ -218,6 +272,7 @@ export type RecipientGetDocumentRecipientFieldMetaText = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: RecipientGetDocumentRecipientOverflow6 | undefined;
   type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
@@ -229,6 +284,16 @@ export type RecipientGetDocumentRecipientFieldMetaText = {
     | null
     | undefined;
 };
+
+export const RecipientGetDocumentRecipientOverflow5 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type RecipientGetDocumentRecipientOverflow5 = ClosedEnum<
+  typeof RecipientGetDocumentRecipientOverflow5
+>;
 
 export const RecipientGetDocumentRecipientTextAlign4 = {
   Left: "left",
@@ -245,9 +310,20 @@ export type RecipientGetDocumentRecipientFieldMetaDate = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: RecipientGetDocumentRecipientOverflow5 | undefined;
   type: "date";
   textAlign?: RecipientGetDocumentRecipientTextAlign4 | undefined;
 };
+
+export const RecipientGetDocumentRecipientOverflow4 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type RecipientGetDocumentRecipientOverflow4 = ClosedEnum<
+  typeof RecipientGetDocumentRecipientOverflow4
+>;
 
 export const RecipientGetDocumentRecipientTextAlign3 = {
   Left: "left",
@@ -264,9 +340,20 @@ export type RecipientGetDocumentRecipientFieldMetaEmail = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: RecipientGetDocumentRecipientOverflow4 | undefined;
   type: "email";
   textAlign?: RecipientGetDocumentRecipientTextAlign3 | undefined;
 };
+
+export const RecipientGetDocumentRecipientOverflow3 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type RecipientGetDocumentRecipientOverflow3 = ClosedEnum<
+  typeof RecipientGetDocumentRecipientOverflow3
+>;
 
 export const RecipientGetDocumentRecipientTextAlign2 = {
   Left: "left",
@@ -283,9 +370,20 @@ export type RecipientGetDocumentRecipientFieldMetaName = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: RecipientGetDocumentRecipientOverflow3 | undefined;
   type: "name";
   textAlign?: RecipientGetDocumentRecipientTextAlign2 | undefined;
 };
+
+export const RecipientGetDocumentRecipientOverflow2 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type RecipientGetDocumentRecipientOverflow2 = ClosedEnum<
+  typeof RecipientGetDocumentRecipientOverflow2
+>;
 
 export const RecipientGetDocumentRecipientTextAlign1 = {
   Left: "left",
@@ -302,9 +400,20 @@ export type RecipientGetDocumentRecipientFieldMetaInitials = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: RecipientGetDocumentRecipientOverflow2 | undefined;
   type: "initials";
   textAlign?: RecipientGetDocumentRecipientTextAlign1 | undefined;
 };
+
+export const RecipientGetDocumentRecipientOverflow1 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type RecipientGetDocumentRecipientOverflow1 = ClosedEnum<
+  typeof RecipientGetDocumentRecipientOverflow1
+>;
 
 export type RecipientGetDocumentRecipientFieldMetaSignature = {
   label?: string | undefined;
@@ -312,6 +421,7 @@ export type RecipientGetDocumentRecipientFieldMetaSignature = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: RecipientGetDocumentRecipientOverflow1 | undefined;
   type: "signature";
 };
 
@@ -541,6 +651,15 @@ export const RecipientGetDocumentRecipientTypeEnum$outboundSchema:
     RecipientGetDocumentRecipientTypeEnum$inboundSchema;
 
 /** @internal */
+export const RecipientGetDocumentRecipientOverflow10$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientGetDocumentRecipientOverflow10> = z
+    .nativeEnum(RecipientGetDocumentRecipientOverflow10);
+/** @internal */
+export const RecipientGetDocumentRecipientOverflow10$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientGetDocumentRecipientOverflow10> =
+    RecipientGetDocumentRecipientOverflow10$inboundSchema;
+
+/** @internal */
 export const RecipientGetDocumentRecipientValue3$inboundSchema: z.ZodType<
   RecipientGetDocumentRecipientValue3,
   z.ZodTypeDef,
@@ -594,6 +713,7 @@ export const RecipientGetDocumentRecipientFieldMetaDropdown$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: RecipientGetDocumentRecipientOverflow10$inboundSchema.optional(),
     type: z.literal("dropdown"),
     values: z.array(
       z.lazy(() => RecipientGetDocumentRecipientValue3$inboundSchema),
@@ -607,6 +727,7 @@ export type RecipientGetDocumentRecipientFieldMetaDropdown$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "dropdown";
   values?: Array<RecipientGetDocumentRecipientValue3$Outbound> | undefined;
   defaultValue?: string | undefined;
@@ -624,6 +745,7 @@ export const RecipientGetDocumentRecipientFieldMetaDropdown$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: RecipientGetDocumentRecipientOverflow10$outboundSchema.optional(),
     type: z.literal("dropdown"),
     values: z.array(
       z.lazy(() => RecipientGetDocumentRecipientValue3$outboundSchema),
@@ -656,6 +778,16 @@ export function recipientGetDocumentRecipientFieldMetaDropdownFromJSON(
     `Failed to parse 'RecipientGetDocumentRecipientFieldMetaDropdown' from JSON`,
   );
 }
+
+/** @internal */
+export const RecipientGetDocumentRecipientOverflow9$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientGetDocumentRecipientOverflow9> = z.nativeEnum(
+    RecipientGetDocumentRecipientOverflow9,
+  );
+/** @internal */
+export const RecipientGetDocumentRecipientOverflow9$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientGetDocumentRecipientOverflow9> =
+    RecipientGetDocumentRecipientOverflow9$inboundSchema;
 
 /** @internal */
 export const RecipientGetDocumentRecipientValue2$inboundSchema: z.ZodType<
@@ -726,6 +858,7 @@ export const RecipientGetDocumentRecipientFieldMetaCheckbox$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: RecipientGetDocumentRecipientOverflow9$inboundSchema.optional(),
     type: z.literal("checkbox"),
     values: z.array(
       z.lazy(() => RecipientGetDocumentRecipientValue2$inboundSchema),
@@ -743,6 +876,7 @@ export type RecipientGetDocumentRecipientFieldMetaCheckbox$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "checkbox";
   values?: Array<RecipientGetDocumentRecipientValue2$Outbound> | undefined;
   validationRule?: string | undefined;
@@ -762,6 +896,7 @@ export const RecipientGetDocumentRecipientFieldMetaCheckbox$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: RecipientGetDocumentRecipientOverflow9$outboundSchema.optional(),
     type: z.literal("checkbox"),
     values: z.array(
       z.lazy(() => RecipientGetDocumentRecipientValue2$outboundSchema),
@@ -798,6 +933,16 @@ export function recipientGetDocumentRecipientFieldMetaCheckboxFromJSON(
     `Failed to parse 'RecipientGetDocumentRecipientFieldMetaCheckbox' from JSON`,
   );
 }
+
+/** @internal */
+export const RecipientGetDocumentRecipientOverflow8$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientGetDocumentRecipientOverflow8> = z.nativeEnum(
+    RecipientGetDocumentRecipientOverflow8,
+  );
+/** @internal */
+export const RecipientGetDocumentRecipientOverflow8$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientGetDocumentRecipientOverflow8> =
+    RecipientGetDocumentRecipientOverflow8$inboundSchema;
 
 /** @internal */
 export const RecipientGetDocumentRecipientValue1$inboundSchema: z.ZodType<
@@ -868,6 +1013,7 @@ export const RecipientGetDocumentRecipientFieldMetaRadio$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: RecipientGetDocumentRecipientOverflow8$inboundSchema.optional(),
     type: z.literal("radio"),
     values: z.array(
       z.lazy(() => RecipientGetDocumentRecipientValue1$inboundSchema),
@@ -883,6 +1029,7 @@ export type RecipientGetDocumentRecipientFieldMetaRadio$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "radio";
   values?: Array<RecipientGetDocumentRecipientValue1$Outbound> | undefined;
   direction: string;
@@ -900,6 +1047,7 @@ export const RecipientGetDocumentRecipientFieldMetaRadio$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: RecipientGetDocumentRecipientOverflow8$outboundSchema.optional(),
     type: z.literal("radio"),
     values: z.array(
       z.lazy(() => RecipientGetDocumentRecipientValue1$outboundSchema),
@@ -936,6 +1084,16 @@ export function recipientGetDocumentRecipientFieldMetaRadioFromJSON(
 }
 
 /** @internal */
+export const RecipientGetDocumentRecipientOverflow7$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientGetDocumentRecipientOverflow7> = z.nativeEnum(
+    RecipientGetDocumentRecipientOverflow7,
+  );
+/** @internal */
+export const RecipientGetDocumentRecipientOverflow7$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientGetDocumentRecipientOverflow7> =
+    RecipientGetDocumentRecipientOverflow7$inboundSchema;
+
+/** @internal */
 export const RecipientGetDocumentRecipientTextAlign6$inboundSchema:
   z.ZodNativeEnum<typeof RecipientGetDocumentRecipientTextAlign6> = z
     .nativeEnum(RecipientGetDocumentRecipientTextAlign6);
@@ -965,6 +1123,7 @@ export const RecipientGetDocumentRecipientFieldMetaNumber$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: RecipientGetDocumentRecipientOverflow7$inboundSchema.optional(),
     type: z.literal("number"),
     numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
@@ -984,6 +1143,7 @@ export type RecipientGetDocumentRecipientFieldMetaNumber$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
@@ -1007,6 +1167,7 @@ export const RecipientGetDocumentRecipientFieldMetaNumber$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: RecipientGetDocumentRecipientOverflow7$outboundSchema.optional(),
     type: z.literal("number"),
     numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
@@ -1048,6 +1209,16 @@ export function recipientGetDocumentRecipientFieldMetaNumberFromJSON(
 }
 
 /** @internal */
+export const RecipientGetDocumentRecipientOverflow6$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientGetDocumentRecipientOverflow6> = z.nativeEnum(
+    RecipientGetDocumentRecipientOverflow6,
+  );
+/** @internal */
+export const RecipientGetDocumentRecipientOverflow6$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientGetDocumentRecipientOverflow6> =
+    RecipientGetDocumentRecipientOverflow6$inboundSchema;
+
+/** @internal */
 export const RecipientGetDocumentRecipientTextAlign5$inboundSchema:
   z.ZodNativeEnum<typeof RecipientGetDocumentRecipientTextAlign5> = z
     .nativeEnum(RecipientGetDocumentRecipientTextAlign5);
@@ -1074,6 +1245,7 @@ export const RecipientGetDocumentRecipientFieldMetaText$inboundSchema:
       required: z.boolean().optional(),
       readOnly: z.boolean().optional(),
       fontSize: z.number().default(12),
+      overflow: RecipientGetDocumentRecipientOverflow6$inboundSchema.optional(),
       type: z.literal("text"),
       text: z.string().optional(),
       characterLimit: z.number().optional(),
@@ -1092,6 +1264,7 @@ export type RecipientGetDocumentRecipientFieldMetaText$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
@@ -1113,6 +1286,7 @@ export const RecipientGetDocumentRecipientFieldMetaText$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: RecipientGetDocumentRecipientOverflow6$outboundSchema.optional(),
     type: z.literal("text"),
     text: z.string().optional(),
     characterLimit: z.number().optional(),
@@ -1152,6 +1326,16 @@ export function recipientGetDocumentRecipientFieldMetaTextFromJSON(
 }
 
 /** @internal */
+export const RecipientGetDocumentRecipientOverflow5$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientGetDocumentRecipientOverflow5> = z.nativeEnum(
+    RecipientGetDocumentRecipientOverflow5,
+  );
+/** @internal */
+export const RecipientGetDocumentRecipientOverflow5$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientGetDocumentRecipientOverflow5> =
+    RecipientGetDocumentRecipientOverflow5$inboundSchema;
+
+/** @internal */
 export const RecipientGetDocumentRecipientTextAlign4$inboundSchema:
   z.ZodNativeEnum<typeof RecipientGetDocumentRecipientTextAlign4> = z
     .nativeEnum(RecipientGetDocumentRecipientTextAlign4);
@@ -1169,6 +1353,9 @@ export const RecipientGetDocumentRecipientFieldMetaDate$inboundSchema:
       required: z.boolean().optional(),
       readOnly: z.boolean().optional(),
       fontSize: z.number().default(12),
+      overflow: RecipientGetDocumentRecipientOverflow5$inboundSchema.default(
+        "auto",
+      ),
       type: z.literal("date"),
       textAlign: RecipientGetDocumentRecipientTextAlign4$inboundSchema
         .optional(),
@@ -1180,6 +1367,7 @@ export type RecipientGetDocumentRecipientFieldMetaDate$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "date";
   textAlign?: string | undefined;
 };
@@ -1196,6 +1384,9 @@ export const RecipientGetDocumentRecipientFieldMetaDate$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: RecipientGetDocumentRecipientOverflow5$outboundSchema.default(
+      "auto",
+    ),
     type: z.literal("date"),
     textAlign: RecipientGetDocumentRecipientTextAlign4$outboundSchema
       .optional(),
@@ -1228,6 +1419,16 @@ export function recipientGetDocumentRecipientFieldMetaDateFromJSON(
 }
 
 /** @internal */
+export const RecipientGetDocumentRecipientOverflow4$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientGetDocumentRecipientOverflow4> = z.nativeEnum(
+    RecipientGetDocumentRecipientOverflow4,
+  );
+/** @internal */
+export const RecipientGetDocumentRecipientOverflow4$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientGetDocumentRecipientOverflow4> =
+    RecipientGetDocumentRecipientOverflow4$inboundSchema;
+
+/** @internal */
 export const RecipientGetDocumentRecipientTextAlign3$inboundSchema:
   z.ZodNativeEnum<typeof RecipientGetDocumentRecipientTextAlign3> = z
     .nativeEnum(RecipientGetDocumentRecipientTextAlign3);
@@ -1248,6 +1449,9 @@ export const RecipientGetDocumentRecipientFieldMetaEmail$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: RecipientGetDocumentRecipientOverflow4$inboundSchema.default(
+      "auto",
+    ),
     type: z.literal("email"),
     textAlign: RecipientGetDocumentRecipientTextAlign3$inboundSchema.optional(),
   });
@@ -1258,6 +1462,7 @@ export type RecipientGetDocumentRecipientFieldMetaEmail$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "email";
   textAlign?: string | undefined;
 };
@@ -1274,6 +1479,9 @@ export const RecipientGetDocumentRecipientFieldMetaEmail$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: RecipientGetDocumentRecipientOverflow4$outboundSchema.default(
+      "auto",
+    ),
     type: z.literal("email"),
     textAlign: RecipientGetDocumentRecipientTextAlign3$outboundSchema
       .optional(),
@@ -1306,6 +1514,16 @@ export function recipientGetDocumentRecipientFieldMetaEmailFromJSON(
 }
 
 /** @internal */
+export const RecipientGetDocumentRecipientOverflow3$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientGetDocumentRecipientOverflow3> = z.nativeEnum(
+    RecipientGetDocumentRecipientOverflow3,
+  );
+/** @internal */
+export const RecipientGetDocumentRecipientOverflow3$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientGetDocumentRecipientOverflow3> =
+    RecipientGetDocumentRecipientOverflow3$inboundSchema;
+
+/** @internal */
 export const RecipientGetDocumentRecipientTextAlign2$inboundSchema:
   z.ZodNativeEnum<typeof RecipientGetDocumentRecipientTextAlign2> = z
     .nativeEnum(RecipientGetDocumentRecipientTextAlign2);
@@ -1323,6 +1541,7 @@ export const RecipientGetDocumentRecipientFieldMetaName$inboundSchema:
       required: z.boolean().optional(),
       readOnly: z.boolean().optional(),
       fontSize: z.number().default(12),
+      overflow: RecipientGetDocumentRecipientOverflow3$inboundSchema.optional(),
       type: z.literal("name"),
       textAlign: RecipientGetDocumentRecipientTextAlign2$inboundSchema
         .optional(),
@@ -1334,6 +1553,7 @@ export type RecipientGetDocumentRecipientFieldMetaName$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "name";
   textAlign?: string | undefined;
 };
@@ -1350,6 +1570,7 @@ export const RecipientGetDocumentRecipientFieldMetaName$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: RecipientGetDocumentRecipientOverflow3$outboundSchema.optional(),
     type: z.literal("name"),
     textAlign: RecipientGetDocumentRecipientTextAlign2$outboundSchema
       .optional(),
@@ -1382,6 +1603,16 @@ export function recipientGetDocumentRecipientFieldMetaNameFromJSON(
 }
 
 /** @internal */
+export const RecipientGetDocumentRecipientOverflow2$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientGetDocumentRecipientOverflow2> = z.nativeEnum(
+    RecipientGetDocumentRecipientOverflow2,
+  );
+/** @internal */
+export const RecipientGetDocumentRecipientOverflow2$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientGetDocumentRecipientOverflow2> =
+    RecipientGetDocumentRecipientOverflow2$inboundSchema;
+
+/** @internal */
 export const RecipientGetDocumentRecipientTextAlign1$inboundSchema:
   z.ZodNativeEnum<typeof RecipientGetDocumentRecipientTextAlign1> = z
     .nativeEnum(RecipientGetDocumentRecipientTextAlign1);
@@ -1402,6 +1633,7 @@ export const RecipientGetDocumentRecipientFieldMetaInitials$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: RecipientGetDocumentRecipientOverflow2$inboundSchema.optional(),
     type: z.literal("initials"),
     textAlign: RecipientGetDocumentRecipientTextAlign1$inboundSchema.optional(),
   });
@@ -1412,6 +1644,7 @@ export type RecipientGetDocumentRecipientFieldMetaInitials$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
 };
@@ -1428,6 +1661,7 @@ export const RecipientGetDocumentRecipientFieldMetaInitials$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: RecipientGetDocumentRecipientOverflow2$outboundSchema.optional(),
     type: z.literal("initials"),
     textAlign: RecipientGetDocumentRecipientTextAlign1$outboundSchema
       .optional(),
@@ -1460,6 +1694,16 @@ export function recipientGetDocumentRecipientFieldMetaInitialsFromJSON(
 }
 
 /** @internal */
+export const RecipientGetDocumentRecipientOverflow1$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientGetDocumentRecipientOverflow1> = z.nativeEnum(
+    RecipientGetDocumentRecipientOverflow1,
+  );
+/** @internal */
+export const RecipientGetDocumentRecipientOverflow1$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientGetDocumentRecipientOverflow1> =
+    RecipientGetDocumentRecipientOverflow1$inboundSchema;
+
+/** @internal */
 export const RecipientGetDocumentRecipientFieldMetaSignature$inboundSchema:
   z.ZodType<
     RecipientGetDocumentRecipientFieldMetaSignature,
@@ -1471,6 +1715,9 @@ export const RecipientGetDocumentRecipientFieldMetaSignature$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: RecipientGetDocumentRecipientOverflow1$inboundSchema.default(
+      "auto",
+    ),
     type: z.literal("signature"),
   });
 /** @internal */
@@ -1480,6 +1727,7 @@ export type RecipientGetDocumentRecipientFieldMetaSignature$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "signature";
 };
 
@@ -1495,6 +1743,9 @@ export const RecipientGetDocumentRecipientFieldMetaSignature$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: RecipientGetDocumentRecipientOverflow1$outboundSchema.default(
+      "auto",
+    ),
     type: z.literal("signature"),
   });
 

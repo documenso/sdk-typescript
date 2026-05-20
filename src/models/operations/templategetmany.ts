@@ -15,6 +15,7 @@ export type TemplateGetManyRequest = {
 export const TemplateGetManyTypeEnum = {
   Public: "PUBLIC",
   Private: "PRIVATE",
+  Organisation: "ORGANISATION",
 } as const;
 export type TemplateGetManyTypeEnum = ClosedEnum<
   typeof TemplateGetManyTypeEnum
@@ -55,6 +56,7 @@ export type TemplateGetManyAuthOptions = {
 export type TemplateGetManyTeam = {
   id: number;
   url: string;
+  name: string;
 };
 
 export const TemplateGetManyFieldTypeEnum = {
@@ -74,6 +76,16 @@ export type TemplateGetManyFieldTypeEnum = ClosedEnum<
   typeof TemplateGetManyFieldTypeEnum
 >;
 
+export const TemplateGetManyOverflow10 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateGetManyOverflow10 = ClosedEnum<
+  typeof TemplateGetManyOverflow10
+>;
+
 export type TemplateGetManyValue3 = {
   value: string;
 };
@@ -84,10 +96,21 @@ export type TemplateGetManyFieldMetaDropdown = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateGetManyOverflow10 | undefined;
   type: "dropdown";
   values?: Array<TemplateGetManyValue3> | undefined;
   defaultValue?: string | undefined;
 };
+
+export const TemplateGetManyOverflow9 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateGetManyOverflow9 = ClosedEnum<
+  typeof TemplateGetManyOverflow9
+>;
 
 export type TemplateGetManyValue2 = {
   id: number;
@@ -109,12 +132,23 @@ export type TemplateGetManyFieldMetaCheckbox = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateGetManyOverflow9 | undefined;
   type: "checkbox";
   values?: Array<TemplateGetManyValue2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
   direction?: TemplateGetManyDirection2 | undefined;
 };
+
+export const TemplateGetManyOverflow8 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateGetManyOverflow8 = ClosedEnum<
+  typeof TemplateGetManyOverflow8
+>;
 
 export type TemplateGetManyValue1 = {
   id: number;
@@ -136,10 +170,21 @@ export type TemplateGetManyFieldMetaRadio = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateGetManyOverflow8 | undefined;
   type: "radio";
   values?: Array<TemplateGetManyValue1> | undefined;
   direction?: TemplateGetManyDirection1 | undefined;
 };
+
+export const TemplateGetManyOverflow7 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateGetManyOverflow7 = ClosedEnum<
+  typeof TemplateGetManyOverflow7
+>;
 
 export const TemplateGetManyTextAlign6 = {
   Left: "left",
@@ -165,6 +210,7 @@ export type TemplateGetManyFieldMetaNumber = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateGetManyOverflow7 | undefined;
   type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
@@ -175,6 +221,16 @@ export type TemplateGetManyFieldMetaNumber = {
   letterSpacing?: number | null | undefined;
   verticalAlign?: TemplateGetManyVerticalAlign2 | null | undefined;
 };
+
+export const TemplateGetManyOverflow6 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateGetManyOverflow6 = ClosedEnum<
+  typeof TemplateGetManyOverflow6
+>;
 
 export const TemplateGetManyTextAlign5 = {
   Left: "left",
@@ -200,6 +256,7 @@ export type TemplateGetManyFieldMetaText = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateGetManyOverflow6 | undefined;
   type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
@@ -208,6 +265,16 @@ export type TemplateGetManyFieldMetaText = {
   letterSpacing?: number | null | undefined;
   verticalAlign?: TemplateGetManyVerticalAlign1 | null | undefined;
 };
+
+export const TemplateGetManyOverflow5 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateGetManyOverflow5 = ClosedEnum<
+  typeof TemplateGetManyOverflow5
+>;
 
 export const TemplateGetManyTextAlign4 = {
   Left: "left",
@@ -224,9 +291,20 @@ export type TemplateGetManyFieldMetaDate = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateGetManyOverflow5 | undefined;
   type: "date";
   textAlign?: TemplateGetManyTextAlign4 | undefined;
 };
+
+export const TemplateGetManyOverflow4 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateGetManyOverflow4 = ClosedEnum<
+  typeof TemplateGetManyOverflow4
+>;
 
 export const TemplateGetManyTextAlign3 = {
   Left: "left",
@@ -243,9 +321,20 @@ export type TemplateGetManyFieldMetaEmail = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateGetManyOverflow4 | undefined;
   type: "email";
   textAlign?: TemplateGetManyTextAlign3 | undefined;
 };
+
+export const TemplateGetManyOverflow3 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateGetManyOverflow3 = ClosedEnum<
+  typeof TemplateGetManyOverflow3
+>;
 
 export const TemplateGetManyTextAlign2 = {
   Left: "left",
@@ -262,9 +351,20 @@ export type TemplateGetManyFieldMetaName = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateGetManyOverflow3 | undefined;
   type: "name";
   textAlign?: TemplateGetManyTextAlign2 | undefined;
 };
+
+export const TemplateGetManyOverflow2 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateGetManyOverflow2 = ClosedEnum<
+  typeof TemplateGetManyOverflow2
+>;
 
 export const TemplateGetManyTextAlign1 = {
   Left: "left",
@@ -281,9 +381,20 @@ export type TemplateGetManyFieldMetaInitials = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateGetManyOverflow2 | undefined;
   type: "initials";
   textAlign?: TemplateGetManyTextAlign1 | undefined;
 };
+
+export const TemplateGetManyOverflow1 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateGetManyOverflow1 = ClosedEnum<
+  typeof TemplateGetManyOverflow1
+>;
 
 export type TemplateGetManyFieldMetaSignature = {
   label?: string | undefined;
@@ -291,6 +402,7 @@ export type TemplateGetManyFieldMetaSignature = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateGetManyOverflow1 | undefined;
   type: "signature";
 };
 
@@ -598,11 +710,13 @@ export const TemplateGetManyTeam$inboundSchema: z.ZodType<
 > = z.object({
   id: z.number(),
   url: z.string(),
+  name: z.string(),
 });
 /** @internal */
 export type TemplateGetManyTeam$Outbound = {
   id: number;
   url: string;
+  name: string;
 };
 
 /** @internal */
@@ -613,6 +727,7 @@ export const TemplateGetManyTeam$outboundSchema: z.ZodType<
 > = z.object({
   id: z.number(),
   url: z.string(),
+  name: z.string(),
 });
 
 export function templateGetManyTeamToJSON(
@@ -640,6 +755,15 @@ export const TemplateGetManyFieldTypeEnum$inboundSchema: z.ZodNativeEnum<
 export const TemplateGetManyFieldTypeEnum$outboundSchema: z.ZodNativeEnum<
   typeof TemplateGetManyFieldTypeEnum
 > = TemplateGetManyFieldTypeEnum$inboundSchema;
+
+/** @internal */
+export const TemplateGetManyOverflow10$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetManyOverflow10
+> = z.nativeEnum(TemplateGetManyOverflow10);
+/** @internal */
+export const TemplateGetManyOverflow10$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetManyOverflow10
+> = TemplateGetManyOverflow10$inboundSchema;
 
 /** @internal */
 export const TemplateGetManyValue3$inboundSchema: z.ZodType<
@@ -691,6 +815,7 @@ export const TemplateGetManyFieldMetaDropdown$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetManyOverflow10$inboundSchema.optional(),
   type: z.literal("dropdown"),
   values: z.array(z.lazy(() => TemplateGetManyValue3$inboundSchema)).optional(),
   defaultValue: z.string().optional(),
@@ -702,6 +827,7 @@ export type TemplateGetManyFieldMetaDropdown$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "dropdown";
   values?: Array<TemplateGetManyValue3$Outbound> | undefined;
   defaultValue?: string | undefined;
@@ -718,6 +844,7 @@ export const TemplateGetManyFieldMetaDropdown$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetManyOverflow10$outboundSchema.optional(),
   type: z.literal("dropdown"),
   values: z.array(z.lazy(() => TemplateGetManyValue3$outboundSchema))
     .optional(),
@@ -742,6 +869,15 @@ export function templateGetManyFieldMetaDropdownFromJSON(
     `Failed to parse 'TemplateGetManyFieldMetaDropdown' from JSON`,
   );
 }
+
+/** @internal */
+export const TemplateGetManyOverflow9$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetManyOverflow9
+> = z.nativeEnum(TemplateGetManyOverflow9);
+/** @internal */
+export const TemplateGetManyOverflow9$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetManyOverflow9
+> = TemplateGetManyOverflow9$inboundSchema;
 
 /** @internal */
 export const TemplateGetManyValue2$inboundSchema: z.ZodType<
@@ -808,6 +944,7 @@ export const TemplateGetManyFieldMetaCheckbox$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetManyOverflow9$inboundSchema.optional(),
   type: z.literal("checkbox"),
   values: z.array(z.lazy(() => TemplateGetManyValue2$inboundSchema)).optional(),
   validationRule: z.string().optional(),
@@ -821,6 +958,7 @@ export type TemplateGetManyFieldMetaCheckbox$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "checkbox";
   values?: Array<TemplateGetManyValue2$Outbound> | undefined;
   validationRule?: string | undefined;
@@ -839,6 +977,7 @@ export const TemplateGetManyFieldMetaCheckbox$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetManyOverflow9$outboundSchema.optional(),
   type: z.literal("checkbox"),
   values: z.array(z.lazy(() => TemplateGetManyValue2$outboundSchema))
     .optional(),
@@ -865,6 +1004,15 @@ export function templateGetManyFieldMetaCheckboxFromJSON(
     `Failed to parse 'TemplateGetManyFieldMetaCheckbox' from JSON`,
   );
 }
+
+/** @internal */
+export const TemplateGetManyOverflow8$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetManyOverflow8
+> = z.nativeEnum(TemplateGetManyOverflow8);
+/** @internal */
+export const TemplateGetManyOverflow8$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetManyOverflow8
+> = TemplateGetManyOverflow8$inboundSchema;
 
 /** @internal */
 export const TemplateGetManyValue1$inboundSchema: z.ZodType<
@@ -931,6 +1079,7 @@ export const TemplateGetManyFieldMetaRadio$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetManyOverflow8$inboundSchema.optional(),
   type: z.literal("radio"),
   values: z.array(z.lazy(() => TemplateGetManyValue1$inboundSchema)).optional(),
   direction: TemplateGetManyDirection1$inboundSchema.default("vertical"),
@@ -942,6 +1091,7 @@ export type TemplateGetManyFieldMetaRadio$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "radio";
   values?: Array<TemplateGetManyValue1$Outbound> | undefined;
   direction: string;
@@ -958,6 +1108,7 @@ export const TemplateGetManyFieldMetaRadio$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetManyOverflow8$outboundSchema.optional(),
   type: z.literal("radio"),
   values: z.array(z.lazy(() => TemplateGetManyValue1$outboundSchema))
     .optional(),
@@ -982,6 +1133,15 @@ export function templateGetManyFieldMetaRadioFromJSON(
     `Failed to parse 'TemplateGetManyFieldMetaRadio' from JSON`,
   );
 }
+
+/** @internal */
+export const TemplateGetManyOverflow7$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetManyOverflow7
+> = z.nativeEnum(TemplateGetManyOverflow7);
+/** @internal */
+export const TemplateGetManyOverflow7$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetManyOverflow7
+> = TemplateGetManyOverflow7$inboundSchema;
 
 /** @internal */
 export const TemplateGetManyTextAlign6$inboundSchema: z.ZodNativeEnum<
@@ -1012,6 +1172,7 @@ export const TemplateGetManyFieldMetaNumber$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetManyOverflow7$inboundSchema.optional(),
   type: z.literal("number"),
   numberFormat: z.nullable(z.string()).optional(),
   value: z.string().optional(),
@@ -1030,6 +1191,7 @@ export type TemplateGetManyFieldMetaNumber$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
@@ -1052,6 +1214,7 @@ export const TemplateGetManyFieldMetaNumber$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetManyOverflow7$outboundSchema.optional(),
   type: z.literal("number"),
   numberFormat: z.nullable(z.string()).optional(),
   value: z.string().optional(),
@@ -1084,6 +1247,15 @@ export function templateGetManyFieldMetaNumberFromJSON(
 }
 
 /** @internal */
+export const TemplateGetManyOverflow6$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetManyOverflow6
+> = z.nativeEnum(TemplateGetManyOverflow6);
+/** @internal */
+export const TemplateGetManyOverflow6$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetManyOverflow6
+> = TemplateGetManyOverflow6$inboundSchema;
+
+/** @internal */
 export const TemplateGetManyTextAlign5$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetManyTextAlign5
 > = z.nativeEnum(TemplateGetManyTextAlign5);
@@ -1112,6 +1284,7 @@ export const TemplateGetManyFieldMetaText$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetManyOverflow6$inboundSchema.optional(),
   type: z.literal("text"),
   text: z.string().optional(),
   characterLimit: z.number().optional(),
@@ -1128,6 +1301,7 @@ export type TemplateGetManyFieldMetaText$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
@@ -1148,6 +1322,7 @@ export const TemplateGetManyFieldMetaText$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetManyOverflow6$outboundSchema.optional(),
   type: z.literal("text"),
   text: z.string().optional(),
   characterLimit: z.number().optional(),
@@ -1178,6 +1353,15 @@ export function templateGetManyFieldMetaTextFromJSON(
 }
 
 /** @internal */
+export const TemplateGetManyOverflow5$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetManyOverflow5
+> = z.nativeEnum(TemplateGetManyOverflow5);
+/** @internal */
+export const TemplateGetManyOverflow5$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetManyOverflow5
+> = TemplateGetManyOverflow5$inboundSchema;
+
+/** @internal */
 export const TemplateGetManyTextAlign4$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetManyTextAlign4
 > = z.nativeEnum(TemplateGetManyTextAlign4);
@@ -1197,6 +1381,7 @@ export const TemplateGetManyFieldMetaDate$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetManyOverflow5$inboundSchema.default("auto"),
   type: z.literal("date"),
   textAlign: TemplateGetManyTextAlign4$inboundSchema.optional(),
 });
@@ -1207,6 +1392,7 @@ export type TemplateGetManyFieldMetaDate$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "date";
   textAlign?: string | undefined;
 };
@@ -1222,6 +1408,7 @@ export const TemplateGetManyFieldMetaDate$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetManyOverflow5$outboundSchema.default("auto"),
   type: z.literal("date"),
   textAlign: TemplateGetManyTextAlign4$outboundSchema.optional(),
 });
@@ -1246,6 +1433,15 @@ export function templateGetManyFieldMetaDateFromJSON(
 }
 
 /** @internal */
+export const TemplateGetManyOverflow4$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetManyOverflow4
+> = z.nativeEnum(TemplateGetManyOverflow4);
+/** @internal */
+export const TemplateGetManyOverflow4$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetManyOverflow4
+> = TemplateGetManyOverflow4$inboundSchema;
+
+/** @internal */
 export const TemplateGetManyTextAlign3$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetManyTextAlign3
 > = z.nativeEnum(TemplateGetManyTextAlign3);
@@ -1265,6 +1461,7 @@ export const TemplateGetManyFieldMetaEmail$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetManyOverflow4$inboundSchema.default("auto"),
   type: z.literal("email"),
   textAlign: TemplateGetManyTextAlign3$inboundSchema.optional(),
 });
@@ -1275,6 +1472,7 @@ export type TemplateGetManyFieldMetaEmail$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "email";
   textAlign?: string | undefined;
 };
@@ -1290,6 +1488,7 @@ export const TemplateGetManyFieldMetaEmail$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetManyOverflow4$outboundSchema.default("auto"),
   type: z.literal("email"),
   textAlign: TemplateGetManyTextAlign3$outboundSchema.optional(),
 });
@@ -1314,6 +1513,15 @@ export function templateGetManyFieldMetaEmailFromJSON(
 }
 
 /** @internal */
+export const TemplateGetManyOverflow3$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetManyOverflow3
+> = z.nativeEnum(TemplateGetManyOverflow3);
+/** @internal */
+export const TemplateGetManyOverflow3$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetManyOverflow3
+> = TemplateGetManyOverflow3$inboundSchema;
+
+/** @internal */
 export const TemplateGetManyTextAlign2$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetManyTextAlign2
 > = z.nativeEnum(TemplateGetManyTextAlign2);
@@ -1333,6 +1541,7 @@ export const TemplateGetManyFieldMetaName$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetManyOverflow3$inboundSchema.optional(),
   type: z.literal("name"),
   textAlign: TemplateGetManyTextAlign2$inboundSchema.optional(),
 });
@@ -1343,6 +1552,7 @@ export type TemplateGetManyFieldMetaName$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "name";
   textAlign?: string | undefined;
 };
@@ -1358,6 +1568,7 @@ export const TemplateGetManyFieldMetaName$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetManyOverflow3$outboundSchema.optional(),
   type: z.literal("name"),
   textAlign: TemplateGetManyTextAlign2$outboundSchema.optional(),
 });
@@ -1382,6 +1593,15 @@ export function templateGetManyFieldMetaNameFromJSON(
 }
 
 /** @internal */
+export const TemplateGetManyOverflow2$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetManyOverflow2
+> = z.nativeEnum(TemplateGetManyOverflow2);
+/** @internal */
+export const TemplateGetManyOverflow2$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetManyOverflow2
+> = TemplateGetManyOverflow2$inboundSchema;
+
+/** @internal */
 export const TemplateGetManyTextAlign1$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetManyTextAlign1
 > = z.nativeEnum(TemplateGetManyTextAlign1);
@@ -1401,6 +1621,7 @@ export const TemplateGetManyFieldMetaInitials$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetManyOverflow2$inboundSchema.optional(),
   type: z.literal("initials"),
   textAlign: TemplateGetManyTextAlign1$inboundSchema.optional(),
 });
@@ -1411,6 +1632,7 @@ export type TemplateGetManyFieldMetaInitials$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
 };
@@ -1426,6 +1648,7 @@ export const TemplateGetManyFieldMetaInitials$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetManyOverflow2$outboundSchema.optional(),
   type: z.literal("initials"),
   textAlign: TemplateGetManyTextAlign1$outboundSchema.optional(),
 });
@@ -1450,6 +1673,15 @@ export function templateGetManyFieldMetaInitialsFromJSON(
 }
 
 /** @internal */
+export const TemplateGetManyOverflow1$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetManyOverflow1
+> = z.nativeEnum(TemplateGetManyOverflow1);
+/** @internal */
+export const TemplateGetManyOverflow1$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetManyOverflow1
+> = TemplateGetManyOverflow1$inboundSchema;
+
+/** @internal */
 export const TemplateGetManyFieldMetaSignature$inboundSchema: z.ZodType<
   TemplateGetManyFieldMetaSignature,
   z.ZodTypeDef,
@@ -1460,6 +1692,7 @@ export const TemplateGetManyFieldMetaSignature$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetManyOverflow1$inboundSchema.default("auto"),
   type: z.literal("signature"),
 });
 /** @internal */
@@ -1469,6 +1702,7 @@ export type TemplateGetManyFieldMetaSignature$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "signature";
 };
 
@@ -1483,6 +1717,7 @@ export const TemplateGetManyFieldMetaSignature$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetManyOverflow1$outboundSchema.default("auto"),
   type: z.literal("signature"),
 });
 

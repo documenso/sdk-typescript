@@ -7,11 +7,11 @@ Filter templates by type.
 ```typescript
 import { TemplateFindTemplatesQueryParamType } from "@documenso/sdk-typescript/models/operations";
 
-let value: TemplateFindTemplatesQueryParamType = "PRIVATE";
+let value: TemplateFindTemplatesQueryParamType = "ORGANISATION";
 ```
 
 ## Values
 
 ```typescript
-"PUBLIC" | "PRIVATE"
+"PUBLIC" | "PRIVATE" | "ORGANISATION"
 ```

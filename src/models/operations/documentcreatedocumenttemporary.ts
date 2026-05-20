@@ -70,6 +70,16 @@ export type DocumentCreateDocumentTemporaryActionAuthRequest = ClosedEnum<
   typeof DocumentCreateDocumentTemporaryActionAuthRequest
 >;
 
+export const DocumentCreateDocumentTemporaryOverflowDropdown = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentCreateDocumentTemporaryOverflowDropdown = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryOverflowDropdown
+>;
+
 export const DocumentCreateDocumentTemporaryTypeDropdownEnum = {
   Dropdown: "dropdown",
 } as const;
@@ -87,6 +97,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaDropdown = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentCreateDocumentTemporaryOverflowDropdown | undefined;
   type: DocumentCreateDocumentTemporaryTypeDropdownEnum;
   values?: Array<DocumentCreateDocumentTemporaryValueDropdown> | undefined;
   defaultValue?: string | undefined;
@@ -103,6 +114,16 @@ export type DocumentCreateDocumentTemporaryFieldDropdown = {
   width: number;
   height: number;
 };
+
+export const DocumentCreateDocumentTemporaryOverflowCheckbox = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentCreateDocumentTemporaryOverflowCheckbox = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryOverflowCheckbox
+>;
 
 export const DocumentCreateDocumentTemporaryTypeCheckboxEnum = {
   Checkbox: "checkbox",
@@ -131,6 +152,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaCheckbox = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentCreateDocumentTemporaryOverflowCheckbox | undefined;
   type: DocumentCreateDocumentTemporaryTypeCheckboxEnum;
   values?: Array<DocumentCreateDocumentTemporaryValueCheckbox> | undefined;
   validationRule?: string | undefined;
@@ -149,6 +171,16 @@ export type DocumentCreateDocumentTemporaryFieldCheckbox = {
   width: number;
   height: number;
 };
+
+export const DocumentCreateDocumentTemporaryOverflowRadio = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentCreateDocumentTemporaryOverflowRadio = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryOverflowRadio
+>;
 
 export const DocumentCreateDocumentTemporaryTypeRadioEnum = {
   Radio: "radio",
@@ -177,6 +209,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaRadio = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentCreateDocumentTemporaryOverflowRadio | undefined;
   type: DocumentCreateDocumentTemporaryTypeRadioEnum;
   values?: Array<DocumentCreateDocumentTemporaryValueRadio> | undefined;
   direction?: DocumentCreateDocumentTemporaryDirectionRadio | undefined;
@@ -193,6 +226,16 @@ export type DocumentCreateDocumentTemporaryFieldRadio = {
   width: number;
   height: number;
 };
+
+export const DocumentCreateDocumentTemporaryOverflowNumber = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentCreateDocumentTemporaryOverflowNumber = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryOverflowNumber
+>;
 
 export const DocumentCreateDocumentTemporaryTypeNumberEnum = {
   Number: "number",
@@ -225,6 +268,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaNumber = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentCreateDocumentTemporaryOverflowNumber | undefined;
   type: DocumentCreateDocumentTemporaryTypeNumberEnum;
   numberFormat?: string | null | undefined;
   value?: string | undefined;
@@ -250,6 +294,16 @@ export type DocumentCreateDocumentTemporaryFieldNumber = {
   width: number;
   height: number;
 };
+
+export const DocumentCreateDocumentTemporaryOverflowText = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentCreateDocumentTemporaryOverflowText = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryOverflowText
+>;
 
 export const DocumentCreateDocumentTemporaryTypeTextEnum = {
   Text: "text",
@@ -282,6 +336,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaText = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentCreateDocumentTemporaryOverflowText | undefined;
   type: DocumentCreateDocumentTemporaryTypeTextEnum;
   text?: string | undefined;
   characterLimit?: number | undefined;
@@ -303,6 +358,16 @@ export type DocumentCreateDocumentTemporaryFieldText = {
   width: number;
   height: number;
 };
+
+export const DocumentCreateDocumentTemporaryOverflowDate = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentCreateDocumentTemporaryOverflowDate = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryOverflowDate
+>;
 
 export const DocumentCreateDocumentTemporaryTypeDateEnum = {
   Date: "date",
@@ -326,6 +391,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaDate = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentCreateDocumentTemporaryOverflowDate | undefined;
   type: DocumentCreateDocumentTemporaryTypeDateEnum;
   textAlign?: DocumentCreateDocumentTemporaryTextAlignDate | undefined;
 };
@@ -339,6 +405,16 @@ export type DocumentCreateDocumentTemporaryFieldDate = {
   width: number;
   height: number;
 };
+
+export const DocumentCreateDocumentTemporaryOverflowEmail = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentCreateDocumentTemporaryOverflowEmail = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryOverflowEmail
+>;
 
 export const DocumentCreateDocumentTemporaryTypeEmailEnum = {
   Email: "email",
@@ -362,6 +438,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaEmail = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentCreateDocumentTemporaryOverflowEmail | undefined;
   type: DocumentCreateDocumentTemporaryTypeEmailEnum;
   textAlign?: DocumentCreateDocumentTemporaryTextAlignEmail | undefined;
 };
@@ -377,6 +454,16 @@ export type DocumentCreateDocumentTemporaryFieldEmail = {
   width: number;
   height: number;
 };
+
+export const DocumentCreateDocumentTemporaryOverflowName = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentCreateDocumentTemporaryOverflowName = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryOverflowName
+>;
 
 export const DocumentCreateDocumentTemporaryTypeNameEnum = {
   Name: "name",
@@ -400,6 +487,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaName = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentCreateDocumentTemporaryOverflowName | undefined;
   type: DocumentCreateDocumentTemporaryTypeNameEnum;
   textAlign?: DocumentCreateDocumentTemporaryTextAlignName | undefined;
 };
@@ -413,6 +501,16 @@ export type DocumentCreateDocumentTemporaryFieldName = {
   width: number;
   height: number;
 };
+
+export const DocumentCreateDocumentTemporaryOverflowInitials = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentCreateDocumentTemporaryOverflowInitials = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryOverflowInitials
+>;
 
 export const DocumentCreateDocumentTemporaryTypeInitialsEnum = {
   Initials: "initials",
@@ -436,6 +534,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaInitials = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentCreateDocumentTemporaryOverflowInitials | undefined;
   type: DocumentCreateDocumentTemporaryTypeInitialsEnum;
   textAlign?: DocumentCreateDocumentTemporaryTextAlignInitials | undefined;
 };
@@ -461,6 +560,16 @@ export type DocumentCreateDocumentTemporaryFieldFreeSignature = {
   height: number;
 };
 
+export const DocumentCreateDocumentTemporaryOverflowSignature = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentCreateDocumentTemporaryOverflowSignature = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryOverflowSignature
+>;
+
 export const DocumentCreateDocumentTemporaryTypeSignatureEnum = {
   Signature: "signature",
 } as const;
@@ -474,6 +583,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaSignature = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentCreateDocumentTemporaryOverflowSignature | undefined;
   type: DocumentCreateDocumentTemporaryTypeSignatureEnum;
 };
 
@@ -547,12 +657,15 @@ export const DocumentCreateDocumentTemporaryDateFormat = {
   YyyyMMddHhMmA: "yyyy-MM-dd hh:mm a",
   YyyyMMdd: "yyyy-MM-dd",
   DdMMSlashYyyy: "dd/MM/yyyy",
+  DdMMDashYyyy: "dd-MM-yyyy",
   MmDdSlashYyyy: "MM/dd/yyyy",
   YyMMdd: "yy-MM-dd",
   MmmmDdCommaYyyy: "MMMM dd, yyyy",
   EeeeMmmmDdCommaYyyy: "EEEE, MMMM dd, yyyy",
   DdMMSlashYyyyHhMMA: "dd/MM/yyyy hh:mm a",
   DdMMSlashYyyyHHmm: "dd/MM/yyyy HH:mm",
+  DdMMDashYyyyHhMMA: "dd-MM-yyyy hh:mm a",
+  DdMMDashYyyyHHmm: "dd-MM-yyyy HH:mm",
   MmDdSlashYyyyHhMmA: "MM/dd/yyyy hh:mm a",
   MmDdSlashYyyyHHmm: "MM/dd/yyyy HH:mm",
   DdDotMmDotYyyy: "dd.MM.yyyy",
@@ -613,30 +726,85 @@ export type DocumentCreateDocumentTemporaryMetaEmailSettings = {
   documentDeleted?: boolean | undefined;
   ownerDocumentCompleted?: boolean | undefined;
   ownerRecipientExpired?: boolean | undefined;
+  ownerDocumentCreated?: boolean | undefined;
 };
 
 export type DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2 = {
-  disabled: boolean;
+  disabled: true;
 };
 
-export const DocumentCreateDocumentTemporaryMetaUnit = {
+export const DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMetaUnit = {
   Day: "day",
   Week: "week",
   Month: "month",
   Year: "year",
 } as const;
-export type DocumentCreateDocumentTemporaryMetaUnit = ClosedEnum<
-  typeof DocumentCreateDocumentTemporaryMetaUnit
->;
+export type DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMetaUnit =
+  ClosedEnum<
+    typeof DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMetaUnit
+  >;
 
 export type DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1 = {
-  unit: DocumentCreateDocumentTemporaryMetaUnit;
+  unit: DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMetaUnit;
   amount: number;
 };
 
 export type DocumentCreateDocumentTemporaryMetaEnvelopeExpirationPeriodUnion =
   | DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1
   | DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2;
+
+export type DocumentCreateDocumentTemporarySendAfterRequest2 = {
+  disabled: true;
+};
+
+export const DocumentCreateDocumentTemporarySendAfterMetaUnit = {
+  Day: "day",
+  Week: "week",
+  Month: "month",
+} as const;
+export type DocumentCreateDocumentTemporarySendAfterMetaUnit = ClosedEnum<
+  typeof DocumentCreateDocumentTemporarySendAfterMetaUnit
+>;
+
+export type DocumentCreateDocumentTemporarySendAfterRequest1 = {
+  unit: DocumentCreateDocumentTemporarySendAfterMetaUnit;
+  amount: number;
+};
+
+export type DocumentCreateDocumentTemporarySendAfterRequestUnion =
+  | DocumentCreateDocumentTemporarySendAfterRequest1
+  | DocumentCreateDocumentTemporarySendAfterRequest2;
+
+export type DocumentCreateDocumentTemporaryRepeatEveryRequest2 = {
+  disabled: true;
+};
+
+export const DocumentCreateDocumentTemporaryRepeatEveryMetaUnit = {
+  Day: "day",
+  Week: "week",
+  Month: "month",
+} as const;
+export type DocumentCreateDocumentTemporaryRepeatEveryMetaUnit = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryRepeatEveryMetaUnit
+>;
+
+export type DocumentCreateDocumentTemporaryRepeatEveryRequest1 = {
+  unit: DocumentCreateDocumentTemporaryRepeatEveryMetaUnit;
+  amount: number;
+};
+
+export type DocumentCreateDocumentTemporaryRepeatEveryRequestUnion =
+  | DocumentCreateDocumentTemporaryRepeatEveryRequest1
+  | DocumentCreateDocumentTemporaryRepeatEveryRequest2;
+
+export type DocumentCreateDocumentTemporaryReminderSettingsRequest = {
+  sendAfter:
+    | DocumentCreateDocumentTemporarySendAfterRequest1
+    | DocumentCreateDocumentTemporarySendAfterRequest2;
+  repeatEvery:
+    | DocumentCreateDocumentTemporaryRepeatEveryRequest1
+    | DocumentCreateDocumentTemporaryRepeatEveryRequest2;
+};
 
 export type DocumentCreateDocumentTemporaryMeta = {
   subject?: string | undefined;
@@ -662,6 +830,10 @@ export type DocumentCreateDocumentTemporaryMeta = {
   envelopeExpirationPeriod?:
     | DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1
     | DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2
+    | null
+    | undefined;
+  reminderSettings?:
+    | DocumentCreateDocumentTemporaryReminderSettingsRequest
     | null
     | undefined;
 };
@@ -776,28 +948,76 @@ export type DocumentEmailSettings = {
   documentDeleted?: boolean | undefined;
   ownerDocumentCompleted?: boolean | undefined;
   ownerRecipientExpired?: boolean | undefined;
+  ownerDocumentCreated?: boolean | undefined;
 };
 
 export type EnvelopeExpirationPeriodDocument2 = {
-  disabled: boolean;
+  disabled: true;
 };
 
-export const DocumentUnit = {
+export const EnvelopeExpirationPeriodDocumentUnit = {
   Day: "day",
   Week: "week",
   Month: "month",
   Year: "year",
 } as const;
-export type DocumentUnit = ClosedEnum<typeof DocumentUnit>;
+export type EnvelopeExpirationPeriodDocumentUnit = ClosedEnum<
+  typeof EnvelopeExpirationPeriodDocumentUnit
+>;
 
 export type EnvelopeExpirationPeriodDocument1 = {
-  unit: DocumentUnit;
+  unit: EnvelopeExpirationPeriodDocumentUnit;
   amount: number;
 };
 
 export type DocumentEnvelopeExpirationPeriodUnion =
   | EnvelopeExpirationPeriodDocument1
   | EnvelopeExpirationPeriodDocument2;
+
+export type SendAfterDocument2 = {
+  disabled: true;
+};
+
+export const SendAfterDocumentUnit = {
+  Day: "day",
+  Week: "week",
+  Month: "month",
+} as const;
+export type SendAfterDocumentUnit = ClosedEnum<typeof SendAfterDocumentUnit>;
+
+export type SendAfterDocument1 = {
+  unit: SendAfterDocumentUnit;
+  amount: number;
+};
+
+export type DocumentSendAfterUnion = SendAfterDocument1 | SendAfterDocument2;
+
+export type RepeatEveryDocument2 = {
+  disabled: true;
+};
+
+export const RepeatEveryDocumentUnit = {
+  Day: "day",
+  Week: "week",
+  Month: "month",
+} as const;
+export type RepeatEveryDocumentUnit = ClosedEnum<
+  typeof RepeatEveryDocumentUnit
+>;
+
+export type RepeatEveryDocument1 = {
+  unit: RepeatEveryDocumentUnit;
+  amount: number;
+};
+
+export type DocumentRepeatEveryUnion =
+  | RepeatEveryDocument1
+  | RepeatEveryDocument2;
+
+export type DocumentReminderSettings = {
+  sendAfter: SendAfterDocument1 | SendAfterDocument2;
+  repeatEvery: RepeatEveryDocument1 | RepeatEveryDocument2;
+};
 
 export type DocumentCreateDocumentTemporaryDocumentMeta = {
   signingOrder: DocumentSigningOrder;
@@ -820,6 +1040,7 @@ export type DocumentCreateDocumentTemporaryDocumentMeta = {
     | EnvelopeExpirationPeriodDocument1
     | EnvelopeExpirationPeriodDocument2
     | null;
+  reminderSettings: DocumentReminderSettings | null;
   password?: string | null | undefined;
   documentId?: number | undefined;
 };
@@ -948,6 +1169,14 @@ export const DocumentFieldTypeEnum = {
 } as const;
 export type DocumentFieldTypeEnum = ClosedEnum<typeof DocumentFieldTypeEnum>;
 
+export const DocumentOverflow10 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentOverflow10 = ClosedEnum<typeof DocumentOverflow10>;
+
 export type DocumentValue3 = {
   value: string;
 };
@@ -958,10 +1187,19 @@ export type FieldMetaDocumentDropdown = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentOverflow10 | undefined;
   type: "dropdown";
   values?: Array<DocumentValue3> | undefined;
   defaultValue?: string | undefined;
 };
+
+export const DocumentOverflow9 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentOverflow9 = ClosedEnum<typeof DocumentOverflow9>;
 
 export type DocumentValue2 = {
   id: number;
@@ -981,12 +1219,21 @@ export type FieldMetaDocumentCheckbox = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentOverflow9 | undefined;
   type: "checkbox";
   values?: Array<DocumentValue2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
   direction?: DocumentDirection2 | undefined;
 };
+
+export const DocumentOverflow8 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentOverflow8 = ClosedEnum<typeof DocumentOverflow8>;
 
 export type DocumentValue1 = {
   id: number;
@@ -1006,10 +1253,19 @@ export type FieldMetaDocumentRadio = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentOverflow8 | undefined;
   type: "radio";
   values?: Array<DocumentValue1> | undefined;
   direction?: DocumentDirection1 | undefined;
 };
+
+export const DocumentOverflow7 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentOverflow7 = ClosedEnum<typeof DocumentOverflow7>;
 
 export const DocumentTextAlign6 = {
   Left: "left",
@@ -1031,6 +1287,7 @@ export type FieldMetaDocumentNumber = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentOverflow7 | undefined;
   type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
@@ -1041,6 +1298,14 @@ export type FieldMetaDocumentNumber = {
   letterSpacing?: number | null | undefined;
   verticalAlign?: DocumentVerticalAlign2 | null | undefined;
 };
+
+export const DocumentOverflow6 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentOverflow6 = ClosedEnum<typeof DocumentOverflow6>;
 
 export const DocumentTextAlign5 = {
   Left: "left",
@@ -1062,6 +1327,7 @@ export type FieldMetaDocumentText = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentOverflow6 | undefined;
   type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
@@ -1070,6 +1336,14 @@ export type FieldMetaDocumentText = {
   letterSpacing?: number | null | undefined;
   verticalAlign?: DocumentVerticalAlign1 | null | undefined;
 };
+
+export const DocumentOverflow5 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentOverflow5 = ClosedEnum<typeof DocumentOverflow5>;
 
 export const DocumentTextAlign4 = {
   Left: "left",
@@ -1084,9 +1358,18 @@ export type FieldMetaDocumentDate = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentOverflow5 | undefined;
   type: "date";
   textAlign?: DocumentTextAlign4 | undefined;
 };
+
+export const DocumentOverflow4 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentOverflow4 = ClosedEnum<typeof DocumentOverflow4>;
 
 export const DocumentTextAlign3 = {
   Left: "left",
@@ -1101,9 +1384,18 @@ export type FieldMetaDocumentEmail = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentOverflow4 | undefined;
   type: "email";
   textAlign?: DocumentTextAlign3 | undefined;
 };
+
+export const DocumentOverflow3 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentOverflow3 = ClosedEnum<typeof DocumentOverflow3>;
 
 export const DocumentTextAlign2 = {
   Left: "left",
@@ -1118,9 +1410,18 @@ export type FieldMetaDocumentName = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentOverflow3 | undefined;
   type: "name";
   textAlign?: DocumentTextAlign2 | undefined;
 };
+
+export const DocumentOverflow2 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentOverflow2 = ClosedEnum<typeof DocumentOverflow2>;
 
 export const DocumentTextAlign1 = {
   Left: "left",
@@ -1135,9 +1436,18 @@ export type FieldMetaDocumentInitials = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentOverflow2 | undefined;
   type: "initials";
   textAlign?: DocumentTextAlign1 | undefined;
 };
+
+export const DocumentOverflow1 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentOverflow1 = ClosedEnum<typeof DocumentOverflow1>;
 
 export type FieldMetaDocumentSignature = {
   label?: string | undefined;
@@ -1145,6 +1455,7 @@ export type FieldMetaDocumentSignature = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentOverflow1 | undefined;
   type: "signature";
 };
 
@@ -1332,6 +1643,15 @@ export const DocumentCreateDocumentTemporaryActionAuthRequest$outboundSchema:
     DocumentCreateDocumentTemporaryActionAuthRequest$inboundSchema;
 
 /** @internal */
+export const DocumentCreateDocumentTemporaryOverflowDropdown$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryOverflowDropdown> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryOverflowDropdown);
+/** @internal */
+export const DocumentCreateDocumentTemporaryOverflowDropdown$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryOverflowDropdown> =
+    DocumentCreateDocumentTemporaryOverflowDropdown$inboundSchema;
+
+/** @internal */
 export const DocumentCreateDocumentTemporaryTypeDropdownEnum$inboundSchema:
   z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeDropdownEnum> = z
     .nativeEnum(DocumentCreateDocumentTemporaryTypeDropdownEnum);
@@ -1402,6 +1722,8 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaDropdown$inboundSc
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: DocumentCreateDocumentTemporaryOverflowDropdown$inboundSchema
+      .optional(),
     type: DocumentCreateDocumentTemporaryTypeDropdownEnum$inboundSchema,
     values: z.array(
       z.lazy(() => DocumentCreateDocumentTemporaryValueDropdown$inboundSchema),
@@ -1416,6 +1738,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaDropdown$Outbound =
     required?: boolean | undefined;
     readOnly?: boolean | undefined;
     fontSize: number;
+    overflow?: string | undefined;
     type: string;
     values?:
       | Array<DocumentCreateDocumentTemporaryValueDropdown$Outbound>
@@ -1435,6 +1758,8 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaDropdown$outboundS
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: DocumentCreateDocumentTemporaryOverflowDropdown$outboundSchema
+      .optional(),
     type: DocumentCreateDocumentTemporaryTypeDropdownEnum$outboundSchema,
     values: z.array(
       z.lazy(() => DocumentCreateDocumentTemporaryValueDropdown$outboundSchema),
@@ -1541,6 +1866,15 @@ export function documentCreateDocumentTemporaryFieldDropdownFromJSON(
 }
 
 /** @internal */
+export const DocumentCreateDocumentTemporaryOverflowCheckbox$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryOverflowCheckbox> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryOverflowCheckbox);
+/** @internal */
+export const DocumentCreateDocumentTemporaryOverflowCheckbox$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryOverflowCheckbox> =
+    DocumentCreateDocumentTemporaryOverflowCheckbox$inboundSchema;
+
+/** @internal */
 export const DocumentCreateDocumentTemporaryTypeCheckboxEnum$inboundSchema:
   z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeCheckboxEnum> = z
     .nativeEnum(DocumentCreateDocumentTemporaryTypeCheckboxEnum);
@@ -1626,6 +1960,8 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaCheckbox$inboundSc
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: DocumentCreateDocumentTemporaryOverflowCheckbox$inboundSchema
+      .optional(),
     type: DocumentCreateDocumentTemporaryTypeCheckboxEnum$inboundSchema,
     values: z.array(
       z.lazy(() => DocumentCreateDocumentTemporaryValueCheckbox$inboundSchema),
@@ -1643,6 +1979,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaCheckbox$Outbound =
     required?: boolean | undefined;
     readOnly?: boolean | undefined;
     fontSize: number;
+    overflow?: string | undefined;
     type: string;
     values?:
       | Array<DocumentCreateDocumentTemporaryValueCheckbox$Outbound>
@@ -1664,6 +2001,8 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaCheckbox$outboundS
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: DocumentCreateDocumentTemporaryOverflowCheckbox$outboundSchema
+      .optional(),
     type: DocumentCreateDocumentTemporaryTypeCheckboxEnum$outboundSchema,
     values: z.array(
       z.lazy(() => DocumentCreateDocumentTemporaryValueCheckbox$outboundSchema),
@@ -1773,6 +2112,15 @@ export function documentCreateDocumentTemporaryFieldCheckboxFromJSON(
 }
 
 /** @internal */
+export const DocumentCreateDocumentTemporaryOverflowRadio$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryOverflowRadio> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryOverflowRadio);
+/** @internal */
+export const DocumentCreateDocumentTemporaryOverflowRadio$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryOverflowRadio> =
+    DocumentCreateDocumentTemporaryOverflowRadio$inboundSchema;
+
+/** @internal */
 export const DocumentCreateDocumentTemporaryTypeRadioEnum$inboundSchema:
   z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeRadioEnum> = z
     .nativeEnum(DocumentCreateDocumentTemporaryTypeRadioEnum);
@@ -1857,6 +2205,8 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaRadio$inboundSchem
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: DocumentCreateDocumentTemporaryOverflowRadio$inboundSchema
+      .optional(),
     type: DocumentCreateDocumentTemporaryTypeRadioEnum$inboundSchema,
     values: z.array(
       z.lazy(() => DocumentCreateDocumentTemporaryValueRadio$inboundSchema),
@@ -1871,6 +2221,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaRadio$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: string;
   values?:
     | Array<DocumentCreateDocumentTemporaryValueRadio$Outbound>
@@ -1890,6 +2241,8 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaRadio$outboundSche
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: DocumentCreateDocumentTemporaryOverflowRadio$outboundSchema
+      .optional(),
     type: DocumentCreateDocumentTemporaryTypeRadioEnum$outboundSchema,
     values: z.array(
       z.lazy(() => DocumentCreateDocumentTemporaryValueRadio$outboundSchema),
@@ -1997,6 +2350,15 @@ export function documentCreateDocumentTemporaryFieldRadioFromJSON(
 }
 
 /** @internal */
+export const DocumentCreateDocumentTemporaryOverflowNumber$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryOverflowNumber> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryOverflowNumber);
+/** @internal */
+export const DocumentCreateDocumentTemporaryOverflowNumber$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryOverflowNumber> =
+    DocumentCreateDocumentTemporaryOverflowNumber$inboundSchema;
+
+/** @internal */
 export const DocumentCreateDocumentTemporaryTypeNumberEnum$inboundSchema:
   z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeNumberEnum> = z
     .nativeEnum(DocumentCreateDocumentTemporaryTypeNumberEnum);
@@ -2035,6 +2397,8 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaNumber$inboundSche
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: DocumentCreateDocumentTemporaryOverflowNumber$inboundSchema
+      .optional(),
     type: DocumentCreateDocumentTemporaryTypeNumberEnum$inboundSchema,
     numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
@@ -2055,6 +2419,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaNumber$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: string;
   numberFormat?: string | null | undefined;
   value?: string | undefined;
@@ -2078,6 +2443,8 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaNumber$outboundSch
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: DocumentCreateDocumentTemporaryOverflowNumber$outboundSchema
+      .optional(),
     type: DocumentCreateDocumentTemporaryTypeNumberEnum$outboundSchema,
     numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
@@ -2188,6 +2555,15 @@ export function documentCreateDocumentTemporaryFieldNumberFromJSON(
 }
 
 /** @internal */
+export const DocumentCreateDocumentTemporaryOverflowText$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryOverflowText> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryOverflowText);
+/** @internal */
+export const DocumentCreateDocumentTemporaryOverflowText$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryOverflowText> =
+    DocumentCreateDocumentTemporaryOverflowText$inboundSchema;
+
+/** @internal */
 export const DocumentCreateDocumentTemporaryTypeTextEnum$inboundSchema:
   z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeTextEnum> = z
     .nativeEnum(DocumentCreateDocumentTemporaryTypeTextEnum);
@@ -2226,6 +2602,8 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaText$inboundSchema
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: DocumentCreateDocumentTemporaryOverflowText$inboundSchema
+      .optional(),
     type: DocumentCreateDocumentTemporaryTypeTextEnum$inboundSchema,
     text: z.string().optional(),
     characterLimit: z.number().optional(),
@@ -2244,6 +2622,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaText$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: string;
   text?: string | undefined;
   characterLimit?: number | undefined;
@@ -2265,6 +2644,8 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaText$outboundSchem
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: DocumentCreateDocumentTemporaryOverflowText$outboundSchema
+      .optional(),
     type: DocumentCreateDocumentTemporaryTypeTextEnum$outboundSchema,
     text: z.string().optional(),
     characterLimit: z.number().optional(),
@@ -2376,6 +2757,15 @@ export function documentCreateDocumentTemporaryFieldTextFromJSON(
 }
 
 /** @internal */
+export const DocumentCreateDocumentTemporaryOverflowDate$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryOverflowDate> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryOverflowDate);
+/** @internal */
+export const DocumentCreateDocumentTemporaryOverflowDate$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryOverflowDate> =
+    DocumentCreateDocumentTemporaryOverflowDate$inboundSchema;
+
+/** @internal */
 export const DocumentCreateDocumentTemporaryTypeDateEnum$inboundSchema:
   z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeDateEnum> = z
     .nativeEnum(DocumentCreateDocumentTemporaryTypeDateEnum);
@@ -2405,6 +2795,9 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaDate$inboundSchema
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: DocumentCreateDocumentTemporaryOverflowDate$inboundSchema.default(
+      "auto",
+    ),
     type: DocumentCreateDocumentTemporaryTypeDateEnum$inboundSchema,
     textAlign: DocumentCreateDocumentTemporaryTextAlignDate$inboundSchema
       .optional(),
@@ -2416,6 +2809,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaDate$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: string;
   textAlign?: string | undefined;
 };
@@ -2432,6 +2826,8 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaDate$outboundSchem
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: DocumentCreateDocumentTemporaryOverflowDate$outboundSchema
+      .default("auto"),
     type: DocumentCreateDocumentTemporaryTypeDateEnum$outboundSchema,
     textAlign: DocumentCreateDocumentTemporaryTextAlignDate$outboundSchema
       .optional(),
@@ -2536,6 +2932,15 @@ export function documentCreateDocumentTemporaryFieldDateFromJSON(
 }
 
 /** @internal */
+export const DocumentCreateDocumentTemporaryOverflowEmail$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryOverflowEmail> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryOverflowEmail);
+/** @internal */
+export const DocumentCreateDocumentTemporaryOverflowEmail$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryOverflowEmail> =
+    DocumentCreateDocumentTemporaryOverflowEmail$inboundSchema;
+
+/** @internal */
 export const DocumentCreateDocumentTemporaryTypeEmailEnum$inboundSchema:
   z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeEmailEnum> = z
     .nativeEnum(DocumentCreateDocumentTemporaryTypeEmailEnum);
@@ -2565,6 +2970,8 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaEmail$inboundSchem
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: DocumentCreateDocumentTemporaryOverflowEmail$inboundSchema
+      .default("auto"),
     type: DocumentCreateDocumentTemporaryTypeEmailEnum$inboundSchema,
     textAlign: DocumentCreateDocumentTemporaryTextAlignEmail$inboundSchema
       .optional(),
@@ -2576,6 +2983,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaEmail$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: string;
   textAlign?: string | undefined;
 };
@@ -2592,6 +3000,8 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaEmail$outboundSche
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: DocumentCreateDocumentTemporaryOverflowEmail$outboundSchema
+      .default("auto"),
     type: DocumentCreateDocumentTemporaryTypeEmailEnum$outboundSchema,
     textAlign: DocumentCreateDocumentTemporaryTextAlignEmail$outboundSchema
       .optional(),
@@ -2696,6 +3106,15 @@ export function documentCreateDocumentTemporaryFieldEmailFromJSON(
 }
 
 /** @internal */
+export const DocumentCreateDocumentTemporaryOverflowName$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryOverflowName> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryOverflowName);
+/** @internal */
+export const DocumentCreateDocumentTemporaryOverflowName$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryOverflowName> =
+    DocumentCreateDocumentTemporaryOverflowName$inboundSchema;
+
+/** @internal */
 export const DocumentCreateDocumentTemporaryTypeNameEnum$inboundSchema:
   z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeNameEnum> = z
     .nativeEnum(DocumentCreateDocumentTemporaryTypeNameEnum);
@@ -2725,6 +3144,8 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaName$inboundSchema
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: DocumentCreateDocumentTemporaryOverflowName$inboundSchema
+      .optional(),
     type: DocumentCreateDocumentTemporaryTypeNameEnum$inboundSchema,
     textAlign: DocumentCreateDocumentTemporaryTextAlignName$inboundSchema
       .optional(),
@@ -2736,6 +3157,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaName$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: string;
   textAlign?: string | undefined;
 };
@@ -2752,6 +3174,8 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaName$outboundSchem
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: DocumentCreateDocumentTemporaryOverflowName$outboundSchema
+      .optional(),
     type: DocumentCreateDocumentTemporaryTypeNameEnum$outboundSchema,
     textAlign: DocumentCreateDocumentTemporaryTextAlignName$outboundSchema
       .optional(),
@@ -2856,6 +3280,15 @@ export function documentCreateDocumentTemporaryFieldNameFromJSON(
 }
 
 /** @internal */
+export const DocumentCreateDocumentTemporaryOverflowInitials$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryOverflowInitials> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryOverflowInitials);
+/** @internal */
+export const DocumentCreateDocumentTemporaryOverflowInitials$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryOverflowInitials> =
+    DocumentCreateDocumentTemporaryOverflowInitials$inboundSchema;
+
+/** @internal */
 export const DocumentCreateDocumentTemporaryTypeInitialsEnum$inboundSchema:
   z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeInitialsEnum> = z
     .nativeEnum(DocumentCreateDocumentTemporaryTypeInitialsEnum);
@@ -2885,6 +3318,8 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaInitials$inboundSc
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: DocumentCreateDocumentTemporaryOverflowInitials$inboundSchema
+      .optional(),
     type: DocumentCreateDocumentTemporaryTypeInitialsEnum$inboundSchema,
     textAlign: DocumentCreateDocumentTemporaryTextAlignInitials$inboundSchema
       .optional(),
@@ -2897,6 +3332,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaInitials$Outbound =
     required?: boolean | undefined;
     readOnly?: boolean | undefined;
     fontSize: number;
+    overflow?: string | undefined;
     type: string;
     textAlign?: string | undefined;
   };
@@ -2913,6 +3349,8 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaInitials$outboundS
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: DocumentCreateDocumentTemporaryOverflowInitials$outboundSchema
+      .optional(),
     type: DocumentCreateDocumentTemporaryTypeInitialsEnum$outboundSchema,
     textAlign: DocumentCreateDocumentTemporaryTextAlignInitials$outboundSchema
       .optional(),
@@ -3082,6 +3520,15 @@ export function documentCreateDocumentTemporaryFieldFreeSignatureFromJSON(
 }
 
 /** @internal */
+export const DocumentCreateDocumentTemporaryOverflowSignature$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryOverflowSignature> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryOverflowSignature);
+/** @internal */
+export const DocumentCreateDocumentTemporaryOverflowSignature$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryOverflowSignature> =
+    DocumentCreateDocumentTemporaryOverflowSignature$inboundSchema;
+
+/** @internal */
 export const DocumentCreateDocumentTemporaryTypeSignatureEnum$inboundSchema:
   z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryTypeSignatureEnum> = z
     .nativeEnum(DocumentCreateDocumentTemporaryTypeSignatureEnum);
@@ -3102,6 +3549,8 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaSignature$inboundS
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: DocumentCreateDocumentTemporaryOverflowSignature$inboundSchema
+      .default("auto"),
     type: DocumentCreateDocumentTemporaryTypeSignatureEnum$inboundSchema,
   });
 /** @internal */
@@ -3112,6 +3561,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaSignature$Outbound 
     required?: boolean | undefined;
     readOnly?: boolean | undefined;
     fontSize: number;
+    overflow: string;
     type: string;
   };
 
@@ -3127,6 +3577,8 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaSignature$outbound
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: DocumentCreateDocumentTemporaryOverflowSignature$outboundSchema
+      .default("auto"),
     type: DocumentCreateDocumentTemporaryTypeSignatureEnum$outboundSchema,
   });
 
@@ -3565,6 +4017,7 @@ export const DocumentCreateDocumentTemporaryMetaEmailSettings$inboundSchema:
     documentDeleted: z.boolean().default(true),
     ownerDocumentCompleted: z.boolean().default(true),
     ownerRecipientExpired: z.boolean().default(true),
+    ownerDocumentCreated: z.boolean().default(true),
   });
 /** @internal */
 export type DocumentCreateDocumentTemporaryMetaEmailSettings$Outbound = {
@@ -3576,6 +4029,7 @@ export type DocumentCreateDocumentTemporaryMetaEmailSettings$Outbound = {
   documentDeleted: boolean;
   ownerDocumentCompleted: boolean;
   ownerRecipientExpired: boolean;
+  ownerDocumentCreated: boolean;
 };
 
 /** @internal */
@@ -3593,6 +4047,7 @@ export const DocumentCreateDocumentTemporaryMetaEmailSettings$outboundSchema:
     documentDeleted: z.boolean().default(true),
     ownerDocumentCompleted: z.boolean().default(true),
     ownerRecipientExpired: z.boolean().default(true),
+    ownerDocumentCreated: z.boolean().default(true),
   });
 
 export function documentCreateDocumentTemporaryMetaEmailSettingsToJSON(
@@ -3628,12 +4083,12 @@ export const DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2$inboun
     z.ZodTypeDef,
     unknown
   > = z.object({
-    disabled: z.boolean(),
+    disabled: z.literal(true),
   });
 /** @internal */
 export type DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2$Outbound =
   {
-    disabled: boolean;
+    disabled: true;
   };
 
 /** @internal */
@@ -3643,7 +4098,7 @@ export const DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2$outbou
     z.ZodTypeDef,
     DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2
   > = z.object({
-    disabled: z.boolean(),
+    disabled: z.literal(true),
   });
 
 export function documentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2ToJSON(
@@ -3671,13 +4126,18 @@ export function documentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2From
 }
 
 /** @internal */
-export const DocumentCreateDocumentTemporaryMetaUnit$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryMetaUnit> = z
-    .nativeEnum(DocumentCreateDocumentTemporaryMetaUnit);
+export const DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMetaUnit$inboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMetaUnit
+  > = z.nativeEnum(
+    DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMetaUnit,
+  );
 /** @internal */
-export const DocumentCreateDocumentTemporaryMetaUnit$outboundSchema:
-  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryMetaUnit> =
-    DocumentCreateDocumentTemporaryMetaUnit$inboundSchema;
+export const DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMetaUnit$outboundSchema:
+  z.ZodNativeEnum<
+    typeof DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMetaUnit
+  > =
+    DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMetaUnit$inboundSchema;
 
 /** @internal */
 export const DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1$inboundSchema:
@@ -3686,7 +4146,8 @@ export const DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1$inboun
     z.ZodTypeDef,
     unknown
   > = z.object({
-    unit: DocumentCreateDocumentTemporaryMetaUnit$inboundSchema,
+    unit:
+      DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMetaUnit$inboundSchema,
     amount: z.number().int(),
   });
 /** @internal */
@@ -3703,7 +4164,8 @@ export const DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1$outbou
     z.ZodTypeDef,
     DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1
   > = z.object({
-    unit: DocumentCreateDocumentTemporaryMetaUnit$outboundSchema,
+    unit:
+      DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMetaUnit$outboundSchema,
     amount: z.number().int(),
   });
 
@@ -3790,6 +4252,433 @@ export function documentCreateDocumentTemporaryMetaEnvelopeExpirationPeriodUnion
 }
 
 /** @internal */
+export const DocumentCreateDocumentTemporarySendAfterRequest2$inboundSchema:
+  z.ZodType<
+    DocumentCreateDocumentTemporarySendAfterRequest2,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    disabled: z.literal(true),
+  });
+/** @internal */
+export type DocumentCreateDocumentTemporarySendAfterRequest2$Outbound = {
+  disabled: true;
+};
+
+/** @internal */
+export const DocumentCreateDocumentTemporarySendAfterRequest2$outboundSchema:
+  z.ZodType<
+    DocumentCreateDocumentTemporarySendAfterRequest2$Outbound,
+    z.ZodTypeDef,
+    DocumentCreateDocumentTemporarySendAfterRequest2
+  > = z.object({
+    disabled: z.literal(true),
+  });
+
+export function documentCreateDocumentTemporarySendAfterRequest2ToJSON(
+  documentCreateDocumentTemporarySendAfterRequest2:
+    DocumentCreateDocumentTemporarySendAfterRequest2,
+): string {
+  return JSON.stringify(
+    DocumentCreateDocumentTemporarySendAfterRequest2$outboundSchema.parse(
+      documentCreateDocumentTemporarySendAfterRequest2,
+    ),
+  );
+}
+export function documentCreateDocumentTemporarySendAfterRequest2FromJSON(
+  jsonString: string,
+): SafeParseResult<
+  DocumentCreateDocumentTemporarySendAfterRequest2,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      DocumentCreateDocumentTemporarySendAfterRequest2$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'DocumentCreateDocumentTemporarySendAfterRequest2' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentCreateDocumentTemporarySendAfterMetaUnit$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporarySendAfterMetaUnit> = z
+    .nativeEnum(DocumentCreateDocumentTemporarySendAfterMetaUnit);
+/** @internal */
+export const DocumentCreateDocumentTemporarySendAfterMetaUnit$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporarySendAfterMetaUnit> =
+    DocumentCreateDocumentTemporarySendAfterMetaUnit$inboundSchema;
+
+/** @internal */
+export const DocumentCreateDocumentTemporarySendAfterRequest1$inboundSchema:
+  z.ZodType<
+    DocumentCreateDocumentTemporarySendAfterRequest1,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    unit: DocumentCreateDocumentTemporarySendAfterMetaUnit$inboundSchema,
+    amount: z.number().int(),
+  });
+/** @internal */
+export type DocumentCreateDocumentTemporarySendAfterRequest1$Outbound = {
+  unit: string;
+  amount: number;
+};
+
+/** @internal */
+export const DocumentCreateDocumentTemporarySendAfterRequest1$outboundSchema:
+  z.ZodType<
+    DocumentCreateDocumentTemporarySendAfterRequest1$Outbound,
+    z.ZodTypeDef,
+    DocumentCreateDocumentTemporarySendAfterRequest1
+  > = z.object({
+    unit: DocumentCreateDocumentTemporarySendAfterMetaUnit$outboundSchema,
+    amount: z.number().int(),
+  });
+
+export function documentCreateDocumentTemporarySendAfterRequest1ToJSON(
+  documentCreateDocumentTemporarySendAfterRequest1:
+    DocumentCreateDocumentTemporarySendAfterRequest1,
+): string {
+  return JSON.stringify(
+    DocumentCreateDocumentTemporarySendAfterRequest1$outboundSchema.parse(
+      documentCreateDocumentTemporarySendAfterRequest1,
+    ),
+  );
+}
+export function documentCreateDocumentTemporarySendAfterRequest1FromJSON(
+  jsonString: string,
+): SafeParseResult<
+  DocumentCreateDocumentTemporarySendAfterRequest1,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      DocumentCreateDocumentTemporarySendAfterRequest1$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'DocumentCreateDocumentTemporarySendAfterRequest1' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentCreateDocumentTemporarySendAfterRequestUnion$inboundSchema:
+  z.ZodType<
+    DocumentCreateDocumentTemporarySendAfterRequestUnion,
+    z.ZodTypeDef,
+    unknown
+  > = z.union([
+    z.lazy(() =>
+      DocumentCreateDocumentTemporarySendAfterRequest1$inboundSchema
+    ),
+    z.lazy(() =>
+      DocumentCreateDocumentTemporarySendAfterRequest2$inboundSchema
+    ),
+  ]);
+/** @internal */
+export type DocumentCreateDocumentTemporarySendAfterRequestUnion$Outbound =
+  | DocumentCreateDocumentTemporarySendAfterRequest1$Outbound
+  | DocumentCreateDocumentTemporarySendAfterRequest2$Outbound;
+
+/** @internal */
+export const DocumentCreateDocumentTemporarySendAfterRequestUnion$outboundSchema:
+  z.ZodType<
+    DocumentCreateDocumentTemporarySendAfterRequestUnion$Outbound,
+    z.ZodTypeDef,
+    DocumentCreateDocumentTemporarySendAfterRequestUnion
+  > = z.union([
+    z.lazy(() =>
+      DocumentCreateDocumentTemporarySendAfterRequest1$outboundSchema
+    ),
+    z.lazy(() =>
+      DocumentCreateDocumentTemporarySendAfterRequest2$outboundSchema
+    ),
+  ]);
+
+export function documentCreateDocumentTemporarySendAfterRequestUnionToJSON(
+  documentCreateDocumentTemporarySendAfterRequestUnion:
+    DocumentCreateDocumentTemporarySendAfterRequestUnion,
+): string {
+  return JSON.stringify(
+    DocumentCreateDocumentTemporarySendAfterRequestUnion$outboundSchema.parse(
+      documentCreateDocumentTemporarySendAfterRequestUnion,
+    ),
+  );
+}
+export function documentCreateDocumentTemporarySendAfterRequestUnionFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  DocumentCreateDocumentTemporarySendAfterRequestUnion,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      DocumentCreateDocumentTemporarySendAfterRequestUnion$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'DocumentCreateDocumentTemporarySendAfterRequestUnion' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentCreateDocumentTemporaryRepeatEveryRequest2$inboundSchema:
+  z.ZodType<
+    DocumentCreateDocumentTemporaryRepeatEveryRequest2,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    disabled: z.literal(true),
+  });
+/** @internal */
+export type DocumentCreateDocumentTemporaryRepeatEveryRequest2$Outbound = {
+  disabled: true;
+};
+
+/** @internal */
+export const DocumentCreateDocumentTemporaryRepeatEveryRequest2$outboundSchema:
+  z.ZodType<
+    DocumentCreateDocumentTemporaryRepeatEveryRequest2$Outbound,
+    z.ZodTypeDef,
+    DocumentCreateDocumentTemporaryRepeatEveryRequest2
+  > = z.object({
+    disabled: z.literal(true),
+  });
+
+export function documentCreateDocumentTemporaryRepeatEveryRequest2ToJSON(
+  documentCreateDocumentTemporaryRepeatEveryRequest2:
+    DocumentCreateDocumentTemporaryRepeatEveryRequest2,
+): string {
+  return JSON.stringify(
+    DocumentCreateDocumentTemporaryRepeatEveryRequest2$outboundSchema.parse(
+      documentCreateDocumentTemporaryRepeatEveryRequest2,
+    ),
+  );
+}
+export function documentCreateDocumentTemporaryRepeatEveryRequest2FromJSON(
+  jsonString: string,
+): SafeParseResult<
+  DocumentCreateDocumentTemporaryRepeatEveryRequest2,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      DocumentCreateDocumentTemporaryRepeatEveryRequest2$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'DocumentCreateDocumentTemporaryRepeatEveryRequest2' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentCreateDocumentTemporaryRepeatEveryMetaUnit$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRepeatEveryMetaUnit> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryRepeatEveryMetaUnit);
+/** @internal */
+export const DocumentCreateDocumentTemporaryRepeatEveryMetaUnit$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRepeatEveryMetaUnit> =
+    DocumentCreateDocumentTemporaryRepeatEveryMetaUnit$inboundSchema;
+
+/** @internal */
+export const DocumentCreateDocumentTemporaryRepeatEveryRequest1$inboundSchema:
+  z.ZodType<
+    DocumentCreateDocumentTemporaryRepeatEveryRequest1,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    unit: DocumentCreateDocumentTemporaryRepeatEveryMetaUnit$inboundSchema,
+    amount: z.number().int(),
+  });
+/** @internal */
+export type DocumentCreateDocumentTemporaryRepeatEveryRequest1$Outbound = {
+  unit: string;
+  amount: number;
+};
+
+/** @internal */
+export const DocumentCreateDocumentTemporaryRepeatEveryRequest1$outboundSchema:
+  z.ZodType<
+    DocumentCreateDocumentTemporaryRepeatEveryRequest1$Outbound,
+    z.ZodTypeDef,
+    DocumentCreateDocumentTemporaryRepeatEveryRequest1
+  > = z.object({
+    unit: DocumentCreateDocumentTemporaryRepeatEveryMetaUnit$outboundSchema,
+    amount: z.number().int(),
+  });
+
+export function documentCreateDocumentTemporaryRepeatEveryRequest1ToJSON(
+  documentCreateDocumentTemporaryRepeatEveryRequest1:
+    DocumentCreateDocumentTemporaryRepeatEveryRequest1,
+): string {
+  return JSON.stringify(
+    DocumentCreateDocumentTemporaryRepeatEveryRequest1$outboundSchema.parse(
+      documentCreateDocumentTemporaryRepeatEveryRequest1,
+    ),
+  );
+}
+export function documentCreateDocumentTemporaryRepeatEveryRequest1FromJSON(
+  jsonString: string,
+): SafeParseResult<
+  DocumentCreateDocumentTemporaryRepeatEveryRequest1,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      DocumentCreateDocumentTemporaryRepeatEveryRequest1$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'DocumentCreateDocumentTemporaryRepeatEveryRequest1' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentCreateDocumentTemporaryRepeatEveryRequestUnion$inboundSchema:
+  z.ZodType<
+    DocumentCreateDocumentTemporaryRepeatEveryRequestUnion,
+    z.ZodTypeDef,
+    unknown
+  > = z.union([
+    z.lazy(() =>
+      DocumentCreateDocumentTemporaryRepeatEveryRequest1$inboundSchema
+    ),
+    z.lazy(() =>
+      DocumentCreateDocumentTemporaryRepeatEveryRequest2$inboundSchema
+    ),
+  ]);
+/** @internal */
+export type DocumentCreateDocumentTemporaryRepeatEveryRequestUnion$Outbound =
+  | DocumentCreateDocumentTemporaryRepeatEveryRequest1$Outbound
+  | DocumentCreateDocumentTemporaryRepeatEveryRequest2$Outbound;
+
+/** @internal */
+export const DocumentCreateDocumentTemporaryRepeatEveryRequestUnion$outboundSchema:
+  z.ZodType<
+    DocumentCreateDocumentTemporaryRepeatEveryRequestUnion$Outbound,
+    z.ZodTypeDef,
+    DocumentCreateDocumentTemporaryRepeatEveryRequestUnion
+  > = z.union([
+    z.lazy(() =>
+      DocumentCreateDocumentTemporaryRepeatEveryRequest1$outboundSchema
+    ),
+    z.lazy(() =>
+      DocumentCreateDocumentTemporaryRepeatEveryRequest2$outboundSchema
+    ),
+  ]);
+
+export function documentCreateDocumentTemporaryRepeatEveryRequestUnionToJSON(
+  documentCreateDocumentTemporaryRepeatEveryRequestUnion:
+    DocumentCreateDocumentTemporaryRepeatEveryRequestUnion,
+): string {
+  return JSON.stringify(
+    DocumentCreateDocumentTemporaryRepeatEveryRequestUnion$outboundSchema.parse(
+      documentCreateDocumentTemporaryRepeatEveryRequestUnion,
+    ),
+  );
+}
+export function documentCreateDocumentTemporaryRepeatEveryRequestUnionFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  DocumentCreateDocumentTemporaryRepeatEveryRequestUnion,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      DocumentCreateDocumentTemporaryRepeatEveryRequestUnion$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'DocumentCreateDocumentTemporaryRepeatEveryRequestUnion' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentCreateDocumentTemporaryReminderSettingsRequest$inboundSchema:
+  z.ZodType<
+    DocumentCreateDocumentTemporaryReminderSettingsRequest,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    sendAfter: z.union([
+      z.lazy(() =>
+        DocumentCreateDocumentTemporarySendAfterRequest1$inboundSchema
+      ),
+      z.lazy(() =>
+        DocumentCreateDocumentTemporarySendAfterRequest2$inboundSchema
+      ),
+    ]),
+    repeatEvery: z.union([
+      z.lazy(() =>
+        DocumentCreateDocumentTemporaryRepeatEveryRequest1$inboundSchema
+      ),
+      z.lazy(() =>
+        DocumentCreateDocumentTemporaryRepeatEveryRequest2$inboundSchema
+      ),
+    ]),
+  });
+/** @internal */
+export type DocumentCreateDocumentTemporaryReminderSettingsRequest$Outbound = {
+  sendAfter:
+    | DocumentCreateDocumentTemporarySendAfterRequest1$Outbound
+    | DocumentCreateDocumentTemporarySendAfterRequest2$Outbound;
+  repeatEvery:
+    | DocumentCreateDocumentTemporaryRepeatEveryRequest1$Outbound
+    | DocumentCreateDocumentTemporaryRepeatEveryRequest2$Outbound;
+};
+
+/** @internal */
+export const DocumentCreateDocumentTemporaryReminderSettingsRequest$outboundSchema:
+  z.ZodType<
+    DocumentCreateDocumentTemporaryReminderSettingsRequest$Outbound,
+    z.ZodTypeDef,
+    DocumentCreateDocumentTemporaryReminderSettingsRequest
+  > = z.object({
+    sendAfter: z.union([
+      z.lazy(() =>
+        DocumentCreateDocumentTemporarySendAfterRequest1$outboundSchema
+      ),
+      z.lazy(() =>
+        DocumentCreateDocumentTemporarySendAfterRequest2$outboundSchema
+      ),
+    ]),
+    repeatEvery: z.union([
+      z.lazy(() =>
+        DocumentCreateDocumentTemporaryRepeatEveryRequest1$outboundSchema
+      ),
+      z.lazy(() =>
+        DocumentCreateDocumentTemporaryRepeatEveryRequest2$outboundSchema
+      ),
+    ]),
+  });
+
+export function documentCreateDocumentTemporaryReminderSettingsRequestToJSON(
+  documentCreateDocumentTemporaryReminderSettingsRequest:
+    DocumentCreateDocumentTemporaryReminderSettingsRequest,
+): string {
+  return JSON.stringify(
+    DocumentCreateDocumentTemporaryReminderSettingsRequest$outboundSchema.parse(
+      documentCreateDocumentTemporaryReminderSettingsRequest,
+    ),
+  );
+}
+export function documentCreateDocumentTemporaryReminderSettingsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  DocumentCreateDocumentTemporaryReminderSettingsRequest,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      DocumentCreateDocumentTemporaryReminderSettingsRequest$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'DocumentCreateDocumentTemporaryReminderSettingsRequest' from JSON`,
+  );
+}
+
+/** @internal */
 export const DocumentCreateDocumentTemporaryMeta$inboundSchema: z.ZodType<
   DocumentCreateDocumentTemporaryMeta,
   z.ZodTypeDef,
@@ -3828,6 +4717,11 @@ export const DocumentCreateDocumentTemporaryMeta$inboundSchema: z.ZodType<
       ),
     ]),
   ).optional(),
+  reminderSettings: z.nullable(
+    z.lazy(() =>
+      DocumentCreateDocumentTemporaryReminderSettingsRequest$inboundSchema
+    ),
+  ).optional(),
 });
 /** @internal */
 export type DocumentCreateDocumentTemporaryMeta$Outbound = {
@@ -3852,6 +4746,10 @@ export type DocumentCreateDocumentTemporaryMeta$Outbound = {
   envelopeExpirationPeriod?:
     | DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta1$Outbound
     | DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2$Outbound
+    | null
+    | undefined;
+  reminderSettings?:
+    | DocumentCreateDocumentTemporaryReminderSettingsRequest$Outbound
     | null
     | undefined;
 };
@@ -3895,6 +4793,11 @@ export const DocumentCreateDocumentTemporaryMeta$outboundSchema: z.ZodType<
         DocumentCreateDocumentTemporaryEnvelopeExpirationPeriodMeta2$outboundSchema
       ),
     ]),
+  ).optional(),
+  reminderSettings: z.nullable(
+    z.lazy(() =>
+      DocumentCreateDocumentTemporaryReminderSettingsRequest$outboundSchema
+    ),
   ).optional(),
 });
 
@@ -4249,6 +5152,7 @@ export const DocumentEmailSettings$inboundSchema: z.ZodType<
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
   ownerRecipientExpired: z.boolean().default(true),
+  ownerDocumentCreated: z.boolean().default(true),
 });
 /** @internal */
 export type DocumentEmailSettings$Outbound = {
@@ -4260,6 +5164,7 @@ export type DocumentEmailSettings$Outbound = {
   documentDeleted: boolean;
   ownerDocumentCompleted: boolean;
   ownerRecipientExpired: boolean;
+  ownerDocumentCreated: boolean;
 };
 
 /** @internal */
@@ -4276,6 +5181,7 @@ export const DocumentEmailSettings$outboundSchema: z.ZodType<
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
   ownerRecipientExpired: z.boolean().default(true),
+  ownerDocumentCreated: z.boolean().default(true),
 });
 
 export function documentEmailSettingsToJSON(
@@ -4301,11 +5207,11 @@ export const EnvelopeExpirationPeriodDocument2$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  disabled: z.boolean(),
+  disabled: z.literal(true),
 });
 /** @internal */
 export type EnvelopeExpirationPeriodDocument2$Outbound = {
-  disabled: boolean;
+  disabled: true;
 };
 
 /** @internal */
@@ -4314,7 +5220,7 @@ export const EnvelopeExpirationPeriodDocument2$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EnvelopeExpirationPeriodDocument2
 > = z.object({
-  disabled: z.boolean(),
+  disabled: z.literal(true),
 });
 
 export function envelopeExpirationPeriodDocument2ToJSON(
@@ -4337,11 +5243,14 @@ export function envelopeExpirationPeriodDocument2FromJSON(
 }
 
 /** @internal */
-export const DocumentUnit$inboundSchema: z.ZodNativeEnum<typeof DocumentUnit> =
-  z.nativeEnum(DocumentUnit);
+export const EnvelopeExpirationPeriodDocumentUnit$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeExpirationPeriodDocumentUnit> = z.nativeEnum(
+    EnvelopeExpirationPeriodDocumentUnit,
+  );
 /** @internal */
-export const DocumentUnit$outboundSchema: z.ZodNativeEnum<typeof DocumentUnit> =
-  DocumentUnit$inboundSchema;
+export const EnvelopeExpirationPeriodDocumentUnit$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeExpirationPeriodDocumentUnit> =
+    EnvelopeExpirationPeriodDocumentUnit$inboundSchema;
 
 /** @internal */
 export const EnvelopeExpirationPeriodDocument1$inboundSchema: z.ZodType<
@@ -4349,7 +5258,7 @@ export const EnvelopeExpirationPeriodDocument1$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  unit: DocumentUnit$inboundSchema,
+  unit: EnvelopeExpirationPeriodDocumentUnit$inboundSchema,
   amount: z.number().int(),
 });
 /** @internal */
@@ -4364,7 +5273,7 @@ export const EnvelopeExpirationPeriodDocument1$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EnvelopeExpirationPeriodDocument1
 > = z.object({
-  unit: DocumentUnit$outboundSchema,
+  unit: EnvelopeExpirationPeriodDocumentUnit$outboundSchema,
   amount: z.number().int(),
 });
 
@@ -4432,6 +5341,322 @@ export function documentEnvelopeExpirationPeriodUnionFromJSON(
 }
 
 /** @internal */
+export const SendAfterDocument2$inboundSchema: z.ZodType<
+  SendAfterDocument2,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  disabled: z.literal(true),
+});
+/** @internal */
+export type SendAfterDocument2$Outbound = {
+  disabled: true;
+};
+
+/** @internal */
+export const SendAfterDocument2$outboundSchema: z.ZodType<
+  SendAfterDocument2$Outbound,
+  z.ZodTypeDef,
+  SendAfterDocument2
+> = z.object({
+  disabled: z.literal(true),
+});
+
+export function sendAfterDocument2ToJSON(
+  sendAfterDocument2: SendAfterDocument2,
+): string {
+  return JSON.stringify(
+    SendAfterDocument2$outboundSchema.parse(sendAfterDocument2),
+  );
+}
+export function sendAfterDocument2FromJSON(
+  jsonString: string,
+): SafeParseResult<SendAfterDocument2, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SendAfterDocument2$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SendAfterDocument2' from JSON`,
+  );
+}
+
+/** @internal */
+export const SendAfterDocumentUnit$inboundSchema: z.ZodNativeEnum<
+  typeof SendAfterDocumentUnit
+> = z.nativeEnum(SendAfterDocumentUnit);
+/** @internal */
+export const SendAfterDocumentUnit$outboundSchema: z.ZodNativeEnum<
+  typeof SendAfterDocumentUnit
+> = SendAfterDocumentUnit$inboundSchema;
+
+/** @internal */
+export const SendAfterDocument1$inboundSchema: z.ZodType<
+  SendAfterDocument1,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  unit: SendAfterDocumentUnit$inboundSchema,
+  amount: z.number().int(),
+});
+/** @internal */
+export type SendAfterDocument1$Outbound = {
+  unit: string;
+  amount: number;
+};
+
+/** @internal */
+export const SendAfterDocument1$outboundSchema: z.ZodType<
+  SendAfterDocument1$Outbound,
+  z.ZodTypeDef,
+  SendAfterDocument1
+> = z.object({
+  unit: SendAfterDocumentUnit$outboundSchema,
+  amount: z.number().int(),
+});
+
+export function sendAfterDocument1ToJSON(
+  sendAfterDocument1: SendAfterDocument1,
+): string {
+  return JSON.stringify(
+    SendAfterDocument1$outboundSchema.parse(sendAfterDocument1),
+  );
+}
+export function sendAfterDocument1FromJSON(
+  jsonString: string,
+): SafeParseResult<SendAfterDocument1, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SendAfterDocument1$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SendAfterDocument1' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentSendAfterUnion$inboundSchema: z.ZodType<
+  DocumentSendAfterUnion,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  z.lazy(() => SendAfterDocument1$inboundSchema),
+  z.lazy(() => SendAfterDocument2$inboundSchema),
+]);
+/** @internal */
+export type DocumentSendAfterUnion$Outbound =
+  | SendAfterDocument1$Outbound
+  | SendAfterDocument2$Outbound;
+
+/** @internal */
+export const DocumentSendAfterUnion$outboundSchema: z.ZodType<
+  DocumentSendAfterUnion$Outbound,
+  z.ZodTypeDef,
+  DocumentSendAfterUnion
+> = z.union([
+  z.lazy(() => SendAfterDocument1$outboundSchema),
+  z.lazy(() => SendAfterDocument2$outboundSchema),
+]);
+
+export function documentSendAfterUnionToJSON(
+  documentSendAfterUnion: DocumentSendAfterUnion,
+): string {
+  return JSON.stringify(
+    DocumentSendAfterUnion$outboundSchema.parse(documentSendAfterUnion),
+  );
+}
+export function documentSendAfterUnionFromJSON(
+  jsonString: string,
+): SafeParseResult<DocumentSendAfterUnion, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DocumentSendAfterUnion$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentSendAfterUnion' from JSON`,
+  );
+}
+
+/** @internal */
+export const RepeatEveryDocument2$inboundSchema: z.ZodType<
+  RepeatEveryDocument2,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  disabled: z.literal(true),
+});
+/** @internal */
+export type RepeatEveryDocument2$Outbound = {
+  disabled: true;
+};
+
+/** @internal */
+export const RepeatEveryDocument2$outboundSchema: z.ZodType<
+  RepeatEveryDocument2$Outbound,
+  z.ZodTypeDef,
+  RepeatEveryDocument2
+> = z.object({
+  disabled: z.literal(true),
+});
+
+export function repeatEveryDocument2ToJSON(
+  repeatEveryDocument2: RepeatEveryDocument2,
+): string {
+  return JSON.stringify(
+    RepeatEveryDocument2$outboundSchema.parse(repeatEveryDocument2),
+  );
+}
+export function repeatEveryDocument2FromJSON(
+  jsonString: string,
+): SafeParseResult<RepeatEveryDocument2, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => RepeatEveryDocument2$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RepeatEveryDocument2' from JSON`,
+  );
+}
+
+/** @internal */
+export const RepeatEveryDocumentUnit$inboundSchema: z.ZodNativeEnum<
+  typeof RepeatEveryDocumentUnit
+> = z.nativeEnum(RepeatEveryDocumentUnit);
+/** @internal */
+export const RepeatEveryDocumentUnit$outboundSchema: z.ZodNativeEnum<
+  typeof RepeatEveryDocumentUnit
+> = RepeatEveryDocumentUnit$inboundSchema;
+
+/** @internal */
+export const RepeatEveryDocument1$inboundSchema: z.ZodType<
+  RepeatEveryDocument1,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  unit: RepeatEveryDocumentUnit$inboundSchema,
+  amount: z.number().int(),
+});
+/** @internal */
+export type RepeatEveryDocument1$Outbound = {
+  unit: string;
+  amount: number;
+};
+
+/** @internal */
+export const RepeatEveryDocument1$outboundSchema: z.ZodType<
+  RepeatEveryDocument1$Outbound,
+  z.ZodTypeDef,
+  RepeatEveryDocument1
+> = z.object({
+  unit: RepeatEveryDocumentUnit$outboundSchema,
+  amount: z.number().int(),
+});
+
+export function repeatEveryDocument1ToJSON(
+  repeatEveryDocument1: RepeatEveryDocument1,
+): string {
+  return JSON.stringify(
+    RepeatEveryDocument1$outboundSchema.parse(repeatEveryDocument1),
+  );
+}
+export function repeatEveryDocument1FromJSON(
+  jsonString: string,
+): SafeParseResult<RepeatEveryDocument1, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => RepeatEveryDocument1$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RepeatEveryDocument1' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentRepeatEveryUnion$inboundSchema: z.ZodType<
+  DocumentRepeatEveryUnion,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  z.lazy(() => RepeatEveryDocument1$inboundSchema),
+  z.lazy(() => RepeatEveryDocument2$inboundSchema),
+]);
+/** @internal */
+export type DocumentRepeatEveryUnion$Outbound =
+  | RepeatEveryDocument1$Outbound
+  | RepeatEveryDocument2$Outbound;
+
+/** @internal */
+export const DocumentRepeatEveryUnion$outboundSchema: z.ZodType<
+  DocumentRepeatEveryUnion$Outbound,
+  z.ZodTypeDef,
+  DocumentRepeatEveryUnion
+> = z.union([
+  z.lazy(() => RepeatEveryDocument1$outboundSchema),
+  z.lazy(() => RepeatEveryDocument2$outboundSchema),
+]);
+
+export function documentRepeatEveryUnionToJSON(
+  documentRepeatEveryUnion: DocumentRepeatEveryUnion,
+): string {
+  return JSON.stringify(
+    DocumentRepeatEveryUnion$outboundSchema.parse(documentRepeatEveryUnion),
+  );
+}
+export function documentRepeatEveryUnionFromJSON(
+  jsonString: string,
+): SafeParseResult<DocumentRepeatEveryUnion, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DocumentRepeatEveryUnion$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentRepeatEveryUnion' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentReminderSettings$inboundSchema: z.ZodType<
+  DocumentReminderSettings,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  sendAfter: z.union([
+    z.lazy(() => SendAfterDocument1$inboundSchema),
+    z.lazy(() => SendAfterDocument2$inboundSchema),
+  ]),
+  repeatEvery: z.union([
+    z.lazy(() => RepeatEveryDocument1$inboundSchema),
+    z.lazy(() => RepeatEveryDocument2$inboundSchema),
+  ]),
+});
+/** @internal */
+export type DocumentReminderSettings$Outbound = {
+  sendAfter: SendAfterDocument1$Outbound | SendAfterDocument2$Outbound;
+  repeatEvery: RepeatEveryDocument1$Outbound | RepeatEveryDocument2$Outbound;
+};
+
+/** @internal */
+export const DocumentReminderSettings$outboundSchema: z.ZodType<
+  DocumentReminderSettings$Outbound,
+  z.ZodTypeDef,
+  DocumentReminderSettings
+> = z.object({
+  sendAfter: z.union([
+    z.lazy(() => SendAfterDocument1$outboundSchema),
+    z.lazy(() => SendAfterDocument2$outboundSchema),
+  ]),
+  repeatEvery: z.union([
+    z.lazy(() => RepeatEveryDocument1$outboundSchema),
+    z.lazy(() => RepeatEveryDocument2$outboundSchema),
+  ]),
+});
+
+export function documentReminderSettingsToJSON(
+  documentReminderSettings: DocumentReminderSettings,
+): string {
+  return JSON.stringify(
+    DocumentReminderSettings$outboundSchema.parse(documentReminderSettings),
+  );
+}
+export function documentReminderSettingsFromJSON(
+  jsonString: string,
+): SafeParseResult<DocumentReminderSettings, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DocumentReminderSettings$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentReminderSettings' from JSON`,
+  );
+}
+
+/** @internal */
 export const DocumentCreateDocumentTemporaryDocumentMeta$inboundSchema:
   z.ZodType<
     DocumentCreateDocumentTemporaryDocumentMeta,
@@ -4462,6 +5687,9 @@ export const DocumentCreateDocumentTemporaryDocumentMeta$inboundSchema:
         z.lazy(() => EnvelopeExpirationPeriodDocument2$inboundSchema),
       ]),
     ),
+    reminderSettings: z.nullable(
+      z.lazy(() => DocumentReminderSettings$inboundSchema),
+    ),
     password: z.nullable(z.string()).default(null),
     documentId: z.number().default(-1),
   });
@@ -4487,6 +5715,7 @@ export type DocumentCreateDocumentTemporaryDocumentMeta$Outbound = {
     | EnvelopeExpirationPeriodDocument1$Outbound
     | EnvelopeExpirationPeriodDocument2$Outbound
     | null;
+  reminderSettings: DocumentReminderSettings$Outbound | null;
   password: string | null;
   documentId: number;
 };
@@ -4521,6 +5750,9 @@ export const DocumentCreateDocumentTemporaryDocumentMeta$outboundSchema:
         z.lazy(() => EnvelopeExpirationPeriodDocument1$outboundSchema),
         z.lazy(() => EnvelopeExpirationPeriodDocument2$outboundSchema),
       ]),
+    ),
+    reminderSettings: z.nullable(
+      z.lazy(() => DocumentReminderSettings$outboundSchema),
     ),
     password: z.nullable(z.string()).default(null),
     documentId: z.number().default(-1),
@@ -4910,6 +6142,15 @@ export const DocumentFieldTypeEnum$outboundSchema: z.ZodNativeEnum<
 > = DocumentFieldTypeEnum$inboundSchema;
 
 /** @internal */
+export const DocumentOverflow10$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentOverflow10
+> = z.nativeEnum(DocumentOverflow10);
+/** @internal */
+export const DocumentOverflow10$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentOverflow10
+> = DocumentOverflow10$inboundSchema;
+
+/** @internal */
 export const DocumentValue3$inboundSchema: z.ZodType<
   DocumentValue3,
   z.ZodTypeDef,
@@ -4955,6 +6196,7 @@ export const FieldMetaDocumentDropdown$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentOverflow10$inboundSchema.optional(),
   type: z.literal("dropdown"),
   values: z.array(z.lazy(() => DocumentValue3$inboundSchema)).optional(),
   defaultValue: z.string().optional(),
@@ -4966,6 +6208,7 @@ export type FieldMetaDocumentDropdown$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "dropdown";
   values?: Array<DocumentValue3$Outbound> | undefined;
   defaultValue?: string | undefined;
@@ -4982,6 +6225,7 @@ export const FieldMetaDocumentDropdown$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentOverflow10$outboundSchema.optional(),
   type: z.literal("dropdown"),
   values: z.array(z.lazy(() => DocumentValue3$outboundSchema)).optional(),
   defaultValue: z.string().optional(),
@@ -5003,6 +6247,15 @@ export function fieldMetaDocumentDropdownFromJSON(
     `Failed to parse 'FieldMetaDocumentDropdown' from JSON`,
   );
 }
+
+/** @internal */
+export const DocumentOverflow9$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentOverflow9
+> = z.nativeEnum(DocumentOverflow9);
+/** @internal */
+export const DocumentOverflow9$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentOverflow9
+> = DocumentOverflow9$inboundSchema;
 
 /** @internal */
 export const DocumentValue2$inboundSchema: z.ZodType<
@@ -5065,6 +6318,7 @@ export const FieldMetaDocumentCheckbox$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentOverflow9$inboundSchema.optional(),
   type: z.literal("checkbox"),
   values: z.array(z.lazy(() => DocumentValue2$inboundSchema)).optional(),
   validationRule: z.string().optional(),
@@ -5078,6 +6332,7 @@ export type FieldMetaDocumentCheckbox$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "checkbox";
   values?: Array<DocumentValue2$Outbound> | undefined;
   validationRule?: string | undefined;
@@ -5096,6 +6351,7 @@ export const FieldMetaDocumentCheckbox$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentOverflow9$outboundSchema.optional(),
   type: z.literal("checkbox"),
   values: z.array(z.lazy(() => DocumentValue2$outboundSchema)).optional(),
   validationRule: z.string().optional(),
@@ -5119,6 +6375,15 @@ export function fieldMetaDocumentCheckboxFromJSON(
     `Failed to parse 'FieldMetaDocumentCheckbox' from JSON`,
   );
 }
+
+/** @internal */
+export const DocumentOverflow8$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentOverflow8
+> = z.nativeEnum(DocumentOverflow8);
+/** @internal */
+export const DocumentOverflow8$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentOverflow8
+> = DocumentOverflow8$inboundSchema;
 
 /** @internal */
 export const DocumentValue1$inboundSchema: z.ZodType<
@@ -5181,6 +6446,7 @@ export const FieldMetaDocumentRadio$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentOverflow8$inboundSchema.optional(),
   type: z.literal("radio"),
   values: z.array(z.lazy(() => DocumentValue1$inboundSchema)).optional(),
   direction: DocumentDirection1$inboundSchema.default("vertical"),
@@ -5192,6 +6458,7 @@ export type FieldMetaDocumentRadio$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "radio";
   values?: Array<DocumentValue1$Outbound> | undefined;
   direction: string;
@@ -5208,6 +6475,7 @@ export const FieldMetaDocumentRadio$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentOverflow8$outboundSchema.optional(),
   type: z.literal("radio"),
   values: z.array(z.lazy(() => DocumentValue1$outboundSchema)).optional(),
   direction: DocumentDirection1$outboundSchema.default("vertical"),
@@ -5229,6 +6497,15 @@ export function fieldMetaDocumentRadioFromJSON(
     `Failed to parse 'FieldMetaDocumentRadio' from JSON`,
   );
 }
+
+/** @internal */
+export const DocumentOverflow7$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentOverflow7
+> = z.nativeEnum(DocumentOverflow7);
+/** @internal */
+export const DocumentOverflow7$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentOverflow7
+> = DocumentOverflow7$inboundSchema;
 
 /** @internal */
 export const DocumentTextAlign6$inboundSchema: z.ZodNativeEnum<
@@ -5259,6 +6536,7 @@ export const FieldMetaDocumentNumber$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentOverflow7$inboundSchema.optional(),
   type: z.literal("number"),
   numberFormat: z.nullable(z.string()).optional(),
   value: z.string().optional(),
@@ -5276,6 +6554,7 @@ export type FieldMetaDocumentNumber$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
@@ -5298,6 +6577,7 @@ export const FieldMetaDocumentNumber$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentOverflow7$outboundSchema.optional(),
   type: z.literal("number"),
   numberFormat: z.nullable(z.string()).optional(),
   value: z.string().optional(),
@@ -5325,6 +6605,15 @@ export function fieldMetaDocumentNumberFromJSON(
     `Failed to parse 'FieldMetaDocumentNumber' from JSON`,
   );
 }
+
+/** @internal */
+export const DocumentOverflow6$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentOverflow6
+> = z.nativeEnum(DocumentOverflow6);
+/** @internal */
+export const DocumentOverflow6$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentOverflow6
+> = DocumentOverflow6$inboundSchema;
 
 /** @internal */
 export const DocumentTextAlign5$inboundSchema: z.ZodNativeEnum<
@@ -5355,6 +6644,7 @@ export const FieldMetaDocumentText$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentOverflow6$inboundSchema.optional(),
   type: z.literal("text"),
   text: z.string().optional(),
   characterLimit: z.number().optional(),
@@ -5370,6 +6660,7 @@ export type FieldMetaDocumentText$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
@@ -5390,6 +6681,7 @@ export const FieldMetaDocumentText$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentOverflow6$outboundSchema.optional(),
   type: z.literal("text"),
   text: z.string().optional(),
   characterLimit: z.number().optional(),
@@ -5417,6 +6709,15 @@ export function fieldMetaDocumentTextFromJSON(
 }
 
 /** @internal */
+export const DocumentOverflow5$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentOverflow5
+> = z.nativeEnum(DocumentOverflow5);
+/** @internal */
+export const DocumentOverflow5$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentOverflow5
+> = DocumentOverflow5$inboundSchema;
+
+/** @internal */
 export const DocumentTextAlign4$inboundSchema: z.ZodNativeEnum<
   typeof DocumentTextAlign4
 > = z.nativeEnum(DocumentTextAlign4);
@@ -5436,6 +6737,7 @@ export const FieldMetaDocumentDate$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentOverflow5$inboundSchema.default("auto"),
   type: z.literal("date"),
   textAlign: DocumentTextAlign4$inboundSchema.optional(),
 });
@@ -5446,6 +6748,7 @@ export type FieldMetaDocumentDate$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "date";
   textAlign?: string | undefined;
 };
@@ -5461,6 +6764,7 @@ export const FieldMetaDocumentDate$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentOverflow5$outboundSchema.default("auto"),
   type: z.literal("date"),
   textAlign: DocumentTextAlign4$outboundSchema.optional(),
 });
@@ -5483,6 +6787,15 @@ export function fieldMetaDocumentDateFromJSON(
 }
 
 /** @internal */
+export const DocumentOverflow4$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentOverflow4
+> = z.nativeEnum(DocumentOverflow4);
+/** @internal */
+export const DocumentOverflow4$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentOverflow4
+> = DocumentOverflow4$inboundSchema;
+
+/** @internal */
 export const DocumentTextAlign3$inboundSchema: z.ZodNativeEnum<
   typeof DocumentTextAlign3
 > = z.nativeEnum(DocumentTextAlign3);
@@ -5502,6 +6815,7 @@ export const FieldMetaDocumentEmail$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentOverflow4$inboundSchema.default("auto"),
   type: z.literal("email"),
   textAlign: DocumentTextAlign3$inboundSchema.optional(),
 });
@@ -5512,6 +6826,7 @@ export type FieldMetaDocumentEmail$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "email";
   textAlign?: string | undefined;
 };
@@ -5527,6 +6842,7 @@ export const FieldMetaDocumentEmail$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentOverflow4$outboundSchema.default("auto"),
   type: z.literal("email"),
   textAlign: DocumentTextAlign3$outboundSchema.optional(),
 });
@@ -5549,6 +6865,15 @@ export function fieldMetaDocumentEmailFromJSON(
 }
 
 /** @internal */
+export const DocumentOverflow3$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentOverflow3
+> = z.nativeEnum(DocumentOverflow3);
+/** @internal */
+export const DocumentOverflow3$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentOverflow3
+> = DocumentOverflow3$inboundSchema;
+
+/** @internal */
 export const DocumentTextAlign2$inboundSchema: z.ZodNativeEnum<
   typeof DocumentTextAlign2
 > = z.nativeEnum(DocumentTextAlign2);
@@ -5568,6 +6893,7 @@ export const FieldMetaDocumentName$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentOverflow3$inboundSchema.optional(),
   type: z.literal("name"),
   textAlign: DocumentTextAlign2$inboundSchema.optional(),
 });
@@ -5578,6 +6904,7 @@ export type FieldMetaDocumentName$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "name";
   textAlign?: string | undefined;
 };
@@ -5593,6 +6920,7 @@ export const FieldMetaDocumentName$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentOverflow3$outboundSchema.optional(),
   type: z.literal("name"),
   textAlign: DocumentTextAlign2$outboundSchema.optional(),
 });
@@ -5615,6 +6943,15 @@ export function fieldMetaDocumentNameFromJSON(
 }
 
 /** @internal */
+export const DocumentOverflow2$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentOverflow2
+> = z.nativeEnum(DocumentOverflow2);
+/** @internal */
+export const DocumentOverflow2$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentOverflow2
+> = DocumentOverflow2$inboundSchema;
+
+/** @internal */
 export const DocumentTextAlign1$inboundSchema: z.ZodNativeEnum<
   typeof DocumentTextAlign1
 > = z.nativeEnum(DocumentTextAlign1);
@@ -5634,6 +6971,7 @@ export const FieldMetaDocumentInitials$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentOverflow2$inboundSchema.optional(),
   type: z.literal("initials"),
   textAlign: DocumentTextAlign1$inboundSchema.optional(),
 });
@@ -5644,6 +6982,7 @@ export type FieldMetaDocumentInitials$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
 };
@@ -5659,6 +6998,7 @@ export const FieldMetaDocumentInitials$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentOverflow2$outboundSchema.optional(),
   type: z.literal("initials"),
   textAlign: DocumentTextAlign1$outboundSchema.optional(),
 });
@@ -5681,6 +7021,15 @@ export function fieldMetaDocumentInitialsFromJSON(
 }
 
 /** @internal */
+export const DocumentOverflow1$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentOverflow1
+> = z.nativeEnum(DocumentOverflow1);
+/** @internal */
+export const DocumentOverflow1$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentOverflow1
+> = DocumentOverflow1$inboundSchema;
+
+/** @internal */
 export const FieldMetaDocumentSignature$inboundSchema: z.ZodType<
   FieldMetaDocumentSignature,
   z.ZodTypeDef,
@@ -5691,6 +7040,7 @@ export const FieldMetaDocumentSignature$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentOverflow1$inboundSchema.default("auto"),
   type: z.literal("signature"),
 });
 /** @internal */
@@ -5700,6 +7050,7 @@ export type FieldMetaDocumentSignature$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "signature";
 };
 
@@ -5714,6 +7065,7 @@ export const FieldMetaDocumentSignature$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentOverflow1$outboundSchema.default("auto"),
   type: z.literal("signature"),
 });
 

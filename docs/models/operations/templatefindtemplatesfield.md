@@ -21,6 +21,7 @@ let value: TemplateFindTemplatesField = {
   inserted: false,
   fieldMeta: {
     fontSize: 12,
+    overflow: "auto",
     type: "email",
   },
 };

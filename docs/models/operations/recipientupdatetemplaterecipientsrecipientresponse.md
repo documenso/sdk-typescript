@@ -45,6 +45,7 @@ let value: RecipientUpdateTemplateRecipientsRecipientResponse = {
       inserted: true,
       fieldMeta: {
         fontSize: 12,
+        overflow: "auto",
         type: "email",
       },
     },

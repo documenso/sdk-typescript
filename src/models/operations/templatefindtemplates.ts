@@ -14,6 +14,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 export const TemplateFindTemplatesQueryParamType = {
   Public: "PUBLIC",
   Private: "PRIVATE",
+  Organisation: "ORGANISATION",
 } as const;
 /**
  * Filter templates by type.
@@ -48,6 +49,7 @@ export type TemplateFindTemplatesRequest = {
 export const TemplateFindTemplatesDataTypeEnum = {
   Public: "PUBLIC",
   Private: "PRIVATE",
+  Organisation: "ORGANISATION",
 } as const;
 export type TemplateFindTemplatesDataTypeEnum = ClosedEnum<
   typeof TemplateFindTemplatesDataTypeEnum
@@ -88,6 +90,7 @@ export type TemplateFindTemplatesAuthOptions = {
 export type TemplateFindTemplatesTeam = {
   id: number;
   url: string;
+  name: string;
 };
 
 export const TemplateFindTemplatesFieldTypeEnum = {
@@ -107,6 +110,16 @@ export type TemplateFindTemplatesFieldTypeEnum = ClosedEnum<
   typeof TemplateFindTemplatesFieldTypeEnum
 >;
 
+export const TemplateFindTemplatesOverflow10 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateFindTemplatesOverflow10 = ClosedEnum<
+  typeof TemplateFindTemplatesOverflow10
+>;
+
 export type TemplateFindTemplatesValue3 = {
   value: string;
 };
@@ -117,10 +130,21 @@ export type TemplateFindTemplatesFieldMetaDropdown = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateFindTemplatesOverflow10 | undefined;
   type: "dropdown";
   values?: Array<TemplateFindTemplatesValue3> | undefined;
   defaultValue?: string | undefined;
 };
+
+export const TemplateFindTemplatesOverflow9 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateFindTemplatesOverflow9 = ClosedEnum<
+  typeof TemplateFindTemplatesOverflow9
+>;
 
 export type TemplateFindTemplatesValue2 = {
   id: number;
@@ -142,12 +166,23 @@ export type TemplateFindTemplatesFieldMetaCheckbox = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateFindTemplatesOverflow9 | undefined;
   type: "checkbox";
   values?: Array<TemplateFindTemplatesValue2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
   direction?: TemplateFindTemplatesDirection2 | undefined;
 };
+
+export const TemplateFindTemplatesOverflow8 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateFindTemplatesOverflow8 = ClosedEnum<
+  typeof TemplateFindTemplatesOverflow8
+>;
 
 export type TemplateFindTemplatesValue1 = {
   id: number;
@@ -169,10 +204,21 @@ export type TemplateFindTemplatesFieldMetaRadio = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateFindTemplatesOverflow8 | undefined;
   type: "radio";
   values?: Array<TemplateFindTemplatesValue1> | undefined;
   direction?: TemplateFindTemplatesDirection1 | undefined;
 };
+
+export const TemplateFindTemplatesOverflow7 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateFindTemplatesOverflow7 = ClosedEnum<
+  typeof TemplateFindTemplatesOverflow7
+>;
 
 export const TemplateFindTemplatesTextAlign6 = {
   Left: "left",
@@ -198,6 +244,7 @@ export type TemplateFindTemplatesFieldMetaNumber = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateFindTemplatesOverflow7 | undefined;
   type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
@@ -208,6 +255,16 @@ export type TemplateFindTemplatesFieldMetaNumber = {
   letterSpacing?: number | null | undefined;
   verticalAlign?: TemplateFindTemplatesVerticalAlign2 | null | undefined;
 };
+
+export const TemplateFindTemplatesOverflow6 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateFindTemplatesOverflow6 = ClosedEnum<
+  typeof TemplateFindTemplatesOverflow6
+>;
 
 export const TemplateFindTemplatesTextAlign5 = {
   Left: "left",
@@ -233,6 +290,7 @@ export type TemplateFindTemplatesFieldMetaText = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateFindTemplatesOverflow6 | undefined;
   type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
@@ -241,6 +299,16 @@ export type TemplateFindTemplatesFieldMetaText = {
   letterSpacing?: number | null | undefined;
   verticalAlign?: TemplateFindTemplatesVerticalAlign1 | null | undefined;
 };
+
+export const TemplateFindTemplatesOverflow5 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateFindTemplatesOverflow5 = ClosedEnum<
+  typeof TemplateFindTemplatesOverflow5
+>;
 
 export const TemplateFindTemplatesTextAlign4 = {
   Left: "left",
@@ -257,9 +325,20 @@ export type TemplateFindTemplatesFieldMetaDate = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateFindTemplatesOverflow5 | undefined;
   type: "date";
   textAlign?: TemplateFindTemplatesTextAlign4 | undefined;
 };
+
+export const TemplateFindTemplatesOverflow4 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateFindTemplatesOverflow4 = ClosedEnum<
+  typeof TemplateFindTemplatesOverflow4
+>;
 
 export const TemplateFindTemplatesTextAlign3 = {
   Left: "left",
@@ -276,9 +355,20 @@ export type TemplateFindTemplatesFieldMetaEmail = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateFindTemplatesOverflow4 | undefined;
   type: "email";
   textAlign?: TemplateFindTemplatesTextAlign3 | undefined;
 };
+
+export const TemplateFindTemplatesOverflow3 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateFindTemplatesOverflow3 = ClosedEnum<
+  typeof TemplateFindTemplatesOverflow3
+>;
 
 export const TemplateFindTemplatesTextAlign2 = {
   Left: "left",
@@ -295,9 +385,20 @@ export type TemplateFindTemplatesFieldMetaName = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateFindTemplatesOverflow3 | undefined;
   type: "name";
   textAlign?: TemplateFindTemplatesTextAlign2 | undefined;
 };
+
+export const TemplateFindTemplatesOverflow2 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateFindTemplatesOverflow2 = ClosedEnum<
+  typeof TemplateFindTemplatesOverflow2
+>;
 
 export const TemplateFindTemplatesTextAlign1 = {
   Left: "left",
@@ -314,9 +415,20 @@ export type TemplateFindTemplatesFieldMetaInitials = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateFindTemplatesOverflow2 | undefined;
   type: "initials";
   textAlign?: TemplateFindTemplatesTextAlign1 | undefined;
 };
+
+export const TemplateFindTemplatesOverflow1 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateFindTemplatesOverflow1 = ClosedEnum<
+  typeof TemplateFindTemplatesOverflow1
+>;
 
 export type TemplateFindTemplatesFieldMetaSignature = {
   label?: string | undefined;
@@ -324,6 +436,7 @@ export type TemplateFindTemplatesFieldMetaSignature = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateFindTemplatesOverflow1 | undefined;
   type: "signature";
 };
 
@@ -672,11 +785,13 @@ export const TemplateFindTemplatesTeam$inboundSchema: z.ZodType<
 > = z.object({
   id: z.number(),
   url: z.string(),
+  name: z.string(),
 });
 /** @internal */
 export type TemplateFindTemplatesTeam$Outbound = {
   id: number;
   url: string;
+  name: string;
 };
 
 /** @internal */
@@ -687,6 +802,7 @@ export const TemplateFindTemplatesTeam$outboundSchema: z.ZodType<
 > = z.object({
   id: z.number(),
   url: z.string(),
+  name: z.string(),
 });
 
 export function templateFindTemplatesTeamToJSON(
@@ -714,6 +830,15 @@ export const TemplateFindTemplatesFieldTypeEnum$inboundSchema: z.ZodNativeEnum<
 export const TemplateFindTemplatesFieldTypeEnum$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesFieldTypeEnum
 > = TemplateFindTemplatesFieldTypeEnum$inboundSchema;
+
+/** @internal */
+export const TemplateFindTemplatesOverflow10$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesOverflow10
+> = z.nativeEnum(TemplateFindTemplatesOverflow10);
+/** @internal */
+export const TemplateFindTemplatesOverflow10$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesOverflow10
+> = TemplateFindTemplatesOverflow10$inboundSchema;
 
 /** @internal */
 export const TemplateFindTemplatesValue3$inboundSchema: z.ZodType<
@@ -767,6 +892,7 @@ export const TemplateFindTemplatesFieldMetaDropdown$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateFindTemplatesOverflow10$inboundSchema.optional(),
   type: z.literal("dropdown"),
   values: z.array(z.lazy(() => TemplateFindTemplatesValue3$inboundSchema))
     .optional(),
@@ -779,6 +905,7 @@ export type TemplateFindTemplatesFieldMetaDropdown$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "dropdown";
   values?: Array<TemplateFindTemplatesValue3$Outbound> | undefined;
   defaultValue?: string | undefined;
@@ -795,6 +922,7 @@ export const TemplateFindTemplatesFieldMetaDropdown$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateFindTemplatesOverflow10$outboundSchema.optional(),
   type: z.literal("dropdown"),
   values: z.array(z.lazy(() => TemplateFindTemplatesValue3$outboundSchema))
     .optional(),
@@ -821,6 +949,15 @@ export function templateFindTemplatesFieldMetaDropdownFromJSON(
     `Failed to parse 'TemplateFindTemplatesFieldMetaDropdown' from JSON`,
   );
 }
+
+/** @internal */
+export const TemplateFindTemplatesOverflow9$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesOverflow9
+> = z.nativeEnum(TemplateFindTemplatesOverflow9);
+/** @internal */
+export const TemplateFindTemplatesOverflow9$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesOverflow9
+> = TemplateFindTemplatesOverflow9$inboundSchema;
 
 /** @internal */
 export const TemplateFindTemplatesValue2$inboundSchema: z.ZodType<
@@ -889,6 +1026,7 @@ export const TemplateFindTemplatesFieldMetaCheckbox$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateFindTemplatesOverflow9$inboundSchema.optional(),
   type: z.literal("checkbox"),
   values: z.array(z.lazy(() => TemplateFindTemplatesValue2$inboundSchema))
     .optional(),
@@ -903,6 +1041,7 @@ export type TemplateFindTemplatesFieldMetaCheckbox$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "checkbox";
   values?: Array<TemplateFindTemplatesValue2$Outbound> | undefined;
   validationRule?: string | undefined;
@@ -921,6 +1060,7 @@ export const TemplateFindTemplatesFieldMetaCheckbox$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateFindTemplatesOverflow9$outboundSchema.optional(),
   type: z.literal("checkbox"),
   values: z.array(z.lazy(() => TemplateFindTemplatesValue2$outboundSchema))
     .optional(),
@@ -949,6 +1089,15 @@ export function templateFindTemplatesFieldMetaCheckboxFromJSON(
     `Failed to parse 'TemplateFindTemplatesFieldMetaCheckbox' from JSON`,
   );
 }
+
+/** @internal */
+export const TemplateFindTemplatesOverflow8$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesOverflow8
+> = z.nativeEnum(TemplateFindTemplatesOverflow8);
+/** @internal */
+export const TemplateFindTemplatesOverflow8$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesOverflow8
+> = TemplateFindTemplatesOverflow8$inboundSchema;
 
 /** @internal */
 export const TemplateFindTemplatesValue1$inboundSchema: z.ZodType<
@@ -1017,6 +1166,7 @@ export const TemplateFindTemplatesFieldMetaRadio$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateFindTemplatesOverflow8$inboundSchema.optional(),
   type: z.literal("radio"),
   values: z.array(z.lazy(() => TemplateFindTemplatesValue1$inboundSchema))
     .optional(),
@@ -1029,6 +1179,7 @@ export type TemplateFindTemplatesFieldMetaRadio$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "radio";
   values?: Array<TemplateFindTemplatesValue1$Outbound> | undefined;
   direction: string;
@@ -1045,6 +1196,7 @@ export const TemplateFindTemplatesFieldMetaRadio$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateFindTemplatesOverflow8$outboundSchema.optional(),
   type: z.literal("radio"),
   values: z.array(z.lazy(() => TemplateFindTemplatesValue1$outboundSchema))
     .optional(),
@@ -1070,6 +1222,15 @@ export function templateFindTemplatesFieldMetaRadioFromJSON(
     `Failed to parse 'TemplateFindTemplatesFieldMetaRadio' from JSON`,
   );
 }
+
+/** @internal */
+export const TemplateFindTemplatesOverflow7$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesOverflow7
+> = z.nativeEnum(TemplateFindTemplatesOverflow7);
+/** @internal */
+export const TemplateFindTemplatesOverflow7$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesOverflow7
+> = TemplateFindTemplatesOverflow7$inboundSchema;
 
 /** @internal */
 export const TemplateFindTemplatesTextAlign6$inboundSchema: z.ZodNativeEnum<
@@ -1100,6 +1261,7 @@ export const TemplateFindTemplatesFieldMetaNumber$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateFindTemplatesOverflow7$inboundSchema.optional(),
   type: z.literal("number"),
   numberFormat: z.nullable(z.string()).optional(),
   value: z.string().optional(),
@@ -1118,6 +1280,7 @@ export type TemplateFindTemplatesFieldMetaNumber$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
@@ -1140,6 +1303,7 @@ export const TemplateFindTemplatesFieldMetaNumber$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateFindTemplatesOverflow7$outboundSchema.optional(),
   type: z.literal("number"),
   numberFormat: z.nullable(z.string()).optional(),
   value: z.string().optional(),
@@ -1173,6 +1337,15 @@ export function templateFindTemplatesFieldMetaNumberFromJSON(
 }
 
 /** @internal */
+export const TemplateFindTemplatesOverflow6$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesOverflow6
+> = z.nativeEnum(TemplateFindTemplatesOverflow6);
+/** @internal */
+export const TemplateFindTemplatesOverflow6$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesOverflow6
+> = TemplateFindTemplatesOverflow6$inboundSchema;
+
+/** @internal */
 export const TemplateFindTemplatesTextAlign5$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesTextAlign5
 > = z.nativeEnum(TemplateFindTemplatesTextAlign5);
@@ -1201,6 +1374,7 @@ export const TemplateFindTemplatesFieldMetaText$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateFindTemplatesOverflow6$inboundSchema.optional(),
   type: z.literal("text"),
   text: z.string().optional(),
   characterLimit: z.number().optional(),
@@ -1217,6 +1391,7 @@ export type TemplateFindTemplatesFieldMetaText$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
@@ -1237,6 +1412,7 @@ export const TemplateFindTemplatesFieldMetaText$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateFindTemplatesOverflow6$outboundSchema.optional(),
   type: z.literal("text"),
   text: z.string().optional(),
   characterLimit: z.number().optional(),
@@ -1268,6 +1444,15 @@ export function templateFindTemplatesFieldMetaTextFromJSON(
 }
 
 /** @internal */
+export const TemplateFindTemplatesOverflow5$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesOverflow5
+> = z.nativeEnum(TemplateFindTemplatesOverflow5);
+/** @internal */
+export const TemplateFindTemplatesOverflow5$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesOverflow5
+> = TemplateFindTemplatesOverflow5$inboundSchema;
+
+/** @internal */
 export const TemplateFindTemplatesTextAlign4$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesTextAlign4
 > = z.nativeEnum(TemplateFindTemplatesTextAlign4);
@@ -1287,6 +1472,7 @@ export const TemplateFindTemplatesFieldMetaDate$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateFindTemplatesOverflow5$inboundSchema.default("auto"),
   type: z.literal("date"),
   textAlign: TemplateFindTemplatesTextAlign4$inboundSchema.optional(),
 });
@@ -1297,6 +1483,7 @@ export type TemplateFindTemplatesFieldMetaDate$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "date";
   textAlign?: string | undefined;
 };
@@ -1312,6 +1499,7 @@ export const TemplateFindTemplatesFieldMetaDate$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateFindTemplatesOverflow5$outboundSchema.default("auto"),
   type: z.literal("date"),
   textAlign: TemplateFindTemplatesTextAlign4$outboundSchema.optional(),
 });
@@ -1337,6 +1525,15 @@ export function templateFindTemplatesFieldMetaDateFromJSON(
 }
 
 /** @internal */
+export const TemplateFindTemplatesOverflow4$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesOverflow4
+> = z.nativeEnum(TemplateFindTemplatesOverflow4);
+/** @internal */
+export const TemplateFindTemplatesOverflow4$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesOverflow4
+> = TemplateFindTemplatesOverflow4$inboundSchema;
+
+/** @internal */
 export const TemplateFindTemplatesTextAlign3$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesTextAlign3
 > = z.nativeEnum(TemplateFindTemplatesTextAlign3);
@@ -1356,6 +1553,7 @@ export const TemplateFindTemplatesFieldMetaEmail$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateFindTemplatesOverflow4$inboundSchema.default("auto"),
   type: z.literal("email"),
   textAlign: TemplateFindTemplatesTextAlign3$inboundSchema.optional(),
 });
@@ -1366,6 +1564,7 @@ export type TemplateFindTemplatesFieldMetaEmail$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "email";
   textAlign?: string | undefined;
 };
@@ -1381,6 +1580,7 @@ export const TemplateFindTemplatesFieldMetaEmail$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateFindTemplatesOverflow4$outboundSchema.default("auto"),
   type: z.literal("email"),
   textAlign: TemplateFindTemplatesTextAlign3$outboundSchema.optional(),
 });
@@ -1406,6 +1606,15 @@ export function templateFindTemplatesFieldMetaEmailFromJSON(
 }
 
 /** @internal */
+export const TemplateFindTemplatesOverflow3$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesOverflow3
+> = z.nativeEnum(TemplateFindTemplatesOverflow3);
+/** @internal */
+export const TemplateFindTemplatesOverflow3$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesOverflow3
+> = TemplateFindTemplatesOverflow3$inboundSchema;
+
+/** @internal */
 export const TemplateFindTemplatesTextAlign2$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesTextAlign2
 > = z.nativeEnum(TemplateFindTemplatesTextAlign2);
@@ -1425,6 +1634,7 @@ export const TemplateFindTemplatesFieldMetaName$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateFindTemplatesOverflow3$inboundSchema.optional(),
   type: z.literal("name"),
   textAlign: TemplateFindTemplatesTextAlign2$inboundSchema.optional(),
 });
@@ -1435,6 +1645,7 @@ export type TemplateFindTemplatesFieldMetaName$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "name";
   textAlign?: string | undefined;
 };
@@ -1450,6 +1661,7 @@ export const TemplateFindTemplatesFieldMetaName$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateFindTemplatesOverflow3$outboundSchema.optional(),
   type: z.literal("name"),
   textAlign: TemplateFindTemplatesTextAlign2$outboundSchema.optional(),
 });
@@ -1475,6 +1687,15 @@ export function templateFindTemplatesFieldMetaNameFromJSON(
 }
 
 /** @internal */
+export const TemplateFindTemplatesOverflow2$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesOverflow2
+> = z.nativeEnum(TemplateFindTemplatesOverflow2);
+/** @internal */
+export const TemplateFindTemplatesOverflow2$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesOverflow2
+> = TemplateFindTemplatesOverflow2$inboundSchema;
+
+/** @internal */
 export const TemplateFindTemplatesTextAlign1$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesTextAlign1
 > = z.nativeEnum(TemplateFindTemplatesTextAlign1);
@@ -1494,6 +1715,7 @@ export const TemplateFindTemplatesFieldMetaInitials$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateFindTemplatesOverflow2$inboundSchema.optional(),
   type: z.literal("initials"),
   textAlign: TemplateFindTemplatesTextAlign1$inboundSchema.optional(),
 });
@@ -1504,6 +1726,7 @@ export type TemplateFindTemplatesFieldMetaInitials$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
 };
@@ -1519,6 +1742,7 @@ export const TemplateFindTemplatesFieldMetaInitials$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateFindTemplatesOverflow2$outboundSchema.optional(),
   type: z.literal("initials"),
   textAlign: TemplateFindTemplatesTextAlign1$outboundSchema.optional(),
 });
@@ -1545,6 +1769,15 @@ export function templateFindTemplatesFieldMetaInitialsFromJSON(
 }
 
 /** @internal */
+export const TemplateFindTemplatesOverflow1$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesOverflow1
+> = z.nativeEnum(TemplateFindTemplatesOverflow1);
+/** @internal */
+export const TemplateFindTemplatesOverflow1$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesOverflow1
+> = TemplateFindTemplatesOverflow1$inboundSchema;
+
+/** @internal */
 export const TemplateFindTemplatesFieldMetaSignature$inboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMetaSignature,
   z.ZodTypeDef,
@@ -1555,6 +1788,7 @@ export const TemplateFindTemplatesFieldMetaSignature$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateFindTemplatesOverflow1$inboundSchema.default("auto"),
   type: z.literal("signature"),
 });
 /** @internal */
@@ -1564,6 +1798,7 @@ export type TemplateFindTemplatesFieldMetaSignature$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "signature";
 };
 
@@ -1578,6 +1813,7 @@ export const TemplateFindTemplatesFieldMetaSignature$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateFindTemplatesOverflow1$outboundSchema.default("auto"),
   type: z.literal("signature"),
 });
 

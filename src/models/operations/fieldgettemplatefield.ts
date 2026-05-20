@@ -29,6 +29,16 @@ export type FieldGetTemplateFieldTypeEnum = ClosedEnum<
   typeof FieldGetTemplateFieldTypeEnum
 >;
 
+export const FieldGetTemplateFieldOverflow10 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldGetTemplateFieldOverflow10 = ClosedEnum<
+  typeof FieldGetTemplateFieldOverflow10
+>;
+
 export type FieldGetTemplateFieldValue3 = {
   value: string;
 };
@@ -39,10 +49,21 @@ export type FieldGetTemplateFieldFieldMetaDropdown = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldGetTemplateFieldOverflow10 | undefined;
   type: "dropdown";
   values?: Array<FieldGetTemplateFieldValue3> | undefined;
   defaultValue?: string | undefined;
 };
+
+export const FieldGetTemplateFieldOverflow9 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldGetTemplateFieldOverflow9 = ClosedEnum<
+  typeof FieldGetTemplateFieldOverflow9
+>;
 
 export type FieldGetTemplateFieldValue2 = {
   id: number;
@@ -64,12 +85,23 @@ export type FieldGetTemplateFieldFieldMetaCheckbox = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldGetTemplateFieldOverflow9 | undefined;
   type: "checkbox";
   values?: Array<FieldGetTemplateFieldValue2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
   direction?: FieldGetTemplateFieldDirection2 | undefined;
 };
+
+export const FieldGetTemplateFieldOverflow8 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldGetTemplateFieldOverflow8 = ClosedEnum<
+  typeof FieldGetTemplateFieldOverflow8
+>;
 
 export type FieldGetTemplateFieldValue1 = {
   id: number;
@@ -91,10 +123,21 @@ export type FieldGetTemplateFieldFieldMetaRadio = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldGetTemplateFieldOverflow8 | undefined;
   type: "radio";
   values?: Array<FieldGetTemplateFieldValue1> | undefined;
   direction?: FieldGetTemplateFieldDirection1 | undefined;
 };
+
+export const FieldGetTemplateFieldOverflow7 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldGetTemplateFieldOverflow7 = ClosedEnum<
+  typeof FieldGetTemplateFieldOverflow7
+>;
 
 export const FieldGetTemplateFieldTextAlign6 = {
   Left: "left",
@@ -120,6 +163,7 @@ export type FieldGetTemplateFieldFieldMetaNumber = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldGetTemplateFieldOverflow7 | undefined;
   type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
@@ -130,6 +174,16 @@ export type FieldGetTemplateFieldFieldMetaNumber = {
   letterSpacing?: number | null | undefined;
   verticalAlign?: FieldGetTemplateFieldVerticalAlign2 | null | undefined;
 };
+
+export const FieldGetTemplateFieldOverflow6 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldGetTemplateFieldOverflow6 = ClosedEnum<
+  typeof FieldGetTemplateFieldOverflow6
+>;
 
 export const FieldGetTemplateFieldTextAlign5 = {
   Left: "left",
@@ -155,6 +209,7 @@ export type FieldGetTemplateFieldFieldMetaText = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldGetTemplateFieldOverflow6 | undefined;
   type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
@@ -163,6 +218,16 @@ export type FieldGetTemplateFieldFieldMetaText = {
   letterSpacing?: number | null | undefined;
   verticalAlign?: FieldGetTemplateFieldVerticalAlign1 | null | undefined;
 };
+
+export const FieldGetTemplateFieldOverflow5 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldGetTemplateFieldOverflow5 = ClosedEnum<
+  typeof FieldGetTemplateFieldOverflow5
+>;
 
 export const FieldGetTemplateFieldTextAlign4 = {
   Left: "left",
@@ -179,9 +244,20 @@ export type FieldGetTemplateFieldFieldMetaDate = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldGetTemplateFieldOverflow5 | undefined;
   type: "date";
   textAlign?: FieldGetTemplateFieldTextAlign4 | undefined;
 };
+
+export const FieldGetTemplateFieldOverflow4 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldGetTemplateFieldOverflow4 = ClosedEnum<
+  typeof FieldGetTemplateFieldOverflow4
+>;
 
 export const FieldGetTemplateFieldTextAlign3 = {
   Left: "left",
@@ -198,9 +274,20 @@ export type FieldGetTemplateFieldFieldMetaEmail = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldGetTemplateFieldOverflow4 | undefined;
   type: "email";
   textAlign?: FieldGetTemplateFieldTextAlign3 | undefined;
 };
+
+export const FieldGetTemplateFieldOverflow3 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldGetTemplateFieldOverflow3 = ClosedEnum<
+  typeof FieldGetTemplateFieldOverflow3
+>;
 
 export const FieldGetTemplateFieldTextAlign2 = {
   Left: "left",
@@ -217,9 +304,20 @@ export type FieldGetTemplateFieldFieldMetaName = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldGetTemplateFieldOverflow3 | undefined;
   type: "name";
   textAlign?: FieldGetTemplateFieldTextAlign2 | undefined;
 };
+
+export const FieldGetTemplateFieldOverflow2 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldGetTemplateFieldOverflow2 = ClosedEnum<
+  typeof FieldGetTemplateFieldOverflow2
+>;
 
 export const FieldGetTemplateFieldTextAlign1 = {
   Left: "left",
@@ -236,9 +334,20 @@ export type FieldGetTemplateFieldFieldMetaInitials = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldGetTemplateFieldOverflow2 | undefined;
   type: "initials";
   textAlign?: FieldGetTemplateFieldTextAlign1 | undefined;
 };
+
+export const FieldGetTemplateFieldOverflow1 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldGetTemplateFieldOverflow1 = ClosedEnum<
+  typeof FieldGetTemplateFieldOverflow1
+>;
 
 export type FieldGetTemplateFieldFieldMetaSignature = {
   label?: string | undefined;
@@ -246,6 +355,7 @@ export type FieldGetTemplateFieldFieldMetaSignature = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldGetTemplateFieldOverflow1 | undefined;
   type: "signature";
 };
 
@@ -345,6 +455,15 @@ export const FieldGetTemplateFieldTypeEnum$outboundSchema: z.ZodNativeEnum<
 > = FieldGetTemplateFieldTypeEnum$inboundSchema;
 
 /** @internal */
+export const FieldGetTemplateFieldOverflow10$inboundSchema: z.ZodNativeEnum<
+  typeof FieldGetTemplateFieldOverflow10
+> = z.nativeEnum(FieldGetTemplateFieldOverflow10);
+/** @internal */
+export const FieldGetTemplateFieldOverflow10$outboundSchema: z.ZodNativeEnum<
+  typeof FieldGetTemplateFieldOverflow10
+> = FieldGetTemplateFieldOverflow10$inboundSchema;
+
+/** @internal */
 export const FieldGetTemplateFieldValue3$inboundSchema: z.ZodType<
   FieldGetTemplateFieldValue3,
   z.ZodTypeDef,
@@ -396,6 +515,7 @@ export const FieldGetTemplateFieldFieldMetaDropdown$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: FieldGetTemplateFieldOverflow10$inboundSchema.optional(),
   type: z.literal("dropdown"),
   values: z.array(z.lazy(() => FieldGetTemplateFieldValue3$inboundSchema))
     .optional(),
@@ -408,6 +528,7 @@ export type FieldGetTemplateFieldFieldMetaDropdown$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "dropdown";
   values?: Array<FieldGetTemplateFieldValue3$Outbound> | undefined;
   defaultValue?: string | undefined;
@@ -424,6 +545,7 @@ export const FieldGetTemplateFieldFieldMetaDropdown$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: FieldGetTemplateFieldOverflow10$outboundSchema.optional(),
   type: z.literal("dropdown"),
   values: z.array(z.lazy(() => FieldGetTemplateFieldValue3$outboundSchema))
     .optional(),
@@ -450,6 +572,15 @@ export function fieldGetTemplateFieldFieldMetaDropdownFromJSON(
     `Failed to parse 'FieldGetTemplateFieldFieldMetaDropdown' from JSON`,
   );
 }
+
+/** @internal */
+export const FieldGetTemplateFieldOverflow9$inboundSchema: z.ZodNativeEnum<
+  typeof FieldGetTemplateFieldOverflow9
+> = z.nativeEnum(FieldGetTemplateFieldOverflow9);
+/** @internal */
+export const FieldGetTemplateFieldOverflow9$outboundSchema: z.ZodNativeEnum<
+  typeof FieldGetTemplateFieldOverflow9
+> = FieldGetTemplateFieldOverflow9$inboundSchema;
 
 /** @internal */
 export const FieldGetTemplateFieldValue2$inboundSchema: z.ZodType<
@@ -518,6 +649,7 @@ export const FieldGetTemplateFieldFieldMetaCheckbox$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: FieldGetTemplateFieldOverflow9$inboundSchema.optional(),
   type: z.literal("checkbox"),
   values: z.array(z.lazy(() => FieldGetTemplateFieldValue2$inboundSchema))
     .optional(),
@@ -532,6 +664,7 @@ export type FieldGetTemplateFieldFieldMetaCheckbox$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "checkbox";
   values?: Array<FieldGetTemplateFieldValue2$Outbound> | undefined;
   validationRule?: string | undefined;
@@ -550,6 +683,7 @@ export const FieldGetTemplateFieldFieldMetaCheckbox$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: FieldGetTemplateFieldOverflow9$outboundSchema.optional(),
   type: z.literal("checkbox"),
   values: z.array(z.lazy(() => FieldGetTemplateFieldValue2$outboundSchema))
     .optional(),
@@ -578,6 +712,15 @@ export function fieldGetTemplateFieldFieldMetaCheckboxFromJSON(
     `Failed to parse 'FieldGetTemplateFieldFieldMetaCheckbox' from JSON`,
   );
 }
+
+/** @internal */
+export const FieldGetTemplateFieldOverflow8$inboundSchema: z.ZodNativeEnum<
+  typeof FieldGetTemplateFieldOverflow8
+> = z.nativeEnum(FieldGetTemplateFieldOverflow8);
+/** @internal */
+export const FieldGetTemplateFieldOverflow8$outboundSchema: z.ZodNativeEnum<
+  typeof FieldGetTemplateFieldOverflow8
+> = FieldGetTemplateFieldOverflow8$inboundSchema;
 
 /** @internal */
 export const FieldGetTemplateFieldValue1$inboundSchema: z.ZodType<
@@ -646,6 +789,7 @@ export const FieldGetTemplateFieldFieldMetaRadio$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: FieldGetTemplateFieldOverflow8$inboundSchema.optional(),
   type: z.literal("radio"),
   values: z.array(z.lazy(() => FieldGetTemplateFieldValue1$inboundSchema))
     .optional(),
@@ -658,6 +802,7 @@ export type FieldGetTemplateFieldFieldMetaRadio$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "radio";
   values?: Array<FieldGetTemplateFieldValue1$Outbound> | undefined;
   direction: string;
@@ -674,6 +819,7 @@ export const FieldGetTemplateFieldFieldMetaRadio$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: FieldGetTemplateFieldOverflow8$outboundSchema.optional(),
   type: z.literal("radio"),
   values: z.array(z.lazy(() => FieldGetTemplateFieldValue1$outboundSchema))
     .optional(),
@@ -699,6 +845,15 @@ export function fieldGetTemplateFieldFieldMetaRadioFromJSON(
     `Failed to parse 'FieldGetTemplateFieldFieldMetaRadio' from JSON`,
   );
 }
+
+/** @internal */
+export const FieldGetTemplateFieldOverflow7$inboundSchema: z.ZodNativeEnum<
+  typeof FieldGetTemplateFieldOverflow7
+> = z.nativeEnum(FieldGetTemplateFieldOverflow7);
+/** @internal */
+export const FieldGetTemplateFieldOverflow7$outboundSchema: z.ZodNativeEnum<
+  typeof FieldGetTemplateFieldOverflow7
+> = FieldGetTemplateFieldOverflow7$inboundSchema;
 
 /** @internal */
 export const FieldGetTemplateFieldTextAlign6$inboundSchema: z.ZodNativeEnum<
@@ -729,6 +884,7 @@ export const FieldGetTemplateFieldFieldMetaNumber$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: FieldGetTemplateFieldOverflow7$inboundSchema.optional(),
   type: z.literal("number"),
   numberFormat: z.nullable(z.string()).optional(),
   value: z.string().optional(),
@@ -747,6 +903,7 @@ export type FieldGetTemplateFieldFieldMetaNumber$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
@@ -769,6 +926,7 @@ export const FieldGetTemplateFieldFieldMetaNumber$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: FieldGetTemplateFieldOverflow7$outboundSchema.optional(),
   type: z.literal("number"),
   numberFormat: z.nullable(z.string()).optional(),
   value: z.string().optional(),
@@ -802,6 +960,15 @@ export function fieldGetTemplateFieldFieldMetaNumberFromJSON(
 }
 
 /** @internal */
+export const FieldGetTemplateFieldOverflow6$inboundSchema: z.ZodNativeEnum<
+  typeof FieldGetTemplateFieldOverflow6
+> = z.nativeEnum(FieldGetTemplateFieldOverflow6);
+/** @internal */
+export const FieldGetTemplateFieldOverflow6$outboundSchema: z.ZodNativeEnum<
+  typeof FieldGetTemplateFieldOverflow6
+> = FieldGetTemplateFieldOverflow6$inboundSchema;
+
+/** @internal */
 export const FieldGetTemplateFieldTextAlign5$inboundSchema: z.ZodNativeEnum<
   typeof FieldGetTemplateFieldTextAlign5
 > = z.nativeEnum(FieldGetTemplateFieldTextAlign5);
@@ -830,6 +997,7 @@ export const FieldGetTemplateFieldFieldMetaText$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: FieldGetTemplateFieldOverflow6$inboundSchema.optional(),
   type: z.literal("text"),
   text: z.string().optional(),
   characterLimit: z.number().optional(),
@@ -846,6 +1014,7 @@ export type FieldGetTemplateFieldFieldMetaText$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
@@ -866,6 +1035,7 @@ export const FieldGetTemplateFieldFieldMetaText$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: FieldGetTemplateFieldOverflow6$outboundSchema.optional(),
   type: z.literal("text"),
   text: z.string().optional(),
   characterLimit: z.number().optional(),
@@ -897,6 +1067,15 @@ export function fieldGetTemplateFieldFieldMetaTextFromJSON(
 }
 
 /** @internal */
+export const FieldGetTemplateFieldOverflow5$inboundSchema: z.ZodNativeEnum<
+  typeof FieldGetTemplateFieldOverflow5
+> = z.nativeEnum(FieldGetTemplateFieldOverflow5);
+/** @internal */
+export const FieldGetTemplateFieldOverflow5$outboundSchema: z.ZodNativeEnum<
+  typeof FieldGetTemplateFieldOverflow5
+> = FieldGetTemplateFieldOverflow5$inboundSchema;
+
+/** @internal */
 export const FieldGetTemplateFieldTextAlign4$inboundSchema: z.ZodNativeEnum<
   typeof FieldGetTemplateFieldTextAlign4
 > = z.nativeEnum(FieldGetTemplateFieldTextAlign4);
@@ -916,6 +1095,7 @@ export const FieldGetTemplateFieldFieldMetaDate$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: FieldGetTemplateFieldOverflow5$inboundSchema.default("auto"),
   type: z.literal("date"),
   textAlign: FieldGetTemplateFieldTextAlign4$inboundSchema.optional(),
 });
@@ -926,6 +1106,7 @@ export type FieldGetTemplateFieldFieldMetaDate$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "date";
   textAlign?: string | undefined;
 };
@@ -941,6 +1122,7 @@ export const FieldGetTemplateFieldFieldMetaDate$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: FieldGetTemplateFieldOverflow5$outboundSchema.default("auto"),
   type: z.literal("date"),
   textAlign: FieldGetTemplateFieldTextAlign4$outboundSchema.optional(),
 });
@@ -966,6 +1148,15 @@ export function fieldGetTemplateFieldFieldMetaDateFromJSON(
 }
 
 /** @internal */
+export const FieldGetTemplateFieldOverflow4$inboundSchema: z.ZodNativeEnum<
+  typeof FieldGetTemplateFieldOverflow4
+> = z.nativeEnum(FieldGetTemplateFieldOverflow4);
+/** @internal */
+export const FieldGetTemplateFieldOverflow4$outboundSchema: z.ZodNativeEnum<
+  typeof FieldGetTemplateFieldOverflow4
+> = FieldGetTemplateFieldOverflow4$inboundSchema;
+
+/** @internal */
 export const FieldGetTemplateFieldTextAlign3$inboundSchema: z.ZodNativeEnum<
   typeof FieldGetTemplateFieldTextAlign3
 > = z.nativeEnum(FieldGetTemplateFieldTextAlign3);
@@ -985,6 +1176,7 @@ export const FieldGetTemplateFieldFieldMetaEmail$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: FieldGetTemplateFieldOverflow4$inboundSchema.default("auto"),
   type: z.literal("email"),
   textAlign: FieldGetTemplateFieldTextAlign3$inboundSchema.optional(),
 });
@@ -995,6 +1187,7 @@ export type FieldGetTemplateFieldFieldMetaEmail$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "email";
   textAlign?: string | undefined;
 };
@@ -1010,6 +1203,7 @@ export const FieldGetTemplateFieldFieldMetaEmail$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: FieldGetTemplateFieldOverflow4$outboundSchema.default("auto"),
   type: z.literal("email"),
   textAlign: FieldGetTemplateFieldTextAlign3$outboundSchema.optional(),
 });
@@ -1035,6 +1229,15 @@ export function fieldGetTemplateFieldFieldMetaEmailFromJSON(
 }
 
 /** @internal */
+export const FieldGetTemplateFieldOverflow3$inboundSchema: z.ZodNativeEnum<
+  typeof FieldGetTemplateFieldOverflow3
+> = z.nativeEnum(FieldGetTemplateFieldOverflow3);
+/** @internal */
+export const FieldGetTemplateFieldOverflow3$outboundSchema: z.ZodNativeEnum<
+  typeof FieldGetTemplateFieldOverflow3
+> = FieldGetTemplateFieldOverflow3$inboundSchema;
+
+/** @internal */
 export const FieldGetTemplateFieldTextAlign2$inboundSchema: z.ZodNativeEnum<
   typeof FieldGetTemplateFieldTextAlign2
 > = z.nativeEnum(FieldGetTemplateFieldTextAlign2);
@@ -1054,6 +1257,7 @@ export const FieldGetTemplateFieldFieldMetaName$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: FieldGetTemplateFieldOverflow3$inboundSchema.optional(),
   type: z.literal("name"),
   textAlign: FieldGetTemplateFieldTextAlign2$inboundSchema.optional(),
 });
@@ -1064,6 +1268,7 @@ export type FieldGetTemplateFieldFieldMetaName$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "name";
   textAlign?: string | undefined;
 };
@@ -1079,6 +1284,7 @@ export const FieldGetTemplateFieldFieldMetaName$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: FieldGetTemplateFieldOverflow3$outboundSchema.optional(),
   type: z.literal("name"),
   textAlign: FieldGetTemplateFieldTextAlign2$outboundSchema.optional(),
 });
@@ -1104,6 +1310,15 @@ export function fieldGetTemplateFieldFieldMetaNameFromJSON(
 }
 
 /** @internal */
+export const FieldGetTemplateFieldOverflow2$inboundSchema: z.ZodNativeEnum<
+  typeof FieldGetTemplateFieldOverflow2
+> = z.nativeEnum(FieldGetTemplateFieldOverflow2);
+/** @internal */
+export const FieldGetTemplateFieldOverflow2$outboundSchema: z.ZodNativeEnum<
+  typeof FieldGetTemplateFieldOverflow2
+> = FieldGetTemplateFieldOverflow2$inboundSchema;
+
+/** @internal */
 export const FieldGetTemplateFieldTextAlign1$inboundSchema: z.ZodNativeEnum<
   typeof FieldGetTemplateFieldTextAlign1
 > = z.nativeEnum(FieldGetTemplateFieldTextAlign1);
@@ -1123,6 +1338,7 @@ export const FieldGetTemplateFieldFieldMetaInitials$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: FieldGetTemplateFieldOverflow2$inboundSchema.optional(),
   type: z.literal("initials"),
   textAlign: FieldGetTemplateFieldTextAlign1$inboundSchema.optional(),
 });
@@ -1133,6 +1349,7 @@ export type FieldGetTemplateFieldFieldMetaInitials$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
 };
@@ -1148,6 +1365,7 @@ export const FieldGetTemplateFieldFieldMetaInitials$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: FieldGetTemplateFieldOverflow2$outboundSchema.optional(),
   type: z.literal("initials"),
   textAlign: FieldGetTemplateFieldTextAlign1$outboundSchema.optional(),
 });
@@ -1174,6 +1392,15 @@ export function fieldGetTemplateFieldFieldMetaInitialsFromJSON(
 }
 
 /** @internal */
+export const FieldGetTemplateFieldOverflow1$inboundSchema: z.ZodNativeEnum<
+  typeof FieldGetTemplateFieldOverflow1
+> = z.nativeEnum(FieldGetTemplateFieldOverflow1);
+/** @internal */
+export const FieldGetTemplateFieldOverflow1$outboundSchema: z.ZodNativeEnum<
+  typeof FieldGetTemplateFieldOverflow1
+> = FieldGetTemplateFieldOverflow1$inboundSchema;
+
+/** @internal */
 export const FieldGetTemplateFieldFieldMetaSignature$inboundSchema: z.ZodType<
   FieldGetTemplateFieldFieldMetaSignature,
   z.ZodTypeDef,
@@ -1184,6 +1411,7 @@ export const FieldGetTemplateFieldFieldMetaSignature$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: FieldGetTemplateFieldOverflow1$inboundSchema.default("auto"),
   type: z.literal("signature"),
 });
 /** @internal */
@@ -1193,6 +1421,7 @@ export type FieldGetTemplateFieldFieldMetaSignature$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "signature";
 };
 
@@ -1207,6 +1436,7 @@ export const FieldGetTemplateFieldFieldMetaSignature$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: FieldGetTemplateFieldOverflow1$outboundSchema.default("auto"),
   type: z.literal("signature"),
 });
 

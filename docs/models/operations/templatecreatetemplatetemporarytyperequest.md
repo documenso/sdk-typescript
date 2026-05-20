@@ -11,5 +11,5 @@ let value: TemplateCreateTemplateTemporaryTypeRequest = "PRIVATE";
 ## Values
 
 ```typescript
-"PUBLIC" | "PRIVATE"
+"PUBLIC" | "PRIVATE" | "ORGANISATION"
 ```

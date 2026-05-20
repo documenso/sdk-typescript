@@ -8,6 +8,16 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
+export const EnvelopeFieldUpdateManyOverflowDropdown = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldUpdateManyOverflowDropdown = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyOverflowDropdown
+>;
+
 export const EnvelopeFieldUpdateManyTypeDropdownEnum = {
   Dropdown: "dropdown",
 } as const;
@@ -25,6 +35,7 @@ export type EnvelopeFieldUpdateManyFieldMetaDropdownRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldUpdateManyOverflowDropdown | undefined;
   type: EnvelopeFieldUpdateManyTypeDropdownEnum;
   values?: Array<EnvelopeFieldUpdateManyValueDropdown> | undefined;
   defaultValue?: string | undefined;
@@ -41,6 +52,16 @@ export type EnvelopeFieldUpdateManyDataDropdown = {
   width?: number | undefined;
   height?: number | undefined;
 };
+
+export const EnvelopeFieldUpdateManyOverflowCheckbox = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldUpdateManyOverflowCheckbox = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyOverflowCheckbox
+>;
 
 export const EnvelopeFieldUpdateManyTypeCheckboxEnum = {
   Checkbox: "checkbox",
@@ -69,6 +90,7 @@ export type EnvelopeFieldUpdateManyFieldMetaCheckboxRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldUpdateManyOverflowCheckbox | undefined;
   type: EnvelopeFieldUpdateManyTypeCheckboxEnum;
   values?: Array<EnvelopeFieldUpdateManyValueCheckbox> | undefined;
   validationRule?: string | undefined;
@@ -87,6 +109,16 @@ export type EnvelopeFieldUpdateManyDataCheckbox = {
   width?: number | undefined;
   height?: number | undefined;
 };
+
+export const EnvelopeFieldUpdateManyOverflowRadio = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldUpdateManyOverflowRadio = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyOverflowRadio
+>;
 
 export const EnvelopeFieldUpdateManyTypeRadioEnum = {
   Radio: "radio",
@@ -115,6 +147,7 @@ export type EnvelopeFieldUpdateManyFieldMetaRadioRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldUpdateManyOverflowRadio | undefined;
   type: EnvelopeFieldUpdateManyTypeRadioEnum;
   values?: Array<EnvelopeFieldUpdateManyValueRadio> | undefined;
   direction?: EnvelopeFieldUpdateManyDirectionRadio | undefined;
@@ -131,6 +164,16 @@ export type EnvelopeFieldUpdateManyDataRadio = {
   width?: number | undefined;
   height?: number | undefined;
 };
+
+export const EnvelopeFieldUpdateManyOverflowNumber = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldUpdateManyOverflowNumber = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyOverflowNumber
+>;
 
 export const EnvelopeFieldUpdateManyTypeNumberEnum = {
   Number: "number",
@@ -163,6 +206,7 @@ export type EnvelopeFieldUpdateManyFieldMetaNumberRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldUpdateManyOverflowNumber | undefined;
   type: EnvelopeFieldUpdateManyTypeNumberEnum;
   numberFormat?: string | null | undefined;
   value?: string | undefined;
@@ -185,6 +229,16 @@ export type EnvelopeFieldUpdateManyDataNumber = {
   width?: number | undefined;
   height?: number | undefined;
 };
+
+export const EnvelopeFieldUpdateManyOverflowText = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldUpdateManyOverflowText = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyOverflowText
+>;
 
 export const EnvelopeFieldUpdateManyTypeTextEnum = {
   Text: "text",
@@ -217,6 +271,7 @@ export type EnvelopeFieldUpdateManyFieldMetaTextRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldUpdateManyOverflowText | undefined;
   type: EnvelopeFieldUpdateManyTypeTextEnum;
   text?: string | undefined;
   characterLimit?: number | undefined;
@@ -237,6 +292,16 @@ export type EnvelopeFieldUpdateManyDataText = {
   width?: number | undefined;
   height?: number | undefined;
 };
+
+export const EnvelopeFieldUpdateManyOverflowDate = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldUpdateManyOverflowDate = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyOverflowDate
+>;
 
 export const EnvelopeFieldUpdateManyTypeDateEnum = {
   Date: "date",
@@ -260,6 +325,7 @@ export type EnvelopeFieldUpdateManyFieldMetaDateRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldUpdateManyOverflowDate | undefined;
   type: EnvelopeFieldUpdateManyTypeDateEnum;
   textAlign?: EnvelopeFieldUpdateManyTextAlignDate | undefined;
 };
@@ -275,6 +341,16 @@ export type EnvelopeFieldUpdateManyDataDate = {
   width?: number | undefined;
   height?: number | undefined;
 };
+
+export const EnvelopeFieldUpdateManyOverflowEmail = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldUpdateManyOverflowEmail = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyOverflowEmail
+>;
 
 export const EnvelopeFieldUpdateManyTypeEmailEnum = {
   Email: "email",
@@ -298,6 +374,7 @@ export type EnvelopeFieldUpdateManyFieldMetaEmailRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldUpdateManyOverflowEmail | undefined;
   type: EnvelopeFieldUpdateManyTypeEmailEnum;
   textAlign?: EnvelopeFieldUpdateManyTextAlignEmail | undefined;
 };
@@ -313,6 +390,16 @@ export type EnvelopeFieldUpdateManyDataEmail = {
   width?: number | undefined;
   height?: number | undefined;
 };
+
+export const EnvelopeFieldUpdateManyOverflowName = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldUpdateManyOverflowName = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyOverflowName
+>;
 
 export const EnvelopeFieldUpdateManyTypeNameEnum = {
   Name: "name",
@@ -336,6 +423,7 @@ export type EnvelopeFieldUpdateManyFieldMetaNameRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldUpdateManyOverflowName | undefined;
   type: EnvelopeFieldUpdateManyTypeNameEnum;
   textAlign?: EnvelopeFieldUpdateManyTextAlignName | undefined;
 };
@@ -351,6 +439,16 @@ export type EnvelopeFieldUpdateManyDataName = {
   width?: number | undefined;
   height?: number | undefined;
 };
+
+export const EnvelopeFieldUpdateManyOverflowInitials = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldUpdateManyOverflowInitials = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyOverflowInitials
+>;
 
 export const EnvelopeFieldUpdateManyTypeInitialsEnum = {
   Initials: "initials",
@@ -374,6 +472,7 @@ export type EnvelopeFieldUpdateManyFieldMetaInitialsRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldUpdateManyOverflowInitials | undefined;
   type: EnvelopeFieldUpdateManyTypeInitialsEnum;
   textAlign?: EnvelopeFieldUpdateManyTextAlignInitials | undefined;
 };
@@ -401,6 +500,16 @@ export type EnvelopeFieldUpdateManyDataFreeSignature = {
   height?: number | undefined;
 };
 
+export const EnvelopeFieldUpdateManyOverflowSignature = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldUpdateManyOverflowSignature = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyOverflowSignature
+>;
+
 export const EnvelopeFieldUpdateManyTypeSignatureEnum = {
   Signature: "signature",
 } as const;
@@ -414,6 +523,7 @@ export type EnvelopeFieldUpdateManyFieldMetaSignatureRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldUpdateManyOverflowSignature | undefined;
   type: EnvelopeFieldUpdateManyTypeSignatureEnum;
 };
 
@@ -476,6 +586,16 @@ export type EnvelopeFieldUpdateManyTypeResponseEnum = ClosedEnum<
   typeof EnvelopeFieldUpdateManyTypeResponseEnum
 >;
 
+export const EnvelopeFieldUpdateManyOverflowResponse10 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldUpdateManyOverflowResponse10 = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyOverflowResponse10
+>;
+
 export type EnvelopeFieldUpdateManyValueResponse3 = {
   value: string;
 };
@@ -486,10 +606,21 @@ export type EnvelopeFieldUpdateManyFieldMetaDropdownResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldUpdateManyOverflowResponse10 | undefined;
   type: "dropdown";
   values?: Array<EnvelopeFieldUpdateManyValueResponse3> | undefined;
   defaultValue?: string | undefined;
 };
+
+export const EnvelopeFieldUpdateManyOverflowResponse9 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldUpdateManyOverflowResponse9 = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyOverflowResponse9
+>;
 
 export type EnvelopeFieldUpdateManyValueResponse2 = {
   id: number;
@@ -511,12 +642,23 @@ export type EnvelopeFieldUpdateManyFieldMetaCheckboxResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldUpdateManyOverflowResponse9 | undefined;
   type: "checkbox";
   values?: Array<EnvelopeFieldUpdateManyValueResponse2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
   direction?: EnvelopeFieldUpdateManyDirectionResponse2 | undefined;
 };
+
+export const EnvelopeFieldUpdateManyOverflowResponse8 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldUpdateManyOverflowResponse8 = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyOverflowResponse8
+>;
 
 export type EnvelopeFieldUpdateManyValueResponse1 = {
   id: number;
@@ -538,10 +680,21 @@ export type EnvelopeFieldUpdateManyFieldMetaRadioResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldUpdateManyOverflowResponse8 | undefined;
   type: "radio";
   values?: Array<EnvelopeFieldUpdateManyValueResponse1> | undefined;
   direction?: EnvelopeFieldUpdateManyDirectionResponse1 | undefined;
 };
+
+export const EnvelopeFieldUpdateManyOverflowResponse7 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldUpdateManyOverflowResponse7 = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyOverflowResponse7
+>;
 
 export const EnvelopeFieldUpdateManyTextAlignResponse6 = {
   Left: "left",
@@ -567,6 +720,7 @@ export type EnvelopeFieldUpdateManyFieldMetaNumberResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldUpdateManyOverflowResponse7 | undefined;
   type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
@@ -580,6 +734,16 @@ export type EnvelopeFieldUpdateManyFieldMetaNumberResponse = {
     | null
     | undefined;
 };
+
+export const EnvelopeFieldUpdateManyOverflowResponse6 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldUpdateManyOverflowResponse6 = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyOverflowResponse6
+>;
 
 export const EnvelopeFieldUpdateManyTextAlignResponse5 = {
   Left: "left",
@@ -605,6 +769,7 @@ export type EnvelopeFieldUpdateManyFieldMetaTextResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldUpdateManyOverflowResponse6 | undefined;
   type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
@@ -616,6 +781,16 @@ export type EnvelopeFieldUpdateManyFieldMetaTextResponse = {
     | null
     | undefined;
 };
+
+export const EnvelopeFieldUpdateManyOverflowResponse5 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldUpdateManyOverflowResponse5 = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyOverflowResponse5
+>;
 
 export const EnvelopeFieldUpdateManyTextAlignResponse4 = {
   Left: "left",
@@ -632,9 +807,20 @@ export type EnvelopeFieldUpdateManyFieldMetaDateResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldUpdateManyOverflowResponse5 | undefined;
   type: "date";
   textAlign?: EnvelopeFieldUpdateManyTextAlignResponse4 | undefined;
 };
+
+export const EnvelopeFieldUpdateManyOverflowResponse4 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldUpdateManyOverflowResponse4 = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyOverflowResponse4
+>;
 
 export const EnvelopeFieldUpdateManyTextAlignResponse3 = {
   Left: "left",
@@ -651,9 +837,20 @@ export type EnvelopeFieldUpdateManyFieldMetaEmailResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldUpdateManyOverflowResponse4 | undefined;
   type: "email";
   textAlign?: EnvelopeFieldUpdateManyTextAlignResponse3 | undefined;
 };
+
+export const EnvelopeFieldUpdateManyOverflowResponse3 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldUpdateManyOverflowResponse3 = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyOverflowResponse3
+>;
 
 export const EnvelopeFieldUpdateManyTextAlignResponse2 = {
   Left: "left",
@@ -670,9 +867,20 @@ export type EnvelopeFieldUpdateManyFieldMetaNameResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldUpdateManyOverflowResponse3 | undefined;
   type: "name";
   textAlign?: EnvelopeFieldUpdateManyTextAlignResponse2 | undefined;
 };
+
+export const EnvelopeFieldUpdateManyOverflowResponse2 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldUpdateManyOverflowResponse2 = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyOverflowResponse2
+>;
 
 export const EnvelopeFieldUpdateManyTextAlignResponse1 = {
   Left: "left",
@@ -689,9 +897,20 @@ export type EnvelopeFieldUpdateManyFieldMetaInitialsResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldUpdateManyOverflowResponse2 | undefined;
   type: "initials";
   textAlign?: EnvelopeFieldUpdateManyTextAlignResponse1 | undefined;
 };
+
+export const EnvelopeFieldUpdateManyOverflowResponse1 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldUpdateManyOverflowResponse1 = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyOverflowResponse1
+>;
 
 export type EnvelopeFieldUpdateManyFieldMetaSignatureResponse = {
   label?: string | undefined;
@@ -699,6 +918,7 @@ export type EnvelopeFieldUpdateManyFieldMetaSignatureResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldUpdateManyOverflowResponse1 | undefined;
   type: "signature";
 };
 
@@ -750,6 +970,15 @@ export type EnvelopeFieldUpdateManyDataResponse = {
 export type EnvelopeFieldUpdateManyResponse = {
   data: Array<EnvelopeFieldUpdateManyDataResponse>;
 };
+
+/** @internal */
+export const EnvelopeFieldUpdateManyOverflowDropdown$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowDropdown> = z
+    .nativeEnum(EnvelopeFieldUpdateManyOverflowDropdown);
+/** @internal */
+export const EnvelopeFieldUpdateManyOverflowDropdown$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowDropdown> =
+    EnvelopeFieldUpdateManyOverflowDropdown$inboundSchema;
 
 /** @internal */
 export const EnvelopeFieldUpdateManyTypeDropdownEnum$inboundSchema:
@@ -814,6 +1043,7 @@ export const EnvelopeFieldUpdateManyFieldMetaDropdownRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowDropdown$inboundSchema.optional(),
     type: EnvelopeFieldUpdateManyTypeDropdownEnum$inboundSchema,
     values: z.array(
       z.lazy(() => EnvelopeFieldUpdateManyValueDropdown$inboundSchema),
@@ -827,6 +1057,7 @@ export type EnvelopeFieldUpdateManyFieldMetaDropdownRequest$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: string;
   values?: Array<EnvelopeFieldUpdateManyValueDropdown$Outbound> | undefined;
   defaultValue?: string | undefined;
@@ -844,6 +1075,7 @@ export const EnvelopeFieldUpdateManyFieldMetaDropdownRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowDropdown$outboundSchema.optional(),
     type: EnvelopeFieldUpdateManyTypeDropdownEnum$outboundSchema,
     values: z.array(
       z.lazy(() => EnvelopeFieldUpdateManyValueDropdown$outboundSchema),
@@ -950,6 +1182,15 @@ export function envelopeFieldUpdateManyDataDropdownFromJSON(
 }
 
 /** @internal */
+export const EnvelopeFieldUpdateManyOverflowCheckbox$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowCheckbox> = z
+    .nativeEnum(EnvelopeFieldUpdateManyOverflowCheckbox);
+/** @internal */
+export const EnvelopeFieldUpdateManyOverflowCheckbox$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowCheckbox> =
+    EnvelopeFieldUpdateManyOverflowCheckbox$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldUpdateManyTypeCheckboxEnum$inboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeCheckboxEnum> = z
     .nativeEnum(EnvelopeFieldUpdateManyTypeCheckboxEnum);
@@ -1027,6 +1268,7 @@ export const EnvelopeFieldUpdateManyFieldMetaCheckboxRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowCheckbox$inboundSchema.optional(),
     type: EnvelopeFieldUpdateManyTypeCheckboxEnum$inboundSchema,
     values: z.array(
       z.lazy(() => EnvelopeFieldUpdateManyValueCheckbox$inboundSchema),
@@ -1044,6 +1286,7 @@ export type EnvelopeFieldUpdateManyFieldMetaCheckboxRequest$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: string;
   values?: Array<EnvelopeFieldUpdateManyValueCheckbox$Outbound> | undefined;
   validationRule?: string | undefined;
@@ -1063,6 +1306,7 @@ export const EnvelopeFieldUpdateManyFieldMetaCheckboxRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowCheckbox$outboundSchema.optional(),
     type: EnvelopeFieldUpdateManyTypeCheckboxEnum$outboundSchema,
     values: z.array(
       z.lazy(() => EnvelopeFieldUpdateManyValueCheckbox$outboundSchema),
@@ -1173,6 +1417,16 @@ export function envelopeFieldUpdateManyDataCheckboxFromJSON(
 }
 
 /** @internal */
+export const EnvelopeFieldUpdateManyOverflowRadio$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowRadio> = z.nativeEnum(
+    EnvelopeFieldUpdateManyOverflowRadio,
+  );
+/** @internal */
+export const EnvelopeFieldUpdateManyOverflowRadio$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowRadio> =
+    EnvelopeFieldUpdateManyOverflowRadio$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldUpdateManyTypeRadioEnum$inboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeRadioEnum> = z.nativeEnum(
     EnvelopeFieldUpdateManyTypeRadioEnum,
@@ -1251,6 +1505,7 @@ export const EnvelopeFieldUpdateManyFieldMetaRadioRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowRadio$inboundSchema.optional(),
     type: EnvelopeFieldUpdateManyTypeRadioEnum$inboundSchema,
     values: z.array(
       z.lazy(() => EnvelopeFieldUpdateManyValueRadio$inboundSchema),
@@ -1266,6 +1521,7 @@ export type EnvelopeFieldUpdateManyFieldMetaRadioRequest$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: string;
   values?: Array<EnvelopeFieldUpdateManyValueRadio$Outbound> | undefined;
   direction: string;
@@ -1283,6 +1539,7 @@ export const EnvelopeFieldUpdateManyFieldMetaRadioRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowRadio$outboundSchema.optional(),
     type: EnvelopeFieldUpdateManyTypeRadioEnum$outboundSchema,
     values: z.array(
       z.lazy(() => EnvelopeFieldUpdateManyValueRadio$outboundSchema),
@@ -1388,6 +1645,16 @@ export function envelopeFieldUpdateManyDataRadioFromJSON(
 }
 
 /** @internal */
+export const EnvelopeFieldUpdateManyOverflowNumber$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowNumber> = z.nativeEnum(
+    EnvelopeFieldUpdateManyOverflowNumber,
+  );
+/** @internal */
+export const EnvelopeFieldUpdateManyOverflowNumber$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowNumber> =
+    EnvelopeFieldUpdateManyOverflowNumber$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldUpdateManyTypeNumberEnum$inboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeNumberEnum> = z.nativeEnum(
     EnvelopeFieldUpdateManyTypeNumberEnum,
@@ -1428,6 +1695,7 @@ export const EnvelopeFieldUpdateManyFieldMetaNumberRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowNumber$inboundSchema.optional(),
     type: EnvelopeFieldUpdateManyTypeNumberEnum$inboundSchema,
     numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
@@ -1447,6 +1715,7 @@ export type EnvelopeFieldUpdateManyFieldMetaNumberRequest$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: string;
   numberFormat?: string | null | undefined;
   value?: string | undefined;
@@ -1470,6 +1739,7 @@ export const EnvelopeFieldUpdateManyFieldMetaNumberRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowNumber$outboundSchema.optional(),
     type: EnvelopeFieldUpdateManyTypeNumberEnum$outboundSchema,
     numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
@@ -1581,6 +1851,15 @@ export function envelopeFieldUpdateManyDataNumberFromJSON(
 }
 
 /** @internal */
+export const EnvelopeFieldUpdateManyOverflowText$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldUpdateManyOverflowText
+> = z.nativeEnum(EnvelopeFieldUpdateManyOverflowText);
+/** @internal */
+export const EnvelopeFieldUpdateManyOverflowText$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowText> =
+    EnvelopeFieldUpdateManyOverflowText$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldUpdateManyTypeTextEnum$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFieldUpdateManyTypeTextEnum
 > = z.nativeEnum(EnvelopeFieldUpdateManyTypeTextEnum);
@@ -1620,6 +1899,7 @@ export const EnvelopeFieldUpdateManyFieldMetaTextRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowText$inboundSchema.optional(),
     type: EnvelopeFieldUpdateManyTypeTextEnum$inboundSchema,
     text: z.string().optional(),
     characterLimit: z.number().optional(),
@@ -1637,6 +1917,7 @@ export type EnvelopeFieldUpdateManyFieldMetaTextRequest$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: string;
   text?: string | undefined;
   characterLimit?: number | undefined;
@@ -1658,6 +1939,7 @@ export const EnvelopeFieldUpdateManyFieldMetaTextRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowText$outboundSchema.optional(),
     type: EnvelopeFieldUpdateManyTypeTextEnum$outboundSchema,
     text: z.string().optional(),
     characterLimit: z.number().optional(),
@@ -1765,6 +2047,15 @@ export function envelopeFieldUpdateManyDataTextFromJSON(
 }
 
 /** @internal */
+export const EnvelopeFieldUpdateManyOverflowDate$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldUpdateManyOverflowDate
+> = z.nativeEnum(EnvelopeFieldUpdateManyOverflowDate);
+/** @internal */
+export const EnvelopeFieldUpdateManyOverflowDate$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowDate> =
+    EnvelopeFieldUpdateManyOverflowDate$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldUpdateManyTypeDateEnum$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFieldUpdateManyTypeDateEnum
 > = z.nativeEnum(EnvelopeFieldUpdateManyTypeDateEnum);
@@ -1795,6 +2086,7 @@ export const EnvelopeFieldUpdateManyFieldMetaDateRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowDate$inboundSchema.default("auto"),
     type: EnvelopeFieldUpdateManyTypeDateEnum$inboundSchema,
     textAlign: EnvelopeFieldUpdateManyTextAlignDate$inboundSchema.optional(),
   });
@@ -1805,6 +2097,7 @@ export type EnvelopeFieldUpdateManyFieldMetaDateRequest$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: string;
   textAlign?: string | undefined;
 };
@@ -1821,6 +2114,9 @@ export const EnvelopeFieldUpdateManyFieldMetaDateRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowDate$outboundSchema.default(
+      "auto",
+    ),
     type: EnvelopeFieldUpdateManyTypeDateEnum$outboundSchema,
     textAlign: EnvelopeFieldUpdateManyTextAlignDate$outboundSchema.optional(),
   });
@@ -1921,6 +2217,16 @@ export function envelopeFieldUpdateManyDataDateFromJSON(
 }
 
 /** @internal */
+export const EnvelopeFieldUpdateManyOverflowEmail$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowEmail> = z.nativeEnum(
+    EnvelopeFieldUpdateManyOverflowEmail,
+  );
+/** @internal */
+export const EnvelopeFieldUpdateManyOverflowEmail$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowEmail> =
+    EnvelopeFieldUpdateManyOverflowEmail$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldUpdateManyTypeEmailEnum$inboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeEmailEnum> = z.nativeEnum(
     EnvelopeFieldUpdateManyTypeEmailEnum,
@@ -1952,6 +2258,9 @@ export const EnvelopeFieldUpdateManyFieldMetaEmailRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowEmail$inboundSchema.default(
+      "auto",
+    ),
     type: EnvelopeFieldUpdateManyTypeEmailEnum$inboundSchema,
     textAlign: EnvelopeFieldUpdateManyTextAlignEmail$inboundSchema.optional(),
   });
@@ -1962,6 +2271,7 @@ export type EnvelopeFieldUpdateManyFieldMetaEmailRequest$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: string;
   textAlign?: string | undefined;
 };
@@ -1978,6 +2288,9 @@ export const EnvelopeFieldUpdateManyFieldMetaEmailRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowEmail$outboundSchema.default(
+      "auto",
+    ),
     type: EnvelopeFieldUpdateManyTypeEmailEnum$outboundSchema,
     textAlign: EnvelopeFieldUpdateManyTextAlignEmail$outboundSchema.optional(),
   });
@@ -2078,6 +2391,15 @@ export function envelopeFieldUpdateManyDataEmailFromJSON(
 }
 
 /** @internal */
+export const EnvelopeFieldUpdateManyOverflowName$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldUpdateManyOverflowName
+> = z.nativeEnum(EnvelopeFieldUpdateManyOverflowName);
+/** @internal */
+export const EnvelopeFieldUpdateManyOverflowName$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowName> =
+    EnvelopeFieldUpdateManyOverflowName$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldUpdateManyTypeNameEnum$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFieldUpdateManyTypeNameEnum
 > = z.nativeEnum(EnvelopeFieldUpdateManyTypeNameEnum);
@@ -2108,6 +2430,7 @@ export const EnvelopeFieldUpdateManyFieldMetaNameRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowName$inboundSchema.optional(),
     type: EnvelopeFieldUpdateManyTypeNameEnum$inboundSchema,
     textAlign: EnvelopeFieldUpdateManyTextAlignName$inboundSchema.optional(),
   });
@@ -2118,6 +2441,7 @@ export type EnvelopeFieldUpdateManyFieldMetaNameRequest$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: string;
   textAlign?: string | undefined;
 };
@@ -2134,6 +2458,7 @@ export const EnvelopeFieldUpdateManyFieldMetaNameRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowName$outboundSchema.optional(),
     type: EnvelopeFieldUpdateManyTypeNameEnum$outboundSchema,
     textAlign: EnvelopeFieldUpdateManyTextAlignName$outboundSchema.optional(),
   });
@@ -2234,6 +2559,15 @@ export function envelopeFieldUpdateManyDataNameFromJSON(
 }
 
 /** @internal */
+export const EnvelopeFieldUpdateManyOverflowInitials$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowInitials> = z
+    .nativeEnum(EnvelopeFieldUpdateManyOverflowInitials);
+/** @internal */
+export const EnvelopeFieldUpdateManyOverflowInitials$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowInitials> =
+    EnvelopeFieldUpdateManyOverflowInitials$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldUpdateManyTypeInitialsEnum$inboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeInitialsEnum> = z
     .nativeEnum(EnvelopeFieldUpdateManyTypeInitialsEnum);
@@ -2263,6 +2597,7 @@ export const EnvelopeFieldUpdateManyFieldMetaInitialsRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowInitials$inboundSchema.optional(),
     type: EnvelopeFieldUpdateManyTypeInitialsEnum$inboundSchema,
     textAlign: EnvelopeFieldUpdateManyTextAlignInitials$inboundSchema
       .optional(),
@@ -2274,6 +2609,7 @@ export type EnvelopeFieldUpdateManyFieldMetaInitialsRequest$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: string;
   textAlign?: string | undefined;
 };
@@ -2290,6 +2626,7 @@ export const EnvelopeFieldUpdateManyFieldMetaInitialsRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowInitials$outboundSchema.optional(),
     type: EnvelopeFieldUpdateManyTypeInitialsEnum$outboundSchema,
     textAlign: EnvelopeFieldUpdateManyTextAlignInitials$outboundSchema
       .optional(),
@@ -2463,6 +2800,15 @@ export function envelopeFieldUpdateManyDataFreeSignatureFromJSON(
 }
 
 /** @internal */
+export const EnvelopeFieldUpdateManyOverflowSignature$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowSignature> = z
+    .nativeEnum(EnvelopeFieldUpdateManyOverflowSignature);
+/** @internal */
+export const EnvelopeFieldUpdateManyOverflowSignature$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowSignature> =
+    EnvelopeFieldUpdateManyOverflowSignature$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldUpdateManyTypeSignatureEnum$inboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeSignatureEnum> = z
     .nativeEnum(EnvelopeFieldUpdateManyTypeSignatureEnum);
@@ -2483,6 +2829,9 @@ export const EnvelopeFieldUpdateManyFieldMetaSignatureRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowSignature$inboundSchema.default(
+      "auto",
+    ),
     type: EnvelopeFieldUpdateManyTypeSignatureEnum$inboundSchema,
   });
 /** @internal */
@@ -2492,6 +2841,7 @@ export type EnvelopeFieldUpdateManyFieldMetaSignatureRequest$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: string;
 };
 
@@ -2507,6 +2857,9 @@ export const EnvelopeFieldUpdateManyFieldMetaSignatureRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowSignature$outboundSchema.default(
+      "auto",
+    ),
     type: EnvelopeFieldUpdateManyTypeSignatureEnum$outboundSchema,
   });
 
@@ -2772,6 +3125,15 @@ export const EnvelopeFieldUpdateManyTypeResponseEnum$outboundSchema:
     EnvelopeFieldUpdateManyTypeResponseEnum$inboundSchema;
 
 /** @internal */
+export const EnvelopeFieldUpdateManyOverflowResponse10$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse10> = z
+    .nativeEnum(EnvelopeFieldUpdateManyOverflowResponse10);
+/** @internal */
+export const EnvelopeFieldUpdateManyOverflowResponse10$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse10> =
+    EnvelopeFieldUpdateManyOverflowResponse10$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldUpdateManyValueResponse3$inboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyValueResponse3,
   z.ZodTypeDef,
@@ -2825,6 +3187,8 @@ export const EnvelopeFieldUpdateManyFieldMetaDropdownResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowResponse10$inboundSchema
+      .optional(),
     type: z.literal("dropdown"),
     values: z.array(
       z.lazy(() => EnvelopeFieldUpdateManyValueResponse3$inboundSchema),
@@ -2838,6 +3202,7 @@ export type EnvelopeFieldUpdateManyFieldMetaDropdownResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "dropdown";
   values?: Array<EnvelopeFieldUpdateManyValueResponse3$Outbound> | undefined;
   defaultValue?: string | undefined;
@@ -2855,6 +3220,8 @@ export const EnvelopeFieldUpdateManyFieldMetaDropdownResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowResponse10$outboundSchema
+      .optional(),
     type: z.literal("dropdown"),
     values: z.array(
       z.lazy(() => EnvelopeFieldUpdateManyValueResponse3$outboundSchema),
@@ -2887,6 +3254,15 @@ export function envelopeFieldUpdateManyFieldMetaDropdownResponseFromJSON(
     `Failed to parse 'EnvelopeFieldUpdateManyFieldMetaDropdownResponse' from JSON`,
   );
 }
+
+/** @internal */
+export const EnvelopeFieldUpdateManyOverflowResponse9$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse9> = z
+    .nativeEnum(EnvelopeFieldUpdateManyOverflowResponse9);
+/** @internal */
+export const EnvelopeFieldUpdateManyOverflowResponse9$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse9> =
+    EnvelopeFieldUpdateManyOverflowResponse9$inboundSchema;
 
 /** @internal */
 export const EnvelopeFieldUpdateManyValueResponse2$inboundSchema: z.ZodType<
@@ -2957,6 +3333,7 @@ export const EnvelopeFieldUpdateManyFieldMetaCheckboxResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowResponse9$inboundSchema.optional(),
     type: z.literal("checkbox"),
     values: z.array(
       z.lazy(() => EnvelopeFieldUpdateManyValueResponse2$inboundSchema),
@@ -2974,6 +3351,7 @@ export type EnvelopeFieldUpdateManyFieldMetaCheckboxResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "checkbox";
   values?: Array<EnvelopeFieldUpdateManyValueResponse2$Outbound> | undefined;
   validationRule?: string | undefined;
@@ -2993,6 +3371,8 @@ export const EnvelopeFieldUpdateManyFieldMetaCheckboxResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowResponse9$outboundSchema
+      .optional(),
     type: z.literal("checkbox"),
     values: z.array(
       z.lazy(() => EnvelopeFieldUpdateManyValueResponse2$outboundSchema),
@@ -3029,6 +3409,15 @@ export function envelopeFieldUpdateManyFieldMetaCheckboxResponseFromJSON(
     `Failed to parse 'EnvelopeFieldUpdateManyFieldMetaCheckboxResponse' from JSON`,
   );
 }
+
+/** @internal */
+export const EnvelopeFieldUpdateManyOverflowResponse8$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse8> = z
+    .nativeEnum(EnvelopeFieldUpdateManyOverflowResponse8);
+/** @internal */
+export const EnvelopeFieldUpdateManyOverflowResponse8$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse8> =
+    EnvelopeFieldUpdateManyOverflowResponse8$inboundSchema;
 
 /** @internal */
 export const EnvelopeFieldUpdateManyValueResponse1$inboundSchema: z.ZodType<
@@ -3099,6 +3488,7 @@ export const EnvelopeFieldUpdateManyFieldMetaRadioResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowResponse8$inboundSchema.optional(),
     type: z.literal("radio"),
     values: z.array(
       z.lazy(() => EnvelopeFieldUpdateManyValueResponse1$inboundSchema),
@@ -3114,6 +3504,7 @@ export type EnvelopeFieldUpdateManyFieldMetaRadioResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "radio";
   values?: Array<EnvelopeFieldUpdateManyValueResponse1$Outbound> | undefined;
   direction: string;
@@ -3131,6 +3522,8 @@ export const EnvelopeFieldUpdateManyFieldMetaRadioResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowResponse8$outboundSchema
+      .optional(),
     type: z.literal("radio"),
     values: z.array(
       z.lazy(() => EnvelopeFieldUpdateManyValueResponse1$outboundSchema),
@@ -3167,6 +3560,15 @@ export function envelopeFieldUpdateManyFieldMetaRadioResponseFromJSON(
 }
 
 /** @internal */
+export const EnvelopeFieldUpdateManyOverflowResponse7$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse7> = z
+    .nativeEnum(EnvelopeFieldUpdateManyOverflowResponse7);
+/** @internal */
+export const EnvelopeFieldUpdateManyOverflowResponse7$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse7> =
+    EnvelopeFieldUpdateManyOverflowResponse7$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldUpdateManyTextAlignResponse6$inboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignResponse6> = z
     .nativeEnum(EnvelopeFieldUpdateManyTextAlignResponse6);
@@ -3196,6 +3598,7 @@ export const EnvelopeFieldUpdateManyFieldMetaNumberResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowResponse7$inboundSchema.optional(),
     type: z.literal("number"),
     numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
@@ -3216,6 +3619,7 @@ export type EnvelopeFieldUpdateManyFieldMetaNumberResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
@@ -3239,6 +3643,8 @@ export const EnvelopeFieldUpdateManyFieldMetaNumberResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowResponse7$outboundSchema
+      .optional(),
     type: z.literal("number"),
     numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
@@ -3280,6 +3686,15 @@ export function envelopeFieldUpdateManyFieldMetaNumberResponseFromJSON(
 }
 
 /** @internal */
+export const EnvelopeFieldUpdateManyOverflowResponse6$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse6> = z
+    .nativeEnum(EnvelopeFieldUpdateManyOverflowResponse6);
+/** @internal */
+export const EnvelopeFieldUpdateManyOverflowResponse6$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse6> =
+    EnvelopeFieldUpdateManyOverflowResponse6$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldUpdateManyTextAlignResponse5$inboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignResponse5> = z
     .nativeEnum(EnvelopeFieldUpdateManyTextAlignResponse5);
@@ -3309,6 +3724,7 @@ export const EnvelopeFieldUpdateManyFieldMetaTextResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowResponse6$inboundSchema.optional(),
     type: z.literal("text"),
     text: z.string().optional(),
     characterLimit: z.number().optional(),
@@ -3327,6 +3743,7 @@ export type EnvelopeFieldUpdateManyFieldMetaTextResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
@@ -3348,6 +3765,8 @@ export const EnvelopeFieldUpdateManyFieldMetaTextResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowResponse6$outboundSchema
+      .optional(),
     type: z.literal("text"),
     text: z.string().optional(),
     characterLimit: z.number().optional(),
@@ -3387,6 +3806,15 @@ export function envelopeFieldUpdateManyFieldMetaTextResponseFromJSON(
 }
 
 /** @internal */
+export const EnvelopeFieldUpdateManyOverflowResponse5$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse5> = z
+    .nativeEnum(EnvelopeFieldUpdateManyOverflowResponse5);
+/** @internal */
+export const EnvelopeFieldUpdateManyOverflowResponse5$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse5> =
+    EnvelopeFieldUpdateManyOverflowResponse5$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldUpdateManyTextAlignResponse4$inboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignResponse4> = z
     .nativeEnum(EnvelopeFieldUpdateManyTextAlignResponse4);
@@ -3407,6 +3835,9 @@ export const EnvelopeFieldUpdateManyFieldMetaDateResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowResponse5$inboundSchema.default(
+      "auto",
+    ),
     type: z.literal("date"),
     textAlign: EnvelopeFieldUpdateManyTextAlignResponse4$inboundSchema
       .optional(),
@@ -3418,6 +3849,7 @@ export type EnvelopeFieldUpdateManyFieldMetaDateResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "date";
   textAlign?: string | undefined;
 };
@@ -3434,6 +3866,9 @@ export const EnvelopeFieldUpdateManyFieldMetaDateResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowResponse5$outboundSchema.default(
+      "auto",
+    ),
     type: z.literal("date"),
     textAlign: EnvelopeFieldUpdateManyTextAlignResponse4$outboundSchema
       .optional(),
@@ -3466,6 +3901,15 @@ export function envelopeFieldUpdateManyFieldMetaDateResponseFromJSON(
 }
 
 /** @internal */
+export const EnvelopeFieldUpdateManyOverflowResponse4$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse4> = z
+    .nativeEnum(EnvelopeFieldUpdateManyOverflowResponse4);
+/** @internal */
+export const EnvelopeFieldUpdateManyOverflowResponse4$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse4> =
+    EnvelopeFieldUpdateManyOverflowResponse4$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldUpdateManyTextAlignResponse3$inboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignResponse3> = z
     .nativeEnum(EnvelopeFieldUpdateManyTextAlignResponse3);
@@ -3486,6 +3930,9 @@ export const EnvelopeFieldUpdateManyFieldMetaEmailResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowResponse4$inboundSchema.default(
+      "auto",
+    ),
     type: z.literal("email"),
     textAlign: EnvelopeFieldUpdateManyTextAlignResponse3$inboundSchema
       .optional(),
@@ -3497,6 +3944,7 @@ export type EnvelopeFieldUpdateManyFieldMetaEmailResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "email";
   textAlign?: string | undefined;
 };
@@ -3513,6 +3961,9 @@ export const EnvelopeFieldUpdateManyFieldMetaEmailResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowResponse4$outboundSchema.default(
+      "auto",
+    ),
     type: z.literal("email"),
     textAlign: EnvelopeFieldUpdateManyTextAlignResponse3$outboundSchema
       .optional(),
@@ -3545,6 +3996,15 @@ export function envelopeFieldUpdateManyFieldMetaEmailResponseFromJSON(
 }
 
 /** @internal */
+export const EnvelopeFieldUpdateManyOverflowResponse3$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse3> = z
+    .nativeEnum(EnvelopeFieldUpdateManyOverflowResponse3);
+/** @internal */
+export const EnvelopeFieldUpdateManyOverflowResponse3$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse3> =
+    EnvelopeFieldUpdateManyOverflowResponse3$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldUpdateManyTextAlignResponse2$inboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignResponse2> = z
     .nativeEnum(EnvelopeFieldUpdateManyTextAlignResponse2);
@@ -3565,6 +4025,7 @@ export const EnvelopeFieldUpdateManyFieldMetaNameResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowResponse3$inboundSchema.optional(),
     type: z.literal("name"),
     textAlign: EnvelopeFieldUpdateManyTextAlignResponse2$inboundSchema
       .optional(),
@@ -3576,6 +4037,7 @@ export type EnvelopeFieldUpdateManyFieldMetaNameResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "name";
   textAlign?: string | undefined;
 };
@@ -3592,6 +4054,8 @@ export const EnvelopeFieldUpdateManyFieldMetaNameResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowResponse3$outboundSchema
+      .optional(),
     type: z.literal("name"),
     textAlign: EnvelopeFieldUpdateManyTextAlignResponse2$outboundSchema
       .optional(),
@@ -3624,6 +4088,15 @@ export function envelopeFieldUpdateManyFieldMetaNameResponseFromJSON(
 }
 
 /** @internal */
+export const EnvelopeFieldUpdateManyOverflowResponse2$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse2> = z
+    .nativeEnum(EnvelopeFieldUpdateManyOverflowResponse2);
+/** @internal */
+export const EnvelopeFieldUpdateManyOverflowResponse2$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse2> =
+    EnvelopeFieldUpdateManyOverflowResponse2$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldUpdateManyTextAlignResponse1$inboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignResponse1> = z
     .nativeEnum(EnvelopeFieldUpdateManyTextAlignResponse1);
@@ -3644,6 +4117,7 @@ export const EnvelopeFieldUpdateManyFieldMetaInitialsResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowResponse2$inboundSchema.optional(),
     type: z.literal("initials"),
     textAlign: EnvelopeFieldUpdateManyTextAlignResponse1$inboundSchema
       .optional(),
@@ -3655,6 +4129,7 @@ export type EnvelopeFieldUpdateManyFieldMetaInitialsResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
 };
@@ -3671,6 +4146,8 @@ export const EnvelopeFieldUpdateManyFieldMetaInitialsResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowResponse2$outboundSchema
+      .optional(),
     type: z.literal("initials"),
     textAlign: EnvelopeFieldUpdateManyTextAlignResponse1$outboundSchema
       .optional(),
@@ -3703,6 +4180,15 @@ export function envelopeFieldUpdateManyFieldMetaInitialsResponseFromJSON(
 }
 
 /** @internal */
+export const EnvelopeFieldUpdateManyOverflowResponse1$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse1> = z
+    .nativeEnum(EnvelopeFieldUpdateManyOverflowResponse1);
+/** @internal */
+export const EnvelopeFieldUpdateManyOverflowResponse1$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse1> =
+    EnvelopeFieldUpdateManyOverflowResponse1$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldUpdateManyFieldMetaSignatureResponse$inboundSchema:
   z.ZodType<
     EnvelopeFieldUpdateManyFieldMetaSignatureResponse,
@@ -3714,6 +4200,9 @@ export const EnvelopeFieldUpdateManyFieldMetaSignatureResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowResponse1$inboundSchema.default(
+      "auto",
+    ),
     type: z.literal("signature"),
   });
 /** @internal */
@@ -3723,6 +4212,7 @@ export type EnvelopeFieldUpdateManyFieldMetaSignatureResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "signature";
 };
 
@@ -3738,6 +4228,9 @@ export const EnvelopeFieldUpdateManyFieldMetaSignatureResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: EnvelopeFieldUpdateManyOverflowResponse1$outboundSchema.default(
+      "auto",
+    ),
     type: z.literal("signature"),
   });
 

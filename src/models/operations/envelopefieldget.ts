@@ -29,6 +29,16 @@ export type EnvelopeFieldGetTypeEnum = ClosedEnum<
   typeof EnvelopeFieldGetTypeEnum
 >;
 
+export const EnvelopeFieldGetOverflow10 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldGetOverflow10 = ClosedEnum<
+  typeof EnvelopeFieldGetOverflow10
+>;
+
 export type EnvelopeFieldGetValue3 = {
   value: string;
 };
@@ -39,10 +49,21 @@ export type EnvelopeFieldGetFieldMetaDropdown = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldGetOverflow10 | undefined;
   type: "dropdown";
   values?: Array<EnvelopeFieldGetValue3> | undefined;
   defaultValue?: string | undefined;
 };
+
+export const EnvelopeFieldGetOverflow9 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldGetOverflow9 = ClosedEnum<
+  typeof EnvelopeFieldGetOverflow9
+>;
 
 export type EnvelopeFieldGetValue2 = {
   id: number;
@@ -64,12 +85,23 @@ export type EnvelopeFieldGetFieldMetaCheckbox = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldGetOverflow9 | undefined;
   type: "checkbox";
   values?: Array<EnvelopeFieldGetValue2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
   direction?: EnvelopeFieldGetDirection2 | undefined;
 };
+
+export const EnvelopeFieldGetOverflow8 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldGetOverflow8 = ClosedEnum<
+  typeof EnvelopeFieldGetOverflow8
+>;
 
 export type EnvelopeFieldGetValue1 = {
   id: number;
@@ -91,10 +123,21 @@ export type EnvelopeFieldGetFieldMetaRadio = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldGetOverflow8 | undefined;
   type: "radio";
   values?: Array<EnvelopeFieldGetValue1> | undefined;
   direction?: EnvelopeFieldGetDirection1 | undefined;
 };
+
+export const EnvelopeFieldGetOverflow7 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldGetOverflow7 = ClosedEnum<
+  typeof EnvelopeFieldGetOverflow7
+>;
 
 export const EnvelopeFieldGetTextAlign6 = {
   Left: "left",
@@ -120,6 +163,7 @@ export type EnvelopeFieldGetFieldMetaNumber = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldGetOverflow7 | undefined;
   type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
@@ -130,6 +174,16 @@ export type EnvelopeFieldGetFieldMetaNumber = {
   letterSpacing?: number | null | undefined;
   verticalAlign?: EnvelopeFieldGetVerticalAlign2 | null | undefined;
 };
+
+export const EnvelopeFieldGetOverflow6 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldGetOverflow6 = ClosedEnum<
+  typeof EnvelopeFieldGetOverflow6
+>;
 
 export const EnvelopeFieldGetTextAlign5 = {
   Left: "left",
@@ -155,6 +209,7 @@ export type EnvelopeFieldGetFieldMetaText = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldGetOverflow6 | undefined;
   type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
@@ -163,6 +218,16 @@ export type EnvelopeFieldGetFieldMetaText = {
   letterSpacing?: number | null | undefined;
   verticalAlign?: EnvelopeFieldGetVerticalAlign1 | null | undefined;
 };
+
+export const EnvelopeFieldGetOverflow5 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldGetOverflow5 = ClosedEnum<
+  typeof EnvelopeFieldGetOverflow5
+>;
 
 export const EnvelopeFieldGetTextAlign4 = {
   Left: "left",
@@ -179,9 +244,20 @@ export type EnvelopeFieldGetFieldMetaDate = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldGetOverflow5 | undefined;
   type: "date";
   textAlign?: EnvelopeFieldGetTextAlign4 | undefined;
 };
+
+export const EnvelopeFieldGetOverflow4 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldGetOverflow4 = ClosedEnum<
+  typeof EnvelopeFieldGetOverflow4
+>;
 
 export const EnvelopeFieldGetTextAlign3 = {
   Left: "left",
@@ -198,9 +274,20 @@ export type EnvelopeFieldGetFieldMetaEmail = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldGetOverflow4 | undefined;
   type: "email";
   textAlign?: EnvelopeFieldGetTextAlign3 | undefined;
 };
+
+export const EnvelopeFieldGetOverflow3 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldGetOverflow3 = ClosedEnum<
+  typeof EnvelopeFieldGetOverflow3
+>;
 
 export const EnvelopeFieldGetTextAlign2 = {
   Left: "left",
@@ -217,9 +304,20 @@ export type EnvelopeFieldGetFieldMetaName = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldGetOverflow3 | undefined;
   type: "name";
   textAlign?: EnvelopeFieldGetTextAlign2 | undefined;
 };
+
+export const EnvelopeFieldGetOverflow2 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldGetOverflow2 = ClosedEnum<
+  typeof EnvelopeFieldGetOverflow2
+>;
 
 export const EnvelopeFieldGetTextAlign1 = {
   Left: "left",
@@ -236,9 +334,20 @@ export type EnvelopeFieldGetFieldMetaInitials = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldGetOverflow2 | undefined;
   type: "initials";
   textAlign?: EnvelopeFieldGetTextAlign1 | undefined;
 };
+
+export const EnvelopeFieldGetOverflow1 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type EnvelopeFieldGetOverflow1 = ClosedEnum<
+  typeof EnvelopeFieldGetOverflow1
+>;
 
 export type EnvelopeFieldGetFieldMetaSignature = {
   label?: string | undefined;
@@ -246,6 +355,7 @@ export type EnvelopeFieldGetFieldMetaSignature = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: EnvelopeFieldGetOverflow1 | undefined;
   type: "signature";
 };
 
@@ -341,6 +451,15 @@ export const EnvelopeFieldGetTypeEnum$outboundSchema: z.ZodNativeEnum<
 > = EnvelopeFieldGetTypeEnum$inboundSchema;
 
 /** @internal */
+export const EnvelopeFieldGetOverflow10$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldGetOverflow10
+> = z.nativeEnum(EnvelopeFieldGetOverflow10);
+/** @internal */
+export const EnvelopeFieldGetOverflow10$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldGetOverflow10
+> = EnvelopeFieldGetOverflow10$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldGetValue3$inboundSchema: z.ZodType<
   EnvelopeFieldGetValue3,
   z.ZodTypeDef,
@@ -390,6 +509,7 @@ export const EnvelopeFieldGetFieldMetaDropdown$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: EnvelopeFieldGetOverflow10$inboundSchema.optional(),
   type: z.literal("dropdown"),
   values: z.array(z.lazy(() => EnvelopeFieldGetValue3$inboundSchema))
     .optional(),
@@ -402,6 +522,7 @@ export type EnvelopeFieldGetFieldMetaDropdown$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "dropdown";
   values?: Array<EnvelopeFieldGetValue3$Outbound> | undefined;
   defaultValue?: string | undefined;
@@ -418,6 +539,7 @@ export const EnvelopeFieldGetFieldMetaDropdown$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: EnvelopeFieldGetOverflow10$outboundSchema.optional(),
   type: z.literal("dropdown"),
   values: z.array(z.lazy(() => EnvelopeFieldGetValue3$outboundSchema))
     .optional(),
@@ -442,6 +564,15 @@ export function envelopeFieldGetFieldMetaDropdownFromJSON(
     `Failed to parse 'EnvelopeFieldGetFieldMetaDropdown' from JSON`,
   );
 }
+
+/** @internal */
+export const EnvelopeFieldGetOverflow9$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldGetOverflow9
+> = z.nativeEnum(EnvelopeFieldGetOverflow9);
+/** @internal */
+export const EnvelopeFieldGetOverflow9$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldGetOverflow9
+> = EnvelopeFieldGetOverflow9$inboundSchema;
 
 /** @internal */
 export const EnvelopeFieldGetValue2$inboundSchema: z.ZodType<
@@ -508,6 +639,7 @@ export const EnvelopeFieldGetFieldMetaCheckbox$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: EnvelopeFieldGetOverflow9$inboundSchema.optional(),
   type: z.literal("checkbox"),
   values: z.array(z.lazy(() => EnvelopeFieldGetValue2$inboundSchema))
     .optional(),
@@ -522,6 +654,7 @@ export type EnvelopeFieldGetFieldMetaCheckbox$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "checkbox";
   values?: Array<EnvelopeFieldGetValue2$Outbound> | undefined;
   validationRule?: string | undefined;
@@ -540,6 +673,7 @@ export const EnvelopeFieldGetFieldMetaCheckbox$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: EnvelopeFieldGetOverflow9$outboundSchema.optional(),
   type: z.literal("checkbox"),
   values: z.array(z.lazy(() => EnvelopeFieldGetValue2$outboundSchema))
     .optional(),
@@ -566,6 +700,15 @@ export function envelopeFieldGetFieldMetaCheckboxFromJSON(
     `Failed to parse 'EnvelopeFieldGetFieldMetaCheckbox' from JSON`,
   );
 }
+
+/** @internal */
+export const EnvelopeFieldGetOverflow8$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldGetOverflow8
+> = z.nativeEnum(EnvelopeFieldGetOverflow8);
+/** @internal */
+export const EnvelopeFieldGetOverflow8$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldGetOverflow8
+> = EnvelopeFieldGetOverflow8$inboundSchema;
 
 /** @internal */
 export const EnvelopeFieldGetValue1$inboundSchema: z.ZodType<
@@ -632,6 +775,7 @@ export const EnvelopeFieldGetFieldMetaRadio$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: EnvelopeFieldGetOverflow8$inboundSchema.optional(),
   type: z.literal("radio"),
   values: z.array(z.lazy(() => EnvelopeFieldGetValue1$inboundSchema))
     .optional(),
@@ -644,6 +788,7 @@ export type EnvelopeFieldGetFieldMetaRadio$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "radio";
   values?: Array<EnvelopeFieldGetValue1$Outbound> | undefined;
   direction: string;
@@ -660,6 +805,7 @@ export const EnvelopeFieldGetFieldMetaRadio$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: EnvelopeFieldGetOverflow8$outboundSchema.optional(),
   type: z.literal("radio"),
   values: z.array(z.lazy(() => EnvelopeFieldGetValue1$outboundSchema))
     .optional(),
@@ -684,6 +830,15 @@ export function envelopeFieldGetFieldMetaRadioFromJSON(
     `Failed to parse 'EnvelopeFieldGetFieldMetaRadio' from JSON`,
   );
 }
+
+/** @internal */
+export const EnvelopeFieldGetOverflow7$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldGetOverflow7
+> = z.nativeEnum(EnvelopeFieldGetOverflow7);
+/** @internal */
+export const EnvelopeFieldGetOverflow7$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldGetOverflow7
+> = EnvelopeFieldGetOverflow7$inboundSchema;
 
 /** @internal */
 export const EnvelopeFieldGetTextAlign6$inboundSchema: z.ZodNativeEnum<
@@ -714,6 +869,7 @@ export const EnvelopeFieldGetFieldMetaNumber$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: EnvelopeFieldGetOverflow7$inboundSchema.optional(),
   type: z.literal("number"),
   numberFormat: z.nullable(z.string()).optional(),
   value: z.string().optional(),
@@ -732,6 +888,7 @@ export type EnvelopeFieldGetFieldMetaNumber$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
@@ -754,6 +911,7 @@ export const EnvelopeFieldGetFieldMetaNumber$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: EnvelopeFieldGetOverflow7$outboundSchema.optional(),
   type: z.literal("number"),
   numberFormat: z.nullable(z.string()).optional(),
   value: z.string().optional(),
@@ -786,6 +944,15 @@ export function envelopeFieldGetFieldMetaNumberFromJSON(
 }
 
 /** @internal */
+export const EnvelopeFieldGetOverflow6$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldGetOverflow6
+> = z.nativeEnum(EnvelopeFieldGetOverflow6);
+/** @internal */
+export const EnvelopeFieldGetOverflow6$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldGetOverflow6
+> = EnvelopeFieldGetOverflow6$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldGetTextAlign5$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFieldGetTextAlign5
 > = z.nativeEnum(EnvelopeFieldGetTextAlign5);
@@ -814,6 +981,7 @@ export const EnvelopeFieldGetFieldMetaText$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: EnvelopeFieldGetOverflow6$inboundSchema.optional(),
   type: z.literal("text"),
   text: z.string().optional(),
   characterLimit: z.number().optional(),
@@ -830,6 +998,7 @@ export type EnvelopeFieldGetFieldMetaText$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
@@ -850,6 +1019,7 @@ export const EnvelopeFieldGetFieldMetaText$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: EnvelopeFieldGetOverflow6$outboundSchema.optional(),
   type: z.literal("text"),
   text: z.string().optional(),
   characterLimit: z.number().optional(),
@@ -880,6 +1050,15 @@ export function envelopeFieldGetFieldMetaTextFromJSON(
 }
 
 /** @internal */
+export const EnvelopeFieldGetOverflow5$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldGetOverflow5
+> = z.nativeEnum(EnvelopeFieldGetOverflow5);
+/** @internal */
+export const EnvelopeFieldGetOverflow5$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldGetOverflow5
+> = EnvelopeFieldGetOverflow5$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldGetTextAlign4$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFieldGetTextAlign4
 > = z.nativeEnum(EnvelopeFieldGetTextAlign4);
@@ -899,6 +1078,7 @@ export const EnvelopeFieldGetFieldMetaDate$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: EnvelopeFieldGetOverflow5$inboundSchema.default("auto"),
   type: z.literal("date"),
   textAlign: EnvelopeFieldGetTextAlign4$inboundSchema.optional(),
 });
@@ -909,6 +1089,7 @@ export type EnvelopeFieldGetFieldMetaDate$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "date";
   textAlign?: string | undefined;
 };
@@ -924,6 +1105,7 @@ export const EnvelopeFieldGetFieldMetaDate$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: EnvelopeFieldGetOverflow5$outboundSchema.default("auto"),
   type: z.literal("date"),
   textAlign: EnvelopeFieldGetTextAlign4$outboundSchema.optional(),
 });
@@ -948,6 +1130,15 @@ export function envelopeFieldGetFieldMetaDateFromJSON(
 }
 
 /** @internal */
+export const EnvelopeFieldGetOverflow4$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldGetOverflow4
+> = z.nativeEnum(EnvelopeFieldGetOverflow4);
+/** @internal */
+export const EnvelopeFieldGetOverflow4$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldGetOverflow4
+> = EnvelopeFieldGetOverflow4$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldGetTextAlign3$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFieldGetTextAlign3
 > = z.nativeEnum(EnvelopeFieldGetTextAlign3);
@@ -967,6 +1158,7 @@ export const EnvelopeFieldGetFieldMetaEmail$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: EnvelopeFieldGetOverflow4$inboundSchema.default("auto"),
   type: z.literal("email"),
   textAlign: EnvelopeFieldGetTextAlign3$inboundSchema.optional(),
 });
@@ -977,6 +1169,7 @@ export type EnvelopeFieldGetFieldMetaEmail$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "email";
   textAlign?: string | undefined;
 };
@@ -992,6 +1185,7 @@ export const EnvelopeFieldGetFieldMetaEmail$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: EnvelopeFieldGetOverflow4$outboundSchema.default("auto"),
   type: z.literal("email"),
   textAlign: EnvelopeFieldGetTextAlign3$outboundSchema.optional(),
 });
@@ -1016,6 +1210,15 @@ export function envelopeFieldGetFieldMetaEmailFromJSON(
 }
 
 /** @internal */
+export const EnvelopeFieldGetOverflow3$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldGetOverflow3
+> = z.nativeEnum(EnvelopeFieldGetOverflow3);
+/** @internal */
+export const EnvelopeFieldGetOverflow3$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldGetOverflow3
+> = EnvelopeFieldGetOverflow3$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldGetTextAlign2$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFieldGetTextAlign2
 > = z.nativeEnum(EnvelopeFieldGetTextAlign2);
@@ -1035,6 +1238,7 @@ export const EnvelopeFieldGetFieldMetaName$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: EnvelopeFieldGetOverflow3$inboundSchema.optional(),
   type: z.literal("name"),
   textAlign: EnvelopeFieldGetTextAlign2$inboundSchema.optional(),
 });
@@ -1045,6 +1249,7 @@ export type EnvelopeFieldGetFieldMetaName$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "name";
   textAlign?: string | undefined;
 };
@@ -1060,6 +1265,7 @@ export const EnvelopeFieldGetFieldMetaName$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: EnvelopeFieldGetOverflow3$outboundSchema.optional(),
   type: z.literal("name"),
   textAlign: EnvelopeFieldGetTextAlign2$outboundSchema.optional(),
 });
@@ -1084,6 +1290,15 @@ export function envelopeFieldGetFieldMetaNameFromJSON(
 }
 
 /** @internal */
+export const EnvelopeFieldGetOverflow2$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldGetOverflow2
+> = z.nativeEnum(EnvelopeFieldGetOverflow2);
+/** @internal */
+export const EnvelopeFieldGetOverflow2$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldGetOverflow2
+> = EnvelopeFieldGetOverflow2$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldGetTextAlign1$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFieldGetTextAlign1
 > = z.nativeEnum(EnvelopeFieldGetTextAlign1);
@@ -1103,6 +1318,7 @@ export const EnvelopeFieldGetFieldMetaInitials$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: EnvelopeFieldGetOverflow2$inboundSchema.optional(),
   type: z.literal("initials"),
   textAlign: EnvelopeFieldGetTextAlign1$inboundSchema.optional(),
 });
@@ -1113,6 +1329,7 @@ export type EnvelopeFieldGetFieldMetaInitials$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
 };
@@ -1128,6 +1345,7 @@ export const EnvelopeFieldGetFieldMetaInitials$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: EnvelopeFieldGetOverflow2$outboundSchema.optional(),
   type: z.literal("initials"),
   textAlign: EnvelopeFieldGetTextAlign1$outboundSchema.optional(),
 });
@@ -1152,6 +1370,15 @@ export function envelopeFieldGetFieldMetaInitialsFromJSON(
 }
 
 /** @internal */
+export const EnvelopeFieldGetOverflow1$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldGetOverflow1
+> = z.nativeEnum(EnvelopeFieldGetOverflow1);
+/** @internal */
+export const EnvelopeFieldGetOverflow1$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldGetOverflow1
+> = EnvelopeFieldGetOverflow1$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldGetFieldMetaSignature$inboundSchema: z.ZodType<
   EnvelopeFieldGetFieldMetaSignature,
   z.ZodTypeDef,
@@ -1162,6 +1389,7 @@ export const EnvelopeFieldGetFieldMetaSignature$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: EnvelopeFieldGetOverflow1$inboundSchema.default("auto"),
   type: z.literal("signature"),
 });
 /** @internal */
@@ -1171,6 +1399,7 @@ export type EnvelopeFieldGetFieldMetaSignature$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "signature";
 };
 
@@ -1185,6 +1414,7 @@ export const EnvelopeFieldGetFieldMetaSignature$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: EnvelopeFieldGetOverflow1$outboundSchema.default("auto"),
   type: z.literal("signature"),
 });
 

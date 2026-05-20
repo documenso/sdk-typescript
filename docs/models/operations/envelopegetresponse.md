@@ -13,7 +13,7 @@ let value: EnvelopeGetResponse = {
   status: "PENDING",
   source: "DOCUMENT",
   visibility: "EVERYONE",
-  templateType: "PUBLIC",
+  templateType: "PRIVATE",
   id: "<id>",
   secondaryId: "<id>",
   externalId: "<id>",

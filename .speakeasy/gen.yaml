@@ -29,7 +29,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 typescript:
-  version: 0.8.0
+  version: 0.8.1
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies: {}
@@ -49,6 +49,7 @@ typescript:
   enumFormat: union
   envVarPrefix: DOCUMENSO
   exportZodModelNamespace: false
+  fixEnumNameSanitization: false
   flatAdditionalProperties: false
   flattenGlobalSecurity: true
   flatteningOrder: parameters-first
@@ -84,4 +85,6 @@ typescript:
   unionStrategy: left-to-right
   usageSDKInitImports: []
   useIndexModules: true
+  useOxlint: false
+  useTsgo: false
   zodVersion: v3

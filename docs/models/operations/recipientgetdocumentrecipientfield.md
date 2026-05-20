@@ -21,6 +21,7 @@ let value: RecipientGetDocumentRecipientField = {
   inserted: false,
   fieldMeta: {
     fontSize: 12,
+    overflow: "auto",
     type: "signature",
   },
 };

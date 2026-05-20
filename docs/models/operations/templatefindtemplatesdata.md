@@ -6,7 +6,7 @@
 import { TemplateFindTemplatesData } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateFindTemplatesData = {
-  type: "PUBLIC",
+  type: "PRIVATE",
   visibility: "EVERYONE",
   id: 5475.93,
   externalId: "<id>",
@@ -24,6 +24,7 @@ let value: TemplateFindTemplatesData = {
   team: {
     id: 1814.63,
     url: "https://insecure-pharmacopoeia.name",
+    name: "<value>",
   },
   fields: [],
   recipients: [],

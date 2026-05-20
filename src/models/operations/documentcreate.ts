@@ -66,6 +66,16 @@ export type DocumentCreateActionAuth = ClosedEnum<
   typeof DocumentCreateActionAuth
 >;
 
+export const DocumentCreateOverflowDropdown = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentCreateOverflowDropdown = ClosedEnum<
+  typeof DocumentCreateOverflowDropdown
+>;
+
 export const DocumentCreateTypeDropdownEnum = {
   Dropdown: "dropdown",
 } as const;
@@ -83,6 +93,7 @@ export type DocumentCreateFieldMetaDropdown = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentCreateOverflowDropdown | undefined;
   type: DocumentCreateTypeDropdownEnum;
   values?: Array<DocumentCreateValueDropdown> | undefined;
   defaultValue?: string | undefined;
@@ -97,6 +108,16 @@ export type DocumentCreateFieldDropdown = {
   width: number;
   height: number;
 };
+
+export const DocumentCreateOverflowCheckbox = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentCreateOverflowCheckbox = ClosedEnum<
+  typeof DocumentCreateOverflowCheckbox
+>;
 
 export const DocumentCreateTypeCheckboxEnum = {
   Checkbox: "checkbox",
@@ -125,6 +146,7 @@ export type DocumentCreateFieldMetaCheckbox = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentCreateOverflowCheckbox | undefined;
   type: DocumentCreateTypeCheckboxEnum;
   values?: Array<DocumentCreateValueCheckbox> | undefined;
   validationRule?: string | undefined;
@@ -141,6 +163,16 @@ export type DocumentCreateFieldCheckbox = {
   width: number;
   height: number;
 };
+
+export const DocumentCreateOverflowRadio = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentCreateOverflowRadio = ClosedEnum<
+  typeof DocumentCreateOverflowRadio
+>;
 
 export const DocumentCreateTypeRadioEnum = {
   Radio: "radio",
@@ -169,6 +201,7 @@ export type DocumentCreateFieldMetaRadio = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentCreateOverflowRadio | undefined;
   type: DocumentCreateTypeRadioEnum;
   values?: Array<DocumentCreateValueRadio> | undefined;
   direction?: DocumentCreateDirectionRadio | undefined;
@@ -183,6 +216,16 @@ export type DocumentCreateFieldRadio = {
   width: number;
   height: number;
 };
+
+export const DocumentCreateOverflowNumber = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentCreateOverflowNumber = ClosedEnum<
+  typeof DocumentCreateOverflowNumber
+>;
 
 export const DocumentCreateTypeNumberEnum = {
   Number: "number",
@@ -215,6 +258,7 @@ export type DocumentCreateFieldMetaNumber = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentCreateOverflowNumber | undefined;
   type: DocumentCreateTypeNumberEnum;
   numberFormat?: string | null | undefined;
   value?: string | undefined;
@@ -235,6 +279,16 @@ export type DocumentCreateFieldNumber = {
   width: number;
   height: number;
 };
+
+export const DocumentCreateOverflowText = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentCreateOverflowText = ClosedEnum<
+  typeof DocumentCreateOverflowText
+>;
 
 export const DocumentCreateTypeTextEnum = {
   Text: "text",
@@ -267,6 +321,7 @@ export type DocumentCreateFieldMetaText = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentCreateOverflowText | undefined;
   type: DocumentCreateTypeTextEnum;
   text?: string | undefined;
   characterLimit?: number | undefined;
@@ -285,6 +340,16 @@ export type DocumentCreateFieldText = {
   width: number;
   height: number;
 };
+
+export const DocumentCreateOverflowDate = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentCreateOverflowDate = ClosedEnum<
+  typeof DocumentCreateOverflowDate
+>;
 
 export const DocumentCreateTypeDateEnum = {
   Date: "date",
@@ -308,6 +373,7 @@ export type DocumentCreateFieldMetaDate = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentCreateOverflowDate | undefined;
   type: DocumentCreateTypeDateEnum;
   textAlign?: DocumentCreateTextAlignDate | undefined;
 };
@@ -321,6 +387,16 @@ export type DocumentCreateFieldDate = {
   width: number;
   height: number;
 };
+
+export const DocumentCreateOverflowEmail = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentCreateOverflowEmail = ClosedEnum<
+  typeof DocumentCreateOverflowEmail
+>;
 
 export const DocumentCreateTypeEmailEnum = {
   Email: "email",
@@ -344,6 +420,7 @@ export type DocumentCreateFieldMetaEmail = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentCreateOverflowEmail | undefined;
   type: DocumentCreateTypeEmailEnum;
   textAlign?: DocumentCreateTextAlignEmail | undefined;
 };
@@ -357,6 +434,16 @@ export type DocumentCreateFieldEmail = {
   width: number;
   height: number;
 };
+
+export const DocumentCreateOverflowName = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentCreateOverflowName = ClosedEnum<
+  typeof DocumentCreateOverflowName
+>;
 
 export const DocumentCreateTypeNameEnum = {
   Name: "name",
@@ -380,6 +467,7 @@ export type DocumentCreateFieldMetaName = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentCreateOverflowName | undefined;
   type: DocumentCreateTypeNameEnum;
   textAlign?: DocumentCreateTextAlignName | undefined;
 };
@@ -393,6 +481,16 @@ export type DocumentCreateFieldName = {
   width: number;
   height: number;
 };
+
+export const DocumentCreateOverflowInitials = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentCreateOverflowInitials = ClosedEnum<
+  typeof DocumentCreateOverflowInitials
+>;
 
 export const DocumentCreateTypeInitialsEnum = {
   Initials: "initials",
@@ -416,6 +514,7 @@ export type DocumentCreateFieldMetaInitials = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentCreateOverflowInitials | undefined;
   type: DocumentCreateTypeInitialsEnum;
   textAlign?: DocumentCreateTextAlignInitials | undefined;
 };
@@ -439,6 +538,16 @@ export type DocumentCreateFieldFreeSignature = {
   height: number;
 };
 
+export const DocumentCreateOverflowSignature = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type DocumentCreateOverflowSignature = ClosedEnum<
+  typeof DocumentCreateOverflowSignature
+>;
+
 export const DocumentCreateTypeSignatureEnum = {
   Signature: "signature",
 } as const;
@@ -452,6 +561,7 @@ export type DocumentCreateFieldMetaSignature = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: DocumentCreateOverflowSignature | undefined;
   type: DocumentCreateTypeSignatureEnum;
 };
 
@@ -517,12 +627,15 @@ export const DocumentCreateDateFormat = {
   YyyyMMddHhMmA: "yyyy-MM-dd hh:mm a",
   YyyyMMdd: "yyyy-MM-dd",
   DdMMSlashYyyy: "dd/MM/yyyy",
+  DdMMDashYyyy: "dd-MM-yyyy",
   MmDdSlashYyyy: "MM/dd/yyyy",
   YyMMdd: "yy-MM-dd",
   MmmmDdCommaYyyy: "MMMM dd, yyyy",
   EeeeMmmmDdCommaYyyy: "EEEE, MMMM dd, yyyy",
   DdMMSlashYyyyHhMMA: "dd/MM/yyyy hh:mm a",
   DdMMSlashYyyyHHmm: "dd/MM/yyyy HH:mm",
+  DdMMDashYyyyHhMMA: "dd-MM-yyyy hh:mm a",
+  DdMMDashYyyyHHmm: "dd-MM-yyyy HH:mm",
   MmDdSlashYyyyHhMmA: "MM/dd/yyyy hh:mm a",
   MmDdSlashYyyyHHmm: "MM/dd/yyyy HH:mm",
   DdDotMmDotYyyy: "dd.MM.yyyy",
@@ -581,28 +694,80 @@ export type DocumentCreateEmailSettings = {
   documentDeleted?: boolean | undefined;
   ownerDocumentCompleted?: boolean | undefined;
   ownerRecipientExpired?: boolean | undefined;
+  ownerDocumentCreated?: boolean | undefined;
 };
 
 export type DocumentCreateEnvelopeExpirationPeriod2 = {
-  disabled: boolean;
+  disabled: true;
 };
 
-export const DocumentCreateUnit = {
+export const DocumentCreateEnvelopeExpirationPeriodUnit = {
   Day: "day",
   Week: "week",
   Month: "month",
   Year: "year",
 } as const;
-export type DocumentCreateUnit = ClosedEnum<typeof DocumentCreateUnit>;
+export type DocumentCreateEnvelopeExpirationPeriodUnit = ClosedEnum<
+  typeof DocumentCreateEnvelopeExpirationPeriodUnit
+>;
 
 export type DocumentCreateEnvelopeExpirationPeriod1 = {
-  unit: DocumentCreateUnit;
+  unit: DocumentCreateEnvelopeExpirationPeriodUnit;
   amount: number;
 };
 
 export type DocumentCreateEnvelopeExpirationPeriodUnion =
   | DocumentCreateEnvelopeExpirationPeriod1
   | DocumentCreateEnvelopeExpirationPeriod2;
+
+export type DocumentCreateSendAfter2 = {
+  disabled: true;
+};
+
+export const DocumentCreateSendAfterUnit = {
+  Day: "day",
+  Week: "week",
+  Month: "month",
+} as const;
+export type DocumentCreateSendAfterUnit = ClosedEnum<
+  typeof DocumentCreateSendAfterUnit
+>;
+
+export type DocumentCreateSendAfter1 = {
+  unit: DocumentCreateSendAfterUnit;
+  amount: number;
+};
+
+export type DocumentCreateSendAfterUnion =
+  | DocumentCreateSendAfter1
+  | DocumentCreateSendAfter2;
+
+export type DocumentCreateRepeatEvery2 = {
+  disabled: true;
+};
+
+export const DocumentCreateRepeatEveryUnit = {
+  Day: "day",
+  Week: "week",
+  Month: "month",
+} as const;
+export type DocumentCreateRepeatEveryUnit = ClosedEnum<
+  typeof DocumentCreateRepeatEveryUnit
+>;
+
+export type DocumentCreateRepeatEvery1 = {
+  unit: DocumentCreateRepeatEveryUnit;
+  amount: number;
+};
+
+export type DocumentCreateRepeatEveryUnion =
+  | DocumentCreateRepeatEvery1
+  | DocumentCreateRepeatEvery2;
+
+export type DocumentCreateReminderSettings = {
+  sendAfter: DocumentCreateSendAfter1 | DocumentCreateSendAfter2;
+  repeatEvery: DocumentCreateRepeatEvery1 | DocumentCreateRepeatEvery2;
+};
 
 export type DocumentCreateMeta = {
   subject?: string | undefined;
@@ -625,6 +790,7 @@ export type DocumentCreateMeta = {
     | DocumentCreateEnvelopeExpirationPeriod2
     | null
     | undefined;
+  reminderSettings?: DocumentCreateReminderSettings | null | undefined;
 };
 
 export type DocumentCreatePayload = {
@@ -746,6 +912,15 @@ export const DocumentCreateActionAuth$outboundSchema: z.ZodNativeEnum<
 > = DocumentCreateActionAuth$inboundSchema;
 
 /** @internal */
+export const DocumentCreateOverflowDropdown$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateOverflowDropdown
+> = z.nativeEnum(DocumentCreateOverflowDropdown);
+/** @internal */
+export const DocumentCreateOverflowDropdown$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateOverflowDropdown
+> = DocumentCreateOverflowDropdown$inboundSchema;
+
+/** @internal */
 export const DocumentCreateTypeDropdownEnum$inboundSchema: z.ZodNativeEnum<
   typeof DocumentCreateTypeDropdownEnum
 > = z.nativeEnum(DocumentCreateTypeDropdownEnum);
@@ -806,6 +981,7 @@ export const DocumentCreateFieldMetaDropdown$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentCreateOverflowDropdown$inboundSchema.optional(),
   type: DocumentCreateTypeDropdownEnum$inboundSchema,
   values: z.array(z.lazy(() => DocumentCreateValueDropdown$inboundSchema))
     .optional(),
@@ -818,6 +994,7 @@ export type DocumentCreateFieldMetaDropdown$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: string;
   values?: Array<DocumentCreateValueDropdown$Outbound> | undefined;
   defaultValue?: string | undefined;
@@ -834,6 +1011,7 @@ export const DocumentCreateFieldMetaDropdown$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentCreateOverflowDropdown$outboundSchema.optional(),
   type: DocumentCreateTypeDropdownEnum$outboundSchema,
   values: z.array(z.lazy(() => DocumentCreateValueDropdown$outboundSchema))
     .optional(),
@@ -921,6 +1099,15 @@ export function documentCreateFieldDropdownFromJSON(
 }
 
 /** @internal */
+export const DocumentCreateOverflowCheckbox$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateOverflowCheckbox
+> = z.nativeEnum(DocumentCreateOverflowCheckbox);
+/** @internal */
+export const DocumentCreateOverflowCheckbox$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateOverflowCheckbox
+> = DocumentCreateOverflowCheckbox$inboundSchema;
+
+/** @internal */
 export const DocumentCreateTypeCheckboxEnum$inboundSchema: z.ZodNativeEnum<
   typeof DocumentCreateTypeCheckboxEnum
 > = z.nativeEnum(DocumentCreateTypeCheckboxEnum);
@@ -996,6 +1183,7 @@ export const DocumentCreateFieldMetaCheckbox$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentCreateOverflowCheckbox$inboundSchema.optional(),
   type: DocumentCreateTypeCheckboxEnum$inboundSchema,
   values: z.array(z.lazy(() => DocumentCreateValueCheckbox$inboundSchema))
     .optional(),
@@ -1010,6 +1198,7 @@ export type DocumentCreateFieldMetaCheckbox$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: string;
   values?: Array<DocumentCreateValueCheckbox$Outbound> | undefined;
   validationRule?: string | undefined;
@@ -1028,6 +1217,7 @@ export const DocumentCreateFieldMetaCheckbox$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentCreateOverflowCheckbox$outboundSchema.optional(),
   type: DocumentCreateTypeCheckboxEnum$outboundSchema,
   values: z.array(z.lazy(() => DocumentCreateValueCheckbox$outboundSchema))
     .optional(),
@@ -1117,6 +1307,15 @@ export function documentCreateFieldCheckboxFromJSON(
 }
 
 /** @internal */
+export const DocumentCreateOverflowRadio$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateOverflowRadio
+> = z.nativeEnum(DocumentCreateOverflowRadio);
+/** @internal */
+export const DocumentCreateOverflowRadio$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateOverflowRadio
+> = DocumentCreateOverflowRadio$inboundSchema;
+
+/** @internal */
 export const DocumentCreateTypeRadioEnum$inboundSchema: z.ZodNativeEnum<
   typeof DocumentCreateTypeRadioEnum
 > = z.nativeEnum(DocumentCreateTypeRadioEnum);
@@ -1190,6 +1389,7 @@ export const DocumentCreateFieldMetaRadio$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentCreateOverflowRadio$inboundSchema.optional(),
   type: DocumentCreateTypeRadioEnum$inboundSchema,
   values: z.array(z.lazy(() => DocumentCreateValueRadio$inboundSchema))
     .optional(),
@@ -1202,6 +1402,7 @@ export type DocumentCreateFieldMetaRadio$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: string;
   values?: Array<DocumentCreateValueRadio$Outbound> | undefined;
   direction: string;
@@ -1218,6 +1419,7 @@ export const DocumentCreateFieldMetaRadio$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentCreateOverflowRadio$outboundSchema.optional(),
   type: DocumentCreateTypeRadioEnum$outboundSchema,
   values: z.array(z.lazy(() => DocumentCreateValueRadio$outboundSchema))
     .optional(),
@@ -1303,6 +1505,15 @@ export function documentCreateFieldRadioFromJSON(
 }
 
 /** @internal */
+export const DocumentCreateOverflowNumber$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateOverflowNumber
+> = z.nativeEnum(DocumentCreateOverflowNumber);
+/** @internal */
+export const DocumentCreateOverflowNumber$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateOverflowNumber
+> = DocumentCreateOverflowNumber$inboundSchema;
+
+/** @internal */
 export const DocumentCreateTypeNumberEnum$inboundSchema: z.ZodNativeEnum<
   typeof DocumentCreateTypeNumberEnum
 > = z.nativeEnum(DocumentCreateTypeNumberEnum);
@@ -1340,6 +1551,7 @@ export const DocumentCreateFieldMetaNumber$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentCreateOverflowNumber$inboundSchema.optional(),
   type: DocumentCreateTypeNumberEnum$inboundSchema,
   numberFormat: z.nullable(z.string()).optional(),
   value: z.string().optional(),
@@ -1358,6 +1570,7 @@ export type DocumentCreateFieldMetaNumber$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: string;
   numberFormat?: string | null | undefined;
   value?: string | undefined;
@@ -1380,6 +1593,7 @@ export const DocumentCreateFieldMetaNumber$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentCreateOverflowNumber$outboundSchema.optional(),
   type: DocumentCreateTypeNumberEnum$outboundSchema,
   numberFormat: z.nullable(z.string()).optional(),
   value: z.string().optional(),
@@ -1471,6 +1685,15 @@ export function documentCreateFieldNumberFromJSON(
 }
 
 /** @internal */
+export const DocumentCreateOverflowText$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateOverflowText
+> = z.nativeEnum(DocumentCreateOverflowText);
+/** @internal */
+export const DocumentCreateOverflowText$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateOverflowText
+> = DocumentCreateOverflowText$inboundSchema;
+
+/** @internal */
 export const DocumentCreateTypeTextEnum$inboundSchema: z.ZodNativeEnum<
   typeof DocumentCreateTypeTextEnum
 > = z.nativeEnum(DocumentCreateTypeTextEnum);
@@ -1508,6 +1731,7 @@ export const DocumentCreateFieldMetaText$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentCreateOverflowText$inboundSchema.optional(),
   type: DocumentCreateTypeTextEnum$inboundSchema,
   text: z.string().optional(),
   characterLimit: z.number().optional(),
@@ -1524,6 +1748,7 @@ export type DocumentCreateFieldMetaText$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: string;
   text?: string | undefined;
   characterLimit?: number | undefined;
@@ -1544,6 +1769,7 @@ export const DocumentCreateFieldMetaText$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentCreateOverflowText$outboundSchema.optional(),
   type: DocumentCreateTypeTextEnum$outboundSchema,
   text: z.string().optional(),
   characterLimit: z.number().optional(),
@@ -1632,6 +1858,15 @@ export function documentCreateFieldTextFromJSON(
 }
 
 /** @internal */
+export const DocumentCreateOverflowDate$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateOverflowDate
+> = z.nativeEnum(DocumentCreateOverflowDate);
+/** @internal */
+export const DocumentCreateOverflowDate$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateOverflowDate
+> = DocumentCreateOverflowDate$inboundSchema;
+
+/** @internal */
 export const DocumentCreateTypeDateEnum$inboundSchema: z.ZodNativeEnum<
   typeof DocumentCreateTypeDateEnum
 > = z.nativeEnum(DocumentCreateTypeDateEnum);
@@ -1660,6 +1895,7 @@ export const DocumentCreateFieldMetaDate$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentCreateOverflowDate$inboundSchema.default("auto"),
   type: DocumentCreateTypeDateEnum$inboundSchema,
   textAlign: DocumentCreateTextAlignDate$inboundSchema.optional(),
 });
@@ -1670,6 +1906,7 @@ export type DocumentCreateFieldMetaDate$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: string;
   textAlign?: string | undefined;
 };
@@ -1685,6 +1922,7 @@ export const DocumentCreateFieldMetaDate$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentCreateOverflowDate$outboundSchema.default("auto"),
   type: DocumentCreateTypeDateEnum$outboundSchema,
   textAlign: DocumentCreateTextAlignDate$outboundSchema.optional(),
 });
@@ -1767,6 +2005,15 @@ export function documentCreateFieldDateFromJSON(
 }
 
 /** @internal */
+export const DocumentCreateOverflowEmail$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateOverflowEmail
+> = z.nativeEnum(DocumentCreateOverflowEmail);
+/** @internal */
+export const DocumentCreateOverflowEmail$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateOverflowEmail
+> = DocumentCreateOverflowEmail$inboundSchema;
+
+/** @internal */
 export const DocumentCreateTypeEmailEnum$inboundSchema: z.ZodNativeEnum<
   typeof DocumentCreateTypeEmailEnum
 > = z.nativeEnum(DocumentCreateTypeEmailEnum);
@@ -1795,6 +2042,7 @@ export const DocumentCreateFieldMetaEmail$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentCreateOverflowEmail$inboundSchema.default("auto"),
   type: DocumentCreateTypeEmailEnum$inboundSchema,
   textAlign: DocumentCreateTextAlignEmail$inboundSchema.optional(),
 });
@@ -1805,6 +2053,7 @@ export type DocumentCreateFieldMetaEmail$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: string;
   textAlign?: string | undefined;
 };
@@ -1820,6 +2069,7 @@ export const DocumentCreateFieldMetaEmail$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentCreateOverflowEmail$outboundSchema.default("auto"),
   type: DocumentCreateTypeEmailEnum$outboundSchema,
   textAlign: DocumentCreateTextAlignEmail$outboundSchema.optional(),
 });
@@ -1903,6 +2153,15 @@ export function documentCreateFieldEmailFromJSON(
 }
 
 /** @internal */
+export const DocumentCreateOverflowName$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateOverflowName
+> = z.nativeEnum(DocumentCreateOverflowName);
+/** @internal */
+export const DocumentCreateOverflowName$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateOverflowName
+> = DocumentCreateOverflowName$inboundSchema;
+
+/** @internal */
 export const DocumentCreateTypeNameEnum$inboundSchema: z.ZodNativeEnum<
   typeof DocumentCreateTypeNameEnum
 > = z.nativeEnum(DocumentCreateTypeNameEnum);
@@ -1931,6 +2190,7 @@ export const DocumentCreateFieldMetaName$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentCreateOverflowName$inboundSchema.optional(),
   type: DocumentCreateTypeNameEnum$inboundSchema,
   textAlign: DocumentCreateTextAlignName$inboundSchema.optional(),
 });
@@ -1941,6 +2201,7 @@ export type DocumentCreateFieldMetaName$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: string;
   textAlign?: string | undefined;
 };
@@ -1956,6 +2217,7 @@ export const DocumentCreateFieldMetaName$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentCreateOverflowName$outboundSchema.optional(),
   type: DocumentCreateTypeNameEnum$outboundSchema,
   textAlign: DocumentCreateTextAlignName$outboundSchema.optional(),
 });
@@ -2038,6 +2300,15 @@ export function documentCreateFieldNameFromJSON(
 }
 
 /** @internal */
+export const DocumentCreateOverflowInitials$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateOverflowInitials
+> = z.nativeEnum(DocumentCreateOverflowInitials);
+/** @internal */
+export const DocumentCreateOverflowInitials$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateOverflowInitials
+> = DocumentCreateOverflowInitials$inboundSchema;
+
+/** @internal */
 export const DocumentCreateTypeInitialsEnum$inboundSchema: z.ZodNativeEnum<
   typeof DocumentCreateTypeInitialsEnum
 > = z.nativeEnum(DocumentCreateTypeInitialsEnum);
@@ -2066,6 +2337,7 @@ export const DocumentCreateFieldMetaInitials$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentCreateOverflowInitials$inboundSchema.optional(),
   type: DocumentCreateTypeInitialsEnum$inboundSchema,
   textAlign: DocumentCreateTextAlignInitials$inboundSchema.optional(),
 });
@@ -2076,6 +2348,7 @@ export type DocumentCreateFieldMetaInitials$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: string;
   textAlign?: string | undefined;
 };
@@ -2091,6 +2364,7 @@ export const DocumentCreateFieldMetaInitials$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentCreateOverflowInitials$outboundSchema.optional(),
   type: DocumentCreateTypeInitialsEnum$outboundSchema,
   textAlign: DocumentCreateTextAlignInitials$outboundSchema.optional(),
 });
@@ -2232,6 +2506,15 @@ export function documentCreateFieldFreeSignatureFromJSON(
 }
 
 /** @internal */
+export const DocumentCreateOverflowSignature$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateOverflowSignature
+> = z.nativeEnum(DocumentCreateOverflowSignature);
+/** @internal */
+export const DocumentCreateOverflowSignature$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateOverflowSignature
+> = DocumentCreateOverflowSignature$inboundSchema;
+
+/** @internal */
 export const DocumentCreateTypeSignatureEnum$inboundSchema: z.ZodNativeEnum<
   typeof DocumentCreateTypeSignatureEnum
 > = z.nativeEnum(DocumentCreateTypeSignatureEnum);
@@ -2251,6 +2534,7 @@ export const DocumentCreateFieldMetaSignature$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentCreateOverflowSignature$inboundSchema.default("auto"),
   type: DocumentCreateTypeSignatureEnum$inboundSchema,
 });
 /** @internal */
@@ -2260,6 +2544,7 @@ export type DocumentCreateFieldMetaSignature$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: string;
 };
 
@@ -2274,6 +2559,7 @@ export const DocumentCreateFieldMetaSignature$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: DocumentCreateOverflowSignature$outboundSchema.default("auto"),
   type: DocumentCreateTypeSignatureEnum$outboundSchema,
 });
 
@@ -2628,6 +2914,7 @@ export const DocumentCreateEmailSettings$inboundSchema: z.ZodType<
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
   ownerRecipientExpired: z.boolean().default(true),
+  ownerDocumentCreated: z.boolean().default(true),
 });
 /** @internal */
 export type DocumentCreateEmailSettings$Outbound = {
@@ -2639,6 +2926,7 @@ export type DocumentCreateEmailSettings$Outbound = {
   documentDeleted: boolean;
   ownerDocumentCompleted: boolean;
   ownerRecipientExpired: boolean;
+  ownerDocumentCreated: boolean;
 };
 
 /** @internal */
@@ -2655,6 +2943,7 @@ export const DocumentCreateEmailSettings$outboundSchema: z.ZodType<
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
   ownerRecipientExpired: z.boolean().default(true),
+  ownerDocumentCreated: z.boolean().default(true),
 });
 
 export function documentCreateEmailSettingsToJSON(
@@ -2682,11 +2971,11 @@ export const DocumentCreateEnvelopeExpirationPeriod2$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  disabled: z.boolean(),
+  disabled: z.literal(true),
 });
 /** @internal */
 export type DocumentCreateEnvelopeExpirationPeriod2$Outbound = {
-  disabled: boolean;
+  disabled: true;
 };
 
 /** @internal */
@@ -2695,7 +2984,7 @@ export const DocumentCreateEnvelopeExpirationPeriod2$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentCreateEnvelopeExpirationPeriod2
 > = z.object({
-  disabled: z.boolean(),
+  disabled: z.literal(true),
 });
 
 export function documentCreateEnvelopeExpirationPeriod2ToJSON(
@@ -2725,13 +3014,13 @@ export function documentCreateEnvelopeExpirationPeriod2FromJSON(
 }
 
 /** @internal */
-export const DocumentCreateUnit$inboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateUnit
-> = z.nativeEnum(DocumentCreateUnit);
+export const DocumentCreateEnvelopeExpirationPeriodUnit$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateEnvelopeExpirationPeriodUnit> = z
+    .nativeEnum(DocumentCreateEnvelopeExpirationPeriodUnit);
 /** @internal */
-export const DocumentCreateUnit$outboundSchema: z.ZodNativeEnum<
-  typeof DocumentCreateUnit
-> = DocumentCreateUnit$inboundSchema;
+export const DocumentCreateEnvelopeExpirationPeriodUnit$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateEnvelopeExpirationPeriodUnit> =
+    DocumentCreateEnvelopeExpirationPeriodUnit$inboundSchema;
 
 /** @internal */
 export const DocumentCreateEnvelopeExpirationPeriod1$inboundSchema: z.ZodType<
@@ -2739,7 +3028,7 @@ export const DocumentCreateEnvelopeExpirationPeriod1$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  unit: DocumentCreateUnit$inboundSchema,
+  unit: DocumentCreateEnvelopeExpirationPeriodUnit$inboundSchema,
   amount: z.number().int(),
 });
 /** @internal */
@@ -2754,7 +3043,7 @@ export const DocumentCreateEnvelopeExpirationPeriod1$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DocumentCreateEnvelopeExpirationPeriod1
 > = z.object({
-  unit: DocumentCreateUnit$outboundSchema,
+  unit: DocumentCreateEnvelopeExpirationPeriodUnit$outboundSchema,
   amount: z.number().int(),
 });
 
@@ -2837,6 +3126,332 @@ export function documentCreateEnvelopeExpirationPeriodUnionFromJSON(
 }
 
 /** @internal */
+export const DocumentCreateSendAfter2$inboundSchema: z.ZodType<
+  DocumentCreateSendAfter2,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  disabled: z.literal(true),
+});
+/** @internal */
+export type DocumentCreateSendAfter2$Outbound = {
+  disabled: true;
+};
+
+/** @internal */
+export const DocumentCreateSendAfter2$outboundSchema: z.ZodType<
+  DocumentCreateSendAfter2$Outbound,
+  z.ZodTypeDef,
+  DocumentCreateSendAfter2
+> = z.object({
+  disabled: z.literal(true),
+});
+
+export function documentCreateSendAfter2ToJSON(
+  documentCreateSendAfter2: DocumentCreateSendAfter2,
+): string {
+  return JSON.stringify(
+    DocumentCreateSendAfter2$outboundSchema.parse(documentCreateSendAfter2),
+  );
+}
+export function documentCreateSendAfter2FromJSON(
+  jsonString: string,
+): SafeParseResult<DocumentCreateSendAfter2, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DocumentCreateSendAfter2$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentCreateSendAfter2' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentCreateSendAfterUnit$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateSendAfterUnit
+> = z.nativeEnum(DocumentCreateSendAfterUnit);
+/** @internal */
+export const DocumentCreateSendAfterUnit$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateSendAfterUnit
+> = DocumentCreateSendAfterUnit$inboundSchema;
+
+/** @internal */
+export const DocumentCreateSendAfter1$inboundSchema: z.ZodType<
+  DocumentCreateSendAfter1,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  unit: DocumentCreateSendAfterUnit$inboundSchema,
+  amount: z.number().int(),
+});
+/** @internal */
+export type DocumentCreateSendAfter1$Outbound = {
+  unit: string;
+  amount: number;
+};
+
+/** @internal */
+export const DocumentCreateSendAfter1$outboundSchema: z.ZodType<
+  DocumentCreateSendAfter1$Outbound,
+  z.ZodTypeDef,
+  DocumentCreateSendAfter1
+> = z.object({
+  unit: DocumentCreateSendAfterUnit$outboundSchema,
+  amount: z.number().int(),
+});
+
+export function documentCreateSendAfter1ToJSON(
+  documentCreateSendAfter1: DocumentCreateSendAfter1,
+): string {
+  return JSON.stringify(
+    DocumentCreateSendAfter1$outboundSchema.parse(documentCreateSendAfter1),
+  );
+}
+export function documentCreateSendAfter1FromJSON(
+  jsonString: string,
+): SafeParseResult<DocumentCreateSendAfter1, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DocumentCreateSendAfter1$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentCreateSendAfter1' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentCreateSendAfterUnion$inboundSchema: z.ZodType<
+  DocumentCreateSendAfterUnion,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  z.lazy(() => DocumentCreateSendAfter1$inboundSchema),
+  z.lazy(() => DocumentCreateSendAfter2$inboundSchema),
+]);
+/** @internal */
+export type DocumentCreateSendAfterUnion$Outbound =
+  | DocumentCreateSendAfter1$Outbound
+  | DocumentCreateSendAfter2$Outbound;
+
+/** @internal */
+export const DocumentCreateSendAfterUnion$outboundSchema: z.ZodType<
+  DocumentCreateSendAfterUnion$Outbound,
+  z.ZodTypeDef,
+  DocumentCreateSendAfterUnion
+> = z.union([
+  z.lazy(() => DocumentCreateSendAfter1$outboundSchema),
+  z.lazy(() => DocumentCreateSendAfter2$outboundSchema),
+]);
+
+export function documentCreateSendAfterUnionToJSON(
+  documentCreateSendAfterUnion: DocumentCreateSendAfterUnion,
+): string {
+  return JSON.stringify(
+    DocumentCreateSendAfterUnion$outboundSchema.parse(
+      documentCreateSendAfterUnion,
+    ),
+  );
+}
+export function documentCreateSendAfterUnionFromJSON(
+  jsonString: string,
+): SafeParseResult<DocumentCreateSendAfterUnion, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DocumentCreateSendAfterUnion$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentCreateSendAfterUnion' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentCreateRepeatEvery2$inboundSchema: z.ZodType<
+  DocumentCreateRepeatEvery2,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  disabled: z.literal(true),
+});
+/** @internal */
+export type DocumentCreateRepeatEvery2$Outbound = {
+  disabled: true;
+};
+
+/** @internal */
+export const DocumentCreateRepeatEvery2$outboundSchema: z.ZodType<
+  DocumentCreateRepeatEvery2$Outbound,
+  z.ZodTypeDef,
+  DocumentCreateRepeatEvery2
+> = z.object({
+  disabled: z.literal(true),
+});
+
+export function documentCreateRepeatEvery2ToJSON(
+  documentCreateRepeatEvery2: DocumentCreateRepeatEvery2,
+): string {
+  return JSON.stringify(
+    DocumentCreateRepeatEvery2$outboundSchema.parse(documentCreateRepeatEvery2),
+  );
+}
+export function documentCreateRepeatEvery2FromJSON(
+  jsonString: string,
+): SafeParseResult<DocumentCreateRepeatEvery2, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DocumentCreateRepeatEvery2$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentCreateRepeatEvery2' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentCreateRepeatEveryUnit$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateRepeatEveryUnit
+> = z.nativeEnum(DocumentCreateRepeatEveryUnit);
+/** @internal */
+export const DocumentCreateRepeatEveryUnit$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateRepeatEveryUnit
+> = DocumentCreateRepeatEveryUnit$inboundSchema;
+
+/** @internal */
+export const DocumentCreateRepeatEvery1$inboundSchema: z.ZodType<
+  DocumentCreateRepeatEvery1,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  unit: DocumentCreateRepeatEveryUnit$inboundSchema,
+  amount: z.number().int(),
+});
+/** @internal */
+export type DocumentCreateRepeatEvery1$Outbound = {
+  unit: string;
+  amount: number;
+};
+
+/** @internal */
+export const DocumentCreateRepeatEvery1$outboundSchema: z.ZodType<
+  DocumentCreateRepeatEvery1$Outbound,
+  z.ZodTypeDef,
+  DocumentCreateRepeatEvery1
+> = z.object({
+  unit: DocumentCreateRepeatEveryUnit$outboundSchema,
+  amount: z.number().int(),
+});
+
+export function documentCreateRepeatEvery1ToJSON(
+  documentCreateRepeatEvery1: DocumentCreateRepeatEvery1,
+): string {
+  return JSON.stringify(
+    DocumentCreateRepeatEvery1$outboundSchema.parse(documentCreateRepeatEvery1),
+  );
+}
+export function documentCreateRepeatEvery1FromJSON(
+  jsonString: string,
+): SafeParseResult<DocumentCreateRepeatEvery1, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DocumentCreateRepeatEvery1$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentCreateRepeatEvery1' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentCreateRepeatEveryUnion$inboundSchema: z.ZodType<
+  DocumentCreateRepeatEveryUnion,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  z.lazy(() => DocumentCreateRepeatEvery1$inboundSchema),
+  z.lazy(() => DocumentCreateRepeatEvery2$inboundSchema),
+]);
+/** @internal */
+export type DocumentCreateRepeatEveryUnion$Outbound =
+  | DocumentCreateRepeatEvery1$Outbound
+  | DocumentCreateRepeatEvery2$Outbound;
+
+/** @internal */
+export const DocumentCreateRepeatEveryUnion$outboundSchema: z.ZodType<
+  DocumentCreateRepeatEveryUnion$Outbound,
+  z.ZodTypeDef,
+  DocumentCreateRepeatEveryUnion
+> = z.union([
+  z.lazy(() => DocumentCreateRepeatEvery1$outboundSchema),
+  z.lazy(() => DocumentCreateRepeatEvery2$outboundSchema),
+]);
+
+export function documentCreateRepeatEveryUnionToJSON(
+  documentCreateRepeatEveryUnion: DocumentCreateRepeatEveryUnion,
+): string {
+  return JSON.stringify(
+    DocumentCreateRepeatEveryUnion$outboundSchema.parse(
+      documentCreateRepeatEveryUnion,
+    ),
+  );
+}
+export function documentCreateRepeatEveryUnionFromJSON(
+  jsonString: string,
+): SafeParseResult<DocumentCreateRepeatEveryUnion, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DocumentCreateRepeatEveryUnion$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentCreateRepeatEveryUnion' from JSON`,
+  );
+}
+
+/** @internal */
+export const DocumentCreateReminderSettings$inboundSchema: z.ZodType<
+  DocumentCreateReminderSettings,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  sendAfter: z.union([
+    z.lazy(() => DocumentCreateSendAfter1$inboundSchema),
+    z.lazy(() => DocumentCreateSendAfter2$inboundSchema),
+  ]),
+  repeatEvery: z.union([
+    z.lazy(() => DocumentCreateRepeatEvery1$inboundSchema),
+    z.lazy(() => DocumentCreateRepeatEvery2$inboundSchema),
+  ]),
+});
+/** @internal */
+export type DocumentCreateReminderSettings$Outbound = {
+  sendAfter:
+    | DocumentCreateSendAfter1$Outbound
+    | DocumentCreateSendAfter2$Outbound;
+  repeatEvery:
+    | DocumentCreateRepeatEvery1$Outbound
+    | DocumentCreateRepeatEvery2$Outbound;
+};
+
+/** @internal */
+export const DocumentCreateReminderSettings$outboundSchema: z.ZodType<
+  DocumentCreateReminderSettings$Outbound,
+  z.ZodTypeDef,
+  DocumentCreateReminderSettings
+> = z.object({
+  sendAfter: z.union([
+    z.lazy(() => DocumentCreateSendAfter1$outboundSchema),
+    z.lazy(() => DocumentCreateSendAfter2$outboundSchema),
+  ]),
+  repeatEvery: z.union([
+    z.lazy(() => DocumentCreateRepeatEvery1$outboundSchema),
+    z.lazy(() => DocumentCreateRepeatEvery2$outboundSchema),
+  ]),
+});
+
+export function documentCreateReminderSettingsToJSON(
+  documentCreateReminderSettings: DocumentCreateReminderSettings,
+): string {
+  return JSON.stringify(
+    DocumentCreateReminderSettings$outboundSchema.parse(
+      documentCreateReminderSettings,
+    ),
+  );
+}
+export function documentCreateReminderSettingsFromJSON(
+  jsonString: string,
+): SafeParseResult<DocumentCreateReminderSettings, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DocumentCreateReminderSettings$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DocumentCreateReminderSettings' from JSON`,
+  );
+}
+
+/** @internal */
 export const DocumentCreateMeta$inboundSchema: z.ZodType<
   DocumentCreateMeta,
   z.ZodTypeDef,
@@ -2865,6 +3480,9 @@ export const DocumentCreateMeta$inboundSchema: z.ZodType<
       z.lazy(() => DocumentCreateEnvelopeExpirationPeriod2$inboundSchema),
     ]),
   ).optional(),
+  reminderSettings: z.nullable(
+    z.lazy(() => DocumentCreateReminderSettings$inboundSchema),
+  ).optional(),
 });
 /** @internal */
 export type DocumentCreateMeta$Outbound = {
@@ -2888,6 +3506,7 @@ export type DocumentCreateMeta$Outbound = {
     | DocumentCreateEnvelopeExpirationPeriod2$Outbound
     | null
     | undefined;
+  reminderSettings?: DocumentCreateReminderSettings$Outbound | null | undefined;
 };
 
 /** @internal */
@@ -2919,6 +3538,9 @@ export const DocumentCreateMeta$outboundSchema: z.ZodType<
       z.lazy(() => DocumentCreateEnvelopeExpirationPeriod1$outboundSchema),
       z.lazy(() => DocumentCreateEnvelopeExpirationPeriod2$outboundSchema),
     ]),
+  ).optional(),
+  reminderSettings: z.nullable(
+    z.lazy(() => DocumentCreateReminderSettings$outboundSchema),
   ).optional(),
 });
 

@@ -11,5 +11,5 @@ let value: TemplateCreateTemplateType = "PUBLIC";
 ## Values
 
 ```typescript
-"PUBLIC" | "PRIVATE"
+"PUBLIC" | "PRIVATE" | "ORGANISATION"
 ```

@@ -58,6 +58,14 @@ let value: DocumentGetResponse = {
       unit: "day",
       amount: 936406,
     },
+    reminderSettings: {
+      sendAfter: {
+        disabled: true,
+      },
+      repeatEvery: {
+        disabled: true,
+      },
+    },
   },
   envelopeItems: [],
   folder: {
@@ -65,42 +73,35 @@ let value: DocumentGetResponse = {
     name: "<value>",
     type: "DOCUMENT",
     visibility: "EVERYONE",
-    userId: 1826.35,
-    teamId: 5531.79,
+    userId: 5531.79,
+    teamId: 5650.43,
     pinned: false,
     parentId: "<id>",
-    createdAt: "1710924431381",
-    updatedAt: "1735638806411",
+    createdAt: "1717150090033",
+    updatedAt: "1735675428139",
   },
-  recipients: [
+  recipients: [],
+  fields: [
     {
       envelopeId: "<id>",
-      role: "VIEWER",
-      readStatus: "OPENED",
-      signingStatus: "NOT_SIGNED",
-      sendStatus: "NOT_SENT",
-      id: 7577.68,
-      email: "Jerad_Orn60@gmail.com",
-      name: "<value>",
-      token: "<value>",
-      documentDeletedAt: "<value>",
-      expired: "<value>",
-      expiresAt: "1757472256563",
-      expirationNotifiedAt: "<value>",
-      signedAt: "<value>",
-      authOptions: {
-        accessAuth: [
-          "TWO_FACTOR_AUTH",
-        ],
-        actionAuth: [
-          "EXPLICIT_NONE",
-        ],
+      envelopeItemId: "<id>",
+      type: "NAME",
+      id: 4621.08,
+      secondaryId: "<id>",
+      recipientId: 7577.68,
+      page: 508.91,
+      positionX: "<value>",
+      positionY: "<value>",
+      width: "<value>",
+      height: "<value>",
+      customText: "<value>",
+      inserted: true,
+      fieldMeta: {
+        fontSize: 12,
+        type: "number",
       },
-      signingOrder: 7601.63,
-      rejectionReason: "<value>",
     },
   ],
-  fields: [],
 };
 ```
 
