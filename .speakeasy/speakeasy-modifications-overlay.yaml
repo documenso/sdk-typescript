@@ -589,12 +589,15 @@ actions:
         - YyyyMMddHhMmA
         - YyyyMMdd
         - DdMMSlashYyyy
+        - DdMMDashYyyy
         - MmDdSlashYyyy
         - YyMMdd
         - MmmmDdCommaYyyy
         - EeeeMmmmDdCommaYyyy
         - DdMMSlashYyyyHhMmA
         - DdMMSlashYyyyHHmm
+        - DdMMDashYyyyHhMmA
+        - DdMMDashYyyyHHmm
         - MmDdSlashYyyyHhMmA
         - MmDdSlashYyyyHHmm
         - DdDotMmDotYyyy
