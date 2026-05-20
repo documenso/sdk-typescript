@@ -5,11 +5,11 @@
 ```typescript
 import { EnvelopeGetTemplateType } from "@documenso/sdk-typescript/models/operations";
 
-let value: EnvelopeGetTemplateType = "PRIVATE";
+let value: EnvelopeGetTemplateType = "ORGANISATION";
 ```
 
 ## Values
 
 ```typescript
-"PUBLIC" | "PRIVATE"
+"PUBLIC" | "PRIVATE" | "ORGANISATION"
 ```

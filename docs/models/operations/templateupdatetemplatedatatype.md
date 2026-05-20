@@ -11,5 +11,5 @@ let value: TemplateUpdateTemplateDataType = "PRIVATE";
 ## Values
 
 ```typescript
-"PUBLIC" | "PRIVATE"
+"PUBLIC" | "PRIVATE" | "ORGANISATION"
 ```

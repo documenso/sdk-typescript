@@ -8,6 +8,7 @@ import { TemplateGetManyTeam } from "@documenso/sdk-typescript/models/operations
 let value: TemplateGetManyTeam = {
   id: 4039.37,
   url: "https://scaly-meal.org",
+  name: "<value>",
 };
 ```
 
@@ -17,3 +18,4 @@ let value: TemplateGetManyTeam = {
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `id`               | *number*           | :heavy_check_mark: | N/A                |
 | `url`              | *string*           | :heavy_check_mark: | N/A                |
+| `name`             | *string*           | :heavy_check_mark: | N/A                |

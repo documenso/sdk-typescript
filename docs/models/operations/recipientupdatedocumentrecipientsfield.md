@@ -21,6 +21,7 @@ let value: RecipientUpdateDocumentRecipientsField = {
   inserted: true,
   fieldMeta: {
     fontSize: 12,
+    overflow: "auto",
     type: "date",
   },
 };

@@ -12,12 +12,15 @@ export const DocumentDistributeDateFormat = {
   YyyyMMddHhMmA: "yyyy-MM-dd hh:mm a",
   YyyyMMdd: "yyyy-MM-dd",
   DdMMSlashYyyy: "dd/MM/yyyy",
+  DdMMDashYyyy: "dd-MM-yyyy",
   MmDdSlashYyyy: "MM/dd/yyyy",
   YyMMdd: "yy-MM-dd",
   MmmmDdCommaYyyy: "MMMM dd, yyyy",
   EeeeMmmmDdCommaYyyy: "EEEE, MMMM dd, yyyy",
   DdMMSlashYyyyHhMMA: "dd/MM/yyyy hh:mm a",
   DdMMSlashYyyyHHmm: "dd/MM/yyyy HH:mm",
+  DdMMDashYyyyHhMMA: "dd-MM-yyyy hh:mm a",
+  DdMMDashYyyyHHmm: "dd-MM-yyyy HH:mm",
   MmDdSlashYyyyHhMmA: "MM/dd/yyyy hh:mm a",
   MmDdSlashYyyyHHmm: "MM/dd/yyyy HH:mm",
   DdDotMmDotYyyy: "dd.MM.yyyy",
@@ -70,6 +73,7 @@ export type DocumentDistributeEmailSettings = {
   documentDeleted?: boolean | undefined;
   ownerDocumentCompleted?: boolean | undefined;
   ownerRecipientExpired?: boolean | undefined;
+  ownerDocumentCreated?: boolean | undefined;
 };
 
 export type DocumentDistributeMeta = {
@@ -211,6 +215,7 @@ export const DocumentDistributeEmailSettings$inboundSchema: z.ZodType<
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
   ownerRecipientExpired: z.boolean().default(true),
+  ownerDocumentCreated: z.boolean().default(true),
 });
 /** @internal */
 export type DocumentDistributeEmailSettings$Outbound = {
@@ -222,6 +227,7 @@ export type DocumentDistributeEmailSettings$Outbound = {
   documentDeleted: boolean;
   ownerDocumentCompleted: boolean;
   ownerRecipientExpired: boolean;
+  ownerDocumentCreated: boolean;
 };
 
 /** @internal */
@@ -238,6 +244,7 @@ export const DocumentDistributeEmailSettings$outboundSchema: z.ZodType<
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
   ownerRecipientExpired: z.boolean().default(true),
+  ownerDocumentCreated: z.boolean().default(true),
 });
 
 export function documentDistributeEmailSettingsToJSON(

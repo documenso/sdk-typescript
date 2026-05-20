@@ -6,7 +6,7 @@
 import { EnvelopeGetManyEnvelopeExpirationPeriod2 } from "@documenso/sdk-typescript/models/operations";
 
 let value: EnvelopeGetManyEnvelopeExpirationPeriod2 = {
-  disabled: false,
+  disabled: true,
 };
 ```
 
@@ -14,4 +14,4 @@ let value: EnvelopeGetManyEnvelopeExpirationPeriod2 = {
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `disabled`         | *boolean*          | :heavy_check_mark: | N/A                |
+| `disabled`         | *true*             | :heavy_check_mark: | N/A                |

@@ -9,7 +9,7 @@ import { TemplateCreateTemplateTemporaryResponse } from "@documenso/sdk-typescri
 
 let value: TemplateCreateTemplateTemporaryResponse = {
   template: {
-    type: "PRIVATE",
+    type: "ORGANISATION",
     visibility: "MANAGER_AND_ABOVE",
     id: 6302.86,
     externalId: "<id>",
@@ -76,6 +76,7 @@ let value: TemplateCreateTemplateTemporaryResponse = {
         inserted: false,
         fieldMeta: {
           fontSize: 12,
+          overflow: "auto",
           type: "date",
         },
       },

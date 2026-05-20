@@ -8,7 +8,7 @@ Successful response
 import { TemplateGetTemplateByIdResponse } from "@documenso/sdk-typescript/models/operations";
 
 let value: TemplateGetTemplateByIdResponse = {
-  type: "PRIVATE",
+  type: "ORGANISATION",
   visibility: "MANAGER_AND_ABOVE",
   id: 483.1,
   externalId: "<id>",

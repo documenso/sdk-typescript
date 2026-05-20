@@ -8,7 +8,7 @@ import { SourceTemplateDirectLink } from "@documenso/sdk-typescript/models/opera
 let value: SourceTemplateDirectLink = {
   type: "TEMPLATE_DIRECT_LINK",
   templateId: 8199.09,
-  directRecipientEmail: "Claire.Murazik68@yahoo.com",
+  directRecipientEmail: "<value>",
 };
 ```
 

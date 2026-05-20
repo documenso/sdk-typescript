@@ -16,7 +16,7 @@ const value: operations.EnvelopeGetManyEnvelopeExpirationPeriod1 = {
 
 ```typescript
 const value: operations.EnvelopeGetManyEnvelopeExpirationPeriod2 = {
-  disabled: false,
+  disabled: true,
 };
 ```
 

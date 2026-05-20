@@ -6,12 +6,14 @@
 import { EnvelopeAuditLogFindData4 } from "@documenso/sdk-typescript/models/operations";
 
 let value: EnvelopeAuditLogFindData4 = {
-  transactionId: "<id>",
+  envelopeItemId: "<id>",
+  envelopeItemTitle: "<value>",
 };
 ```
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `transactionId`    | *string*           | :heavy_check_mark: | N/A                |
+| Field               | Type                | Required            | Description         |
+| ------------------- | ------------------- | ------------------- | ------------------- |
+| `envelopeItemId`    | *string*            | :heavy_check_mark:  | N/A                 |
+| `envelopeItemTitle` | *string*            | :heavy_check_mark:  | N/A                 |

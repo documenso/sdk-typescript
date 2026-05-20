@@ -14,6 +14,7 @@ let value: EnvelopeItemCreateManyResponse = {
       title: "<value>",
       envelopeId: "<id>",
       order: 4242.55,
+      documentDataId: "<id>",
     },
   ],
 };

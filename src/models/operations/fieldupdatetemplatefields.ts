@@ -8,6 +8,16 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
+export const FieldUpdateTemplateFieldsOverflowDropdown = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldUpdateTemplateFieldsOverflowDropdown = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsOverflowDropdown
+>;
+
 export const FieldUpdateTemplateFieldsTypeDropdownEnum = {
   Dropdown: "dropdown",
 } as const;
@@ -25,6 +35,7 @@ export type FieldUpdateTemplateFieldsFieldMetaDropdownRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldUpdateTemplateFieldsOverflowDropdown | undefined;
   type: FieldUpdateTemplateFieldsTypeDropdownEnum;
   values?: Array<FieldUpdateTemplateFieldsValueDropdown> | undefined;
   defaultValue?: string | undefined;
@@ -40,6 +51,16 @@ export type FieldUpdateTemplateFieldsFieldDropdown = {
   width?: number | undefined;
   height?: number | undefined;
 };
+
+export const FieldUpdateTemplateFieldsOverflowCheckbox = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldUpdateTemplateFieldsOverflowCheckbox = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsOverflowCheckbox
+>;
 
 export const FieldUpdateTemplateFieldsTypeCheckboxEnum = {
   Checkbox: "checkbox",
@@ -68,6 +89,7 @@ export type FieldUpdateTemplateFieldsFieldMetaCheckboxRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldUpdateTemplateFieldsOverflowCheckbox | undefined;
   type: FieldUpdateTemplateFieldsTypeCheckboxEnum;
   values?: Array<FieldUpdateTemplateFieldsValueCheckbox> | undefined;
   validationRule?: string | undefined;
@@ -85,6 +107,16 @@ export type FieldUpdateTemplateFieldsFieldCheckbox = {
   width?: number | undefined;
   height?: number | undefined;
 };
+
+export const FieldUpdateTemplateFieldsOverflowRadio = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldUpdateTemplateFieldsOverflowRadio = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsOverflowRadio
+>;
 
 export const FieldUpdateTemplateFieldsTypeRadioEnum = {
   Radio: "radio",
@@ -113,6 +145,7 @@ export type FieldUpdateTemplateFieldsFieldMetaRadioRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldUpdateTemplateFieldsOverflowRadio | undefined;
   type: FieldUpdateTemplateFieldsTypeRadioEnum;
   values?: Array<FieldUpdateTemplateFieldsValueRadio> | undefined;
   direction?: FieldUpdateTemplateFieldsDirectionRadio | undefined;
@@ -128,6 +161,16 @@ export type FieldUpdateTemplateFieldsFieldRadio = {
   width?: number | undefined;
   height?: number | undefined;
 };
+
+export const FieldUpdateTemplateFieldsOverflowNumber = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldUpdateTemplateFieldsOverflowNumber = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsOverflowNumber
+>;
 
 export const FieldUpdateTemplateFieldsTypeNumberEnum = {
   Number: "number",
@@ -160,6 +203,7 @@ export type FieldUpdateTemplateFieldsFieldMetaNumberRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldUpdateTemplateFieldsOverflowNumber | undefined;
   type: FieldUpdateTemplateFieldsTypeNumberEnum;
   numberFormat?: string | null | undefined;
   value?: string | undefined;
@@ -184,6 +228,16 @@ export type FieldUpdateTemplateFieldsFieldNumber = {
   width?: number | undefined;
   height?: number | undefined;
 };
+
+export const FieldUpdateTemplateFieldsOverflowText = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldUpdateTemplateFieldsOverflowText = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsOverflowText
+>;
 
 export const FieldUpdateTemplateFieldsTypeTextEnum = {
   Text: "text",
@@ -216,6 +270,7 @@ export type FieldUpdateTemplateFieldsFieldMetaTextRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldUpdateTemplateFieldsOverflowText | undefined;
   type: FieldUpdateTemplateFieldsTypeTextEnum;
   text?: string | undefined;
   characterLimit?: number | undefined;
@@ -235,6 +290,16 @@ export type FieldUpdateTemplateFieldsFieldText = {
   width?: number | undefined;
   height?: number | undefined;
 };
+
+export const FieldUpdateTemplateFieldsOverflowDate = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldUpdateTemplateFieldsOverflowDate = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsOverflowDate
+>;
 
 export const FieldUpdateTemplateFieldsTypeDateEnum = {
   Date: "date",
@@ -258,6 +323,7 @@ export type FieldUpdateTemplateFieldsFieldMetaDateRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldUpdateTemplateFieldsOverflowDate | undefined;
   type: FieldUpdateTemplateFieldsTypeDateEnum;
   textAlign?: FieldUpdateTemplateFieldsTextAlignDate | undefined;
 };
@@ -272,6 +338,16 @@ export type FieldUpdateTemplateFieldsFieldDate = {
   width?: number | undefined;
   height?: number | undefined;
 };
+
+export const FieldUpdateTemplateFieldsOverflowEmail = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldUpdateTemplateFieldsOverflowEmail = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsOverflowEmail
+>;
 
 export const FieldUpdateTemplateFieldsTypeEmailEnum = {
   Email: "email",
@@ -295,6 +371,7 @@ export type FieldUpdateTemplateFieldsFieldMetaEmailRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldUpdateTemplateFieldsOverflowEmail | undefined;
   type: FieldUpdateTemplateFieldsTypeEmailEnum;
   textAlign?: FieldUpdateTemplateFieldsTextAlignEmail | undefined;
 };
@@ -309,6 +386,16 @@ export type FieldUpdateTemplateFieldsFieldEmail = {
   width?: number | undefined;
   height?: number | undefined;
 };
+
+export const FieldUpdateTemplateFieldsOverflowName = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldUpdateTemplateFieldsOverflowName = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsOverflowName
+>;
 
 export const FieldUpdateTemplateFieldsTypeNameEnum = {
   Name: "name",
@@ -332,6 +419,7 @@ export type FieldUpdateTemplateFieldsFieldMetaNameRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldUpdateTemplateFieldsOverflowName | undefined;
   type: FieldUpdateTemplateFieldsTypeNameEnum;
   textAlign?: FieldUpdateTemplateFieldsTextAlignName | undefined;
 };
@@ -346,6 +434,16 @@ export type FieldUpdateTemplateFieldsFieldName = {
   width?: number | undefined;
   height?: number | undefined;
 };
+
+export const FieldUpdateTemplateFieldsOverflowInitials = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldUpdateTemplateFieldsOverflowInitials = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsOverflowInitials
+>;
 
 export const FieldUpdateTemplateFieldsTypeInitialsEnum = {
   Initials: "initials",
@@ -369,6 +467,7 @@ export type FieldUpdateTemplateFieldsFieldMetaInitialsRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldUpdateTemplateFieldsOverflowInitials | undefined;
   type: FieldUpdateTemplateFieldsTypeInitialsEnum;
   textAlign?: FieldUpdateTemplateFieldsTextAlignInitials | undefined;
 };
@@ -394,6 +493,16 @@ export type FieldUpdateTemplateFieldsFieldFreeSignature = {
   height?: number | undefined;
 };
 
+export const FieldUpdateTemplateFieldsOverflowSignature = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldUpdateTemplateFieldsOverflowSignature = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsOverflowSignature
+>;
+
 export const FieldUpdateTemplateFieldsTypeSignatureEnum = {
   Signature: "signature",
 } as const;
@@ -407,6 +516,7 @@ export type FieldUpdateTemplateFieldsFieldMetaSignatureRequest = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldUpdateTemplateFieldsOverflowSignature | undefined;
   type: FieldUpdateTemplateFieldsTypeSignatureEnum;
 };
 
@@ -468,6 +578,16 @@ export type FieldUpdateTemplateFieldsTypeResponseEnum = ClosedEnum<
   typeof FieldUpdateTemplateFieldsTypeResponseEnum
 >;
 
+export const FieldUpdateTemplateFieldsOverflowResponse10 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldUpdateTemplateFieldsOverflowResponse10 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsOverflowResponse10
+>;
+
 export type FieldUpdateTemplateFieldsValueResponse3 = {
   value: string;
 };
@@ -478,10 +598,21 @@ export type FieldUpdateTemplateFieldsFieldMetaDropdownResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldUpdateTemplateFieldsOverflowResponse10 | undefined;
   type: "dropdown";
   values?: Array<FieldUpdateTemplateFieldsValueResponse3> | undefined;
   defaultValue?: string | undefined;
 };
+
+export const FieldUpdateTemplateFieldsOverflowResponse9 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldUpdateTemplateFieldsOverflowResponse9 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsOverflowResponse9
+>;
 
 export type FieldUpdateTemplateFieldsValueResponse2 = {
   id: number;
@@ -503,12 +634,23 @@ export type FieldUpdateTemplateFieldsFieldMetaCheckboxResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldUpdateTemplateFieldsOverflowResponse9 | undefined;
   type: "checkbox";
   values?: Array<FieldUpdateTemplateFieldsValueResponse2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
   direction?: FieldUpdateTemplateFieldsDirectionResponse2 | undefined;
 };
+
+export const FieldUpdateTemplateFieldsOverflowResponse8 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldUpdateTemplateFieldsOverflowResponse8 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsOverflowResponse8
+>;
 
 export type FieldUpdateTemplateFieldsValueResponse1 = {
   id: number;
@@ -530,10 +672,21 @@ export type FieldUpdateTemplateFieldsFieldMetaRadioResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldUpdateTemplateFieldsOverflowResponse8 | undefined;
   type: "radio";
   values?: Array<FieldUpdateTemplateFieldsValueResponse1> | undefined;
   direction?: FieldUpdateTemplateFieldsDirectionResponse1 | undefined;
 };
+
+export const FieldUpdateTemplateFieldsOverflowResponse7 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldUpdateTemplateFieldsOverflowResponse7 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsOverflowResponse7
+>;
 
 export const FieldUpdateTemplateFieldsTextAlignResponse6 = {
   Left: "left",
@@ -559,6 +712,7 @@ export type FieldUpdateTemplateFieldsFieldMetaNumberResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldUpdateTemplateFieldsOverflowResponse7 | undefined;
   type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
@@ -572,6 +726,16 @@ export type FieldUpdateTemplateFieldsFieldMetaNumberResponse = {
     | null
     | undefined;
 };
+
+export const FieldUpdateTemplateFieldsOverflowResponse6 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldUpdateTemplateFieldsOverflowResponse6 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsOverflowResponse6
+>;
 
 export const FieldUpdateTemplateFieldsTextAlignResponse5 = {
   Left: "left",
@@ -597,6 +761,7 @@ export type FieldUpdateTemplateFieldsFieldMetaTextResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldUpdateTemplateFieldsOverflowResponse6 | undefined;
   type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
@@ -608,6 +773,16 @@ export type FieldUpdateTemplateFieldsFieldMetaTextResponse = {
     | null
     | undefined;
 };
+
+export const FieldUpdateTemplateFieldsOverflowResponse5 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldUpdateTemplateFieldsOverflowResponse5 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsOverflowResponse5
+>;
 
 export const FieldUpdateTemplateFieldsTextAlignResponse4 = {
   Left: "left",
@@ -624,9 +799,20 @@ export type FieldUpdateTemplateFieldsFieldMetaDateResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldUpdateTemplateFieldsOverflowResponse5 | undefined;
   type: "date";
   textAlign?: FieldUpdateTemplateFieldsTextAlignResponse4 | undefined;
 };
+
+export const FieldUpdateTemplateFieldsOverflowResponse4 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldUpdateTemplateFieldsOverflowResponse4 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsOverflowResponse4
+>;
 
 export const FieldUpdateTemplateFieldsTextAlignResponse3 = {
   Left: "left",
@@ -643,9 +829,20 @@ export type FieldUpdateTemplateFieldsFieldMetaEmailResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldUpdateTemplateFieldsOverflowResponse4 | undefined;
   type: "email";
   textAlign?: FieldUpdateTemplateFieldsTextAlignResponse3 | undefined;
 };
+
+export const FieldUpdateTemplateFieldsOverflowResponse3 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldUpdateTemplateFieldsOverflowResponse3 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsOverflowResponse3
+>;
 
 export const FieldUpdateTemplateFieldsTextAlignResponse2 = {
   Left: "left",
@@ -662,9 +859,20 @@ export type FieldUpdateTemplateFieldsFieldMetaNameResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldUpdateTemplateFieldsOverflowResponse3 | undefined;
   type: "name";
   textAlign?: FieldUpdateTemplateFieldsTextAlignResponse2 | undefined;
 };
+
+export const FieldUpdateTemplateFieldsOverflowResponse2 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldUpdateTemplateFieldsOverflowResponse2 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsOverflowResponse2
+>;
 
 export const FieldUpdateTemplateFieldsTextAlignResponse1 = {
   Left: "left",
@@ -681,9 +889,20 @@ export type FieldUpdateTemplateFieldsFieldMetaInitialsResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldUpdateTemplateFieldsOverflowResponse2 | undefined;
   type: "initials";
   textAlign?: FieldUpdateTemplateFieldsTextAlignResponse1 | undefined;
 };
+
+export const FieldUpdateTemplateFieldsOverflowResponse1 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type FieldUpdateTemplateFieldsOverflowResponse1 = ClosedEnum<
+  typeof FieldUpdateTemplateFieldsOverflowResponse1
+>;
 
 export type FieldUpdateTemplateFieldsFieldMetaSignatureResponse = {
   label?: string | undefined;
@@ -691,6 +910,7 @@ export type FieldUpdateTemplateFieldsFieldMetaSignatureResponse = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: FieldUpdateTemplateFieldsOverflowResponse1 | undefined;
   type: "signature";
 };
 
@@ -742,6 +962,15 @@ export type FieldUpdateTemplateFieldsFieldResponse = {
 export type FieldUpdateTemplateFieldsResponse = {
   fields: Array<FieldUpdateTemplateFieldsFieldResponse>;
 };
+
+/** @internal */
+export const FieldUpdateTemplateFieldsOverflowDropdown$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowDropdown> = z
+    .nativeEnum(FieldUpdateTemplateFieldsOverflowDropdown);
+/** @internal */
+export const FieldUpdateTemplateFieldsOverflowDropdown$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowDropdown> =
+    FieldUpdateTemplateFieldsOverflowDropdown$inboundSchema;
 
 /** @internal */
 export const FieldUpdateTemplateFieldsTypeDropdownEnum$inboundSchema:
@@ -807,6 +1036,8 @@ export const FieldUpdateTemplateFieldsFieldMetaDropdownRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowDropdown$inboundSchema
+      .optional(),
     type: FieldUpdateTemplateFieldsTypeDropdownEnum$inboundSchema,
     values: z.array(
       z.lazy(() => FieldUpdateTemplateFieldsValueDropdown$inboundSchema),
@@ -820,6 +1051,7 @@ export type FieldUpdateTemplateFieldsFieldMetaDropdownRequest$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: string;
   values?: Array<FieldUpdateTemplateFieldsValueDropdown$Outbound> | undefined;
   defaultValue?: string | undefined;
@@ -837,6 +1069,8 @@ export const FieldUpdateTemplateFieldsFieldMetaDropdownRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowDropdown$outboundSchema
+      .optional(),
     type: FieldUpdateTemplateFieldsTypeDropdownEnum$outboundSchema,
     values: z.array(
       z.lazy(() => FieldUpdateTemplateFieldsValueDropdown$outboundSchema),
@@ -941,6 +1175,15 @@ export function fieldUpdateTemplateFieldsFieldDropdownFromJSON(
 }
 
 /** @internal */
+export const FieldUpdateTemplateFieldsOverflowCheckbox$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowCheckbox> = z
+    .nativeEnum(FieldUpdateTemplateFieldsOverflowCheckbox);
+/** @internal */
+export const FieldUpdateTemplateFieldsOverflowCheckbox$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowCheckbox> =
+    FieldUpdateTemplateFieldsOverflowCheckbox$inboundSchema;
+
+/** @internal */
 export const FieldUpdateTemplateFieldsTypeCheckboxEnum$inboundSchema:
   z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeCheckboxEnum> = z
     .nativeEnum(FieldUpdateTemplateFieldsTypeCheckboxEnum);
@@ -1019,6 +1262,8 @@ export const FieldUpdateTemplateFieldsFieldMetaCheckboxRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowCheckbox$inboundSchema
+      .optional(),
     type: FieldUpdateTemplateFieldsTypeCheckboxEnum$inboundSchema,
     values: z.array(
       z.lazy(() => FieldUpdateTemplateFieldsValueCheckbox$inboundSchema),
@@ -1036,6 +1281,7 @@ export type FieldUpdateTemplateFieldsFieldMetaCheckboxRequest$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: string;
   values?: Array<FieldUpdateTemplateFieldsValueCheckbox$Outbound> | undefined;
   validationRule?: string | undefined;
@@ -1055,6 +1301,8 @@ export const FieldUpdateTemplateFieldsFieldMetaCheckboxRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowCheckbox$outboundSchema
+      .optional(),
     type: FieldUpdateTemplateFieldsTypeCheckboxEnum$outboundSchema,
     values: z.array(
       z.lazy(() => FieldUpdateTemplateFieldsValueCheckbox$outboundSchema),
@@ -1162,6 +1410,16 @@ export function fieldUpdateTemplateFieldsFieldCheckboxFromJSON(
 }
 
 /** @internal */
+export const FieldUpdateTemplateFieldsOverflowRadio$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowRadio> = z.nativeEnum(
+    FieldUpdateTemplateFieldsOverflowRadio,
+  );
+/** @internal */
+export const FieldUpdateTemplateFieldsOverflowRadio$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowRadio> =
+    FieldUpdateTemplateFieldsOverflowRadio$inboundSchema;
+
+/** @internal */
 export const FieldUpdateTemplateFieldsTypeRadioEnum$inboundSchema:
   z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeRadioEnum> = z.nativeEnum(
     FieldUpdateTemplateFieldsTypeRadioEnum,
@@ -1240,6 +1498,7 @@ export const FieldUpdateTemplateFieldsFieldMetaRadioRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowRadio$inboundSchema.optional(),
     type: FieldUpdateTemplateFieldsTypeRadioEnum$inboundSchema,
     values: z.array(
       z.lazy(() => FieldUpdateTemplateFieldsValueRadio$inboundSchema),
@@ -1255,6 +1514,7 @@ export type FieldUpdateTemplateFieldsFieldMetaRadioRequest$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: string;
   values?: Array<FieldUpdateTemplateFieldsValueRadio$Outbound> | undefined;
   direction: string;
@@ -1272,6 +1532,7 @@ export const FieldUpdateTemplateFieldsFieldMetaRadioRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowRadio$outboundSchema.optional(),
     type: FieldUpdateTemplateFieldsTypeRadioEnum$outboundSchema,
     values: z.array(
       z.lazy(() => FieldUpdateTemplateFieldsValueRadio$outboundSchema),
@@ -1377,6 +1638,15 @@ export function fieldUpdateTemplateFieldsFieldRadioFromJSON(
 }
 
 /** @internal */
+export const FieldUpdateTemplateFieldsOverflowNumber$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowNumber> = z
+    .nativeEnum(FieldUpdateTemplateFieldsOverflowNumber);
+/** @internal */
+export const FieldUpdateTemplateFieldsOverflowNumber$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowNumber> =
+    FieldUpdateTemplateFieldsOverflowNumber$inboundSchema;
+
+/** @internal */
 export const FieldUpdateTemplateFieldsTypeNumberEnum$inboundSchema:
   z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeNumberEnum> = z
     .nativeEnum(FieldUpdateTemplateFieldsTypeNumberEnum);
@@ -1415,6 +1685,7 @@ export const FieldUpdateTemplateFieldsFieldMetaNumberRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowNumber$inboundSchema.optional(),
     type: FieldUpdateTemplateFieldsTypeNumberEnum$inboundSchema,
     numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
@@ -1435,6 +1706,7 @@ export type FieldUpdateTemplateFieldsFieldMetaNumberRequest$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: string;
   numberFormat?: string | null | undefined;
   value?: string | undefined;
@@ -1458,6 +1730,7 @@ export const FieldUpdateTemplateFieldsFieldMetaNumberRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowNumber$outboundSchema.optional(),
     type: FieldUpdateTemplateFieldsTypeNumberEnum$outboundSchema,
     numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
@@ -1568,6 +1841,16 @@ export function fieldUpdateTemplateFieldsFieldNumberFromJSON(
 }
 
 /** @internal */
+export const FieldUpdateTemplateFieldsOverflowText$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowText> = z.nativeEnum(
+    FieldUpdateTemplateFieldsOverflowText,
+  );
+/** @internal */
+export const FieldUpdateTemplateFieldsOverflowText$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowText> =
+    FieldUpdateTemplateFieldsOverflowText$inboundSchema;
+
+/** @internal */
 export const FieldUpdateTemplateFieldsTypeTextEnum$inboundSchema:
   z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeTextEnum> = z.nativeEnum(
     FieldUpdateTemplateFieldsTypeTextEnum,
@@ -1608,6 +1891,7 @@ export const FieldUpdateTemplateFieldsFieldMetaTextRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowText$inboundSchema.optional(),
     type: FieldUpdateTemplateFieldsTypeTextEnum$inboundSchema,
     text: z.string().optional(),
     characterLimit: z.number().optional(),
@@ -1625,6 +1909,7 @@ export type FieldUpdateTemplateFieldsFieldMetaTextRequest$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: string;
   text?: string | undefined;
   characterLimit?: number | undefined;
@@ -1646,6 +1931,7 @@ export const FieldUpdateTemplateFieldsFieldMetaTextRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowText$outboundSchema.optional(),
     type: FieldUpdateTemplateFieldsTypeTextEnum$outboundSchema,
     text: z.string().optional(),
     characterLimit: z.number().optional(),
@@ -1753,6 +2039,16 @@ export function fieldUpdateTemplateFieldsFieldTextFromJSON(
 }
 
 /** @internal */
+export const FieldUpdateTemplateFieldsOverflowDate$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowDate> = z.nativeEnum(
+    FieldUpdateTemplateFieldsOverflowDate,
+  );
+/** @internal */
+export const FieldUpdateTemplateFieldsOverflowDate$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowDate> =
+    FieldUpdateTemplateFieldsOverflowDate$inboundSchema;
+
+/** @internal */
 export const FieldUpdateTemplateFieldsTypeDateEnum$inboundSchema:
   z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeDateEnum> = z.nativeEnum(
     FieldUpdateTemplateFieldsTypeDateEnum,
@@ -1784,6 +2080,9 @@ export const FieldUpdateTemplateFieldsFieldMetaDateRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowDate$inboundSchema.default(
+      "auto",
+    ),
     type: FieldUpdateTemplateFieldsTypeDateEnum$inboundSchema,
     textAlign: FieldUpdateTemplateFieldsTextAlignDate$inboundSchema.optional(),
   });
@@ -1794,6 +2093,7 @@ export type FieldUpdateTemplateFieldsFieldMetaDateRequest$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: string;
   textAlign?: string | undefined;
 };
@@ -1810,6 +2110,9 @@ export const FieldUpdateTemplateFieldsFieldMetaDateRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowDate$outboundSchema.default(
+      "auto",
+    ),
     type: FieldUpdateTemplateFieldsTypeDateEnum$outboundSchema,
     textAlign: FieldUpdateTemplateFieldsTextAlignDate$outboundSchema.optional(),
   });
@@ -1910,6 +2213,16 @@ export function fieldUpdateTemplateFieldsFieldDateFromJSON(
 }
 
 /** @internal */
+export const FieldUpdateTemplateFieldsOverflowEmail$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowEmail> = z.nativeEnum(
+    FieldUpdateTemplateFieldsOverflowEmail,
+  );
+/** @internal */
+export const FieldUpdateTemplateFieldsOverflowEmail$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowEmail> =
+    FieldUpdateTemplateFieldsOverflowEmail$inboundSchema;
+
+/** @internal */
 export const FieldUpdateTemplateFieldsTypeEmailEnum$inboundSchema:
   z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeEmailEnum> = z.nativeEnum(
     FieldUpdateTemplateFieldsTypeEmailEnum,
@@ -1940,6 +2253,9 @@ export const FieldUpdateTemplateFieldsFieldMetaEmailRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowEmail$inboundSchema.default(
+      "auto",
+    ),
     type: FieldUpdateTemplateFieldsTypeEmailEnum$inboundSchema,
     textAlign: FieldUpdateTemplateFieldsTextAlignEmail$inboundSchema.optional(),
   });
@@ -1950,6 +2266,7 @@ export type FieldUpdateTemplateFieldsFieldMetaEmailRequest$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: string;
   textAlign?: string | undefined;
 };
@@ -1966,6 +2283,9 @@ export const FieldUpdateTemplateFieldsFieldMetaEmailRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowEmail$outboundSchema.default(
+      "auto",
+    ),
     type: FieldUpdateTemplateFieldsTypeEmailEnum$outboundSchema,
     textAlign: FieldUpdateTemplateFieldsTextAlignEmail$outboundSchema
       .optional(),
@@ -2067,6 +2387,16 @@ export function fieldUpdateTemplateFieldsFieldEmailFromJSON(
 }
 
 /** @internal */
+export const FieldUpdateTemplateFieldsOverflowName$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowName> = z.nativeEnum(
+    FieldUpdateTemplateFieldsOverflowName,
+  );
+/** @internal */
+export const FieldUpdateTemplateFieldsOverflowName$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowName> =
+    FieldUpdateTemplateFieldsOverflowName$inboundSchema;
+
+/** @internal */
 export const FieldUpdateTemplateFieldsTypeNameEnum$inboundSchema:
   z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeNameEnum> = z.nativeEnum(
     FieldUpdateTemplateFieldsTypeNameEnum,
@@ -2098,6 +2428,7 @@ export const FieldUpdateTemplateFieldsFieldMetaNameRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowName$inboundSchema.optional(),
     type: FieldUpdateTemplateFieldsTypeNameEnum$inboundSchema,
     textAlign: FieldUpdateTemplateFieldsTextAlignName$inboundSchema.optional(),
   });
@@ -2108,6 +2439,7 @@ export type FieldUpdateTemplateFieldsFieldMetaNameRequest$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: string;
   textAlign?: string | undefined;
 };
@@ -2124,6 +2456,7 @@ export const FieldUpdateTemplateFieldsFieldMetaNameRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowName$outboundSchema.optional(),
     type: FieldUpdateTemplateFieldsTypeNameEnum$outboundSchema,
     textAlign: FieldUpdateTemplateFieldsTextAlignName$outboundSchema.optional(),
   });
@@ -2224,6 +2557,15 @@ export function fieldUpdateTemplateFieldsFieldNameFromJSON(
 }
 
 /** @internal */
+export const FieldUpdateTemplateFieldsOverflowInitials$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowInitials> = z
+    .nativeEnum(FieldUpdateTemplateFieldsOverflowInitials);
+/** @internal */
+export const FieldUpdateTemplateFieldsOverflowInitials$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowInitials> =
+    FieldUpdateTemplateFieldsOverflowInitials$inboundSchema;
+
+/** @internal */
 export const FieldUpdateTemplateFieldsTypeInitialsEnum$inboundSchema:
   z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeInitialsEnum> = z
     .nativeEnum(FieldUpdateTemplateFieldsTypeInitialsEnum);
@@ -2253,6 +2595,8 @@ export const FieldUpdateTemplateFieldsFieldMetaInitialsRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowInitials$inboundSchema
+      .optional(),
     type: FieldUpdateTemplateFieldsTypeInitialsEnum$inboundSchema,
     textAlign: FieldUpdateTemplateFieldsTextAlignInitials$inboundSchema
       .optional(),
@@ -2264,6 +2608,7 @@ export type FieldUpdateTemplateFieldsFieldMetaInitialsRequest$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: string;
   textAlign?: string | undefined;
 };
@@ -2280,6 +2625,8 @@ export const FieldUpdateTemplateFieldsFieldMetaInitialsRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowInitials$outboundSchema
+      .optional(),
     type: FieldUpdateTemplateFieldsTypeInitialsEnum$outboundSchema,
     textAlign: FieldUpdateTemplateFieldsTextAlignInitials$outboundSchema
       .optional(),
@@ -2450,6 +2797,15 @@ export function fieldUpdateTemplateFieldsFieldFreeSignatureFromJSON(
 }
 
 /** @internal */
+export const FieldUpdateTemplateFieldsOverflowSignature$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowSignature> = z
+    .nativeEnum(FieldUpdateTemplateFieldsOverflowSignature);
+/** @internal */
+export const FieldUpdateTemplateFieldsOverflowSignature$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowSignature> =
+    FieldUpdateTemplateFieldsOverflowSignature$inboundSchema;
+
+/** @internal */
 export const FieldUpdateTemplateFieldsTypeSignatureEnum$inboundSchema:
   z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTypeSignatureEnum> = z
     .nativeEnum(FieldUpdateTemplateFieldsTypeSignatureEnum);
@@ -2470,6 +2826,9 @@ export const FieldUpdateTemplateFieldsFieldMetaSignatureRequest$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowSignature$inboundSchema.default(
+      "auto",
+    ),
     type: FieldUpdateTemplateFieldsTypeSignatureEnum$inboundSchema,
   });
 /** @internal */
@@ -2479,6 +2838,7 @@ export type FieldUpdateTemplateFieldsFieldMetaSignatureRequest$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: string;
 };
 
@@ -2494,6 +2854,9 @@ export const FieldUpdateTemplateFieldsFieldMetaSignatureRequest$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowSignature$outboundSchema.default(
+      "auto",
+    ),
     type: FieldUpdateTemplateFieldsTypeSignatureEnum$outboundSchema,
   });
 
@@ -2763,6 +3126,15 @@ export const FieldUpdateTemplateFieldsTypeResponseEnum$outboundSchema:
     FieldUpdateTemplateFieldsTypeResponseEnum$inboundSchema;
 
 /** @internal */
+export const FieldUpdateTemplateFieldsOverflowResponse10$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowResponse10> = z
+    .nativeEnum(FieldUpdateTemplateFieldsOverflowResponse10);
+/** @internal */
+export const FieldUpdateTemplateFieldsOverflowResponse10$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowResponse10> =
+    FieldUpdateTemplateFieldsOverflowResponse10$inboundSchema;
+
+/** @internal */
 export const FieldUpdateTemplateFieldsValueResponse3$inboundSchema: z.ZodType<
   FieldUpdateTemplateFieldsValueResponse3,
   z.ZodTypeDef,
@@ -2822,6 +3194,8 @@ export const FieldUpdateTemplateFieldsFieldMetaDropdownResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowResponse10$inboundSchema
+      .optional(),
     type: z.literal("dropdown"),
     values: z.array(
       z.lazy(() => FieldUpdateTemplateFieldsValueResponse3$inboundSchema),
@@ -2835,6 +3209,7 @@ export type FieldUpdateTemplateFieldsFieldMetaDropdownResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "dropdown";
   values?: Array<FieldUpdateTemplateFieldsValueResponse3$Outbound> | undefined;
   defaultValue?: string | undefined;
@@ -2852,6 +3227,8 @@ export const FieldUpdateTemplateFieldsFieldMetaDropdownResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowResponse10$outboundSchema
+      .optional(),
     type: z.literal("dropdown"),
     values: z.array(
       z.lazy(() => FieldUpdateTemplateFieldsValueResponse3$outboundSchema),
@@ -2884,6 +3261,15 @@ export function fieldUpdateTemplateFieldsFieldMetaDropdownResponseFromJSON(
     `Failed to parse 'FieldUpdateTemplateFieldsFieldMetaDropdownResponse' from JSON`,
   );
 }
+
+/** @internal */
+export const FieldUpdateTemplateFieldsOverflowResponse9$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowResponse9> = z
+    .nativeEnum(FieldUpdateTemplateFieldsOverflowResponse9);
+/** @internal */
+export const FieldUpdateTemplateFieldsOverflowResponse9$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowResponse9> =
+    FieldUpdateTemplateFieldsOverflowResponse9$inboundSchema;
 
 /** @internal */
 export const FieldUpdateTemplateFieldsValueResponse2$inboundSchema: z.ZodType<
@@ -2960,6 +3346,8 @@ export const FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowResponse9$inboundSchema
+      .optional(),
     type: z.literal("checkbox"),
     values: z.array(
       z.lazy(() => FieldUpdateTemplateFieldsValueResponse2$inboundSchema),
@@ -2976,6 +3364,7 @@ export type FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "checkbox";
   values?: Array<FieldUpdateTemplateFieldsValueResponse2$Outbound> | undefined;
   validationRule?: string | undefined;
@@ -2995,6 +3384,8 @@ export const FieldUpdateTemplateFieldsFieldMetaCheckboxResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowResponse9$outboundSchema
+      .optional(),
     type: z.literal("checkbox"),
     values: z.array(
       z.lazy(() => FieldUpdateTemplateFieldsValueResponse2$outboundSchema),
@@ -3030,6 +3421,15 @@ export function fieldUpdateTemplateFieldsFieldMetaCheckboxResponseFromJSON(
     `Failed to parse 'FieldUpdateTemplateFieldsFieldMetaCheckboxResponse' from JSON`,
   );
 }
+
+/** @internal */
+export const FieldUpdateTemplateFieldsOverflowResponse8$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowResponse8> = z
+    .nativeEnum(FieldUpdateTemplateFieldsOverflowResponse8);
+/** @internal */
+export const FieldUpdateTemplateFieldsOverflowResponse8$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowResponse8> =
+    FieldUpdateTemplateFieldsOverflowResponse8$inboundSchema;
 
 /** @internal */
 export const FieldUpdateTemplateFieldsValueResponse1$inboundSchema: z.ZodType<
@@ -3106,6 +3506,8 @@ export const FieldUpdateTemplateFieldsFieldMetaRadioResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowResponse8$inboundSchema
+      .optional(),
     type: z.literal("radio"),
     values: z.array(
       z.lazy(() => FieldUpdateTemplateFieldsValueResponse1$inboundSchema),
@@ -3120,6 +3522,7 @@ export type FieldUpdateTemplateFieldsFieldMetaRadioResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "radio";
   values?: Array<FieldUpdateTemplateFieldsValueResponse1$Outbound> | undefined;
   direction: string;
@@ -3137,6 +3540,8 @@ export const FieldUpdateTemplateFieldsFieldMetaRadioResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowResponse8$outboundSchema
+      .optional(),
     type: z.literal("radio"),
     values: z.array(
       z.lazy(() => FieldUpdateTemplateFieldsValueResponse1$outboundSchema),
@@ -3172,6 +3577,15 @@ export function fieldUpdateTemplateFieldsFieldMetaRadioResponseFromJSON(
 }
 
 /** @internal */
+export const FieldUpdateTemplateFieldsOverflowResponse7$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowResponse7> = z
+    .nativeEnum(FieldUpdateTemplateFieldsOverflowResponse7);
+/** @internal */
+export const FieldUpdateTemplateFieldsOverflowResponse7$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowResponse7> =
+    FieldUpdateTemplateFieldsOverflowResponse7$inboundSchema;
+
+/** @internal */
 export const FieldUpdateTemplateFieldsTextAlignResponse6$inboundSchema:
   z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignResponse6> = z
     .nativeEnum(FieldUpdateTemplateFieldsTextAlignResponse6);
@@ -3201,6 +3615,8 @@ export const FieldUpdateTemplateFieldsFieldMetaNumberResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowResponse7$inboundSchema
+      .optional(),
     type: z.literal("number"),
     numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
@@ -3221,6 +3637,7 @@ export type FieldUpdateTemplateFieldsFieldMetaNumberResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
@@ -3244,6 +3661,8 @@ export const FieldUpdateTemplateFieldsFieldMetaNumberResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowResponse7$outboundSchema
+      .optional(),
     type: z.literal("number"),
     numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
@@ -3285,6 +3704,15 @@ export function fieldUpdateTemplateFieldsFieldMetaNumberResponseFromJSON(
 }
 
 /** @internal */
+export const FieldUpdateTemplateFieldsOverflowResponse6$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowResponse6> = z
+    .nativeEnum(FieldUpdateTemplateFieldsOverflowResponse6);
+/** @internal */
+export const FieldUpdateTemplateFieldsOverflowResponse6$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowResponse6> =
+    FieldUpdateTemplateFieldsOverflowResponse6$inboundSchema;
+
+/** @internal */
 export const FieldUpdateTemplateFieldsTextAlignResponse5$inboundSchema:
   z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignResponse5> = z
     .nativeEnum(FieldUpdateTemplateFieldsTextAlignResponse5);
@@ -3314,6 +3742,8 @@ export const FieldUpdateTemplateFieldsFieldMetaTextResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowResponse6$inboundSchema
+      .optional(),
     type: z.literal("text"),
     text: z.string().optional(),
     characterLimit: z.number().optional(),
@@ -3332,6 +3762,7 @@ export type FieldUpdateTemplateFieldsFieldMetaTextResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
@@ -3353,6 +3784,8 @@ export const FieldUpdateTemplateFieldsFieldMetaTextResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowResponse6$outboundSchema
+      .optional(),
     type: z.literal("text"),
     text: z.string().optional(),
     characterLimit: z.number().optional(),
@@ -3392,6 +3825,15 @@ export function fieldUpdateTemplateFieldsFieldMetaTextResponseFromJSON(
 }
 
 /** @internal */
+export const FieldUpdateTemplateFieldsOverflowResponse5$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowResponse5> = z
+    .nativeEnum(FieldUpdateTemplateFieldsOverflowResponse5);
+/** @internal */
+export const FieldUpdateTemplateFieldsOverflowResponse5$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowResponse5> =
+    FieldUpdateTemplateFieldsOverflowResponse5$inboundSchema;
+
+/** @internal */
 export const FieldUpdateTemplateFieldsTextAlignResponse4$inboundSchema:
   z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignResponse4> = z
     .nativeEnum(FieldUpdateTemplateFieldsTextAlignResponse4);
@@ -3412,6 +3854,9 @@ export const FieldUpdateTemplateFieldsFieldMetaDateResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowResponse5$inboundSchema.default(
+      "auto",
+    ),
     type: z.literal("date"),
     textAlign: FieldUpdateTemplateFieldsTextAlignResponse4$inboundSchema
       .optional(),
@@ -3423,6 +3868,7 @@ export type FieldUpdateTemplateFieldsFieldMetaDateResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "date";
   textAlign?: string | undefined;
 };
@@ -3439,6 +3885,9 @@ export const FieldUpdateTemplateFieldsFieldMetaDateResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowResponse5$outboundSchema.default(
+      "auto",
+    ),
     type: z.literal("date"),
     textAlign: FieldUpdateTemplateFieldsTextAlignResponse4$outboundSchema
       .optional(),
@@ -3471,6 +3920,15 @@ export function fieldUpdateTemplateFieldsFieldMetaDateResponseFromJSON(
 }
 
 /** @internal */
+export const FieldUpdateTemplateFieldsOverflowResponse4$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowResponse4> = z
+    .nativeEnum(FieldUpdateTemplateFieldsOverflowResponse4);
+/** @internal */
+export const FieldUpdateTemplateFieldsOverflowResponse4$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowResponse4> =
+    FieldUpdateTemplateFieldsOverflowResponse4$inboundSchema;
+
+/** @internal */
 export const FieldUpdateTemplateFieldsTextAlignResponse3$inboundSchema:
   z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignResponse3> = z
     .nativeEnum(FieldUpdateTemplateFieldsTextAlignResponse3);
@@ -3491,6 +3949,9 @@ export const FieldUpdateTemplateFieldsFieldMetaEmailResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowResponse4$inboundSchema.default(
+      "auto",
+    ),
     type: z.literal("email"),
     textAlign: FieldUpdateTemplateFieldsTextAlignResponse3$inboundSchema
       .optional(),
@@ -3502,6 +3963,7 @@ export type FieldUpdateTemplateFieldsFieldMetaEmailResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "email";
   textAlign?: string | undefined;
 };
@@ -3518,6 +3980,9 @@ export const FieldUpdateTemplateFieldsFieldMetaEmailResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowResponse4$outboundSchema.default(
+      "auto",
+    ),
     type: z.literal("email"),
     textAlign: FieldUpdateTemplateFieldsTextAlignResponse3$outboundSchema
       .optional(),
@@ -3550,6 +4015,15 @@ export function fieldUpdateTemplateFieldsFieldMetaEmailResponseFromJSON(
 }
 
 /** @internal */
+export const FieldUpdateTemplateFieldsOverflowResponse3$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowResponse3> = z
+    .nativeEnum(FieldUpdateTemplateFieldsOverflowResponse3);
+/** @internal */
+export const FieldUpdateTemplateFieldsOverflowResponse3$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowResponse3> =
+    FieldUpdateTemplateFieldsOverflowResponse3$inboundSchema;
+
+/** @internal */
 export const FieldUpdateTemplateFieldsTextAlignResponse2$inboundSchema:
   z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignResponse2> = z
     .nativeEnum(FieldUpdateTemplateFieldsTextAlignResponse2);
@@ -3570,6 +4044,8 @@ export const FieldUpdateTemplateFieldsFieldMetaNameResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowResponse3$inboundSchema
+      .optional(),
     type: z.literal("name"),
     textAlign: FieldUpdateTemplateFieldsTextAlignResponse2$inboundSchema
       .optional(),
@@ -3581,6 +4057,7 @@ export type FieldUpdateTemplateFieldsFieldMetaNameResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "name";
   textAlign?: string | undefined;
 };
@@ -3597,6 +4074,8 @@ export const FieldUpdateTemplateFieldsFieldMetaNameResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowResponse3$outboundSchema
+      .optional(),
     type: z.literal("name"),
     textAlign: FieldUpdateTemplateFieldsTextAlignResponse2$outboundSchema
       .optional(),
@@ -3629,6 +4108,15 @@ export function fieldUpdateTemplateFieldsFieldMetaNameResponseFromJSON(
 }
 
 /** @internal */
+export const FieldUpdateTemplateFieldsOverflowResponse2$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowResponse2> = z
+    .nativeEnum(FieldUpdateTemplateFieldsOverflowResponse2);
+/** @internal */
+export const FieldUpdateTemplateFieldsOverflowResponse2$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowResponse2> =
+    FieldUpdateTemplateFieldsOverflowResponse2$inboundSchema;
+
+/** @internal */
 export const FieldUpdateTemplateFieldsTextAlignResponse1$inboundSchema:
   z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsTextAlignResponse1> = z
     .nativeEnum(FieldUpdateTemplateFieldsTextAlignResponse1);
@@ -3649,6 +4137,8 @@ export const FieldUpdateTemplateFieldsFieldMetaInitialsResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowResponse2$inboundSchema
+      .optional(),
     type: z.literal("initials"),
     textAlign: FieldUpdateTemplateFieldsTextAlignResponse1$inboundSchema
       .optional(),
@@ -3660,6 +4150,7 @@ export type FieldUpdateTemplateFieldsFieldMetaInitialsResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
 };
@@ -3676,6 +4167,8 @@ export const FieldUpdateTemplateFieldsFieldMetaInitialsResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowResponse2$outboundSchema
+      .optional(),
     type: z.literal("initials"),
     textAlign: FieldUpdateTemplateFieldsTextAlignResponse1$outboundSchema
       .optional(),
@@ -3708,6 +4201,15 @@ export function fieldUpdateTemplateFieldsFieldMetaInitialsResponseFromJSON(
 }
 
 /** @internal */
+export const FieldUpdateTemplateFieldsOverflowResponse1$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowResponse1> = z
+    .nativeEnum(FieldUpdateTemplateFieldsOverflowResponse1);
+/** @internal */
+export const FieldUpdateTemplateFieldsOverflowResponse1$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldsOverflowResponse1> =
+    FieldUpdateTemplateFieldsOverflowResponse1$inboundSchema;
+
+/** @internal */
 export const FieldUpdateTemplateFieldsFieldMetaSignatureResponse$inboundSchema:
   z.ZodType<
     FieldUpdateTemplateFieldsFieldMetaSignatureResponse,
@@ -3719,6 +4221,9 @@ export const FieldUpdateTemplateFieldsFieldMetaSignatureResponse$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowResponse1$inboundSchema.default(
+      "auto",
+    ),
     type: z.literal("signature"),
   });
 /** @internal */
@@ -3728,6 +4233,7 @@ export type FieldUpdateTemplateFieldsFieldMetaSignatureResponse$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "signature";
 };
 
@@ -3743,6 +4249,9 @@ export const FieldUpdateTemplateFieldsFieldMetaSignatureResponse$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: FieldUpdateTemplateFieldsOverflowResponse1$outboundSchema.default(
+      "auto",
+    ),
     type: z.literal("signature"),
   });
 

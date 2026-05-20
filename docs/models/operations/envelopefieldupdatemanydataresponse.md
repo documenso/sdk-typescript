@@ -21,6 +21,7 @@ let value: EnvelopeFieldUpdateManyDataResponse = {
   inserted: true,
   fieldMeta: {
     fontSize: 12,
+    overflow: "auto",
     type: "email",
   },
 };

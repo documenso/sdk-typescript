@@ -15,6 +15,7 @@ export type TemplateGetTemplateByIdRequest = {
 export const TemplateGetTemplateByIdTypeEnum = {
   Public: "PUBLIC",
   Private: "PRIVATE",
+  Organisation: "ORGANISATION",
 } as const;
 export type TemplateGetTemplateByIdTypeEnum = ClosedEnum<
   typeof TemplateGetTemplateByIdTypeEnum
@@ -94,6 +95,7 @@ export type TemplateGetTemplateByIdEmailSettings = {
   documentDeleted?: boolean | undefined;
   ownerDocumentCompleted?: boolean | undefined;
   ownerRecipientExpired?: boolean | undefined;
+  ownerDocumentCreated?: boolean | undefined;
 };
 
 export type TemplateGetTemplateByIdTemplateMeta = {
@@ -231,6 +233,16 @@ export type TemplateGetTemplateByIdFieldTypeEnum = ClosedEnum<
   typeof TemplateGetTemplateByIdFieldTypeEnum
 >;
 
+export const TemplateGetTemplateByIdOverflow10 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateGetTemplateByIdOverflow10 = ClosedEnum<
+  typeof TemplateGetTemplateByIdOverflow10
+>;
+
 export type TemplateGetTemplateByIdValue3 = {
   value: string;
 };
@@ -241,10 +253,21 @@ export type TemplateGetTemplateByIdFieldMetaDropdown = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateGetTemplateByIdOverflow10 | undefined;
   type: "dropdown";
   values?: Array<TemplateGetTemplateByIdValue3> | undefined;
   defaultValue?: string | undefined;
 };
+
+export const TemplateGetTemplateByIdOverflow9 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateGetTemplateByIdOverflow9 = ClosedEnum<
+  typeof TemplateGetTemplateByIdOverflow9
+>;
 
 export type TemplateGetTemplateByIdValue2 = {
   id: number;
@@ -266,12 +289,23 @@ export type TemplateGetTemplateByIdFieldMetaCheckbox = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateGetTemplateByIdOverflow9 | undefined;
   type: "checkbox";
   values?: Array<TemplateGetTemplateByIdValue2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
   direction?: TemplateGetTemplateByIdDirection2 | undefined;
 };
+
+export const TemplateGetTemplateByIdOverflow8 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateGetTemplateByIdOverflow8 = ClosedEnum<
+  typeof TemplateGetTemplateByIdOverflow8
+>;
 
 export type TemplateGetTemplateByIdValue1 = {
   id: number;
@@ -293,10 +327,21 @@ export type TemplateGetTemplateByIdFieldMetaRadio = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateGetTemplateByIdOverflow8 | undefined;
   type: "radio";
   values?: Array<TemplateGetTemplateByIdValue1> | undefined;
   direction?: TemplateGetTemplateByIdDirection1 | undefined;
 };
+
+export const TemplateGetTemplateByIdOverflow7 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateGetTemplateByIdOverflow7 = ClosedEnum<
+  typeof TemplateGetTemplateByIdOverflow7
+>;
 
 export const TemplateGetTemplateByIdTextAlign6 = {
   Left: "left",
@@ -322,6 +367,7 @@ export type TemplateGetTemplateByIdFieldMetaNumber = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateGetTemplateByIdOverflow7 | undefined;
   type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
@@ -332,6 +378,16 @@ export type TemplateGetTemplateByIdFieldMetaNumber = {
   letterSpacing?: number | null | undefined;
   verticalAlign?: TemplateGetTemplateByIdVerticalAlign2 | null | undefined;
 };
+
+export const TemplateGetTemplateByIdOverflow6 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateGetTemplateByIdOverflow6 = ClosedEnum<
+  typeof TemplateGetTemplateByIdOverflow6
+>;
 
 export const TemplateGetTemplateByIdTextAlign5 = {
   Left: "left",
@@ -357,6 +413,7 @@ export type TemplateGetTemplateByIdFieldMetaText = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateGetTemplateByIdOverflow6 | undefined;
   type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
@@ -365,6 +422,16 @@ export type TemplateGetTemplateByIdFieldMetaText = {
   letterSpacing?: number | null | undefined;
   verticalAlign?: TemplateGetTemplateByIdVerticalAlign1 | null | undefined;
 };
+
+export const TemplateGetTemplateByIdOverflow5 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateGetTemplateByIdOverflow5 = ClosedEnum<
+  typeof TemplateGetTemplateByIdOverflow5
+>;
 
 export const TemplateGetTemplateByIdTextAlign4 = {
   Left: "left",
@@ -381,9 +448,20 @@ export type TemplateGetTemplateByIdFieldMetaDate = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateGetTemplateByIdOverflow5 | undefined;
   type: "date";
   textAlign?: TemplateGetTemplateByIdTextAlign4 | undefined;
 };
+
+export const TemplateGetTemplateByIdOverflow4 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateGetTemplateByIdOverflow4 = ClosedEnum<
+  typeof TemplateGetTemplateByIdOverflow4
+>;
 
 export const TemplateGetTemplateByIdTextAlign3 = {
   Left: "left",
@@ -400,9 +478,20 @@ export type TemplateGetTemplateByIdFieldMetaEmail = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateGetTemplateByIdOverflow4 | undefined;
   type: "email";
   textAlign?: TemplateGetTemplateByIdTextAlign3 | undefined;
 };
+
+export const TemplateGetTemplateByIdOverflow3 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateGetTemplateByIdOverflow3 = ClosedEnum<
+  typeof TemplateGetTemplateByIdOverflow3
+>;
 
 export const TemplateGetTemplateByIdTextAlign2 = {
   Left: "left",
@@ -419,9 +508,20 @@ export type TemplateGetTemplateByIdFieldMetaName = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateGetTemplateByIdOverflow3 | undefined;
   type: "name";
   textAlign?: TemplateGetTemplateByIdTextAlign2 | undefined;
 };
+
+export const TemplateGetTemplateByIdOverflow2 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateGetTemplateByIdOverflow2 = ClosedEnum<
+  typeof TemplateGetTemplateByIdOverflow2
+>;
 
 export const TemplateGetTemplateByIdTextAlign1 = {
   Left: "left",
@@ -438,9 +538,20 @@ export type TemplateGetTemplateByIdFieldMetaInitials = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateGetTemplateByIdOverflow2 | undefined;
   type: "initials";
   textAlign?: TemplateGetTemplateByIdTextAlign1 | undefined;
 };
+
+export const TemplateGetTemplateByIdOverflow1 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateGetTemplateByIdOverflow1 = ClosedEnum<
+  typeof TemplateGetTemplateByIdOverflow1
+>;
 
 export type TemplateGetTemplateByIdFieldMetaSignature = {
   label?: string | undefined;
@@ -448,6 +559,7 @@ export type TemplateGetTemplateByIdFieldMetaSignature = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateGetTemplateByIdOverflow1 | undefined;
   type: "signature";
 };
 
@@ -790,6 +902,7 @@ export const TemplateGetTemplateByIdEmailSettings$inboundSchema: z.ZodType<
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
   ownerRecipientExpired: z.boolean().default(true),
+  ownerDocumentCreated: z.boolean().default(true),
 });
 /** @internal */
 export type TemplateGetTemplateByIdEmailSettings$Outbound = {
@@ -801,6 +914,7 @@ export type TemplateGetTemplateByIdEmailSettings$Outbound = {
   documentDeleted: boolean;
   ownerDocumentCompleted: boolean;
   ownerRecipientExpired: boolean;
+  ownerDocumentCreated: boolean;
 };
 
 /** @internal */
@@ -817,6 +931,7 @@ export const TemplateGetTemplateByIdEmailSettings$outboundSchema: z.ZodType<
   documentDeleted: z.boolean().default(true),
   ownerDocumentCompleted: z.boolean().default(true),
   ownerRecipientExpired: z.boolean().default(true),
+  ownerDocumentCreated: z.boolean().default(true),
 });
 
 export function templateGetTemplateByIdEmailSettingsToJSON(
@@ -1257,6 +1372,15 @@ export const TemplateGetTemplateByIdFieldTypeEnum$outboundSchema:
     TemplateGetTemplateByIdFieldTypeEnum$inboundSchema;
 
 /** @internal */
+export const TemplateGetTemplateByIdOverflow10$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetTemplateByIdOverflow10
+> = z.nativeEnum(TemplateGetTemplateByIdOverflow10);
+/** @internal */
+export const TemplateGetTemplateByIdOverflow10$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetTemplateByIdOverflow10
+> = TemplateGetTemplateByIdOverflow10$inboundSchema;
+
+/** @internal */
 export const TemplateGetTemplateByIdValue3$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdValue3,
   z.ZodTypeDef,
@@ -1308,6 +1432,7 @@ export const TemplateGetTemplateByIdFieldMetaDropdown$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetTemplateByIdOverflow10$inboundSchema.optional(),
   type: z.literal("dropdown"),
   values: z.array(z.lazy(() => TemplateGetTemplateByIdValue3$inboundSchema))
     .optional(),
@@ -1320,6 +1445,7 @@ export type TemplateGetTemplateByIdFieldMetaDropdown$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "dropdown";
   values?: Array<TemplateGetTemplateByIdValue3$Outbound> | undefined;
   defaultValue?: string | undefined;
@@ -1336,6 +1462,7 @@ export const TemplateGetTemplateByIdFieldMetaDropdown$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetTemplateByIdOverflow10$outboundSchema.optional(),
   type: z.literal("dropdown"),
   values: z.array(z.lazy(() => TemplateGetTemplateByIdValue3$outboundSchema))
     .optional(),
@@ -1367,6 +1494,15 @@ export function templateGetTemplateByIdFieldMetaDropdownFromJSON(
     `Failed to parse 'TemplateGetTemplateByIdFieldMetaDropdown' from JSON`,
   );
 }
+
+/** @internal */
+export const TemplateGetTemplateByIdOverflow9$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetTemplateByIdOverflow9
+> = z.nativeEnum(TemplateGetTemplateByIdOverflow9);
+/** @internal */
+export const TemplateGetTemplateByIdOverflow9$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetTemplateByIdOverflow9
+> = TemplateGetTemplateByIdOverflow9$inboundSchema;
 
 /** @internal */
 export const TemplateGetTemplateByIdValue2$inboundSchema: z.ZodType<
@@ -1435,6 +1571,7 @@ export const TemplateGetTemplateByIdFieldMetaCheckbox$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetTemplateByIdOverflow9$inboundSchema.optional(),
   type: z.literal("checkbox"),
   values: z.array(z.lazy(() => TemplateGetTemplateByIdValue2$inboundSchema))
     .optional(),
@@ -1451,6 +1588,7 @@ export type TemplateGetTemplateByIdFieldMetaCheckbox$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "checkbox";
   values?: Array<TemplateGetTemplateByIdValue2$Outbound> | undefined;
   validationRule?: string | undefined;
@@ -1469,6 +1607,7 @@ export const TemplateGetTemplateByIdFieldMetaCheckbox$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetTemplateByIdOverflow9$outboundSchema.optional(),
   type: z.literal("checkbox"),
   values: z.array(z.lazy(() => TemplateGetTemplateByIdValue2$outboundSchema))
     .optional(),
@@ -1504,6 +1643,15 @@ export function templateGetTemplateByIdFieldMetaCheckboxFromJSON(
     `Failed to parse 'TemplateGetTemplateByIdFieldMetaCheckbox' from JSON`,
   );
 }
+
+/** @internal */
+export const TemplateGetTemplateByIdOverflow8$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetTemplateByIdOverflow8
+> = z.nativeEnum(TemplateGetTemplateByIdOverflow8);
+/** @internal */
+export const TemplateGetTemplateByIdOverflow8$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetTemplateByIdOverflow8
+> = TemplateGetTemplateByIdOverflow8$inboundSchema;
 
 /** @internal */
 export const TemplateGetTemplateByIdValue1$inboundSchema: z.ZodType<
@@ -1572,6 +1720,7 @@ export const TemplateGetTemplateByIdFieldMetaRadio$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetTemplateByIdOverflow8$inboundSchema.optional(),
   type: z.literal("radio"),
   values: z.array(z.lazy(() => TemplateGetTemplateByIdValue1$inboundSchema))
     .optional(),
@@ -1586,6 +1735,7 @@ export type TemplateGetTemplateByIdFieldMetaRadio$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "radio";
   values?: Array<TemplateGetTemplateByIdValue1$Outbound> | undefined;
   direction: string;
@@ -1602,6 +1752,7 @@ export const TemplateGetTemplateByIdFieldMetaRadio$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetTemplateByIdOverflow8$outboundSchema.optional(),
   type: z.literal("radio"),
   values: z.array(z.lazy(() => TemplateGetTemplateByIdValue1$outboundSchema))
     .optional(),
@@ -1629,6 +1780,15 @@ export function templateGetTemplateByIdFieldMetaRadioFromJSON(
     `Failed to parse 'TemplateGetTemplateByIdFieldMetaRadio' from JSON`,
   );
 }
+
+/** @internal */
+export const TemplateGetTemplateByIdOverflow7$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetTemplateByIdOverflow7
+> = z.nativeEnum(TemplateGetTemplateByIdOverflow7);
+/** @internal */
+export const TemplateGetTemplateByIdOverflow7$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetTemplateByIdOverflow7
+> = TemplateGetTemplateByIdOverflow7$inboundSchema;
 
 /** @internal */
 export const TemplateGetTemplateByIdTextAlign6$inboundSchema: z.ZodNativeEnum<
@@ -1660,6 +1820,7 @@ export const TemplateGetTemplateByIdFieldMetaNumber$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetTemplateByIdOverflow7$inboundSchema.optional(),
   type: z.literal("number"),
   numberFormat: z.nullable(z.string()).optional(),
   value: z.string().optional(),
@@ -1678,6 +1839,7 @@ export type TemplateGetTemplateByIdFieldMetaNumber$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
@@ -1700,6 +1862,7 @@ export const TemplateGetTemplateByIdFieldMetaNumber$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetTemplateByIdOverflow7$outboundSchema.optional(),
   type: z.literal("number"),
   numberFormat: z.nullable(z.string()).optional(),
   value: z.string().optional(),
@@ -1735,6 +1898,15 @@ export function templateGetTemplateByIdFieldMetaNumberFromJSON(
 }
 
 /** @internal */
+export const TemplateGetTemplateByIdOverflow6$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetTemplateByIdOverflow6
+> = z.nativeEnum(TemplateGetTemplateByIdOverflow6);
+/** @internal */
+export const TemplateGetTemplateByIdOverflow6$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetTemplateByIdOverflow6
+> = TemplateGetTemplateByIdOverflow6$inboundSchema;
+
+/** @internal */
 export const TemplateGetTemplateByIdTextAlign5$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdTextAlign5
 > = z.nativeEnum(TemplateGetTemplateByIdTextAlign5);
@@ -1764,6 +1936,7 @@ export const TemplateGetTemplateByIdFieldMetaText$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetTemplateByIdOverflow6$inboundSchema.optional(),
   type: z.literal("text"),
   text: z.string().optional(),
   characterLimit: z.number().optional(),
@@ -1780,6 +1953,7 @@ export type TemplateGetTemplateByIdFieldMetaText$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
@@ -1800,6 +1974,7 @@ export const TemplateGetTemplateByIdFieldMetaText$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetTemplateByIdOverflow6$outboundSchema.optional(),
   type: z.literal("text"),
   text: z.string().optional(),
   characterLimit: z.number().optional(),
@@ -1832,6 +2007,15 @@ export function templateGetTemplateByIdFieldMetaTextFromJSON(
 }
 
 /** @internal */
+export const TemplateGetTemplateByIdOverflow5$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetTemplateByIdOverflow5
+> = z.nativeEnum(TemplateGetTemplateByIdOverflow5);
+/** @internal */
+export const TemplateGetTemplateByIdOverflow5$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetTemplateByIdOverflow5
+> = TemplateGetTemplateByIdOverflow5$inboundSchema;
+
+/** @internal */
 export const TemplateGetTemplateByIdTextAlign4$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdTextAlign4
 > = z.nativeEnum(TemplateGetTemplateByIdTextAlign4);
@@ -1851,6 +2035,7 @@ export const TemplateGetTemplateByIdFieldMetaDate$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetTemplateByIdOverflow5$inboundSchema.default("auto"),
   type: z.literal("date"),
   textAlign: TemplateGetTemplateByIdTextAlign4$inboundSchema.optional(),
 });
@@ -1861,6 +2046,7 @@ export type TemplateGetTemplateByIdFieldMetaDate$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "date";
   textAlign?: string | undefined;
 };
@@ -1876,6 +2062,7 @@ export const TemplateGetTemplateByIdFieldMetaDate$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetTemplateByIdOverflow5$outboundSchema.default("auto"),
   type: z.literal("date"),
   textAlign: TemplateGetTemplateByIdTextAlign4$outboundSchema.optional(),
 });
@@ -1901,6 +2088,15 @@ export function templateGetTemplateByIdFieldMetaDateFromJSON(
 }
 
 /** @internal */
+export const TemplateGetTemplateByIdOverflow4$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetTemplateByIdOverflow4
+> = z.nativeEnum(TemplateGetTemplateByIdOverflow4);
+/** @internal */
+export const TemplateGetTemplateByIdOverflow4$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetTemplateByIdOverflow4
+> = TemplateGetTemplateByIdOverflow4$inboundSchema;
+
+/** @internal */
 export const TemplateGetTemplateByIdTextAlign3$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdTextAlign3
 > = z.nativeEnum(TemplateGetTemplateByIdTextAlign3);
@@ -1920,6 +2116,7 @@ export const TemplateGetTemplateByIdFieldMetaEmail$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetTemplateByIdOverflow4$inboundSchema.default("auto"),
   type: z.literal("email"),
   textAlign: TemplateGetTemplateByIdTextAlign3$inboundSchema.optional(),
 });
@@ -1930,6 +2127,7 @@ export type TemplateGetTemplateByIdFieldMetaEmail$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "email";
   textAlign?: string | undefined;
 };
@@ -1945,6 +2143,7 @@ export const TemplateGetTemplateByIdFieldMetaEmail$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetTemplateByIdOverflow4$outboundSchema.default("auto"),
   type: z.literal("email"),
   textAlign: TemplateGetTemplateByIdTextAlign3$outboundSchema.optional(),
 });
@@ -1970,6 +2169,15 @@ export function templateGetTemplateByIdFieldMetaEmailFromJSON(
 }
 
 /** @internal */
+export const TemplateGetTemplateByIdOverflow3$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetTemplateByIdOverflow3
+> = z.nativeEnum(TemplateGetTemplateByIdOverflow3);
+/** @internal */
+export const TemplateGetTemplateByIdOverflow3$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetTemplateByIdOverflow3
+> = TemplateGetTemplateByIdOverflow3$inboundSchema;
+
+/** @internal */
 export const TemplateGetTemplateByIdTextAlign2$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdTextAlign2
 > = z.nativeEnum(TemplateGetTemplateByIdTextAlign2);
@@ -1989,6 +2197,7 @@ export const TemplateGetTemplateByIdFieldMetaName$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetTemplateByIdOverflow3$inboundSchema.optional(),
   type: z.literal("name"),
   textAlign: TemplateGetTemplateByIdTextAlign2$inboundSchema.optional(),
 });
@@ -1999,6 +2208,7 @@ export type TemplateGetTemplateByIdFieldMetaName$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "name";
   textAlign?: string | undefined;
 };
@@ -2014,6 +2224,7 @@ export const TemplateGetTemplateByIdFieldMetaName$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetTemplateByIdOverflow3$outboundSchema.optional(),
   type: z.literal("name"),
   textAlign: TemplateGetTemplateByIdTextAlign2$outboundSchema.optional(),
 });
@@ -2039,6 +2250,15 @@ export function templateGetTemplateByIdFieldMetaNameFromJSON(
 }
 
 /** @internal */
+export const TemplateGetTemplateByIdOverflow2$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetTemplateByIdOverflow2
+> = z.nativeEnum(TemplateGetTemplateByIdOverflow2);
+/** @internal */
+export const TemplateGetTemplateByIdOverflow2$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetTemplateByIdOverflow2
+> = TemplateGetTemplateByIdOverflow2$inboundSchema;
+
+/** @internal */
 export const TemplateGetTemplateByIdTextAlign1$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdTextAlign1
 > = z.nativeEnum(TemplateGetTemplateByIdTextAlign1);
@@ -2058,6 +2278,7 @@ export const TemplateGetTemplateByIdFieldMetaInitials$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetTemplateByIdOverflow2$inboundSchema.optional(),
   type: z.literal("initials"),
   textAlign: TemplateGetTemplateByIdTextAlign1$inboundSchema.optional(),
 });
@@ -2068,6 +2289,7 @@ export type TemplateGetTemplateByIdFieldMetaInitials$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
 };
@@ -2083,6 +2305,7 @@ export const TemplateGetTemplateByIdFieldMetaInitials$outboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetTemplateByIdOverflow2$outboundSchema.optional(),
   type: z.literal("initials"),
   textAlign: TemplateGetTemplateByIdTextAlign1$outboundSchema.optional(),
 });
@@ -2114,6 +2337,15 @@ export function templateGetTemplateByIdFieldMetaInitialsFromJSON(
 }
 
 /** @internal */
+export const TemplateGetTemplateByIdOverflow1$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetTemplateByIdOverflow1
+> = z.nativeEnum(TemplateGetTemplateByIdOverflow1);
+/** @internal */
+export const TemplateGetTemplateByIdOverflow1$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetTemplateByIdOverflow1
+> = TemplateGetTemplateByIdOverflow1$inboundSchema;
+
+/** @internal */
 export const TemplateGetTemplateByIdFieldMetaSignature$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdFieldMetaSignature,
   z.ZodTypeDef,
@@ -2124,6 +2356,7 @@ export const TemplateGetTemplateByIdFieldMetaSignature$inboundSchema: z.ZodType<
   required: z.boolean().optional(),
   readOnly: z.boolean().optional(),
   fontSize: z.number().default(12),
+  overflow: TemplateGetTemplateByIdOverflow1$inboundSchema.default("auto"),
   type: z.literal("signature"),
 });
 /** @internal */
@@ -2133,6 +2366,7 @@ export type TemplateGetTemplateByIdFieldMetaSignature$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "signature";
 };
 
@@ -2148,6 +2382,7 @@ export const TemplateGetTemplateByIdFieldMetaSignature$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: TemplateGetTemplateByIdOverflow1$outboundSchema.default("auto"),
     type: z.literal("signature"),
   });
 

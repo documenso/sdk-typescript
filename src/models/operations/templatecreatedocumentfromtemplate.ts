@@ -85,12 +85,15 @@ export const TemplateCreateDocumentFromTemplateDateFormat = {
   YyyyMMddHhMmA: "yyyy-MM-dd hh:mm a",
   YyyyMMdd: "yyyy-MM-dd",
   DdMMSlashYyyy: "dd/MM/yyyy",
+  DdMMDashYyyy: "dd-MM-yyyy",
   MmDdSlashYyyy: "MM/dd/yyyy",
   YyMMdd: "yy-MM-dd",
   MmmmDdCommaYyyy: "MMMM dd, yyyy",
   EeeeMmmmDdCommaYyyy: "EEEE, MMMM dd, yyyy",
   DdMMSlashYyyyHhMMA: "dd/MM/yyyy hh:mm a",
   DdMMSlashYyyyHHmm: "dd/MM/yyyy HH:mm",
+  DdMMDashYyyyHhMMA: "dd-MM-yyyy hh:mm a",
+  DdMMDashYyyyHHmm: "dd-MM-yyyy HH:mm",
   MmDdSlashYyyyHhMmA: "MM/dd/yyyy hh:mm a",
   MmDdSlashYyyyHHmm: "MM/dd/yyyy HH:mm",
   DdDotMmDotYyyy: "dd.MM.yyyy",
@@ -127,6 +130,7 @@ export type TemplateCreateDocumentFromTemplateOverrideEmailSettings = {
   documentDeleted?: boolean | undefined;
   ownerDocumentCompleted?: boolean | undefined;
   ownerRecipientExpired?: boolean | undefined;
+  ownerDocumentCreated?: boolean | undefined;
 };
 
 export const TemplateCreateDocumentFromTemplateLanguage = {
@@ -148,7 +152,7 @@ export type TemplateCreateDocumentFromTemplateLanguage = ClosedEnum<
 
 export type TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2 =
   {
-    disabled: boolean;
+    disabled: true;
   };
 
 export const TemplateCreateDocumentFromTemplateOverrideUnit = {
@@ -339,32 +343,89 @@ export type TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings = {
   documentDeleted?: boolean | undefined;
   ownerDocumentCompleted?: boolean | undefined;
   ownerRecipientExpired?: boolean | undefined;
+  ownerDocumentCreated?: boolean | undefined;
 };
 
 export type TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2 =
   {
-    disabled: boolean;
+    disabled: true;
   };
 
-export const TemplateCreateDocumentFromTemplateUnitResponse = {
-  Day: "day",
-  Week: "week",
-  Month: "month",
-  Year: "year",
-} as const;
-export type TemplateCreateDocumentFromTemplateUnitResponse = ClosedEnum<
-  typeof TemplateCreateDocumentFromTemplateUnitResponse
->;
+export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodUnitResponse =
+  {
+    Day: "day",
+    Week: "week",
+    Month: "month",
+    Year: "year",
+  } as const;
+export type TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodUnitResponse =
+  ClosedEnum<
+    typeof TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodUnitResponse
+  >;
 
 export type TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1 =
   {
-    unit: TemplateCreateDocumentFromTemplateUnitResponse;
+    unit:
+      TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodUnitResponse;
     amount: number;
   };
 
 export type TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponseUnion =
   | TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1
   | TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2;
+
+export type TemplateCreateDocumentFromTemplateSendAfter2 = {
+  disabled: true;
+};
+
+export const TemplateCreateDocumentFromTemplateSendAfterUnit = {
+  Day: "day",
+  Week: "week",
+  Month: "month",
+} as const;
+export type TemplateCreateDocumentFromTemplateSendAfterUnit = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateSendAfterUnit
+>;
+
+export type TemplateCreateDocumentFromTemplateSendAfter1 = {
+  unit: TemplateCreateDocumentFromTemplateSendAfterUnit;
+  amount: number;
+};
+
+export type TemplateCreateDocumentFromTemplateSendAfterUnion =
+  | TemplateCreateDocumentFromTemplateSendAfter1
+  | TemplateCreateDocumentFromTemplateSendAfter2;
+
+export type TemplateCreateDocumentFromTemplateRepeatEvery2 = {
+  disabled: true;
+};
+
+export const TemplateCreateDocumentFromTemplateRepeatEveryUnit = {
+  Day: "day",
+  Week: "week",
+  Month: "month",
+} as const;
+export type TemplateCreateDocumentFromTemplateRepeatEveryUnit = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateRepeatEveryUnit
+>;
+
+export type TemplateCreateDocumentFromTemplateRepeatEvery1 = {
+  unit: TemplateCreateDocumentFromTemplateRepeatEveryUnit;
+  amount: number;
+};
+
+export type TemplateCreateDocumentFromTemplateRepeatEveryUnion =
+  | TemplateCreateDocumentFromTemplateRepeatEvery1
+  | TemplateCreateDocumentFromTemplateRepeatEvery2;
+
+export type TemplateCreateDocumentFromTemplateReminderSettings = {
+  sendAfter:
+    | TemplateCreateDocumentFromTemplateSendAfter1
+    | TemplateCreateDocumentFromTemplateSendAfter2;
+  repeatEvery:
+    | TemplateCreateDocumentFromTemplateRepeatEvery1
+    | TemplateCreateDocumentFromTemplateRepeatEvery2;
+};
 
 export type TemplateCreateDocumentFromTemplateDocumentMeta = {
   signingOrder: TemplateCreateDocumentFromTemplateSigningOrder;
@@ -390,6 +451,7 @@ export type TemplateCreateDocumentFromTemplateDocumentMeta = {
     | TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1
     | TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2
     | null;
+  reminderSettings: TemplateCreateDocumentFromTemplateReminderSettings | null;
   password?: string | null | undefined;
   documentId?: number | undefined;
 };
@@ -528,6 +590,16 @@ export type TemplateCreateDocumentFromTemplateFieldTypeEnum = ClosedEnum<
   typeof TemplateCreateDocumentFromTemplateFieldTypeEnum
 >;
 
+export const TemplateCreateDocumentFromTemplateOverflow10 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateCreateDocumentFromTemplateOverflow10 = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateOverflow10
+>;
+
 export type TemplateCreateDocumentFromTemplateValue3 = {
   value: string;
 };
@@ -538,10 +610,21 @@ export type TemplateCreateDocumentFromTemplateFieldMetaDropdown = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateCreateDocumentFromTemplateOverflow10 | undefined;
   type: "dropdown";
   values?: Array<TemplateCreateDocumentFromTemplateValue3> | undefined;
   defaultValue?: string | undefined;
 };
+
+export const TemplateCreateDocumentFromTemplateOverflow9 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateCreateDocumentFromTemplateOverflow9 = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateOverflow9
+>;
 
 export type TemplateCreateDocumentFromTemplateValue2 = {
   id: number;
@@ -563,12 +646,23 @@ export type TemplateCreateDocumentFromTemplateFieldMetaCheckbox = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateCreateDocumentFromTemplateOverflow9 | undefined;
   type: "checkbox";
   values?: Array<TemplateCreateDocumentFromTemplateValue2> | undefined;
   validationRule?: string | undefined;
   validationLength?: number | undefined;
   direction?: TemplateCreateDocumentFromTemplateDirection2 | undefined;
 };
+
+export const TemplateCreateDocumentFromTemplateOverflow8 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateCreateDocumentFromTemplateOverflow8 = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateOverflow8
+>;
 
 export type TemplateCreateDocumentFromTemplateValue1 = {
   id: number;
@@ -590,10 +684,21 @@ export type TemplateCreateDocumentFromTemplateFieldMetaRadio = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateCreateDocumentFromTemplateOverflow8 | undefined;
   type: "radio";
   values?: Array<TemplateCreateDocumentFromTemplateValue1> | undefined;
   direction?: TemplateCreateDocumentFromTemplateDirection1 | undefined;
 };
+
+export const TemplateCreateDocumentFromTemplateOverflow7 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateCreateDocumentFromTemplateOverflow7 = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateOverflow7
+>;
 
 export const TemplateCreateDocumentFromTemplateTextAlign6 = {
   Left: "left",
@@ -619,6 +724,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaNumber = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateCreateDocumentFromTemplateOverflow7 | undefined;
   type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
@@ -632,6 +738,16 @@ export type TemplateCreateDocumentFromTemplateFieldMetaNumber = {
     | null
     | undefined;
 };
+
+export const TemplateCreateDocumentFromTemplateOverflow6 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateCreateDocumentFromTemplateOverflow6 = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateOverflow6
+>;
 
 export const TemplateCreateDocumentFromTemplateTextAlign5 = {
   Left: "left",
@@ -657,6 +773,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaText = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateCreateDocumentFromTemplateOverflow6 | undefined;
   type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
@@ -668,6 +785,16 @@ export type TemplateCreateDocumentFromTemplateFieldMetaText = {
     | null
     | undefined;
 };
+
+export const TemplateCreateDocumentFromTemplateOverflow5 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateCreateDocumentFromTemplateOverflow5 = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateOverflow5
+>;
 
 export const TemplateCreateDocumentFromTemplateTextAlign4 = {
   Left: "left",
@@ -684,9 +811,20 @@ export type TemplateCreateDocumentFromTemplateFieldMetaDate = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateCreateDocumentFromTemplateOverflow5 | undefined;
   type: "date";
   textAlign?: TemplateCreateDocumentFromTemplateTextAlign4 | undefined;
 };
+
+export const TemplateCreateDocumentFromTemplateOverflow4 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateCreateDocumentFromTemplateOverflow4 = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateOverflow4
+>;
 
 export const TemplateCreateDocumentFromTemplateTextAlign3 = {
   Left: "left",
@@ -703,9 +841,20 @@ export type TemplateCreateDocumentFromTemplateFieldMetaEmail = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateCreateDocumentFromTemplateOverflow4 | undefined;
   type: "email";
   textAlign?: TemplateCreateDocumentFromTemplateTextAlign3 | undefined;
 };
+
+export const TemplateCreateDocumentFromTemplateOverflow3 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateCreateDocumentFromTemplateOverflow3 = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateOverflow3
+>;
 
 export const TemplateCreateDocumentFromTemplateTextAlign2 = {
   Left: "left",
@@ -722,9 +871,20 @@ export type TemplateCreateDocumentFromTemplateFieldMetaName = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateCreateDocumentFromTemplateOverflow3 | undefined;
   type: "name";
   textAlign?: TemplateCreateDocumentFromTemplateTextAlign2 | undefined;
 };
+
+export const TemplateCreateDocumentFromTemplateOverflow2 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateCreateDocumentFromTemplateOverflow2 = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateOverflow2
+>;
 
 export const TemplateCreateDocumentFromTemplateTextAlign1 = {
   Left: "left",
@@ -741,9 +901,20 @@ export type TemplateCreateDocumentFromTemplateFieldMetaInitials = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateCreateDocumentFromTemplateOverflow2 | undefined;
   type: "initials";
   textAlign?: TemplateCreateDocumentFromTemplateTextAlign1 | undefined;
 };
+
+export const TemplateCreateDocumentFromTemplateOverflow1 = {
+  Auto: "auto",
+  Horizontal: "horizontal",
+  Vertical: "vertical",
+  Crop: "crop",
+} as const;
+export type TemplateCreateDocumentFromTemplateOverflow1 = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateOverflow1
+>;
 
 export type TemplateCreateDocumentFromTemplateFieldMetaSignature = {
   label?: string | undefined;
@@ -751,6 +922,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaSignature = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize?: number | undefined;
+  overflow?: TemplateCreateDocumentFromTemplateOverflow1 | undefined;
   type: "signature";
 };
 
@@ -1484,6 +1656,7 @@ export const TemplateCreateDocumentFromTemplateOverrideEmailSettings$inboundSche
     documentDeleted: z.boolean().default(true),
     ownerDocumentCompleted: z.boolean().default(true),
     ownerRecipientExpired: z.boolean().default(true),
+    ownerDocumentCreated: z.boolean().default(true),
   });
 /** @internal */
 export type TemplateCreateDocumentFromTemplateOverrideEmailSettings$Outbound = {
@@ -1495,6 +1668,7 @@ export type TemplateCreateDocumentFromTemplateOverrideEmailSettings$Outbound = {
   documentDeleted: boolean;
   ownerDocumentCompleted: boolean;
   ownerRecipientExpired: boolean;
+  ownerDocumentCreated: boolean;
 };
 
 /** @internal */
@@ -1512,6 +1686,7 @@ export const TemplateCreateDocumentFromTemplateOverrideEmailSettings$outboundSch
     documentDeleted: z.boolean().default(true),
     ownerDocumentCompleted: z.boolean().default(true),
     ownerRecipientExpired: z.boolean().default(true),
+    ownerDocumentCreated: z.boolean().default(true),
   });
 
 export function templateCreateDocumentFromTemplateOverrideEmailSettingsToJSON(
@@ -1554,12 +1729,12 @@ export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2
     z.ZodTypeDef,
     unknown
   > = z.object({
-    disabled: z.boolean(),
+    disabled: z.literal(true),
   });
 /** @internal */
 export type TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2$Outbound =
   {
-    disabled: boolean;
+    disabled: true;
   };
 
 /** @internal */
@@ -1569,7 +1744,7 @@ export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2
   > = z.object({
-    disabled: z.boolean(),
+    disabled: z.literal(true),
   });
 
 export function templateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2ToJSON(
@@ -2383,6 +2558,7 @@ export const TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings$inbound
     documentDeleted: z.boolean().default(true),
     ownerDocumentCompleted: z.boolean().default(true),
     ownerRecipientExpired: z.boolean().default(true),
+    ownerDocumentCreated: z.boolean().default(true),
   });
 /** @internal */
 export type TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings$Outbound =
@@ -2395,6 +2571,7 @@ export type TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings$Outbound
     documentDeleted: boolean;
     ownerDocumentCompleted: boolean;
     ownerRecipientExpired: boolean;
+    ownerDocumentCreated: boolean;
   };
 
 /** @internal */
@@ -2412,6 +2589,7 @@ export const TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings$outboun
     documentDeleted: z.boolean().default(true),
     ownerDocumentCompleted: z.boolean().default(true),
     ownerRecipientExpired: z.boolean().default(true),
+    ownerDocumentCreated: z.boolean().default(true),
   });
 
 export function templateCreateDocumentFromTemplateDocumentMetaEmailSettingsToJSON(
@@ -2445,12 +2623,12 @@ export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2
     z.ZodTypeDef,
     unknown
   > = z.object({
-    disabled: z.boolean(),
+    disabled: z.literal(true),
   });
 /** @internal */
 export type TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2$Outbound =
   {
-    disabled: boolean;
+    disabled: true;
   };
 
 /** @internal */
@@ -2460,7 +2638,7 @@ export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2
   > = z.object({
-    disabled: z.boolean(),
+    disabled: z.literal(true),
   });
 
 export function templateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2ToJSON(
@@ -2490,13 +2668,18 @@ export function templateCreateDocumentFromTemplateEnvelopeExpirationPeriodRespon
 }
 
 /** @internal */
-export const TemplateCreateDocumentFromTemplateUnitResponse$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateUnitResponse> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateUnitResponse);
+export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodUnitResponse$inboundSchema:
+  z.ZodNativeEnum<
+    typeof TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodUnitResponse
+  > = z.nativeEnum(
+    TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodUnitResponse,
+  );
 /** @internal */
-export const TemplateCreateDocumentFromTemplateUnitResponse$outboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateUnitResponse> =
-    TemplateCreateDocumentFromTemplateUnitResponse$inboundSchema;
+export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodUnitResponse$outboundSchema:
+  z.ZodNativeEnum<
+    typeof TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodUnitResponse
+  > =
+    TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodUnitResponse$inboundSchema;
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1$inboundSchema:
@@ -2505,7 +2688,8 @@ export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1
     z.ZodTypeDef,
     unknown
   > = z.object({
-    unit: TemplateCreateDocumentFromTemplateUnitResponse$inboundSchema,
+    unit:
+      TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodUnitResponse$inboundSchema,
     amount: z.number().int(),
   });
 /** @internal */
@@ -2522,7 +2706,8 @@ export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1
   > = z.object({
-    unit: TemplateCreateDocumentFromTemplateUnitResponse$outboundSchema,
+    unit:
+      TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodUnitResponse$outboundSchema,
     amount: z.number().int(),
   });
 
@@ -2613,6 +2798,411 @@ export function templateCreateDocumentFromTemplateEnvelopeExpirationPeriodRespon
 }
 
 /** @internal */
+export const TemplateCreateDocumentFromTemplateSendAfter2$inboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateSendAfter2,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    disabled: z.literal(true),
+  });
+/** @internal */
+export type TemplateCreateDocumentFromTemplateSendAfter2$Outbound = {
+  disabled: true;
+};
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateSendAfter2$outboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateSendAfter2$Outbound,
+    z.ZodTypeDef,
+    TemplateCreateDocumentFromTemplateSendAfter2
+  > = z.object({
+    disabled: z.literal(true),
+  });
+
+export function templateCreateDocumentFromTemplateSendAfter2ToJSON(
+  templateCreateDocumentFromTemplateSendAfter2:
+    TemplateCreateDocumentFromTemplateSendAfter2,
+): string {
+  return JSON.stringify(
+    TemplateCreateDocumentFromTemplateSendAfter2$outboundSchema.parse(
+      templateCreateDocumentFromTemplateSendAfter2,
+    ),
+  );
+}
+export function templateCreateDocumentFromTemplateSendAfter2FromJSON(
+  jsonString: string,
+): SafeParseResult<
+  TemplateCreateDocumentFromTemplateSendAfter2,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      TemplateCreateDocumentFromTemplateSendAfter2$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'TemplateCreateDocumentFromTemplateSendAfter2' from JSON`,
+  );
+}
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateSendAfterUnit$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateSendAfterUnit> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateSendAfterUnit);
+/** @internal */
+export const TemplateCreateDocumentFromTemplateSendAfterUnit$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateSendAfterUnit> =
+    TemplateCreateDocumentFromTemplateSendAfterUnit$inboundSchema;
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateSendAfter1$inboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateSendAfter1,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    unit: TemplateCreateDocumentFromTemplateSendAfterUnit$inboundSchema,
+    amount: z.number().int(),
+  });
+/** @internal */
+export type TemplateCreateDocumentFromTemplateSendAfter1$Outbound = {
+  unit: string;
+  amount: number;
+};
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateSendAfter1$outboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateSendAfter1$Outbound,
+    z.ZodTypeDef,
+    TemplateCreateDocumentFromTemplateSendAfter1
+  > = z.object({
+    unit: TemplateCreateDocumentFromTemplateSendAfterUnit$outboundSchema,
+    amount: z.number().int(),
+  });
+
+export function templateCreateDocumentFromTemplateSendAfter1ToJSON(
+  templateCreateDocumentFromTemplateSendAfter1:
+    TemplateCreateDocumentFromTemplateSendAfter1,
+): string {
+  return JSON.stringify(
+    TemplateCreateDocumentFromTemplateSendAfter1$outboundSchema.parse(
+      templateCreateDocumentFromTemplateSendAfter1,
+    ),
+  );
+}
+export function templateCreateDocumentFromTemplateSendAfter1FromJSON(
+  jsonString: string,
+): SafeParseResult<
+  TemplateCreateDocumentFromTemplateSendAfter1,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      TemplateCreateDocumentFromTemplateSendAfter1$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'TemplateCreateDocumentFromTemplateSendAfter1' from JSON`,
+  );
+}
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateSendAfterUnion$inboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateSendAfterUnion,
+    z.ZodTypeDef,
+    unknown
+  > = z.union([
+    z.lazy(() => TemplateCreateDocumentFromTemplateSendAfter1$inboundSchema),
+    z.lazy(() => TemplateCreateDocumentFromTemplateSendAfter2$inboundSchema),
+  ]);
+/** @internal */
+export type TemplateCreateDocumentFromTemplateSendAfterUnion$Outbound =
+  | TemplateCreateDocumentFromTemplateSendAfter1$Outbound
+  | TemplateCreateDocumentFromTemplateSendAfter2$Outbound;
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateSendAfterUnion$outboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateSendAfterUnion$Outbound,
+    z.ZodTypeDef,
+    TemplateCreateDocumentFromTemplateSendAfterUnion
+  > = z.union([
+    z.lazy(() => TemplateCreateDocumentFromTemplateSendAfter1$outboundSchema),
+    z.lazy(() => TemplateCreateDocumentFromTemplateSendAfter2$outboundSchema),
+  ]);
+
+export function templateCreateDocumentFromTemplateSendAfterUnionToJSON(
+  templateCreateDocumentFromTemplateSendAfterUnion:
+    TemplateCreateDocumentFromTemplateSendAfterUnion,
+): string {
+  return JSON.stringify(
+    TemplateCreateDocumentFromTemplateSendAfterUnion$outboundSchema.parse(
+      templateCreateDocumentFromTemplateSendAfterUnion,
+    ),
+  );
+}
+export function templateCreateDocumentFromTemplateSendAfterUnionFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  TemplateCreateDocumentFromTemplateSendAfterUnion,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      TemplateCreateDocumentFromTemplateSendAfterUnion$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'TemplateCreateDocumentFromTemplateSendAfterUnion' from JSON`,
+  );
+}
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateRepeatEvery2$inboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateRepeatEvery2,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    disabled: z.literal(true),
+  });
+/** @internal */
+export type TemplateCreateDocumentFromTemplateRepeatEvery2$Outbound = {
+  disabled: true;
+};
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateRepeatEvery2$outboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateRepeatEvery2$Outbound,
+    z.ZodTypeDef,
+    TemplateCreateDocumentFromTemplateRepeatEvery2
+  > = z.object({
+    disabled: z.literal(true),
+  });
+
+export function templateCreateDocumentFromTemplateRepeatEvery2ToJSON(
+  templateCreateDocumentFromTemplateRepeatEvery2:
+    TemplateCreateDocumentFromTemplateRepeatEvery2,
+): string {
+  return JSON.stringify(
+    TemplateCreateDocumentFromTemplateRepeatEvery2$outboundSchema.parse(
+      templateCreateDocumentFromTemplateRepeatEvery2,
+    ),
+  );
+}
+export function templateCreateDocumentFromTemplateRepeatEvery2FromJSON(
+  jsonString: string,
+): SafeParseResult<
+  TemplateCreateDocumentFromTemplateRepeatEvery2,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      TemplateCreateDocumentFromTemplateRepeatEvery2$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'TemplateCreateDocumentFromTemplateRepeatEvery2' from JSON`,
+  );
+}
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateRepeatEveryUnit$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateRepeatEveryUnit> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateRepeatEveryUnit);
+/** @internal */
+export const TemplateCreateDocumentFromTemplateRepeatEveryUnit$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateRepeatEveryUnit> =
+    TemplateCreateDocumentFromTemplateRepeatEveryUnit$inboundSchema;
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateRepeatEvery1$inboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateRepeatEvery1,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    unit: TemplateCreateDocumentFromTemplateRepeatEveryUnit$inboundSchema,
+    amount: z.number().int(),
+  });
+/** @internal */
+export type TemplateCreateDocumentFromTemplateRepeatEvery1$Outbound = {
+  unit: string;
+  amount: number;
+};
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateRepeatEvery1$outboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateRepeatEvery1$Outbound,
+    z.ZodTypeDef,
+    TemplateCreateDocumentFromTemplateRepeatEvery1
+  > = z.object({
+    unit: TemplateCreateDocumentFromTemplateRepeatEveryUnit$outboundSchema,
+    amount: z.number().int(),
+  });
+
+export function templateCreateDocumentFromTemplateRepeatEvery1ToJSON(
+  templateCreateDocumentFromTemplateRepeatEvery1:
+    TemplateCreateDocumentFromTemplateRepeatEvery1,
+): string {
+  return JSON.stringify(
+    TemplateCreateDocumentFromTemplateRepeatEvery1$outboundSchema.parse(
+      templateCreateDocumentFromTemplateRepeatEvery1,
+    ),
+  );
+}
+export function templateCreateDocumentFromTemplateRepeatEvery1FromJSON(
+  jsonString: string,
+): SafeParseResult<
+  TemplateCreateDocumentFromTemplateRepeatEvery1,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      TemplateCreateDocumentFromTemplateRepeatEvery1$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'TemplateCreateDocumentFromTemplateRepeatEvery1' from JSON`,
+  );
+}
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateRepeatEveryUnion$inboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateRepeatEveryUnion,
+    z.ZodTypeDef,
+    unknown
+  > = z.union([
+    z.lazy(() => TemplateCreateDocumentFromTemplateRepeatEvery1$inboundSchema),
+    z.lazy(() => TemplateCreateDocumentFromTemplateRepeatEvery2$inboundSchema),
+  ]);
+/** @internal */
+export type TemplateCreateDocumentFromTemplateRepeatEveryUnion$Outbound =
+  | TemplateCreateDocumentFromTemplateRepeatEvery1$Outbound
+  | TemplateCreateDocumentFromTemplateRepeatEvery2$Outbound;
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateRepeatEveryUnion$outboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateRepeatEveryUnion$Outbound,
+    z.ZodTypeDef,
+    TemplateCreateDocumentFromTemplateRepeatEveryUnion
+  > = z.union([
+    z.lazy(() => TemplateCreateDocumentFromTemplateRepeatEvery1$outboundSchema),
+    z.lazy(() => TemplateCreateDocumentFromTemplateRepeatEvery2$outboundSchema),
+  ]);
+
+export function templateCreateDocumentFromTemplateRepeatEveryUnionToJSON(
+  templateCreateDocumentFromTemplateRepeatEveryUnion:
+    TemplateCreateDocumentFromTemplateRepeatEveryUnion,
+): string {
+  return JSON.stringify(
+    TemplateCreateDocumentFromTemplateRepeatEveryUnion$outboundSchema.parse(
+      templateCreateDocumentFromTemplateRepeatEveryUnion,
+    ),
+  );
+}
+export function templateCreateDocumentFromTemplateRepeatEveryUnionFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  TemplateCreateDocumentFromTemplateRepeatEveryUnion,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      TemplateCreateDocumentFromTemplateRepeatEveryUnion$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'TemplateCreateDocumentFromTemplateRepeatEveryUnion' from JSON`,
+  );
+}
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateReminderSettings$inboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateReminderSettings,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    sendAfter: z.union([
+      z.lazy(() => TemplateCreateDocumentFromTemplateSendAfter1$inboundSchema),
+      z.lazy(() => TemplateCreateDocumentFromTemplateSendAfter2$inboundSchema),
+    ]),
+    repeatEvery: z.union([
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateRepeatEvery1$inboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateRepeatEvery2$inboundSchema
+      ),
+    ]),
+  });
+/** @internal */
+export type TemplateCreateDocumentFromTemplateReminderSettings$Outbound = {
+  sendAfter:
+    | TemplateCreateDocumentFromTemplateSendAfter1$Outbound
+    | TemplateCreateDocumentFromTemplateSendAfter2$Outbound;
+  repeatEvery:
+    | TemplateCreateDocumentFromTemplateRepeatEvery1$Outbound
+    | TemplateCreateDocumentFromTemplateRepeatEvery2$Outbound;
+};
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateReminderSettings$outboundSchema:
+  z.ZodType<
+    TemplateCreateDocumentFromTemplateReminderSettings$Outbound,
+    z.ZodTypeDef,
+    TemplateCreateDocumentFromTemplateReminderSettings
+  > = z.object({
+    sendAfter: z.union([
+      z.lazy(() => TemplateCreateDocumentFromTemplateSendAfter1$outboundSchema),
+      z.lazy(() => TemplateCreateDocumentFromTemplateSendAfter2$outboundSchema),
+    ]),
+    repeatEvery: z.union([
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateRepeatEvery1$outboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateRepeatEvery2$outboundSchema
+      ),
+    ]),
+  });
+
+export function templateCreateDocumentFromTemplateReminderSettingsToJSON(
+  templateCreateDocumentFromTemplateReminderSettings:
+    TemplateCreateDocumentFromTemplateReminderSettings,
+): string {
+  return JSON.stringify(
+    TemplateCreateDocumentFromTemplateReminderSettings$outboundSchema.parse(
+      templateCreateDocumentFromTemplateReminderSettings,
+    ),
+  );
+}
+export function templateCreateDocumentFromTemplateReminderSettingsFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  TemplateCreateDocumentFromTemplateReminderSettings,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      TemplateCreateDocumentFromTemplateReminderSettings$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'TemplateCreateDocumentFromTemplateReminderSettings' from JSON`,
+  );
+}
+
+/** @internal */
 export const TemplateCreateDocumentFromTemplateDocumentMeta$inboundSchema:
   z.ZodType<
     TemplateCreateDocumentFromTemplateDocumentMeta,
@@ -2650,6 +3240,11 @@ export const TemplateCreateDocumentFromTemplateDocumentMeta$inboundSchema:
         ),
       ]),
     ),
+    reminderSettings: z.nullable(
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateReminderSettings$inboundSchema
+      ),
+    ),
     password: z.nullable(z.string()).default(null),
     documentId: z.number().default(-1),
   });
@@ -2676,6 +3271,9 @@ export type TemplateCreateDocumentFromTemplateDocumentMeta$Outbound = {
   envelopeExpirationPeriod:
     | TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1$Outbound
     | TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2$Outbound
+    | null;
+  reminderSettings:
+    | TemplateCreateDocumentFromTemplateReminderSettings$Outbound
     | null;
   password: string | null;
   documentId: number;
@@ -2718,6 +3316,11 @@ export const TemplateCreateDocumentFromTemplateDocumentMeta$outboundSchema:
           TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2$outboundSchema
         ),
       ]),
+    ),
+    reminderSettings: z.nullable(
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateReminderSettings$outboundSchema
+      ),
     ),
     password: z.nullable(z.string()).default(null),
     documentId: z.number().default(-1),
@@ -3136,6 +3739,15 @@ export const TemplateCreateDocumentFromTemplateFieldTypeEnum$outboundSchema:
     TemplateCreateDocumentFromTemplateFieldTypeEnum$inboundSchema;
 
 /** @internal */
+export const TemplateCreateDocumentFromTemplateOverflow10$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow10> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateOverflow10);
+/** @internal */
+export const TemplateCreateDocumentFromTemplateOverflow10$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow10> =
+    TemplateCreateDocumentFromTemplateOverflow10$inboundSchema;
+
+/** @internal */
 export const TemplateCreateDocumentFromTemplateValue3$inboundSchema: z.ZodType<
   TemplateCreateDocumentFromTemplateValue3,
   z.ZodTypeDef,
@@ -3195,6 +3807,8 @@ export const TemplateCreateDocumentFromTemplateFieldMetaDropdown$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: TemplateCreateDocumentFromTemplateOverflow10$inboundSchema
+      .optional(),
     type: z.literal("dropdown"),
     values: z.array(
       z.lazy(() => TemplateCreateDocumentFromTemplateValue3$inboundSchema),
@@ -3208,6 +3822,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaDropdown$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "dropdown";
   values?: Array<TemplateCreateDocumentFromTemplateValue3$Outbound> | undefined;
   defaultValue?: string | undefined;
@@ -3225,6 +3840,8 @@ export const TemplateCreateDocumentFromTemplateFieldMetaDropdown$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: TemplateCreateDocumentFromTemplateOverflow10$outboundSchema
+      .optional(),
     type: z.literal("dropdown"),
     values: z.array(
       z.lazy(() => TemplateCreateDocumentFromTemplateValue3$outboundSchema),
@@ -3257,6 +3874,15 @@ export function templateCreateDocumentFromTemplateFieldMetaDropdownFromJSON(
     `Failed to parse 'TemplateCreateDocumentFromTemplateFieldMetaDropdown' from JSON`,
   );
 }
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateOverflow9$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow9> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateOverflow9);
+/** @internal */
+export const TemplateCreateDocumentFromTemplateOverflow9$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow9> =
+    TemplateCreateDocumentFromTemplateOverflow9$inboundSchema;
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateValue2$inboundSchema: z.ZodType<
@@ -3333,6 +3959,8 @@ export const TemplateCreateDocumentFromTemplateFieldMetaCheckbox$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: TemplateCreateDocumentFromTemplateOverflow9$inboundSchema
+      .optional(),
     type: z.literal("checkbox"),
     values: z.array(
       z.lazy(() => TemplateCreateDocumentFromTemplateValue2$inboundSchema),
@@ -3349,6 +3977,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaCheckbox$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "checkbox";
   values?: Array<TemplateCreateDocumentFromTemplateValue2$Outbound> | undefined;
   validationRule?: string | undefined;
@@ -3368,6 +3997,8 @@ export const TemplateCreateDocumentFromTemplateFieldMetaCheckbox$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: TemplateCreateDocumentFromTemplateOverflow9$outboundSchema
+      .optional(),
     type: z.literal("checkbox"),
     values: z.array(
       z.lazy(() => TemplateCreateDocumentFromTemplateValue2$outboundSchema),
@@ -3403,6 +4034,15 @@ export function templateCreateDocumentFromTemplateFieldMetaCheckboxFromJSON(
     `Failed to parse 'TemplateCreateDocumentFromTemplateFieldMetaCheckbox' from JSON`,
   );
 }
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateOverflow8$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow8> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateOverflow8);
+/** @internal */
+export const TemplateCreateDocumentFromTemplateOverflow8$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow8> =
+    TemplateCreateDocumentFromTemplateOverflow8$inboundSchema;
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateValue1$inboundSchema: z.ZodType<
@@ -3479,6 +4119,8 @@ export const TemplateCreateDocumentFromTemplateFieldMetaRadio$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: TemplateCreateDocumentFromTemplateOverflow8$inboundSchema
+      .optional(),
     type: z.literal("radio"),
     values: z.array(
       z.lazy(() => TemplateCreateDocumentFromTemplateValue1$inboundSchema),
@@ -3493,6 +4135,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaRadio$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "radio";
   values?: Array<TemplateCreateDocumentFromTemplateValue1$Outbound> | undefined;
   direction: string;
@@ -3510,6 +4153,8 @@ export const TemplateCreateDocumentFromTemplateFieldMetaRadio$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: TemplateCreateDocumentFromTemplateOverflow8$outboundSchema
+      .optional(),
     type: z.literal("radio"),
     values: z.array(
       z.lazy(() => TemplateCreateDocumentFromTemplateValue1$outboundSchema),
@@ -3545,6 +4190,15 @@ export function templateCreateDocumentFromTemplateFieldMetaRadioFromJSON(
 }
 
 /** @internal */
+export const TemplateCreateDocumentFromTemplateOverflow7$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow7> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateOverflow7);
+/** @internal */
+export const TemplateCreateDocumentFromTemplateOverflow7$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow7> =
+    TemplateCreateDocumentFromTemplateOverflow7$inboundSchema;
+
+/** @internal */
 export const TemplateCreateDocumentFromTemplateTextAlign6$inboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign6> = z
     .nativeEnum(TemplateCreateDocumentFromTemplateTextAlign6);
@@ -3574,6 +4228,8 @@ export const TemplateCreateDocumentFromTemplateFieldMetaNumber$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: TemplateCreateDocumentFromTemplateOverflow7$inboundSchema
+      .optional(),
     type: z.literal("number"),
     numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
@@ -3594,6 +4250,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaNumber$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "number";
   numberFormat?: string | null | undefined;
   value?: string | undefined;
@@ -3617,6 +4274,8 @@ export const TemplateCreateDocumentFromTemplateFieldMetaNumber$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: TemplateCreateDocumentFromTemplateOverflow7$outboundSchema
+      .optional(),
     type: z.literal("number"),
     numberFormat: z.nullable(z.string()).optional(),
     value: z.string().optional(),
@@ -3658,6 +4317,15 @@ export function templateCreateDocumentFromTemplateFieldMetaNumberFromJSON(
 }
 
 /** @internal */
+export const TemplateCreateDocumentFromTemplateOverflow6$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow6> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateOverflow6);
+/** @internal */
+export const TemplateCreateDocumentFromTemplateOverflow6$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow6> =
+    TemplateCreateDocumentFromTemplateOverflow6$inboundSchema;
+
+/** @internal */
 export const TemplateCreateDocumentFromTemplateTextAlign5$inboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign5> = z
     .nativeEnum(TemplateCreateDocumentFromTemplateTextAlign5);
@@ -3687,6 +4355,8 @@ export const TemplateCreateDocumentFromTemplateFieldMetaText$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: TemplateCreateDocumentFromTemplateOverflow6$inboundSchema
+      .optional(),
     type: z.literal("text"),
     text: z.string().optional(),
     characterLimit: z.number().optional(),
@@ -3705,6 +4375,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaText$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
@@ -3726,6 +4397,8 @@ export const TemplateCreateDocumentFromTemplateFieldMetaText$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: TemplateCreateDocumentFromTemplateOverflow6$outboundSchema
+      .optional(),
     type: z.literal("text"),
     text: z.string().optional(),
     characterLimit: z.number().optional(),
@@ -3765,6 +4438,15 @@ export function templateCreateDocumentFromTemplateFieldMetaTextFromJSON(
 }
 
 /** @internal */
+export const TemplateCreateDocumentFromTemplateOverflow5$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow5> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateOverflow5);
+/** @internal */
+export const TemplateCreateDocumentFromTemplateOverflow5$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow5> =
+    TemplateCreateDocumentFromTemplateOverflow5$inboundSchema;
+
+/** @internal */
 export const TemplateCreateDocumentFromTemplateTextAlign4$inboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign4> = z
     .nativeEnum(TemplateCreateDocumentFromTemplateTextAlign4);
@@ -3785,6 +4467,9 @@ export const TemplateCreateDocumentFromTemplateFieldMetaDate$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: TemplateCreateDocumentFromTemplateOverflow5$inboundSchema.default(
+      "auto",
+    ),
     type: z.literal("date"),
     textAlign: TemplateCreateDocumentFromTemplateTextAlign4$inboundSchema
       .optional(),
@@ -3796,6 +4481,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaDate$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "date";
   textAlign?: string | undefined;
 };
@@ -3812,6 +4498,8 @@ export const TemplateCreateDocumentFromTemplateFieldMetaDate$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: TemplateCreateDocumentFromTemplateOverflow5$outboundSchema
+      .default("auto"),
     type: z.literal("date"),
     textAlign: TemplateCreateDocumentFromTemplateTextAlign4$outboundSchema
       .optional(),
@@ -3844,6 +4532,15 @@ export function templateCreateDocumentFromTemplateFieldMetaDateFromJSON(
 }
 
 /** @internal */
+export const TemplateCreateDocumentFromTemplateOverflow4$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow4> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateOverflow4);
+/** @internal */
+export const TemplateCreateDocumentFromTemplateOverflow4$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow4> =
+    TemplateCreateDocumentFromTemplateOverflow4$inboundSchema;
+
+/** @internal */
 export const TemplateCreateDocumentFromTemplateTextAlign3$inboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign3> = z
     .nativeEnum(TemplateCreateDocumentFromTemplateTextAlign3);
@@ -3864,6 +4561,9 @@ export const TemplateCreateDocumentFromTemplateFieldMetaEmail$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: TemplateCreateDocumentFromTemplateOverflow4$inboundSchema.default(
+      "auto",
+    ),
     type: z.literal("email"),
     textAlign: TemplateCreateDocumentFromTemplateTextAlign3$inboundSchema
       .optional(),
@@ -3875,6 +4575,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaEmail$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "email";
   textAlign?: string | undefined;
 };
@@ -3891,6 +4592,8 @@ export const TemplateCreateDocumentFromTemplateFieldMetaEmail$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: TemplateCreateDocumentFromTemplateOverflow4$outboundSchema
+      .default("auto"),
     type: z.literal("email"),
     textAlign: TemplateCreateDocumentFromTemplateTextAlign3$outboundSchema
       .optional(),
@@ -3923,6 +4626,15 @@ export function templateCreateDocumentFromTemplateFieldMetaEmailFromJSON(
 }
 
 /** @internal */
+export const TemplateCreateDocumentFromTemplateOverflow3$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow3> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateOverflow3);
+/** @internal */
+export const TemplateCreateDocumentFromTemplateOverflow3$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow3> =
+    TemplateCreateDocumentFromTemplateOverflow3$inboundSchema;
+
+/** @internal */
 export const TemplateCreateDocumentFromTemplateTextAlign2$inboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign2> = z
     .nativeEnum(TemplateCreateDocumentFromTemplateTextAlign2);
@@ -3943,6 +4655,8 @@ export const TemplateCreateDocumentFromTemplateFieldMetaName$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: TemplateCreateDocumentFromTemplateOverflow3$inboundSchema
+      .optional(),
     type: z.literal("name"),
     textAlign: TemplateCreateDocumentFromTemplateTextAlign2$inboundSchema
       .optional(),
@@ -3954,6 +4668,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaName$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "name";
   textAlign?: string | undefined;
 };
@@ -3970,6 +4685,8 @@ export const TemplateCreateDocumentFromTemplateFieldMetaName$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: TemplateCreateDocumentFromTemplateOverflow3$outboundSchema
+      .optional(),
     type: z.literal("name"),
     textAlign: TemplateCreateDocumentFromTemplateTextAlign2$outboundSchema
       .optional(),
@@ -4002,6 +4719,15 @@ export function templateCreateDocumentFromTemplateFieldMetaNameFromJSON(
 }
 
 /** @internal */
+export const TemplateCreateDocumentFromTemplateOverflow2$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow2> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateOverflow2);
+/** @internal */
+export const TemplateCreateDocumentFromTemplateOverflow2$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow2> =
+    TemplateCreateDocumentFromTemplateOverflow2$inboundSchema;
+
+/** @internal */
 export const TemplateCreateDocumentFromTemplateTextAlign1$inboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign1> = z
     .nativeEnum(TemplateCreateDocumentFromTemplateTextAlign1);
@@ -4022,6 +4748,8 @@ export const TemplateCreateDocumentFromTemplateFieldMetaInitials$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: TemplateCreateDocumentFromTemplateOverflow2$inboundSchema
+      .optional(),
     type: z.literal("initials"),
     textAlign: TemplateCreateDocumentFromTemplateTextAlign1$inboundSchema
       .optional(),
@@ -4033,6 +4761,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaInitials$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
 };
@@ -4049,6 +4778,8 @@ export const TemplateCreateDocumentFromTemplateFieldMetaInitials$outboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: TemplateCreateDocumentFromTemplateOverflow2$outboundSchema
+      .optional(),
     type: z.literal("initials"),
     textAlign: TemplateCreateDocumentFromTemplateTextAlign1$outboundSchema
       .optional(),
@@ -4081,6 +4812,15 @@ export function templateCreateDocumentFromTemplateFieldMetaInitialsFromJSON(
 }
 
 /** @internal */
+export const TemplateCreateDocumentFromTemplateOverflow1$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow1> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateOverflow1);
+/** @internal */
+export const TemplateCreateDocumentFromTemplateOverflow1$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow1> =
+    TemplateCreateDocumentFromTemplateOverflow1$inboundSchema;
+
+/** @internal */
 export const TemplateCreateDocumentFromTemplateFieldMetaSignature$inboundSchema:
   z.ZodType<
     TemplateCreateDocumentFromTemplateFieldMetaSignature,
@@ -4092,6 +4832,9 @@ export const TemplateCreateDocumentFromTemplateFieldMetaSignature$inboundSchema:
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: TemplateCreateDocumentFromTemplateOverflow1$inboundSchema.default(
+      "auto",
+    ),
     type: z.literal("signature"),
   });
 /** @internal */
@@ -4101,6 +4844,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaSignature$Outbound = {
   required?: boolean | undefined;
   readOnly?: boolean | undefined;
   fontSize: number;
+  overflow: string;
   type: "signature";
 };
 
@@ -4116,6 +4860,8 @@ export const TemplateCreateDocumentFromTemplateFieldMetaSignature$outboundSchema
     required: z.boolean().optional(),
     readOnly: z.boolean().optional(),
     fontSize: z.number().default(12),
+    overflow: TemplateCreateDocumentFromTemplateOverflow1$outboundSchema
+      .default("auto"),
     type: z.literal("signature"),
   });
 

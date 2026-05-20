@@ -5,11 +5,11 @@
 ```typescript
 import { TemplateUpdateTemplateTypeResponse } from "@documenso/sdk-typescript/models/operations";
 
-let value: TemplateUpdateTemplateTypeResponse = "PRIVATE";
+let value: TemplateUpdateTemplateTypeResponse = "ORGANISATION";
 ```
 
 ## Values
 
 ```typescript
-"PUBLIC" | "PRIVATE"
+"PUBLIC" | "PRIVATE" | "ORGANISATION"
 ```

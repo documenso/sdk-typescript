@@ -26,6 +26,15 @@ let value: TemplateCreateDocumentFromTemplateDocumentMeta = {
     unit: "week",
     amount: 520015,
   },
+  reminderSettings: {
+    sendAfter: {
+      disabled: true,
+    },
+    repeatEvery: {
+      unit: "month",
+      amount: 553044,
+    },
+  },
 };
 ```
 
@@ -50,5 +59,6 @@ let value: TemplateCreateDocumentFromTemplateDocumentMeta = {
 | `emailId`                                                                                                                                                                  | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |
 | `emailReplyTo`                                                                                                                                                             | *string*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |
 | `envelopeExpirationPeriod`                                                                                                                                                 | *operations.TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponseUnion*                                                                                       | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |
+| `reminderSettings`                                                                                                                                                         | [operations.TemplateCreateDocumentFromTemplateReminderSettings](../../models/operations/templatecreatedocumentfromtemplateremindersettings.md)                             | :heavy_check_mark:                                                                                                                                                         | N/A                                                                                                                                                                        |
 | `password`                                                                                                                                                                 | *string*                                                                                                                                                                   | :heavy_minus_sign:                                                                                                                                                         | N/A                                                                                                                                                                        |
 | `documentId`                                                                                                                                                               | *number*                                                                                                                                                                   | :heavy_minus_sign:                                                                                                                                                         | N/A                                                                                                                                                                        |

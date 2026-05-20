@@ -8,6 +8,7 @@ import { TemplateFindTemplatesTeam } from "@documenso/sdk-typescript/models/oper
 let value: TemplateFindTemplatesTeam = {
   id: 5578.75,
   url: "https://honored-legging.org/",
+  name: "<value>",
 };
 ```
 
@@ -17,3 +18,4 @@ let value: TemplateFindTemplatesTeam = {
 | ------------------ | ------------------ | ------------------ | ------------------ |
 | `id`               | *number*           | :heavy_check_mark: | N/A                |
 | `url`              | *string*           | :heavy_check_mark: | N/A                |
+| `name`             | *string*           | :heavy_check_mark: | N/A                |

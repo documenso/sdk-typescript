@@ -23,6 +23,7 @@ let value: FieldUpdateTemplateFieldResponse = {
   inserted: false,
   fieldMeta: {
     fontSize: 12,
+    overflow: "auto",
     type: "signature",
   },
 };

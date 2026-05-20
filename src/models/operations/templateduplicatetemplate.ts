@@ -15,6 +15,7 @@ export type TemplateDuplicateTemplateRequest = {
 export const TemplateDuplicateTemplateType = {
   Public: "PUBLIC",
   Private: "PRIVATE",
+  Organisation: "ORGANISATION",
 } as const;
 export type TemplateDuplicateTemplateType = ClosedEnum<
   typeof TemplateDuplicateTemplateType

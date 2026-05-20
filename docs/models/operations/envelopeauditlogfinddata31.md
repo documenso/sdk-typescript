@@ -6,19 +6,21 @@
 import { EnvelopeAuditLogFindData31 } from "@documenso/sdk-typescript/models/operations";
 
 let value: EnvelopeAuditLogFindData31 = {
-  recipientEmail: "<value>",
-  recipientName: "<value>",
-  recipientId: 5995.99,
-  recipientRole: "<value>",
+  fieldId: "<id>",
+  fieldRecipientEmail: "<value>",
+  fieldRecipientId: 5995.99,
+  fieldType: "<value>",
   changes: [
     {
-      from: "<value>",
-      to: [
-        "<value 1>",
-        "<value 2>",
-        "<value 3>",
-      ],
-      type: "ACTION_AUTH",
+      type: "DIMENSION",
+      from: {
+        width: 3148.09,
+        height: 626.91,
+      },
+      to: {
+        width: 76.63,
+        height: 9050.09,
+      },
     },
   ],
 };
@@ -28,8 +30,8 @@ let value: EnvelopeAuditLogFindData31 = {
 
 | Field                       | Type                        | Required                    | Description                 |
 | --------------------------- | --------------------------- | --------------------------- | --------------------------- |
-| `recipientEmail`            | *string*                    | :heavy_check_mark:          | N/A                         |
-| `recipientName`             | *string*                    | :heavy_check_mark:          | N/A                         |
-| `recipientId`               | *number*                    | :heavy_check_mark:          | N/A                         |
-| `recipientRole`             | *string*                    | :heavy_check_mark:          | N/A                         |
-| `changes`                   | *operations.ChangeUnion3*[] | :heavy_check_mark:          | N/A                         |
+| `fieldId`                   | *string*                    | :heavy_check_mark:          | N/A                         |
+| `fieldRecipientEmail`       | *string*                    | :heavy_check_mark:          | N/A                         |
+| `fieldRecipientId`          | *number*                    | :heavy_check_mark:          | N/A                         |
+| `fieldType`                 | *string*                    | :heavy_check_mark:          | N/A                         |
+| `changes`                   | *operations.ChangeUnion2*[] | :heavy_check_mark:          | N/A                         |
