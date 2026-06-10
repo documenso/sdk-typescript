@@ -2,6 +2,7 @@
   "name": "@documenso/sdk-typescript",
   "version": "0.8.1",
   "author": "Speakeasy",
+  "license": "MIT",
   "bin": {
     "mcp": "bin/mcp-server.js"
   },
