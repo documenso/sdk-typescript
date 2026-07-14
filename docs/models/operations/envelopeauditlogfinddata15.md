@@ -6,14 +6,26 @@
 import { EnvelopeAuditLogFindData15 } from "@documenso/sdk-typescript/models/operations";
 
 let value: EnvelopeAuditLogFindData15 = {
-  from: null,
-  to: [],
+  recipientEmail: "<value>",
+  recipientName: "<value>",
+  recipientId: 739.2,
+  recipientRole: "<value>",
+  fieldId: "<id>",
+  field: {
+    type: "NAME",
+    data: "<value>",
+  },
 };
 ```
 
 ## Fields
 
-| Field                   | Type                    | Required                | Description             |
-| ----------------------- | ----------------------- | ----------------------- | ----------------------- |
-| `from`                  | *operations.FromUnion1* | :heavy_check_mark:      | N/A                     |
-| `to`                    | *operations.ToUnion1*   | :heavy_check_mark:      | N/A                     |
+| Field                                                                  | Type                                                                   | Required                                                               | Description                                                            |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `recipientEmail`                                                       | *string*                                                               | :heavy_check_mark:                                                     | N/A                                                                    |
+| `recipientName`                                                        | *string*                                                               | :heavy_check_mark:                                                     | N/A                                                                    |
+| `recipientId`                                                          | *number*                                                               | :heavy_check_mark:                                                     | N/A                                                                    |
+| `recipientRole`                                                        | *string*                                                               | :heavy_check_mark:                                                     | N/A                                                                    |
+| `fieldId`                                                              | *string*                                                               | :heavy_check_mark:                                                     | N/A                                                                    |
+| `field`                                                                | *operations.EnvelopeAuditLogFindFieldUnion2*                           | :heavy_check_mark:                                                     | N/A                                                                    |
+| `fieldSecurity`                                                        | [operations.FieldSecurity2](../../models/operations/fieldsecurity2.md) | :heavy_minus_sign:                                                     | N/A                                                                    |

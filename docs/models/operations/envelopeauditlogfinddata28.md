@@ -5,12 +5,15 @@
 ```typescript
 import { EnvelopeAuditLogFindData28 } from "@documenso/sdk-typescript/models/operations";
 
-let value: EnvelopeAuditLogFindData28 = {};
+let value: EnvelopeAuditLogFindData28 = {
+  from: "<value>",
+  to: "<value>",
+};
 ```
 
 ## Fields
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `from`             | *string*           | :heavy_minus_sign: | N/A                |
-| `to`               | *string*           | :heavy_minus_sign: | N/A                |
+| `from`             | *string*           | :heavy_check_mark: | N/A                |
+| `to`               | *string*           | :heavy_check_mark: | N/A                |

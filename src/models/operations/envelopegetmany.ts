@@ -42,6 +42,7 @@ export const EnvelopeGetManyStatus = {
   Pending: "PENDING",
   Completed: "COMPLETED",
   Rejected: "REJECTED",
+  Cancelled: "CANCELLED",
 } as const;
 export type EnvelopeGetManyStatus = ClosedEnum<typeof EnvelopeGetManyStatus>;
 

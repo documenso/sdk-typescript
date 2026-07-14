@@ -869,6 +869,7 @@ export const DocumentCreateDocumentTemporaryStatus = {
   Pending: "PENDING",
   Completed: "COMPLETED",
   Rejected: "REJECTED",
+  Cancelled: "CANCELLED",
 } as const;
 export type DocumentCreateDocumentTemporaryStatus = ClosedEnum<
   typeof DocumentCreateDocumentTemporaryStatus

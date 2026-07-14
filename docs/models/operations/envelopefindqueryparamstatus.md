@@ -7,11 +7,11 @@ Filter envelopes by the current status.
 ```typescript
 import { EnvelopeFindQueryParamStatus } from "@documenso/sdk-typescript/models/operations";
 
-let value: EnvelopeFindQueryParamStatus = "PENDING";
+let value: EnvelopeFindQueryParamStatus = "COMPLETED";
 ```
 
 ## Values
 
 ```typescript
-"DRAFT" | "PENDING" | "COMPLETED" | "REJECTED"
+"DRAFT" | "PENDING" | "COMPLETED" | "REJECTED" | "CANCELLED"
 ```
