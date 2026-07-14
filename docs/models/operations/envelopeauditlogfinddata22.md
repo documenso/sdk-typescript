@@ -10,16 +10,16 @@ let value: EnvelopeAuditLogFindData22 = {
   recipientName: "<value>",
   recipientId: 3301.02,
   recipientRole: "<value>",
-  reason: "<value>",
+  actionAuth: [],
 };
 ```
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `recipientEmail`   | *string*           | :heavy_check_mark: | N/A                |
-| `recipientName`    | *string*           | :heavy_check_mark: | N/A                |
-| `recipientId`      | *number*           | :heavy_check_mark: | N/A                |
-| `recipientRole`    | *string*           | :heavy_check_mark: | N/A                |
-| `reason`           | *string*           | :heavy_check_mark: | N/A                |
+| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `recipientEmail`                                                                                           | *string*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| `recipientName`                                                                                            | *string*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| `recipientId`                                                                                              | *number*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| `recipientRole`                                                                                            | *string*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| `actionAuth`                                                                                               | [operations.EnvelopeAuditLogFindActionAuth1](../../models/operations/envelopeauditlogfindactionauth1.md)[] | :heavy_check_mark:                                                                                         | N/A                                                                                                        |

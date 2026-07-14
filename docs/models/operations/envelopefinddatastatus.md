@@ -5,11 +5,11 @@
 ```typescript
 import { EnvelopeFindDataStatus } from "@documenso/sdk-typescript/models/operations";
 
-let value: EnvelopeFindDataStatus = "COMPLETED";
+let value: EnvelopeFindDataStatus = "REJECTED";
 ```
 
 ## Values
 
 ```typescript
-"DRAFT" | "PENDING" | "COMPLETED" | "REJECTED"
+"DRAFT" | "PENDING" | "COMPLETED" | "REJECTED" | "CANCELLED"
 ```

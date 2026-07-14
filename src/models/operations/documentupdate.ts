@@ -235,6 +235,7 @@ export const DocumentUpdateStatus = {
   Pending: "PENDING",
   Completed: "COMPLETED",
   Rejected: "REJECTED",
+  Cancelled: "CANCELLED",
 } as const;
 export type DocumentUpdateStatus = ClosedEnum<typeof DocumentUpdateStatus>;
 

@@ -5,11 +5,11 @@
 ```typescript
 import { DocumentGetStatus } from "@documenso/sdk-typescript/models/operations";
 
-let value: DocumentGetStatus = "PENDING";
+let value: DocumentGetStatus = "COMPLETED";
 ```
 
 ## Values
 
 ```typescript
-"DRAFT" | "PENDING" | "COMPLETED" | "REJECTED"
+"DRAFT" | "PENDING" | "COMPLETED" | "REJECTED" | "CANCELLED"
 ```

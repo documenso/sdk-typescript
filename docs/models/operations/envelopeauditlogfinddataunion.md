@@ -130,6 +130,18 @@ const value: operations.DataDocumentDeleted = {
 };
 ```
 
+### `operations.DataDocumentCancelled`
+
+```typescript
+const value: operations.DataDocumentCancelled = {
+  type: "DOCUMENT_CANCELLED",
+  data: {},
+  id: "<id>",
+  createdAt: "1714249044477",
+  envelopeId: "<id>",
+};
+```
+
 ### `operations.DataDocumentMovedToTeam`
 
 ```typescript
@@ -225,12 +237,12 @@ const value: operations.DataDocumentFieldPrefilled = {
     recipientRole: "<value>",
     fieldId: "<id>",
     field: {
-      type: "SIGNATURE",
+      type: "FREE_SIGNATURE",
       data: "<value>",
     },
   },
   id: "<id>",
-  createdAt: "1720949639913",
+  createdAt: "1721369507607",
   envelopeId: "<id>",
 };
 ```
@@ -609,6 +621,111 @@ const value: operations.DataDocumentRecipientExpired = {
   },
   id: "<id>",
   createdAt: "1735430669557",
+  envelopeId: "<id>",
+};
+```
+
+### `operations.DataDocumentRecipientCscAuthenticated`
+
+```typescript
+const value: operations.DataDocumentRecipientCscAuthenticated = {
+  type: "DOCUMENT_RECIPIENT_CSC_AUTHENTICATED",
+  data: {
+    recipientEmail: "<value>",
+    recipientName: "<value>",
+    recipientId: 8668.86,
+    recipientRole: "<value>",
+    providerId: "<id>",
+    credentialId: "<id>",
+    signatureAlgorithm: "<value>",
+    digestAlgorithm: "<value>",
+  },
+  id: "<id>",
+  createdAt: "1720248159795",
+  envelopeId: "<id>",
+};
+```
+
+### `operations.DataDocumentRecipientCscAuthenticationFailed`
+
+```typescript
+const value: operations.DataDocumentRecipientCscAuthenticationFailed = {
+  type: "DOCUMENT_RECIPIENT_CSC_AUTHENTICATION_FAILED",
+  data: {
+    recipientEmail: "<value>",
+    recipientName: "<value>",
+    recipientId: 6170.87,
+    recipientRole: "<value>",
+    providerId: "<id>",
+    reason: "<value>",
+  },
+  id: "<id>",
+  createdAt: "1704765638012",
+  envelopeId: "<id>",
+};
+```
+
+### `operations.DataDocumentRecipientCscSignRequested`
+
+```typescript
+const value: operations.DataDocumentRecipientCscSignRequested = {
+  type: "DOCUMENT_RECIPIENT_CSC_SIGN_REQUESTED",
+  data: {
+    recipientEmail: "<value>",
+    recipientName: "<value>",
+    recipientId: 4316.02,
+    recipientRole: "<value>",
+    providerId: "<id>",
+    credentialId: "<id>",
+    sessionId: "<id>",
+    numSignatures: 8646.98,
+  },
+  id: "<id>",
+  createdAt: "1704910434898",
+  envelopeId: "<id>",
+};
+```
+
+### `operations.DataDocumentRecipientCscAuthorized`
+
+```typescript
+const value: operations.DataDocumentRecipientCscAuthorized = {
+  type: "DOCUMENT_RECIPIENT_CSC_AUTHORIZED",
+  data: {
+    recipientEmail: "<value>",
+    recipientName: "<value>",
+    recipientId: 8640.63,
+    recipientRole: "<value>",
+    providerId: "<id>",
+    credentialId: "<id>",
+    sessionId: "<id>",
+    sadExpiresAt: "<value>",
+  },
+  id: "<id>",
+  createdAt: "1723352037968",
+  envelopeId: "<id>",
+};
+```
+
+### `operations.DataDocumentRecipientCscSigned`
+
+```typescript
+const value: operations.DataDocumentRecipientCscSigned = {
+  type: "DOCUMENT_RECIPIENT_CSC_SIGNED",
+  data: {
+    recipientEmail: "<value>",
+    recipientName: "<value>",
+    recipientId: 594.18,
+    recipientRole: "<value>",
+    providerId: "<id>",
+    credentialId: "<id>",
+    sessionId: "<id>",
+    numItemsSigned: 7008.3,
+    signatureAlgorithm: "<value>",
+    digestAlgorithm: "<value>",
+  },
+  id: "<id>",
+  createdAt: "1728539819503",
   envelopeId: "<id>",
 };
 ```

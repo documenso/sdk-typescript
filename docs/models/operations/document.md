@@ -7,7 +7,7 @@ import { Document } from "@documenso/sdk-typescript/models/operations";
 
 let value: Document = {
   visibility: "MANAGER_AND_ABOVE",
-  status: "PENDING",
+  status: "COMPLETED",
   source: "TEMPLATE_DIRECT_LINK",
   id: 157.99,
   externalId: "<id>",

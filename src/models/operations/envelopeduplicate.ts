@@ -9,6 +9,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type EnvelopeDuplicateRequest = {
   envelopeId: string;
+  includeRecipients?: boolean | undefined;
+  includeFields?: boolean | undefined;
 };
 
 /**
@@ -25,10 +27,14 @@ export const EnvelopeDuplicateRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   envelopeId: z.string(),
+  includeRecipients: z.boolean().default(true),
+  includeFields: z.boolean().default(true),
 });
 /** @internal */
 export type EnvelopeDuplicateRequest$Outbound = {
   envelopeId: string;
+  includeRecipients: boolean;
+  includeFields: boolean;
 };
 
 /** @internal */
@@ -38,6 +44,8 @@ export const EnvelopeDuplicateRequest$outboundSchema: z.ZodType<
   EnvelopeDuplicateRequest
 > = z.object({
   envelopeId: z.string(),
+  includeRecipients: z.boolean().default(true),
+  includeFields: z.boolean().default(true),
 });
 
 export function envelopeDuplicateRequestToJSON(

@@ -257,6 +257,7 @@ export const TemplateCreateDocumentFromTemplateStatus = {
   Pending: "PENDING",
   Completed: "COMPLETED",
   Rejected: "REJECTED",
+  Cancelled: "CANCELLED",
 } as const;
 export type TemplateCreateDocumentFromTemplateStatus = ClosedEnum<
   typeof TemplateCreateDocumentFromTemplateStatus

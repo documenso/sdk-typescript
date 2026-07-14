@@ -345,7 +345,14 @@ main()
 
 * [envelopeFind](docs/sdks/envelope/README.md#envelopefind) - Find envelopes
 * [envelopeAuditLogFind](docs/sdks/envelope/README.md#envelopeauditlogfind) - Get envelope audit logs
+* [envelopeAuditLogDownloadPdf](docs/sdks/envelope/README.md#envelopeauditlogdownloadpdf) - Download envelope audit log PDF
+* [envelopeCertificateDownloadPdf](docs/sdks/envelope/README.md#envelopecertificatedownloadpdf) - Download envelope certificate PDF
 * [envelopeGetMany](docs/sdks/envelope/README.md#envelopegetmany) - Get multiple envelopes
+* [envelopeCancel](docs/sdks/envelope/README.md#envelopecancel) - Cancel envelope
+
+### [EnvelopeRecipients](docs/sdks/enveloperecipients/README.md)
+
+* [envelopeRecipientRejectOnBehalfOf](docs/sdks/enveloperecipients/README.md#enveloperecipientrejectonbehalfof) - Reject envelope recipient on behalf of
 
 ### [Envelopes](docs/sdks/envelopes/README.md)
 
@@ -597,7 +604,7 @@ run();
 **Primary error:**
 * [`DocumensoError`](./src/models/errors/documensoerror.ts): The base class for HTTP error responses.
 
-<details><summary>Less common errors (365)</summary>
+<details><summary>Less common errors (383)</summary>
 
 <br />
 
@@ -610,365 +617,383 @@ run();
 
 
 **Inherit from [`DocumensoError`](./src/models/errors/documensoerror.ts)**:
-* [`EnvelopeGetBadRequestError`](./src/models/errors/envelopegetbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EnvelopeCreateBadRequestError`](./src/models/errors/envelopecreatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EnvelopeUseBadRequestError`](./src/models/errors/envelopeusebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EnvelopeUpdateBadRequestError`](./src/models/errors/envelopeupdatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EnvelopeDeleteBadRequestError`](./src/models/errors/envelopedeletebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EnvelopeDuplicateBadRequestError`](./src/models/errors/envelopeduplicatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EnvelopeDistributeBadRequestError`](./src/models/errors/envelopedistributebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EnvelopeRedistributeBadRequestError`](./src/models/errors/enveloperedistributebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EnvelopeFindBadRequestError`](./src/models/errors/envelopefindbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EnvelopeAuditLogFindBadRequestError`](./src/models/errors/envelopeauditlogfindbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EnvelopeGetManyBadRequestError`](./src/models/errors/envelopegetmanybadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`DocumentGetBadRequestError`](./src/models/errors/documentgetbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`DocumentFindBadRequestError`](./src/models/errors/documentfindbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`DocumentCreateBadRequestError`](./src/models/errors/documentcreatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`DocumentUpdateBadRequestError`](./src/models/errors/documentupdatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`DocumentDeleteBadRequestError`](./src/models/errors/documentdeletebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`DocumentDuplicateBadRequestError`](./src/models/errors/documentduplicatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`DocumentDistributeBadRequestError`](./src/models/errors/documentdistributebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`DocumentRedistributeBadRequestError`](./src/models/errors/documentredistributebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`DocumentDownloadBadRequestError`](./src/models/errors/documentdownloadbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`DocumentCreateDocumentTemporaryBadRequestError`](./src/models/errors/documentcreatedocumenttemporarybadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`DocumentGetManyBadRequestError`](./src/models/errors/documentgetmanybadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`DocumentDownloadBetaBadRequestError`](./src/models/errors/documentdownloadbetabadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`TemplateFindTemplatesBadRequestError`](./src/models/errors/templatefindtemplatesbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`TemplateGetTemplateByIdBadRequestError`](./src/models/errors/templategettemplatebyidbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`TemplateCreateTemplateBadRequestError`](./src/models/errors/templatecreatetemplatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`TemplateUpdateTemplateBadRequestError`](./src/models/errors/templateupdatetemplatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`TemplateDuplicateTemplateBadRequestError`](./src/models/errors/templateduplicatetemplatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`TemplateDeleteTemplateBadRequestError`](./src/models/errors/templatedeletetemplatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`TemplateCreateDocumentFromTemplateBadRequestError`](./src/models/errors/templatecreatedocumentfromtemplatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`FolderFindFoldersBadRequestError`](./src/models/errors/folderfindfoldersbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`FolderCreateFolderBadRequestError`](./src/models/errors/foldercreatefolderbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`FolderUpdateFolderBadRequestError`](./src/models/errors/folderupdatefolderbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`FolderDeleteFolderBadRequestError`](./src/models/errors/folderdeletefolderbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`TemplateGetManyBadRequestError`](./src/models/errors/templategetmanybadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`TemplateCreateTemplateTemporaryBadRequestError`](./src/models/errors/templatecreatetemplatetemporarybadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EmbeddingPresignCreateEmbeddingPresignTokenBadRequestError`](./src/models/errors/embeddingpresigncreateembeddingpresigntokenbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EmbeddingPresignVerifyEmbeddingPresignTokenBadRequestError`](./src/models/errors/embeddingpresignverifyembeddingpresigntokenbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EnvelopeAttachmentFindBadRequestError`](./src/models/errors/envelopeattachmentfindbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EnvelopeAttachmentCreateBadRequestError`](./src/models/errors/envelopeattachmentcreatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EnvelopeAttachmentUpdateBadRequestError`](./src/models/errors/envelopeattachmentupdatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EnvelopeAttachmentDeleteBadRequestError`](./src/models/errors/envelopeattachmentdeletebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EnvelopeItemCreateManyBadRequestError`](./src/models/errors/envelopeitemcreatemanybadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EnvelopeItemUpdateManyBadRequestError`](./src/models/errors/envelopeitemupdatemanybadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EnvelopeItemDeleteBadRequestError`](./src/models/errors/envelopeitemdeletebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EnvelopeItemDownloadBadRequestError`](./src/models/errors/envelopeitemdownloadbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EnvelopeRecipientGetBadRequestError`](./src/models/errors/enveloperecipientgetbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EnvelopeRecipientCreateManyBadRequestError`](./src/models/errors/enveloperecipientcreatemanybadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EnvelopeRecipientUpdateManyBadRequestError`](./src/models/errors/enveloperecipientupdatemanybadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EnvelopeRecipientDeleteBadRequestError`](./src/models/errors/enveloperecipientdeletebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EnvelopeFieldGetBadRequestError`](./src/models/errors/envelopefieldgetbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EnvelopeFieldCreateManyBadRequestError`](./src/models/errors/envelopefieldcreatemanybadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EnvelopeFieldUpdateManyBadRequestError`](./src/models/errors/envelopefieldupdatemanybadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EnvelopeFieldDeleteBadRequestError`](./src/models/errors/envelopefielddeletebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`DocumentAttachmentCreateBadRequestError`](./src/models/errors/documentattachmentcreatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`DocumentAttachmentUpdateBadRequestError`](./src/models/errors/documentattachmentupdatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`DocumentAttachmentDeleteBadRequestError`](./src/models/errors/documentattachmentdeletebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`DocumentAttachmentFindBadRequestError`](./src/models/errors/documentattachmentfindbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`FieldGetDocumentFieldBadRequestError`](./src/models/errors/fieldgetdocumentfieldbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`FieldCreateDocumentFieldBadRequestError`](./src/models/errors/fieldcreatedocumentfieldbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`FieldCreateDocumentFieldsBadRequestError`](./src/models/errors/fieldcreatedocumentfieldsbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`FieldUpdateDocumentFieldBadRequestError`](./src/models/errors/fieldupdatedocumentfieldbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`FieldUpdateDocumentFieldsBadRequestError`](./src/models/errors/fieldupdatedocumentfieldsbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`FieldDeleteDocumentFieldBadRequestError`](./src/models/errors/fielddeletedocumentfieldbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`RecipientGetDocumentRecipientBadRequestError`](./src/models/errors/recipientgetdocumentrecipientbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`RecipientCreateDocumentRecipientBadRequestError`](./src/models/errors/recipientcreatedocumentrecipientbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`RecipientCreateDocumentRecipientsBadRequestError`](./src/models/errors/recipientcreatedocumentrecipientsbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`RecipientUpdateDocumentRecipientBadRequestError`](./src/models/errors/recipientupdatedocumentrecipientbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`RecipientUpdateDocumentRecipientsBadRequestError`](./src/models/errors/recipientupdatedocumentrecipientsbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`RecipientDeleteDocumentRecipientBadRequestError`](./src/models/errors/recipientdeletedocumentrecipientbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`FieldCreateTemplateFieldBadRequestError`](./src/models/errors/fieldcreatetemplatefieldbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`FieldGetTemplateFieldBadRequestError`](./src/models/errors/fieldgettemplatefieldbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`FieldCreateTemplateFieldsBadRequestError`](./src/models/errors/fieldcreatetemplatefieldsbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`FieldUpdateTemplateFieldBadRequestError`](./src/models/errors/fieldupdatetemplatefieldbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`FieldUpdateTemplateFieldsBadRequestError`](./src/models/errors/fieldupdatetemplatefieldsbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`FieldDeleteTemplateFieldBadRequestError`](./src/models/errors/fielddeletetemplatefieldbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`RecipientGetTemplateRecipientBadRequestError`](./src/models/errors/recipientgettemplaterecipientbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`RecipientCreateTemplateRecipientBadRequestError`](./src/models/errors/recipientcreatetemplaterecipientbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`RecipientCreateTemplateRecipientsBadRequestError`](./src/models/errors/recipientcreatetemplaterecipientsbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`RecipientUpdateTemplateRecipientBadRequestError`](./src/models/errors/recipientupdatetemplaterecipientbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`RecipientUpdateTemplateRecipientsBadRequestError`](./src/models/errors/recipientupdatetemplaterecipientsbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`RecipientDeleteTemplateRecipientBadRequestError`](./src/models/errors/recipientdeletetemplaterecipientbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`TemplateCreateTemplateDirectLinkBadRequestError`](./src/models/errors/templatecreatetemplatedirectlinkbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`TemplateDeleteTemplateDirectLinkBadRequestError`](./src/models/errors/templatedeletetemplatedirectlinkbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`TemplateToggleTemplateDirectLinkBadRequestError`](./src/models/errors/templatetoggletemplatedirectlinkbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 85 methods.*
-* [`EnvelopeGetUnauthorizedError`](./src/models/errors/envelopegetunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EnvelopeCreateUnauthorizedError`](./src/models/errors/envelopecreateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EnvelopeUseUnauthorizedError`](./src/models/errors/envelopeuseunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EnvelopeUpdateUnauthorizedError`](./src/models/errors/envelopeupdateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EnvelopeDeleteUnauthorizedError`](./src/models/errors/envelopedeleteunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EnvelopeDuplicateUnauthorizedError`](./src/models/errors/envelopeduplicateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EnvelopeDistributeUnauthorizedError`](./src/models/errors/envelopedistributeunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EnvelopeRedistributeUnauthorizedError`](./src/models/errors/enveloperedistributeunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EnvelopeFindUnauthorizedError`](./src/models/errors/envelopefindunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EnvelopeAuditLogFindUnauthorizedError`](./src/models/errors/envelopeauditlogfindunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EnvelopeGetManyUnauthorizedError`](./src/models/errors/envelopegetmanyunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`DocumentGetUnauthorizedError`](./src/models/errors/documentgetunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`DocumentFindUnauthorizedError`](./src/models/errors/documentfindunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`DocumentCreateUnauthorizedError`](./src/models/errors/documentcreateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`DocumentUpdateUnauthorizedError`](./src/models/errors/documentupdateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`DocumentDeleteUnauthorizedError`](./src/models/errors/documentdeleteunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`DocumentDuplicateUnauthorizedError`](./src/models/errors/documentduplicateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`DocumentDistributeUnauthorizedError`](./src/models/errors/documentdistributeunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`DocumentRedistributeUnauthorizedError`](./src/models/errors/documentredistributeunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`DocumentDownloadUnauthorizedError`](./src/models/errors/documentdownloadunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`DocumentCreateDocumentTemporaryUnauthorizedError`](./src/models/errors/documentcreatedocumenttemporaryunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`DocumentGetManyUnauthorizedError`](./src/models/errors/documentgetmanyunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`DocumentDownloadBetaUnauthorizedError`](./src/models/errors/documentdownloadbetaunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`TemplateFindTemplatesUnauthorizedError`](./src/models/errors/templatefindtemplatesunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`TemplateGetTemplateByIdUnauthorizedError`](./src/models/errors/templategettemplatebyidunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`TemplateCreateTemplateUnauthorizedError`](./src/models/errors/templatecreatetemplateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`TemplateUpdateTemplateUnauthorizedError`](./src/models/errors/templateupdatetemplateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`TemplateDuplicateTemplateUnauthorizedError`](./src/models/errors/templateduplicatetemplateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`TemplateDeleteTemplateUnauthorizedError`](./src/models/errors/templatedeletetemplateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`TemplateCreateDocumentFromTemplateUnauthorizedError`](./src/models/errors/templatecreatedocumentfromtemplateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`FolderFindFoldersUnauthorizedError`](./src/models/errors/folderfindfoldersunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`FolderCreateFolderUnauthorizedError`](./src/models/errors/foldercreatefolderunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`FolderUpdateFolderUnauthorizedError`](./src/models/errors/folderupdatefolderunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`FolderDeleteFolderUnauthorizedError`](./src/models/errors/folderdeletefolderunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`TemplateGetManyUnauthorizedError`](./src/models/errors/templategetmanyunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`TemplateCreateTemplateTemporaryUnauthorizedError`](./src/models/errors/templatecreatetemplatetemporaryunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EmbeddingPresignCreateEmbeddingPresignTokenUnauthorizedError`](./src/models/errors/embeddingpresigncreateembeddingpresigntokenunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EmbeddingPresignVerifyEmbeddingPresignTokenUnauthorizedError`](./src/models/errors/embeddingpresignverifyembeddingpresigntokenunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EnvelopeAttachmentFindUnauthorizedError`](./src/models/errors/envelopeattachmentfindunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EnvelopeAttachmentCreateUnauthorizedError`](./src/models/errors/envelopeattachmentcreateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EnvelopeAttachmentUpdateUnauthorizedError`](./src/models/errors/envelopeattachmentupdateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EnvelopeAttachmentDeleteUnauthorizedError`](./src/models/errors/envelopeattachmentdeleteunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EnvelopeItemCreateManyUnauthorizedError`](./src/models/errors/envelopeitemcreatemanyunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EnvelopeItemUpdateManyUnauthorizedError`](./src/models/errors/envelopeitemupdatemanyunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EnvelopeItemDeleteUnauthorizedError`](./src/models/errors/envelopeitemdeleteunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EnvelopeItemDownloadUnauthorizedError`](./src/models/errors/envelopeitemdownloadunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EnvelopeRecipientGetUnauthorizedError`](./src/models/errors/enveloperecipientgetunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EnvelopeRecipientCreateManyUnauthorizedError`](./src/models/errors/enveloperecipientcreatemanyunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EnvelopeRecipientUpdateManyUnauthorizedError`](./src/models/errors/enveloperecipientupdatemanyunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EnvelopeRecipientDeleteUnauthorizedError`](./src/models/errors/enveloperecipientdeleteunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EnvelopeFieldGetUnauthorizedError`](./src/models/errors/envelopefieldgetunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EnvelopeFieldCreateManyUnauthorizedError`](./src/models/errors/envelopefieldcreatemanyunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EnvelopeFieldUpdateManyUnauthorizedError`](./src/models/errors/envelopefieldupdatemanyunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EnvelopeFieldDeleteUnauthorizedError`](./src/models/errors/envelopefielddeleteunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`DocumentAttachmentCreateUnauthorizedError`](./src/models/errors/documentattachmentcreateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`DocumentAttachmentUpdateUnauthorizedError`](./src/models/errors/documentattachmentupdateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`DocumentAttachmentDeleteUnauthorizedError`](./src/models/errors/documentattachmentdeleteunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`DocumentAttachmentFindUnauthorizedError`](./src/models/errors/documentattachmentfindunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`FieldGetDocumentFieldUnauthorizedError`](./src/models/errors/fieldgetdocumentfieldunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`FieldCreateDocumentFieldUnauthorizedError`](./src/models/errors/fieldcreatedocumentfieldunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`FieldCreateDocumentFieldsUnauthorizedError`](./src/models/errors/fieldcreatedocumentfieldsunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`FieldUpdateDocumentFieldUnauthorizedError`](./src/models/errors/fieldupdatedocumentfieldunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`FieldUpdateDocumentFieldsUnauthorizedError`](./src/models/errors/fieldupdatedocumentfieldsunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`FieldDeleteDocumentFieldUnauthorizedError`](./src/models/errors/fielddeletedocumentfieldunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`RecipientGetDocumentRecipientUnauthorizedError`](./src/models/errors/recipientgetdocumentrecipientunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`RecipientCreateDocumentRecipientUnauthorizedError`](./src/models/errors/recipientcreatedocumentrecipientunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`RecipientCreateDocumentRecipientsUnauthorizedError`](./src/models/errors/recipientcreatedocumentrecipientsunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`RecipientUpdateDocumentRecipientUnauthorizedError`](./src/models/errors/recipientupdatedocumentrecipientunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`RecipientUpdateDocumentRecipientsUnauthorizedError`](./src/models/errors/recipientupdatedocumentrecipientsunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`RecipientDeleteDocumentRecipientUnauthorizedError`](./src/models/errors/recipientdeletedocumentrecipientunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`FieldCreateTemplateFieldUnauthorizedError`](./src/models/errors/fieldcreatetemplatefieldunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`FieldGetTemplateFieldUnauthorizedError`](./src/models/errors/fieldgettemplatefieldunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`FieldCreateTemplateFieldsUnauthorizedError`](./src/models/errors/fieldcreatetemplatefieldsunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`FieldUpdateTemplateFieldUnauthorizedError`](./src/models/errors/fieldupdatetemplatefieldunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`FieldUpdateTemplateFieldsUnauthorizedError`](./src/models/errors/fieldupdatetemplatefieldsunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`FieldDeleteTemplateFieldUnauthorizedError`](./src/models/errors/fielddeletetemplatefieldunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`RecipientGetTemplateRecipientUnauthorizedError`](./src/models/errors/recipientgettemplaterecipientunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`RecipientCreateTemplateRecipientUnauthorizedError`](./src/models/errors/recipientcreatetemplaterecipientunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`RecipientCreateTemplateRecipientsUnauthorizedError`](./src/models/errors/recipientcreatetemplaterecipientsunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`RecipientUpdateTemplateRecipientUnauthorizedError`](./src/models/errors/recipientupdatetemplaterecipientunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`RecipientUpdateTemplateRecipientsUnauthorizedError`](./src/models/errors/recipientupdatetemplaterecipientsunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`RecipientDeleteTemplateRecipientUnauthorizedError`](./src/models/errors/recipientdeletetemplaterecipientunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`TemplateCreateTemplateDirectLinkUnauthorizedError`](./src/models/errors/templatecreatetemplatedirectlinkunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`TemplateDeleteTemplateDirectLinkUnauthorizedError`](./src/models/errors/templatedeletetemplatedirectlinkunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`TemplateToggleTemplateDirectLinkUnauthorizedError`](./src/models/errors/templatetoggletemplatedirectlinkunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 85 methods.*
-* [`EnvelopeGetForbiddenError`](./src/models/errors/envelopegetforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EnvelopeCreateForbiddenError`](./src/models/errors/envelopecreateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EnvelopeUseForbiddenError`](./src/models/errors/envelopeuseforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EnvelopeUpdateForbiddenError`](./src/models/errors/envelopeupdateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EnvelopeDeleteForbiddenError`](./src/models/errors/envelopedeleteforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EnvelopeDuplicateForbiddenError`](./src/models/errors/envelopeduplicateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EnvelopeDistributeForbiddenError`](./src/models/errors/envelopedistributeforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EnvelopeRedistributeForbiddenError`](./src/models/errors/enveloperedistributeforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EnvelopeFindForbiddenError`](./src/models/errors/envelopefindforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EnvelopeAuditLogFindForbiddenError`](./src/models/errors/envelopeauditlogfindforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EnvelopeGetManyForbiddenError`](./src/models/errors/envelopegetmanyforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`DocumentGetForbiddenError`](./src/models/errors/documentgetforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`DocumentFindForbiddenError`](./src/models/errors/documentfindforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`DocumentCreateForbiddenError`](./src/models/errors/documentcreateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`DocumentUpdateForbiddenError`](./src/models/errors/documentupdateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`DocumentDeleteForbiddenError`](./src/models/errors/documentdeleteforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`DocumentDuplicateForbiddenError`](./src/models/errors/documentduplicateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`DocumentDistributeForbiddenError`](./src/models/errors/documentdistributeforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`DocumentRedistributeForbiddenError`](./src/models/errors/documentredistributeforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`DocumentDownloadForbiddenError`](./src/models/errors/documentdownloadforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`DocumentCreateDocumentTemporaryForbiddenError`](./src/models/errors/documentcreatedocumenttemporaryforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`DocumentGetManyForbiddenError`](./src/models/errors/documentgetmanyforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`DocumentDownloadBetaForbiddenError`](./src/models/errors/documentdownloadbetaforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`TemplateFindTemplatesForbiddenError`](./src/models/errors/templatefindtemplatesforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`TemplateGetTemplateByIdForbiddenError`](./src/models/errors/templategettemplatebyidforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`TemplateCreateTemplateForbiddenError`](./src/models/errors/templatecreatetemplateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`TemplateUpdateTemplateForbiddenError`](./src/models/errors/templateupdatetemplateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`TemplateDuplicateTemplateForbiddenError`](./src/models/errors/templateduplicatetemplateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`TemplateDeleteTemplateForbiddenError`](./src/models/errors/templatedeletetemplateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`TemplateCreateDocumentFromTemplateForbiddenError`](./src/models/errors/templatecreatedocumentfromtemplateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`FolderFindFoldersForbiddenError`](./src/models/errors/folderfindfoldersforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`FolderCreateFolderForbiddenError`](./src/models/errors/foldercreatefolderforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`FolderUpdateFolderForbiddenError`](./src/models/errors/folderupdatefolderforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`FolderDeleteFolderForbiddenError`](./src/models/errors/folderdeletefolderforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`TemplateGetManyForbiddenError`](./src/models/errors/templategetmanyforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`TemplateCreateTemplateTemporaryForbiddenError`](./src/models/errors/templatecreatetemplatetemporaryforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EmbeddingPresignCreateEmbeddingPresignTokenForbiddenError`](./src/models/errors/embeddingpresigncreateembeddingpresigntokenforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EmbeddingPresignVerifyEmbeddingPresignTokenForbiddenError`](./src/models/errors/embeddingpresignverifyembeddingpresigntokenforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EnvelopeAttachmentFindForbiddenError`](./src/models/errors/envelopeattachmentfindforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EnvelopeAttachmentCreateForbiddenError`](./src/models/errors/envelopeattachmentcreateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EnvelopeAttachmentUpdateForbiddenError`](./src/models/errors/envelopeattachmentupdateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EnvelopeAttachmentDeleteForbiddenError`](./src/models/errors/envelopeattachmentdeleteforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EnvelopeItemCreateManyForbiddenError`](./src/models/errors/envelopeitemcreatemanyforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EnvelopeItemUpdateManyForbiddenError`](./src/models/errors/envelopeitemupdatemanyforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EnvelopeItemDeleteForbiddenError`](./src/models/errors/envelopeitemdeleteforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EnvelopeItemDownloadForbiddenError`](./src/models/errors/envelopeitemdownloadforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EnvelopeRecipientGetForbiddenError`](./src/models/errors/enveloperecipientgetforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EnvelopeRecipientCreateManyForbiddenError`](./src/models/errors/enveloperecipientcreatemanyforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EnvelopeRecipientUpdateManyForbiddenError`](./src/models/errors/enveloperecipientupdatemanyforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EnvelopeRecipientDeleteForbiddenError`](./src/models/errors/enveloperecipientdeleteforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EnvelopeFieldGetForbiddenError`](./src/models/errors/envelopefieldgetforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EnvelopeFieldCreateManyForbiddenError`](./src/models/errors/envelopefieldcreatemanyforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EnvelopeFieldUpdateManyForbiddenError`](./src/models/errors/envelopefieldupdatemanyforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EnvelopeFieldDeleteForbiddenError`](./src/models/errors/envelopefielddeleteforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`DocumentAttachmentCreateForbiddenError`](./src/models/errors/documentattachmentcreateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`DocumentAttachmentUpdateForbiddenError`](./src/models/errors/documentattachmentupdateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`DocumentAttachmentDeleteForbiddenError`](./src/models/errors/documentattachmentdeleteforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`DocumentAttachmentFindForbiddenError`](./src/models/errors/documentattachmentfindforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`FieldGetDocumentFieldForbiddenError`](./src/models/errors/fieldgetdocumentfieldforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`FieldCreateDocumentFieldForbiddenError`](./src/models/errors/fieldcreatedocumentfieldforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`FieldCreateDocumentFieldsForbiddenError`](./src/models/errors/fieldcreatedocumentfieldsforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`FieldUpdateDocumentFieldForbiddenError`](./src/models/errors/fieldupdatedocumentfieldforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`FieldUpdateDocumentFieldsForbiddenError`](./src/models/errors/fieldupdatedocumentfieldsforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`FieldDeleteDocumentFieldForbiddenError`](./src/models/errors/fielddeletedocumentfieldforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`RecipientGetDocumentRecipientForbiddenError`](./src/models/errors/recipientgetdocumentrecipientforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`RecipientCreateDocumentRecipientForbiddenError`](./src/models/errors/recipientcreatedocumentrecipientforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`RecipientCreateDocumentRecipientsForbiddenError`](./src/models/errors/recipientcreatedocumentrecipientsforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`RecipientUpdateDocumentRecipientForbiddenError`](./src/models/errors/recipientupdatedocumentrecipientforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`RecipientUpdateDocumentRecipientsForbiddenError`](./src/models/errors/recipientupdatedocumentrecipientsforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`RecipientDeleteDocumentRecipientForbiddenError`](./src/models/errors/recipientdeletedocumentrecipientforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`FieldCreateTemplateFieldForbiddenError`](./src/models/errors/fieldcreatetemplatefieldforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`FieldGetTemplateFieldForbiddenError`](./src/models/errors/fieldgettemplatefieldforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`FieldCreateTemplateFieldsForbiddenError`](./src/models/errors/fieldcreatetemplatefieldsforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`FieldUpdateTemplateFieldForbiddenError`](./src/models/errors/fieldupdatetemplatefieldforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`FieldUpdateTemplateFieldsForbiddenError`](./src/models/errors/fieldupdatetemplatefieldsforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`FieldDeleteTemplateFieldForbiddenError`](./src/models/errors/fielddeletetemplatefieldforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`RecipientGetTemplateRecipientForbiddenError`](./src/models/errors/recipientgettemplaterecipientforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`RecipientCreateTemplateRecipientForbiddenError`](./src/models/errors/recipientcreatetemplaterecipientforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`RecipientCreateTemplateRecipientsForbiddenError`](./src/models/errors/recipientcreatetemplaterecipientsforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`RecipientUpdateTemplateRecipientForbiddenError`](./src/models/errors/recipientupdatetemplaterecipientforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`RecipientUpdateTemplateRecipientsForbiddenError`](./src/models/errors/recipientupdatetemplaterecipientsforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`RecipientDeleteTemplateRecipientForbiddenError`](./src/models/errors/recipientdeletetemplaterecipientforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`TemplateCreateTemplateDirectLinkForbiddenError`](./src/models/errors/templatecreatetemplatedirectlinkforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`TemplateDeleteTemplateDirectLinkForbiddenError`](./src/models/errors/templatedeletetemplatedirectlinkforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`TemplateToggleTemplateDirectLinkForbiddenError`](./src/models/errors/templatetoggletemplatedirectlinkforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 85 methods.*
-* [`EnvelopeGetNotFoundError`](./src/models/errors/envelopegetnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 85 methods.*
-* [`EnvelopeFindNotFoundError`](./src/models/errors/envelopefindnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 85 methods.*
-* [`EnvelopeAuditLogFindNotFoundError`](./src/models/errors/envelopeauditlogfindnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 85 methods.*
-* [`DocumentGetNotFoundError`](./src/models/errors/documentgetnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 85 methods.*
-* [`DocumentFindNotFoundError`](./src/models/errors/documentfindnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 85 methods.*
-* [`DocumentDownloadNotFoundError`](./src/models/errors/documentdownloadnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 85 methods.*
-* [`DocumentDownloadBetaNotFoundError`](./src/models/errors/documentdownloadbetanotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 85 methods.*
-* [`TemplateFindTemplatesNotFoundError`](./src/models/errors/templatefindtemplatesnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 85 methods.*
-* [`TemplateGetTemplateByIdNotFoundError`](./src/models/errors/templategettemplatebyidnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 85 methods.*
-* [`FolderFindFoldersNotFoundError`](./src/models/errors/folderfindfoldersnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 85 methods.*
-* [`EnvelopeAttachmentFindNotFoundError`](./src/models/errors/envelopeattachmentfindnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 85 methods.*
-* [`EnvelopeItemDownloadNotFoundError`](./src/models/errors/envelopeitemdownloadnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 85 methods.*
-* [`EnvelopeRecipientGetNotFoundError`](./src/models/errors/enveloperecipientgetnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 85 methods.*
-* [`EnvelopeFieldGetNotFoundError`](./src/models/errors/envelopefieldgetnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 85 methods.*
-* [`DocumentAttachmentFindNotFoundError`](./src/models/errors/documentattachmentfindnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 85 methods.*
-* [`FieldGetDocumentFieldNotFoundError`](./src/models/errors/fieldgetdocumentfieldnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 85 methods.*
-* [`RecipientGetDocumentRecipientNotFoundError`](./src/models/errors/recipientgetdocumentrecipientnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 85 methods.*
-* [`FieldGetTemplateFieldNotFoundError`](./src/models/errors/fieldgettemplatefieldnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 85 methods.*
-* [`RecipientGetTemplateRecipientNotFoundError`](./src/models/errors/recipientgettemplaterecipientnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 85 methods.*
-* [`EnvelopeGetInternalServerError`](./src/models/errors/envelopegetinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`EnvelopeCreateInternalServerError`](./src/models/errors/envelopecreateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`EnvelopeUseInternalServerError`](./src/models/errors/envelopeuseinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`EnvelopeUpdateInternalServerError`](./src/models/errors/envelopeupdateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`EnvelopeDeleteInternalServerError`](./src/models/errors/envelopedeleteinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`EnvelopeDuplicateInternalServerError`](./src/models/errors/envelopeduplicateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`EnvelopeDistributeInternalServerError`](./src/models/errors/envelopedistributeinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`EnvelopeRedistributeInternalServerError`](./src/models/errors/enveloperedistributeinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`EnvelopeFindInternalServerError`](./src/models/errors/envelopefindinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`EnvelopeAuditLogFindInternalServerError`](./src/models/errors/envelopeauditlogfindinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`EnvelopeGetManyInternalServerError`](./src/models/errors/envelopegetmanyinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`DocumentGetInternalServerError`](./src/models/errors/documentgetinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`DocumentFindInternalServerError`](./src/models/errors/documentfindinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`DocumentCreateInternalServerError`](./src/models/errors/documentcreateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`DocumentUpdateInternalServerError`](./src/models/errors/documentupdateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`DocumentDeleteInternalServerError`](./src/models/errors/documentdeleteinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`DocumentDuplicateInternalServerError`](./src/models/errors/documentduplicateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`DocumentDistributeInternalServerError`](./src/models/errors/documentdistributeinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`DocumentRedistributeInternalServerError`](./src/models/errors/documentredistributeinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`DocumentDownloadInternalServerError`](./src/models/errors/documentdownloadinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`DocumentCreateDocumentTemporaryInternalServerError`](./src/models/errors/documentcreatedocumenttemporaryinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`DocumentGetManyInternalServerError`](./src/models/errors/documentgetmanyinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`DocumentDownloadBetaInternalServerError`](./src/models/errors/documentdownloadbetainternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`TemplateFindTemplatesInternalServerError`](./src/models/errors/templatefindtemplatesinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`TemplateGetTemplateByIdInternalServerError`](./src/models/errors/templategettemplatebyidinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`TemplateCreateTemplateInternalServerError`](./src/models/errors/templatecreatetemplateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`TemplateUpdateTemplateInternalServerError`](./src/models/errors/templateupdatetemplateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`TemplateDuplicateTemplateInternalServerError`](./src/models/errors/templateduplicatetemplateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`TemplateDeleteTemplateInternalServerError`](./src/models/errors/templatedeletetemplateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`TemplateCreateDocumentFromTemplateInternalServerError`](./src/models/errors/templatecreatedocumentfromtemplateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`FolderFindFoldersInternalServerError`](./src/models/errors/folderfindfoldersinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`FolderCreateFolderInternalServerError`](./src/models/errors/foldercreatefolderinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`FolderUpdateFolderInternalServerError`](./src/models/errors/folderupdatefolderinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`FolderDeleteFolderInternalServerError`](./src/models/errors/folderdeletefolderinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`TemplateGetManyInternalServerError`](./src/models/errors/templategetmanyinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`TemplateCreateTemplateTemporaryInternalServerError`](./src/models/errors/templatecreatetemplatetemporaryinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`EmbeddingPresignCreateEmbeddingPresignTokenInternalServerError`](./src/models/errors/embeddingpresigncreateembeddingpresigntokeninternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`EmbeddingPresignVerifyEmbeddingPresignTokenInternalServerError`](./src/models/errors/embeddingpresignverifyembeddingpresigntokeninternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`EnvelopeAttachmentFindInternalServerError`](./src/models/errors/envelopeattachmentfindinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`EnvelopeAttachmentCreateInternalServerError`](./src/models/errors/envelopeattachmentcreateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`EnvelopeAttachmentUpdateInternalServerError`](./src/models/errors/envelopeattachmentupdateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`EnvelopeAttachmentDeleteInternalServerError`](./src/models/errors/envelopeattachmentdeleteinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`EnvelopeItemCreateManyInternalServerError`](./src/models/errors/envelopeitemcreatemanyinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`EnvelopeItemUpdateManyInternalServerError`](./src/models/errors/envelopeitemupdatemanyinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`EnvelopeItemDeleteInternalServerError`](./src/models/errors/envelopeitemdeleteinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`EnvelopeItemDownloadInternalServerError`](./src/models/errors/envelopeitemdownloadinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`EnvelopeRecipientGetInternalServerError`](./src/models/errors/enveloperecipientgetinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`EnvelopeRecipientCreateManyInternalServerError`](./src/models/errors/enveloperecipientcreatemanyinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`EnvelopeRecipientUpdateManyInternalServerError`](./src/models/errors/enveloperecipientupdatemanyinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`EnvelopeRecipientDeleteInternalServerError`](./src/models/errors/enveloperecipientdeleteinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`EnvelopeFieldGetInternalServerError`](./src/models/errors/envelopefieldgetinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`EnvelopeFieldCreateManyInternalServerError`](./src/models/errors/envelopefieldcreatemanyinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`EnvelopeFieldUpdateManyInternalServerError`](./src/models/errors/envelopefieldupdatemanyinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`EnvelopeFieldDeleteInternalServerError`](./src/models/errors/envelopefielddeleteinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`DocumentAttachmentCreateInternalServerError`](./src/models/errors/documentattachmentcreateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`DocumentAttachmentUpdateInternalServerError`](./src/models/errors/documentattachmentupdateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`DocumentAttachmentDeleteInternalServerError`](./src/models/errors/documentattachmentdeleteinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`DocumentAttachmentFindInternalServerError`](./src/models/errors/documentattachmentfindinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`FieldGetDocumentFieldInternalServerError`](./src/models/errors/fieldgetdocumentfieldinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`FieldCreateDocumentFieldInternalServerError`](./src/models/errors/fieldcreatedocumentfieldinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`FieldCreateDocumentFieldsInternalServerError`](./src/models/errors/fieldcreatedocumentfieldsinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`FieldUpdateDocumentFieldInternalServerError`](./src/models/errors/fieldupdatedocumentfieldinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`FieldUpdateDocumentFieldsInternalServerError`](./src/models/errors/fieldupdatedocumentfieldsinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`FieldDeleteDocumentFieldInternalServerError`](./src/models/errors/fielddeletedocumentfieldinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`RecipientGetDocumentRecipientInternalServerError`](./src/models/errors/recipientgetdocumentrecipientinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`RecipientCreateDocumentRecipientInternalServerError`](./src/models/errors/recipientcreatedocumentrecipientinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`RecipientCreateDocumentRecipientsInternalServerError`](./src/models/errors/recipientcreatedocumentrecipientsinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`RecipientUpdateDocumentRecipientInternalServerError`](./src/models/errors/recipientupdatedocumentrecipientinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`RecipientUpdateDocumentRecipientsInternalServerError`](./src/models/errors/recipientupdatedocumentrecipientsinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`RecipientDeleteDocumentRecipientInternalServerError`](./src/models/errors/recipientdeletedocumentrecipientinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`FieldCreateTemplateFieldInternalServerError`](./src/models/errors/fieldcreatetemplatefieldinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`FieldGetTemplateFieldInternalServerError`](./src/models/errors/fieldgettemplatefieldinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`FieldCreateTemplateFieldsInternalServerError`](./src/models/errors/fieldcreatetemplatefieldsinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`FieldUpdateTemplateFieldInternalServerError`](./src/models/errors/fieldupdatetemplatefieldinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`FieldUpdateTemplateFieldsInternalServerError`](./src/models/errors/fieldupdatetemplatefieldsinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`FieldDeleteTemplateFieldInternalServerError`](./src/models/errors/fielddeletetemplatefieldinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`RecipientGetTemplateRecipientInternalServerError`](./src/models/errors/recipientgettemplaterecipientinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`RecipientCreateTemplateRecipientInternalServerError`](./src/models/errors/recipientcreatetemplaterecipientinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`RecipientCreateTemplateRecipientsInternalServerError`](./src/models/errors/recipientcreatetemplaterecipientsinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`RecipientUpdateTemplateRecipientInternalServerError`](./src/models/errors/recipientupdatetemplaterecipientinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`RecipientUpdateTemplateRecipientsInternalServerError`](./src/models/errors/recipientupdatetemplaterecipientsinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`RecipientDeleteTemplateRecipientInternalServerError`](./src/models/errors/recipientdeletetemplaterecipientinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`TemplateCreateTemplateDirectLinkInternalServerError`](./src/models/errors/templatecreatetemplatedirectlinkinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`TemplateDeleteTemplateDirectLinkInternalServerError`](./src/models/errors/templatedeletetemplatedirectlinkinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
-* [`TemplateToggleTemplateDirectLinkInternalServerError`](./src/models/errors/templatetoggletemplatedirectlinkinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 85 methods.*
+* [`EnvelopeGetBadRequestError`](./src/models/errors/envelopegetbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeCreateBadRequestError`](./src/models/errors/envelopecreatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeUseBadRequestError`](./src/models/errors/envelopeusebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeUpdateBadRequestError`](./src/models/errors/envelopeupdatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeDeleteBadRequestError`](./src/models/errors/envelopedeletebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeDuplicateBadRequestError`](./src/models/errors/envelopeduplicatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeDistributeBadRequestError`](./src/models/errors/envelopedistributebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeRedistributeBadRequestError`](./src/models/errors/enveloperedistributebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeRecipientRejectOnBehalfOfBadRequestError`](./src/models/errors/enveloperecipientrejectonbehalfofbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeFindBadRequestError`](./src/models/errors/envelopefindbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeAuditLogFindBadRequestError`](./src/models/errors/envelopeauditlogfindbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeAuditLogDownloadPdfBadRequestError`](./src/models/errors/envelopeauditlogdownloadpdfbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeCertificateDownloadPdfBadRequestError`](./src/models/errors/envelopecertificatedownloadpdfbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeGetManyBadRequestError`](./src/models/errors/envelopegetmanybadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeCancelBadRequestError`](./src/models/errors/envelopecancelbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`DocumentGetBadRequestError`](./src/models/errors/documentgetbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`DocumentFindBadRequestError`](./src/models/errors/documentfindbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`DocumentCreateBadRequestError`](./src/models/errors/documentcreatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`DocumentUpdateBadRequestError`](./src/models/errors/documentupdatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`DocumentDeleteBadRequestError`](./src/models/errors/documentdeletebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`DocumentDuplicateBadRequestError`](./src/models/errors/documentduplicatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`DocumentDistributeBadRequestError`](./src/models/errors/documentdistributebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`DocumentRedistributeBadRequestError`](./src/models/errors/documentredistributebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`DocumentDownloadBadRequestError`](./src/models/errors/documentdownloadbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`DocumentCreateDocumentTemporaryBadRequestError`](./src/models/errors/documentcreatedocumenttemporarybadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`DocumentGetManyBadRequestError`](./src/models/errors/documentgetmanybadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`DocumentDownloadBetaBadRequestError`](./src/models/errors/documentdownloadbetabadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`TemplateFindTemplatesBadRequestError`](./src/models/errors/templatefindtemplatesbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`TemplateGetTemplateByIdBadRequestError`](./src/models/errors/templategettemplatebyidbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`TemplateCreateTemplateBadRequestError`](./src/models/errors/templatecreatetemplatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`TemplateUpdateTemplateBadRequestError`](./src/models/errors/templateupdatetemplatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`TemplateDuplicateTemplateBadRequestError`](./src/models/errors/templateduplicatetemplatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`TemplateDeleteTemplateBadRequestError`](./src/models/errors/templatedeletetemplatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`TemplateCreateDocumentFromTemplateBadRequestError`](./src/models/errors/templatecreatedocumentfromtemplatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`FolderFindFoldersBadRequestError`](./src/models/errors/folderfindfoldersbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`FolderCreateFolderBadRequestError`](./src/models/errors/foldercreatefolderbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`FolderUpdateFolderBadRequestError`](./src/models/errors/folderupdatefolderbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`FolderDeleteFolderBadRequestError`](./src/models/errors/folderdeletefolderbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`TemplateGetManyBadRequestError`](./src/models/errors/templategetmanybadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`TemplateCreateTemplateTemporaryBadRequestError`](./src/models/errors/templatecreatetemplatetemporarybadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EmbeddingPresignCreateEmbeddingPresignTokenBadRequestError`](./src/models/errors/embeddingpresigncreateembeddingpresigntokenbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EmbeddingPresignVerifyEmbeddingPresignTokenBadRequestError`](./src/models/errors/embeddingpresignverifyembeddingpresigntokenbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeAttachmentFindBadRequestError`](./src/models/errors/envelopeattachmentfindbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeAttachmentCreateBadRequestError`](./src/models/errors/envelopeattachmentcreatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeAttachmentUpdateBadRequestError`](./src/models/errors/envelopeattachmentupdatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeAttachmentDeleteBadRequestError`](./src/models/errors/envelopeattachmentdeletebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeItemCreateManyBadRequestError`](./src/models/errors/envelopeitemcreatemanybadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeItemUpdateManyBadRequestError`](./src/models/errors/envelopeitemupdatemanybadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeItemDeleteBadRequestError`](./src/models/errors/envelopeitemdeletebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeItemDownloadBadRequestError`](./src/models/errors/envelopeitemdownloadbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeRecipientGetBadRequestError`](./src/models/errors/enveloperecipientgetbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeRecipientCreateManyBadRequestError`](./src/models/errors/enveloperecipientcreatemanybadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeRecipientUpdateManyBadRequestError`](./src/models/errors/enveloperecipientupdatemanybadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeRecipientDeleteBadRequestError`](./src/models/errors/enveloperecipientdeletebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeFieldGetBadRequestError`](./src/models/errors/envelopefieldgetbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeFieldCreateManyBadRequestError`](./src/models/errors/envelopefieldcreatemanybadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeFieldUpdateManyBadRequestError`](./src/models/errors/envelopefieldupdatemanybadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeFieldDeleteBadRequestError`](./src/models/errors/envelopefielddeletebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`DocumentAttachmentCreateBadRequestError`](./src/models/errors/documentattachmentcreatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`DocumentAttachmentUpdateBadRequestError`](./src/models/errors/documentattachmentupdatebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`DocumentAttachmentDeleteBadRequestError`](./src/models/errors/documentattachmentdeletebadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`DocumentAttachmentFindBadRequestError`](./src/models/errors/documentattachmentfindbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`FieldGetDocumentFieldBadRequestError`](./src/models/errors/fieldgetdocumentfieldbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`FieldCreateDocumentFieldBadRequestError`](./src/models/errors/fieldcreatedocumentfieldbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`FieldCreateDocumentFieldsBadRequestError`](./src/models/errors/fieldcreatedocumentfieldsbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`FieldUpdateDocumentFieldBadRequestError`](./src/models/errors/fieldupdatedocumentfieldbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`FieldUpdateDocumentFieldsBadRequestError`](./src/models/errors/fieldupdatedocumentfieldsbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`FieldDeleteDocumentFieldBadRequestError`](./src/models/errors/fielddeletedocumentfieldbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`RecipientGetDocumentRecipientBadRequestError`](./src/models/errors/recipientgetdocumentrecipientbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`RecipientCreateDocumentRecipientBadRequestError`](./src/models/errors/recipientcreatedocumentrecipientbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`RecipientCreateDocumentRecipientsBadRequestError`](./src/models/errors/recipientcreatedocumentrecipientsbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`RecipientUpdateDocumentRecipientBadRequestError`](./src/models/errors/recipientupdatedocumentrecipientbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`RecipientUpdateDocumentRecipientsBadRequestError`](./src/models/errors/recipientupdatedocumentrecipientsbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`RecipientDeleteDocumentRecipientBadRequestError`](./src/models/errors/recipientdeletedocumentrecipientbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`FieldCreateTemplateFieldBadRequestError`](./src/models/errors/fieldcreatetemplatefieldbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`FieldGetTemplateFieldBadRequestError`](./src/models/errors/fieldgettemplatefieldbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`FieldCreateTemplateFieldsBadRequestError`](./src/models/errors/fieldcreatetemplatefieldsbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`FieldUpdateTemplateFieldBadRequestError`](./src/models/errors/fieldupdatetemplatefieldbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`FieldUpdateTemplateFieldsBadRequestError`](./src/models/errors/fieldupdatetemplatefieldsbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`FieldDeleteTemplateFieldBadRequestError`](./src/models/errors/fielddeletetemplatefieldbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`RecipientGetTemplateRecipientBadRequestError`](./src/models/errors/recipientgettemplaterecipientbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`RecipientCreateTemplateRecipientBadRequestError`](./src/models/errors/recipientcreatetemplaterecipientbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`RecipientCreateTemplateRecipientsBadRequestError`](./src/models/errors/recipientcreatetemplaterecipientsbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`RecipientUpdateTemplateRecipientBadRequestError`](./src/models/errors/recipientupdatetemplaterecipientbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`RecipientUpdateTemplateRecipientsBadRequestError`](./src/models/errors/recipientupdatetemplaterecipientsbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`RecipientDeleteTemplateRecipientBadRequestError`](./src/models/errors/recipientdeletetemplaterecipientbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`TemplateCreateTemplateDirectLinkBadRequestError`](./src/models/errors/templatecreatetemplatedirectlinkbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`TemplateDeleteTemplateDirectLinkBadRequestError`](./src/models/errors/templatedeletetemplatedirectlinkbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`TemplateToggleTemplateDirectLinkBadRequestError`](./src/models/errors/templatetoggletemplatedirectlinkbadrequesterror.ts): Invalid input data. Status code `400`. Applicable to 1 of 89 methods.*
+* [`EnvelopeGetUnauthorizedError`](./src/models/errors/envelopegetunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeCreateUnauthorizedError`](./src/models/errors/envelopecreateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeUseUnauthorizedError`](./src/models/errors/envelopeuseunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeUpdateUnauthorizedError`](./src/models/errors/envelopeupdateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeDeleteUnauthorizedError`](./src/models/errors/envelopedeleteunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeDuplicateUnauthorizedError`](./src/models/errors/envelopeduplicateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeDistributeUnauthorizedError`](./src/models/errors/envelopedistributeunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeRedistributeUnauthorizedError`](./src/models/errors/enveloperedistributeunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeRecipientRejectOnBehalfOfUnauthorizedError`](./src/models/errors/enveloperecipientrejectonbehalfofunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeFindUnauthorizedError`](./src/models/errors/envelopefindunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeAuditLogFindUnauthorizedError`](./src/models/errors/envelopeauditlogfindunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeAuditLogDownloadPdfUnauthorizedError`](./src/models/errors/envelopeauditlogdownloadpdfunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeCertificateDownloadPdfUnauthorizedError`](./src/models/errors/envelopecertificatedownloadpdfunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeGetManyUnauthorizedError`](./src/models/errors/envelopegetmanyunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeCancelUnauthorizedError`](./src/models/errors/envelopecancelunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`DocumentGetUnauthorizedError`](./src/models/errors/documentgetunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`DocumentFindUnauthorizedError`](./src/models/errors/documentfindunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`DocumentCreateUnauthorizedError`](./src/models/errors/documentcreateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`DocumentUpdateUnauthorizedError`](./src/models/errors/documentupdateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`DocumentDeleteUnauthorizedError`](./src/models/errors/documentdeleteunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`DocumentDuplicateUnauthorizedError`](./src/models/errors/documentduplicateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`DocumentDistributeUnauthorizedError`](./src/models/errors/documentdistributeunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`DocumentRedistributeUnauthorizedError`](./src/models/errors/documentredistributeunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`DocumentDownloadUnauthorizedError`](./src/models/errors/documentdownloadunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`DocumentCreateDocumentTemporaryUnauthorizedError`](./src/models/errors/documentcreatedocumenttemporaryunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`DocumentGetManyUnauthorizedError`](./src/models/errors/documentgetmanyunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`DocumentDownloadBetaUnauthorizedError`](./src/models/errors/documentdownloadbetaunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`TemplateFindTemplatesUnauthorizedError`](./src/models/errors/templatefindtemplatesunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`TemplateGetTemplateByIdUnauthorizedError`](./src/models/errors/templategettemplatebyidunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`TemplateCreateTemplateUnauthorizedError`](./src/models/errors/templatecreatetemplateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`TemplateUpdateTemplateUnauthorizedError`](./src/models/errors/templateupdatetemplateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`TemplateDuplicateTemplateUnauthorizedError`](./src/models/errors/templateduplicatetemplateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`TemplateDeleteTemplateUnauthorizedError`](./src/models/errors/templatedeletetemplateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`TemplateCreateDocumentFromTemplateUnauthorizedError`](./src/models/errors/templatecreatedocumentfromtemplateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`FolderFindFoldersUnauthorizedError`](./src/models/errors/folderfindfoldersunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`FolderCreateFolderUnauthorizedError`](./src/models/errors/foldercreatefolderunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`FolderUpdateFolderUnauthorizedError`](./src/models/errors/folderupdatefolderunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`FolderDeleteFolderUnauthorizedError`](./src/models/errors/folderdeletefolderunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`TemplateGetManyUnauthorizedError`](./src/models/errors/templategetmanyunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`TemplateCreateTemplateTemporaryUnauthorizedError`](./src/models/errors/templatecreatetemplatetemporaryunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EmbeddingPresignCreateEmbeddingPresignTokenUnauthorizedError`](./src/models/errors/embeddingpresigncreateembeddingpresigntokenunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EmbeddingPresignVerifyEmbeddingPresignTokenUnauthorizedError`](./src/models/errors/embeddingpresignverifyembeddingpresigntokenunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeAttachmentFindUnauthorizedError`](./src/models/errors/envelopeattachmentfindunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeAttachmentCreateUnauthorizedError`](./src/models/errors/envelopeattachmentcreateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeAttachmentUpdateUnauthorizedError`](./src/models/errors/envelopeattachmentupdateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeAttachmentDeleteUnauthorizedError`](./src/models/errors/envelopeattachmentdeleteunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeItemCreateManyUnauthorizedError`](./src/models/errors/envelopeitemcreatemanyunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeItemUpdateManyUnauthorizedError`](./src/models/errors/envelopeitemupdatemanyunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeItemDeleteUnauthorizedError`](./src/models/errors/envelopeitemdeleteunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeItemDownloadUnauthorizedError`](./src/models/errors/envelopeitemdownloadunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeRecipientGetUnauthorizedError`](./src/models/errors/enveloperecipientgetunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeRecipientCreateManyUnauthorizedError`](./src/models/errors/enveloperecipientcreatemanyunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeRecipientUpdateManyUnauthorizedError`](./src/models/errors/enveloperecipientupdatemanyunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeRecipientDeleteUnauthorizedError`](./src/models/errors/enveloperecipientdeleteunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeFieldGetUnauthorizedError`](./src/models/errors/envelopefieldgetunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeFieldCreateManyUnauthorizedError`](./src/models/errors/envelopefieldcreatemanyunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeFieldUpdateManyUnauthorizedError`](./src/models/errors/envelopefieldupdatemanyunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeFieldDeleteUnauthorizedError`](./src/models/errors/envelopefielddeleteunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`DocumentAttachmentCreateUnauthorizedError`](./src/models/errors/documentattachmentcreateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`DocumentAttachmentUpdateUnauthorizedError`](./src/models/errors/documentattachmentupdateunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`DocumentAttachmentDeleteUnauthorizedError`](./src/models/errors/documentattachmentdeleteunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`DocumentAttachmentFindUnauthorizedError`](./src/models/errors/documentattachmentfindunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`FieldGetDocumentFieldUnauthorizedError`](./src/models/errors/fieldgetdocumentfieldunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`FieldCreateDocumentFieldUnauthorizedError`](./src/models/errors/fieldcreatedocumentfieldunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`FieldCreateDocumentFieldsUnauthorizedError`](./src/models/errors/fieldcreatedocumentfieldsunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`FieldUpdateDocumentFieldUnauthorizedError`](./src/models/errors/fieldupdatedocumentfieldunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`FieldUpdateDocumentFieldsUnauthorizedError`](./src/models/errors/fieldupdatedocumentfieldsunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`FieldDeleteDocumentFieldUnauthorizedError`](./src/models/errors/fielddeletedocumentfieldunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`RecipientGetDocumentRecipientUnauthorizedError`](./src/models/errors/recipientgetdocumentrecipientunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`RecipientCreateDocumentRecipientUnauthorizedError`](./src/models/errors/recipientcreatedocumentrecipientunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`RecipientCreateDocumentRecipientsUnauthorizedError`](./src/models/errors/recipientcreatedocumentrecipientsunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`RecipientUpdateDocumentRecipientUnauthorizedError`](./src/models/errors/recipientupdatedocumentrecipientunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`RecipientUpdateDocumentRecipientsUnauthorizedError`](./src/models/errors/recipientupdatedocumentrecipientsunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`RecipientDeleteDocumentRecipientUnauthorizedError`](./src/models/errors/recipientdeletedocumentrecipientunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`FieldCreateTemplateFieldUnauthorizedError`](./src/models/errors/fieldcreatetemplatefieldunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`FieldGetTemplateFieldUnauthorizedError`](./src/models/errors/fieldgettemplatefieldunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`FieldCreateTemplateFieldsUnauthorizedError`](./src/models/errors/fieldcreatetemplatefieldsunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`FieldUpdateTemplateFieldUnauthorizedError`](./src/models/errors/fieldupdatetemplatefieldunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`FieldUpdateTemplateFieldsUnauthorizedError`](./src/models/errors/fieldupdatetemplatefieldsunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`FieldDeleteTemplateFieldUnauthorizedError`](./src/models/errors/fielddeletetemplatefieldunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`RecipientGetTemplateRecipientUnauthorizedError`](./src/models/errors/recipientgettemplaterecipientunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`RecipientCreateTemplateRecipientUnauthorizedError`](./src/models/errors/recipientcreatetemplaterecipientunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`RecipientCreateTemplateRecipientsUnauthorizedError`](./src/models/errors/recipientcreatetemplaterecipientsunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`RecipientUpdateTemplateRecipientUnauthorizedError`](./src/models/errors/recipientupdatetemplaterecipientunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`RecipientUpdateTemplateRecipientsUnauthorizedError`](./src/models/errors/recipientupdatetemplaterecipientsunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`RecipientDeleteTemplateRecipientUnauthorizedError`](./src/models/errors/recipientdeletetemplaterecipientunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`TemplateCreateTemplateDirectLinkUnauthorizedError`](./src/models/errors/templatecreatetemplatedirectlinkunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`TemplateDeleteTemplateDirectLinkUnauthorizedError`](./src/models/errors/templatedeletetemplatedirectlinkunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`TemplateToggleTemplateDirectLinkUnauthorizedError`](./src/models/errors/templatetoggletemplatedirectlinkunauthorizederror.ts): Authorization not provided. Status code `401`. Applicable to 1 of 89 methods.*
+* [`EnvelopeGetForbiddenError`](./src/models/errors/envelopegetforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeCreateForbiddenError`](./src/models/errors/envelopecreateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeUseForbiddenError`](./src/models/errors/envelopeuseforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeUpdateForbiddenError`](./src/models/errors/envelopeupdateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeDeleteForbiddenError`](./src/models/errors/envelopedeleteforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeDuplicateForbiddenError`](./src/models/errors/envelopeduplicateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeDistributeForbiddenError`](./src/models/errors/envelopedistributeforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeRedistributeForbiddenError`](./src/models/errors/enveloperedistributeforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeRecipientRejectOnBehalfOfForbiddenError`](./src/models/errors/enveloperecipientrejectonbehalfofforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeFindForbiddenError`](./src/models/errors/envelopefindforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeAuditLogFindForbiddenError`](./src/models/errors/envelopeauditlogfindforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeAuditLogDownloadPdfForbiddenError`](./src/models/errors/envelopeauditlogdownloadpdfforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeCertificateDownloadPdfForbiddenError`](./src/models/errors/envelopecertificatedownloadpdfforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeGetManyForbiddenError`](./src/models/errors/envelopegetmanyforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeCancelForbiddenError`](./src/models/errors/envelopecancelforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`DocumentGetForbiddenError`](./src/models/errors/documentgetforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`DocumentFindForbiddenError`](./src/models/errors/documentfindforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`DocumentCreateForbiddenError`](./src/models/errors/documentcreateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`DocumentUpdateForbiddenError`](./src/models/errors/documentupdateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`DocumentDeleteForbiddenError`](./src/models/errors/documentdeleteforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`DocumentDuplicateForbiddenError`](./src/models/errors/documentduplicateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`DocumentDistributeForbiddenError`](./src/models/errors/documentdistributeforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`DocumentRedistributeForbiddenError`](./src/models/errors/documentredistributeforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`DocumentDownloadForbiddenError`](./src/models/errors/documentdownloadforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`DocumentCreateDocumentTemporaryForbiddenError`](./src/models/errors/documentcreatedocumenttemporaryforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`DocumentGetManyForbiddenError`](./src/models/errors/documentgetmanyforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`DocumentDownloadBetaForbiddenError`](./src/models/errors/documentdownloadbetaforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`TemplateFindTemplatesForbiddenError`](./src/models/errors/templatefindtemplatesforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`TemplateGetTemplateByIdForbiddenError`](./src/models/errors/templategettemplatebyidforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`TemplateCreateTemplateForbiddenError`](./src/models/errors/templatecreatetemplateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`TemplateUpdateTemplateForbiddenError`](./src/models/errors/templateupdatetemplateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`TemplateDuplicateTemplateForbiddenError`](./src/models/errors/templateduplicatetemplateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`TemplateDeleteTemplateForbiddenError`](./src/models/errors/templatedeletetemplateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`TemplateCreateDocumentFromTemplateForbiddenError`](./src/models/errors/templatecreatedocumentfromtemplateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`FolderFindFoldersForbiddenError`](./src/models/errors/folderfindfoldersforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`FolderCreateFolderForbiddenError`](./src/models/errors/foldercreatefolderforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`FolderUpdateFolderForbiddenError`](./src/models/errors/folderupdatefolderforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`FolderDeleteFolderForbiddenError`](./src/models/errors/folderdeletefolderforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`TemplateGetManyForbiddenError`](./src/models/errors/templategetmanyforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`TemplateCreateTemplateTemporaryForbiddenError`](./src/models/errors/templatecreatetemplatetemporaryforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EmbeddingPresignCreateEmbeddingPresignTokenForbiddenError`](./src/models/errors/embeddingpresigncreateembeddingpresigntokenforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EmbeddingPresignVerifyEmbeddingPresignTokenForbiddenError`](./src/models/errors/embeddingpresignverifyembeddingpresigntokenforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeAttachmentFindForbiddenError`](./src/models/errors/envelopeattachmentfindforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeAttachmentCreateForbiddenError`](./src/models/errors/envelopeattachmentcreateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeAttachmentUpdateForbiddenError`](./src/models/errors/envelopeattachmentupdateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeAttachmentDeleteForbiddenError`](./src/models/errors/envelopeattachmentdeleteforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeItemCreateManyForbiddenError`](./src/models/errors/envelopeitemcreatemanyforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeItemUpdateManyForbiddenError`](./src/models/errors/envelopeitemupdatemanyforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeItemDeleteForbiddenError`](./src/models/errors/envelopeitemdeleteforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeItemDownloadForbiddenError`](./src/models/errors/envelopeitemdownloadforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeRecipientGetForbiddenError`](./src/models/errors/enveloperecipientgetforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeRecipientCreateManyForbiddenError`](./src/models/errors/enveloperecipientcreatemanyforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeRecipientUpdateManyForbiddenError`](./src/models/errors/enveloperecipientupdatemanyforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeRecipientDeleteForbiddenError`](./src/models/errors/enveloperecipientdeleteforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeFieldGetForbiddenError`](./src/models/errors/envelopefieldgetforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeFieldCreateManyForbiddenError`](./src/models/errors/envelopefieldcreatemanyforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeFieldUpdateManyForbiddenError`](./src/models/errors/envelopefieldupdatemanyforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeFieldDeleteForbiddenError`](./src/models/errors/envelopefielddeleteforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`DocumentAttachmentCreateForbiddenError`](./src/models/errors/documentattachmentcreateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`DocumentAttachmentUpdateForbiddenError`](./src/models/errors/documentattachmentupdateforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`DocumentAttachmentDeleteForbiddenError`](./src/models/errors/documentattachmentdeleteforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`DocumentAttachmentFindForbiddenError`](./src/models/errors/documentattachmentfindforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`FieldGetDocumentFieldForbiddenError`](./src/models/errors/fieldgetdocumentfieldforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`FieldCreateDocumentFieldForbiddenError`](./src/models/errors/fieldcreatedocumentfieldforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`FieldCreateDocumentFieldsForbiddenError`](./src/models/errors/fieldcreatedocumentfieldsforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`FieldUpdateDocumentFieldForbiddenError`](./src/models/errors/fieldupdatedocumentfieldforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`FieldUpdateDocumentFieldsForbiddenError`](./src/models/errors/fieldupdatedocumentfieldsforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`FieldDeleteDocumentFieldForbiddenError`](./src/models/errors/fielddeletedocumentfieldforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`RecipientGetDocumentRecipientForbiddenError`](./src/models/errors/recipientgetdocumentrecipientforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`RecipientCreateDocumentRecipientForbiddenError`](./src/models/errors/recipientcreatedocumentrecipientforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`RecipientCreateDocumentRecipientsForbiddenError`](./src/models/errors/recipientcreatedocumentrecipientsforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`RecipientUpdateDocumentRecipientForbiddenError`](./src/models/errors/recipientupdatedocumentrecipientforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`RecipientUpdateDocumentRecipientsForbiddenError`](./src/models/errors/recipientupdatedocumentrecipientsforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`RecipientDeleteDocumentRecipientForbiddenError`](./src/models/errors/recipientdeletedocumentrecipientforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`FieldCreateTemplateFieldForbiddenError`](./src/models/errors/fieldcreatetemplatefieldforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`FieldGetTemplateFieldForbiddenError`](./src/models/errors/fieldgettemplatefieldforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`FieldCreateTemplateFieldsForbiddenError`](./src/models/errors/fieldcreatetemplatefieldsforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`FieldUpdateTemplateFieldForbiddenError`](./src/models/errors/fieldupdatetemplatefieldforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`FieldUpdateTemplateFieldsForbiddenError`](./src/models/errors/fieldupdatetemplatefieldsforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`FieldDeleteTemplateFieldForbiddenError`](./src/models/errors/fielddeletetemplatefieldforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`RecipientGetTemplateRecipientForbiddenError`](./src/models/errors/recipientgettemplaterecipientforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`RecipientCreateTemplateRecipientForbiddenError`](./src/models/errors/recipientcreatetemplaterecipientforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`RecipientCreateTemplateRecipientsForbiddenError`](./src/models/errors/recipientcreatetemplaterecipientsforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`RecipientUpdateTemplateRecipientForbiddenError`](./src/models/errors/recipientupdatetemplaterecipientforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`RecipientUpdateTemplateRecipientsForbiddenError`](./src/models/errors/recipientupdatetemplaterecipientsforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`RecipientDeleteTemplateRecipientForbiddenError`](./src/models/errors/recipientdeletetemplaterecipientforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`TemplateCreateTemplateDirectLinkForbiddenError`](./src/models/errors/templatecreatetemplatedirectlinkforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`TemplateDeleteTemplateDirectLinkForbiddenError`](./src/models/errors/templatedeletetemplatedirectlinkforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`TemplateToggleTemplateDirectLinkForbiddenError`](./src/models/errors/templatetoggletemplatedirectlinkforbiddenerror.ts): Insufficient access. Status code `403`. Applicable to 1 of 89 methods.*
+* [`EnvelopeGetNotFoundError`](./src/models/errors/envelopegetnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 89 methods.*
+* [`EnvelopeFindNotFoundError`](./src/models/errors/envelopefindnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 89 methods.*
+* [`EnvelopeAuditLogFindNotFoundError`](./src/models/errors/envelopeauditlogfindnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 89 methods.*
+* [`EnvelopeAuditLogDownloadPdfNotFoundError`](./src/models/errors/envelopeauditlogdownloadpdfnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 89 methods.*
+* [`EnvelopeCertificateDownloadPdfNotFoundError`](./src/models/errors/envelopecertificatedownloadpdfnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 89 methods.*
+* [`DocumentGetNotFoundError`](./src/models/errors/documentgetnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 89 methods.*
+* [`DocumentFindNotFoundError`](./src/models/errors/documentfindnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 89 methods.*
+* [`DocumentDownloadNotFoundError`](./src/models/errors/documentdownloadnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 89 methods.*
+* [`DocumentDownloadBetaNotFoundError`](./src/models/errors/documentdownloadbetanotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 89 methods.*
+* [`TemplateFindTemplatesNotFoundError`](./src/models/errors/templatefindtemplatesnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 89 methods.*
+* [`TemplateGetTemplateByIdNotFoundError`](./src/models/errors/templategettemplatebyidnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 89 methods.*
+* [`FolderFindFoldersNotFoundError`](./src/models/errors/folderfindfoldersnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 89 methods.*
+* [`EnvelopeAttachmentFindNotFoundError`](./src/models/errors/envelopeattachmentfindnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 89 methods.*
+* [`EnvelopeItemDownloadNotFoundError`](./src/models/errors/envelopeitemdownloadnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 89 methods.*
+* [`EnvelopeRecipientGetNotFoundError`](./src/models/errors/enveloperecipientgetnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 89 methods.*
+* [`EnvelopeFieldGetNotFoundError`](./src/models/errors/envelopefieldgetnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 89 methods.*
+* [`DocumentAttachmentFindNotFoundError`](./src/models/errors/documentattachmentfindnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 89 methods.*
+* [`FieldGetDocumentFieldNotFoundError`](./src/models/errors/fieldgetdocumentfieldnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 89 methods.*
+* [`RecipientGetDocumentRecipientNotFoundError`](./src/models/errors/recipientgetdocumentrecipientnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 89 methods.*
+* [`FieldGetTemplateFieldNotFoundError`](./src/models/errors/fieldgettemplatefieldnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 89 methods.*
+* [`RecipientGetTemplateRecipientNotFoundError`](./src/models/errors/recipientgettemplaterecipientnotfounderror.ts): Not found. Status code `404`. Applicable to 1 of 89 methods.*
+* [`EnvelopeGetInternalServerError`](./src/models/errors/envelopegetinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeCreateInternalServerError`](./src/models/errors/envelopecreateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeUseInternalServerError`](./src/models/errors/envelopeuseinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeUpdateInternalServerError`](./src/models/errors/envelopeupdateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeDeleteInternalServerError`](./src/models/errors/envelopedeleteinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeDuplicateInternalServerError`](./src/models/errors/envelopeduplicateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeDistributeInternalServerError`](./src/models/errors/envelopedistributeinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeRedistributeInternalServerError`](./src/models/errors/enveloperedistributeinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeRecipientRejectOnBehalfOfInternalServerError`](./src/models/errors/enveloperecipientrejectonbehalfofinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeFindInternalServerError`](./src/models/errors/envelopefindinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeAuditLogFindInternalServerError`](./src/models/errors/envelopeauditlogfindinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeAuditLogDownloadPdfInternalServerError`](./src/models/errors/envelopeauditlogdownloadpdfinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeCertificateDownloadPdfInternalServerError`](./src/models/errors/envelopecertificatedownloadpdfinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeGetManyInternalServerError`](./src/models/errors/envelopegetmanyinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeCancelInternalServerError`](./src/models/errors/envelopecancelinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`DocumentGetInternalServerError`](./src/models/errors/documentgetinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`DocumentFindInternalServerError`](./src/models/errors/documentfindinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`DocumentCreateInternalServerError`](./src/models/errors/documentcreateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`DocumentUpdateInternalServerError`](./src/models/errors/documentupdateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`DocumentDeleteInternalServerError`](./src/models/errors/documentdeleteinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`DocumentDuplicateInternalServerError`](./src/models/errors/documentduplicateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`DocumentDistributeInternalServerError`](./src/models/errors/documentdistributeinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`DocumentRedistributeInternalServerError`](./src/models/errors/documentredistributeinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`DocumentDownloadInternalServerError`](./src/models/errors/documentdownloadinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`DocumentCreateDocumentTemporaryInternalServerError`](./src/models/errors/documentcreatedocumenttemporaryinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`DocumentGetManyInternalServerError`](./src/models/errors/documentgetmanyinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`DocumentDownloadBetaInternalServerError`](./src/models/errors/documentdownloadbetainternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`TemplateFindTemplatesInternalServerError`](./src/models/errors/templatefindtemplatesinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`TemplateGetTemplateByIdInternalServerError`](./src/models/errors/templategettemplatebyidinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`TemplateCreateTemplateInternalServerError`](./src/models/errors/templatecreatetemplateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`TemplateUpdateTemplateInternalServerError`](./src/models/errors/templateupdatetemplateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`TemplateDuplicateTemplateInternalServerError`](./src/models/errors/templateduplicatetemplateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`TemplateDeleteTemplateInternalServerError`](./src/models/errors/templatedeletetemplateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`TemplateCreateDocumentFromTemplateInternalServerError`](./src/models/errors/templatecreatedocumentfromtemplateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`FolderFindFoldersInternalServerError`](./src/models/errors/folderfindfoldersinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`FolderCreateFolderInternalServerError`](./src/models/errors/foldercreatefolderinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`FolderUpdateFolderInternalServerError`](./src/models/errors/folderupdatefolderinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`FolderDeleteFolderInternalServerError`](./src/models/errors/folderdeletefolderinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`TemplateGetManyInternalServerError`](./src/models/errors/templategetmanyinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`TemplateCreateTemplateTemporaryInternalServerError`](./src/models/errors/templatecreatetemplatetemporaryinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EmbeddingPresignCreateEmbeddingPresignTokenInternalServerError`](./src/models/errors/embeddingpresigncreateembeddingpresigntokeninternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EmbeddingPresignVerifyEmbeddingPresignTokenInternalServerError`](./src/models/errors/embeddingpresignverifyembeddingpresigntokeninternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeAttachmentFindInternalServerError`](./src/models/errors/envelopeattachmentfindinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeAttachmentCreateInternalServerError`](./src/models/errors/envelopeattachmentcreateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeAttachmentUpdateInternalServerError`](./src/models/errors/envelopeattachmentupdateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeAttachmentDeleteInternalServerError`](./src/models/errors/envelopeattachmentdeleteinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeItemCreateManyInternalServerError`](./src/models/errors/envelopeitemcreatemanyinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeItemUpdateManyInternalServerError`](./src/models/errors/envelopeitemupdatemanyinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeItemDeleteInternalServerError`](./src/models/errors/envelopeitemdeleteinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeItemDownloadInternalServerError`](./src/models/errors/envelopeitemdownloadinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeRecipientGetInternalServerError`](./src/models/errors/enveloperecipientgetinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeRecipientCreateManyInternalServerError`](./src/models/errors/enveloperecipientcreatemanyinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeRecipientUpdateManyInternalServerError`](./src/models/errors/enveloperecipientupdatemanyinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeRecipientDeleteInternalServerError`](./src/models/errors/enveloperecipientdeleteinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeFieldGetInternalServerError`](./src/models/errors/envelopefieldgetinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeFieldCreateManyInternalServerError`](./src/models/errors/envelopefieldcreatemanyinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeFieldUpdateManyInternalServerError`](./src/models/errors/envelopefieldupdatemanyinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`EnvelopeFieldDeleteInternalServerError`](./src/models/errors/envelopefielddeleteinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`DocumentAttachmentCreateInternalServerError`](./src/models/errors/documentattachmentcreateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`DocumentAttachmentUpdateInternalServerError`](./src/models/errors/documentattachmentupdateinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`DocumentAttachmentDeleteInternalServerError`](./src/models/errors/documentattachmentdeleteinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`DocumentAttachmentFindInternalServerError`](./src/models/errors/documentattachmentfindinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`FieldGetDocumentFieldInternalServerError`](./src/models/errors/fieldgetdocumentfieldinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`FieldCreateDocumentFieldInternalServerError`](./src/models/errors/fieldcreatedocumentfieldinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`FieldCreateDocumentFieldsInternalServerError`](./src/models/errors/fieldcreatedocumentfieldsinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`FieldUpdateDocumentFieldInternalServerError`](./src/models/errors/fieldupdatedocumentfieldinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`FieldUpdateDocumentFieldsInternalServerError`](./src/models/errors/fieldupdatedocumentfieldsinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`FieldDeleteDocumentFieldInternalServerError`](./src/models/errors/fielddeletedocumentfieldinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`RecipientGetDocumentRecipientInternalServerError`](./src/models/errors/recipientgetdocumentrecipientinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`RecipientCreateDocumentRecipientInternalServerError`](./src/models/errors/recipientcreatedocumentrecipientinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`RecipientCreateDocumentRecipientsInternalServerError`](./src/models/errors/recipientcreatedocumentrecipientsinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`RecipientUpdateDocumentRecipientInternalServerError`](./src/models/errors/recipientupdatedocumentrecipientinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`RecipientUpdateDocumentRecipientsInternalServerError`](./src/models/errors/recipientupdatedocumentrecipientsinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`RecipientDeleteDocumentRecipientInternalServerError`](./src/models/errors/recipientdeletedocumentrecipientinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`FieldCreateTemplateFieldInternalServerError`](./src/models/errors/fieldcreatetemplatefieldinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`FieldGetTemplateFieldInternalServerError`](./src/models/errors/fieldgettemplatefieldinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`FieldCreateTemplateFieldsInternalServerError`](./src/models/errors/fieldcreatetemplatefieldsinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`FieldUpdateTemplateFieldInternalServerError`](./src/models/errors/fieldupdatetemplatefieldinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`FieldUpdateTemplateFieldsInternalServerError`](./src/models/errors/fieldupdatetemplatefieldsinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`FieldDeleteTemplateFieldInternalServerError`](./src/models/errors/fielddeletetemplatefieldinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`RecipientGetTemplateRecipientInternalServerError`](./src/models/errors/recipientgettemplaterecipientinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`RecipientCreateTemplateRecipientInternalServerError`](./src/models/errors/recipientcreatetemplaterecipientinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`RecipientCreateTemplateRecipientsInternalServerError`](./src/models/errors/recipientcreatetemplaterecipientsinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`RecipientUpdateTemplateRecipientInternalServerError`](./src/models/errors/recipientupdatetemplaterecipientinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`RecipientUpdateTemplateRecipientsInternalServerError`](./src/models/errors/recipientupdatetemplaterecipientsinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`RecipientDeleteTemplateRecipientInternalServerError`](./src/models/errors/recipientdeletetemplaterecipientinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`TemplateCreateTemplateDirectLinkInternalServerError`](./src/models/errors/templatecreatetemplatedirectlinkinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`TemplateDeleteTemplateDirectLinkInternalServerError`](./src/models/errors/templatedeletetemplatedirectlinkinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
+* [`TemplateToggleTemplateDirectLinkInternalServerError`](./src/models/errors/templatetoggletemplatedirectlinkinternalservererror.ts): Internal server error. Status code `500`. Applicable to 1 of 89 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

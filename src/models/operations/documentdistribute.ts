@@ -108,6 +108,7 @@ export const DocumentDistributeStatus = {
   Pending: "PENDING",
   Completed: "COMPLETED",
   Rejected: "REJECTED",
+  Cancelled: "CANCELLED",
 } as const;
 export type DocumentDistributeStatus = ClosedEnum<
   typeof DocumentDistributeStatus

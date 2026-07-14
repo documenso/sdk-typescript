@@ -6,9 +6,9 @@
 import { EnvelopeAuditLogFindData10 } from "@documenso/sdk-typescript/models/operations";
 
 let value: EnvelopeAuditLogFindData10 = {
-  delegatedOwnerName: "<value>",
-  delegatedOwnerEmail: "<value>",
-  teamName: "<value>",
+  movedByUserId: 5348.39,
+  fromPersonalAccount: false,
+  toTeamId: 9447.32,
 };
 ```
 
@@ -16,6 +16,6 @@ let value: EnvelopeAuditLogFindData10 = {
 
 | Field                 | Type                  | Required              | Description           |
 | --------------------- | --------------------- | --------------------- | --------------------- |
-| `delegatedOwnerName`  | *string*              | :heavy_check_mark:    | N/A                   |
-| `delegatedOwnerEmail` | *string*              | :heavy_check_mark:    | N/A                   |
-| `teamName`            | *string*              | :heavy_check_mark:    | N/A                   |
+| `movedByUserId`       | *number*              | :heavy_check_mark:    | N/A                   |
+| `fromPersonalAccount` | *boolean*             | :heavy_check_mark:    | N/A                   |
+| `toTeamId`            | *number*              | :heavy_check_mark:    | N/A                   |

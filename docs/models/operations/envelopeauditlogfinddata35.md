@@ -9,6 +9,7 @@ let value: EnvelopeAuditLogFindData35 = {
   recipientEmail: "<value>",
   recipientName: "<value>",
   recipientId: 7948.06,
+  recipientRole: "<value>",
 };
 ```
 
@@ -19,3 +20,4 @@ let value: EnvelopeAuditLogFindData35 = {
 | `recipientEmail`   | *string*           | :heavy_check_mark: | N/A                |
 | `recipientName`    | *string*           | :heavy_check_mark: | N/A                |
 | `recipientId`      | *number*           | :heavy_check_mark: | N/A                |
+| `recipientRole`    | *string*           | :heavy_check_mark: | N/A                |

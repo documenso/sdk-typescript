@@ -29,7 +29,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 typescript:
-  version: 0.8.1
+  version: 0.9.0
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies: {}
@@ -38,6 +38,7 @@ typescript:
   additionalPackageJSON: {}
   additionalScripts: {}
   alwaysIncludeInboundAndOutbound: false
+  apiPromiseHelpers: false
   author: Speakeasy
   baseErrorName: DocumensoError
   clientServerStatusCodesAsErrors: true
@@ -48,6 +49,7 @@ typescript:
   enableReactQuery: false
   enumFormat: union
   envVarPrefix: DOCUMENSO
+  eventStreamClassName: EventStream
   exportZodModelNamespace: false
   fixEnumNameSanitization: false
   flatAdditionalProperties: false
@@ -79,6 +81,8 @@ typescript:
   packageName: '@documenso/sdk-typescript'
   preApplyUnionDiscriminators: true
   preserveModelFieldNames: false
+  privateIdentifierPrefix: '#'
+  requestExtras: false
   responseFormat: flat
   sseFlatResponse: false
   templateVersion: v2

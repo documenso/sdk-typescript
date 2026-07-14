@@ -43,9 +43,13 @@ import { tool$documentsRedistribute } from "./tools/documentsRedistribute.js";
 import { tool$documentsUpdate } from "./tools/documentsUpdate.js";
 import { tool$embeddingEmbeddingPresignCreateEmbeddingPresignToken } from "./tools/embeddingEmbeddingPresignCreateEmbeddingPresignToken.js";
 import { tool$embeddingEmbeddingPresignVerifyEmbeddingPresignToken } from "./tools/embeddingEmbeddingPresignVerifyEmbeddingPresignToken.js";
+import { tool$envelopeEnvelopeAuditLogDownloadPdf } from "./tools/envelopeEnvelopeAuditLogDownloadPdf.js";
 import { tool$envelopeEnvelopeAuditLogFind } from "./tools/envelopeEnvelopeAuditLogFind.js";
+import { tool$envelopeEnvelopeCancel } from "./tools/envelopeEnvelopeCancel.js";
+import { tool$envelopeEnvelopeCertificateDownloadPdf } from "./tools/envelopeEnvelopeCertificateDownloadPdf.js";
 import { tool$envelopeEnvelopeFind } from "./tools/envelopeEnvelopeFind.js";
 import { tool$envelopeEnvelopeGetMany } from "./tools/envelopeEnvelopeGetMany.js";
+import { tool$envelopeRecipientsEnvelopeRecipientRejectOnBehalfOf } from "./tools/envelopeRecipientsEnvelopeRecipientRejectOnBehalfOf.js";
 import { tool$envelopesAttachmentsCreate } from "./tools/envelopesAttachmentsCreate.js";
 import { tool$envelopesAttachmentsDelete } from "./tools/envelopesAttachmentsDelete.js";
 import { tool$envelopesAttachmentsFind } from "./tools/envelopesAttachmentsFind.js";
@@ -109,7 +113,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Documenso",
-    version: "0.8.1",
+    version: "0.9.0",
   });
 
   const client = new DocumensoCore({
@@ -147,9 +151,13 @@ export function createMCPServer(deps: {
   tool(tool$envelopesDuplicate);
   tool(tool$envelopesDistribute);
   tool(tool$envelopesRedistribute);
+  tool(tool$envelopeRecipientsEnvelopeRecipientRejectOnBehalfOf);
   tool(tool$envelopeEnvelopeFind);
   tool(tool$envelopeEnvelopeAuditLogFind);
+  tool(tool$envelopeEnvelopeAuditLogDownloadPdf);
+  tool(tool$envelopeEnvelopeCertificateDownloadPdf);
   tool(tool$envelopeEnvelopeGetMany);
+  tool(tool$envelopeEnvelopeCancel);
   tool(tool$documentsGet);
   tool(tool$documentsFind);
   tool(tool$documentsCreate);

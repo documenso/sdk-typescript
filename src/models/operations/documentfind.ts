@@ -31,6 +31,7 @@ export const DocumentFindQueryParamStatus = {
   Pending: "PENDING",
   Completed: "COMPLETED",
   Rejected: "REJECTED",
+  Cancelled: "CANCELLED",
 } as const;
 /**
  * Filter documents by the current status
@@ -99,6 +100,7 @@ export const DocumentFindDataStatus = {
   Pending: "PENDING",
   Completed: "COMPLETED",
   Rejected: "REJECTED",
+  Cancelled: "CANCELLED",
 } as const;
 export type DocumentFindDataStatus = ClosedEnum<typeof DocumentFindDataStatus>;
 

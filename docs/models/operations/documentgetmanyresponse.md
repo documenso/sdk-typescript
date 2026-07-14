@@ -11,7 +11,7 @@ let value: DocumentGetManyResponse = {
   data: [
     {
       visibility: "EVERYONE",
-      status: "REJECTED",
+      status: "CANCELLED",
       source: "DOCUMENT",
       id: 69.58,
       externalId: "<id>",

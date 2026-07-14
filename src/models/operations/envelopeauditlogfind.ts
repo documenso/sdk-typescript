@@ -40,15 +40,22 @@ export type EnvelopeAuditLogFindRequest = {
   orderByDirection?: EnvelopeAuditLogFindOrderByDirection | undefined;
 };
 
-export type EnvelopeAuditLogFindData35 = {
+export type EnvelopeAuditLogFindData41 = {
   recipientEmail: string;
   recipientName: string;
   recipientId: number;
+  recipientRole: string;
+  providerId: string;
+  credentialId: string;
+  sessionId: string;
+  numItemsSigned: number;
+  signatureAlgorithm: string;
+  digestAlgorithm: string;
 };
 
-export type DataDocumentRecipientExpired = {
-  type: "DOCUMENT_RECIPIENT_EXPIRED";
-  data: EnvelopeAuditLogFindData35;
+export type DataDocumentRecipientCscSigned = {
+  type: "DOCUMENT_RECIPIENT_CSC_SIGNED";
+  data: EnvelopeAuditLogFindData41;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -59,7 +66,120 @@ export type DataDocumentRecipientExpired = {
   ipAddress?: string | null | undefined;
 };
 
-export type EnvelopeAuditLogFindData34 = {
+export type EnvelopeAuditLogFindData40 = {
+  recipientEmail: string;
+  recipientName: string;
+  recipientId: number;
+  recipientRole: string;
+  providerId: string;
+  credentialId: string;
+  sessionId: string;
+  sadExpiresAt: string;
+};
+
+export type DataDocumentRecipientCscAuthorized = {
+  type: "DOCUMENT_RECIPIENT_CSC_AUTHORIZED";
+  data: EnvelopeAuditLogFindData40;
+  id: string;
+  createdAt: string;
+  envelopeId: string;
+  name?: string | null | undefined;
+  email?: string | null | undefined;
+  userId?: number | null | undefined;
+  userAgent?: string | null | undefined;
+  ipAddress?: string | null | undefined;
+};
+
+export type EnvelopeAuditLogFindData39 = {
+  recipientEmail: string;
+  recipientName: string;
+  recipientId: number;
+  recipientRole: string;
+  providerId: string;
+  credentialId: string;
+  sessionId: string;
+  numSignatures: number;
+};
+
+export type DataDocumentRecipientCscSignRequested = {
+  type: "DOCUMENT_RECIPIENT_CSC_SIGN_REQUESTED";
+  data: EnvelopeAuditLogFindData39;
+  id: string;
+  createdAt: string;
+  envelopeId: string;
+  name?: string | null | undefined;
+  email?: string | null | undefined;
+  userId?: number | null | undefined;
+  userAgent?: string | null | undefined;
+  ipAddress?: string | null | undefined;
+};
+
+export type EnvelopeAuditLogFindData38 = {
+  recipientEmail: string;
+  recipientName: string;
+  recipientId: number;
+  recipientRole: string;
+  providerId: string;
+  reason: string;
+};
+
+export type DataDocumentRecipientCscAuthenticationFailed = {
+  type: "DOCUMENT_RECIPIENT_CSC_AUTHENTICATION_FAILED";
+  data: EnvelopeAuditLogFindData38;
+  id: string;
+  createdAt: string;
+  envelopeId: string;
+  name?: string | null | undefined;
+  email?: string | null | undefined;
+  userId?: number | null | undefined;
+  userAgent?: string | null | undefined;
+  ipAddress?: string | null | undefined;
+};
+
+export type EnvelopeAuditLogFindData37 = {
+  recipientEmail: string;
+  recipientName: string;
+  recipientId: number;
+  recipientRole: string;
+  providerId: string;
+  credentialId: string;
+  signatureAlgorithm: string;
+  digestAlgorithm: string;
+};
+
+export type DataDocumentRecipientCscAuthenticated = {
+  type: "DOCUMENT_RECIPIENT_CSC_AUTHENTICATED";
+  data: EnvelopeAuditLogFindData37;
+  id: string;
+  createdAt: string;
+  envelopeId: string;
+  name?: string | null | undefined;
+  email?: string | null | undefined;
+  userId?: number | null | undefined;
+  userAgent?: string | null | undefined;
+  ipAddress?: string | null | undefined;
+};
+
+export type EnvelopeAuditLogFindData36 = {
+  recipientEmail: string;
+  recipientName: string;
+  recipientId: number;
+};
+
+export type DataDocumentRecipientExpired = {
+  type: "DOCUMENT_RECIPIENT_EXPIRED";
+  data: EnvelopeAuditLogFindData36;
+  id: string;
+  createdAt: string;
+  envelopeId: string;
+  name?: string | null | undefined;
+  email?: string | null | undefined;
+  userId?: number | null | undefined;
+  userAgent?: string | null | undefined;
+  ipAddress?: string | null | undefined;
+};
+
+export type EnvelopeAuditLogFindData35 = {
   recipientEmail: string;
   recipientName: string;
   recipientId: number;
@@ -68,7 +188,7 @@ export type EnvelopeAuditLogFindData34 = {
 
 export type DataRecipientDeleted = {
   type: "RECIPIENT_DELETED";
-  data: EnvelopeAuditLogFindData34;
+  data: EnvelopeAuditLogFindData35;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -136,7 +256,7 @@ export type ChangeUnion3 =
   | ChangeRole
   | ChangeEmail;
 
-export type EnvelopeAuditLogFindData33 = {
+export type EnvelopeAuditLogFindData34 = {
   recipientEmail: string;
   recipientName: string;
   recipientId: number;
@@ -148,7 +268,7 @@ export type EnvelopeAuditLogFindData33 = {
 
 export type DataRecipientUpdated = {
   type: "RECIPIENT_UPDATED";
-  data: EnvelopeAuditLogFindData33;
+  data: EnvelopeAuditLogFindData34;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -178,7 +298,7 @@ export type EnvelopeAuditLogFindActionAuth2 = ClosedEnum<
   typeof EnvelopeAuditLogFindActionAuth2
 >;
 
-export type EnvelopeAuditLogFindData32 = {
+export type EnvelopeAuditLogFindData33 = {
   recipientEmail: string;
   recipientName: string;
   recipientId: number;
@@ -189,7 +309,7 @@ export type EnvelopeAuditLogFindData32 = {
 
 export type DataRecipientCreated = {
   type: "RECIPIENT_CREATED";
-  data: EnvelopeAuditLogFindData32;
+  data: EnvelopeAuditLogFindData33;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -236,7 +356,7 @@ export type ChangeDimension = {
 
 export type ChangeUnion2 = ChangeDimension | ChangePosition;
 
-export type EnvelopeAuditLogFindData31 = {
+export type EnvelopeAuditLogFindData32 = {
   fieldId: string;
   fieldRecipientEmail: string;
   fieldRecipientId: number;
@@ -246,6 +366,26 @@ export type EnvelopeAuditLogFindData31 = {
 
 export type DataFieldUpdated = {
   type: "FIELD_UPDATED";
+  data: EnvelopeAuditLogFindData32;
+  id: string;
+  createdAt: string;
+  envelopeId: string;
+  name?: string | null | undefined;
+  email?: string | null | undefined;
+  userId?: number | null | undefined;
+  userAgent?: string | null | undefined;
+  ipAddress?: string | null | undefined;
+};
+
+export type EnvelopeAuditLogFindData31 = {
+  fieldId: string;
+  fieldRecipientEmail: string;
+  fieldRecipientId: number;
+  fieldType: string;
+};
+
+export type DataFieldDeleted = {
+  type: "FIELD_DELETED";
   data: EnvelopeAuditLogFindData31;
   id: string;
   createdAt: string;
@@ -264,8 +404,8 @@ export type EnvelopeAuditLogFindData30 = {
   fieldType: string;
 };
 
-export type DataFieldDeleted = {
-  type: "FIELD_DELETED";
+export type DataFieldCreated = {
+  type: "FIELD_CREATED";
   data: EnvelopeAuditLogFindData30;
   id: string;
   createdAt: string;
@@ -278,14 +418,12 @@ export type DataFieldDeleted = {
 };
 
 export type EnvelopeAuditLogFindData29 = {
-  fieldId: string;
-  fieldRecipientEmail: string;
-  fieldRecipientId: number;
-  fieldType: string;
+  from?: string | null | undefined;
+  to?: string | null | undefined;
 };
 
-export type DataFieldCreated = {
-  type: "FIELD_CREATED";
+export type DataDocumentExternalIDUpdated = {
+  type: "DOCUMENT_EXTERNAL_ID_UPDATED";
   data: EnvelopeAuditLogFindData29;
   id: string;
   createdAt: string;
@@ -298,12 +436,12 @@ export type DataFieldCreated = {
 };
 
 export type EnvelopeAuditLogFindData28 = {
-  from?: string | null | undefined;
-  to?: string | null | undefined;
+  from: string;
+  to: string;
 };
 
-export type DataDocumentExternalIDUpdated = {
-  type: "DOCUMENT_EXTERNAL_ID_UPDATED";
+export type DataDocumentTitleUpdated = {
+  type: "DOCUMENT_TITLE_UPDATED";
   data: EnvelopeAuditLogFindData28;
   id: string;
   createdAt: string;
@@ -315,13 +453,10 @@ export type DataDocumentExternalIDUpdated = {
   ipAddress?: string | null | undefined;
 };
 
-export type EnvelopeAuditLogFindData27 = {
-  from: string;
-  to: string;
-};
+export type EnvelopeAuditLogFindData27 = {};
 
-export type DataDocumentTitleUpdated = {
-  type: "DOCUMENT_TITLE_UPDATED";
+export type DataDocumentSent = {
+  type: "DOCUMENT_SENT";
   data: EnvelopeAuditLogFindData27;
   id: string;
   createdAt: string;
@@ -333,10 +468,14 @@ export type DataDocumentTitleUpdated = {
   ipAddress?: string | null | undefined;
 };
 
-export type EnvelopeAuditLogFindData26 = {};
+export type EnvelopeAuditLogFindData26 = {
+  recipientEmail: string;
+  recipientName: string;
+  recipientId: number;
+};
 
-export type DataDocumentSent = {
-  type: "DOCUMENT_SENT";
+export type DataDocumentAccessAuth2FaFailed = {
+  type: "DOCUMENT_ACCESS_AUTH_2FA_FAILED";
   data: EnvelopeAuditLogFindData26;
   id: string;
   createdAt: string;
@@ -354,8 +493,8 @@ export type EnvelopeAuditLogFindData25 = {
   recipientId: number;
 };
 
-export type DataDocumentAccessAuth2FaFailed = {
-  type: "DOCUMENT_ACCESS_AUTH_2FA_FAILED";
+export type DataDocumentAccessAuth2FaValidated = {
+  type: "DOCUMENT_ACCESS_AUTH_2FA_VALIDATED";
   data: EnvelopeAuditLogFindData25;
   id: string;
   createdAt: string;
@@ -373,8 +512,8 @@ export type EnvelopeAuditLogFindData24 = {
   recipientId: number;
 };
 
-export type DataDocumentAccessAuth2FaValidated = {
-  type: "DOCUMENT_ACCESS_AUTH_2FA_VALIDATED";
+export type DataDocumentAccessAuth2FaRequested = {
+  type: "DOCUMENT_ACCESS_AUTH_2FA_REQUESTED";
   data: EnvelopeAuditLogFindData24;
   id: string;
   createdAt: string;
@@ -390,32 +529,16 @@ export type EnvelopeAuditLogFindData23 = {
   recipientEmail: string;
   recipientName: string;
   recipientId: number;
-};
-
-export type DataDocumentAccessAuth2FaRequested = {
-  type: "DOCUMENT_ACCESS_AUTH_2FA_REQUESTED";
-  data: EnvelopeAuditLogFindData23;
-  id: string;
-  createdAt: string;
-  envelopeId: string;
-  name?: string | null | undefined;
-  email?: string | null | undefined;
-  userId?: number | null | undefined;
-  userAgent?: string | null | undefined;
-  ipAddress?: string | null | undefined;
-};
-
-export type EnvelopeAuditLogFindData22 = {
-  recipientEmail: string;
-  recipientName: string;
-  recipientId: number;
   recipientRole: string;
   reason: string;
+  isExternal?: boolean | undefined;
+  onBehalfOfUserEmail?: string | undefined;
+  onBehalfOfUserName?: string | null | undefined;
 };
 
 export type DataDocumentRecipientRejected = {
   type: "DOCUMENT_RECIPIENT_REJECTED";
-  data: EnvelopeAuditLogFindData22;
+  data: EnvelopeAuditLogFindData23;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -437,7 +560,7 @@ export type EnvelopeAuditLogFindActionAuth1 = ClosedEnum<
   typeof EnvelopeAuditLogFindActionAuth1
 >;
 
-export type EnvelopeAuditLogFindData21 = {
+export type EnvelopeAuditLogFindData22 = {
   recipientEmail: string;
   recipientName: string;
   recipientId: number;
@@ -447,7 +570,7 @@ export type EnvelopeAuditLogFindData21 = {
 
 export type DataDocumentRecipientCompleted = {
   type: "DOCUMENT_RECIPIENT_COMPLETED";
-  data: EnvelopeAuditLogFindData21;
+  data: EnvelopeAuditLogFindData22;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -466,7 +589,7 @@ export type EnvelopeAuditLogFindAccessAuth2 = ClosedEnum<
   typeof EnvelopeAuditLogFindAccessAuth2
 >;
 
-export type EnvelopeAuditLogFindData20 = {
+export type EnvelopeAuditLogFindData21 = {
   recipientEmail: string;
   recipientName: string;
   recipientId: number;
@@ -476,7 +599,7 @@ export type EnvelopeAuditLogFindData20 = {
 
 export type DataDocumentViewed = {
   type: "DOCUMENT_VIEWED";
-  data: EnvelopeAuditLogFindData20;
+  data: EnvelopeAuditLogFindData21;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -495,7 +618,7 @@ export type EnvelopeAuditLogFindAccessAuth1 = ClosedEnum<
   typeof EnvelopeAuditLogFindAccessAuth1
 >;
 
-export type EnvelopeAuditLogFindData19 = {
+export type EnvelopeAuditLogFindData20 = {
   recipientEmail: string;
   recipientName: string;
   recipientId: number;
@@ -505,7 +628,7 @@ export type EnvelopeAuditLogFindData19 = {
 
 export type DataDocumentOpened = {
   type: "DOCUMENT_OPENED";
-  data: EnvelopeAuditLogFindData19;
+  data: EnvelopeAuditLogFindData20;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -591,13 +714,13 @@ export type Change2 = {
 
 export type ChangeUnion1 = Change2 | ChangePassword;
 
-export type EnvelopeAuditLogFindData18 = {
+export type EnvelopeAuditLogFindData19 = {
   changes: Array<Change2 | ChangePassword>;
 };
 
 export type DataDocumentMetaUpdated = {
   type: "DOCUMENT_META_UPDATED";
-  data: EnvelopeAuditLogFindData18;
+  data: EnvelopeAuditLogFindData19;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -612,14 +735,14 @@ export type FromUnion3 = string | Array<string>;
 
 export type ToUnion3 = string | Array<string>;
 
-export type EnvelopeAuditLogFindData17 = {
+export type EnvelopeAuditLogFindData18 = {
   from: string | Array<string> | null;
   to: string | Array<string> | null;
 };
 
 export type DataDocumentGlobalAuthActionUpdated = {
   type: "DOCUMENT_GLOBAL_AUTH_ACTION_UPDATED";
-  data: EnvelopeAuditLogFindData17;
+  data: EnvelopeAuditLogFindData18;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -634,14 +757,14 @@ export type FromUnion2 = string | Array<string>;
 
 export type ToUnion2 = string | Array<string>;
 
-export type EnvelopeAuditLogFindData16 = {
+export type EnvelopeAuditLogFindData17 = {
   from: string | Array<string> | null;
   to: string | Array<string> | null;
 };
 
 export type DataDocumentGlobalAuthAccessUpdated = {
   type: "DOCUMENT_GLOBAL_AUTH_ACCESS_UPDATED";
-  data: EnvelopeAuditLogFindData16;
+  data: EnvelopeAuditLogFindData17;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -656,14 +779,14 @@ export type FromUnion1 = string | Array<string>;
 
 export type ToUnion1 = string | Array<string>;
 
-export type EnvelopeAuditLogFindData15 = {
+export type EnvelopeAuditLogFindData16 = {
   from: string | Array<string> | null;
   to: string | Array<string> | null;
 };
 
 export type DataDocumentVisibilityUpdated = {
   type: "DOCUMENT_VISIBILITY_UPDATED";
-  data: EnvelopeAuditLogFindData15;
+  data: EnvelopeAuditLogFindData16;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -832,7 +955,7 @@ export type FieldSecurity2 = {
   type?: FieldSecurityType2 | undefined;
 };
 
-export type EnvelopeAuditLogFindData14 = {
+export type EnvelopeAuditLogFindData15 = {
   recipientEmail: string;
   recipientName: string;
   recipientId: number;
@@ -854,7 +977,7 @@ export type EnvelopeAuditLogFindData14 = {
 
 export type DataDocumentFieldPrefilled = {
   type: "DOCUMENT_FIELD_PREFILLED";
-  data: EnvelopeAuditLogFindData14;
+  data: EnvelopeAuditLogFindData15;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -880,14 +1003,14 @@ export const FieldEnum = {
 } as const;
 export type FieldEnum = ClosedEnum<typeof FieldEnum>;
 
-export type EnvelopeAuditLogFindData13 = {
+export type EnvelopeAuditLogFindData14 = {
   field: FieldEnum;
   fieldId: string;
 };
 
 export type DataDocumentFieldUninserted = {
   type: "DOCUMENT_FIELD_UNINSERTED";
-  data: EnvelopeAuditLogFindData13;
+  data: EnvelopeAuditLogFindData14;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -1056,7 +1179,7 @@ export type FieldSecurity1 = {
   type?: FieldSecurityType1 | undefined;
 };
 
-export type EnvelopeAuditLogFindData12 = {
+export type EnvelopeAuditLogFindData13 = {
   recipientEmail: string;
   recipientName: string;
   recipientId: number;
@@ -1078,7 +1201,7 @@ export type EnvelopeAuditLogFindData12 = {
 
 export type DataDocumentFieldInserted = {
   type: "DOCUMENT_FIELD_INSERTED";
-  data: EnvelopeAuditLogFindData12;
+  data: EnvelopeAuditLogFindData13;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -1110,12 +1233,31 @@ export type EnvelopeAuditLogFindField1 = {
   recipientId: number;
 };
 
-export type EnvelopeAuditLogFindData11 = {
+export type EnvelopeAuditLogFindData12 = {
   fields: Array<EnvelopeAuditLogFindField1>;
 };
 
 export type DataDocumentFieldsAutoInserted = {
   type: "DOCUMENT_FIELDS_AUTO_INSERTED";
+  data: EnvelopeAuditLogFindData12;
+  id: string;
+  createdAt: string;
+  envelopeId: string;
+  name?: string | null | undefined;
+  email?: string | null | undefined;
+  userId?: number | null | undefined;
+  userAgent?: string | null | undefined;
+  ipAddress?: string | null | undefined;
+};
+
+export type EnvelopeAuditLogFindData11 = {
+  delegatedOwnerName: string | null;
+  delegatedOwnerEmail: string;
+  teamName: string;
+};
+
+export type DataDocumentDelegatedOwnerCreated = {
+  type: "DOCUMENT_DELEGATED_OWNER_CREATED";
   data: EnvelopeAuditLogFindData11;
   id: string;
   createdAt: string;
@@ -1128,13 +1270,13 @@ export type DataDocumentFieldsAutoInserted = {
 };
 
 export type EnvelopeAuditLogFindData10 = {
-  delegatedOwnerName: string | null;
-  delegatedOwnerEmail: string;
-  teamName: string;
+  movedByUserId: number;
+  fromPersonalAccount: boolean;
+  toTeamId: number;
 };
 
-export type DataDocumentDelegatedOwnerCreated = {
-  type: "DOCUMENT_DELEGATED_OWNER_CREATED";
+export type DataDocumentMovedToTeam = {
+  type: "DOCUMENT_MOVED_TO_TEAM";
   data: EnvelopeAuditLogFindData10;
   id: string;
   createdAt: string;
@@ -1147,13 +1289,11 @@ export type DataDocumentDelegatedOwnerCreated = {
 };
 
 export type EnvelopeAuditLogFindData9 = {
-  movedByUserId: number;
-  fromPersonalAccount: boolean;
-  toTeamId: number;
+  reason?: string | undefined;
 };
 
-export type DataDocumentMovedToTeam = {
-  type: "DOCUMENT_MOVED_TO_TEAM";
+export type DataDocumentCancelled = {
+  type: "DOCUMENT_CANCELLED";
   data: EnvelopeAuditLogFindData9;
   id: string;
   createdAt: string;
@@ -1369,6 +1509,7 @@ export type EnvelopeAuditLogFindDataUnion =
   | DataDocumentCompleted
   | DataDocumentCreated
   | DataDocumentDeleted
+  | DataDocumentCancelled
   | DataDocumentMovedToTeam
   | DataDocumentDelegatedOwnerCreated
   | DataDocumentFieldsAutoInserted
@@ -1395,7 +1536,12 @@ export type EnvelopeAuditLogFindDataUnion =
   | DataRecipientCreated
   | DataRecipientUpdated
   | DataRecipientDeleted
-  | DataDocumentRecipientExpired;
+  | DataDocumentRecipientExpired
+  | DataDocumentRecipientCscAuthenticated
+  | DataDocumentRecipientCscAuthenticationFailed
+  | DataDocumentRecipientCscSignRequested
+  | DataDocumentRecipientCscAuthorized
+  | DataDocumentRecipientCscSigned;
 
 /**
  * Successful response
@@ -1410,6 +1556,7 @@ export type EnvelopeAuditLogFindResponse = {
     | DataDocumentCompleted
     | DataDocumentCreated
     | DataDocumentDeleted
+    | DataDocumentCancelled
     | DataDocumentMovedToTeam
     | DataDocumentDelegatedOwnerCreated
     | DataDocumentFieldsAutoInserted
@@ -1437,6 +1584,11 @@ export type EnvelopeAuditLogFindResponse = {
     | DataRecipientUpdated
     | DataRecipientDeleted
     | DataDocumentRecipientExpired
+    | DataDocumentRecipientCscAuthenticated
+    | DataDocumentRecipientCscAuthenticationFailed
+    | DataDocumentRecipientCscSignRequested
+    | DataDocumentRecipientCscAuthorized
+    | DataDocumentRecipientCscSigned
   >;
   count: number;
   currentPage: number;
@@ -1519,8 +1671,660 @@ export function envelopeAuditLogFindRequestFromJSON(
 }
 
 /** @internal */
-export const EnvelopeAuditLogFindData35$inboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData35,
+export const EnvelopeAuditLogFindData41$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData41,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  recipientEmail: z.string(),
+  recipientName: z.string(),
+  recipientId: z.number(),
+  recipientRole: z.string(),
+  providerId: z.string(),
+  credentialId: z.string(),
+  sessionId: z.string(),
+  numItemsSigned: z.number(),
+  signatureAlgorithm: z.string(),
+  digestAlgorithm: z.string(),
+});
+/** @internal */
+export type EnvelopeAuditLogFindData41$Outbound = {
+  recipientEmail: string;
+  recipientName: string;
+  recipientId: number;
+  recipientRole: string;
+  providerId: string;
+  credentialId: string;
+  sessionId: string;
+  numItemsSigned: number;
+  signatureAlgorithm: string;
+  digestAlgorithm: string;
+};
+
+/** @internal */
+export const EnvelopeAuditLogFindData41$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData41$Outbound,
+  z.ZodTypeDef,
+  EnvelopeAuditLogFindData41
+> = z.object({
+  recipientEmail: z.string(),
+  recipientName: z.string(),
+  recipientId: z.number(),
+  recipientRole: z.string(),
+  providerId: z.string(),
+  credentialId: z.string(),
+  sessionId: z.string(),
+  numItemsSigned: z.number(),
+  signatureAlgorithm: z.string(),
+  digestAlgorithm: z.string(),
+});
+
+export function envelopeAuditLogFindData41ToJSON(
+  envelopeAuditLogFindData41: EnvelopeAuditLogFindData41,
+): string {
+  return JSON.stringify(
+    EnvelopeAuditLogFindData41$outboundSchema.parse(envelopeAuditLogFindData41),
+  );
+}
+export function envelopeAuditLogFindData41FromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeAuditLogFindData41, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeAuditLogFindData41$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData41' from JSON`,
+  );
+}
+
+/** @internal */
+export const DataDocumentRecipientCscSigned$inboundSchema: z.ZodType<
+  DataDocumentRecipientCscSigned,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: z.literal("DOCUMENT_RECIPIENT_CSC_SIGNED"),
+  data: z.lazy(() => EnvelopeAuditLogFindData41$inboundSchema),
+  id: z.string(),
+  createdAt: z.string(),
+  envelopeId: z.string(),
+  name: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
+  userId: z.nullable(z.number()).optional(),
+  userAgent: z.nullable(z.string()).optional(),
+  ipAddress: z.nullable(z.string()).optional(),
+});
+/** @internal */
+export type DataDocumentRecipientCscSigned$Outbound = {
+  type: "DOCUMENT_RECIPIENT_CSC_SIGNED";
+  data: EnvelopeAuditLogFindData41$Outbound;
+  id: string;
+  createdAt: string;
+  envelopeId: string;
+  name?: string | null | undefined;
+  email?: string | null | undefined;
+  userId?: number | null | undefined;
+  userAgent?: string | null | undefined;
+  ipAddress?: string | null | undefined;
+};
+
+/** @internal */
+export const DataDocumentRecipientCscSigned$outboundSchema: z.ZodType<
+  DataDocumentRecipientCscSigned$Outbound,
+  z.ZodTypeDef,
+  DataDocumentRecipientCscSigned
+> = z.object({
+  type: z.literal("DOCUMENT_RECIPIENT_CSC_SIGNED"),
+  data: z.lazy(() => EnvelopeAuditLogFindData41$outboundSchema),
+  id: z.string(),
+  createdAt: z.string(),
+  envelopeId: z.string(),
+  name: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
+  userId: z.nullable(z.number()).optional(),
+  userAgent: z.nullable(z.string()).optional(),
+  ipAddress: z.nullable(z.string()).optional(),
+});
+
+export function dataDocumentRecipientCscSignedToJSON(
+  dataDocumentRecipientCscSigned: DataDocumentRecipientCscSigned,
+): string {
+  return JSON.stringify(
+    DataDocumentRecipientCscSigned$outboundSchema.parse(
+      dataDocumentRecipientCscSigned,
+    ),
+  );
+}
+export function dataDocumentRecipientCscSignedFromJSON(
+  jsonString: string,
+): SafeParseResult<DataDocumentRecipientCscSigned, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DataDocumentRecipientCscSigned$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DataDocumentRecipientCscSigned' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeAuditLogFindData40$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData40,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  recipientEmail: z.string(),
+  recipientName: z.string(),
+  recipientId: z.number(),
+  recipientRole: z.string(),
+  providerId: z.string(),
+  credentialId: z.string(),
+  sessionId: z.string(),
+  sadExpiresAt: z.string(),
+});
+/** @internal */
+export type EnvelopeAuditLogFindData40$Outbound = {
+  recipientEmail: string;
+  recipientName: string;
+  recipientId: number;
+  recipientRole: string;
+  providerId: string;
+  credentialId: string;
+  sessionId: string;
+  sadExpiresAt: string;
+};
+
+/** @internal */
+export const EnvelopeAuditLogFindData40$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData40$Outbound,
+  z.ZodTypeDef,
+  EnvelopeAuditLogFindData40
+> = z.object({
+  recipientEmail: z.string(),
+  recipientName: z.string(),
+  recipientId: z.number(),
+  recipientRole: z.string(),
+  providerId: z.string(),
+  credentialId: z.string(),
+  sessionId: z.string(),
+  sadExpiresAt: z.string(),
+});
+
+export function envelopeAuditLogFindData40ToJSON(
+  envelopeAuditLogFindData40: EnvelopeAuditLogFindData40,
+): string {
+  return JSON.stringify(
+    EnvelopeAuditLogFindData40$outboundSchema.parse(envelopeAuditLogFindData40),
+  );
+}
+export function envelopeAuditLogFindData40FromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeAuditLogFindData40, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeAuditLogFindData40$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData40' from JSON`,
+  );
+}
+
+/** @internal */
+export const DataDocumentRecipientCscAuthorized$inboundSchema: z.ZodType<
+  DataDocumentRecipientCscAuthorized,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: z.literal("DOCUMENT_RECIPIENT_CSC_AUTHORIZED"),
+  data: z.lazy(() => EnvelopeAuditLogFindData40$inboundSchema),
+  id: z.string(),
+  createdAt: z.string(),
+  envelopeId: z.string(),
+  name: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
+  userId: z.nullable(z.number()).optional(),
+  userAgent: z.nullable(z.string()).optional(),
+  ipAddress: z.nullable(z.string()).optional(),
+});
+/** @internal */
+export type DataDocumentRecipientCscAuthorized$Outbound = {
+  type: "DOCUMENT_RECIPIENT_CSC_AUTHORIZED";
+  data: EnvelopeAuditLogFindData40$Outbound;
+  id: string;
+  createdAt: string;
+  envelopeId: string;
+  name?: string | null | undefined;
+  email?: string | null | undefined;
+  userId?: number | null | undefined;
+  userAgent?: string | null | undefined;
+  ipAddress?: string | null | undefined;
+};
+
+/** @internal */
+export const DataDocumentRecipientCscAuthorized$outboundSchema: z.ZodType<
+  DataDocumentRecipientCscAuthorized$Outbound,
+  z.ZodTypeDef,
+  DataDocumentRecipientCscAuthorized
+> = z.object({
+  type: z.literal("DOCUMENT_RECIPIENT_CSC_AUTHORIZED"),
+  data: z.lazy(() => EnvelopeAuditLogFindData40$outboundSchema),
+  id: z.string(),
+  createdAt: z.string(),
+  envelopeId: z.string(),
+  name: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
+  userId: z.nullable(z.number()).optional(),
+  userAgent: z.nullable(z.string()).optional(),
+  ipAddress: z.nullable(z.string()).optional(),
+});
+
+export function dataDocumentRecipientCscAuthorizedToJSON(
+  dataDocumentRecipientCscAuthorized: DataDocumentRecipientCscAuthorized,
+): string {
+  return JSON.stringify(
+    DataDocumentRecipientCscAuthorized$outboundSchema.parse(
+      dataDocumentRecipientCscAuthorized,
+    ),
+  );
+}
+export function dataDocumentRecipientCscAuthorizedFromJSON(
+  jsonString: string,
+): SafeParseResult<DataDocumentRecipientCscAuthorized, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      DataDocumentRecipientCscAuthorized$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DataDocumentRecipientCscAuthorized' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeAuditLogFindData39$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData39,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  recipientEmail: z.string(),
+  recipientName: z.string(),
+  recipientId: z.number(),
+  recipientRole: z.string(),
+  providerId: z.string(),
+  credentialId: z.string(),
+  sessionId: z.string(),
+  numSignatures: z.number(),
+});
+/** @internal */
+export type EnvelopeAuditLogFindData39$Outbound = {
+  recipientEmail: string;
+  recipientName: string;
+  recipientId: number;
+  recipientRole: string;
+  providerId: string;
+  credentialId: string;
+  sessionId: string;
+  numSignatures: number;
+};
+
+/** @internal */
+export const EnvelopeAuditLogFindData39$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData39$Outbound,
+  z.ZodTypeDef,
+  EnvelopeAuditLogFindData39
+> = z.object({
+  recipientEmail: z.string(),
+  recipientName: z.string(),
+  recipientId: z.number(),
+  recipientRole: z.string(),
+  providerId: z.string(),
+  credentialId: z.string(),
+  sessionId: z.string(),
+  numSignatures: z.number(),
+});
+
+export function envelopeAuditLogFindData39ToJSON(
+  envelopeAuditLogFindData39: EnvelopeAuditLogFindData39,
+): string {
+  return JSON.stringify(
+    EnvelopeAuditLogFindData39$outboundSchema.parse(envelopeAuditLogFindData39),
+  );
+}
+export function envelopeAuditLogFindData39FromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeAuditLogFindData39, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeAuditLogFindData39$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData39' from JSON`,
+  );
+}
+
+/** @internal */
+export const DataDocumentRecipientCscSignRequested$inboundSchema: z.ZodType<
+  DataDocumentRecipientCscSignRequested,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: z.literal("DOCUMENT_RECIPIENT_CSC_SIGN_REQUESTED"),
+  data: z.lazy(() => EnvelopeAuditLogFindData39$inboundSchema),
+  id: z.string(),
+  createdAt: z.string(),
+  envelopeId: z.string(),
+  name: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
+  userId: z.nullable(z.number()).optional(),
+  userAgent: z.nullable(z.string()).optional(),
+  ipAddress: z.nullable(z.string()).optional(),
+});
+/** @internal */
+export type DataDocumentRecipientCscSignRequested$Outbound = {
+  type: "DOCUMENT_RECIPIENT_CSC_SIGN_REQUESTED";
+  data: EnvelopeAuditLogFindData39$Outbound;
+  id: string;
+  createdAt: string;
+  envelopeId: string;
+  name?: string | null | undefined;
+  email?: string | null | undefined;
+  userId?: number | null | undefined;
+  userAgent?: string | null | undefined;
+  ipAddress?: string | null | undefined;
+};
+
+/** @internal */
+export const DataDocumentRecipientCscSignRequested$outboundSchema: z.ZodType<
+  DataDocumentRecipientCscSignRequested$Outbound,
+  z.ZodTypeDef,
+  DataDocumentRecipientCscSignRequested
+> = z.object({
+  type: z.literal("DOCUMENT_RECIPIENT_CSC_SIGN_REQUESTED"),
+  data: z.lazy(() => EnvelopeAuditLogFindData39$outboundSchema),
+  id: z.string(),
+  createdAt: z.string(),
+  envelopeId: z.string(),
+  name: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
+  userId: z.nullable(z.number()).optional(),
+  userAgent: z.nullable(z.string()).optional(),
+  ipAddress: z.nullable(z.string()).optional(),
+});
+
+export function dataDocumentRecipientCscSignRequestedToJSON(
+  dataDocumentRecipientCscSignRequested: DataDocumentRecipientCscSignRequested,
+): string {
+  return JSON.stringify(
+    DataDocumentRecipientCscSignRequested$outboundSchema.parse(
+      dataDocumentRecipientCscSignRequested,
+    ),
+  );
+}
+export function dataDocumentRecipientCscSignRequestedFromJSON(
+  jsonString: string,
+): SafeParseResult<DataDocumentRecipientCscSignRequested, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      DataDocumentRecipientCscSignRequested$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DataDocumentRecipientCscSignRequested' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeAuditLogFindData38$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData38,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  recipientEmail: z.string(),
+  recipientName: z.string(),
+  recipientId: z.number(),
+  recipientRole: z.string(),
+  providerId: z.string(),
+  reason: z.string(),
+});
+/** @internal */
+export type EnvelopeAuditLogFindData38$Outbound = {
+  recipientEmail: string;
+  recipientName: string;
+  recipientId: number;
+  recipientRole: string;
+  providerId: string;
+  reason: string;
+};
+
+/** @internal */
+export const EnvelopeAuditLogFindData38$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData38$Outbound,
+  z.ZodTypeDef,
+  EnvelopeAuditLogFindData38
+> = z.object({
+  recipientEmail: z.string(),
+  recipientName: z.string(),
+  recipientId: z.number(),
+  recipientRole: z.string(),
+  providerId: z.string(),
+  reason: z.string(),
+});
+
+export function envelopeAuditLogFindData38ToJSON(
+  envelopeAuditLogFindData38: EnvelopeAuditLogFindData38,
+): string {
+  return JSON.stringify(
+    EnvelopeAuditLogFindData38$outboundSchema.parse(envelopeAuditLogFindData38),
+  );
+}
+export function envelopeAuditLogFindData38FromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeAuditLogFindData38, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeAuditLogFindData38$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData38' from JSON`,
+  );
+}
+
+/** @internal */
+export const DataDocumentRecipientCscAuthenticationFailed$inboundSchema:
+  z.ZodType<
+    DataDocumentRecipientCscAuthenticationFailed,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    type: z.literal("DOCUMENT_RECIPIENT_CSC_AUTHENTICATION_FAILED"),
+    data: z.lazy(() => EnvelopeAuditLogFindData38$inboundSchema),
+    id: z.string(),
+    createdAt: z.string(),
+    envelopeId: z.string(),
+    name: z.nullable(z.string()).optional(),
+    email: z.nullable(z.string()).optional(),
+    userId: z.nullable(z.number()).optional(),
+    userAgent: z.nullable(z.string()).optional(),
+    ipAddress: z.nullable(z.string()).optional(),
+  });
+/** @internal */
+export type DataDocumentRecipientCscAuthenticationFailed$Outbound = {
+  type: "DOCUMENT_RECIPIENT_CSC_AUTHENTICATION_FAILED";
+  data: EnvelopeAuditLogFindData38$Outbound;
+  id: string;
+  createdAt: string;
+  envelopeId: string;
+  name?: string | null | undefined;
+  email?: string | null | undefined;
+  userId?: number | null | undefined;
+  userAgent?: string | null | undefined;
+  ipAddress?: string | null | undefined;
+};
+
+/** @internal */
+export const DataDocumentRecipientCscAuthenticationFailed$outboundSchema:
+  z.ZodType<
+    DataDocumentRecipientCscAuthenticationFailed$Outbound,
+    z.ZodTypeDef,
+    DataDocumentRecipientCscAuthenticationFailed
+  > = z.object({
+    type: z.literal("DOCUMENT_RECIPIENT_CSC_AUTHENTICATION_FAILED"),
+    data: z.lazy(() => EnvelopeAuditLogFindData38$outboundSchema),
+    id: z.string(),
+    createdAt: z.string(),
+    envelopeId: z.string(),
+    name: z.nullable(z.string()).optional(),
+    email: z.nullable(z.string()).optional(),
+    userId: z.nullable(z.number()).optional(),
+    userAgent: z.nullable(z.string()).optional(),
+    ipAddress: z.nullable(z.string()).optional(),
+  });
+
+export function dataDocumentRecipientCscAuthenticationFailedToJSON(
+  dataDocumentRecipientCscAuthenticationFailed:
+    DataDocumentRecipientCscAuthenticationFailed,
+): string {
+  return JSON.stringify(
+    DataDocumentRecipientCscAuthenticationFailed$outboundSchema.parse(
+      dataDocumentRecipientCscAuthenticationFailed,
+    ),
+  );
+}
+export function dataDocumentRecipientCscAuthenticationFailedFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  DataDocumentRecipientCscAuthenticationFailed,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      DataDocumentRecipientCscAuthenticationFailed$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'DataDocumentRecipientCscAuthenticationFailed' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeAuditLogFindData37$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData37,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  recipientEmail: z.string(),
+  recipientName: z.string(),
+  recipientId: z.number(),
+  recipientRole: z.string(),
+  providerId: z.string(),
+  credentialId: z.string(),
+  signatureAlgorithm: z.string(),
+  digestAlgorithm: z.string(),
+});
+/** @internal */
+export type EnvelopeAuditLogFindData37$Outbound = {
+  recipientEmail: string;
+  recipientName: string;
+  recipientId: number;
+  recipientRole: string;
+  providerId: string;
+  credentialId: string;
+  signatureAlgorithm: string;
+  digestAlgorithm: string;
+};
+
+/** @internal */
+export const EnvelopeAuditLogFindData37$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData37$Outbound,
+  z.ZodTypeDef,
+  EnvelopeAuditLogFindData37
+> = z.object({
+  recipientEmail: z.string(),
+  recipientName: z.string(),
+  recipientId: z.number(),
+  recipientRole: z.string(),
+  providerId: z.string(),
+  credentialId: z.string(),
+  signatureAlgorithm: z.string(),
+  digestAlgorithm: z.string(),
+});
+
+export function envelopeAuditLogFindData37ToJSON(
+  envelopeAuditLogFindData37: EnvelopeAuditLogFindData37,
+): string {
+  return JSON.stringify(
+    EnvelopeAuditLogFindData37$outboundSchema.parse(envelopeAuditLogFindData37),
+  );
+}
+export function envelopeAuditLogFindData37FromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeAuditLogFindData37, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeAuditLogFindData37$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData37' from JSON`,
+  );
+}
+
+/** @internal */
+export const DataDocumentRecipientCscAuthenticated$inboundSchema: z.ZodType<
+  DataDocumentRecipientCscAuthenticated,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: z.literal("DOCUMENT_RECIPIENT_CSC_AUTHENTICATED"),
+  data: z.lazy(() => EnvelopeAuditLogFindData37$inboundSchema),
+  id: z.string(),
+  createdAt: z.string(),
+  envelopeId: z.string(),
+  name: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
+  userId: z.nullable(z.number()).optional(),
+  userAgent: z.nullable(z.string()).optional(),
+  ipAddress: z.nullable(z.string()).optional(),
+});
+/** @internal */
+export type DataDocumentRecipientCscAuthenticated$Outbound = {
+  type: "DOCUMENT_RECIPIENT_CSC_AUTHENTICATED";
+  data: EnvelopeAuditLogFindData37$Outbound;
+  id: string;
+  createdAt: string;
+  envelopeId: string;
+  name?: string | null | undefined;
+  email?: string | null | undefined;
+  userId?: number | null | undefined;
+  userAgent?: string | null | undefined;
+  ipAddress?: string | null | undefined;
+};
+
+/** @internal */
+export const DataDocumentRecipientCscAuthenticated$outboundSchema: z.ZodType<
+  DataDocumentRecipientCscAuthenticated$Outbound,
+  z.ZodTypeDef,
+  DataDocumentRecipientCscAuthenticated
+> = z.object({
+  type: z.literal("DOCUMENT_RECIPIENT_CSC_AUTHENTICATED"),
+  data: z.lazy(() => EnvelopeAuditLogFindData37$outboundSchema),
+  id: z.string(),
+  createdAt: z.string(),
+  envelopeId: z.string(),
+  name: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
+  userId: z.nullable(z.number()).optional(),
+  userAgent: z.nullable(z.string()).optional(),
+  ipAddress: z.nullable(z.string()).optional(),
+});
+
+export function dataDocumentRecipientCscAuthenticatedToJSON(
+  dataDocumentRecipientCscAuthenticated: DataDocumentRecipientCscAuthenticated,
+): string {
+  return JSON.stringify(
+    DataDocumentRecipientCscAuthenticated$outboundSchema.parse(
+      dataDocumentRecipientCscAuthenticated,
+    ),
+  );
+}
+export function dataDocumentRecipientCscAuthenticatedFromJSON(
+  jsonString: string,
+): SafeParseResult<DataDocumentRecipientCscAuthenticated, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      DataDocumentRecipientCscAuthenticated$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DataDocumentRecipientCscAuthenticated' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeAuditLogFindData36$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData36,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -1529,37 +2333,37 @@ export const EnvelopeAuditLogFindData35$inboundSchema: z.ZodType<
   recipientId: z.number(),
 });
 /** @internal */
-export type EnvelopeAuditLogFindData35$Outbound = {
+export type EnvelopeAuditLogFindData36$Outbound = {
   recipientEmail: string;
   recipientName: string;
   recipientId: number;
 };
 
 /** @internal */
-export const EnvelopeAuditLogFindData35$outboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData35$Outbound,
+export const EnvelopeAuditLogFindData36$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData36$Outbound,
   z.ZodTypeDef,
-  EnvelopeAuditLogFindData35
+  EnvelopeAuditLogFindData36
 > = z.object({
   recipientEmail: z.string(),
   recipientName: z.string(),
   recipientId: z.number(),
 });
 
-export function envelopeAuditLogFindData35ToJSON(
-  envelopeAuditLogFindData35: EnvelopeAuditLogFindData35,
+export function envelopeAuditLogFindData36ToJSON(
+  envelopeAuditLogFindData36: EnvelopeAuditLogFindData36,
 ): string {
   return JSON.stringify(
-    EnvelopeAuditLogFindData35$outboundSchema.parse(envelopeAuditLogFindData35),
+    EnvelopeAuditLogFindData36$outboundSchema.parse(envelopeAuditLogFindData36),
   );
 }
-export function envelopeAuditLogFindData35FromJSON(
+export function envelopeAuditLogFindData36FromJSON(
   jsonString: string,
-): SafeParseResult<EnvelopeAuditLogFindData35, SDKValidationError> {
+): SafeParseResult<EnvelopeAuditLogFindData36, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => EnvelopeAuditLogFindData35$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeAuditLogFindData35' from JSON`,
+    (x) => EnvelopeAuditLogFindData36$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData36' from JSON`,
   );
 }
 
@@ -1570,7 +2374,7 @@ export const DataDocumentRecipientExpired$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("DOCUMENT_RECIPIENT_EXPIRED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData35$inboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData36$inboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -1583,7 +2387,7 @@ export const DataDocumentRecipientExpired$inboundSchema: z.ZodType<
 /** @internal */
 export type DataDocumentRecipientExpired$Outbound = {
   type: "DOCUMENT_RECIPIENT_EXPIRED";
-  data: EnvelopeAuditLogFindData35$Outbound;
+  data: EnvelopeAuditLogFindData36$Outbound;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -1601,7 +2405,7 @@ export const DataDocumentRecipientExpired$outboundSchema: z.ZodType<
   DataDocumentRecipientExpired
 > = z.object({
   type: z.literal("DOCUMENT_RECIPIENT_EXPIRED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData35$outboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData36$outboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -1632,8 +2436,8 @@ export function dataDocumentRecipientExpiredFromJSON(
 }
 
 /** @internal */
-export const EnvelopeAuditLogFindData34$inboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData34,
+export const EnvelopeAuditLogFindData35$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData35,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -1643,7 +2447,7 @@ export const EnvelopeAuditLogFindData34$inboundSchema: z.ZodType<
   recipientRole: z.string(),
 });
 /** @internal */
-export type EnvelopeAuditLogFindData34$Outbound = {
+export type EnvelopeAuditLogFindData35$Outbound = {
   recipientEmail: string;
   recipientName: string;
   recipientId: number;
@@ -1651,10 +2455,10 @@ export type EnvelopeAuditLogFindData34$Outbound = {
 };
 
 /** @internal */
-export const EnvelopeAuditLogFindData34$outboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData34$Outbound,
+export const EnvelopeAuditLogFindData35$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData35$Outbound,
   z.ZodTypeDef,
-  EnvelopeAuditLogFindData34
+  EnvelopeAuditLogFindData35
 > = z.object({
   recipientEmail: z.string(),
   recipientName: z.string(),
@@ -1662,20 +2466,20 @@ export const EnvelopeAuditLogFindData34$outboundSchema: z.ZodType<
   recipientRole: z.string(),
 });
 
-export function envelopeAuditLogFindData34ToJSON(
-  envelopeAuditLogFindData34: EnvelopeAuditLogFindData34,
+export function envelopeAuditLogFindData35ToJSON(
+  envelopeAuditLogFindData35: EnvelopeAuditLogFindData35,
 ): string {
   return JSON.stringify(
-    EnvelopeAuditLogFindData34$outboundSchema.parse(envelopeAuditLogFindData34),
+    EnvelopeAuditLogFindData35$outboundSchema.parse(envelopeAuditLogFindData35),
   );
 }
-export function envelopeAuditLogFindData34FromJSON(
+export function envelopeAuditLogFindData35FromJSON(
   jsonString: string,
-): SafeParseResult<EnvelopeAuditLogFindData34, SDKValidationError> {
+): SafeParseResult<EnvelopeAuditLogFindData35, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => EnvelopeAuditLogFindData34$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeAuditLogFindData34' from JSON`,
+    (x) => EnvelopeAuditLogFindData35$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData35' from JSON`,
   );
 }
 
@@ -1686,7 +2490,7 @@ export const DataRecipientDeleted$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("RECIPIENT_DELETED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData34$inboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData35$inboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -1699,7 +2503,7 @@ export const DataRecipientDeleted$inboundSchema: z.ZodType<
 /** @internal */
 export type DataRecipientDeleted$Outbound = {
   type: "RECIPIENT_DELETED";
-  data: EnvelopeAuditLogFindData34$Outbound;
+  data: EnvelopeAuditLogFindData35$Outbound;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -1717,7 +2521,7 @@ export const DataRecipientDeleted$outboundSchema: z.ZodType<
   DataRecipientDeleted
 > = z.object({
   type: z.literal("RECIPIENT_DELETED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData34$outboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData35$outboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -2315,8 +3119,8 @@ export function changeUnion3FromJSON(
 }
 
 /** @internal */
-export const EnvelopeAuditLogFindData33$inboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData33,
+export const EnvelopeAuditLogFindData34$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData34,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -2335,7 +3139,7 @@ export const EnvelopeAuditLogFindData33$inboundSchema: z.ZodType<
   ),
 });
 /** @internal */
-export type EnvelopeAuditLogFindData33$Outbound = {
+export type EnvelopeAuditLogFindData34$Outbound = {
   recipientEmail: string;
   recipientName: string;
   recipientId: number;
@@ -2350,10 +3154,10 @@ export type EnvelopeAuditLogFindData33$Outbound = {
 };
 
 /** @internal */
-export const EnvelopeAuditLogFindData33$outboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData33$Outbound,
+export const EnvelopeAuditLogFindData34$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData34$Outbound,
   z.ZodTypeDef,
-  EnvelopeAuditLogFindData33
+  EnvelopeAuditLogFindData34
 > = z.object({
   recipientEmail: z.string(),
   recipientName: z.string(),
@@ -2370,20 +3174,20 @@ export const EnvelopeAuditLogFindData33$outboundSchema: z.ZodType<
   ),
 });
 
-export function envelopeAuditLogFindData33ToJSON(
-  envelopeAuditLogFindData33: EnvelopeAuditLogFindData33,
+export function envelopeAuditLogFindData34ToJSON(
+  envelopeAuditLogFindData34: EnvelopeAuditLogFindData34,
 ): string {
   return JSON.stringify(
-    EnvelopeAuditLogFindData33$outboundSchema.parse(envelopeAuditLogFindData33),
+    EnvelopeAuditLogFindData34$outboundSchema.parse(envelopeAuditLogFindData34),
   );
 }
-export function envelopeAuditLogFindData33FromJSON(
+export function envelopeAuditLogFindData34FromJSON(
   jsonString: string,
-): SafeParseResult<EnvelopeAuditLogFindData33, SDKValidationError> {
+): SafeParseResult<EnvelopeAuditLogFindData34, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => EnvelopeAuditLogFindData33$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeAuditLogFindData33' from JSON`,
+    (x) => EnvelopeAuditLogFindData34$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData34' from JSON`,
   );
 }
 
@@ -2394,7 +3198,7 @@ export const DataRecipientUpdated$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("RECIPIENT_UPDATED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData33$inboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData34$inboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -2407,7 +3211,7 @@ export const DataRecipientUpdated$inboundSchema: z.ZodType<
 /** @internal */
 export type DataRecipientUpdated$Outbound = {
   type: "RECIPIENT_UPDATED";
-  data: EnvelopeAuditLogFindData33$Outbound;
+  data: EnvelopeAuditLogFindData34$Outbound;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -2425,7 +3229,7 @@ export const DataRecipientUpdated$outboundSchema: z.ZodType<
   DataRecipientUpdated
 > = z.object({
   type: z.literal("RECIPIENT_UPDATED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData33$outboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData34$outboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -2472,8 +3276,8 @@ export const EnvelopeAuditLogFindActionAuth2$outboundSchema: z.ZodNativeEnum<
 > = EnvelopeAuditLogFindActionAuth2$inboundSchema;
 
 /** @internal */
-export const EnvelopeAuditLogFindData32$inboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData32,
+export const EnvelopeAuditLogFindData33$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData33,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -2485,7 +3289,7 @@ export const EnvelopeAuditLogFindData32$inboundSchema: z.ZodType<
   actionAuth: z.array(EnvelopeAuditLogFindActionAuth2$inboundSchema),
 });
 /** @internal */
-export type EnvelopeAuditLogFindData32$Outbound = {
+export type EnvelopeAuditLogFindData33$Outbound = {
   recipientEmail: string;
   recipientName: string;
   recipientId: number;
@@ -2495,10 +3299,10 @@ export type EnvelopeAuditLogFindData32$Outbound = {
 };
 
 /** @internal */
-export const EnvelopeAuditLogFindData32$outboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData32$Outbound,
+export const EnvelopeAuditLogFindData33$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData33$Outbound,
   z.ZodTypeDef,
-  EnvelopeAuditLogFindData32
+  EnvelopeAuditLogFindData33
 > = z.object({
   recipientEmail: z.string(),
   recipientName: z.string(),
@@ -2508,20 +3312,20 @@ export const EnvelopeAuditLogFindData32$outboundSchema: z.ZodType<
   actionAuth: z.array(EnvelopeAuditLogFindActionAuth2$outboundSchema),
 });
 
-export function envelopeAuditLogFindData32ToJSON(
-  envelopeAuditLogFindData32: EnvelopeAuditLogFindData32,
+export function envelopeAuditLogFindData33ToJSON(
+  envelopeAuditLogFindData33: EnvelopeAuditLogFindData33,
 ): string {
   return JSON.stringify(
-    EnvelopeAuditLogFindData32$outboundSchema.parse(envelopeAuditLogFindData32),
+    EnvelopeAuditLogFindData33$outboundSchema.parse(envelopeAuditLogFindData33),
   );
 }
-export function envelopeAuditLogFindData32FromJSON(
+export function envelopeAuditLogFindData33FromJSON(
   jsonString: string,
-): SafeParseResult<EnvelopeAuditLogFindData32, SDKValidationError> {
+): SafeParseResult<EnvelopeAuditLogFindData33, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => EnvelopeAuditLogFindData32$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeAuditLogFindData32' from JSON`,
+    (x) => EnvelopeAuditLogFindData33$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData33' from JSON`,
   );
 }
 
@@ -2532,7 +3336,7 @@ export const DataRecipientCreated$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("RECIPIENT_CREATED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData32$inboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData33$inboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -2545,7 +3349,7 @@ export const DataRecipientCreated$inboundSchema: z.ZodType<
 /** @internal */
 export type DataRecipientCreated$Outbound = {
   type: "RECIPIENT_CREATED";
-  data: EnvelopeAuditLogFindData32$Outbound;
+  data: EnvelopeAuditLogFindData33$Outbound;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -2563,7 +3367,7 @@ export const DataRecipientCreated$outboundSchema: z.ZodType<
   DataRecipientCreated
 > = z.object({
   type: z.literal("RECIPIENT_CREATED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData32$outboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData33$outboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -2871,8 +3675,8 @@ export function changeUnion2FromJSON(
 }
 
 /** @internal */
-export const EnvelopeAuditLogFindData31$inboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData31,
+export const EnvelopeAuditLogFindData32$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData32,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -2888,7 +3692,7 @@ export const EnvelopeAuditLogFindData31$inboundSchema: z.ZodType<
   ),
 });
 /** @internal */
-export type EnvelopeAuditLogFindData31$Outbound = {
+export type EnvelopeAuditLogFindData32$Outbound = {
   fieldId: string;
   fieldRecipientEmail: string;
   fieldRecipientId: number;
@@ -2897,10 +3701,10 @@ export type EnvelopeAuditLogFindData31$Outbound = {
 };
 
 /** @internal */
-export const EnvelopeAuditLogFindData31$outboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData31$Outbound,
+export const EnvelopeAuditLogFindData32$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData32$Outbound,
   z.ZodTypeDef,
-  EnvelopeAuditLogFindData31
+  EnvelopeAuditLogFindData32
 > = z.object({
   fieldId: z.string(),
   fieldRecipientEmail: z.string(),
@@ -2914,20 +3718,20 @@ export const EnvelopeAuditLogFindData31$outboundSchema: z.ZodType<
   ),
 });
 
-export function envelopeAuditLogFindData31ToJSON(
-  envelopeAuditLogFindData31: EnvelopeAuditLogFindData31,
+export function envelopeAuditLogFindData32ToJSON(
+  envelopeAuditLogFindData32: EnvelopeAuditLogFindData32,
 ): string {
   return JSON.stringify(
-    EnvelopeAuditLogFindData31$outboundSchema.parse(envelopeAuditLogFindData31),
+    EnvelopeAuditLogFindData32$outboundSchema.parse(envelopeAuditLogFindData32),
   );
 }
-export function envelopeAuditLogFindData31FromJSON(
+export function envelopeAuditLogFindData32FromJSON(
   jsonString: string,
-): SafeParseResult<EnvelopeAuditLogFindData31, SDKValidationError> {
+): SafeParseResult<EnvelopeAuditLogFindData32, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => EnvelopeAuditLogFindData31$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeAuditLogFindData31' from JSON`,
+    (x) => EnvelopeAuditLogFindData32$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData32' from JSON`,
   );
 }
 
@@ -2938,7 +3742,7 @@ export const DataFieldUpdated$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("FIELD_UPDATED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData31$inboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData32$inboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -2951,7 +3755,7 @@ export const DataFieldUpdated$inboundSchema: z.ZodType<
 /** @internal */
 export type DataFieldUpdated$Outbound = {
   type: "FIELD_UPDATED";
-  data: EnvelopeAuditLogFindData31$Outbound;
+  data: EnvelopeAuditLogFindData32$Outbound;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -2969,7 +3773,7 @@ export const DataFieldUpdated$outboundSchema: z.ZodType<
   DataFieldUpdated
 > = z.object({
   type: z.literal("FIELD_UPDATED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData31$outboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData32$outboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -2994,6 +3798,120 @@ export function dataFieldUpdatedFromJSON(
     jsonString,
     (x) => DataFieldUpdated$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'DataFieldUpdated' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeAuditLogFindData31$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData31,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  fieldId: z.string(),
+  fieldRecipientEmail: z.string(),
+  fieldRecipientId: z.number(),
+  fieldType: z.string(),
+});
+/** @internal */
+export type EnvelopeAuditLogFindData31$Outbound = {
+  fieldId: string;
+  fieldRecipientEmail: string;
+  fieldRecipientId: number;
+  fieldType: string;
+};
+
+/** @internal */
+export const EnvelopeAuditLogFindData31$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData31$Outbound,
+  z.ZodTypeDef,
+  EnvelopeAuditLogFindData31
+> = z.object({
+  fieldId: z.string(),
+  fieldRecipientEmail: z.string(),
+  fieldRecipientId: z.number(),
+  fieldType: z.string(),
+});
+
+export function envelopeAuditLogFindData31ToJSON(
+  envelopeAuditLogFindData31: EnvelopeAuditLogFindData31,
+): string {
+  return JSON.stringify(
+    EnvelopeAuditLogFindData31$outboundSchema.parse(envelopeAuditLogFindData31),
+  );
+}
+export function envelopeAuditLogFindData31FromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeAuditLogFindData31, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeAuditLogFindData31$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData31' from JSON`,
+  );
+}
+
+/** @internal */
+export const DataFieldDeleted$inboundSchema: z.ZodType<
+  DataFieldDeleted,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: z.literal("FIELD_DELETED"),
+  data: z.lazy(() => EnvelopeAuditLogFindData31$inboundSchema),
+  id: z.string(),
+  createdAt: z.string(),
+  envelopeId: z.string(),
+  name: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
+  userId: z.nullable(z.number()).optional(),
+  userAgent: z.nullable(z.string()).optional(),
+  ipAddress: z.nullable(z.string()).optional(),
+});
+/** @internal */
+export type DataFieldDeleted$Outbound = {
+  type: "FIELD_DELETED";
+  data: EnvelopeAuditLogFindData31$Outbound;
+  id: string;
+  createdAt: string;
+  envelopeId: string;
+  name?: string | null | undefined;
+  email?: string | null | undefined;
+  userId?: number | null | undefined;
+  userAgent?: string | null | undefined;
+  ipAddress?: string | null | undefined;
+};
+
+/** @internal */
+export const DataFieldDeleted$outboundSchema: z.ZodType<
+  DataFieldDeleted$Outbound,
+  z.ZodTypeDef,
+  DataFieldDeleted
+> = z.object({
+  type: z.literal("FIELD_DELETED"),
+  data: z.lazy(() => EnvelopeAuditLogFindData31$outboundSchema),
+  id: z.string(),
+  createdAt: z.string(),
+  envelopeId: z.string(),
+  name: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
+  userId: z.nullable(z.number()).optional(),
+  userAgent: z.nullable(z.string()).optional(),
+  ipAddress: z.nullable(z.string()).optional(),
+});
+
+export function dataFieldDeletedToJSON(
+  dataFieldDeleted: DataFieldDeleted,
+): string {
+  return JSON.stringify(
+    DataFieldDeleted$outboundSchema.parse(dataFieldDeleted),
+  );
+}
+export function dataFieldDeletedFromJSON(
+  jsonString: string,
+): SafeParseResult<DataFieldDeleted, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DataFieldDeleted$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DataFieldDeleted' from JSON`,
   );
 }
 
@@ -3046,127 +3964,13 @@ export function envelopeAuditLogFindData30FromJSON(
 }
 
 /** @internal */
-export const DataFieldDeleted$inboundSchema: z.ZodType<
-  DataFieldDeleted,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  type: z.literal("FIELD_DELETED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData30$inboundSchema),
-  id: z.string(),
-  createdAt: z.string(),
-  envelopeId: z.string(),
-  name: z.nullable(z.string()).optional(),
-  email: z.nullable(z.string()).optional(),
-  userId: z.nullable(z.number()).optional(),
-  userAgent: z.nullable(z.string()).optional(),
-  ipAddress: z.nullable(z.string()).optional(),
-});
-/** @internal */
-export type DataFieldDeleted$Outbound = {
-  type: "FIELD_DELETED";
-  data: EnvelopeAuditLogFindData30$Outbound;
-  id: string;
-  createdAt: string;
-  envelopeId: string;
-  name?: string | null | undefined;
-  email?: string | null | undefined;
-  userId?: number | null | undefined;
-  userAgent?: string | null | undefined;
-  ipAddress?: string | null | undefined;
-};
-
-/** @internal */
-export const DataFieldDeleted$outboundSchema: z.ZodType<
-  DataFieldDeleted$Outbound,
-  z.ZodTypeDef,
-  DataFieldDeleted
-> = z.object({
-  type: z.literal("FIELD_DELETED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData30$outboundSchema),
-  id: z.string(),
-  createdAt: z.string(),
-  envelopeId: z.string(),
-  name: z.nullable(z.string()).optional(),
-  email: z.nullable(z.string()).optional(),
-  userId: z.nullable(z.number()).optional(),
-  userAgent: z.nullable(z.string()).optional(),
-  ipAddress: z.nullable(z.string()).optional(),
-});
-
-export function dataFieldDeletedToJSON(
-  dataFieldDeleted: DataFieldDeleted,
-): string {
-  return JSON.stringify(
-    DataFieldDeleted$outboundSchema.parse(dataFieldDeleted),
-  );
-}
-export function dataFieldDeletedFromJSON(
-  jsonString: string,
-): SafeParseResult<DataFieldDeleted, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => DataFieldDeleted$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DataFieldDeleted' from JSON`,
-  );
-}
-
-/** @internal */
-export const EnvelopeAuditLogFindData29$inboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData29,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  fieldId: z.string(),
-  fieldRecipientEmail: z.string(),
-  fieldRecipientId: z.number(),
-  fieldType: z.string(),
-});
-/** @internal */
-export type EnvelopeAuditLogFindData29$Outbound = {
-  fieldId: string;
-  fieldRecipientEmail: string;
-  fieldRecipientId: number;
-  fieldType: string;
-};
-
-/** @internal */
-export const EnvelopeAuditLogFindData29$outboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData29$Outbound,
-  z.ZodTypeDef,
-  EnvelopeAuditLogFindData29
-> = z.object({
-  fieldId: z.string(),
-  fieldRecipientEmail: z.string(),
-  fieldRecipientId: z.number(),
-  fieldType: z.string(),
-});
-
-export function envelopeAuditLogFindData29ToJSON(
-  envelopeAuditLogFindData29: EnvelopeAuditLogFindData29,
-): string {
-  return JSON.stringify(
-    EnvelopeAuditLogFindData29$outboundSchema.parse(envelopeAuditLogFindData29),
-  );
-}
-export function envelopeAuditLogFindData29FromJSON(
-  jsonString: string,
-): SafeParseResult<EnvelopeAuditLogFindData29, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => EnvelopeAuditLogFindData29$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeAuditLogFindData29' from JSON`,
-  );
-}
-
-/** @internal */
 export const DataFieldCreated$inboundSchema: z.ZodType<
   DataFieldCreated,
   z.ZodTypeDef,
   unknown
 > = z.object({
   type: z.literal("FIELD_CREATED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData29$inboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData30$inboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -3179,7 +3983,7 @@ export const DataFieldCreated$inboundSchema: z.ZodType<
 /** @internal */
 export type DataFieldCreated$Outbound = {
   type: "FIELD_CREATED";
-  data: EnvelopeAuditLogFindData29$Outbound;
+  data: EnvelopeAuditLogFindData30$Outbound;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -3197,7 +4001,7 @@ export const DataFieldCreated$outboundSchema: z.ZodType<
   DataFieldCreated
 > = z.object({
   type: z.literal("FIELD_CREATED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData29$outboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData30$outboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -3226,8 +4030,8 @@ export function dataFieldCreatedFromJSON(
 }
 
 /** @internal */
-export const EnvelopeAuditLogFindData28$inboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData28,
+export const EnvelopeAuditLogFindData29$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData29,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -3235,35 +4039,35 @@ export const EnvelopeAuditLogFindData28$inboundSchema: z.ZodType<
   to: z.nullable(z.string()).optional(),
 });
 /** @internal */
-export type EnvelopeAuditLogFindData28$Outbound = {
+export type EnvelopeAuditLogFindData29$Outbound = {
   from?: string | null | undefined;
   to?: string | null | undefined;
 };
 
 /** @internal */
-export const EnvelopeAuditLogFindData28$outboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData28$Outbound,
+export const EnvelopeAuditLogFindData29$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData29$Outbound,
   z.ZodTypeDef,
-  EnvelopeAuditLogFindData28
+  EnvelopeAuditLogFindData29
 > = z.object({
   from: z.nullable(z.string()).optional(),
   to: z.nullable(z.string()).optional(),
 });
 
-export function envelopeAuditLogFindData28ToJSON(
-  envelopeAuditLogFindData28: EnvelopeAuditLogFindData28,
+export function envelopeAuditLogFindData29ToJSON(
+  envelopeAuditLogFindData29: EnvelopeAuditLogFindData29,
 ): string {
   return JSON.stringify(
-    EnvelopeAuditLogFindData28$outboundSchema.parse(envelopeAuditLogFindData28),
+    EnvelopeAuditLogFindData29$outboundSchema.parse(envelopeAuditLogFindData29),
   );
 }
-export function envelopeAuditLogFindData28FromJSON(
+export function envelopeAuditLogFindData29FromJSON(
   jsonString: string,
-): SafeParseResult<EnvelopeAuditLogFindData28, SDKValidationError> {
+): SafeParseResult<EnvelopeAuditLogFindData29, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => EnvelopeAuditLogFindData28$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeAuditLogFindData28' from JSON`,
+    (x) => EnvelopeAuditLogFindData29$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData29' from JSON`,
   );
 }
 
@@ -3274,7 +4078,7 @@ export const DataDocumentExternalIDUpdated$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("DOCUMENT_EXTERNAL_ID_UPDATED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData28$inboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData29$inboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -3287,7 +4091,7 @@ export const DataDocumentExternalIDUpdated$inboundSchema: z.ZodType<
 /** @internal */
 export type DataDocumentExternalIDUpdated$Outbound = {
   type: "DOCUMENT_EXTERNAL_ID_UPDATED";
-  data: EnvelopeAuditLogFindData28$Outbound;
+  data: EnvelopeAuditLogFindData29$Outbound;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -3305,7 +4109,7 @@ export const DataDocumentExternalIDUpdated$outboundSchema: z.ZodType<
   DataDocumentExternalIDUpdated
 > = z.object({
   type: z.literal("DOCUMENT_EXTERNAL_ID_UPDATED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData28$outboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData29$outboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -3336,8 +4140,8 @@ export function dataDocumentExternalIDUpdatedFromJSON(
 }
 
 /** @internal */
-export const EnvelopeAuditLogFindData27$inboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData27,
+export const EnvelopeAuditLogFindData28$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData28,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -3345,35 +4149,35 @@ export const EnvelopeAuditLogFindData27$inboundSchema: z.ZodType<
   to: z.string(),
 });
 /** @internal */
-export type EnvelopeAuditLogFindData27$Outbound = {
+export type EnvelopeAuditLogFindData28$Outbound = {
   from: string;
   to: string;
 };
 
 /** @internal */
-export const EnvelopeAuditLogFindData27$outboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData27$Outbound,
+export const EnvelopeAuditLogFindData28$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData28$Outbound,
   z.ZodTypeDef,
-  EnvelopeAuditLogFindData27
+  EnvelopeAuditLogFindData28
 > = z.object({
   from: z.string(),
   to: z.string(),
 });
 
-export function envelopeAuditLogFindData27ToJSON(
-  envelopeAuditLogFindData27: EnvelopeAuditLogFindData27,
+export function envelopeAuditLogFindData28ToJSON(
+  envelopeAuditLogFindData28: EnvelopeAuditLogFindData28,
 ): string {
   return JSON.stringify(
-    EnvelopeAuditLogFindData27$outboundSchema.parse(envelopeAuditLogFindData27),
+    EnvelopeAuditLogFindData28$outboundSchema.parse(envelopeAuditLogFindData28),
   );
 }
-export function envelopeAuditLogFindData27FromJSON(
+export function envelopeAuditLogFindData28FromJSON(
   jsonString: string,
-): SafeParseResult<EnvelopeAuditLogFindData27, SDKValidationError> {
+): SafeParseResult<EnvelopeAuditLogFindData28, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => EnvelopeAuditLogFindData27$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeAuditLogFindData27' from JSON`,
+    (x) => EnvelopeAuditLogFindData28$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData28' from JSON`,
   );
 }
 
@@ -3384,7 +4188,7 @@ export const DataDocumentTitleUpdated$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("DOCUMENT_TITLE_UPDATED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData27$inboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData28$inboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -3397,7 +4201,7 @@ export const DataDocumentTitleUpdated$inboundSchema: z.ZodType<
 /** @internal */
 export type DataDocumentTitleUpdated$Outbound = {
   type: "DOCUMENT_TITLE_UPDATED";
-  data: EnvelopeAuditLogFindData27$Outbound;
+  data: EnvelopeAuditLogFindData28$Outbound;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -3415,7 +4219,7 @@ export const DataDocumentTitleUpdated$outboundSchema: z.ZodType<
   DataDocumentTitleUpdated
 > = z.object({
   type: z.literal("DOCUMENT_TITLE_UPDATED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData27$outboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData28$outboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -3444,35 +4248,35 @@ export function dataDocumentTitleUpdatedFromJSON(
 }
 
 /** @internal */
-export const EnvelopeAuditLogFindData26$inboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData26,
+export const EnvelopeAuditLogFindData27$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData27,
   z.ZodTypeDef,
   unknown
 > = z.object({});
 /** @internal */
-export type EnvelopeAuditLogFindData26$Outbound = {};
+export type EnvelopeAuditLogFindData27$Outbound = {};
 
 /** @internal */
-export const EnvelopeAuditLogFindData26$outboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData26$Outbound,
+export const EnvelopeAuditLogFindData27$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData27$Outbound,
   z.ZodTypeDef,
-  EnvelopeAuditLogFindData26
+  EnvelopeAuditLogFindData27
 > = z.object({});
 
-export function envelopeAuditLogFindData26ToJSON(
-  envelopeAuditLogFindData26: EnvelopeAuditLogFindData26,
+export function envelopeAuditLogFindData27ToJSON(
+  envelopeAuditLogFindData27: EnvelopeAuditLogFindData27,
 ): string {
   return JSON.stringify(
-    EnvelopeAuditLogFindData26$outboundSchema.parse(envelopeAuditLogFindData26),
+    EnvelopeAuditLogFindData27$outboundSchema.parse(envelopeAuditLogFindData27),
   );
 }
-export function envelopeAuditLogFindData26FromJSON(
+export function envelopeAuditLogFindData27FromJSON(
   jsonString: string,
-): SafeParseResult<EnvelopeAuditLogFindData26, SDKValidationError> {
+): SafeParseResult<EnvelopeAuditLogFindData27, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => EnvelopeAuditLogFindData26$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeAuditLogFindData26' from JSON`,
+    (x) => EnvelopeAuditLogFindData27$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData27' from JSON`,
   );
 }
 
@@ -3483,7 +4287,7 @@ export const DataDocumentSent$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("DOCUMENT_SENT"),
-  data: z.lazy(() => EnvelopeAuditLogFindData26$inboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData27$inboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -3496,7 +4300,7 @@ export const DataDocumentSent$inboundSchema: z.ZodType<
 /** @internal */
 export type DataDocumentSent$Outbound = {
   type: "DOCUMENT_SENT";
-  data: EnvelopeAuditLogFindData26$Outbound;
+  data: EnvelopeAuditLogFindData27$Outbound;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -3514,7 +4318,7 @@ export const DataDocumentSent$outboundSchema: z.ZodType<
   DataDocumentSent
 > = z.object({
   type: z.literal("DOCUMENT_SENT"),
-  data: z.lazy(() => EnvelopeAuditLogFindData26$outboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData27$outboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -3539,6 +4343,119 @@ export function dataDocumentSentFromJSON(
     jsonString,
     (x) => DataDocumentSent$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'DataDocumentSent' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeAuditLogFindData26$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData26,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  recipientEmail: z.string(),
+  recipientName: z.string(),
+  recipientId: z.number(),
+});
+/** @internal */
+export type EnvelopeAuditLogFindData26$Outbound = {
+  recipientEmail: string;
+  recipientName: string;
+  recipientId: number;
+};
+
+/** @internal */
+export const EnvelopeAuditLogFindData26$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData26$Outbound,
+  z.ZodTypeDef,
+  EnvelopeAuditLogFindData26
+> = z.object({
+  recipientEmail: z.string(),
+  recipientName: z.string(),
+  recipientId: z.number(),
+});
+
+export function envelopeAuditLogFindData26ToJSON(
+  envelopeAuditLogFindData26: EnvelopeAuditLogFindData26,
+): string {
+  return JSON.stringify(
+    EnvelopeAuditLogFindData26$outboundSchema.parse(envelopeAuditLogFindData26),
+  );
+}
+export function envelopeAuditLogFindData26FromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeAuditLogFindData26, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeAuditLogFindData26$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData26' from JSON`,
+  );
+}
+
+/** @internal */
+export const DataDocumentAccessAuth2FaFailed$inboundSchema: z.ZodType<
+  DataDocumentAccessAuth2FaFailed,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: z.literal("DOCUMENT_ACCESS_AUTH_2FA_FAILED"),
+  data: z.lazy(() => EnvelopeAuditLogFindData26$inboundSchema),
+  id: z.string(),
+  createdAt: z.string(),
+  envelopeId: z.string(),
+  name: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
+  userId: z.nullable(z.number()).optional(),
+  userAgent: z.nullable(z.string()).optional(),
+  ipAddress: z.nullable(z.string()).optional(),
+});
+/** @internal */
+export type DataDocumentAccessAuth2FaFailed$Outbound = {
+  type: "DOCUMENT_ACCESS_AUTH_2FA_FAILED";
+  data: EnvelopeAuditLogFindData26$Outbound;
+  id: string;
+  createdAt: string;
+  envelopeId: string;
+  name?: string | null | undefined;
+  email?: string | null | undefined;
+  userId?: number | null | undefined;
+  userAgent?: string | null | undefined;
+  ipAddress?: string | null | undefined;
+};
+
+/** @internal */
+export const DataDocumentAccessAuth2FaFailed$outboundSchema: z.ZodType<
+  DataDocumentAccessAuth2FaFailed$Outbound,
+  z.ZodTypeDef,
+  DataDocumentAccessAuth2FaFailed
+> = z.object({
+  type: z.literal("DOCUMENT_ACCESS_AUTH_2FA_FAILED"),
+  data: z.lazy(() => EnvelopeAuditLogFindData26$outboundSchema),
+  id: z.string(),
+  createdAt: z.string(),
+  envelopeId: z.string(),
+  name: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
+  userId: z.nullable(z.number()).optional(),
+  userAgent: z.nullable(z.string()).optional(),
+  ipAddress: z.nullable(z.string()).optional(),
+});
+
+export function dataDocumentAccessAuth2FaFailedToJSON(
+  dataDocumentAccessAuth2FaFailed: DataDocumentAccessAuth2FaFailed,
+): string {
+  return JSON.stringify(
+    DataDocumentAccessAuth2FaFailed$outboundSchema.parse(
+      dataDocumentAccessAuth2FaFailed,
+    ),
+  );
+}
+export function dataDocumentAccessAuth2FaFailedFromJSON(
+  jsonString: string,
+): SafeParseResult<DataDocumentAccessAuth2FaFailed, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DataDocumentAccessAuth2FaFailed$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DataDocumentAccessAuth2FaFailed' from JSON`,
   );
 }
 
@@ -3588,12 +4505,12 @@ export function envelopeAuditLogFindData25FromJSON(
 }
 
 /** @internal */
-export const DataDocumentAccessAuth2FaFailed$inboundSchema: z.ZodType<
-  DataDocumentAccessAuth2FaFailed,
+export const DataDocumentAccessAuth2FaValidated$inboundSchema: z.ZodType<
+  DataDocumentAccessAuth2FaValidated,
   z.ZodTypeDef,
   unknown
 > = z.object({
-  type: z.literal("DOCUMENT_ACCESS_AUTH_2FA_FAILED"),
+  type: z.literal("DOCUMENT_ACCESS_AUTH_2FA_VALIDATED"),
   data: z.lazy(() => EnvelopeAuditLogFindData25$inboundSchema),
   id: z.string(),
   createdAt: z.string(),
@@ -3605,8 +4522,8 @@ export const DataDocumentAccessAuth2FaFailed$inboundSchema: z.ZodType<
   ipAddress: z.nullable(z.string()).optional(),
 });
 /** @internal */
-export type DataDocumentAccessAuth2FaFailed$Outbound = {
-  type: "DOCUMENT_ACCESS_AUTH_2FA_FAILED";
+export type DataDocumentAccessAuth2FaValidated$Outbound = {
+  type: "DOCUMENT_ACCESS_AUTH_2FA_VALIDATED";
   data: EnvelopeAuditLogFindData25$Outbound;
   id: string;
   createdAt: string;
@@ -3619,12 +4536,12 @@ export type DataDocumentAccessAuth2FaFailed$Outbound = {
 };
 
 /** @internal */
-export const DataDocumentAccessAuth2FaFailed$outboundSchema: z.ZodType<
-  DataDocumentAccessAuth2FaFailed$Outbound,
+export const DataDocumentAccessAuth2FaValidated$outboundSchema: z.ZodType<
+  DataDocumentAccessAuth2FaValidated$Outbound,
   z.ZodTypeDef,
-  DataDocumentAccessAuth2FaFailed
+  DataDocumentAccessAuth2FaValidated
 > = z.object({
-  type: z.literal("DOCUMENT_ACCESS_AUTH_2FA_FAILED"),
+  type: z.literal("DOCUMENT_ACCESS_AUTH_2FA_VALIDATED"),
   data: z.lazy(() => EnvelopeAuditLogFindData25$outboundSchema),
   id: z.string(),
   createdAt: z.string(),
@@ -3636,22 +4553,23 @@ export const DataDocumentAccessAuth2FaFailed$outboundSchema: z.ZodType<
   ipAddress: z.nullable(z.string()).optional(),
 });
 
-export function dataDocumentAccessAuth2FaFailedToJSON(
-  dataDocumentAccessAuth2FaFailed: DataDocumentAccessAuth2FaFailed,
+export function dataDocumentAccessAuth2FaValidatedToJSON(
+  dataDocumentAccessAuth2FaValidated: DataDocumentAccessAuth2FaValidated,
 ): string {
   return JSON.stringify(
-    DataDocumentAccessAuth2FaFailed$outboundSchema.parse(
-      dataDocumentAccessAuth2FaFailed,
+    DataDocumentAccessAuth2FaValidated$outboundSchema.parse(
+      dataDocumentAccessAuth2FaValidated,
     ),
   );
 }
-export function dataDocumentAccessAuth2FaFailedFromJSON(
+export function dataDocumentAccessAuth2FaValidatedFromJSON(
   jsonString: string,
-): SafeParseResult<DataDocumentAccessAuth2FaFailed, SDKValidationError> {
+): SafeParseResult<DataDocumentAccessAuth2FaValidated, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => DataDocumentAccessAuth2FaFailed$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DataDocumentAccessAuth2FaFailed' from JSON`,
+    (x) =>
+      DataDocumentAccessAuth2FaValidated$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DataDocumentAccessAuth2FaValidated' from JSON`,
   );
 }
 
@@ -3701,127 +4619,13 @@ export function envelopeAuditLogFindData24FromJSON(
 }
 
 /** @internal */
-export const DataDocumentAccessAuth2FaValidated$inboundSchema: z.ZodType<
-  DataDocumentAccessAuth2FaValidated,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  type: z.literal("DOCUMENT_ACCESS_AUTH_2FA_VALIDATED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData24$inboundSchema),
-  id: z.string(),
-  createdAt: z.string(),
-  envelopeId: z.string(),
-  name: z.nullable(z.string()).optional(),
-  email: z.nullable(z.string()).optional(),
-  userId: z.nullable(z.number()).optional(),
-  userAgent: z.nullable(z.string()).optional(),
-  ipAddress: z.nullable(z.string()).optional(),
-});
-/** @internal */
-export type DataDocumentAccessAuth2FaValidated$Outbound = {
-  type: "DOCUMENT_ACCESS_AUTH_2FA_VALIDATED";
-  data: EnvelopeAuditLogFindData24$Outbound;
-  id: string;
-  createdAt: string;
-  envelopeId: string;
-  name?: string | null | undefined;
-  email?: string | null | undefined;
-  userId?: number | null | undefined;
-  userAgent?: string | null | undefined;
-  ipAddress?: string | null | undefined;
-};
-
-/** @internal */
-export const DataDocumentAccessAuth2FaValidated$outboundSchema: z.ZodType<
-  DataDocumentAccessAuth2FaValidated$Outbound,
-  z.ZodTypeDef,
-  DataDocumentAccessAuth2FaValidated
-> = z.object({
-  type: z.literal("DOCUMENT_ACCESS_AUTH_2FA_VALIDATED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData24$outboundSchema),
-  id: z.string(),
-  createdAt: z.string(),
-  envelopeId: z.string(),
-  name: z.nullable(z.string()).optional(),
-  email: z.nullable(z.string()).optional(),
-  userId: z.nullable(z.number()).optional(),
-  userAgent: z.nullable(z.string()).optional(),
-  ipAddress: z.nullable(z.string()).optional(),
-});
-
-export function dataDocumentAccessAuth2FaValidatedToJSON(
-  dataDocumentAccessAuth2FaValidated: DataDocumentAccessAuth2FaValidated,
-): string {
-  return JSON.stringify(
-    DataDocumentAccessAuth2FaValidated$outboundSchema.parse(
-      dataDocumentAccessAuth2FaValidated,
-    ),
-  );
-}
-export function dataDocumentAccessAuth2FaValidatedFromJSON(
-  jsonString: string,
-): SafeParseResult<DataDocumentAccessAuth2FaValidated, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      DataDocumentAccessAuth2FaValidated$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DataDocumentAccessAuth2FaValidated' from JSON`,
-  );
-}
-
-/** @internal */
-export const EnvelopeAuditLogFindData23$inboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData23,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  recipientEmail: z.string(),
-  recipientName: z.string(),
-  recipientId: z.number(),
-});
-/** @internal */
-export type EnvelopeAuditLogFindData23$Outbound = {
-  recipientEmail: string;
-  recipientName: string;
-  recipientId: number;
-};
-
-/** @internal */
-export const EnvelopeAuditLogFindData23$outboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData23$Outbound,
-  z.ZodTypeDef,
-  EnvelopeAuditLogFindData23
-> = z.object({
-  recipientEmail: z.string(),
-  recipientName: z.string(),
-  recipientId: z.number(),
-});
-
-export function envelopeAuditLogFindData23ToJSON(
-  envelopeAuditLogFindData23: EnvelopeAuditLogFindData23,
-): string {
-  return JSON.stringify(
-    EnvelopeAuditLogFindData23$outboundSchema.parse(envelopeAuditLogFindData23),
-  );
-}
-export function envelopeAuditLogFindData23FromJSON(
-  jsonString: string,
-): SafeParseResult<EnvelopeAuditLogFindData23, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => EnvelopeAuditLogFindData23$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeAuditLogFindData23' from JSON`,
-  );
-}
-
-/** @internal */
 export const DataDocumentAccessAuth2FaRequested$inboundSchema: z.ZodType<
   DataDocumentAccessAuth2FaRequested,
   z.ZodTypeDef,
   unknown
 > = z.object({
   type: z.literal("DOCUMENT_ACCESS_AUTH_2FA_REQUESTED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData23$inboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData24$inboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -3834,7 +4638,7 @@ export const DataDocumentAccessAuth2FaRequested$inboundSchema: z.ZodType<
 /** @internal */
 export type DataDocumentAccessAuth2FaRequested$Outbound = {
   type: "DOCUMENT_ACCESS_AUTH_2FA_REQUESTED";
-  data: EnvelopeAuditLogFindData23$Outbound;
+  data: EnvelopeAuditLogFindData24$Outbound;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -3852,7 +4656,7 @@ export const DataDocumentAccessAuth2FaRequested$outboundSchema: z.ZodType<
   DataDocumentAccessAuth2FaRequested
 > = z.object({
   type: z.literal("DOCUMENT_ACCESS_AUTH_2FA_REQUESTED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData23$outboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData24$outboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -3884,8 +4688,8 @@ export function dataDocumentAccessAuth2FaRequestedFromJSON(
 }
 
 /** @internal */
-export const EnvelopeAuditLogFindData22$inboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData22,
+export const EnvelopeAuditLogFindData23$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData23,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -3894,43 +4698,52 @@ export const EnvelopeAuditLogFindData22$inboundSchema: z.ZodType<
   recipientId: z.number(),
   recipientRole: z.string(),
   reason: z.string(),
+  isExternal: z.boolean().optional(),
+  onBehalfOfUserEmail: z.string().optional(),
+  onBehalfOfUserName: z.nullable(z.string()).optional(),
 });
 /** @internal */
-export type EnvelopeAuditLogFindData22$Outbound = {
+export type EnvelopeAuditLogFindData23$Outbound = {
   recipientEmail: string;
   recipientName: string;
   recipientId: number;
   recipientRole: string;
   reason: string;
+  isExternal?: boolean | undefined;
+  onBehalfOfUserEmail?: string | undefined;
+  onBehalfOfUserName?: string | null | undefined;
 };
 
 /** @internal */
-export const EnvelopeAuditLogFindData22$outboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData22$Outbound,
+export const EnvelopeAuditLogFindData23$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData23$Outbound,
   z.ZodTypeDef,
-  EnvelopeAuditLogFindData22
+  EnvelopeAuditLogFindData23
 > = z.object({
   recipientEmail: z.string(),
   recipientName: z.string(),
   recipientId: z.number(),
   recipientRole: z.string(),
   reason: z.string(),
+  isExternal: z.boolean().optional(),
+  onBehalfOfUserEmail: z.string().optional(),
+  onBehalfOfUserName: z.nullable(z.string()).optional(),
 });
 
-export function envelopeAuditLogFindData22ToJSON(
-  envelopeAuditLogFindData22: EnvelopeAuditLogFindData22,
+export function envelopeAuditLogFindData23ToJSON(
+  envelopeAuditLogFindData23: EnvelopeAuditLogFindData23,
 ): string {
   return JSON.stringify(
-    EnvelopeAuditLogFindData22$outboundSchema.parse(envelopeAuditLogFindData22),
+    EnvelopeAuditLogFindData23$outboundSchema.parse(envelopeAuditLogFindData23),
   );
 }
-export function envelopeAuditLogFindData22FromJSON(
+export function envelopeAuditLogFindData23FromJSON(
   jsonString: string,
-): SafeParseResult<EnvelopeAuditLogFindData22, SDKValidationError> {
+): SafeParseResult<EnvelopeAuditLogFindData23, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => EnvelopeAuditLogFindData22$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeAuditLogFindData22' from JSON`,
+    (x) => EnvelopeAuditLogFindData23$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData23' from JSON`,
   );
 }
 
@@ -3941,7 +4754,7 @@ export const DataDocumentRecipientRejected$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("DOCUMENT_RECIPIENT_REJECTED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData22$inboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData23$inboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -3954,7 +4767,7 @@ export const DataDocumentRecipientRejected$inboundSchema: z.ZodType<
 /** @internal */
 export type DataDocumentRecipientRejected$Outbound = {
   type: "DOCUMENT_RECIPIENT_REJECTED";
-  data: EnvelopeAuditLogFindData22$Outbound;
+  data: EnvelopeAuditLogFindData23$Outbound;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -3972,7 +4785,7 @@ export const DataDocumentRecipientRejected$outboundSchema: z.ZodType<
   DataDocumentRecipientRejected
 > = z.object({
   type: z.literal("DOCUMENT_RECIPIENT_REJECTED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData22$outboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData23$outboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -4012,8 +4825,8 @@ export const EnvelopeAuditLogFindActionAuth1$outboundSchema: z.ZodNativeEnum<
 > = EnvelopeAuditLogFindActionAuth1$inboundSchema;
 
 /** @internal */
-export const EnvelopeAuditLogFindData21$inboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData21,
+export const EnvelopeAuditLogFindData22$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData22,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -4024,7 +4837,7 @@ export const EnvelopeAuditLogFindData21$inboundSchema: z.ZodType<
   actionAuth: z.array(EnvelopeAuditLogFindActionAuth1$inboundSchema),
 });
 /** @internal */
-export type EnvelopeAuditLogFindData21$Outbound = {
+export type EnvelopeAuditLogFindData22$Outbound = {
   recipientEmail: string;
   recipientName: string;
   recipientId: number;
@@ -4033,10 +4846,10 @@ export type EnvelopeAuditLogFindData21$Outbound = {
 };
 
 /** @internal */
-export const EnvelopeAuditLogFindData21$outboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData21$Outbound,
+export const EnvelopeAuditLogFindData22$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData22$Outbound,
   z.ZodTypeDef,
-  EnvelopeAuditLogFindData21
+  EnvelopeAuditLogFindData22
 > = z.object({
   recipientEmail: z.string(),
   recipientName: z.string(),
@@ -4045,20 +4858,20 @@ export const EnvelopeAuditLogFindData21$outboundSchema: z.ZodType<
   actionAuth: z.array(EnvelopeAuditLogFindActionAuth1$outboundSchema),
 });
 
-export function envelopeAuditLogFindData21ToJSON(
-  envelopeAuditLogFindData21: EnvelopeAuditLogFindData21,
+export function envelopeAuditLogFindData22ToJSON(
+  envelopeAuditLogFindData22: EnvelopeAuditLogFindData22,
 ): string {
   return JSON.stringify(
-    EnvelopeAuditLogFindData21$outboundSchema.parse(envelopeAuditLogFindData21),
+    EnvelopeAuditLogFindData22$outboundSchema.parse(envelopeAuditLogFindData22),
   );
 }
-export function envelopeAuditLogFindData21FromJSON(
+export function envelopeAuditLogFindData22FromJSON(
   jsonString: string,
-): SafeParseResult<EnvelopeAuditLogFindData21, SDKValidationError> {
+): SafeParseResult<EnvelopeAuditLogFindData22, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => EnvelopeAuditLogFindData21$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeAuditLogFindData21' from JSON`,
+    (x) => EnvelopeAuditLogFindData22$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData22' from JSON`,
   );
 }
 
@@ -4069,7 +4882,7 @@ export const DataDocumentRecipientCompleted$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("DOCUMENT_RECIPIENT_COMPLETED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData21$inboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData22$inboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -4082,7 +4895,7 @@ export const DataDocumentRecipientCompleted$inboundSchema: z.ZodType<
 /** @internal */
 export type DataDocumentRecipientCompleted$Outbound = {
   type: "DOCUMENT_RECIPIENT_COMPLETED";
-  data: EnvelopeAuditLogFindData21$Outbound;
+  data: EnvelopeAuditLogFindData22$Outbound;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -4100,7 +4913,7 @@ export const DataDocumentRecipientCompleted$outboundSchema: z.ZodType<
   DataDocumentRecipientCompleted
 > = z.object({
   type: z.literal("DOCUMENT_RECIPIENT_COMPLETED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData21$outboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData22$outboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -4140,8 +4953,8 @@ export const EnvelopeAuditLogFindAccessAuth2$outboundSchema: z.ZodNativeEnum<
 > = EnvelopeAuditLogFindAccessAuth2$inboundSchema;
 
 /** @internal */
-export const EnvelopeAuditLogFindData20$inboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData20,
+export const EnvelopeAuditLogFindData21$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData21,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -4152,7 +4965,7 @@ export const EnvelopeAuditLogFindData20$inboundSchema: z.ZodType<
   accessAuth: z.array(EnvelopeAuditLogFindAccessAuth2$inboundSchema),
 });
 /** @internal */
-export type EnvelopeAuditLogFindData20$Outbound = {
+export type EnvelopeAuditLogFindData21$Outbound = {
   recipientEmail: string;
   recipientName: string;
   recipientId: number;
@@ -4161,10 +4974,10 @@ export type EnvelopeAuditLogFindData20$Outbound = {
 };
 
 /** @internal */
-export const EnvelopeAuditLogFindData20$outboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData20$Outbound,
+export const EnvelopeAuditLogFindData21$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData21$Outbound,
   z.ZodTypeDef,
-  EnvelopeAuditLogFindData20
+  EnvelopeAuditLogFindData21
 > = z.object({
   recipientEmail: z.string(),
   recipientName: z.string(),
@@ -4173,20 +4986,20 @@ export const EnvelopeAuditLogFindData20$outboundSchema: z.ZodType<
   accessAuth: z.array(EnvelopeAuditLogFindAccessAuth2$outboundSchema),
 });
 
-export function envelopeAuditLogFindData20ToJSON(
-  envelopeAuditLogFindData20: EnvelopeAuditLogFindData20,
+export function envelopeAuditLogFindData21ToJSON(
+  envelopeAuditLogFindData21: EnvelopeAuditLogFindData21,
 ): string {
   return JSON.stringify(
-    EnvelopeAuditLogFindData20$outboundSchema.parse(envelopeAuditLogFindData20),
+    EnvelopeAuditLogFindData21$outboundSchema.parse(envelopeAuditLogFindData21),
   );
 }
-export function envelopeAuditLogFindData20FromJSON(
+export function envelopeAuditLogFindData21FromJSON(
   jsonString: string,
-): SafeParseResult<EnvelopeAuditLogFindData20, SDKValidationError> {
+): SafeParseResult<EnvelopeAuditLogFindData21, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => EnvelopeAuditLogFindData20$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeAuditLogFindData20' from JSON`,
+    (x) => EnvelopeAuditLogFindData21$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData21' from JSON`,
   );
 }
 
@@ -4197,7 +5010,7 @@ export const DataDocumentViewed$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("DOCUMENT_VIEWED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData20$inboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData21$inboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -4210,7 +5023,7 @@ export const DataDocumentViewed$inboundSchema: z.ZodType<
 /** @internal */
 export type DataDocumentViewed$Outbound = {
   type: "DOCUMENT_VIEWED";
-  data: EnvelopeAuditLogFindData20$Outbound;
+  data: EnvelopeAuditLogFindData21$Outbound;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -4228,7 +5041,7 @@ export const DataDocumentViewed$outboundSchema: z.ZodType<
   DataDocumentViewed
 > = z.object({
   type: z.literal("DOCUMENT_VIEWED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData20$outboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData21$outboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -4266,8 +5079,8 @@ export const EnvelopeAuditLogFindAccessAuth1$outboundSchema: z.ZodNativeEnum<
 > = EnvelopeAuditLogFindAccessAuth1$inboundSchema;
 
 /** @internal */
-export const EnvelopeAuditLogFindData19$inboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData19,
+export const EnvelopeAuditLogFindData20$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData20,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -4278,7 +5091,7 @@ export const EnvelopeAuditLogFindData19$inboundSchema: z.ZodType<
   accessAuth: z.array(EnvelopeAuditLogFindAccessAuth1$inboundSchema),
 });
 /** @internal */
-export type EnvelopeAuditLogFindData19$Outbound = {
+export type EnvelopeAuditLogFindData20$Outbound = {
   recipientEmail: string;
   recipientName: string;
   recipientId: number;
@@ -4287,10 +5100,10 @@ export type EnvelopeAuditLogFindData19$Outbound = {
 };
 
 /** @internal */
-export const EnvelopeAuditLogFindData19$outboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData19$Outbound,
+export const EnvelopeAuditLogFindData20$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData20$Outbound,
   z.ZodTypeDef,
-  EnvelopeAuditLogFindData19
+  EnvelopeAuditLogFindData20
 > = z.object({
   recipientEmail: z.string(),
   recipientName: z.string(),
@@ -4299,20 +5112,20 @@ export const EnvelopeAuditLogFindData19$outboundSchema: z.ZodType<
   accessAuth: z.array(EnvelopeAuditLogFindAccessAuth1$outboundSchema),
 });
 
-export function envelopeAuditLogFindData19ToJSON(
-  envelopeAuditLogFindData19: EnvelopeAuditLogFindData19,
+export function envelopeAuditLogFindData20ToJSON(
+  envelopeAuditLogFindData20: EnvelopeAuditLogFindData20,
 ): string {
   return JSON.stringify(
-    EnvelopeAuditLogFindData19$outboundSchema.parse(envelopeAuditLogFindData19),
+    EnvelopeAuditLogFindData20$outboundSchema.parse(envelopeAuditLogFindData20),
   );
 }
-export function envelopeAuditLogFindData19FromJSON(
+export function envelopeAuditLogFindData20FromJSON(
   jsonString: string,
-): SafeParseResult<EnvelopeAuditLogFindData19, SDKValidationError> {
+): SafeParseResult<EnvelopeAuditLogFindData20, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => EnvelopeAuditLogFindData19$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeAuditLogFindData19' from JSON`,
+    (x) => EnvelopeAuditLogFindData20$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData20' from JSON`,
   );
 }
 
@@ -4323,7 +5136,7 @@ export const DataDocumentOpened$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("DOCUMENT_OPENED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData19$inboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData20$inboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -4336,7 +5149,7 @@ export const DataDocumentOpened$inboundSchema: z.ZodType<
 /** @internal */
 export type DataDocumentOpened$Outbound = {
   type: "DOCUMENT_OPENED";
-  data: EnvelopeAuditLogFindData19$Outbound;
+  data: EnvelopeAuditLogFindData20$Outbound;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -4354,7 +5167,7 @@ export const DataDocumentOpened$outboundSchema: z.ZodType<
   DataDocumentOpened
 > = z.object({
   type: z.literal("DOCUMENT_OPENED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData19$outboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData20$outboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -4637,8 +5450,8 @@ export function changeUnion1FromJSON(
 }
 
 /** @internal */
-export const EnvelopeAuditLogFindData18$inboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData18,
+export const EnvelopeAuditLogFindData19$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData19,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -4650,15 +5463,15 @@ export const EnvelopeAuditLogFindData18$inboundSchema: z.ZodType<
   ),
 });
 /** @internal */
-export type EnvelopeAuditLogFindData18$Outbound = {
+export type EnvelopeAuditLogFindData19$Outbound = {
   changes: Array<Change2$Outbound | ChangePassword$Outbound>;
 };
 
 /** @internal */
-export const EnvelopeAuditLogFindData18$outboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData18$Outbound,
+export const EnvelopeAuditLogFindData19$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData19$Outbound,
   z.ZodTypeDef,
-  EnvelopeAuditLogFindData18
+  EnvelopeAuditLogFindData19
 > = z.object({
   changes: z.array(
     z.union([
@@ -4668,20 +5481,20 @@ export const EnvelopeAuditLogFindData18$outboundSchema: z.ZodType<
   ),
 });
 
-export function envelopeAuditLogFindData18ToJSON(
-  envelopeAuditLogFindData18: EnvelopeAuditLogFindData18,
+export function envelopeAuditLogFindData19ToJSON(
+  envelopeAuditLogFindData19: EnvelopeAuditLogFindData19,
 ): string {
   return JSON.stringify(
-    EnvelopeAuditLogFindData18$outboundSchema.parse(envelopeAuditLogFindData18),
+    EnvelopeAuditLogFindData19$outboundSchema.parse(envelopeAuditLogFindData19),
   );
 }
-export function envelopeAuditLogFindData18FromJSON(
+export function envelopeAuditLogFindData19FromJSON(
   jsonString: string,
-): SafeParseResult<EnvelopeAuditLogFindData18, SDKValidationError> {
+): SafeParseResult<EnvelopeAuditLogFindData19, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => EnvelopeAuditLogFindData18$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeAuditLogFindData18' from JSON`,
+    (x) => EnvelopeAuditLogFindData19$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData19' from JSON`,
   );
 }
 
@@ -4692,7 +5505,7 @@ export const DataDocumentMetaUpdated$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("DOCUMENT_META_UPDATED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData18$inboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData19$inboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -4705,7 +5518,7 @@ export const DataDocumentMetaUpdated$inboundSchema: z.ZodType<
 /** @internal */
 export type DataDocumentMetaUpdated$Outbound = {
   type: "DOCUMENT_META_UPDATED";
-  data: EnvelopeAuditLogFindData18$Outbound;
+  data: EnvelopeAuditLogFindData19$Outbound;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -4723,7 +5536,7 @@ export const DataDocumentMetaUpdated$outboundSchema: z.ZodType<
   DataDocumentMetaUpdated
 > = z.object({
   type: z.literal("DOCUMENT_META_UPDATED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData18$outboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData19$outboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -4810,8 +5623,8 @@ export function toUnion3FromJSON(
 }
 
 /** @internal */
-export const EnvelopeAuditLogFindData17$inboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData17,
+export const EnvelopeAuditLogFindData18$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData18,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -4819,35 +5632,35 @@ export const EnvelopeAuditLogFindData17$inboundSchema: z.ZodType<
   to: z.nullable(z.union([z.string(), z.array(z.string())])),
 });
 /** @internal */
-export type EnvelopeAuditLogFindData17$Outbound = {
+export type EnvelopeAuditLogFindData18$Outbound = {
   from: string | Array<string> | null;
   to: string | Array<string> | null;
 };
 
 /** @internal */
-export const EnvelopeAuditLogFindData17$outboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData17$Outbound,
+export const EnvelopeAuditLogFindData18$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData18$Outbound,
   z.ZodTypeDef,
-  EnvelopeAuditLogFindData17
+  EnvelopeAuditLogFindData18
 > = z.object({
   from: z.nullable(z.union([z.string(), z.array(z.string())])),
   to: z.nullable(z.union([z.string(), z.array(z.string())])),
 });
 
-export function envelopeAuditLogFindData17ToJSON(
-  envelopeAuditLogFindData17: EnvelopeAuditLogFindData17,
+export function envelopeAuditLogFindData18ToJSON(
+  envelopeAuditLogFindData18: EnvelopeAuditLogFindData18,
 ): string {
   return JSON.stringify(
-    EnvelopeAuditLogFindData17$outboundSchema.parse(envelopeAuditLogFindData17),
+    EnvelopeAuditLogFindData18$outboundSchema.parse(envelopeAuditLogFindData18),
   );
 }
-export function envelopeAuditLogFindData17FromJSON(
+export function envelopeAuditLogFindData18FromJSON(
   jsonString: string,
-): SafeParseResult<EnvelopeAuditLogFindData17, SDKValidationError> {
+): SafeParseResult<EnvelopeAuditLogFindData18, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => EnvelopeAuditLogFindData17$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeAuditLogFindData17' from JSON`,
+    (x) => EnvelopeAuditLogFindData18$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData18' from JSON`,
   );
 }
 
@@ -4858,7 +5671,7 @@ export const DataDocumentGlobalAuthActionUpdated$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("DOCUMENT_GLOBAL_AUTH_ACTION_UPDATED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData17$inboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData18$inboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -4871,7 +5684,7 @@ export const DataDocumentGlobalAuthActionUpdated$inboundSchema: z.ZodType<
 /** @internal */
 export type DataDocumentGlobalAuthActionUpdated$Outbound = {
   type: "DOCUMENT_GLOBAL_AUTH_ACTION_UPDATED";
-  data: EnvelopeAuditLogFindData17$Outbound;
+  data: EnvelopeAuditLogFindData18$Outbound;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -4889,7 +5702,7 @@ export const DataDocumentGlobalAuthActionUpdated$outboundSchema: z.ZodType<
   DataDocumentGlobalAuthActionUpdated
 > = z.object({
   type: z.literal("DOCUMENT_GLOBAL_AUTH_ACTION_UPDATED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData17$outboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData18$outboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -4979,8 +5792,8 @@ export function toUnion2FromJSON(
 }
 
 /** @internal */
-export const EnvelopeAuditLogFindData16$inboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData16,
+export const EnvelopeAuditLogFindData17$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData17,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -4988,35 +5801,35 @@ export const EnvelopeAuditLogFindData16$inboundSchema: z.ZodType<
   to: z.nullable(z.union([z.string(), z.array(z.string())])),
 });
 /** @internal */
-export type EnvelopeAuditLogFindData16$Outbound = {
+export type EnvelopeAuditLogFindData17$Outbound = {
   from: string | Array<string> | null;
   to: string | Array<string> | null;
 };
 
 /** @internal */
-export const EnvelopeAuditLogFindData16$outboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData16$Outbound,
+export const EnvelopeAuditLogFindData17$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData17$Outbound,
   z.ZodTypeDef,
-  EnvelopeAuditLogFindData16
+  EnvelopeAuditLogFindData17
 > = z.object({
   from: z.nullable(z.union([z.string(), z.array(z.string())])),
   to: z.nullable(z.union([z.string(), z.array(z.string())])),
 });
 
-export function envelopeAuditLogFindData16ToJSON(
-  envelopeAuditLogFindData16: EnvelopeAuditLogFindData16,
+export function envelopeAuditLogFindData17ToJSON(
+  envelopeAuditLogFindData17: EnvelopeAuditLogFindData17,
 ): string {
   return JSON.stringify(
-    EnvelopeAuditLogFindData16$outboundSchema.parse(envelopeAuditLogFindData16),
+    EnvelopeAuditLogFindData17$outboundSchema.parse(envelopeAuditLogFindData17),
   );
 }
-export function envelopeAuditLogFindData16FromJSON(
+export function envelopeAuditLogFindData17FromJSON(
   jsonString: string,
-): SafeParseResult<EnvelopeAuditLogFindData16, SDKValidationError> {
+): SafeParseResult<EnvelopeAuditLogFindData17, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => EnvelopeAuditLogFindData16$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeAuditLogFindData16' from JSON`,
+    (x) => EnvelopeAuditLogFindData17$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData17' from JSON`,
   );
 }
 
@@ -5027,7 +5840,7 @@ export const DataDocumentGlobalAuthAccessUpdated$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("DOCUMENT_GLOBAL_AUTH_ACCESS_UPDATED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData16$inboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData17$inboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -5040,7 +5853,7 @@ export const DataDocumentGlobalAuthAccessUpdated$inboundSchema: z.ZodType<
 /** @internal */
 export type DataDocumentGlobalAuthAccessUpdated$Outbound = {
   type: "DOCUMENT_GLOBAL_AUTH_ACCESS_UPDATED";
-  data: EnvelopeAuditLogFindData16$Outbound;
+  data: EnvelopeAuditLogFindData17$Outbound;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -5058,7 +5871,7 @@ export const DataDocumentGlobalAuthAccessUpdated$outboundSchema: z.ZodType<
   DataDocumentGlobalAuthAccessUpdated
 > = z.object({
   type: z.literal("DOCUMENT_GLOBAL_AUTH_ACCESS_UPDATED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData16$outboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData17$outboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -5148,8 +5961,8 @@ export function toUnion1FromJSON(
 }
 
 /** @internal */
-export const EnvelopeAuditLogFindData15$inboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData15,
+export const EnvelopeAuditLogFindData16$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData16,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -5157,35 +5970,35 @@ export const EnvelopeAuditLogFindData15$inboundSchema: z.ZodType<
   to: z.nullable(z.union([z.string(), z.array(z.string())])),
 });
 /** @internal */
-export type EnvelopeAuditLogFindData15$Outbound = {
+export type EnvelopeAuditLogFindData16$Outbound = {
   from: string | Array<string> | null;
   to: string | Array<string> | null;
 };
 
 /** @internal */
-export const EnvelopeAuditLogFindData15$outboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData15$Outbound,
+export const EnvelopeAuditLogFindData16$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData16$Outbound,
   z.ZodTypeDef,
-  EnvelopeAuditLogFindData15
+  EnvelopeAuditLogFindData16
 > = z.object({
   from: z.nullable(z.union([z.string(), z.array(z.string())])),
   to: z.nullable(z.union([z.string(), z.array(z.string())])),
 });
 
-export function envelopeAuditLogFindData15ToJSON(
-  envelopeAuditLogFindData15: EnvelopeAuditLogFindData15,
+export function envelopeAuditLogFindData16ToJSON(
+  envelopeAuditLogFindData16: EnvelopeAuditLogFindData16,
 ): string {
   return JSON.stringify(
-    EnvelopeAuditLogFindData15$outboundSchema.parse(envelopeAuditLogFindData15),
+    EnvelopeAuditLogFindData16$outboundSchema.parse(envelopeAuditLogFindData16),
   );
 }
-export function envelopeAuditLogFindData15FromJSON(
+export function envelopeAuditLogFindData16FromJSON(
   jsonString: string,
-): SafeParseResult<EnvelopeAuditLogFindData15, SDKValidationError> {
+): SafeParseResult<EnvelopeAuditLogFindData16, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => EnvelopeAuditLogFindData15$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeAuditLogFindData15' from JSON`,
+    (x) => EnvelopeAuditLogFindData16$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData16' from JSON`,
   );
 }
 
@@ -5196,7 +6009,7 @@ export const DataDocumentVisibilityUpdated$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("DOCUMENT_VISIBILITY_UPDATED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData15$inboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData16$inboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -5209,7 +6022,7 @@ export const DataDocumentVisibilityUpdated$inboundSchema: z.ZodType<
 /** @internal */
 export type DataDocumentVisibilityUpdated$Outbound = {
   type: "DOCUMENT_VISIBILITY_UPDATED";
-  data: EnvelopeAuditLogFindData15$Outbound;
+  data: EnvelopeAuditLogFindData16$Outbound;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -5227,7 +6040,7 @@ export const DataDocumentVisibilityUpdated$outboundSchema: z.ZodType<
   DataDocumentVisibilityUpdated
 > = z.object({
   type: z.literal("DOCUMENT_VISIBILITY_UPDATED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData15$outboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData16$outboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -5953,8 +6766,8 @@ export function fieldSecurity2FromJSON(
 }
 
 /** @internal */
-export const EnvelopeAuditLogFindData14$inboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData14,
+export const EnvelopeAuditLogFindData15$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData15,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -5978,7 +6791,7 @@ export const EnvelopeAuditLogFindData14$inboundSchema: z.ZodType<
   fieldSecurity: z.lazy(() => FieldSecurity2$inboundSchema).optional(),
 });
 /** @internal */
-export type EnvelopeAuditLogFindData14$Outbound = {
+export type EnvelopeAuditLogFindData15$Outbound = {
   recipientEmail: string;
   recipientName: string;
   recipientId: number;
@@ -5999,10 +6812,10 @@ export type EnvelopeAuditLogFindData14$Outbound = {
 };
 
 /** @internal */
-export const EnvelopeAuditLogFindData14$outboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData14$Outbound,
+export const EnvelopeAuditLogFindData15$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData15$Outbound,
   z.ZodTypeDef,
-  EnvelopeAuditLogFindData14
+  EnvelopeAuditLogFindData15
 > = z.object({
   recipientEmail: z.string(),
   recipientName: z.string(),
@@ -6024,20 +6837,20 @@ export const EnvelopeAuditLogFindData14$outboundSchema: z.ZodType<
   fieldSecurity: z.lazy(() => FieldSecurity2$outboundSchema).optional(),
 });
 
-export function envelopeAuditLogFindData14ToJSON(
-  envelopeAuditLogFindData14: EnvelopeAuditLogFindData14,
+export function envelopeAuditLogFindData15ToJSON(
+  envelopeAuditLogFindData15: EnvelopeAuditLogFindData15,
 ): string {
   return JSON.stringify(
-    EnvelopeAuditLogFindData14$outboundSchema.parse(envelopeAuditLogFindData14),
+    EnvelopeAuditLogFindData15$outboundSchema.parse(envelopeAuditLogFindData15),
   );
 }
-export function envelopeAuditLogFindData14FromJSON(
+export function envelopeAuditLogFindData15FromJSON(
   jsonString: string,
-): SafeParseResult<EnvelopeAuditLogFindData14, SDKValidationError> {
+): SafeParseResult<EnvelopeAuditLogFindData15, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => EnvelopeAuditLogFindData14$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeAuditLogFindData14' from JSON`,
+    (x) => EnvelopeAuditLogFindData15$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData15' from JSON`,
   );
 }
 
@@ -6048,7 +6861,7 @@ export const DataDocumentFieldPrefilled$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("DOCUMENT_FIELD_PREFILLED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData14$inboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData15$inboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -6061,7 +6874,7 @@ export const DataDocumentFieldPrefilled$inboundSchema: z.ZodType<
 /** @internal */
 export type DataDocumentFieldPrefilled$Outbound = {
   type: "DOCUMENT_FIELD_PREFILLED";
-  data: EnvelopeAuditLogFindData14$Outbound;
+  data: EnvelopeAuditLogFindData15$Outbound;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -6079,7 +6892,7 @@ export const DataDocumentFieldPrefilled$outboundSchema: z.ZodType<
   DataDocumentFieldPrefilled
 > = z.object({
   type: z.literal("DOCUMENT_FIELD_PREFILLED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData14$outboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData15$outboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -6115,8 +6928,8 @@ export const FieldEnum$outboundSchema: z.ZodNativeEnum<typeof FieldEnum> =
   FieldEnum$inboundSchema;
 
 /** @internal */
-export const EnvelopeAuditLogFindData13$inboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData13,
+export const EnvelopeAuditLogFindData14$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData14,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -6124,35 +6937,35 @@ export const EnvelopeAuditLogFindData13$inboundSchema: z.ZodType<
   fieldId: z.string(),
 });
 /** @internal */
-export type EnvelopeAuditLogFindData13$Outbound = {
+export type EnvelopeAuditLogFindData14$Outbound = {
   field: string;
   fieldId: string;
 };
 
 /** @internal */
-export const EnvelopeAuditLogFindData13$outboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData13$Outbound,
+export const EnvelopeAuditLogFindData14$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData14$Outbound,
   z.ZodTypeDef,
-  EnvelopeAuditLogFindData13
+  EnvelopeAuditLogFindData14
 > = z.object({
   field: FieldEnum$outboundSchema,
   fieldId: z.string(),
 });
 
-export function envelopeAuditLogFindData13ToJSON(
-  envelopeAuditLogFindData13: EnvelopeAuditLogFindData13,
+export function envelopeAuditLogFindData14ToJSON(
+  envelopeAuditLogFindData14: EnvelopeAuditLogFindData14,
 ): string {
   return JSON.stringify(
-    EnvelopeAuditLogFindData13$outboundSchema.parse(envelopeAuditLogFindData13),
+    EnvelopeAuditLogFindData14$outboundSchema.parse(envelopeAuditLogFindData14),
   );
 }
-export function envelopeAuditLogFindData13FromJSON(
+export function envelopeAuditLogFindData14FromJSON(
   jsonString: string,
-): SafeParseResult<EnvelopeAuditLogFindData13, SDKValidationError> {
+): SafeParseResult<EnvelopeAuditLogFindData14, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => EnvelopeAuditLogFindData13$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeAuditLogFindData13' from JSON`,
+    (x) => EnvelopeAuditLogFindData14$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData14' from JSON`,
   );
 }
 
@@ -6163,7 +6976,7 @@ export const DataDocumentFieldUninserted$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("DOCUMENT_FIELD_UNINSERTED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData13$inboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData14$inboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -6176,7 +6989,7 @@ export const DataDocumentFieldUninserted$inboundSchema: z.ZodType<
 /** @internal */
 export type DataDocumentFieldUninserted$Outbound = {
   type: "DOCUMENT_FIELD_UNINSERTED";
-  data: EnvelopeAuditLogFindData13$Outbound;
+  data: EnvelopeAuditLogFindData14$Outbound;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -6194,7 +7007,7 @@ export const DataDocumentFieldUninserted$outboundSchema: z.ZodType<
   DataDocumentFieldUninserted
 > = z.object({
   type: z.literal("DOCUMENT_FIELD_UNINSERTED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData13$outboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData14$outboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -6920,8 +7733,8 @@ export function fieldSecurity1FromJSON(
 }
 
 /** @internal */
-export const EnvelopeAuditLogFindData12$inboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData12,
+export const EnvelopeAuditLogFindData13$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData13,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -6945,7 +7758,7 @@ export const EnvelopeAuditLogFindData12$inboundSchema: z.ZodType<
   fieldSecurity: z.lazy(() => FieldSecurity1$inboundSchema).optional(),
 });
 /** @internal */
-export type EnvelopeAuditLogFindData12$Outbound = {
+export type EnvelopeAuditLogFindData13$Outbound = {
   recipientEmail: string;
   recipientName: string;
   recipientId: number;
@@ -6966,10 +7779,10 @@ export type EnvelopeAuditLogFindData12$Outbound = {
 };
 
 /** @internal */
-export const EnvelopeAuditLogFindData12$outboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData12$Outbound,
+export const EnvelopeAuditLogFindData13$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData13$Outbound,
   z.ZodTypeDef,
-  EnvelopeAuditLogFindData12
+  EnvelopeAuditLogFindData13
 > = z.object({
   recipientEmail: z.string(),
   recipientName: z.string(),
@@ -6991,20 +7804,20 @@ export const EnvelopeAuditLogFindData12$outboundSchema: z.ZodType<
   fieldSecurity: z.lazy(() => FieldSecurity1$outboundSchema).optional(),
 });
 
-export function envelopeAuditLogFindData12ToJSON(
-  envelopeAuditLogFindData12: EnvelopeAuditLogFindData12,
+export function envelopeAuditLogFindData13ToJSON(
+  envelopeAuditLogFindData13: EnvelopeAuditLogFindData13,
 ): string {
   return JSON.stringify(
-    EnvelopeAuditLogFindData12$outboundSchema.parse(envelopeAuditLogFindData12),
+    EnvelopeAuditLogFindData13$outboundSchema.parse(envelopeAuditLogFindData13),
   );
 }
-export function envelopeAuditLogFindData12FromJSON(
+export function envelopeAuditLogFindData13FromJSON(
   jsonString: string,
-): SafeParseResult<EnvelopeAuditLogFindData12, SDKValidationError> {
+): SafeParseResult<EnvelopeAuditLogFindData13, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => EnvelopeAuditLogFindData12$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeAuditLogFindData12' from JSON`,
+    (x) => EnvelopeAuditLogFindData13$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData13' from JSON`,
   );
 }
 
@@ -7015,7 +7828,7 @@ export const DataDocumentFieldInserted$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("DOCUMENT_FIELD_INSERTED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData12$inboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData13$inboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -7028,7 +7841,7 @@ export const DataDocumentFieldInserted$inboundSchema: z.ZodType<
 /** @internal */
 export type DataDocumentFieldInserted$Outbound = {
   type: "DOCUMENT_FIELD_INSERTED";
-  data: EnvelopeAuditLogFindData12$Outbound;
+  data: EnvelopeAuditLogFindData13$Outbound;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -7046,7 +7859,7 @@ export const DataDocumentFieldInserted$outboundSchema: z.ZodType<
   DataDocumentFieldInserted
 > = z.object({
   type: z.literal("DOCUMENT_FIELD_INSERTED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData12$outboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData13$outboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -7127,41 +7940,41 @@ export function envelopeAuditLogFindField1FromJSON(
 }
 
 /** @internal */
-export const EnvelopeAuditLogFindData11$inboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData11,
+export const EnvelopeAuditLogFindData12$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData12,
   z.ZodTypeDef,
   unknown
 > = z.object({
   fields: z.array(z.lazy(() => EnvelopeAuditLogFindField1$inboundSchema)),
 });
 /** @internal */
-export type EnvelopeAuditLogFindData11$Outbound = {
+export type EnvelopeAuditLogFindData12$Outbound = {
   fields: Array<EnvelopeAuditLogFindField1$Outbound>;
 };
 
 /** @internal */
-export const EnvelopeAuditLogFindData11$outboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData11$Outbound,
+export const EnvelopeAuditLogFindData12$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData12$Outbound,
   z.ZodTypeDef,
-  EnvelopeAuditLogFindData11
+  EnvelopeAuditLogFindData12
 > = z.object({
   fields: z.array(z.lazy(() => EnvelopeAuditLogFindField1$outboundSchema)),
 });
 
-export function envelopeAuditLogFindData11ToJSON(
-  envelopeAuditLogFindData11: EnvelopeAuditLogFindData11,
+export function envelopeAuditLogFindData12ToJSON(
+  envelopeAuditLogFindData12: EnvelopeAuditLogFindData12,
 ): string {
   return JSON.stringify(
-    EnvelopeAuditLogFindData11$outboundSchema.parse(envelopeAuditLogFindData11),
+    EnvelopeAuditLogFindData12$outboundSchema.parse(envelopeAuditLogFindData12),
   );
 }
-export function envelopeAuditLogFindData11FromJSON(
+export function envelopeAuditLogFindData12FromJSON(
   jsonString: string,
-): SafeParseResult<EnvelopeAuditLogFindData11, SDKValidationError> {
+): SafeParseResult<EnvelopeAuditLogFindData12, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => EnvelopeAuditLogFindData11$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeAuditLogFindData11' from JSON`,
+    (x) => EnvelopeAuditLogFindData12$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData12' from JSON`,
   );
 }
 
@@ -7172,7 +7985,7 @@ export const DataDocumentFieldsAutoInserted$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("DOCUMENT_FIELDS_AUTO_INSERTED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData11$inboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData12$inboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -7185,7 +7998,7 @@ export const DataDocumentFieldsAutoInserted$inboundSchema: z.ZodType<
 /** @internal */
 export type DataDocumentFieldsAutoInserted$Outbound = {
   type: "DOCUMENT_FIELDS_AUTO_INSERTED";
-  data: EnvelopeAuditLogFindData11$Outbound;
+  data: EnvelopeAuditLogFindData12$Outbound;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -7203,7 +8016,7 @@ export const DataDocumentFieldsAutoInserted$outboundSchema: z.ZodType<
   DataDocumentFieldsAutoInserted
 > = z.object({
   type: z.literal("DOCUMENT_FIELDS_AUTO_INSERTED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData11$outboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData12$outboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -7234,8 +8047,8 @@ export function dataDocumentFieldsAutoInsertedFromJSON(
 }
 
 /** @internal */
-export const EnvelopeAuditLogFindData10$inboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData10,
+export const EnvelopeAuditLogFindData11$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData11,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -7244,37 +8057,37 @@ export const EnvelopeAuditLogFindData10$inboundSchema: z.ZodType<
   teamName: z.string(),
 });
 /** @internal */
-export type EnvelopeAuditLogFindData10$Outbound = {
+export type EnvelopeAuditLogFindData11$Outbound = {
   delegatedOwnerName: string | null;
   delegatedOwnerEmail: string;
   teamName: string;
 };
 
 /** @internal */
-export const EnvelopeAuditLogFindData10$outboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData10$Outbound,
+export const EnvelopeAuditLogFindData11$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData11$Outbound,
   z.ZodTypeDef,
-  EnvelopeAuditLogFindData10
+  EnvelopeAuditLogFindData11
 > = z.object({
   delegatedOwnerName: z.nullable(z.string()),
   delegatedOwnerEmail: z.string(),
   teamName: z.string(),
 });
 
-export function envelopeAuditLogFindData10ToJSON(
-  envelopeAuditLogFindData10: EnvelopeAuditLogFindData10,
+export function envelopeAuditLogFindData11ToJSON(
+  envelopeAuditLogFindData11: EnvelopeAuditLogFindData11,
 ): string {
   return JSON.stringify(
-    EnvelopeAuditLogFindData10$outboundSchema.parse(envelopeAuditLogFindData10),
+    EnvelopeAuditLogFindData11$outboundSchema.parse(envelopeAuditLogFindData11),
   );
 }
-export function envelopeAuditLogFindData10FromJSON(
+export function envelopeAuditLogFindData11FromJSON(
   jsonString: string,
-): SafeParseResult<EnvelopeAuditLogFindData10, SDKValidationError> {
+): SafeParseResult<EnvelopeAuditLogFindData11, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => EnvelopeAuditLogFindData10$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeAuditLogFindData10' from JSON`,
+    (x) => EnvelopeAuditLogFindData11$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData11' from JSON`,
   );
 }
 
@@ -7285,7 +8098,7 @@ export const DataDocumentDelegatedOwnerCreated$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("DOCUMENT_DELEGATED_OWNER_CREATED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData10$inboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData11$inboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -7298,7 +8111,7 @@ export const DataDocumentDelegatedOwnerCreated$inboundSchema: z.ZodType<
 /** @internal */
 export type DataDocumentDelegatedOwnerCreated$Outbound = {
   type: "DOCUMENT_DELEGATED_OWNER_CREATED";
-  data: EnvelopeAuditLogFindData10$Outbound;
+  data: EnvelopeAuditLogFindData11$Outbound;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -7316,7 +8129,7 @@ export const DataDocumentDelegatedOwnerCreated$outboundSchema: z.ZodType<
   DataDocumentDelegatedOwnerCreated
 > = z.object({
   type: z.literal("DOCUMENT_DELEGATED_OWNER_CREATED"),
-  data: z.lazy(() => EnvelopeAuditLogFindData10$outboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData11$outboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -7347,8 +8160,8 @@ export function dataDocumentDelegatedOwnerCreatedFromJSON(
 }
 
 /** @internal */
-export const EnvelopeAuditLogFindData9$inboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData9,
+export const EnvelopeAuditLogFindData10$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData10,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -7357,37 +8170,37 @@ export const EnvelopeAuditLogFindData9$inboundSchema: z.ZodType<
   toTeamId: z.number(),
 });
 /** @internal */
-export type EnvelopeAuditLogFindData9$Outbound = {
+export type EnvelopeAuditLogFindData10$Outbound = {
   movedByUserId: number;
   fromPersonalAccount: boolean;
   toTeamId: number;
 };
 
 /** @internal */
-export const EnvelopeAuditLogFindData9$outboundSchema: z.ZodType<
-  EnvelopeAuditLogFindData9$Outbound,
+export const EnvelopeAuditLogFindData10$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData10$Outbound,
   z.ZodTypeDef,
-  EnvelopeAuditLogFindData9
+  EnvelopeAuditLogFindData10
 > = z.object({
   movedByUserId: z.number(),
   fromPersonalAccount: z.boolean(),
   toTeamId: z.number(),
 });
 
-export function envelopeAuditLogFindData9ToJSON(
-  envelopeAuditLogFindData9: EnvelopeAuditLogFindData9,
+export function envelopeAuditLogFindData10ToJSON(
+  envelopeAuditLogFindData10: EnvelopeAuditLogFindData10,
 ): string {
   return JSON.stringify(
-    EnvelopeAuditLogFindData9$outboundSchema.parse(envelopeAuditLogFindData9),
+    EnvelopeAuditLogFindData10$outboundSchema.parse(envelopeAuditLogFindData10),
   );
 }
-export function envelopeAuditLogFindData9FromJSON(
+export function envelopeAuditLogFindData10FromJSON(
   jsonString: string,
-): SafeParseResult<EnvelopeAuditLogFindData9, SDKValidationError> {
+): SafeParseResult<EnvelopeAuditLogFindData10, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => EnvelopeAuditLogFindData9$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EnvelopeAuditLogFindData9' from JSON`,
+    (x) => EnvelopeAuditLogFindData10$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData10' from JSON`,
   );
 }
 
@@ -7398,7 +8211,7 @@ export const DataDocumentMovedToTeam$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("DOCUMENT_MOVED_TO_TEAM"),
-  data: z.lazy(() => EnvelopeAuditLogFindData9$inboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData10$inboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -7411,7 +8224,7 @@ export const DataDocumentMovedToTeam$inboundSchema: z.ZodType<
 /** @internal */
 export type DataDocumentMovedToTeam$Outbound = {
   type: "DOCUMENT_MOVED_TO_TEAM";
-  data: EnvelopeAuditLogFindData9$Outbound;
+  data: EnvelopeAuditLogFindData10$Outbound;
   id: string;
   createdAt: string;
   envelopeId: string;
@@ -7429,7 +8242,7 @@ export const DataDocumentMovedToTeam$outboundSchema: z.ZodType<
   DataDocumentMovedToTeam
 > = z.object({
   type: z.literal("DOCUMENT_MOVED_TO_TEAM"),
-  data: z.lazy(() => EnvelopeAuditLogFindData9$outboundSchema),
+  data: z.lazy(() => EnvelopeAuditLogFindData10$outboundSchema),
   id: z.string(),
   createdAt: z.string(),
   envelopeId: z.string(),
@@ -7454,6 +8267,111 @@ export function dataDocumentMovedToTeamFromJSON(
     jsonString,
     (x) => DataDocumentMovedToTeam$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'DataDocumentMovedToTeam' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeAuditLogFindData9$inboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData9,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  reason: z.string().optional(),
+});
+/** @internal */
+export type EnvelopeAuditLogFindData9$Outbound = {
+  reason?: string | undefined;
+};
+
+/** @internal */
+export const EnvelopeAuditLogFindData9$outboundSchema: z.ZodType<
+  EnvelopeAuditLogFindData9$Outbound,
+  z.ZodTypeDef,
+  EnvelopeAuditLogFindData9
+> = z.object({
+  reason: z.string().optional(),
+});
+
+export function envelopeAuditLogFindData9ToJSON(
+  envelopeAuditLogFindData9: EnvelopeAuditLogFindData9,
+): string {
+  return JSON.stringify(
+    EnvelopeAuditLogFindData9$outboundSchema.parse(envelopeAuditLogFindData9),
+  );
+}
+export function envelopeAuditLogFindData9FromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeAuditLogFindData9, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeAuditLogFindData9$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeAuditLogFindData9' from JSON`,
+  );
+}
+
+/** @internal */
+export const DataDocumentCancelled$inboundSchema: z.ZodType<
+  DataDocumentCancelled,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: z.literal("DOCUMENT_CANCELLED"),
+  data: z.lazy(() => EnvelopeAuditLogFindData9$inboundSchema),
+  id: z.string(),
+  createdAt: z.string(),
+  envelopeId: z.string(),
+  name: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
+  userId: z.nullable(z.number()).optional(),
+  userAgent: z.nullable(z.string()).optional(),
+  ipAddress: z.nullable(z.string()).optional(),
+});
+/** @internal */
+export type DataDocumentCancelled$Outbound = {
+  type: "DOCUMENT_CANCELLED";
+  data: EnvelopeAuditLogFindData9$Outbound;
+  id: string;
+  createdAt: string;
+  envelopeId: string;
+  name?: string | null | undefined;
+  email?: string | null | undefined;
+  userId?: number | null | undefined;
+  userAgent?: string | null | undefined;
+  ipAddress?: string | null | undefined;
+};
+
+/** @internal */
+export const DataDocumentCancelled$outboundSchema: z.ZodType<
+  DataDocumentCancelled$Outbound,
+  z.ZodTypeDef,
+  DataDocumentCancelled
+> = z.object({
+  type: z.literal("DOCUMENT_CANCELLED"),
+  data: z.lazy(() => EnvelopeAuditLogFindData9$outboundSchema),
+  id: z.string(),
+  createdAt: z.string(),
+  envelopeId: z.string(),
+  name: z.nullable(z.string()).optional(),
+  email: z.nullable(z.string()).optional(),
+  userId: z.nullable(z.number()).optional(),
+  userAgent: z.nullable(z.string()).optional(),
+  ipAddress: z.nullable(z.string()).optional(),
+});
+
+export function dataDocumentCancelledToJSON(
+  dataDocumentCancelled: DataDocumentCancelled,
+): string {
+  return JSON.stringify(
+    DataDocumentCancelled$outboundSchema.parse(dataDocumentCancelled),
+  );
+}
+export function dataDocumentCancelledFromJSON(
+  jsonString: string,
+): SafeParseResult<DataDocumentCancelled, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DataDocumentCancelled$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DataDocumentCancelled' from JSON`,
   );
 }
 
@@ -8567,6 +9485,7 @@ export const EnvelopeAuditLogFindDataUnion$inboundSchema: z.ZodType<
   z.lazy(() => DataDocumentCompleted$inboundSchema),
   z.lazy(() => DataDocumentCreated$inboundSchema),
   z.lazy(() => DataDocumentDeleted$inboundSchema),
+  z.lazy(() => DataDocumentCancelled$inboundSchema),
   z.lazy(() => DataDocumentMovedToTeam$inboundSchema),
   z.lazy(() => DataDocumentDelegatedOwnerCreated$inboundSchema),
   z.lazy(() => DataDocumentFieldsAutoInserted$inboundSchema),
@@ -8594,6 +9513,11 @@ export const EnvelopeAuditLogFindDataUnion$inboundSchema: z.ZodType<
   z.lazy(() => DataRecipientUpdated$inboundSchema),
   z.lazy(() => DataRecipientDeleted$inboundSchema),
   z.lazy(() => DataDocumentRecipientExpired$inboundSchema),
+  z.lazy(() => DataDocumentRecipientCscAuthenticated$inboundSchema),
+  z.lazy(() => DataDocumentRecipientCscAuthenticationFailed$inboundSchema),
+  z.lazy(() => DataDocumentRecipientCscSignRequested$inboundSchema),
+  z.lazy(() => DataDocumentRecipientCscAuthorized$inboundSchema),
+  z.lazy(() => DataDocumentRecipientCscSigned$inboundSchema),
 ]);
 /** @internal */
 export type EnvelopeAuditLogFindDataUnion$Outbound =
@@ -8605,6 +9529,7 @@ export type EnvelopeAuditLogFindDataUnion$Outbound =
   | DataDocumentCompleted$Outbound
   | DataDocumentCreated$Outbound
   | DataDocumentDeleted$Outbound
+  | DataDocumentCancelled$Outbound
   | DataDocumentMovedToTeam$Outbound
   | DataDocumentDelegatedOwnerCreated$Outbound
   | DataDocumentFieldsAutoInserted$Outbound
@@ -8631,7 +9556,12 @@ export type EnvelopeAuditLogFindDataUnion$Outbound =
   | DataRecipientCreated$Outbound
   | DataRecipientUpdated$Outbound
   | DataRecipientDeleted$Outbound
-  | DataDocumentRecipientExpired$Outbound;
+  | DataDocumentRecipientExpired$Outbound
+  | DataDocumentRecipientCscAuthenticated$Outbound
+  | DataDocumentRecipientCscAuthenticationFailed$Outbound
+  | DataDocumentRecipientCscSignRequested$Outbound
+  | DataDocumentRecipientCscAuthorized$Outbound
+  | DataDocumentRecipientCscSigned$Outbound;
 
 /** @internal */
 export const EnvelopeAuditLogFindDataUnion$outboundSchema: z.ZodType<
@@ -8647,6 +9577,7 @@ export const EnvelopeAuditLogFindDataUnion$outboundSchema: z.ZodType<
   z.lazy(() => DataDocumentCompleted$outboundSchema),
   z.lazy(() => DataDocumentCreated$outboundSchema),
   z.lazy(() => DataDocumentDeleted$outboundSchema),
+  z.lazy(() => DataDocumentCancelled$outboundSchema),
   z.lazy(() => DataDocumentMovedToTeam$outboundSchema),
   z.lazy(() => DataDocumentDelegatedOwnerCreated$outboundSchema),
   z.lazy(() => DataDocumentFieldsAutoInserted$outboundSchema),
@@ -8674,6 +9605,11 @@ export const EnvelopeAuditLogFindDataUnion$outboundSchema: z.ZodType<
   z.lazy(() => DataRecipientUpdated$outboundSchema),
   z.lazy(() => DataRecipientDeleted$outboundSchema),
   z.lazy(() => DataDocumentRecipientExpired$outboundSchema),
+  z.lazy(() => DataDocumentRecipientCscAuthenticated$outboundSchema),
+  z.lazy(() => DataDocumentRecipientCscAuthenticationFailed$outboundSchema),
+  z.lazy(() => DataDocumentRecipientCscSignRequested$outboundSchema),
+  z.lazy(() => DataDocumentRecipientCscAuthorized$outboundSchema),
+  z.lazy(() => DataDocumentRecipientCscSigned$outboundSchema),
 ]);
 
 export function envelopeAuditLogFindDataUnionToJSON(
@@ -8711,6 +9647,7 @@ export const EnvelopeAuditLogFindResponse$inboundSchema: z.ZodType<
       z.lazy(() => DataDocumentCompleted$inboundSchema),
       z.lazy(() => DataDocumentCreated$inboundSchema),
       z.lazy(() => DataDocumentDeleted$inboundSchema),
+      z.lazy(() => DataDocumentCancelled$inboundSchema),
       z.lazy(() => DataDocumentMovedToTeam$inboundSchema),
       z.lazy(() => DataDocumentDelegatedOwnerCreated$inboundSchema),
       z.lazy(() => DataDocumentFieldsAutoInserted$inboundSchema),
@@ -8738,6 +9675,13 @@ export const EnvelopeAuditLogFindResponse$inboundSchema: z.ZodType<
       z.lazy(() => DataRecipientUpdated$inboundSchema),
       z.lazy(() => DataRecipientDeleted$inboundSchema),
       z.lazy(() => DataDocumentRecipientExpired$inboundSchema),
+      z.lazy(() => DataDocumentRecipientCscAuthenticated$inboundSchema),
+      z.lazy(() =>
+        DataDocumentRecipientCscAuthenticationFailed$inboundSchema
+      ),
+      z.lazy(() => DataDocumentRecipientCscSignRequested$inboundSchema),
+      z.lazy(() => DataDocumentRecipientCscAuthorized$inboundSchema),
+      z.lazy(() => DataDocumentRecipientCscSigned$inboundSchema),
     ]),
   ),
   count: z.number(),
@@ -8756,6 +9700,7 @@ export type EnvelopeAuditLogFindResponse$Outbound = {
     | DataDocumentCompleted$Outbound
     | DataDocumentCreated$Outbound
     | DataDocumentDeleted$Outbound
+    | DataDocumentCancelled$Outbound
     | DataDocumentMovedToTeam$Outbound
     | DataDocumentDelegatedOwnerCreated$Outbound
     | DataDocumentFieldsAutoInserted$Outbound
@@ -8783,6 +9728,11 @@ export type EnvelopeAuditLogFindResponse$Outbound = {
     | DataRecipientUpdated$Outbound
     | DataRecipientDeleted$Outbound
     | DataDocumentRecipientExpired$Outbound
+    | DataDocumentRecipientCscAuthenticated$Outbound
+    | DataDocumentRecipientCscAuthenticationFailed$Outbound
+    | DataDocumentRecipientCscSignRequested$Outbound
+    | DataDocumentRecipientCscAuthorized$Outbound
+    | DataDocumentRecipientCscSigned$Outbound
   >;
   count: number;
   currentPage: number;
@@ -8806,6 +9756,7 @@ export const EnvelopeAuditLogFindResponse$outboundSchema: z.ZodType<
       z.lazy(() => DataDocumentCompleted$outboundSchema),
       z.lazy(() => DataDocumentCreated$outboundSchema),
       z.lazy(() => DataDocumentDeleted$outboundSchema),
+      z.lazy(() => DataDocumentCancelled$outboundSchema),
       z.lazy(() => DataDocumentMovedToTeam$outboundSchema),
       z.lazy(() => DataDocumentDelegatedOwnerCreated$outboundSchema),
       z.lazy(() => DataDocumentFieldsAutoInserted$outboundSchema),
@@ -8833,6 +9784,13 @@ export const EnvelopeAuditLogFindResponse$outboundSchema: z.ZodType<
       z.lazy(() => DataRecipientUpdated$outboundSchema),
       z.lazy(() => DataRecipientDeleted$outboundSchema),
       z.lazy(() => DataDocumentRecipientExpired$outboundSchema),
+      z.lazy(() => DataDocumentRecipientCscAuthenticated$outboundSchema),
+      z.lazy(() =>
+        DataDocumentRecipientCscAuthenticationFailed$outboundSchema
+      ),
+      z.lazy(() => DataDocumentRecipientCscSignRequested$outboundSchema),
+      z.lazy(() => DataDocumentRecipientCscAuthorized$outboundSchema),
+      z.lazy(() => DataDocumentRecipientCscSigned$outboundSchema),
     ]),
   ),
   count: z.number(),

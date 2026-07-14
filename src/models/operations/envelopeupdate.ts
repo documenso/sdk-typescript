@@ -239,6 +239,7 @@ export const EnvelopeUpdateStatus = {
   Pending: "PENDING",
   Completed: "COMPLETED",
   Rejected: "REJECTED",
+  Cancelled: "CANCELLED",
 } as const;
 export type EnvelopeUpdateStatus = ClosedEnum<typeof EnvelopeUpdateStatus>;
 

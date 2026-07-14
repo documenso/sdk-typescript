@@ -8,7 +8,7 @@ import { EnvelopeFindData } from "@documenso/sdk-typescript/models/operations";
 let value: EnvelopeFindData = {
   internalVersion: 6602.77,
   type: "DOCUMENT",
-  status: "COMPLETED",
+  status: "REJECTED",
   source: "TEMPLATE",
   visibility: "EVERYONE",
   templateType: "PRIVATE",

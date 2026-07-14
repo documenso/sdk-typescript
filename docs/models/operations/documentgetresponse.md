@@ -9,7 +9,7 @@ import { DocumentGetResponse } from "@documenso/sdk-typescript/models/operations
 
 let value: DocumentGetResponse = {
   visibility: "EVERYONE",
-  status: "REJECTED",
+  status: "CANCELLED",
   source: "TEMPLATE_DIRECT_LINK",
   id: 7831.48,
   externalId: "<id>",

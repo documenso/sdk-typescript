@@ -12,7 +12,7 @@ let value: EnvelopeFindResponse = {
     {
       internalVersion: 6371.3,
       type: "TEMPLATE",
-      status: "REJECTED",
+      status: "CANCELLED",
       source: "DOCUMENT",
       visibility: "ADMIN",
       templateType: "PUBLIC",

@@ -45,6 +45,7 @@ export const EnvelopeFindQueryParamStatus = {
   Pending: "PENDING",
   Completed: "COMPLETED",
   Rejected: "REJECTED",
+  Cancelled: "CANCELLED",
 } as const;
 /**
  * Filter envelopes by the current status.
@@ -125,6 +126,7 @@ export const EnvelopeFindDataStatus = {
   Pending: "PENDING",
   Completed: "COMPLETED",
   Rejected: "REJECTED",
+  Cancelled: "CANCELLED",
 } as const;
 export type EnvelopeFindDataStatus = ClosedEnum<typeof EnvelopeFindDataStatus>;
 

@@ -12,6 +12,8 @@ let value: EnvelopeDuplicateRequest = {
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `envelopeId`       | *string*           | :heavy_check_mark: | N/A                |
+| Field               | Type                | Required            | Description         |
+| ------------------- | ------------------- | ------------------- | ------------------- |
+| `envelopeId`        | *string*            | :heavy_check_mark:  | N/A                 |
+| `includeRecipients` | *boolean*           | :heavy_minus_sign:  | N/A                 |
+| `includeFields`     | *boolean*           | :heavy_minus_sign:  | N/A                 |

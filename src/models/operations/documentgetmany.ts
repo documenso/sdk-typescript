@@ -26,6 +26,7 @@ export const DocumentGetManyStatus = {
   Pending: "PENDING",
   Completed: "COMPLETED",
   Rejected: "REJECTED",
+  Cancelled: "CANCELLED",
 } as const;
 export type DocumentGetManyStatus = ClosedEnum<typeof DocumentGetManyStatus>;
 
