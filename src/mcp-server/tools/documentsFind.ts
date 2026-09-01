@@ -14,7 +14,7 @@ export const tool$documentsFind: ToolDefinition<typeof args> = {
   name: "documents-find",
   description: `Find documents
 
-Find documents based on a search criteria`,
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Find documents based on a search criteria`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await documentsFind(

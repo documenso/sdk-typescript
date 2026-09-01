@@ -14,7 +14,7 @@ export const tool$templatesRecipientsUpdateMany: ToolDefinition<typeof args> = {
   name: "templates-recipients-update-many",
   description: `Update template recipients
 
-Update multiple recipients for a template.`,
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Update multiple recipients for a template.`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await templatesRecipientsUpdateMany(

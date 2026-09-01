@@ -1,16 +1,21 @@
-# Templates.DirectLink
+# ~~Templates.DirectLink~~
+
+> [!WARNING]
+> This SDK is **DEPRECATED**
 
 ## Overview
 
 ### Available Operations
 
-* [create](#create) - Create direct link
-* [delete](#delete) - Delete direct link
-* [toggle](#toggle) - Toggle direct link
+* [~~create~~](#create) - Create direct link :warning: **Deprecated**
+* [~~delete~~](#delete) - Delete direct link :warning: **Deprecated**
+* [~~toggle~~](#toggle) - Toggle direct link :warning: **Deprecated**
 
-## create
+## ~~create~~
 
-Create a direct link for a template
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Create a direct link for a template
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -85,9 +90,11 @@ run();
 | errors.TemplateCreateTemplateDirectLinkInternalServerError | 500                                                        | application/json                                           |
 | errors.APIError                                            | 4XX, 5XX                                                   | \*/\*                                                      |
 
-## delete
+## ~~delete~~
 
-Delete a direct link for a template
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Delete a direct link for a template
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -162,9 +169,11 @@ run();
 | errors.TemplateDeleteTemplateDirectLinkInternalServerError | 500                                                        | application/json                                           |
 | errors.APIError                                            | 4XX, 5XX                                                   | \*/\*                                                      |
 
-## toggle
+## ~~toggle~~
 
-Enable or disable a direct link for a template
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Enable or disable a direct link for a template
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

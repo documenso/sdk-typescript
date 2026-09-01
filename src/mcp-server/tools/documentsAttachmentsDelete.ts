@@ -14,7 +14,7 @@ export const tool$documentsAttachmentsDelete: ToolDefinition<typeof args> = {
   name: "documents-attachments-delete",
   description: `Delete attachment
 
-Delete an attachment from a document`,
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Delete an attachment from a document`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await documentsAttachmentsDelete(

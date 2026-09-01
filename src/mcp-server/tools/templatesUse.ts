@@ -14,7 +14,7 @@ export const tool$templatesUse: ToolDefinition<typeof args> = {
   name: "templates-use",
   description: `Use template
 
-Use the template to create a document`,
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Use the template to create a document`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await templatesUse(

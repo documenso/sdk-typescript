@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Redistribute envelope
  *
  * @remarks
- * Redistribute the envelope to the provided recipients who have not actioned the envelope. Will use the distribution method set in the envelope
+ * Redistribute the envelope to the provided recipients who have not actioned the envelope. Will use the distribution method set in the envelope. This also refreshes the signing-link expiration for the targeted unsigned recipients, renewing any expired links.
  */
 export function envelopesRedistribute(
   client: DocumensoCore,

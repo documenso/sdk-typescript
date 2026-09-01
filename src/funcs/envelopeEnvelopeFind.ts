@@ -101,6 +101,7 @@ async function $do(
 
   const query = encodeFormQuery({
     "folderId": payload.folderId,
+    "hasExpiredRecipients": payload.hasExpiredRecipients,
     "orderByColumn": payload.orderByColumn,
     "orderByDirection": payload.orderByDirection,
     "page": payload.page,

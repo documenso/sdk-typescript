@@ -36,7 +36,9 @@ export class Templates extends ClientSDK {
    * Find templates
    *
    * @remarks
-   * Find templates based on a search criteria
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Find templates based on a search criteria
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async find(
     request: operations.TemplateFindTemplatesRequest,
@@ -51,6 +53,11 @@ export class Templates extends ClientSDK {
 
   /**
    * Get template
+   *
+   * @remarks
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async get(
     request: operations.TemplateGetTemplateByIdRequest,
@@ -67,7 +74,9 @@ export class Templates extends ClientSDK {
    * Create template
    *
    * @remarks
-   * Create a new template
+   * Create a new template. Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async create(
     request: operations.TemplateCreateTemplateRequest,
@@ -82,6 +91,11 @@ export class Templates extends ClientSDK {
 
   /**
    * Update template
+   *
+   * @remarks
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async update(
     request: operations.TemplateUpdateTemplateRequest,
@@ -96,6 +110,11 @@ export class Templates extends ClientSDK {
 
   /**
    * Duplicate template
+   *
+   * @remarks
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async duplicate(
     request: operations.TemplateDuplicateTemplateRequest,
@@ -110,6 +129,11 @@ export class Templates extends ClientSDK {
 
   /**
    * Delete template
+   *
+   * @remarks
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async delete(
     request: operations.TemplateDeleteTemplateRequest,
@@ -126,7 +150,9 @@ export class Templates extends ClientSDK {
    * Use template
    *
    * @remarks
-   * Use the template to create a document
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Use the template to create a document
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async use(
     request: operations.TemplateCreateDocumentFromTemplateRequest,

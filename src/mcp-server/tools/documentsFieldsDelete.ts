@@ -12,7 +12,9 @@ const args = {
 
 export const tool$documentsFieldsDelete: ToolDefinition<typeof args> = {
   name: "documents-fields-delete",
-  description: `Delete document field`,
+  description: `Delete document field
+
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await documentsFieldsDelete(

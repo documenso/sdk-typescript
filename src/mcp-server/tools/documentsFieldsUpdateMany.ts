@@ -14,7 +14,7 @@ export const tool$documentsFieldsUpdateMany: ToolDefinition<typeof args> = {
   name: "documents-fields-update-many",
   description: `Update document fields
 
-Update multiple fields for a document.`,
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Update multiple fields for a document.`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await documentsFieldsUpdateMany(

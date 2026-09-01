@@ -14,7 +14,7 @@ export const tool$documentsAttachmentsUpdate: ToolDefinition<typeof args> = {
   name: "documents-attachments-update",
   description: `Update attachment
 
-Update an existing attachment`,
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Update an existing attachment`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await documentsAttachmentsUpdate(

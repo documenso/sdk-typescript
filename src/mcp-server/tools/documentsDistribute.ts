@@ -14,7 +14,7 @@ export const tool$documentsDistribute: ToolDefinition<typeof args> = {
   name: "documents-distribute",
   description: `Distribute document
 
-Send the document out to recipients based on your distribution method`,
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Send the document out to recipients based on your distribution method`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await documentsDistribute(

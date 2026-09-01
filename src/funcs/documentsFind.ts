@@ -30,7 +30,9 @@ import { Result } from "../types/fp.js";
  * Find documents
  *
  * @remarks
- * Find documents based on a search criteria
+ * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Find documents based on a search criteria
+ *
+ * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 export function documentsFind(
   client: DocumensoCore,
@@ -101,6 +103,7 @@ async function $do(
 
   const query = encodeFormQuery({
     "folderId": payload.folderId,
+    "hasExpiredRecipients": payload.hasExpiredRecipients,
     "orderByColumn": payload.orderByColumn,
     "orderByDirection": payload.orderByDirection,
     "page": payload.page,

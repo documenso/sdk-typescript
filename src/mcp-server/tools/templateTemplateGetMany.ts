@@ -14,7 +14,7 @@ export const tool$templateTemplateGetMany: ToolDefinition<typeof args> = {
   name: "template-template-get-many",
   description: `Get multiple templates
 
-Retrieve multiple templates by their IDs`,
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Retrieve multiple templates by their IDs`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await templateTemplateGetMany(

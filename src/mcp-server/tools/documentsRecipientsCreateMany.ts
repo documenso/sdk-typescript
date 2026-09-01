@@ -14,7 +14,7 @@ export const tool$documentsRecipientsCreateMany: ToolDefinition<typeof args> = {
   name: "documents-recipients-create-many",
   description: `Create document recipients
 
-Create multiple recipients for a document.`,
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Create multiple recipients for a document.`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await documentsRecipientsCreateMany(

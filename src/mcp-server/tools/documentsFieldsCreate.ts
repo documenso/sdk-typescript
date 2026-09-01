@@ -14,7 +14,7 @@ export const tool$documentsFieldsCreate: ToolDefinition<typeof args> = {
   name: "documents-fields-create",
   description: `Create document field
 
-Create a single field for a document.`,
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Create a single field for a document.`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await documentsFieldsCreate(

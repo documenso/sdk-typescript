@@ -30,7 +30,9 @@ import { Result } from "../types/fp.js";
  * Delete attachment
  *
  * @remarks
- * Delete an attachment from a document
+ * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Delete an attachment from a document
+ *
+ * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 export function documentsAttachmentsDelete(
   client: DocumensoCore,

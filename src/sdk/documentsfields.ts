@@ -17,7 +17,9 @@ export class DocumentsFields extends ClientSDK {
    * Get document field
    *
    * @remarks
-   * Returns a single field. If you want to retrieve all the fields for a document, use the "Get Document" endpoint.
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Returns a single field. If you want to retrieve all the fields for a document, use the "Get Document" endpoint.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async get(
     request: operations.FieldGetDocumentFieldRequest,
@@ -34,7 +36,9 @@ export class DocumentsFields extends ClientSDK {
    * Create document field
    *
    * @remarks
-   * Create a single field for a document.
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Create a single field for a document.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async create(
     request: operations.FieldCreateDocumentFieldRequest,
@@ -51,7 +55,9 @@ export class DocumentsFields extends ClientSDK {
    * Create document fields
    *
    * @remarks
-   * Create multiple fields for a document.
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Create multiple fields for a document.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async createMany(
     request: operations.FieldCreateDocumentFieldsRequest,
@@ -68,7 +74,9 @@ export class DocumentsFields extends ClientSDK {
    * Update document field
    *
    * @remarks
-   * Update a single field for a document.
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Update a single field for a document.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async update(
     request: operations.FieldUpdateDocumentFieldRequest,
@@ -85,7 +93,9 @@ export class DocumentsFields extends ClientSDK {
    * Update document fields
    *
    * @remarks
-   * Update multiple fields for a document.
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Update multiple fields for a document.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async updateMany(
     request: operations.FieldUpdateDocumentFieldsRequest,
@@ -100,6 +110,11 @@ export class DocumentsFields extends ClientSDK {
 
   /**
    * Delete document field
+   *
+   * @remarks
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async delete(
     request: operations.FieldDeleteDocumentFieldRequest,

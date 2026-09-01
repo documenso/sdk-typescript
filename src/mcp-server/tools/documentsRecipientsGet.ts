@@ -14,7 +14,7 @@ export const tool$documentsRecipientsGet: ToolDefinition<typeof args> = {
   name: "documents-recipients-get",
   description: `Get document recipient
 
-Returns a single recipient. If you want to retrieve all the recipients for a document, use the "Get Document" endpoint.`,
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Returns a single recipient. If you want to retrieve all the recipients for a document, use the "Get Document" endpoint.`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await documentsRecipientsGet(

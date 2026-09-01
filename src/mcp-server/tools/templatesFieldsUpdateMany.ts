@@ -14,7 +14,7 @@ export const tool$templatesFieldsUpdateMany: ToolDefinition<typeof args> = {
   name: "templates-fields-update-many",
   description: `Update template fields
 
-Update multiple fields for a template.`,
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Update multiple fields for a template.`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await templatesFieldsUpdateMany(

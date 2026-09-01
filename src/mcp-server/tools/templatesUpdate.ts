@@ -12,7 +12,9 @@ const args = {
 
 export const tool$templatesUpdate: ToolDefinition<typeof args> = {
   name: "templates-update",
-  description: `Update template`,
+  description: `Update template
+
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await templatesUpdate(

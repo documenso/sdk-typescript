@@ -1,15 +1,20 @@
-# Document
+# ~~Document~~
+
+> [!WARNING]
+> This SDK is **DEPRECATED**
 
 ## Overview
 
 ### Available Operations
 
-* [documentGetMany](#documentgetmany) - Get multiple documents
-* [documentDownload](#documentdownload) - Download document (beta)
+* [~~documentGetMany~~](#documentgetmany) - Get multiple documents :warning: **Deprecated**
+* [~~documentDownload~~](#documentdownload) - Download document (beta) :warning: **Deprecated**
 
-## documentGetMany
+## ~~documentGetMany~~
 
-Retrieve multiple documents by their IDs
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Retrieve multiple documents by their IDs
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -84,9 +89,11 @@ run();
 | errors.DocumentGetManyInternalServerError | 500                                       | application/json                          |
 | errors.APIError                           | 4XX, 5XX                                  | \*/\*                                     |
 
-## documentDownload
+## ~~documentDownload~~
 
-Get a pre-signed download URL for the original or signed version of a document
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Get a pre-signed download URL for the original or signed version of a document
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

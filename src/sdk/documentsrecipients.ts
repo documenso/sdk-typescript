@@ -17,7 +17,9 @@ export class DocumentsRecipients extends ClientSDK {
    * Get document recipient
    *
    * @remarks
-   * Returns a single recipient. If you want to retrieve all the recipients for a document, use the "Get Document" endpoint.
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Returns a single recipient. If you want to retrieve all the recipients for a document, use the "Get Document" endpoint.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async get(
     request: operations.RecipientGetDocumentRecipientRequest,
@@ -34,7 +36,9 @@ export class DocumentsRecipients extends ClientSDK {
    * Create document recipient
    *
    * @remarks
-   * Create a single recipient for a document.
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Create a single recipient for a document.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async create(
     request: operations.RecipientCreateDocumentRecipientRequest,
@@ -51,7 +55,9 @@ export class DocumentsRecipients extends ClientSDK {
    * Create document recipients
    *
    * @remarks
-   * Create multiple recipients for a document.
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Create multiple recipients for a document.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async createMany(
     request: operations.RecipientCreateDocumentRecipientsRequest,
@@ -68,7 +74,9 @@ export class DocumentsRecipients extends ClientSDK {
    * Update document recipient
    *
    * @remarks
-   * Update a single recipient for a document.
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Update a single recipient for a document.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async update(
     request: operations.RecipientUpdateDocumentRecipientRequest,
@@ -85,7 +93,9 @@ export class DocumentsRecipients extends ClientSDK {
    * Update document recipients
    *
    * @remarks
-   * Update multiple recipients for a document.
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Update multiple recipients for a document.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async updateMany(
     request: operations.RecipientUpdateDocumentRecipientsRequest,
@@ -100,6 +110,11 @@ export class DocumentsRecipients extends ClientSDK {
 
   /**
    * Delete document recipient
+   *
+   * @remarks
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async delete(
     request: operations.RecipientDeleteDocumentRecipientRequest,

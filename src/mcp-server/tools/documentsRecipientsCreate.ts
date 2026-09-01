@@ -14,7 +14,7 @@ export const tool$documentsRecipientsCreate: ToolDefinition<typeof args> = {
   name: "documents-recipients-create",
   description: `Create document recipient
 
-Create a single recipient for a document.`,
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Create a single recipient for a document.`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await documentsRecipientsCreate(

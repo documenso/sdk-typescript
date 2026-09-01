@@ -14,7 +14,7 @@ export const tool$templatesDirectLinkCreate: ToolDefinition<typeof args> = {
   name: "templates-direct-link-create",
   description: `Create direct link
 
-Create a direct link for a template`,
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Create a direct link for a template`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await templatesDirectLinkCreate(

@@ -14,7 +14,7 @@ export const tool$templatesFieldsGet: ToolDefinition<typeof args> = {
   name: "templates-fields-get",
   description: `Get template field
 
-Returns a single field. If you want to retrieve all the fields for a template, use the "Get Template" endpoint.`,
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Returns a single field. If you want to retrieve all the fields for a template, use the "Get Template" endpoint.`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await templatesFieldsGet(

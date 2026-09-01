@@ -1,23 +1,28 @@
-# Documents
+# ~~Documents~~
+
+> [!WARNING]
+> This SDK is **DEPRECATED**
 
 ## Overview
 
 ### Available Operations
 
-* [get](#get) - Get document
-* [find](#find) - Find documents
-* [create](#create) - Create document
-* [update](#update) - Update document
-* [delete](#delete) - Delete document
-* [duplicate](#duplicate) - Duplicate document
-* [distribute](#distribute) - Distribute document
-* [redistribute](#redistribute) - Redistribute document
-* [download](#download) - Download document
+* [~~get~~](#get) - Get document :warning: **Deprecated**
+* [~~find~~](#find) - Find documents :warning: **Deprecated**
+* [~~create~~](#create) - Create document :warning: **Deprecated**
+* [~~update~~](#update) - Update document :warning: **Deprecated**
+* [~~delete~~](#delete) - Delete document :warning: **Deprecated**
+* [~~duplicate~~](#duplicate) - Duplicate document :warning: **Deprecated**
+* [~~distribute~~](#distribute) - Distribute document :warning: **Deprecated**
+* [~~redistribute~~](#redistribute) - Redistribute document :warning: **Deprecated**
+* [~~download~~](#download) - Download document :warning: **Deprecated**
 * [~~createV0~~](#createv0) - Create document :warning: **Deprecated**
 
-## get
+## ~~get~~
 
-Returns a document given an ID
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Returns a document given an ID
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -93,9 +98,11 @@ run();
 | errors.DocumentGetInternalServerError | 500                                   | application/json                      |
 | errors.APIError                       | 4XX, 5XX                              | \*/\*                                 |
 
-## find
+## ~~find~~
 
-Find documents based on a search criteria
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Find documents based on a search criteria
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -167,9 +174,11 @@ run();
 | errors.DocumentFindInternalServerError | 500                                    | application/json                       |
 | errors.APIError                        | 4XX, 5XX                               | \*/\*                                  |
 
-## create
+## ~~create~~
 
-Create a document using form data.
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -252,9 +261,11 @@ run();
 | errors.DocumentCreateInternalServerError | 500                                      | application/json                         |
 | errors.APIError                          | 4XX, 5XX                                 | \*/\*                                    |
 
-## update
+## ~~update~~
 
-Update document
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -329,9 +340,11 @@ run();
 | errors.DocumentUpdateInternalServerError | 500                                      | application/json                         |
 | errors.APIError                          | 4XX, 5XX                                 | \*/\*                                    |
 
-## delete
+## ~~delete~~
 
-Delete document
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -406,9 +419,11 @@ run();
 | errors.DocumentDeleteInternalServerError | 500                                      | application/json                         |
 | errors.APIError                          | 4XX, 5XX                                 | \*/\*                                    |
 
-## duplicate
+## ~~duplicate~~
 
-Duplicate document
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -483,9 +498,11 @@ run();
 | errors.DocumentDuplicateInternalServerError | 500                                         | application/json                            |
 | errors.APIError                             | 4XX, 5XX                                    | \*/\*                                       |
 
-## distribute
+## ~~distribute~~
 
-Send the document out to recipients based on your distribution method
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Send the document out to recipients based on your distribution method
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -560,9 +577,11 @@ run();
 | errors.DocumentDistributeInternalServerError | 500                                          | application/json                             |
 | errors.APIError                              | 4XX, 5XX                                     | \*/\*                                        |
 
-## redistribute
+## ~~redistribute~~
 
-Redistribute the document to the provided recipients who have not actioned the document. Will use the distribution method set in the document
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Redistribute the document to the provided recipients who have not actioned the document. Will use the distribution method set in the document. This also refreshes the signing-link expiration for the targeted unsigned recipients, renewing any expired links.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -647,9 +666,11 @@ run();
 | errors.DocumentRedistributeInternalServerError | 500                                            | application/json                               |
 | errors.APIError                                | 4XX, 5XX                                       | \*/\*                                          |
 
-## download
+## ~~download~~
 
-Download document
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -727,7 +748,7 @@ run();
 
 ## ~~createV0~~
 
-You will need to upload the PDF to the provided URL returned. Note: Once V2 API is released, this will be removed since we will allow direct uploads, instead of using an upload URL.
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. You will need to upload the PDF to the provided URL returned. This endpoint will be removed since we will allow direct uploads, instead of using an upload URL.
 
 > :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 

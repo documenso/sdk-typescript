@@ -14,7 +14,7 @@ export const tool$templatesFieldsCreateMany: ToolDefinition<typeof args> = {
   name: "templates-fields-create-many",
   description: `Create template fields
 
-Create multiple fields for a template.`,
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Create multiple fields for a template.`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await templatesFieldsCreateMany(
