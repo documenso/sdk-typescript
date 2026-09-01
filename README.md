@@ -20,14 +20,6 @@ This SDK offers a strongly-typed interface to interact with Documenso's API, ena
 
 The full Documenso API can be viewed [here](https://openapi.documenso.com/), which includes TypeScript examples.
 
-## ⚠️ Warning
-
-Documenso v2 API and SDKs are currently in beta. There may be to breaking changes.
-
-To keep updated, please follow the discussions here:
-- [Feedback](https://github.com/documenso/documenso/discussions/1611)
-- [Breaking change alerts](https://github.com/documenso/documenso/discussions/1612)
-
 <!-- No Summary [summary] -->
 
 ## Table of Contents
