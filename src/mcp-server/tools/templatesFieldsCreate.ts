@@ -14,7 +14,7 @@ export const tool$templatesFieldsCreate: ToolDefinition<typeof args> = {
   name: "templates-fields-create",
   description: `Create template field
 
-Create a single field for a template.`,
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Create a single field for a template.`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await templatesFieldsCreate(

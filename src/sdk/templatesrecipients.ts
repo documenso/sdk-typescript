@@ -17,7 +17,9 @@ export class TemplatesRecipients extends ClientSDK {
    * Get template recipient
    *
    * @remarks
-   * Returns a single recipient. If you want to retrieve all the recipients for a template, use the "Get Template" endpoint.
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Returns a single recipient. If you want to retrieve all the recipients for a template, use the "Get Template" endpoint.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async get(
     request: operations.RecipientGetTemplateRecipientRequest,
@@ -34,7 +36,9 @@ export class TemplatesRecipients extends ClientSDK {
    * Create template recipient
    *
    * @remarks
-   * Create a single recipient for a template.
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Create a single recipient for a template.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async create(
     request: operations.RecipientCreateTemplateRecipientRequest,
@@ -51,7 +55,9 @@ export class TemplatesRecipients extends ClientSDK {
    * Create template recipients
    *
    * @remarks
-   * Create multiple recipients for a template.
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Create multiple recipients for a template.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async createMany(
     request: operations.RecipientCreateTemplateRecipientsRequest,
@@ -68,7 +74,9 @@ export class TemplatesRecipients extends ClientSDK {
    * Update template recipient
    *
    * @remarks
-   * Update a single recipient for a template.
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Update a single recipient for a template.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async update(
     request: operations.RecipientUpdateTemplateRecipientRequest,
@@ -85,7 +93,9 @@ export class TemplatesRecipients extends ClientSDK {
    * Update template recipients
    *
    * @remarks
-   * Update multiple recipients for a template.
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Update multiple recipients for a template.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async updateMany(
     request: operations.RecipientUpdateTemplateRecipientsRequest,
@@ -100,6 +110,11 @@ export class TemplatesRecipients extends ClientSDK {
 
   /**
    * Delete template recipient
+   *
+   * @remarks
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async delete(
     request: operations.RecipientDeleteTemplateRecipientRequest,

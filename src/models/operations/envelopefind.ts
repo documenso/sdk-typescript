@@ -54,6 +54,20 @@ export type EnvelopeFindQueryParamStatus = ClosedEnum<
   typeof EnvelopeFindQueryParamStatus
 >;
 
+/**
+ * Filter for envelopes that have at least one recipient whose signing link has expired.
+ */
+export const EnvelopeFindHasExpiredRecipients = {
+  True: "true",
+  False: "false",
+} as const;
+/**
+ * Filter for envelopes that have at least one recipient whose signing link has expired.
+ */
+export type EnvelopeFindHasExpiredRecipients = ClosedEnum<
+  typeof EnvelopeFindHasExpiredRecipients
+>;
+
 export const EnvelopeFindOrderByColumn = {
   CreatedAt: "createdAt",
 } as const;
@@ -104,6 +118,10 @@ export type EnvelopeFindRequest = {
    * Filter envelopes by the current status.
    */
   status?: EnvelopeFindQueryParamStatus | undefined;
+  /**
+   * Filter for envelopes that have at least one recipient whose signing link has expired.
+   */
+  hasExpiredRecipients?: EnvelopeFindHasExpiredRecipients | undefined;
   /**
    * Filter envelopes by folder ID.
    */
@@ -326,6 +344,15 @@ export const EnvelopeFindQueryParamStatus$outboundSchema: z.ZodNativeEnum<
 > = EnvelopeFindQueryParamStatus$inboundSchema;
 
 /** @internal */
+export const EnvelopeFindHasExpiredRecipients$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFindHasExpiredRecipients
+> = z.nativeEnum(EnvelopeFindHasExpiredRecipients);
+/** @internal */
+export const EnvelopeFindHasExpiredRecipients$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFindHasExpiredRecipients
+> = EnvelopeFindHasExpiredRecipients$inboundSchema;
+
+/** @internal */
 export const EnvelopeFindOrderByColumn$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindOrderByColumn
 > = z.nativeEnum(EnvelopeFindOrderByColumn);
@@ -356,6 +383,8 @@ export const EnvelopeFindRequest$inboundSchema: z.ZodType<
   templateId: z.number().optional(),
   source: EnvelopeFindQueryParamSource$inboundSchema.optional(),
   status: EnvelopeFindQueryParamStatus$inboundSchema.optional(),
+  hasExpiredRecipients: EnvelopeFindHasExpiredRecipients$inboundSchema
+    .optional(),
   folderId: z.string().optional(),
   orderByColumn: EnvelopeFindOrderByColumn$inboundSchema.optional(),
   orderByDirection: EnvelopeFindOrderByDirection$inboundSchema.default("desc"),
@@ -369,6 +398,7 @@ export type EnvelopeFindRequest$Outbound = {
   templateId?: number | undefined;
   source?: string | undefined;
   status?: string | undefined;
+  hasExpiredRecipients?: string | undefined;
   folderId?: string | undefined;
   orderByColumn?: string | undefined;
   orderByDirection: string;
@@ -387,6 +417,8 @@ export const EnvelopeFindRequest$outboundSchema: z.ZodType<
   templateId: z.number().optional(),
   source: EnvelopeFindQueryParamSource$outboundSchema.optional(),
   status: EnvelopeFindQueryParamStatus$outboundSchema.optional(),
+  hasExpiredRecipients: EnvelopeFindHasExpiredRecipients$outboundSchema
+    .optional(),
   folderId: z.string().optional(),
   orderByColumn: EnvelopeFindOrderByColumn$outboundSchema.optional(),
   orderByDirection: EnvelopeFindOrderByDirection$outboundSchema.default("desc"),

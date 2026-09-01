@@ -14,7 +14,7 @@ export const tool$documentsFieldsUpdate: ToolDefinition<typeof args> = {
   name: "documents-fields-update",
   description: `Update document field
 
-Update a single field for a document.`,
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Update a single field for a document.`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await documentsFieldsUpdate(

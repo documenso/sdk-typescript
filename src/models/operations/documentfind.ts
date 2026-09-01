@@ -40,6 +40,20 @@ export type DocumentFindQueryParamStatus = ClosedEnum<
   typeof DocumentFindQueryParamStatus
 >;
 
+/**
+ * Filter for documents that have at least one recipient whose signing link has expired.
+ */
+export const DocumentFindHasExpiredRecipients = {
+  True: "true",
+  False: "false",
+} as const;
+/**
+ * Filter for documents that have at least one recipient whose signing link has expired.
+ */
+export type DocumentFindHasExpiredRecipients = ClosedEnum<
+  typeof DocumentFindHasExpiredRecipients
+>;
+
 export const DocumentFindOrderByColumn = {
   CreatedAt: "createdAt",
 } as const;
@@ -80,6 +94,10 @@ export type DocumentFindRequest = {
    * Filter documents by the current status
    */
   status?: DocumentFindQueryParamStatus | undefined;
+  /**
+   * Filter for documents that have at least one recipient whose signing link has expired.
+   */
+  hasExpiredRecipients?: DocumentFindHasExpiredRecipients | undefined;
   /**
    * Filter documents by folder ID
    */
@@ -275,6 +293,15 @@ export const DocumentFindQueryParamStatus$outboundSchema: z.ZodNativeEnum<
 > = DocumentFindQueryParamStatus$inboundSchema;
 
 /** @internal */
+export const DocumentFindHasExpiredRecipients$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentFindHasExpiredRecipients
+> = z.nativeEnum(DocumentFindHasExpiredRecipients);
+/** @internal */
+export const DocumentFindHasExpiredRecipients$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentFindHasExpiredRecipients
+> = DocumentFindHasExpiredRecipients$inboundSchema;
+
+/** @internal */
 export const DocumentFindOrderByColumn$inboundSchema: z.ZodNativeEnum<
   typeof DocumentFindOrderByColumn
 > = z.nativeEnum(DocumentFindOrderByColumn);
@@ -304,6 +331,8 @@ export const DocumentFindRequest$inboundSchema: z.ZodType<
   templateId: z.number().optional(),
   source: DocumentFindQueryParamSource$inboundSchema.optional(),
   status: DocumentFindQueryParamStatus$inboundSchema.optional(),
+  hasExpiredRecipients: DocumentFindHasExpiredRecipients$inboundSchema
+    .optional(),
   folderId: z.string().optional(),
   orderByColumn: DocumentFindOrderByColumn$inboundSchema.optional(),
   orderByDirection: DocumentFindOrderByDirection$inboundSchema.default("desc"),
@@ -316,6 +345,7 @@ export type DocumentFindRequest$Outbound = {
   templateId?: number | undefined;
   source?: string | undefined;
   status?: string | undefined;
+  hasExpiredRecipients?: string | undefined;
   folderId?: string | undefined;
   orderByColumn?: string | undefined;
   orderByDirection: string;
@@ -333,6 +363,8 @@ export const DocumentFindRequest$outboundSchema: z.ZodType<
   templateId: z.number().optional(),
   source: DocumentFindQueryParamSource$outboundSchema.optional(),
   status: DocumentFindQueryParamStatus$outboundSchema.optional(),
+  hasExpiredRecipients: DocumentFindHasExpiredRecipients$outboundSchema
+    .optional(),
   folderId: z.string().optional(),
   orderByColumn: DocumentFindOrderByColumn$outboundSchema.optional(),
   orderByDirection: DocumentFindOrderByDirection$outboundSchema.default("desc"),

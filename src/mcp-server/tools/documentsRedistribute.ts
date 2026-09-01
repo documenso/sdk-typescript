@@ -14,7 +14,7 @@ export const tool$documentsRedistribute: ToolDefinition<typeof args> = {
   name: "documents-redistribute",
   description: `Redistribute document
 
-Redistribute the document to the provided recipients who have not actioned the document. Will use the distribution method set in the document`,
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Redistribute the document to the provided recipients who have not actioned the document. Will use the distribution method set in the document. This also refreshes the signing-link expiration for the targeted unsigned recipients, renewing any expired links.`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await documentsRedistribute(

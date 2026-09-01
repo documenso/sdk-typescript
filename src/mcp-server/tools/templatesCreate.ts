@@ -14,7 +14,7 @@ export const tool$templatesCreate: ToolDefinition<typeof args> = {
   name: "templates-create",
   description: `Create template
 
-Create a new template`,
+Create a new template. Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await templatesCreate(

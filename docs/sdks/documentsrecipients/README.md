@@ -1,19 +1,24 @@
-# Documents.Recipients
+# ~~Documents.Recipients~~
+
+> [!WARNING]
+> This SDK is **DEPRECATED**
 
 ## Overview
 
 ### Available Operations
 
-* [get](#get) - Get document recipient
-* [create](#create) - Create document recipient
-* [createMany](#createmany) - Create document recipients
-* [update](#update) - Update document recipient
-* [updateMany](#updatemany) - Update document recipients
-* [delete](#delete) - Delete document recipient
+* [~~get~~](#get) - Get document recipient :warning: **Deprecated**
+* [~~create~~](#create) - Create document recipient :warning: **Deprecated**
+* [~~createMany~~](#createmany) - Create document recipients :warning: **Deprecated**
+* [~~update~~](#update) - Update document recipient :warning: **Deprecated**
+* [~~updateMany~~](#updatemany) - Update document recipients :warning: **Deprecated**
+* [~~delete~~](#delete) - Delete document recipient :warning: **Deprecated**
 
-## get
+## ~~get~~
 
-Returns a single recipient. If you want to retrieve all the recipients for a document, use the "Get Document" endpoint.
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Returns a single recipient. If you want to retrieve all the recipients for a document, use the "Get Document" endpoint.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -89,9 +94,11 @@ run();
 | errors.RecipientGetDocumentRecipientInternalServerError | 500                                                     | application/json                                        |
 | errors.APIError                                         | 4XX, 5XX                                                | \*/\*                                                   |
 
-## create
+## ~~create~~
 
-Create a single recipient for a document.
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Create a single recipient for a document.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -176,9 +183,11 @@ run();
 | errors.RecipientCreateDocumentRecipientInternalServerError | 500                                                        | application/json                                           |
 | errors.APIError                                            | 4XX, 5XX                                                   | \*/\*                                                      |
 
-## createMany
+## ~~createMany~~
 
-Create multiple recipients for a document.
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Create multiple recipients for a document.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -267,9 +276,11 @@ run();
 | errors.RecipientCreateDocumentRecipientsInternalServerError | 500                                                         | application/json                                            |
 | errors.APIError                                             | 4XX, 5XX                                                    | \*/\*                                                       |
 
-## update
+## ~~update~~
 
-Update a single recipient for a document.
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Update a single recipient for a document.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -350,9 +361,11 @@ run();
 | errors.RecipientUpdateDocumentRecipientInternalServerError | 500                                                        | application/json                                           |
 | errors.APIError                                            | 4XX, 5XX                                                   | \*/\*                                                      |
 
-## updateMany
+## ~~updateMany~~
 
-Update multiple recipients for a document.
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Update multiple recipients for a document.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -429,9 +442,11 @@ run();
 | errors.RecipientUpdateDocumentRecipientsInternalServerError | 500                                                         | application/json                                            |
 | errors.APIError                                             | 4XX, 5XX                                                    | \*/\*                                                       |
 
-## delete
+## ~~delete~~
 
-Delete document recipient
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

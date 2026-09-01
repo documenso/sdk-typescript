@@ -13,7 +13,9 @@ export class Document extends ClientSDK {
    * Get multiple documents
    *
    * @remarks
-   * Retrieve multiple documents by their IDs
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Retrieve multiple documents by their IDs
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async documentGetMany(
     request: operations.DocumentGetManyRequest,
@@ -30,7 +32,9 @@ export class Document extends ClientSDK {
    * Download document (beta)
    *
    * @remarks
-   * Get a pre-signed download URL for the original or signed version of a document
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Get a pre-signed download URL for the original or signed version of a document
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async documentDownload(
     request: operations.DocumentDownloadBetaRequest,

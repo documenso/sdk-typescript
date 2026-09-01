@@ -30,7 +30,9 @@ import { Result } from "../types/fp.js";
  * Get template field
  *
  * @remarks
- * Returns a single field. If you want to retrieve all the fields for a template, use the "Get Template" endpoint.
+ * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Returns a single field. If you want to retrieve all the fields for a template, use the "Get Template" endpoint.
+ *
+ * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 export function templatesFieldsGet(
   client: DocumensoCore,

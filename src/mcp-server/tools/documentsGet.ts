@@ -14,7 +14,7 @@ export const tool$documentsGet: ToolDefinition<typeof args> = {
   name: "documents-get",
   description: `Get document
 
-Returns a document given an ID`,
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Returns a document given an ID`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await documentsGet(

@@ -12,7 +12,9 @@ const args = {
 
 export const tool$templatesRecipientsDelete: ToolDefinition<typeof args> = {
   name: "templates-recipients-delete",
-  description: `Delete template recipient`,
+  description: `Delete template recipient
+
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await templatesRecipientsDelete(

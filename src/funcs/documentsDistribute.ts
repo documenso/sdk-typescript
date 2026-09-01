@@ -30,7 +30,9 @@ import { Result } from "../types/fp.js";
  * Distribute document
  *
  * @remarks
- * Send the document out to recipients based on your distribution method
+ * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Send the document out to recipients based on your distribution method
+ *
+ * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 export function documentsDistribute(
   client: DocumensoCore,

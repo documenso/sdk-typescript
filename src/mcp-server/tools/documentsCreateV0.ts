@@ -14,7 +14,7 @@ export const tool$documentsCreateV0: ToolDefinition<typeof args> = {
   name: "documents-create-v0",
   description: `Create document
 
-You will need to upload the PDF to the provided URL returned. Note: Once V2 API is released, this will be removed since we will allow direct uploads, instead of using an upload URL.`,
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. You will need to upload the PDF to the provided URL returned. This endpoint will be removed since we will allow direct uploads, instead of using an upload URL.`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await documentsCreateV0(

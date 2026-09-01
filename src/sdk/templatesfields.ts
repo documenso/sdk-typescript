@@ -17,7 +17,9 @@ export class TemplatesFields extends ClientSDK {
    * Create template field
    *
    * @remarks
-   * Create a single field for a template.
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Create a single field for a template.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async create(
     request: operations.FieldCreateTemplateFieldRequest,
@@ -34,7 +36,9 @@ export class TemplatesFields extends ClientSDK {
    * Get template field
    *
    * @remarks
-   * Returns a single field. If you want to retrieve all the fields for a template, use the "Get Template" endpoint.
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Returns a single field. If you want to retrieve all the fields for a template, use the "Get Template" endpoint.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async get(
     request: operations.FieldGetTemplateFieldRequest,
@@ -51,7 +55,9 @@ export class TemplatesFields extends ClientSDK {
    * Create template fields
    *
    * @remarks
-   * Create multiple fields for a template.
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Create multiple fields for a template.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async createMany(
     request: operations.FieldCreateTemplateFieldsRequest,
@@ -68,7 +74,9 @@ export class TemplatesFields extends ClientSDK {
    * Update template field
    *
    * @remarks
-   * Update a single field for a template.
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Update a single field for a template.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async update(
     request: operations.FieldUpdateTemplateFieldRequest,
@@ -85,7 +93,9 @@ export class TemplatesFields extends ClientSDK {
    * Update template fields
    *
    * @remarks
-   * Update multiple fields for a template.
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Update multiple fields for a template.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async updateMany(
     request: operations.FieldUpdateTemplateFieldsRequest,
@@ -100,6 +110,11 @@ export class TemplatesFields extends ClientSDK {
 
   /**
    * Delete template field
+   *
+   * @remarks
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async delete(
     request: operations.FieldDeleteTemplateFieldRequest,

@@ -156,7 +156,7 @@ export class Envelopes extends ClientSDK {
    * Redistribute envelope
    *
    * @remarks
-   * Redistribute the envelope to the provided recipients who have not actioned the envelope. Will use the distribution method set in the envelope
+   * Redistribute the envelope to the provided recipients who have not actioned the envelope. Will use the distribution method set in the envelope. This also refreshes the signing-link expiration for the targeted unsigned recipients, renewing any expired links.
    */
   async redistribute(
     request: operations.EnvelopeRedistributeRequest,

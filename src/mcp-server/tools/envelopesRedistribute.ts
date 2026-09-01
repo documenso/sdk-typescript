@@ -14,7 +14,7 @@ export const tool$envelopesRedistribute: ToolDefinition<typeof args> = {
   name: "envelopes-redistribute",
   description: `Redistribute envelope
 
-Redistribute the envelope to the provided recipients who have not actioned the envelope. Will use the distribution method set in the envelope`,
+Redistribute the envelope to the provided recipients who have not actioned the envelope. Will use the distribution method set in the envelope. This also refreshes the signing-link expiration for the targeted unsigned recipients, renewing any expired links.`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await envelopesRedistribute(

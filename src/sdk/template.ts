@@ -13,7 +13,9 @@ export class Template extends ClientSDK {
    * Get multiple templates
    *
    * @remarks
-   * Retrieve multiple templates by their IDs
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Retrieve multiple templates by their IDs
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async templateGetMany(
     request: operations.TemplateGetManyRequest,
@@ -30,7 +32,9 @@ export class Template extends ClientSDK {
    * Create template
    *
    * @remarks
-   * You will need to upload the PDF to the provided URL returned. Note: Once V2 API is released, this will be removed since we will allow direct uploads, instead of using an upload URL.
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. You will need to upload the PDF to the provided URL returned. Note: Once V2 API is released, this will be removed since we will allow direct uploads, instead of using an upload URL.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async templateCreateTemplateTemporary(
     request: operations.TemplateCreateTemplateTemporaryRequest,

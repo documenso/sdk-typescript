@@ -30,7 +30,9 @@ import { Result } from "../types/fp.js";
  * Get document
  *
  * @remarks
- * Returns a document given an ID
+ * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Returns a document given an ID
+ *
+ * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 export function documentsGet(
   client: DocumensoCore,

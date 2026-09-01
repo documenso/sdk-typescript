@@ -30,7 +30,9 @@ import { Result } from "../types/fp.js";
  * Create template recipient
  *
  * @remarks
- * Create a single recipient for a template.
+ * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Create a single recipient for a template.
+ *
+ * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 export function templatesRecipientsCreate(
   client: DocumensoCore,

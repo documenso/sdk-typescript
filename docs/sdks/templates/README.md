@@ -1,20 +1,25 @@
-# Templates
+# ~~Templates~~
+
+> [!WARNING]
+> This SDK is **DEPRECATED**
 
 ## Overview
 
 ### Available Operations
 
-* [find](#find) - Find templates
-* [get](#get) - Get template
-* [create](#create) - Create template
-* [update](#update) - Update template
-* [duplicate](#duplicate) - Duplicate template
-* [delete](#delete) - Delete template
-* [use](#use) - Use template
+* [~~find~~](#find) - Find templates :warning: **Deprecated**
+* [~~get~~](#get) - Get template :warning: **Deprecated**
+* [~~create~~](#create) - Create template :warning: **Deprecated**
+* [~~update~~](#update) - Update template :warning: **Deprecated**
+* [~~duplicate~~](#duplicate) - Duplicate template :warning: **Deprecated**
+* [~~delete~~](#delete) - Delete template :warning: **Deprecated**
+* [~~use~~](#use) - Use template :warning: **Deprecated**
 
-## find
+## ~~find~~
 
-Find templates based on a search criteria
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Find templates based on a search criteria
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -86,9 +91,11 @@ run();
 | errors.TemplateFindTemplatesInternalServerError | 500                                             | application/json                                |
 | errors.APIError                                 | 4XX, 5XX                                        | \*/\*                                           |
 
-## get
+## ~~get~~
 
-Get template
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -164,9 +171,11 @@ run();
 | errors.TemplateGetTemplateByIdInternalServerError | 500                                               | application/json                                  |
 | errors.APIError                                   | 4XX, 5XX                                          | \*/\*                                             |
 
-## create
+## ~~create~~
 
-Create a new template
+Create a new template. Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -249,9 +258,11 @@ run();
 | errors.TemplateCreateTemplateInternalServerError | 500                                              | application/json                                 |
 | errors.APIError                                  | 4XX, 5XX                                         | \*/\*                                            |
 
-## update
+## ~~update~~
 
-Update template
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -326,9 +337,11 @@ run();
 | errors.TemplateUpdateTemplateInternalServerError | 500                                              | application/json                                 |
 | errors.APIError                                  | 4XX, 5XX                                         | \*/\*                                            |
 
-## duplicate
+## ~~duplicate~~
 
-Duplicate template
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -403,9 +416,11 @@ run();
 | errors.TemplateDuplicateTemplateInternalServerError | 500                                                 | application/json                                    |
 | errors.APIError                                     | 4XX, 5XX                                            | \*/\*                                               |
 
-## delete
+## ~~delete~~
 
-Delete template
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -480,9 +495,11 @@ run();
 | errors.TemplateDeleteTemplateInternalServerError | 500                                              | application/json                                 |
 | errors.APIError                                  | 4XX, 5XX                                         | \*/\*                                            |
 
-## use
+## ~~use~~
 
-Use the template to create a document
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Use the template to create a document
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

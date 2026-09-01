@@ -15,7 +15,9 @@ export class DocumentsAttachments extends ClientSDK {
    * Create attachment
    *
    * @remarks
-   * Create a new attachment for a document
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Create a new attachment for a document
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async create(
     request: operations.DocumentAttachmentCreateRequest,
@@ -32,7 +34,9 @@ export class DocumentsAttachments extends ClientSDK {
    * Update attachment
    *
    * @remarks
-   * Update an existing attachment
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Update an existing attachment
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async update(
     request: operations.DocumentAttachmentUpdateRequest,
@@ -49,7 +53,9 @@ export class DocumentsAttachments extends ClientSDK {
    * Delete attachment
    *
    * @remarks
-   * Delete an attachment from a document
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Delete an attachment from a document
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async delete(
     request: operations.DocumentAttachmentDeleteRequest,
@@ -66,7 +72,9 @@ export class DocumentsAttachments extends ClientSDK {
    * Find attachments
    *
    * @remarks
-   * Find all attachments for a document
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Find all attachments for a document
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async find(
     request: operations.DocumentAttachmentFindRequest,

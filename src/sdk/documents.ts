@@ -39,7 +39,9 @@ export class Documents extends ClientSDK {
    * Get document
    *
    * @remarks
-   * Returns a document given an ID
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Returns a document given an ID
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async get(
     request: operations.DocumentGetRequest,
@@ -56,7 +58,9 @@ export class Documents extends ClientSDK {
    * Find documents
    *
    * @remarks
-   * Find documents based on a search criteria
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Find documents based on a search criteria
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async find(
     request: operations.DocumentFindRequest,
@@ -73,7 +77,9 @@ export class Documents extends ClientSDK {
    * Create document
    *
    * @remarks
-   * Create a document using form data.
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async create(
     request: operations.DocumentCreateRequest,
@@ -88,6 +94,11 @@ export class Documents extends ClientSDK {
 
   /**
    * Update document
+   *
+   * @remarks
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async update(
     request: operations.DocumentUpdateRequest,
@@ -102,6 +113,11 @@ export class Documents extends ClientSDK {
 
   /**
    * Delete document
+   *
+   * @remarks
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async delete(
     request: operations.DocumentDeleteRequest,
@@ -116,6 +132,11 @@ export class Documents extends ClientSDK {
 
   /**
    * Duplicate document
+   *
+   * @remarks
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async duplicate(
     request: operations.DocumentDuplicateRequest,
@@ -132,7 +153,9 @@ export class Documents extends ClientSDK {
    * Distribute document
    *
    * @remarks
-   * Send the document out to recipients based on your distribution method
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Send the document out to recipients based on your distribution method
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async distribute(
     request: operations.DocumentDistributeRequest,
@@ -149,7 +172,9 @@ export class Documents extends ClientSDK {
    * Redistribute document
    *
    * @remarks
-   * Redistribute the document to the provided recipients who have not actioned the document. Will use the distribution method set in the document
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Redistribute the document to the provided recipients who have not actioned the document. Will use the distribution method set in the document. This also refreshes the signing-link expiration for the targeted unsigned recipients, renewing any expired links.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async redistribute(
     request: operations.DocumentRedistributeRequest,
@@ -164,6 +189,11 @@ export class Documents extends ClientSDK {
 
   /**
    * Download document
+   *
+   * @remarks
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async download(
     request: operations.DocumentDownloadRequest,
@@ -180,7 +210,7 @@ export class Documents extends ClientSDK {
    * Create document
    *
    * @remarks
-   * You will need to upload the PDF to the provided URL returned. Note: Once V2 API is released, this will be removed since we will allow direct uploads, instead of using an upload URL.
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. You will need to upload the PDF to the provided URL returned. This endpoint will be removed since we will allow direct uploads, instead of using an upload URL.
    *
    * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */

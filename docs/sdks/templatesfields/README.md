@@ -1,19 +1,24 @@
-# Templates.Fields
+# ~~Templates.Fields~~
+
+> [!WARNING]
+> This SDK is **DEPRECATED**
 
 ## Overview
 
 ### Available Operations
 
-* [create](#create) - Create template field
-* [get](#get) - Get template field
-* [createMany](#createmany) - Create template fields
-* [update](#update) - Update template field
-* [updateMany](#updatemany) - Update template fields
-* [delete](#delete) - Delete template field
+* [~~create~~](#create) - Create template field :warning: **Deprecated**
+* [~~get~~](#get) - Get template field :warning: **Deprecated**
+* [~~createMany~~](#createmany) - Create template fields :warning: **Deprecated**
+* [~~update~~](#update) - Update template field :warning: **Deprecated**
+* [~~updateMany~~](#updatemany) - Update template fields :warning: **Deprecated**
+* [~~delete~~](#delete) - Delete template field :warning: **Deprecated**
 
-## create
+## ~~create~~
 
-Create a single field for a template.
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Create a single field for a template.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -106,9 +111,11 @@ run();
 | errors.FieldCreateTemplateFieldInternalServerError | 500                                                | application/json                                   |
 | errors.APIError                                    | 4XX, 5XX                                           | \*/\*                                              |
 
-## get
+## ~~get~~
 
-Returns a single field. If you want to retrieve all the fields for a template, use the "Get Template" endpoint.
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Returns a single field. If you want to retrieve all the fields for a template, use the "Get Template" endpoint.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -184,9 +191,11 @@ run();
 | errors.FieldGetTemplateFieldInternalServerError | 500                                             | application/json                                |
 | errors.APIError                                 | 4XX, 5XX                                        | \*/\*                                           |
 
-## createMany
+## ~~createMany~~
 
-Create multiple fields for a template.
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Create multiple fields for a template.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -283,9 +292,11 @@ run();
 | errors.FieldCreateTemplateFieldsInternalServerError | 500                                                 | application/json                                    |
 | errors.APIError                                     | 4XX, 5XX                                            | \*/\*                                               |
 
-## update
+## ~~update~~
 
-Update a single field for a template.
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Update a single field for a template.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -368,9 +379,11 @@ run();
 | errors.FieldUpdateTemplateFieldInternalServerError | 500                                                | application/json                                   |
 | errors.APIError                                    | 4XX, 5XX                                           | \*/\*                                              |
 
-## updateMany
+## ~~updateMany~~
 
-Update multiple fields for a template.
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Update multiple fields for a template.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -457,9 +470,11 @@ run();
 | errors.FieldUpdateTemplateFieldsInternalServerError | 500                                                 | application/json                                    |
 | errors.APIError                                     | 4XX, 5XX                                            | \*/\*                                               |
 
-## delete
+## ~~delete~~
 
-Delete template field
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

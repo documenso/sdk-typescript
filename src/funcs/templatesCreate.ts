@@ -37,7 +37,9 @@ import { isReadableStream } from "../types/streams.js";
  * Create template
  *
  * @remarks
- * Create a new template
+ * Create a new template. Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.
+ *
+ * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 export function templatesCreate(
   client: DocumensoCore,

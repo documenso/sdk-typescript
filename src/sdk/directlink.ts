@@ -14,7 +14,9 @@ export class DirectLink extends ClientSDK {
    * Create direct link
    *
    * @remarks
-   * Create a direct link for a template
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Create a direct link for a template
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async create(
     request: operations.TemplateCreateTemplateDirectLinkRequest,
@@ -31,7 +33,9 @@ export class DirectLink extends ClientSDK {
    * Delete direct link
    *
    * @remarks
-   * Delete a direct link for a template
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Delete a direct link for a template
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async delete(
     request: operations.TemplateDeleteTemplateDirectLinkRequest,
@@ -48,7 +52,9 @@ export class DirectLink extends ClientSDK {
    * Toggle direct link
    *
    * @remarks
-   * Enable or disable a direct link for a template
+   * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Enable or disable a direct link for a template
+   *
+   * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
    */
   async toggle(
     request: operations.TemplateToggleTemplateDirectLinkRequest,

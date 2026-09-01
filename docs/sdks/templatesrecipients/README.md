@@ -1,19 +1,24 @@
-# Templates.Recipients
+# ~~Templates.Recipients~~
+
+> [!WARNING]
+> This SDK is **DEPRECATED**
 
 ## Overview
 
 ### Available Operations
 
-* [get](#get) - Get template recipient
-* [create](#create) - Create template recipient
-* [createMany](#createmany) - Create template recipients
-* [update](#update) - Update template recipient
-* [updateMany](#updatemany) - Update template recipients
-* [delete](#delete) - Delete template recipient
+* [~~get~~](#get) - Get template recipient :warning: **Deprecated**
+* [~~create~~](#create) - Create template recipient :warning: **Deprecated**
+* [~~createMany~~](#createmany) - Create template recipients :warning: **Deprecated**
+* [~~update~~](#update) - Update template recipient :warning: **Deprecated**
+* [~~updateMany~~](#updatemany) - Update template recipients :warning: **Deprecated**
+* [~~delete~~](#delete) - Delete template recipient :warning: **Deprecated**
 
-## get
+## ~~get~~
 
-Returns a single recipient. If you want to retrieve all the recipients for a template, use the "Get Template" endpoint.
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Returns a single recipient. If you want to retrieve all the recipients for a template, use the "Get Template" endpoint.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -89,9 +94,11 @@ run();
 | errors.RecipientGetTemplateRecipientInternalServerError | 500                                                     | application/json                                        |
 | errors.APIError                                         | 4XX, 5XX                                                | \*/\*                                                   |
 
-## create
+## ~~create~~
 
-Create a single recipient for a template.
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Create a single recipient for a template.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -176,9 +183,11 @@ run();
 | errors.RecipientCreateTemplateRecipientInternalServerError | 500                                                        | application/json                                           |
 | errors.APIError                                            | 4XX, 5XX                                                   | \*/\*                                                      |
 
-## createMany
+## ~~createMany~~
 
-Create multiple recipients for a template.
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Create multiple recipients for a template.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -255,9 +264,11 @@ run();
 | errors.RecipientCreateTemplateRecipientsInternalServerError | 500                                                         | application/json                                            |
 | errors.APIError                                             | 4XX, 5XX                                                    | \*/\*                                                       |
 
-## update
+## ~~update~~
 
-Update a single recipient for a template.
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Update a single recipient for a template.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -338,9 +349,11 @@ run();
 | errors.RecipientUpdateTemplateRecipientInternalServerError | 500                                                        | application/json                                           |
 | errors.APIError                                            | 4XX, 5XX                                                   | \*/\*                                                      |
 
-## updateMany
+## ~~updateMany~~
 
-Update multiple recipients for a template.
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Update multiple recipients for a template.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -425,9 +438,11 @@ run();
 | errors.RecipientUpdateTemplateRecipientsInternalServerError | 500                                                         | application/json                                            |
 | errors.APIError                                             | 4XX, 5XX                                                    | \*/\*                                                       |
 
-## delete
+## ~~delete~~
 
-Delete template recipient
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

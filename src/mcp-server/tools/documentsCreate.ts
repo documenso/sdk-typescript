@@ -14,7 +14,7 @@ export const tool$documentsCreate: ToolDefinition<typeof args> = {
   name: "documents-create",
   description: `Create document
 
-Create a document using form data.`,
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide.`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await documentsCreate(

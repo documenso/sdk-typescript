@@ -30,7 +30,9 @@ import { Result } from "../types/fp.js";
  * Redistribute document
  *
  * @remarks
- * Redistribute the document to the provided recipients who have not actioned the document. Will use the distribution method set in the document
+ * Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Redistribute the document to the provided recipients who have not actioned the document. Will use the distribution method set in the document. This also refreshes the signing-link expiration for the targeted unsigned recipients, renewing any expired links.
+ *
+ * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 export function documentsRedistribute(
   client: DocumensoCore,

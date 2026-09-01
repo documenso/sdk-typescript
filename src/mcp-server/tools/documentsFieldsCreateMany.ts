@@ -14,7 +14,7 @@ export const tool$documentsFieldsCreateMany: ToolDefinition<typeof args> = {
   name: "documents-fields-create-many",
   description: `Create document fields
 
-Create multiple fields for a document.`,
+Deprecated: this endpoint is being replaced by the Envelope API. See https://docs.documenso.com/docs/developers/api/migrate-to-envelopes for the migration guide. Create multiple fields for a document.`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await documentsFieldsCreateMany(
