@@ -28,6 +28,9 @@ import { Result } from "../types/fp.js";
 
 /**
  * Delete envelope
+ *
+ * @remarks
+ * Delete an envelope
  */
 export function envelopesDelete(
   client: DocumensoCore,

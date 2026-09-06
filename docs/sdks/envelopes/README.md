@@ -257,7 +257,7 @@ run();
 
 ## update
 
-Update envelope
+Update envelope properties and settings
 
 ### Example Usage
 
@@ -334,7 +334,7 @@ run();
 
 ## delete
 
-Delete envelope
+Delete an envelope
 
 ### Example Usage
 

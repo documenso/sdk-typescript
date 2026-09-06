@@ -28,6 +28,9 @@ import { Result } from "../types/fp.js";
 
 /**
  * Update envelope
+ *
+ * @remarks
+ * Update envelope properties and settings
  */
 export function envelopesUpdate(
   client: DocumensoCore,
