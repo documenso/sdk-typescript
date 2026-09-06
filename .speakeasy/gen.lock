@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 2f28b0c4-e21c-47c4-aada-41da1a74c452
 management:
-  docChecksum: da3f86c6e0825c502fa30d89f0611825
+  docChecksum: b30faad1d4e088d02a8d52e29faf8cf1
   docVersion: 1.0.0
-  speakeasyVersion: 1.796.2
-  generationVersion: 2.933.0
-  releaseVersion: 0.9.1
-  configChecksum: 3e6722fcf5dc91f3d741445a2e8e166e
+  speakeasyVersion: 1.796.4
+  generationVersion: 2.935.1
+  releaseVersion: 0.9.2
+  configChecksum: 217617231b17392fc607bcf76509cd6e
   repoURL: https://github.com/documenso/sdk-typescript.git
   installationURL: https://github.com/documenso/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: ae403b3c-f977-4f21-b642-a5dddb2f4c02
-  pristine_commit_hash: e7f6633bb1671f0388f7115c115be9f4dbc20eb4
-  pristine_tree_hash: ed15439a6fddd1c6a1ff1c88553807faadf14f94
+  generation_id: a9d4119a-9e21-4363-9e01-5e95750f31a4
+  pristine_commit_hash: 86705d5a2e6e5e831898caeb7753538d9f46e5bb
+  pristine_tree_hash: 936a0e86e677afb05f5fc1c142807f4b242eeb58
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -33,7 +33,7 @@ features:
     nameOverrides: 2.81.4
     nullables: 0.1.1
     responseFormat: 0.3.0
-    retries: 2.83.1
+    retries: 2.83.2
     sdkHooks: 0.4.0
     unions: 2.86.5
     uploadStreams: 0.1.1
@@ -15160,16 +15160,16 @@ trackedFiles:
     pristine_git_object: d0bb84b20feed565b05c8c03d537918f0cc6f608
   docs/sdks/envelope/README.md:
     id: b13f89548efa
-    last_write_checksum: sha1:29ef4759c235aeeb39729e5fff7bcbe34ed054b8
-    pristine_git_object: 5d58274fa5043a663f0587956e6105ad43da90a0
+    last_write_checksum: sha1:b754c00cc748c0b26d32344b42b9b53c217a09c9
+    pristine_git_object: 59486d0043f878d0e874426a4dd7be88ab9b5d70
   docs/sdks/enveloperecipients/README.md:
     id: f567e7a86443
     last_write_checksum: sha1:60e1772556b21026c20bf496e94afb3a5019b030
     pristine_git_object: 01dcde4a9d68ea013aef99e356f54887560e5cd3
   docs/sdks/envelopes/README.md:
     id: 9fe1e75d395c
-    last_write_checksum: sha1:8a6ab37ac63e770aedccf58217eebb6c5661692f
-    pristine_git_object: e179899521d18be841c97b59f3abf7ac832f7f3e
+    last_write_checksum: sha1:96cd518c3482be6ac723c156e74f81f344785506
+    pristine_git_object: 8204d7a20169928e1ffa909026a972b57d38a710
   docs/sdks/envelopesattachments/README.md:
     id: ea6e4d964435
     last_write_checksum: sha1:85c094a32c04a0ed05ba599c7f8a1a5de2ad8436
@@ -15228,12 +15228,12 @@ trackedFiles:
     pristine_git_object: 7d12890d2fd794d60397b964853752563c69beff
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:e4b193ce9feedf3caba33a1127356ca49be2a3e5
-    pristine_git_object: 7d4515e4d13a322fde0a4bd07b070130a8f02106
+    last_write_checksum: sha1:2d2ec1a701a9adbafaa8f3556e0b64b6877b30e4
+    pristine_git_object: 532645f0687240239477f57dd36da086db885f34
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:6666fadc1dce90c8aae7a62a8bbbb0095828c16b
-    pristine_git_object: e4d9deec09f923c99d397bc148890f41d46dcc90
+    last_write_checksum: sha1:095530896b7da9b9e235ae368b874389ce1946ab
+    pristine_git_object: 33933ccf5c38be11c3931f366cdde9a7cafb723c
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:03d4dd5920e6f643a9019be194103a09591a938a
@@ -15368,8 +15368,8 @@ trackedFiles:
     pristine_git_object: af74cabd53703e9dcc879b77fbdd4909db1bf672
   src/funcs/envelopeEnvelopeCancel.ts:
     id: 590eb4e678af
-    last_write_checksum: sha1:09640632b610bd7b060c96f3326ca97ae6f9c890
-    pristine_git_object: 05ff684afc7dc74d246be066ddbd573e8800c015
+    last_write_checksum: sha1:c23e442523b40f64b0eeb4c42463bea1cdd7438d
+    pristine_git_object: 90a0fba1ee772c8dfb118854395ab9a30d8316dd
   src/funcs/envelopeEnvelopeCertificateDownloadPdf.ts:
     id: f327cb8b4941
     last_write_checksum: sha1:5f4232a13d511d6e7db760ecbb88443f54c85330
@@ -15408,8 +15408,8 @@ trackedFiles:
     pristine_git_object: 6ab52f5fad01a145cb2d9c475dac18c8afbf91b7
   src/funcs/envelopesDelete.ts:
     id: f199e2ebf56e
-    last_write_checksum: sha1:9ad5efad35bcbd6d3e14334a66121af3cdbe2551
-    pristine_git_object: 825cebf817cb1dd070104698ce07eeb0acfb82f6
+    last_write_checksum: sha1:f0c03d473e4c8b15324c6c7c394db5710f531b59
+    pristine_git_object: f157e5b2a4efa309414b63791dcf8a5a5808a0a7
   src/funcs/envelopesDistribute.ts:
     id: 9d4659cf167f
     last_write_checksum: sha1:324c55edc559494a26ae6a9951aba882f05f0fa8
@@ -15476,8 +15476,8 @@ trackedFiles:
     pristine_git_object: d5eff09f00589ca57acf84c5dcde0e1e998df1e5
   src/funcs/envelopesUpdate.ts:
     id: 76745febbfb5
-    last_write_checksum: sha1:af43cd8e88d5f585f79074c74d0eece0f17bdd6e
-    pristine_git_object: d5fb0aa722a96b9c9e1391b363bbccfc87da5cf6
+    last_write_checksum: sha1:f7b24e17c0f6109a6268fd6ddbed1178aae461ab
+    pristine_git_object: 847cbe9a85224d978519cc1bb0f1aecbdc5ed5fc
   src/funcs/envelopesUse.ts:
     id: 8e17ea5da873
     last_write_checksum: sha1:c55756c7dcb4e440a960270e6c001c65b1e4fcbd
@@ -15616,8 +15616,8 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:65917cef47955bc684701f4b011b82a8497d2f24
-    pristine_git_object: b188e46443f402d5a492c8eb8e48beb525aae8dd
+    last_write_checksum: sha1:af59da53a80249fc32712dfe95cfc7637d364a4d
+    pristine_git_object: 3c8da64d80f09df557f4797128abecf50299c6bf
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:a257d6f6108693db2197617c579400bc8f0da914
@@ -15692,8 +15692,8 @@ trackedFiles:
     pristine_git_object: 0955a573c2ce989d63c737410ab8cc28706d9f74
   src/mcp-server/mcp-server.ts:
     id: aabbc4ab07c1
-    last_write_checksum: sha1:68970cd340ea735a7a519fc4c7a28042de76a2ba
-    pristine_git_object: 45135adbbbf5d6c9939cf3b5d3689478a200e22c
+    last_write_checksum: sha1:7f305ad583befd44bb691cb2e399678edb6dd074
+    pristine_git_object: 107552bbe22e19da8505c31a3a354a7de5fcfa93
   src/mcp-server/prompts.ts:
     id: 26f3d73cbf31
     last_write_checksum: sha1:d16f7b1196bd0144834c9fb75c7452063710c564
@@ -15708,8 +15708,8 @@ trackedFiles:
     pristine_git_object: c25696d4c4f70e081fa5d87ad6891874c509a577
   src/mcp-server/server.ts:
     id: 2784dd48e82a
-    last_write_checksum: sha1:50b8f82b9005e104738498378dc444ca778b7199
-    pristine_git_object: 1e01213dadab557ccd6f40c32077931fc32f8a41
+    last_write_checksum: sha1:d31424841e046b63035bb144b3f101b007edc175
+    pristine_git_object: c3348736deaf541b505ae1d88a21a9e2e52ac892
   src/mcp-server/shared.ts:
     id: 074e80d4be1e
     last_write_checksum: sha1:d89576cea2bef3856b7fc3e65b868875528be042
@@ -15848,8 +15848,8 @@ trackedFiles:
     pristine_git_object: 835e082f3417820d5fd1d2b41f696b17b696c5bc
   src/mcp-server/tools/envelopeEnvelopeCancel.ts:
     id: 2578aa2a4e33
-    last_write_checksum: sha1:251ade5099b9a93b00a4f02d219a67a1c83a4a86
-    pristine_git_object: 50b428d1948038c536559abafae27b606ded62dc
+    last_write_checksum: sha1:d5e9129d0bbbfa685ffb7f6adedafd6b73078d46
+    pristine_git_object: d0a2e29b41555058319198cb413275866594331f
   src/mcp-server/tools/envelopeEnvelopeCertificateDownloadPdf.ts:
     id: 1e2f5372828d
     last_write_checksum: sha1:6024b83be8d4cffd0146659493cc9e4df9692efe
@@ -15888,8 +15888,8 @@ trackedFiles:
     pristine_git_object: fa72c4e28fa5a965e001539d37b5629e500f2488
   src/mcp-server/tools/envelopesDelete.ts:
     id: 9a115dd3b0c6
-    last_write_checksum: sha1:787b10f5a216658fa9d182f150642ab3ed5ea65f
-    pristine_git_object: 92bd2acc29309a9b1f0b7b61c39d24b7f1895e29
+    last_write_checksum: sha1:618fc9add2a8bcde1f5af44ff2f559168a2a2f29
+    pristine_git_object: cb62f2e3ef260f1fba8bb8255018534228c93cf6
   src/mcp-server/tools/envelopesDistribute.ts:
     id: 023d0fc31cea
     last_write_checksum: sha1:6fd67d785f23610ee746ddd96e64fa511f7c8ea0
@@ -15956,8 +15956,8 @@ trackedFiles:
     pristine_git_object: a4d41e993138149cf075ec3fe8273b80f8ba8476
   src/mcp-server/tools/envelopesUpdate.ts:
     id: c55fdf60ab1d
-    last_write_checksum: sha1:db5b0dab23bb31b529a9c9e0c0d16f76884ea62e
-    pristine_git_object: e47e046e35e88689f2b8fd64fdfd85ed775dbd16
+    last_write_checksum: sha1:5fd3d8507ca6dc088af16ce97b9dfce088397b32
+    pristine_git_object: 4ac52c98142aee233aa5bd5d9ae15bb00228dc31
   src/mcp-server/tools/envelopesUse.ts:
     id: 592ce4dcdf10
     last_write_checksum: sha1:442a2133a62dcc9b2155cfa0029d30e3658de2f2
@@ -16852,16 +16852,16 @@ trackedFiles:
     pristine_git_object: 1681543eaf9e93921ef987e1a7282697493f8374
   src/sdk/envelope.ts:
     id: 2f2324cc2125
-    last_write_checksum: sha1:e00cd17d82bdb2aae16bac169fb0c2349715a943
-    pristine_git_object: e54a8245c96438da561a11bef080c73d7e88cb86
+    last_write_checksum: sha1:e6ac5a684ece74f37ed9d0624994de38e95de9e8
+    pristine_git_object: 4f12920eee0e6cbe500ee614953f4b1d4c094652
   src/sdk/enveloperecipients.ts:
     id: 3226a0d37c63
     last_write_checksum: sha1:2f2c69da87758f9cdc1d422ffda0bf6385862299
     pristine_git_object: 39bd2015534334aec1595234c500d7233a46a56b
   src/sdk/envelopes.ts:
     id: e8444cde668f
-    last_write_checksum: sha1:2c52468a46b97baa5c970c67418032a547ab5ab2
-    pristine_git_object: 97ed46fb8e379d5b20d6b8909a615afc1cb44ee9
+    last_write_checksum: sha1:3e76b718cb08548f4e7bfd68a2340ed1b1564c52
+    pristine_git_object: 90a74c39bf391d40ea8cf830727bcb82798710fa
   src/sdk/envelopesattachments.ts:
     id: 3329ab5028df
     last_write_checksum: sha1:90c513586ab0186d2fbdbb690e2888aa2edeb8f9
@@ -18459,7 +18459,6 @@ examples:
           application/json: {"message": "<value>", "code": "<value>"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Typescript SDK Changes:\n* `documenso.envelope.envelopeFind()`: \n  *  `request.hasExpiredRecipients` **Added**\n* `documenso.documents.get()`: **Deprecated**\n* `documenso.documents.find()`: **Deprecated**\n* `documenso.documents.find()`: \n  *  `request.hasExpiredRecipients` **Added**\n* `documenso.documents.create()`: **Deprecated**\n* `documenso.documents.update()`: **Deprecated**\n* `documenso.documents.delete()`: **Deprecated**\n* `documenso.documents.duplicate()`: **Deprecated**\n* `documenso.documents.distribute()`: **Deprecated**\n* `documenso.documents.redistribute()`: **Deprecated**\n* `documenso.documents.download()`: **Deprecated**\n* `documenso.documents.attachments.create()`: **Deprecated**\n* `documenso.documents.attachments.update()`: **Deprecated**\n* `documenso.documents.attachments.delete()`: **Deprecated**\n* `documenso.documents.attachments.find()`: **Deprecated**\n* `documenso.documents.fields.get()`: **Deprecated**\n* `documenso.documents.fields.create()`: **Deprecated**\n* `documenso.documents.fields.createMany()`: **Deprecated**\n* `documenso.documents.fields.update()`: **Deprecated**\n* `documenso.documents.fields.updateMany()`: **Deprecated**\n* `documenso.documents.fields.delete()`: **Deprecated**\n* `documenso.documents.recipients.get()`: **Deprecated**\n* `documenso.documents.recipients.create()`: **Deprecated**\n* `documenso.documents.recipients.createMany()`: **Deprecated**\n* `documenso.documents.recipients.update()`: **Deprecated**\n* `documenso.documents.recipients.updateMany()`: **Deprecated**\n* `documenso.documents.recipients.delete()`: **Deprecated**\n* `documenso.document.documentGetMany()`: **Deprecated**\n* `documenso.document.documentDownload()`: **Deprecated**\n* `documenso.templates.find()`: **Deprecated**\n* `documenso.templates.get()`: **Deprecated**\n* `documenso.templates.create()`: **Deprecated**\n* `documenso.templates.update()`: **Deprecated**\n* `documenso.templates.duplicate()`: **Deprecated**\n* `documenso.templates.delete()`: **Deprecated**\n* `documenso.templates.use()`: **Deprecated**\n* `documenso.templates.fields.create()`: **Deprecated**\n* `documenso.templates.fields.get()`: **Deprecated**\n* `documenso.templates.fields.createMany()`: **Deprecated**\n* `documenso.templates.fields.update()`: **Deprecated**\n* `documenso.templates.fields.updateMany()`: **Deprecated**\n* `documenso.templates.fields.delete()`: **Deprecated**\n* `documenso.templates.recipients.get()`: **Deprecated**\n* `documenso.templates.recipients.create()`: **Deprecated**\n* `documenso.templates.recipients.createMany()`: **Deprecated**\n* `documenso.templates.recipients.update()`: **Deprecated**\n* `documenso.templates.recipients.updateMany()`: **Deprecated**\n* `documenso.templates.recipients.delete()`: **Deprecated**\n* `documenso.templates.directLink.create()`: **Deprecated**\n* `documenso.templates.directLink.delete()`: **Deprecated**\n* `documenso.templates.directLink.toggle()`: **Deprecated**\n* `documenso.template.templateGetMany()`: **Deprecated**\n* `documenso.template.templateCreateTemplateTemporary()`: **Deprecated**\n"
 generatedFiles:
   - .gitattributes
   - .npmignore

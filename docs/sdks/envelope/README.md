@@ -404,7 +404,7 @@ run();
 
 ## envelopeCancel
 
-Cancel envelope
+Cancel a pending envelope
 
 ### Example Usage
 
