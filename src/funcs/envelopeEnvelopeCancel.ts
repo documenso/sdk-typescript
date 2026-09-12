@@ -28,6 +28,9 @@ import { Result } from "../types/fp.js";
 
 /**
  * Cancel envelope
+ *
+ * @remarks
+ * Cancel a pending envelope
  */
 export function envelopeEnvelopeCancel(
   client: DocumensoCore,
