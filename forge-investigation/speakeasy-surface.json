@@ -1,0 +1,939 @@
+[
+  {
+    "path": "envelopes.get",
+    "groups": [
+      "envelopes"
+    ],
+    "method": "get",
+    "func": "envelopesGet",
+    "operationId": "envelope-get",
+    "deprecated": false
+  },
+  {
+    "path": "envelopes.create",
+    "groups": [
+      "envelopes"
+    ],
+    "method": "create",
+    "func": "envelopesCreate",
+    "operationId": "envelope-create",
+    "deprecated": false
+  },
+  {
+    "path": "envelopes.use",
+    "groups": [
+      "envelopes"
+    ],
+    "method": "use",
+    "func": "envelopesUse",
+    "operationId": "envelope-use",
+    "deprecated": false
+  },
+  {
+    "path": "envelopes.update",
+    "groups": [
+      "envelopes"
+    ],
+    "method": "update",
+    "func": "envelopesUpdate",
+    "operationId": "envelope-update",
+    "deprecated": false
+  },
+  {
+    "path": "envelopes.delete",
+    "groups": [
+      "envelopes"
+    ],
+    "method": "delete",
+    "func": "envelopesDelete",
+    "operationId": "envelope-delete",
+    "deprecated": false
+  },
+  {
+    "path": "envelopes.duplicate",
+    "groups": [
+      "envelopes"
+    ],
+    "method": "duplicate",
+    "func": "envelopesDuplicate",
+    "operationId": "envelope-duplicate",
+    "deprecated": false
+  },
+  {
+    "path": "envelopes.distribute",
+    "groups": [
+      "envelopes"
+    ],
+    "method": "distribute",
+    "func": "envelopesDistribute",
+    "operationId": "envelope-distribute",
+    "deprecated": false
+  },
+  {
+    "path": "envelopes.redistribute",
+    "groups": [
+      "envelopes"
+    ],
+    "method": "redistribute",
+    "func": "envelopesRedistribute",
+    "operationId": "envelope-redistribute",
+    "deprecated": false
+  },
+  {
+    "path": "envelopes.attachments.find",
+    "groups": [
+      "envelopes",
+      "attachments"
+    ],
+    "method": "find",
+    "func": "envelopesAttachmentsFind",
+    "operationId": "envelope-attachment-find",
+    "deprecated": false
+  },
+  {
+    "path": "envelopes.attachments.create",
+    "groups": [
+      "envelopes",
+      "attachments"
+    ],
+    "method": "create",
+    "func": "envelopesAttachmentsCreate",
+    "operationId": "envelope-attachment-create",
+    "deprecated": false
+  },
+  {
+    "path": "envelopes.attachments.update",
+    "groups": [
+      "envelopes",
+      "attachments"
+    ],
+    "method": "update",
+    "func": "envelopesAttachmentsUpdate",
+    "operationId": "envelope-attachment-update",
+    "deprecated": false
+  },
+  {
+    "path": "envelopes.attachments.delete",
+    "groups": [
+      "envelopes",
+      "attachments"
+    ],
+    "method": "delete",
+    "func": "envelopesAttachmentsDelete",
+    "operationId": "envelope-attachment-delete",
+    "deprecated": false
+  },
+  {
+    "path": "envelopes.items.createMany",
+    "groups": [
+      "envelopes",
+      "items"
+    ],
+    "method": "createMany",
+    "func": "envelopesItemsCreateMany",
+    "operationId": "envelope-item-createMany",
+    "deprecated": false
+  },
+  {
+    "path": "envelopes.items.updateMany",
+    "groups": [
+      "envelopes",
+      "items"
+    ],
+    "method": "updateMany",
+    "func": "envelopesItemsUpdateMany",
+    "operationId": "envelope-item-updateMany",
+    "deprecated": false
+  },
+  {
+    "path": "envelopes.items.delete",
+    "groups": [
+      "envelopes",
+      "items"
+    ],
+    "method": "delete",
+    "func": "envelopesItemsDelete",
+    "operationId": "envelope-item-delete",
+    "deprecated": false
+  },
+  {
+    "path": "envelopes.items.download",
+    "groups": [
+      "envelopes",
+      "items"
+    ],
+    "method": "download",
+    "func": "envelopesItemsDownload",
+    "operationId": "envelope-item-download",
+    "deprecated": false
+  },
+  {
+    "path": "envelopes.recipients.get",
+    "groups": [
+      "envelopes",
+      "recipients"
+    ],
+    "method": "get",
+    "func": "envelopesRecipientsGet",
+    "operationId": "envelope-recipient-get",
+    "deprecated": false
+  },
+  {
+    "path": "envelopes.recipients.createMany",
+    "groups": [
+      "envelopes",
+      "recipients"
+    ],
+    "method": "createMany",
+    "func": "envelopesRecipientsCreateMany",
+    "operationId": "envelope-recipient-createMany",
+    "deprecated": false
+  },
+  {
+    "path": "envelopes.recipients.updateMany",
+    "groups": [
+      "envelopes",
+      "recipients"
+    ],
+    "method": "updateMany",
+    "func": "envelopesRecipientsUpdateMany",
+    "operationId": "envelope-recipient-updateMany",
+    "deprecated": false
+  },
+  {
+    "path": "envelopes.recipients.delete",
+    "groups": [
+      "envelopes",
+      "recipients"
+    ],
+    "method": "delete",
+    "func": "envelopesRecipientsDelete",
+    "operationId": "envelope-recipient-delete",
+    "deprecated": false
+  },
+  {
+    "path": "envelopes.fields.get",
+    "groups": [
+      "envelopes",
+      "fields"
+    ],
+    "method": "get",
+    "func": "envelopesFieldsGet",
+    "operationId": "envelope-field-get",
+    "deprecated": false
+  },
+  {
+    "path": "envelopes.fields.createMany",
+    "groups": [
+      "envelopes",
+      "fields"
+    ],
+    "method": "createMany",
+    "func": "envelopesFieldsCreateMany",
+    "operationId": "envelope-field-createMany",
+    "deprecated": false
+  },
+  {
+    "path": "envelopes.fields.updateMany",
+    "groups": [
+      "envelopes",
+      "fields"
+    ],
+    "method": "updateMany",
+    "func": "envelopesFieldsUpdateMany",
+    "operationId": "envelope-field-updateMany",
+    "deprecated": false
+  },
+  {
+    "path": "envelopes.fields.delete",
+    "groups": [
+      "envelopes",
+      "fields"
+    ],
+    "method": "delete",
+    "func": "envelopesFieldsDelete",
+    "operationId": "envelope-field-delete",
+    "deprecated": false
+  },
+  {
+    "path": "envelopeRecipients.envelopeRecipientRejectOnBehalfOf",
+    "groups": [
+      "envelopeRecipients"
+    ],
+    "method": "envelopeRecipientRejectOnBehalfOf",
+    "func": "envelopeRecipientsEnvelopeRecipientRejectOnBehalfOf",
+    "operationId": "envelope-recipient-rejectOnBehalfOf",
+    "deprecated": false
+  },
+  {
+    "path": "envelope.envelopeFind",
+    "groups": [
+      "envelope"
+    ],
+    "method": "envelopeFind",
+    "func": "envelopeEnvelopeFind",
+    "operationId": "envelope-find",
+    "deprecated": false
+  },
+  {
+    "path": "envelope.envelopeAuditLogFind",
+    "groups": [
+      "envelope"
+    ],
+    "method": "envelopeAuditLogFind",
+    "func": "envelopeEnvelopeAuditLogFind",
+    "operationId": "envelope-auditLog-find",
+    "deprecated": false
+  },
+  {
+    "path": "envelope.envelopeAuditLogDownloadPdf",
+    "groups": [
+      "envelope"
+    ],
+    "method": "envelopeAuditLogDownloadPdf",
+    "func": "envelopeEnvelopeAuditLogDownloadPdf",
+    "operationId": "envelope-auditLog-downloadPdf",
+    "deprecated": false
+  },
+  {
+    "path": "envelope.envelopeCertificateDownloadPdf",
+    "groups": [
+      "envelope"
+    ],
+    "method": "envelopeCertificateDownloadPdf",
+    "func": "envelopeEnvelopeCertificateDownloadPdf",
+    "operationId": "envelope-certificate-downloadPdf",
+    "deprecated": false
+  },
+  {
+    "path": "envelope.envelopeGetMany",
+    "groups": [
+      "envelope"
+    ],
+    "method": "envelopeGetMany",
+    "func": "envelopeEnvelopeGetMany",
+    "operationId": "envelope-getMany",
+    "deprecated": false
+  },
+  {
+    "path": "envelope.envelopeCancel",
+    "groups": [
+      "envelope"
+    ],
+    "method": "envelopeCancel",
+    "func": "envelopeEnvelopeCancel",
+    "operationId": "envelope-cancel",
+    "deprecated": false
+  },
+  {
+    "path": "documents.get",
+    "groups": [
+      "documents"
+    ],
+    "method": "get",
+    "func": "documentsGet",
+    "operationId": "document-get",
+    "deprecated": true
+  },
+  {
+    "path": "documents.find",
+    "groups": [
+      "documents"
+    ],
+    "method": "find",
+    "func": "documentsFind",
+    "operationId": "document-find",
+    "deprecated": true
+  },
+  {
+    "path": "documents.create",
+    "groups": [
+      "documents"
+    ],
+    "method": "create",
+    "func": "documentsCreate",
+    "operationId": "document-create",
+    "deprecated": true
+  },
+  {
+    "path": "documents.update",
+    "groups": [
+      "documents"
+    ],
+    "method": "update",
+    "func": "documentsUpdate",
+    "operationId": "document-update",
+    "deprecated": true
+  },
+  {
+    "path": "documents.delete",
+    "groups": [
+      "documents"
+    ],
+    "method": "delete",
+    "func": "documentsDelete",
+    "operationId": "document-delete",
+    "deprecated": true
+  },
+  {
+    "path": "documents.duplicate",
+    "groups": [
+      "documents"
+    ],
+    "method": "duplicate",
+    "func": "documentsDuplicate",
+    "operationId": "document-duplicate",
+    "deprecated": true
+  },
+  {
+    "path": "documents.distribute",
+    "groups": [
+      "documents"
+    ],
+    "method": "distribute",
+    "func": "documentsDistribute",
+    "operationId": "document-distribute",
+    "deprecated": true
+  },
+  {
+    "path": "documents.redistribute",
+    "groups": [
+      "documents"
+    ],
+    "method": "redistribute",
+    "func": "documentsRedistribute",
+    "operationId": "document-redistribute",
+    "deprecated": true
+  },
+  {
+    "path": "documents.download",
+    "groups": [
+      "documents"
+    ],
+    "method": "download",
+    "func": "documentsDownload",
+    "operationId": "document-download",
+    "deprecated": true
+  },
+  {
+    "path": "documents.createV0",
+    "groups": [
+      "documents"
+    ],
+    "method": "createV0",
+    "func": "documentsCreateV0",
+    "operationId": "document-createDocumentTemporary",
+    "deprecated": true
+  },
+  {
+    "path": "documents.attachments.create",
+    "groups": [
+      "documents",
+      "attachments"
+    ],
+    "method": "create",
+    "func": "documentsAttachmentsCreate",
+    "operationId": "document-attachment-create",
+    "deprecated": true
+  },
+  {
+    "path": "documents.attachments.update",
+    "groups": [
+      "documents",
+      "attachments"
+    ],
+    "method": "update",
+    "func": "documentsAttachmentsUpdate",
+    "operationId": "document-attachment-update",
+    "deprecated": true
+  },
+  {
+    "path": "documents.attachments.delete",
+    "groups": [
+      "documents",
+      "attachments"
+    ],
+    "method": "delete",
+    "func": "documentsAttachmentsDelete",
+    "operationId": "document-attachment-delete",
+    "deprecated": true
+  },
+  {
+    "path": "documents.attachments.find",
+    "groups": [
+      "documents",
+      "attachments"
+    ],
+    "method": "find",
+    "func": "documentsAttachmentsFind",
+    "operationId": "document-attachment-find",
+    "deprecated": true
+  },
+  {
+    "path": "documents.fields.get",
+    "groups": [
+      "documents",
+      "fields"
+    ],
+    "method": "get",
+    "func": "documentsFieldsGet",
+    "operationId": "field-getDocumentField",
+    "deprecated": true
+  },
+  {
+    "path": "documents.fields.create",
+    "groups": [
+      "documents",
+      "fields"
+    ],
+    "method": "create",
+    "func": "documentsFieldsCreate",
+    "operationId": "field-createDocumentField",
+    "deprecated": true
+  },
+  {
+    "path": "documents.fields.createMany",
+    "groups": [
+      "documents",
+      "fields"
+    ],
+    "method": "createMany",
+    "func": "documentsFieldsCreateMany",
+    "operationId": "field-createDocumentFields",
+    "deprecated": true
+  },
+  {
+    "path": "documents.fields.update",
+    "groups": [
+      "documents",
+      "fields"
+    ],
+    "method": "update",
+    "func": "documentsFieldsUpdate",
+    "operationId": "field-updateDocumentField",
+    "deprecated": true
+  },
+  {
+    "path": "documents.fields.updateMany",
+    "groups": [
+      "documents",
+      "fields"
+    ],
+    "method": "updateMany",
+    "func": "documentsFieldsUpdateMany",
+    "operationId": "field-updateDocumentFields",
+    "deprecated": true
+  },
+  {
+    "path": "documents.fields.delete",
+    "groups": [
+      "documents",
+      "fields"
+    ],
+    "method": "delete",
+    "func": "documentsFieldsDelete",
+    "operationId": "field-deleteDocumentField",
+    "deprecated": true
+  },
+  {
+    "path": "documents.recipients.get",
+    "groups": [
+      "documents",
+      "recipients"
+    ],
+    "method": "get",
+    "func": "documentsRecipientsGet",
+    "operationId": "recipient-getDocumentRecipient",
+    "deprecated": true
+  },
+  {
+    "path": "documents.recipients.create",
+    "groups": [
+      "documents",
+      "recipients"
+    ],
+    "method": "create",
+    "func": "documentsRecipientsCreate",
+    "operationId": "recipient-createDocumentRecipient",
+    "deprecated": true
+  },
+  {
+    "path": "documents.recipients.createMany",
+    "groups": [
+      "documents",
+      "recipients"
+    ],
+    "method": "createMany",
+    "func": "documentsRecipientsCreateMany",
+    "operationId": "recipient-createDocumentRecipients",
+    "deprecated": true
+  },
+  {
+    "path": "documents.recipients.update",
+    "groups": [
+      "documents",
+      "recipients"
+    ],
+    "method": "update",
+    "func": "documentsRecipientsUpdate",
+    "operationId": "recipient-updateDocumentRecipient",
+    "deprecated": true
+  },
+  {
+    "path": "documents.recipients.updateMany",
+    "groups": [
+      "documents",
+      "recipients"
+    ],
+    "method": "updateMany",
+    "func": "documentsRecipientsUpdateMany",
+    "operationId": "recipient-updateDocumentRecipients",
+    "deprecated": true
+  },
+  {
+    "path": "documents.recipients.delete",
+    "groups": [
+      "documents",
+      "recipients"
+    ],
+    "method": "delete",
+    "func": "documentsRecipientsDelete",
+    "operationId": "recipient-deleteDocumentRecipient",
+    "deprecated": true
+  },
+  {
+    "path": "document.documentGetMany",
+    "groups": [
+      "document"
+    ],
+    "method": "documentGetMany",
+    "func": "documentDocumentGetMany",
+    "operationId": "document-getMany",
+    "deprecated": true
+  },
+  {
+    "path": "document.documentDownload",
+    "groups": [
+      "document"
+    ],
+    "method": "documentDownload",
+    "func": "documentDocumentDownload",
+    "operationId": "document-downloadBeta",
+    "deprecated": true
+  },
+  {
+    "path": "templates.find",
+    "groups": [
+      "templates"
+    ],
+    "method": "find",
+    "func": "templatesFind",
+    "operationId": "template-findTemplates",
+    "deprecated": true
+  },
+  {
+    "path": "templates.get",
+    "groups": [
+      "templates"
+    ],
+    "method": "get",
+    "func": "templatesGet",
+    "operationId": "template-getTemplateById",
+    "deprecated": true
+  },
+  {
+    "path": "templates.create",
+    "groups": [
+      "templates"
+    ],
+    "method": "create",
+    "func": "templatesCreate",
+    "operationId": "template-createTemplate",
+    "deprecated": true
+  },
+  {
+    "path": "templates.update",
+    "groups": [
+      "templates"
+    ],
+    "method": "update",
+    "func": "templatesUpdate",
+    "operationId": "template-updateTemplate",
+    "deprecated": true
+  },
+  {
+    "path": "templates.duplicate",
+    "groups": [
+      "templates"
+    ],
+    "method": "duplicate",
+    "func": "templatesDuplicate",
+    "operationId": "template-duplicateTemplate",
+    "deprecated": true
+  },
+  {
+    "path": "templates.delete",
+    "groups": [
+      "templates"
+    ],
+    "method": "delete",
+    "func": "templatesDelete",
+    "operationId": "template-deleteTemplate",
+    "deprecated": true
+  },
+  {
+    "path": "templates.use",
+    "groups": [
+      "templates"
+    ],
+    "method": "use",
+    "func": "templatesUse",
+    "operationId": "template-createDocumentFromTemplate",
+    "deprecated": true
+  },
+  {
+    "path": "templates.fields.create",
+    "groups": [
+      "templates",
+      "fields"
+    ],
+    "method": "create",
+    "func": "templatesFieldsCreate",
+    "operationId": "field-createTemplateField",
+    "deprecated": true
+  },
+  {
+    "path": "templates.fields.get",
+    "groups": [
+      "templates",
+      "fields"
+    ],
+    "method": "get",
+    "func": "templatesFieldsGet",
+    "operationId": "field-getTemplateField",
+    "deprecated": true
+  },
+  {
+    "path": "templates.fields.createMany",
+    "groups": [
+      "templates",
+      "fields"
+    ],
+    "method": "createMany",
+    "func": "templatesFieldsCreateMany",
+    "operationId": "field-createTemplateFields",
+    "deprecated": true
+  },
+  {
+    "path": "templates.fields.update",
+    "groups": [
+      "templates",
+      "fields"
+    ],
+    "method": "update",
+    "func": "templatesFieldsUpdate",
+    "operationId": "field-updateTemplateField",
+    "deprecated": true
+  },
+  {
+    "path": "templates.fields.updateMany",
+    "groups": [
+      "templates",
+      "fields"
+    ],
+    "method": "updateMany",
+    "func": "templatesFieldsUpdateMany",
+    "operationId": "field-updateTemplateFields",
+    "deprecated": true
+  },
+  {
+    "path": "templates.fields.delete",
+    "groups": [
+      "templates",
+      "fields"
+    ],
+    "method": "delete",
+    "func": "templatesFieldsDelete",
+    "operationId": "field-deleteTemplateField",
+    "deprecated": true
+  },
+  {
+    "path": "templates.recipients.get",
+    "groups": [
+      "templates",
+      "recipients"
+    ],
+    "method": "get",
+    "func": "templatesRecipientsGet",
+    "operationId": "recipient-getTemplateRecipient",
+    "deprecated": true
+  },
+  {
+    "path": "templates.recipients.create",
+    "groups": [
+      "templates",
+      "recipients"
+    ],
+    "method": "create",
+    "func": "templatesRecipientsCreate",
+    "operationId": "recipient-createTemplateRecipient",
+    "deprecated": true
+  },
+  {
+    "path": "templates.recipients.createMany",
+    "groups": [
+      "templates",
+      "recipients"
+    ],
+    "method": "createMany",
+    "func": "templatesRecipientsCreateMany",
+    "operationId": "recipient-createTemplateRecipients",
+    "deprecated": true
+  },
+  {
+    "path": "templates.recipients.update",
+    "groups": [
+      "templates",
+      "recipients"
+    ],
+    "method": "update",
+    "func": "templatesRecipientsUpdate",
+    "operationId": "recipient-updateTemplateRecipient",
+    "deprecated": true
+  },
+  {
+    "path": "templates.recipients.updateMany",
+    "groups": [
+      "templates",
+      "recipients"
+    ],
+    "method": "updateMany",
+    "func": "templatesRecipientsUpdateMany",
+    "operationId": "recipient-updateTemplateRecipients",
+    "deprecated": true
+  },
+  {
+    "path": "templates.recipients.delete",
+    "groups": [
+      "templates",
+      "recipients"
+    ],
+    "method": "delete",
+    "func": "templatesRecipientsDelete",
+    "operationId": "recipient-deleteTemplateRecipient",
+    "deprecated": true
+  },
+  {
+    "path": "templates.directLink.create",
+    "groups": [
+      "templates",
+      "directLink"
+    ],
+    "method": "create",
+    "func": "templatesDirectLinkCreate",
+    "operationId": "template-createTemplateDirectLink",
+    "deprecated": true
+  },
+  {
+    "path": "templates.directLink.delete",
+    "groups": [
+      "templates",
+      "directLink"
+    ],
+    "method": "delete",
+    "func": "templatesDirectLinkDelete",
+    "operationId": "template-deleteTemplateDirectLink",
+    "deprecated": true
+  },
+  {
+    "path": "templates.directLink.toggle",
+    "groups": [
+      "templates",
+      "directLink"
+    ],
+    "method": "toggle",
+    "func": "templatesDirectLinkToggle",
+    "operationId": "template-toggleTemplateDirectLink",
+    "deprecated": true
+  },
+  {
+    "path": "folders.find",
+    "groups": [
+      "folders"
+    ],
+    "method": "find",
+    "func": "foldersFind",
+    "operationId": "folder-findFolders",
+    "deprecated": false
+  },
+  {
+    "path": "folders.create",
+    "groups": [
+      "folders"
+    ],
+    "method": "create",
+    "func": "foldersCreate",
+    "operationId": "folder-createFolder",
+    "deprecated": false
+  },
+  {
+    "path": "folders.update",
+    "groups": [
+      "folders"
+    ],
+    "method": "update",
+    "func": "foldersUpdate",
+    "operationId": "folder-updateFolder",
+    "deprecated": false
+  },
+  {
+    "path": "folders.delete",
+    "groups": [
+      "folders"
+    ],
+    "method": "delete",
+    "func": "foldersDelete",
+    "operationId": "folder-deleteFolder",
+    "deprecated": false
+  },
+  {
+    "path": "template.templateGetMany",
+    "groups": [
+      "template"
+    ],
+    "method": "templateGetMany",
+    "func": "templateTemplateGetMany",
+    "operationId": "template-getMany",
+    "deprecated": true
+  },
+  {
+    "path": "template.templateCreateTemplateTemporary",
+    "groups": [
+      "template"
+    ],
+    "method": "templateCreateTemplateTemporary",
+    "func": "templateTemplateCreateTemplateTemporary",
+    "operationId": "template-createTemplateTemporary",
+    "deprecated": true
+  },
+  {
+    "path": "embedding.embeddingPresignCreateEmbeddingPresignToken",
+    "groups": [
+      "embedding"
+    ],
+    "method": "embeddingPresignCreateEmbeddingPresignToken",
+    "func": "embeddingEmbeddingPresignCreateEmbeddingPresignToken",
+    "operationId": "embeddingPresign-createEmbeddingPresignToken",
+    "deprecated": false
+  },
+  {
+    "path": "embedding.embeddingPresignVerifyEmbeddingPresignToken",
+    "groups": [
+      "embedding"
+    ],
+    "method": "embeddingPresignVerifyEmbeddingPresignToken",
+    "func": "embeddingEmbeddingPresignVerifyEmbeddingPresignToken",
+    "operationId": "embeddingPresign-verifyEmbeddingPresignToken",
+    "deprecated": false
+  }
+]

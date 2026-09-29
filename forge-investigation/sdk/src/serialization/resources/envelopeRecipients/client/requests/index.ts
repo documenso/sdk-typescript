@@ -1,0 +1,1 @@
+export { EnvelopeRecipientRejectOnBehalfOfEnvelopeRecipientsRequest } from "./EnvelopeRecipientRejectOnBehalfOfEnvelopeRecipientsRequest.js";

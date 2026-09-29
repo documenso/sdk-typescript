@@ -1,0 +1,3047 @@
+{
+  "summary": {
+    "operations": 89,
+    "requestMatches": 89,
+    "resultMatches": 85,
+    "bothSucceeded": 85,
+    "speakeasyFailed": [
+      "envelopes.items.download",
+      "envelope.envelopeAuditLogDownloadPdf",
+      "envelope.envelopeCertificateDownloadPdf",
+      "documents.download"
+    ],
+    "forgeFailed": [],
+    "requestMismatches": [],
+    "headerDifferences": [
+      {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      }
+    ],
+    "resultMismatches": [
+      "envelopes.items.download",
+      "envelope.envelopeAuditLogDownloadPdf",
+      "envelope.envelopeCertificateDownloadPdf",
+      "documents.download"
+    ]
+  },
+  "probes": {
+    "error400": {
+      "speakeasy": {
+        "name": "EnvelopeGetBadRequestError",
+        "statusCode": 400,
+        "body": "{\"message\":\"Bad input\",\"code\":\"BAD_REQUEST\",\"issues\":[{\"message\":\"x\"}]}",
+        "message": "Bad input"
+      },
+      "forge": {
+        "name": "BadRequestError",
+        "statusCode": 400,
+        "body": {
+          "message": "Bad input",
+          "code": "BAD_REQUEST",
+          "issues": [
+            {
+              "message": "x"
+            }
+          ]
+        },
+        "message": "BadRequestError\nStatus code: 400\nBody: {\n  \"message\": \"Bad input\",\n  \"code\": \"BAD_REQUEST\",\n  \"issues\": [\n    {\n      \"message\": \"x\"\n    }\n  ]\n}"
+      }
+    },
+    "undeclaredStatus": {
+      "speakeasy": {
+        "name": "APIError",
+        "statusCode": 418,
+        "body": "teapot",
+        "message": "API error occurred: Status 418 Content-Type text/plain. Body: teapot"
+      },
+      "forge": {
+        "name": "DocumensoError",
+        "statusCode": 418,
+        "body": "teapot",
+        "message": "Status code: 418\nBody: \"teapot\""
+      }
+    },
+    "retry503:defaults": {
+      "speakeasy": {
+        "ok": false,
+        "attempts": 1
+      },
+      "forge": {
+        "ok": true,
+        "attempts": 2
+      }
+    },
+    "retry503:retries-enabled": {
+      "speakeasy": {
+        "ok": true,
+        "attempts": 2
+      },
+      "forge": {
+        "ok": true,
+        "attempts": 2
+      }
+    },
+    "responseMissingRequiredFields": {
+      "speakeasy": {
+        "name": "ResponseValidationError",
+        "statusCode": 200,
+        "body": "{\"id\":\"envelope_1\"}",
+        "message": "Response validation failed"
+      },
+      "forge": {
+        "name": "ParseError",
+        "body": null,
+        "message": "response: Missing required key \"internalVersion\"; response: Missing required key \"type\"; response: Missing required key \"status\"; response: Missing required key \"source\"; response: Missing required key \"visibility\"; response: Missing required key \"templateType\"; response: Missing required key \"secondaryId\"; response: Missing required key \"externalId\"; response: Missing required key \"createdAt\"; response: Missing required key \"updatedAt\"; response: Missing required key \"completedAt\"; response: Missing required key \"deletedAt\"; response: Missing required key \"title\"; response: Missing required key \"authOptions\"; response: Missing required key \"formValues\"; response: Missing required key \"publicTitle\"; response: Missing required key \"publicDescription\"; response: Missing required key \"userId\"; response: Missing required key \"teamId\"; response: Missing required key \"folderId\"; response: Missing required key \"templateId\"; response: Missing required key \"documentMeta\"; response: Missing required key \"recipients\"; response: Missing required key \"fields\"; response: Missing required key \"envelopeItems\"; response: Missing required key \"directLink\"; response: Missing required key \"team\"; response: Missing required key \"user\""
+      }
+    },
+    "invalidInput": {
+      "speakeasy": {
+        "name": "SDKValidationError",
+        "requestsSent": 0
+      },
+      "forge": "sent 1 request(s)"
+    },
+    "invalidBody": {
+      "speakeasy": {
+        "ok": false,
+        "name": "SDKValidationError",
+        "requestsSent": 0
+      },
+      "forge": {
+        "ok": false,
+        "name": "JsonError",
+        "requestsSent": 0
+      }
+    },
+    "apiKeyFromEnv": {
+      "speakeasy": {
+        "authHeader": "api_from_env"
+      },
+      "forge": {
+        "error": "DocumensoError",
+        "message": "Please provide 'apiKey' when initializing the client"
+      }
+    }
+  },
+  "results": [
+    {
+      "path": "envelopes.get",
+      "operationId": "envelope-get",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "envelopes.create",
+      "operationId": "envelope-create",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "envelopes.use",
+      "operationId": "envelope-use",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "envelopes.update",
+      "operationId": "envelope-update",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "envelopes.delete",
+      "operationId": "envelope-delete",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "envelopes.duplicate",
+      "operationId": "envelope-duplicate",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "envelopes.distribute",
+      "operationId": "envelope-distribute",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "envelopes.redistribute",
+      "operationId": "envelope-redistribute",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "envelopes.attachments.find",
+      "operationId": "envelope-attachment-find",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "envelopes.attachments.create",
+      "operationId": "envelope-attachment-create",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "envelopes.attachments.update",
+      "operationId": "envelope-attachment-update",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "envelopes.attachments.delete",
+      "operationId": "envelope-attachment-delete",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "envelopes.items.createMany",
+      "operationId": "envelope-item-createMany",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "envelopes.items.updateMany",
+      "operationId": "envelope-item-updateMany",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "envelopes.items.delete",
+      "operationId": "envelope-item-delete",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "envelopes.items.download",
+      "operationId": "envelope-item-download",
+      "download": true,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": false,
+      "speakeasy": {
+        "ok": false,
+        "error": {
+          "name": "APIError",
+          "statusCode": 200,
+          "body": "%PDF-1.7 fake",
+          "message": "Unexpected Status or Content-Type: Status 200 Content-Type application/pdf. Body: %PDF-1.7 fake"
+        }
+      },
+      "forge": {
+        "ok": true,
+        "value": {
+          "ok": false,
+          "error": {
+            "reason": "non-json",
+            "statusCode": 200,
+            "rawBody": "%PDF-1.7 fake"
+          }
+        }
+      }
+    },
+    {
+      "path": "envelopes.recipients.get",
+      "operationId": "envelope-recipient-get",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "envelopes.recipients.createMany",
+      "operationId": "envelope-recipient-createMany",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "envelopes.recipients.updateMany",
+      "operationId": "envelope-recipient-updateMany",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "envelopes.recipients.delete",
+      "operationId": "envelope-recipient-delete",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "envelopes.fields.get",
+      "operationId": "envelope-field-get",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "envelopes.fields.createMany",
+      "operationId": "envelope-field-createMany",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "envelopes.fields.updateMany",
+      "operationId": "envelope-field-updateMany",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "envelopes.fields.delete",
+      "operationId": "envelope-field-delete",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "envelopeRecipients.envelopeRecipientRejectOnBehalfOf",
+      "operationId": "envelope-recipient-rejectOnBehalfOf",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "envelope.envelopeFind",
+      "operationId": "envelope-find",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "envelope.envelopeAuditLogFind",
+      "operationId": "envelope-auditLog-find",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "envelope.envelopeAuditLogDownloadPdf",
+      "operationId": "envelope-auditLog-downloadPdf",
+      "download": true,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": false,
+      "speakeasy": {
+        "ok": false,
+        "error": {
+          "name": "APIError",
+          "statusCode": 200,
+          "body": "%PDF-1.7 fake",
+          "message": "Unexpected Status or Content-Type: Status 200 Content-Type application/pdf. Body: %PDF-1.7 fake"
+        }
+      },
+      "forge": {
+        "ok": true,
+        "value": {
+          "ok": false,
+          "error": {
+            "reason": "non-json",
+            "statusCode": 200,
+            "rawBody": "%PDF-1.7 fake"
+          }
+        }
+      }
+    },
+    {
+      "path": "envelope.envelopeCertificateDownloadPdf",
+      "operationId": "envelope-certificate-downloadPdf",
+      "download": true,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": false,
+      "speakeasy": {
+        "ok": false,
+        "error": {
+          "name": "APIError",
+          "statusCode": 200,
+          "body": "%PDF-1.7 fake",
+          "message": "Unexpected Status or Content-Type: Status 200 Content-Type application/pdf. Body: %PDF-1.7 fake"
+        }
+      },
+      "forge": {
+        "ok": true,
+        "value": {
+          "ok": false,
+          "error": {
+            "reason": "non-json",
+            "statusCode": 200,
+            "rawBody": "%PDF-1.7 fake"
+          }
+        }
+      }
+    },
+    {
+      "path": "envelope.envelopeGetMany",
+      "operationId": "envelope-getMany",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "envelope.envelopeCancel",
+      "operationId": "envelope-cancel",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "documents.get",
+      "operationId": "document-get",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "documents.find",
+      "operationId": "document-find",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "documents.create",
+      "operationId": "document-create",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "documents.update",
+      "operationId": "document-update",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "documents.delete",
+      "operationId": "document-delete",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "documents.duplicate",
+      "operationId": "document-duplicate",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "documents.distribute",
+      "operationId": "document-distribute",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "documents.redistribute",
+      "operationId": "document-redistribute",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "documents.download",
+      "operationId": "document-download",
+      "download": true,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": false,
+      "speakeasy": {
+        "ok": false,
+        "error": {
+          "name": "APIError",
+          "statusCode": 200,
+          "body": "%PDF-1.7 fake",
+          "message": "Unexpected Status or Content-Type: Status 200 Content-Type application/pdf. Body: %PDF-1.7 fake"
+        }
+      },
+      "forge": {
+        "ok": true,
+        "value": {
+          "ok": false,
+          "error": {
+            "reason": "non-json",
+            "statusCode": 200,
+            "rawBody": "%PDF-1.7 fake"
+          }
+        }
+      }
+    },
+    {
+      "path": "documents.createV0",
+      "operationId": "document-createDocumentTemporary",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "documents.attachments.create",
+      "operationId": "document-attachment-create",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "documents.attachments.update",
+      "operationId": "document-attachment-update",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "documents.attachments.delete",
+      "operationId": "document-attachment-delete",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "documents.attachments.find",
+      "operationId": "document-attachment-find",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "documents.fields.get",
+      "operationId": "field-getDocumentField",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "documents.fields.create",
+      "operationId": "field-createDocumentField",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "documents.fields.createMany",
+      "operationId": "field-createDocumentFields",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "documents.fields.update",
+      "operationId": "field-updateDocumentField",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "documents.fields.updateMany",
+      "operationId": "field-updateDocumentFields",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "documents.fields.delete",
+      "operationId": "field-deleteDocumentField",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "documents.recipients.get",
+      "operationId": "recipient-getDocumentRecipient",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "documents.recipients.create",
+      "operationId": "recipient-createDocumentRecipient",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "documents.recipients.createMany",
+      "operationId": "recipient-createDocumentRecipients",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "documents.recipients.update",
+      "operationId": "recipient-updateDocumentRecipient",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "documents.recipients.updateMany",
+      "operationId": "recipient-updateDocumentRecipients",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "documents.recipients.delete",
+      "operationId": "recipient-deleteDocumentRecipient",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "document.documentGetMany",
+      "operationId": "document-getMany",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "document.documentDownload",
+      "operationId": "document-downloadBeta",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "templates.find",
+      "operationId": "template-findTemplates",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "templates.get",
+      "operationId": "template-getTemplateById",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "templates.create",
+      "operationId": "template-createTemplate",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "templates.update",
+      "operationId": "template-updateTemplate",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "templates.duplicate",
+      "operationId": "template-duplicateTemplate",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "templates.delete",
+      "operationId": "template-deleteTemplate",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "templates.use",
+      "operationId": "template-createDocumentFromTemplate",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "templates.fields.create",
+      "operationId": "field-createTemplateField",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "templates.fields.get",
+      "operationId": "field-getTemplateField",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "templates.fields.createMany",
+      "operationId": "field-createTemplateFields",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "templates.fields.update",
+      "operationId": "field-updateTemplateField",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "templates.fields.updateMany",
+      "operationId": "field-updateTemplateFields",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "templates.fields.delete",
+      "operationId": "field-deleteTemplateField",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "templates.recipients.get",
+      "operationId": "recipient-getTemplateRecipient",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "templates.recipients.create",
+      "operationId": "recipient-createTemplateRecipient",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "templates.recipients.createMany",
+      "operationId": "recipient-createTemplateRecipients",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "templates.recipients.update",
+      "operationId": "recipient-updateTemplateRecipient",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "templates.recipients.updateMany",
+      "operationId": "recipient-updateTemplateRecipients",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "templates.recipients.delete",
+      "operationId": "recipient-deleteTemplateRecipient",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "templates.directLink.create",
+      "operationId": "template-createTemplateDirectLink",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "templates.directLink.delete",
+      "operationId": "template-deleteTemplateDirectLink",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "templates.directLink.toggle",
+      "operationId": "template-toggleTemplateDirectLink",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "folders.find",
+      "operationId": "folder-findFolders",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "folders.create",
+      "operationId": "folder-createFolder",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "folders.update",
+      "operationId": "folder-updateFolder",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "folders.delete",
+      "operationId": "folder-deleteFolder",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "template.templateGetMany",
+      "operationId": "template-getMany",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "template.templateCreateTemplateTemporary",
+      "operationId": "template-createTemplateTemporary",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "embedding.embeddingPresignCreateEmbeddingPresignToken",
+      "operationId": "embeddingPresign-createEmbeddingPresignToken",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    },
+    {
+      "path": "embedding.embeddingPresignVerifyEmbeddingPresignToken",
+      "operationId": "embeddingPresign-verifyEmbeddingPresignToken",
+      "download": false,
+      "requestMatches": true,
+      "headers": {
+        "userAgent": {
+          "speakeasy": "speakeasy-sdk/typescript 0.9.1 2.933.0 1.0.0 @documenso/sdk-typescript",
+          "forge": "node"
+        },
+        "extraHeaders": {
+          "speakeasy": [],
+          "forge": [
+            "x-fern-language",
+            "x-fern-runtime",
+            "x-fern-runtime-version"
+          ]
+        },
+        "accept": {
+          "speakeasy": "application/json",
+          "forge": "*/*"
+        }
+      },
+      "requestDiff": {},
+      "resultMatches": true,
+      "speakeasy": {
+        "ok": true
+      },
+      "forge": {
+        "ok": true
+      }
+    }
+  ]
+}

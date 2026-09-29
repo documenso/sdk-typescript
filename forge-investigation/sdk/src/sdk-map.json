@@ -1,0 +1,1363 @@
+{
+  "document-attachment-create": {
+    "accessor": [
+      "documents",
+      "attachments"
+    ],
+    "method": "create",
+    "httpMethod": "POST",
+    "path": "/document/attachment/create",
+    "requestType": "CreateAttachmentsRequest",
+    "responseType": "CreateAttachmentsResponse",
+    "requiredRequestProperties": [
+      "data",
+      "documentId"
+    ],
+    "numericRequestProperties": [
+      "documentId"
+    ]
+  },
+  "document-attachment-delete": {
+    "accessor": [
+      "documents",
+      "attachments"
+    ],
+    "method": "delete",
+    "httpMethod": "POST",
+    "path": "/document/attachment/delete",
+    "requestType": "DeleteAttachmentsRequest",
+    "responseType": "DeleteAttachmentsResponse",
+    "requiredRequestProperties": [
+      "id"
+    ]
+  },
+  "document-attachment-find": {
+    "accessor": [
+      "documents",
+      "attachments"
+    ],
+    "method": "find",
+    "httpMethod": "GET",
+    "path": "/document/attachment",
+    "requestType": "FindAttachmentsRequest",
+    "responseType": "FindAttachmentsResponse",
+    "requiredRequestProperties": [
+      "documentId"
+    ],
+    "numericRequestProperties": [
+      "documentId"
+    ]
+  },
+  "document-attachment-update": {
+    "accessor": [
+      "documents",
+      "attachments"
+    ],
+    "method": "update",
+    "httpMethod": "POST",
+    "path": "/document/attachment/update",
+    "requestType": "UpdateAttachmentsRequest",
+    "responseType": "UpdateAttachmentsResponse",
+    "requiredRequestProperties": [
+      "data",
+      "id"
+    ]
+  },
+  "document-create": {
+    "accessor": [
+      "documents"
+    ],
+    "method": "create",
+    "httpMethod": "POST",
+    "path": "/document/create",
+    "requestType": "CreateDocumentsRequest",
+    "responseType": "CreateDocumentsResponse",
+    "requiredRequestProperties": [
+      "file",
+      "payload"
+    ]
+  },
+  "document-createDocumentTemporary": {
+    "accessor": [
+      "documents"
+    ],
+    "method": "createV0",
+    "httpMethod": "POST",
+    "path": "/document/create/beta",
+    "requestType": "CreateV0DocumentsRequest",
+    "responseType": "CreateV0DocumentsResponse",
+    "requiredRequestProperties": [
+      "title"
+    ]
+  },
+  "document-delete": {
+    "accessor": [
+      "documents"
+    ],
+    "method": "delete",
+    "httpMethod": "POST",
+    "path": "/document/delete",
+    "requestType": "DeleteDocumentsRequest",
+    "responseType": "DeleteDocumentsResponse",
+    "requiredRequestProperties": [
+      "documentId"
+    ],
+    "numericRequestProperties": [
+      "documentId"
+    ]
+  },
+  "document-distribute": {
+    "accessor": [
+      "documents"
+    ],
+    "method": "distribute",
+    "httpMethod": "POST",
+    "path": "/document/distribute",
+    "requestType": "DistributeDocumentsRequest",
+    "responseType": "DistributeDocumentsResponse",
+    "requiredRequestProperties": [
+      "documentId"
+    ],
+    "numericRequestProperties": [
+      "documentId"
+    ]
+  },
+  "document-download": {
+    "accessor": [
+      "documents"
+    ],
+    "method": "download",
+    "httpMethod": "GET",
+    "path": "/document/{documentId}/download",
+    "requestType": "DownloadDocumentsRequest",
+    "requiredRequestProperties": [
+      "documentId"
+    ],
+    "numericRequestProperties": [
+      "documentId"
+    ]
+  },
+  "document-downloadBeta": {
+    "accessor": [
+      "document"
+    ],
+    "method": "documentDownload",
+    "httpMethod": "GET",
+    "path": "/document/{documentId}/download-beta",
+    "requestType": "DocumentDownloadDocumentRequest",
+    "responseType": "DocumentDownloadDocumentResponse",
+    "requiredRequestProperties": [
+      "documentId"
+    ],
+    "numericRequestProperties": [
+      "documentId"
+    ]
+  },
+  "document-duplicate": {
+    "accessor": [
+      "documents"
+    ],
+    "method": "duplicate",
+    "httpMethod": "POST",
+    "path": "/document/duplicate",
+    "requestType": "DuplicateDocumentsRequest",
+    "responseType": "DuplicateDocumentsResponse",
+    "requiredRequestProperties": [
+      "documentId"
+    ],
+    "numericRequestProperties": [
+      "documentId"
+    ]
+  },
+  "document-find": {
+    "accessor": [
+      "documents"
+    ],
+    "method": "find",
+    "httpMethod": "GET",
+    "path": "/document",
+    "requestType": "FindDocumentsRequest",
+    "responseType": "FindDocumentsResponse"
+  },
+  "document-get": {
+    "accessor": [
+      "documents"
+    ],
+    "method": "get",
+    "httpMethod": "GET",
+    "path": "/document/{documentId}",
+    "requestType": "GetDocumentsRequest",
+    "responseType": "GetDocumentsResponse",
+    "requiredRequestProperties": [
+      "documentId"
+    ],
+    "numericRequestProperties": [
+      "documentId"
+    ]
+  },
+  "document-getMany": {
+    "accessor": [
+      "document"
+    ],
+    "method": "documentGetMany",
+    "httpMethod": "POST",
+    "path": "/document/get-many",
+    "requestType": "DocumentGetManyDocumentRequest",
+    "responseType": "DocumentGetManyDocumentResponse",
+    "requiredRequestProperties": [
+      "documentIds"
+    ]
+  },
+  "document-redistribute": {
+    "accessor": [
+      "documents"
+    ],
+    "method": "redistribute",
+    "httpMethod": "POST",
+    "path": "/document/redistribute",
+    "requestType": "RedistributeDocumentsRequest",
+    "responseType": "RedistributeDocumentsResponse",
+    "requiredRequestProperties": [
+      "documentId",
+      "recipients"
+    ],
+    "numericRequestProperties": [
+      "documentId"
+    ]
+  },
+  "document-update": {
+    "accessor": [
+      "documents"
+    ],
+    "method": "update",
+    "httpMethod": "POST",
+    "path": "/document/update",
+    "requestType": "UpdateDocumentsRequest",
+    "responseType": "UpdateDocumentsResponse",
+    "requiredRequestProperties": [
+      "documentId"
+    ],
+    "numericRequestProperties": [
+      "documentId"
+    ]
+  },
+  "embeddingPresign-createEmbeddingPresignToken": {
+    "accessor": [
+      "embedding"
+    ],
+    "method": "embeddingPresignCreateEmbeddingPresignToken",
+    "httpMethod": "POST",
+    "path": "/embedding/create-presign-token",
+    "requestType": "EmbeddingPresignCreateEmbeddingPresignTokenEmbeddingRequest",
+    "responseType": "EmbeddingPresignCreateEmbeddingPresignTokenEmbeddingResponse"
+  },
+  "embeddingPresign-verifyEmbeddingPresignToken": {
+    "accessor": [
+      "embedding"
+    ],
+    "method": "embeddingPresignVerifyEmbeddingPresignToken",
+    "httpMethod": "POST",
+    "path": "/embedding/verify-presign-token",
+    "requestType": "EmbeddingPresignVerifyEmbeddingPresignTokenEmbeddingRequest",
+    "responseType": "EmbeddingPresignVerifyEmbeddingPresignTokenEmbeddingResponse",
+    "requiredRequestProperties": [
+      "token"
+    ]
+  },
+  "envelope-attachment-create": {
+    "accessor": [
+      "envelopes",
+      "attachments"
+    ],
+    "method": "create",
+    "httpMethod": "POST",
+    "path": "/envelope/attachment/create",
+    "requestType": "CreateAttachmentsRequest",
+    "responseType": "CreateAttachmentsResponse",
+    "requiredRequestProperties": [
+      "data",
+      "envelopeId"
+    ]
+  },
+  "envelope-attachment-delete": {
+    "accessor": [
+      "envelopes",
+      "attachments"
+    ],
+    "method": "delete",
+    "httpMethod": "POST",
+    "path": "/envelope/attachment/delete",
+    "requestType": "DeleteAttachmentsRequest",
+    "responseType": "DeleteAttachmentsResponse",
+    "requiredRequestProperties": [
+      "id"
+    ]
+  },
+  "envelope-attachment-find": {
+    "accessor": [
+      "envelopes",
+      "attachments"
+    ],
+    "method": "find",
+    "httpMethod": "GET",
+    "path": "/envelope/attachment",
+    "requestType": "FindAttachmentsRequest",
+    "responseType": "FindAttachmentsResponse",
+    "requiredRequestProperties": [
+      "envelopeId"
+    ]
+  },
+  "envelope-attachment-update": {
+    "accessor": [
+      "envelopes",
+      "attachments"
+    ],
+    "method": "update",
+    "httpMethod": "POST",
+    "path": "/envelope/attachment/update",
+    "requestType": "UpdateAttachmentsRequest",
+    "responseType": "UpdateAttachmentsResponse",
+    "requiredRequestProperties": [
+      "data",
+      "id"
+    ]
+  },
+  "envelope-auditLog-downloadPdf": {
+    "accessor": [
+      "envelope"
+    ],
+    "method": "envelopeAuditLogDownloadPdf",
+    "httpMethod": "GET",
+    "path": "/envelope/{envelopeId}/audit-log/download",
+    "requestType": "EnvelopeAuditLogDownloadPdfEnvelopeRequest",
+    "requiredRequestProperties": [
+      "envelopeId"
+    ]
+  },
+  "envelope-auditLog-find": {
+    "accessor": [
+      "envelope"
+    ],
+    "method": "envelopeAuditLogFind",
+    "httpMethod": "GET",
+    "path": "/envelope/{envelopeId}/audit-log",
+    "requestType": "EnvelopeAuditLogFindEnvelopeRequest",
+    "responseType": "EnvelopeAuditLogFindEnvelopeResponse",
+    "requiredRequestProperties": [
+      "envelopeId"
+    ]
+  },
+  "envelope-cancel": {
+    "accessor": [
+      "envelope"
+    ],
+    "method": "envelopeCancel",
+    "httpMethod": "POST",
+    "path": "/envelope/cancel",
+    "requestType": "EnvelopeCancelEnvelopeRequest",
+    "responseType": "EnvelopeCancelEnvelopeResponse",
+    "requiredRequestProperties": [
+      "envelopeId"
+    ]
+  },
+  "envelope-certificate-downloadPdf": {
+    "accessor": [
+      "envelope"
+    ],
+    "method": "envelopeCertificateDownloadPdf",
+    "httpMethod": "GET",
+    "path": "/envelope/{envelopeId}/certificate/download",
+    "requestType": "EnvelopeCertificateDownloadPdfEnvelopeRequest",
+    "requiredRequestProperties": [
+      "envelopeId"
+    ]
+  },
+  "envelope-create": {
+    "accessor": [
+      "envelopes"
+    ],
+    "method": "create",
+    "httpMethod": "POST",
+    "path": "/envelope/create",
+    "requestType": "CreateEnvelopesRequest",
+    "responseType": "CreateEnvelopesResponse",
+    "requiredRequestProperties": [
+      "payload"
+    ]
+  },
+  "envelope-delete": {
+    "accessor": [
+      "envelopes"
+    ],
+    "method": "delete",
+    "httpMethod": "POST",
+    "path": "/envelope/delete",
+    "requestType": "DeleteEnvelopesRequest",
+    "responseType": "DeleteEnvelopesResponse",
+    "requiredRequestProperties": [
+      "envelopeId"
+    ]
+  },
+  "envelope-distribute": {
+    "accessor": [
+      "envelopes"
+    ],
+    "method": "distribute",
+    "httpMethod": "POST",
+    "path": "/envelope/distribute",
+    "requestType": "DistributeEnvelopesRequest",
+    "responseType": "DistributeEnvelopesResponse",
+    "requiredRequestProperties": [
+      "envelopeId"
+    ]
+  },
+  "envelope-duplicate": {
+    "accessor": [
+      "envelopes"
+    ],
+    "method": "duplicate",
+    "httpMethod": "POST",
+    "path": "/envelope/duplicate",
+    "requestType": "DuplicateEnvelopesRequest",
+    "responseType": "DuplicateEnvelopesResponse",
+    "requiredRequestProperties": [
+      "envelopeId"
+    ]
+  },
+  "envelope-field-createMany": {
+    "accessor": [
+      "envelopes",
+      "fields"
+    ],
+    "method": "createMany",
+    "httpMethod": "POST",
+    "path": "/envelope/field/create-many",
+    "requestType": "CreateManyFieldsRequest",
+    "responseType": "CreateManyFieldsResponse",
+    "requiredRequestProperties": [
+      "data",
+      "envelopeId"
+    ]
+  },
+  "envelope-field-delete": {
+    "accessor": [
+      "envelopes",
+      "fields"
+    ],
+    "method": "delete",
+    "httpMethod": "POST",
+    "path": "/envelope/field/delete",
+    "requestType": "DeleteFieldsRequest",
+    "responseType": "DeleteFieldsResponse",
+    "requiredRequestProperties": [
+      "fieldId"
+    ],
+    "numericRequestProperties": [
+      "fieldId"
+    ]
+  },
+  "envelope-field-get": {
+    "accessor": [
+      "envelopes",
+      "fields"
+    ],
+    "method": "get",
+    "httpMethod": "GET",
+    "path": "/envelope/field/{fieldId}",
+    "requestType": "GetFieldsRequest",
+    "responseType": "GetFieldsResponse",
+    "requiredRequestProperties": [
+      "fieldId"
+    ],
+    "numericRequestProperties": [
+      "fieldId"
+    ]
+  },
+  "envelope-field-updateMany": {
+    "accessor": [
+      "envelopes",
+      "fields"
+    ],
+    "method": "updateMany",
+    "httpMethod": "POST",
+    "path": "/envelope/field/update-many",
+    "requestType": "UpdateManyFieldsRequest",
+    "responseType": "UpdateManyFieldsResponse",
+    "requiredRequestProperties": [
+      "data",
+      "envelopeId"
+    ]
+  },
+  "envelope-find": {
+    "accessor": [
+      "envelope"
+    ],
+    "method": "envelopeFind",
+    "httpMethod": "GET",
+    "path": "/envelope",
+    "requestType": "EnvelopeFindEnvelopeRequest",
+    "responseType": "EnvelopeFindEnvelopeResponse"
+  },
+  "envelope-get": {
+    "accessor": [
+      "envelopes"
+    ],
+    "method": "get",
+    "httpMethod": "GET",
+    "path": "/envelope/{envelopeId}",
+    "requestType": "GetEnvelopesRequest",
+    "responseType": "GetEnvelopesResponse",
+    "requiredRequestProperties": [
+      "envelopeId"
+    ]
+  },
+  "envelope-getMany": {
+    "accessor": [
+      "envelope"
+    ],
+    "method": "envelopeGetMany",
+    "httpMethod": "POST",
+    "path": "/envelope/get-many",
+    "requestType": "EnvelopeGetManyEnvelopeRequest",
+    "responseType": "EnvelopeGetManyEnvelopeResponse",
+    "requiredRequestProperties": [
+      "ids"
+    ]
+  },
+  "envelope-item-createMany": {
+    "accessor": [
+      "envelopes",
+      "items"
+    ],
+    "method": "createMany",
+    "httpMethod": "POST",
+    "path": "/envelope/item/create-many",
+    "requestType": "CreateManyItemsRequest",
+    "responseType": "CreateManyItemsResponse",
+    "requiredRequestProperties": [
+      "payload"
+    ]
+  },
+  "envelope-item-delete": {
+    "accessor": [
+      "envelopes",
+      "items"
+    ],
+    "method": "delete",
+    "httpMethod": "POST",
+    "path": "/envelope/item/delete",
+    "requestType": "DeleteItemsRequest",
+    "responseType": "DeleteItemsResponse",
+    "requiredRequestProperties": [
+      "envelopeId",
+      "envelopeItemId"
+    ]
+  },
+  "envelope-item-download": {
+    "accessor": [
+      "envelopes",
+      "items"
+    ],
+    "method": "download",
+    "httpMethod": "GET",
+    "path": "/envelope/item/{envelopeItemId}/download",
+    "requestType": "DownloadItemsRequest",
+    "requiredRequestProperties": [
+      "envelopeItemId"
+    ]
+  },
+  "envelope-item-updateMany": {
+    "accessor": [
+      "envelopes",
+      "items"
+    ],
+    "method": "updateMany",
+    "httpMethod": "POST",
+    "path": "/envelope/item/update-many",
+    "requestType": "UpdateManyItemsRequest",
+    "responseType": "UpdateManyItemsResponse",
+    "requiredRequestProperties": [
+      "data",
+      "envelopeId"
+    ]
+  },
+  "envelope-recipient-createMany": {
+    "accessor": [
+      "envelopes",
+      "recipients"
+    ],
+    "method": "createMany",
+    "httpMethod": "POST",
+    "path": "/envelope/recipient/create-many",
+    "requestType": "CreateManyRecipientsRequest",
+    "responseType": "CreateManyRecipientsResponse",
+    "requiredRequestProperties": [
+      "data",
+      "envelopeId"
+    ]
+  },
+  "envelope-recipient-delete": {
+    "accessor": [
+      "envelopes",
+      "recipients"
+    ],
+    "method": "delete",
+    "httpMethod": "POST",
+    "path": "/envelope/recipient/delete",
+    "requestType": "DeleteRecipientsRequest",
+    "responseType": "DeleteRecipientsResponse",
+    "requiredRequestProperties": [
+      "recipientId"
+    ],
+    "numericRequestProperties": [
+      "recipientId"
+    ]
+  },
+  "envelope-recipient-get": {
+    "accessor": [
+      "envelopes",
+      "recipients"
+    ],
+    "method": "get",
+    "httpMethod": "GET",
+    "path": "/envelope/recipient/{recipientId}",
+    "requestType": "GetRecipientsRequest",
+    "responseType": "GetRecipientsResponse",
+    "requiredRequestProperties": [
+      "recipientId"
+    ],
+    "numericRequestProperties": [
+      "recipientId"
+    ]
+  },
+  "envelope-recipient-rejectOnBehalfOf": {
+    "accessor": [
+      "envelopeRecipients"
+    ],
+    "method": "envelopeRecipientRejectOnBehalfOf",
+    "httpMethod": "POST",
+    "path": "/envelope/recipient/{recipientId}/reject",
+    "requestType": "EnvelopeRecipientRejectOnBehalfOfEnvelopeRecipientsRequest",
+    "responseType": "EnvelopeRecipientRejectOnBehalfOfEnvelopeRecipientsResponse",
+    "requiredRequestProperties": [
+      "envelopeId",
+      "reason",
+      "recipientId"
+    ],
+    "numericRequestProperties": [
+      "recipientId"
+    ]
+  },
+  "envelope-recipient-updateMany": {
+    "accessor": [
+      "envelopes",
+      "recipients"
+    ],
+    "method": "updateMany",
+    "httpMethod": "POST",
+    "path": "/envelope/recipient/update-many",
+    "requestType": "UpdateManyRecipientsRequest",
+    "responseType": "UpdateManyRecipientsResponse",
+    "requiredRequestProperties": [
+      "data",
+      "envelopeId"
+    ]
+  },
+  "envelope-redistribute": {
+    "accessor": [
+      "envelopes"
+    ],
+    "method": "redistribute",
+    "httpMethod": "POST",
+    "path": "/envelope/redistribute",
+    "requestType": "RedistributeEnvelopesRequest",
+    "responseType": "RedistributeEnvelopesResponse",
+    "requiredRequestProperties": [
+      "envelopeId",
+      "recipients"
+    ]
+  },
+  "envelope-update": {
+    "accessor": [
+      "envelopes"
+    ],
+    "method": "update",
+    "httpMethod": "POST",
+    "path": "/envelope/update",
+    "requestType": "UpdateEnvelopesRequest",
+    "responseType": "UpdateEnvelopesResponse",
+    "requiredRequestProperties": [
+      "envelopeId"
+    ]
+  },
+  "envelope-use": {
+    "accessor": [
+      "envelopes"
+    ],
+    "method": "use",
+    "httpMethod": "POST",
+    "path": "/envelope/use",
+    "requestType": "UseEnvelopesRequest",
+    "responseType": "UseEnvelopesResponse",
+    "requiredRequestProperties": [
+      "payload"
+    ]
+  },
+  "field-createDocumentField": {
+    "accessor": [
+      "documents",
+      "fields"
+    ],
+    "method": "create",
+    "httpMethod": "POST",
+    "path": "/document/field/create",
+    "requestType": "CreateFieldsRequest",
+    "responseType": "CreateFieldsResponse",
+    "requiredRequestProperties": [
+      "documentId",
+      "field"
+    ],
+    "numericRequestProperties": [
+      "documentId"
+    ]
+  },
+  "field-createDocumentFields": {
+    "accessor": [
+      "documents",
+      "fields"
+    ],
+    "method": "createMany",
+    "httpMethod": "POST",
+    "path": "/document/field/create-many",
+    "requestType": "CreateManyFieldsRequest",
+    "responseType": "CreateManyFieldsResponse",
+    "requiredRequestProperties": [
+      "documentId",
+      "fields"
+    ],
+    "numericRequestProperties": [
+      "documentId"
+    ]
+  },
+  "field-createTemplateField": {
+    "accessor": [
+      "templates",
+      "fields"
+    ],
+    "method": "create",
+    "httpMethod": "POST",
+    "path": "/template/field/create",
+    "requestType": "CreateFieldsRequest",
+    "responseType": "CreateFieldsResponse",
+    "requiredRequestProperties": [
+      "field",
+      "templateId"
+    ],
+    "numericRequestProperties": [
+      "templateId"
+    ]
+  },
+  "field-createTemplateFields": {
+    "accessor": [
+      "templates",
+      "fields"
+    ],
+    "method": "createMany",
+    "httpMethod": "POST",
+    "path": "/template/field/create-many",
+    "requestType": "CreateManyFieldsRequest",
+    "responseType": "CreateManyFieldsResponse",
+    "requiredRequestProperties": [
+      "fields",
+      "templateId"
+    ],
+    "numericRequestProperties": [
+      "templateId"
+    ]
+  },
+  "field-deleteDocumentField": {
+    "accessor": [
+      "documents",
+      "fields"
+    ],
+    "method": "delete",
+    "httpMethod": "POST",
+    "path": "/document/field/delete",
+    "requestType": "DeleteFieldsRequest",
+    "responseType": "DeleteFieldsResponse",
+    "requiredRequestProperties": [
+      "fieldId"
+    ],
+    "numericRequestProperties": [
+      "fieldId"
+    ]
+  },
+  "field-deleteTemplateField": {
+    "accessor": [
+      "templates",
+      "fields"
+    ],
+    "method": "delete",
+    "httpMethod": "POST",
+    "path": "/template/field/delete",
+    "requestType": "DeleteFieldsRequest",
+    "responseType": "DeleteFieldsResponse",
+    "requiredRequestProperties": [
+      "fieldId"
+    ],
+    "numericRequestProperties": [
+      "fieldId"
+    ]
+  },
+  "field-getDocumentField": {
+    "accessor": [
+      "documents",
+      "fields"
+    ],
+    "method": "get",
+    "httpMethod": "GET",
+    "path": "/document/field/{fieldId}",
+    "requestType": "GetFieldsRequest",
+    "responseType": "GetFieldsResponse",
+    "requiredRequestProperties": [
+      "fieldId"
+    ],
+    "numericRequestProperties": [
+      "fieldId"
+    ]
+  },
+  "field-getTemplateField": {
+    "accessor": [
+      "templates",
+      "fields"
+    ],
+    "method": "get",
+    "httpMethod": "GET",
+    "path": "/template/field/{fieldId}",
+    "requestType": "GetFieldsRequest",
+    "responseType": "GetFieldsResponse",
+    "requiredRequestProperties": [
+      "fieldId"
+    ],
+    "numericRequestProperties": [
+      "fieldId"
+    ]
+  },
+  "field-updateDocumentField": {
+    "accessor": [
+      "documents",
+      "fields"
+    ],
+    "method": "update",
+    "httpMethod": "POST",
+    "path": "/document/field/update",
+    "requestType": "UpdateFieldsRequest",
+    "responseType": "UpdateFieldsResponse",
+    "requiredRequestProperties": [
+      "documentId",
+      "field"
+    ],
+    "numericRequestProperties": [
+      "documentId"
+    ]
+  },
+  "field-updateDocumentFields": {
+    "accessor": [
+      "documents",
+      "fields"
+    ],
+    "method": "updateMany",
+    "httpMethod": "POST",
+    "path": "/document/field/update-many",
+    "requestType": "UpdateManyFieldsRequest",
+    "responseType": "UpdateManyFieldsResponse",
+    "requiredRequestProperties": [
+      "documentId",
+      "fields"
+    ],
+    "numericRequestProperties": [
+      "documentId"
+    ]
+  },
+  "field-updateTemplateField": {
+    "accessor": [
+      "templates",
+      "fields"
+    ],
+    "method": "update",
+    "httpMethod": "POST",
+    "path": "/template/field/update",
+    "requestType": "UpdateFieldsRequest",
+    "responseType": "UpdateFieldsResponse",
+    "requiredRequestProperties": [
+      "field",
+      "templateId"
+    ],
+    "numericRequestProperties": [
+      "templateId"
+    ]
+  },
+  "field-updateTemplateFields": {
+    "accessor": [
+      "templates",
+      "fields"
+    ],
+    "method": "updateMany",
+    "httpMethod": "POST",
+    "path": "/template/field/update-many",
+    "requestType": "UpdateManyFieldsRequest",
+    "responseType": "UpdateManyFieldsResponse",
+    "requiredRequestProperties": [
+      "fields",
+      "templateId"
+    ],
+    "numericRequestProperties": [
+      "templateId"
+    ]
+  },
+  "folder-createFolder": {
+    "accessor": [
+      "folders"
+    ],
+    "method": "create",
+    "httpMethod": "POST",
+    "path": "/folder/create",
+    "requestType": "CreateFoldersRequest",
+    "responseType": "CreateFoldersResponse",
+    "requiredRequestProperties": [
+      "name"
+    ]
+  },
+  "folder-deleteFolder": {
+    "accessor": [
+      "folders"
+    ],
+    "method": "delete",
+    "httpMethod": "POST",
+    "path": "/folder/delete",
+    "requestType": "DeleteFoldersRequest",
+    "responseType": "DeleteFoldersResponse",
+    "requiredRequestProperties": [
+      "folderId"
+    ]
+  },
+  "folder-findFolders": {
+    "accessor": [
+      "folders"
+    ],
+    "method": "find",
+    "httpMethod": "GET",
+    "path": "/folder",
+    "requestType": "FindFoldersRequest",
+    "responseType": "FindFoldersResponse"
+  },
+  "folder-updateFolder": {
+    "accessor": [
+      "folders"
+    ],
+    "method": "update",
+    "httpMethod": "POST",
+    "path": "/folder/update",
+    "requestType": "UpdateFoldersRequest",
+    "responseType": "UpdateFoldersResponse",
+    "requiredRequestProperties": [
+      "data",
+      "folderId"
+    ]
+  },
+  "recipient-createDocumentRecipient": {
+    "accessor": [
+      "documents",
+      "recipients"
+    ],
+    "method": "create",
+    "httpMethod": "POST",
+    "path": "/document/recipient/create",
+    "requestType": "CreateRecipientsRequest",
+    "responseType": "CreateRecipientsResponse",
+    "requiredRequestProperties": [
+      "documentId",
+      "recipient"
+    ],
+    "numericRequestProperties": [
+      "documentId"
+    ]
+  },
+  "recipient-createDocumentRecipients": {
+    "accessor": [
+      "documents",
+      "recipients"
+    ],
+    "method": "createMany",
+    "httpMethod": "POST",
+    "path": "/document/recipient/create-many",
+    "requestType": "CreateManyRecipientsRequest",
+    "responseType": "CreateManyRecipientsResponse",
+    "requiredRequestProperties": [
+      "documentId",
+      "recipients"
+    ],
+    "numericRequestProperties": [
+      "documentId"
+    ]
+  },
+  "recipient-createTemplateRecipient": {
+    "accessor": [
+      "templates",
+      "recipients"
+    ],
+    "method": "create",
+    "httpMethod": "POST",
+    "path": "/template/recipient/create",
+    "requestType": "CreateRecipientsRequest",
+    "responseType": "CreateRecipientsResponse",
+    "requiredRequestProperties": [
+      "recipient",
+      "templateId"
+    ],
+    "numericRequestProperties": [
+      "templateId"
+    ]
+  },
+  "recipient-createTemplateRecipients": {
+    "accessor": [
+      "templates",
+      "recipients"
+    ],
+    "method": "createMany",
+    "httpMethod": "POST",
+    "path": "/template/recipient/create-many",
+    "requestType": "CreateManyRecipientsRequest",
+    "responseType": "CreateManyRecipientsResponse",
+    "requiredRequestProperties": [
+      "recipients",
+      "templateId"
+    ],
+    "numericRequestProperties": [
+      "templateId"
+    ]
+  },
+  "recipient-deleteDocumentRecipient": {
+    "accessor": [
+      "documents",
+      "recipients"
+    ],
+    "method": "delete",
+    "httpMethod": "POST",
+    "path": "/document/recipient/delete",
+    "requestType": "DeleteRecipientsRequest",
+    "responseType": "DeleteRecipientsResponse",
+    "requiredRequestProperties": [
+      "recipientId"
+    ],
+    "numericRequestProperties": [
+      "recipientId"
+    ]
+  },
+  "recipient-deleteTemplateRecipient": {
+    "accessor": [
+      "templates",
+      "recipients"
+    ],
+    "method": "delete",
+    "httpMethod": "POST",
+    "path": "/template/recipient/delete",
+    "requestType": "DeleteRecipientsRequest",
+    "responseType": "DeleteRecipientsResponse",
+    "requiredRequestProperties": [
+      "recipientId"
+    ],
+    "numericRequestProperties": [
+      "recipientId"
+    ]
+  },
+  "recipient-getDocumentRecipient": {
+    "accessor": [
+      "documents",
+      "recipients"
+    ],
+    "method": "get",
+    "httpMethod": "GET",
+    "path": "/document/recipient/{recipientId}",
+    "requestType": "GetRecipientsRequest",
+    "responseType": "GetRecipientsResponse",
+    "requiredRequestProperties": [
+      "recipientId"
+    ],
+    "numericRequestProperties": [
+      "recipientId"
+    ]
+  },
+  "recipient-getTemplateRecipient": {
+    "accessor": [
+      "templates",
+      "recipients"
+    ],
+    "method": "get",
+    "httpMethod": "GET",
+    "path": "/template/recipient/{recipientId}",
+    "requestType": "GetRecipientsRequest",
+    "responseType": "GetRecipientsResponse",
+    "requiredRequestProperties": [
+      "recipientId"
+    ],
+    "numericRequestProperties": [
+      "recipientId"
+    ]
+  },
+  "recipient-updateDocumentRecipient": {
+    "accessor": [
+      "documents",
+      "recipients"
+    ],
+    "method": "update",
+    "httpMethod": "POST",
+    "path": "/document/recipient/update",
+    "requestType": "UpdateRecipientsRequest",
+    "responseType": "UpdateRecipientsResponse",
+    "requiredRequestProperties": [
+      "documentId",
+      "recipient"
+    ],
+    "numericRequestProperties": [
+      "documentId"
+    ]
+  },
+  "recipient-updateDocumentRecipients": {
+    "accessor": [
+      "documents",
+      "recipients"
+    ],
+    "method": "updateMany",
+    "httpMethod": "POST",
+    "path": "/document/recipient/update-many",
+    "requestType": "UpdateManyRecipientsRequest",
+    "responseType": "UpdateManyRecipientsResponse",
+    "requiredRequestProperties": [
+      "documentId",
+      "recipients"
+    ],
+    "numericRequestProperties": [
+      "documentId"
+    ]
+  },
+  "recipient-updateTemplateRecipient": {
+    "accessor": [
+      "templates",
+      "recipients"
+    ],
+    "method": "update",
+    "httpMethod": "POST",
+    "path": "/template/recipient/update",
+    "requestType": "UpdateRecipientsRequest",
+    "responseType": "UpdateRecipientsResponse",
+    "requiredRequestProperties": [
+      "recipient",
+      "templateId"
+    ],
+    "numericRequestProperties": [
+      "templateId"
+    ]
+  },
+  "recipient-updateTemplateRecipients": {
+    "accessor": [
+      "templates",
+      "recipients"
+    ],
+    "method": "updateMany",
+    "httpMethod": "POST",
+    "path": "/template/recipient/update-many",
+    "requestType": "UpdateManyRecipientsRequest",
+    "responseType": "UpdateManyRecipientsResponse",
+    "requiredRequestProperties": [
+      "recipients",
+      "templateId"
+    ],
+    "numericRequestProperties": [
+      "templateId"
+    ]
+  },
+  "template-createDocumentFromTemplate": {
+    "accessor": [
+      "templates"
+    ],
+    "method": "use",
+    "httpMethod": "POST",
+    "path": "/template/use",
+    "requestType": "UseTemplatesRequest",
+    "responseType": "UseTemplatesResponse",
+    "requiredRequestProperties": [
+      "recipients",
+      "templateId"
+    ],
+    "numericRequestProperties": [
+      "templateId"
+    ]
+  },
+  "template-createTemplate": {
+    "accessor": [
+      "templates"
+    ],
+    "method": "create",
+    "httpMethod": "POST",
+    "path": "/template/create",
+    "requestType": "CreateTemplatesRequest",
+    "responseType": "CreateTemplatesResponse",
+    "requiredRequestProperties": [
+      "file",
+      "payload"
+    ]
+  },
+  "template-createTemplateDirectLink": {
+    "accessor": [
+      "templates",
+      "directLink"
+    ],
+    "method": "create",
+    "httpMethod": "POST",
+    "path": "/template/direct/create",
+    "requestType": "CreateDirectLinkRequest",
+    "responseType": "CreateDirectLinkResponse",
+    "requiredRequestProperties": [
+      "templateId"
+    ],
+    "numericRequestProperties": [
+      "templateId"
+    ]
+  },
+  "template-createTemplateTemporary": {
+    "accessor": [
+      "template"
+    ],
+    "method": "templateCreateTemplateTemporary",
+    "httpMethod": "POST",
+    "path": "/template/create/beta",
+    "requestType": "TemplateCreateTemplateTemporaryTemplateRequest",
+    "responseType": "TemplateCreateTemplateTemporaryTemplateResponse",
+    "requiredRequestProperties": [
+      "title"
+    ]
+  },
+  "template-deleteTemplate": {
+    "accessor": [
+      "templates"
+    ],
+    "method": "delete",
+    "httpMethod": "POST",
+    "path": "/template/delete",
+    "requestType": "DeleteTemplatesRequest",
+    "responseType": "DeleteTemplatesResponse",
+    "requiredRequestProperties": [
+      "templateId"
+    ],
+    "numericRequestProperties": [
+      "templateId"
+    ]
+  },
+  "template-deleteTemplateDirectLink": {
+    "accessor": [
+      "templates",
+      "directLink"
+    ],
+    "method": "delete",
+    "httpMethod": "POST",
+    "path": "/template/direct/delete",
+    "requestType": "DeleteDirectLinkRequest",
+    "responseType": "DeleteDirectLinkResponse",
+    "requiredRequestProperties": [
+      "templateId"
+    ],
+    "numericRequestProperties": [
+      "templateId"
+    ]
+  },
+  "template-duplicateTemplate": {
+    "accessor": [
+      "templates"
+    ],
+    "method": "duplicate",
+    "httpMethod": "POST",
+    "path": "/template/duplicate",
+    "requestType": "DuplicateTemplatesRequest",
+    "responseType": "DuplicateTemplatesResponse",
+    "requiredRequestProperties": [
+      "templateId"
+    ],
+    "numericRequestProperties": [
+      "templateId"
+    ]
+  },
+  "template-findTemplates": {
+    "accessor": [
+      "templates"
+    ],
+    "method": "find",
+    "httpMethod": "GET",
+    "path": "/template",
+    "requestType": "FindTemplatesRequest",
+    "responseType": "FindTemplatesResponse"
+  },
+  "template-getMany": {
+    "accessor": [
+      "template"
+    ],
+    "method": "templateGetMany",
+    "httpMethod": "POST",
+    "path": "/template/get-many",
+    "requestType": "TemplateGetManyTemplateRequest",
+    "responseType": "TemplateGetManyTemplateResponse",
+    "requiredRequestProperties": [
+      "templateIds"
+    ]
+  },
+  "template-getTemplateById": {
+    "accessor": [
+      "templates"
+    ],
+    "method": "get",
+    "httpMethod": "GET",
+    "path": "/template/{templateId}",
+    "requestType": "GetTemplatesRequest",
+    "responseType": "GetTemplatesResponse",
+    "requiredRequestProperties": [
+      "templateId"
+    ],
+    "numericRequestProperties": [
+      "templateId"
+    ]
+  },
+  "template-toggleTemplateDirectLink": {
+    "accessor": [
+      "templates",
+      "directLink"
+    ],
+    "method": "toggle",
+    "httpMethod": "POST",
+    "path": "/template/direct/toggle",
+    "requestType": "ToggleDirectLinkRequest",
+    "responseType": "ToggleDirectLinkResponse",
+    "requiredRequestProperties": [
+      "enabled",
+      "templateId"
+    ],
+    "numericRequestProperties": [
+      "templateId"
+    ]
+  },
+  "template-updateTemplate": {
+    "accessor": [
+      "templates"
+    ],
+    "method": "update",
+    "httpMethod": "POST",
+    "path": "/template/update",
+    "requestType": "UpdateTemplatesRequest",
+    "responseType": "UpdateTemplatesResponse",
+    "requiredRequestProperties": [
+      "templateId"
+    ],
+    "numericRequestProperties": [
+      "templateId"
+    ]
+  }
+}

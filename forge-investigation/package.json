@@ -1,0 +1,10 @@
+{
+  "name": "documenso-forge-investigation",
+  "private": true,
+  "type": "module",
+  "description": "Tooling used to evaluate cloudflare/forge as a replacement for Speakeasy",
+  "dependencies": {
+    "jsonpath-plus": "^10.3.0",
+    "yaml": "^2.8.1"
+  }
+}
