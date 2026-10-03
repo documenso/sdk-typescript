@@ -12,7 +12,9 @@ const args = {
 
 export const tool$envelopeEnvelopeCancel: ToolDefinition<typeof args> = {
   name: "envelope-envelope-cancel",
-  description: `Cancel envelope`,
+  description: `Cancel envelope
+
+Cancel a pending envelope`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await envelopeEnvelopeCancel(

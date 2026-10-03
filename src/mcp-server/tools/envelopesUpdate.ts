@@ -12,7 +12,9 @@ const args = {
 
 export const tool$envelopesUpdate: ToolDefinition<typeof args> = {
   name: "envelopes-update",
-  description: `Update envelope`,
+  description: `Update envelope
+
+Update envelope properties and settings`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await envelopesUpdate(

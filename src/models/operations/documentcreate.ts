@@ -2720,7 +2720,7 @@ export const DocumentCreateRecipient$inboundSchema: z.ZodType<
   email: z.string(),
   name: z.string(),
   role: DocumentCreateRole$inboundSchema,
-  signingOrder: z.number().optional(),
+  signingOrder: z.number().int().optional(),
   accessAuth: z.array(DocumentCreateAccessAuth$inboundSchema).optional(),
   actionAuth: z.array(DocumentCreateActionAuth$inboundSchema).optional(),
   fields: z.array(
@@ -2773,7 +2773,7 @@ export const DocumentCreateRecipient$outboundSchema: z.ZodType<
   email: z.string(),
   name: z.string(),
   role: DocumentCreateRole$outboundSchema,
-  signingOrder: z.number().optional(),
+  signingOrder: z.number().int().optional(),
   accessAuth: z.array(DocumentCreateAccessAuth$outboundSchema).optional(),
   actionAuth: z.array(DocumentCreateActionAuth$outboundSchema).optional(),
   fields: z.array(
