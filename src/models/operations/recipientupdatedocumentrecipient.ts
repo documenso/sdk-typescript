@@ -575,7 +575,7 @@ export const RecipientUpdateDocumentRecipientRecipient$inboundSchema: z.ZodType<
   email: z.string().optional(),
   name: z.string().optional(),
   role: RecipientUpdateDocumentRecipientRoleRequest$inboundSchema.optional(),
-  signingOrder: z.number().optional(),
+  signingOrder: z.number().int().optional(),
   accessAuth: z.array(
     RecipientUpdateDocumentRecipientAccessAuthRequest$inboundSchema,
   ).optional(),
@@ -605,7 +605,7 @@ export const RecipientUpdateDocumentRecipientRecipient$outboundSchema:
     email: z.string().optional(),
     name: z.string().optional(),
     role: RecipientUpdateDocumentRecipientRoleRequest$outboundSchema.optional(),
-    signingOrder: z.number().optional(),
+    signingOrder: z.number().int().optional(),
     accessAuth: z.array(
       RecipientUpdateDocumentRecipientAccessAuthRequest$outboundSchema,
     ).optional(),
