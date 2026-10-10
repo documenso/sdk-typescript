@@ -92,6 +92,9 @@ export class Envelopes extends ClientSDK {
 
   /**
    * Update envelope
+   *
+   * @remarks
+   * Update envelope properties and settings
    */
   async update(
     request: operations.EnvelopeUpdateRequest,
@@ -106,6 +109,9 @@ export class Envelopes extends ClientSDK {
 
   /**
    * Delete envelope
+   *
+   * @remarks
+   * Delete an envelope
    */
   async delete(
     request: operations.EnvelopeDeleteRequest,
