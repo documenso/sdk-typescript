@@ -3215,7 +3215,7 @@ export const EnvelopeCreateRecipient$inboundSchema: z.ZodType<
   email: z.union([EnvelopeCreateEmailEnum$inboundSchema, z.string()]),
   name: z.string(),
   role: EnvelopeCreateRole$inboundSchema,
-  signingOrder: z.number().optional(),
+  signingOrder: z.number().int().optional(),
   accessAuth: z.array(EnvelopeCreateAccessAuth$inboundSchema).optional(),
   actionAuth: z.array(EnvelopeCreateActionAuth$inboundSchema).optional(),
   fields: z.array(
@@ -3268,7 +3268,7 @@ export const EnvelopeCreateRecipient$outboundSchema: z.ZodType<
   email: z.union([EnvelopeCreateEmailEnum$outboundSchema, z.string()]),
   name: z.string(),
   role: EnvelopeCreateRole$outboundSchema,
-  signingOrder: z.number().optional(),
+  signingOrder: z.number().int().optional(),
   accessAuth: z.array(EnvelopeCreateAccessAuth$outboundSchema).optional(),
   actionAuth: z.array(EnvelopeCreateActionAuth$outboundSchema).optional(),
   fields: z.array(
