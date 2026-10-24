@@ -20,7 +20,7 @@ Redistribute the envelope to the provided recipients who have not actioned the e
     const [result, apiCall] = await envelopesRedistribute(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

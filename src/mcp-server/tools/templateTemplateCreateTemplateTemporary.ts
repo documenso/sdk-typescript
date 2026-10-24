@@ -22,7 +22,7 @@ Deprecated: this endpoint is being replaced by the Envelope API. See https://doc
     const [result, apiCall] = await templateTemplateCreateTemplateTemporary(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

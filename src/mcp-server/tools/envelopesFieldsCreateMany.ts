@@ -20,7 +20,7 @@ Create multiple fields for an envelope`,
     const [result, apiCall] = await envelopesFieldsCreateMany(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {
