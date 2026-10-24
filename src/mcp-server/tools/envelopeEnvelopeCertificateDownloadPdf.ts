@@ -22,7 +22,7 @@ Download the signing certificate for a completed document as a PDF.`,
     const [result, apiCall] = await envelopeEnvelopeCertificateDownloadPdf(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

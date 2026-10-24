@@ -20,7 +20,7 @@ Retrieve multiple envelopes by their IDs`,
     const [result, apiCall] = await envelopeEnvelopeGetMany(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

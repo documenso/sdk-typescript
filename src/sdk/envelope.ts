@@ -100,6 +100,9 @@ export class Envelope extends ClientSDK {
 
   /**
    * Cancel envelope
+   *
+   * @remarks
+   * Cancel a pending envelope
    */
   async envelopeCancel(
     request: operations.EnvelopeCancelRequest,
