@@ -12,13 +12,15 @@ const args = {
 
 export const tool$envelopesUpdate: ToolDefinition<typeof args> = {
   name: "envelopes-update",
-  description: `Update envelope`,
+  description: `Update envelope
+
+Update envelope properties and settings`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await envelopesUpdate(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

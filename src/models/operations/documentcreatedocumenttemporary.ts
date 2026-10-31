@@ -3771,7 +3771,7 @@ export const DocumentCreateDocumentTemporaryRecipientRequest$inboundSchema:
     email: z.string(),
     name: z.string(),
     role: DocumentCreateDocumentTemporaryRoleRequest$inboundSchema,
-    signingOrder: z.number().optional(),
+    signingOrder: z.number().int().optional(),
     accessAuth: z.array(
       DocumentCreateDocumentTemporaryAccessAuthRequest$inboundSchema,
     ).optional(),
@@ -3839,7 +3839,7 @@ export const DocumentCreateDocumentTemporaryRecipientRequest$outboundSchema:
     email: z.string(),
     name: z.string(),
     role: DocumentCreateDocumentTemporaryRoleRequest$outboundSchema,
-    signingOrder: z.number().optional(),
+    signingOrder: z.number().int().optional(),
     accessAuth: z.array(
       DocumentCreateDocumentTemporaryAccessAuthRequest$outboundSchema,
     ).optional(),
