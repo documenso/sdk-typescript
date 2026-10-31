@@ -309,7 +309,7 @@ export const EnvelopeUsePayloadRecipient$inboundSchema: z.ZodType<
   id: z.number(),
   email: z.union([EnvelopeUseEmailEnum$inboundSchema, z.string()]),
   name: z.string().optional(),
-  signingOrder: z.number().optional(),
+  signingOrder: z.number().int().optional(),
 });
 /** @internal */
 export type EnvelopeUsePayloadRecipient$Outbound = {
@@ -328,7 +328,7 @@ export const EnvelopeUsePayloadRecipient$outboundSchema: z.ZodType<
   id: z.number(),
   email: z.union([EnvelopeUseEmailEnum$outboundSchema, z.string()]),
   name: z.string().optional(),
-  signingOrder: z.number().optional(),
+  signingOrder: z.number().int().optional(),
 });
 
 export function envelopeUsePayloadRecipientToJSON(

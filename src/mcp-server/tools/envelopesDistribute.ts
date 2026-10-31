@@ -20,7 +20,7 @@ Send the envelope to recipients based on your distribution method`,
     const [result, apiCall] = await envelopesDistribute(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

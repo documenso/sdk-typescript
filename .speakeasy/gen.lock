@@ -1,41 +1,41 @@
 lockVersion: 2.0.0
 id: 2f28b0c4-e21c-47c4-aada-41da1a74c452
 management:
-  docChecksum: da3f86c6e0825c502fa30d89f0611825
+  docChecksum: 70c54d5d1cc9e7e841c69052dadd80f9
   docVersion: 1.0.0
-  speakeasyVersion: 1.796.2
-  generationVersion: 2.933.0
-  releaseVersion: 0.9.1
-  configChecksum: 3e6722fcf5dc91f3d741445a2e8e166e
+  speakeasyVersion: 1.805.0
+  generationVersion: 2.954.8
+  releaseVersion: 0.10.0
+  configChecksum: 1b8f7aa5a1b9e3b307f6aa7ad622e250
   repoURL: https://github.com/documenso/sdk-typescript.git
   installationURL: https://github.com/documenso/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: ae403b3c-f977-4f21-b642-a5dddb2f4c02
-  pristine_commit_hash: e7f6633bb1671f0388f7115c115be9f4dbc20eb4
-  pristine_tree_hash: ed15439a6fddd1c6a1ff1c88553807faadf14f94
+  generation_id: 627b2e87-c804-450f-998c-3213fb4ec2d6
+  pristine_commit_hash: 9b7c92a873da8938bb7ab053d92002b3bd7455a4
+  pristine_tree_hash: 60ddb00dca0a3a1dca67e506d5e90296c7ed4c14
 features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.14
-    core: 3.31.6
+    core: 3.31.8
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     enumUnions: 0.1.0
-    enums: 2.83.0
+    enums: 2.83.2
     envVarSecurityUsage: 0.1.2
     globalSecurity: 2.82.16
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.1
     globalServerURLs: 2.83.1
     groups: 2.81.3
-    mcpServer: 0.9.4
+    mcpServer: 1.0.0
     nameOverrides: 2.81.4
     nullables: 0.1.1
     responseFormat: 0.3.0
-    retries: 2.83.1
+    retries: 2.83.2
     sdkHooks: 0.4.0
-    unions: 2.86.5
+    unions: 2.86.8
     uploadStreams: 0.1.1
 trackedFiles:
   .gitattributes:
@@ -5252,8 +5252,8 @@ trackedFiles:
     pristine_git_object: 57a924458071327b98c787e8162d850bd725570a
   docs/models/operations/envelopeauditlogfinddata35.md:
     id: 46be8cb75996
-    last_write_checksum: sha1:14214a65e32c98e537e792355341421292941265
-    pristine_git_object: a89a07fc8b4d4181c35f83e89e94c2d17942a304
+    last_write_checksum: sha1:229331464daaa927f2eda98df41e7b952f2551d7
+    pristine_git_object: f3c871b02c62153f6847fdcf274baa3689c7780d
   docs/models/operations/envelopeauditlogfinddata36.md:
     id: 1ee92f78b491
     last_write_checksum: sha1:3e8418ea83b1f86350e7bf9da099eaa562eb29dd
@@ -15160,16 +15160,16 @@ trackedFiles:
     pristine_git_object: d0bb84b20feed565b05c8c03d537918f0cc6f608
   docs/sdks/envelope/README.md:
     id: b13f89548efa
-    last_write_checksum: sha1:29ef4759c235aeeb39729e5fff7bcbe34ed054b8
-    pristine_git_object: 5d58274fa5043a663f0587956e6105ad43da90a0
+    last_write_checksum: sha1:b754c00cc748c0b26d32344b42b9b53c217a09c9
+    pristine_git_object: 59486d0043f878d0e874426a4dd7be88ab9b5d70
   docs/sdks/enveloperecipients/README.md:
     id: f567e7a86443
     last_write_checksum: sha1:60e1772556b21026c20bf496e94afb3a5019b030
     pristine_git_object: 01dcde4a9d68ea013aef99e356f54887560e5cd3
   docs/sdks/envelopes/README.md:
     id: 9fe1e75d395c
-    last_write_checksum: sha1:8a6ab37ac63e770aedccf58217eebb6c5661692f
-    pristine_git_object: e179899521d18be841c97b59f3abf7ac832f7f3e
+    last_write_checksum: sha1:96cd518c3482be6ac723c156e74f81f344785506
+    pristine_git_object: 8204d7a20169928e1ffa909026a972b57d38a710
   docs/sdks/envelopesattachments/README.md:
     id: ea6e4d964435
     last_write_checksum: sha1:85c094a32c04a0ed05ba599c7f8a1a5de2ad8436
@@ -15228,12 +15228,12 @@ trackedFiles:
     pristine_git_object: 7d12890d2fd794d60397b964853752563c69beff
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:e4b193ce9feedf3caba33a1127356ca49be2a3e5
-    pristine_git_object: 7d4515e4d13a322fde0a4bd07b070130a8f02106
+    last_write_checksum: sha1:978887389d3ef68a875c5ea57fa2e5992b949ea7
+    pristine_git_object: 491b3da86382cfb87bac836e2b691d2629f6e386
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:6666fadc1dce90c8aae7a62a8bbbb0095828c16b
-    pristine_git_object: e4d9deec09f923c99d397bc148890f41d46dcc90
+    last_write_checksum: sha1:67018ff5ecb2b63b026ce18fe56817d034c7a4b4
+    pristine_git_object: 64158ac9659c8418f5adec25152766c6ab8ad53e
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:03d4dd5920e6f643a9019be194103a09591a938a
@@ -15368,8 +15368,8 @@ trackedFiles:
     pristine_git_object: af74cabd53703e9dcc879b77fbdd4909db1bf672
   src/funcs/envelopeEnvelopeCancel.ts:
     id: 590eb4e678af
-    last_write_checksum: sha1:09640632b610bd7b060c96f3326ca97ae6f9c890
-    pristine_git_object: 05ff684afc7dc74d246be066ddbd573e8800c015
+    last_write_checksum: sha1:c23e442523b40f64b0eeb4c42463bea1cdd7438d
+    pristine_git_object: 90a0fba1ee772c8dfb118854395ab9a30d8316dd
   src/funcs/envelopeEnvelopeCertificateDownloadPdf.ts:
     id: f327cb8b4941
     last_write_checksum: sha1:5f4232a13d511d6e7db760ecbb88443f54c85330
@@ -15408,8 +15408,8 @@ trackedFiles:
     pristine_git_object: 6ab52f5fad01a145cb2d9c475dac18c8afbf91b7
   src/funcs/envelopesDelete.ts:
     id: f199e2ebf56e
-    last_write_checksum: sha1:9ad5efad35bcbd6d3e14334a66121af3cdbe2551
-    pristine_git_object: 825cebf817cb1dd070104698ce07eeb0acfb82f6
+    last_write_checksum: sha1:f0c03d473e4c8b15324c6c7c394db5710f531b59
+    pristine_git_object: f157e5b2a4efa309414b63791dcf8a5a5808a0a7
   src/funcs/envelopesDistribute.ts:
     id: 9d4659cf167f
     last_write_checksum: sha1:324c55edc559494a26ae6a9951aba882f05f0fa8
@@ -15476,8 +15476,8 @@ trackedFiles:
     pristine_git_object: d5eff09f00589ca57acf84c5dcde0e1e998df1e5
   src/funcs/envelopesUpdate.ts:
     id: 76745febbfb5
-    last_write_checksum: sha1:af43cd8e88d5f585f79074c74d0eece0f17bdd6e
-    pristine_git_object: d5fb0aa722a96b9c9e1391b363bbccfc87da5cf6
+    last_write_checksum: sha1:f7b24e17c0f6109a6268fd6ddbed1178aae461ab
+    pristine_git_object: 847cbe9a85224d978519cc1bb0f1aecbdc5ed5fc
   src/funcs/envelopesUse.ts:
     id: 8e17ea5da873
     last_write_checksum: sha1:c55756c7dcb4e440a960270e6c001c65b1e4fcbd
@@ -15616,8 +15616,8 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:65917cef47955bc684701f4b011b82a8497d2f24
-    pristine_git_object: b188e46443f402d5a492c8eb8e48beb525aae8dd
+    last_write_checksum: sha1:b8cda0ab4053891cbb9580085b48e31db704413a
+    pristine_git_object: d9b8b57a30c782c09efaf9b3103d3ef531d8315a
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:a257d6f6108693db2197617c579400bc8f0da914
@@ -15680,8 +15680,8 @@ trackedFiles:
     pristine_git_object: 48902d11677f5e8ffcb72b4186bac3f791d02d65
   src/mcp-server/cli/start/impl.ts:
     id: 37494f674015
-    last_write_checksum: sha1:7b2089a733cc53899c8b6b8df3a899c04d82f74b
-    pristine_git_object: 067ec78e3f2f6bebe6f3075d77b6349528d4e64e
+    last_write_checksum: sha1:3dd05dc110678554b37f064169e266edac4dc39c
+    pristine_git_object: 221894c78be956780c2ea77fe0cb67a057209b19
   src/mcp-server/console-logger.ts:
     id: 57aff4ff2e15
     last_write_checksum: sha1:66e945860c8318f2a6bb9604a7720a979dacce4b
@@ -15692,388 +15692,388 @@ trackedFiles:
     pristine_git_object: 0955a573c2ce989d63c737410ab8cc28706d9f74
   src/mcp-server/mcp-server.ts:
     id: aabbc4ab07c1
-    last_write_checksum: sha1:68970cd340ea735a7a519fc4c7a28042de76a2ba
-    pristine_git_object: 45135adbbbf5d6c9939cf3b5d3689478a200e22c
+    last_write_checksum: sha1:20e2c6ecac03ceb63a7bff4bc1dd42cce1b42fb7
+    pristine_git_object: 4153fdc4ac7a39fd057e811c809b67b84b86cb9b
   src/mcp-server/prompts.ts:
     id: 26f3d73cbf31
-    last_write_checksum: sha1:d16f7b1196bd0144834c9fb75c7452063710c564
-    pristine_git_object: caa14b98dd152b5ae4815548051ac8c2c19d614d
+    last_write_checksum: sha1:ef7bfc8282772c3870e0d4ad54f8b7dcac5bca6f
+    pristine_git_object: 7f4a2488709ebd10ff7ceacdbdfebd68f93abb62
   src/mcp-server/resources.ts:
     id: cb0c57ebeaea
-    last_write_checksum: sha1:c4bc69aa1f99d3240fe11a347a49d64c1c2f8599
-    pristine_git_object: 72a6b72d91e97287665469712aeac56c7aaaa9b1
+    last_write_checksum: sha1:0117b7a2f97347f3b0c3fac507a72c5886ef1bc0
+    pristine_git_object: 0ccedda31ffbc35768a059c429d566167aa53d0c
   src/mcp-server/scopes.ts:
     id: 8966d24256b2
     last_write_checksum: sha1:77d0eb95785e84f9fd0b27c4612f8c6470489fe4
     pristine_git_object: c25696d4c4f70e081fa5d87ad6891874c509a577
   src/mcp-server/server.ts:
     id: 2784dd48e82a
-    last_write_checksum: sha1:50b8f82b9005e104738498378dc444ca778b7199
-    pristine_git_object: 1e01213dadab557ccd6f40c32077931fc32f8a41
+    last_write_checksum: sha1:0faaa192931c27d8d12e2dd5b97dd50b817303b0
+    pristine_git_object: 3982375c3047c125be19b486fcc3edd0fdd99949
   src/mcp-server/shared.ts:
     id: 074e80d4be1e
-    last_write_checksum: sha1:d89576cea2bef3856b7fc3e65b868875528be042
-    pristine_git_object: bef212f002cac28cb23333a5f291a4ee5ba08521
+    last_write_checksum: sha1:c4c1d8169a3a283584b8f13ea1533e438fe6fd69
+    pristine_git_object: e7826f5a095f9ac17f12b4a4b1a66c8e5b5e2b9f
   src/mcp-server/tools.ts:
     id: 654d5d1f2062
-    last_write_checksum: sha1:6b5e1875ad94e2778b1cbfec203d6e68adf182c4
-    pristine_git_object: 56f06b5bdc2e30f21260d4c94201c6f3291f118f
+    last_write_checksum: sha1:41a4586ee2dddc611c6b3ecd4127edabd7f545d1
+    pristine_git_object: 46d55f0fb9a25ba55405e48ad38ae854b2d4a23c
   src/mcp-server/tools/documentDocumentDownload.ts:
     id: 863e6c734a1b
-    last_write_checksum: sha1:c70bfdaaa3d31cff8805104269ffcc4d1623e462
-    pristine_git_object: 42552b8543c45c934447f56f7ea72d43108554fb
+    last_write_checksum: sha1:a0548991d436e57dbf6f1bedfde360dec81b9d9d
+    pristine_git_object: b1383d905ee7748fd428defffe7cd98c55c30033
   src/mcp-server/tools/documentDocumentGetMany.ts:
     id: 36999d3739de
-    last_write_checksum: sha1:4e3a310348f4d5a2f94c0bb1dbe1a744f86a34a5
-    pristine_git_object: fe4927eca0372645ed412172a3917e41e345025d
+    last_write_checksum: sha1:23380d6a55d4040c30c616c8d1e51a26f27b21d6
+    pristine_git_object: 104c07241c7770edf59f65c6c8c5d0815206dff5
   src/mcp-server/tools/documentsAttachmentsCreate.ts:
     id: 2e06737ec20f
-    last_write_checksum: sha1:eaa398ea34be19fb889fec9dabc193ac061da6bb
-    pristine_git_object: 4950d13340b6992134fba8993df4bf4bf0eb5466
+    last_write_checksum: sha1:f6a7c4cb947c7f885f9d8c977f104cd5ed53f951
+    pristine_git_object: ca173cdd89ca4b688adc993f1d8639fc32e6094b
   src/mcp-server/tools/documentsAttachmentsDelete.ts:
     id: c8660aae37da
-    last_write_checksum: sha1:80858226bbb4f4e7553a60fc0366cf48382e398f
-    pristine_git_object: 730e3522551c696bab8d96feda7891b878ac876e
+    last_write_checksum: sha1:2114a3b61399383793959fdd5b5500a43017651a
+    pristine_git_object: af5215059d8071cb1c6ef351482da0934b45f384
   src/mcp-server/tools/documentsAttachmentsFind.ts:
     id: 1c927612a49a
-    last_write_checksum: sha1:ace1e1d6bdd78b06db644f291d4adc917becf7e5
-    pristine_git_object: 9377869a6979981c57b231934da6e2a02a46ab58
+    last_write_checksum: sha1:6471a8b7eae13882646c09c6ae61e2e433b8bfd1
+    pristine_git_object: e871d7c453b9a96914f5e7a6949fc74553b62624
   src/mcp-server/tools/documentsAttachmentsUpdate.ts:
     id: 389d2614f521
-    last_write_checksum: sha1:50feda252d5f6bbde6917ff126b8d9c838450692
-    pristine_git_object: 37058e5930246aa99a5b8b4615acc5d03cd11254
+    last_write_checksum: sha1:6019769e190b759715a67ae82547ee40035b7d42
+    pristine_git_object: b03a5cc1279149c793266f61977f0fdad3f7b326
   src/mcp-server/tools/documentsCreate.ts:
     id: c480dcdc1d1a
-    last_write_checksum: sha1:5f806e81c3fa4ae53765b99252c119db0dd5e625
-    pristine_git_object: 60420a329d8ef0e394019d02d7ddaff364d4e132
+    last_write_checksum: sha1:4fa2b9b06421b9152e19ccebef31e7efbfba1ba8
+    pristine_git_object: 54d99642f9a0509f00f3f1d03adfbe6cb4a68369
   src/mcp-server/tools/documentsCreateV0.ts:
     id: 3bce65d0fb63
-    last_write_checksum: sha1:3e706b71c4599be8260c0545d903d0817a1fd916
-    pristine_git_object: 9a6ca46a6adeace202b72fdb63d5edece9d1e75e
+    last_write_checksum: sha1:296f8568d3b60c2fc6b9eb186c06a7eba74235be
+    pristine_git_object: 20129dd4d037f409976acf1f08ecb700edc44bd0
   src/mcp-server/tools/documentsDelete.ts:
     id: 2231d268ac14
-    last_write_checksum: sha1:b5525be33f95da2168973ec0daa0ba9cf6e48043
-    pristine_git_object: 1a34da511675192035679807fa46dbf509236316
+    last_write_checksum: sha1:6cf21472da6661ae080aa87cd5c3149c2e99e47e
+    pristine_git_object: 0e1ba4e36e112354e63116f3303a11871ba2665c
   src/mcp-server/tools/documentsDistribute.ts:
     id: 171107491dcb
-    last_write_checksum: sha1:bf6f73af021f49dfa155de318641aeab311cead0
-    pristine_git_object: cd045090ef1923ddaa103419d3274beef1aa1e16
+    last_write_checksum: sha1:c9f65ac1aea272cbdb5b5d7451843302ee0ba559
+    pristine_git_object: b90bb76a5a2216e4b3f89d44bbbcf52de944d5df
   src/mcp-server/tools/documentsDownload.ts:
     id: a411144acc41
-    last_write_checksum: sha1:272afe438f01ba00a55ab5f176936228805ee3dd
-    pristine_git_object: 6afad169546fa77a53aa2227ca7c640d15262389
+    last_write_checksum: sha1:a4bf40deb16c8e414bb8a22ecee5066bfdaf6876
+    pristine_git_object: 2b3e475e330d36eaefb07d75b2b68dee6cfe746a
   src/mcp-server/tools/documentsDuplicate.ts:
     id: 7e41f61634c3
-    last_write_checksum: sha1:435aad80c4fce8f26b2de92718febb7058a482ac
-    pristine_git_object: 4a551975ab6add22618ddfadddb023112d96c30a
+    last_write_checksum: sha1:6ba3650821c9b4177abdd90a8581d905dcf02cef
+    pristine_git_object: 46afdbd4c17e046ad8c097cd08a0a03df8c08235
   src/mcp-server/tools/documentsFieldsCreate.ts:
     id: 1b51ee0efd96
-    last_write_checksum: sha1:ed32218944becbae112d4b3ea6de4537d71f85f0
-    pristine_git_object: c2fb366010b971e4f60cd7d22c3b9a164c18fa39
+    last_write_checksum: sha1:6eea323337f9121cdcf3da0b2651cb75b3002157
+    pristine_git_object: 0cc4c02fedfc46301aa3dfbc29379ac139ab8ac8
   src/mcp-server/tools/documentsFieldsCreateMany.ts:
     id: 4a4fa8ec98b6
-    last_write_checksum: sha1:d5180d0edb3b531455b222cacf36252fe0937cce
-    pristine_git_object: a1f94911ebdf5c939829098c77ee539684e931a7
+    last_write_checksum: sha1:c15542277b8d9bb14eeb63f2668b2aecfc50aeaa
+    pristine_git_object: bfde5847a9bdaa0fc6de48cdfeb8c455bc0770d6
   src/mcp-server/tools/documentsFieldsDelete.ts:
     id: 9873012c995c
-    last_write_checksum: sha1:954f79e35d9aa7b988a737f94568d09441980b9f
-    pristine_git_object: 9f14f8f8e9941bebc9f396f572b743dcd3dd584c
+    last_write_checksum: sha1:8f1c57c08687bca0212f024c47dfd88270955275
+    pristine_git_object: cc5962660ffdb2cbf1a2d1b7e6371c2db225d727
   src/mcp-server/tools/documentsFieldsGet.ts:
     id: 9e69a2b7ced1
-    last_write_checksum: sha1:e5646b0a079192b9393724ca31d1b373e4ba834a
-    pristine_git_object: ca6f9b7116f8e9ea26f2223f4bdc29c95c7c25e6
+    last_write_checksum: sha1:a3b302d06dd053dadb4551e62ce6ff531a7ac466
+    pristine_git_object: f6e6ab0b96f402a85f28cb62e4fab4340b857caf
   src/mcp-server/tools/documentsFieldsUpdate.ts:
     id: 3e3492ab2a47
-    last_write_checksum: sha1:37a0592a07ca31f763dc996e65ae1b87e65b64c2
-    pristine_git_object: 58eb5be54a5a97c006164ef49e262c8783ea3974
+    last_write_checksum: sha1:e3664cc6552ab21a868df1ff5458640981386141
+    pristine_git_object: 8c65944a899dc8e25ebed0568a2bbe8dec653d21
   src/mcp-server/tools/documentsFieldsUpdateMany.ts:
     id: acbeb5f6d950
-    last_write_checksum: sha1:1ffada71b6125693f2da2d00f0217aed4a9eae70
-    pristine_git_object: 95fab20840c168282a2fe82c764a9090fcd8b5cc
+    last_write_checksum: sha1:b0892ea1bac36036d7f9bb47b42ea2b79ffbe06b
+    pristine_git_object: 2846ee86a380a00eb052960acb94a79989354649
   src/mcp-server/tools/documentsFind.ts:
     id: e45b66f9588f
-    last_write_checksum: sha1:435f2fa8e8c92245f6c5f56685a7f5467b7d461b
-    pristine_git_object: 06290e93e54d042929cd3ab38df1673ebc9b53b5
+    last_write_checksum: sha1:70e02e91a0226038aeddc4dabea15d03dd0de3e8
+    pristine_git_object: 067776ec9b45e5a99c98078a55675b8372a48def
   src/mcp-server/tools/documentsGet.ts:
     id: 4a7dafd949b2
-    last_write_checksum: sha1:dc536a4fdc776a7fca491bac817ecf9de5632329
-    pristine_git_object: 9bc0d4891bb9f697c03b8588ab5658b0913a4bcf
+    last_write_checksum: sha1:c434d6ea47da97e58481e8b6bbb197dd7d7c2aaa
+    pristine_git_object: 77c5c88a4fca5a7325ffa8fc5b8194336d5b028c
   src/mcp-server/tools/documentsRecipientsCreate.ts:
     id: 203e74ac9d3f
-    last_write_checksum: sha1:2d00323a5dbfc5a7a60e48fbb071204ea34ad266
-    pristine_git_object: ed3c202429d8341f0d09d0769d1081020a8cbfb5
+    last_write_checksum: sha1:73684730de6e3603b3d8353633eb05b2b8ce8873
+    pristine_git_object: ca860a433c2c140a697a9679465c0898f4250ffe
   src/mcp-server/tools/documentsRecipientsCreateMany.ts:
     id: 3b1fec214c6e
-    last_write_checksum: sha1:40afd2cd7769f42891342743e72aebd46bbc8b89
-    pristine_git_object: a05b7e23cb7590ee9bc8c2442a654cd9f80a4c22
+    last_write_checksum: sha1:8ec1706c8d194ff0e1219fc0aecd376fa57d8873
+    pristine_git_object: 9755456ca4b27a5510aff703206a1b36c63ed98a
   src/mcp-server/tools/documentsRecipientsDelete.ts:
     id: e8893d478134
-    last_write_checksum: sha1:3b546816aa5a01b4dcd6b90e413a63ed77a42a79
-    pristine_git_object: f858de63be55e23c374d42e9f33c6e27a2979d51
+    last_write_checksum: sha1:c4b793000aceecce19f307127971444aa348c43c
+    pristine_git_object: 66f0b2e168b42794591394a8df145ff064b9bb60
   src/mcp-server/tools/documentsRecipientsGet.ts:
     id: 2edd474868ab
-    last_write_checksum: sha1:0d1fb570ea187b25ecbb87e0506e542d33dc2f9b
-    pristine_git_object: 4679bba53e09201b95c7383ad459867ff9a2b8cf
+    last_write_checksum: sha1:bfeeadcace27fb36813a6c069fe349e7b2f3d9b7
+    pristine_git_object: ddf17ba55754ac9d57fda42bcd68d5ee50777cbb
   src/mcp-server/tools/documentsRecipientsUpdate.ts:
     id: 5bc5e7925edf
-    last_write_checksum: sha1:5b515da5044f191ce6695efbd73d3e75f2e24f0b
-    pristine_git_object: 6363c1d7369404370f8fc3bc4dd317fcce7bcc36
+    last_write_checksum: sha1:d8582c5035a001ba551587fa34e2960628bef51d
+    pristine_git_object: 9c2143a3dce0b7045d3b88102542e3f2262eece3
   src/mcp-server/tools/documentsRecipientsUpdateMany.ts:
     id: 111ba1b476ef
-    last_write_checksum: sha1:816ff7a338bde65dda88043e437329141666f32b
-    pristine_git_object: 3455c0a444b188ecdcd54666301605bc029ea4f9
+    last_write_checksum: sha1:f3635812bbdd1a0f34f33d24abea9b4645f05f2c
+    pristine_git_object: e1b5aa0e747f33322eb95bb4076ab3b8e848ef86
   src/mcp-server/tools/documentsRedistribute.ts:
     id: 7ed324fc228c
-    last_write_checksum: sha1:513aeda77ef4ae4f41f7fa4721cb96f542a2358f
-    pristine_git_object: ec70586e70e977b2e96015485ede41b1b6fdfa62
+    last_write_checksum: sha1:94803f67d805983b3d62067361bf0d90ca92a5d6
+    pristine_git_object: d5a46cec8b605b68210db8e5677fac190a63b3c8
   src/mcp-server/tools/documentsUpdate.ts:
     id: 8a9e16d5690c
-    last_write_checksum: sha1:f45b52cc2e44561ae3459fc7539ad27b051f6364
-    pristine_git_object: 34081a631b20e7d0281175c0c3f85a6d79dd15f4
+    last_write_checksum: sha1:170944f9ebc75f57c6d1d0ed79370f6dbbb3e059
+    pristine_git_object: e195cec83c09189b200f06407ba7de4d2a5b2e06
   src/mcp-server/tools/embeddingEmbeddingPresignCreateEmbeddingPresignToken.ts:
     id: e8be3ee4c096
-    last_write_checksum: sha1:a5958b95fa2e25e1b1130fd7e380984ff35dcbae
-    pristine_git_object: 5fe2aa43f0c5a5f987b862d54bddc51a9f0af0a4
+    last_write_checksum: sha1:84e62b2558f2095496bb625cd2cddf68863e1d9a
+    pristine_git_object: cef586c27ffaef994c4026df953fc91dd0cd860a
   src/mcp-server/tools/embeddingEmbeddingPresignVerifyEmbeddingPresignToken.ts:
     id: 6c4fe5f1c5c5
-    last_write_checksum: sha1:f79724e4c404c67caddaf6f3bc5db3e6102c8aca
-    pristine_git_object: 668cd572112a649551a2f383ec96d2d331bb89aa
+    last_write_checksum: sha1:fd5474bc2d2d52815d7d2e218aab5ca6a2ff9523
+    pristine_git_object: 079c86abe46c533bf7db568f6769565ae5c5f929
   src/mcp-server/tools/envelopeEnvelopeAuditLogDownloadPdf.ts:
     id: 35fde7328e37
-    last_write_checksum: sha1:a10c41bc4086a6a24742bac178ac2abb82abb48e
-    pristine_git_object: 84391916f4b297bfa31162776f6796d6d090ec46
+    last_write_checksum: sha1:33860f8eebaa6ff1978140b93d725c0dbc60ec46
+    pristine_git_object: 5f0016c4a669e61b4cf71fc612b8a4f44f9a083d
   src/mcp-server/tools/envelopeEnvelopeAuditLogFind.ts:
     id: b338645b2a1f
-    last_write_checksum: sha1:5588687c06c3043e8b1b5a9a56fba745d86b4ce4
-    pristine_git_object: 835e082f3417820d5fd1d2b41f696b17b696c5bc
+    last_write_checksum: sha1:9d39a058a60b213732c9b19a3680732b48ca3274
+    pristine_git_object: 32ab340be25a9a45cb8bc98610a7780dbcd49f39
   src/mcp-server/tools/envelopeEnvelopeCancel.ts:
     id: 2578aa2a4e33
-    last_write_checksum: sha1:251ade5099b9a93b00a4f02d219a67a1c83a4a86
-    pristine_git_object: 50b428d1948038c536559abafae27b606ded62dc
+    last_write_checksum: sha1:ac950433ef0416de586a38133a67f2ef22813511
+    pristine_git_object: 5e3d3c7c0420633152664e5bacdab378a8bf6bdb
   src/mcp-server/tools/envelopeEnvelopeCertificateDownloadPdf.ts:
     id: 1e2f5372828d
-    last_write_checksum: sha1:6024b83be8d4cffd0146659493cc9e4df9692efe
-    pristine_git_object: 303b99c29edec0652e9246be5a4e5360d8943945
+    last_write_checksum: sha1:b52a564f1bf63b0be163c58249f5232e6f9459c9
+    pristine_git_object: dcbcdb2c1408e877fa37b020b2318c0712748627
   src/mcp-server/tools/envelopeEnvelopeFind.ts:
     id: 08911b418c54
-    last_write_checksum: sha1:630c9941be92c71c0ba624ef1550d9e52668c181
-    pristine_git_object: 8a62b10cfd55589060b3f1ee51664c66d623a9eb
+    last_write_checksum: sha1:576938b7e3bcae3d6897f24d8ed5d901ceaf3f5c
+    pristine_git_object: abee3fa697bf9c0928e80d2e9c6042f091c14505
   src/mcp-server/tools/envelopeEnvelopeGetMany.ts:
     id: 633badab20f1
-    last_write_checksum: sha1:4fc13b7bb9580ffc1e4b09c2715b05a62f368bfb
-    pristine_git_object: 4dbe12a4bde9985614da0ce9eab51cdf41b61ed0
+    last_write_checksum: sha1:060516d079f3af460f27a5f0674474c37e631492
+    pristine_git_object: a849f492783d87f01627e21cf639a9a34d897a85
   src/mcp-server/tools/envelopeRecipientsEnvelopeRecipientRejectOnBehalfOf.ts:
     id: 7c12f601b843
-    last_write_checksum: sha1:9ac01b89fb7fa77e1290b731bc41f92fc312fc17
-    pristine_git_object: c06dc65a9db67e53c2e6c00d805f8bb5db29477f
+    last_write_checksum: sha1:66a6924644c3ef3ec00e856eb7bd3a8139f626b3
+    pristine_git_object: 427d36444518127a3bc3fb7554b544f5a6cb50ee
   src/mcp-server/tools/envelopesAttachmentsCreate.ts:
     id: e83b009390db
-    last_write_checksum: sha1:174de0911ba66ce4ecc8adc9a76d7389cc06d08a
-    pristine_git_object: d589ba8d3c88d2ea4d58de0fe060356056ab00b1
+    last_write_checksum: sha1:6d1e2de89a046bee7748b05226314a0884228413
+    pristine_git_object: 63c4cad9890b8cb9f5075cfb9e60dd43006e3987
   src/mcp-server/tools/envelopesAttachmentsDelete.ts:
     id: a6e4e2f42c4f
-    last_write_checksum: sha1:259260714310f6601b99fe0799395023de9a13f1
-    pristine_git_object: 03bfbf9f893617c4aa4c4432d75403d5d6b604aa
+    last_write_checksum: sha1:24ec793ab52d97a8be9d146d05a2e3ed6815be32
+    pristine_git_object: 987c9480d1b685dbffe4af6db2a6072d83f3beaa
   src/mcp-server/tools/envelopesAttachmentsFind.ts:
     id: 78faa6d2b5c5
-    last_write_checksum: sha1:4300b9366aecaebf5708111da9e6db67f18f7cf0
-    pristine_git_object: c9a43bc6ddd981b7f6e2e6bd7ad8659be62c31f4
+    last_write_checksum: sha1:7ce834741387d42551c36a909c0a881753a3021d
+    pristine_git_object: 308412656baac3ae9bbbfed304f0476f07b73940
   src/mcp-server/tools/envelopesAttachmentsUpdate.ts:
     id: ab9f7049f738
-    last_write_checksum: sha1:c937ab87f4ae6d4d256deb3816ef706d30495c9c
-    pristine_git_object: bbdaae126968053f0e5459f4b8df31a4da4ab52b
+    last_write_checksum: sha1:d1d9fb64a778d2089781a22bcd3901139919200d
+    pristine_git_object: 285121a1ca056052825d5614cf85dadd3128d629
   src/mcp-server/tools/envelopesCreate.ts:
     id: 4a9b80a4e579
-    last_write_checksum: sha1:58aca931756f4ed34ea3191faaceeb6a74b9c4dc
-    pristine_git_object: fa72c4e28fa5a965e001539d37b5629e500f2488
+    last_write_checksum: sha1:bed430261752908a7c50e0c8663ebb2c1b44e10d
+    pristine_git_object: d3791e6f3a9650520cbe251d0f201c151e2487f2
   src/mcp-server/tools/envelopesDelete.ts:
     id: 9a115dd3b0c6
-    last_write_checksum: sha1:787b10f5a216658fa9d182f150642ab3ed5ea65f
-    pristine_git_object: 92bd2acc29309a9b1f0b7b61c39d24b7f1895e29
+    last_write_checksum: sha1:8dabd4ad13bf82ecb94f332d330f5cdbc394826b
+    pristine_git_object: 785c6fab5658020a9da56a91e713210ee2ce71f8
   src/mcp-server/tools/envelopesDistribute.ts:
     id: 023d0fc31cea
-    last_write_checksum: sha1:6fd67d785f23610ee746ddd96e64fa511f7c8ea0
-    pristine_git_object: b87587809fb5ac012f5e1739396ba32bf0f39448
+    last_write_checksum: sha1:db4843a611d061cc872b1fe536316e753baf6c88
+    pristine_git_object: e4b18a4b1349f29bf80032ba339253987e3ae64a
   src/mcp-server/tools/envelopesDuplicate.ts:
     id: 5a99c837e6d9
-    last_write_checksum: sha1:dfa55cd8ebfd0d97b53c4f3937f21e3566350829
-    pristine_git_object: 9d7d39631d8ba6b4908692ab46e3274073e1df59
+    last_write_checksum: sha1:4e61bfda0d3d3d22c6d33538ecfab8bd522ca930
+    pristine_git_object: 6ae610fbfb39cee347f67284a97d632896e29def
   src/mcp-server/tools/envelopesFieldsCreateMany.ts:
     id: 1fc701291efb
-    last_write_checksum: sha1:5b1b71ccfb9a8ebc2b3ea8bf90a6184fdaa6b623
-    pristine_git_object: 6d00588ba99e0bd83fc01724437285a333783965
+    last_write_checksum: sha1:186bd046c4cfa3f71cf788252b5d69efb5347ba6
+    pristine_git_object: b745a54707f2083293c7e1ab815d623a81dc689b
   src/mcp-server/tools/envelopesFieldsDelete.ts:
     id: 0821f5dfe3bd
-    last_write_checksum: sha1:1b756d267d4d966d2bfe3e865f0fa45fc1675fc6
-    pristine_git_object: a2b2e540a74b79aee9c5351517a8515652f5920a
+    last_write_checksum: sha1:2e83e10079b406fc168aa909effe495a1dd524b8
+    pristine_git_object: fcb47134354afb85e8a9f94565b61b697f840a52
   src/mcp-server/tools/envelopesFieldsGet.ts:
     id: 4efeffcef623
-    last_write_checksum: sha1:2936f2cd9624a4fc2a77e0603a3db458e1f700a6
-    pristine_git_object: f499b2379ab2399a917850be1bc292846d387c10
+    last_write_checksum: sha1:6e17f26750cdfaca3662fdd5d3f288a3f3bee665
+    pristine_git_object: 5e27b7acabaa741ae58d4617401b3ebca58d09bc
   src/mcp-server/tools/envelopesFieldsUpdateMany.ts:
     id: 9f0ecd953aa4
-    last_write_checksum: sha1:ff9f3a478c4eb1371bfd374bccb052a961c7e8e1
-    pristine_git_object: fbd07c06198b0e6a82292cccf18be55a3f59f7e6
+    last_write_checksum: sha1:877899757978b8c8bbdab399c14d223943a3e3e6
+    pristine_git_object: 1c80a1007c78a8cb60367f20b68a55da610e7efb
   src/mcp-server/tools/envelopesGet.ts:
     id: 3eb6d71708d1
-    last_write_checksum: sha1:a32734e0e062c33a8dbdb9dda8ff3b54d53c1bbe
-    pristine_git_object: fbd62686e756039ad1f87861f5b123e6da61d72f
+    last_write_checksum: sha1:0747a928c7da498814536d501c913e888b2bda4e
+    pristine_git_object: e6582afe2889f4a1d278bd28ff32f27b620bc314
   src/mcp-server/tools/envelopesItemsCreateMany.ts:
     id: 055fa9b072b8
-    last_write_checksum: sha1:a2cbf97c686bf7bd3507b03d0ddc8352e12cbc34
-    pristine_git_object: 19c7e7a124f72f2941e965bb7681e0d3b580ebb0
+    last_write_checksum: sha1:b6549a6c74f0f53b81649a7265a6c776d448fbee
+    pristine_git_object: 20baede4409cf11ce32029607ed6a0d9fee02e89
   src/mcp-server/tools/envelopesItemsDelete.ts:
     id: 02d3e96e8025
-    last_write_checksum: sha1:3b3e0fd6f02e767d18a58ce2105ec4755f56807a
-    pristine_git_object: 71c955ffea51b55551d0b3af9d32cfac0b56b83f
+    last_write_checksum: sha1:2d048b14b1d71914143eac90eab9d4e0cafa5fff
+    pristine_git_object: 0b275a85ba6cb3d5ed60fec74d218d7cac6dc7ef
   src/mcp-server/tools/envelopesItemsDownload.ts:
     id: d41f953546be
-    last_write_checksum: sha1:c9ea43aff97270a7208f28abf3f028cff2f1dc99
-    pristine_git_object: cf049c09bf1b3f9f80fd1ddfbcd16c9dcf370575
+    last_write_checksum: sha1:de1e51e5feb021bf9305db4ffe331b872ac92d82
+    pristine_git_object: 7e5ad848f3dd7a3d417149312c84b65d763ecf24
   src/mcp-server/tools/envelopesItemsUpdateMany.ts:
     id: 9af8d5b11894
-    last_write_checksum: sha1:dd0aed162945c8cb394b8ff208c286d60d8b6400
-    pristine_git_object: 79aebf7c5a882ecc618dd4492f8f9c1eb61fb146
+    last_write_checksum: sha1:5f173ffc6639ac1b25be14090737cc71e22b002f
+    pristine_git_object: 8a1903e2475ae9687899278bf114a242b48473aa
   src/mcp-server/tools/envelopesRecipientsCreateMany.ts:
     id: d76d4f3b19c9
-    last_write_checksum: sha1:9264574022d420563c40b582024b70fc7af3c0ae
-    pristine_git_object: 12b028b7299ba7d8eab75475c0f27ffcbe8140a8
+    last_write_checksum: sha1:f886e919b08899582e526dac19ddc28c03c43e5d
+    pristine_git_object: 0c3ab42c6df10a83c3e3d28e669acafafb067a69
   src/mcp-server/tools/envelopesRecipientsDelete.ts:
     id: 7b1bf23019ec
-    last_write_checksum: sha1:ac6dc8633c6be31cdd58166c2e12e46b0bb0ec20
-    pristine_git_object: 664362878ce184f4cbcd08b89877ba4d752123e5
+    last_write_checksum: sha1:34e6674279a4e67bd432a10badf6c5c91be231ef
+    pristine_git_object: 3d1491b4cc2cc860df5253d9d41f7af32eaa5794
   src/mcp-server/tools/envelopesRecipientsGet.ts:
     id: 44c8dfb01de1
-    last_write_checksum: sha1:00a943a831255c017c667749edb12d57762f0722
-    pristine_git_object: a45731652ad2c47745485b9f094f28dcb3a5e5b2
+    last_write_checksum: sha1:e23be08ac4bb7e0fe365eee6e639cd421045d027
+    pristine_git_object: d59012746e311e755d69f0298425299fdf19807a
   src/mcp-server/tools/envelopesRecipientsUpdateMany.ts:
     id: 6623f21b285a
-    last_write_checksum: sha1:6d6af5c4f0c646486d73899742fd91834dc5b8f0
-    pristine_git_object: ebe1d8382fc647800f9645b16375b8fb47797526
+    last_write_checksum: sha1:751a1ef7f2a6cb61ac9aa0e9685db190cc3620ce
+    pristine_git_object: 1a5e7a8c17f38b469b4acb8c81bf1ac13543e9c0
   src/mcp-server/tools/envelopesRedistribute.ts:
     id: ceb50428795d
-    last_write_checksum: sha1:9de98b1716416ee8b7f7710577a30ad44b58a24f
-    pristine_git_object: a4d41e993138149cf075ec3fe8273b80f8ba8476
+    last_write_checksum: sha1:288b3b12d0ea50cc6daa6e592eaa97d5c48312f2
+    pristine_git_object: 40c53ff855642ba531fc0f350e22d847f6ea7df0
   src/mcp-server/tools/envelopesUpdate.ts:
     id: c55fdf60ab1d
-    last_write_checksum: sha1:db5b0dab23bb31b529a9c9e0c0d16f76884ea62e
-    pristine_git_object: e47e046e35e88689f2b8fd64fdfd85ed775dbd16
+    last_write_checksum: sha1:9d43bc31de27b0e6d817c8cc9c8197fafbc38d97
+    pristine_git_object: 1ee86214db9a538bf86fce7e568d684743f60193
   src/mcp-server/tools/envelopesUse.ts:
     id: 592ce4dcdf10
-    last_write_checksum: sha1:442a2133a62dcc9b2155cfa0029d30e3658de2f2
-    pristine_git_object: 3a0b499f948aa81151e3cd927f81b4a65b3061ef
+    last_write_checksum: sha1:d1957fcdbe035447cc6c910f99c1a232aae4e5ac
+    pristine_git_object: 1e2d64b4b55420f491b7edc38cc6d288a5ca18fb
   src/mcp-server/tools/foldersCreate.ts:
     id: 0a56d1a90ec1
-    last_write_checksum: sha1:cfb8a07d54a4dc5445362b722cc7f74f470586fb
-    pristine_git_object: 1af8ca3cbfdc428626189d6a895470d660b5ebc5
+    last_write_checksum: sha1:ccf9996851c67e6ef4cf8d15692941d7e9349d8f
+    pristine_git_object: 481733d516334bd87f00db6455d62def7bf584bf
   src/mcp-server/tools/foldersDelete.ts:
     id: 22b0fb7fd859
-    last_write_checksum: sha1:2e32948e4456777a595c95db3d8283cfc9cd2f70
-    pristine_git_object: dbbb3a145d4527cdcc1d20d6d4cf8eec2552be9d
+    last_write_checksum: sha1:f4c0bd7db3e7c4d324b6bf8f321c7c41d4775871
+    pristine_git_object: 077258d78b86f3106e788491f4ab3636eac5729b
   src/mcp-server/tools/foldersFind.ts:
     id: fea60b8f068f
-    last_write_checksum: sha1:b48fab83f5f85f3d5438723595f8f49a217e2b8d
-    pristine_git_object: 2d793ac043de63ab45a2f90256eddb47e4f635b2
+    last_write_checksum: sha1:4ea959b502171e6a30d01c3b292fc8a7af149e5b
+    pristine_git_object: a8285a70acfbca68530a81a5c11a006eca49c505
   src/mcp-server/tools/foldersUpdate.ts:
     id: 1224443d6731
-    last_write_checksum: sha1:82e9066cc053c3b3fbcb2abdbe03addfe6bc39e5
-    pristine_git_object: 9fa081097c993897c4d7dd40fb68316a2ba78a67
+    last_write_checksum: sha1:f51c5b7ff1e9fff2b962ca7ed9005cecd4447e44
+    pristine_git_object: 9fa490f8872c6bccc623da0ce6c932c11d7be2d1
   src/mcp-server/tools/templateTemplateCreateTemplateTemporary.ts:
     id: 85ec6c3aec7d
-    last_write_checksum: sha1:516d8f5e1bce8c54f7d3351828664749d125ffa5
-    pristine_git_object: 3c9e5a6629ec581befc27c03276dd8c0e96e6f77
+    last_write_checksum: sha1:6c9572c3bcf77a9e1f1b61a4c63058c1a34c3157
+    pristine_git_object: 35d31208d4011b3222d732ca9de3a930e9a764da
   src/mcp-server/tools/templateTemplateGetMany.ts:
     id: feb952b4cb78
-    last_write_checksum: sha1:2cb7105693c2f42bf826d19aa6ce00fdae54b12c
-    pristine_git_object: c8b9dee41ee21f32f254e32179adf97dea8cd9ea
+    last_write_checksum: sha1:f21c19138131c55581e7014a2fa62582ace8ecb3
+    pristine_git_object: 3b8d5dc81be03dfa887c253f6d60c8d8bfa821c7
   src/mcp-server/tools/templatesCreate.ts:
     id: 251769ef0231
-    last_write_checksum: sha1:04f63d0f96038de5330f64efbf34c25732519968
-    pristine_git_object: e513bbab0f890350a4eb6573c36a822711a15051
+    last_write_checksum: sha1:0dcec07c42e00b6b6a589475bddb28d573cf1a75
+    pristine_git_object: 9f35ef7d21bae0881aa30e1e20393474506ea6e5
   src/mcp-server/tools/templatesDelete.ts:
     id: 9600643cece0
-    last_write_checksum: sha1:3c4b463fa9f756b382b8ee5d2451b7e7c62afe18
-    pristine_git_object: 25df2be2844120a9f77ee3aa4471c2f37ecf725c
+    last_write_checksum: sha1:593869059a9ff5bc7be119181ebe25ce2eec69fe
+    pristine_git_object: 818fd1892dd818dc55bd1a713d43eebc7ed5f93a
   src/mcp-server/tools/templatesDirectLinkCreate.ts:
     id: d415b63a566d
-    last_write_checksum: sha1:08dc801ac02f691bec94c68cc11e7688481fd7e7
-    pristine_git_object: a98d29af86e33cd181ef1ff9865c40f50767965d
+    last_write_checksum: sha1:a13b96f2a5b94116b59d992c640162e8723414cc
+    pristine_git_object: 85b84e197c45aa3c4d82c04f05806a8ca920654d
   src/mcp-server/tools/templatesDirectLinkDelete.ts:
     id: 1cb180fe680d
-    last_write_checksum: sha1:68a71fce6bdf1dab3d10baadf5b0250d2268158b
-    pristine_git_object: f02f0c8ed54ba6c0d5b1ce33cddf3143ad195180
+    last_write_checksum: sha1:08e892ebe26896e33627624d93c16b4a959672ea
+    pristine_git_object: 464a805c5bd648d25e676adb58c3c613ddeceb8e
   src/mcp-server/tools/templatesDirectLinkToggle.ts:
     id: b986b9a85ad8
-    last_write_checksum: sha1:447ee5b6bd8ed140dd41b239d95510b3d72a4b6f
-    pristine_git_object: c98f70a6fe8faaf700fe40a6664230d8ae5f9810
+    last_write_checksum: sha1:66e954d38045a750ce038fe12337e0fc2f903613
+    pristine_git_object: cc6503b545610aa6adf79bd14c9bad4bff0116ef
   src/mcp-server/tools/templatesDuplicate.ts:
     id: 6db690568591
-    last_write_checksum: sha1:e86fc556a2d8c89ccdcdde1737c8bb62da99a7ea
-    pristine_git_object: 24fe598cd829e918903934303f721e2b2c856ca7
+    last_write_checksum: sha1:944d9a7c7dc05b7172df9fb2ec7995ec38fd1828
+    pristine_git_object: 46467d8f3ae65a2ec019f6bb95af999f854ae4cf
   src/mcp-server/tools/templatesFieldsCreate.ts:
     id: 3d5799d261af
-    last_write_checksum: sha1:3293f79ad73877b6fc06c87208cec7e52ad66d0b
-    pristine_git_object: f9c9296403a1a8e550c72a998ebe1c33ccc2a106
+    last_write_checksum: sha1:3cc6a31e8a6b10d7a23a05deb5d74d5b8a70ba3f
+    pristine_git_object: c909830aa65dae61bf3b012604bbd76b587bc18c
   src/mcp-server/tools/templatesFieldsCreateMany.ts:
     id: cb9b70dbd08c
-    last_write_checksum: sha1:89a7b8a9e2df9f37a513fed9f3a54091afa9f1c6
-    pristine_git_object: 025d4f4f2d209cb5861969ac7aaba28783125759
+    last_write_checksum: sha1:7ba42c70d09dd502aaa3f431f459731458d17f17
+    pristine_git_object: e247e26916771d6bb9aedd2e4765773cc7307bc1
   src/mcp-server/tools/templatesFieldsDelete.ts:
     id: 66564f209439
-    last_write_checksum: sha1:7235857f46710ef1bdcf6ffa5a06cfd9d407a29c
-    pristine_git_object: f356226e78d8d851aa481392bddc416cc1c21443
+    last_write_checksum: sha1:c0105c8d0f7dbafe44ecdb939890928c2e7051e9
+    pristine_git_object: 095c12a2b95e1286f831d73b6185b4398db505d0
   src/mcp-server/tools/templatesFieldsGet.ts:
     id: d0fefff86761
-    last_write_checksum: sha1:910e7796cf8c3ea63461d233a1ed1f008f0ef3f7
-    pristine_git_object: 3a2c9d351a057410e8f17483bc1b0413f3012486
+    last_write_checksum: sha1:3f35adee0cc2d9a6c6a994b6465c5ae114b6e49a
+    pristine_git_object: 21f3027f026c05d0e6585474501e7bc32c5b5d46
   src/mcp-server/tools/templatesFieldsUpdate.ts:
     id: f07aef3beac1
-    last_write_checksum: sha1:1d2b34bae7d63bca80c1381cf0b0e8a45cc4fbf3
-    pristine_git_object: cd397b433c54dc8148e440b5e41b34bfed1f0dd1
+    last_write_checksum: sha1:a02af672e759148934c8eb6080ff8cb6770ee088
+    pristine_git_object: 5cc538ce7df3f7b8d2b6ebe5b65f50ccb07a95d7
   src/mcp-server/tools/templatesFieldsUpdateMany.ts:
     id: 827f5e244a2c
-    last_write_checksum: sha1:edf51d65fda71caeff3749d56b7c835a17ff7d61
-    pristine_git_object: c88e16de8f6c80d3fd00821b74883cec405f885f
+    last_write_checksum: sha1:c62a7562cc01fc90e1ee4c177eecef601a2d575c
+    pristine_git_object: 53ebfd638acf7f18b46a6724b5e1c018b3171f64
   src/mcp-server/tools/templatesFind.ts:
     id: c918ff927e18
-    last_write_checksum: sha1:830830356e4799886c7d6f4666f0d192fe12e523
-    pristine_git_object: 0a64a8d66d8fa44fef703396c428ef88bfb25c15
+    last_write_checksum: sha1:c415a43bbdd8b1651968612d3707a2d470d08b87
+    pristine_git_object: 70652441ca21446c137cc4dd0d75b9aa9d7792c5
   src/mcp-server/tools/templatesGet.ts:
     id: 0dec2ddacb3e
-    last_write_checksum: sha1:48bc41622f6360df8b23186749a63d91f9486266
-    pristine_git_object: 4a8ef520255ee64700130f07972346f31a2af014
+    last_write_checksum: sha1:bfae3c476e1e41b44a7fd01fb5dccf454e64d746
+    pristine_git_object: 91b686d0068a8c5a4f9c521cf089821ad73d01b7
   src/mcp-server/tools/templatesRecipientsCreate.ts:
     id: 2de82ced67b5
-    last_write_checksum: sha1:75e340b4bdd1c6f20431180578613902599e57f2
-    pristine_git_object: 083e821c34594896d00e0cd3b2b333c9c5170205
+    last_write_checksum: sha1:cdb128ed32adbb1bd89f0386561c8b61b9b19f2b
+    pristine_git_object: 254f750002fbe267cc089e20f412ce3f582cbb35
   src/mcp-server/tools/templatesRecipientsCreateMany.ts:
     id: e4fac18ba32c
-    last_write_checksum: sha1:bfa9895f0c3d7704aa8c553d401afc4247df0a5f
-    pristine_git_object: 1ad1f43796854d7f169c69e33af78447d682b445
+    last_write_checksum: sha1:2d384ef3040b2824d3e2811c1709b8de5fbb32d5
+    pristine_git_object: b2ad3f98e18884b71dd6596a4d608fd56ab540af
   src/mcp-server/tools/templatesRecipientsDelete.ts:
     id: acd7975af7e4
-    last_write_checksum: sha1:e810d155b99b2b2cbcc347e8ac41f3c5b85e68a9
-    pristine_git_object: d05f30d7324719251d3e691640c84c30928a1e93
+    last_write_checksum: sha1:11945e383633494aa815689af43277a7a1d295eb
+    pristine_git_object: ca23378b7ad621e5e1579fa148a107695a36d9c5
   src/mcp-server/tools/templatesRecipientsGet.ts:
     id: aa5aea1f5f30
-    last_write_checksum: sha1:bb81fc850a9e46ff19e6c174ca7761ce093555e9
-    pristine_git_object: 60ea6aa718a3c176b88349b3cce5f516821f7aca
+    last_write_checksum: sha1:d8800a0cf48248233404b5a35b227b9e3f00e6a3
+    pristine_git_object: f1e6519a33dc1648475010f859a01948193fe8d9
   src/mcp-server/tools/templatesRecipientsUpdate.ts:
     id: 61d33f7bc3b1
-    last_write_checksum: sha1:a0a638bc880d82b032b6610b1254271c9f5a2684
-    pristine_git_object: 4ffa771d685f39e9f3f141714bbee92c0d284b3b
+    last_write_checksum: sha1:521c8c2d07bcd3f7898fdba23daa7dc46ba9302b
+    pristine_git_object: 66c097ac57c5b5761a581c4f300bfd1facc5c97b
   src/mcp-server/tools/templatesRecipientsUpdateMany.ts:
     id: 65f932711d4d
-    last_write_checksum: sha1:9dc84843f3c6a62b27ac0630aa49758193243e4b
-    pristine_git_object: d5ee6c5c3b8352a272306f7218b84726b61be674
+    last_write_checksum: sha1:ec8167b39cc3fd19131059765b77b76eba6d687e
+    pristine_git_object: 543a2549d75b7275bbc0dec1716f2f67a56af9e1
   src/mcp-server/tools/templatesUpdate.ts:
     id: e29f42399efd
-    last_write_checksum: sha1:43a69098a54004fda48974da318ff706a3006a14
-    pristine_git_object: 40d838e02988e88071631a9bb55a95888590b1c2
+    last_write_checksum: sha1:e589fe5f93581ce74741d906a6ec17d0a4454a18
+    pristine_git_object: 7b44e63c33a5db76129a1ae072db73c3f9189538
   src/mcp-server/tools/templatesUse.ts:
     id: 0513c7868ba9
-    last_write_checksum: sha1:b89128130d30c0aecfd41183b64fba35ae01d786
-    pristine_git_object: 5c613f01fb066a2910c32f01d9220fdba5e0392c
+    last_write_checksum: sha1:21f7604cd7bc18b914e8a68e5bb4dfb624610daf
+    pristine_git_object: 68380fda3675148b1d0015190e3297df117bfb5d
   src/models/components/index.ts:
     id: 0aa842dce54d
     last_write_checksum: sha1:a445498c6a67166ab0fd15bc7a3f890780f560eb
@@ -16480,12 +16480,12 @@ trackedFiles:
     pristine_git_object: 6e7b9cb8c7ab3bd5e1087c1a3c26f62394c4d1b5
   src/models/operations/documentcreate.ts:
     id: 9d18edaf1c82
-    last_write_checksum: sha1:36e2934b70debe2ed994ac66830b3f6fbe93094c
-    pristine_git_object: daac17d607a485a1ed3a006806c81487122399b0
+    last_write_checksum: sha1:1a85abe219e0e5cca2fe294472ec2136ef5bdb89
+    pristine_git_object: e1f98ca14345c8526869b824048fcf374810df30
   src/models/operations/documentcreatedocumenttemporary.ts:
     id: b8422b021912
-    last_write_checksum: sha1:a73dfa6bdfc176ebceacce5a9f74b54e18d27954
-    pristine_git_object: 065ad15e3973b278ccec2b81745157723dc74cbc
+    last_write_checksum: sha1:abfb6251d85e2e3d04d37f856df4755f6e64363b
+    pristine_git_object: 466b7e32e01cf75d08f99e8bd3718877eaa500ff
   src/models/operations/documentdelete.ts:
     id: 1b08276bc476
     last_write_checksum: sha1:f0a4e0712b06bdd8f5d2c80037c52ee393372a9c
@@ -16556,8 +16556,8 @@ trackedFiles:
     pristine_git_object: 3566ead8fdb42c6e2afe1f2ab03b01d68c0c5da6
   src/models/operations/envelopeauditlogfind.ts:
     id: e201aa16ca5c
-    last_write_checksum: sha1:b2e3b9c529af49d6537014f792ef8d07a8c92d2f
-    pristine_git_object: 8974968d9bfbc310ecb731dccf12225a212969ff
+    last_write_checksum: sha1:09361cfccf2ec12a34ddcdec1c1a6c08135549dd
+    pristine_git_object: e3d89b2058a1e7468c3ff05b1026e9461a6875e3
   src/models/operations/envelopecancel.ts:
     id: 4586e264726d
     last_write_checksum: sha1:f28dda8735f008a4c4fe9e80c79b46a4ebe6a304
@@ -16568,8 +16568,8 @@ trackedFiles:
     pristine_git_object: c3e84cd2dbd1896430a4b4020c75afd8244a67fc
   src/models/operations/envelopecreate.ts:
     id: 53605fea2857
-    last_write_checksum: sha1:197eb98d1cd89ef4019c91c3c46704f18c3d1bf7
-    pristine_git_object: 9e3bed4754206eefa035bfaa7457c1808be7f372
+    last_write_checksum: sha1:e842b542fea475fbaed7c4ed30dd6b0b597c3f7e
+    pristine_git_object: afc02a72a8b36818c73ceef00c8bc839061a881a
   src/models/operations/envelopedelete.ts:
     id: 9e4e23b09de8
     last_write_checksum: sha1:79c18c9e790fb69d652783cc9ea993c81496bc87
@@ -16628,8 +16628,8 @@ trackedFiles:
     pristine_git_object: 9ef8a5374928b3d1680ebcb300a232cdcba9283f
   src/models/operations/enveloperecipientcreatemany.ts:
     id: e8334f716e28
-    last_write_checksum: sha1:9c5f460811c007c14f927900383c94846a2df899
-    pristine_git_object: 30a63539704aa8a1663ed787e928ac2a8afdb3e4
+    last_write_checksum: sha1:5bfa8ca6c164aa9266e5d51dbb32c695efd3219b
+    pristine_git_object: 2d192427662d6d2d244569fcfccbc0848733a1f7
   src/models/operations/enveloperecipientdelete.ts:
     id: 12b4e633885d
     last_write_checksum: sha1:1b4d07b4ab03f88a1c1c217cb0dfee16ec05b828
@@ -16644,8 +16644,8 @@ trackedFiles:
     pristine_git_object: e0fd6ffa1df5ac78362c88cdf54c18909ae93d1a
   src/models/operations/enveloperecipientupdatemany.ts:
     id: a553e365ac3c
-    last_write_checksum: sha1:c0db6df3c81ce083eba5f40f3404967865f4dead
-    pristine_git_object: 6986e7076f3ca16f9cc3dcf23b5c96ca6be0d7ac
+    last_write_checksum: sha1:187e1fb50b58cf4e50e8e7b7ba8ce7d71cdf6574
+    pristine_git_object: b49a9b265d999a7541d70156ec1d989207183912
   src/models/operations/enveloperedistribute.ts:
     id: 2ae1a389aa97
     last_write_checksum: sha1:d8c0c654fe72894bf492ba3058c1e87c1fe7df8b
@@ -16656,8 +16656,8 @@ trackedFiles:
     pristine_git_object: 24a6c04929311452a2ab4d1b3e29ea1d055033e8
   src/models/operations/envelopeuse.ts:
     id: 3ca58fb9deeb
-    last_write_checksum: sha1:71f4b9102d094dda06ff50c9a42f447070411b2b
-    pristine_git_object: af75fc520b64d16fb5c189c74123fb6235759872
+    last_write_checksum: sha1:014487c0c2c9b84b53c11dd4d10e39327d7353af
+    pristine_git_object: fd2896e349e9ad75b8783aa0e280841b503757ca
   src/models/operations/fieldcreatedocumentfield.ts:
     id: 578f928323ba
     last_write_checksum: sha1:9f40ecbf4cee0ce18566afb14a84176131e58e33
@@ -16728,20 +16728,20 @@ trackedFiles:
     pristine_git_object: 053f94f172d911798c60001a024c06b7540d6d90
   src/models/operations/recipientcreatedocumentrecipient.ts:
     id: 610cb16cd58d
-    last_write_checksum: sha1:03c2246c5dc1637564dd1ca9666afe00806b5fad
-    pristine_git_object: f8ab8d2329db0c3b333739994942d2eff1612015
+    last_write_checksum: sha1:f0e6c0455a2f849f39f7fd0b3b0c7a190a583b58
+    pristine_git_object: 8398713756f8ee83267e96df15e991a738288ffa
   src/models/operations/recipientcreatedocumentrecipients.ts:
     id: 08c07b070f28
-    last_write_checksum: sha1:19f4c298fc3dda14695886ee188a291efdff77c9
-    pristine_git_object: ca598180012b3092f579b67aed127cf36393c37f
+    last_write_checksum: sha1:3cdbf6747dc4d93055121a98c6ca4c949672ef34
+    pristine_git_object: eb291d5162b44de34d8c59acb19ccebb0f74dae3
   src/models/operations/recipientcreatetemplaterecipient.ts:
     id: 9dd2a5093534
-    last_write_checksum: sha1:42fe3de57e2b4856cd6b35fb1ff3697e344fd7d4
-    pristine_git_object: 6a4194a9ca183006a25204fc58e67f6d9758b8b4
+    last_write_checksum: sha1:9f60edcec10f9fb4248506945cb7d6310f0fd582
+    pristine_git_object: 6cb4f00e8733172905b7b7e33d812a73ed58adcd
   src/models/operations/recipientcreatetemplaterecipients.ts:
     id: 50555894ce09
-    last_write_checksum: sha1:444fd336b59238b19cd42f93da07e7b67e7dadc8
-    pristine_git_object: fecf252a5dc923e1dc49b080ca54876e09d71539
+    last_write_checksum: sha1:1aeb4d3c0918c25df1e1868aaf93651e165bfa85
+    pristine_git_object: cd6c684dab1ca72dae2bb815e9540c272298bc63
   src/models/operations/recipientdeletedocumentrecipient.ts:
     id: 7bc7a57f5d9e
     last_write_checksum: sha1:3c633037c91102a17cb46dcb14290073b8d4c3fc
@@ -16760,20 +16760,20 @@ trackedFiles:
     pristine_git_object: fc5af2179cf5ba7cc09aef7581893f7265897b81
   src/models/operations/recipientupdatedocumentrecipient.ts:
     id: 71807d564ea1
-    last_write_checksum: sha1:b55517ac332dffae814c1e4d7a699519c30307b7
-    pristine_git_object: b0b86b431553326fd0a98f8ea2871f6ec3dbfe47
+    last_write_checksum: sha1:a9a4ee64def27ccb70f701a89cc3ee444b3d1e23
+    pristine_git_object: e063668cd33ad542ed5ebe6b1c80828356467771
   src/models/operations/recipientupdatedocumentrecipients.ts:
     id: b87988fbe27c
-    last_write_checksum: sha1:cc65dbfe1ffc04bbd448dee2d1371a989fa97573
-    pristine_git_object: 8f0ab152a517fc60a1fd85158a55ed9ecf005b1a
+    last_write_checksum: sha1:080dee461127e7680be37f368ca7cc5ac8eef066
+    pristine_git_object: cb6c33d1530ea68d57aad9a3343a43fe387db5dd
   src/models/operations/recipientupdatetemplaterecipient.ts:
     id: 8c7a9ceca6c1
-    last_write_checksum: sha1:75c8f99ecc5e27f50b96ff2c4754ca999b872b2b
-    pristine_git_object: 1e7cd03c17ff8efd5a76e37d7ac4be84f2441d2b
+    last_write_checksum: sha1:20ac6b2098d0faef8a3d4254ff2b87e51518bbe3
+    pristine_git_object: 15d30783a9d8973dbcfb652a05bcb8a982f9956c
   src/models/operations/recipientupdatetemplaterecipients.ts:
     id: 890d75e95340
-    last_write_checksum: sha1:7d6f0a762bc8e67b20b84d8e95afcf6e6fa30f0f
-    pristine_git_object: abe4a9eb1cb3eef79abaf22eab96bcdbced97789
+    last_write_checksum: sha1:b5b5dc6aeefc62f45227a7dbbefcb863348ec7bb
+    pristine_git_object: 28a74ee8788e475933d74212ebae93ee6685ac18
   src/models/operations/templatecreatedocumentfromtemplate.ts:
     id: ec83a67ae21c
     last_write_checksum: sha1:81bdc3a204560e39b6f506218196b79af7fddfb0
@@ -16852,16 +16852,16 @@ trackedFiles:
     pristine_git_object: 1681543eaf9e93921ef987e1a7282697493f8374
   src/sdk/envelope.ts:
     id: 2f2324cc2125
-    last_write_checksum: sha1:e00cd17d82bdb2aae16bac169fb0c2349715a943
-    pristine_git_object: e54a8245c96438da561a11bef080c73d7e88cb86
+    last_write_checksum: sha1:e6ac5a684ece74f37ed9d0624994de38e95de9e8
+    pristine_git_object: 4f12920eee0e6cbe500ee614953f4b1d4c094652
   src/sdk/enveloperecipients.ts:
     id: 3226a0d37c63
     last_write_checksum: sha1:2f2c69da87758f9cdc1d422ffda0bf6385862299
     pristine_git_object: 39bd2015534334aec1595234c500d7233a46a56b
   src/sdk/envelopes.ts:
     id: e8444cde668f
-    last_write_checksum: sha1:2c52468a46b97baa5c970c67418032a547ab5ab2
-    pristine_git_object: 97ed46fb8e379d5b20d6b8909a615afc1cb44ee9
+    last_write_checksum: sha1:3e76b718cb08548f4e7bfd68a2340ed1b1564c52
+    pristine_git_object: 90a74c39bf391d40ea8cf830727bcb82798710fa
   src/sdk/envelopesattachments.ts:
     id: 3329ab5028df
     last_write_checksum: sha1:90c513586ab0186d2fbdbb690e2888aa2edeb8f9
@@ -18459,7 +18459,7 @@ examples:
           application/json: {"message": "<value>", "code": "<value>"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Typescript SDK Changes:\n* `documenso.envelope.envelopeFind()`: \n  *  `request.hasExpiredRecipients` **Added**\n* `documenso.documents.get()`: **Deprecated**\n* `documenso.documents.find()`: **Deprecated**\n* `documenso.documents.find()`: \n  *  `request.hasExpiredRecipients` **Added**\n* `documenso.documents.create()`: **Deprecated**\n* `documenso.documents.update()`: **Deprecated**\n* `documenso.documents.delete()`: **Deprecated**\n* `documenso.documents.duplicate()`: **Deprecated**\n* `documenso.documents.distribute()`: **Deprecated**\n* `documenso.documents.redistribute()`: **Deprecated**\n* `documenso.documents.download()`: **Deprecated**\n* `documenso.documents.attachments.create()`: **Deprecated**\n* `documenso.documents.attachments.update()`: **Deprecated**\n* `documenso.documents.attachments.delete()`: **Deprecated**\n* `documenso.documents.attachments.find()`: **Deprecated**\n* `documenso.documents.fields.get()`: **Deprecated**\n* `documenso.documents.fields.create()`: **Deprecated**\n* `documenso.documents.fields.createMany()`: **Deprecated**\n* `documenso.documents.fields.update()`: **Deprecated**\n* `documenso.documents.fields.updateMany()`: **Deprecated**\n* `documenso.documents.fields.delete()`: **Deprecated**\n* `documenso.documents.recipients.get()`: **Deprecated**\n* `documenso.documents.recipients.create()`: **Deprecated**\n* `documenso.documents.recipients.createMany()`: **Deprecated**\n* `documenso.documents.recipients.update()`: **Deprecated**\n* `documenso.documents.recipients.updateMany()`: **Deprecated**\n* `documenso.documents.recipients.delete()`: **Deprecated**\n* `documenso.document.documentGetMany()`: **Deprecated**\n* `documenso.document.documentDownload()`: **Deprecated**\n* `documenso.templates.find()`: **Deprecated**\n* `documenso.templates.get()`: **Deprecated**\n* `documenso.templates.create()`: **Deprecated**\n* `documenso.templates.update()`: **Deprecated**\n* `documenso.templates.duplicate()`: **Deprecated**\n* `documenso.templates.delete()`: **Deprecated**\n* `documenso.templates.use()`: **Deprecated**\n* `documenso.templates.fields.create()`: **Deprecated**\n* `documenso.templates.fields.get()`: **Deprecated**\n* `documenso.templates.fields.createMany()`: **Deprecated**\n* `documenso.templates.fields.update()`: **Deprecated**\n* `documenso.templates.fields.updateMany()`: **Deprecated**\n* `documenso.templates.fields.delete()`: **Deprecated**\n* `documenso.templates.recipients.get()`: **Deprecated**\n* `documenso.templates.recipients.create()`: **Deprecated**\n* `documenso.templates.recipients.createMany()`: **Deprecated**\n* `documenso.templates.recipients.update()`: **Deprecated**\n* `documenso.templates.recipients.updateMany()`: **Deprecated**\n* `documenso.templates.recipients.delete()`: **Deprecated**\n* `documenso.templates.directLink.create()`: **Deprecated**\n* `documenso.templates.directLink.delete()`: **Deprecated**\n* `documenso.templates.directLink.toggle()`: **Deprecated**\n* `documenso.template.templateGetMany()`: **Deprecated**\n* `documenso.template.templateCreateTemplateTemporary()`: **Deprecated**\n"
+releaseNotes: "## Typescript SDK Changes:\n* `documenso.documents.createV0()`: \n  *  `request.recipients[].signingOrder` **Changed** (Breaking ⚠️)\n* `documenso.documents.recipients.create()`: \n  *  `request.recipient.signingOrder` **Changed** (Breaking ⚠️)\n* `documenso.envelopes.recipients.createMany()`: \n  *  `request.data[].signingOrder` **Changed** (Breaking ⚠️)\n* `documenso.envelopes.recipients.updateMany()`: \n  *  `request.data[].signingOrder` **Changed** (Breaking ⚠️)\n* `documenso.templates.recipients.updateMany()`: \n  *  `request.recipients[].signingOrder` **Changed** (Breaking ⚠️)\n* `documenso.documents.create()`: \n  *  `request.payload` **Changed** (Breaking ⚠️)\n* `documenso.envelopes.use()`: \n  *  `request.payload` **Changed** (Breaking ⚠️)\n* `documenso.documents.recipients.updateMany()`: \n  *  `request.recipients[].signingOrder` **Changed** (Breaking ⚠️)\n* `documenso.envelopes.create()`: \n  *  `request.payload` **Changed** (Breaking ⚠️)\n* `documenso.documents.recipients.update()`: \n  *  `request.recipient.signingOrder` **Changed** (Breaking ⚠️)\n* `documenso.documents.recipients.createMany()`: \n  *  `request.recipients[].signingOrder` **Changed** (Breaking ⚠️)\n* `documenso.templates.recipients.create()`: \n  *  `request.recipient.signingOrder` **Changed** (Breaking ⚠️)\n* `documenso.templates.recipients.createMany()`: \n  *  `request.recipients[].signingOrder` **Changed** (Breaking ⚠️)\n* `documenso.templates.recipients.update()`: \n  *  `request.recipient.signingOrder` **Changed** (Breaking ⚠️)\n* `documenso.envelope.envelopeAuditLogFind()`:  `response.data[].union(RECIPIENT_DELETED).data` **Changed**\n"
 generatedFiles:
   - .gitattributes
   - .npmignore
