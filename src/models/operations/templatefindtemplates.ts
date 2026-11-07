@@ -409,6 +409,14 @@ export type TemplateFindTemplatesTextAlign1 = ClosedEnum<
   typeof TemplateFindTemplatesTextAlign1
 >;
 
+export const TemplateFindTemplatesFontFamily = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type TemplateFindTemplatesFontFamily = ClosedEnum<
+  typeof TemplateFindTemplatesFontFamily
+>;
+
 export type TemplateFindTemplatesFieldMetaInitials = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -418,6 +426,7 @@ export type TemplateFindTemplatesFieldMetaInitials = {
   overflow?: TemplateFindTemplatesOverflow2 | undefined;
   type: "initials";
   textAlign?: TemplateFindTemplatesTextAlign1 | undefined;
+  fontFamily?: TemplateFindTemplatesFontFamily | undefined;
 };
 
 export const TemplateFindTemplatesOverflow1 = {
@@ -1705,6 +1714,15 @@ export const TemplateFindTemplatesTextAlign1$outboundSchema: z.ZodNativeEnum<
 > = TemplateFindTemplatesTextAlign1$inboundSchema;
 
 /** @internal */
+export const TemplateFindTemplatesFontFamily$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesFontFamily
+> = z.nativeEnum(TemplateFindTemplatesFontFamily);
+/** @internal */
+export const TemplateFindTemplatesFontFamily$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesFontFamily
+> = TemplateFindTemplatesFontFamily$inboundSchema;
+
+/** @internal */
 export const TemplateFindTemplatesFieldMetaInitials$inboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMetaInitials,
   z.ZodTypeDef,
@@ -1718,6 +1736,7 @@ export const TemplateFindTemplatesFieldMetaInitials$inboundSchema: z.ZodType<
   overflow: TemplateFindTemplatesOverflow2$inboundSchema.optional(),
   type: z.literal("initials"),
   textAlign: TemplateFindTemplatesTextAlign1$inboundSchema.optional(),
+  fontFamily: TemplateFindTemplatesFontFamily$inboundSchema.optional(),
 });
 /** @internal */
 export type TemplateFindTemplatesFieldMetaInitials$Outbound = {
@@ -1729,6 +1748,7 @@ export type TemplateFindTemplatesFieldMetaInitials$Outbound = {
   overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -1745,6 +1765,7 @@ export const TemplateFindTemplatesFieldMetaInitials$outboundSchema: z.ZodType<
   overflow: TemplateFindTemplatesOverflow2$outboundSchema.optional(),
   type: z.literal("initials"),
   textAlign: TemplateFindTemplatesTextAlign1$outboundSchema.optional(),
+  fontFamily: TemplateFindTemplatesFontFamily$outboundSchema.optional(),
 });
 
 export function templateFindTemplatesFieldMetaInitialsToJSON(

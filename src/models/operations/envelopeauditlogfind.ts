@@ -184,6 +184,8 @@ export type EnvelopeAuditLogFindData35 = {
   recipientName: string;
   recipientId: number;
   recipientRole: string;
+  removedByAdmin?: boolean | undefined;
+  reason?: string | undefined;
 };
 
 export type DataRecipientDeleted = {
@@ -2445,6 +2447,8 @@ export const EnvelopeAuditLogFindData35$inboundSchema: z.ZodType<
   recipientName: z.string(),
   recipientId: z.number(),
   recipientRole: z.string(),
+  removedByAdmin: z.boolean().optional(),
+  reason: z.string().optional(),
 });
 /** @internal */
 export type EnvelopeAuditLogFindData35$Outbound = {
@@ -2452,6 +2456,8 @@ export type EnvelopeAuditLogFindData35$Outbound = {
   recipientName: string;
   recipientId: number;
   recipientRole: string;
+  removedByAdmin?: boolean | undefined;
+  reason?: string | undefined;
 };
 
 /** @internal */
@@ -2464,6 +2470,8 @@ export const EnvelopeAuditLogFindData35$outboundSchema: z.ZodType<
   recipientName: z.string(),
   recipientId: z.number(),
   recipientRole: z.string(),
+  removedByAdmin: z.boolean().optional(),
+  reason: z.string().optional(),
 });
 
 export function envelopeAuditLogFindData35ToJSON(

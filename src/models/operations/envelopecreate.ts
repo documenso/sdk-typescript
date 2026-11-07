@@ -546,6 +546,14 @@ export type EnvelopeCreateTextAlignInitials = ClosedEnum<
   typeof EnvelopeCreateTextAlignInitials
 >;
 
+export const EnvelopeCreateFontFamily = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type EnvelopeCreateFontFamily = ClosedEnum<
+  typeof EnvelopeCreateFontFamily
+>;
+
 export type EnvelopeCreateFieldMetaInitials = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -555,6 +563,7 @@ export type EnvelopeCreateFieldMetaInitials = {
   overflow?: EnvelopeCreateOverflowInitials | undefined;
   type: EnvelopeCreateTypeInitialsEnum;
   textAlign?: EnvelopeCreateTextAlignInitials | undefined;
+  fontFamily?: EnvelopeCreateFontFamily | undefined;
 };
 
 export type EnvelopeCreateIdentifier3 = string | number;
@@ -2714,6 +2723,15 @@ export const EnvelopeCreateTextAlignInitials$outboundSchema: z.ZodNativeEnum<
 > = EnvelopeCreateTextAlignInitials$inboundSchema;
 
 /** @internal */
+export const EnvelopeCreateFontFamily$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeCreateFontFamily
+> = z.nativeEnum(EnvelopeCreateFontFamily);
+/** @internal */
+export const EnvelopeCreateFontFamily$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeCreateFontFamily
+> = EnvelopeCreateFontFamily$inboundSchema;
+
+/** @internal */
 export const EnvelopeCreateFieldMetaInitials$inboundSchema: z.ZodType<
   EnvelopeCreateFieldMetaInitials,
   z.ZodTypeDef,
@@ -2727,6 +2745,7 @@ export const EnvelopeCreateFieldMetaInitials$inboundSchema: z.ZodType<
   overflow: EnvelopeCreateOverflowInitials$inboundSchema.optional(),
   type: EnvelopeCreateTypeInitialsEnum$inboundSchema,
   textAlign: EnvelopeCreateTextAlignInitials$inboundSchema.optional(),
+  fontFamily: EnvelopeCreateFontFamily$inboundSchema.optional(),
 });
 /** @internal */
 export type EnvelopeCreateFieldMetaInitials$Outbound = {
@@ -2738,6 +2757,7 @@ export type EnvelopeCreateFieldMetaInitials$Outbound = {
   overflow?: string | undefined;
   type: string;
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -2754,6 +2774,7 @@ export const EnvelopeCreateFieldMetaInitials$outboundSchema: z.ZodType<
   overflow: EnvelopeCreateOverflowInitials$outboundSchema.optional(),
   type: EnvelopeCreateTypeInitialsEnum$outboundSchema,
   textAlign: EnvelopeCreateTextAlignInitials$outboundSchema.optional(),
+  fontFamily: EnvelopeCreateFontFamily$outboundSchema.optional(),
 });
 
 export function envelopeCreateFieldMetaInitialsToJSON(
@@ -3215,7 +3236,7 @@ export const EnvelopeCreateRecipient$inboundSchema: z.ZodType<
   email: z.union([EnvelopeCreateEmailEnum$inboundSchema, z.string()]),
   name: z.string(),
   role: EnvelopeCreateRole$inboundSchema,
-  signingOrder: z.number().optional(),
+  signingOrder: z.number().int().optional(),
   accessAuth: z.array(EnvelopeCreateAccessAuth$inboundSchema).optional(),
   actionAuth: z.array(EnvelopeCreateActionAuth$inboundSchema).optional(),
   fields: z.array(
@@ -3268,7 +3289,7 @@ export const EnvelopeCreateRecipient$outboundSchema: z.ZodType<
   email: z.union([EnvelopeCreateEmailEnum$outboundSchema, z.string()]),
   name: z.string(),
   role: EnvelopeCreateRole$outboundSchema,
-  signingOrder: z.number().optional(),
+  signingOrder: z.number().int().optional(),
   accessAuth: z.array(EnvelopeCreateAccessAuth$outboundSchema).optional(),
   actionAuth: z.array(EnvelopeCreateActionAuth$outboundSchema).optional(),
   fields: z.array(

@@ -394,6 +394,14 @@ export type RecipientGetDocumentRecipientTextAlign1 = ClosedEnum<
   typeof RecipientGetDocumentRecipientTextAlign1
 >;
 
+export const RecipientGetDocumentRecipientFontFamily = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type RecipientGetDocumentRecipientFontFamily = ClosedEnum<
+  typeof RecipientGetDocumentRecipientFontFamily
+>;
+
 export type RecipientGetDocumentRecipientFieldMetaInitials = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -403,6 +411,7 @@ export type RecipientGetDocumentRecipientFieldMetaInitials = {
   overflow?: RecipientGetDocumentRecipientOverflow2 | undefined;
   type: "initials";
   textAlign?: RecipientGetDocumentRecipientTextAlign1 | undefined;
+  fontFamily?: RecipientGetDocumentRecipientFontFamily | undefined;
 };
 
 export const RecipientGetDocumentRecipientOverflow1 = {
@@ -1622,6 +1631,15 @@ export const RecipientGetDocumentRecipientTextAlign1$outboundSchema:
     RecipientGetDocumentRecipientTextAlign1$inboundSchema;
 
 /** @internal */
+export const RecipientGetDocumentRecipientFontFamily$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientGetDocumentRecipientFontFamily> = z
+    .nativeEnum(RecipientGetDocumentRecipientFontFamily);
+/** @internal */
+export const RecipientGetDocumentRecipientFontFamily$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientGetDocumentRecipientFontFamily> =
+    RecipientGetDocumentRecipientFontFamily$inboundSchema;
+
+/** @internal */
 export const RecipientGetDocumentRecipientFieldMetaInitials$inboundSchema:
   z.ZodType<
     RecipientGetDocumentRecipientFieldMetaInitials,
@@ -1636,6 +1654,8 @@ export const RecipientGetDocumentRecipientFieldMetaInitials$inboundSchema:
     overflow: RecipientGetDocumentRecipientOverflow2$inboundSchema.optional(),
     type: z.literal("initials"),
     textAlign: RecipientGetDocumentRecipientTextAlign1$inboundSchema.optional(),
+    fontFamily: RecipientGetDocumentRecipientFontFamily$inboundSchema
+      .optional(),
   });
 /** @internal */
 export type RecipientGetDocumentRecipientFieldMetaInitials$Outbound = {
@@ -1647,6 +1667,7 @@ export type RecipientGetDocumentRecipientFieldMetaInitials$Outbound = {
   overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -1664,6 +1685,8 @@ export const RecipientGetDocumentRecipientFieldMetaInitials$outboundSchema:
     overflow: RecipientGetDocumentRecipientOverflow2$outboundSchema.optional(),
     type: z.literal("initials"),
     textAlign: RecipientGetDocumentRecipientTextAlign1$outboundSchema
+      .optional(),
+    fontFamily: RecipientGetDocumentRecipientFontFamily$outboundSchema
       .optional(),
   });
 

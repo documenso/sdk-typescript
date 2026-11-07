@@ -439,6 +439,14 @@ export type RecipientUpdateTemplateRecipientsTextAlign1 = ClosedEnum<
   typeof RecipientUpdateTemplateRecipientsTextAlign1
 >;
 
+export const RecipientUpdateTemplateRecipientsFontFamily = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type RecipientUpdateTemplateRecipientsFontFamily = ClosedEnum<
+  typeof RecipientUpdateTemplateRecipientsFontFamily
+>;
+
 export type RecipientUpdateTemplateRecipientsFieldMetaInitials = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -448,6 +456,7 @@ export type RecipientUpdateTemplateRecipientsFieldMetaInitials = {
   overflow?: RecipientUpdateTemplateRecipientsOverflow2 | undefined;
   type: "initials";
   textAlign?: RecipientUpdateTemplateRecipientsTextAlign1 | undefined;
+  fontFamily?: RecipientUpdateTemplateRecipientsFontFamily | undefined;
 };
 
 export const RecipientUpdateTemplateRecipientsOverflow1 = {
@@ -580,7 +589,7 @@ export const RecipientUpdateTemplateRecipientsRecipientRequest$inboundSchema:
     email: z.string().optional(),
     name: z.string().optional(),
     role: RecipientUpdateTemplateRecipientsRoleRequest$inboundSchema.optional(),
-    signingOrder: z.number().optional(),
+    signingOrder: z.number().int().optional(),
     accessAuth: z.array(
       RecipientUpdateTemplateRecipientsAccessAuthRequest$inboundSchema,
     ).optional(),
@@ -611,7 +620,7 @@ export const RecipientUpdateTemplateRecipientsRecipientRequest$outboundSchema:
     name: z.string().optional(),
     role: RecipientUpdateTemplateRecipientsRoleRequest$outboundSchema
       .optional(),
-    signingOrder: z.number().optional(),
+    signingOrder: z.number().int().optional(),
     accessAuth: z.array(
       RecipientUpdateTemplateRecipientsAccessAuthRequest$outboundSchema,
     ).optional(),
@@ -1834,6 +1843,15 @@ export const RecipientUpdateTemplateRecipientsTextAlign1$outboundSchema:
     RecipientUpdateTemplateRecipientsTextAlign1$inboundSchema;
 
 /** @internal */
+export const RecipientUpdateTemplateRecipientsFontFamily$inboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsFontFamily> = z
+    .nativeEnum(RecipientUpdateTemplateRecipientsFontFamily);
+/** @internal */
+export const RecipientUpdateTemplateRecipientsFontFamily$outboundSchema:
+  z.ZodNativeEnum<typeof RecipientUpdateTemplateRecipientsFontFamily> =
+    RecipientUpdateTemplateRecipientsFontFamily$inboundSchema;
+
+/** @internal */
 export const RecipientUpdateTemplateRecipientsFieldMetaInitials$inboundSchema:
   z.ZodType<
     RecipientUpdateTemplateRecipientsFieldMetaInitials,
@@ -1850,6 +1868,8 @@ export const RecipientUpdateTemplateRecipientsFieldMetaInitials$inboundSchema:
     type: z.literal("initials"),
     textAlign: RecipientUpdateTemplateRecipientsTextAlign1$inboundSchema
       .optional(),
+    fontFamily: RecipientUpdateTemplateRecipientsFontFamily$inboundSchema
+      .optional(),
   });
 /** @internal */
 export type RecipientUpdateTemplateRecipientsFieldMetaInitials$Outbound = {
@@ -1861,6 +1881,7 @@ export type RecipientUpdateTemplateRecipientsFieldMetaInitials$Outbound = {
   overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -1879,6 +1900,8 @@ export const RecipientUpdateTemplateRecipientsFieldMetaInitials$outboundSchema:
       .optional(),
     type: z.literal("initials"),
     textAlign: RecipientUpdateTemplateRecipientsTextAlign1$outboundSchema
+      .optional(),
+    fontFamily: RecipientUpdateTemplateRecipientsFontFamily$outboundSchema
       .optional(),
   });
 

@@ -375,6 +375,14 @@ export type TemplateGetManyTextAlign1 = ClosedEnum<
   typeof TemplateGetManyTextAlign1
 >;
 
+export const TemplateGetManyFontFamily = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type TemplateGetManyFontFamily = ClosedEnum<
+  typeof TemplateGetManyFontFamily
+>;
+
 export type TemplateGetManyFieldMetaInitials = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -384,6 +392,7 @@ export type TemplateGetManyFieldMetaInitials = {
   overflow?: TemplateGetManyOverflow2 | undefined;
   type: "initials";
   textAlign?: TemplateGetManyTextAlign1 | undefined;
+  fontFamily?: TemplateGetManyFontFamily | undefined;
 };
 
 export const TemplateGetManyOverflow1 = {
@@ -1611,6 +1620,15 @@ export const TemplateGetManyTextAlign1$outboundSchema: z.ZodNativeEnum<
 > = TemplateGetManyTextAlign1$inboundSchema;
 
 /** @internal */
+export const TemplateGetManyFontFamily$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetManyFontFamily
+> = z.nativeEnum(TemplateGetManyFontFamily);
+/** @internal */
+export const TemplateGetManyFontFamily$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetManyFontFamily
+> = TemplateGetManyFontFamily$inboundSchema;
+
+/** @internal */
 export const TemplateGetManyFieldMetaInitials$inboundSchema: z.ZodType<
   TemplateGetManyFieldMetaInitials,
   z.ZodTypeDef,
@@ -1624,6 +1642,7 @@ export const TemplateGetManyFieldMetaInitials$inboundSchema: z.ZodType<
   overflow: TemplateGetManyOverflow2$inboundSchema.optional(),
   type: z.literal("initials"),
   textAlign: TemplateGetManyTextAlign1$inboundSchema.optional(),
+  fontFamily: TemplateGetManyFontFamily$inboundSchema.optional(),
 });
 /** @internal */
 export type TemplateGetManyFieldMetaInitials$Outbound = {
@@ -1635,6 +1654,7 @@ export type TemplateGetManyFieldMetaInitials$Outbound = {
   overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -1651,6 +1671,7 @@ export const TemplateGetManyFieldMetaInitials$outboundSchema: z.ZodType<
   overflow: TemplateGetManyOverflow2$outboundSchema.optional(),
   type: z.literal("initials"),
   textAlign: TemplateGetManyTextAlign1$outboundSchema.optional(),
+  fontFamily: TemplateGetManyFontFamily$outboundSchema.optional(),
 });
 
 export function templateGetManyFieldMetaInitialsToJSON(

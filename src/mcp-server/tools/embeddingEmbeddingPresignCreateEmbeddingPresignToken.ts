@@ -23,7 +23,7 @@ Creates a presign token for embedding operations with configurable expiration ti
         await embeddingEmbeddingPresignCreateEmbeddingPresignToken(
           client,
           args.request,
-          { fetchOptions: { signal: ctx.signal } },
+          { fetchOptions: { signal: ctx.mcpReq.signal } },
         ).$inspect();
 
       if (!result.ok) {

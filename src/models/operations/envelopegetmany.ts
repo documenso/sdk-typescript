@@ -562,6 +562,14 @@ export type EnvelopeGetManyTextAlign1 = ClosedEnum<
   typeof EnvelopeGetManyTextAlign1
 >;
 
+export const EnvelopeGetManyFontFamily = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type EnvelopeGetManyFontFamily = ClosedEnum<
+  typeof EnvelopeGetManyFontFamily
+>;
+
 export type EnvelopeGetManyFieldMetaInitials = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -571,6 +579,7 @@ export type EnvelopeGetManyFieldMetaInitials = {
   overflow?: EnvelopeGetManyOverflow2 | undefined;
   type: "initials";
   textAlign?: EnvelopeGetManyTextAlign1 | undefined;
+  fontFamily?: EnvelopeGetManyFontFamily | undefined;
 };
 
 export const EnvelopeGetManyOverflow1 = {
@@ -2435,6 +2444,15 @@ export const EnvelopeGetManyTextAlign1$outboundSchema: z.ZodNativeEnum<
 > = EnvelopeGetManyTextAlign1$inboundSchema;
 
 /** @internal */
+export const EnvelopeGetManyFontFamily$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetManyFontFamily
+> = z.nativeEnum(EnvelopeGetManyFontFamily);
+/** @internal */
+export const EnvelopeGetManyFontFamily$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetManyFontFamily
+> = EnvelopeGetManyFontFamily$inboundSchema;
+
+/** @internal */
 export const EnvelopeGetManyFieldMetaInitials$inboundSchema: z.ZodType<
   EnvelopeGetManyFieldMetaInitials,
   z.ZodTypeDef,
@@ -2448,6 +2466,7 @@ export const EnvelopeGetManyFieldMetaInitials$inboundSchema: z.ZodType<
   overflow: EnvelopeGetManyOverflow2$inboundSchema.optional(),
   type: z.literal("initials"),
   textAlign: EnvelopeGetManyTextAlign1$inboundSchema.optional(),
+  fontFamily: EnvelopeGetManyFontFamily$inboundSchema.optional(),
 });
 /** @internal */
 export type EnvelopeGetManyFieldMetaInitials$Outbound = {
@@ -2459,6 +2478,7 @@ export type EnvelopeGetManyFieldMetaInitials$Outbound = {
   overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -2475,6 +2495,7 @@ export const EnvelopeGetManyFieldMetaInitials$outboundSchema: z.ZodType<
   overflow: EnvelopeGetManyOverflow2$outboundSchema.optional(),
   type: z.literal("initials"),
   textAlign: EnvelopeGetManyTextAlign1$outboundSchema.optional(),
+  fontFamily: EnvelopeGetManyFontFamily$outboundSchema.optional(),
 });
 
 export function envelopeGetManyFieldMetaInitialsToJSON(

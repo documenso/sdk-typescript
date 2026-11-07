@@ -590,6 +590,12 @@ export const DocumentGetTextAlign1 = {
 } as const;
 export type DocumentGetTextAlign1 = ClosedEnum<typeof DocumentGetTextAlign1>;
 
+export const DocumentGetFontFamily = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type DocumentGetFontFamily = ClosedEnum<typeof DocumentGetFontFamily>;
+
 export type DocumentGetFieldMetaInitials = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -599,6 +605,7 @@ export type DocumentGetFieldMetaInitials = {
   overflow?: DocumentGetOverflow2 | undefined;
   type: "initials";
   textAlign?: DocumentGetTextAlign1 | undefined;
+  fontFamily?: DocumentGetFontFamily | undefined;
 };
 
 export const DocumentGetOverflow1 = {
@@ -2745,6 +2752,15 @@ export const DocumentGetTextAlign1$outboundSchema: z.ZodNativeEnum<
 > = DocumentGetTextAlign1$inboundSchema;
 
 /** @internal */
+export const DocumentGetFontFamily$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentGetFontFamily
+> = z.nativeEnum(DocumentGetFontFamily);
+/** @internal */
+export const DocumentGetFontFamily$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentGetFontFamily
+> = DocumentGetFontFamily$inboundSchema;
+
+/** @internal */
 export const DocumentGetFieldMetaInitials$inboundSchema: z.ZodType<
   DocumentGetFieldMetaInitials,
   z.ZodTypeDef,
@@ -2758,6 +2774,7 @@ export const DocumentGetFieldMetaInitials$inboundSchema: z.ZodType<
   overflow: DocumentGetOverflow2$inboundSchema.optional(),
   type: z.literal("initials"),
   textAlign: DocumentGetTextAlign1$inboundSchema.optional(),
+  fontFamily: DocumentGetFontFamily$inboundSchema.optional(),
 });
 /** @internal */
 export type DocumentGetFieldMetaInitials$Outbound = {
@@ -2769,6 +2786,7 @@ export type DocumentGetFieldMetaInitials$Outbound = {
   overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -2785,6 +2803,7 @@ export const DocumentGetFieldMetaInitials$outboundSchema: z.ZodType<
   overflow: DocumentGetOverflow2$outboundSchema.optional(),
   type: z.literal("initials"),
   textAlign: DocumentGetTextAlign1$outboundSchema.optional(),
+  fontFamily: DocumentGetFontFamily$outboundSchema.optional(),
 });
 
 export function documentGetFieldMetaInitialsToJSON(

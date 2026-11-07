@@ -20,7 +20,7 @@ Duplicate an envelope with all its settings`,
     const [result, apiCall] = await envelopesDuplicate(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {
