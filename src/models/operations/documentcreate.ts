@@ -508,6 +508,14 @@ export type DocumentCreateTextAlignInitials = ClosedEnum<
   typeof DocumentCreateTextAlignInitials
 >;
 
+export const DocumentCreateFontFamily = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type DocumentCreateFontFamily = ClosedEnum<
+  typeof DocumentCreateFontFamily
+>;
+
 export type DocumentCreateFieldMetaInitials = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -517,6 +525,7 @@ export type DocumentCreateFieldMetaInitials = {
   overflow?: DocumentCreateOverflowInitials | undefined;
   type: DocumentCreateTypeInitialsEnum;
   textAlign?: DocumentCreateTextAlignInitials | undefined;
+  fontFamily?: DocumentCreateFontFamily | undefined;
 };
 
 export type DocumentCreateFieldInitials = {
@@ -2327,6 +2336,15 @@ export const DocumentCreateTextAlignInitials$outboundSchema: z.ZodNativeEnum<
 > = DocumentCreateTextAlignInitials$inboundSchema;
 
 /** @internal */
+export const DocumentCreateFontFamily$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateFontFamily
+> = z.nativeEnum(DocumentCreateFontFamily);
+/** @internal */
+export const DocumentCreateFontFamily$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentCreateFontFamily
+> = DocumentCreateFontFamily$inboundSchema;
+
+/** @internal */
 export const DocumentCreateFieldMetaInitials$inboundSchema: z.ZodType<
   DocumentCreateFieldMetaInitials,
   z.ZodTypeDef,
@@ -2340,6 +2358,7 @@ export const DocumentCreateFieldMetaInitials$inboundSchema: z.ZodType<
   overflow: DocumentCreateOverflowInitials$inboundSchema.optional(),
   type: DocumentCreateTypeInitialsEnum$inboundSchema,
   textAlign: DocumentCreateTextAlignInitials$inboundSchema.optional(),
+  fontFamily: DocumentCreateFontFamily$inboundSchema.optional(),
 });
 /** @internal */
 export type DocumentCreateFieldMetaInitials$Outbound = {
@@ -2351,6 +2370,7 @@ export type DocumentCreateFieldMetaInitials$Outbound = {
   overflow?: string | undefined;
   type: string;
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -2367,6 +2387,7 @@ export const DocumentCreateFieldMetaInitials$outboundSchema: z.ZodType<
   overflow: DocumentCreateOverflowInitials$outboundSchema.optional(),
   type: DocumentCreateTypeInitialsEnum$outboundSchema,
   textAlign: DocumentCreateTextAlignInitials$outboundSchema.optional(),
+  fontFamily: DocumentCreateFontFamily$outboundSchema.optional(),
 });
 
 export function documentCreateFieldMetaInitialsToJSON(
@@ -2720,7 +2741,7 @@ export const DocumentCreateRecipient$inboundSchema: z.ZodType<
   email: z.string(),
   name: z.string(),
   role: DocumentCreateRole$inboundSchema,
-  signingOrder: z.number().optional(),
+  signingOrder: z.number().int().optional(),
   accessAuth: z.array(DocumentCreateAccessAuth$inboundSchema).optional(),
   actionAuth: z.array(DocumentCreateActionAuth$inboundSchema).optional(),
   fields: z.array(
@@ -2773,7 +2794,7 @@ export const DocumentCreateRecipient$outboundSchema: z.ZodType<
   email: z.string(),
   name: z.string(),
   role: DocumentCreateRole$outboundSchema,
-  signingOrder: z.number().optional(),
+  signingOrder: z.number().int().optional(),
   accessAuth: z.array(DocumentCreateAccessAuth$outboundSchema).optional(),
   actionAuth: z.array(DocumentCreateActionAuth$outboundSchema).optional(),
   fields: z.array(

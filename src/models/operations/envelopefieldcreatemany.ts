@@ -461,6 +461,14 @@ export type EnvelopeFieldCreateManyTextAlignInitials2 = ClosedEnum<
   typeof EnvelopeFieldCreateManyTextAlignInitials2
 >;
 
+export const EnvelopeFieldCreateManyFontFamilyRequest2 = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type EnvelopeFieldCreateManyFontFamilyRequest2 = ClosedEnum<
+  typeof EnvelopeFieldCreateManyFontFamilyRequest2
+>;
+
 export type EnvelopeFieldCreateManyFieldMetaInitialsRequest2 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -470,6 +478,7 @@ export type EnvelopeFieldCreateManyFieldMetaInitialsRequest2 = {
   overflow?: EnvelopeFieldCreateManyOverflowInitials2 | undefined;
   type: EnvelopeFieldCreateManyTypeInitialsEnum2;
   textAlign?: EnvelopeFieldCreateManyTextAlignInitials2 | undefined;
+  fontFamily?: EnvelopeFieldCreateManyFontFamilyRequest2 | undefined;
 };
 
 export type EnvelopeFieldCreateManyDataInitials2 = {
@@ -1005,6 +1014,14 @@ export type EnvelopeFieldCreateManyTextAlignInitials1 = ClosedEnum<
   typeof EnvelopeFieldCreateManyTextAlignInitials1
 >;
 
+export const EnvelopeFieldCreateManyFontFamilyRequest1 = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type EnvelopeFieldCreateManyFontFamilyRequest1 = ClosedEnum<
+  typeof EnvelopeFieldCreateManyFontFamilyRequest1
+>;
+
 export type EnvelopeFieldCreateManyFieldMetaInitialsRequest1 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -1014,6 +1031,7 @@ export type EnvelopeFieldCreateManyFieldMetaInitialsRequest1 = {
   overflow?: EnvelopeFieldCreateManyOverflowInitials1 | undefined;
   type: EnvelopeFieldCreateManyTypeInitialsEnum1;
   textAlign?: EnvelopeFieldCreateManyTextAlignInitials1 | undefined;
+  fontFamily?: EnvelopeFieldCreateManyFontFamilyRequest1 | undefined;
 };
 
 export type EnvelopeFieldCreateManyDataInitials1 = {
@@ -1465,6 +1483,14 @@ export type EnvelopeFieldCreateManyTextAlignResponse1 = ClosedEnum<
   typeof EnvelopeFieldCreateManyTextAlignResponse1
 >;
 
+export const EnvelopeFieldCreateManyFontFamilyResponse = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type EnvelopeFieldCreateManyFontFamilyResponse = ClosedEnum<
+  typeof EnvelopeFieldCreateManyFontFamilyResponse
+>;
+
 export type EnvelopeFieldCreateManyFieldMetaInitialsResponse = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -1474,6 +1500,7 @@ export type EnvelopeFieldCreateManyFieldMetaInitialsResponse = {
   overflow?: EnvelopeFieldCreateManyOverflowResponse2 | undefined;
   type: "initials";
   textAlign?: EnvelopeFieldCreateManyTextAlignResponse1 | undefined;
+  fontFamily?: EnvelopeFieldCreateManyFontFamilyResponse | undefined;
 };
 
 export const EnvelopeFieldCreateManyOverflowResponse1 = {
@@ -3152,6 +3179,15 @@ export const EnvelopeFieldCreateManyTextAlignInitials2$outboundSchema:
     EnvelopeFieldCreateManyTextAlignInitials2$inboundSchema;
 
 /** @internal */
+export const EnvelopeFieldCreateManyFontFamilyRequest2$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyFontFamilyRequest2> = z
+    .nativeEnum(EnvelopeFieldCreateManyFontFamilyRequest2);
+/** @internal */
+export const EnvelopeFieldCreateManyFontFamilyRequest2$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyFontFamilyRequest2> =
+    EnvelopeFieldCreateManyFontFamilyRequest2$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldCreateManyFieldMetaInitialsRequest2$inboundSchema:
   z.ZodType<
     EnvelopeFieldCreateManyFieldMetaInitialsRequest2,
@@ -3167,6 +3203,8 @@ export const EnvelopeFieldCreateManyFieldMetaInitialsRequest2$inboundSchema:
     type: EnvelopeFieldCreateManyTypeInitialsEnum2$inboundSchema,
     textAlign: EnvelopeFieldCreateManyTextAlignInitials2$inboundSchema
       .optional(),
+    fontFamily: EnvelopeFieldCreateManyFontFamilyRequest2$inboundSchema
+      .optional(),
   });
 /** @internal */
 export type EnvelopeFieldCreateManyFieldMetaInitialsRequest2$Outbound = {
@@ -3178,6 +3216,7 @@ export type EnvelopeFieldCreateManyFieldMetaInitialsRequest2$Outbound = {
   overflow?: string | undefined;
   type: string;
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -3196,6 +3235,8 @@ export const EnvelopeFieldCreateManyFieldMetaInitialsRequest2$outboundSchema:
       .optional(),
     type: EnvelopeFieldCreateManyTypeInitialsEnum2$outboundSchema,
     textAlign: EnvelopeFieldCreateManyTextAlignInitials2$outboundSchema
+      .optional(),
+    fontFamily: EnvelopeFieldCreateManyFontFamilyRequest2$outboundSchema
       .optional(),
   });
 
@@ -5221,6 +5262,15 @@ export const EnvelopeFieldCreateManyTextAlignInitials1$outboundSchema:
     EnvelopeFieldCreateManyTextAlignInitials1$inboundSchema;
 
 /** @internal */
+export const EnvelopeFieldCreateManyFontFamilyRequest1$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyFontFamilyRequest1> = z
+    .nativeEnum(EnvelopeFieldCreateManyFontFamilyRequest1);
+/** @internal */
+export const EnvelopeFieldCreateManyFontFamilyRequest1$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyFontFamilyRequest1> =
+    EnvelopeFieldCreateManyFontFamilyRequest1$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldCreateManyFieldMetaInitialsRequest1$inboundSchema:
   z.ZodType<
     EnvelopeFieldCreateManyFieldMetaInitialsRequest1,
@@ -5236,6 +5286,8 @@ export const EnvelopeFieldCreateManyFieldMetaInitialsRequest1$inboundSchema:
     type: EnvelopeFieldCreateManyTypeInitialsEnum1$inboundSchema,
     textAlign: EnvelopeFieldCreateManyTextAlignInitials1$inboundSchema
       .optional(),
+    fontFamily: EnvelopeFieldCreateManyFontFamilyRequest1$inboundSchema
+      .optional(),
   });
 /** @internal */
 export type EnvelopeFieldCreateManyFieldMetaInitialsRequest1$Outbound = {
@@ -5247,6 +5299,7 @@ export type EnvelopeFieldCreateManyFieldMetaInitialsRequest1$Outbound = {
   overflow?: string | undefined;
   type: string;
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -5265,6 +5318,8 @@ export const EnvelopeFieldCreateManyFieldMetaInitialsRequest1$outboundSchema:
       .optional(),
     type: EnvelopeFieldCreateManyTypeInitialsEnum1$outboundSchema,
     textAlign: EnvelopeFieldCreateManyTextAlignInitials1$outboundSchema
+      .optional(),
+    fontFamily: EnvelopeFieldCreateManyFontFamilyRequest1$outboundSchema
       .optional(),
   });
 
@@ -6899,6 +6954,15 @@ export const EnvelopeFieldCreateManyTextAlignResponse1$outboundSchema:
     EnvelopeFieldCreateManyTextAlignResponse1$inboundSchema;
 
 /** @internal */
+export const EnvelopeFieldCreateManyFontFamilyResponse$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyFontFamilyResponse> = z
+    .nativeEnum(EnvelopeFieldCreateManyFontFamilyResponse);
+/** @internal */
+export const EnvelopeFieldCreateManyFontFamilyResponse$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyFontFamilyResponse> =
+    EnvelopeFieldCreateManyFontFamilyResponse$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldCreateManyFieldMetaInitialsResponse$inboundSchema:
   z.ZodType<
     EnvelopeFieldCreateManyFieldMetaInitialsResponse,
@@ -6914,6 +6978,8 @@ export const EnvelopeFieldCreateManyFieldMetaInitialsResponse$inboundSchema:
     type: z.literal("initials"),
     textAlign: EnvelopeFieldCreateManyTextAlignResponse1$inboundSchema
       .optional(),
+    fontFamily: EnvelopeFieldCreateManyFontFamilyResponse$inboundSchema
+      .optional(),
   });
 /** @internal */
 export type EnvelopeFieldCreateManyFieldMetaInitialsResponse$Outbound = {
@@ -6925,6 +6991,7 @@ export type EnvelopeFieldCreateManyFieldMetaInitialsResponse$Outbound = {
   overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -6943,6 +7010,8 @@ export const EnvelopeFieldCreateManyFieldMetaInitialsResponse$outboundSchema:
       .optional(),
     type: z.literal("initials"),
     textAlign: EnvelopeFieldCreateManyTextAlignResponse1$outboundSchema
+      .optional(),
+    fontFamily: EnvelopeFieldCreateManyFontFamilyResponse$outboundSchema
       .optional(),
   });
 

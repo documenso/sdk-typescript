@@ -182,7 +182,7 @@ export const RecipientCreateTemplateRecipientsRecipientRequest$inboundSchema:
     email: z.string(),
     name: z.string(),
     role: RecipientCreateTemplateRecipientsRoleRequest$inboundSchema,
-    signingOrder: z.number().optional(),
+    signingOrder: z.number().int().optional(),
     accessAuth: z.array(
       RecipientCreateTemplateRecipientsAccessAuthRequest$inboundSchema,
     ).optional(),
@@ -210,7 +210,7 @@ export const RecipientCreateTemplateRecipientsRecipientRequest$outboundSchema:
     email: z.string(),
     name: z.string(),
     role: RecipientCreateTemplateRecipientsRoleRequest$outboundSchema,
-    signingOrder: z.number().optional(),
+    signingOrder: z.number().int().optional(),
     accessAuth: z.array(
       RecipientCreateTemplateRecipientsAccessAuthRequest$outboundSchema,
     ).optional(),

@@ -461,6 +461,14 @@ export type FieldUpdateTemplateFieldTextAlignInitials = ClosedEnum<
   typeof FieldUpdateTemplateFieldTextAlignInitials
 >;
 
+export const FieldUpdateTemplateFieldFontFamilyRequest = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type FieldUpdateTemplateFieldFontFamilyRequest = ClosedEnum<
+  typeof FieldUpdateTemplateFieldFontFamilyRequest
+>;
+
 export type FieldUpdateTemplateFieldFieldMetaInitialsRequest = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -470,6 +478,7 @@ export type FieldUpdateTemplateFieldFieldMetaInitialsRequest = {
   overflow?: FieldUpdateTemplateFieldOverflowInitials | undefined;
   type: FieldUpdateTemplateFieldTypeInitialsEnum;
   textAlign?: FieldUpdateTemplateFieldTextAlignInitials | undefined;
+  fontFamily?: FieldUpdateTemplateFieldFontFamilyRequest | undefined;
 };
 
 export type FieldUpdateTemplateFieldFieldInitials = {
@@ -882,6 +891,14 @@ export type FieldUpdateTemplateFieldTextAlignResponse1 = ClosedEnum<
   typeof FieldUpdateTemplateFieldTextAlignResponse1
 >;
 
+export const FieldUpdateTemplateFieldFontFamilyResponse = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type FieldUpdateTemplateFieldFontFamilyResponse = ClosedEnum<
+  typeof FieldUpdateTemplateFieldFontFamilyResponse
+>;
+
 export type FieldUpdateTemplateFieldFieldMetaInitialsResponse = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -891,6 +908,7 @@ export type FieldUpdateTemplateFieldFieldMetaInitialsResponse = {
   overflow?: FieldUpdateTemplateFieldOverflowResponse2 | undefined;
   type: "initials";
   textAlign?: FieldUpdateTemplateFieldTextAlignResponse1 | undefined;
+  fontFamily?: FieldUpdateTemplateFieldFontFamilyResponse | undefined;
 };
 
 export const FieldUpdateTemplateFieldOverflowResponse1 = {
@@ -2567,6 +2585,15 @@ export const FieldUpdateTemplateFieldTextAlignInitials$outboundSchema:
     FieldUpdateTemplateFieldTextAlignInitials$inboundSchema;
 
 /** @internal */
+export const FieldUpdateTemplateFieldFontFamilyRequest$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldFontFamilyRequest> = z
+    .nativeEnum(FieldUpdateTemplateFieldFontFamilyRequest);
+/** @internal */
+export const FieldUpdateTemplateFieldFontFamilyRequest$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldFontFamilyRequest> =
+    FieldUpdateTemplateFieldFontFamilyRequest$inboundSchema;
+
+/** @internal */
 export const FieldUpdateTemplateFieldFieldMetaInitialsRequest$inboundSchema:
   z.ZodType<
     FieldUpdateTemplateFieldFieldMetaInitialsRequest,
@@ -2582,6 +2609,8 @@ export const FieldUpdateTemplateFieldFieldMetaInitialsRequest$inboundSchema:
     type: FieldUpdateTemplateFieldTypeInitialsEnum$inboundSchema,
     textAlign: FieldUpdateTemplateFieldTextAlignInitials$inboundSchema
       .optional(),
+    fontFamily: FieldUpdateTemplateFieldFontFamilyRequest$inboundSchema
+      .optional(),
   });
 /** @internal */
 export type FieldUpdateTemplateFieldFieldMetaInitialsRequest$Outbound = {
@@ -2593,6 +2622,7 @@ export type FieldUpdateTemplateFieldFieldMetaInitialsRequest$Outbound = {
   overflow?: string | undefined;
   type: string;
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -2611,6 +2641,8 @@ export const FieldUpdateTemplateFieldFieldMetaInitialsRequest$outboundSchema:
       .optional(),
     type: FieldUpdateTemplateFieldTypeInitialsEnum$outboundSchema,
     textAlign: FieldUpdateTemplateFieldTextAlignInitials$outboundSchema
+      .optional(),
+    fontFamily: FieldUpdateTemplateFieldFontFamilyRequest$outboundSchema
       .optional(),
   });
 
@@ -4081,6 +4113,15 @@ export const FieldUpdateTemplateFieldTextAlignResponse1$outboundSchema:
     FieldUpdateTemplateFieldTextAlignResponse1$inboundSchema;
 
 /** @internal */
+export const FieldUpdateTemplateFieldFontFamilyResponse$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldFontFamilyResponse> = z
+    .nativeEnum(FieldUpdateTemplateFieldFontFamilyResponse);
+/** @internal */
+export const FieldUpdateTemplateFieldFontFamilyResponse$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateTemplateFieldFontFamilyResponse> =
+    FieldUpdateTemplateFieldFontFamilyResponse$inboundSchema;
+
+/** @internal */
 export const FieldUpdateTemplateFieldFieldMetaInitialsResponse$inboundSchema:
   z.ZodType<
     FieldUpdateTemplateFieldFieldMetaInitialsResponse,
@@ -4097,6 +4138,8 @@ export const FieldUpdateTemplateFieldFieldMetaInitialsResponse$inboundSchema:
     type: z.literal("initials"),
     textAlign: FieldUpdateTemplateFieldTextAlignResponse1$inboundSchema
       .optional(),
+    fontFamily: FieldUpdateTemplateFieldFontFamilyResponse$inboundSchema
+      .optional(),
   });
 /** @internal */
 export type FieldUpdateTemplateFieldFieldMetaInitialsResponse$Outbound = {
@@ -4108,6 +4151,7 @@ export type FieldUpdateTemplateFieldFieldMetaInitialsResponse$Outbound = {
   overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -4126,6 +4170,8 @@ export const FieldUpdateTemplateFieldFieldMetaInitialsResponse$outboundSchema:
       .optional(),
     type: z.literal("initials"),
     textAlign: FieldUpdateTemplateFieldTextAlignResponse1$outboundSchema
+      .optional(),
+    fontFamily: FieldUpdateTemplateFieldFontFamilyResponse$outboundSchema
       .optional(),
   });
 

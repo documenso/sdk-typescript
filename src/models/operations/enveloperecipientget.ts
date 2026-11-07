@@ -388,6 +388,14 @@ export type EnvelopeRecipientGetTextAlign1 = ClosedEnum<
   typeof EnvelopeRecipientGetTextAlign1
 >;
 
+export const EnvelopeRecipientGetFontFamily = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type EnvelopeRecipientGetFontFamily = ClosedEnum<
+  typeof EnvelopeRecipientGetFontFamily
+>;
+
 export type EnvelopeRecipientGetFieldMetaInitials = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -397,6 +405,7 @@ export type EnvelopeRecipientGetFieldMetaInitials = {
   overflow?: EnvelopeRecipientGetOverflow2 | undefined;
   type: "initials";
   textAlign?: EnvelopeRecipientGetTextAlign1 | undefined;
+  fontFamily?: EnvelopeRecipientGetFontFamily | undefined;
 };
 
 export const EnvelopeRecipientGetOverflow1 = {
@@ -1496,6 +1505,15 @@ export const EnvelopeRecipientGetTextAlign1$outboundSchema: z.ZodNativeEnum<
 > = EnvelopeRecipientGetTextAlign1$inboundSchema;
 
 /** @internal */
+export const EnvelopeRecipientGetFontFamily$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeRecipientGetFontFamily
+> = z.nativeEnum(EnvelopeRecipientGetFontFamily);
+/** @internal */
+export const EnvelopeRecipientGetFontFamily$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeRecipientGetFontFamily
+> = EnvelopeRecipientGetFontFamily$inboundSchema;
+
+/** @internal */
 export const EnvelopeRecipientGetFieldMetaInitials$inboundSchema: z.ZodType<
   EnvelopeRecipientGetFieldMetaInitials,
   z.ZodTypeDef,
@@ -1509,6 +1527,7 @@ export const EnvelopeRecipientGetFieldMetaInitials$inboundSchema: z.ZodType<
   overflow: EnvelopeRecipientGetOverflow2$inboundSchema.optional(),
   type: z.literal("initials"),
   textAlign: EnvelopeRecipientGetTextAlign1$inboundSchema.optional(),
+  fontFamily: EnvelopeRecipientGetFontFamily$inboundSchema.optional(),
 });
 /** @internal */
 export type EnvelopeRecipientGetFieldMetaInitials$Outbound = {
@@ -1520,6 +1539,7 @@ export type EnvelopeRecipientGetFieldMetaInitials$Outbound = {
   overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -1536,6 +1556,7 @@ export const EnvelopeRecipientGetFieldMetaInitials$outboundSchema: z.ZodType<
   overflow: EnvelopeRecipientGetOverflow2$outboundSchema.optional(),
   type: z.literal("initials"),
   textAlign: EnvelopeRecipientGetTextAlign1$outboundSchema.optional(),
+  fontFamily: EnvelopeRecipientGetFontFamily$outboundSchema.optional(),
 });
 
 export function envelopeRecipientGetFieldMetaInitialsToJSON(

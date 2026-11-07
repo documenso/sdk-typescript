@@ -20,7 +20,7 @@ Returns an envelope field given an ID`,
     const [result, apiCall] = await envelopesFieldsGet(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {
