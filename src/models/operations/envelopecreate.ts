@@ -546,6 +546,14 @@ export type EnvelopeCreateTextAlignInitials = ClosedEnum<
   typeof EnvelopeCreateTextAlignInitials
 >;
 
+export const EnvelopeCreateFontFamily = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type EnvelopeCreateFontFamily = ClosedEnum<
+  typeof EnvelopeCreateFontFamily
+>;
+
 export type EnvelopeCreateFieldMetaInitials = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -555,6 +563,7 @@ export type EnvelopeCreateFieldMetaInitials = {
   overflow?: EnvelopeCreateOverflowInitials | undefined;
   type: EnvelopeCreateTypeInitialsEnum;
   textAlign?: EnvelopeCreateTextAlignInitials | undefined;
+  fontFamily?: EnvelopeCreateFontFamily | undefined;
 };
 
 export type EnvelopeCreateIdentifier3 = string | number;
@@ -1141,7 +1150,7 @@ export const EnvelopeCreateIdentifier11$inboundSchema: z.ZodType<
   EnvelopeCreateIdentifier11,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number()]);
+> = z.union([z.string(), z.number().int()]);
 /** @internal */
 export type EnvelopeCreateIdentifier11$Outbound = string | number;
 
@@ -1150,7 +1159,7 @@ export const EnvelopeCreateIdentifier11$outboundSchema: z.ZodType<
   EnvelopeCreateIdentifier11$Outbound,
   z.ZodTypeDef,
   EnvelopeCreateIdentifier11
-> = z.union([z.string(), z.number()]);
+> = z.union([z.string(), z.number().int()]);
 
 export function envelopeCreateIdentifier11ToJSON(
   envelopeCreateIdentifier11: EnvelopeCreateIdentifier11,
@@ -1178,7 +1187,7 @@ export const EnvelopeCreateFieldDropdown$inboundSchema: z.ZodType<
   type: z.literal("DROPDOWN"),
   fieldMeta: z.lazy(() => EnvelopeCreateFieldMetaDropdown$inboundSchema)
     .optional(),
-  identifier: z.union([z.string(), z.number()]).optional(),
+  identifier: z.union([z.string(), z.number().int()]).optional(),
   page: z.number(),
   positionX: z.number(),
   positionY: z.number(),
@@ -1206,7 +1215,7 @@ export const EnvelopeCreateFieldDropdown$outboundSchema: z.ZodType<
   type: z.literal("DROPDOWN"),
   fieldMeta: z.lazy(() => EnvelopeCreateFieldMetaDropdown$outboundSchema)
     .optional(),
-  identifier: z.union([z.string(), z.number()]).optional(),
+  identifier: z.union([z.string(), z.number().int()]).optional(),
   page: z.number(),
   positionX: z.number(),
   positionY: z.number(),
@@ -1385,7 +1394,7 @@ export const EnvelopeCreateIdentifier10$inboundSchema: z.ZodType<
   EnvelopeCreateIdentifier10,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number()]);
+> = z.union([z.string(), z.number().int()]);
 /** @internal */
 export type EnvelopeCreateIdentifier10$Outbound = string | number;
 
@@ -1394,7 +1403,7 @@ export const EnvelopeCreateIdentifier10$outboundSchema: z.ZodType<
   EnvelopeCreateIdentifier10$Outbound,
   z.ZodTypeDef,
   EnvelopeCreateIdentifier10
-> = z.union([z.string(), z.number()]);
+> = z.union([z.string(), z.number().int()]);
 
 export function envelopeCreateIdentifier10ToJSON(
   envelopeCreateIdentifier10: EnvelopeCreateIdentifier10,
@@ -1422,7 +1431,7 @@ export const EnvelopeCreateFieldCheckbox$inboundSchema: z.ZodType<
   type: z.literal("CHECKBOX"),
   fieldMeta: z.lazy(() => EnvelopeCreateFieldMetaCheckbox$inboundSchema)
     .optional(),
-  identifier: z.union([z.string(), z.number()]).optional(),
+  identifier: z.union([z.string(), z.number().int()]).optional(),
   page: z.number(),
   positionX: z.number(),
   positionY: z.number(),
@@ -1450,7 +1459,7 @@ export const EnvelopeCreateFieldCheckbox$outboundSchema: z.ZodType<
   type: z.literal("CHECKBOX"),
   fieldMeta: z.lazy(() => EnvelopeCreateFieldMetaCheckbox$outboundSchema)
     .optional(),
-  identifier: z.union([z.string(), z.number()]).optional(),
+  identifier: z.union([z.string(), z.number().int()]).optional(),
   page: z.number(),
   positionX: z.number(),
   positionY: z.number(),
@@ -1621,7 +1630,7 @@ export const EnvelopeCreateIdentifier9$inboundSchema: z.ZodType<
   EnvelopeCreateIdentifier9,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number()]);
+> = z.union([z.string(), z.number().int()]);
 /** @internal */
 export type EnvelopeCreateIdentifier9$Outbound = string | number;
 
@@ -1630,7 +1639,7 @@ export const EnvelopeCreateIdentifier9$outboundSchema: z.ZodType<
   EnvelopeCreateIdentifier9$Outbound,
   z.ZodTypeDef,
   EnvelopeCreateIdentifier9
-> = z.union([z.string(), z.number()]);
+> = z.union([z.string(), z.number().int()]);
 
 export function envelopeCreateIdentifier9ToJSON(
   envelopeCreateIdentifier9: EnvelopeCreateIdentifier9,
@@ -1658,7 +1667,7 @@ export const EnvelopeCreateFieldRadio$inboundSchema: z.ZodType<
   type: z.literal("RADIO"),
   fieldMeta: z.lazy(() => EnvelopeCreateFieldMetaRadio$inboundSchema)
     .optional(),
-  identifier: z.union([z.string(), z.number()]).optional(),
+  identifier: z.union([z.string(), z.number().int()]).optional(),
   page: z.number(),
   positionX: z.number(),
   positionY: z.number(),
@@ -1686,7 +1695,7 @@ export const EnvelopeCreateFieldRadio$outboundSchema: z.ZodType<
   type: z.literal("RADIO"),
   fieldMeta: z.lazy(() => EnvelopeCreateFieldMetaRadio$outboundSchema)
     .optional(),
-  identifier: z.union([z.string(), z.number()]).optional(),
+  identifier: z.union([z.string(), z.number().int()]).optional(),
   page: z.number(),
   positionX: z.number(),
   positionY: z.number(),
@@ -1837,7 +1846,7 @@ export const EnvelopeCreateIdentifier8$inboundSchema: z.ZodType<
   EnvelopeCreateIdentifier8,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number()]);
+> = z.union([z.string(), z.number().int()]);
 /** @internal */
 export type EnvelopeCreateIdentifier8$Outbound = string | number;
 
@@ -1846,7 +1855,7 @@ export const EnvelopeCreateIdentifier8$outboundSchema: z.ZodType<
   EnvelopeCreateIdentifier8$Outbound,
   z.ZodTypeDef,
   EnvelopeCreateIdentifier8
-> = z.union([z.string(), z.number()]);
+> = z.union([z.string(), z.number().int()]);
 
 export function envelopeCreateIdentifier8ToJSON(
   envelopeCreateIdentifier8: EnvelopeCreateIdentifier8,
@@ -1874,7 +1883,7 @@ export const EnvelopeCreateFieldNumber$inboundSchema: z.ZodType<
   type: z.literal("NUMBER"),
   fieldMeta: z.lazy(() => EnvelopeCreateFieldMetaNumber$inboundSchema)
     .optional(),
-  identifier: z.union([z.string(), z.number()]).optional(),
+  identifier: z.union([z.string(), z.number().int()]).optional(),
   page: z.number(),
   positionX: z.number(),
   positionY: z.number(),
@@ -1902,7 +1911,7 @@ export const EnvelopeCreateFieldNumber$outboundSchema: z.ZodType<
   type: z.literal("NUMBER"),
   fieldMeta: z.lazy(() => EnvelopeCreateFieldMetaNumber$outboundSchema)
     .optional(),
-  identifier: z.union([z.string(), z.number()]).optional(),
+  identifier: z.union([z.string(), z.number().int()]).optional(),
   page: z.number(),
   positionX: z.number(),
   positionY: z.number(),
@@ -2047,7 +2056,7 @@ export const EnvelopeCreateIdentifier7$inboundSchema: z.ZodType<
   EnvelopeCreateIdentifier7,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number()]);
+> = z.union([z.string(), z.number().int()]);
 /** @internal */
 export type EnvelopeCreateIdentifier7$Outbound = string | number;
 
@@ -2056,7 +2065,7 @@ export const EnvelopeCreateIdentifier7$outboundSchema: z.ZodType<
   EnvelopeCreateIdentifier7$Outbound,
   z.ZodTypeDef,
   EnvelopeCreateIdentifier7
-> = z.union([z.string(), z.number()]);
+> = z.union([z.string(), z.number().int()]);
 
 export function envelopeCreateIdentifier7ToJSON(
   envelopeCreateIdentifier7: EnvelopeCreateIdentifier7,
@@ -2083,7 +2092,7 @@ export const EnvelopeCreateFieldText$inboundSchema: z.ZodType<
 > = z.object({
   type: z.literal("TEXT"),
   fieldMeta: z.lazy(() => EnvelopeCreateFieldMetaText$inboundSchema).optional(),
-  identifier: z.union([z.string(), z.number()]).optional(),
+  identifier: z.union([z.string(), z.number().int()]).optional(),
   page: z.number(),
   positionX: z.number(),
   positionY: z.number(),
@@ -2111,7 +2120,7 @@ export const EnvelopeCreateFieldText$outboundSchema: z.ZodType<
   type: z.literal("TEXT"),
   fieldMeta: z.lazy(() => EnvelopeCreateFieldMetaText$outboundSchema)
     .optional(),
-  identifier: z.union([z.string(), z.number()]).optional(),
+  identifier: z.union([z.string(), z.number().int()]).optional(),
   page: z.number(),
   positionX: z.number(),
   positionY: z.number(),
@@ -2230,7 +2239,7 @@ export const EnvelopeCreateIdentifier6$inboundSchema: z.ZodType<
   EnvelopeCreateIdentifier6,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number()]);
+> = z.union([z.string(), z.number().int()]);
 /** @internal */
 export type EnvelopeCreateIdentifier6$Outbound = string | number;
 
@@ -2239,7 +2248,7 @@ export const EnvelopeCreateIdentifier6$outboundSchema: z.ZodType<
   EnvelopeCreateIdentifier6$Outbound,
   z.ZodTypeDef,
   EnvelopeCreateIdentifier6
-> = z.union([z.string(), z.number()]);
+> = z.union([z.string(), z.number().int()]);
 
 export function envelopeCreateIdentifier6ToJSON(
   envelopeCreateIdentifier6: EnvelopeCreateIdentifier6,
@@ -2266,7 +2275,7 @@ export const EnvelopeCreateFieldDate$inboundSchema: z.ZodType<
 > = z.object({
   type: z.literal("DATE"),
   fieldMeta: z.lazy(() => EnvelopeCreateFieldMetaDate$inboundSchema).optional(),
-  identifier: z.union([z.string(), z.number()]).optional(),
+  identifier: z.union([z.string(), z.number().int()]).optional(),
   page: z.number(),
   positionX: z.number(),
   positionY: z.number(),
@@ -2294,7 +2303,7 @@ export const EnvelopeCreateFieldDate$outboundSchema: z.ZodType<
   type: z.literal("DATE"),
   fieldMeta: z.lazy(() => EnvelopeCreateFieldMetaDate$outboundSchema)
     .optional(),
-  identifier: z.union([z.string(), z.number()]).optional(),
+  identifier: z.union([z.string(), z.number().int()]).optional(),
   page: z.number(),
   positionX: z.number(),
   positionY: z.number(),
@@ -2413,7 +2422,7 @@ export const EnvelopeCreateIdentifier5$inboundSchema: z.ZodType<
   EnvelopeCreateIdentifier5,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number()]);
+> = z.union([z.string(), z.number().int()]);
 /** @internal */
 export type EnvelopeCreateIdentifier5$Outbound = string | number;
 
@@ -2422,7 +2431,7 @@ export const EnvelopeCreateIdentifier5$outboundSchema: z.ZodType<
   EnvelopeCreateIdentifier5$Outbound,
   z.ZodTypeDef,
   EnvelopeCreateIdentifier5
-> = z.union([z.string(), z.number()]);
+> = z.union([z.string(), z.number().int()]);
 
 export function envelopeCreateIdentifier5ToJSON(
   envelopeCreateIdentifier5: EnvelopeCreateIdentifier5,
@@ -2450,7 +2459,7 @@ export const EnvelopeCreateFieldEmail$inboundSchema: z.ZodType<
   type: z.literal("EMAIL"),
   fieldMeta: z.lazy(() => EnvelopeCreateFieldMetaEmail$inboundSchema)
     .optional(),
-  identifier: z.union([z.string(), z.number()]).optional(),
+  identifier: z.union([z.string(), z.number().int()]).optional(),
   page: z.number(),
   positionX: z.number(),
   positionY: z.number(),
@@ -2478,7 +2487,7 @@ export const EnvelopeCreateFieldEmail$outboundSchema: z.ZodType<
   type: z.literal("EMAIL"),
   fieldMeta: z.lazy(() => EnvelopeCreateFieldMetaEmail$outboundSchema)
     .optional(),
-  identifier: z.union([z.string(), z.number()]).optional(),
+  identifier: z.union([z.string(), z.number().int()]).optional(),
   page: z.number(),
   positionX: z.number(),
   positionY: z.number(),
@@ -2597,7 +2606,7 @@ export const EnvelopeCreateIdentifier4$inboundSchema: z.ZodType<
   EnvelopeCreateIdentifier4,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number()]);
+> = z.union([z.string(), z.number().int()]);
 /** @internal */
 export type EnvelopeCreateIdentifier4$Outbound = string | number;
 
@@ -2606,7 +2615,7 @@ export const EnvelopeCreateIdentifier4$outboundSchema: z.ZodType<
   EnvelopeCreateIdentifier4$Outbound,
   z.ZodTypeDef,
   EnvelopeCreateIdentifier4
-> = z.union([z.string(), z.number()]);
+> = z.union([z.string(), z.number().int()]);
 
 export function envelopeCreateIdentifier4ToJSON(
   envelopeCreateIdentifier4: EnvelopeCreateIdentifier4,
@@ -2633,7 +2642,7 @@ export const EnvelopeCreateFieldName$inboundSchema: z.ZodType<
 > = z.object({
   type: z.literal("NAME"),
   fieldMeta: z.lazy(() => EnvelopeCreateFieldMetaName$inboundSchema).optional(),
-  identifier: z.union([z.string(), z.number()]).optional(),
+  identifier: z.union([z.string(), z.number().int()]).optional(),
   page: z.number(),
   positionX: z.number(),
   positionY: z.number(),
@@ -2661,7 +2670,7 @@ export const EnvelopeCreateFieldName$outboundSchema: z.ZodType<
   type: z.literal("NAME"),
   fieldMeta: z.lazy(() => EnvelopeCreateFieldMetaName$outboundSchema)
     .optional(),
-  identifier: z.union([z.string(), z.number()]).optional(),
+  identifier: z.union([z.string(), z.number().int()]).optional(),
   page: z.number(),
   positionX: z.number(),
   positionY: z.number(),
@@ -2714,6 +2723,15 @@ export const EnvelopeCreateTextAlignInitials$outboundSchema: z.ZodNativeEnum<
 > = EnvelopeCreateTextAlignInitials$inboundSchema;
 
 /** @internal */
+export const EnvelopeCreateFontFamily$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeCreateFontFamily
+> = z.nativeEnum(EnvelopeCreateFontFamily);
+/** @internal */
+export const EnvelopeCreateFontFamily$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeCreateFontFamily
+> = EnvelopeCreateFontFamily$inboundSchema;
+
+/** @internal */
 export const EnvelopeCreateFieldMetaInitials$inboundSchema: z.ZodType<
   EnvelopeCreateFieldMetaInitials,
   z.ZodTypeDef,
@@ -2727,6 +2745,7 @@ export const EnvelopeCreateFieldMetaInitials$inboundSchema: z.ZodType<
   overflow: EnvelopeCreateOverflowInitials$inboundSchema.optional(),
   type: EnvelopeCreateTypeInitialsEnum$inboundSchema,
   textAlign: EnvelopeCreateTextAlignInitials$inboundSchema.optional(),
+  fontFamily: EnvelopeCreateFontFamily$inboundSchema.optional(),
 });
 /** @internal */
 export type EnvelopeCreateFieldMetaInitials$Outbound = {
@@ -2738,6 +2757,7 @@ export type EnvelopeCreateFieldMetaInitials$Outbound = {
   overflow?: string | undefined;
   type: string;
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -2754,6 +2774,7 @@ export const EnvelopeCreateFieldMetaInitials$outboundSchema: z.ZodType<
   overflow: EnvelopeCreateOverflowInitials$outboundSchema.optional(),
   type: EnvelopeCreateTypeInitialsEnum$outboundSchema,
   textAlign: EnvelopeCreateTextAlignInitials$outboundSchema.optional(),
+  fontFamily: EnvelopeCreateFontFamily$outboundSchema.optional(),
 });
 
 export function envelopeCreateFieldMetaInitialsToJSON(
@@ -2780,7 +2801,7 @@ export const EnvelopeCreateIdentifier3$inboundSchema: z.ZodType<
   EnvelopeCreateIdentifier3,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number()]);
+> = z.union([z.string(), z.number().int()]);
 /** @internal */
 export type EnvelopeCreateIdentifier3$Outbound = string | number;
 
@@ -2789,7 +2810,7 @@ export const EnvelopeCreateIdentifier3$outboundSchema: z.ZodType<
   EnvelopeCreateIdentifier3$Outbound,
   z.ZodTypeDef,
   EnvelopeCreateIdentifier3
-> = z.union([z.string(), z.number()]);
+> = z.union([z.string(), z.number().int()]);
 
 export function envelopeCreateIdentifier3ToJSON(
   envelopeCreateIdentifier3: EnvelopeCreateIdentifier3,
@@ -2817,7 +2838,7 @@ export const EnvelopeCreateFieldInitials$inboundSchema: z.ZodType<
   type: z.literal("INITIALS"),
   fieldMeta: z.lazy(() => EnvelopeCreateFieldMetaInitials$inboundSchema)
     .optional(),
-  identifier: z.union([z.string(), z.number()]).optional(),
+  identifier: z.union([z.string(), z.number().int()]).optional(),
   page: z.number(),
   positionX: z.number(),
   positionY: z.number(),
@@ -2845,7 +2866,7 @@ export const EnvelopeCreateFieldInitials$outboundSchema: z.ZodType<
   type: z.literal("INITIALS"),
   fieldMeta: z.lazy(() => EnvelopeCreateFieldMetaInitials$outboundSchema)
     .optional(),
-  identifier: z.union([z.string(), z.number()]).optional(),
+  identifier: z.union([z.string(), z.number().int()]).optional(),
   page: z.number(),
   positionX: z.number(),
   positionY: z.number(),
@@ -2877,7 +2898,7 @@ export const EnvelopeCreateIdentifier2$inboundSchema: z.ZodType<
   EnvelopeCreateIdentifier2,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number()]);
+> = z.union([z.string(), z.number().int()]);
 /** @internal */
 export type EnvelopeCreateIdentifier2$Outbound = string | number;
 
@@ -2886,7 +2907,7 @@ export const EnvelopeCreateIdentifier2$outboundSchema: z.ZodType<
   EnvelopeCreateIdentifier2$Outbound,
   z.ZodTypeDef,
   EnvelopeCreateIdentifier2
-> = z.union([z.string(), z.number()]);
+> = z.union([z.string(), z.number().int()]);
 
 export function envelopeCreateIdentifier2ToJSON(
   envelopeCreateIdentifier2: EnvelopeCreateIdentifier2,
@@ -2912,7 +2933,7 @@ export const EnvelopeCreateFieldFreeSignature$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: z.literal("FREE_SIGNATURE"),
-  identifier: z.union([z.string(), z.number()]).optional(),
+  identifier: z.union([z.string(), z.number().int()]).optional(),
   page: z.number(),
   positionX: z.number(),
   positionY: z.number(),
@@ -2937,7 +2958,7 @@ export const EnvelopeCreateFieldFreeSignature$outboundSchema: z.ZodType<
   EnvelopeCreateFieldFreeSignature
 > = z.object({
   type: z.literal("FREE_SIGNATURE"),
-  identifier: z.union([z.string(), z.number()]).optional(),
+  identifier: z.union([z.string(), z.number().int()]).optional(),
   page: z.number(),
   positionX: z.number(),
   positionY: z.number(),
@@ -3046,7 +3067,7 @@ export const EnvelopeCreateIdentifier1$inboundSchema: z.ZodType<
   EnvelopeCreateIdentifier1,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.number()]);
+> = z.union([z.string(), z.number().int()]);
 /** @internal */
 export type EnvelopeCreateIdentifier1$Outbound = string | number;
 
@@ -3055,7 +3076,7 @@ export const EnvelopeCreateIdentifier1$outboundSchema: z.ZodType<
   EnvelopeCreateIdentifier1$Outbound,
   z.ZodTypeDef,
   EnvelopeCreateIdentifier1
-> = z.union([z.string(), z.number()]);
+> = z.union([z.string(), z.number().int()]);
 
 export function envelopeCreateIdentifier1ToJSON(
   envelopeCreateIdentifier1: EnvelopeCreateIdentifier1,
@@ -3083,7 +3104,7 @@ export const EnvelopeCreateFieldSignature$inboundSchema: z.ZodType<
   type: z.literal("SIGNATURE"),
   fieldMeta: z.lazy(() => EnvelopeCreateFieldMetaSignature$inboundSchema)
     .optional(),
-  identifier: z.union([z.string(), z.number()]).optional(),
+  identifier: z.union([z.string(), z.number().int()]).optional(),
   page: z.number(),
   positionX: z.number(),
   positionY: z.number(),
@@ -3111,7 +3132,7 @@ export const EnvelopeCreateFieldSignature$outboundSchema: z.ZodType<
   type: z.literal("SIGNATURE"),
   fieldMeta: z.lazy(() => EnvelopeCreateFieldMetaSignature$outboundSchema)
     .optional(),
-  identifier: z.union([z.string(), z.number()]).optional(),
+  identifier: z.union([z.string(), z.number().int()]).optional(),
   page: z.number(),
   positionX: z.number(),
   positionY: z.number(),
@@ -3215,7 +3236,7 @@ export const EnvelopeCreateRecipient$inboundSchema: z.ZodType<
   email: z.union([EnvelopeCreateEmailEnum$inboundSchema, z.string()]),
   name: z.string(),
   role: EnvelopeCreateRole$inboundSchema,
-  signingOrder: z.number().optional(),
+  signingOrder: z.number().int().optional(),
   accessAuth: z.array(EnvelopeCreateAccessAuth$inboundSchema).optional(),
   actionAuth: z.array(EnvelopeCreateActionAuth$inboundSchema).optional(),
   fields: z.array(
@@ -3268,7 +3289,7 @@ export const EnvelopeCreateRecipient$outboundSchema: z.ZodType<
   email: z.union([EnvelopeCreateEmailEnum$outboundSchema, z.string()]),
   name: z.string(),
   role: EnvelopeCreateRole$outboundSchema,
-  signingOrder: z.number().optional(),
+  signingOrder: z.number().int().optional(),
   accessAuth: z.array(EnvelopeCreateAccessAuth$outboundSchema).optional(),
   actionAuth: z.array(EnvelopeCreateActionAuth$outboundSchema).optional(),
   fields: z.array(

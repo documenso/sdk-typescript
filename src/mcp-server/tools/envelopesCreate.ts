@@ -20,7 +20,7 @@ Create an envelope using form data.`,
     const [result, apiCall] = await envelopesCreate(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

@@ -204,6 +204,7 @@ export type EnvelopeUsePayload = {
   externalId?: string | undefined;
   recipients?: Array<EnvelopeUsePayloadRecipient> | undefined;
   distributeDocument?: boolean | undefined;
+  includeContents?: boolean | undefined;
   customDocumentData?: Array<EnvelopeUseCustomDocumentDatum> | undefined;
   folderId?: string | undefined;
   prefillFields?:
@@ -309,7 +310,7 @@ export const EnvelopeUsePayloadRecipient$inboundSchema: z.ZodType<
   id: z.number(),
   email: z.union([EnvelopeUseEmailEnum$inboundSchema, z.string()]),
   name: z.string().optional(),
-  signingOrder: z.number().optional(),
+  signingOrder: z.number().int().optional(),
 });
 /** @internal */
 export type EnvelopeUsePayloadRecipient$Outbound = {
@@ -328,7 +329,7 @@ export const EnvelopeUsePayloadRecipient$outboundSchema: z.ZodType<
   id: z.number(),
   email: z.union([EnvelopeUseEmailEnum$outboundSchema, z.string()]),
   name: z.string().optional(),
-  signingOrder: z.number().optional(),
+  signingOrder: z.number().int().optional(),
 });
 
 export function envelopeUsePayloadRecipientToJSON(
@@ -1213,6 +1214,7 @@ export const EnvelopeUsePayload$inboundSchema: z.ZodType<
   recipients: z.array(z.lazy(() => EnvelopeUsePayloadRecipient$inboundSchema))
     .optional(),
   distributeDocument: z.boolean().optional(),
+  includeContents: z.boolean().default(true),
   customDocumentData: z.array(
     z.lazy(() => EnvelopeUseCustomDocumentDatum$inboundSchema),
   ).optional(),
@@ -1239,6 +1241,7 @@ export type EnvelopeUsePayload$Outbound = {
   externalId?: string | undefined;
   recipients?: Array<EnvelopeUsePayloadRecipient$Outbound> | undefined;
   distributeDocument?: boolean | undefined;
+  includeContents: boolean;
   customDocumentData?:
     | Array<EnvelopeUseCustomDocumentDatum$Outbound>
     | undefined;
@@ -1269,6 +1272,7 @@ export const EnvelopeUsePayload$outboundSchema: z.ZodType<
   recipients: z.array(z.lazy(() => EnvelopeUsePayloadRecipient$outboundSchema))
     .optional(),
   distributeDocument: z.boolean().optional(),
+  includeContents: z.boolean().default(true),
   customDocumentData: z.array(
     z.lazy(() => EnvelopeUseCustomDocumentDatum$outboundSchema),
   ).optional(),

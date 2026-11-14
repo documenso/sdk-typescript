@@ -405,6 +405,14 @@ export type EnvelopeRecipientRejectOnBehalfOfTextAlign1 = ClosedEnum<
   typeof EnvelopeRecipientRejectOnBehalfOfTextAlign1
 >;
 
+export const EnvelopeRecipientRejectOnBehalfOfFontFamily = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type EnvelopeRecipientRejectOnBehalfOfFontFamily = ClosedEnum<
+  typeof EnvelopeRecipientRejectOnBehalfOfFontFamily
+>;
+
 export type EnvelopeRecipientRejectOnBehalfOfFieldMetaInitials = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -414,6 +422,7 @@ export type EnvelopeRecipientRejectOnBehalfOfFieldMetaInitials = {
   overflow?: EnvelopeRecipientRejectOnBehalfOfOverflow2 | undefined;
   type: "initials";
   textAlign?: EnvelopeRecipientRejectOnBehalfOfTextAlign1 | undefined;
+  fontFamily?: EnvelopeRecipientRejectOnBehalfOfFontFamily | undefined;
 };
 
 export const EnvelopeRecipientRejectOnBehalfOfOverflow1 = {
@@ -1747,6 +1756,15 @@ export const EnvelopeRecipientRejectOnBehalfOfTextAlign1$outboundSchema:
     EnvelopeRecipientRejectOnBehalfOfTextAlign1$inboundSchema;
 
 /** @internal */
+export const EnvelopeRecipientRejectOnBehalfOfFontFamily$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeRecipientRejectOnBehalfOfFontFamily> = z
+    .nativeEnum(EnvelopeRecipientRejectOnBehalfOfFontFamily);
+/** @internal */
+export const EnvelopeRecipientRejectOnBehalfOfFontFamily$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeRecipientRejectOnBehalfOfFontFamily> =
+    EnvelopeRecipientRejectOnBehalfOfFontFamily$inboundSchema;
+
+/** @internal */
 export const EnvelopeRecipientRejectOnBehalfOfFieldMetaInitials$inboundSchema:
   z.ZodType<
     EnvelopeRecipientRejectOnBehalfOfFieldMetaInitials,
@@ -1763,6 +1781,8 @@ export const EnvelopeRecipientRejectOnBehalfOfFieldMetaInitials$inboundSchema:
     type: z.literal("initials"),
     textAlign: EnvelopeRecipientRejectOnBehalfOfTextAlign1$inboundSchema
       .optional(),
+    fontFamily: EnvelopeRecipientRejectOnBehalfOfFontFamily$inboundSchema
+      .optional(),
   });
 /** @internal */
 export type EnvelopeRecipientRejectOnBehalfOfFieldMetaInitials$Outbound = {
@@ -1774,6 +1794,7 @@ export type EnvelopeRecipientRejectOnBehalfOfFieldMetaInitials$Outbound = {
   overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -1792,6 +1813,8 @@ export const EnvelopeRecipientRejectOnBehalfOfFieldMetaInitials$outboundSchema:
       .optional(),
     type: z.literal("initials"),
     textAlign: EnvelopeRecipientRejectOnBehalfOfTextAlign1$outboundSchema
+      .optional(),
+    fontFamily: EnvelopeRecipientRejectOnBehalfOfFontFamily$outboundSchema
       .optional(),
   });
 

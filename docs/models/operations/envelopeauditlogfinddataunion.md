@@ -479,6 +479,61 @@ const value: operations.DataDocumentExternalIDUpdated = {
 };
 ```
 
+### `operations.DataContentCreated`
+
+```typescript
+const value: operations.DataContentCreated = {
+  type: "CONTENT_CREATED",
+  data: {
+    contentId: "<id>",
+    contentType: "<value>",
+    envelopeItemId: "<id>",
+    contentMeta: {
+      "key": "<value>",
+      "key1": "<value>",
+      "key2": "<value>",
+    },
+    dataContentId: "<id>",
+  },
+  id: "<id>",
+  createdAt: "1732381742482",
+  envelopeId: "<id>",
+};
+```
+
+### `operations.DataContentDeleted`
+
+```typescript
+const value: operations.DataContentDeleted = {
+  type: "CONTENT_DELETED",
+  data: {
+    contentId: "<id>",
+    contentType: "<value>",
+    envelopeItemId: "<id>",
+  },
+  id: "<id>",
+  createdAt: "1710603902347",
+  envelopeId: "<id>",
+};
+```
+
+### `operations.DataContentUpdated`
+
+```typescript
+const value: operations.DataContentUpdated = {
+  type: "CONTENT_UPDATED",
+  data: {
+    contentId: "<id>",
+    contentType: "<value>",
+    envelopeItemId: "<id>",
+    changes: [],
+  },
+  id: "<id>",
+  createdAt: "1729599407490",
+  envelopeId: "<id>",
+};
+```
+
 ### `operations.DataFieldCreated`
 
 ```typescript

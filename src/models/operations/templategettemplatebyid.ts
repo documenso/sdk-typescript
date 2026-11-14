@@ -532,6 +532,14 @@ export type TemplateGetTemplateByIdTextAlign1 = ClosedEnum<
   typeof TemplateGetTemplateByIdTextAlign1
 >;
 
+export const TemplateGetTemplateByIdFontFamily = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type TemplateGetTemplateByIdFontFamily = ClosedEnum<
+  typeof TemplateGetTemplateByIdFontFamily
+>;
+
 export type TemplateGetTemplateByIdFieldMetaInitials = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -541,6 +549,7 @@ export type TemplateGetTemplateByIdFieldMetaInitials = {
   overflow?: TemplateGetTemplateByIdOverflow2 | undefined;
   type: "initials";
   textAlign?: TemplateGetTemplateByIdTextAlign1 | undefined;
+  fontFamily?: TemplateGetTemplateByIdFontFamily | undefined;
 };
 
 export const TemplateGetTemplateByIdOverflow1 = {
@@ -2268,6 +2277,15 @@ export const TemplateGetTemplateByIdTextAlign1$outboundSchema: z.ZodNativeEnum<
 > = TemplateGetTemplateByIdTextAlign1$inboundSchema;
 
 /** @internal */
+export const TemplateGetTemplateByIdFontFamily$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetTemplateByIdFontFamily
+> = z.nativeEnum(TemplateGetTemplateByIdFontFamily);
+/** @internal */
+export const TemplateGetTemplateByIdFontFamily$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetTemplateByIdFontFamily
+> = TemplateGetTemplateByIdFontFamily$inboundSchema;
+
+/** @internal */
 export const TemplateGetTemplateByIdFieldMetaInitials$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdFieldMetaInitials,
   z.ZodTypeDef,
@@ -2281,6 +2299,7 @@ export const TemplateGetTemplateByIdFieldMetaInitials$inboundSchema: z.ZodType<
   overflow: TemplateGetTemplateByIdOverflow2$inboundSchema.optional(),
   type: z.literal("initials"),
   textAlign: TemplateGetTemplateByIdTextAlign1$inboundSchema.optional(),
+  fontFamily: TemplateGetTemplateByIdFontFamily$inboundSchema.optional(),
 });
 /** @internal */
 export type TemplateGetTemplateByIdFieldMetaInitials$Outbound = {
@@ -2292,6 +2311,7 @@ export type TemplateGetTemplateByIdFieldMetaInitials$Outbound = {
   overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -2308,6 +2328,7 @@ export const TemplateGetTemplateByIdFieldMetaInitials$outboundSchema: z.ZodType<
   overflow: TemplateGetTemplateByIdOverflow2$outboundSchema.optional(),
   type: z.literal("initials"),
   textAlign: TemplateGetTemplateByIdTextAlign1$outboundSchema.optional(),
+  fontFamily: TemplateGetTemplateByIdFontFamily$outboundSchema.optional(),
 });
 
 export function templateGetTemplateByIdFieldMetaInitialsToJSON(

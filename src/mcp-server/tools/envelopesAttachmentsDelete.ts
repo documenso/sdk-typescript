@@ -20,7 +20,7 @@ Delete an attachment from an envelope`,
     const [result, apiCall] = await envelopesAttachmentsDelete(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

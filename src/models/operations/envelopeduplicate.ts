@@ -11,6 +11,7 @@ export type EnvelopeDuplicateRequest = {
   envelopeId: string;
   includeRecipients?: boolean | undefined;
   includeFields?: boolean | undefined;
+  includeContents?: boolean | undefined;
 };
 
 /**
@@ -29,12 +30,14 @@ export const EnvelopeDuplicateRequest$inboundSchema: z.ZodType<
   envelopeId: z.string(),
   includeRecipients: z.boolean().default(true),
   includeFields: z.boolean().default(true),
+  includeContents: z.boolean().default(true),
 });
 /** @internal */
 export type EnvelopeDuplicateRequest$Outbound = {
   envelopeId: string;
   includeRecipients: boolean;
   includeFields: boolean;
+  includeContents: boolean;
 };
 
 /** @internal */
@@ -46,6 +49,7 @@ export const EnvelopeDuplicateRequest$outboundSchema: z.ZodType<
   envelopeId: z.string(),
   includeRecipients: z.boolean().default(true),
   includeFields: z.boolean().default(true),
+  includeContents: z.boolean().default(true),
 });
 
 export function envelopeDuplicateRequestToJSON(

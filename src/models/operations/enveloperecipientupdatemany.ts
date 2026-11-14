@@ -240,7 +240,7 @@ export const EnvelopeRecipientUpdateManyDataRequest$inboundSchema: z.ZodType<
   ]).optional(),
   name: z.string().optional(),
   role: EnvelopeRecipientUpdateManyRoleRequest$inboundSchema.optional(),
-  signingOrder: z.number().optional(),
+  signingOrder: z.number().int().optional(),
   accessAuth: z.array(
     EnvelopeRecipientUpdateManyAccessAuthRequest$inboundSchema,
   ).optional(),
@@ -272,7 +272,7 @@ export const EnvelopeRecipientUpdateManyDataRequest$outboundSchema: z.ZodType<
   ]).optional(),
   name: z.string().optional(),
   role: EnvelopeRecipientUpdateManyRoleRequest$outboundSchema.optional(),
-  signingOrder: z.number().optional(),
+  signingOrder: z.number().int().optional(),
   accessAuth: z.array(
     EnvelopeRecipientUpdateManyAccessAuthRequest$outboundSchema,
   ).optional(),

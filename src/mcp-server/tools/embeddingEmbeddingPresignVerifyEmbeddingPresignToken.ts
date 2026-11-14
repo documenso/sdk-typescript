@@ -23,7 +23,7 @@ Verifies a presign token for embedding operations and returns the associated API
         await embeddingEmbeddingPresignVerifyEmbeddingPresignToken(
           client,
           args.request,
-          { fetchOptions: { signal: ctx.signal } },
+          { fetchOptions: { signal: ctx.mcpReq.signal } },
         ).$inspect();
 
       if (!result.ok) {

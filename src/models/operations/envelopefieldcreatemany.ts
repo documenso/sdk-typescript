@@ -461,6 +461,14 @@ export type EnvelopeFieldCreateManyTextAlignInitials2 = ClosedEnum<
   typeof EnvelopeFieldCreateManyTextAlignInitials2
 >;
 
+export const EnvelopeFieldCreateManyFontFamilyRequest2 = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type EnvelopeFieldCreateManyFontFamilyRequest2 = ClosedEnum<
+  typeof EnvelopeFieldCreateManyFontFamilyRequest2
+>;
+
 export type EnvelopeFieldCreateManyFieldMetaInitialsRequest2 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -470,6 +478,7 @@ export type EnvelopeFieldCreateManyFieldMetaInitialsRequest2 = {
   overflow?: EnvelopeFieldCreateManyOverflowInitials2 | undefined;
   type: EnvelopeFieldCreateManyTypeInitialsEnum2;
   textAlign?: EnvelopeFieldCreateManyTextAlignInitials2 | undefined;
+  fontFamily?: EnvelopeFieldCreateManyFontFamilyRequest2 | undefined;
 };
 
 export type EnvelopeFieldCreateManyDataInitials2 = {
@@ -1005,6 +1014,14 @@ export type EnvelopeFieldCreateManyTextAlignInitials1 = ClosedEnum<
   typeof EnvelopeFieldCreateManyTextAlignInitials1
 >;
 
+export const EnvelopeFieldCreateManyFontFamilyRequest1 = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type EnvelopeFieldCreateManyFontFamilyRequest1 = ClosedEnum<
+  typeof EnvelopeFieldCreateManyFontFamilyRequest1
+>;
+
 export type EnvelopeFieldCreateManyFieldMetaInitialsRequest1 = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -1014,6 +1031,7 @@ export type EnvelopeFieldCreateManyFieldMetaInitialsRequest1 = {
   overflow?: EnvelopeFieldCreateManyOverflowInitials1 | undefined;
   type: EnvelopeFieldCreateManyTypeInitialsEnum1;
   textAlign?: EnvelopeFieldCreateManyTextAlignInitials1 | undefined;
+  fontFamily?: EnvelopeFieldCreateManyFontFamilyRequest1 | undefined;
 };
 
 export type EnvelopeFieldCreateManyDataInitials1 = {
@@ -1270,22 +1288,22 @@ export type EnvelopeFieldCreateManyOverflowResponse7 = ClosedEnum<
   typeof EnvelopeFieldCreateManyOverflowResponse7
 >;
 
-export const EnvelopeFieldCreateManyTextAlignResponse6 = {
+export const EnvelopeFieldCreateManyFieldMetaTextAlign6 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeFieldCreateManyTextAlignResponse6 = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTextAlignResponse6
+export type EnvelopeFieldCreateManyFieldMetaTextAlign6 = ClosedEnum<
+  typeof EnvelopeFieldCreateManyFieldMetaTextAlign6
 >;
 
-export const EnvelopeFieldCreateManyVerticalAlignResponse2 = {
+export const EnvelopeFieldCreateManyFieldMetaVerticalAlign2 = {
   Top: "top",
   Middle: "middle",
   Bottom: "bottom",
 } as const;
-export type EnvelopeFieldCreateManyVerticalAlignResponse2 = ClosedEnum<
-  typeof EnvelopeFieldCreateManyVerticalAlignResponse2
+export type EnvelopeFieldCreateManyFieldMetaVerticalAlign2 = ClosedEnum<
+  typeof EnvelopeFieldCreateManyFieldMetaVerticalAlign2
 >;
 
 export type EnvelopeFieldCreateManyFieldMetaNumberResponse = {
@@ -1300,11 +1318,11 @@ export type EnvelopeFieldCreateManyFieldMetaNumberResponse = {
   value?: string | undefined;
   minValue?: number | null | undefined;
   maxValue?: number | null | undefined;
-  textAlign?: EnvelopeFieldCreateManyTextAlignResponse6 | undefined;
+  textAlign?: EnvelopeFieldCreateManyFieldMetaTextAlign6 | undefined;
   lineHeight?: number | null | undefined;
   letterSpacing?: number | null | undefined;
   verticalAlign?:
-    | EnvelopeFieldCreateManyVerticalAlignResponse2
+    | EnvelopeFieldCreateManyFieldMetaVerticalAlign2
     | null
     | undefined;
 };
@@ -1319,22 +1337,22 @@ export type EnvelopeFieldCreateManyOverflowResponse6 = ClosedEnum<
   typeof EnvelopeFieldCreateManyOverflowResponse6
 >;
 
-export const EnvelopeFieldCreateManyTextAlignResponse5 = {
+export const EnvelopeFieldCreateManyFieldMetaTextAlign5 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeFieldCreateManyTextAlignResponse5 = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTextAlignResponse5
+export type EnvelopeFieldCreateManyFieldMetaTextAlign5 = ClosedEnum<
+  typeof EnvelopeFieldCreateManyFieldMetaTextAlign5
 >;
 
-export const EnvelopeFieldCreateManyVerticalAlignResponse1 = {
+export const EnvelopeFieldCreateManyFieldMetaVerticalAlign1 = {
   Top: "top",
   Middle: "middle",
   Bottom: "bottom",
 } as const;
-export type EnvelopeFieldCreateManyVerticalAlignResponse1 = ClosedEnum<
-  typeof EnvelopeFieldCreateManyVerticalAlignResponse1
+export type EnvelopeFieldCreateManyFieldMetaVerticalAlign1 = ClosedEnum<
+  typeof EnvelopeFieldCreateManyFieldMetaVerticalAlign1
 >;
 
 export type EnvelopeFieldCreateManyFieldMetaTextResponse = {
@@ -1347,11 +1365,11 @@ export type EnvelopeFieldCreateManyFieldMetaTextResponse = {
   type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
-  textAlign?: EnvelopeFieldCreateManyTextAlignResponse5 | undefined;
+  textAlign?: EnvelopeFieldCreateManyFieldMetaTextAlign5 | undefined;
   lineHeight?: number | null | undefined;
   letterSpacing?: number | null | undefined;
   verticalAlign?:
-    | EnvelopeFieldCreateManyVerticalAlignResponse1
+    | EnvelopeFieldCreateManyFieldMetaVerticalAlign1
     | null
     | undefined;
 };
@@ -1366,13 +1384,13 @@ export type EnvelopeFieldCreateManyOverflowResponse5 = ClosedEnum<
   typeof EnvelopeFieldCreateManyOverflowResponse5
 >;
 
-export const EnvelopeFieldCreateManyTextAlignResponse4 = {
+export const EnvelopeFieldCreateManyFieldMetaTextAlign4 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeFieldCreateManyTextAlignResponse4 = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTextAlignResponse4
+export type EnvelopeFieldCreateManyFieldMetaTextAlign4 = ClosedEnum<
+  typeof EnvelopeFieldCreateManyFieldMetaTextAlign4
 >;
 
 export type EnvelopeFieldCreateManyFieldMetaDateResponse = {
@@ -1383,7 +1401,7 @@ export type EnvelopeFieldCreateManyFieldMetaDateResponse = {
   fontSize?: number | undefined;
   overflow?: EnvelopeFieldCreateManyOverflowResponse5 | undefined;
   type: "date";
-  textAlign?: EnvelopeFieldCreateManyTextAlignResponse4 | undefined;
+  textAlign?: EnvelopeFieldCreateManyFieldMetaTextAlign4 | undefined;
 };
 
 export const EnvelopeFieldCreateManyOverflowResponse4 = {
@@ -1396,13 +1414,13 @@ export type EnvelopeFieldCreateManyOverflowResponse4 = ClosedEnum<
   typeof EnvelopeFieldCreateManyOverflowResponse4
 >;
 
-export const EnvelopeFieldCreateManyTextAlignResponse3 = {
+export const EnvelopeFieldCreateManyFieldMetaTextAlign3 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeFieldCreateManyTextAlignResponse3 = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTextAlignResponse3
+export type EnvelopeFieldCreateManyFieldMetaTextAlign3 = ClosedEnum<
+  typeof EnvelopeFieldCreateManyFieldMetaTextAlign3
 >;
 
 export type EnvelopeFieldCreateManyFieldMetaEmailResponse = {
@@ -1413,7 +1431,7 @@ export type EnvelopeFieldCreateManyFieldMetaEmailResponse = {
   fontSize?: number | undefined;
   overflow?: EnvelopeFieldCreateManyOverflowResponse4 | undefined;
   type: "email";
-  textAlign?: EnvelopeFieldCreateManyTextAlignResponse3 | undefined;
+  textAlign?: EnvelopeFieldCreateManyFieldMetaTextAlign3 | undefined;
 };
 
 export const EnvelopeFieldCreateManyOverflowResponse3 = {
@@ -1426,13 +1444,13 @@ export type EnvelopeFieldCreateManyOverflowResponse3 = ClosedEnum<
   typeof EnvelopeFieldCreateManyOverflowResponse3
 >;
 
-export const EnvelopeFieldCreateManyTextAlignResponse2 = {
+export const EnvelopeFieldCreateManyFieldMetaTextAlign2 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeFieldCreateManyTextAlignResponse2 = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTextAlignResponse2
+export type EnvelopeFieldCreateManyFieldMetaTextAlign2 = ClosedEnum<
+  typeof EnvelopeFieldCreateManyFieldMetaTextAlign2
 >;
 
 export type EnvelopeFieldCreateManyFieldMetaNameResponse = {
@@ -1443,7 +1461,7 @@ export type EnvelopeFieldCreateManyFieldMetaNameResponse = {
   fontSize?: number | undefined;
   overflow?: EnvelopeFieldCreateManyOverflowResponse3 | undefined;
   type: "name";
-  textAlign?: EnvelopeFieldCreateManyTextAlignResponse2 | undefined;
+  textAlign?: EnvelopeFieldCreateManyFieldMetaTextAlign2 | undefined;
 };
 
 export const EnvelopeFieldCreateManyOverflowResponse2 = {
@@ -1456,13 +1474,21 @@ export type EnvelopeFieldCreateManyOverflowResponse2 = ClosedEnum<
   typeof EnvelopeFieldCreateManyOverflowResponse2
 >;
 
-export const EnvelopeFieldCreateManyTextAlignResponse1 = {
+export const EnvelopeFieldCreateManyFieldMetaTextAlign1 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeFieldCreateManyTextAlignResponse1 = ClosedEnum<
-  typeof EnvelopeFieldCreateManyTextAlignResponse1
+export type EnvelopeFieldCreateManyFieldMetaTextAlign1 = ClosedEnum<
+  typeof EnvelopeFieldCreateManyFieldMetaTextAlign1
+>;
+
+export const EnvelopeFieldCreateManyFontFamilyResponse = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type EnvelopeFieldCreateManyFontFamilyResponse = ClosedEnum<
+  typeof EnvelopeFieldCreateManyFontFamilyResponse
 >;
 
 export type EnvelopeFieldCreateManyFieldMetaInitialsResponse = {
@@ -1473,7 +1499,8 @@ export type EnvelopeFieldCreateManyFieldMetaInitialsResponse = {
   fontSize?: number | undefined;
   overflow?: EnvelopeFieldCreateManyOverflowResponse2 | undefined;
   type: "initials";
-  textAlign?: EnvelopeFieldCreateManyTextAlignResponse1 | undefined;
+  textAlign?: EnvelopeFieldCreateManyFieldMetaTextAlign1 | undefined;
+  fontFamily?: EnvelopeFieldCreateManyFontFamilyResponse | undefined;
 };
 
 export const EnvelopeFieldCreateManyOverflowResponse1 = {
@@ -3152,6 +3179,15 @@ export const EnvelopeFieldCreateManyTextAlignInitials2$outboundSchema:
     EnvelopeFieldCreateManyTextAlignInitials2$inboundSchema;
 
 /** @internal */
+export const EnvelopeFieldCreateManyFontFamilyRequest2$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyFontFamilyRequest2> = z
+    .nativeEnum(EnvelopeFieldCreateManyFontFamilyRequest2);
+/** @internal */
+export const EnvelopeFieldCreateManyFontFamilyRequest2$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyFontFamilyRequest2> =
+    EnvelopeFieldCreateManyFontFamilyRequest2$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldCreateManyFieldMetaInitialsRequest2$inboundSchema:
   z.ZodType<
     EnvelopeFieldCreateManyFieldMetaInitialsRequest2,
@@ -3167,6 +3203,8 @@ export const EnvelopeFieldCreateManyFieldMetaInitialsRequest2$inboundSchema:
     type: EnvelopeFieldCreateManyTypeInitialsEnum2$inboundSchema,
     textAlign: EnvelopeFieldCreateManyTextAlignInitials2$inboundSchema
       .optional(),
+    fontFamily: EnvelopeFieldCreateManyFontFamilyRequest2$inboundSchema
+      .optional(),
   });
 /** @internal */
 export type EnvelopeFieldCreateManyFieldMetaInitialsRequest2$Outbound = {
@@ -3178,6 +3216,7 @@ export type EnvelopeFieldCreateManyFieldMetaInitialsRequest2$Outbound = {
   overflow?: string | undefined;
   type: string;
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -3196,6 +3235,8 @@ export const EnvelopeFieldCreateManyFieldMetaInitialsRequest2$outboundSchema:
       .optional(),
     type: EnvelopeFieldCreateManyTypeInitialsEnum2$outboundSchema,
     textAlign: EnvelopeFieldCreateManyTextAlignInitials2$outboundSchema
+      .optional(),
+    fontFamily: EnvelopeFieldCreateManyFontFamilyRequest2$outboundSchema
       .optional(),
   });
 
@@ -5221,6 +5262,15 @@ export const EnvelopeFieldCreateManyTextAlignInitials1$outboundSchema:
     EnvelopeFieldCreateManyTextAlignInitials1$inboundSchema;
 
 /** @internal */
+export const EnvelopeFieldCreateManyFontFamilyRequest1$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyFontFamilyRequest1> = z
+    .nativeEnum(EnvelopeFieldCreateManyFontFamilyRequest1);
+/** @internal */
+export const EnvelopeFieldCreateManyFontFamilyRequest1$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyFontFamilyRequest1> =
+    EnvelopeFieldCreateManyFontFamilyRequest1$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldCreateManyFieldMetaInitialsRequest1$inboundSchema:
   z.ZodType<
     EnvelopeFieldCreateManyFieldMetaInitialsRequest1,
@@ -5236,6 +5286,8 @@ export const EnvelopeFieldCreateManyFieldMetaInitialsRequest1$inboundSchema:
     type: EnvelopeFieldCreateManyTypeInitialsEnum1$inboundSchema,
     textAlign: EnvelopeFieldCreateManyTextAlignInitials1$inboundSchema
       .optional(),
+    fontFamily: EnvelopeFieldCreateManyFontFamilyRequest1$inboundSchema
+      .optional(),
   });
 /** @internal */
 export type EnvelopeFieldCreateManyFieldMetaInitialsRequest1$Outbound = {
@@ -5247,6 +5299,7 @@ export type EnvelopeFieldCreateManyFieldMetaInitialsRequest1$Outbound = {
   overflow?: string | undefined;
   type: string;
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -5265,6 +5318,8 @@ export const EnvelopeFieldCreateManyFieldMetaInitialsRequest1$outboundSchema:
       .optional(),
     type: EnvelopeFieldCreateManyTypeInitialsEnum1$outboundSchema,
     textAlign: EnvelopeFieldCreateManyTextAlignInitials1$outboundSchema
+      .optional(),
+    fontFamily: EnvelopeFieldCreateManyFontFamilyRequest1$outboundSchema
       .optional(),
   });
 
@@ -6362,22 +6417,22 @@ export const EnvelopeFieldCreateManyOverflowResponse7$outboundSchema:
     EnvelopeFieldCreateManyOverflowResponse7$inboundSchema;
 
 /** @internal */
-export const EnvelopeFieldCreateManyTextAlignResponse6$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignResponse6> = z
-    .nativeEnum(EnvelopeFieldCreateManyTextAlignResponse6);
+export const EnvelopeFieldCreateManyFieldMetaTextAlign6$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyFieldMetaTextAlign6> = z
+    .nativeEnum(EnvelopeFieldCreateManyFieldMetaTextAlign6);
 /** @internal */
-export const EnvelopeFieldCreateManyTextAlignResponse6$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignResponse6> =
-    EnvelopeFieldCreateManyTextAlignResponse6$inboundSchema;
+export const EnvelopeFieldCreateManyFieldMetaTextAlign6$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyFieldMetaTextAlign6> =
+    EnvelopeFieldCreateManyFieldMetaTextAlign6$inboundSchema;
 
 /** @internal */
-export const EnvelopeFieldCreateManyVerticalAlignResponse2$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyVerticalAlignResponse2> = z
-    .nativeEnum(EnvelopeFieldCreateManyVerticalAlignResponse2);
+export const EnvelopeFieldCreateManyFieldMetaVerticalAlign2$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyFieldMetaVerticalAlign2> = z
+    .nativeEnum(EnvelopeFieldCreateManyFieldMetaVerticalAlign2);
 /** @internal */
-export const EnvelopeFieldCreateManyVerticalAlignResponse2$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyVerticalAlignResponse2> =
-    EnvelopeFieldCreateManyVerticalAlignResponse2$inboundSchema;
+export const EnvelopeFieldCreateManyFieldMetaVerticalAlign2$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyFieldMetaVerticalAlign2> =
+    EnvelopeFieldCreateManyFieldMetaVerticalAlign2$inboundSchema;
 
 /** @internal */
 export const EnvelopeFieldCreateManyFieldMetaNumberResponse$inboundSchema:
@@ -6397,12 +6452,12 @@ export const EnvelopeFieldCreateManyFieldMetaNumberResponse$inboundSchema:
     value: z.string().optional(),
     minValue: z.nullable(z.number()).optional(),
     maxValue: z.nullable(z.number()).optional(),
-    textAlign: EnvelopeFieldCreateManyTextAlignResponse6$inboundSchema
+    textAlign: EnvelopeFieldCreateManyFieldMetaTextAlign6$inboundSchema
       .optional(),
     lineHeight: z.nullable(z.number()).optional(),
     letterSpacing: z.nullable(z.number()).optional(),
     verticalAlign: z.nullable(
-      EnvelopeFieldCreateManyVerticalAlignResponse2$inboundSchema,
+      EnvelopeFieldCreateManyFieldMetaVerticalAlign2$inboundSchema,
     ).optional(),
   });
 /** @internal */
@@ -6443,12 +6498,12 @@ export const EnvelopeFieldCreateManyFieldMetaNumberResponse$outboundSchema:
     value: z.string().optional(),
     minValue: z.nullable(z.number()).optional(),
     maxValue: z.nullable(z.number()).optional(),
-    textAlign: EnvelopeFieldCreateManyTextAlignResponse6$outboundSchema
+    textAlign: EnvelopeFieldCreateManyFieldMetaTextAlign6$outboundSchema
       .optional(),
     lineHeight: z.nullable(z.number()).optional(),
     letterSpacing: z.nullable(z.number()).optional(),
     verticalAlign: z.nullable(
-      EnvelopeFieldCreateManyVerticalAlignResponse2$outboundSchema,
+      EnvelopeFieldCreateManyFieldMetaVerticalAlign2$outboundSchema,
     ).optional(),
   });
 
@@ -6488,22 +6543,22 @@ export const EnvelopeFieldCreateManyOverflowResponse6$outboundSchema:
     EnvelopeFieldCreateManyOverflowResponse6$inboundSchema;
 
 /** @internal */
-export const EnvelopeFieldCreateManyTextAlignResponse5$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignResponse5> = z
-    .nativeEnum(EnvelopeFieldCreateManyTextAlignResponse5);
+export const EnvelopeFieldCreateManyFieldMetaTextAlign5$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyFieldMetaTextAlign5> = z
+    .nativeEnum(EnvelopeFieldCreateManyFieldMetaTextAlign5);
 /** @internal */
-export const EnvelopeFieldCreateManyTextAlignResponse5$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignResponse5> =
-    EnvelopeFieldCreateManyTextAlignResponse5$inboundSchema;
+export const EnvelopeFieldCreateManyFieldMetaTextAlign5$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyFieldMetaTextAlign5> =
+    EnvelopeFieldCreateManyFieldMetaTextAlign5$inboundSchema;
 
 /** @internal */
-export const EnvelopeFieldCreateManyVerticalAlignResponse1$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyVerticalAlignResponse1> = z
-    .nativeEnum(EnvelopeFieldCreateManyVerticalAlignResponse1);
+export const EnvelopeFieldCreateManyFieldMetaVerticalAlign1$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyFieldMetaVerticalAlign1> = z
+    .nativeEnum(EnvelopeFieldCreateManyFieldMetaVerticalAlign1);
 /** @internal */
-export const EnvelopeFieldCreateManyVerticalAlignResponse1$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyVerticalAlignResponse1> =
-    EnvelopeFieldCreateManyVerticalAlignResponse1$inboundSchema;
+export const EnvelopeFieldCreateManyFieldMetaVerticalAlign1$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyFieldMetaVerticalAlign1> =
+    EnvelopeFieldCreateManyFieldMetaVerticalAlign1$inboundSchema;
 
 /** @internal */
 export const EnvelopeFieldCreateManyFieldMetaTextResponse$inboundSchema:
@@ -6521,12 +6576,12 @@ export const EnvelopeFieldCreateManyFieldMetaTextResponse$inboundSchema:
     type: z.literal("text"),
     text: z.string().optional(),
     characterLimit: z.number().optional(),
-    textAlign: EnvelopeFieldCreateManyTextAlignResponse5$inboundSchema
+    textAlign: EnvelopeFieldCreateManyFieldMetaTextAlign5$inboundSchema
       .optional(),
     lineHeight: z.nullable(z.number()).optional(),
     letterSpacing: z.nullable(z.number()).optional(),
     verticalAlign: z.nullable(
-      EnvelopeFieldCreateManyVerticalAlignResponse1$inboundSchema,
+      EnvelopeFieldCreateManyFieldMetaVerticalAlign1$inboundSchema,
     ).optional(),
   });
 /** @internal */
@@ -6563,12 +6618,12 @@ export const EnvelopeFieldCreateManyFieldMetaTextResponse$outboundSchema:
     type: z.literal("text"),
     text: z.string().optional(),
     characterLimit: z.number().optional(),
-    textAlign: EnvelopeFieldCreateManyTextAlignResponse5$outboundSchema
+    textAlign: EnvelopeFieldCreateManyFieldMetaTextAlign5$outboundSchema
       .optional(),
     lineHeight: z.nullable(z.number()).optional(),
     letterSpacing: z.nullable(z.number()).optional(),
     verticalAlign: z.nullable(
-      EnvelopeFieldCreateManyVerticalAlignResponse1$outboundSchema,
+      EnvelopeFieldCreateManyFieldMetaVerticalAlign1$outboundSchema,
     ).optional(),
   });
 
@@ -6608,13 +6663,13 @@ export const EnvelopeFieldCreateManyOverflowResponse5$outboundSchema:
     EnvelopeFieldCreateManyOverflowResponse5$inboundSchema;
 
 /** @internal */
-export const EnvelopeFieldCreateManyTextAlignResponse4$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignResponse4> = z
-    .nativeEnum(EnvelopeFieldCreateManyTextAlignResponse4);
+export const EnvelopeFieldCreateManyFieldMetaTextAlign4$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyFieldMetaTextAlign4> = z
+    .nativeEnum(EnvelopeFieldCreateManyFieldMetaTextAlign4);
 /** @internal */
-export const EnvelopeFieldCreateManyTextAlignResponse4$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignResponse4> =
-    EnvelopeFieldCreateManyTextAlignResponse4$inboundSchema;
+export const EnvelopeFieldCreateManyFieldMetaTextAlign4$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyFieldMetaTextAlign4> =
+    EnvelopeFieldCreateManyFieldMetaTextAlign4$inboundSchema;
 
 /** @internal */
 export const EnvelopeFieldCreateManyFieldMetaDateResponse$inboundSchema:
@@ -6632,7 +6687,7 @@ export const EnvelopeFieldCreateManyFieldMetaDateResponse$inboundSchema:
       "auto",
     ),
     type: z.literal("date"),
-    textAlign: EnvelopeFieldCreateManyTextAlignResponse4$inboundSchema
+    textAlign: EnvelopeFieldCreateManyFieldMetaTextAlign4$inboundSchema
       .optional(),
   });
 /** @internal */
@@ -6663,7 +6718,7 @@ export const EnvelopeFieldCreateManyFieldMetaDateResponse$outboundSchema:
       "auto",
     ),
     type: z.literal("date"),
-    textAlign: EnvelopeFieldCreateManyTextAlignResponse4$outboundSchema
+    textAlign: EnvelopeFieldCreateManyFieldMetaTextAlign4$outboundSchema
       .optional(),
   });
 
@@ -6703,13 +6758,13 @@ export const EnvelopeFieldCreateManyOverflowResponse4$outboundSchema:
     EnvelopeFieldCreateManyOverflowResponse4$inboundSchema;
 
 /** @internal */
-export const EnvelopeFieldCreateManyTextAlignResponse3$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignResponse3> = z
-    .nativeEnum(EnvelopeFieldCreateManyTextAlignResponse3);
+export const EnvelopeFieldCreateManyFieldMetaTextAlign3$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyFieldMetaTextAlign3> = z
+    .nativeEnum(EnvelopeFieldCreateManyFieldMetaTextAlign3);
 /** @internal */
-export const EnvelopeFieldCreateManyTextAlignResponse3$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignResponse3> =
-    EnvelopeFieldCreateManyTextAlignResponse3$inboundSchema;
+export const EnvelopeFieldCreateManyFieldMetaTextAlign3$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyFieldMetaTextAlign3> =
+    EnvelopeFieldCreateManyFieldMetaTextAlign3$inboundSchema;
 
 /** @internal */
 export const EnvelopeFieldCreateManyFieldMetaEmailResponse$inboundSchema:
@@ -6727,7 +6782,7 @@ export const EnvelopeFieldCreateManyFieldMetaEmailResponse$inboundSchema:
       "auto",
     ),
     type: z.literal("email"),
-    textAlign: EnvelopeFieldCreateManyTextAlignResponse3$inboundSchema
+    textAlign: EnvelopeFieldCreateManyFieldMetaTextAlign3$inboundSchema
       .optional(),
   });
 /** @internal */
@@ -6758,7 +6813,7 @@ export const EnvelopeFieldCreateManyFieldMetaEmailResponse$outboundSchema:
       "auto",
     ),
     type: z.literal("email"),
-    textAlign: EnvelopeFieldCreateManyTextAlignResponse3$outboundSchema
+    textAlign: EnvelopeFieldCreateManyFieldMetaTextAlign3$outboundSchema
       .optional(),
   });
 
@@ -6798,13 +6853,13 @@ export const EnvelopeFieldCreateManyOverflowResponse3$outboundSchema:
     EnvelopeFieldCreateManyOverflowResponse3$inboundSchema;
 
 /** @internal */
-export const EnvelopeFieldCreateManyTextAlignResponse2$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignResponse2> = z
-    .nativeEnum(EnvelopeFieldCreateManyTextAlignResponse2);
+export const EnvelopeFieldCreateManyFieldMetaTextAlign2$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyFieldMetaTextAlign2> = z
+    .nativeEnum(EnvelopeFieldCreateManyFieldMetaTextAlign2);
 /** @internal */
-export const EnvelopeFieldCreateManyTextAlignResponse2$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignResponse2> =
-    EnvelopeFieldCreateManyTextAlignResponse2$inboundSchema;
+export const EnvelopeFieldCreateManyFieldMetaTextAlign2$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyFieldMetaTextAlign2> =
+    EnvelopeFieldCreateManyFieldMetaTextAlign2$inboundSchema;
 
 /** @internal */
 export const EnvelopeFieldCreateManyFieldMetaNameResponse$inboundSchema:
@@ -6820,7 +6875,7 @@ export const EnvelopeFieldCreateManyFieldMetaNameResponse$inboundSchema:
     fontSize: z.number().default(12),
     overflow: EnvelopeFieldCreateManyOverflowResponse3$inboundSchema.optional(),
     type: z.literal("name"),
-    textAlign: EnvelopeFieldCreateManyTextAlignResponse2$inboundSchema
+    textAlign: EnvelopeFieldCreateManyFieldMetaTextAlign2$inboundSchema
       .optional(),
   });
 /** @internal */
@@ -6850,7 +6905,7 @@ export const EnvelopeFieldCreateManyFieldMetaNameResponse$outboundSchema:
     overflow: EnvelopeFieldCreateManyOverflowResponse3$outboundSchema
       .optional(),
     type: z.literal("name"),
-    textAlign: EnvelopeFieldCreateManyTextAlignResponse2$outboundSchema
+    textAlign: EnvelopeFieldCreateManyFieldMetaTextAlign2$outboundSchema
       .optional(),
   });
 
@@ -6890,13 +6945,22 @@ export const EnvelopeFieldCreateManyOverflowResponse2$outboundSchema:
     EnvelopeFieldCreateManyOverflowResponse2$inboundSchema;
 
 /** @internal */
-export const EnvelopeFieldCreateManyTextAlignResponse1$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignResponse1> = z
-    .nativeEnum(EnvelopeFieldCreateManyTextAlignResponse1);
+export const EnvelopeFieldCreateManyFieldMetaTextAlign1$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyFieldMetaTextAlign1> = z
+    .nativeEnum(EnvelopeFieldCreateManyFieldMetaTextAlign1);
 /** @internal */
-export const EnvelopeFieldCreateManyTextAlignResponse1$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyTextAlignResponse1> =
-    EnvelopeFieldCreateManyTextAlignResponse1$inboundSchema;
+export const EnvelopeFieldCreateManyFieldMetaTextAlign1$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyFieldMetaTextAlign1> =
+    EnvelopeFieldCreateManyFieldMetaTextAlign1$inboundSchema;
+
+/** @internal */
+export const EnvelopeFieldCreateManyFontFamilyResponse$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyFontFamilyResponse> = z
+    .nativeEnum(EnvelopeFieldCreateManyFontFamilyResponse);
+/** @internal */
+export const EnvelopeFieldCreateManyFontFamilyResponse$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldCreateManyFontFamilyResponse> =
+    EnvelopeFieldCreateManyFontFamilyResponse$inboundSchema;
 
 /** @internal */
 export const EnvelopeFieldCreateManyFieldMetaInitialsResponse$inboundSchema:
@@ -6912,7 +6976,9 @@ export const EnvelopeFieldCreateManyFieldMetaInitialsResponse$inboundSchema:
     fontSize: z.number().default(12),
     overflow: EnvelopeFieldCreateManyOverflowResponse2$inboundSchema.optional(),
     type: z.literal("initials"),
-    textAlign: EnvelopeFieldCreateManyTextAlignResponse1$inboundSchema
+    textAlign: EnvelopeFieldCreateManyFieldMetaTextAlign1$inboundSchema
+      .optional(),
+    fontFamily: EnvelopeFieldCreateManyFontFamilyResponse$inboundSchema
       .optional(),
   });
 /** @internal */
@@ -6925,6 +6991,7 @@ export type EnvelopeFieldCreateManyFieldMetaInitialsResponse$Outbound = {
   overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -6942,7 +7009,9 @@ export const EnvelopeFieldCreateManyFieldMetaInitialsResponse$outboundSchema:
     overflow: EnvelopeFieldCreateManyOverflowResponse2$outboundSchema
       .optional(),
     type: z.literal("initials"),
-    textAlign: EnvelopeFieldCreateManyTextAlignResponse1$outboundSchema
+    textAlign: EnvelopeFieldCreateManyFieldMetaTextAlign1$outboundSchema
+      .optional(),
+    fontFamily: EnvelopeFieldCreateManyFontFamilyResponse$outboundSchema
       .optional(),
   });
 
