@@ -20,7 +20,7 @@ Create multiple recipients for an envelope`,
     const [result, apiCall] = await envelopesRecipientsCreateMany(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

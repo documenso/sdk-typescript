@@ -223,6 +223,7 @@ export type TemplateCreateDocumentFromTemplateRequest = {
   externalId?: string | undefined;
   recipients: Array<TemplateCreateDocumentFromTemplateRecipientRequest>;
   distributeDocument?: boolean | undefined;
+  includeContents?: boolean | undefined;
   customDocumentDataId?: string | undefined;
   customDocumentData?:
     | Array<TemplateCreateDocumentFromTemplateCustomDocumentDatum>
@@ -896,6 +897,14 @@ export type TemplateCreateDocumentFromTemplateTextAlign1 = ClosedEnum<
   typeof TemplateCreateDocumentFromTemplateTextAlign1
 >;
 
+export const TemplateCreateDocumentFromTemplateFontFamily = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type TemplateCreateDocumentFromTemplateFontFamily = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateFontFamily
+>;
+
 export type TemplateCreateDocumentFromTemplateFieldMetaInitials = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -905,6 +914,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaInitials = {
   overflow?: TemplateCreateDocumentFromTemplateOverflow2 | undefined;
   type: "initials";
   textAlign?: TemplateCreateDocumentFromTemplateTextAlign1 | undefined;
+  fontFamily?: TemplateCreateDocumentFromTemplateFontFamily | undefined;
 };
 
 export const TemplateCreateDocumentFromTemplateOverflow1 = {
@@ -2149,6 +2159,7 @@ export const TemplateCreateDocumentFromTemplateRequest$inboundSchema: z.ZodType<
     ),
   ),
   distributeDocument: z.boolean().optional(),
+  includeContents: z.boolean().optional(),
   customDocumentDataId: z.string().optional(),
   customDocumentData: z.array(
     z.lazy(() =>
@@ -2195,6 +2206,7 @@ export type TemplateCreateDocumentFromTemplateRequest$Outbound = {
     TemplateCreateDocumentFromTemplateRecipientRequest$Outbound
   >;
   distributeDocument?: boolean | undefined;
+  includeContents?: boolean | undefined;
   customDocumentDataId?: string | undefined;
   customDocumentData?:
     | Array<TemplateCreateDocumentFromTemplateCustomDocumentDatum$Outbound>
@@ -2232,6 +2244,7 @@ export const TemplateCreateDocumentFromTemplateRequest$outboundSchema:
       ),
     ),
     distributeDocument: z.boolean().optional(),
+    includeContents: z.boolean().optional(),
     customDocumentDataId: z.string().optional(),
     customDocumentData: z.array(
       z.lazy(() =>
@@ -4738,6 +4751,15 @@ export const TemplateCreateDocumentFromTemplateTextAlign1$outboundSchema:
     TemplateCreateDocumentFromTemplateTextAlign1$inboundSchema;
 
 /** @internal */
+export const TemplateCreateDocumentFromTemplateFontFamily$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFontFamily> = z
+    .nativeEnum(TemplateCreateDocumentFromTemplateFontFamily);
+/** @internal */
+export const TemplateCreateDocumentFromTemplateFontFamily$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFontFamily> =
+    TemplateCreateDocumentFromTemplateFontFamily$inboundSchema;
+
+/** @internal */
 export const TemplateCreateDocumentFromTemplateFieldMetaInitials$inboundSchema:
   z.ZodType<
     TemplateCreateDocumentFromTemplateFieldMetaInitials,
@@ -4754,6 +4776,8 @@ export const TemplateCreateDocumentFromTemplateFieldMetaInitials$inboundSchema:
     type: z.literal("initials"),
     textAlign: TemplateCreateDocumentFromTemplateTextAlign1$inboundSchema
       .optional(),
+    fontFamily: TemplateCreateDocumentFromTemplateFontFamily$inboundSchema
+      .optional(),
   });
 /** @internal */
 export type TemplateCreateDocumentFromTemplateFieldMetaInitials$Outbound = {
@@ -4765,6 +4789,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaInitials$Outbound = {
   overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -4783,6 +4808,8 @@ export const TemplateCreateDocumentFromTemplateFieldMetaInitials$outboundSchema:
       .optional(),
     type: z.literal("initials"),
     textAlign: TemplateCreateDocumentFromTemplateTextAlign1$outboundSchema
+      .optional(),
+    fontFamily: TemplateCreateDocumentFromTemplateFontFamily$outboundSchema
       .optional(),
   });
 

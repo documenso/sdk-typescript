@@ -461,6 +461,14 @@ export type FieldUpdateDocumentFieldTextAlignInitials = ClosedEnum<
   typeof FieldUpdateDocumentFieldTextAlignInitials
 >;
 
+export const FieldUpdateDocumentFieldFontFamilyRequest = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type FieldUpdateDocumentFieldFontFamilyRequest = ClosedEnum<
+  typeof FieldUpdateDocumentFieldFontFamilyRequest
+>;
+
 export type FieldUpdateDocumentFieldFieldMetaInitialsRequest = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -470,6 +478,7 @@ export type FieldUpdateDocumentFieldFieldMetaInitialsRequest = {
   overflow?: FieldUpdateDocumentFieldOverflowInitials | undefined;
   type: FieldUpdateDocumentFieldTypeInitialsEnum;
   textAlign?: FieldUpdateDocumentFieldTextAlignInitials | undefined;
+  fontFamily?: FieldUpdateDocumentFieldFontFamilyRequest | undefined;
 };
 
 export type FieldUpdateDocumentFieldFieldInitials = {
@@ -687,22 +696,22 @@ export type FieldUpdateDocumentFieldOverflowResponse7 = ClosedEnum<
   typeof FieldUpdateDocumentFieldOverflowResponse7
 >;
 
-export const FieldUpdateDocumentFieldTextAlignResponse6 = {
+export const FieldUpdateDocumentFieldFieldMetaTextAlign6 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type FieldUpdateDocumentFieldTextAlignResponse6 = ClosedEnum<
-  typeof FieldUpdateDocumentFieldTextAlignResponse6
+export type FieldUpdateDocumentFieldFieldMetaTextAlign6 = ClosedEnum<
+  typeof FieldUpdateDocumentFieldFieldMetaTextAlign6
 >;
 
-export const FieldUpdateDocumentFieldVerticalAlignResponse2 = {
+export const FieldUpdateDocumentFieldFieldMetaVerticalAlign2 = {
   Top: "top",
   Middle: "middle",
   Bottom: "bottom",
 } as const;
-export type FieldUpdateDocumentFieldVerticalAlignResponse2 = ClosedEnum<
-  typeof FieldUpdateDocumentFieldVerticalAlignResponse2
+export type FieldUpdateDocumentFieldFieldMetaVerticalAlign2 = ClosedEnum<
+  typeof FieldUpdateDocumentFieldFieldMetaVerticalAlign2
 >;
 
 export type FieldUpdateDocumentFieldFieldMetaNumberResponse = {
@@ -717,11 +726,11 @@ export type FieldUpdateDocumentFieldFieldMetaNumberResponse = {
   value?: string | undefined;
   minValue?: number | null | undefined;
   maxValue?: number | null | undefined;
-  textAlign?: FieldUpdateDocumentFieldTextAlignResponse6 | undefined;
+  textAlign?: FieldUpdateDocumentFieldFieldMetaTextAlign6 | undefined;
   lineHeight?: number | null | undefined;
   letterSpacing?: number | null | undefined;
   verticalAlign?:
-    | FieldUpdateDocumentFieldVerticalAlignResponse2
+    | FieldUpdateDocumentFieldFieldMetaVerticalAlign2
     | null
     | undefined;
 };
@@ -736,22 +745,22 @@ export type FieldUpdateDocumentFieldOverflowResponse6 = ClosedEnum<
   typeof FieldUpdateDocumentFieldOverflowResponse6
 >;
 
-export const FieldUpdateDocumentFieldTextAlignResponse5 = {
+export const FieldUpdateDocumentFieldFieldMetaTextAlign5 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type FieldUpdateDocumentFieldTextAlignResponse5 = ClosedEnum<
-  typeof FieldUpdateDocumentFieldTextAlignResponse5
+export type FieldUpdateDocumentFieldFieldMetaTextAlign5 = ClosedEnum<
+  typeof FieldUpdateDocumentFieldFieldMetaTextAlign5
 >;
 
-export const FieldUpdateDocumentFieldVerticalAlignResponse1 = {
+export const FieldUpdateDocumentFieldFieldMetaVerticalAlign1 = {
   Top: "top",
   Middle: "middle",
   Bottom: "bottom",
 } as const;
-export type FieldUpdateDocumentFieldVerticalAlignResponse1 = ClosedEnum<
-  typeof FieldUpdateDocumentFieldVerticalAlignResponse1
+export type FieldUpdateDocumentFieldFieldMetaVerticalAlign1 = ClosedEnum<
+  typeof FieldUpdateDocumentFieldFieldMetaVerticalAlign1
 >;
 
 export type FieldUpdateDocumentFieldFieldMetaTextResponse = {
@@ -764,11 +773,11 @@ export type FieldUpdateDocumentFieldFieldMetaTextResponse = {
   type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
-  textAlign?: FieldUpdateDocumentFieldTextAlignResponse5 | undefined;
+  textAlign?: FieldUpdateDocumentFieldFieldMetaTextAlign5 | undefined;
   lineHeight?: number | null | undefined;
   letterSpacing?: number | null | undefined;
   verticalAlign?:
-    | FieldUpdateDocumentFieldVerticalAlignResponse1
+    | FieldUpdateDocumentFieldFieldMetaVerticalAlign1
     | null
     | undefined;
 };
@@ -783,13 +792,13 @@ export type FieldUpdateDocumentFieldOverflowResponse5 = ClosedEnum<
   typeof FieldUpdateDocumentFieldOverflowResponse5
 >;
 
-export const FieldUpdateDocumentFieldTextAlignResponse4 = {
+export const FieldUpdateDocumentFieldFieldMetaTextAlign4 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type FieldUpdateDocumentFieldTextAlignResponse4 = ClosedEnum<
-  typeof FieldUpdateDocumentFieldTextAlignResponse4
+export type FieldUpdateDocumentFieldFieldMetaTextAlign4 = ClosedEnum<
+  typeof FieldUpdateDocumentFieldFieldMetaTextAlign4
 >;
 
 export type FieldUpdateDocumentFieldFieldMetaDateResponse = {
@@ -800,7 +809,7 @@ export type FieldUpdateDocumentFieldFieldMetaDateResponse = {
   fontSize?: number | undefined;
   overflow?: FieldUpdateDocumentFieldOverflowResponse5 | undefined;
   type: "date";
-  textAlign?: FieldUpdateDocumentFieldTextAlignResponse4 | undefined;
+  textAlign?: FieldUpdateDocumentFieldFieldMetaTextAlign4 | undefined;
 };
 
 export const FieldUpdateDocumentFieldOverflowResponse4 = {
@@ -813,13 +822,13 @@ export type FieldUpdateDocumentFieldOverflowResponse4 = ClosedEnum<
   typeof FieldUpdateDocumentFieldOverflowResponse4
 >;
 
-export const FieldUpdateDocumentFieldTextAlignResponse3 = {
+export const FieldUpdateDocumentFieldFieldMetaTextAlign3 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type FieldUpdateDocumentFieldTextAlignResponse3 = ClosedEnum<
-  typeof FieldUpdateDocumentFieldTextAlignResponse3
+export type FieldUpdateDocumentFieldFieldMetaTextAlign3 = ClosedEnum<
+  typeof FieldUpdateDocumentFieldFieldMetaTextAlign3
 >;
 
 export type FieldUpdateDocumentFieldFieldMetaEmailResponse = {
@@ -830,7 +839,7 @@ export type FieldUpdateDocumentFieldFieldMetaEmailResponse = {
   fontSize?: number | undefined;
   overflow?: FieldUpdateDocumentFieldOverflowResponse4 | undefined;
   type: "email";
-  textAlign?: FieldUpdateDocumentFieldTextAlignResponse3 | undefined;
+  textAlign?: FieldUpdateDocumentFieldFieldMetaTextAlign3 | undefined;
 };
 
 export const FieldUpdateDocumentFieldOverflowResponse3 = {
@@ -843,13 +852,13 @@ export type FieldUpdateDocumentFieldOverflowResponse3 = ClosedEnum<
   typeof FieldUpdateDocumentFieldOverflowResponse3
 >;
 
-export const FieldUpdateDocumentFieldTextAlignResponse2 = {
+export const FieldUpdateDocumentFieldFieldMetaTextAlign2 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type FieldUpdateDocumentFieldTextAlignResponse2 = ClosedEnum<
-  typeof FieldUpdateDocumentFieldTextAlignResponse2
+export type FieldUpdateDocumentFieldFieldMetaTextAlign2 = ClosedEnum<
+  typeof FieldUpdateDocumentFieldFieldMetaTextAlign2
 >;
 
 export type FieldUpdateDocumentFieldFieldMetaNameResponse = {
@@ -860,7 +869,7 @@ export type FieldUpdateDocumentFieldFieldMetaNameResponse = {
   fontSize?: number | undefined;
   overflow?: FieldUpdateDocumentFieldOverflowResponse3 | undefined;
   type: "name";
-  textAlign?: FieldUpdateDocumentFieldTextAlignResponse2 | undefined;
+  textAlign?: FieldUpdateDocumentFieldFieldMetaTextAlign2 | undefined;
 };
 
 export const FieldUpdateDocumentFieldOverflowResponse2 = {
@@ -873,13 +882,21 @@ export type FieldUpdateDocumentFieldOverflowResponse2 = ClosedEnum<
   typeof FieldUpdateDocumentFieldOverflowResponse2
 >;
 
-export const FieldUpdateDocumentFieldTextAlignResponse1 = {
+export const FieldUpdateDocumentFieldFieldMetaTextAlign1 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type FieldUpdateDocumentFieldTextAlignResponse1 = ClosedEnum<
-  typeof FieldUpdateDocumentFieldTextAlignResponse1
+export type FieldUpdateDocumentFieldFieldMetaTextAlign1 = ClosedEnum<
+  typeof FieldUpdateDocumentFieldFieldMetaTextAlign1
+>;
+
+export const FieldUpdateDocumentFieldFontFamilyResponse = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type FieldUpdateDocumentFieldFontFamilyResponse = ClosedEnum<
+  typeof FieldUpdateDocumentFieldFontFamilyResponse
 >;
 
 export type FieldUpdateDocumentFieldFieldMetaInitialsResponse = {
@@ -890,7 +907,8 @@ export type FieldUpdateDocumentFieldFieldMetaInitialsResponse = {
   fontSize?: number | undefined;
   overflow?: FieldUpdateDocumentFieldOverflowResponse2 | undefined;
   type: "initials";
-  textAlign?: FieldUpdateDocumentFieldTextAlignResponse1 | undefined;
+  textAlign?: FieldUpdateDocumentFieldFieldMetaTextAlign1 | undefined;
+  fontFamily?: FieldUpdateDocumentFieldFontFamilyResponse | undefined;
 };
 
 export const FieldUpdateDocumentFieldOverflowResponse1 = {
@@ -2567,6 +2585,15 @@ export const FieldUpdateDocumentFieldTextAlignInitials$outboundSchema:
     FieldUpdateDocumentFieldTextAlignInitials$inboundSchema;
 
 /** @internal */
+export const FieldUpdateDocumentFieldFontFamilyRequest$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldFontFamilyRequest> = z
+    .nativeEnum(FieldUpdateDocumentFieldFontFamilyRequest);
+/** @internal */
+export const FieldUpdateDocumentFieldFontFamilyRequest$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldFontFamilyRequest> =
+    FieldUpdateDocumentFieldFontFamilyRequest$inboundSchema;
+
+/** @internal */
 export const FieldUpdateDocumentFieldFieldMetaInitialsRequest$inboundSchema:
   z.ZodType<
     FieldUpdateDocumentFieldFieldMetaInitialsRequest,
@@ -2582,6 +2609,8 @@ export const FieldUpdateDocumentFieldFieldMetaInitialsRequest$inboundSchema:
     type: FieldUpdateDocumentFieldTypeInitialsEnum$inboundSchema,
     textAlign: FieldUpdateDocumentFieldTextAlignInitials$inboundSchema
       .optional(),
+    fontFamily: FieldUpdateDocumentFieldFontFamilyRequest$inboundSchema
+      .optional(),
   });
 /** @internal */
 export type FieldUpdateDocumentFieldFieldMetaInitialsRequest$Outbound = {
@@ -2593,6 +2622,7 @@ export type FieldUpdateDocumentFieldFieldMetaInitialsRequest$Outbound = {
   overflow?: string | undefined;
   type: string;
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -2611,6 +2641,8 @@ export const FieldUpdateDocumentFieldFieldMetaInitialsRequest$outboundSchema:
       .optional(),
     type: FieldUpdateDocumentFieldTypeInitialsEnum$outboundSchema,
     textAlign: FieldUpdateDocumentFieldTextAlignInitials$outboundSchema
+      .optional(),
+    fontFamily: FieldUpdateDocumentFieldFontFamilyRequest$outboundSchema
       .optional(),
   });
 
@@ -3541,22 +3573,22 @@ export const FieldUpdateDocumentFieldOverflowResponse7$outboundSchema:
     FieldUpdateDocumentFieldOverflowResponse7$inboundSchema;
 
 /** @internal */
-export const FieldUpdateDocumentFieldTextAlignResponse6$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldTextAlignResponse6> = z
-    .nativeEnum(FieldUpdateDocumentFieldTextAlignResponse6);
+export const FieldUpdateDocumentFieldFieldMetaTextAlign6$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldFieldMetaTextAlign6> = z
+    .nativeEnum(FieldUpdateDocumentFieldFieldMetaTextAlign6);
 /** @internal */
-export const FieldUpdateDocumentFieldTextAlignResponse6$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldTextAlignResponse6> =
-    FieldUpdateDocumentFieldTextAlignResponse6$inboundSchema;
+export const FieldUpdateDocumentFieldFieldMetaTextAlign6$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldFieldMetaTextAlign6> =
+    FieldUpdateDocumentFieldFieldMetaTextAlign6$inboundSchema;
 
 /** @internal */
-export const FieldUpdateDocumentFieldVerticalAlignResponse2$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldVerticalAlignResponse2> = z
-    .nativeEnum(FieldUpdateDocumentFieldVerticalAlignResponse2);
+export const FieldUpdateDocumentFieldFieldMetaVerticalAlign2$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldFieldMetaVerticalAlign2> = z
+    .nativeEnum(FieldUpdateDocumentFieldFieldMetaVerticalAlign2);
 /** @internal */
-export const FieldUpdateDocumentFieldVerticalAlignResponse2$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldVerticalAlignResponse2> =
-    FieldUpdateDocumentFieldVerticalAlignResponse2$inboundSchema;
+export const FieldUpdateDocumentFieldFieldMetaVerticalAlign2$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldFieldMetaVerticalAlign2> =
+    FieldUpdateDocumentFieldFieldMetaVerticalAlign2$inboundSchema;
 
 /** @internal */
 export const FieldUpdateDocumentFieldFieldMetaNumberResponse$inboundSchema:
@@ -3577,12 +3609,12 @@ export const FieldUpdateDocumentFieldFieldMetaNumberResponse$inboundSchema:
     value: z.string().optional(),
     minValue: z.nullable(z.number()).optional(),
     maxValue: z.nullable(z.number()).optional(),
-    textAlign: FieldUpdateDocumentFieldTextAlignResponse6$inboundSchema
+    textAlign: FieldUpdateDocumentFieldFieldMetaTextAlign6$inboundSchema
       .optional(),
     lineHeight: z.nullable(z.number()).optional(),
     letterSpacing: z.nullable(z.number()).optional(),
     verticalAlign: z.nullable(
-      FieldUpdateDocumentFieldVerticalAlignResponse2$inboundSchema,
+      FieldUpdateDocumentFieldFieldMetaVerticalAlign2$inboundSchema,
     ).optional(),
   });
 /** @internal */
@@ -3623,12 +3655,12 @@ export const FieldUpdateDocumentFieldFieldMetaNumberResponse$outboundSchema:
     value: z.string().optional(),
     minValue: z.nullable(z.number()).optional(),
     maxValue: z.nullable(z.number()).optional(),
-    textAlign: FieldUpdateDocumentFieldTextAlignResponse6$outboundSchema
+    textAlign: FieldUpdateDocumentFieldFieldMetaTextAlign6$outboundSchema
       .optional(),
     lineHeight: z.nullable(z.number()).optional(),
     letterSpacing: z.nullable(z.number()).optional(),
     verticalAlign: z.nullable(
-      FieldUpdateDocumentFieldVerticalAlignResponse2$outboundSchema,
+      FieldUpdateDocumentFieldFieldMetaVerticalAlign2$outboundSchema,
     ).optional(),
   });
 
@@ -3668,22 +3700,22 @@ export const FieldUpdateDocumentFieldOverflowResponse6$outboundSchema:
     FieldUpdateDocumentFieldOverflowResponse6$inboundSchema;
 
 /** @internal */
-export const FieldUpdateDocumentFieldTextAlignResponse5$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldTextAlignResponse5> = z
-    .nativeEnum(FieldUpdateDocumentFieldTextAlignResponse5);
+export const FieldUpdateDocumentFieldFieldMetaTextAlign5$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldFieldMetaTextAlign5> = z
+    .nativeEnum(FieldUpdateDocumentFieldFieldMetaTextAlign5);
 /** @internal */
-export const FieldUpdateDocumentFieldTextAlignResponse5$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldTextAlignResponse5> =
-    FieldUpdateDocumentFieldTextAlignResponse5$inboundSchema;
+export const FieldUpdateDocumentFieldFieldMetaTextAlign5$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldFieldMetaTextAlign5> =
+    FieldUpdateDocumentFieldFieldMetaTextAlign5$inboundSchema;
 
 /** @internal */
-export const FieldUpdateDocumentFieldVerticalAlignResponse1$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldVerticalAlignResponse1> = z
-    .nativeEnum(FieldUpdateDocumentFieldVerticalAlignResponse1);
+export const FieldUpdateDocumentFieldFieldMetaVerticalAlign1$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldFieldMetaVerticalAlign1> = z
+    .nativeEnum(FieldUpdateDocumentFieldFieldMetaVerticalAlign1);
 /** @internal */
-export const FieldUpdateDocumentFieldVerticalAlignResponse1$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldVerticalAlignResponse1> =
-    FieldUpdateDocumentFieldVerticalAlignResponse1$inboundSchema;
+export const FieldUpdateDocumentFieldFieldMetaVerticalAlign1$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldFieldMetaVerticalAlign1> =
+    FieldUpdateDocumentFieldFieldMetaVerticalAlign1$inboundSchema;
 
 /** @internal */
 export const FieldUpdateDocumentFieldFieldMetaTextResponse$inboundSchema:
@@ -3702,12 +3734,12 @@ export const FieldUpdateDocumentFieldFieldMetaTextResponse$inboundSchema:
     type: z.literal("text"),
     text: z.string().optional(),
     characterLimit: z.number().optional(),
-    textAlign: FieldUpdateDocumentFieldTextAlignResponse5$inboundSchema
+    textAlign: FieldUpdateDocumentFieldFieldMetaTextAlign5$inboundSchema
       .optional(),
     lineHeight: z.nullable(z.number()).optional(),
     letterSpacing: z.nullable(z.number()).optional(),
     verticalAlign: z.nullable(
-      FieldUpdateDocumentFieldVerticalAlignResponse1$inboundSchema,
+      FieldUpdateDocumentFieldFieldMetaVerticalAlign1$inboundSchema,
     ).optional(),
   });
 /** @internal */
@@ -3744,12 +3776,12 @@ export const FieldUpdateDocumentFieldFieldMetaTextResponse$outboundSchema:
     type: z.literal("text"),
     text: z.string().optional(),
     characterLimit: z.number().optional(),
-    textAlign: FieldUpdateDocumentFieldTextAlignResponse5$outboundSchema
+    textAlign: FieldUpdateDocumentFieldFieldMetaTextAlign5$outboundSchema
       .optional(),
     lineHeight: z.nullable(z.number()).optional(),
     letterSpacing: z.nullable(z.number()).optional(),
     verticalAlign: z.nullable(
-      FieldUpdateDocumentFieldVerticalAlignResponse1$outboundSchema,
+      FieldUpdateDocumentFieldFieldMetaVerticalAlign1$outboundSchema,
     ).optional(),
   });
 
@@ -3789,13 +3821,13 @@ export const FieldUpdateDocumentFieldOverflowResponse5$outboundSchema:
     FieldUpdateDocumentFieldOverflowResponse5$inboundSchema;
 
 /** @internal */
-export const FieldUpdateDocumentFieldTextAlignResponse4$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldTextAlignResponse4> = z
-    .nativeEnum(FieldUpdateDocumentFieldTextAlignResponse4);
+export const FieldUpdateDocumentFieldFieldMetaTextAlign4$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldFieldMetaTextAlign4> = z
+    .nativeEnum(FieldUpdateDocumentFieldFieldMetaTextAlign4);
 /** @internal */
-export const FieldUpdateDocumentFieldTextAlignResponse4$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldTextAlignResponse4> =
-    FieldUpdateDocumentFieldTextAlignResponse4$inboundSchema;
+export const FieldUpdateDocumentFieldFieldMetaTextAlign4$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldFieldMetaTextAlign4> =
+    FieldUpdateDocumentFieldFieldMetaTextAlign4$inboundSchema;
 
 /** @internal */
 export const FieldUpdateDocumentFieldFieldMetaDateResponse$inboundSchema:
@@ -3813,7 +3845,7 @@ export const FieldUpdateDocumentFieldFieldMetaDateResponse$inboundSchema:
       "auto",
     ),
     type: z.literal("date"),
-    textAlign: FieldUpdateDocumentFieldTextAlignResponse4$inboundSchema
+    textAlign: FieldUpdateDocumentFieldFieldMetaTextAlign4$inboundSchema
       .optional(),
   });
 /** @internal */
@@ -3844,7 +3876,7 @@ export const FieldUpdateDocumentFieldFieldMetaDateResponse$outboundSchema:
       "auto",
     ),
     type: z.literal("date"),
-    textAlign: FieldUpdateDocumentFieldTextAlignResponse4$outboundSchema
+    textAlign: FieldUpdateDocumentFieldFieldMetaTextAlign4$outboundSchema
       .optional(),
   });
 
@@ -3884,13 +3916,13 @@ export const FieldUpdateDocumentFieldOverflowResponse4$outboundSchema:
     FieldUpdateDocumentFieldOverflowResponse4$inboundSchema;
 
 /** @internal */
-export const FieldUpdateDocumentFieldTextAlignResponse3$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldTextAlignResponse3> = z
-    .nativeEnum(FieldUpdateDocumentFieldTextAlignResponse3);
+export const FieldUpdateDocumentFieldFieldMetaTextAlign3$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldFieldMetaTextAlign3> = z
+    .nativeEnum(FieldUpdateDocumentFieldFieldMetaTextAlign3);
 /** @internal */
-export const FieldUpdateDocumentFieldTextAlignResponse3$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldTextAlignResponse3> =
-    FieldUpdateDocumentFieldTextAlignResponse3$inboundSchema;
+export const FieldUpdateDocumentFieldFieldMetaTextAlign3$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldFieldMetaTextAlign3> =
+    FieldUpdateDocumentFieldFieldMetaTextAlign3$inboundSchema;
 
 /** @internal */
 export const FieldUpdateDocumentFieldFieldMetaEmailResponse$inboundSchema:
@@ -3908,7 +3940,7 @@ export const FieldUpdateDocumentFieldFieldMetaEmailResponse$inboundSchema:
       "auto",
     ),
     type: z.literal("email"),
-    textAlign: FieldUpdateDocumentFieldTextAlignResponse3$inboundSchema
+    textAlign: FieldUpdateDocumentFieldFieldMetaTextAlign3$inboundSchema
       .optional(),
   });
 /** @internal */
@@ -3939,7 +3971,7 @@ export const FieldUpdateDocumentFieldFieldMetaEmailResponse$outboundSchema:
       "auto",
     ),
     type: z.literal("email"),
-    textAlign: FieldUpdateDocumentFieldTextAlignResponse3$outboundSchema
+    textAlign: FieldUpdateDocumentFieldFieldMetaTextAlign3$outboundSchema
       .optional(),
   });
 
@@ -3979,13 +4011,13 @@ export const FieldUpdateDocumentFieldOverflowResponse3$outboundSchema:
     FieldUpdateDocumentFieldOverflowResponse3$inboundSchema;
 
 /** @internal */
-export const FieldUpdateDocumentFieldTextAlignResponse2$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldTextAlignResponse2> = z
-    .nativeEnum(FieldUpdateDocumentFieldTextAlignResponse2);
+export const FieldUpdateDocumentFieldFieldMetaTextAlign2$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldFieldMetaTextAlign2> = z
+    .nativeEnum(FieldUpdateDocumentFieldFieldMetaTextAlign2);
 /** @internal */
-export const FieldUpdateDocumentFieldTextAlignResponse2$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldTextAlignResponse2> =
-    FieldUpdateDocumentFieldTextAlignResponse2$inboundSchema;
+export const FieldUpdateDocumentFieldFieldMetaTextAlign2$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldFieldMetaTextAlign2> =
+    FieldUpdateDocumentFieldFieldMetaTextAlign2$inboundSchema;
 
 /** @internal */
 export const FieldUpdateDocumentFieldFieldMetaNameResponse$inboundSchema:
@@ -4002,7 +4034,7 @@ export const FieldUpdateDocumentFieldFieldMetaNameResponse$inboundSchema:
     overflow: FieldUpdateDocumentFieldOverflowResponse3$inboundSchema
       .optional(),
     type: z.literal("name"),
-    textAlign: FieldUpdateDocumentFieldTextAlignResponse2$inboundSchema
+    textAlign: FieldUpdateDocumentFieldFieldMetaTextAlign2$inboundSchema
       .optional(),
   });
 /** @internal */
@@ -4032,7 +4064,7 @@ export const FieldUpdateDocumentFieldFieldMetaNameResponse$outboundSchema:
     overflow: FieldUpdateDocumentFieldOverflowResponse3$outboundSchema
       .optional(),
     type: z.literal("name"),
-    textAlign: FieldUpdateDocumentFieldTextAlignResponse2$outboundSchema
+    textAlign: FieldUpdateDocumentFieldFieldMetaTextAlign2$outboundSchema
       .optional(),
   });
 
@@ -4072,13 +4104,22 @@ export const FieldUpdateDocumentFieldOverflowResponse2$outboundSchema:
     FieldUpdateDocumentFieldOverflowResponse2$inboundSchema;
 
 /** @internal */
-export const FieldUpdateDocumentFieldTextAlignResponse1$inboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldTextAlignResponse1> = z
-    .nativeEnum(FieldUpdateDocumentFieldTextAlignResponse1);
+export const FieldUpdateDocumentFieldFieldMetaTextAlign1$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldFieldMetaTextAlign1> = z
+    .nativeEnum(FieldUpdateDocumentFieldFieldMetaTextAlign1);
 /** @internal */
-export const FieldUpdateDocumentFieldTextAlignResponse1$outboundSchema:
-  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldTextAlignResponse1> =
-    FieldUpdateDocumentFieldTextAlignResponse1$inboundSchema;
+export const FieldUpdateDocumentFieldFieldMetaTextAlign1$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldFieldMetaTextAlign1> =
+    FieldUpdateDocumentFieldFieldMetaTextAlign1$inboundSchema;
+
+/** @internal */
+export const FieldUpdateDocumentFieldFontFamilyResponse$inboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldFontFamilyResponse> = z
+    .nativeEnum(FieldUpdateDocumentFieldFontFamilyResponse);
+/** @internal */
+export const FieldUpdateDocumentFieldFontFamilyResponse$outboundSchema:
+  z.ZodNativeEnum<typeof FieldUpdateDocumentFieldFontFamilyResponse> =
+    FieldUpdateDocumentFieldFontFamilyResponse$inboundSchema;
 
 /** @internal */
 export const FieldUpdateDocumentFieldFieldMetaInitialsResponse$inboundSchema:
@@ -4095,7 +4136,9 @@ export const FieldUpdateDocumentFieldFieldMetaInitialsResponse$inboundSchema:
     overflow: FieldUpdateDocumentFieldOverflowResponse2$inboundSchema
       .optional(),
     type: z.literal("initials"),
-    textAlign: FieldUpdateDocumentFieldTextAlignResponse1$inboundSchema
+    textAlign: FieldUpdateDocumentFieldFieldMetaTextAlign1$inboundSchema
+      .optional(),
+    fontFamily: FieldUpdateDocumentFieldFontFamilyResponse$inboundSchema
       .optional(),
   });
 /** @internal */
@@ -4108,6 +4151,7 @@ export type FieldUpdateDocumentFieldFieldMetaInitialsResponse$Outbound = {
   overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -4125,7 +4169,9 @@ export const FieldUpdateDocumentFieldFieldMetaInitialsResponse$outboundSchema:
     overflow: FieldUpdateDocumentFieldOverflowResponse2$outboundSchema
       .optional(),
     type: z.literal("initials"),
-    textAlign: FieldUpdateDocumentFieldTextAlignResponse1$outboundSchema
+    textAlign: FieldUpdateDocumentFieldFieldMetaTextAlign1$outboundSchema
+      .optional(),
+    fontFamily: FieldUpdateDocumentFieldFontFamilyResponse$outboundSchema
       .optional(),
   });
 

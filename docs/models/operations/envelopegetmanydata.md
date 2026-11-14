@@ -104,29 +104,45 @@ let value: EnvelopeGetManyData = {
       },
     },
   ],
-  envelopeItems: [
+  contents: [
     {
-      envelopeId: "<id>",
-      documentDataId: "<id>",
       id: "<id>",
-      title: "<value>",
-      order: 1536.19,
+      envelopeId: "<id>",
+      envelopeItemId: "<id>",
+      contentMeta: {
+        page: 918505,
+        positionX: 2521.37,
+        positionY: 515.83,
+        width: 6325.87,
+        height: 4844.74,
+        zIndex: 0,
+        type: "text",
+        text: "",
+        textAlign: "left",
+        verticalAlign: "middle",
+        lineHeight: 1,
+        letterSpacing: 0,
+        fontSize: 10,
+        color: "#000000",
+      },
+      dataContentId: "<id>",
     },
   ],
+  envelopeItems: [],
   directLink: {
-    directTemplateRecipientId: 2521.37,
+    directTemplateRecipientId: 800.97,
     enabled: true,
     id: "<id>",
     token: "<value>",
   },
   team: {
-    id: 6325.87,
-    url: "https://swift-bowler.org/",
+    id: 9538.86,
+    url: "https://pertinent-granny.info",
   },
   user: {
-    id: 800.97,
+    id: 4378.61,
     name: "<value>",
-    email: "Velma.Mitchell@yahoo.com",
+    email: "Darron.Price@yahoo.com",
   },
 };
 ```
@@ -160,6 +176,7 @@ let value: EnvelopeGetManyData = {
 | `documentMeta`                                                                                     | [operations.EnvelopeGetManyDocumentMeta](../../models/operations/envelopegetmanydocumentmeta.md)   | :heavy_check_mark:                                                                                 | N/A                                                                                                |
 | `recipients`                                                                                       | [operations.EnvelopeGetManyRecipient](../../models/operations/envelopegetmanyrecipient.md)[]       | :heavy_check_mark:                                                                                 | N/A                                                                                                |
 | `fields`                                                                                           | [operations.EnvelopeGetManyField](../../models/operations/envelopegetmanyfield.md)[]               | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `contents`                                                                                         | [operations.EnvelopeGetManyContent](../../models/operations/envelopegetmanycontent.md)[]           | :heavy_check_mark:                                                                                 | N/A                                                                                                |
 | `envelopeItems`                                                                                    | [operations.EnvelopeGetManyEnvelopeItem](../../models/operations/envelopegetmanyenvelopeitem.md)[] | :heavy_check_mark:                                                                                 | N/A                                                                                                |
 | `directLink`                                                                                       | [operations.EnvelopeGetManyDirectLink](../../models/operations/envelopegetmanydirectlink.md)       | :heavy_check_mark:                                                                                 | N/A                                                                                                |
 | `team`                                                                                             | [operations.EnvelopeGetManyTeam](../../models/operations/envelopegetmanyteam.md)                   | :heavy_check_mark:                                                                                 | N/A                                                                                                |

@@ -528,6 +528,14 @@ export type DocumentCreateDocumentTemporaryTextAlignInitials = ClosedEnum<
   typeof DocumentCreateDocumentTemporaryTextAlignInitials
 >;
 
+export const DocumentCreateDocumentTemporaryRecipientFontFamily = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type DocumentCreateDocumentTemporaryRecipientFontFamily = ClosedEnum<
+  typeof DocumentCreateDocumentTemporaryRecipientFontFamily
+>;
+
 export type DocumentCreateDocumentTemporaryRecipientFieldMetaInitials = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -537,6 +545,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaInitials = {
   overflow?: DocumentCreateDocumentTemporaryOverflowInitials | undefined;
   type: DocumentCreateDocumentTemporaryTypeInitialsEnum;
   textAlign?: DocumentCreateDocumentTemporaryTextAlignInitials | undefined;
+  fontFamily?: DocumentCreateDocumentTemporaryRecipientFontFamily | undefined;
 };
 
 export type DocumentCreateDocumentTemporaryFieldInitials = {
@@ -1431,6 +1440,12 @@ export const DocumentTextAlign1 = {
 } as const;
 export type DocumentTextAlign1 = ClosedEnum<typeof DocumentTextAlign1>;
 
+export const DocumentFontFamily = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type DocumentFontFamily = ClosedEnum<typeof DocumentFontFamily>;
+
 export type FieldMetaDocumentInitials = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -1440,6 +1455,7 @@ export type FieldMetaDocumentInitials = {
   overflow?: DocumentOverflow2 | undefined;
   type: "initials";
   textAlign?: DocumentTextAlign1 | undefined;
+  fontFamily?: DocumentFontFamily | undefined;
 };
 
 export const DocumentOverflow1 = {
@@ -3308,6 +3324,15 @@ export const DocumentCreateDocumentTemporaryTextAlignInitials$outboundSchema:
     DocumentCreateDocumentTemporaryTextAlignInitials$inboundSchema;
 
 /** @internal */
+export const DocumentCreateDocumentTemporaryRecipientFontFamily$inboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRecipientFontFamily> = z
+    .nativeEnum(DocumentCreateDocumentTemporaryRecipientFontFamily);
+/** @internal */
+export const DocumentCreateDocumentTemporaryRecipientFontFamily$outboundSchema:
+  z.ZodNativeEnum<typeof DocumentCreateDocumentTemporaryRecipientFontFamily> =
+    DocumentCreateDocumentTemporaryRecipientFontFamily$inboundSchema;
+
+/** @internal */
 export const DocumentCreateDocumentTemporaryRecipientFieldMetaInitials$inboundSchema:
   z.ZodType<
     DocumentCreateDocumentTemporaryRecipientFieldMetaInitials,
@@ -3324,6 +3349,8 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaInitials$inboundSc
     type: DocumentCreateDocumentTemporaryTypeInitialsEnum$inboundSchema,
     textAlign: DocumentCreateDocumentTemporaryTextAlignInitials$inboundSchema
       .optional(),
+    fontFamily: DocumentCreateDocumentTemporaryRecipientFontFamily$inboundSchema
+      .optional(),
   });
 /** @internal */
 export type DocumentCreateDocumentTemporaryRecipientFieldMetaInitials$Outbound =
@@ -3336,6 +3363,7 @@ export type DocumentCreateDocumentTemporaryRecipientFieldMetaInitials$Outbound =
     overflow?: string | undefined;
     type: string;
     textAlign?: string | undefined;
+    fontFamily?: string | undefined;
   };
 
 /** @internal */
@@ -3355,6 +3383,9 @@ export const DocumentCreateDocumentTemporaryRecipientFieldMetaInitials$outboundS
     type: DocumentCreateDocumentTemporaryTypeInitialsEnum$outboundSchema,
     textAlign: DocumentCreateDocumentTemporaryTextAlignInitials$outboundSchema
       .optional(),
+    fontFamily:
+      DocumentCreateDocumentTemporaryRecipientFontFamily$outboundSchema
+        .optional(),
   });
 
 export function documentCreateDocumentTemporaryRecipientFieldMetaInitialsToJSON(
@@ -3771,7 +3802,7 @@ export const DocumentCreateDocumentTemporaryRecipientRequest$inboundSchema:
     email: z.string(),
     name: z.string(),
     role: DocumentCreateDocumentTemporaryRoleRequest$inboundSchema,
-    signingOrder: z.number().optional(),
+    signingOrder: z.number().int().optional(),
     accessAuth: z.array(
       DocumentCreateDocumentTemporaryAccessAuthRequest$inboundSchema,
     ).optional(),
@@ -3839,7 +3870,7 @@ export const DocumentCreateDocumentTemporaryRecipientRequest$outboundSchema:
     email: z.string(),
     name: z.string(),
     role: DocumentCreateDocumentTemporaryRoleRequest$outboundSchema,
-    signingOrder: z.number().optional(),
+    signingOrder: z.number().int().optional(),
     accessAuth: z.array(
       DocumentCreateDocumentTemporaryAccessAuthRequest$outboundSchema,
     ).optional(),
@@ -6962,6 +6993,15 @@ export const DocumentTextAlign1$outboundSchema: z.ZodNativeEnum<
 > = DocumentTextAlign1$inboundSchema;
 
 /** @internal */
+export const DocumentFontFamily$inboundSchema: z.ZodNativeEnum<
+  typeof DocumentFontFamily
+> = z.nativeEnum(DocumentFontFamily);
+/** @internal */
+export const DocumentFontFamily$outboundSchema: z.ZodNativeEnum<
+  typeof DocumentFontFamily
+> = DocumentFontFamily$inboundSchema;
+
+/** @internal */
 export const FieldMetaDocumentInitials$inboundSchema: z.ZodType<
   FieldMetaDocumentInitials,
   z.ZodTypeDef,
@@ -6975,6 +7015,7 @@ export const FieldMetaDocumentInitials$inboundSchema: z.ZodType<
   overflow: DocumentOverflow2$inboundSchema.optional(),
   type: z.literal("initials"),
   textAlign: DocumentTextAlign1$inboundSchema.optional(),
+  fontFamily: DocumentFontFamily$inboundSchema.optional(),
 });
 /** @internal */
 export type FieldMetaDocumentInitials$Outbound = {
@@ -6986,6 +7027,7 @@ export type FieldMetaDocumentInitials$Outbound = {
   overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -7002,6 +7044,7 @@ export const FieldMetaDocumentInitials$outboundSchema: z.ZodType<
   overflow: DocumentOverflow2$outboundSchema.optional(),
   type: z.literal("initials"),
   textAlign: DocumentTextAlign1$outboundSchema.optional(),
+  fontFamily: DocumentFontFamily$outboundSchema.optional(),
 });
 
 export function fieldMetaDocumentInitialsToJSON(

@@ -701,6 +701,14 @@ export type TemplateCreateTemplateTemporaryTextAlign1 = ClosedEnum<
   typeof TemplateCreateTemplateTemporaryTextAlign1
 >;
 
+export const TemplateCreateTemplateTemporaryFontFamily = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type TemplateCreateTemplateTemporaryFontFamily = ClosedEnum<
+  typeof TemplateCreateTemplateTemporaryFontFamily
+>;
+
 export type TemplateCreateTemplateTemporaryFieldMetaInitials = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -710,6 +718,7 @@ export type TemplateCreateTemplateTemporaryFieldMetaInitials = {
   overflow?: TemplateCreateTemplateTemporaryOverflow2 | undefined;
   type: "initials";
   textAlign?: TemplateCreateTemplateTemporaryTextAlign1 | undefined;
+  fontFamily?: TemplateCreateTemplateTemporaryFontFamily | undefined;
 };
 
 export const TemplateCreateTemplateTemporaryOverflow1 = {
@@ -2966,6 +2975,15 @@ export const TemplateCreateTemplateTemporaryTextAlign1$outboundSchema:
     TemplateCreateTemplateTemporaryTextAlign1$inboundSchema;
 
 /** @internal */
+export const TemplateCreateTemplateTemporaryFontFamily$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryFontFamily> = z
+    .nativeEnum(TemplateCreateTemplateTemporaryFontFamily);
+/** @internal */
+export const TemplateCreateTemplateTemporaryFontFamily$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateTemplateTemporaryFontFamily> =
+    TemplateCreateTemplateTemporaryFontFamily$inboundSchema;
+
+/** @internal */
 export const TemplateCreateTemplateTemporaryFieldMetaInitials$inboundSchema:
   z.ZodType<
     TemplateCreateTemplateTemporaryFieldMetaInitials,
@@ -2981,6 +2999,8 @@ export const TemplateCreateTemplateTemporaryFieldMetaInitials$inboundSchema:
     type: z.literal("initials"),
     textAlign: TemplateCreateTemplateTemporaryTextAlign1$inboundSchema
       .optional(),
+    fontFamily: TemplateCreateTemplateTemporaryFontFamily$inboundSchema
+      .optional(),
   });
 /** @internal */
 export type TemplateCreateTemplateTemporaryFieldMetaInitials$Outbound = {
@@ -2992,6 +3012,7 @@ export type TemplateCreateTemplateTemporaryFieldMetaInitials$Outbound = {
   overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -3010,6 +3031,8 @@ export const TemplateCreateTemplateTemporaryFieldMetaInitials$outboundSchema:
       .optional(),
     type: z.literal("initials"),
     textAlign: TemplateCreateTemplateTemporaryTextAlign1$outboundSchema
+      .optional(),
+    fontFamily: TemplateCreateTemplateTemporaryFontFamily$outboundSchema
       .optional(),
   });
 

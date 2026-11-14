@@ -373,22 +373,22 @@ export type EnvelopeGetManyOverflow7 = ClosedEnum<
   typeof EnvelopeGetManyOverflow7
 >;
 
-export const EnvelopeGetManyTextAlign6 = {
+export const EnvelopeGetManyFieldMetaTextAlign6 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeGetManyTextAlign6 = ClosedEnum<
-  typeof EnvelopeGetManyTextAlign6
+export type EnvelopeGetManyFieldMetaTextAlign6 = ClosedEnum<
+  typeof EnvelopeGetManyFieldMetaTextAlign6
 >;
 
-export const EnvelopeGetManyVerticalAlign2 = {
+export const EnvelopeGetManyFieldMetaVerticalAlign2 = {
   Top: "top",
   Middle: "middle",
   Bottom: "bottom",
 } as const;
-export type EnvelopeGetManyVerticalAlign2 = ClosedEnum<
-  typeof EnvelopeGetManyVerticalAlign2
+export type EnvelopeGetManyFieldMetaVerticalAlign2 = ClosedEnum<
+  typeof EnvelopeGetManyFieldMetaVerticalAlign2
 >;
 
 export type EnvelopeGetManyFieldMetaNumber = {
@@ -403,10 +403,10 @@ export type EnvelopeGetManyFieldMetaNumber = {
   value?: string | undefined;
   minValue?: number | null | undefined;
   maxValue?: number | null | undefined;
-  textAlign?: EnvelopeGetManyTextAlign6 | undefined;
+  textAlign?: EnvelopeGetManyFieldMetaTextAlign6 | undefined;
   lineHeight?: number | null | undefined;
   letterSpacing?: number | null | undefined;
-  verticalAlign?: EnvelopeGetManyVerticalAlign2 | null | undefined;
+  verticalAlign?: EnvelopeGetManyFieldMetaVerticalAlign2 | null | undefined;
 };
 
 export const EnvelopeGetManyOverflow6 = {
@@ -419,22 +419,22 @@ export type EnvelopeGetManyOverflow6 = ClosedEnum<
   typeof EnvelopeGetManyOverflow6
 >;
 
-export const EnvelopeGetManyTextAlign5 = {
+export const EnvelopeGetManyFieldMetaTextAlign5 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeGetManyTextAlign5 = ClosedEnum<
-  typeof EnvelopeGetManyTextAlign5
+export type EnvelopeGetManyFieldMetaTextAlign5 = ClosedEnum<
+  typeof EnvelopeGetManyFieldMetaTextAlign5
 >;
 
-export const EnvelopeGetManyVerticalAlign1 = {
+export const EnvelopeGetManyFieldMetaVerticalAlign1 = {
   Top: "top",
   Middle: "middle",
   Bottom: "bottom",
 } as const;
-export type EnvelopeGetManyVerticalAlign1 = ClosedEnum<
-  typeof EnvelopeGetManyVerticalAlign1
+export type EnvelopeGetManyFieldMetaVerticalAlign1 = ClosedEnum<
+  typeof EnvelopeGetManyFieldMetaVerticalAlign1
 >;
 
 export type EnvelopeGetManyFieldMetaText = {
@@ -447,10 +447,10 @@ export type EnvelopeGetManyFieldMetaText = {
   type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
-  textAlign?: EnvelopeGetManyTextAlign5 | undefined;
+  textAlign?: EnvelopeGetManyFieldMetaTextAlign5 | undefined;
   lineHeight?: number | null | undefined;
   letterSpacing?: number | null | undefined;
-  verticalAlign?: EnvelopeGetManyVerticalAlign1 | null | undefined;
+  verticalAlign?: EnvelopeGetManyFieldMetaVerticalAlign1 | null | undefined;
 };
 
 export const EnvelopeGetManyOverflow5 = {
@@ -463,13 +463,13 @@ export type EnvelopeGetManyOverflow5 = ClosedEnum<
   typeof EnvelopeGetManyOverflow5
 >;
 
-export const EnvelopeGetManyTextAlign4 = {
+export const EnvelopeGetManyFieldMetaTextAlign4 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeGetManyTextAlign4 = ClosedEnum<
-  typeof EnvelopeGetManyTextAlign4
+export type EnvelopeGetManyFieldMetaTextAlign4 = ClosedEnum<
+  typeof EnvelopeGetManyFieldMetaTextAlign4
 >;
 
 export type EnvelopeGetManyFieldMetaDate = {
@@ -480,7 +480,7 @@ export type EnvelopeGetManyFieldMetaDate = {
   fontSize?: number | undefined;
   overflow?: EnvelopeGetManyOverflow5 | undefined;
   type: "date";
-  textAlign?: EnvelopeGetManyTextAlign4 | undefined;
+  textAlign?: EnvelopeGetManyFieldMetaTextAlign4 | undefined;
 };
 
 export const EnvelopeGetManyOverflow4 = {
@@ -493,13 +493,13 @@ export type EnvelopeGetManyOverflow4 = ClosedEnum<
   typeof EnvelopeGetManyOverflow4
 >;
 
-export const EnvelopeGetManyTextAlign3 = {
+export const EnvelopeGetManyFieldMetaTextAlign3 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeGetManyTextAlign3 = ClosedEnum<
-  typeof EnvelopeGetManyTextAlign3
+export type EnvelopeGetManyFieldMetaTextAlign3 = ClosedEnum<
+  typeof EnvelopeGetManyFieldMetaTextAlign3
 >;
 
 export type EnvelopeGetManyFieldMetaEmail = {
@@ -510,7 +510,7 @@ export type EnvelopeGetManyFieldMetaEmail = {
   fontSize?: number | undefined;
   overflow?: EnvelopeGetManyOverflow4 | undefined;
   type: "email";
-  textAlign?: EnvelopeGetManyTextAlign3 | undefined;
+  textAlign?: EnvelopeGetManyFieldMetaTextAlign3 | undefined;
 };
 
 export const EnvelopeGetManyOverflow3 = {
@@ -523,13 +523,13 @@ export type EnvelopeGetManyOverflow3 = ClosedEnum<
   typeof EnvelopeGetManyOverflow3
 >;
 
-export const EnvelopeGetManyTextAlign2 = {
+export const EnvelopeGetManyFieldMetaTextAlign2 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeGetManyTextAlign2 = ClosedEnum<
-  typeof EnvelopeGetManyTextAlign2
+export type EnvelopeGetManyFieldMetaTextAlign2 = ClosedEnum<
+  typeof EnvelopeGetManyFieldMetaTextAlign2
 >;
 
 export type EnvelopeGetManyFieldMetaName = {
@@ -540,7 +540,7 @@ export type EnvelopeGetManyFieldMetaName = {
   fontSize?: number | undefined;
   overflow?: EnvelopeGetManyOverflow3 | undefined;
   type: "name";
-  textAlign?: EnvelopeGetManyTextAlign2 | undefined;
+  textAlign?: EnvelopeGetManyFieldMetaTextAlign2 | undefined;
 };
 
 export const EnvelopeGetManyOverflow2 = {
@@ -553,13 +553,21 @@ export type EnvelopeGetManyOverflow2 = ClosedEnum<
   typeof EnvelopeGetManyOverflow2
 >;
 
-export const EnvelopeGetManyTextAlign1 = {
+export const EnvelopeGetManyFieldMetaTextAlign1 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeGetManyTextAlign1 = ClosedEnum<
-  typeof EnvelopeGetManyTextAlign1
+export type EnvelopeGetManyFieldMetaTextAlign1 = ClosedEnum<
+  typeof EnvelopeGetManyFieldMetaTextAlign1
+>;
+
+export const EnvelopeGetManyFontFamily = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type EnvelopeGetManyFontFamily = ClosedEnum<
+  typeof EnvelopeGetManyFontFamily
 >;
 
 export type EnvelopeGetManyFieldMetaInitials = {
@@ -570,7 +578,8 @@ export type EnvelopeGetManyFieldMetaInitials = {
   fontSize?: number | undefined;
   overflow?: EnvelopeGetManyOverflow2 | undefined;
   type: "initials";
-  textAlign?: EnvelopeGetManyTextAlign1 | undefined;
+  textAlign?: EnvelopeGetManyFieldMetaTextAlign1 | undefined;
+  fontFamily?: EnvelopeGetManyFontFamily | undefined;
 };
 
 export const EnvelopeGetManyOverflow1 = {
@@ -633,6 +642,137 @@ export type EnvelopeGetManyField = {
     | null;
 };
 
+export type EnvelopeGetManyContentMetaImage = {
+  page: number;
+  positionX: number;
+  positionY: number;
+  width: number;
+  height: number;
+  zIndex?: number | undefined;
+  type: "image";
+  rotation?: number | undefined;
+};
+
+export type EnvelopeGetManyContentMetaHighlight = {
+  page: number;
+  positionX: number;
+  positionY: number;
+  width: number;
+  height: number;
+  zIndex?: number | undefined;
+  type: "highlight";
+  color?: string | undefined;
+  fillOpacity?: number | undefined;
+};
+
+export const EnvelopeGetManyShape = {
+  Rectangle: "rectangle",
+} as const;
+export type EnvelopeGetManyShape = ClosedEnum<typeof EnvelopeGetManyShape>;
+
+export const EnvelopeGetManyStrokeStyle2 = {
+  Solid: "solid",
+  Dashed: "dashed",
+  Dotted: "dotted",
+} as const;
+export type EnvelopeGetManyStrokeStyle2 = ClosedEnum<
+  typeof EnvelopeGetManyStrokeStyle2
+>;
+
+export type EnvelopeGetManyContentMetaRectangle = {
+  page: number;
+  positionX: number;
+  positionY: number;
+  width: number;
+  height: number;
+  zIndex?: number | undefined;
+  type: "shape";
+  shape: EnvelopeGetManyShape;
+  rotation?: number | undefined;
+  strokeWidth?: number | undefined;
+  strokeColor?: string | undefined;
+  strokeStyle?: EnvelopeGetManyStrokeStyle2 | undefined;
+  fillColor?: string | null | undefined;
+  fillOpacity?: number | undefined;
+};
+
+export const EnvelopeGetManyStrokeStyle1 = {
+  Solid: "solid",
+  Dashed: "dashed",
+  Dotted: "dotted",
+} as const;
+export type EnvelopeGetManyStrokeStyle1 = ClosedEnum<
+  typeof EnvelopeGetManyStrokeStyle1
+>;
+
+export type EnvelopeGetManyContentMetaLine = {
+  page: number;
+  zIndex?: number | undefined;
+  type: "line";
+  x1: number;
+  y1: number;
+  x2: number;
+  y2: number;
+  strokeWidth?: number | undefined;
+  strokeColor?: string | undefined;
+  strokeStyle?: EnvelopeGetManyStrokeStyle1 | undefined;
+};
+
+export const EnvelopeGetManyContentMetaTextAlign = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type EnvelopeGetManyContentMetaTextAlign = ClosedEnum<
+  typeof EnvelopeGetManyContentMetaTextAlign
+>;
+
+export const EnvelopeGetManyContentMetaVerticalAlign = {
+  Top: "top",
+  Middle: "middle",
+  Bottom: "bottom",
+} as const;
+export type EnvelopeGetManyContentMetaVerticalAlign = ClosedEnum<
+  typeof EnvelopeGetManyContentMetaVerticalAlign
+>;
+
+export type EnvelopeGetManyContentMetaText = {
+  page: number;
+  positionX: number;
+  positionY: number;
+  width: number;
+  height: number;
+  zIndex?: number | undefined;
+  type: "text";
+  text?: string | undefined;
+  textAlign?: EnvelopeGetManyContentMetaTextAlign | undefined;
+  verticalAlign?: EnvelopeGetManyContentMetaVerticalAlign | undefined;
+  lineHeight?: number | undefined;
+  letterSpacing?: number | undefined;
+  fontSize?: number | undefined;
+  color?: string | undefined;
+};
+
+export type EnvelopeGetManyContentMetaUnion =
+  | EnvelopeGetManyContentMetaText
+  | EnvelopeGetManyContentMetaLine
+  | EnvelopeGetManyContentMetaRectangle
+  | EnvelopeGetManyContentMetaHighlight
+  | EnvelopeGetManyContentMetaImage;
+
+export type EnvelopeGetManyContent = {
+  id: string;
+  envelopeId: string;
+  envelopeItemId: string;
+  contentMeta:
+    | EnvelopeGetManyContentMetaText
+    | EnvelopeGetManyContentMetaLine
+    | EnvelopeGetManyContentMetaRectangle
+    | EnvelopeGetManyContentMetaHighlight
+    | EnvelopeGetManyContentMetaImage;
+  dataContentId: string | null;
+};
+
 export type EnvelopeGetManyEnvelopeItem = {
   envelopeId: string;
   documentDataId: string;
@@ -685,6 +825,7 @@ export type EnvelopeGetManyData = {
   documentMeta: EnvelopeGetManyDocumentMeta;
   recipients: Array<EnvelopeGetManyRecipient>;
   fields: Array<EnvelopeGetManyField>;
+  contents: Array<EnvelopeGetManyContent>;
   envelopeItems: Array<EnvelopeGetManyEnvelopeItem>;
   directLink: EnvelopeGetManyDirectLink | null;
   team: EnvelopeGetManyTeam;
@@ -1968,22 +2109,23 @@ export const EnvelopeGetManyOverflow7$outboundSchema: z.ZodNativeEnum<
 > = EnvelopeGetManyOverflow7$inboundSchema;
 
 /** @internal */
-export const EnvelopeGetManyTextAlign6$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetManyTextAlign6
-> = z.nativeEnum(EnvelopeGetManyTextAlign6);
+export const EnvelopeGetManyFieldMetaTextAlign6$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetManyFieldMetaTextAlign6
+> = z.nativeEnum(EnvelopeGetManyFieldMetaTextAlign6);
 /** @internal */
-export const EnvelopeGetManyTextAlign6$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetManyTextAlign6
-> = EnvelopeGetManyTextAlign6$inboundSchema;
+export const EnvelopeGetManyFieldMetaTextAlign6$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetManyFieldMetaTextAlign6
+> = EnvelopeGetManyFieldMetaTextAlign6$inboundSchema;
 
 /** @internal */
-export const EnvelopeGetManyVerticalAlign2$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetManyVerticalAlign2
-> = z.nativeEnum(EnvelopeGetManyVerticalAlign2);
+export const EnvelopeGetManyFieldMetaVerticalAlign2$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeGetManyFieldMetaVerticalAlign2> = z.nativeEnum(
+    EnvelopeGetManyFieldMetaVerticalAlign2,
+  );
 /** @internal */
-export const EnvelopeGetManyVerticalAlign2$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetManyVerticalAlign2
-> = EnvelopeGetManyVerticalAlign2$inboundSchema;
+export const EnvelopeGetManyFieldMetaVerticalAlign2$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeGetManyFieldMetaVerticalAlign2> =
+    EnvelopeGetManyFieldMetaVerticalAlign2$inboundSchema;
 
 /** @internal */
 export const EnvelopeGetManyFieldMetaNumber$inboundSchema: z.ZodType<
@@ -2002,11 +2144,12 @@ export const EnvelopeGetManyFieldMetaNumber$inboundSchema: z.ZodType<
   value: z.string().optional(),
   minValue: z.nullable(z.number()).optional(),
   maxValue: z.nullable(z.number()).optional(),
-  textAlign: EnvelopeGetManyTextAlign6$inboundSchema.optional(),
+  textAlign: EnvelopeGetManyFieldMetaTextAlign6$inboundSchema.optional(),
   lineHeight: z.nullable(z.number()).optional(),
   letterSpacing: z.nullable(z.number()).optional(),
-  verticalAlign: z.nullable(EnvelopeGetManyVerticalAlign2$inboundSchema)
-    .optional(),
+  verticalAlign: z.nullable(
+    EnvelopeGetManyFieldMetaVerticalAlign2$inboundSchema,
+  ).optional(),
 });
 /** @internal */
 export type EnvelopeGetManyFieldMetaNumber$Outbound = {
@@ -2044,11 +2187,12 @@ export const EnvelopeGetManyFieldMetaNumber$outboundSchema: z.ZodType<
   value: z.string().optional(),
   minValue: z.nullable(z.number()).optional(),
   maxValue: z.nullable(z.number()).optional(),
-  textAlign: EnvelopeGetManyTextAlign6$outboundSchema.optional(),
+  textAlign: EnvelopeGetManyFieldMetaTextAlign6$outboundSchema.optional(),
   lineHeight: z.nullable(z.number()).optional(),
   letterSpacing: z.nullable(z.number()).optional(),
-  verticalAlign: z.nullable(EnvelopeGetManyVerticalAlign2$outboundSchema)
-    .optional(),
+  verticalAlign: z.nullable(
+    EnvelopeGetManyFieldMetaVerticalAlign2$outboundSchema,
+  ).optional(),
 });
 
 export function envelopeGetManyFieldMetaNumberToJSON(
@@ -2080,22 +2224,23 @@ export const EnvelopeGetManyOverflow6$outboundSchema: z.ZodNativeEnum<
 > = EnvelopeGetManyOverflow6$inboundSchema;
 
 /** @internal */
-export const EnvelopeGetManyTextAlign5$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetManyTextAlign5
-> = z.nativeEnum(EnvelopeGetManyTextAlign5);
+export const EnvelopeGetManyFieldMetaTextAlign5$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetManyFieldMetaTextAlign5
+> = z.nativeEnum(EnvelopeGetManyFieldMetaTextAlign5);
 /** @internal */
-export const EnvelopeGetManyTextAlign5$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetManyTextAlign5
-> = EnvelopeGetManyTextAlign5$inboundSchema;
+export const EnvelopeGetManyFieldMetaTextAlign5$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetManyFieldMetaTextAlign5
+> = EnvelopeGetManyFieldMetaTextAlign5$inboundSchema;
 
 /** @internal */
-export const EnvelopeGetManyVerticalAlign1$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetManyVerticalAlign1
-> = z.nativeEnum(EnvelopeGetManyVerticalAlign1);
+export const EnvelopeGetManyFieldMetaVerticalAlign1$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeGetManyFieldMetaVerticalAlign1> = z.nativeEnum(
+    EnvelopeGetManyFieldMetaVerticalAlign1,
+  );
 /** @internal */
-export const EnvelopeGetManyVerticalAlign1$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetManyVerticalAlign1
-> = EnvelopeGetManyVerticalAlign1$inboundSchema;
+export const EnvelopeGetManyFieldMetaVerticalAlign1$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeGetManyFieldMetaVerticalAlign1> =
+    EnvelopeGetManyFieldMetaVerticalAlign1$inboundSchema;
 
 /** @internal */
 export const EnvelopeGetManyFieldMetaText$inboundSchema: z.ZodType<
@@ -2112,11 +2257,12 @@ export const EnvelopeGetManyFieldMetaText$inboundSchema: z.ZodType<
   type: z.literal("text"),
   text: z.string().optional(),
   characterLimit: z.number().optional(),
-  textAlign: EnvelopeGetManyTextAlign5$inboundSchema.optional(),
+  textAlign: EnvelopeGetManyFieldMetaTextAlign5$inboundSchema.optional(),
   lineHeight: z.nullable(z.number()).optional(),
   letterSpacing: z.nullable(z.number()).optional(),
-  verticalAlign: z.nullable(EnvelopeGetManyVerticalAlign1$inboundSchema)
-    .optional(),
+  verticalAlign: z.nullable(
+    EnvelopeGetManyFieldMetaVerticalAlign1$inboundSchema,
+  ).optional(),
 });
 /** @internal */
 export type EnvelopeGetManyFieldMetaText$Outbound = {
@@ -2150,11 +2296,12 @@ export const EnvelopeGetManyFieldMetaText$outboundSchema: z.ZodType<
   type: z.literal("text"),
   text: z.string().optional(),
   characterLimit: z.number().optional(),
-  textAlign: EnvelopeGetManyTextAlign5$outboundSchema.optional(),
+  textAlign: EnvelopeGetManyFieldMetaTextAlign5$outboundSchema.optional(),
   lineHeight: z.nullable(z.number()).optional(),
   letterSpacing: z.nullable(z.number()).optional(),
-  verticalAlign: z.nullable(EnvelopeGetManyVerticalAlign1$outboundSchema)
-    .optional(),
+  verticalAlign: z.nullable(
+    EnvelopeGetManyFieldMetaVerticalAlign1$outboundSchema,
+  ).optional(),
 });
 
 export function envelopeGetManyFieldMetaTextToJSON(
@@ -2186,13 +2333,13 @@ export const EnvelopeGetManyOverflow5$outboundSchema: z.ZodNativeEnum<
 > = EnvelopeGetManyOverflow5$inboundSchema;
 
 /** @internal */
-export const EnvelopeGetManyTextAlign4$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetManyTextAlign4
-> = z.nativeEnum(EnvelopeGetManyTextAlign4);
+export const EnvelopeGetManyFieldMetaTextAlign4$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetManyFieldMetaTextAlign4
+> = z.nativeEnum(EnvelopeGetManyFieldMetaTextAlign4);
 /** @internal */
-export const EnvelopeGetManyTextAlign4$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetManyTextAlign4
-> = EnvelopeGetManyTextAlign4$inboundSchema;
+export const EnvelopeGetManyFieldMetaTextAlign4$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetManyFieldMetaTextAlign4
+> = EnvelopeGetManyFieldMetaTextAlign4$inboundSchema;
 
 /** @internal */
 export const EnvelopeGetManyFieldMetaDate$inboundSchema: z.ZodType<
@@ -2207,7 +2354,7 @@ export const EnvelopeGetManyFieldMetaDate$inboundSchema: z.ZodType<
   fontSize: z.number().default(12),
   overflow: EnvelopeGetManyOverflow5$inboundSchema.default("auto"),
   type: z.literal("date"),
-  textAlign: EnvelopeGetManyTextAlign4$inboundSchema.optional(),
+  textAlign: EnvelopeGetManyFieldMetaTextAlign4$inboundSchema.optional(),
 });
 /** @internal */
 export type EnvelopeGetManyFieldMetaDate$Outbound = {
@@ -2234,7 +2381,7 @@ export const EnvelopeGetManyFieldMetaDate$outboundSchema: z.ZodType<
   fontSize: z.number().default(12),
   overflow: EnvelopeGetManyOverflow5$outboundSchema.default("auto"),
   type: z.literal("date"),
-  textAlign: EnvelopeGetManyTextAlign4$outboundSchema.optional(),
+  textAlign: EnvelopeGetManyFieldMetaTextAlign4$outboundSchema.optional(),
 });
 
 export function envelopeGetManyFieldMetaDateToJSON(
@@ -2266,13 +2413,13 @@ export const EnvelopeGetManyOverflow4$outboundSchema: z.ZodNativeEnum<
 > = EnvelopeGetManyOverflow4$inboundSchema;
 
 /** @internal */
-export const EnvelopeGetManyTextAlign3$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetManyTextAlign3
-> = z.nativeEnum(EnvelopeGetManyTextAlign3);
+export const EnvelopeGetManyFieldMetaTextAlign3$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetManyFieldMetaTextAlign3
+> = z.nativeEnum(EnvelopeGetManyFieldMetaTextAlign3);
 /** @internal */
-export const EnvelopeGetManyTextAlign3$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetManyTextAlign3
-> = EnvelopeGetManyTextAlign3$inboundSchema;
+export const EnvelopeGetManyFieldMetaTextAlign3$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetManyFieldMetaTextAlign3
+> = EnvelopeGetManyFieldMetaTextAlign3$inboundSchema;
 
 /** @internal */
 export const EnvelopeGetManyFieldMetaEmail$inboundSchema: z.ZodType<
@@ -2287,7 +2434,7 @@ export const EnvelopeGetManyFieldMetaEmail$inboundSchema: z.ZodType<
   fontSize: z.number().default(12),
   overflow: EnvelopeGetManyOverflow4$inboundSchema.default("auto"),
   type: z.literal("email"),
-  textAlign: EnvelopeGetManyTextAlign3$inboundSchema.optional(),
+  textAlign: EnvelopeGetManyFieldMetaTextAlign3$inboundSchema.optional(),
 });
 /** @internal */
 export type EnvelopeGetManyFieldMetaEmail$Outbound = {
@@ -2314,7 +2461,7 @@ export const EnvelopeGetManyFieldMetaEmail$outboundSchema: z.ZodType<
   fontSize: z.number().default(12),
   overflow: EnvelopeGetManyOverflow4$outboundSchema.default("auto"),
   type: z.literal("email"),
-  textAlign: EnvelopeGetManyTextAlign3$outboundSchema.optional(),
+  textAlign: EnvelopeGetManyFieldMetaTextAlign3$outboundSchema.optional(),
 });
 
 export function envelopeGetManyFieldMetaEmailToJSON(
@@ -2346,13 +2493,13 @@ export const EnvelopeGetManyOverflow3$outboundSchema: z.ZodNativeEnum<
 > = EnvelopeGetManyOverflow3$inboundSchema;
 
 /** @internal */
-export const EnvelopeGetManyTextAlign2$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetManyTextAlign2
-> = z.nativeEnum(EnvelopeGetManyTextAlign2);
+export const EnvelopeGetManyFieldMetaTextAlign2$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetManyFieldMetaTextAlign2
+> = z.nativeEnum(EnvelopeGetManyFieldMetaTextAlign2);
 /** @internal */
-export const EnvelopeGetManyTextAlign2$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetManyTextAlign2
-> = EnvelopeGetManyTextAlign2$inboundSchema;
+export const EnvelopeGetManyFieldMetaTextAlign2$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetManyFieldMetaTextAlign2
+> = EnvelopeGetManyFieldMetaTextAlign2$inboundSchema;
 
 /** @internal */
 export const EnvelopeGetManyFieldMetaName$inboundSchema: z.ZodType<
@@ -2367,7 +2514,7 @@ export const EnvelopeGetManyFieldMetaName$inboundSchema: z.ZodType<
   fontSize: z.number().default(12),
   overflow: EnvelopeGetManyOverflow3$inboundSchema.optional(),
   type: z.literal("name"),
-  textAlign: EnvelopeGetManyTextAlign2$inboundSchema.optional(),
+  textAlign: EnvelopeGetManyFieldMetaTextAlign2$inboundSchema.optional(),
 });
 /** @internal */
 export type EnvelopeGetManyFieldMetaName$Outbound = {
@@ -2394,7 +2541,7 @@ export const EnvelopeGetManyFieldMetaName$outboundSchema: z.ZodType<
   fontSize: z.number().default(12),
   overflow: EnvelopeGetManyOverflow3$outboundSchema.optional(),
   type: z.literal("name"),
-  textAlign: EnvelopeGetManyTextAlign2$outboundSchema.optional(),
+  textAlign: EnvelopeGetManyFieldMetaTextAlign2$outboundSchema.optional(),
 });
 
 export function envelopeGetManyFieldMetaNameToJSON(
@@ -2426,13 +2573,22 @@ export const EnvelopeGetManyOverflow2$outboundSchema: z.ZodNativeEnum<
 > = EnvelopeGetManyOverflow2$inboundSchema;
 
 /** @internal */
-export const EnvelopeGetManyTextAlign1$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetManyTextAlign1
-> = z.nativeEnum(EnvelopeGetManyTextAlign1);
+export const EnvelopeGetManyFieldMetaTextAlign1$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetManyFieldMetaTextAlign1
+> = z.nativeEnum(EnvelopeGetManyFieldMetaTextAlign1);
 /** @internal */
-export const EnvelopeGetManyTextAlign1$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetManyTextAlign1
-> = EnvelopeGetManyTextAlign1$inboundSchema;
+export const EnvelopeGetManyFieldMetaTextAlign1$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetManyFieldMetaTextAlign1
+> = EnvelopeGetManyFieldMetaTextAlign1$inboundSchema;
+
+/** @internal */
+export const EnvelopeGetManyFontFamily$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetManyFontFamily
+> = z.nativeEnum(EnvelopeGetManyFontFamily);
+/** @internal */
+export const EnvelopeGetManyFontFamily$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetManyFontFamily
+> = EnvelopeGetManyFontFamily$inboundSchema;
 
 /** @internal */
 export const EnvelopeGetManyFieldMetaInitials$inboundSchema: z.ZodType<
@@ -2447,7 +2603,8 @@ export const EnvelopeGetManyFieldMetaInitials$inboundSchema: z.ZodType<
   fontSize: z.number().default(12),
   overflow: EnvelopeGetManyOverflow2$inboundSchema.optional(),
   type: z.literal("initials"),
-  textAlign: EnvelopeGetManyTextAlign1$inboundSchema.optional(),
+  textAlign: EnvelopeGetManyFieldMetaTextAlign1$inboundSchema.optional(),
+  fontFamily: EnvelopeGetManyFontFamily$inboundSchema.optional(),
 });
 /** @internal */
 export type EnvelopeGetManyFieldMetaInitials$Outbound = {
@@ -2459,6 +2616,7 @@ export type EnvelopeGetManyFieldMetaInitials$Outbound = {
   overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -2474,7 +2632,8 @@ export const EnvelopeGetManyFieldMetaInitials$outboundSchema: z.ZodType<
   fontSize: z.number().default(12),
   overflow: EnvelopeGetManyOverflow2$outboundSchema.optional(),
   type: z.literal("initials"),
-  textAlign: EnvelopeGetManyTextAlign1$outboundSchema.optional(),
+  textAlign: EnvelopeGetManyFieldMetaTextAlign1$outboundSchema.optional(),
+  fontFamily: EnvelopeGetManyFontFamily$outboundSchema.optional(),
 });
 
 export function envelopeGetManyFieldMetaInitialsToJSON(
@@ -2747,6 +2906,532 @@ export function envelopeGetManyFieldFromJSON(
 }
 
 /** @internal */
+export const EnvelopeGetManyContentMetaImage$inboundSchema: z.ZodType<
+  EnvelopeGetManyContentMetaImage,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  page: z.number().int(),
+  positionX: z.number(),
+  positionY: z.number(),
+  width: z.number(),
+  height: z.number(),
+  zIndex: z.number().int().default(0),
+  type: z.literal("image"),
+  rotation: z.number().default(0),
+});
+/** @internal */
+export type EnvelopeGetManyContentMetaImage$Outbound = {
+  page: number;
+  positionX: number;
+  positionY: number;
+  width: number;
+  height: number;
+  zIndex: number;
+  type: "image";
+  rotation: number;
+};
+
+/** @internal */
+export const EnvelopeGetManyContentMetaImage$outboundSchema: z.ZodType<
+  EnvelopeGetManyContentMetaImage$Outbound,
+  z.ZodTypeDef,
+  EnvelopeGetManyContentMetaImage
+> = z.object({
+  page: z.number().int(),
+  positionX: z.number(),
+  positionY: z.number(),
+  width: z.number(),
+  height: z.number(),
+  zIndex: z.number().int().default(0),
+  type: z.literal("image"),
+  rotation: z.number().default(0),
+});
+
+export function envelopeGetManyContentMetaImageToJSON(
+  envelopeGetManyContentMetaImage: EnvelopeGetManyContentMetaImage,
+): string {
+  return JSON.stringify(
+    EnvelopeGetManyContentMetaImage$outboundSchema.parse(
+      envelopeGetManyContentMetaImage,
+    ),
+  );
+}
+export function envelopeGetManyContentMetaImageFromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeGetManyContentMetaImage, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeGetManyContentMetaImage$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeGetManyContentMetaImage' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeGetManyContentMetaHighlight$inboundSchema: z.ZodType<
+  EnvelopeGetManyContentMetaHighlight,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  page: z.number().int(),
+  positionX: z.number(),
+  positionY: z.number(),
+  width: z.number(),
+  height: z.number(),
+  zIndex: z.number().int().default(0),
+  type: z.literal("highlight"),
+  color: z.string().default("#ffe600"),
+  fillOpacity: z.number().default(0.4),
+});
+/** @internal */
+export type EnvelopeGetManyContentMetaHighlight$Outbound = {
+  page: number;
+  positionX: number;
+  positionY: number;
+  width: number;
+  height: number;
+  zIndex: number;
+  type: "highlight";
+  color: string;
+  fillOpacity: number;
+};
+
+/** @internal */
+export const EnvelopeGetManyContentMetaHighlight$outboundSchema: z.ZodType<
+  EnvelopeGetManyContentMetaHighlight$Outbound,
+  z.ZodTypeDef,
+  EnvelopeGetManyContentMetaHighlight
+> = z.object({
+  page: z.number().int(),
+  positionX: z.number(),
+  positionY: z.number(),
+  width: z.number(),
+  height: z.number(),
+  zIndex: z.number().int().default(0),
+  type: z.literal("highlight"),
+  color: z.string().default("#ffe600"),
+  fillOpacity: z.number().default(0.4),
+});
+
+export function envelopeGetManyContentMetaHighlightToJSON(
+  envelopeGetManyContentMetaHighlight: EnvelopeGetManyContentMetaHighlight,
+): string {
+  return JSON.stringify(
+    EnvelopeGetManyContentMetaHighlight$outboundSchema.parse(
+      envelopeGetManyContentMetaHighlight,
+    ),
+  );
+}
+export function envelopeGetManyContentMetaHighlightFromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeGetManyContentMetaHighlight, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      EnvelopeGetManyContentMetaHighlight$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeGetManyContentMetaHighlight' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeGetManyShape$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetManyShape
+> = z.nativeEnum(EnvelopeGetManyShape);
+/** @internal */
+export const EnvelopeGetManyShape$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetManyShape
+> = EnvelopeGetManyShape$inboundSchema;
+
+/** @internal */
+export const EnvelopeGetManyStrokeStyle2$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetManyStrokeStyle2
+> = z.nativeEnum(EnvelopeGetManyStrokeStyle2);
+/** @internal */
+export const EnvelopeGetManyStrokeStyle2$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetManyStrokeStyle2
+> = EnvelopeGetManyStrokeStyle2$inboundSchema;
+
+/** @internal */
+export const EnvelopeGetManyContentMetaRectangle$inboundSchema: z.ZodType<
+  EnvelopeGetManyContentMetaRectangle,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  page: z.number().int(),
+  positionX: z.number(),
+  positionY: z.number(),
+  width: z.number(),
+  height: z.number(),
+  zIndex: z.number().int().default(0),
+  type: z.literal("shape"),
+  shape: EnvelopeGetManyShape$inboundSchema,
+  rotation: z.number().default(0),
+  strokeWidth: z.number().default(1),
+  strokeColor: z.string().default("#000000"),
+  strokeStyle: EnvelopeGetManyStrokeStyle2$inboundSchema.default("solid"),
+  fillColor: z.nullable(z.string()).default(null),
+  fillOpacity: z.number().default(1),
+});
+/** @internal */
+export type EnvelopeGetManyContentMetaRectangle$Outbound = {
+  page: number;
+  positionX: number;
+  positionY: number;
+  width: number;
+  height: number;
+  zIndex: number;
+  type: "shape";
+  shape: string;
+  rotation: number;
+  strokeWidth: number;
+  strokeColor: string;
+  strokeStyle: string;
+  fillColor: string | null;
+  fillOpacity: number;
+};
+
+/** @internal */
+export const EnvelopeGetManyContentMetaRectangle$outboundSchema: z.ZodType<
+  EnvelopeGetManyContentMetaRectangle$Outbound,
+  z.ZodTypeDef,
+  EnvelopeGetManyContentMetaRectangle
+> = z.object({
+  page: z.number().int(),
+  positionX: z.number(),
+  positionY: z.number(),
+  width: z.number(),
+  height: z.number(),
+  zIndex: z.number().int().default(0),
+  type: z.literal("shape"),
+  shape: EnvelopeGetManyShape$outboundSchema,
+  rotation: z.number().default(0),
+  strokeWidth: z.number().default(1),
+  strokeColor: z.string().default("#000000"),
+  strokeStyle: EnvelopeGetManyStrokeStyle2$outboundSchema.default("solid"),
+  fillColor: z.nullable(z.string()).default(null),
+  fillOpacity: z.number().default(1),
+});
+
+export function envelopeGetManyContentMetaRectangleToJSON(
+  envelopeGetManyContentMetaRectangle: EnvelopeGetManyContentMetaRectangle,
+): string {
+  return JSON.stringify(
+    EnvelopeGetManyContentMetaRectangle$outboundSchema.parse(
+      envelopeGetManyContentMetaRectangle,
+    ),
+  );
+}
+export function envelopeGetManyContentMetaRectangleFromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeGetManyContentMetaRectangle, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      EnvelopeGetManyContentMetaRectangle$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeGetManyContentMetaRectangle' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeGetManyStrokeStyle1$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetManyStrokeStyle1
+> = z.nativeEnum(EnvelopeGetManyStrokeStyle1);
+/** @internal */
+export const EnvelopeGetManyStrokeStyle1$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetManyStrokeStyle1
+> = EnvelopeGetManyStrokeStyle1$inboundSchema;
+
+/** @internal */
+export const EnvelopeGetManyContentMetaLine$inboundSchema: z.ZodType<
+  EnvelopeGetManyContentMetaLine,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  page: z.number().int(),
+  zIndex: z.number().int().default(0),
+  type: z.literal("line"),
+  x1: z.number(),
+  y1: z.number(),
+  x2: z.number(),
+  y2: z.number(),
+  strokeWidth: z.number().default(1),
+  strokeColor: z.string().default("#000000"),
+  strokeStyle: EnvelopeGetManyStrokeStyle1$inboundSchema.default("solid"),
+});
+/** @internal */
+export type EnvelopeGetManyContentMetaLine$Outbound = {
+  page: number;
+  zIndex: number;
+  type: "line";
+  x1: number;
+  y1: number;
+  x2: number;
+  y2: number;
+  strokeWidth: number;
+  strokeColor: string;
+  strokeStyle: string;
+};
+
+/** @internal */
+export const EnvelopeGetManyContentMetaLine$outboundSchema: z.ZodType<
+  EnvelopeGetManyContentMetaLine$Outbound,
+  z.ZodTypeDef,
+  EnvelopeGetManyContentMetaLine
+> = z.object({
+  page: z.number().int(),
+  zIndex: z.number().int().default(0),
+  type: z.literal("line"),
+  x1: z.number(),
+  y1: z.number(),
+  x2: z.number(),
+  y2: z.number(),
+  strokeWidth: z.number().default(1),
+  strokeColor: z.string().default("#000000"),
+  strokeStyle: EnvelopeGetManyStrokeStyle1$outboundSchema.default("solid"),
+});
+
+export function envelopeGetManyContentMetaLineToJSON(
+  envelopeGetManyContentMetaLine: EnvelopeGetManyContentMetaLine,
+): string {
+  return JSON.stringify(
+    EnvelopeGetManyContentMetaLine$outboundSchema.parse(
+      envelopeGetManyContentMetaLine,
+    ),
+  );
+}
+export function envelopeGetManyContentMetaLineFromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeGetManyContentMetaLine, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeGetManyContentMetaLine$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeGetManyContentMetaLine' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeGetManyContentMetaTextAlign$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetManyContentMetaTextAlign
+> = z.nativeEnum(EnvelopeGetManyContentMetaTextAlign);
+/** @internal */
+export const EnvelopeGetManyContentMetaTextAlign$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeGetManyContentMetaTextAlign> =
+    EnvelopeGetManyContentMetaTextAlign$inboundSchema;
+
+/** @internal */
+export const EnvelopeGetManyContentMetaVerticalAlign$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeGetManyContentMetaVerticalAlign> = z
+    .nativeEnum(EnvelopeGetManyContentMetaVerticalAlign);
+/** @internal */
+export const EnvelopeGetManyContentMetaVerticalAlign$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeGetManyContentMetaVerticalAlign> =
+    EnvelopeGetManyContentMetaVerticalAlign$inboundSchema;
+
+/** @internal */
+export const EnvelopeGetManyContentMetaText$inboundSchema: z.ZodType<
+  EnvelopeGetManyContentMetaText,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  page: z.number().int(),
+  positionX: z.number(),
+  positionY: z.number(),
+  width: z.number(),
+  height: z.number(),
+  zIndex: z.number().int().default(0),
+  type: z.literal("text"),
+  text: z.string().default(""),
+  textAlign: EnvelopeGetManyContentMetaTextAlign$inboundSchema.default("left"),
+  verticalAlign: EnvelopeGetManyContentMetaVerticalAlign$inboundSchema.default(
+    "middle",
+  ),
+  lineHeight: z.number().default(1),
+  letterSpacing: z.number().default(0),
+  fontSize: z.number().default(10),
+  color: z.string().default("#000000"),
+});
+/** @internal */
+export type EnvelopeGetManyContentMetaText$Outbound = {
+  page: number;
+  positionX: number;
+  positionY: number;
+  width: number;
+  height: number;
+  zIndex: number;
+  type: "text";
+  text: string;
+  textAlign: string;
+  verticalAlign: string;
+  lineHeight: number;
+  letterSpacing: number;
+  fontSize: number;
+  color: string;
+};
+
+/** @internal */
+export const EnvelopeGetManyContentMetaText$outboundSchema: z.ZodType<
+  EnvelopeGetManyContentMetaText$Outbound,
+  z.ZodTypeDef,
+  EnvelopeGetManyContentMetaText
+> = z.object({
+  page: z.number().int(),
+  positionX: z.number(),
+  positionY: z.number(),
+  width: z.number(),
+  height: z.number(),
+  zIndex: z.number().int().default(0),
+  type: z.literal("text"),
+  text: z.string().default(""),
+  textAlign: EnvelopeGetManyContentMetaTextAlign$outboundSchema.default("left"),
+  verticalAlign: EnvelopeGetManyContentMetaVerticalAlign$outboundSchema.default(
+    "middle",
+  ),
+  lineHeight: z.number().default(1),
+  letterSpacing: z.number().default(0),
+  fontSize: z.number().default(10),
+  color: z.string().default("#000000"),
+});
+
+export function envelopeGetManyContentMetaTextToJSON(
+  envelopeGetManyContentMetaText: EnvelopeGetManyContentMetaText,
+): string {
+  return JSON.stringify(
+    EnvelopeGetManyContentMetaText$outboundSchema.parse(
+      envelopeGetManyContentMetaText,
+    ),
+  );
+}
+export function envelopeGetManyContentMetaTextFromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeGetManyContentMetaText, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeGetManyContentMetaText$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeGetManyContentMetaText' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeGetManyContentMetaUnion$inboundSchema: z.ZodType<
+  EnvelopeGetManyContentMetaUnion,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  z.lazy(() => EnvelopeGetManyContentMetaText$inboundSchema),
+  z.lazy(() => EnvelopeGetManyContentMetaLine$inboundSchema),
+  z.lazy(() => EnvelopeGetManyContentMetaRectangle$inboundSchema),
+  z.lazy(() => EnvelopeGetManyContentMetaHighlight$inboundSchema),
+  z.lazy(() => EnvelopeGetManyContentMetaImage$inboundSchema),
+]);
+/** @internal */
+export type EnvelopeGetManyContentMetaUnion$Outbound =
+  | EnvelopeGetManyContentMetaText$Outbound
+  | EnvelopeGetManyContentMetaLine$Outbound
+  | EnvelopeGetManyContentMetaRectangle$Outbound
+  | EnvelopeGetManyContentMetaHighlight$Outbound
+  | EnvelopeGetManyContentMetaImage$Outbound;
+
+/** @internal */
+export const EnvelopeGetManyContentMetaUnion$outboundSchema: z.ZodType<
+  EnvelopeGetManyContentMetaUnion$Outbound,
+  z.ZodTypeDef,
+  EnvelopeGetManyContentMetaUnion
+> = z.union([
+  z.lazy(() => EnvelopeGetManyContentMetaText$outboundSchema),
+  z.lazy(() => EnvelopeGetManyContentMetaLine$outboundSchema),
+  z.lazy(() => EnvelopeGetManyContentMetaRectangle$outboundSchema),
+  z.lazy(() => EnvelopeGetManyContentMetaHighlight$outboundSchema),
+  z.lazy(() => EnvelopeGetManyContentMetaImage$outboundSchema),
+]);
+
+export function envelopeGetManyContentMetaUnionToJSON(
+  envelopeGetManyContentMetaUnion: EnvelopeGetManyContentMetaUnion,
+): string {
+  return JSON.stringify(
+    EnvelopeGetManyContentMetaUnion$outboundSchema.parse(
+      envelopeGetManyContentMetaUnion,
+    ),
+  );
+}
+export function envelopeGetManyContentMetaUnionFromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeGetManyContentMetaUnion, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeGetManyContentMetaUnion$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeGetManyContentMetaUnion' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeGetManyContent$inboundSchema: z.ZodType<
+  EnvelopeGetManyContent,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.string(),
+  envelopeId: z.string(),
+  envelopeItemId: z.string(),
+  contentMeta: z.union([
+    z.lazy(() => EnvelopeGetManyContentMetaText$inboundSchema),
+    z.lazy(() => EnvelopeGetManyContentMetaLine$inboundSchema),
+    z.lazy(() => EnvelopeGetManyContentMetaRectangle$inboundSchema),
+    z.lazy(() => EnvelopeGetManyContentMetaHighlight$inboundSchema),
+    z.lazy(() => EnvelopeGetManyContentMetaImage$inboundSchema),
+  ]),
+  dataContentId: z.nullable(z.string()),
+});
+/** @internal */
+export type EnvelopeGetManyContent$Outbound = {
+  id: string;
+  envelopeId: string;
+  envelopeItemId: string;
+  contentMeta:
+    | EnvelopeGetManyContentMetaText$Outbound
+    | EnvelopeGetManyContentMetaLine$Outbound
+    | EnvelopeGetManyContentMetaRectangle$Outbound
+    | EnvelopeGetManyContentMetaHighlight$Outbound
+    | EnvelopeGetManyContentMetaImage$Outbound;
+  dataContentId: string | null;
+};
+
+/** @internal */
+export const EnvelopeGetManyContent$outboundSchema: z.ZodType<
+  EnvelopeGetManyContent$Outbound,
+  z.ZodTypeDef,
+  EnvelopeGetManyContent
+> = z.object({
+  id: z.string(),
+  envelopeId: z.string(),
+  envelopeItemId: z.string(),
+  contentMeta: z.union([
+    z.lazy(() => EnvelopeGetManyContentMetaText$outboundSchema),
+    z.lazy(() => EnvelopeGetManyContentMetaLine$outboundSchema),
+    z.lazy(() => EnvelopeGetManyContentMetaRectangle$outboundSchema),
+    z.lazy(() => EnvelopeGetManyContentMetaHighlight$outboundSchema),
+    z.lazy(() => EnvelopeGetManyContentMetaImage$outboundSchema),
+  ]),
+  dataContentId: z.nullable(z.string()),
+});
+
+export function envelopeGetManyContentToJSON(
+  envelopeGetManyContent: EnvelopeGetManyContent,
+): string {
+  return JSON.stringify(
+    EnvelopeGetManyContent$outboundSchema.parse(envelopeGetManyContent),
+  );
+}
+export function envelopeGetManyContentFromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeGetManyContent, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeGetManyContent$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeGetManyContent' from JSON`,
+  );
+}
+
+/** @internal */
 export const EnvelopeGetManyEnvelopeItem$inboundSchema: z.ZodType<
   EnvelopeGetManyEnvelopeItem,
   z.ZodTypeDef,
@@ -2969,6 +3654,7 @@ export const EnvelopeGetManyData$inboundSchema: z.ZodType<
   documentMeta: z.lazy(() => EnvelopeGetManyDocumentMeta$inboundSchema),
   recipients: z.array(z.lazy(() => EnvelopeGetManyRecipient$inboundSchema)),
   fields: z.array(z.lazy(() => EnvelopeGetManyField$inboundSchema)),
+  contents: z.array(z.lazy(() => EnvelopeGetManyContent$inboundSchema)),
   envelopeItems: z.array(
     z.lazy(() => EnvelopeGetManyEnvelopeItem$inboundSchema),
   ),
@@ -3003,6 +3689,7 @@ export type EnvelopeGetManyData$Outbound = {
   documentMeta: EnvelopeGetManyDocumentMeta$Outbound;
   recipients: Array<EnvelopeGetManyRecipient$Outbound>;
   fields: Array<EnvelopeGetManyField$Outbound>;
+  contents: Array<EnvelopeGetManyContent$Outbound>;
   envelopeItems: Array<EnvelopeGetManyEnvelopeItem$Outbound>;
   directLink: EnvelopeGetManyDirectLink$Outbound | null;
   team: EnvelopeGetManyTeam$Outbound;
@@ -3044,6 +3731,7 @@ export const EnvelopeGetManyData$outboundSchema: z.ZodType<
   documentMeta: z.lazy(() => EnvelopeGetManyDocumentMeta$outboundSchema),
   recipients: z.array(z.lazy(() => EnvelopeGetManyRecipient$outboundSchema)),
   fields: z.array(z.lazy(() => EnvelopeGetManyField$outboundSchema)),
+  contents: z.array(z.lazy(() => EnvelopeGetManyContent$outboundSchema)),
   envelopeItems: z.array(
     z.lazy(() => EnvelopeGetManyEnvelopeItem$outboundSchema),
   ),

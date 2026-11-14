@@ -12,13 +12,15 @@ const args = {
 
 export const tool$envelopesDelete: ToolDefinition<typeof args> = {
   name: "envelopes-delete",
-  description: `Delete envelope`,
+  description: `Delete envelope
+
+Delete an envelope`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await envelopesDelete(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

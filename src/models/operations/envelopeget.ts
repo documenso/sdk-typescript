@@ -332,20 +332,22 @@ export const EnvelopeGetOverflow7 = {
 } as const;
 export type EnvelopeGetOverflow7 = ClosedEnum<typeof EnvelopeGetOverflow7>;
 
-export const EnvelopeGetTextAlign6 = {
+export const EnvelopeGetFieldMetaTextAlign6 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeGetTextAlign6 = ClosedEnum<typeof EnvelopeGetTextAlign6>;
+export type EnvelopeGetFieldMetaTextAlign6 = ClosedEnum<
+  typeof EnvelopeGetFieldMetaTextAlign6
+>;
 
-export const EnvelopeGetVerticalAlign2 = {
+export const EnvelopeGetFieldMetaVerticalAlign2 = {
   Top: "top",
   Middle: "middle",
   Bottom: "bottom",
 } as const;
-export type EnvelopeGetVerticalAlign2 = ClosedEnum<
-  typeof EnvelopeGetVerticalAlign2
+export type EnvelopeGetFieldMetaVerticalAlign2 = ClosedEnum<
+  typeof EnvelopeGetFieldMetaVerticalAlign2
 >;
 
 export type EnvelopeGetFieldMetaNumber = {
@@ -360,10 +362,10 @@ export type EnvelopeGetFieldMetaNumber = {
   value?: string | undefined;
   minValue?: number | null | undefined;
   maxValue?: number | null | undefined;
-  textAlign?: EnvelopeGetTextAlign6 | undefined;
+  textAlign?: EnvelopeGetFieldMetaTextAlign6 | undefined;
   lineHeight?: number | null | undefined;
   letterSpacing?: number | null | undefined;
-  verticalAlign?: EnvelopeGetVerticalAlign2 | null | undefined;
+  verticalAlign?: EnvelopeGetFieldMetaVerticalAlign2 | null | undefined;
 };
 
 export const EnvelopeGetOverflow6 = {
@@ -374,20 +376,22 @@ export const EnvelopeGetOverflow6 = {
 } as const;
 export type EnvelopeGetOverflow6 = ClosedEnum<typeof EnvelopeGetOverflow6>;
 
-export const EnvelopeGetTextAlign5 = {
+export const EnvelopeGetFieldMetaTextAlign5 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeGetTextAlign5 = ClosedEnum<typeof EnvelopeGetTextAlign5>;
+export type EnvelopeGetFieldMetaTextAlign5 = ClosedEnum<
+  typeof EnvelopeGetFieldMetaTextAlign5
+>;
 
-export const EnvelopeGetVerticalAlign1 = {
+export const EnvelopeGetFieldMetaVerticalAlign1 = {
   Top: "top",
   Middle: "middle",
   Bottom: "bottom",
 } as const;
-export type EnvelopeGetVerticalAlign1 = ClosedEnum<
-  typeof EnvelopeGetVerticalAlign1
+export type EnvelopeGetFieldMetaVerticalAlign1 = ClosedEnum<
+  typeof EnvelopeGetFieldMetaVerticalAlign1
 >;
 
 export type EnvelopeGetFieldMetaText = {
@@ -400,10 +404,10 @@ export type EnvelopeGetFieldMetaText = {
   type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
-  textAlign?: EnvelopeGetTextAlign5 | undefined;
+  textAlign?: EnvelopeGetFieldMetaTextAlign5 | undefined;
   lineHeight?: number | null | undefined;
   letterSpacing?: number | null | undefined;
-  verticalAlign?: EnvelopeGetVerticalAlign1 | null | undefined;
+  verticalAlign?: EnvelopeGetFieldMetaVerticalAlign1 | null | undefined;
 };
 
 export const EnvelopeGetOverflow5 = {
@@ -414,12 +418,14 @@ export const EnvelopeGetOverflow5 = {
 } as const;
 export type EnvelopeGetOverflow5 = ClosedEnum<typeof EnvelopeGetOverflow5>;
 
-export const EnvelopeGetTextAlign4 = {
+export const EnvelopeGetFieldMetaTextAlign4 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeGetTextAlign4 = ClosedEnum<typeof EnvelopeGetTextAlign4>;
+export type EnvelopeGetFieldMetaTextAlign4 = ClosedEnum<
+  typeof EnvelopeGetFieldMetaTextAlign4
+>;
 
 export type EnvelopeGetFieldMetaDate = {
   label?: string | undefined;
@@ -429,7 +435,7 @@ export type EnvelopeGetFieldMetaDate = {
   fontSize?: number | undefined;
   overflow?: EnvelopeGetOverflow5 | undefined;
   type: "date";
-  textAlign?: EnvelopeGetTextAlign4 | undefined;
+  textAlign?: EnvelopeGetFieldMetaTextAlign4 | undefined;
 };
 
 export const EnvelopeGetOverflow4 = {
@@ -440,12 +446,14 @@ export const EnvelopeGetOverflow4 = {
 } as const;
 export type EnvelopeGetOverflow4 = ClosedEnum<typeof EnvelopeGetOverflow4>;
 
-export const EnvelopeGetTextAlign3 = {
+export const EnvelopeGetFieldMetaTextAlign3 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeGetTextAlign3 = ClosedEnum<typeof EnvelopeGetTextAlign3>;
+export type EnvelopeGetFieldMetaTextAlign3 = ClosedEnum<
+  typeof EnvelopeGetFieldMetaTextAlign3
+>;
 
 export type EnvelopeGetFieldMetaEmail = {
   label?: string | undefined;
@@ -455,7 +463,7 @@ export type EnvelopeGetFieldMetaEmail = {
   fontSize?: number | undefined;
   overflow?: EnvelopeGetOverflow4 | undefined;
   type: "email";
-  textAlign?: EnvelopeGetTextAlign3 | undefined;
+  textAlign?: EnvelopeGetFieldMetaTextAlign3 | undefined;
 };
 
 export const EnvelopeGetOverflow3 = {
@@ -466,12 +474,14 @@ export const EnvelopeGetOverflow3 = {
 } as const;
 export type EnvelopeGetOverflow3 = ClosedEnum<typeof EnvelopeGetOverflow3>;
 
-export const EnvelopeGetTextAlign2 = {
+export const EnvelopeGetFieldMetaTextAlign2 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeGetTextAlign2 = ClosedEnum<typeof EnvelopeGetTextAlign2>;
+export type EnvelopeGetFieldMetaTextAlign2 = ClosedEnum<
+  typeof EnvelopeGetFieldMetaTextAlign2
+>;
 
 export type EnvelopeGetFieldMetaName = {
   label?: string | undefined;
@@ -481,7 +491,7 @@ export type EnvelopeGetFieldMetaName = {
   fontSize?: number | undefined;
   overflow?: EnvelopeGetOverflow3 | undefined;
   type: "name";
-  textAlign?: EnvelopeGetTextAlign2 | undefined;
+  textAlign?: EnvelopeGetFieldMetaTextAlign2 | undefined;
 };
 
 export const EnvelopeGetOverflow2 = {
@@ -492,12 +502,20 @@ export const EnvelopeGetOverflow2 = {
 } as const;
 export type EnvelopeGetOverflow2 = ClosedEnum<typeof EnvelopeGetOverflow2>;
 
-export const EnvelopeGetTextAlign1 = {
+export const EnvelopeGetFieldMetaTextAlign1 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeGetTextAlign1 = ClosedEnum<typeof EnvelopeGetTextAlign1>;
+export type EnvelopeGetFieldMetaTextAlign1 = ClosedEnum<
+  typeof EnvelopeGetFieldMetaTextAlign1
+>;
+
+export const EnvelopeGetFontFamily = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type EnvelopeGetFontFamily = ClosedEnum<typeof EnvelopeGetFontFamily>;
 
 export type EnvelopeGetFieldMetaInitials = {
   label?: string | undefined;
@@ -507,7 +525,8 @@ export type EnvelopeGetFieldMetaInitials = {
   fontSize?: number | undefined;
   overflow?: EnvelopeGetOverflow2 | undefined;
   type: "initials";
-  textAlign?: EnvelopeGetTextAlign1 | undefined;
+  textAlign?: EnvelopeGetFieldMetaTextAlign1 | undefined;
+  fontFamily?: EnvelopeGetFontFamily | undefined;
 };
 
 export const EnvelopeGetOverflow1 = {
@@ -568,6 +587,137 @@ export type EnvelopeGetField = {
     | null;
 };
 
+export type EnvelopeGetContentMetaImage = {
+  page: number;
+  positionX: number;
+  positionY: number;
+  width: number;
+  height: number;
+  zIndex?: number | undefined;
+  type: "image";
+  rotation?: number | undefined;
+};
+
+export type EnvelopeGetContentMetaHighlight = {
+  page: number;
+  positionX: number;
+  positionY: number;
+  width: number;
+  height: number;
+  zIndex?: number | undefined;
+  type: "highlight";
+  color?: string | undefined;
+  fillOpacity?: number | undefined;
+};
+
+export const EnvelopeGetShape = {
+  Rectangle: "rectangle",
+} as const;
+export type EnvelopeGetShape = ClosedEnum<typeof EnvelopeGetShape>;
+
+export const EnvelopeGetStrokeStyle2 = {
+  Solid: "solid",
+  Dashed: "dashed",
+  Dotted: "dotted",
+} as const;
+export type EnvelopeGetStrokeStyle2 = ClosedEnum<
+  typeof EnvelopeGetStrokeStyle2
+>;
+
+export type EnvelopeGetContentMetaRectangle = {
+  page: number;
+  positionX: number;
+  positionY: number;
+  width: number;
+  height: number;
+  zIndex?: number | undefined;
+  type: "shape";
+  shape: EnvelopeGetShape;
+  rotation?: number | undefined;
+  strokeWidth?: number | undefined;
+  strokeColor?: string | undefined;
+  strokeStyle?: EnvelopeGetStrokeStyle2 | undefined;
+  fillColor?: string | null | undefined;
+  fillOpacity?: number | undefined;
+};
+
+export const EnvelopeGetStrokeStyle1 = {
+  Solid: "solid",
+  Dashed: "dashed",
+  Dotted: "dotted",
+} as const;
+export type EnvelopeGetStrokeStyle1 = ClosedEnum<
+  typeof EnvelopeGetStrokeStyle1
+>;
+
+export type EnvelopeGetContentMetaLine = {
+  page: number;
+  zIndex?: number | undefined;
+  type: "line";
+  x1: number;
+  y1: number;
+  x2: number;
+  y2: number;
+  strokeWidth?: number | undefined;
+  strokeColor?: string | undefined;
+  strokeStyle?: EnvelopeGetStrokeStyle1 | undefined;
+};
+
+export const EnvelopeGetContentMetaTextAlign = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type EnvelopeGetContentMetaTextAlign = ClosedEnum<
+  typeof EnvelopeGetContentMetaTextAlign
+>;
+
+export const EnvelopeGetContentMetaVerticalAlign = {
+  Top: "top",
+  Middle: "middle",
+  Bottom: "bottom",
+} as const;
+export type EnvelopeGetContentMetaVerticalAlign = ClosedEnum<
+  typeof EnvelopeGetContentMetaVerticalAlign
+>;
+
+export type EnvelopeGetContentMetaText = {
+  page: number;
+  positionX: number;
+  positionY: number;
+  width: number;
+  height: number;
+  zIndex?: number | undefined;
+  type: "text";
+  text?: string | undefined;
+  textAlign?: EnvelopeGetContentMetaTextAlign | undefined;
+  verticalAlign?: EnvelopeGetContentMetaVerticalAlign | undefined;
+  lineHeight?: number | undefined;
+  letterSpacing?: number | undefined;
+  fontSize?: number | undefined;
+  color?: string | undefined;
+};
+
+export type EnvelopeGetContentMetaUnion =
+  | EnvelopeGetContentMetaText
+  | EnvelopeGetContentMetaLine
+  | EnvelopeGetContentMetaRectangle
+  | EnvelopeGetContentMetaHighlight
+  | EnvelopeGetContentMetaImage;
+
+export type EnvelopeGetContent = {
+  id: string;
+  envelopeId: string;
+  envelopeItemId: string;
+  contentMeta:
+    | EnvelopeGetContentMetaText
+    | EnvelopeGetContentMetaLine
+    | EnvelopeGetContentMetaRectangle
+    | EnvelopeGetContentMetaHighlight
+    | EnvelopeGetContentMetaImage;
+  dataContentId: string | null;
+};
+
 export type EnvelopeGetEnvelopeItem = {
   envelopeId: string;
   documentDataId: string;
@@ -623,6 +773,7 @@ export type EnvelopeGetResponse = {
   documentMeta: EnvelopeGetDocumentMeta;
   recipients: Array<EnvelopeGetRecipient>;
   fields: Array<EnvelopeGetField>;
+  contents: Array<EnvelopeGetContent>;
   envelopeItems: Array<EnvelopeGetEnvelopeItem>;
   directLink: EnvelopeGetDirectLink | null;
   team: EnvelopeGetTeam;
@@ -1718,22 +1869,22 @@ export const EnvelopeGetOverflow7$outboundSchema: z.ZodNativeEnum<
 > = EnvelopeGetOverflow7$inboundSchema;
 
 /** @internal */
-export const EnvelopeGetTextAlign6$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetTextAlign6
-> = z.nativeEnum(EnvelopeGetTextAlign6);
+export const EnvelopeGetFieldMetaTextAlign6$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaTextAlign6
+> = z.nativeEnum(EnvelopeGetFieldMetaTextAlign6);
 /** @internal */
-export const EnvelopeGetTextAlign6$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetTextAlign6
-> = EnvelopeGetTextAlign6$inboundSchema;
+export const EnvelopeGetFieldMetaTextAlign6$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaTextAlign6
+> = EnvelopeGetFieldMetaTextAlign6$inboundSchema;
 
 /** @internal */
-export const EnvelopeGetVerticalAlign2$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetVerticalAlign2
-> = z.nativeEnum(EnvelopeGetVerticalAlign2);
+export const EnvelopeGetFieldMetaVerticalAlign2$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaVerticalAlign2
+> = z.nativeEnum(EnvelopeGetFieldMetaVerticalAlign2);
 /** @internal */
-export const EnvelopeGetVerticalAlign2$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetVerticalAlign2
-> = EnvelopeGetVerticalAlign2$inboundSchema;
+export const EnvelopeGetFieldMetaVerticalAlign2$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaVerticalAlign2
+> = EnvelopeGetFieldMetaVerticalAlign2$inboundSchema;
 
 /** @internal */
 export const EnvelopeGetFieldMetaNumber$inboundSchema: z.ZodType<
@@ -1752,10 +1903,11 @@ export const EnvelopeGetFieldMetaNumber$inboundSchema: z.ZodType<
   value: z.string().optional(),
   minValue: z.nullable(z.number()).optional(),
   maxValue: z.nullable(z.number()).optional(),
-  textAlign: EnvelopeGetTextAlign6$inboundSchema.optional(),
+  textAlign: EnvelopeGetFieldMetaTextAlign6$inboundSchema.optional(),
   lineHeight: z.nullable(z.number()).optional(),
   letterSpacing: z.nullable(z.number()).optional(),
-  verticalAlign: z.nullable(EnvelopeGetVerticalAlign2$inboundSchema).optional(),
+  verticalAlign: z.nullable(EnvelopeGetFieldMetaVerticalAlign2$inboundSchema)
+    .optional(),
 });
 /** @internal */
 export type EnvelopeGetFieldMetaNumber$Outbound = {
@@ -1793,10 +1945,10 @@ export const EnvelopeGetFieldMetaNumber$outboundSchema: z.ZodType<
   value: z.string().optional(),
   minValue: z.nullable(z.number()).optional(),
   maxValue: z.nullable(z.number()).optional(),
-  textAlign: EnvelopeGetTextAlign6$outboundSchema.optional(),
+  textAlign: EnvelopeGetFieldMetaTextAlign6$outboundSchema.optional(),
   lineHeight: z.nullable(z.number()).optional(),
   letterSpacing: z.nullable(z.number()).optional(),
-  verticalAlign: z.nullable(EnvelopeGetVerticalAlign2$outboundSchema)
+  verticalAlign: z.nullable(EnvelopeGetFieldMetaVerticalAlign2$outboundSchema)
     .optional(),
 });
 
@@ -1827,22 +1979,22 @@ export const EnvelopeGetOverflow6$outboundSchema: z.ZodNativeEnum<
 > = EnvelopeGetOverflow6$inboundSchema;
 
 /** @internal */
-export const EnvelopeGetTextAlign5$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetTextAlign5
-> = z.nativeEnum(EnvelopeGetTextAlign5);
+export const EnvelopeGetFieldMetaTextAlign5$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaTextAlign5
+> = z.nativeEnum(EnvelopeGetFieldMetaTextAlign5);
 /** @internal */
-export const EnvelopeGetTextAlign5$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetTextAlign5
-> = EnvelopeGetTextAlign5$inboundSchema;
+export const EnvelopeGetFieldMetaTextAlign5$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaTextAlign5
+> = EnvelopeGetFieldMetaTextAlign5$inboundSchema;
 
 /** @internal */
-export const EnvelopeGetVerticalAlign1$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetVerticalAlign1
-> = z.nativeEnum(EnvelopeGetVerticalAlign1);
+export const EnvelopeGetFieldMetaVerticalAlign1$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaVerticalAlign1
+> = z.nativeEnum(EnvelopeGetFieldMetaVerticalAlign1);
 /** @internal */
-export const EnvelopeGetVerticalAlign1$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetVerticalAlign1
-> = EnvelopeGetVerticalAlign1$inboundSchema;
+export const EnvelopeGetFieldMetaVerticalAlign1$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaVerticalAlign1
+> = EnvelopeGetFieldMetaVerticalAlign1$inboundSchema;
 
 /** @internal */
 export const EnvelopeGetFieldMetaText$inboundSchema: z.ZodType<
@@ -1859,10 +2011,11 @@ export const EnvelopeGetFieldMetaText$inboundSchema: z.ZodType<
   type: z.literal("text"),
   text: z.string().optional(),
   characterLimit: z.number().optional(),
-  textAlign: EnvelopeGetTextAlign5$inboundSchema.optional(),
+  textAlign: EnvelopeGetFieldMetaTextAlign5$inboundSchema.optional(),
   lineHeight: z.nullable(z.number()).optional(),
   letterSpacing: z.nullable(z.number()).optional(),
-  verticalAlign: z.nullable(EnvelopeGetVerticalAlign1$inboundSchema).optional(),
+  verticalAlign: z.nullable(EnvelopeGetFieldMetaVerticalAlign1$inboundSchema)
+    .optional(),
 });
 /** @internal */
 export type EnvelopeGetFieldMetaText$Outbound = {
@@ -1896,10 +2049,10 @@ export const EnvelopeGetFieldMetaText$outboundSchema: z.ZodType<
   type: z.literal("text"),
   text: z.string().optional(),
   characterLimit: z.number().optional(),
-  textAlign: EnvelopeGetTextAlign5$outboundSchema.optional(),
+  textAlign: EnvelopeGetFieldMetaTextAlign5$outboundSchema.optional(),
   lineHeight: z.nullable(z.number()).optional(),
   letterSpacing: z.nullable(z.number()).optional(),
-  verticalAlign: z.nullable(EnvelopeGetVerticalAlign1$outboundSchema)
+  verticalAlign: z.nullable(EnvelopeGetFieldMetaVerticalAlign1$outboundSchema)
     .optional(),
 });
 
@@ -1930,13 +2083,13 @@ export const EnvelopeGetOverflow5$outboundSchema: z.ZodNativeEnum<
 > = EnvelopeGetOverflow5$inboundSchema;
 
 /** @internal */
-export const EnvelopeGetTextAlign4$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetTextAlign4
-> = z.nativeEnum(EnvelopeGetTextAlign4);
+export const EnvelopeGetFieldMetaTextAlign4$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaTextAlign4
+> = z.nativeEnum(EnvelopeGetFieldMetaTextAlign4);
 /** @internal */
-export const EnvelopeGetTextAlign4$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetTextAlign4
-> = EnvelopeGetTextAlign4$inboundSchema;
+export const EnvelopeGetFieldMetaTextAlign4$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaTextAlign4
+> = EnvelopeGetFieldMetaTextAlign4$inboundSchema;
 
 /** @internal */
 export const EnvelopeGetFieldMetaDate$inboundSchema: z.ZodType<
@@ -1951,7 +2104,7 @@ export const EnvelopeGetFieldMetaDate$inboundSchema: z.ZodType<
   fontSize: z.number().default(12),
   overflow: EnvelopeGetOverflow5$inboundSchema.default("auto"),
   type: z.literal("date"),
-  textAlign: EnvelopeGetTextAlign4$inboundSchema.optional(),
+  textAlign: EnvelopeGetFieldMetaTextAlign4$inboundSchema.optional(),
 });
 /** @internal */
 export type EnvelopeGetFieldMetaDate$Outbound = {
@@ -1978,7 +2131,7 @@ export const EnvelopeGetFieldMetaDate$outboundSchema: z.ZodType<
   fontSize: z.number().default(12),
   overflow: EnvelopeGetOverflow5$outboundSchema.default("auto"),
   type: z.literal("date"),
-  textAlign: EnvelopeGetTextAlign4$outboundSchema.optional(),
+  textAlign: EnvelopeGetFieldMetaTextAlign4$outboundSchema.optional(),
 });
 
 export function envelopeGetFieldMetaDateToJSON(
@@ -2008,13 +2161,13 @@ export const EnvelopeGetOverflow4$outboundSchema: z.ZodNativeEnum<
 > = EnvelopeGetOverflow4$inboundSchema;
 
 /** @internal */
-export const EnvelopeGetTextAlign3$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetTextAlign3
-> = z.nativeEnum(EnvelopeGetTextAlign3);
+export const EnvelopeGetFieldMetaTextAlign3$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaTextAlign3
+> = z.nativeEnum(EnvelopeGetFieldMetaTextAlign3);
 /** @internal */
-export const EnvelopeGetTextAlign3$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetTextAlign3
-> = EnvelopeGetTextAlign3$inboundSchema;
+export const EnvelopeGetFieldMetaTextAlign3$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaTextAlign3
+> = EnvelopeGetFieldMetaTextAlign3$inboundSchema;
 
 /** @internal */
 export const EnvelopeGetFieldMetaEmail$inboundSchema: z.ZodType<
@@ -2029,7 +2182,7 @@ export const EnvelopeGetFieldMetaEmail$inboundSchema: z.ZodType<
   fontSize: z.number().default(12),
   overflow: EnvelopeGetOverflow4$inboundSchema.default("auto"),
   type: z.literal("email"),
-  textAlign: EnvelopeGetTextAlign3$inboundSchema.optional(),
+  textAlign: EnvelopeGetFieldMetaTextAlign3$inboundSchema.optional(),
 });
 /** @internal */
 export type EnvelopeGetFieldMetaEmail$Outbound = {
@@ -2056,7 +2209,7 @@ export const EnvelopeGetFieldMetaEmail$outboundSchema: z.ZodType<
   fontSize: z.number().default(12),
   overflow: EnvelopeGetOverflow4$outboundSchema.default("auto"),
   type: z.literal("email"),
-  textAlign: EnvelopeGetTextAlign3$outboundSchema.optional(),
+  textAlign: EnvelopeGetFieldMetaTextAlign3$outboundSchema.optional(),
 });
 
 export function envelopeGetFieldMetaEmailToJSON(
@@ -2086,13 +2239,13 @@ export const EnvelopeGetOverflow3$outboundSchema: z.ZodNativeEnum<
 > = EnvelopeGetOverflow3$inboundSchema;
 
 /** @internal */
-export const EnvelopeGetTextAlign2$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetTextAlign2
-> = z.nativeEnum(EnvelopeGetTextAlign2);
+export const EnvelopeGetFieldMetaTextAlign2$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaTextAlign2
+> = z.nativeEnum(EnvelopeGetFieldMetaTextAlign2);
 /** @internal */
-export const EnvelopeGetTextAlign2$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetTextAlign2
-> = EnvelopeGetTextAlign2$inboundSchema;
+export const EnvelopeGetFieldMetaTextAlign2$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaTextAlign2
+> = EnvelopeGetFieldMetaTextAlign2$inboundSchema;
 
 /** @internal */
 export const EnvelopeGetFieldMetaName$inboundSchema: z.ZodType<
@@ -2107,7 +2260,7 @@ export const EnvelopeGetFieldMetaName$inboundSchema: z.ZodType<
   fontSize: z.number().default(12),
   overflow: EnvelopeGetOverflow3$inboundSchema.optional(),
   type: z.literal("name"),
-  textAlign: EnvelopeGetTextAlign2$inboundSchema.optional(),
+  textAlign: EnvelopeGetFieldMetaTextAlign2$inboundSchema.optional(),
 });
 /** @internal */
 export type EnvelopeGetFieldMetaName$Outbound = {
@@ -2134,7 +2287,7 @@ export const EnvelopeGetFieldMetaName$outboundSchema: z.ZodType<
   fontSize: z.number().default(12),
   overflow: EnvelopeGetOverflow3$outboundSchema.optional(),
   type: z.literal("name"),
-  textAlign: EnvelopeGetTextAlign2$outboundSchema.optional(),
+  textAlign: EnvelopeGetFieldMetaTextAlign2$outboundSchema.optional(),
 });
 
 export function envelopeGetFieldMetaNameToJSON(
@@ -2164,13 +2317,22 @@ export const EnvelopeGetOverflow2$outboundSchema: z.ZodNativeEnum<
 > = EnvelopeGetOverflow2$inboundSchema;
 
 /** @internal */
-export const EnvelopeGetTextAlign1$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetTextAlign1
-> = z.nativeEnum(EnvelopeGetTextAlign1);
+export const EnvelopeGetFieldMetaTextAlign1$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaTextAlign1
+> = z.nativeEnum(EnvelopeGetFieldMetaTextAlign1);
 /** @internal */
-export const EnvelopeGetTextAlign1$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetTextAlign1
-> = EnvelopeGetTextAlign1$inboundSchema;
+export const EnvelopeGetFieldMetaTextAlign1$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaTextAlign1
+> = EnvelopeGetFieldMetaTextAlign1$inboundSchema;
+
+/** @internal */
+export const EnvelopeGetFontFamily$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFontFamily
+> = z.nativeEnum(EnvelopeGetFontFamily);
+/** @internal */
+export const EnvelopeGetFontFamily$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFontFamily
+> = EnvelopeGetFontFamily$inboundSchema;
 
 /** @internal */
 export const EnvelopeGetFieldMetaInitials$inboundSchema: z.ZodType<
@@ -2185,7 +2347,8 @@ export const EnvelopeGetFieldMetaInitials$inboundSchema: z.ZodType<
   fontSize: z.number().default(12),
   overflow: EnvelopeGetOverflow2$inboundSchema.optional(),
   type: z.literal("initials"),
-  textAlign: EnvelopeGetTextAlign1$inboundSchema.optional(),
+  textAlign: EnvelopeGetFieldMetaTextAlign1$inboundSchema.optional(),
+  fontFamily: EnvelopeGetFontFamily$inboundSchema.optional(),
 });
 /** @internal */
 export type EnvelopeGetFieldMetaInitials$Outbound = {
@@ -2197,6 +2360,7 @@ export type EnvelopeGetFieldMetaInitials$Outbound = {
   overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -2212,7 +2376,8 @@ export const EnvelopeGetFieldMetaInitials$outboundSchema: z.ZodType<
   fontSize: z.number().default(12),
   overflow: EnvelopeGetOverflow2$outboundSchema.optional(),
   type: z.literal("initials"),
-  textAlign: EnvelopeGetTextAlign1$outboundSchema.optional(),
+  textAlign: EnvelopeGetFieldMetaTextAlign1$outboundSchema.optional(),
+  fontFamily: EnvelopeGetFontFamily$outboundSchema.optional(),
 });
 
 export function envelopeGetFieldMetaInitialsToJSON(
@@ -2483,6 +2648,526 @@ export function envelopeGetFieldFromJSON(
 }
 
 /** @internal */
+export const EnvelopeGetContentMetaImage$inboundSchema: z.ZodType<
+  EnvelopeGetContentMetaImage,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  page: z.number().int(),
+  positionX: z.number(),
+  positionY: z.number(),
+  width: z.number(),
+  height: z.number(),
+  zIndex: z.number().int().default(0),
+  type: z.literal("image"),
+  rotation: z.number().default(0),
+});
+/** @internal */
+export type EnvelopeGetContentMetaImage$Outbound = {
+  page: number;
+  positionX: number;
+  positionY: number;
+  width: number;
+  height: number;
+  zIndex: number;
+  type: "image";
+  rotation: number;
+};
+
+/** @internal */
+export const EnvelopeGetContentMetaImage$outboundSchema: z.ZodType<
+  EnvelopeGetContentMetaImage$Outbound,
+  z.ZodTypeDef,
+  EnvelopeGetContentMetaImage
+> = z.object({
+  page: z.number().int(),
+  positionX: z.number(),
+  positionY: z.number(),
+  width: z.number(),
+  height: z.number(),
+  zIndex: z.number().int().default(0),
+  type: z.literal("image"),
+  rotation: z.number().default(0),
+});
+
+export function envelopeGetContentMetaImageToJSON(
+  envelopeGetContentMetaImage: EnvelopeGetContentMetaImage,
+): string {
+  return JSON.stringify(
+    EnvelopeGetContentMetaImage$outboundSchema.parse(
+      envelopeGetContentMetaImage,
+    ),
+  );
+}
+export function envelopeGetContentMetaImageFromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeGetContentMetaImage, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeGetContentMetaImage$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeGetContentMetaImage' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeGetContentMetaHighlight$inboundSchema: z.ZodType<
+  EnvelopeGetContentMetaHighlight,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  page: z.number().int(),
+  positionX: z.number(),
+  positionY: z.number(),
+  width: z.number(),
+  height: z.number(),
+  zIndex: z.number().int().default(0),
+  type: z.literal("highlight"),
+  color: z.string().default("#ffe600"),
+  fillOpacity: z.number().default(0.4),
+});
+/** @internal */
+export type EnvelopeGetContentMetaHighlight$Outbound = {
+  page: number;
+  positionX: number;
+  positionY: number;
+  width: number;
+  height: number;
+  zIndex: number;
+  type: "highlight";
+  color: string;
+  fillOpacity: number;
+};
+
+/** @internal */
+export const EnvelopeGetContentMetaHighlight$outboundSchema: z.ZodType<
+  EnvelopeGetContentMetaHighlight$Outbound,
+  z.ZodTypeDef,
+  EnvelopeGetContentMetaHighlight
+> = z.object({
+  page: z.number().int(),
+  positionX: z.number(),
+  positionY: z.number(),
+  width: z.number(),
+  height: z.number(),
+  zIndex: z.number().int().default(0),
+  type: z.literal("highlight"),
+  color: z.string().default("#ffe600"),
+  fillOpacity: z.number().default(0.4),
+});
+
+export function envelopeGetContentMetaHighlightToJSON(
+  envelopeGetContentMetaHighlight: EnvelopeGetContentMetaHighlight,
+): string {
+  return JSON.stringify(
+    EnvelopeGetContentMetaHighlight$outboundSchema.parse(
+      envelopeGetContentMetaHighlight,
+    ),
+  );
+}
+export function envelopeGetContentMetaHighlightFromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeGetContentMetaHighlight, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeGetContentMetaHighlight$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeGetContentMetaHighlight' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeGetShape$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetShape
+> = z.nativeEnum(EnvelopeGetShape);
+/** @internal */
+export const EnvelopeGetShape$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetShape
+> = EnvelopeGetShape$inboundSchema;
+
+/** @internal */
+export const EnvelopeGetStrokeStyle2$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetStrokeStyle2
+> = z.nativeEnum(EnvelopeGetStrokeStyle2);
+/** @internal */
+export const EnvelopeGetStrokeStyle2$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetStrokeStyle2
+> = EnvelopeGetStrokeStyle2$inboundSchema;
+
+/** @internal */
+export const EnvelopeGetContentMetaRectangle$inboundSchema: z.ZodType<
+  EnvelopeGetContentMetaRectangle,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  page: z.number().int(),
+  positionX: z.number(),
+  positionY: z.number(),
+  width: z.number(),
+  height: z.number(),
+  zIndex: z.number().int().default(0),
+  type: z.literal("shape"),
+  shape: EnvelopeGetShape$inboundSchema,
+  rotation: z.number().default(0),
+  strokeWidth: z.number().default(1),
+  strokeColor: z.string().default("#000000"),
+  strokeStyle: EnvelopeGetStrokeStyle2$inboundSchema.default("solid"),
+  fillColor: z.nullable(z.string()).default(null),
+  fillOpacity: z.number().default(1),
+});
+/** @internal */
+export type EnvelopeGetContentMetaRectangle$Outbound = {
+  page: number;
+  positionX: number;
+  positionY: number;
+  width: number;
+  height: number;
+  zIndex: number;
+  type: "shape";
+  shape: string;
+  rotation: number;
+  strokeWidth: number;
+  strokeColor: string;
+  strokeStyle: string;
+  fillColor: string | null;
+  fillOpacity: number;
+};
+
+/** @internal */
+export const EnvelopeGetContentMetaRectangle$outboundSchema: z.ZodType<
+  EnvelopeGetContentMetaRectangle$Outbound,
+  z.ZodTypeDef,
+  EnvelopeGetContentMetaRectangle
+> = z.object({
+  page: z.number().int(),
+  positionX: z.number(),
+  positionY: z.number(),
+  width: z.number(),
+  height: z.number(),
+  zIndex: z.number().int().default(0),
+  type: z.literal("shape"),
+  shape: EnvelopeGetShape$outboundSchema,
+  rotation: z.number().default(0),
+  strokeWidth: z.number().default(1),
+  strokeColor: z.string().default("#000000"),
+  strokeStyle: EnvelopeGetStrokeStyle2$outboundSchema.default("solid"),
+  fillColor: z.nullable(z.string()).default(null),
+  fillOpacity: z.number().default(1),
+});
+
+export function envelopeGetContentMetaRectangleToJSON(
+  envelopeGetContentMetaRectangle: EnvelopeGetContentMetaRectangle,
+): string {
+  return JSON.stringify(
+    EnvelopeGetContentMetaRectangle$outboundSchema.parse(
+      envelopeGetContentMetaRectangle,
+    ),
+  );
+}
+export function envelopeGetContentMetaRectangleFromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeGetContentMetaRectangle, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeGetContentMetaRectangle$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeGetContentMetaRectangle' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeGetStrokeStyle1$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetStrokeStyle1
+> = z.nativeEnum(EnvelopeGetStrokeStyle1);
+/** @internal */
+export const EnvelopeGetStrokeStyle1$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetStrokeStyle1
+> = EnvelopeGetStrokeStyle1$inboundSchema;
+
+/** @internal */
+export const EnvelopeGetContentMetaLine$inboundSchema: z.ZodType<
+  EnvelopeGetContentMetaLine,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  page: z.number().int(),
+  zIndex: z.number().int().default(0),
+  type: z.literal("line"),
+  x1: z.number(),
+  y1: z.number(),
+  x2: z.number(),
+  y2: z.number(),
+  strokeWidth: z.number().default(1),
+  strokeColor: z.string().default("#000000"),
+  strokeStyle: EnvelopeGetStrokeStyle1$inboundSchema.default("solid"),
+});
+/** @internal */
+export type EnvelopeGetContentMetaLine$Outbound = {
+  page: number;
+  zIndex: number;
+  type: "line";
+  x1: number;
+  y1: number;
+  x2: number;
+  y2: number;
+  strokeWidth: number;
+  strokeColor: string;
+  strokeStyle: string;
+};
+
+/** @internal */
+export const EnvelopeGetContentMetaLine$outboundSchema: z.ZodType<
+  EnvelopeGetContentMetaLine$Outbound,
+  z.ZodTypeDef,
+  EnvelopeGetContentMetaLine
+> = z.object({
+  page: z.number().int(),
+  zIndex: z.number().int().default(0),
+  type: z.literal("line"),
+  x1: z.number(),
+  y1: z.number(),
+  x2: z.number(),
+  y2: z.number(),
+  strokeWidth: z.number().default(1),
+  strokeColor: z.string().default("#000000"),
+  strokeStyle: EnvelopeGetStrokeStyle1$outboundSchema.default("solid"),
+});
+
+export function envelopeGetContentMetaLineToJSON(
+  envelopeGetContentMetaLine: EnvelopeGetContentMetaLine,
+): string {
+  return JSON.stringify(
+    EnvelopeGetContentMetaLine$outboundSchema.parse(envelopeGetContentMetaLine),
+  );
+}
+export function envelopeGetContentMetaLineFromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeGetContentMetaLine, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeGetContentMetaLine$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeGetContentMetaLine' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeGetContentMetaTextAlign$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetContentMetaTextAlign
+> = z.nativeEnum(EnvelopeGetContentMetaTextAlign);
+/** @internal */
+export const EnvelopeGetContentMetaTextAlign$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetContentMetaTextAlign
+> = EnvelopeGetContentMetaTextAlign$inboundSchema;
+
+/** @internal */
+export const EnvelopeGetContentMetaVerticalAlign$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetContentMetaVerticalAlign
+> = z.nativeEnum(EnvelopeGetContentMetaVerticalAlign);
+/** @internal */
+export const EnvelopeGetContentMetaVerticalAlign$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeGetContentMetaVerticalAlign> =
+    EnvelopeGetContentMetaVerticalAlign$inboundSchema;
+
+/** @internal */
+export const EnvelopeGetContentMetaText$inboundSchema: z.ZodType<
+  EnvelopeGetContentMetaText,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  page: z.number().int(),
+  positionX: z.number(),
+  positionY: z.number(),
+  width: z.number(),
+  height: z.number(),
+  zIndex: z.number().int().default(0),
+  type: z.literal("text"),
+  text: z.string().default(""),
+  textAlign: EnvelopeGetContentMetaTextAlign$inboundSchema.default("left"),
+  verticalAlign: EnvelopeGetContentMetaVerticalAlign$inboundSchema.default(
+    "middle",
+  ),
+  lineHeight: z.number().default(1),
+  letterSpacing: z.number().default(0),
+  fontSize: z.number().default(10),
+  color: z.string().default("#000000"),
+});
+/** @internal */
+export type EnvelopeGetContentMetaText$Outbound = {
+  page: number;
+  positionX: number;
+  positionY: number;
+  width: number;
+  height: number;
+  zIndex: number;
+  type: "text";
+  text: string;
+  textAlign: string;
+  verticalAlign: string;
+  lineHeight: number;
+  letterSpacing: number;
+  fontSize: number;
+  color: string;
+};
+
+/** @internal */
+export const EnvelopeGetContentMetaText$outboundSchema: z.ZodType<
+  EnvelopeGetContentMetaText$Outbound,
+  z.ZodTypeDef,
+  EnvelopeGetContentMetaText
+> = z.object({
+  page: z.number().int(),
+  positionX: z.number(),
+  positionY: z.number(),
+  width: z.number(),
+  height: z.number(),
+  zIndex: z.number().int().default(0),
+  type: z.literal("text"),
+  text: z.string().default(""),
+  textAlign: EnvelopeGetContentMetaTextAlign$outboundSchema.default("left"),
+  verticalAlign: EnvelopeGetContentMetaVerticalAlign$outboundSchema.default(
+    "middle",
+  ),
+  lineHeight: z.number().default(1),
+  letterSpacing: z.number().default(0),
+  fontSize: z.number().default(10),
+  color: z.string().default("#000000"),
+});
+
+export function envelopeGetContentMetaTextToJSON(
+  envelopeGetContentMetaText: EnvelopeGetContentMetaText,
+): string {
+  return JSON.stringify(
+    EnvelopeGetContentMetaText$outboundSchema.parse(envelopeGetContentMetaText),
+  );
+}
+export function envelopeGetContentMetaTextFromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeGetContentMetaText, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeGetContentMetaText$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeGetContentMetaText' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeGetContentMetaUnion$inboundSchema: z.ZodType<
+  EnvelopeGetContentMetaUnion,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  z.lazy(() => EnvelopeGetContentMetaText$inboundSchema),
+  z.lazy(() => EnvelopeGetContentMetaLine$inboundSchema),
+  z.lazy(() => EnvelopeGetContentMetaRectangle$inboundSchema),
+  z.lazy(() => EnvelopeGetContentMetaHighlight$inboundSchema),
+  z.lazy(() => EnvelopeGetContentMetaImage$inboundSchema),
+]);
+/** @internal */
+export type EnvelopeGetContentMetaUnion$Outbound =
+  | EnvelopeGetContentMetaText$Outbound
+  | EnvelopeGetContentMetaLine$Outbound
+  | EnvelopeGetContentMetaRectangle$Outbound
+  | EnvelopeGetContentMetaHighlight$Outbound
+  | EnvelopeGetContentMetaImage$Outbound;
+
+/** @internal */
+export const EnvelopeGetContentMetaUnion$outboundSchema: z.ZodType<
+  EnvelopeGetContentMetaUnion$Outbound,
+  z.ZodTypeDef,
+  EnvelopeGetContentMetaUnion
+> = z.union([
+  z.lazy(() => EnvelopeGetContentMetaText$outboundSchema),
+  z.lazy(() => EnvelopeGetContentMetaLine$outboundSchema),
+  z.lazy(() => EnvelopeGetContentMetaRectangle$outboundSchema),
+  z.lazy(() => EnvelopeGetContentMetaHighlight$outboundSchema),
+  z.lazy(() => EnvelopeGetContentMetaImage$outboundSchema),
+]);
+
+export function envelopeGetContentMetaUnionToJSON(
+  envelopeGetContentMetaUnion: EnvelopeGetContentMetaUnion,
+): string {
+  return JSON.stringify(
+    EnvelopeGetContentMetaUnion$outboundSchema.parse(
+      envelopeGetContentMetaUnion,
+    ),
+  );
+}
+export function envelopeGetContentMetaUnionFromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeGetContentMetaUnion, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeGetContentMetaUnion$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeGetContentMetaUnion' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeGetContent$inboundSchema: z.ZodType<
+  EnvelopeGetContent,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.string(),
+  envelopeId: z.string(),
+  envelopeItemId: z.string(),
+  contentMeta: z.union([
+    z.lazy(() => EnvelopeGetContentMetaText$inboundSchema),
+    z.lazy(() => EnvelopeGetContentMetaLine$inboundSchema),
+    z.lazy(() => EnvelopeGetContentMetaRectangle$inboundSchema),
+    z.lazy(() => EnvelopeGetContentMetaHighlight$inboundSchema),
+    z.lazy(() => EnvelopeGetContentMetaImage$inboundSchema),
+  ]),
+  dataContentId: z.nullable(z.string()),
+});
+/** @internal */
+export type EnvelopeGetContent$Outbound = {
+  id: string;
+  envelopeId: string;
+  envelopeItemId: string;
+  contentMeta:
+    | EnvelopeGetContentMetaText$Outbound
+    | EnvelopeGetContentMetaLine$Outbound
+    | EnvelopeGetContentMetaRectangle$Outbound
+    | EnvelopeGetContentMetaHighlight$Outbound
+    | EnvelopeGetContentMetaImage$Outbound;
+  dataContentId: string | null;
+};
+
+/** @internal */
+export const EnvelopeGetContent$outboundSchema: z.ZodType<
+  EnvelopeGetContent$Outbound,
+  z.ZodTypeDef,
+  EnvelopeGetContent
+> = z.object({
+  id: z.string(),
+  envelopeId: z.string(),
+  envelopeItemId: z.string(),
+  contentMeta: z.union([
+    z.lazy(() => EnvelopeGetContentMetaText$outboundSchema),
+    z.lazy(() => EnvelopeGetContentMetaLine$outboundSchema),
+    z.lazy(() => EnvelopeGetContentMetaRectangle$outboundSchema),
+    z.lazy(() => EnvelopeGetContentMetaHighlight$outboundSchema),
+    z.lazy(() => EnvelopeGetContentMetaImage$outboundSchema),
+  ]),
+  dataContentId: z.nullable(z.string()),
+});
+
+export function envelopeGetContentToJSON(
+  envelopeGetContent: EnvelopeGetContent,
+): string {
+  return JSON.stringify(
+    EnvelopeGetContent$outboundSchema.parse(envelopeGetContent),
+  );
+}
+export function envelopeGetContentFromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeGetContent, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeGetContent$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeGetContent' from JSON`,
+  );
+}
+
+/** @internal */
 export const EnvelopeGetEnvelopeItem$inboundSchema: z.ZodType<
   EnvelopeGetEnvelopeItem,
   z.ZodTypeDef,
@@ -2697,6 +3382,7 @@ export const EnvelopeGetResponse$inboundSchema: z.ZodType<
   documentMeta: z.lazy(() => EnvelopeGetDocumentMeta$inboundSchema),
   recipients: z.array(z.lazy(() => EnvelopeGetRecipient$inboundSchema)),
   fields: z.array(z.lazy(() => EnvelopeGetField$inboundSchema)),
+  contents: z.array(z.lazy(() => EnvelopeGetContent$inboundSchema)),
   envelopeItems: z.array(z.lazy(() => EnvelopeGetEnvelopeItem$inboundSchema)),
   directLink: z.nullable(z.lazy(() => EnvelopeGetDirectLink$inboundSchema)),
   team: z.lazy(() => EnvelopeGetTeam$inboundSchema),
@@ -2729,6 +3415,7 @@ export type EnvelopeGetResponse$Outbound = {
   documentMeta: EnvelopeGetDocumentMeta$Outbound;
   recipients: Array<EnvelopeGetRecipient$Outbound>;
   fields: Array<EnvelopeGetField$Outbound>;
+  contents: Array<EnvelopeGetContent$Outbound>;
   envelopeItems: Array<EnvelopeGetEnvelopeItem$Outbound>;
   directLink: EnvelopeGetDirectLink$Outbound | null;
   team: EnvelopeGetTeam$Outbound;
@@ -2768,6 +3455,7 @@ export const EnvelopeGetResponse$outboundSchema: z.ZodType<
   documentMeta: z.lazy(() => EnvelopeGetDocumentMeta$outboundSchema),
   recipients: z.array(z.lazy(() => EnvelopeGetRecipient$outboundSchema)),
   fields: z.array(z.lazy(() => EnvelopeGetField$outboundSchema)),
+  contents: z.array(z.lazy(() => EnvelopeGetContent$outboundSchema)),
   envelopeItems: z.array(z.lazy(() => EnvelopeGetEnvelopeItem$outboundSchema)),
   directLink: z.nullable(z.lazy(() => EnvelopeGetDirectLink$outboundSchema)),
   team: z.lazy(() => EnvelopeGetTeam$outboundSchema),

@@ -328,6 +328,14 @@ export type EnvelopeFieldGetTextAlign1 = ClosedEnum<
   typeof EnvelopeFieldGetTextAlign1
 >;
 
+export const EnvelopeFieldGetFontFamily = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type EnvelopeFieldGetFontFamily = ClosedEnum<
+  typeof EnvelopeFieldGetFontFamily
+>;
+
 export type EnvelopeFieldGetFieldMetaInitials = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -337,6 +345,7 @@ export type EnvelopeFieldGetFieldMetaInitials = {
   overflow?: EnvelopeFieldGetOverflow2 | undefined;
   type: "initials";
   textAlign?: EnvelopeFieldGetTextAlign1 | undefined;
+  fontFamily?: EnvelopeFieldGetFontFamily | undefined;
 };
 
 export const EnvelopeFieldGetOverflow1 = {
@@ -1308,6 +1317,15 @@ export const EnvelopeFieldGetTextAlign1$outboundSchema: z.ZodNativeEnum<
 > = EnvelopeFieldGetTextAlign1$inboundSchema;
 
 /** @internal */
+export const EnvelopeFieldGetFontFamily$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldGetFontFamily
+> = z.nativeEnum(EnvelopeFieldGetFontFamily);
+/** @internal */
+export const EnvelopeFieldGetFontFamily$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeFieldGetFontFamily
+> = EnvelopeFieldGetFontFamily$inboundSchema;
+
+/** @internal */
 export const EnvelopeFieldGetFieldMetaInitials$inboundSchema: z.ZodType<
   EnvelopeFieldGetFieldMetaInitials,
   z.ZodTypeDef,
@@ -1321,6 +1339,7 @@ export const EnvelopeFieldGetFieldMetaInitials$inboundSchema: z.ZodType<
   overflow: EnvelopeFieldGetOverflow2$inboundSchema.optional(),
   type: z.literal("initials"),
   textAlign: EnvelopeFieldGetTextAlign1$inboundSchema.optional(),
+  fontFamily: EnvelopeFieldGetFontFamily$inboundSchema.optional(),
 });
 /** @internal */
 export type EnvelopeFieldGetFieldMetaInitials$Outbound = {
@@ -1332,6 +1351,7 @@ export type EnvelopeFieldGetFieldMetaInitials$Outbound = {
   overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -1348,6 +1368,7 @@ export const EnvelopeFieldGetFieldMetaInitials$outboundSchema: z.ZodType<
   overflow: EnvelopeFieldGetOverflow2$outboundSchema.optional(),
   type: z.literal("initials"),
   textAlign: EnvelopeFieldGetTextAlign1$outboundSchema.optional(),
+  fontFamily: EnvelopeFieldGetFontFamily$outboundSchema.optional(),
 });
 
 export function envelopeFieldGetFieldMetaInitialsToJSON(
