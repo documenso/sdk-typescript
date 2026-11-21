@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -58,7 +58,9 @@ export type FolderCreateFolderResponse = {
 /** @internal */
 export const FolderCreateFolderTypeRequest$inboundSchema: z.ZodNativeEnum<
   typeof FolderCreateFolderTypeRequest
-> = z.nativeEnum(FolderCreateFolderTypeRequest);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(FolderCreateFolderTypeRequest)
+);
 /** @internal */
 export const FolderCreateFolderTypeRequest$outboundSchema: z.ZodNativeEnum<
   typeof FolderCreateFolderTypeRequest
@@ -69,11 +71,13 @@ export const FolderCreateFolderRequest$inboundSchema: z.ZodType<
   FolderCreateFolderRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  name: z.string(),
-  parentId: z.string().optional(),
-  type: FolderCreateFolderTypeRequest$inboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    name: z.string(),
+    parentId: z.string().optional(),
+    type: FolderCreateFolderTypeRequest$inboundSchema.optional(),
+  })
+);
 /** @internal */
 export type FolderCreateFolderRequest$Outbound = {
   name: string;
@@ -86,11 +90,13 @@ export const FolderCreateFolderRequest$outboundSchema: z.ZodType<
   FolderCreateFolderRequest$Outbound,
   z.ZodTypeDef,
   FolderCreateFolderRequest
-> = z.object({
-  name: z.string(),
-  parentId: z.string().optional(),
-  type: FolderCreateFolderTypeRequest$outboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    name: z.string(),
+    parentId: z.string().optional(),
+    type: FolderCreateFolderTypeRequest$outboundSchema.optional(),
+  })
+);
 
 export function folderCreateFolderRequestToJSON(
   folderCreateFolderRequest: FolderCreateFolderRequest,
@@ -112,7 +118,9 @@ export function folderCreateFolderRequestFromJSON(
 /** @internal */
 export const FolderCreateFolderVisibility$inboundSchema: z.ZodNativeEnum<
   typeof FolderCreateFolderVisibility
-> = z.nativeEnum(FolderCreateFolderVisibility);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(FolderCreateFolderVisibility)
+);
 /** @internal */
 export const FolderCreateFolderVisibility$outboundSchema: z.ZodNativeEnum<
   typeof FolderCreateFolderVisibility
@@ -121,7 +129,9 @@ export const FolderCreateFolderVisibility$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const FolderCreateFolderTypeResponse$inboundSchema: z.ZodNativeEnum<
   typeof FolderCreateFolderTypeResponse
-> = z.nativeEnum(FolderCreateFolderTypeResponse);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(FolderCreateFolderTypeResponse)
+);
 /** @internal */
 export const FolderCreateFolderTypeResponse$outboundSchema: z.ZodNativeEnum<
   typeof FolderCreateFolderTypeResponse
@@ -132,18 +142,20 @@ export const FolderCreateFolderResponse$inboundSchema: z.ZodType<
   FolderCreateFolderResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.string(),
-  name: z.string(),
-  userId: z.number(),
-  teamId: z.number(),
-  parentId: z.nullable(z.string()),
-  pinned: z.boolean(),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-  visibility: FolderCreateFolderVisibility$inboundSchema,
-  type: FolderCreateFolderTypeResponse$inboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    name: z.string(),
+    userId: z.number(),
+    teamId: z.number(),
+    parentId: z.nullable(z.string()),
+    pinned: z.boolean(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    visibility: FolderCreateFolderVisibility$inboundSchema,
+    type: FolderCreateFolderTypeResponse$inboundSchema,
+  })
+);
 /** @internal */
 export type FolderCreateFolderResponse$Outbound = {
   id: string;
@@ -163,18 +175,20 @@ export const FolderCreateFolderResponse$outboundSchema: z.ZodType<
   FolderCreateFolderResponse$Outbound,
   z.ZodTypeDef,
   FolderCreateFolderResponse
-> = z.object({
-  id: z.string(),
-  name: z.string(),
-  userId: z.number(),
-  teamId: z.number(),
-  parentId: z.nullable(z.string()),
-  pinned: z.boolean(),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-  visibility: FolderCreateFolderVisibility$outboundSchema,
-  type: FolderCreateFolderTypeResponse$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    name: z.string(),
+    userId: z.number(),
+    teamId: z.number(),
+    parentId: z.nullable(z.string()),
+    pinned: z.boolean(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    visibility: FolderCreateFolderVisibility$outboundSchema,
+    type: FolderCreateFolderTypeResponse$outboundSchema,
+  })
+);
 
 export function folderCreateFolderResponseToJSON(
   folderCreateFolderResponse: FolderCreateFolderResponse,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -11,6 +11,7 @@ export type EnvelopeDuplicateRequest = {
   envelopeId: string;
   includeRecipients?: boolean | undefined;
   includeFields?: boolean | undefined;
+  includeContents?: boolean | undefined;
 };
 
 /**
@@ -25,16 +26,20 @@ export const EnvelopeDuplicateRequest$inboundSchema: z.ZodType<
   EnvelopeDuplicateRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeId: z.string(),
-  includeRecipients: z.boolean().default(true),
-  includeFields: z.boolean().default(true),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    includeRecipients: z.boolean().default(true),
+    includeFields: z.boolean().default(true),
+    includeContents: z.boolean().default(true),
+  })
+);
 /** @internal */
 export type EnvelopeDuplicateRequest$Outbound = {
   envelopeId: string;
   includeRecipients: boolean;
   includeFields: boolean;
+  includeContents: boolean;
 };
 
 /** @internal */
@@ -42,11 +47,14 @@ export const EnvelopeDuplicateRequest$outboundSchema: z.ZodType<
   EnvelopeDuplicateRequest$Outbound,
   z.ZodTypeDef,
   EnvelopeDuplicateRequest
-> = z.object({
-  envelopeId: z.string(),
-  includeRecipients: z.boolean().default(true),
-  includeFields: z.boolean().default(true),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    includeRecipients: z.boolean().default(true),
+    includeFields: z.boolean().default(true),
+    includeContents: z.boolean().default(true),
+  })
+);
 
 export function envelopeDuplicateRequestToJSON(
   envelopeDuplicateRequest: EnvelopeDuplicateRequest,
@@ -70,9 +78,11 @@ export const EnvelopeDuplicateResponse$inboundSchema: z.ZodType<
   EnvelopeDuplicateResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeDuplicateResponse$Outbound = {
   id: string;
@@ -83,9 +93,11 @@ export const EnvelopeDuplicateResponse$outboundSchema: z.ZodType<
   EnvelopeDuplicateResponse$Outbound,
   z.ZodTypeDef,
   EnvelopeDuplicateResponse
-> = z.object({
-  id: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+  })
+);
 
 export function envelopeDuplicateResponseToJSON(
   envelopeDuplicateResponse: EnvelopeDuplicateResponse,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -63,7 +63,9 @@ export type FolderUpdateFolderResponse = {
 /** @internal */
 export const FolderUpdateFolderVisibilityRequest$inboundSchema: z.ZodNativeEnum<
   typeof FolderUpdateFolderVisibilityRequest
-> = z.nativeEnum(FolderUpdateFolderVisibilityRequest);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(FolderUpdateFolderVisibilityRequest)
+);
 /** @internal */
 export const FolderUpdateFolderVisibilityRequest$outboundSchema:
   z.ZodNativeEnum<typeof FolderUpdateFolderVisibilityRequest> =
@@ -74,12 +76,14 @@ export const FolderUpdateFolderData$inboundSchema: z.ZodType<
   FolderUpdateFolderData,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  name: z.string().optional(),
-  parentId: z.nullable(z.string()).optional(),
-  visibility: FolderUpdateFolderVisibilityRequest$inboundSchema.optional(),
-  pinned: z.boolean().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    name: z.string().optional(),
+    parentId: z.nullable(z.string()).optional(),
+    visibility: FolderUpdateFolderVisibilityRequest$inboundSchema.optional(),
+    pinned: z.boolean().optional(),
+  })
+);
 /** @internal */
 export type FolderUpdateFolderData$Outbound = {
   name?: string | undefined;
@@ -93,12 +97,14 @@ export const FolderUpdateFolderData$outboundSchema: z.ZodType<
   FolderUpdateFolderData$Outbound,
   z.ZodTypeDef,
   FolderUpdateFolderData
-> = z.object({
-  name: z.string().optional(),
-  parentId: z.nullable(z.string()).optional(),
-  visibility: FolderUpdateFolderVisibilityRequest$outboundSchema.optional(),
-  pinned: z.boolean().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    name: z.string().optional(),
+    parentId: z.nullable(z.string()).optional(),
+    visibility: FolderUpdateFolderVisibilityRequest$outboundSchema.optional(),
+    pinned: z.boolean().optional(),
+  })
+);
 
 export function folderUpdateFolderDataToJSON(
   folderUpdateFolderData: FolderUpdateFolderData,
@@ -122,10 +128,12 @@ export const FolderUpdateFolderRequest$inboundSchema: z.ZodType<
   FolderUpdateFolderRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  folderId: z.string(),
-  data: z.lazy(() => FolderUpdateFolderData$inboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    folderId: z.string(),
+    data: z.lazy(() => FolderUpdateFolderData$inboundSchema),
+  })
+);
 /** @internal */
 export type FolderUpdateFolderRequest$Outbound = {
   folderId: string;
@@ -137,10 +145,12 @@ export const FolderUpdateFolderRequest$outboundSchema: z.ZodType<
   FolderUpdateFolderRequest$Outbound,
   z.ZodTypeDef,
   FolderUpdateFolderRequest
-> = z.object({
-  folderId: z.string(),
-  data: z.lazy(() => FolderUpdateFolderData$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    folderId: z.string(),
+    data: z.lazy(() => FolderUpdateFolderData$outboundSchema),
+  })
+);
 
 export function folderUpdateFolderRequestToJSON(
   folderUpdateFolderRequest: FolderUpdateFolderRequest,
@@ -161,9 +171,10 @@ export function folderUpdateFolderRequestFromJSON(
 
 /** @internal */
 export const FolderUpdateFolderVisibilityResponse$inboundSchema:
-  z.ZodNativeEnum<typeof FolderUpdateFolderVisibilityResponse> = z.nativeEnum(
-    FolderUpdateFolderVisibilityResponse,
-  );
+  z.ZodNativeEnum<typeof FolderUpdateFolderVisibilityResponse> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FolderUpdateFolderVisibilityResponse)
+    );
 /** @internal */
 export const FolderUpdateFolderVisibilityResponse$outboundSchema:
   z.ZodNativeEnum<typeof FolderUpdateFolderVisibilityResponse> =
@@ -172,7 +183,7 @@ export const FolderUpdateFolderVisibilityResponse$outboundSchema:
 /** @internal */
 export const FolderUpdateFolderType$inboundSchema: z.ZodNativeEnum<
   typeof FolderUpdateFolderType
-> = z.nativeEnum(FolderUpdateFolderType);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(FolderUpdateFolderType));
 /** @internal */
 export const FolderUpdateFolderType$outboundSchema: z.ZodNativeEnum<
   typeof FolderUpdateFolderType
@@ -183,18 +194,20 @@ export const FolderUpdateFolderResponse$inboundSchema: z.ZodType<
   FolderUpdateFolderResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.string(),
-  name: z.string(),
-  userId: z.number(),
-  teamId: z.number(),
-  parentId: z.nullable(z.string()),
-  pinned: z.boolean(),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-  visibility: FolderUpdateFolderVisibilityResponse$inboundSchema,
-  type: FolderUpdateFolderType$inboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    name: z.string(),
+    userId: z.number(),
+    teamId: z.number(),
+    parentId: z.nullable(z.string()),
+    pinned: z.boolean(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    visibility: FolderUpdateFolderVisibilityResponse$inboundSchema,
+    type: FolderUpdateFolderType$inboundSchema,
+  })
+);
 /** @internal */
 export type FolderUpdateFolderResponse$Outbound = {
   id: string;
@@ -214,18 +227,20 @@ export const FolderUpdateFolderResponse$outboundSchema: z.ZodType<
   FolderUpdateFolderResponse$Outbound,
   z.ZodTypeDef,
   FolderUpdateFolderResponse
-> = z.object({
-  id: z.string(),
-  name: z.string(),
-  userId: z.number(),
-  teamId: z.number(),
-  parentId: z.nullable(z.string()),
-  pinned: z.boolean(),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-  visibility: FolderUpdateFolderVisibilityResponse$outboundSchema,
-  type: FolderUpdateFolderType$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    name: z.string(),
+    userId: z.number(),
+    teamId: z.number(),
+    parentId: z.nullable(z.string()),
+    pinned: z.boolean(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    visibility: FolderUpdateFolderVisibilityResponse$outboundSchema,
+    type: FolderUpdateFolderType$outboundSchema,
+  })
+);
 
 export function folderUpdateFolderResponseToJSON(
   folderUpdateFolderResponse: FolderUpdateFolderResponse,

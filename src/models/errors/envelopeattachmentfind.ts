@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -199,9 +199,11 @@ export const EnvelopeAttachmentFindInternalServerErrorIssue$inboundSchema:
     EnvelopeAttachmentFindInternalServerErrorIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type EnvelopeAttachmentFindInternalServerErrorIssue$Outbound = {
   message: string;
@@ -213,9 +215,11 @@ export const EnvelopeAttachmentFindInternalServerErrorIssue$outboundSchema:
     EnvelopeAttachmentFindInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
     EnvelopeAttachmentFindInternalServerErrorIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function envelopeAttachmentFindInternalServerErrorIssueToJSON(
   envelopeAttachmentFindInternalServerErrorIssue:
@@ -248,23 +252,27 @@ export const EnvelopeAttachmentFindInternalServerError$inboundSchema: z.ZodType<
   EnvelopeAttachmentFindInternalServerError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => EnvelopeAttachmentFindInternalServerErrorIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new EnvelopeAttachmentFindInternalServerError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() =>
+        EnvelopeAttachmentFindInternalServerErrorIssue$inboundSchema
+      ),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new EnvelopeAttachmentFindInternalServerError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type EnvelopeAttachmentFindInternalServerError$Outbound = {
@@ -281,26 +289,30 @@ export const EnvelopeAttachmentFindInternalServerError$outboundSchema:
     EnvelopeAttachmentFindInternalServerError$Outbound,
     z.ZodTypeDef,
     EnvelopeAttachmentFindInternalServerError
-  > = z.instanceof(EnvelopeAttachmentFindInternalServerError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          EnvelopeAttachmentFindInternalServerErrorIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(EnvelopeAttachmentFindInternalServerError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            EnvelopeAttachmentFindInternalServerErrorIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const EnvelopeAttachmentFindNotFoundIssue$inboundSchema: z.ZodType<
   EnvelopeAttachmentFindNotFoundIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeAttachmentFindNotFoundIssue$Outbound = {
   message: string;
@@ -311,9 +323,11 @@ export const EnvelopeAttachmentFindNotFoundIssue$outboundSchema: z.ZodType<
   EnvelopeAttachmentFindNotFoundIssue$Outbound,
   z.ZodTypeDef,
   EnvelopeAttachmentFindNotFoundIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function envelopeAttachmentFindNotFoundIssueToJSON(
   envelopeAttachmentFindNotFoundIssue: EnvelopeAttachmentFindNotFoundIssue,
@@ -340,23 +354,25 @@ export const EnvelopeAttachmentFindNotFoundError$inboundSchema: z.ZodType<
   EnvelopeAttachmentFindNotFoundError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => EnvelopeAttachmentFindNotFoundIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new EnvelopeAttachmentFindNotFoundError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => EnvelopeAttachmentFindNotFoundIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new EnvelopeAttachmentFindNotFoundError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type EnvelopeAttachmentFindNotFoundError$Outbound = {
@@ -370,24 +386,28 @@ export const EnvelopeAttachmentFindNotFoundError$outboundSchema: z.ZodType<
   EnvelopeAttachmentFindNotFoundError$Outbound,
   z.ZodTypeDef,
   EnvelopeAttachmentFindNotFoundError
-> = z.instanceof(EnvelopeAttachmentFindNotFoundError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeAttachmentFindNotFoundIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(EnvelopeAttachmentFindNotFoundError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => EnvelopeAttachmentFindNotFoundIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const EnvelopeAttachmentFindForbiddenIssue$inboundSchema: z.ZodType<
   EnvelopeAttachmentFindForbiddenIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeAttachmentFindForbiddenIssue$Outbound = {
   message: string;
@@ -398,9 +418,11 @@ export const EnvelopeAttachmentFindForbiddenIssue$outboundSchema: z.ZodType<
   EnvelopeAttachmentFindForbiddenIssue$Outbound,
   z.ZodTypeDef,
   EnvelopeAttachmentFindForbiddenIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function envelopeAttachmentFindForbiddenIssueToJSON(
   envelopeAttachmentFindForbiddenIssue: EnvelopeAttachmentFindForbiddenIssue,
@@ -427,23 +449,25 @@ export const EnvelopeAttachmentFindForbiddenError$inboundSchema: z.ZodType<
   EnvelopeAttachmentFindForbiddenError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => EnvelopeAttachmentFindForbiddenIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new EnvelopeAttachmentFindForbiddenError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => EnvelopeAttachmentFindForbiddenIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new EnvelopeAttachmentFindForbiddenError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type EnvelopeAttachmentFindForbiddenError$Outbound = {
@@ -457,24 +481,28 @@ export const EnvelopeAttachmentFindForbiddenError$outboundSchema: z.ZodType<
   EnvelopeAttachmentFindForbiddenError$Outbound,
   z.ZodTypeDef,
   EnvelopeAttachmentFindForbiddenError
-> = z.instanceof(EnvelopeAttachmentFindForbiddenError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeAttachmentFindForbiddenIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(EnvelopeAttachmentFindForbiddenError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => EnvelopeAttachmentFindForbiddenIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const EnvelopeAttachmentFindUnauthorizedIssue$inboundSchema: z.ZodType<
   EnvelopeAttachmentFindUnauthorizedIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeAttachmentFindUnauthorizedIssue$Outbound = {
   message: string;
@@ -485,9 +513,11 @@ export const EnvelopeAttachmentFindUnauthorizedIssue$outboundSchema: z.ZodType<
   EnvelopeAttachmentFindUnauthorizedIssue$Outbound,
   z.ZodTypeDef,
   EnvelopeAttachmentFindUnauthorizedIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function envelopeAttachmentFindUnauthorizedIssueToJSON(
   envelopeAttachmentFindUnauthorizedIssue:
@@ -520,23 +550,25 @@ export const EnvelopeAttachmentFindUnauthorizedError$inboundSchema: z.ZodType<
   EnvelopeAttachmentFindUnauthorizedError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => EnvelopeAttachmentFindUnauthorizedIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new EnvelopeAttachmentFindUnauthorizedError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => EnvelopeAttachmentFindUnauthorizedIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new EnvelopeAttachmentFindUnauthorizedError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type EnvelopeAttachmentFindUnauthorizedError$Outbound = {
@@ -550,24 +582,28 @@ export const EnvelopeAttachmentFindUnauthorizedError$outboundSchema: z.ZodType<
   EnvelopeAttachmentFindUnauthorizedError$Outbound,
   z.ZodTypeDef,
   EnvelopeAttachmentFindUnauthorizedError
-> = z.instanceof(EnvelopeAttachmentFindUnauthorizedError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeAttachmentFindUnauthorizedIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(EnvelopeAttachmentFindUnauthorizedError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => EnvelopeAttachmentFindUnauthorizedIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const EnvelopeAttachmentFindBadRequestIssue$inboundSchema: z.ZodType<
   EnvelopeAttachmentFindBadRequestIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeAttachmentFindBadRequestIssue$Outbound = {
   message: string;
@@ -578,9 +614,11 @@ export const EnvelopeAttachmentFindBadRequestIssue$outboundSchema: z.ZodType<
   EnvelopeAttachmentFindBadRequestIssue$Outbound,
   z.ZodTypeDef,
   EnvelopeAttachmentFindBadRequestIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function envelopeAttachmentFindBadRequestIssueToJSON(
   envelopeAttachmentFindBadRequestIssue: EnvelopeAttachmentFindBadRequestIssue,
@@ -607,23 +645,25 @@ export const EnvelopeAttachmentFindBadRequestError$inboundSchema: z.ZodType<
   EnvelopeAttachmentFindBadRequestError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => EnvelopeAttachmentFindBadRequestIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new EnvelopeAttachmentFindBadRequestError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => EnvelopeAttachmentFindBadRequestIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new EnvelopeAttachmentFindBadRequestError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type EnvelopeAttachmentFindBadRequestError$Outbound = {
@@ -637,12 +677,14 @@ export const EnvelopeAttachmentFindBadRequestError$outboundSchema: z.ZodType<
   EnvelopeAttachmentFindBadRequestError$Outbound,
   z.ZodTypeDef,
   EnvelopeAttachmentFindBadRequestError
-> = z.instanceof(EnvelopeAttachmentFindBadRequestError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeAttachmentFindBadRequestIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(EnvelopeAttachmentFindBadRequestError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => EnvelopeAttachmentFindBadRequestIssue$outboundSchema),
+      ).optional(),
+    }))
+);

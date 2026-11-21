@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -191,9 +191,11 @@ export const EmbeddingPresignVerifyEmbeddingPresignTokenInternalServerErrorIssue
     EmbeddingPresignVerifyEmbeddingPresignTokenInternalServerErrorIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type EmbeddingPresignVerifyEmbeddingPresignTokenInternalServerErrorIssue$Outbound =
   {
@@ -206,9 +208,11 @@ export const EmbeddingPresignVerifyEmbeddingPresignTokenInternalServerErrorIssue
     EmbeddingPresignVerifyEmbeddingPresignTokenInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
     EmbeddingPresignVerifyEmbeddingPresignTokenInternalServerErrorIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function embeddingPresignVerifyEmbeddingPresignTokenInternalServerErrorIssueToJSON(
   embeddingPresignVerifyEmbeddingPresignTokenInternalServerErrorIssue:
@@ -242,24 +246,24 @@ export const EmbeddingPresignVerifyEmbeddingPresignTokenInternalServerError$inbo
     EmbeddingPresignVerifyEmbeddingPresignTokenInternalServerError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         EmbeddingPresignVerifyEmbeddingPresignTokenInternalServerErrorIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new EmbeddingPresignVerifyEmbeddingPresignTokenInternalServerError(
-        v,
-        { request: v.request$, response: v.response$, body: v.body$ },
-      );
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        return new EmbeddingPresignVerifyEmbeddingPresignTokenInternalServerError(
+          v,
+          { request: v.request$, response: v.response$, body: v.body$ },
+        );
+      })
+  );
 
 /** @internal */
 export type EmbeddingPresignVerifyEmbeddingPresignTokenInternalServerError$Outbound =
@@ -279,19 +283,19 @@ export const EmbeddingPresignVerifyEmbeddingPresignTokenInternalServerError$outb
     EmbeddingPresignVerifyEmbeddingPresignTokenInternalServerError$Outbound,
     z.ZodTypeDef,
     EmbeddingPresignVerifyEmbeddingPresignTokenInternalServerError
-  > = z.instanceof(
-    EmbeddingPresignVerifyEmbeddingPresignTokenInternalServerError,
-  )
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          EmbeddingPresignVerifyEmbeddingPresignTokenInternalServerErrorIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(EmbeddingPresignVerifyEmbeddingPresignTokenInternalServerError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            EmbeddingPresignVerifyEmbeddingPresignTokenInternalServerErrorIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const EmbeddingPresignVerifyEmbeddingPresignTokenForbiddenIssue$inboundSchema:
@@ -299,9 +303,11 @@ export const EmbeddingPresignVerifyEmbeddingPresignTokenForbiddenIssue$inboundSc
     EmbeddingPresignVerifyEmbeddingPresignTokenForbiddenIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type EmbeddingPresignVerifyEmbeddingPresignTokenForbiddenIssue$Outbound =
   {
@@ -314,9 +320,11 @@ export const EmbeddingPresignVerifyEmbeddingPresignTokenForbiddenIssue$outboundS
     EmbeddingPresignVerifyEmbeddingPresignTokenForbiddenIssue$Outbound,
     z.ZodTypeDef,
     EmbeddingPresignVerifyEmbeddingPresignTokenForbiddenIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function embeddingPresignVerifyEmbeddingPresignTokenForbiddenIssueToJSON(
   embeddingPresignVerifyEmbeddingPresignTokenForbiddenIssue:
@@ -348,25 +356,24 @@ export const EmbeddingPresignVerifyEmbeddingPresignTokenForbiddenError$inboundSc
     EmbeddingPresignVerifyEmbeddingPresignTokenForbiddenError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         EmbeddingPresignVerifyEmbeddingPresignTokenForbiddenIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new EmbeddingPresignVerifyEmbeddingPresignTokenForbiddenError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        return new EmbeddingPresignVerifyEmbeddingPresignTokenForbiddenError(
+          v,
+          { request: v.request$, response: v.response$, body: v.body$ },
+        );
+      })
+  );
 
 /** @internal */
 export type EmbeddingPresignVerifyEmbeddingPresignTokenForbiddenError$Outbound =
@@ -386,17 +393,19 @@ export const EmbeddingPresignVerifyEmbeddingPresignTokenForbiddenError$outboundS
     EmbeddingPresignVerifyEmbeddingPresignTokenForbiddenError$Outbound,
     z.ZodTypeDef,
     EmbeddingPresignVerifyEmbeddingPresignTokenForbiddenError
-  > = z.instanceof(EmbeddingPresignVerifyEmbeddingPresignTokenForbiddenError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          EmbeddingPresignVerifyEmbeddingPresignTokenForbiddenIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(EmbeddingPresignVerifyEmbeddingPresignTokenForbiddenError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            EmbeddingPresignVerifyEmbeddingPresignTokenForbiddenIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const EmbeddingPresignVerifyEmbeddingPresignTokenUnauthorizedIssue$inboundSchema:
@@ -404,9 +413,11 @@ export const EmbeddingPresignVerifyEmbeddingPresignTokenUnauthorizedIssue$inboun
     EmbeddingPresignVerifyEmbeddingPresignTokenUnauthorizedIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type EmbeddingPresignVerifyEmbeddingPresignTokenUnauthorizedIssue$Outbound =
   {
@@ -419,9 +430,11 @@ export const EmbeddingPresignVerifyEmbeddingPresignTokenUnauthorizedIssue$outbou
     EmbeddingPresignVerifyEmbeddingPresignTokenUnauthorizedIssue$Outbound,
     z.ZodTypeDef,
     EmbeddingPresignVerifyEmbeddingPresignTokenUnauthorizedIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function embeddingPresignVerifyEmbeddingPresignTokenUnauthorizedIssueToJSON(
   embeddingPresignVerifyEmbeddingPresignTokenUnauthorizedIssue:
@@ -453,24 +466,24 @@ export const EmbeddingPresignVerifyEmbeddingPresignTokenUnauthorizedError$inboun
     EmbeddingPresignVerifyEmbeddingPresignTokenUnauthorizedError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         EmbeddingPresignVerifyEmbeddingPresignTokenUnauthorizedIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new EmbeddingPresignVerifyEmbeddingPresignTokenUnauthorizedError(
-        v,
-        { request: v.request$, response: v.response$, body: v.body$ },
-      );
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        return new EmbeddingPresignVerifyEmbeddingPresignTokenUnauthorizedError(
+          v,
+          { request: v.request$, response: v.response$, body: v.body$ },
+        );
+      })
+  );
 
 /** @internal */
 export type EmbeddingPresignVerifyEmbeddingPresignTokenUnauthorizedError$Outbound =
@@ -490,17 +503,19 @@ export const EmbeddingPresignVerifyEmbeddingPresignTokenUnauthorizedError$outbou
     EmbeddingPresignVerifyEmbeddingPresignTokenUnauthorizedError$Outbound,
     z.ZodTypeDef,
     EmbeddingPresignVerifyEmbeddingPresignTokenUnauthorizedError
-  > = z.instanceof(EmbeddingPresignVerifyEmbeddingPresignTokenUnauthorizedError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          EmbeddingPresignVerifyEmbeddingPresignTokenUnauthorizedIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(EmbeddingPresignVerifyEmbeddingPresignTokenUnauthorizedError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            EmbeddingPresignVerifyEmbeddingPresignTokenUnauthorizedIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const EmbeddingPresignVerifyEmbeddingPresignTokenBadRequestIssue$inboundSchema:
@@ -508,9 +523,11 @@ export const EmbeddingPresignVerifyEmbeddingPresignTokenBadRequestIssue$inboundS
     EmbeddingPresignVerifyEmbeddingPresignTokenBadRequestIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type EmbeddingPresignVerifyEmbeddingPresignTokenBadRequestIssue$Outbound =
   {
@@ -523,9 +540,11 @@ export const EmbeddingPresignVerifyEmbeddingPresignTokenBadRequestIssue$outbound
     EmbeddingPresignVerifyEmbeddingPresignTokenBadRequestIssue$Outbound,
     z.ZodTypeDef,
     EmbeddingPresignVerifyEmbeddingPresignTokenBadRequestIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function embeddingPresignVerifyEmbeddingPresignTokenBadRequestIssueToJSON(
   embeddingPresignVerifyEmbeddingPresignTokenBadRequestIssue:
@@ -557,25 +576,24 @@ export const EmbeddingPresignVerifyEmbeddingPresignTokenBadRequestError$inboundS
     EmbeddingPresignVerifyEmbeddingPresignTokenBadRequestError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         EmbeddingPresignVerifyEmbeddingPresignTokenBadRequestIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new EmbeddingPresignVerifyEmbeddingPresignTokenBadRequestError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        return new EmbeddingPresignVerifyEmbeddingPresignTokenBadRequestError(
+          v,
+          { request: v.request$, response: v.response$, body: v.body$ },
+        );
+      })
+  );
 
 /** @internal */
 export type EmbeddingPresignVerifyEmbeddingPresignTokenBadRequestError$Outbound =
@@ -595,14 +613,16 @@ export const EmbeddingPresignVerifyEmbeddingPresignTokenBadRequestError$outbound
     EmbeddingPresignVerifyEmbeddingPresignTokenBadRequestError$Outbound,
     z.ZodTypeDef,
     EmbeddingPresignVerifyEmbeddingPresignTokenBadRequestError
-  > = z.instanceof(EmbeddingPresignVerifyEmbeddingPresignTokenBadRequestError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          EmbeddingPresignVerifyEmbeddingPresignTokenBadRequestIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(EmbeddingPresignVerifyEmbeddingPresignTokenBadRequestError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            EmbeddingPresignVerifyEmbeddingPresignTokenBadRequestIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );

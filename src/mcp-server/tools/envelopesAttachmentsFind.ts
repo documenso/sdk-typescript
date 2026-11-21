@@ -20,7 +20,7 @@ Find all attachments for an envelope`,
     const [result, apiCall] = await envelopesAttachmentsFind(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

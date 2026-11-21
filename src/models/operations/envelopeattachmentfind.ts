@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -39,10 +39,12 @@ export const EnvelopeAttachmentFindRequest$inboundSchema: z.ZodType<
   EnvelopeAttachmentFindRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeId: z.string(),
-  token: z.string().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    token: z.string().optional(),
+  })
+);
 /** @internal */
 export type EnvelopeAttachmentFindRequest$Outbound = {
   envelopeId: string;
@@ -54,10 +56,12 @@ export const EnvelopeAttachmentFindRequest$outboundSchema: z.ZodType<
   EnvelopeAttachmentFindRequest$Outbound,
   z.ZodTypeDef,
   EnvelopeAttachmentFindRequest
-> = z.object({
-  envelopeId: z.string(),
-  token: z.string().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    token: z.string().optional(),
+  })
+);
 
 export function envelopeAttachmentFindRequestToJSON(
   envelopeAttachmentFindRequest: EnvelopeAttachmentFindRequest,
@@ -81,7 +85,7 @@ export function envelopeAttachmentFindRequestFromJSON(
 /** @internal */
 export const EnvelopeAttachmentFindType$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeAttachmentFindType
-> = z.nativeEnum(EnvelopeAttachmentFindType);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeAttachmentFindType));
 /** @internal */
 export const EnvelopeAttachmentFindType$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeAttachmentFindType
@@ -92,12 +96,14 @@ export const EnvelopeAttachmentFindData$inboundSchema: z.ZodType<
   EnvelopeAttachmentFindData,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.string(),
-  type: EnvelopeAttachmentFindType$inboundSchema,
-  label: z.string(),
-  data: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    type: EnvelopeAttachmentFindType$inboundSchema,
+    label: z.string(),
+    data: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeAttachmentFindData$Outbound = {
   id: string;
@@ -111,12 +117,14 @@ export const EnvelopeAttachmentFindData$outboundSchema: z.ZodType<
   EnvelopeAttachmentFindData$Outbound,
   z.ZodTypeDef,
   EnvelopeAttachmentFindData
-> = z.object({
-  id: z.string(),
-  type: EnvelopeAttachmentFindType$outboundSchema,
-  label: z.string(),
-  data: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    type: EnvelopeAttachmentFindType$outboundSchema,
+    label: z.string(),
+    data: z.string(),
+  })
+);
 
 export function envelopeAttachmentFindDataToJSON(
   envelopeAttachmentFindData: EnvelopeAttachmentFindData,
@@ -140,9 +148,11 @@ export const EnvelopeAttachmentFindResponse$inboundSchema: z.ZodType<
   EnvelopeAttachmentFindResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  data: z.array(z.lazy(() => EnvelopeAttachmentFindData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    data: z.array(z.lazy(() => EnvelopeAttachmentFindData$inboundSchema)),
+  })
+);
 /** @internal */
 export type EnvelopeAttachmentFindResponse$Outbound = {
   data: Array<EnvelopeAttachmentFindData$Outbound>;
@@ -153,9 +163,11 @@ export const EnvelopeAttachmentFindResponse$outboundSchema: z.ZodType<
   EnvelopeAttachmentFindResponse$Outbound,
   z.ZodTypeDef,
   EnvelopeAttachmentFindResponse
-> = z.object({
-  data: z.array(z.lazy(() => EnvelopeAttachmentFindData$outboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    data: z.array(z.lazy(() => EnvelopeAttachmentFindData$outboundSchema)),
+  })
+);
 
 export function envelopeAttachmentFindResponseToJSON(
   envelopeAttachmentFindResponse: EnvelopeAttachmentFindResponse,

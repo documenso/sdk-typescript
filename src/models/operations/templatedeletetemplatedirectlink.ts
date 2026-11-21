@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -23,9 +23,11 @@ export const TemplateDeleteTemplateDirectLinkRequest$inboundSchema: z.ZodType<
   TemplateDeleteTemplateDirectLinkRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  templateId: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    templateId: z.number(),
+  })
+);
 /** @internal */
 export type TemplateDeleteTemplateDirectLinkRequest$Outbound = {
   templateId: number;
@@ -36,9 +38,11 @@ export const TemplateDeleteTemplateDirectLinkRequest$outboundSchema: z.ZodType<
   TemplateDeleteTemplateDirectLinkRequest$Outbound,
   z.ZodTypeDef,
   TemplateDeleteTemplateDirectLinkRequest
-> = z.object({
-  templateId: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    templateId: z.number(),
+  })
+);
 
 export function templateDeleteTemplateDirectLinkRequestToJSON(
   templateDeleteTemplateDirectLinkRequest:
@@ -71,9 +75,11 @@ export const TemplateDeleteTemplateDirectLinkResponse$inboundSchema: z.ZodType<
   TemplateDeleteTemplateDirectLinkResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  success: z.boolean(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    success: z.boolean(),
+  })
+);
 /** @internal */
 export type TemplateDeleteTemplateDirectLinkResponse$Outbound = {
   success: boolean;
@@ -84,9 +90,11 @@ export const TemplateDeleteTemplateDirectLinkResponse$outboundSchema: z.ZodType<
   TemplateDeleteTemplateDirectLinkResponse$Outbound,
   z.ZodTypeDef,
   TemplateDeleteTemplateDirectLinkResponse
-> = z.object({
-  success: z.boolean(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    success: z.boolean(),
+  })
+);
 
 export function templateDeleteTemplateDirectLinkResponseToJSON(
   templateDeleteTemplateDirectLinkResponse:

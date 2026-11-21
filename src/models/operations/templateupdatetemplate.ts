@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -226,8 +226,10 @@ export type TemplateUpdateTemplateResponse = {
 
 /** @internal */
 export const TemplateUpdateTemplateVisibilityRequest$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateVisibilityRequest> = z
-    .nativeEnum(TemplateUpdateTemplateVisibilityRequest);
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateVisibilityRequest> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateUpdateTemplateVisibilityRequest)
+    );
 /** @internal */
 export const TemplateUpdateTemplateVisibilityRequest$outboundSchema:
   z.ZodNativeEnum<typeof TemplateUpdateTemplateVisibilityRequest> =
@@ -235,8 +237,10 @@ export const TemplateUpdateTemplateVisibilityRequest$outboundSchema:
 
 /** @internal */
 export const TemplateUpdateTemplateGlobalAccessAuthRequest$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateGlobalAccessAuthRequest> = z
-    .nativeEnum(TemplateUpdateTemplateGlobalAccessAuthRequest);
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateGlobalAccessAuthRequest> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateUpdateTemplateGlobalAccessAuthRequest)
+    );
 /** @internal */
 export const TemplateUpdateTemplateGlobalAccessAuthRequest$outboundSchema:
   z.ZodNativeEnum<typeof TemplateUpdateTemplateGlobalAccessAuthRequest> =
@@ -244,8 +248,10 @@ export const TemplateUpdateTemplateGlobalAccessAuthRequest$outboundSchema:
 
 /** @internal */
 export const TemplateUpdateTemplateGlobalActionAuthRequest$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateGlobalActionAuthRequest> = z
-    .nativeEnum(TemplateUpdateTemplateGlobalActionAuthRequest);
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateGlobalActionAuthRequest> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateUpdateTemplateGlobalActionAuthRequest)
+    );
 /** @internal */
 export const TemplateUpdateTemplateGlobalActionAuthRequest$outboundSchema:
   z.ZodNativeEnum<typeof TemplateUpdateTemplateGlobalActionAuthRequest> =
@@ -254,7 +260,9 @@ export const TemplateUpdateTemplateGlobalActionAuthRequest$outboundSchema:
 /** @internal */
 export const TemplateUpdateTemplateDataType$inboundSchema: z.ZodNativeEnum<
   typeof TemplateUpdateTemplateDataType
-> = z.nativeEnum(TemplateUpdateTemplateDataType);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateUpdateTemplateDataType)
+);
 /** @internal */
 export const TemplateUpdateTemplateDataType$outboundSchema: z.ZodNativeEnum<
   typeof TemplateUpdateTemplateDataType
@@ -265,22 +273,25 @@ export const TemplateUpdateTemplateData$inboundSchema: z.ZodType<
   TemplateUpdateTemplateData,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  title: z.string().optional(),
-  externalId: z.nullable(z.string()).optional(),
-  visibility: TemplateUpdateTemplateVisibilityRequest$inboundSchema.optional(),
-  globalAccessAuth: z.array(
-    TemplateUpdateTemplateGlobalAccessAuthRequest$inboundSchema,
-  ).optional(),
-  globalActionAuth: z.array(
-    TemplateUpdateTemplateGlobalActionAuthRequest$inboundSchema,
-  ).optional(),
-  publicTitle: z.string().optional(),
-  publicDescription: z.string().optional(),
-  type: TemplateUpdateTemplateDataType$inboundSchema.optional(),
-  useLegacyFieldInsertion: z.boolean().optional(),
-  folderId: z.nullable(z.string()).optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    title: z.string().optional(),
+    externalId: z.nullable(z.string()).optional(),
+    visibility: TemplateUpdateTemplateVisibilityRequest$inboundSchema
+      .optional(),
+    globalAccessAuth: z.array(
+      TemplateUpdateTemplateGlobalAccessAuthRequest$inboundSchema,
+    ).optional(),
+    globalActionAuth: z.array(
+      TemplateUpdateTemplateGlobalActionAuthRequest$inboundSchema,
+    ).optional(),
+    publicTitle: z.string().optional(),
+    publicDescription: z.string().optional(),
+    type: TemplateUpdateTemplateDataType$inboundSchema.optional(),
+    useLegacyFieldInsertion: z.boolean().optional(),
+    folderId: z.nullable(z.string()).optional(),
+  })
+);
 /** @internal */
 export type TemplateUpdateTemplateData$Outbound = {
   title?: string | undefined;
@@ -300,22 +311,25 @@ export const TemplateUpdateTemplateData$outboundSchema: z.ZodType<
   TemplateUpdateTemplateData$Outbound,
   z.ZodTypeDef,
   TemplateUpdateTemplateData
-> = z.object({
-  title: z.string().optional(),
-  externalId: z.nullable(z.string()).optional(),
-  visibility: TemplateUpdateTemplateVisibilityRequest$outboundSchema.optional(),
-  globalAccessAuth: z.array(
-    TemplateUpdateTemplateGlobalAccessAuthRequest$outboundSchema,
-  ).optional(),
-  globalActionAuth: z.array(
-    TemplateUpdateTemplateGlobalActionAuthRequest$outboundSchema,
-  ).optional(),
-  publicTitle: z.string().optional(),
-  publicDescription: z.string().optional(),
-  type: TemplateUpdateTemplateDataType$outboundSchema.optional(),
-  useLegacyFieldInsertion: z.boolean().optional(),
-  folderId: z.nullable(z.string()).optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    title: z.string().optional(),
+    externalId: z.nullable(z.string()).optional(),
+    visibility: TemplateUpdateTemplateVisibilityRequest$outboundSchema
+      .optional(),
+    globalAccessAuth: z.array(
+      TemplateUpdateTemplateGlobalAccessAuthRequest$outboundSchema,
+    ).optional(),
+    globalActionAuth: z.array(
+      TemplateUpdateTemplateGlobalActionAuthRequest$outboundSchema,
+    ).optional(),
+    publicTitle: z.string().optional(),
+    publicDescription: z.string().optional(),
+    type: TemplateUpdateTemplateDataType$outboundSchema.optional(),
+    useLegacyFieldInsertion: z.boolean().optional(),
+    folderId: z.nullable(z.string()).optional(),
+  })
+);
 
 export function templateUpdateTemplateDataToJSON(
   templateUpdateTemplateData: TemplateUpdateTemplateData,
@@ -337,7 +351,9 @@ export function templateUpdateTemplateDataFromJSON(
 /** @internal */
 export const TemplateUpdateTemplateDateFormat$inboundSchema: z.ZodNativeEnum<
   typeof TemplateUpdateTemplateDateFormat
-> = z.nativeEnum(TemplateUpdateTemplateDateFormat);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateUpdateTemplateDateFormat)
+);
 /** @internal */
 export const TemplateUpdateTemplateDateFormat$outboundSchema: z.ZodNativeEnum<
   typeof TemplateUpdateTemplateDateFormat
@@ -345,8 +361,10 @@ export const TemplateUpdateTemplateDateFormat$outboundSchema: z.ZodNativeEnum<
 
 /** @internal */
 export const TemplateUpdateTemplateDistributionMethod$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateDistributionMethod> = z
-    .nativeEnum(TemplateUpdateTemplateDistributionMethod);
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateDistributionMethod> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateUpdateTemplateDistributionMethod)
+    );
 /** @internal */
 export const TemplateUpdateTemplateDistributionMethod$outboundSchema:
   z.ZodNativeEnum<typeof TemplateUpdateTemplateDistributionMethod> =
@@ -357,17 +375,19 @@ export const TemplateUpdateTemplateEmailSettings$inboundSchema: z.ZodType<
   TemplateUpdateTemplateEmailSettings,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  recipientSigningRequest: z.boolean().default(true),
-  recipientRemoved: z.boolean().default(true),
-  recipientSigned: z.boolean().default(true),
-  documentPending: z.boolean().default(true),
-  documentCompleted: z.boolean().default(true),
-  documentDeleted: z.boolean().default(true),
-  ownerDocumentCompleted: z.boolean().default(true),
-  ownerRecipientExpired: z.boolean().default(true),
-  ownerDocumentCreated: z.boolean().default(true),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    recipientSigningRequest: z.boolean().default(true),
+    recipientRemoved: z.boolean().default(true),
+    recipientSigned: z.boolean().default(true),
+    documentPending: z.boolean().default(true),
+    documentCompleted: z.boolean().default(true),
+    documentDeleted: z.boolean().default(true),
+    ownerDocumentCompleted: z.boolean().default(true),
+    ownerRecipientExpired: z.boolean().default(true),
+    ownerDocumentCreated: z.boolean().default(true),
+  })
+);
 /** @internal */
 export type TemplateUpdateTemplateEmailSettings$Outbound = {
   recipientSigningRequest: boolean;
@@ -386,17 +406,19 @@ export const TemplateUpdateTemplateEmailSettings$outboundSchema: z.ZodType<
   TemplateUpdateTemplateEmailSettings$Outbound,
   z.ZodTypeDef,
   TemplateUpdateTemplateEmailSettings
-> = z.object({
-  recipientSigningRequest: z.boolean().default(true),
-  recipientRemoved: z.boolean().default(true),
-  recipientSigned: z.boolean().default(true),
-  documentPending: z.boolean().default(true),
-  documentCompleted: z.boolean().default(true),
-  documentDeleted: z.boolean().default(true),
-  ownerDocumentCompleted: z.boolean().default(true),
-  ownerRecipientExpired: z.boolean().default(true),
-  ownerDocumentCreated: z.boolean().default(true),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    recipientSigningRequest: z.boolean().default(true),
+    recipientRemoved: z.boolean().default(true),
+    recipientSigned: z.boolean().default(true),
+    documentPending: z.boolean().default(true),
+    documentCompleted: z.boolean().default(true),
+    documentDeleted: z.boolean().default(true),
+    ownerDocumentCompleted: z.boolean().default(true),
+    ownerRecipientExpired: z.boolean().default(true),
+    ownerDocumentCreated: z.boolean().default(true),
+  })
+);
 
 export function templateUpdateTemplateEmailSettingsToJSON(
   templateUpdateTemplateEmailSettings: TemplateUpdateTemplateEmailSettings,
@@ -421,7 +443,9 @@ export function templateUpdateTemplateEmailSettingsFromJSON(
 /** @internal */
 export const TemplateUpdateTemplateLanguage$inboundSchema: z.ZodNativeEnum<
   typeof TemplateUpdateTemplateLanguage
-> = z.nativeEnum(TemplateUpdateTemplateLanguage);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateUpdateTemplateLanguage)
+);
 /** @internal */
 export const TemplateUpdateTemplateLanguage$outboundSchema: z.ZodNativeEnum<
   typeof TemplateUpdateTemplateLanguage
@@ -430,7 +454,9 @@ export const TemplateUpdateTemplateLanguage$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const TemplateUpdateTemplateSigningOrder$inboundSchema: z.ZodNativeEnum<
   typeof TemplateUpdateTemplateSigningOrder
-> = z.nativeEnum(TemplateUpdateTemplateSigningOrder);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateUpdateTemplateSigningOrder)
+);
 /** @internal */
 export const TemplateUpdateTemplateSigningOrder$outboundSchema: z.ZodNativeEnum<
   typeof TemplateUpdateTemplateSigningOrder
@@ -441,25 +467,28 @@ export const TemplateUpdateTemplateMeta$inboundSchema: z.ZodType<
   TemplateUpdateTemplateMeta,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  subject: z.string().optional(),
-  message: z.string().optional(),
-  timezone: z.string().optional(),
-  dateFormat: TemplateUpdateTemplateDateFormat$inboundSchema.optional(),
-  distributionMethod: TemplateUpdateTemplateDistributionMethod$inboundSchema
-    .optional(),
-  emailId: z.nullable(z.string()).optional(),
-  emailReplyTo: z.nullable(z.string()).optional(),
-  emailSettings: z.lazy(() => TemplateUpdateTemplateEmailSettings$inboundSchema)
-    .optional(),
-  redirectUrl: z.string().optional(),
-  language: TemplateUpdateTemplateLanguage$inboundSchema.optional(),
-  typedSignatureEnabled: z.boolean().optional(),
-  uploadSignatureEnabled: z.boolean().optional(),
-  drawSignatureEnabled: z.boolean().optional(),
-  signingOrder: TemplateUpdateTemplateSigningOrder$inboundSchema.optional(),
-  allowDictateNextSigner: z.boolean().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    subject: z.string().optional(),
+    message: z.string().optional(),
+    timezone: z.string().optional(),
+    dateFormat: TemplateUpdateTemplateDateFormat$inboundSchema.optional(),
+    distributionMethod: TemplateUpdateTemplateDistributionMethod$inboundSchema
+      .optional(),
+    emailId: z.nullable(z.string()).optional(),
+    emailReplyTo: z.nullable(z.string()).optional(),
+    emailSettings: z.lazy(() =>
+      TemplateUpdateTemplateEmailSettings$inboundSchema
+    ).optional(),
+    redirectUrl: z.string().optional(),
+    language: TemplateUpdateTemplateLanguage$inboundSchema.optional(),
+    typedSignatureEnabled: z.boolean().optional(),
+    uploadSignatureEnabled: z.boolean().optional(),
+    drawSignatureEnabled: z.boolean().optional(),
+    signingOrder: TemplateUpdateTemplateSigningOrder$inboundSchema.optional(),
+    allowDictateNextSigner: z.boolean().optional(),
+  })
+);
 /** @internal */
 export type TemplateUpdateTemplateMeta$Outbound = {
   subject?: string | undefined;
@@ -484,26 +513,28 @@ export const TemplateUpdateTemplateMeta$outboundSchema: z.ZodType<
   TemplateUpdateTemplateMeta$Outbound,
   z.ZodTypeDef,
   TemplateUpdateTemplateMeta
-> = z.object({
-  subject: z.string().optional(),
-  message: z.string().optional(),
-  timezone: z.string().optional(),
-  dateFormat: TemplateUpdateTemplateDateFormat$outboundSchema.optional(),
-  distributionMethod: TemplateUpdateTemplateDistributionMethod$outboundSchema
-    .optional(),
-  emailId: z.nullable(z.string()).optional(),
-  emailReplyTo: z.nullable(z.string()).optional(),
-  emailSettings: z.lazy(() =>
-    TemplateUpdateTemplateEmailSettings$outboundSchema
-  ).optional(),
-  redirectUrl: z.string().optional(),
-  language: TemplateUpdateTemplateLanguage$outboundSchema.optional(),
-  typedSignatureEnabled: z.boolean().optional(),
-  uploadSignatureEnabled: z.boolean().optional(),
-  drawSignatureEnabled: z.boolean().optional(),
-  signingOrder: TemplateUpdateTemplateSigningOrder$outboundSchema.optional(),
-  allowDictateNextSigner: z.boolean().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    subject: z.string().optional(),
+    message: z.string().optional(),
+    timezone: z.string().optional(),
+    dateFormat: TemplateUpdateTemplateDateFormat$outboundSchema.optional(),
+    distributionMethod: TemplateUpdateTemplateDistributionMethod$outboundSchema
+      .optional(),
+    emailId: z.nullable(z.string()).optional(),
+    emailReplyTo: z.nullable(z.string()).optional(),
+    emailSettings: z.lazy(() =>
+      TemplateUpdateTemplateEmailSettings$outboundSchema
+    ).optional(),
+    redirectUrl: z.string().optional(),
+    language: TemplateUpdateTemplateLanguage$outboundSchema.optional(),
+    typedSignatureEnabled: z.boolean().optional(),
+    uploadSignatureEnabled: z.boolean().optional(),
+    drawSignatureEnabled: z.boolean().optional(),
+    signingOrder: TemplateUpdateTemplateSigningOrder$outboundSchema.optional(),
+    allowDictateNextSigner: z.boolean().optional(),
+  })
+);
 
 export function templateUpdateTemplateMetaToJSON(
   templateUpdateTemplateMeta: TemplateUpdateTemplateMeta,
@@ -527,11 +558,13 @@ export const TemplateUpdateTemplateRequest$inboundSchema: z.ZodType<
   TemplateUpdateTemplateRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  templateId: z.number(),
-  data: z.lazy(() => TemplateUpdateTemplateData$inboundSchema).optional(),
-  meta: z.lazy(() => TemplateUpdateTemplateMeta$inboundSchema).optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    templateId: z.number(),
+    data: z.lazy(() => TemplateUpdateTemplateData$inboundSchema).optional(),
+    meta: z.lazy(() => TemplateUpdateTemplateMeta$inboundSchema).optional(),
+  })
+);
 /** @internal */
 export type TemplateUpdateTemplateRequest$Outbound = {
   templateId: number;
@@ -544,11 +577,13 @@ export const TemplateUpdateTemplateRequest$outboundSchema: z.ZodType<
   TemplateUpdateTemplateRequest$Outbound,
   z.ZodTypeDef,
   TemplateUpdateTemplateRequest
-> = z.object({
-  templateId: z.number(),
-  data: z.lazy(() => TemplateUpdateTemplateData$outboundSchema).optional(),
-  meta: z.lazy(() => TemplateUpdateTemplateMeta$outboundSchema).optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    templateId: z.number(),
+    data: z.lazy(() => TemplateUpdateTemplateData$outboundSchema).optional(),
+    meta: z.lazy(() => TemplateUpdateTemplateMeta$outboundSchema).optional(),
+  })
+);
 
 export function templateUpdateTemplateRequestToJSON(
   templateUpdateTemplateRequest: TemplateUpdateTemplateRequest,
@@ -572,7 +607,9 @@ export function templateUpdateTemplateRequestFromJSON(
 /** @internal */
 export const TemplateUpdateTemplateTypeResponse$inboundSchema: z.ZodNativeEnum<
   typeof TemplateUpdateTemplateTypeResponse
-> = z.nativeEnum(TemplateUpdateTemplateTypeResponse);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateUpdateTemplateTypeResponse)
+);
 /** @internal */
 export const TemplateUpdateTemplateTypeResponse$outboundSchema: z.ZodNativeEnum<
   typeof TemplateUpdateTemplateTypeResponse
@@ -580,8 +617,10 @@ export const TemplateUpdateTemplateTypeResponse$outboundSchema: z.ZodNativeEnum<
 
 /** @internal */
 export const TemplateUpdateTemplateVisibilityResponse$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateVisibilityResponse> = z
-    .nativeEnum(TemplateUpdateTemplateVisibilityResponse);
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateVisibilityResponse> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateUpdateTemplateVisibilityResponse)
+    );
 /** @internal */
 export const TemplateUpdateTemplateVisibilityResponse$outboundSchema:
   z.ZodNativeEnum<typeof TemplateUpdateTemplateVisibilityResponse> =
@@ -589,8 +628,10 @@ export const TemplateUpdateTemplateVisibilityResponse$outboundSchema:
 
 /** @internal */
 export const TemplateUpdateTemplateGlobalAccessAuthResponse$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateGlobalAccessAuthResponse> = z
-    .nativeEnum(TemplateUpdateTemplateGlobalAccessAuthResponse);
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateGlobalAccessAuthResponse> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateUpdateTemplateGlobalAccessAuthResponse)
+    );
 /** @internal */
 export const TemplateUpdateTemplateGlobalAccessAuthResponse$outboundSchema:
   z.ZodNativeEnum<typeof TemplateUpdateTemplateGlobalAccessAuthResponse> =
@@ -598,8 +639,10 @@ export const TemplateUpdateTemplateGlobalAccessAuthResponse$outboundSchema:
 
 /** @internal */
 export const TemplateUpdateTemplateGlobalActionAuthResponse$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateUpdateTemplateGlobalActionAuthResponse> = z
-    .nativeEnum(TemplateUpdateTemplateGlobalActionAuthResponse);
+  z.ZodNativeEnum<typeof TemplateUpdateTemplateGlobalActionAuthResponse> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateUpdateTemplateGlobalActionAuthResponse)
+    );
 /** @internal */
 export const TemplateUpdateTemplateGlobalActionAuthResponse$outboundSchema:
   z.ZodNativeEnum<typeof TemplateUpdateTemplateGlobalActionAuthResponse> =
@@ -610,14 +653,16 @@ export const TemplateUpdateTemplateAuthOptions$inboundSchema: z.ZodType<
   TemplateUpdateTemplateAuthOptions,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  globalAccessAuth: z.array(
-    TemplateUpdateTemplateGlobalAccessAuthResponse$inboundSchema,
-  ),
-  globalActionAuth: z.array(
-    TemplateUpdateTemplateGlobalActionAuthResponse$inboundSchema,
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    globalAccessAuth: z.array(
+      TemplateUpdateTemplateGlobalAccessAuthResponse$inboundSchema,
+    ),
+    globalActionAuth: z.array(
+      TemplateUpdateTemplateGlobalActionAuthResponse$inboundSchema,
+    ),
+  })
+);
 /** @internal */
 export type TemplateUpdateTemplateAuthOptions$Outbound = {
   globalAccessAuth: Array<string>;
@@ -629,14 +674,16 @@ export const TemplateUpdateTemplateAuthOptions$outboundSchema: z.ZodType<
   TemplateUpdateTemplateAuthOptions$Outbound,
   z.ZodTypeDef,
   TemplateUpdateTemplateAuthOptions
-> = z.object({
-  globalAccessAuth: z.array(
-    TemplateUpdateTemplateGlobalAccessAuthResponse$outboundSchema,
-  ),
-  globalActionAuth: z.array(
-    TemplateUpdateTemplateGlobalActionAuthResponse$outboundSchema,
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    globalAccessAuth: z.array(
+      TemplateUpdateTemplateGlobalAccessAuthResponse$outboundSchema,
+    ),
+    globalActionAuth: z.array(
+      TemplateUpdateTemplateGlobalActionAuthResponse$outboundSchema,
+    ),
+  })
+);
 
 export function templateUpdateTemplateAuthOptionsToJSON(
   templateUpdateTemplateAuthOptions: TemplateUpdateTemplateAuthOptions,
@@ -662,26 +709,28 @@ export const TemplateUpdateTemplateResponse$inboundSchema: z.ZodType<
   TemplateUpdateTemplateResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  type: TemplateUpdateTemplateTypeResponse$inboundSchema,
-  visibility: TemplateUpdateTemplateVisibilityResponse$inboundSchema,
-  id: z.number(),
-  externalId: z.nullable(z.string()),
-  title: z.string(),
-  userId: z.number(),
-  teamId: z.number(),
-  authOptions: z.nullable(
-    z.lazy(() => TemplateUpdateTemplateAuthOptions$inboundSchema),
-  ),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-  publicTitle: z.string(),
-  publicDescription: z.string(),
-  folderId: z.nullable(z.string()),
-  useLegacyFieldInsertion: z.boolean(),
-  envelopeId: z.string(),
-  templateDocumentDataId: z.string().default(""),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: TemplateUpdateTemplateTypeResponse$inboundSchema,
+    visibility: TemplateUpdateTemplateVisibilityResponse$inboundSchema,
+    id: z.number(),
+    externalId: z.nullable(z.string()),
+    title: z.string(),
+    userId: z.number(),
+    teamId: z.number(),
+    authOptions: z.nullable(
+      z.lazy(() => TemplateUpdateTemplateAuthOptions$inboundSchema),
+    ),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    publicTitle: z.string(),
+    publicDescription: z.string(),
+    folderId: z.nullable(z.string()),
+    useLegacyFieldInsertion: z.boolean(),
+    envelopeId: z.string(),
+    templateDocumentDataId: z.string().default(""),
+  })
+);
 /** @internal */
 export type TemplateUpdateTemplateResponse$Outbound = {
   type: string;
@@ -707,26 +756,28 @@ export const TemplateUpdateTemplateResponse$outboundSchema: z.ZodType<
   TemplateUpdateTemplateResponse$Outbound,
   z.ZodTypeDef,
   TemplateUpdateTemplateResponse
-> = z.object({
-  type: TemplateUpdateTemplateTypeResponse$outboundSchema,
-  visibility: TemplateUpdateTemplateVisibilityResponse$outboundSchema,
-  id: z.number(),
-  externalId: z.nullable(z.string()),
-  title: z.string(),
-  userId: z.number(),
-  teamId: z.number(),
-  authOptions: z.nullable(
-    z.lazy(() => TemplateUpdateTemplateAuthOptions$outboundSchema),
-  ),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-  publicTitle: z.string(),
-  publicDescription: z.string(),
-  folderId: z.nullable(z.string()),
-  useLegacyFieldInsertion: z.boolean(),
-  envelopeId: z.string(),
-  templateDocumentDataId: z.string().default(""),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: TemplateUpdateTemplateTypeResponse$outboundSchema,
+    visibility: TemplateUpdateTemplateVisibilityResponse$outboundSchema,
+    id: z.number(),
+    externalId: z.nullable(z.string()),
+    title: z.string(),
+    userId: z.number(),
+    teamId: z.number(),
+    authOptions: z.nullable(
+      z.lazy(() => TemplateUpdateTemplateAuthOptions$outboundSchema),
+    ),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    publicTitle: z.string(),
+    publicDescription: z.string(),
+    folderId: z.nullable(z.string()),
+    useLegacyFieldInsertion: z.boolean(),
+    envelopeId: z.string(),
+    templateDocumentDataId: z.string().default(""),
+  })
+);
 
 export function templateUpdateTemplateResponseToJSON(
   templateUpdateTemplateResponse: TemplateUpdateTemplateResponse,

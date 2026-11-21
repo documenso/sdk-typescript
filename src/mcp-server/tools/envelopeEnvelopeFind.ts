@@ -20,7 +20,7 @@ Find envelopes based on search criteria`,
     const [result, apiCall] = await envelopeEnvelopeFind(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

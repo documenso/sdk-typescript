@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -198,9 +198,11 @@ export const DocumentFindInternalServerErrorIssue$inboundSchema: z.ZodType<
   DocumentFindInternalServerErrorIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type DocumentFindInternalServerErrorIssue$Outbound = {
   message: string;
@@ -211,9 +213,11 @@ export const DocumentFindInternalServerErrorIssue$outboundSchema: z.ZodType<
   DocumentFindInternalServerErrorIssue$Outbound,
   z.ZodTypeDef,
   DocumentFindInternalServerErrorIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function documentFindInternalServerErrorIssueToJSON(
   documentFindInternalServerErrorIssue: DocumentFindInternalServerErrorIssue,
@@ -240,23 +244,25 @@ export const DocumentFindInternalServerError$inboundSchema: z.ZodType<
   DocumentFindInternalServerError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => DocumentFindInternalServerErrorIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new DocumentFindInternalServerError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => DocumentFindInternalServerErrorIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new DocumentFindInternalServerError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type DocumentFindInternalServerError$Outbound = {
@@ -270,24 +276,28 @@ export const DocumentFindInternalServerError$outboundSchema: z.ZodType<
   DocumentFindInternalServerError$Outbound,
   z.ZodTypeDef,
   DocumentFindInternalServerError
-> = z.instanceof(DocumentFindInternalServerError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => DocumentFindInternalServerErrorIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(DocumentFindInternalServerError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => DocumentFindInternalServerErrorIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const DocumentFindNotFoundIssue$inboundSchema: z.ZodType<
   DocumentFindNotFoundIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type DocumentFindNotFoundIssue$Outbound = {
   message: string;
@@ -298,9 +308,11 @@ export const DocumentFindNotFoundIssue$outboundSchema: z.ZodType<
   DocumentFindNotFoundIssue$Outbound,
   z.ZodTypeDef,
   DocumentFindNotFoundIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function documentFindNotFoundIssueToJSON(
   documentFindNotFoundIssue: DocumentFindNotFoundIssue,
@@ -324,22 +336,24 @@ export const DocumentFindNotFoundError$inboundSchema: z.ZodType<
   DocumentFindNotFoundError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(z.lazy(() => DocumentFindNotFoundIssue$inboundSchema))
-    .optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new DocumentFindNotFoundError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(z.lazy(() => DocumentFindNotFoundIssue$inboundSchema))
+      .optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new DocumentFindNotFoundError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type DocumentFindNotFoundError$Outbound = {
@@ -353,23 +367,27 @@ export const DocumentFindNotFoundError$outboundSchema: z.ZodType<
   DocumentFindNotFoundError$Outbound,
   z.ZodTypeDef,
   DocumentFindNotFoundError
-> = z.instanceof(DocumentFindNotFoundError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(z.lazy(() => DocumentFindNotFoundIssue$outboundSchema))
-      .optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(DocumentFindNotFoundError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() => DocumentFindNotFoundIssue$outboundSchema))
+        .optional(),
+    }))
+);
 
 /** @internal */
 export const DocumentFindForbiddenIssue$inboundSchema: z.ZodType<
   DocumentFindForbiddenIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type DocumentFindForbiddenIssue$Outbound = {
   message: string;
@@ -380,9 +398,11 @@ export const DocumentFindForbiddenIssue$outboundSchema: z.ZodType<
   DocumentFindForbiddenIssue$Outbound,
   z.ZodTypeDef,
   DocumentFindForbiddenIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function documentFindForbiddenIssueToJSON(
   documentFindForbiddenIssue: DocumentFindForbiddenIssue,
@@ -406,22 +426,24 @@ export const DocumentFindForbiddenError$inboundSchema: z.ZodType<
   DocumentFindForbiddenError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(z.lazy(() => DocumentFindForbiddenIssue$inboundSchema))
-    .optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new DocumentFindForbiddenError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(z.lazy(() => DocumentFindForbiddenIssue$inboundSchema))
+      .optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new DocumentFindForbiddenError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type DocumentFindForbiddenError$Outbound = {
@@ -435,23 +457,27 @@ export const DocumentFindForbiddenError$outboundSchema: z.ZodType<
   DocumentFindForbiddenError$Outbound,
   z.ZodTypeDef,
   DocumentFindForbiddenError
-> = z.instanceof(DocumentFindForbiddenError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(z.lazy(() => DocumentFindForbiddenIssue$outboundSchema))
-      .optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(DocumentFindForbiddenError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() => DocumentFindForbiddenIssue$outboundSchema))
+        .optional(),
+    }))
+);
 
 /** @internal */
 export const DocumentFindUnauthorizedIssue$inboundSchema: z.ZodType<
   DocumentFindUnauthorizedIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type DocumentFindUnauthorizedIssue$Outbound = {
   message: string;
@@ -462,9 +488,11 @@ export const DocumentFindUnauthorizedIssue$outboundSchema: z.ZodType<
   DocumentFindUnauthorizedIssue$Outbound,
   z.ZodTypeDef,
   DocumentFindUnauthorizedIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function documentFindUnauthorizedIssueToJSON(
   documentFindUnauthorizedIssue: DocumentFindUnauthorizedIssue,
@@ -490,22 +518,24 @@ export const DocumentFindUnauthorizedError$inboundSchema: z.ZodType<
   DocumentFindUnauthorizedError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(z.lazy(() => DocumentFindUnauthorizedIssue$inboundSchema))
-    .optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new DocumentFindUnauthorizedError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(z.lazy(() => DocumentFindUnauthorizedIssue$inboundSchema))
+      .optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new DocumentFindUnauthorizedError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type DocumentFindUnauthorizedError$Outbound = {
@@ -519,23 +549,28 @@ export const DocumentFindUnauthorizedError$outboundSchema: z.ZodType<
   DocumentFindUnauthorizedError$Outbound,
   z.ZodTypeDef,
   DocumentFindUnauthorizedError
-> = z.instanceof(DocumentFindUnauthorizedError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(z.lazy(() => DocumentFindUnauthorizedIssue$outboundSchema))
-      .optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(DocumentFindUnauthorizedError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => DocumentFindUnauthorizedIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const DocumentFindBadRequestIssue$inboundSchema: z.ZodType<
   DocumentFindBadRequestIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type DocumentFindBadRequestIssue$Outbound = {
   message: string;
@@ -546,9 +581,11 @@ export const DocumentFindBadRequestIssue$outboundSchema: z.ZodType<
   DocumentFindBadRequestIssue$Outbound,
   z.ZodTypeDef,
   DocumentFindBadRequestIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function documentFindBadRequestIssueToJSON(
   documentFindBadRequestIssue: DocumentFindBadRequestIssue,
@@ -574,22 +611,24 @@ export const DocumentFindBadRequestError$inboundSchema: z.ZodType<
   DocumentFindBadRequestError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(z.lazy(() => DocumentFindBadRequestIssue$inboundSchema))
-    .optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new DocumentFindBadRequestError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(z.lazy(() => DocumentFindBadRequestIssue$inboundSchema))
+      .optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new DocumentFindBadRequestError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type DocumentFindBadRequestError$Outbound = {
@@ -603,11 +642,13 @@ export const DocumentFindBadRequestError$outboundSchema: z.ZodType<
   DocumentFindBadRequestError$Outbound,
   z.ZodTypeDef,
   DocumentFindBadRequestError
-> = z.instanceof(DocumentFindBadRequestError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(z.lazy(() => DocumentFindBadRequestIssue$outboundSchema))
-      .optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(DocumentFindBadRequestError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() => DocumentFindBadRequestIssue$outboundSchema))
+        .optional(),
+    }))
+);

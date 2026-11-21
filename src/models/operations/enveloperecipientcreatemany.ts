@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -152,9 +152,10 @@ export type EnvelopeRecipientCreateManyResponse = {
 
 /** @internal */
 export const EnvelopeRecipientCreateManyEmailEnum$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyEmailEnum> = z.nativeEnum(
-    EnvelopeRecipientCreateManyEmailEnum,
-  );
+  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyEmailEnum> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeRecipientCreateManyEmailEnum)
+    );
 /** @internal */
 export const EnvelopeRecipientCreateManyEmailEnum$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyEmailEnum> =
@@ -165,7 +166,9 @@ export const EnvelopeRecipientCreateManyEmailUnion$inboundSchema: z.ZodType<
   EnvelopeRecipientCreateManyEmailUnion,
   z.ZodTypeDef,
   unknown
-> = z.union([EnvelopeRecipientCreateManyEmailEnum$inboundSchema, z.string()]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([EnvelopeRecipientCreateManyEmailEnum$inboundSchema, z.string()])
+);
 /** @internal */
 export type EnvelopeRecipientCreateManyEmailUnion$Outbound = string | string;
 
@@ -174,7 +177,9 @@ export const EnvelopeRecipientCreateManyEmailUnion$outboundSchema: z.ZodType<
   EnvelopeRecipientCreateManyEmailUnion$Outbound,
   z.ZodTypeDef,
   EnvelopeRecipientCreateManyEmailUnion
-> = z.union([EnvelopeRecipientCreateManyEmailEnum$outboundSchema, z.string()]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([EnvelopeRecipientCreateManyEmailEnum$outboundSchema, z.string()])
+);
 
 export function envelopeRecipientCreateManyEmailUnionToJSON(
   envelopeRecipientCreateManyEmailUnion: EnvelopeRecipientCreateManyEmailUnion,
@@ -198,9 +203,10 @@ export function envelopeRecipientCreateManyEmailUnionFromJSON(
 
 /** @internal */
 export const EnvelopeRecipientCreateManyRoleRequest$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyRoleRequest> = z.nativeEnum(
-    EnvelopeRecipientCreateManyRoleRequest,
-  );
+  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyRoleRequest> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeRecipientCreateManyRoleRequest)
+    );
 /** @internal */
 export const EnvelopeRecipientCreateManyRoleRequest$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyRoleRequest> =
@@ -208,8 +214,10 @@ export const EnvelopeRecipientCreateManyRoleRequest$outboundSchema:
 
 /** @internal */
 export const EnvelopeRecipientCreateManyAccessAuthRequest$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyAccessAuthRequest> = z
-    .nativeEnum(EnvelopeRecipientCreateManyAccessAuthRequest);
+  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyAccessAuthRequest> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeRecipientCreateManyAccessAuthRequest)
+    );
 /** @internal */
 export const EnvelopeRecipientCreateManyAccessAuthRequest$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyAccessAuthRequest> =
@@ -217,8 +225,10 @@ export const EnvelopeRecipientCreateManyAccessAuthRequest$outboundSchema:
 
 /** @internal */
 export const EnvelopeRecipientCreateManyActionAuthRequest$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyActionAuthRequest> = z
-    .nativeEnum(EnvelopeRecipientCreateManyActionAuthRequest);
+  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyActionAuthRequest> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeRecipientCreateManyActionAuthRequest)
+    );
 /** @internal */
 export const EnvelopeRecipientCreateManyActionAuthRequest$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyActionAuthRequest> =
@@ -229,21 +239,23 @@ export const EnvelopeRecipientCreateManyDataRequest$inboundSchema: z.ZodType<
   EnvelopeRecipientCreateManyDataRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  email: z.union([
-    EnvelopeRecipientCreateManyEmailEnum$inboundSchema,
-    z.string(),
-  ]),
-  name: z.string(),
-  role: EnvelopeRecipientCreateManyRoleRequest$inboundSchema,
-  signingOrder: z.number().optional(),
-  accessAuth: z.array(
-    EnvelopeRecipientCreateManyAccessAuthRequest$inboundSchema,
-  ).optional(),
-  actionAuth: z.array(
-    EnvelopeRecipientCreateManyActionAuthRequest$inboundSchema,
-  ).optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    email: z.union([
+      EnvelopeRecipientCreateManyEmailEnum$inboundSchema,
+      z.string(),
+    ]),
+    name: z.string(),
+    role: EnvelopeRecipientCreateManyRoleRequest$inboundSchema,
+    signingOrder: z.number().int().optional(),
+    accessAuth: z.array(
+      EnvelopeRecipientCreateManyAccessAuthRequest$inboundSchema,
+    ).optional(),
+    actionAuth: z.array(
+      EnvelopeRecipientCreateManyActionAuthRequest$inboundSchema,
+    ).optional(),
+  })
+);
 /** @internal */
 export type EnvelopeRecipientCreateManyDataRequest$Outbound = {
   email: string | string;
@@ -259,21 +271,23 @@ export const EnvelopeRecipientCreateManyDataRequest$outboundSchema: z.ZodType<
   EnvelopeRecipientCreateManyDataRequest$Outbound,
   z.ZodTypeDef,
   EnvelopeRecipientCreateManyDataRequest
-> = z.object({
-  email: z.union([
-    EnvelopeRecipientCreateManyEmailEnum$outboundSchema,
-    z.string(),
-  ]),
-  name: z.string(),
-  role: EnvelopeRecipientCreateManyRoleRequest$outboundSchema,
-  signingOrder: z.number().optional(),
-  accessAuth: z.array(
-    EnvelopeRecipientCreateManyAccessAuthRequest$outboundSchema,
-  ).optional(),
-  actionAuth: z.array(
-    EnvelopeRecipientCreateManyActionAuthRequest$outboundSchema,
-  ).optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    email: z.union([
+      EnvelopeRecipientCreateManyEmailEnum$outboundSchema,
+      z.string(),
+    ]),
+    name: z.string(),
+    role: EnvelopeRecipientCreateManyRoleRequest$outboundSchema,
+    signingOrder: z.number().int().optional(),
+    accessAuth: z.array(
+      EnvelopeRecipientCreateManyAccessAuthRequest$outboundSchema,
+    ).optional(),
+    actionAuth: z.array(
+      EnvelopeRecipientCreateManyActionAuthRequest$outboundSchema,
+    ).optional(),
+  })
+);
 
 export function envelopeRecipientCreateManyDataRequestToJSON(
   envelopeRecipientCreateManyDataRequest:
@@ -301,12 +315,14 @@ export const EnvelopeRecipientCreateManyRequest$inboundSchema: z.ZodType<
   EnvelopeRecipientCreateManyRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeId: z.string(),
-  data: z.array(
-    z.lazy(() => EnvelopeRecipientCreateManyDataRequest$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    data: z.array(
+      z.lazy(() => EnvelopeRecipientCreateManyDataRequest$inboundSchema),
+    ),
+  })
+);
 /** @internal */
 export type EnvelopeRecipientCreateManyRequest$Outbound = {
   envelopeId: string;
@@ -318,12 +334,14 @@ export const EnvelopeRecipientCreateManyRequest$outboundSchema: z.ZodType<
   EnvelopeRecipientCreateManyRequest$Outbound,
   z.ZodTypeDef,
   EnvelopeRecipientCreateManyRequest
-> = z.object({
-  envelopeId: z.string(),
-  data: z.array(
-    z.lazy(() => EnvelopeRecipientCreateManyDataRequest$outboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    data: z.array(
+      z.lazy(() => EnvelopeRecipientCreateManyDataRequest$outboundSchema),
+    ),
+  })
+);
 
 export function envelopeRecipientCreateManyRequestToJSON(
   envelopeRecipientCreateManyRequest: EnvelopeRecipientCreateManyRequest,
@@ -347,8 +365,10 @@ export function envelopeRecipientCreateManyRequestFromJSON(
 
 /** @internal */
 export const EnvelopeRecipientCreateManyRoleResponse$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyRoleResponse> = z
-    .nativeEnum(EnvelopeRecipientCreateManyRoleResponse);
+  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyRoleResponse> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeRecipientCreateManyRoleResponse)
+    );
 /** @internal */
 export const EnvelopeRecipientCreateManyRoleResponse$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyRoleResponse> =
@@ -356,9 +376,10 @@ export const EnvelopeRecipientCreateManyRoleResponse$outboundSchema:
 
 /** @internal */
 export const EnvelopeRecipientCreateManyReadStatus$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyReadStatus> = z.nativeEnum(
-    EnvelopeRecipientCreateManyReadStatus,
-  );
+  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyReadStatus> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeRecipientCreateManyReadStatus)
+    );
 /** @internal */
 export const EnvelopeRecipientCreateManyReadStatus$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyReadStatus> =
@@ -366,8 +387,10 @@ export const EnvelopeRecipientCreateManyReadStatus$outboundSchema:
 
 /** @internal */
 export const EnvelopeRecipientCreateManySigningStatus$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManySigningStatus> = z
-    .nativeEnum(EnvelopeRecipientCreateManySigningStatus);
+  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManySigningStatus> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeRecipientCreateManySigningStatus)
+    );
 /** @internal */
 export const EnvelopeRecipientCreateManySigningStatus$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeRecipientCreateManySigningStatus> =
@@ -375,9 +398,10 @@ export const EnvelopeRecipientCreateManySigningStatus$outboundSchema:
 
 /** @internal */
 export const EnvelopeRecipientCreateManySendStatus$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManySendStatus> = z.nativeEnum(
-    EnvelopeRecipientCreateManySendStatus,
-  );
+  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManySendStatus> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeRecipientCreateManySendStatus)
+    );
 /** @internal */
 export const EnvelopeRecipientCreateManySendStatus$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeRecipientCreateManySendStatus> =
@@ -385,8 +409,10 @@ export const EnvelopeRecipientCreateManySendStatus$outboundSchema:
 
 /** @internal */
 export const EnvelopeRecipientCreateManyAuthOptionsAccessAuth$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyAuthOptionsAccessAuth> = z
-    .nativeEnum(EnvelopeRecipientCreateManyAuthOptionsAccessAuth);
+  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyAuthOptionsAccessAuth> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeRecipientCreateManyAuthOptionsAccessAuth)
+    );
 /** @internal */
 export const EnvelopeRecipientCreateManyAuthOptionsAccessAuth$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyAuthOptionsAccessAuth> =
@@ -394,8 +420,10 @@ export const EnvelopeRecipientCreateManyAuthOptionsAccessAuth$outboundSchema:
 
 /** @internal */
 export const EnvelopeRecipientCreateManyAuthOptionsActionAuth$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyAuthOptionsActionAuth> = z
-    .nativeEnum(EnvelopeRecipientCreateManyAuthOptionsActionAuth);
+  z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyAuthOptionsActionAuth> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeRecipientCreateManyAuthOptionsActionAuth)
+    );
 /** @internal */
 export const EnvelopeRecipientCreateManyAuthOptionsActionAuth$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeRecipientCreateManyAuthOptionsActionAuth> =
@@ -406,14 +434,16 @@ export const EnvelopeRecipientCreateManyAuthOptions$inboundSchema: z.ZodType<
   EnvelopeRecipientCreateManyAuthOptions,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  accessAuth: z.array(
-    EnvelopeRecipientCreateManyAuthOptionsAccessAuth$inboundSchema,
-  ),
-  actionAuth: z.array(
-    EnvelopeRecipientCreateManyAuthOptionsActionAuth$inboundSchema,
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    accessAuth: z.array(
+      EnvelopeRecipientCreateManyAuthOptionsAccessAuth$inboundSchema,
+    ),
+    actionAuth: z.array(
+      EnvelopeRecipientCreateManyAuthOptionsActionAuth$inboundSchema,
+    ),
+  })
+);
 /** @internal */
 export type EnvelopeRecipientCreateManyAuthOptions$Outbound = {
   accessAuth: Array<string>;
@@ -425,14 +455,16 @@ export const EnvelopeRecipientCreateManyAuthOptions$outboundSchema: z.ZodType<
   EnvelopeRecipientCreateManyAuthOptions$Outbound,
   z.ZodTypeDef,
   EnvelopeRecipientCreateManyAuthOptions
-> = z.object({
-  accessAuth: z.array(
-    EnvelopeRecipientCreateManyAuthOptionsAccessAuth$outboundSchema,
-  ),
-  actionAuth: z.array(
-    EnvelopeRecipientCreateManyAuthOptionsActionAuth$outboundSchema,
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    accessAuth: z.array(
+      EnvelopeRecipientCreateManyAuthOptionsAccessAuth$outboundSchema,
+    ),
+    actionAuth: z.array(
+      EnvelopeRecipientCreateManyAuthOptionsActionAuth$outboundSchema,
+    ),
+  })
+);
 
 export function envelopeRecipientCreateManyAuthOptionsToJSON(
   envelopeRecipientCreateManyAuthOptions:
@@ -460,27 +492,29 @@ export const EnvelopeRecipientCreateManyDataResponse$inboundSchema: z.ZodType<
   EnvelopeRecipientCreateManyDataResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeId: z.string(),
-  role: EnvelopeRecipientCreateManyRoleResponse$inboundSchema,
-  readStatus: EnvelopeRecipientCreateManyReadStatus$inboundSchema,
-  signingStatus: EnvelopeRecipientCreateManySigningStatus$inboundSchema,
-  sendStatus: EnvelopeRecipientCreateManySendStatus$inboundSchema,
-  id: z.number(),
-  email: z.string(),
-  name: z.string(),
-  token: z.string(),
-  documentDeletedAt: z.nullable(z.string()),
-  expired: z.nullable(z.string()),
-  expiresAt: z.nullable(z.string()),
-  expirationNotifiedAt: z.nullable(z.string()),
-  signedAt: z.nullable(z.string()),
-  authOptions: z.nullable(
-    z.lazy(() => EnvelopeRecipientCreateManyAuthOptions$inboundSchema),
-  ),
-  signingOrder: z.nullable(z.number()),
-  rejectionReason: z.nullable(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    role: EnvelopeRecipientCreateManyRoleResponse$inboundSchema,
+    readStatus: EnvelopeRecipientCreateManyReadStatus$inboundSchema,
+    signingStatus: EnvelopeRecipientCreateManySigningStatus$inboundSchema,
+    sendStatus: EnvelopeRecipientCreateManySendStatus$inboundSchema,
+    id: z.number(),
+    email: z.string(),
+    name: z.string(),
+    token: z.string(),
+    documentDeletedAt: z.nullable(z.string()),
+    expired: z.nullable(z.string()),
+    expiresAt: z.nullable(z.string()),
+    expirationNotifiedAt: z.nullable(z.string()),
+    signedAt: z.nullable(z.string()),
+    authOptions: z.nullable(
+      z.lazy(() => EnvelopeRecipientCreateManyAuthOptions$inboundSchema),
+    ),
+    signingOrder: z.nullable(z.number()),
+    rejectionReason: z.nullable(z.string()),
+  })
+);
 /** @internal */
 export type EnvelopeRecipientCreateManyDataResponse$Outbound = {
   envelopeId: string;
@@ -507,27 +541,29 @@ export const EnvelopeRecipientCreateManyDataResponse$outboundSchema: z.ZodType<
   EnvelopeRecipientCreateManyDataResponse$Outbound,
   z.ZodTypeDef,
   EnvelopeRecipientCreateManyDataResponse
-> = z.object({
-  envelopeId: z.string(),
-  role: EnvelopeRecipientCreateManyRoleResponse$outboundSchema,
-  readStatus: EnvelopeRecipientCreateManyReadStatus$outboundSchema,
-  signingStatus: EnvelopeRecipientCreateManySigningStatus$outboundSchema,
-  sendStatus: EnvelopeRecipientCreateManySendStatus$outboundSchema,
-  id: z.number(),
-  email: z.string(),
-  name: z.string(),
-  token: z.string(),
-  documentDeletedAt: z.nullable(z.string()),
-  expired: z.nullable(z.string()),
-  expiresAt: z.nullable(z.string()),
-  expirationNotifiedAt: z.nullable(z.string()),
-  signedAt: z.nullable(z.string()),
-  authOptions: z.nullable(
-    z.lazy(() => EnvelopeRecipientCreateManyAuthOptions$outboundSchema),
-  ),
-  signingOrder: z.nullable(z.number()),
-  rejectionReason: z.nullable(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    role: EnvelopeRecipientCreateManyRoleResponse$outboundSchema,
+    readStatus: EnvelopeRecipientCreateManyReadStatus$outboundSchema,
+    signingStatus: EnvelopeRecipientCreateManySigningStatus$outboundSchema,
+    sendStatus: EnvelopeRecipientCreateManySendStatus$outboundSchema,
+    id: z.number(),
+    email: z.string(),
+    name: z.string(),
+    token: z.string(),
+    documentDeletedAt: z.nullable(z.string()),
+    expired: z.nullable(z.string()),
+    expiresAt: z.nullable(z.string()),
+    expirationNotifiedAt: z.nullable(z.string()),
+    signedAt: z.nullable(z.string()),
+    authOptions: z.nullable(
+      z.lazy(() => EnvelopeRecipientCreateManyAuthOptions$outboundSchema),
+    ),
+    signingOrder: z.nullable(z.number()),
+    rejectionReason: z.nullable(z.string()),
+  })
+);
 
 export function envelopeRecipientCreateManyDataResponseToJSON(
   envelopeRecipientCreateManyDataResponse:
@@ -560,11 +596,13 @@ export const EnvelopeRecipientCreateManyResponse$inboundSchema: z.ZodType<
   EnvelopeRecipientCreateManyResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  data: z.array(
-    z.lazy(() => EnvelopeRecipientCreateManyDataResponse$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    data: z.array(
+      z.lazy(() => EnvelopeRecipientCreateManyDataResponse$inboundSchema),
+    ),
+  })
+);
 /** @internal */
 export type EnvelopeRecipientCreateManyResponse$Outbound = {
   data: Array<EnvelopeRecipientCreateManyDataResponse$Outbound>;
@@ -575,11 +613,13 @@ export const EnvelopeRecipientCreateManyResponse$outboundSchema: z.ZodType<
   EnvelopeRecipientCreateManyResponse$Outbound,
   z.ZodTypeDef,
   EnvelopeRecipientCreateManyResponse
-> = z.object({
-  data: z.array(
-    z.lazy(() => EnvelopeRecipientCreateManyDataResponse$outboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    data: z.array(
+      z.lazy(() => EnvelopeRecipientCreateManyDataResponse$outboundSchema),
+    ),
+  })
+);
 
 export function envelopeRecipientCreateManyResponseToJSON(
   envelopeRecipientCreateManyResponse: EnvelopeRecipientCreateManyResponse,

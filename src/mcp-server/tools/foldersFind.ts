@@ -20,7 +20,7 @@ Find folders based on a search criteria`,
     const [result, apiCall] = await foldersFind(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

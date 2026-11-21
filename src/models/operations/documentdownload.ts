@@ -4,7 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -42,7 +42,7 @@ export type DocumentDownloadResponse = {
 /** @internal */
 export const DocumentDownloadVersion$inboundSchema: z.ZodNativeEnum<
   typeof DocumentDownloadVersion
-> = z.nativeEnum(DocumentDownloadVersion);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(DocumentDownloadVersion));
 /** @internal */
 export const DocumentDownloadVersion$outboundSchema: z.ZodNativeEnum<
   typeof DocumentDownloadVersion
@@ -53,10 +53,12 @@ export const DocumentDownloadRequest$inboundSchema: z.ZodType<
   DocumentDownloadRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  documentId: z.number(),
-  version: DocumentDownloadVersion$inboundSchema.default("signed"),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    documentId: z.number(),
+    version: DocumentDownloadVersion$inboundSchema.default("signed"),
+  })
+);
 /** @internal */
 export type DocumentDownloadRequest$Outbound = {
   documentId: number;
@@ -68,10 +70,12 @@ export const DocumentDownloadRequest$outboundSchema: z.ZodType<
   DocumentDownloadRequest$Outbound,
   z.ZodTypeDef,
   DocumentDownloadRequest
-> = z.object({
-  documentId: z.number(),
-  version: DocumentDownloadVersion$outboundSchema.default("signed"),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    documentId: z.number(),
+    version: DocumentDownloadVersion$outboundSchema.default("signed"),
+  })
+);
 
 export function documentDownloadRequestToJSON(
   documentDownloadRequest: DocumentDownloadRequest,
@@ -95,15 +99,17 @@ export const DocumentDownloadResponse$inboundSchema: z.ZodType<
   DocumentDownloadResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  Headers: z.record(z.array(z.string())).default({}),
-  Result: z.any().optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "Headers": "headers",
-    "Result": "result",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    Headers: z.record(z.array(z.string())).default({}),
+    Result: z.any().optional(),
+  }).transform((v) => {
+    return remap$(v, {
+      "Headers": "headers",
+      "Result": "result",
+    });
+  })
+);
 /** @internal */
 export type DocumentDownloadResponse$Outbound = {
   Headers: { [k: string]: Array<string> };
@@ -115,15 +121,17 @@ export const DocumentDownloadResponse$outboundSchema: z.ZodType<
   DocumentDownloadResponse$Outbound,
   z.ZodTypeDef,
   DocumentDownloadResponse
-> = z.object({
-  headers: z.record(z.array(z.string())),
-  result: z.any().optional(),
-}).transform((v) => {
-  return remap$(v, {
-    headers: "Headers",
-    result: "Result",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    headers: z.record(z.array(z.string())),
+    result: z.any().optional(),
+  }).transform((v) => {
+    return remap$(v, {
+      headers: "Headers",
+      result: "Result",
+    });
+  })
+);
 
 export function documentDownloadResponseToJSON(
   documentDownloadResponse: DocumentDownloadResponse,

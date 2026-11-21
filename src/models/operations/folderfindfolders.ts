@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -77,7 +77,9 @@ export type FolderFindFoldersResponse = {
 /** @internal */
 export const FolderFindFoldersQueryParamType$inboundSchema: z.ZodNativeEnum<
   typeof FolderFindFoldersQueryParamType
-> = z.nativeEnum(FolderFindFoldersQueryParamType);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(FolderFindFoldersQueryParamType)
+);
 /** @internal */
 export const FolderFindFoldersQueryParamType$outboundSchema: z.ZodNativeEnum<
   typeof FolderFindFoldersQueryParamType
@@ -88,13 +90,15 @@ export const FolderFindFoldersRequest$inboundSchema: z.ZodType<
   FolderFindFoldersRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  query: z.string().optional(),
-  page: z.number().optional(),
-  perPage: z.number().optional(),
-  parentId: z.string().optional(),
-  type: FolderFindFoldersQueryParamType$inboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    query: z.string().optional(),
+    page: z.number().optional(),
+    perPage: z.number().optional(),
+    parentId: z.string().optional(),
+    type: FolderFindFoldersQueryParamType$inboundSchema.optional(),
+  })
+);
 /** @internal */
 export type FolderFindFoldersRequest$Outbound = {
   query?: string | undefined;
@@ -109,13 +113,15 @@ export const FolderFindFoldersRequest$outboundSchema: z.ZodType<
   FolderFindFoldersRequest$Outbound,
   z.ZodTypeDef,
   FolderFindFoldersRequest
-> = z.object({
-  query: z.string().optional(),
-  page: z.number().optional(),
-  perPage: z.number().optional(),
-  parentId: z.string().optional(),
-  type: FolderFindFoldersQueryParamType$outboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    query: z.string().optional(),
+    page: z.number().optional(),
+    perPage: z.number().optional(),
+    parentId: z.string().optional(),
+    type: FolderFindFoldersQueryParamType$outboundSchema.optional(),
+  })
+);
 
 export function folderFindFoldersRequestToJSON(
   folderFindFoldersRequest: FolderFindFoldersRequest,
@@ -137,7 +143,9 @@ export function folderFindFoldersRequestFromJSON(
 /** @internal */
 export const FolderFindFoldersVisibility$inboundSchema: z.ZodNativeEnum<
   typeof FolderFindFoldersVisibility
-> = z.nativeEnum(FolderFindFoldersVisibility);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(FolderFindFoldersVisibility)
+);
 /** @internal */
 export const FolderFindFoldersVisibility$outboundSchema: z.ZodNativeEnum<
   typeof FolderFindFoldersVisibility
@@ -146,7 +154,7 @@ export const FolderFindFoldersVisibility$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const FolderFindFoldersDataType$inboundSchema: z.ZodNativeEnum<
   typeof FolderFindFoldersDataType
-> = z.nativeEnum(FolderFindFoldersDataType);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(FolderFindFoldersDataType));
 /** @internal */
 export const FolderFindFoldersDataType$outboundSchema: z.ZodNativeEnum<
   typeof FolderFindFoldersDataType
@@ -157,18 +165,20 @@ export const FolderFindFoldersData$inboundSchema: z.ZodType<
   FolderFindFoldersData,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.string(),
-  name: z.string(),
-  userId: z.number(),
-  teamId: z.number(),
-  parentId: z.nullable(z.string()),
-  pinned: z.boolean(),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-  visibility: FolderFindFoldersVisibility$inboundSchema,
-  type: FolderFindFoldersDataType$inboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    name: z.string(),
+    userId: z.number(),
+    teamId: z.number(),
+    parentId: z.nullable(z.string()),
+    pinned: z.boolean(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    visibility: FolderFindFoldersVisibility$inboundSchema,
+    type: FolderFindFoldersDataType$inboundSchema,
+  })
+);
 /** @internal */
 export type FolderFindFoldersData$Outbound = {
   id: string;
@@ -188,18 +198,20 @@ export const FolderFindFoldersData$outboundSchema: z.ZodType<
   FolderFindFoldersData$Outbound,
   z.ZodTypeDef,
   FolderFindFoldersData
-> = z.object({
-  id: z.string(),
-  name: z.string(),
-  userId: z.number(),
-  teamId: z.number(),
-  parentId: z.nullable(z.string()),
-  pinned: z.boolean(),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-  visibility: FolderFindFoldersVisibility$outboundSchema,
-  type: FolderFindFoldersDataType$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    name: z.string(),
+    userId: z.number(),
+    teamId: z.number(),
+    parentId: z.nullable(z.string()),
+    pinned: z.boolean(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    visibility: FolderFindFoldersVisibility$outboundSchema,
+    type: FolderFindFoldersDataType$outboundSchema,
+  })
+);
 
 export function folderFindFoldersDataToJSON(
   folderFindFoldersData: FolderFindFoldersData,
@@ -223,13 +235,15 @@ export const FolderFindFoldersResponse$inboundSchema: z.ZodType<
   FolderFindFoldersResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  data: z.array(z.lazy(() => FolderFindFoldersData$inboundSchema)),
-  count: z.number(),
-  currentPage: z.number(),
-  perPage: z.number(),
-  totalPages: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    data: z.array(z.lazy(() => FolderFindFoldersData$inboundSchema)),
+    count: z.number(),
+    currentPage: z.number(),
+    perPage: z.number(),
+    totalPages: z.number(),
+  })
+);
 /** @internal */
 export type FolderFindFoldersResponse$Outbound = {
   data: Array<FolderFindFoldersData$Outbound>;
@@ -244,13 +258,15 @@ export const FolderFindFoldersResponse$outboundSchema: z.ZodType<
   FolderFindFoldersResponse$Outbound,
   z.ZodTypeDef,
   FolderFindFoldersResponse
-> = z.object({
-  data: z.array(z.lazy(() => FolderFindFoldersData$outboundSchema)),
-  count: z.number(),
-  currentPage: z.number(),
-  perPage: z.number(),
-  totalPages: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    data: z.array(z.lazy(() => FolderFindFoldersData$outboundSchema)),
+    count: z.number(),
+    currentPage: z.number(),
+    perPage: z.number(),
+    totalPages: z.number(),
+  })
+);
 
 export function folderFindFoldersResponseToJSON(
   folderFindFoldersResponse: FolderFindFoldersResponse,

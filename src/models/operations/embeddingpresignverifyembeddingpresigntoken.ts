@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -25,10 +25,12 @@ export const EmbeddingPresignVerifyEmbeddingPresignTokenRequest$inboundSchema:
     EmbeddingPresignVerifyEmbeddingPresignTokenRequest,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    token: z.string(),
-    scope: z.string().optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      token: z.string(),
+      scope: z.string().optional(),
+    })
+  );
 /** @internal */
 export type EmbeddingPresignVerifyEmbeddingPresignTokenRequest$Outbound = {
   token: string;
@@ -41,10 +43,12 @@ export const EmbeddingPresignVerifyEmbeddingPresignTokenRequest$outboundSchema:
     EmbeddingPresignVerifyEmbeddingPresignTokenRequest$Outbound,
     z.ZodTypeDef,
     EmbeddingPresignVerifyEmbeddingPresignTokenRequest
-  > = z.object({
-    token: z.string(),
-    scope: z.string().optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      token: z.string(),
+      scope: z.string().optional(),
+    })
+  );
 
 export function embeddingPresignVerifyEmbeddingPresignTokenRequestToJSON(
   embeddingPresignVerifyEmbeddingPresignTokenRequest:
@@ -78,9 +82,11 @@ export const EmbeddingPresignVerifyEmbeddingPresignTokenResponse$inboundSchema:
     EmbeddingPresignVerifyEmbeddingPresignTokenResponse,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    success: z.boolean(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      success: z.boolean(),
+    })
+  );
 /** @internal */
 export type EmbeddingPresignVerifyEmbeddingPresignTokenResponse$Outbound = {
   success: boolean;
@@ -92,9 +98,11 @@ export const EmbeddingPresignVerifyEmbeddingPresignTokenResponse$outboundSchema:
     EmbeddingPresignVerifyEmbeddingPresignTokenResponse$Outbound,
     z.ZodTypeDef,
     EmbeddingPresignVerifyEmbeddingPresignTokenResponse
-  > = z.object({
-    success: z.boolean(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      success: z.boolean(),
+    })
+  );
 
 export function embeddingPresignVerifyEmbeddingPresignTokenResponseToJSON(
   embeddingPresignVerifyEmbeddingPresignTokenResponse:

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -277,7 +277,9 @@ export type DocumentFindResponse = {
 /** @internal */
 export const DocumentFindQueryParamSource$inboundSchema: z.ZodNativeEnum<
   typeof DocumentFindQueryParamSource
-> = z.nativeEnum(DocumentFindQueryParamSource);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(DocumentFindQueryParamSource)
+);
 /** @internal */
 export const DocumentFindQueryParamSource$outboundSchema: z.ZodNativeEnum<
   typeof DocumentFindQueryParamSource
@@ -286,7 +288,9 @@ export const DocumentFindQueryParamSource$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const DocumentFindQueryParamStatus$inboundSchema: z.ZodNativeEnum<
   typeof DocumentFindQueryParamStatus
-> = z.nativeEnum(DocumentFindQueryParamStatus);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(DocumentFindQueryParamStatus)
+);
 /** @internal */
 export const DocumentFindQueryParamStatus$outboundSchema: z.ZodNativeEnum<
   typeof DocumentFindQueryParamStatus
@@ -295,7 +299,9 @@ export const DocumentFindQueryParamStatus$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const DocumentFindHasExpiredRecipients$inboundSchema: z.ZodNativeEnum<
   typeof DocumentFindHasExpiredRecipients
-> = z.nativeEnum(DocumentFindHasExpiredRecipients);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(DocumentFindHasExpiredRecipients)
+);
 /** @internal */
 export const DocumentFindHasExpiredRecipients$outboundSchema: z.ZodNativeEnum<
   typeof DocumentFindHasExpiredRecipients
@@ -304,7 +310,7 @@ export const DocumentFindHasExpiredRecipients$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const DocumentFindOrderByColumn$inboundSchema: z.ZodNativeEnum<
   typeof DocumentFindOrderByColumn
-> = z.nativeEnum(DocumentFindOrderByColumn);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(DocumentFindOrderByColumn));
 /** @internal */
 export const DocumentFindOrderByColumn$outboundSchema: z.ZodNativeEnum<
   typeof DocumentFindOrderByColumn
@@ -313,7 +319,9 @@ export const DocumentFindOrderByColumn$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const DocumentFindOrderByDirection$inboundSchema: z.ZodNativeEnum<
   typeof DocumentFindOrderByDirection
-> = z.nativeEnum(DocumentFindOrderByDirection);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(DocumentFindOrderByDirection)
+);
 /** @internal */
 export const DocumentFindOrderByDirection$outboundSchema: z.ZodNativeEnum<
   typeof DocumentFindOrderByDirection
@@ -324,19 +332,23 @@ export const DocumentFindRequest$inboundSchema: z.ZodType<
   DocumentFindRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  query: z.string().optional(),
-  page: z.number().optional(),
-  perPage: z.number().optional(),
-  templateId: z.number().optional(),
-  source: DocumentFindQueryParamSource$inboundSchema.optional(),
-  status: DocumentFindQueryParamStatus$inboundSchema.optional(),
-  hasExpiredRecipients: DocumentFindHasExpiredRecipients$inboundSchema
-    .optional(),
-  folderId: z.string().optional(),
-  orderByColumn: DocumentFindOrderByColumn$inboundSchema.optional(),
-  orderByDirection: DocumentFindOrderByDirection$inboundSchema.default("desc"),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    query: z.string().optional(),
+    page: z.number().optional(),
+    perPage: z.number().optional(),
+    templateId: z.number().optional(),
+    source: DocumentFindQueryParamSource$inboundSchema.optional(),
+    status: DocumentFindQueryParamStatus$inboundSchema.optional(),
+    hasExpiredRecipients: DocumentFindHasExpiredRecipients$inboundSchema
+      .optional(),
+    folderId: z.string().optional(),
+    orderByColumn: DocumentFindOrderByColumn$inboundSchema.optional(),
+    orderByDirection: DocumentFindOrderByDirection$inboundSchema.default(
+      "desc",
+    ),
+  })
+);
 /** @internal */
 export type DocumentFindRequest$Outbound = {
   query?: string | undefined;
@@ -356,19 +368,23 @@ export const DocumentFindRequest$outboundSchema: z.ZodType<
   DocumentFindRequest$Outbound,
   z.ZodTypeDef,
   DocumentFindRequest
-> = z.object({
-  query: z.string().optional(),
-  page: z.number().optional(),
-  perPage: z.number().optional(),
-  templateId: z.number().optional(),
-  source: DocumentFindQueryParamSource$outboundSchema.optional(),
-  status: DocumentFindQueryParamStatus$outboundSchema.optional(),
-  hasExpiredRecipients: DocumentFindHasExpiredRecipients$outboundSchema
-    .optional(),
-  folderId: z.string().optional(),
-  orderByColumn: DocumentFindOrderByColumn$outboundSchema.optional(),
-  orderByDirection: DocumentFindOrderByDirection$outboundSchema.default("desc"),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    query: z.string().optional(),
+    page: z.number().optional(),
+    perPage: z.number().optional(),
+    templateId: z.number().optional(),
+    source: DocumentFindQueryParamSource$outboundSchema.optional(),
+    status: DocumentFindQueryParamStatus$outboundSchema.optional(),
+    hasExpiredRecipients: DocumentFindHasExpiredRecipients$outboundSchema
+      .optional(),
+    folderId: z.string().optional(),
+    orderByColumn: DocumentFindOrderByColumn$outboundSchema.optional(),
+    orderByDirection: DocumentFindOrderByDirection$outboundSchema.default(
+      "desc",
+    ),
+  })
+);
 
 export function documentFindRequestToJSON(
   documentFindRequest: DocumentFindRequest,
@@ -390,7 +406,7 @@ export function documentFindRequestFromJSON(
 /** @internal */
 export const DocumentFindVisibility$inboundSchema: z.ZodNativeEnum<
   typeof DocumentFindVisibility
-> = z.nativeEnum(DocumentFindVisibility);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(DocumentFindVisibility));
 /** @internal */
 export const DocumentFindVisibility$outboundSchema: z.ZodNativeEnum<
   typeof DocumentFindVisibility
@@ -399,7 +415,7 @@ export const DocumentFindVisibility$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const DocumentFindDataStatus$inboundSchema: z.ZodNativeEnum<
   typeof DocumentFindDataStatus
-> = z.nativeEnum(DocumentFindDataStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(DocumentFindDataStatus));
 /** @internal */
 export const DocumentFindDataStatus$outboundSchema: z.ZodNativeEnum<
   typeof DocumentFindDataStatus
@@ -408,7 +424,7 @@ export const DocumentFindDataStatus$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const DocumentFindDataSource$inboundSchema: z.ZodNativeEnum<
   typeof DocumentFindDataSource
-> = z.nativeEnum(DocumentFindDataSource);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(DocumentFindDataSource));
 /** @internal */
 export const DocumentFindDataSource$outboundSchema: z.ZodNativeEnum<
   typeof DocumentFindDataSource
@@ -417,7 +433,9 @@ export const DocumentFindDataSource$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const DocumentFindGlobalAccessAuth$inboundSchema: z.ZodNativeEnum<
   typeof DocumentFindGlobalAccessAuth
-> = z.nativeEnum(DocumentFindGlobalAccessAuth);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(DocumentFindGlobalAccessAuth)
+);
 /** @internal */
 export const DocumentFindGlobalAccessAuth$outboundSchema: z.ZodNativeEnum<
   typeof DocumentFindGlobalAccessAuth
@@ -426,7 +444,9 @@ export const DocumentFindGlobalAccessAuth$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const DocumentFindGlobalActionAuth$inboundSchema: z.ZodNativeEnum<
   typeof DocumentFindGlobalActionAuth
-> = z.nativeEnum(DocumentFindGlobalActionAuth);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(DocumentFindGlobalActionAuth)
+);
 /** @internal */
 export const DocumentFindGlobalActionAuth$outboundSchema: z.ZodNativeEnum<
   typeof DocumentFindGlobalActionAuth
@@ -437,10 +457,12 @@ export const DocumentFindAuthOptions$inboundSchema: z.ZodType<
   DocumentFindAuthOptions,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  globalAccessAuth: z.array(DocumentFindGlobalAccessAuth$inboundSchema),
-  globalActionAuth: z.array(DocumentFindGlobalActionAuth$inboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    globalAccessAuth: z.array(DocumentFindGlobalAccessAuth$inboundSchema),
+    globalActionAuth: z.array(DocumentFindGlobalActionAuth$inboundSchema),
+  })
+);
 /** @internal */
 export type DocumentFindAuthOptions$Outbound = {
   globalAccessAuth: Array<string>;
@@ -452,10 +474,12 @@ export const DocumentFindAuthOptions$outboundSchema: z.ZodType<
   DocumentFindAuthOptions$Outbound,
   z.ZodTypeDef,
   DocumentFindAuthOptions
-> = z.object({
-  globalAccessAuth: z.array(DocumentFindGlobalAccessAuth$outboundSchema),
-  globalActionAuth: z.array(DocumentFindGlobalActionAuth$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    globalAccessAuth: z.array(DocumentFindGlobalAccessAuth$outboundSchema),
+    globalActionAuth: z.array(DocumentFindGlobalActionAuth$outboundSchema),
+  })
+);
 
 export function documentFindAuthOptionsToJSON(
   documentFindAuthOptions: DocumentFindAuthOptions,
@@ -479,7 +503,9 @@ export const DocumentFindFormValues$inboundSchema: z.ZodType<
   DocumentFindFormValues,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.boolean(), z.number()]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([z.string(), z.boolean(), z.number()])
+);
 /** @internal */
 export type DocumentFindFormValues$Outbound = string | boolean | number;
 
@@ -488,7 +514,9 @@ export const DocumentFindFormValues$outboundSchema: z.ZodType<
   DocumentFindFormValues$Outbound,
   z.ZodTypeDef,
   DocumentFindFormValues
-> = z.union([z.string(), z.boolean(), z.number()]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([z.string(), z.boolean(), z.number()])
+);
 
 export function documentFindFormValuesToJSON(
   documentFindFormValues: DocumentFindFormValues,
@@ -512,11 +540,13 @@ export const DocumentFindUser$inboundSchema: z.ZodType<
   DocumentFindUser,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.number(),
-  name: z.nullable(z.string()),
-  email: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    name: z.nullable(z.string()),
+    email: z.string(),
+  })
+);
 /** @internal */
 export type DocumentFindUser$Outbound = {
   id: number;
@@ -529,11 +559,13 @@ export const DocumentFindUser$outboundSchema: z.ZodType<
   DocumentFindUser$Outbound,
   z.ZodTypeDef,
   DocumentFindUser
-> = z.object({
-  id: z.number(),
-  name: z.nullable(z.string()),
-  email: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    name: z.nullable(z.string()),
+    email: z.string(),
+  })
+);
 
 export function documentFindUserToJSON(
   documentFindUser: DocumentFindUser,
@@ -555,7 +587,7 @@ export function documentFindUserFromJSON(
 /** @internal */
 export const DocumentFindRole$inboundSchema: z.ZodNativeEnum<
   typeof DocumentFindRole
-> = z.nativeEnum(DocumentFindRole);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(DocumentFindRole));
 /** @internal */
 export const DocumentFindRole$outboundSchema: z.ZodNativeEnum<
   typeof DocumentFindRole
@@ -564,7 +596,7 @@ export const DocumentFindRole$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const DocumentFindReadStatus$inboundSchema: z.ZodNativeEnum<
   typeof DocumentFindReadStatus
-> = z.nativeEnum(DocumentFindReadStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(DocumentFindReadStatus));
 /** @internal */
 export const DocumentFindReadStatus$outboundSchema: z.ZodNativeEnum<
   typeof DocumentFindReadStatus
@@ -573,7 +605,7 @@ export const DocumentFindReadStatus$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const DocumentFindSigningStatus$inboundSchema: z.ZodNativeEnum<
   typeof DocumentFindSigningStatus
-> = z.nativeEnum(DocumentFindSigningStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(DocumentFindSigningStatus));
 /** @internal */
 export const DocumentFindSigningStatus$outboundSchema: z.ZodNativeEnum<
   typeof DocumentFindSigningStatus
@@ -582,7 +614,7 @@ export const DocumentFindSigningStatus$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const DocumentFindSendStatus$inboundSchema: z.ZodNativeEnum<
   typeof DocumentFindSendStatus
-> = z.nativeEnum(DocumentFindSendStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(DocumentFindSendStatus));
 /** @internal */
 export const DocumentFindSendStatus$outboundSchema: z.ZodNativeEnum<
   typeof DocumentFindSendStatus
@@ -591,7 +623,7 @@ export const DocumentFindSendStatus$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const DocumentFindAccessAuth$inboundSchema: z.ZodNativeEnum<
   typeof DocumentFindAccessAuth
-> = z.nativeEnum(DocumentFindAccessAuth);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(DocumentFindAccessAuth));
 /** @internal */
 export const DocumentFindAccessAuth$outboundSchema: z.ZodNativeEnum<
   typeof DocumentFindAccessAuth
@@ -600,7 +632,7 @@ export const DocumentFindAccessAuth$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const DocumentFindActionAuth$inboundSchema: z.ZodNativeEnum<
   typeof DocumentFindActionAuth
-> = z.nativeEnum(DocumentFindActionAuth);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(DocumentFindActionAuth));
 /** @internal */
 export const DocumentFindActionAuth$outboundSchema: z.ZodNativeEnum<
   typeof DocumentFindActionAuth
@@ -611,10 +643,12 @@ export const DocumentFindRecipientAuthOptions$inboundSchema: z.ZodType<
   DocumentFindRecipientAuthOptions,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  accessAuth: z.array(DocumentFindAccessAuth$inboundSchema),
-  actionAuth: z.array(DocumentFindActionAuth$inboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    accessAuth: z.array(DocumentFindAccessAuth$inboundSchema),
+    actionAuth: z.array(DocumentFindActionAuth$inboundSchema),
+  })
+);
 /** @internal */
 export type DocumentFindRecipientAuthOptions$Outbound = {
   accessAuth: Array<string>;
@@ -626,10 +660,12 @@ export const DocumentFindRecipientAuthOptions$outboundSchema: z.ZodType<
   DocumentFindRecipientAuthOptions$Outbound,
   z.ZodTypeDef,
   DocumentFindRecipientAuthOptions
-> = z.object({
-  accessAuth: z.array(DocumentFindAccessAuth$outboundSchema),
-  actionAuth: z.array(DocumentFindActionAuth$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    accessAuth: z.array(DocumentFindAccessAuth$outboundSchema),
+    actionAuth: z.array(DocumentFindActionAuth$outboundSchema),
+  })
+);
 
 export function documentFindRecipientAuthOptionsToJSON(
   documentFindRecipientAuthOptions: DocumentFindRecipientAuthOptions,
@@ -655,29 +691,31 @@ export const DocumentFindRecipient$inboundSchema: z.ZodType<
   DocumentFindRecipient,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeId: z.string(),
-  role: DocumentFindRole$inboundSchema,
-  readStatus: DocumentFindReadStatus$inboundSchema,
-  signingStatus: DocumentFindSigningStatus$inboundSchema,
-  sendStatus: DocumentFindSendStatus$inboundSchema,
-  id: z.number(),
-  email: z.string(),
-  name: z.string(),
-  token: z.string(),
-  documentDeletedAt: z.nullable(z.string()),
-  expired: z.nullable(z.string()),
-  expiresAt: z.nullable(z.string()),
-  expirationNotifiedAt: z.nullable(z.string()),
-  signedAt: z.nullable(z.string()),
-  authOptions: z.nullable(
-    z.lazy(() => DocumentFindRecipientAuthOptions$inboundSchema),
-  ),
-  signingOrder: z.nullable(z.number()),
-  rejectionReason: z.nullable(z.string()),
-  documentId: z.nullable(z.number()).optional(),
-  templateId: z.nullable(z.number()).optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    role: DocumentFindRole$inboundSchema,
+    readStatus: DocumentFindReadStatus$inboundSchema,
+    signingStatus: DocumentFindSigningStatus$inboundSchema,
+    sendStatus: DocumentFindSendStatus$inboundSchema,
+    id: z.number(),
+    email: z.string(),
+    name: z.string(),
+    token: z.string(),
+    documentDeletedAt: z.nullable(z.string()),
+    expired: z.nullable(z.string()),
+    expiresAt: z.nullable(z.string()),
+    expirationNotifiedAt: z.nullable(z.string()),
+    signedAt: z.nullable(z.string()),
+    authOptions: z.nullable(
+      z.lazy(() => DocumentFindRecipientAuthOptions$inboundSchema),
+    ),
+    signingOrder: z.nullable(z.number()),
+    rejectionReason: z.nullable(z.string()),
+    documentId: z.nullable(z.number()).optional(),
+    templateId: z.nullable(z.number()).optional(),
+  })
+);
 /** @internal */
 export type DocumentFindRecipient$Outbound = {
   envelopeId: string;
@@ -706,29 +744,31 @@ export const DocumentFindRecipient$outboundSchema: z.ZodType<
   DocumentFindRecipient$Outbound,
   z.ZodTypeDef,
   DocumentFindRecipient
-> = z.object({
-  envelopeId: z.string(),
-  role: DocumentFindRole$outboundSchema,
-  readStatus: DocumentFindReadStatus$outboundSchema,
-  signingStatus: DocumentFindSigningStatus$outboundSchema,
-  sendStatus: DocumentFindSendStatus$outboundSchema,
-  id: z.number(),
-  email: z.string(),
-  name: z.string(),
-  token: z.string(),
-  documentDeletedAt: z.nullable(z.string()),
-  expired: z.nullable(z.string()),
-  expiresAt: z.nullable(z.string()),
-  expirationNotifiedAt: z.nullable(z.string()),
-  signedAt: z.nullable(z.string()),
-  authOptions: z.nullable(
-    z.lazy(() => DocumentFindRecipientAuthOptions$outboundSchema),
-  ),
-  signingOrder: z.nullable(z.number()),
-  rejectionReason: z.nullable(z.string()),
-  documentId: z.nullable(z.number()).optional(),
-  templateId: z.nullable(z.number()).optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    role: DocumentFindRole$outboundSchema,
+    readStatus: DocumentFindReadStatus$outboundSchema,
+    signingStatus: DocumentFindSigningStatus$outboundSchema,
+    sendStatus: DocumentFindSendStatus$outboundSchema,
+    id: z.number(),
+    email: z.string(),
+    name: z.string(),
+    token: z.string(),
+    documentDeletedAt: z.nullable(z.string()),
+    expired: z.nullable(z.string()),
+    expiresAt: z.nullable(z.string()),
+    expirationNotifiedAt: z.nullable(z.string()),
+    signedAt: z.nullable(z.string()),
+    authOptions: z.nullable(
+      z.lazy(() => DocumentFindRecipientAuthOptions$outboundSchema),
+    ),
+    signingOrder: z.nullable(z.number()),
+    rejectionReason: z.nullable(z.string()),
+    documentId: z.nullable(z.number()).optional(),
+    templateId: z.nullable(z.number()).optional(),
+  })
+);
 
 export function documentFindRecipientToJSON(
   documentFindRecipient: DocumentFindRecipient,
@@ -752,10 +792,12 @@ export const DocumentFindTeam$inboundSchema: z.ZodType<
   DocumentFindTeam,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.number(),
-  url: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    url: z.string(),
+  })
+);
 /** @internal */
 export type DocumentFindTeam$Outbound = {
   id: number;
@@ -767,10 +809,12 @@ export const DocumentFindTeam$outboundSchema: z.ZodType<
   DocumentFindTeam$Outbound,
   z.ZodTypeDef,
   DocumentFindTeam
-> = z.object({
-  id: z.number(),
-  url: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    url: z.string(),
+  })
+);
 
 export function documentFindTeamToJSON(
   documentFindTeam: DocumentFindTeam,
@@ -794,33 +838,37 @@ export const DocumentFindData$inboundSchema: z.ZodType<
   DocumentFindData,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  visibility: DocumentFindVisibility$inboundSchema,
-  status: DocumentFindDataStatus$inboundSchema,
-  source: DocumentFindDataSource$inboundSchema,
-  id: z.number(),
-  externalId: z.nullable(z.string()),
-  userId: z.number(),
-  authOptions: z.nullable(z.lazy(() => DocumentFindAuthOptions$inboundSchema)),
-  formValues: z.nullable(
-    z.record(z.union([z.string(), z.boolean(), z.number()])),
-  ),
-  title: z.string(),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-  completedAt: z.nullable(z.string()),
-  deletedAt: z.nullable(z.string()),
-  teamId: z.number(),
-  folderId: z.nullable(z.string()),
-  useLegacyFieldInsertion: z.boolean(),
-  envelopeId: z.string(),
-  internalVersion: z.number(),
-  documentDataId: z.string().default(""),
-  templateId: z.nullable(z.number()).optional(),
-  user: z.lazy(() => DocumentFindUser$inboundSchema),
-  recipients: z.array(z.lazy(() => DocumentFindRecipient$inboundSchema)),
-  team: z.nullable(z.lazy(() => DocumentFindTeam$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    visibility: DocumentFindVisibility$inboundSchema,
+    status: DocumentFindDataStatus$inboundSchema,
+    source: DocumentFindDataSource$inboundSchema,
+    id: z.number(),
+    externalId: z.nullable(z.string()),
+    userId: z.number(),
+    authOptions: z.nullable(
+      z.lazy(() => DocumentFindAuthOptions$inboundSchema),
+    ),
+    formValues: z.nullable(
+      z.record(z.union([z.string(), z.boolean(), z.number()])),
+    ),
+    title: z.string(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    completedAt: z.nullable(z.string()),
+    deletedAt: z.nullable(z.string()),
+    teamId: z.number(),
+    folderId: z.nullable(z.string()),
+    useLegacyFieldInsertion: z.boolean(),
+    envelopeId: z.string(),
+    internalVersion: z.number(),
+    documentDataId: z.string().default(""),
+    templateId: z.nullable(z.number()).optional(),
+    user: z.lazy(() => DocumentFindUser$inboundSchema),
+    recipients: z.array(z.lazy(() => DocumentFindRecipient$inboundSchema)),
+    team: z.nullable(z.lazy(() => DocumentFindTeam$inboundSchema)),
+  })
+);
 /** @internal */
 export type DocumentFindData$Outbound = {
   visibility: string;
@@ -853,33 +901,37 @@ export const DocumentFindData$outboundSchema: z.ZodType<
   DocumentFindData$Outbound,
   z.ZodTypeDef,
   DocumentFindData
-> = z.object({
-  visibility: DocumentFindVisibility$outboundSchema,
-  status: DocumentFindDataStatus$outboundSchema,
-  source: DocumentFindDataSource$outboundSchema,
-  id: z.number(),
-  externalId: z.nullable(z.string()),
-  userId: z.number(),
-  authOptions: z.nullable(z.lazy(() => DocumentFindAuthOptions$outboundSchema)),
-  formValues: z.nullable(
-    z.record(z.union([z.string(), z.boolean(), z.number()])),
-  ),
-  title: z.string(),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-  completedAt: z.nullable(z.string()),
-  deletedAt: z.nullable(z.string()),
-  teamId: z.number(),
-  folderId: z.nullable(z.string()),
-  useLegacyFieldInsertion: z.boolean(),
-  envelopeId: z.string(),
-  internalVersion: z.number(),
-  documentDataId: z.string().default(""),
-  templateId: z.nullable(z.number()).optional(),
-  user: z.lazy(() => DocumentFindUser$outboundSchema),
-  recipients: z.array(z.lazy(() => DocumentFindRecipient$outboundSchema)),
-  team: z.nullable(z.lazy(() => DocumentFindTeam$outboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    visibility: DocumentFindVisibility$outboundSchema,
+    status: DocumentFindDataStatus$outboundSchema,
+    source: DocumentFindDataSource$outboundSchema,
+    id: z.number(),
+    externalId: z.nullable(z.string()),
+    userId: z.number(),
+    authOptions: z.nullable(
+      z.lazy(() => DocumentFindAuthOptions$outboundSchema),
+    ),
+    formValues: z.nullable(
+      z.record(z.union([z.string(), z.boolean(), z.number()])),
+    ),
+    title: z.string(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    completedAt: z.nullable(z.string()),
+    deletedAt: z.nullable(z.string()),
+    teamId: z.number(),
+    folderId: z.nullable(z.string()),
+    useLegacyFieldInsertion: z.boolean(),
+    envelopeId: z.string(),
+    internalVersion: z.number(),
+    documentDataId: z.string().default(""),
+    templateId: z.nullable(z.number()).optional(),
+    user: z.lazy(() => DocumentFindUser$outboundSchema),
+    recipients: z.array(z.lazy(() => DocumentFindRecipient$outboundSchema)),
+    team: z.nullable(z.lazy(() => DocumentFindTeam$outboundSchema)),
+  })
+);
 
 export function documentFindDataToJSON(
   documentFindData: DocumentFindData,
@@ -903,13 +955,15 @@ export const DocumentFindResponse$inboundSchema: z.ZodType<
   DocumentFindResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  data: z.array(z.lazy(() => DocumentFindData$inboundSchema)),
-  count: z.number(),
-  currentPage: z.number(),
-  perPage: z.number(),
-  totalPages: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    data: z.array(z.lazy(() => DocumentFindData$inboundSchema)),
+    count: z.number(),
+    currentPage: z.number(),
+    perPage: z.number(),
+    totalPages: z.number(),
+  })
+);
 /** @internal */
 export type DocumentFindResponse$Outbound = {
   data: Array<DocumentFindData$Outbound>;
@@ -924,13 +978,15 @@ export const DocumentFindResponse$outboundSchema: z.ZodType<
   DocumentFindResponse$Outbound,
   z.ZodTypeDef,
   DocumentFindResponse
-> = z.object({
-  data: z.array(z.lazy(() => DocumentFindData$outboundSchema)),
-  count: z.number(),
-  currentPage: z.number(),
-  perPage: z.number(),
-  totalPages: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    data: z.array(z.lazy(() => DocumentFindData$outboundSchema)),
+    count: z.number(),
+    currentPage: z.number(),
+    perPage: z.number(),
+    totalPages: z.number(),
+  })
+);
 
 export function documentFindResponseToJSON(
   documentFindResponse: DocumentFindResponse,

@@ -6,24 +6,18 @@
 import { EnvelopeAuditLogFindData33 } from "@documenso/sdk-typescript/models/operations";
 
 let value: EnvelopeAuditLogFindData33 = {
-  recipientEmail: "<value>",
-  recipientName: "<value>",
-  recipientId: 8752.32,
-  recipientRole: "<value>",
-  accessAuth: [],
-  actionAuth: [
-    "TWO_FACTOR_AUTH",
-  ],
+  fieldId: "<id>",
+  fieldRecipientEmail: "<value>",
+  fieldRecipientId: 8752.32,
+  fieldType: "<value>",
 };
 ```
 
 ## Fields
 
-| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `recipientEmail`                                                                                           | *string*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
-| `recipientName`                                                                                            | *string*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
-| `recipientId`                                                                                              | *number*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
-| `recipientRole`                                                                                            | *string*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
-| `accessAuth`                                                                                               | [operations.EnvelopeAuditLogFindAccessAuth3](../../models/operations/envelopeauditlogfindaccessauth3.md)[] | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
-| `actionAuth`                                                                                               | [operations.EnvelopeAuditLogFindActionAuth2](../../models/operations/envelopeauditlogfindactionauth2.md)[] | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| Field                 | Type                  | Required              | Description           |
+| --------------------- | --------------------- | --------------------- | --------------------- |
+| `fieldId`             | *string*              | :heavy_check_mark:    | N/A                   |
+| `fieldRecipientEmail` | *string*              | :heavy_check_mark:    | N/A                   |
+| `fieldRecipientId`    | *number*              | :heavy_check_mark:    | N/A                   |
+| `fieldType`           | *string*              | :heavy_check_mark:    | N/A                   |

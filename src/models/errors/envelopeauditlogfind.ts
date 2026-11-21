@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -199,9 +199,11 @@ export const EnvelopeAuditLogFindInternalServerErrorIssue$inboundSchema:
     EnvelopeAuditLogFindInternalServerErrorIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type EnvelopeAuditLogFindInternalServerErrorIssue$Outbound = {
   message: string;
@@ -213,9 +215,11 @@ export const EnvelopeAuditLogFindInternalServerErrorIssue$outboundSchema:
     EnvelopeAuditLogFindInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
     EnvelopeAuditLogFindInternalServerErrorIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function envelopeAuditLogFindInternalServerErrorIssueToJSON(
   envelopeAuditLogFindInternalServerErrorIssue:
@@ -248,23 +252,25 @@ export const EnvelopeAuditLogFindInternalServerError$inboundSchema: z.ZodType<
   EnvelopeAuditLogFindInternalServerError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => EnvelopeAuditLogFindInternalServerErrorIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new EnvelopeAuditLogFindInternalServerError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => EnvelopeAuditLogFindInternalServerErrorIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new EnvelopeAuditLogFindInternalServerError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type EnvelopeAuditLogFindInternalServerError$Outbound = {
@@ -280,24 +286,30 @@ export const EnvelopeAuditLogFindInternalServerError$outboundSchema: z.ZodType<
   EnvelopeAuditLogFindInternalServerError$Outbound,
   z.ZodTypeDef,
   EnvelopeAuditLogFindInternalServerError
-> = z.instanceof(EnvelopeAuditLogFindInternalServerError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeAuditLogFindInternalServerErrorIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(EnvelopeAuditLogFindInternalServerError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() =>
+          EnvelopeAuditLogFindInternalServerErrorIssue$outboundSchema
+        ),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const EnvelopeAuditLogFindNotFoundIssue$inboundSchema: z.ZodType<
   EnvelopeAuditLogFindNotFoundIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeAuditLogFindNotFoundIssue$Outbound = {
   message: string;
@@ -308,9 +320,11 @@ export const EnvelopeAuditLogFindNotFoundIssue$outboundSchema: z.ZodType<
   EnvelopeAuditLogFindNotFoundIssue$Outbound,
   z.ZodTypeDef,
   EnvelopeAuditLogFindNotFoundIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function envelopeAuditLogFindNotFoundIssueToJSON(
   envelopeAuditLogFindNotFoundIssue: EnvelopeAuditLogFindNotFoundIssue,
@@ -336,22 +350,25 @@ export const EnvelopeAuditLogFindNotFoundError$inboundSchema: z.ZodType<
   EnvelopeAuditLogFindNotFoundError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(z.lazy(() => EnvelopeAuditLogFindNotFoundIssue$inboundSchema))
-    .optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new EnvelopeAuditLogFindNotFoundError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => EnvelopeAuditLogFindNotFoundIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new EnvelopeAuditLogFindNotFoundError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type EnvelopeAuditLogFindNotFoundError$Outbound = {
@@ -365,24 +382,28 @@ export const EnvelopeAuditLogFindNotFoundError$outboundSchema: z.ZodType<
   EnvelopeAuditLogFindNotFoundError$Outbound,
   z.ZodTypeDef,
   EnvelopeAuditLogFindNotFoundError
-> = z.instanceof(EnvelopeAuditLogFindNotFoundError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeAuditLogFindNotFoundIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(EnvelopeAuditLogFindNotFoundError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => EnvelopeAuditLogFindNotFoundIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const EnvelopeAuditLogFindForbiddenIssue$inboundSchema: z.ZodType<
   EnvelopeAuditLogFindForbiddenIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeAuditLogFindForbiddenIssue$Outbound = {
   message: string;
@@ -393,9 +414,11 @@ export const EnvelopeAuditLogFindForbiddenIssue$outboundSchema: z.ZodType<
   EnvelopeAuditLogFindForbiddenIssue$Outbound,
   z.ZodTypeDef,
   EnvelopeAuditLogFindForbiddenIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function envelopeAuditLogFindForbiddenIssueToJSON(
   envelopeAuditLogFindForbiddenIssue: EnvelopeAuditLogFindForbiddenIssue,
@@ -422,23 +445,25 @@ export const EnvelopeAuditLogFindForbiddenError$inboundSchema: z.ZodType<
   EnvelopeAuditLogFindForbiddenError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => EnvelopeAuditLogFindForbiddenIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new EnvelopeAuditLogFindForbiddenError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => EnvelopeAuditLogFindForbiddenIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new EnvelopeAuditLogFindForbiddenError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type EnvelopeAuditLogFindForbiddenError$Outbound = {
@@ -452,24 +477,28 @@ export const EnvelopeAuditLogFindForbiddenError$outboundSchema: z.ZodType<
   EnvelopeAuditLogFindForbiddenError$Outbound,
   z.ZodTypeDef,
   EnvelopeAuditLogFindForbiddenError
-> = z.instanceof(EnvelopeAuditLogFindForbiddenError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeAuditLogFindForbiddenIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(EnvelopeAuditLogFindForbiddenError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => EnvelopeAuditLogFindForbiddenIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const EnvelopeAuditLogFindUnauthorizedIssue$inboundSchema: z.ZodType<
   EnvelopeAuditLogFindUnauthorizedIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeAuditLogFindUnauthorizedIssue$Outbound = {
   message: string;
@@ -480,9 +509,11 @@ export const EnvelopeAuditLogFindUnauthorizedIssue$outboundSchema: z.ZodType<
   EnvelopeAuditLogFindUnauthorizedIssue$Outbound,
   z.ZodTypeDef,
   EnvelopeAuditLogFindUnauthorizedIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function envelopeAuditLogFindUnauthorizedIssueToJSON(
   envelopeAuditLogFindUnauthorizedIssue: EnvelopeAuditLogFindUnauthorizedIssue,
@@ -509,23 +540,25 @@ export const EnvelopeAuditLogFindUnauthorizedError$inboundSchema: z.ZodType<
   EnvelopeAuditLogFindUnauthorizedError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => EnvelopeAuditLogFindUnauthorizedIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new EnvelopeAuditLogFindUnauthorizedError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => EnvelopeAuditLogFindUnauthorizedIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new EnvelopeAuditLogFindUnauthorizedError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type EnvelopeAuditLogFindUnauthorizedError$Outbound = {
@@ -539,24 +572,28 @@ export const EnvelopeAuditLogFindUnauthorizedError$outboundSchema: z.ZodType<
   EnvelopeAuditLogFindUnauthorizedError$Outbound,
   z.ZodTypeDef,
   EnvelopeAuditLogFindUnauthorizedError
-> = z.instanceof(EnvelopeAuditLogFindUnauthorizedError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeAuditLogFindUnauthorizedIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(EnvelopeAuditLogFindUnauthorizedError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => EnvelopeAuditLogFindUnauthorizedIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const EnvelopeAuditLogFindBadRequestIssue$inboundSchema: z.ZodType<
   EnvelopeAuditLogFindBadRequestIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeAuditLogFindBadRequestIssue$Outbound = {
   message: string;
@@ -567,9 +604,11 @@ export const EnvelopeAuditLogFindBadRequestIssue$outboundSchema: z.ZodType<
   EnvelopeAuditLogFindBadRequestIssue$Outbound,
   z.ZodTypeDef,
   EnvelopeAuditLogFindBadRequestIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function envelopeAuditLogFindBadRequestIssueToJSON(
   envelopeAuditLogFindBadRequestIssue: EnvelopeAuditLogFindBadRequestIssue,
@@ -596,23 +635,25 @@ export const EnvelopeAuditLogFindBadRequestError$inboundSchema: z.ZodType<
   EnvelopeAuditLogFindBadRequestError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => EnvelopeAuditLogFindBadRequestIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new EnvelopeAuditLogFindBadRequestError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => EnvelopeAuditLogFindBadRequestIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new EnvelopeAuditLogFindBadRequestError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type EnvelopeAuditLogFindBadRequestError$Outbound = {
@@ -626,12 +667,14 @@ export const EnvelopeAuditLogFindBadRequestError$outboundSchema: z.ZodType<
   EnvelopeAuditLogFindBadRequestError$Outbound,
   z.ZodTypeDef,
   EnvelopeAuditLogFindBadRequestError
-> = z.instanceof(EnvelopeAuditLogFindBadRequestError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeAuditLogFindBadRequestIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(EnvelopeAuditLogFindBadRequestError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => EnvelopeAuditLogFindBadRequestIssue$outboundSchema),
+      ).optional(),
+    }))
+);

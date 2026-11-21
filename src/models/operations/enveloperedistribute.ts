@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -48,10 +48,12 @@ export const EnvelopeRedistributeRequest$inboundSchema: z.ZodType<
   EnvelopeRedistributeRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeId: z.string(),
-  recipients: z.array(z.number()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    recipients: z.array(z.number()),
+  })
+);
 /** @internal */
 export type EnvelopeRedistributeRequest$Outbound = {
   envelopeId: string;
@@ -63,10 +65,12 @@ export const EnvelopeRedistributeRequest$outboundSchema: z.ZodType<
   EnvelopeRedistributeRequest$Outbound,
   z.ZodTypeDef,
   EnvelopeRedistributeRequest
-> = z.object({
-  envelopeId: z.string(),
-  recipients: z.array(z.number()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    recipients: z.array(z.number()),
+  })
+);
 
 export function envelopeRedistributeRequestToJSON(
   envelopeRedistributeRequest: EnvelopeRedistributeRequest,
@@ -90,7 +94,7 @@ export function envelopeRedistributeRequestFromJSON(
 /** @internal */
 export const EnvelopeRedistributeRole$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeRedistributeRole
-> = z.nativeEnum(EnvelopeRedistributeRole);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeRedistributeRole));
 /** @internal */
 export const EnvelopeRedistributeRole$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeRedistributeRole
@@ -101,15 +105,17 @@ export const EnvelopeRedistributeRecipient$inboundSchema: z.ZodType<
   EnvelopeRedistributeRecipient,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.number(),
-  name: z.string(),
-  email: z.string(),
-  token: z.string(),
-  role: EnvelopeRedistributeRole$inboundSchema,
-  signingOrder: z.nullable(z.number()),
-  signingUrl: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    name: z.string(),
+    email: z.string(),
+    token: z.string(),
+    role: EnvelopeRedistributeRole$inboundSchema,
+    signingOrder: z.nullable(z.number()),
+    signingUrl: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeRedistributeRecipient$Outbound = {
   id: number;
@@ -126,15 +132,17 @@ export const EnvelopeRedistributeRecipient$outboundSchema: z.ZodType<
   EnvelopeRedistributeRecipient$Outbound,
   z.ZodTypeDef,
   EnvelopeRedistributeRecipient
-> = z.object({
-  id: z.number(),
-  name: z.string(),
-  email: z.string(),
-  token: z.string(),
-  role: EnvelopeRedistributeRole$outboundSchema,
-  signingOrder: z.nullable(z.number()),
-  signingUrl: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    name: z.string(),
+    email: z.string(),
+    token: z.string(),
+    role: EnvelopeRedistributeRole$outboundSchema,
+    signingOrder: z.nullable(z.number()),
+    signingUrl: z.string(),
+  })
+);
 
 export function envelopeRedistributeRecipientToJSON(
   envelopeRedistributeRecipient: EnvelopeRedistributeRecipient,
@@ -160,13 +168,15 @@ export const EnvelopeRedistributeResponse$inboundSchema: z.ZodType<
   EnvelopeRedistributeResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  success: z.boolean(),
-  id: z.string(),
-  recipients: z.array(
-    z.lazy(() => EnvelopeRedistributeRecipient$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    success: z.boolean(),
+    id: z.string(),
+    recipients: z.array(
+      z.lazy(() => EnvelopeRedistributeRecipient$inboundSchema),
+    ),
+  })
+);
 /** @internal */
 export type EnvelopeRedistributeResponse$Outbound = {
   success: boolean;
@@ -179,13 +189,15 @@ export const EnvelopeRedistributeResponse$outboundSchema: z.ZodType<
   EnvelopeRedistributeResponse$Outbound,
   z.ZodTypeDef,
   EnvelopeRedistributeResponse
-> = z.object({
-  success: z.boolean(),
-  id: z.string(),
-  recipients: z.array(
-    z.lazy(() => EnvelopeRedistributeRecipient$outboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    success: z.boolean(),
+    id: z.string(),
+    recipients: z.array(
+      z.lazy(() => EnvelopeRedistributeRecipient$outboundSchema),
+    ),
+  })
+);
 
 export function envelopeRedistributeResponseToJSON(
   envelopeRedistributeResponse: EnvelopeRedistributeResponse,

@@ -61,21 +61,22 @@ let value: EnvelopeGetResponse = {
   },
   recipients: [],
   fields: [],
+  contents: [],
   envelopeItems: [],
   directLink: {
-    directTemplateRecipientId: 4451.07,
-    enabled: false,
+    directTemplateRecipientId: 5337.47,
+    enabled: true,
     id: "<id>",
     token: "<value>",
   },
   team: {
-    id: 2739.09,
-    url: "https://fatal-governance.biz",
+    id: 8051.74,
+    url: "https://ignorant-compromise.biz/",
   },
   user: {
-    id: 2095.1,
+    id: 1493.39,
     name: "<value>",
-    email: "Stewart_Littel@gmail.com",
+    email: "Marvin_Nienow@hotmail.com",
   },
 };
 ```
@@ -109,6 +110,7 @@ let value: EnvelopeGetResponse = {
 | `documentMeta`                                                                             | [operations.EnvelopeGetDocumentMeta](../../models/operations/envelopegetdocumentmeta.md)   | :heavy_check_mark:                                                                         | N/A                                                                                        |
 | `recipients`                                                                               | [operations.EnvelopeGetRecipient](../../models/operations/envelopegetrecipient.md)[]       | :heavy_check_mark:                                                                         | N/A                                                                                        |
 | `fields`                                                                                   | [operations.EnvelopeGetField](../../models/operations/envelopegetfield.md)[]               | :heavy_check_mark:                                                                         | N/A                                                                                        |
+| `contents`                                                                                 | [operations.EnvelopeGetContent](../../models/operations/envelopegetcontent.md)[]           | :heavy_check_mark:                                                                         | N/A                                                                                        |
 | `envelopeItems`                                                                            | [operations.EnvelopeGetEnvelopeItem](../../models/operations/envelopegetenvelopeitem.md)[] | :heavy_check_mark:                                                                         | N/A                                                                                        |
 | `directLink`                                                                               | [operations.EnvelopeGetDirectLink](../../models/operations/envelopegetdirectlink.md)       | :heavy_check_mark:                                                                         | N/A                                                                                        |
 | `team`                                                                                     | [operations.EnvelopeGetTeam](../../models/operations/envelopegetteam.md)                   | :heavy_check_mark:                                                                         | N/A                                                                                        |

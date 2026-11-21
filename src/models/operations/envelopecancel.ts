@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -24,10 +24,12 @@ export const EnvelopeCancelRequest$inboundSchema: z.ZodType<
   EnvelopeCancelRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeId: z.string(),
-  reason: z.string().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    reason: z.string().optional(),
+  })
+);
 /** @internal */
 export type EnvelopeCancelRequest$Outbound = {
   envelopeId: string;
@@ -39,10 +41,12 @@ export const EnvelopeCancelRequest$outboundSchema: z.ZodType<
   EnvelopeCancelRequest$Outbound,
   z.ZodTypeDef,
   EnvelopeCancelRequest
-> = z.object({
-  envelopeId: z.string(),
-  reason: z.string().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    reason: z.string().optional(),
+  })
+);
 
 export function envelopeCancelRequestToJSON(
   envelopeCancelRequest: EnvelopeCancelRequest,
@@ -66,9 +70,11 @@ export const EnvelopeCancelResponse$inboundSchema: z.ZodType<
   EnvelopeCancelResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  success: z.boolean(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    success: z.boolean(),
+  })
+);
 /** @internal */
 export type EnvelopeCancelResponse$Outbound = {
   success: boolean;
@@ -79,9 +85,11 @@ export const EnvelopeCancelResponse$outboundSchema: z.ZodType<
   EnvelopeCancelResponse$Outbound,
   z.ZodTypeDef,
   EnvelopeCancelResponse
-> = z.object({
-  success: z.boolean(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    success: z.boolean(),
+  })
+);
 
 export function envelopeCancelResponseToJSON(
   envelopeCancelResponse: EnvelopeCancelResponse,

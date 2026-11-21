@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -45,7 +45,9 @@ export type DocumentDownloadBetaResponse = {
 /** @internal */
 export const DocumentDownloadBetaVersion$inboundSchema: z.ZodNativeEnum<
   typeof DocumentDownloadBetaVersion
-> = z.nativeEnum(DocumentDownloadBetaVersion);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(DocumentDownloadBetaVersion)
+);
 /** @internal */
 export const DocumentDownloadBetaVersion$outboundSchema: z.ZodNativeEnum<
   typeof DocumentDownloadBetaVersion
@@ -56,10 +58,12 @@ export const DocumentDownloadBetaRequest$inboundSchema: z.ZodType<
   DocumentDownloadBetaRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  documentId: z.number(),
-  version: DocumentDownloadBetaVersion$inboundSchema.default("signed"),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    documentId: z.number(),
+    version: DocumentDownloadBetaVersion$inboundSchema.default("signed"),
+  })
+);
 /** @internal */
 export type DocumentDownloadBetaRequest$Outbound = {
   documentId: number;
@@ -71,10 +75,12 @@ export const DocumentDownloadBetaRequest$outboundSchema: z.ZodType<
   DocumentDownloadBetaRequest$Outbound,
   z.ZodTypeDef,
   DocumentDownloadBetaRequest
-> = z.object({
-  documentId: z.number(),
-  version: DocumentDownloadBetaVersion$outboundSchema.default("signed"),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    documentId: z.number(),
+    version: DocumentDownloadBetaVersion$outboundSchema.default("signed"),
+  })
+);
 
 export function documentDownloadBetaRequestToJSON(
   documentDownloadBetaRequest: DocumentDownloadBetaRequest,
@@ -100,11 +106,13 @@ export const DocumentDownloadBetaResponse$inboundSchema: z.ZodType<
   DocumentDownloadBetaResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  downloadUrl: z.string(),
-  filename: z.string(),
-  contentType: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    downloadUrl: z.string(),
+    filename: z.string(),
+    contentType: z.string(),
+  })
+);
 /** @internal */
 export type DocumentDownloadBetaResponse$Outbound = {
   downloadUrl: string;
@@ -117,11 +125,13 @@ export const DocumentDownloadBetaResponse$outboundSchema: z.ZodType<
   DocumentDownloadBetaResponse$Outbound,
   z.ZodTypeDef,
   DocumentDownloadBetaResponse
-> = z.object({
-  downloadUrl: z.string(),
-  filename: z.string(),
-  contentType: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    downloadUrl: z.string(),
+    filename: z.string(),
+    contentType: z.string(),
+  })
+);
 
 export function documentDownloadBetaResponseToJSON(
   documentDownloadBetaResponse: DocumentDownloadBetaResponse,

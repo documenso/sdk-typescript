@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -532,6 +532,14 @@ export type TemplateGetTemplateByIdTextAlign1 = ClosedEnum<
   typeof TemplateGetTemplateByIdTextAlign1
 >;
 
+export const TemplateGetTemplateByIdFontFamily = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type TemplateGetTemplateByIdFontFamily = ClosedEnum<
+  typeof TemplateGetTemplateByIdFontFamily
+>;
+
 export type TemplateGetTemplateByIdFieldMetaInitials = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -541,6 +549,7 @@ export type TemplateGetTemplateByIdFieldMetaInitials = {
   overflow?: TemplateGetTemplateByIdOverflow2 | undefined;
   type: "initials";
   textAlign?: TemplateGetTemplateByIdTextAlign1 | undefined;
+  fontFamily?: TemplateGetTemplateByIdFontFamily | undefined;
 };
 
 export const TemplateGetTemplateByIdOverflow1 = {
@@ -674,9 +683,11 @@ export const TemplateGetTemplateByIdRequest$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  templateId: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    templateId: z.number(),
+  })
+);
 /** @internal */
 export type TemplateGetTemplateByIdRequest$Outbound = {
   templateId: number;
@@ -687,9 +698,11 @@ export const TemplateGetTemplateByIdRequest$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdRequest$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdRequest
-> = z.object({
-  templateId: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    templateId: z.number(),
+  })
+);
 
 export function templateGetTemplateByIdRequestToJSON(
   templateGetTemplateByIdRequest: TemplateGetTemplateByIdRequest,
@@ -713,7 +726,9 @@ export function templateGetTemplateByIdRequestFromJSON(
 /** @internal */
 export const TemplateGetTemplateByIdTypeEnum$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdTypeEnum
-> = z.nativeEnum(TemplateGetTemplateByIdTypeEnum);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateGetTemplateByIdTypeEnum)
+);
 /** @internal */
 export const TemplateGetTemplateByIdTypeEnum$outboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdTypeEnum
@@ -722,7 +737,9 @@ export const TemplateGetTemplateByIdTypeEnum$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const TemplateGetTemplateByIdVisibility$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdVisibility
-> = z.nativeEnum(TemplateGetTemplateByIdVisibility);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateGetTemplateByIdVisibility)
+);
 /** @internal */
 export const TemplateGetTemplateByIdVisibility$outboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdVisibility
@@ -730,8 +747,10 @@ export const TemplateGetTemplateByIdVisibility$outboundSchema: z.ZodNativeEnum<
 
 /** @internal */
 export const TemplateGetTemplateByIdGlobalAccessAuth$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateGetTemplateByIdGlobalAccessAuth> = z
-    .nativeEnum(TemplateGetTemplateByIdGlobalAccessAuth);
+  z.ZodNativeEnum<typeof TemplateGetTemplateByIdGlobalAccessAuth> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateGetTemplateByIdGlobalAccessAuth)
+    );
 /** @internal */
 export const TemplateGetTemplateByIdGlobalAccessAuth$outboundSchema:
   z.ZodNativeEnum<typeof TemplateGetTemplateByIdGlobalAccessAuth> =
@@ -739,8 +758,10 @@ export const TemplateGetTemplateByIdGlobalAccessAuth$outboundSchema:
 
 /** @internal */
 export const TemplateGetTemplateByIdGlobalActionAuth$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateGetTemplateByIdGlobalActionAuth> = z
-    .nativeEnum(TemplateGetTemplateByIdGlobalActionAuth);
+  z.ZodNativeEnum<typeof TemplateGetTemplateByIdGlobalActionAuth> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateGetTemplateByIdGlobalActionAuth)
+    );
 /** @internal */
 export const TemplateGetTemplateByIdGlobalActionAuth$outboundSchema:
   z.ZodNativeEnum<typeof TemplateGetTemplateByIdGlobalActionAuth> =
@@ -751,14 +772,16 @@ export const TemplateGetTemplateByIdAuthOptions$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdAuthOptions,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  globalAccessAuth: z.array(
-    TemplateGetTemplateByIdGlobalAccessAuth$inboundSchema,
-  ),
-  globalActionAuth: z.array(
-    TemplateGetTemplateByIdGlobalActionAuth$inboundSchema,
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    globalAccessAuth: z.array(
+      TemplateGetTemplateByIdGlobalAccessAuth$inboundSchema,
+    ),
+    globalActionAuth: z.array(
+      TemplateGetTemplateByIdGlobalActionAuth$inboundSchema,
+    ),
+  })
+);
 /** @internal */
 export type TemplateGetTemplateByIdAuthOptions$Outbound = {
   globalAccessAuth: Array<string>;
@@ -770,14 +793,16 @@ export const TemplateGetTemplateByIdAuthOptions$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdAuthOptions$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdAuthOptions
-> = z.object({
-  globalAccessAuth: z.array(
-    TemplateGetTemplateByIdGlobalAccessAuth$outboundSchema,
-  ),
-  globalActionAuth: z.array(
-    TemplateGetTemplateByIdGlobalActionAuth$outboundSchema,
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    globalAccessAuth: z.array(
+      TemplateGetTemplateByIdGlobalAccessAuth$outboundSchema,
+    ),
+    globalActionAuth: z.array(
+      TemplateGetTemplateByIdGlobalActionAuth$outboundSchema,
+    ),
+  })
+);
 
 export function templateGetTemplateByIdAuthOptionsToJSON(
   templateGetTemplateByIdAuthOptions: TemplateGetTemplateByIdAuthOptions,
@@ -801,8 +826,10 @@ export function templateGetTemplateByIdAuthOptionsFromJSON(
 
 /** @internal */
 export const TemplateGetTemplateByIdTemplateDocumentDataType$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateGetTemplateByIdTemplateDocumentDataType> = z
-    .nativeEnum(TemplateGetTemplateByIdTemplateDocumentDataType);
+  z.ZodNativeEnum<typeof TemplateGetTemplateByIdTemplateDocumentDataType> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateGetTemplateByIdTemplateDocumentDataType)
+    );
 /** @internal */
 export const TemplateGetTemplateByIdTemplateDocumentDataType$outboundSchema:
   z.ZodNativeEnum<typeof TemplateGetTemplateByIdTemplateDocumentDataType> =
@@ -814,13 +841,15 @@ export const TemplateGetTemplateByIdTemplateDocumentData$inboundSchema:
     TemplateGetTemplateByIdTemplateDocumentData,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    type: TemplateGetTemplateByIdTemplateDocumentDataType$inboundSchema,
-    id: z.string(),
-    data: z.string(),
-    initialData: z.string(),
-    envelopeItemId: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      type: TemplateGetTemplateByIdTemplateDocumentDataType$inboundSchema,
+      id: z.string(),
+      data: z.string(),
+      initialData: z.string(),
+      envelopeItemId: z.string(),
+    })
+  );
 /** @internal */
 export type TemplateGetTemplateByIdTemplateDocumentData$Outbound = {
   type: string;
@@ -836,13 +865,15 @@ export const TemplateGetTemplateByIdTemplateDocumentData$outboundSchema:
     TemplateGetTemplateByIdTemplateDocumentData$Outbound,
     z.ZodTypeDef,
     TemplateGetTemplateByIdTemplateDocumentData
-  > = z.object({
-    type: TemplateGetTemplateByIdTemplateDocumentDataType$outboundSchema,
-    id: z.string(),
-    data: z.string(),
-    initialData: z.string(),
-    envelopeItemId: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      type: TemplateGetTemplateByIdTemplateDocumentDataType$outboundSchema,
+      id: z.string(),
+      data: z.string(),
+      initialData: z.string(),
+      envelopeItemId: z.string(),
+    })
+  );
 
 export function templateGetTemplateByIdTemplateDocumentDataToJSON(
   templateGetTemplateByIdTemplateDocumentData:
@@ -873,7 +904,9 @@ export function templateGetTemplateByIdTemplateDocumentDataFromJSON(
 /** @internal */
 export const TemplateGetTemplateByIdSigningOrder$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdSigningOrder
-> = z.nativeEnum(TemplateGetTemplateByIdSigningOrder);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateGetTemplateByIdSigningOrder)
+);
 /** @internal */
 export const TemplateGetTemplateByIdSigningOrder$outboundSchema:
   z.ZodNativeEnum<typeof TemplateGetTemplateByIdSigningOrder> =
@@ -881,8 +914,10 @@ export const TemplateGetTemplateByIdSigningOrder$outboundSchema:
 
 /** @internal */
 export const TemplateGetTemplateByIdDistributionMethod$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateGetTemplateByIdDistributionMethod> = z
-    .nativeEnum(TemplateGetTemplateByIdDistributionMethod);
+  z.ZodNativeEnum<typeof TemplateGetTemplateByIdDistributionMethod> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateGetTemplateByIdDistributionMethod)
+    );
 /** @internal */
 export const TemplateGetTemplateByIdDistributionMethod$outboundSchema:
   z.ZodNativeEnum<typeof TemplateGetTemplateByIdDistributionMethod> =
@@ -893,17 +928,19 @@ export const TemplateGetTemplateByIdEmailSettings$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdEmailSettings,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  recipientSigningRequest: z.boolean().default(true),
-  recipientRemoved: z.boolean().default(true),
-  recipientSigned: z.boolean().default(true),
-  documentPending: z.boolean().default(true),
-  documentCompleted: z.boolean().default(true),
-  documentDeleted: z.boolean().default(true),
-  ownerDocumentCompleted: z.boolean().default(true),
-  ownerRecipientExpired: z.boolean().default(true),
-  ownerDocumentCreated: z.boolean().default(true),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    recipientSigningRequest: z.boolean().default(true),
+    recipientRemoved: z.boolean().default(true),
+    recipientSigned: z.boolean().default(true),
+    documentPending: z.boolean().default(true),
+    documentCompleted: z.boolean().default(true),
+    documentDeleted: z.boolean().default(true),
+    ownerDocumentCompleted: z.boolean().default(true),
+    ownerRecipientExpired: z.boolean().default(true),
+    ownerDocumentCreated: z.boolean().default(true),
+  })
+);
 /** @internal */
 export type TemplateGetTemplateByIdEmailSettings$Outbound = {
   recipientSigningRequest: boolean;
@@ -922,17 +959,19 @@ export const TemplateGetTemplateByIdEmailSettings$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdEmailSettings$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdEmailSettings
-> = z.object({
-  recipientSigningRequest: z.boolean().default(true),
-  recipientRemoved: z.boolean().default(true),
-  recipientSigned: z.boolean().default(true),
-  documentPending: z.boolean().default(true),
-  documentCompleted: z.boolean().default(true),
-  documentDeleted: z.boolean().default(true),
-  ownerDocumentCompleted: z.boolean().default(true),
-  ownerRecipientExpired: z.boolean().default(true),
-  ownerDocumentCreated: z.boolean().default(true),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    recipientSigningRequest: z.boolean().default(true),
+    recipientRemoved: z.boolean().default(true),
+    recipientSigned: z.boolean().default(true),
+    documentPending: z.boolean().default(true),
+    documentCompleted: z.boolean().default(true),
+    documentDeleted: z.boolean().default(true),
+    ownerDocumentCompleted: z.boolean().default(true),
+    ownerRecipientExpired: z.boolean().default(true),
+    ownerDocumentCreated: z.boolean().default(true),
+  })
+);
 
 export function templateGetTemplateByIdEmailSettingsToJSON(
   templateGetTemplateByIdEmailSettings: TemplateGetTemplateByIdEmailSettings,
@@ -959,27 +998,29 @@ export const TemplateGetTemplateByIdTemplateMeta$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdTemplateMeta,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.string(),
-  subject: z.nullable(z.string()),
-  message: z.nullable(z.string()),
-  timezone: z.nullable(z.string()),
-  dateFormat: z.nullable(z.string()),
-  signingOrder: TemplateGetTemplateByIdSigningOrder$inboundSchema,
-  typedSignatureEnabled: z.boolean(),
-  uploadSignatureEnabled: z.boolean(),
-  drawSignatureEnabled: z.boolean(),
-  allowDictateNextSigner: z.boolean(),
-  distributionMethod: TemplateGetTemplateByIdDistributionMethod$inboundSchema,
-  redirectUrl: z.nullable(z.string()),
-  language: z.string(),
-  emailSettings: z.nullable(
-    z.lazy(() => TemplateGetTemplateByIdEmailSettings$inboundSchema),
-  ),
-  emailId: z.nullable(z.string()),
-  emailReplyTo: z.nullable(z.string()),
-  templateId: z.nullable(z.number()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    subject: z.nullable(z.string()),
+    message: z.nullable(z.string()),
+    timezone: z.nullable(z.string()),
+    dateFormat: z.nullable(z.string()),
+    signingOrder: TemplateGetTemplateByIdSigningOrder$inboundSchema,
+    typedSignatureEnabled: z.boolean(),
+    uploadSignatureEnabled: z.boolean(),
+    drawSignatureEnabled: z.boolean(),
+    allowDictateNextSigner: z.boolean(),
+    distributionMethod: TemplateGetTemplateByIdDistributionMethod$inboundSchema,
+    redirectUrl: z.nullable(z.string()),
+    language: z.string(),
+    emailSettings: z.nullable(
+      z.lazy(() => TemplateGetTemplateByIdEmailSettings$inboundSchema),
+    ),
+    emailId: z.nullable(z.string()),
+    emailReplyTo: z.nullable(z.string()),
+    templateId: z.nullable(z.number()),
+  })
+);
 /** @internal */
 export type TemplateGetTemplateByIdTemplateMeta$Outbound = {
   id: string;
@@ -1006,27 +1047,30 @@ export const TemplateGetTemplateByIdTemplateMeta$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdTemplateMeta$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdTemplateMeta
-> = z.object({
-  id: z.string(),
-  subject: z.nullable(z.string()),
-  message: z.nullable(z.string()),
-  timezone: z.nullable(z.string()),
-  dateFormat: z.nullable(z.string()),
-  signingOrder: TemplateGetTemplateByIdSigningOrder$outboundSchema,
-  typedSignatureEnabled: z.boolean(),
-  uploadSignatureEnabled: z.boolean(),
-  drawSignatureEnabled: z.boolean(),
-  allowDictateNextSigner: z.boolean(),
-  distributionMethod: TemplateGetTemplateByIdDistributionMethod$outboundSchema,
-  redirectUrl: z.nullable(z.string()),
-  language: z.string(),
-  emailSettings: z.nullable(
-    z.lazy(() => TemplateGetTemplateByIdEmailSettings$outboundSchema),
-  ),
-  emailId: z.nullable(z.string()),
-  emailReplyTo: z.nullable(z.string()),
-  templateId: z.nullable(z.number()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    subject: z.nullable(z.string()),
+    message: z.nullable(z.string()),
+    timezone: z.nullable(z.string()),
+    dateFormat: z.nullable(z.string()),
+    signingOrder: TemplateGetTemplateByIdSigningOrder$outboundSchema,
+    typedSignatureEnabled: z.boolean(),
+    uploadSignatureEnabled: z.boolean(),
+    drawSignatureEnabled: z.boolean(),
+    allowDictateNextSigner: z.boolean(),
+    distributionMethod:
+      TemplateGetTemplateByIdDistributionMethod$outboundSchema,
+    redirectUrl: z.nullable(z.string()),
+    language: z.string(),
+    emailSettings: z.nullable(
+      z.lazy(() => TemplateGetTemplateByIdEmailSettings$outboundSchema),
+    ),
+    emailId: z.nullable(z.string()),
+    emailReplyTo: z.nullable(z.string()),
+    templateId: z.nullable(z.number()),
+  })
+);
 
 export function templateGetTemplateByIdTemplateMetaToJSON(
   templateGetTemplateByIdTemplateMeta: TemplateGetTemplateByIdTemplateMeta,
@@ -1053,15 +1097,17 @@ export const TemplateGetTemplateByIdDirectLink$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdDirectLink,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.string(),
-  envelopeId: z.string(),
-  token: z.string(),
-  createdAt: z.string(),
-  enabled: z.boolean(),
-  directTemplateRecipientId: z.number(),
-  templateId: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    envelopeId: z.string(),
+    token: z.string(),
+    createdAt: z.string(),
+    enabled: z.boolean(),
+    directTemplateRecipientId: z.number(),
+    templateId: z.number(),
+  })
+);
 /** @internal */
 export type TemplateGetTemplateByIdDirectLink$Outbound = {
   id: string;
@@ -1078,15 +1124,17 @@ export const TemplateGetTemplateByIdDirectLink$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdDirectLink$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdDirectLink
-> = z.object({
-  id: z.string(),
-  envelopeId: z.string(),
-  token: z.string(),
-  createdAt: z.string(),
-  enabled: z.boolean(),
-  directTemplateRecipientId: z.number(),
-  templateId: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    envelopeId: z.string(),
+    token: z.string(),
+    createdAt: z.string(),
+    enabled: z.boolean(),
+    directTemplateRecipientId: z.number(),
+    templateId: z.number(),
+  })
+);
 
 export function templateGetTemplateByIdDirectLinkToJSON(
   templateGetTemplateByIdDirectLink: TemplateGetTemplateByIdDirectLink,
@@ -1112,11 +1160,13 @@ export const TemplateGetTemplateByIdUser$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdUser,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.number(),
-  name: z.nullable(z.string()),
-  email: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    name: z.nullable(z.string()),
+    email: z.string(),
+  })
+);
 /** @internal */
 export type TemplateGetTemplateByIdUser$Outbound = {
   id: number;
@@ -1129,11 +1179,13 @@ export const TemplateGetTemplateByIdUser$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdUser$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdUser
-> = z.object({
-  id: z.number(),
-  name: z.nullable(z.string()),
-  email: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    name: z.nullable(z.string()),
+    email: z.string(),
+  })
+);
 
 export function templateGetTemplateByIdUserToJSON(
   templateGetTemplateByIdUser: TemplateGetTemplateByIdUser,
@@ -1157,7 +1209,9 @@ export function templateGetTemplateByIdUserFromJSON(
 /** @internal */
 export const TemplateGetTemplateByIdRole$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdRole
-> = z.nativeEnum(TemplateGetTemplateByIdRole);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateGetTemplateByIdRole)
+);
 /** @internal */
 export const TemplateGetTemplateByIdRole$outboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdRole
@@ -1166,7 +1220,9 @@ export const TemplateGetTemplateByIdRole$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const TemplateGetTemplateByIdReadStatus$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdReadStatus
-> = z.nativeEnum(TemplateGetTemplateByIdReadStatus);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateGetTemplateByIdReadStatus)
+);
 /** @internal */
 export const TemplateGetTemplateByIdReadStatus$outboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdReadStatus
@@ -1174,9 +1230,10 @@ export const TemplateGetTemplateByIdReadStatus$outboundSchema: z.ZodNativeEnum<
 
 /** @internal */
 export const TemplateGetTemplateByIdSigningStatus$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateGetTemplateByIdSigningStatus> = z.nativeEnum(
-    TemplateGetTemplateByIdSigningStatus,
-  );
+  z.ZodNativeEnum<typeof TemplateGetTemplateByIdSigningStatus> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateGetTemplateByIdSigningStatus)
+    );
 /** @internal */
 export const TemplateGetTemplateByIdSigningStatus$outboundSchema:
   z.ZodNativeEnum<typeof TemplateGetTemplateByIdSigningStatus> =
@@ -1185,7 +1242,9 @@ export const TemplateGetTemplateByIdSigningStatus$outboundSchema:
 /** @internal */
 export const TemplateGetTemplateByIdSendStatus$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdSendStatus
-> = z.nativeEnum(TemplateGetTemplateByIdSendStatus);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateGetTemplateByIdSendStatus)
+);
 /** @internal */
 export const TemplateGetTemplateByIdSendStatus$outboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdSendStatus
@@ -1194,7 +1253,9 @@ export const TemplateGetTemplateByIdSendStatus$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const TemplateGetTemplateByIdAccessAuth$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdAccessAuth
-> = z.nativeEnum(TemplateGetTemplateByIdAccessAuth);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateGetTemplateByIdAccessAuth)
+);
 /** @internal */
 export const TemplateGetTemplateByIdAccessAuth$outboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdAccessAuth
@@ -1203,7 +1264,9 @@ export const TemplateGetTemplateByIdAccessAuth$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const TemplateGetTemplateByIdActionAuth$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdActionAuth
-> = z.nativeEnum(TemplateGetTemplateByIdActionAuth);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateGetTemplateByIdActionAuth)
+);
 /** @internal */
 export const TemplateGetTemplateByIdActionAuth$outboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdActionAuth
@@ -1215,10 +1278,12 @@ export const TemplateGetTemplateByIdRecipientAuthOptions$inboundSchema:
     TemplateGetTemplateByIdRecipientAuthOptions,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    accessAuth: z.array(TemplateGetTemplateByIdAccessAuth$inboundSchema),
-    actionAuth: z.array(TemplateGetTemplateByIdActionAuth$inboundSchema),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      accessAuth: z.array(TemplateGetTemplateByIdAccessAuth$inboundSchema),
+      actionAuth: z.array(TemplateGetTemplateByIdActionAuth$inboundSchema),
+    })
+  );
 /** @internal */
 export type TemplateGetTemplateByIdRecipientAuthOptions$Outbound = {
   accessAuth: Array<string>;
@@ -1231,10 +1296,12 @@ export const TemplateGetTemplateByIdRecipientAuthOptions$outboundSchema:
     TemplateGetTemplateByIdRecipientAuthOptions$Outbound,
     z.ZodTypeDef,
     TemplateGetTemplateByIdRecipientAuthOptions
-  > = z.object({
-    accessAuth: z.array(TemplateGetTemplateByIdAccessAuth$outboundSchema),
-    actionAuth: z.array(TemplateGetTemplateByIdActionAuth$outboundSchema),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      accessAuth: z.array(TemplateGetTemplateByIdAccessAuth$outboundSchema),
+      actionAuth: z.array(TemplateGetTemplateByIdActionAuth$outboundSchema),
+    })
+  );
 
 export function templateGetTemplateByIdRecipientAuthOptionsToJSON(
   templateGetTemplateByIdRecipientAuthOptions:
@@ -1267,29 +1334,31 @@ export const TemplateGetTemplateByIdRecipient$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdRecipient,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeId: z.string(),
-  role: TemplateGetTemplateByIdRole$inboundSchema,
-  readStatus: TemplateGetTemplateByIdReadStatus$inboundSchema,
-  signingStatus: TemplateGetTemplateByIdSigningStatus$inboundSchema,
-  sendStatus: TemplateGetTemplateByIdSendStatus$inboundSchema,
-  id: z.number(),
-  email: z.string(),
-  name: z.string(),
-  token: z.string(),
-  documentDeletedAt: z.nullable(z.string()),
-  expired: z.nullable(z.string()),
-  expiresAt: z.nullable(z.string()),
-  expirationNotifiedAt: z.nullable(z.string()),
-  signedAt: z.nullable(z.string()),
-  authOptions: z.nullable(
-    z.lazy(() => TemplateGetTemplateByIdRecipientAuthOptions$inboundSchema),
-  ),
-  signingOrder: z.nullable(z.number()),
-  rejectionReason: z.nullable(z.string()),
-  documentId: z.nullable(z.number()).optional(),
-  templateId: z.nullable(z.number()).optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    role: TemplateGetTemplateByIdRole$inboundSchema,
+    readStatus: TemplateGetTemplateByIdReadStatus$inboundSchema,
+    signingStatus: TemplateGetTemplateByIdSigningStatus$inboundSchema,
+    sendStatus: TemplateGetTemplateByIdSendStatus$inboundSchema,
+    id: z.number(),
+    email: z.string(),
+    name: z.string(),
+    token: z.string(),
+    documentDeletedAt: z.nullable(z.string()),
+    expired: z.nullable(z.string()),
+    expiresAt: z.nullable(z.string()),
+    expirationNotifiedAt: z.nullable(z.string()),
+    signedAt: z.nullable(z.string()),
+    authOptions: z.nullable(
+      z.lazy(() => TemplateGetTemplateByIdRecipientAuthOptions$inboundSchema),
+    ),
+    signingOrder: z.nullable(z.number()),
+    rejectionReason: z.nullable(z.string()),
+    documentId: z.nullable(z.number()).optional(),
+    templateId: z.nullable(z.number()).optional(),
+  })
+);
 /** @internal */
 export type TemplateGetTemplateByIdRecipient$Outbound = {
   envelopeId: string;
@@ -1318,29 +1387,31 @@ export const TemplateGetTemplateByIdRecipient$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdRecipient$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdRecipient
-> = z.object({
-  envelopeId: z.string(),
-  role: TemplateGetTemplateByIdRole$outboundSchema,
-  readStatus: TemplateGetTemplateByIdReadStatus$outboundSchema,
-  signingStatus: TemplateGetTemplateByIdSigningStatus$outboundSchema,
-  sendStatus: TemplateGetTemplateByIdSendStatus$outboundSchema,
-  id: z.number(),
-  email: z.string(),
-  name: z.string(),
-  token: z.string(),
-  documentDeletedAt: z.nullable(z.string()),
-  expired: z.nullable(z.string()),
-  expiresAt: z.nullable(z.string()),
-  expirationNotifiedAt: z.nullable(z.string()),
-  signedAt: z.nullable(z.string()),
-  authOptions: z.nullable(
-    z.lazy(() => TemplateGetTemplateByIdRecipientAuthOptions$outboundSchema),
-  ),
-  signingOrder: z.nullable(z.number()),
-  rejectionReason: z.nullable(z.string()),
-  documentId: z.nullable(z.number()).optional(),
-  templateId: z.nullable(z.number()).optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    role: TemplateGetTemplateByIdRole$outboundSchema,
+    readStatus: TemplateGetTemplateByIdReadStatus$outboundSchema,
+    signingStatus: TemplateGetTemplateByIdSigningStatus$outboundSchema,
+    sendStatus: TemplateGetTemplateByIdSendStatus$outboundSchema,
+    id: z.number(),
+    email: z.string(),
+    name: z.string(),
+    token: z.string(),
+    documentDeletedAt: z.nullable(z.string()),
+    expired: z.nullable(z.string()),
+    expiresAt: z.nullable(z.string()),
+    expirationNotifiedAt: z.nullable(z.string()),
+    signedAt: z.nullable(z.string()),
+    authOptions: z.nullable(
+      z.lazy(() => TemplateGetTemplateByIdRecipientAuthOptions$outboundSchema),
+    ),
+    signingOrder: z.nullable(z.number()),
+    rejectionReason: z.nullable(z.string()),
+    documentId: z.nullable(z.number()).optional(),
+    templateId: z.nullable(z.number()).optional(),
+  })
+);
 
 export function templateGetTemplateByIdRecipientToJSON(
   templateGetTemplateByIdRecipient: TemplateGetTemplateByIdRecipient,
@@ -1363,9 +1434,10 @@ export function templateGetTemplateByIdRecipientFromJSON(
 
 /** @internal */
 export const TemplateGetTemplateByIdFieldTypeEnum$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateGetTemplateByIdFieldTypeEnum> = z.nativeEnum(
-    TemplateGetTemplateByIdFieldTypeEnum,
-  );
+  z.ZodNativeEnum<typeof TemplateGetTemplateByIdFieldTypeEnum> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateGetTemplateByIdFieldTypeEnum)
+    );
 /** @internal */
 export const TemplateGetTemplateByIdFieldTypeEnum$outboundSchema:
   z.ZodNativeEnum<typeof TemplateGetTemplateByIdFieldTypeEnum> =
@@ -1374,7 +1446,9 @@ export const TemplateGetTemplateByIdFieldTypeEnum$outboundSchema:
 /** @internal */
 export const TemplateGetTemplateByIdOverflow10$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdOverflow10
-> = z.nativeEnum(TemplateGetTemplateByIdOverflow10);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateGetTemplateByIdOverflow10)
+);
 /** @internal */
 export const TemplateGetTemplateByIdOverflow10$outboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdOverflow10
@@ -1385,9 +1459,11 @@ export const TemplateGetTemplateByIdValue3$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdValue3,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    value: z.string(),
+  })
+);
 /** @internal */
 export type TemplateGetTemplateByIdValue3$Outbound = {
   value: string;
@@ -1398,9 +1474,11 @@ export const TemplateGetTemplateByIdValue3$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdValue3$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdValue3
-> = z.object({
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    value: z.string(),
+  })
+);
 
 export function templateGetTemplateByIdValue3ToJSON(
   templateGetTemplateByIdValue3: TemplateGetTemplateByIdValue3,
@@ -1426,18 +1504,20 @@ export const TemplateGetTemplateByIdFieldMetaDropdown$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdFieldMetaDropdown,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateGetTemplateByIdOverflow10$inboundSchema.optional(),
-  type: z.literal("dropdown"),
-  values: z.array(z.lazy(() => TemplateGetTemplateByIdValue3$inboundSchema))
-    .optional(),
-  defaultValue: z.string().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateGetTemplateByIdOverflow10$inboundSchema.optional(),
+    type: z.literal("dropdown"),
+    values: z.array(z.lazy(() => TemplateGetTemplateByIdValue3$inboundSchema))
+      .optional(),
+    defaultValue: z.string().optional(),
+  })
+);
 /** @internal */
 export type TemplateGetTemplateByIdFieldMetaDropdown$Outbound = {
   label?: string | undefined;
@@ -1456,18 +1536,20 @@ export const TemplateGetTemplateByIdFieldMetaDropdown$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdFieldMetaDropdown$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdFieldMetaDropdown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateGetTemplateByIdOverflow10$outboundSchema.optional(),
-  type: z.literal("dropdown"),
-  values: z.array(z.lazy(() => TemplateGetTemplateByIdValue3$outboundSchema))
-    .optional(),
-  defaultValue: z.string().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateGetTemplateByIdOverflow10$outboundSchema.optional(),
+    type: z.literal("dropdown"),
+    values: z.array(z.lazy(() => TemplateGetTemplateByIdValue3$outboundSchema))
+      .optional(),
+    defaultValue: z.string().optional(),
+  })
+);
 
 export function templateGetTemplateByIdFieldMetaDropdownToJSON(
   templateGetTemplateByIdFieldMetaDropdown:
@@ -1498,7 +1580,9 @@ export function templateGetTemplateByIdFieldMetaDropdownFromJSON(
 /** @internal */
 export const TemplateGetTemplateByIdOverflow9$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdOverflow9
-> = z.nativeEnum(TemplateGetTemplateByIdOverflow9);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateGetTemplateByIdOverflow9)
+);
 /** @internal */
 export const TemplateGetTemplateByIdOverflow9$outboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdOverflow9
@@ -1509,11 +1593,13 @@ export const TemplateGetTemplateByIdValue2$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdValue2,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 /** @internal */
 export type TemplateGetTemplateByIdValue2$Outbound = {
   id: number;
@@ -1526,11 +1612,13 @@ export const TemplateGetTemplateByIdValue2$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdValue2$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdValue2
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 
 export function templateGetTemplateByIdValue2ToJSON(
   templateGetTemplateByIdValue2: TemplateGetTemplateByIdValue2,
@@ -1554,7 +1642,9 @@ export function templateGetTemplateByIdValue2FromJSON(
 /** @internal */
 export const TemplateGetTemplateByIdDirection2$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdDirection2
-> = z.nativeEnum(TemplateGetTemplateByIdDirection2);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateGetTemplateByIdDirection2)
+);
 /** @internal */
 export const TemplateGetTemplateByIdDirection2$outboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdDirection2
@@ -1565,22 +1655,24 @@ export const TemplateGetTemplateByIdFieldMetaCheckbox$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdFieldMetaCheckbox,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateGetTemplateByIdOverflow9$inboundSchema.optional(),
-  type: z.literal("checkbox"),
-  values: z.array(z.lazy(() => TemplateGetTemplateByIdValue2$inboundSchema))
-    .optional(),
-  validationRule: z.string().optional(),
-  validationLength: z.number().optional(),
-  direction: TemplateGetTemplateByIdDirection2$inboundSchema.default(
-    "vertical",
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateGetTemplateByIdOverflow9$inboundSchema.optional(),
+    type: z.literal("checkbox"),
+    values: z.array(z.lazy(() => TemplateGetTemplateByIdValue2$inboundSchema))
+      .optional(),
+    validationRule: z.string().optional(),
+    validationLength: z.number().optional(),
+    direction: TemplateGetTemplateByIdDirection2$inboundSchema.default(
+      "vertical",
+    ),
+  })
+);
 /** @internal */
 export type TemplateGetTemplateByIdFieldMetaCheckbox$Outbound = {
   label?: string | undefined;
@@ -1601,22 +1693,24 @@ export const TemplateGetTemplateByIdFieldMetaCheckbox$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdFieldMetaCheckbox$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdFieldMetaCheckbox
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateGetTemplateByIdOverflow9$outboundSchema.optional(),
-  type: z.literal("checkbox"),
-  values: z.array(z.lazy(() => TemplateGetTemplateByIdValue2$outboundSchema))
-    .optional(),
-  validationRule: z.string().optional(),
-  validationLength: z.number().optional(),
-  direction: TemplateGetTemplateByIdDirection2$outboundSchema.default(
-    "vertical",
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateGetTemplateByIdOverflow9$outboundSchema.optional(),
+    type: z.literal("checkbox"),
+    values: z.array(z.lazy(() => TemplateGetTemplateByIdValue2$outboundSchema))
+      .optional(),
+    validationRule: z.string().optional(),
+    validationLength: z.number().optional(),
+    direction: TemplateGetTemplateByIdDirection2$outboundSchema.default(
+      "vertical",
+    ),
+  })
+);
 
 export function templateGetTemplateByIdFieldMetaCheckboxToJSON(
   templateGetTemplateByIdFieldMetaCheckbox:
@@ -1647,7 +1741,9 @@ export function templateGetTemplateByIdFieldMetaCheckboxFromJSON(
 /** @internal */
 export const TemplateGetTemplateByIdOverflow8$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdOverflow8
-> = z.nativeEnum(TemplateGetTemplateByIdOverflow8);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateGetTemplateByIdOverflow8)
+);
 /** @internal */
 export const TemplateGetTemplateByIdOverflow8$outboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdOverflow8
@@ -1658,11 +1754,13 @@ export const TemplateGetTemplateByIdValue1$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdValue1,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 /** @internal */
 export type TemplateGetTemplateByIdValue1$Outbound = {
   id: number;
@@ -1675,11 +1773,13 @@ export const TemplateGetTemplateByIdValue1$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdValue1$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdValue1
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 
 export function templateGetTemplateByIdValue1ToJSON(
   templateGetTemplateByIdValue1: TemplateGetTemplateByIdValue1,
@@ -1703,7 +1803,9 @@ export function templateGetTemplateByIdValue1FromJSON(
 /** @internal */
 export const TemplateGetTemplateByIdDirection1$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdDirection1
-> = z.nativeEnum(TemplateGetTemplateByIdDirection1);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateGetTemplateByIdDirection1)
+);
 /** @internal */
 export const TemplateGetTemplateByIdDirection1$outboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdDirection1
@@ -1714,20 +1816,22 @@ export const TemplateGetTemplateByIdFieldMetaRadio$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdFieldMetaRadio,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateGetTemplateByIdOverflow8$inboundSchema.optional(),
-  type: z.literal("radio"),
-  values: z.array(z.lazy(() => TemplateGetTemplateByIdValue1$inboundSchema))
-    .optional(),
-  direction: TemplateGetTemplateByIdDirection1$inboundSchema.default(
-    "vertical",
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateGetTemplateByIdOverflow8$inboundSchema.optional(),
+    type: z.literal("radio"),
+    values: z.array(z.lazy(() => TemplateGetTemplateByIdValue1$inboundSchema))
+      .optional(),
+    direction: TemplateGetTemplateByIdDirection1$inboundSchema.default(
+      "vertical",
+    ),
+  })
+);
 /** @internal */
 export type TemplateGetTemplateByIdFieldMetaRadio$Outbound = {
   label?: string | undefined;
@@ -1746,20 +1850,22 @@ export const TemplateGetTemplateByIdFieldMetaRadio$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdFieldMetaRadio$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdFieldMetaRadio
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateGetTemplateByIdOverflow8$outboundSchema.optional(),
-  type: z.literal("radio"),
-  values: z.array(z.lazy(() => TemplateGetTemplateByIdValue1$outboundSchema))
-    .optional(),
-  direction: TemplateGetTemplateByIdDirection1$outboundSchema.default(
-    "vertical",
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateGetTemplateByIdOverflow8$outboundSchema.optional(),
+    type: z.literal("radio"),
+    values: z.array(z.lazy(() => TemplateGetTemplateByIdValue1$outboundSchema))
+      .optional(),
+    direction: TemplateGetTemplateByIdDirection1$outboundSchema.default(
+      "vertical",
+    ),
+  })
+);
 
 export function templateGetTemplateByIdFieldMetaRadioToJSON(
   templateGetTemplateByIdFieldMetaRadio: TemplateGetTemplateByIdFieldMetaRadio,
@@ -1784,7 +1890,9 @@ export function templateGetTemplateByIdFieldMetaRadioFromJSON(
 /** @internal */
 export const TemplateGetTemplateByIdOverflow7$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdOverflow7
-> = z.nativeEnum(TemplateGetTemplateByIdOverflow7);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateGetTemplateByIdOverflow7)
+);
 /** @internal */
 export const TemplateGetTemplateByIdOverflow7$outboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdOverflow7
@@ -1793,7 +1901,9 @@ export const TemplateGetTemplateByIdOverflow7$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const TemplateGetTemplateByIdTextAlign6$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdTextAlign6
-> = z.nativeEnum(TemplateGetTemplateByIdTextAlign6);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateGetTemplateByIdTextAlign6)
+);
 /** @internal */
 export const TemplateGetTemplateByIdTextAlign6$outboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdTextAlign6
@@ -1801,9 +1911,10 @@ export const TemplateGetTemplateByIdTextAlign6$outboundSchema: z.ZodNativeEnum<
 
 /** @internal */
 export const TemplateGetTemplateByIdVerticalAlign2$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateGetTemplateByIdVerticalAlign2> = z.nativeEnum(
-    TemplateGetTemplateByIdVerticalAlign2,
-  );
+  z.ZodNativeEnum<typeof TemplateGetTemplateByIdVerticalAlign2> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateGetTemplateByIdVerticalAlign2)
+    );
 /** @internal */
 export const TemplateGetTemplateByIdVerticalAlign2$outboundSchema:
   z.ZodNativeEnum<typeof TemplateGetTemplateByIdVerticalAlign2> =
@@ -1814,24 +1925,27 @@ export const TemplateGetTemplateByIdFieldMetaNumber$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdFieldMetaNumber,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateGetTemplateByIdOverflow7$inboundSchema.optional(),
-  type: z.literal("number"),
-  numberFormat: z.nullable(z.string()).optional(),
-  value: z.string().optional(),
-  minValue: z.nullable(z.number()).optional(),
-  maxValue: z.nullable(z.number()).optional(),
-  textAlign: TemplateGetTemplateByIdTextAlign6$inboundSchema.optional(),
-  lineHeight: z.nullable(z.number()).optional(),
-  letterSpacing: z.nullable(z.number()).optional(),
-  verticalAlign: z.nullable(TemplateGetTemplateByIdVerticalAlign2$inboundSchema)
-    .optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateGetTemplateByIdOverflow7$inboundSchema.optional(),
+    type: z.literal("number"),
+    numberFormat: z.nullable(z.string()).optional(),
+    value: z.string().optional(),
+    minValue: z.nullable(z.number()).optional(),
+    maxValue: z.nullable(z.number()).optional(),
+    textAlign: TemplateGetTemplateByIdTextAlign6$inboundSchema.optional(),
+    lineHeight: z.nullable(z.number()).optional(),
+    letterSpacing: z.nullable(z.number()).optional(),
+    verticalAlign: z.nullable(
+      TemplateGetTemplateByIdVerticalAlign2$inboundSchema,
+    ).optional(),
+  })
+);
 /** @internal */
 export type TemplateGetTemplateByIdFieldMetaNumber$Outbound = {
   label?: string | undefined;
@@ -1856,25 +1970,27 @@ export const TemplateGetTemplateByIdFieldMetaNumber$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdFieldMetaNumber$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdFieldMetaNumber
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateGetTemplateByIdOverflow7$outboundSchema.optional(),
-  type: z.literal("number"),
-  numberFormat: z.nullable(z.string()).optional(),
-  value: z.string().optional(),
-  minValue: z.nullable(z.number()).optional(),
-  maxValue: z.nullable(z.number()).optional(),
-  textAlign: TemplateGetTemplateByIdTextAlign6$outboundSchema.optional(),
-  lineHeight: z.nullable(z.number()).optional(),
-  letterSpacing: z.nullable(z.number()).optional(),
-  verticalAlign: z.nullable(
-    TemplateGetTemplateByIdVerticalAlign2$outboundSchema,
-  ).optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateGetTemplateByIdOverflow7$outboundSchema.optional(),
+    type: z.literal("number"),
+    numberFormat: z.nullable(z.string()).optional(),
+    value: z.string().optional(),
+    minValue: z.nullable(z.number()).optional(),
+    maxValue: z.nullable(z.number()).optional(),
+    textAlign: TemplateGetTemplateByIdTextAlign6$outboundSchema.optional(),
+    lineHeight: z.nullable(z.number()).optional(),
+    letterSpacing: z.nullable(z.number()).optional(),
+    verticalAlign: z.nullable(
+      TemplateGetTemplateByIdVerticalAlign2$outboundSchema,
+    ).optional(),
+  })
+);
 
 export function templateGetTemplateByIdFieldMetaNumberToJSON(
   templateGetTemplateByIdFieldMetaNumber:
@@ -1900,7 +2016,9 @@ export function templateGetTemplateByIdFieldMetaNumberFromJSON(
 /** @internal */
 export const TemplateGetTemplateByIdOverflow6$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdOverflow6
-> = z.nativeEnum(TemplateGetTemplateByIdOverflow6);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateGetTemplateByIdOverflow6)
+);
 /** @internal */
 export const TemplateGetTemplateByIdOverflow6$outboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdOverflow6
@@ -1909,7 +2027,9 @@ export const TemplateGetTemplateByIdOverflow6$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const TemplateGetTemplateByIdTextAlign5$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdTextAlign5
-> = z.nativeEnum(TemplateGetTemplateByIdTextAlign5);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateGetTemplateByIdTextAlign5)
+);
 /** @internal */
 export const TemplateGetTemplateByIdTextAlign5$outboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdTextAlign5
@@ -1917,9 +2037,10 @@ export const TemplateGetTemplateByIdTextAlign5$outboundSchema: z.ZodNativeEnum<
 
 /** @internal */
 export const TemplateGetTemplateByIdVerticalAlign1$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateGetTemplateByIdVerticalAlign1> = z.nativeEnum(
-    TemplateGetTemplateByIdVerticalAlign1,
-  );
+  z.ZodNativeEnum<typeof TemplateGetTemplateByIdVerticalAlign1> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateGetTemplateByIdVerticalAlign1)
+    );
 /** @internal */
 export const TemplateGetTemplateByIdVerticalAlign1$outboundSchema:
   z.ZodNativeEnum<typeof TemplateGetTemplateByIdVerticalAlign1> =
@@ -1930,22 +2051,25 @@ export const TemplateGetTemplateByIdFieldMetaText$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdFieldMetaText,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateGetTemplateByIdOverflow6$inboundSchema.optional(),
-  type: z.literal("text"),
-  text: z.string().optional(),
-  characterLimit: z.number().optional(),
-  textAlign: TemplateGetTemplateByIdTextAlign5$inboundSchema.optional(),
-  lineHeight: z.nullable(z.number()).optional(),
-  letterSpacing: z.nullable(z.number()).optional(),
-  verticalAlign: z.nullable(TemplateGetTemplateByIdVerticalAlign1$inboundSchema)
-    .optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateGetTemplateByIdOverflow6$inboundSchema.optional(),
+    type: z.literal("text"),
+    text: z.string().optional(),
+    characterLimit: z.number().optional(),
+    textAlign: TemplateGetTemplateByIdTextAlign5$inboundSchema.optional(),
+    lineHeight: z.nullable(z.number()).optional(),
+    letterSpacing: z.nullable(z.number()).optional(),
+    verticalAlign: z.nullable(
+      TemplateGetTemplateByIdVerticalAlign1$inboundSchema,
+    ).optional(),
+  })
+);
 /** @internal */
 export type TemplateGetTemplateByIdFieldMetaText$Outbound = {
   label?: string | undefined;
@@ -1968,23 +2092,25 @@ export const TemplateGetTemplateByIdFieldMetaText$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdFieldMetaText$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdFieldMetaText
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateGetTemplateByIdOverflow6$outboundSchema.optional(),
-  type: z.literal("text"),
-  text: z.string().optional(),
-  characterLimit: z.number().optional(),
-  textAlign: TemplateGetTemplateByIdTextAlign5$outboundSchema.optional(),
-  lineHeight: z.nullable(z.number()).optional(),
-  letterSpacing: z.nullable(z.number()).optional(),
-  verticalAlign: z.nullable(
-    TemplateGetTemplateByIdVerticalAlign1$outboundSchema,
-  ).optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateGetTemplateByIdOverflow6$outboundSchema.optional(),
+    type: z.literal("text"),
+    text: z.string().optional(),
+    characterLimit: z.number().optional(),
+    textAlign: TemplateGetTemplateByIdTextAlign5$outboundSchema.optional(),
+    lineHeight: z.nullable(z.number()).optional(),
+    letterSpacing: z.nullable(z.number()).optional(),
+    verticalAlign: z.nullable(
+      TemplateGetTemplateByIdVerticalAlign1$outboundSchema,
+    ).optional(),
+  })
+);
 
 export function templateGetTemplateByIdFieldMetaTextToJSON(
   templateGetTemplateByIdFieldMetaText: TemplateGetTemplateByIdFieldMetaText,
@@ -2009,7 +2135,9 @@ export function templateGetTemplateByIdFieldMetaTextFromJSON(
 /** @internal */
 export const TemplateGetTemplateByIdOverflow5$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdOverflow5
-> = z.nativeEnum(TemplateGetTemplateByIdOverflow5);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateGetTemplateByIdOverflow5)
+);
 /** @internal */
 export const TemplateGetTemplateByIdOverflow5$outboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdOverflow5
@@ -2018,7 +2146,9 @@ export const TemplateGetTemplateByIdOverflow5$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const TemplateGetTemplateByIdTextAlign4$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdTextAlign4
-> = z.nativeEnum(TemplateGetTemplateByIdTextAlign4);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateGetTemplateByIdTextAlign4)
+);
 /** @internal */
 export const TemplateGetTemplateByIdTextAlign4$outboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdTextAlign4
@@ -2029,16 +2159,18 @@ export const TemplateGetTemplateByIdFieldMetaDate$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdFieldMetaDate,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateGetTemplateByIdOverflow5$inboundSchema.default("auto"),
-  type: z.literal("date"),
-  textAlign: TemplateGetTemplateByIdTextAlign4$inboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateGetTemplateByIdOverflow5$inboundSchema.default("auto"),
+    type: z.literal("date"),
+    textAlign: TemplateGetTemplateByIdTextAlign4$inboundSchema.optional(),
+  })
+);
 /** @internal */
 export type TemplateGetTemplateByIdFieldMetaDate$Outbound = {
   label?: string | undefined;
@@ -2056,16 +2188,18 @@ export const TemplateGetTemplateByIdFieldMetaDate$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdFieldMetaDate$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdFieldMetaDate
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateGetTemplateByIdOverflow5$outboundSchema.default("auto"),
-  type: z.literal("date"),
-  textAlign: TemplateGetTemplateByIdTextAlign4$outboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateGetTemplateByIdOverflow5$outboundSchema.default("auto"),
+    type: z.literal("date"),
+    textAlign: TemplateGetTemplateByIdTextAlign4$outboundSchema.optional(),
+  })
+);
 
 export function templateGetTemplateByIdFieldMetaDateToJSON(
   templateGetTemplateByIdFieldMetaDate: TemplateGetTemplateByIdFieldMetaDate,
@@ -2090,7 +2224,9 @@ export function templateGetTemplateByIdFieldMetaDateFromJSON(
 /** @internal */
 export const TemplateGetTemplateByIdOverflow4$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdOverflow4
-> = z.nativeEnum(TemplateGetTemplateByIdOverflow4);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateGetTemplateByIdOverflow4)
+);
 /** @internal */
 export const TemplateGetTemplateByIdOverflow4$outboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdOverflow4
@@ -2099,7 +2235,9 @@ export const TemplateGetTemplateByIdOverflow4$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const TemplateGetTemplateByIdTextAlign3$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdTextAlign3
-> = z.nativeEnum(TemplateGetTemplateByIdTextAlign3);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateGetTemplateByIdTextAlign3)
+);
 /** @internal */
 export const TemplateGetTemplateByIdTextAlign3$outboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdTextAlign3
@@ -2110,16 +2248,18 @@ export const TemplateGetTemplateByIdFieldMetaEmail$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdFieldMetaEmail,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateGetTemplateByIdOverflow4$inboundSchema.default("auto"),
-  type: z.literal("email"),
-  textAlign: TemplateGetTemplateByIdTextAlign3$inboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateGetTemplateByIdOverflow4$inboundSchema.default("auto"),
+    type: z.literal("email"),
+    textAlign: TemplateGetTemplateByIdTextAlign3$inboundSchema.optional(),
+  })
+);
 /** @internal */
 export type TemplateGetTemplateByIdFieldMetaEmail$Outbound = {
   label?: string | undefined;
@@ -2137,16 +2277,18 @@ export const TemplateGetTemplateByIdFieldMetaEmail$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdFieldMetaEmail$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdFieldMetaEmail
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateGetTemplateByIdOverflow4$outboundSchema.default("auto"),
-  type: z.literal("email"),
-  textAlign: TemplateGetTemplateByIdTextAlign3$outboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateGetTemplateByIdOverflow4$outboundSchema.default("auto"),
+    type: z.literal("email"),
+    textAlign: TemplateGetTemplateByIdTextAlign3$outboundSchema.optional(),
+  })
+);
 
 export function templateGetTemplateByIdFieldMetaEmailToJSON(
   templateGetTemplateByIdFieldMetaEmail: TemplateGetTemplateByIdFieldMetaEmail,
@@ -2171,7 +2313,9 @@ export function templateGetTemplateByIdFieldMetaEmailFromJSON(
 /** @internal */
 export const TemplateGetTemplateByIdOverflow3$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdOverflow3
-> = z.nativeEnum(TemplateGetTemplateByIdOverflow3);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateGetTemplateByIdOverflow3)
+);
 /** @internal */
 export const TemplateGetTemplateByIdOverflow3$outboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdOverflow3
@@ -2180,7 +2324,9 @@ export const TemplateGetTemplateByIdOverflow3$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const TemplateGetTemplateByIdTextAlign2$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdTextAlign2
-> = z.nativeEnum(TemplateGetTemplateByIdTextAlign2);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateGetTemplateByIdTextAlign2)
+);
 /** @internal */
 export const TemplateGetTemplateByIdTextAlign2$outboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdTextAlign2
@@ -2191,16 +2337,18 @@ export const TemplateGetTemplateByIdFieldMetaName$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdFieldMetaName,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateGetTemplateByIdOverflow3$inboundSchema.optional(),
-  type: z.literal("name"),
-  textAlign: TemplateGetTemplateByIdTextAlign2$inboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateGetTemplateByIdOverflow3$inboundSchema.optional(),
+    type: z.literal("name"),
+    textAlign: TemplateGetTemplateByIdTextAlign2$inboundSchema.optional(),
+  })
+);
 /** @internal */
 export type TemplateGetTemplateByIdFieldMetaName$Outbound = {
   label?: string | undefined;
@@ -2218,16 +2366,18 @@ export const TemplateGetTemplateByIdFieldMetaName$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdFieldMetaName$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdFieldMetaName
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateGetTemplateByIdOverflow3$outboundSchema.optional(),
-  type: z.literal("name"),
-  textAlign: TemplateGetTemplateByIdTextAlign2$outboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateGetTemplateByIdOverflow3$outboundSchema.optional(),
+    type: z.literal("name"),
+    textAlign: TemplateGetTemplateByIdTextAlign2$outboundSchema.optional(),
+  })
+);
 
 export function templateGetTemplateByIdFieldMetaNameToJSON(
   templateGetTemplateByIdFieldMetaName: TemplateGetTemplateByIdFieldMetaName,
@@ -2252,7 +2402,9 @@ export function templateGetTemplateByIdFieldMetaNameFromJSON(
 /** @internal */
 export const TemplateGetTemplateByIdOverflow2$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdOverflow2
-> = z.nativeEnum(TemplateGetTemplateByIdOverflow2);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateGetTemplateByIdOverflow2)
+);
 /** @internal */
 export const TemplateGetTemplateByIdOverflow2$outboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdOverflow2
@@ -2261,27 +2413,43 @@ export const TemplateGetTemplateByIdOverflow2$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const TemplateGetTemplateByIdTextAlign1$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdTextAlign1
-> = z.nativeEnum(TemplateGetTemplateByIdTextAlign1);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateGetTemplateByIdTextAlign1)
+);
 /** @internal */
 export const TemplateGetTemplateByIdTextAlign1$outboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdTextAlign1
 > = TemplateGetTemplateByIdTextAlign1$inboundSchema;
 
 /** @internal */
+export const TemplateGetTemplateByIdFontFamily$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetTemplateByIdFontFamily
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateGetTemplateByIdFontFamily)
+);
+/** @internal */
+export const TemplateGetTemplateByIdFontFamily$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateGetTemplateByIdFontFamily
+> = TemplateGetTemplateByIdFontFamily$inboundSchema;
+
+/** @internal */
 export const TemplateGetTemplateByIdFieldMetaInitials$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdFieldMetaInitials,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateGetTemplateByIdOverflow2$inboundSchema.optional(),
-  type: z.literal("initials"),
-  textAlign: TemplateGetTemplateByIdTextAlign1$inboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateGetTemplateByIdOverflow2$inboundSchema.optional(),
+    type: z.literal("initials"),
+    textAlign: TemplateGetTemplateByIdTextAlign1$inboundSchema.optional(),
+    fontFamily: TemplateGetTemplateByIdFontFamily$inboundSchema.optional(),
+  })
+);
 /** @internal */
 export type TemplateGetTemplateByIdFieldMetaInitials$Outbound = {
   label?: string | undefined;
@@ -2292,6 +2460,7 @@ export type TemplateGetTemplateByIdFieldMetaInitials$Outbound = {
   overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -2299,16 +2468,19 @@ export const TemplateGetTemplateByIdFieldMetaInitials$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdFieldMetaInitials$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdFieldMetaInitials
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateGetTemplateByIdOverflow2$outboundSchema.optional(),
-  type: z.literal("initials"),
-  textAlign: TemplateGetTemplateByIdTextAlign1$outboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateGetTemplateByIdOverflow2$outboundSchema.optional(),
+    type: z.literal("initials"),
+    textAlign: TemplateGetTemplateByIdTextAlign1$outboundSchema.optional(),
+    fontFamily: TemplateGetTemplateByIdFontFamily$outboundSchema.optional(),
+  })
+);
 
 export function templateGetTemplateByIdFieldMetaInitialsToJSON(
   templateGetTemplateByIdFieldMetaInitials:
@@ -2339,7 +2511,9 @@ export function templateGetTemplateByIdFieldMetaInitialsFromJSON(
 /** @internal */
 export const TemplateGetTemplateByIdOverflow1$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdOverflow1
-> = z.nativeEnum(TemplateGetTemplateByIdOverflow1);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateGetTemplateByIdOverflow1)
+);
 /** @internal */
 export const TemplateGetTemplateByIdOverflow1$outboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdOverflow1
@@ -2350,15 +2524,17 @@ export const TemplateGetTemplateByIdFieldMetaSignature$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdFieldMetaSignature,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateGetTemplateByIdOverflow1$inboundSchema.default("auto"),
-  type: z.literal("signature"),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateGetTemplateByIdOverflow1$inboundSchema.default("auto"),
+    type: z.literal("signature"),
+  })
+);
 /** @internal */
 export type TemplateGetTemplateByIdFieldMetaSignature$Outbound = {
   label?: string | undefined;
@@ -2376,15 +2552,17 @@ export const TemplateGetTemplateByIdFieldMetaSignature$outboundSchema:
     TemplateGetTemplateByIdFieldMetaSignature$Outbound,
     z.ZodTypeDef,
     TemplateGetTemplateByIdFieldMetaSignature
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: TemplateGetTemplateByIdOverflow1$outboundSchema.default("auto"),
-    type: z.literal("signature"),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: TemplateGetTemplateByIdOverflow1$outboundSchema.default("auto"),
+      type: z.literal("signature"),
+    })
+  );
 
 export function templateGetTemplateByIdFieldMetaSignatureToJSON(
   templateGetTemplateByIdFieldMetaSignature:
@@ -2417,18 +2595,20 @@ export const TemplateGetTemplateByIdFieldMetaUnion$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdFieldMetaUnion,
   z.ZodTypeDef,
   unknown
-> = z.union([
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaSignature$inboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaInitials$inboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaName$inboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaEmail$inboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaDate$inboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaText$inboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaNumber$inboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaRadio$inboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaCheckbox$inboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaDropdown$inboundSchema),
-]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([
+    z.lazy(() => TemplateGetTemplateByIdFieldMetaSignature$inboundSchema),
+    z.lazy(() => TemplateGetTemplateByIdFieldMetaInitials$inboundSchema),
+    z.lazy(() => TemplateGetTemplateByIdFieldMetaName$inboundSchema),
+    z.lazy(() => TemplateGetTemplateByIdFieldMetaEmail$inboundSchema),
+    z.lazy(() => TemplateGetTemplateByIdFieldMetaDate$inboundSchema),
+    z.lazy(() => TemplateGetTemplateByIdFieldMetaText$inboundSchema),
+    z.lazy(() => TemplateGetTemplateByIdFieldMetaNumber$inboundSchema),
+    z.lazy(() => TemplateGetTemplateByIdFieldMetaRadio$inboundSchema),
+    z.lazy(() => TemplateGetTemplateByIdFieldMetaCheckbox$inboundSchema),
+    z.lazy(() => TemplateGetTemplateByIdFieldMetaDropdown$inboundSchema),
+  ])
+);
 /** @internal */
 export type TemplateGetTemplateByIdFieldMetaUnion$Outbound =
   | TemplateGetTemplateByIdFieldMetaSignature$Outbound
@@ -2447,18 +2627,20 @@ export const TemplateGetTemplateByIdFieldMetaUnion$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdFieldMetaUnion$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdFieldMetaUnion
-> = z.union([
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaSignature$outboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaInitials$outboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaName$outboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaEmail$outboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaDate$outboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaText$outboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaNumber$outboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaRadio$outboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaCheckbox$outboundSchema),
-  z.lazy(() => TemplateGetTemplateByIdFieldMetaDropdown$outboundSchema),
-]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([
+    z.lazy(() => TemplateGetTemplateByIdFieldMetaSignature$outboundSchema),
+    z.lazy(() => TemplateGetTemplateByIdFieldMetaInitials$outboundSchema),
+    z.lazy(() => TemplateGetTemplateByIdFieldMetaName$outboundSchema),
+    z.lazy(() => TemplateGetTemplateByIdFieldMetaEmail$outboundSchema),
+    z.lazy(() => TemplateGetTemplateByIdFieldMetaDate$outboundSchema),
+    z.lazy(() => TemplateGetTemplateByIdFieldMetaText$outboundSchema),
+    z.lazy(() => TemplateGetTemplateByIdFieldMetaNumber$outboundSchema),
+    z.lazy(() => TemplateGetTemplateByIdFieldMetaRadio$outboundSchema),
+    z.lazy(() => TemplateGetTemplateByIdFieldMetaCheckbox$outboundSchema),
+    z.lazy(() => TemplateGetTemplateByIdFieldMetaDropdown$outboundSchema),
+  ])
+);
 
 export function templateGetTemplateByIdFieldMetaUnionToJSON(
   templateGetTemplateByIdFieldMetaUnion: TemplateGetTemplateByIdFieldMetaUnion,
@@ -2485,22 +2667,22 @@ export const TemplateGetTemplateByIdField$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdField,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeId: z.string(),
-  envelopeItemId: z.string(),
-  type: TemplateGetTemplateByIdFieldTypeEnum$inboundSchema,
-  id: z.number(),
-  secondaryId: z.string(),
-  recipientId: z.number(),
-  page: z.number(),
-  positionX: z.any().optional(),
-  positionY: z.any().optional(),
-  width: z.any().optional(),
-  height: z.any().optional(),
-  customText: z.string(),
-  inserted: z.boolean(),
-  fieldMeta: z.nullable(
-    z.union([
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    envelopeItemId: z.string(),
+    type: TemplateGetTemplateByIdFieldTypeEnum$inboundSchema,
+    id: z.number(),
+    secondaryId: z.string(),
+    recipientId: z.number(),
+    page: z.number(),
+    positionX: z.any().optional(),
+    positionY: z.any().optional(),
+    width: z.any().optional(),
+    height: z.any().optional(),
+    customText: z.string(),
+    inserted: z.boolean(),
+    fieldMeta: z.nullable(z.union([
       z.lazy(() => TemplateGetTemplateByIdFieldMetaSignature$inboundSchema),
       z.lazy(() => TemplateGetTemplateByIdFieldMetaInitials$inboundSchema),
       z.lazy(() => TemplateGetTemplateByIdFieldMetaName$inboundSchema),
@@ -2511,11 +2693,11 @@ export const TemplateGetTemplateByIdField$inboundSchema: z.ZodType<
       z.lazy(() => TemplateGetTemplateByIdFieldMetaRadio$inboundSchema),
       z.lazy(() => TemplateGetTemplateByIdFieldMetaCheckbox$inboundSchema),
       z.lazy(() => TemplateGetTemplateByIdFieldMetaDropdown$inboundSchema),
-    ]),
-  ),
-  documentId: z.nullable(z.number()).optional(),
-  templateId: z.nullable(z.number()).optional(),
-});
+    ])),
+    documentId: z.nullable(z.number()).optional(),
+    templateId: z.nullable(z.number()).optional(),
+  })
+);
 /** @internal */
 export type TemplateGetTemplateByIdField$Outbound = {
   envelopeId: string;
@@ -2552,22 +2734,22 @@ export const TemplateGetTemplateByIdField$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdField$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdField
-> = z.object({
-  envelopeId: z.string(),
-  envelopeItemId: z.string(),
-  type: TemplateGetTemplateByIdFieldTypeEnum$outboundSchema,
-  id: z.number(),
-  secondaryId: z.string(),
-  recipientId: z.number(),
-  page: z.number(),
-  positionX: z.any().optional(),
-  positionY: z.any().optional(),
-  width: z.any().optional(),
-  height: z.any().optional(),
-  customText: z.string(),
-  inserted: z.boolean(),
-  fieldMeta: z.nullable(
-    z.union([
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    envelopeItemId: z.string(),
+    type: TemplateGetTemplateByIdFieldTypeEnum$outboundSchema,
+    id: z.number(),
+    secondaryId: z.string(),
+    recipientId: z.number(),
+    page: z.number(),
+    positionX: z.any().optional(),
+    positionY: z.any().optional(),
+    width: z.any().optional(),
+    height: z.any().optional(),
+    customText: z.string(),
+    inserted: z.boolean(),
+    fieldMeta: z.nullable(z.union([
       z.lazy(() => TemplateGetTemplateByIdFieldMetaSignature$outboundSchema),
       z.lazy(() => TemplateGetTemplateByIdFieldMetaInitials$outboundSchema),
       z.lazy(() => TemplateGetTemplateByIdFieldMetaName$outboundSchema),
@@ -2578,11 +2760,11 @@ export const TemplateGetTemplateByIdField$outboundSchema: z.ZodType<
       z.lazy(() => TemplateGetTemplateByIdFieldMetaRadio$outboundSchema),
       z.lazy(() => TemplateGetTemplateByIdFieldMetaCheckbox$outboundSchema),
       z.lazy(() => TemplateGetTemplateByIdFieldMetaDropdown$outboundSchema),
-    ]),
-  ),
-  documentId: z.nullable(z.number()).optional(),
-  templateId: z.nullable(z.number()).optional(),
-});
+    ])),
+    documentId: z.nullable(z.number()).optional(),
+    templateId: z.nullable(z.number()).optional(),
+  })
+);
 
 export function templateGetTemplateByIdFieldToJSON(
   templateGetTemplateByIdField: TemplateGetTemplateByIdField,
@@ -2606,7 +2788,9 @@ export function templateGetTemplateByIdFieldFromJSON(
 /** @internal */
 export const TemplateGetTemplateByIdFolderType$inboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdFolderType
-> = z.nativeEnum(TemplateGetTemplateByIdFolderType);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateGetTemplateByIdFolderType)
+);
 /** @internal */
 export const TemplateGetTemplateByIdFolderType$outboundSchema: z.ZodNativeEnum<
   typeof TemplateGetTemplateByIdFolderType
@@ -2614,8 +2798,10 @@ export const TemplateGetTemplateByIdFolderType$outboundSchema: z.ZodNativeEnum<
 
 /** @internal */
 export const TemplateGetTemplateByIdFolderVisibility$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateGetTemplateByIdFolderVisibility> = z
-    .nativeEnum(TemplateGetTemplateByIdFolderVisibility);
+  z.ZodNativeEnum<typeof TemplateGetTemplateByIdFolderVisibility> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateGetTemplateByIdFolderVisibility)
+    );
 /** @internal */
 export const TemplateGetTemplateByIdFolderVisibility$outboundSchema:
   z.ZodNativeEnum<typeof TemplateGetTemplateByIdFolderVisibility> =
@@ -2626,18 +2812,20 @@ export const TemplateGetTemplateByIdFolder$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdFolder,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.string(),
-  name: z.string(),
-  type: TemplateGetTemplateByIdFolderType$inboundSchema,
-  visibility: TemplateGetTemplateByIdFolderVisibility$inboundSchema,
-  userId: z.number(),
-  teamId: z.number(),
-  pinned: z.boolean(),
-  parentId: z.nullable(z.string()),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    name: z.string(),
+    type: TemplateGetTemplateByIdFolderType$inboundSchema,
+    visibility: TemplateGetTemplateByIdFolderVisibility$inboundSchema,
+    userId: z.number(),
+    teamId: z.number(),
+    pinned: z.boolean(),
+    parentId: z.nullable(z.string()),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+  })
+);
 /** @internal */
 export type TemplateGetTemplateByIdFolder$Outbound = {
   id: string;
@@ -2657,18 +2845,20 @@ export const TemplateGetTemplateByIdFolder$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdFolder$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdFolder
-> = z.object({
-  id: z.string(),
-  name: z.string(),
-  type: TemplateGetTemplateByIdFolderType$outboundSchema,
-  visibility: TemplateGetTemplateByIdFolderVisibility$outboundSchema,
-  userId: z.number(),
-  teamId: z.number(),
-  pinned: z.boolean(),
-  parentId: z.nullable(z.string()),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    name: z.string(),
+    type: TemplateGetTemplateByIdFolderType$outboundSchema,
+    visibility: TemplateGetTemplateByIdFolderVisibility$outboundSchema,
+    userId: z.number(),
+    teamId: z.number(),
+    pinned: z.boolean(),
+    parentId: z.nullable(z.string()),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+  })
+);
 
 export function templateGetTemplateByIdFolderToJSON(
   templateGetTemplateByIdFolder: TemplateGetTemplateByIdFolder,
@@ -2694,10 +2884,12 @@ export const TemplateGetTemplateByIdEnvelopeItem$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdEnvelopeItem,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.string(),
-  envelopeId: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    envelopeId: z.string(),
+  })
+);
 /** @internal */
 export type TemplateGetTemplateByIdEnvelopeItem$Outbound = {
   id: string;
@@ -2709,10 +2901,12 @@ export const TemplateGetTemplateByIdEnvelopeItem$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdEnvelopeItem$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdEnvelopeItem
-> = z.object({
-  id: z.string(),
-  envelopeId: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    envelopeId: z.string(),
+  })
+);
 
 export function templateGetTemplateByIdEnvelopeItemToJSON(
   templateGetTemplateByIdEnvelopeItem: TemplateGetTemplateByIdEnvelopeItem,
@@ -2739,41 +2933,47 @@ export const TemplateGetTemplateByIdResponse$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  type: TemplateGetTemplateByIdTypeEnum$inboundSchema,
-  visibility: TemplateGetTemplateByIdVisibility$inboundSchema,
-  id: z.number(),
-  externalId: z.nullable(z.string()),
-  title: z.string(),
-  userId: z.number(),
-  teamId: z.number(),
-  authOptions: z.nullable(
-    z.lazy(() => TemplateGetTemplateByIdAuthOptions$inboundSchema),
-  ),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-  publicTitle: z.string(),
-  publicDescription: z.string(),
-  folderId: z.nullable(z.string()),
-  envelopeId: z.string(),
-  templateDocumentDataId: z.string().default(""),
-  templateDocumentData: z.lazy(() =>
-    TemplateGetTemplateByIdTemplateDocumentData$inboundSchema
-  ),
-  templateMeta: z.lazy(() => TemplateGetTemplateByIdTemplateMeta$inboundSchema),
-  directLink: z.nullable(
-    z.lazy(() => TemplateGetTemplateByIdDirectLink$inboundSchema),
-  ),
-  user: z.lazy(() => TemplateGetTemplateByIdUser$inboundSchema),
-  recipients: z.array(
-    z.lazy(() => TemplateGetTemplateByIdRecipient$inboundSchema),
-  ),
-  fields: z.array(z.lazy(() => TemplateGetTemplateByIdField$inboundSchema)),
-  folder: z.nullable(z.lazy(() => TemplateGetTemplateByIdFolder$inboundSchema)),
-  envelopeItems: z.array(
-    z.lazy(() => TemplateGetTemplateByIdEnvelopeItem$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: TemplateGetTemplateByIdTypeEnum$inboundSchema,
+    visibility: TemplateGetTemplateByIdVisibility$inboundSchema,
+    id: z.number(),
+    externalId: z.nullable(z.string()),
+    title: z.string(),
+    userId: z.number(),
+    teamId: z.number(),
+    authOptions: z.nullable(
+      z.lazy(() => TemplateGetTemplateByIdAuthOptions$inboundSchema),
+    ),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    publicTitle: z.string(),
+    publicDescription: z.string(),
+    folderId: z.nullable(z.string()),
+    envelopeId: z.string(),
+    templateDocumentDataId: z.string().default(""),
+    templateDocumentData: z.lazy(() =>
+      TemplateGetTemplateByIdTemplateDocumentData$inboundSchema
+    ),
+    templateMeta: z.lazy(() =>
+      TemplateGetTemplateByIdTemplateMeta$inboundSchema
+    ),
+    directLink: z.nullable(
+      z.lazy(() => TemplateGetTemplateByIdDirectLink$inboundSchema),
+    ),
+    user: z.lazy(() => TemplateGetTemplateByIdUser$inboundSchema),
+    recipients: z.array(
+      z.lazy(() => TemplateGetTemplateByIdRecipient$inboundSchema),
+    ),
+    fields: z.array(z.lazy(() => TemplateGetTemplateByIdField$inboundSchema)),
+    folder: z.nullable(
+      z.lazy(() => TemplateGetTemplateByIdFolder$inboundSchema),
+    ),
+    envelopeItems: z.array(
+      z.lazy(() => TemplateGetTemplateByIdEnvelopeItem$inboundSchema),
+    ),
+  })
+);
 /** @internal */
 export type TemplateGetTemplateByIdResponse$Outbound = {
   type: string;
@@ -2806,45 +3006,47 @@ export const TemplateGetTemplateByIdResponse$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdResponse$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdResponse
-> = z.object({
-  type: TemplateGetTemplateByIdTypeEnum$outboundSchema,
-  visibility: TemplateGetTemplateByIdVisibility$outboundSchema,
-  id: z.number(),
-  externalId: z.nullable(z.string()),
-  title: z.string(),
-  userId: z.number(),
-  teamId: z.number(),
-  authOptions: z.nullable(
-    z.lazy(() => TemplateGetTemplateByIdAuthOptions$outboundSchema),
-  ),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-  publicTitle: z.string(),
-  publicDescription: z.string(),
-  folderId: z.nullable(z.string()),
-  envelopeId: z.string(),
-  templateDocumentDataId: z.string().default(""),
-  templateDocumentData: z.lazy(() =>
-    TemplateGetTemplateByIdTemplateDocumentData$outboundSchema
-  ),
-  templateMeta: z.lazy(() =>
-    TemplateGetTemplateByIdTemplateMeta$outboundSchema
-  ),
-  directLink: z.nullable(
-    z.lazy(() => TemplateGetTemplateByIdDirectLink$outboundSchema),
-  ),
-  user: z.lazy(() => TemplateGetTemplateByIdUser$outboundSchema),
-  recipients: z.array(
-    z.lazy(() => TemplateGetTemplateByIdRecipient$outboundSchema),
-  ),
-  fields: z.array(z.lazy(() => TemplateGetTemplateByIdField$outboundSchema)),
-  folder: z.nullable(
-    z.lazy(() => TemplateGetTemplateByIdFolder$outboundSchema),
-  ),
-  envelopeItems: z.array(
-    z.lazy(() => TemplateGetTemplateByIdEnvelopeItem$outboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: TemplateGetTemplateByIdTypeEnum$outboundSchema,
+    visibility: TemplateGetTemplateByIdVisibility$outboundSchema,
+    id: z.number(),
+    externalId: z.nullable(z.string()),
+    title: z.string(),
+    userId: z.number(),
+    teamId: z.number(),
+    authOptions: z.nullable(
+      z.lazy(() => TemplateGetTemplateByIdAuthOptions$outboundSchema),
+    ),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    publicTitle: z.string(),
+    publicDescription: z.string(),
+    folderId: z.nullable(z.string()),
+    envelopeId: z.string(),
+    templateDocumentDataId: z.string().default(""),
+    templateDocumentData: z.lazy(() =>
+      TemplateGetTemplateByIdTemplateDocumentData$outboundSchema
+    ),
+    templateMeta: z.lazy(() =>
+      TemplateGetTemplateByIdTemplateMeta$outboundSchema
+    ),
+    directLink: z.nullable(
+      z.lazy(() => TemplateGetTemplateByIdDirectLink$outboundSchema),
+    ),
+    user: z.lazy(() => TemplateGetTemplateByIdUser$outboundSchema),
+    recipients: z.array(
+      z.lazy(() => TemplateGetTemplateByIdRecipient$outboundSchema),
+    ),
+    fields: z.array(z.lazy(() => TemplateGetTemplateByIdField$outboundSchema)),
+    folder: z.nullable(
+      z.lazy(() => TemplateGetTemplateByIdFolder$outboundSchema),
+    ),
+    envelopeItems: z.array(
+      z.lazy(() => TemplateGetTemplateByIdEnvelopeItem$outboundSchema),
+    ),
+  })
+);
 
 export function templateGetTemplateByIdResponseToJSON(
   templateGetTemplateByIdResponse: TemplateGetTemplateByIdResponse,

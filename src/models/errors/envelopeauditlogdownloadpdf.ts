@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -207,9 +207,11 @@ export const EnvelopeAuditLogDownloadPdfInternalServerErrorIssue$inboundSchema:
     EnvelopeAuditLogDownloadPdfInternalServerErrorIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type EnvelopeAuditLogDownloadPdfInternalServerErrorIssue$Outbound = {
   message: string;
@@ -221,9 +223,11 @@ export const EnvelopeAuditLogDownloadPdfInternalServerErrorIssue$outboundSchema:
     EnvelopeAuditLogDownloadPdfInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
     EnvelopeAuditLogDownloadPdfInternalServerErrorIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function envelopeAuditLogDownloadPdfInternalServerErrorIssueToJSON(
   envelopeAuditLogDownloadPdfInternalServerErrorIssue:
@@ -257,25 +261,25 @@ export const EnvelopeAuditLogDownloadPdfInternalServerError$inboundSchema:
     EnvelopeAuditLogDownloadPdfInternalServerError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         EnvelopeAuditLogDownloadPdfInternalServerErrorIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new EnvelopeAuditLogDownloadPdfInternalServerError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        return new EnvelopeAuditLogDownloadPdfInternalServerError(v, {
+          request: v.request$,
+          response: v.response$,
+          body: v.body$,
+        });
+      })
+  );
 
 /** @internal */
 export type EnvelopeAuditLogDownloadPdfInternalServerError$Outbound = {
@@ -292,26 +296,30 @@ export const EnvelopeAuditLogDownloadPdfInternalServerError$outboundSchema:
     EnvelopeAuditLogDownloadPdfInternalServerError$Outbound,
     z.ZodTypeDef,
     EnvelopeAuditLogDownloadPdfInternalServerError
-  > = z.instanceof(EnvelopeAuditLogDownloadPdfInternalServerError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          EnvelopeAuditLogDownloadPdfInternalServerErrorIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(EnvelopeAuditLogDownloadPdfInternalServerError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            EnvelopeAuditLogDownloadPdfInternalServerErrorIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const EnvelopeAuditLogDownloadPdfNotFoundIssue$inboundSchema: z.ZodType<
   EnvelopeAuditLogDownloadPdfNotFoundIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeAuditLogDownloadPdfNotFoundIssue$Outbound = {
   message: string;
@@ -322,9 +330,11 @@ export const EnvelopeAuditLogDownloadPdfNotFoundIssue$outboundSchema: z.ZodType<
   EnvelopeAuditLogDownloadPdfNotFoundIssue$Outbound,
   z.ZodTypeDef,
   EnvelopeAuditLogDownloadPdfNotFoundIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function envelopeAuditLogDownloadPdfNotFoundIssueToJSON(
   envelopeAuditLogDownloadPdfNotFoundIssue:
@@ -357,23 +367,25 @@ export const EnvelopeAuditLogDownloadPdfNotFoundError$inboundSchema: z.ZodType<
   EnvelopeAuditLogDownloadPdfNotFoundError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => EnvelopeAuditLogDownloadPdfNotFoundIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new EnvelopeAuditLogDownloadPdfNotFoundError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => EnvelopeAuditLogDownloadPdfNotFoundIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new EnvelopeAuditLogDownloadPdfNotFoundError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type EnvelopeAuditLogDownloadPdfNotFoundError$Outbound = {
@@ -387,24 +399,28 @@ export const EnvelopeAuditLogDownloadPdfNotFoundError$outboundSchema: z.ZodType<
   EnvelopeAuditLogDownloadPdfNotFoundError$Outbound,
   z.ZodTypeDef,
   EnvelopeAuditLogDownloadPdfNotFoundError
-> = z.instanceof(EnvelopeAuditLogDownloadPdfNotFoundError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeAuditLogDownloadPdfNotFoundIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(EnvelopeAuditLogDownloadPdfNotFoundError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => EnvelopeAuditLogDownloadPdfNotFoundIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const EnvelopeAuditLogDownloadPdfForbiddenIssue$inboundSchema: z.ZodType<
   EnvelopeAuditLogDownloadPdfForbiddenIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeAuditLogDownloadPdfForbiddenIssue$Outbound = {
   message: string;
@@ -416,9 +432,11 @@ export const EnvelopeAuditLogDownloadPdfForbiddenIssue$outboundSchema:
     EnvelopeAuditLogDownloadPdfForbiddenIssue$Outbound,
     z.ZodTypeDef,
     EnvelopeAuditLogDownloadPdfForbiddenIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function envelopeAuditLogDownloadPdfForbiddenIssueToJSON(
   envelopeAuditLogDownloadPdfForbiddenIssue:
@@ -451,23 +469,25 @@ export const EnvelopeAuditLogDownloadPdfForbiddenError$inboundSchema: z.ZodType<
   EnvelopeAuditLogDownloadPdfForbiddenError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => EnvelopeAuditLogDownloadPdfForbiddenIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new EnvelopeAuditLogDownloadPdfForbiddenError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => EnvelopeAuditLogDownloadPdfForbiddenIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new EnvelopeAuditLogDownloadPdfForbiddenError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type EnvelopeAuditLogDownloadPdfForbiddenError$Outbound = {
@@ -484,15 +504,19 @@ export const EnvelopeAuditLogDownloadPdfForbiddenError$outboundSchema:
     EnvelopeAuditLogDownloadPdfForbiddenError$Outbound,
     z.ZodTypeDef,
     EnvelopeAuditLogDownloadPdfForbiddenError
-  > = z.instanceof(EnvelopeAuditLogDownloadPdfForbiddenError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() => EnvelopeAuditLogDownloadPdfForbiddenIssue$outboundSchema),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(EnvelopeAuditLogDownloadPdfForbiddenError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            EnvelopeAuditLogDownloadPdfForbiddenIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const EnvelopeAuditLogDownloadPdfUnauthorizedIssue$inboundSchema:
@@ -500,9 +524,11 @@ export const EnvelopeAuditLogDownloadPdfUnauthorizedIssue$inboundSchema:
     EnvelopeAuditLogDownloadPdfUnauthorizedIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type EnvelopeAuditLogDownloadPdfUnauthorizedIssue$Outbound = {
   message: string;
@@ -514,9 +540,11 @@ export const EnvelopeAuditLogDownloadPdfUnauthorizedIssue$outboundSchema:
     EnvelopeAuditLogDownloadPdfUnauthorizedIssue$Outbound,
     z.ZodTypeDef,
     EnvelopeAuditLogDownloadPdfUnauthorizedIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function envelopeAuditLogDownloadPdfUnauthorizedIssueToJSON(
   envelopeAuditLogDownloadPdfUnauthorizedIssue:
@@ -550,23 +578,27 @@ export const EnvelopeAuditLogDownloadPdfUnauthorizedError$inboundSchema:
     EnvelopeAuditLogDownloadPdfUnauthorizedError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeAuditLogDownloadPdfUnauthorizedIssue$inboundSchema),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new EnvelopeAuditLogDownloadPdfUnauthorizedError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() =>
+          EnvelopeAuditLogDownloadPdfUnauthorizedIssue$inboundSchema
+        ),
+      ).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        return new EnvelopeAuditLogDownloadPdfUnauthorizedError(v, {
+          request: v.request$,
+          response: v.response$,
+          body: v.body$,
+        });
+      })
+  );
 
 /** @internal */
 export type EnvelopeAuditLogDownloadPdfUnauthorizedError$Outbound = {
@@ -583,24 +615,28 @@ export const EnvelopeAuditLogDownloadPdfUnauthorizedError$outboundSchema:
     EnvelopeAuditLogDownloadPdfUnauthorizedError$Outbound,
     z.ZodTypeDef,
     EnvelopeAuditLogDownloadPdfUnauthorizedError
-  > = z.instanceof(EnvelopeAuditLogDownloadPdfUnauthorizedError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          EnvelopeAuditLogDownloadPdfUnauthorizedIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(EnvelopeAuditLogDownloadPdfUnauthorizedError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            EnvelopeAuditLogDownloadPdfUnauthorizedIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const EnvelopeAuditLogDownloadPdfBadRequestIssue$inboundSchema:
   z.ZodType<EnvelopeAuditLogDownloadPdfBadRequestIssue, z.ZodTypeDef, unknown> =
-    z.object({
-      message: z.string(),
-    });
+    /* @__PURE__ */ lazySchema$(() =>
+      z.object({
+        message: z.string(),
+      })
+    );
 /** @internal */
 export type EnvelopeAuditLogDownloadPdfBadRequestIssue$Outbound = {
   message: string;
@@ -612,9 +648,11 @@ export const EnvelopeAuditLogDownloadPdfBadRequestIssue$outboundSchema:
     EnvelopeAuditLogDownloadPdfBadRequestIssue$Outbound,
     z.ZodTypeDef,
     EnvelopeAuditLogDownloadPdfBadRequestIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function envelopeAuditLogDownloadPdfBadRequestIssueToJSON(
   envelopeAuditLogDownloadPdfBadRequestIssue:
@@ -645,23 +683,27 @@ export function envelopeAuditLogDownloadPdfBadRequestIssueFromJSON(
 /** @internal */
 export const EnvelopeAuditLogDownloadPdfBadRequestError$inboundSchema:
   z.ZodType<EnvelopeAuditLogDownloadPdfBadRequestError, z.ZodTypeDef, unknown> =
-    z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() => EnvelopeAuditLogDownloadPdfBadRequestIssue$inboundSchema),
-      ).optional(),
-      request$: z.instanceof(Request),
-      response$: z.instanceof(Response),
-      body$: z.string(),
-    })
-      .transform((v) => {
-        return new EnvelopeAuditLogDownloadPdfBadRequestError(v, {
-          request: v.request$,
-          response: v.response$,
-          body: v.body$,
-        });
-      });
+    /* @__PURE__ */ lazySchema$(() =>
+      z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            EnvelopeAuditLogDownloadPdfBadRequestIssue$inboundSchema
+          ),
+        ).optional(),
+        request$: z.instanceof(Request),
+        response$: z.instanceof(Response),
+        body$: z.string(),
+      })
+        .transform((v) => {
+          return new EnvelopeAuditLogDownloadPdfBadRequestError(v, {
+            request: v.request$,
+            response: v.response$,
+            body: v.body$,
+          });
+        })
+    );
 
 /** @internal */
 export type EnvelopeAuditLogDownloadPdfBadRequestError$Outbound = {
@@ -678,12 +720,16 @@ export const EnvelopeAuditLogDownloadPdfBadRequestError$outboundSchema:
     EnvelopeAuditLogDownloadPdfBadRequestError$Outbound,
     z.ZodTypeDef,
     EnvelopeAuditLogDownloadPdfBadRequestError
-  > = z.instanceof(EnvelopeAuditLogDownloadPdfBadRequestError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() => EnvelopeAuditLogDownloadPdfBadRequestIssue$outboundSchema),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(EnvelopeAuditLogDownloadPdfBadRequestError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            EnvelopeAuditLogDownloadPdfBadRequestIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
