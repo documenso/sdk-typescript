@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -213,9 +213,11 @@ export const EnvelopeCertificateDownloadPdfInternalServerErrorIssue$inboundSchem
     EnvelopeCertificateDownloadPdfInternalServerErrorIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type EnvelopeCertificateDownloadPdfInternalServerErrorIssue$Outbound = {
   message: string;
@@ -227,9 +229,11 @@ export const EnvelopeCertificateDownloadPdfInternalServerErrorIssue$outboundSche
     EnvelopeCertificateDownloadPdfInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
     EnvelopeCertificateDownloadPdfInternalServerErrorIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function envelopeCertificateDownloadPdfInternalServerErrorIssueToJSON(
   envelopeCertificateDownloadPdfInternalServerErrorIssue:
@@ -262,25 +266,25 @@ export const EnvelopeCertificateDownloadPdfInternalServerError$inboundSchema:
     EnvelopeCertificateDownloadPdfInternalServerError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         EnvelopeCertificateDownloadPdfInternalServerErrorIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new EnvelopeCertificateDownloadPdfInternalServerError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        return new EnvelopeCertificateDownloadPdfInternalServerError(v, {
+          request: v.request$,
+          response: v.response$,
+          body: v.body$,
+        });
+      })
+  );
 
 /** @internal */
 export type EnvelopeCertificateDownloadPdfInternalServerError$Outbound = {
@@ -297,17 +301,19 @@ export const EnvelopeCertificateDownloadPdfInternalServerError$outboundSchema:
     EnvelopeCertificateDownloadPdfInternalServerError$Outbound,
     z.ZodTypeDef,
     EnvelopeCertificateDownloadPdfInternalServerError
-  > = z.instanceof(EnvelopeCertificateDownloadPdfInternalServerError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          EnvelopeCertificateDownloadPdfInternalServerErrorIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(EnvelopeCertificateDownloadPdfInternalServerError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            EnvelopeCertificateDownloadPdfInternalServerErrorIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const EnvelopeCertificateDownloadPdfNotFoundIssue$inboundSchema:
@@ -315,9 +321,11 @@ export const EnvelopeCertificateDownloadPdfNotFoundIssue$inboundSchema:
     EnvelopeCertificateDownloadPdfNotFoundIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type EnvelopeCertificateDownloadPdfNotFoundIssue$Outbound = {
   message: string;
@@ -329,9 +337,11 @@ export const EnvelopeCertificateDownloadPdfNotFoundIssue$outboundSchema:
     EnvelopeCertificateDownloadPdfNotFoundIssue$Outbound,
     z.ZodTypeDef,
     EnvelopeCertificateDownloadPdfNotFoundIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function envelopeCertificateDownloadPdfNotFoundIssueToJSON(
   envelopeCertificateDownloadPdfNotFoundIssue:
@@ -365,23 +375,25 @@ export const EnvelopeCertificateDownloadPdfNotFoundError$inboundSchema:
     EnvelopeCertificateDownloadPdfNotFoundError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeCertificateDownloadPdfNotFoundIssue$inboundSchema),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new EnvelopeCertificateDownloadPdfNotFoundError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => EnvelopeCertificateDownloadPdfNotFoundIssue$inboundSchema),
+      ).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        return new EnvelopeCertificateDownloadPdfNotFoundError(v, {
+          request: v.request$,
+          response: v.response$,
+          body: v.body$,
+        });
+      })
+  );
 
 /** @internal */
 export type EnvelopeCertificateDownloadPdfNotFoundError$Outbound = {
@@ -398,17 +410,19 @@ export const EnvelopeCertificateDownloadPdfNotFoundError$outboundSchema:
     EnvelopeCertificateDownloadPdfNotFoundError$Outbound,
     z.ZodTypeDef,
     EnvelopeCertificateDownloadPdfNotFoundError
-  > = z.instanceof(EnvelopeCertificateDownloadPdfNotFoundError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          EnvelopeCertificateDownloadPdfNotFoundIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(EnvelopeCertificateDownloadPdfNotFoundError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            EnvelopeCertificateDownloadPdfNotFoundIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const EnvelopeCertificateDownloadPdfForbiddenIssue$inboundSchema:
@@ -416,9 +430,11 @@ export const EnvelopeCertificateDownloadPdfForbiddenIssue$inboundSchema:
     EnvelopeCertificateDownloadPdfForbiddenIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type EnvelopeCertificateDownloadPdfForbiddenIssue$Outbound = {
   message: string;
@@ -430,9 +446,11 @@ export const EnvelopeCertificateDownloadPdfForbiddenIssue$outboundSchema:
     EnvelopeCertificateDownloadPdfForbiddenIssue$Outbound,
     z.ZodTypeDef,
     EnvelopeCertificateDownloadPdfForbiddenIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function envelopeCertificateDownloadPdfForbiddenIssueToJSON(
   envelopeCertificateDownloadPdfForbiddenIssue:
@@ -466,23 +484,27 @@ export const EnvelopeCertificateDownloadPdfForbiddenError$inboundSchema:
     EnvelopeCertificateDownloadPdfForbiddenError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeCertificateDownloadPdfForbiddenIssue$inboundSchema),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new EnvelopeCertificateDownloadPdfForbiddenError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() =>
+          EnvelopeCertificateDownloadPdfForbiddenIssue$inboundSchema
+        ),
+      ).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        return new EnvelopeCertificateDownloadPdfForbiddenError(v, {
+          request: v.request$,
+          response: v.response$,
+          body: v.body$,
+        });
+      })
+  );
 
 /** @internal */
 export type EnvelopeCertificateDownloadPdfForbiddenError$Outbound = {
@@ -499,17 +521,19 @@ export const EnvelopeCertificateDownloadPdfForbiddenError$outboundSchema:
     EnvelopeCertificateDownloadPdfForbiddenError$Outbound,
     z.ZodTypeDef,
     EnvelopeCertificateDownloadPdfForbiddenError
-  > = z.instanceof(EnvelopeCertificateDownloadPdfForbiddenError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          EnvelopeCertificateDownloadPdfForbiddenIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(EnvelopeCertificateDownloadPdfForbiddenError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            EnvelopeCertificateDownloadPdfForbiddenIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const EnvelopeCertificateDownloadPdfUnauthorizedIssue$inboundSchema:
@@ -517,9 +541,11 @@ export const EnvelopeCertificateDownloadPdfUnauthorizedIssue$inboundSchema:
     EnvelopeCertificateDownloadPdfUnauthorizedIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type EnvelopeCertificateDownloadPdfUnauthorizedIssue$Outbound = {
   message: string;
@@ -531,9 +557,11 @@ export const EnvelopeCertificateDownloadPdfUnauthorizedIssue$outboundSchema:
     EnvelopeCertificateDownloadPdfUnauthorizedIssue$Outbound,
     z.ZodTypeDef,
     EnvelopeCertificateDownloadPdfUnauthorizedIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function envelopeCertificateDownloadPdfUnauthorizedIssueToJSON(
   envelopeCertificateDownloadPdfUnauthorizedIssue:
@@ -567,25 +595,25 @@ export const EnvelopeCertificateDownloadPdfUnauthorizedError$inboundSchema:
     EnvelopeCertificateDownloadPdfUnauthorizedError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         EnvelopeCertificateDownloadPdfUnauthorizedIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new EnvelopeCertificateDownloadPdfUnauthorizedError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        return new EnvelopeCertificateDownloadPdfUnauthorizedError(v, {
+          request: v.request$,
+          response: v.response$,
+          body: v.body$,
+        });
+      })
+  );
 
 /** @internal */
 export type EnvelopeCertificateDownloadPdfUnauthorizedError$Outbound = {
@@ -602,17 +630,19 @@ export const EnvelopeCertificateDownloadPdfUnauthorizedError$outboundSchema:
     EnvelopeCertificateDownloadPdfUnauthorizedError$Outbound,
     z.ZodTypeDef,
     EnvelopeCertificateDownloadPdfUnauthorizedError
-  > = z.instanceof(EnvelopeCertificateDownloadPdfUnauthorizedError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          EnvelopeCertificateDownloadPdfUnauthorizedIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(EnvelopeCertificateDownloadPdfUnauthorizedError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            EnvelopeCertificateDownloadPdfUnauthorizedIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const EnvelopeCertificateDownloadPdfBadRequestIssue$inboundSchema:
@@ -620,9 +650,11 @@ export const EnvelopeCertificateDownloadPdfBadRequestIssue$inboundSchema:
     EnvelopeCertificateDownloadPdfBadRequestIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type EnvelopeCertificateDownloadPdfBadRequestIssue$Outbound = {
   message: string;
@@ -634,9 +666,11 @@ export const EnvelopeCertificateDownloadPdfBadRequestIssue$outboundSchema:
     EnvelopeCertificateDownloadPdfBadRequestIssue$Outbound,
     z.ZodTypeDef,
     EnvelopeCertificateDownloadPdfBadRequestIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function envelopeCertificateDownloadPdfBadRequestIssueToJSON(
   envelopeCertificateDownloadPdfBadRequestIssue:
@@ -670,23 +704,27 @@ export const EnvelopeCertificateDownloadPdfBadRequestError$inboundSchema:
     EnvelopeCertificateDownloadPdfBadRequestError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeCertificateDownloadPdfBadRequestIssue$inboundSchema),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new EnvelopeCertificateDownloadPdfBadRequestError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() =>
+          EnvelopeCertificateDownloadPdfBadRequestIssue$inboundSchema
+        ),
+      ).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        return new EnvelopeCertificateDownloadPdfBadRequestError(v, {
+          request: v.request$,
+          response: v.response$,
+          body: v.body$,
+        });
+      })
+  );
 
 /** @internal */
 export type EnvelopeCertificateDownloadPdfBadRequestError$Outbound = {
@@ -703,14 +741,16 @@ export const EnvelopeCertificateDownloadPdfBadRequestError$outboundSchema:
     EnvelopeCertificateDownloadPdfBadRequestError$Outbound,
     z.ZodTypeDef,
     EnvelopeCertificateDownloadPdfBadRequestError
-  > = z.instanceof(EnvelopeCertificateDownloadPdfBadRequestError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          EnvelopeCertificateDownloadPdfBadRequestIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(EnvelopeCertificateDownloadPdfBadRequestError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            EnvelopeCertificateDownloadPdfBadRequestIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -199,9 +199,11 @@ export const EnvelopeItemDownloadInternalServerErrorIssue$inboundSchema:
     EnvelopeItemDownloadInternalServerErrorIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type EnvelopeItemDownloadInternalServerErrorIssue$Outbound = {
   message: string;
@@ -213,9 +215,11 @@ export const EnvelopeItemDownloadInternalServerErrorIssue$outboundSchema:
     EnvelopeItemDownloadInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
     EnvelopeItemDownloadInternalServerErrorIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function envelopeItemDownloadInternalServerErrorIssueToJSON(
   envelopeItemDownloadInternalServerErrorIssue:
@@ -248,23 +252,25 @@ export const EnvelopeItemDownloadInternalServerError$inboundSchema: z.ZodType<
   EnvelopeItemDownloadInternalServerError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => EnvelopeItemDownloadInternalServerErrorIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new EnvelopeItemDownloadInternalServerError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => EnvelopeItemDownloadInternalServerErrorIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new EnvelopeItemDownloadInternalServerError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type EnvelopeItemDownloadInternalServerError$Outbound = {
@@ -280,24 +286,30 @@ export const EnvelopeItemDownloadInternalServerError$outboundSchema: z.ZodType<
   EnvelopeItemDownloadInternalServerError$Outbound,
   z.ZodTypeDef,
   EnvelopeItemDownloadInternalServerError
-> = z.instanceof(EnvelopeItemDownloadInternalServerError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeItemDownloadInternalServerErrorIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(EnvelopeItemDownloadInternalServerError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() =>
+          EnvelopeItemDownloadInternalServerErrorIssue$outboundSchema
+        ),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const EnvelopeItemDownloadNotFoundIssue$inboundSchema: z.ZodType<
   EnvelopeItemDownloadNotFoundIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeItemDownloadNotFoundIssue$Outbound = {
   message: string;
@@ -308,9 +320,11 @@ export const EnvelopeItemDownloadNotFoundIssue$outboundSchema: z.ZodType<
   EnvelopeItemDownloadNotFoundIssue$Outbound,
   z.ZodTypeDef,
   EnvelopeItemDownloadNotFoundIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function envelopeItemDownloadNotFoundIssueToJSON(
   envelopeItemDownloadNotFoundIssue: EnvelopeItemDownloadNotFoundIssue,
@@ -336,22 +350,25 @@ export const EnvelopeItemDownloadNotFoundError$inboundSchema: z.ZodType<
   EnvelopeItemDownloadNotFoundError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(z.lazy(() => EnvelopeItemDownloadNotFoundIssue$inboundSchema))
-    .optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new EnvelopeItemDownloadNotFoundError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => EnvelopeItemDownloadNotFoundIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new EnvelopeItemDownloadNotFoundError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type EnvelopeItemDownloadNotFoundError$Outbound = {
@@ -365,24 +382,28 @@ export const EnvelopeItemDownloadNotFoundError$outboundSchema: z.ZodType<
   EnvelopeItemDownloadNotFoundError$Outbound,
   z.ZodTypeDef,
   EnvelopeItemDownloadNotFoundError
-> = z.instanceof(EnvelopeItemDownloadNotFoundError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeItemDownloadNotFoundIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(EnvelopeItemDownloadNotFoundError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => EnvelopeItemDownloadNotFoundIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const EnvelopeItemDownloadForbiddenIssue$inboundSchema: z.ZodType<
   EnvelopeItemDownloadForbiddenIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeItemDownloadForbiddenIssue$Outbound = {
   message: string;
@@ -393,9 +414,11 @@ export const EnvelopeItemDownloadForbiddenIssue$outboundSchema: z.ZodType<
   EnvelopeItemDownloadForbiddenIssue$Outbound,
   z.ZodTypeDef,
   EnvelopeItemDownloadForbiddenIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function envelopeItemDownloadForbiddenIssueToJSON(
   envelopeItemDownloadForbiddenIssue: EnvelopeItemDownloadForbiddenIssue,
@@ -422,23 +445,25 @@ export const EnvelopeItemDownloadForbiddenError$inboundSchema: z.ZodType<
   EnvelopeItemDownloadForbiddenError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => EnvelopeItemDownloadForbiddenIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new EnvelopeItemDownloadForbiddenError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => EnvelopeItemDownloadForbiddenIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new EnvelopeItemDownloadForbiddenError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type EnvelopeItemDownloadForbiddenError$Outbound = {
@@ -452,24 +477,28 @@ export const EnvelopeItemDownloadForbiddenError$outboundSchema: z.ZodType<
   EnvelopeItemDownloadForbiddenError$Outbound,
   z.ZodTypeDef,
   EnvelopeItemDownloadForbiddenError
-> = z.instanceof(EnvelopeItemDownloadForbiddenError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeItemDownloadForbiddenIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(EnvelopeItemDownloadForbiddenError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => EnvelopeItemDownloadForbiddenIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const EnvelopeItemDownloadUnauthorizedIssue$inboundSchema: z.ZodType<
   EnvelopeItemDownloadUnauthorizedIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeItemDownloadUnauthorizedIssue$Outbound = {
   message: string;
@@ -480,9 +509,11 @@ export const EnvelopeItemDownloadUnauthorizedIssue$outboundSchema: z.ZodType<
   EnvelopeItemDownloadUnauthorizedIssue$Outbound,
   z.ZodTypeDef,
   EnvelopeItemDownloadUnauthorizedIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function envelopeItemDownloadUnauthorizedIssueToJSON(
   envelopeItemDownloadUnauthorizedIssue: EnvelopeItemDownloadUnauthorizedIssue,
@@ -509,23 +540,25 @@ export const EnvelopeItemDownloadUnauthorizedError$inboundSchema: z.ZodType<
   EnvelopeItemDownloadUnauthorizedError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => EnvelopeItemDownloadUnauthorizedIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new EnvelopeItemDownloadUnauthorizedError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => EnvelopeItemDownloadUnauthorizedIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new EnvelopeItemDownloadUnauthorizedError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type EnvelopeItemDownloadUnauthorizedError$Outbound = {
@@ -539,24 +572,28 @@ export const EnvelopeItemDownloadUnauthorizedError$outboundSchema: z.ZodType<
   EnvelopeItemDownloadUnauthorizedError$Outbound,
   z.ZodTypeDef,
   EnvelopeItemDownloadUnauthorizedError
-> = z.instanceof(EnvelopeItemDownloadUnauthorizedError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeItemDownloadUnauthorizedIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(EnvelopeItemDownloadUnauthorizedError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => EnvelopeItemDownloadUnauthorizedIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const EnvelopeItemDownloadBadRequestIssue$inboundSchema: z.ZodType<
   EnvelopeItemDownloadBadRequestIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeItemDownloadBadRequestIssue$Outbound = {
   message: string;
@@ -567,9 +604,11 @@ export const EnvelopeItemDownloadBadRequestIssue$outboundSchema: z.ZodType<
   EnvelopeItemDownloadBadRequestIssue$Outbound,
   z.ZodTypeDef,
   EnvelopeItemDownloadBadRequestIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function envelopeItemDownloadBadRequestIssueToJSON(
   envelopeItemDownloadBadRequestIssue: EnvelopeItemDownloadBadRequestIssue,
@@ -596,23 +635,25 @@ export const EnvelopeItemDownloadBadRequestError$inboundSchema: z.ZodType<
   EnvelopeItemDownloadBadRequestError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => EnvelopeItemDownloadBadRequestIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new EnvelopeItemDownloadBadRequestError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => EnvelopeItemDownloadBadRequestIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new EnvelopeItemDownloadBadRequestError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type EnvelopeItemDownloadBadRequestError$Outbound = {
@@ -626,12 +667,14 @@ export const EnvelopeItemDownloadBadRequestError$outboundSchema: z.ZodType<
   EnvelopeItemDownloadBadRequestError$Outbound,
   z.ZodTypeDef,
   EnvelopeItemDownloadBadRequestError
-> = z.instanceof(EnvelopeItemDownloadBadRequestError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeItemDownloadBadRequestIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(EnvelopeItemDownloadBadRequestError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => EnvelopeItemDownloadBadRequestIssue$outboundSchema),
+      ).optional(),
+    }))
+);

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -174,9 +174,11 @@ export const TemplateCreateTemplateTemporaryInternalServerErrorIssue$inboundSche
     TemplateCreateTemplateTemporaryInternalServerErrorIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type TemplateCreateTemplateTemporaryInternalServerErrorIssue$Outbound = {
   message: string;
@@ -188,9 +190,11 @@ export const TemplateCreateTemplateTemporaryInternalServerErrorIssue$outboundSch
     TemplateCreateTemplateTemporaryInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
     TemplateCreateTemplateTemporaryInternalServerErrorIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function templateCreateTemplateTemporaryInternalServerErrorIssueToJSON(
   templateCreateTemplateTemporaryInternalServerErrorIssue:
@@ -222,25 +226,25 @@ export const TemplateCreateTemplateTemporaryInternalServerError$inboundSchema:
     TemplateCreateTemplateTemporaryInternalServerError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         TemplateCreateTemplateTemporaryInternalServerErrorIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new TemplateCreateTemplateTemporaryInternalServerError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        return new TemplateCreateTemplateTemporaryInternalServerError(v, {
+          request: v.request$,
+          response: v.response$,
+          body: v.body$,
+        });
+      })
+  );
 
 /** @internal */
 export type TemplateCreateTemplateTemporaryInternalServerError$Outbound = {
@@ -257,17 +261,19 @@ export const TemplateCreateTemplateTemporaryInternalServerError$outboundSchema:
     TemplateCreateTemplateTemporaryInternalServerError$Outbound,
     z.ZodTypeDef,
     TemplateCreateTemplateTemporaryInternalServerError
-  > = z.instanceof(TemplateCreateTemplateTemporaryInternalServerError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          TemplateCreateTemplateTemporaryInternalServerErrorIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(TemplateCreateTemplateTemporaryInternalServerError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            TemplateCreateTemplateTemporaryInternalServerErrorIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const TemplateCreateTemplateTemporaryForbiddenIssue$inboundSchema:
@@ -275,9 +281,11 @@ export const TemplateCreateTemplateTemporaryForbiddenIssue$inboundSchema:
     TemplateCreateTemplateTemporaryForbiddenIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type TemplateCreateTemplateTemporaryForbiddenIssue$Outbound = {
   message: string;
@@ -289,9 +297,11 @@ export const TemplateCreateTemplateTemporaryForbiddenIssue$outboundSchema:
     TemplateCreateTemplateTemporaryForbiddenIssue$Outbound,
     z.ZodTypeDef,
     TemplateCreateTemplateTemporaryForbiddenIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function templateCreateTemplateTemporaryForbiddenIssueToJSON(
   templateCreateTemplateTemporaryForbiddenIssue:
@@ -325,23 +335,27 @@ export const TemplateCreateTemplateTemporaryForbiddenError$inboundSchema:
     TemplateCreateTemplateTemporaryForbiddenError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => TemplateCreateTemplateTemporaryForbiddenIssue$inboundSchema),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new TemplateCreateTemplateTemporaryForbiddenError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() =>
+          TemplateCreateTemplateTemporaryForbiddenIssue$inboundSchema
+        ),
+      ).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        return new TemplateCreateTemplateTemporaryForbiddenError(v, {
+          request: v.request$,
+          response: v.response$,
+          body: v.body$,
+        });
+      })
+  );
 
 /** @internal */
 export type TemplateCreateTemplateTemporaryForbiddenError$Outbound = {
@@ -358,17 +372,19 @@ export const TemplateCreateTemplateTemporaryForbiddenError$outboundSchema:
     TemplateCreateTemplateTemporaryForbiddenError$Outbound,
     z.ZodTypeDef,
     TemplateCreateTemplateTemporaryForbiddenError
-  > = z.instanceof(TemplateCreateTemplateTemporaryForbiddenError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          TemplateCreateTemplateTemporaryForbiddenIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(TemplateCreateTemplateTemporaryForbiddenError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            TemplateCreateTemplateTemporaryForbiddenIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const TemplateCreateTemplateTemporaryUnauthorizedIssue$inboundSchema:
@@ -376,9 +392,11 @@ export const TemplateCreateTemplateTemporaryUnauthorizedIssue$inboundSchema:
     TemplateCreateTemplateTemporaryUnauthorizedIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type TemplateCreateTemplateTemporaryUnauthorizedIssue$Outbound = {
   message: string;
@@ -390,9 +408,11 @@ export const TemplateCreateTemplateTemporaryUnauthorizedIssue$outboundSchema:
     TemplateCreateTemplateTemporaryUnauthorizedIssue$Outbound,
     z.ZodTypeDef,
     TemplateCreateTemplateTemporaryUnauthorizedIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function templateCreateTemplateTemporaryUnauthorizedIssueToJSON(
   templateCreateTemplateTemporaryUnauthorizedIssue:
@@ -426,25 +446,25 @@ export const TemplateCreateTemplateTemporaryUnauthorizedError$inboundSchema:
     TemplateCreateTemplateTemporaryUnauthorizedError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         TemplateCreateTemplateTemporaryUnauthorizedIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new TemplateCreateTemplateTemporaryUnauthorizedError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        return new TemplateCreateTemplateTemporaryUnauthorizedError(v, {
+          request: v.request$,
+          response: v.response$,
+          body: v.body$,
+        });
+      })
+  );
 
 /** @internal */
 export type TemplateCreateTemplateTemporaryUnauthorizedError$Outbound = {
@@ -461,17 +481,19 @@ export const TemplateCreateTemplateTemporaryUnauthorizedError$outboundSchema:
     TemplateCreateTemplateTemporaryUnauthorizedError$Outbound,
     z.ZodTypeDef,
     TemplateCreateTemplateTemporaryUnauthorizedError
-  > = z.instanceof(TemplateCreateTemplateTemporaryUnauthorizedError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          TemplateCreateTemplateTemporaryUnauthorizedIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(TemplateCreateTemplateTemporaryUnauthorizedError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            TemplateCreateTemplateTemporaryUnauthorizedIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const TemplateCreateTemplateTemporaryBadRequestIssue$inboundSchema:
@@ -479,9 +501,11 @@ export const TemplateCreateTemplateTemporaryBadRequestIssue$inboundSchema:
     TemplateCreateTemplateTemporaryBadRequestIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type TemplateCreateTemplateTemporaryBadRequestIssue$Outbound = {
   message: string;
@@ -493,9 +517,11 @@ export const TemplateCreateTemplateTemporaryBadRequestIssue$outboundSchema:
     TemplateCreateTemplateTemporaryBadRequestIssue$Outbound,
     z.ZodTypeDef,
     TemplateCreateTemplateTemporaryBadRequestIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function templateCreateTemplateTemporaryBadRequestIssueToJSON(
   templateCreateTemplateTemporaryBadRequestIssue:
@@ -529,25 +555,25 @@ export const TemplateCreateTemplateTemporaryBadRequestError$inboundSchema:
     TemplateCreateTemplateTemporaryBadRequestError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         TemplateCreateTemplateTemporaryBadRequestIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new TemplateCreateTemplateTemporaryBadRequestError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        return new TemplateCreateTemplateTemporaryBadRequestError(v, {
+          request: v.request$,
+          response: v.response$,
+          body: v.body$,
+        });
+      })
+  );
 
 /** @internal */
 export type TemplateCreateTemplateTemporaryBadRequestError$Outbound = {
@@ -564,14 +590,16 @@ export const TemplateCreateTemplateTemporaryBadRequestError$outboundSchema:
     TemplateCreateTemplateTemporaryBadRequestError$Outbound,
     z.ZodTypeDef,
     TemplateCreateTemplateTemporaryBadRequestError
-  > = z.instanceof(TemplateCreateTemplateTemporaryBadRequestError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          TemplateCreateTemplateTemporaryBadRequestIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(TemplateCreateTemplateTemporaryBadRequestError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            TemplateCreateTemplateTemporaryBadRequestIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -23,9 +23,11 @@ export const TemplateDeleteTemplateRequest$inboundSchema: z.ZodType<
   TemplateDeleteTemplateRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  templateId: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    templateId: z.number(),
+  })
+);
 /** @internal */
 export type TemplateDeleteTemplateRequest$Outbound = {
   templateId: number;
@@ -36,9 +38,11 @@ export const TemplateDeleteTemplateRequest$outboundSchema: z.ZodType<
   TemplateDeleteTemplateRequest$Outbound,
   z.ZodTypeDef,
   TemplateDeleteTemplateRequest
-> = z.object({
-  templateId: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    templateId: z.number(),
+  })
+);
 
 export function templateDeleteTemplateRequestToJSON(
   templateDeleteTemplateRequest: TemplateDeleteTemplateRequest,
@@ -64,9 +68,11 @@ export const TemplateDeleteTemplateResponse$inboundSchema: z.ZodType<
   TemplateDeleteTemplateResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  success: z.boolean(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    success: z.boolean(),
+  })
+);
 /** @internal */
 export type TemplateDeleteTemplateResponse$Outbound = {
   success: boolean;
@@ -77,9 +83,11 @@ export const TemplateDeleteTemplateResponse$outboundSchema: z.ZodType<
   TemplateDeleteTemplateResponse$Outbound,
   z.ZodTypeDef,
   TemplateDeleteTemplateResponse
-> = z.object({
-  success: z.boolean(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    success: z.boolean(),
+  })
+);
 
 export function templateDeleteTemplateResponseToJSON(
   templateDeleteTemplateResponse: TemplateDeleteTemplateResponse,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -177,7 +177,9 @@ export type DocumentDistributeResponse = {
 /** @internal */
 export const DocumentDistributeDateFormat$inboundSchema: z.ZodNativeEnum<
   typeof DocumentDistributeDateFormat
-> = z.nativeEnum(DocumentDistributeDateFormat);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(DocumentDistributeDateFormat)
+);
 /** @internal */
 export const DocumentDistributeDateFormat$outboundSchema: z.ZodNativeEnum<
   typeof DocumentDistributeDateFormat
@@ -185,9 +187,10 @@ export const DocumentDistributeDateFormat$outboundSchema: z.ZodNativeEnum<
 
 /** @internal */
 export const DocumentDistributeDistributionMethod$inboundSchema:
-  z.ZodNativeEnum<typeof DocumentDistributeDistributionMethod> = z.nativeEnum(
-    DocumentDistributeDistributionMethod,
-  );
+  z.ZodNativeEnum<typeof DocumentDistributeDistributionMethod> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(DocumentDistributeDistributionMethod)
+    );
 /** @internal */
 export const DocumentDistributeDistributionMethod$outboundSchema:
   z.ZodNativeEnum<typeof DocumentDistributeDistributionMethod> =
@@ -196,7 +199,7 @@ export const DocumentDistributeDistributionMethod$outboundSchema:
 /** @internal */
 export const DocumentDistributeLanguage$inboundSchema: z.ZodNativeEnum<
   typeof DocumentDistributeLanguage
-> = z.nativeEnum(DocumentDistributeLanguage);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(DocumentDistributeLanguage));
 /** @internal */
 export const DocumentDistributeLanguage$outboundSchema: z.ZodNativeEnum<
   typeof DocumentDistributeLanguage
@@ -207,17 +210,19 @@ export const DocumentDistributeEmailSettings$inboundSchema: z.ZodType<
   DocumentDistributeEmailSettings,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  recipientSigningRequest: z.boolean().default(true),
-  recipientRemoved: z.boolean().default(true),
-  recipientSigned: z.boolean().default(true),
-  documentPending: z.boolean().default(true),
-  documentCompleted: z.boolean().default(true),
-  documentDeleted: z.boolean().default(true),
-  ownerDocumentCompleted: z.boolean().default(true),
-  ownerRecipientExpired: z.boolean().default(true),
-  ownerDocumentCreated: z.boolean().default(true),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    recipientSigningRequest: z.boolean().default(true),
+    recipientRemoved: z.boolean().default(true),
+    recipientSigned: z.boolean().default(true),
+    documentPending: z.boolean().default(true),
+    documentCompleted: z.boolean().default(true),
+    documentDeleted: z.boolean().default(true),
+    ownerDocumentCompleted: z.boolean().default(true),
+    ownerRecipientExpired: z.boolean().default(true),
+    ownerDocumentCreated: z.boolean().default(true),
+  })
+);
 /** @internal */
 export type DocumentDistributeEmailSettings$Outbound = {
   recipientSigningRequest: boolean;
@@ -236,17 +241,19 @@ export const DocumentDistributeEmailSettings$outboundSchema: z.ZodType<
   DocumentDistributeEmailSettings$Outbound,
   z.ZodTypeDef,
   DocumentDistributeEmailSettings
-> = z.object({
-  recipientSigningRequest: z.boolean().default(true),
-  recipientRemoved: z.boolean().default(true),
-  recipientSigned: z.boolean().default(true),
-  documentPending: z.boolean().default(true),
-  documentCompleted: z.boolean().default(true),
-  documentDeleted: z.boolean().default(true),
-  ownerDocumentCompleted: z.boolean().default(true),
-  ownerRecipientExpired: z.boolean().default(true),
-  ownerDocumentCreated: z.boolean().default(true),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    recipientSigningRequest: z.boolean().default(true),
+    recipientRemoved: z.boolean().default(true),
+    recipientSigned: z.boolean().default(true),
+    documentPending: z.boolean().default(true),
+    documentCompleted: z.boolean().default(true),
+    documentDeleted: z.boolean().default(true),
+    ownerDocumentCompleted: z.boolean().default(true),
+    ownerRecipientExpired: z.boolean().default(true),
+    ownerDocumentCreated: z.boolean().default(true),
+  })
+);
 
 export function documentDistributeEmailSettingsToJSON(
   documentDistributeEmailSettings: DocumentDistributeEmailSettings,
@@ -272,20 +279,22 @@ export const DocumentDistributeMeta$inboundSchema: z.ZodType<
   DocumentDistributeMeta,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  subject: z.string().optional(),
-  message: z.string().optional(),
-  timezone: z.string().optional(),
-  dateFormat: DocumentDistributeDateFormat$inboundSchema.optional(),
-  distributionMethod: DocumentDistributeDistributionMethod$inboundSchema
-    .optional(),
-  redirectUrl: z.string().optional(),
-  language: DocumentDistributeLanguage$inboundSchema.optional(),
-  emailId: z.nullable(z.string()).optional(),
-  emailReplyTo: z.nullable(z.string()).optional(),
-  emailSettings: z.lazy(() => DocumentDistributeEmailSettings$inboundSchema)
-    .optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    subject: z.string().optional(),
+    message: z.string().optional(),
+    timezone: z.string().optional(),
+    dateFormat: DocumentDistributeDateFormat$inboundSchema.optional(),
+    distributionMethod: DocumentDistributeDistributionMethod$inboundSchema
+      .optional(),
+    redirectUrl: z.string().optional(),
+    language: DocumentDistributeLanguage$inboundSchema.optional(),
+    emailId: z.nullable(z.string()).optional(),
+    emailReplyTo: z.nullable(z.string()).optional(),
+    emailSettings: z.lazy(() => DocumentDistributeEmailSettings$inboundSchema)
+      .optional(),
+  })
+);
 /** @internal */
 export type DocumentDistributeMeta$Outbound = {
   subject?: string | undefined;
@@ -305,20 +314,22 @@ export const DocumentDistributeMeta$outboundSchema: z.ZodType<
   DocumentDistributeMeta$Outbound,
   z.ZodTypeDef,
   DocumentDistributeMeta
-> = z.object({
-  subject: z.string().optional(),
-  message: z.string().optional(),
-  timezone: z.string().optional(),
-  dateFormat: DocumentDistributeDateFormat$outboundSchema.optional(),
-  distributionMethod: DocumentDistributeDistributionMethod$outboundSchema
-    .optional(),
-  redirectUrl: z.string().optional(),
-  language: DocumentDistributeLanguage$outboundSchema.optional(),
-  emailId: z.nullable(z.string()).optional(),
-  emailReplyTo: z.nullable(z.string()).optional(),
-  emailSettings: z.lazy(() => DocumentDistributeEmailSettings$outboundSchema)
-    .optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    subject: z.string().optional(),
+    message: z.string().optional(),
+    timezone: z.string().optional(),
+    dateFormat: DocumentDistributeDateFormat$outboundSchema.optional(),
+    distributionMethod: DocumentDistributeDistributionMethod$outboundSchema
+      .optional(),
+    redirectUrl: z.string().optional(),
+    language: DocumentDistributeLanguage$outboundSchema.optional(),
+    emailId: z.nullable(z.string()).optional(),
+    emailReplyTo: z.nullable(z.string()).optional(),
+    emailSettings: z.lazy(() => DocumentDistributeEmailSettings$outboundSchema)
+      .optional(),
+  })
+);
 
 export function documentDistributeMetaToJSON(
   documentDistributeMeta: DocumentDistributeMeta,
@@ -342,10 +353,12 @@ export const DocumentDistributeRequest$inboundSchema: z.ZodType<
   DocumentDistributeRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  documentId: z.number(),
-  meta: z.lazy(() => DocumentDistributeMeta$inboundSchema).optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    documentId: z.number(),
+    meta: z.lazy(() => DocumentDistributeMeta$inboundSchema).optional(),
+  })
+);
 /** @internal */
 export type DocumentDistributeRequest$Outbound = {
   documentId: number;
@@ -357,10 +370,12 @@ export const DocumentDistributeRequest$outboundSchema: z.ZodType<
   DocumentDistributeRequest$Outbound,
   z.ZodTypeDef,
   DocumentDistributeRequest
-> = z.object({
-  documentId: z.number(),
-  meta: z.lazy(() => DocumentDistributeMeta$outboundSchema).optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    documentId: z.number(),
+    meta: z.lazy(() => DocumentDistributeMeta$outboundSchema).optional(),
+  })
+);
 
 export function documentDistributeRequestToJSON(
   documentDistributeRequest: DocumentDistributeRequest,
@@ -382,7 +397,9 @@ export function documentDistributeRequestFromJSON(
 /** @internal */
 export const DocumentDistributeVisibility$inboundSchema: z.ZodNativeEnum<
   typeof DocumentDistributeVisibility
-> = z.nativeEnum(DocumentDistributeVisibility);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(DocumentDistributeVisibility)
+);
 /** @internal */
 export const DocumentDistributeVisibility$outboundSchema: z.ZodNativeEnum<
   typeof DocumentDistributeVisibility
@@ -391,7 +408,7 @@ export const DocumentDistributeVisibility$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const DocumentDistributeStatus$inboundSchema: z.ZodNativeEnum<
   typeof DocumentDistributeStatus
-> = z.nativeEnum(DocumentDistributeStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(DocumentDistributeStatus));
 /** @internal */
 export const DocumentDistributeStatus$outboundSchema: z.ZodNativeEnum<
   typeof DocumentDistributeStatus
@@ -400,7 +417,7 @@ export const DocumentDistributeStatus$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const DocumentDistributeSource$inboundSchema: z.ZodNativeEnum<
   typeof DocumentDistributeSource
-> = z.nativeEnum(DocumentDistributeSource);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(DocumentDistributeSource));
 /** @internal */
 export const DocumentDistributeSource$outboundSchema: z.ZodNativeEnum<
   typeof DocumentDistributeSource
@@ -409,7 +426,9 @@ export const DocumentDistributeSource$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const DocumentDistributeGlobalAccessAuth$inboundSchema: z.ZodNativeEnum<
   typeof DocumentDistributeGlobalAccessAuth
-> = z.nativeEnum(DocumentDistributeGlobalAccessAuth);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(DocumentDistributeGlobalAccessAuth)
+);
 /** @internal */
 export const DocumentDistributeGlobalAccessAuth$outboundSchema: z.ZodNativeEnum<
   typeof DocumentDistributeGlobalAccessAuth
@@ -418,7 +437,9 @@ export const DocumentDistributeGlobalAccessAuth$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const DocumentDistributeGlobalActionAuth$inboundSchema: z.ZodNativeEnum<
   typeof DocumentDistributeGlobalActionAuth
-> = z.nativeEnum(DocumentDistributeGlobalActionAuth);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(DocumentDistributeGlobalActionAuth)
+);
 /** @internal */
 export const DocumentDistributeGlobalActionAuth$outboundSchema: z.ZodNativeEnum<
   typeof DocumentDistributeGlobalActionAuth
@@ -429,10 +450,12 @@ export const DocumentDistributeAuthOptions$inboundSchema: z.ZodType<
   DocumentDistributeAuthOptions,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  globalAccessAuth: z.array(DocumentDistributeGlobalAccessAuth$inboundSchema),
-  globalActionAuth: z.array(DocumentDistributeGlobalActionAuth$inboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    globalAccessAuth: z.array(DocumentDistributeGlobalAccessAuth$inboundSchema),
+    globalActionAuth: z.array(DocumentDistributeGlobalActionAuth$inboundSchema),
+  })
+);
 /** @internal */
 export type DocumentDistributeAuthOptions$Outbound = {
   globalAccessAuth: Array<string>;
@@ -444,10 +467,16 @@ export const DocumentDistributeAuthOptions$outboundSchema: z.ZodType<
   DocumentDistributeAuthOptions$Outbound,
   z.ZodTypeDef,
   DocumentDistributeAuthOptions
-> = z.object({
-  globalAccessAuth: z.array(DocumentDistributeGlobalAccessAuth$outboundSchema),
-  globalActionAuth: z.array(DocumentDistributeGlobalActionAuth$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    globalAccessAuth: z.array(
+      DocumentDistributeGlobalAccessAuth$outboundSchema,
+    ),
+    globalActionAuth: z.array(
+      DocumentDistributeGlobalActionAuth$outboundSchema,
+    ),
+  })
+);
 
 export function documentDistributeAuthOptionsToJSON(
   documentDistributeAuthOptions: DocumentDistributeAuthOptions,
@@ -473,7 +502,9 @@ export const DocumentDistributeFormValues$inboundSchema: z.ZodType<
   DocumentDistributeFormValues,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.boolean(), z.number()]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([z.string(), z.boolean(), z.number()])
+);
 /** @internal */
 export type DocumentDistributeFormValues$Outbound = string | boolean | number;
 
@@ -482,7 +513,9 @@ export const DocumentDistributeFormValues$outboundSchema: z.ZodType<
   DocumentDistributeFormValues$Outbound,
   z.ZodTypeDef,
   DocumentDistributeFormValues
-> = z.union([z.string(), z.boolean(), z.number()]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([z.string(), z.boolean(), z.number()])
+);
 
 export function documentDistributeFormValuesToJSON(
   documentDistributeFormValues: DocumentDistributeFormValues,
@@ -508,32 +541,34 @@ export const DocumentDistributeResponse$inboundSchema: z.ZodType<
   DocumentDistributeResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  visibility: DocumentDistributeVisibility$inboundSchema,
-  status: DocumentDistributeStatus$inboundSchema,
-  source: DocumentDistributeSource$inboundSchema,
-  id: z.number(),
-  externalId: z.nullable(z.string()),
-  userId: z.number(),
-  authOptions: z.nullable(
-    z.lazy(() => DocumentDistributeAuthOptions$inboundSchema),
-  ),
-  formValues: z.nullable(
-    z.record(z.union([z.string(), z.boolean(), z.number()])),
-  ),
-  title: z.string(),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-  completedAt: z.nullable(z.string()),
-  deletedAt: z.nullable(z.string()),
-  teamId: z.number(),
-  folderId: z.nullable(z.string()),
-  useLegacyFieldInsertion: z.boolean(),
-  envelopeId: z.string(),
-  internalVersion: z.number(),
-  documentDataId: z.string().default(""),
-  templateId: z.nullable(z.number()).optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    visibility: DocumentDistributeVisibility$inboundSchema,
+    status: DocumentDistributeStatus$inboundSchema,
+    source: DocumentDistributeSource$inboundSchema,
+    id: z.number(),
+    externalId: z.nullable(z.string()),
+    userId: z.number(),
+    authOptions: z.nullable(
+      z.lazy(() => DocumentDistributeAuthOptions$inboundSchema),
+    ),
+    formValues: z.nullable(
+      z.record(z.union([z.string(), z.boolean(), z.number()])),
+    ),
+    title: z.string(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    completedAt: z.nullable(z.string()),
+    deletedAt: z.nullable(z.string()),
+    teamId: z.number(),
+    folderId: z.nullable(z.string()),
+    useLegacyFieldInsertion: z.boolean(),
+    envelopeId: z.string(),
+    internalVersion: z.number(),
+    documentDataId: z.string().default(""),
+    templateId: z.nullable(z.number()).optional(),
+  })
+);
 /** @internal */
 export type DocumentDistributeResponse$Outbound = {
   visibility: string;
@@ -563,32 +598,34 @@ export const DocumentDistributeResponse$outboundSchema: z.ZodType<
   DocumentDistributeResponse$Outbound,
   z.ZodTypeDef,
   DocumentDistributeResponse
-> = z.object({
-  visibility: DocumentDistributeVisibility$outboundSchema,
-  status: DocumentDistributeStatus$outboundSchema,
-  source: DocumentDistributeSource$outboundSchema,
-  id: z.number(),
-  externalId: z.nullable(z.string()),
-  userId: z.number(),
-  authOptions: z.nullable(
-    z.lazy(() => DocumentDistributeAuthOptions$outboundSchema),
-  ),
-  formValues: z.nullable(
-    z.record(z.union([z.string(), z.boolean(), z.number()])),
-  ),
-  title: z.string(),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-  completedAt: z.nullable(z.string()),
-  deletedAt: z.nullable(z.string()),
-  teamId: z.number(),
-  folderId: z.nullable(z.string()),
-  useLegacyFieldInsertion: z.boolean(),
-  envelopeId: z.string(),
-  internalVersion: z.number(),
-  documentDataId: z.string().default(""),
-  templateId: z.nullable(z.number()).optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    visibility: DocumentDistributeVisibility$outboundSchema,
+    status: DocumentDistributeStatus$outboundSchema,
+    source: DocumentDistributeSource$outboundSchema,
+    id: z.number(),
+    externalId: z.nullable(z.string()),
+    userId: z.number(),
+    authOptions: z.nullable(
+      z.lazy(() => DocumentDistributeAuthOptions$outboundSchema),
+    ),
+    formValues: z.nullable(
+      z.record(z.union([z.string(), z.boolean(), z.number()])),
+    ),
+    title: z.string(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    completedAt: z.nullable(z.string()),
+    deletedAt: z.nullable(z.string()),
+    teamId: z.number(),
+    folderId: z.nullable(z.string()),
+    useLegacyFieldInsertion: z.boolean(),
+    envelopeId: z.string(),
+    internalVersion: z.number(),
+    documentDataId: z.string().default(""),
+    templateId: z.nullable(z.number()).optional(),
+  })
+);
 
 export function documentDistributeResponseToJSON(
   documentDistributeResponse: DocumentDistributeResponse,

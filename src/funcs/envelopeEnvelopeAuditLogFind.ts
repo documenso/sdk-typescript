@@ -8,9 +8,8 @@ import { matchStatusCode } from "../lib/http.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
-import { RequestOptions } from "../lib/sdks.js";
+import { encodePath, RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
-import { pathToFunc } from "../lib/url.js";
 import { DocumensoError } from "../models/errors/documensoerror.js";
 import {
   ConnectionError,
@@ -104,7 +103,11 @@ async function $do(
       charEncoding: "percent",
     }),
   };
-  const path = pathToFunc("/envelope/{envelopeId}/audit-log")(pathParams);
+  const pathResult = encodePath("/envelope/{envelopeId}/audit-log", pathParams);
+  if (!pathResult.ok) {
+    return [pathResult, { status: "invalid" }];
+  }
+  const path = pathResult.value;
 
   const query = encodeFormQuery({
     "orderByColumn": payload.orderByColumn,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -223,6 +223,7 @@ export type TemplateCreateDocumentFromTemplateRequest = {
   externalId?: string | undefined;
   recipients: Array<TemplateCreateDocumentFromTemplateRecipientRequest>;
   distributeDocument?: boolean | undefined;
+  includeContents?: boolean | undefined;
   customDocumentDataId?: string | undefined;
   customDocumentData?:
     | Array<TemplateCreateDocumentFromTemplateCustomDocumentDatum>
@@ -896,6 +897,14 @@ export type TemplateCreateDocumentFromTemplateTextAlign1 = ClosedEnum<
   typeof TemplateCreateDocumentFromTemplateTextAlign1
 >;
 
+export const TemplateCreateDocumentFromTemplateFontFamily = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type TemplateCreateDocumentFromTemplateFontFamily = ClosedEnum<
+  typeof TemplateCreateDocumentFromTemplateFontFamily
+>;
+
 export type TemplateCreateDocumentFromTemplateFieldMetaInitials = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -905,6 +914,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaInitials = {
   overflow?: TemplateCreateDocumentFromTemplateOverflow2 | undefined;
   type: "initials";
   textAlign?: TemplateCreateDocumentFromTemplateTextAlign1 | undefined;
+  fontFamily?: TemplateCreateDocumentFromTemplateFontFamily | undefined;
 };
 
 export const TemplateCreateDocumentFromTemplateOverflow1 = {
@@ -1002,8 +1012,10 @@ export type TemplateCreateDocumentFromTemplateResponse = {
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateEmailEnum$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateEmailEnum> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateEmailEnum);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateEmailEnum> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateEmailEnum)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateEmailEnum$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateEmailEnum> =
@@ -1015,10 +1027,12 @@ export const TemplateCreateDocumentFromTemplateEmailUnion$inboundSchema:
     TemplateCreateDocumentFromTemplateEmailUnion,
     z.ZodTypeDef,
     unknown
-  > = z.union([
-    TemplateCreateDocumentFromTemplateEmailEnum$inboundSchema,
-    z.string(),
-  ]);
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.union([
+      TemplateCreateDocumentFromTemplateEmailEnum$inboundSchema,
+      z.string(),
+    ])
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateEmailUnion$Outbound =
   | string
@@ -1030,10 +1044,12 @@ export const TemplateCreateDocumentFromTemplateEmailUnion$outboundSchema:
     TemplateCreateDocumentFromTemplateEmailUnion$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateEmailUnion
-  > = z.union([
-    TemplateCreateDocumentFromTemplateEmailEnum$outboundSchema,
-    z.string(),
-  ]);
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.union([
+      TemplateCreateDocumentFromTemplateEmailEnum$outboundSchema,
+      z.string(),
+    ])
+  );
 
 export function templateCreateDocumentFromTemplateEmailUnionToJSON(
   templateCreateDocumentFromTemplateEmailUnion:
@@ -1067,14 +1083,16 @@ export const TemplateCreateDocumentFromTemplateRecipientRequest$inboundSchema:
     TemplateCreateDocumentFromTemplateRecipientRequest,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    id: z.number(),
-    email: z.union([
-      TemplateCreateDocumentFromTemplateEmailEnum$inboundSchema,
-      z.string(),
-    ]),
-    name: z.string().optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      id: z.number(),
+      email: z.union([
+        TemplateCreateDocumentFromTemplateEmailEnum$inboundSchema,
+        z.string(),
+      ]),
+      name: z.string().optional(),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateRecipientRequest$Outbound = {
   id: number;
@@ -1088,14 +1106,16 @@ export const TemplateCreateDocumentFromTemplateRecipientRequest$outboundSchema:
     TemplateCreateDocumentFromTemplateRecipientRequest$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateRecipientRequest
-  > = z.object({
-    id: z.number(),
-    email: z.union([
-      TemplateCreateDocumentFromTemplateEmailEnum$outboundSchema,
-      z.string(),
-    ]),
-    name: z.string().optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      id: z.number(),
+      email: z.union([
+        TemplateCreateDocumentFromTemplateEmailEnum$outboundSchema,
+        z.string(),
+      ]),
+      name: z.string().optional(),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateRecipientRequestToJSON(
   templateCreateDocumentFromTemplateRecipientRequest:
@@ -1129,10 +1149,12 @@ export const TemplateCreateDocumentFromTemplateCustomDocumentDatum$inboundSchema
     TemplateCreateDocumentFromTemplateCustomDocumentDatum,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    documentDataId: z.string(),
-    envelopeItemId: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      documentDataId: z.string(),
+      envelopeItemId: z.string(),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateCustomDocumentDatum$Outbound = {
   documentDataId: string;
@@ -1145,10 +1167,12 @@ export const TemplateCreateDocumentFromTemplateCustomDocumentDatum$outboundSchem
     TemplateCreateDocumentFromTemplateCustomDocumentDatum$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateCustomDocumentDatum
-  > = z.object({
-    documentDataId: z.string(),
-    envelopeItemId: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      documentDataId: z.string(),
+      envelopeItemId: z.string(),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateCustomDocumentDatumToJSON(
   templateCreateDocumentFromTemplateCustomDocumentDatum:
@@ -1182,11 +1206,13 @@ export const TemplateCreateDocumentFromTemplatePrefillFieldDate$inboundSchema:
     TemplateCreateDocumentFromTemplatePrefillFieldDate,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    type: z.literal("date"),
-    value: z.string().optional(),
-    id: z.number(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      type: z.literal("date"),
+      value: z.string().optional(),
+      id: z.number(),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplatePrefillFieldDate$Outbound = {
   type: "date";
@@ -1200,11 +1226,13 @@ export const TemplateCreateDocumentFromTemplatePrefillFieldDate$outboundSchema:
     TemplateCreateDocumentFromTemplatePrefillFieldDate$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplatePrefillFieldDate
-  > = z.object({
-    type: z.literal("date"),
-    value: z.string().optional(),
-    id: z.number(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      type: z.literal("date"),
+      value: z.string().optional(),
+      id: z.number(),
+    })
+  );
 
 export function templateCreateDocumentFromTemplatePrefillFieldDateToJSON(
   templateCreateDocumentFromTemplatePrefillFieldDate:
@@ -1238,12 +1266,14 @@ export const TemplateCreateDocumentFromTemplatePrefillFieldDropdown$inboundSchem
     TemplateCreateDocumentFromTemplatePrefillFieldDropdown,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    type: z.literal("dropdown"),
-    label: z.string().optional(),
-    value: z.string().optional(),
-    id: z.number(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      type: z.literal("dropdown"),
+      label: z.string().optional(),
+      value: z.string().optional(),
+      id: z.number(),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplatePrefillFieldDropdown$Outbound = {
   type: "dropdown";
@@ -1258,12 +1288,14 @@ export const TemplateCreateDocumentFromTemplatePrefillFieldDropdown$outboundSche
     TemplateCreateDocumentFromTemplatePrefillFieldDropdown$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplatePrefillFieldDropdown
-  > = z.object({
-    type: z.literal("dropdown"),
-    label: z.string().optional(),
-    value: z.string().optional(),
-    id: z.number(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      type: z.literal("dropdown"),
+      label: z.string().optional(),
+      value: z.string().optional(),
+      id: z.number(),
+    })
+  );
 
 export function templateCreateDocumentFromTemplatePrefillFieldDropdownToJSON(
   templateCreateDocumentFromTemplatePrefillFieldDropdown:
@@ -1296,12 +1328,14 @@ export const TemplateCreateDocumentFromTemplatePrefillFieldCheckbox$inboundSchem
     TemplateCreateDocumentFromTemplatePrefillFieldCheckbox,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    type: z.literal("checkbox"),
-    label: z.string().optional(),
-    value: z.array(z.string()).optional(),
-    id: z.number(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      type: z.literal("checkbox"),
+      label: z.string().optional(),
+      value: z.array(z.string()).optional(),
+      id: z.number(),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplatePrefillFieldCheckbox$Outbound = {
   type: "checkbox";
@@ -1316,12 +1350,14 @@ export const TemplateCreateDocumentFromTemplatePrefillFieldCheckbox$outboundSche
     TemplateCreateDocumentFromTemplatePrefillFieldCheckbox$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplatePrefillFieldCheckbox
-  > = z.object({
-    type: z.literal("checkbox"),
-    label: z.string().optional(),
-    value: z.array(z.string()).optional(),
-    id: z.number(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      type: z.literal("checkbox"),
+      label: z.string().optional(),
+      value: z.array(z.string()).optional(),
+      id: z.number(),
+    })
+  );
 
 export function templateCreateDocumentFromTemplatePrefillFieldCheckboxToJSON(
   templateCreateDocumentFromTemplatePrefillFieldCheckbox:
@@ -1354,12 +1390,14 @@ export const TemplateCreateDocumentFromTemplatePrefillFieldRadio$inboundSchema:
     TemplateCreateDocumentFromTemplatePrefillFieldRadio,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    type: z.literal("radio"),
-    label: z.string().optional(),
-    value: z.string().optional(),
-    id: z.number(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      type: z.literal("radio"),
+      label: z.string().optional(),
+      value: z.string().optional(),
+      id: z.number(),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplatePrefillFieldRadio$Outbound = {
   type: "radio";
@@ -1374,12 +1412,14 @@ export const TemplateCreateDocumentFromTemplatePrefillFieldRadio$outboundSchema:
     TemplateCreateDocumentFromTemplatePrefillFieldRadio$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplatePrefillFieldRadio
-  > = z.object({
-    type: z.literal("radio"),
-    label: z.string().optional(),
-    value: z.string().optional(),
-    id: z.number(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      type: z.literal("radio"),
+      label: z.string().optional(),
+      value: z.string().optional(),
+      id: z.number(),
+    })
+  );
 
 export function templateCreateDocumentFromTemplatePrefillFieldRadioToJSON(
   templateCreateDocumentFromTemplatePrefillFieldRadio:
@@ -1413,13 +1453,15 @@ export const TemplateCreateDocumentFromTemplatePrefillFieldNumber$inboundSchema:
     TemplateCreateDocumentFromTemplatePrefillFieldNumber,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    type: z.literal("number"),
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    value: z.string().optional(),
-    id: z.number(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      type: z.literal("number"),
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      value: z.string().optional(),
+      id: z.number(),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplatePrefillFieldNumber$Outbound = {
   type: "number";
@@ -1435,13 +1477,15 @@ export const TemplateCreateDocumentFromTemplatePrefillFieldNumber$outboundSchema
     TemplateCreateDocumentFromTemplatePrefillFieldNumber$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplatePrefillFieldNumber
-  > = z.object({
-    type: z.literal("number"),
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    value: z.string().optional(),
-    id: z.number(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      type: z.literal("number"),
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      value: z.string().optional(),
+      id: z.number(),
+    })
+  );
 
 export function templateCreateDocumentFromTemplatePrefillFieldNumberToJSON(
   templateCreateDocumentFromTemplatePrefillFieldNumber:
@@ -1475,13 +1519,15 @@ export const TemplateCreateDocumentFromTemplatePrefillFieldText$inboundSchema:
     TemplateCreateDocumentFromTemplatePrefillFieldText,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    type: z.literal("text"),
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    value: z.string().optional(),
-    id: z.number(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      type: z.literal("text"),
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      value: z.string().optional(),
+      id: z.number(),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplatePrefillFieldText$Outbound = {
   type: "text";
@@ -1497,13 +1543,15 @@ export const TemplateCreateDocumentFromTemplatePrefillFieldText$outboundSchema:
     TemplateCreateDocumentFromTemplatePrefillFieldText$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplatePrefillFieldText
-  > = z.object({
-    type: z.literal("text"),
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    value: z.string().optional(),
-    id: z.number(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      type: z.literal("text"),
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      value: z.string().optional(),
+      id: z.number(),
+    })
+  );
 
 export function templateCreateDocumentFromTemplatePrefillFieldTextToJSON(
   templateCreateDocumentFromTemplatePrefillFieldText:
@@ -1537,26 +1585,28 @@ export const TemplateCreateDocumentFromTemplatePrefillFieldUnion$inboundSchema:
     TemplateCreateDocumentFromTemplatePrefillFieldUnion,
     z.ZodTypeDef,
     unknown
-  > = z.union([
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplatePrefillFieldText$inboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplatePrefillFieldNumber$inboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplatePrefillFieldRadio$inboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplatePrefillFieldCheckbox$inboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplatePrefillFieldDropdown$inboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplatePrefillFieldDate$inboundSchema
-    ),
-  ]);
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.union([
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplatePrefillFieldText$inboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplatePrefillFieldNumber$inboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplatePrefillFieldRadio$inboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplatePrefillFieldCheckbox$inboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplatePrefillFieldDropdown$inboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplatePrefillFieldDate$inboundSchema
+      ),
+    ])
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplatePrefillFieldUnion$Outbound =
   | TemplateCreateDocumentFromTemplatePrefillFieldText$Outbound
@@ -1572,26 +1622,28 @@ export const TemplateCreateDocumentFromTemplatePrefillFieldUnion$outboundSchema:
     TemplateCreateDocumentFromTemplatePrefillFieldUnion$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplatePrefillFieldUnion
-  > = z.union([
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplatePrefillFieldText$outboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplatePrefillFieldNumber$outboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplatePrefillFieldRadio$outboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplatePrefillFieldCheckbox$outboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplatePrefillFieldDropdown$outboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplatePrefillFieldDate$outboundSchema
-    ),
-  ]);
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.union([
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplatePrefillFieldText$outboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplatePrefillFieldNumber$outboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplatePrefillFieldRadio$outboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplatePrefillFieldCheckbox$outboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplatePrefillFieldDropdown$outboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplatePrefillFieldDate$outboundSchema
+      ),
+    ])
+  );
 
 export function templateCreateDocumentFromTemplatePrefillFieldUnionToJSON(
   templateCreateDocumentFromTemplatePrefillFieldUnion:
@@ -1621,8 +1673,10 @@ export function templateCreateDocumentFromTemplatePrefillFieldUnionFromJSON(
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateDateFormat$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateDateFormat> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateDateFormat);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateDateFormat> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateDateFormat)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateDateFormat$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateDateFormat> =
@@ -1632,8 +1686,8 @@ export const TemplateCreateDocumentFromTemplateDateFormat$outboundSchema:
 export const TemplateCreateDocumentFromTemplateOverrideDistributionMethod$inboundSchema:
   z.ZodNativeEnum<
     typeof TemplateCreateDocumentFromTemplateOverrideDistributionMethod
-  > = z.nativeEnum(
-    TemplateCreateDocumentFromTemplateOverrideDistributionMethod,
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.nativeEnum(TemplateCreateDocumentFromTemplateOverrideDistributionMethod)
   );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateOverrideDistributionMethod$outboundSchema:
@@ -1648,17 +1702,19 @@ export const TemplateCreateDocumentFromTemplateOverrideEmailSettings$inboundSche
     TemplateCreateDocumentFromTemplateOverrideEmailSettings,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    recipientSigningRequest: z.boolean().default(true),
-    recipientRemoved: z.boolean().default(true),
-    recipientSigned: z.boolean().default(true),
-    documentPending: z.boolean().default(true),
-    documentCompleted: z.boolean().default(true),
-    documentDeleted: z.boolean().default(true),
-    ownerDocumentCompleted: z.boolean().default(true),
-    ownerRecipientExpired: z.boolean().default(true),
-    ownerDocumentCreated: z.boolean().default(true),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      recipientSigningRequest: z.boolean().default(true),
+      recipientRemoved: z.boolean().default(true),
+      recipientSigned: z.boolean().default(true),
+      documentPending: z.boolean().default(true),
+      documentCompleted: z.boolean().default(true),
+      documentDeleted: z.boolean().default(true),
+      ownerDocumentCompleted: z.boolean().default(true),
+      ownerRecipientExpired: z.boolean().default(true),
+      ownerDocumentCreated: z.boolean().default(true),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateOverrideEmailSettings$Outbound = {
   recipientSigningRequest: boolean;
@@ -1678,17 +1734,19 @@ export const TemplateCreateDocumentFromTemplateOverrideEmailSettings$outboundSch
     TemplateCreateDocumentFromTemplateOverrideEmailSettings$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateOverrideEmailSettings
-  > = z.object({
-    recipientSigningRequest: z.boolean().default(true),
-    recipientRemoved: z.boolean().default(true),
-    recipientSigned: z.boolean().default(true),
-    documentPending: z.boolean().default(true),
-    documentCompleted: z.boolean().default(true),
-    documentDeleted: z.boolean().default(true),
-    ownerDocumentCompleted: z.boolean().default(true),
-    ownerRecipientExpired: z.boolean().default(true),
-    ownerDocumentCreated: z.boolean().default(true),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      recipientSigningRequest: z.boolean().default(true),
+      recipientRemoved: z.boolean().default(true),
+      recipientSigned: z.boolean().default(true),
+      documentPending: z.boolean().default(true),
+      documentCompleted: z.boolean().default(true),
+      documentDeleted: z.boolean().default(true),
+      ownerDocumentCompleted: z.boolean().default(true),
+      ownerRecipientExpired: z.boolean().default(true),
+      ownerDocumentCreated: z.boolean().default(true),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateOverrideEmailSettingsToJSON(
   templateCreateDocumentFromTemplateOverrideEmailSettings:
@@ -1716,8 +1774,10 @@ export function templateCreateDocumentFromTemplateOverrideEmailSettingsFromJSON(
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateLanguage$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateLanguage> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateLanguage);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateLanguage> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateLanguage)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateLanguage$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateLanguage> =
@@ -1729,9 +1789,11 @@ export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2
     TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    disabled: z.literal(true),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      disabled: z.literal(true),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2$Outbound =
   {
@@ -1744,9 +1806,11 @@ export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2
     TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2
-  > = z.object({
-    disabled: z.literal(true),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      disabled: z.literal(true),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2ToJSON(
   templateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2:
@@ -1776,8 +1840,10 @@ export function templateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverri
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateOverrideUnit$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverrideUnit> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateOverrideUnit);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverrideUnit> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateOverrideUnit)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateOverrideUnit$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverrideUnit> =
@@ -1789,10 +1855,12 @@ export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1
     TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    unit: TemplateCreateDocumentFromTemplateOverrideUnit$inboundSchema,
-    amount: z.number().int(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      unit: TemplateCreateDocumentFromTemplateOverrideUnit$inboundSchema,
+      amount: z.number().int(),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1$Outbound =
   {
@@ -1806,10 +1874,12 @@ export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1
     TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1
-  > = z.object({
-    unit: TemplateCreateDocumentFromTemplateOverrideUnit$outboundSchema,
-    amount: z.number().int(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      unit: TemplateCreateDocumentFromTemplateOverrideUnit$outboundSchema,
+      amount: z.number().int(),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1ToJSON(
   templateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1:
@@ -1843,14 +1913,16 @@ export const TemplateCreateDocumentFromTemplateOverrideEnvelopeExpirationPeriodU
     TemplateCreateDocumentFromTemplateOverrideEnvelopeExpirationPeriodUnion,
     z.ZodTypeDef,
     unknown
-  > = z.union([
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1$inboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2$inboundSchema
-    ),
-  ]);
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.union([
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1$inboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2$inboundSchema
+      ),
+    ])
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateOverrideEnvelopeExpirationPeriodUnion$Outbound =
   | TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1$Outbound
@@ -1862,14 +1934,16 @@ export const TemplateCreateDocumentFromTemplateOverrideEnvelopeExpirationPeriodU
     TemplateCreateDocumentFromTemplateOverrideEnvelopeExpirationPeriodUnion$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateOverrideEnvelopeExpirationPeriodUnion
-  > = z.union([
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1$outboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2$outboundSchema
-    ),
-  ]);
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.union([
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1$outboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2$outboundSchema
+      ),
+    ])
+  );
 
 export function templateCreateDocumentFromTemplateOverrideEnvelopeExpirationPeriodUnionToJSON(
   templateCreateDocumentFromTemplateOverrideEnvelopeExpirationPeriodUnion:
@@ -1900,37 +1974,37 @@ export function templateCreateDocumentFromTemplateOverrideEnvelopeExpirationPeri
 /** @internal */
 export const TemplateCreateDocumentFromTemplateOverride$inboundSchema:
   z.ZodType<TemplateCreateDocumentFromTemplateOverride, z.ZodTypeDef, unknown> =
-    z.object({
-      title: z.string().optional(),
-      subject: z.string().optional(),
-      message: z.string().optional(),
-      timezone: z.string().optional(),
-      dateFormat: TemplateCreateDocumentFromTemplateDateFormat$inboundSchema
-        .optional(),
-      redirectUrl: z.string().optional(),
-      distributionMethod:
-        TemplateCreateDocumentFromTemplateOverrideDistributionMethod$inboundSchema
+    /* @__PURE__ */ lazySchema$(() =>
+      z.object({
+        title: z.string().optional(),
+        subject: z.string().optional(),
+        message: z.string().optional(),
+        timezone: z.string().optional(),
+        dateFormat: TemplateCreateDocumentFromTemplateDateFormat$inboundSchema
           .optional(),
-      emailSettings: z.lazy(() =>
-        TemplateCreateDocumentFromTemplateOverrideEmailSettings$inboundSchema
-      ).optional(),
-      language: TemplateCreateDocumentFromTemplateLanguage$inboundSchema
-        .optional(),
-      typedSignatureEnabled: z.boolean().optional(),
-      uploadSignatureEnabled: z.boolean().optional(),
-      drawSignatureEnabled: z.boolean().optional(),
-      allowDictateNextSigner: z.boolean().optional(),
-      envelopeExpirationPeriod: z.nullable(
-        z.union([
+        redirectUrl: z.string().optional(),
+        distributionMethod:
+          TemplateCreateDocumentFromTemplateOverrideDistributionMethod$inboundSchema
+            .optional(),
+        emailSettings: z.lazy(() =>
+          TemplateCreateDocumentFromTemplateOverrideEmailSettings$inboundSchema
+        ).optional(),
+        language: TemplateCreateDocumentFromTemplateLanguage$inboundSchema
+          .optional(),
+        typedSignatureEnabled: z.boolean().optional(),
+        uploadSignatureEnabled: z.boolean().optional(),
+        drawSignatureEnabled: z.boolean().optional(),
+        allowDictateNextSigner: z.boolean().optional(),
+        envelopeExpirationPeriod: z.nullable(z.union([
           z.lazy(() =>
             TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1$inboundSchema
           ),
           z.lazy(() =>
             TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2$inboundSchema
           ),
-        ]),
-      ).optional(),
-    });
+        ])).optional(),
+      })
+    );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateOverride$Outbound = {
   title?: string | undefined;
@@ -1961,37 +2035,37 @@ export const TemplateCreateDocumentFromTemplateOverride$outboundSchema:
     TemplateCreateDocumentFromTemplateOverride$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateOverride
-  > = z.object({
-    title: z.string().optional(),
-    subject: z.string().optional(),
-    message: z.string().optional(),
-    timezone: z.string().optional(),
-    dateFormat: TemplateCreateDocumentFromTemplateDateFormat$outboundSchema
-      .optional(),
-    redirectUrl: z.string().optional(),
-    distributionMethod:
-      TemplateCreateDocumentFromTemplateOverrideDistributionMethod$outboundSchema
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      title: z.string().optional(),
+      subject: z.string().optional(),
+      message: z.string().optional(),
+      timezone: z.string().optional(),
+      dateFormat: TemplateCreateDocumentFromTemplateDateFormat$outboundSchema
         .optional(),
-    emailSettings: z.lazy(() =>
-      TemplateCreateDocumentFromTemplateOverrideEmailSettings$outboundSchema
-    ).optional(),
-    language: TemplateCreateDocumentFromTemplateLanguage$outboundSchema
-      .optional(),
-    typedSignatureEnabled: z.boolean().optional(),
-    uploadSignatureEnabled: z.boolean().optional(),
-    drawSignatureEnabled: z.boolean().optional(),
-    allowDictateNextSigner: z.boolean().optional(),
-    envelopeExpirationPeriod: z.nullable(
-      z.union([
+      redirectUrl: z.string().optional(),
+      distributionMethod:
+        TemplateCreateDocumentFromTemplateOverrideDistributionMethod$outboundSchema
+          .optional(),
+      emailSettings: z.lazy(() =>
+        TemplateCreateDocumentFromTemplateOverrideEmailSettings$outboundSchema
+      ).optional(),
+      language: TemplateCreateDocumentFromTemplateLanguage$outboundSchema
+        .optional(),
+      typedSignatureEnabled: z.boolean().optional(),
+      uploadSignatureEnabled: z.boolean().optional(),
+      drawSignatureEnabled: z.boolean().optional(),
+      allowDictateNextSigner: z.boolean().optional(),
+      envelopeExpirationPeriod: z.nullable(z.union([
         z.lazy(() =>
           TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride1$outboundSchema
         ),
         z.lazy(() =>
           TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodOverride2$outboundSchema
         ),
-      ]),
-    ).optional(),
-  });
+      ])).optional(),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateOverrideToJSON(
   templateCreateDocumentFromTemplateOverride:
@@ -2021,8 +2095,10 @@ export function templateCreateDocumentFromTemplateOverrideFromJSON(
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateTypeLink$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTypeLink> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateTypeLink);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTypeLink> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateTypeLink)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateTypeLink$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTypeLink> =
@@ -2034,13 +2110,15 @@ export const TemplateCreateDocumentFromTemplateAttachment$inboundSchema:
     TemplateCreateDocumentFromTemplateAttachment,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string(),
-    data: z.string(),
-    type: TemplateCreateDocumentFromTemplateTypeLink$inboundSchema.default(
-      "link",
-    ),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string(),
+      data: z.string(),
+      type: TemplateCreateDocumentFromTemplateTypeLink$inboundSchema.default(
+        "link",
+      ),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateAttachment$Outbound = {
   label: string;
@@ -2054,13 +2132,15 @@ export const TemplateCreateDocumentFromTemplateAttachment$outboundSchema:
     TemplateCreateDocumentFromTemplateAttachment$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateAttachment
-  > = z.object({
-    label: z.string(),
-    data: z.string(),
-    type: TemplateCreateDocumentFromTemplateTypeLink$outboundSchema.default(
-      "link",
-    ),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string(),
+      data: z.string(),
+      type: TemplateCreateDocumentFromTemplateTypeLink$outboundSchema.default(
+        "link",
+      ),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateAttachmentToJSON(
   templateCreateDocumentFromTemplateAttachment:
@@ -2094,7 +2174,9 @@ export const TemplateCreateDocumentFromTemplateFormValuesRequest$inboundSchema:
     TemplateCreateDocumentFromTemplateFormValuesRequest,
     z.ZodTypeDef,
     unknown
-  > = z.union([z.string(), z.boolean(), z.number()]);
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.union([z.string(), z.boolean(), z.number()])
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateFormValuesRequest$Outbound =
   | string
@@ -2107,7 +2189,9 @@ export const TemplateCreateDocumentFromTemplateFormValuesRequest$outboundSchema:
     TemplateCreateDocumentFromTemplateFormValuesRequest$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateFormValuesRequest
-  > = z.union([z.string(), z.boolean(), z.number()]);
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.union([z.string(), z.boolean(), z.number()])
+  );
 
 export function templateCreateDocumentFromTemplateFormValuesRequestToJSON(
   templateCreateDocumentFromTemplateFormValuesRequest:
@@ -2140,24 +2224,21 @@ export const TemplateCreateDocumentFromTemplateRequest$inboundSchema: z.ZodType<
   TemplateCreateDocumentFromTemplateRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  templateId: z.number(),
-  externalId: z.string().optional(),
-  recipients: z.array(
-    z.lazy(() =>
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    templateId: z.number(),
+    externalId: z.string().optional(),
+    recipients: z.array(z.lazy(() =>
       TemplateCreateDocumentFromTemplateRecipientRequest$inboundSchema
-    ),
-  ),
-  distributeDocument: z.boolean().optional(),
-  customDocumentDataId: z.string().optional(),
-  customDocumentData: z.array(
-    z.lazy(() =>
+    )),
+    distributeDocument: z.boolean().optional(),
+    includeContents: z.boolean().optional(),
+    customDocumentDataId: z.string().optional(),
+    customDocumentData: z.array(z.lazy(() =>
       TemplateCreateDocumentFromTemplateCustomDocumentDatum$inboundSchema
-    ),
-  ).optional(),
-  folderId: z.string().optional(),
-  prefillFields: z.array(
-    z.union([
+    )).optional(),
+    folderId: z.string().optional(),
+    prefillFields: z.array(z.union([
       z.lazy(() =>
         TemplateCreateDocumentFromTemplatePrefillFieldText$inboundSchema
       ),
@@ -2176,17 +2257,17 @@ export const TemplateCreateDocumentFromTemplateRequest$inboundSchema: z.ZodType<
       z.lazy(() =>
         TemplateCreateDocumentFromTemplatePrefillFieldDate$inboundSchema
       ),
-    ]),
-  ).optional(),
-  override: z.lazy(() =>
-    TemplateCreateDocumentFromTemplateOverride$inboundSchema
-  ).optional(),
-  attachments: z.array(
-    z.lazy(() => TemplateCreateDocumentFromTemplateAttachment$inboundSchema),
-  ).optional(),
-  formValues: z.record(z.union([z.string(), z.boolean(), z.number()]))
-    .optional(),
-});
+    ])).optional(),
+    override: z.lazy(() =>
+      TemplateCreateDocumentFromTemplateOverride$inboundSchema
+    ).optional(),
+    attachments: z.array(z.lazy(() =>
+      TemplateCreateDocumentFromTemplateAttachment$inboundSchema
+    )).optional(),
+    formValues: z.record(z.union([z.string(), z.boolean(), z.number()]))
+      .optional(),
+  })
+);
 /** @internal */
 export type TemplateCreateDocumentFromTemplateRequest$Outbound = {
   templateId: number;
@@ -2195,6 +2276,7 @@ export type TemplateCreateDocumentFromTemplateRequest$Outbound = {
     TemplateCreateDocumentFromTemplateRecipientRequest$Outbound
   >;
   distributeDocument?: boolean | undefined;
+  includeContents?: boolean | undefined;
   customDocumentDataId?: string | undefined;
   customDocumentData?:
     | Array<TemplateCreateDocumentFromTemplateCustomDocumentDatum$Outbound>
@@ -2223,24 +2305,21 @@ export const TemplateCreateDocumentFromTemplateRequest$outboundSchema:
     TemplateCreateDocumentFromTemplateRequest$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateRequest
-  > = z.object({
-    templateId: z.number(),
-    externalId: z.string().optional(),
-    recipients: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      templateId: z.number(),
+      externalId: z.string().optional(),
+      recipients: z.array(z.lazy(() =>
         TemplateCreateDocumentFromTemplateRecipientRequest$outboundSchema
-      ),
-    ),
-    distributeDocument: z.boolean().optional(),
-    customDocumentDataId: z.string().optional(),
-    customDocumentData: z.array(
-      z.lazy(() =>
+      )),
+      distributeDocument: z.boolean().optional(),
+      includeContents: z.boolean().optional(),
+      customDocumentDataId: z.string().optional(),
+      customDocumentData: z.array(z.lazy(() =>
         TemplateCreateDocumentFromTemplateCustomDocumentDatum$outboundSchema
-      ),
-    ).optional(),
-    folderId: z.string().optional(),
-    prefillFields: z.array(
-      z.union([
+      )).optional(),
+      folderId: z.string().optional(),
+      prefillFields: z.array(z.union([
         z.lazy(() =>
           TemplateCreateDocumentFromTemplatePrefillFieldText$outboundSchema
         ),
@@ -2259,17 +2338,17 @@ export const TemplateCreateDocumentFromTemplateRequest$outboundSchema:
         z.lazy(() =>
           TemplateCreateDocumentFromTemplatePrefillFieldDate$outboundSchema
         ),
-      ]),
-    ).optional(),
-    override: z.lazy(() =>
-      TemplateCreateDocumentFromTemplateOverride$outboundSchema
-    ).optional(),
-    attachments: z.array(
-      z.lazy(() => TemplateCreateDocumentFromTemplateAttachment$outboundSchema),
-    ).optional(),
-    formValues: z.record(z.union([z.string(), z.boolean(), z.number()]))
-      .optional(),
-  });
+      ])).optional(),
+      override: z.lazy(() =>
+        TemplateCreateDocumentFromTemplateOverride$outboundSchema
+      ).optional(),
+      attachments: z.array(z.lazy(() =>
+        TemplateCreateDocumentFromTemplateAttachment$outboundSchema
+      )).optional(),
+      formValues: z.record(z.union([z.string(), z.boolean(), z.number()]))
+        .optional(),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateRequestToJSON(
   templateCreateDocumentFromTemplateRequest:
@@ -2299,8 +2378,10 @@ export function templateCreateDocumentFromTemplateRequestFromJSON(
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateVisibility$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateVisibility> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateVisibility);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateVisibility> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateVisibility)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateVisibility$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateVisibility> =
@@ -2308,8 +2389,10 @@ export const TemplateCreateDocumentFromTemplateVisibility$outboundSchema:
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateStatus$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateStatus> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateStatus);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateStatus> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateStatus)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateStatus$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateStatus> =
@@ -2317,8 +2400,10 @@ export const TemplateCreateDocumentFromTemplateStatus$outboundSchema:
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateSource$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateSource> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateSource);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateSource> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateSource)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateSource$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateSource> =
@@ -2326,8 +2411,10 @@ export const TemplateCreateDocumentFromTemplateSource$outboundSchema:
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateGlobalAccessAuth$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateGlobalAccessAuth> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateGlobalAccessAuth);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateGlobalAccessAuth> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateGlobalAccessAuth)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateGlobalAccessAuth$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateGlobalAccessAuth> =
@@ -2335,8 +2422,10 @@ export const TemplateCreateDocumentFromTemplateGlobalAccessAuth$outboundSchema:
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateGlobalActionAuth$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateGlobalActionAuth> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateGlobalActionAuth);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateGlobalActionAuth> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateGlobalActionAuth)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateGlobalActionAuth$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateGlobalActionAuth> =
@@ -2348,14 +2437,16 @@ export const TemplateCreateDocumentFromTemplateAuthOptions$inboundSchema:
     TemplateCreateDocumentFromTemplateAuthOptions,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    globalAccessAuth: z.array(
-      TemplateCreateDocumentFromTemplateGlobalAccessAuth$inboundSchema,
-    ),
-    globalActionAuth: z.array(
-      TemplateCreateDocumentFromTemplateGlobalActionAuth$inboundSchema,
-    ),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      globalAccessAuth: z.array(
+        TemplateCreateDocumentFromTemplateGlobalAccessAuth$inboundSchema,
+      ),
+      globalActionAuth: z.array(
+        TemplateCreateDocumentFromTemplateGlobalActionAuth$inboundSchema,
+      ),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateAuthOptions$Outbound = {
   globalAccessAuth: Array<string>;
@@ -2368,14 +2459,16 @@ export const TemplateCreateDocumentFromTemplateAuthOptions$outboundSchema:
     TemplateCreateDocumentFromTemplateAuthOptions$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateAuthOptions
-  > = z.object({
-    globalAccessAuth: z.array(
-      TemplateCreateDocumentFromTemplateGlobalAccessAuth$outboundSchema,
-    ),
-    globalActionAuth: z.array(
-      TemplateCreateDocumentFromTemplateGlobalActionAuth$outboundSchema,
-    ),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      globalAccessAuth: z.array(
+        TemplateCreateDocumentFromTemplateGlobalAccessAuth$outboundSchema,
+      ),
+      globalActionAuth: z.array(
+        TemplateCreateDocumentFromTemplateGlobalActionAuth$outboundSchema,
+      ),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateAuthOptionsToJSON(
   templateCreateDocumentFromTemplateAuthOptions:
@@ -2409,7 +2502,9 @@ export const TemplateCreateDocumentFromTemplateFormValuesResponse$inboundSchema:
     TemplateCreateDocumentFromTemplateFormValuesResponse,
     z.ZodTypeDef,
     unknown
-  > = z.union([z.string(), z.boolean(), z.number()]);
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.union([z.string(), z.boolean(), z.number()])
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateFormValuesResponse$Outbound =
   | string
@@ -2422,7 +2517,9 @@ export const TemplateCreateDocumentFromTemplateFormValuesResponse$outboundSchema
     TemplateCreateDocumentFromTemplateFormValuesResponse$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateFormValuesResponse
-  > = z.union([z.string(), z.boolean(), z.number()]);
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.union([z.string(), z.boolean(), z.number()])
+  );
 
 export function templateCreateDocumentFromTemplateFormValuesResponseToJSON(
   templateCreateDocumentFromTemplateFormValuesResponse:
@@ -2452,8 +2549,10 @@ export function templateCreateDocumentFromTemplateFormValuesResponseFromJSON(
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateDocumentDataType$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateDocumentDataType> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateDocumentDataType);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateDocumentDataType> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateDocumentDataType)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateDocumentDataType$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateDocumentDataType> =
@@ -2465,13 +2564,15 @@ export const TemplateCreateDocumentFromTemplateDocumentData$inboundSchema:
     TemplateCreateDocumentFromTemplateDocumentData,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    type: TemplateCreateDocumentFromTemplateDocumentDataType$inboundSchema,
-    id: z.string(),
-    data: z.string(),
-    initialData: z.string(),
-    envelopeItemId: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      type: TemplateCreateDocumentFromTemplateDocumentDataType$inboundSchema,
+      id: z.string(),
+      data: z.string(),
+      initialData: z.string(),
+      envelopeItemId: z.string(),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateDocumentData$Outbound = {
   type: string;
@@ -2487,13 +2588,15 @@ export const TemplateCreateDocumentFromTemplateDocumentData$outboundSchema:
     TemplateCreateDocumentFromTemplateDocumentData$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateDocumentData
-  > = z.object({
-    type: TemplateCreateDocumentFromTemplateDocumentDataType$outboundSchema,
-    id: z.string(),
-    data: z.string(),
-    initialData: z.string(),
-    envelopeItemId: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      type: TemplateCreateDocumentFromTemplateDocumentDataType$outboundSchema,
+      id: z.string(),
+      data: z.string(),
+      initialData: z.string(),
+      envelopeItemId: z.string(),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateDocumentDataToJSON(
   templateCreateDocumentFromTemplateDocumentData:
@@ -2523,8 +2626,10 @@ export function templateCreateDocumentFromTemplateDocumentDataFromJSON(
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateSigningOrder$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateSigningOrder> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateSigningOrder);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateSigningOrder> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateSigningOrder)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateSigningOrder$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateSigningOrder> =
@@ -2534,8 +2639,10 @@ export const TemplateCreateDocumentFromTemplateSigningOrder$outboundSchema:
 export const TemplateCreateDocumentFromTemplateDocumentMetaDistributionMethod$inboundSchema:
   z.ZodNativeEnum<
     typeof TemplateCreateDocumentFromTemplateDocumentMetaDistributionMethod
-  > = z.nativeEnum(
-    TemplateCreateDocumentFromTemplateDocumentMetaDistributionMethod,
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.nativeEnum(
+      TemplateCreateDocumentFromTemplateDocumentMetaDistributionMethod,
+    )
   );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateDocumentMetaDistributionMethod$outboundSchema:
@@ -2550,17 +2657,19 @@ export const TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings$inbound
     TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    recipientSigningRequest: z.boolean().default(true),
-    recipientRemoved: z.boolean().default(true),
-    recipientSigned: z.boolean().default(true),
-    documentPending: z.boolean().default(true),
-    documentCompleted: z.boolean().default(true),
-    documentDeleted: z.boolean().default(true),
-    ownerDocumentCompleted: z.boolean().default(true),
-    ownerRecipientExpired: z.boolean().default(true),
-    ownerDocumentCreated: z.boolean().default(true),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      recipientSigningRequest: z.boolean().default(true),
+      recipientRemoved: z.boolean().default(true),
+      recipientSigned: z.boolean().default(true),
+      documentPending: z.boolean().default(true),
+      documentCompleted: z.boolean().default(true),
+      documentDeleted: z.boolean().default(true),
+      ownerDocumentCompleted: z.boolean().default(true),
+      ownerRecipientExpired: z.boolean().default(true),
+      ownerDocumentCreated: z.boolean().default(true),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings$Outbound =
   {
@@ -2581,17 +2690,19 @@ export const TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings$outboun
     TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings
-  > = z.object({
-    recipientSigningRequest: z.boolean().default(true),
-    recipientRemoved: z.boolean().default(true),
-    recipientSigned: z.boolean().default(true),
-    documentPending: z.boolean().default(true),
-    documentCompleted: z.boolean().default(true),
-    documentDeleted: z.boolean().default(true),
-    ownerDocumentCompleted: z.boolean().default(true),
-    ownerRecipientExpired: z.boolean().default(true),
-    ownerDocumentCreated: z.boolean().default(true),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      recipientSigningRequest: z.boolean().default(true),
+      recipientRemoved: z.boolean().default(true),
+      recipientSigned: z.boolean().default(true),
+      documentPending: z.boolean().default(true),
+      documentCompleted: z.boolean().default(true),
+      documentDeleted: z.boolean().default(true),
+      ownerDocumentCompleted: z.boolean().default(true),
+      ownerRecipientExpired: z.boolean().default(true),
+      ownerDocumentCreated: z.boolean().default(true),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateDocumentMetaEmailSettingsToJSON(
   templateCreateDocumentFromTemplateDocumentMetaEmailSettings:
@@ -2623,9 +2734,11 @@ export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2
     TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    disabled: z.literal(true),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      disabled: z.literal(true),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2$Outbound =
   {
@@ -2638,9 +2751,11 @@ export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2
     TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2
-  > = z.object({
-    disabled: z.literal(true),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      disabled: z.literal(true),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2ToJSON(
   templateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2:
@@ -2672,8 +2787,10 @@ export function templateCreateDocumentFromTemplateEnvelopeExpirationPeriodRespon
 export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodUnitResponse$inboundSchema:
   z.ZodNativeEnum<
     typeof TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodUnitResponse
-  > = z.nativeEnum(
-    TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodUnitResponse,
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.nativeEnum(
+      TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodUnitResponse,
+    )
   );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodUnitResponse$outboundSchema:
@@ -2688,11 +2805,13 @@ export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1
     TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    unit:
-      TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodUnitResponse$inboundSchema,
-    amount: z.number().int(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      unit:
+        TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodUnitResponse$inboundSchema,
+      amount: z.number().int(),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1$Outbound =
   {
@@ -2706,11 +2825,13 @@ export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1
     TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1
-  > = z.object({
-    unit:
-      TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodUnitResponse$outboundSchema,
-    amount: z.number().int(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      unit:
+        TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodUnitResponse$outboundSchema,
+      amount: z.number().int(),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1ToJSON(
   templateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1:
@@ -2744,14 +2865,16 @@ export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponseU
     TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponseUnion,
     z.ZodTypeDef,
     unknown
-  > = z.union([
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1$inboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2$inboundSchema
-    ),
-  ]);
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.union([
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1$inboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2$inboundSchema
+      ),
+    ])
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponseUnion$Outbound =
   | TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1$Outbound
@@ -2763,14 +2886,16 @@ export const TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponseU
     TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponseUnion$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponseUnion
-  > = z.union([
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1$outboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2$outboundSchema
-    ),
-  ]);
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.union([
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1$outboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2$outboundSchema
+      ),
+    ])
+  );
 
 export function templateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponseUnionToJSON(
   templateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponseUnion:
@@ -2804,9 +2929,11 @@ export const TemplateCreateDocumentFromTemplateSendAfter2$inboundSchema:
     TemplateCreateDocumentFromTemplateSendAfter2,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    disabled: z.literal(true),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      disabled: z.literal(true),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateSendAfter2$Outbound = {
   disabled: true;
@@ -2818,9 +2945,11 @@ export const TemplateCreateDocumentFromTemplateSendAfter2$outboundSchema:
     TemplateCreateDocumentFromTemplateSendAfter2$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateSendAfter2
-  > = z.object({
-    disabled: z.literal(true),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      disabled: z.literal(true),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateSendAfter2ToJSON(
   templateCreateDocumentFromTemplateSendAfter2:
@@ -2850,8 +2979,10 @@ export function templateCreateDocumentFromTemplateSendAfter2FromJSON(
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateSendAfterUnit$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateSendAfterUnit> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateSendAfterUnit);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateSendAfterUnit> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateSendAfterUnit)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateSendAfterUnit$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateSendAfterUnit> =
@@ -2863,10 +2994,12 @@ export const TemplateCreateDocumentFromTemplateSendAfter1$inboundSchema:
     TemplateCreateDocumentFromTemplateSendAfter1,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    unit: TemplateCreateDocumentFromTemplateSendAfterUnit$inboundSchema,
-    amount: z.number().int(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      unit: TemplateCreateDocumentFromTemplateSendAfterUnit$inboundSchema,
+      amount: z.number().int(),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateSendAfter1$Outbound = {
   unit: string;
@@ -2879,10 +3012,12 @@ export const TemplateCreateDocumentFromTemplateSendAfter1$outboundSchema:
     TemplateCreateDocumentFromTemplateSendAfter1$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateSendAfter1
-  > = z.object({
-    unit: TemplateCreateDocumentFromTemplateSendAfterUnit$outboundSchema,
-    amount: z.number().int(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      unit: TemplateCreateDocumentFromTemplateSendAfterUnit$outboundSchema,
+      amount: z.number().int(),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateSendAfter1ToJSON(
   templateCreateDocumentFromTemplateSendAfter1:
@@ -2916,10 +3051,12 @@ export const TemplateCreateDocumentFromTemplateSendAfterUnion$inboundSchema:
     TemplateCreateDocumentFromTemplateSendAfterUnion,
     z.ZodTypeDef,
     unknown
-  > = z.union([
-    z.lazy(() => TemplateCreateDocumentFromTemplateSendAfter1$inboundSchema),
-    z.lazy(() => TemplateCreateDocumentFromTemplateSendAfter2$inboundSchema),
-  ]);
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.union([
+      z.lazy(() => TemplateCreateDocumentFromTemplateSendAfter1$inboundSchema),
+      z.lazy(() => TemplateCreateDocumentFromTemplateSendAfter2$inboundSchema),
+    ])
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateSendAfterUnion$Outbound =
   | TemplateCreateDocumentFromTemplateSendAfter1$Outbound
@@ -2931,10 +3068,12 @@ export const TemplateCreateDocumentFromTemplateSendAfterUnion$outboundSchema:
     TemplateCreateDocumentFromTemplateSendAfterUnion$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateSendAfterUnion
-  > = z.union([
-    z.lazy(() => TemplateCreateDocumentFromTemplateSendAfter1$outboundSchema),
-    z.lazy(() => TemplateCreateDocumentFromTemplateSendAfter2$outboundSchema),
-  ]);
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.union([
+      z.lazy(() => TemplateCreateDocumentFromTemplateSendAfter1$outboundSchema),
+      z.lazy(() => TemplateCreateDocumentFromTemplateSendAfter2$outboundSchema),
+    ])
+  );
 
 export function templateCreateDocumentFromTemplateSendAfterUnionToJSON(
   templateCreateDocumentFromTemplateSendAfterUnion:
@@ -2968,9 +3107,11 @@ export const TemplateCreateDocumentFromTemplateRepeatEvery2$inboundSchema:
     TemplateCreateDocumentFromTemplateRepeatEvery2,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    disabled: z.literal(true),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      disabled: z.literal(true),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateRepeatEvery2$Outbound = {
   disabled: true;
@@ -2982,9 +3123,11 @@ export const TemplateCreateDocumentFromTemplateRepeatEvery2$outboundSchema:
     TemplateCreateDocumentFromTemplateRepeatEvery2$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateRepeatEvery2
-  > = z.object({
-    disabled: z.literal(true),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      disabled: z.literal(true),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateRepeatEvery2ToJSON(
   templateCreateDocumentFromTemplateRepeatEvery2:
@@ -3014,8 +3157,10 @@ export function templateCreateDocumentFromTemplateRepeatEvery2FromJSON(
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateRepeatEveryUnit$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateRepeatEveryUnit> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateRepeatEveryUnit);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateRepeatEveryUnit> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateRepeatEveryUnit)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateRepeatEveryUnit$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateRepeatEveryUnit> =
@@ -3027,10 +3172,12 @@ export const TemplateCreateDocumentFromTemplateRepeatEvery1$inboundSchema:
     TemplateCreateDocumentFromTemplateRepeatEvery1,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    unit: TemplateCreateDocumentFromTemplateRepeatEveryUnit$inboundSchema,
-    amount: z.number().int(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      unit: TemplateCreateDocumentFromTemplateRepeatEveryUnit$inboundSchema,
+      amount: z.number().int(),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateRepeatEvery1$Outbound = {
   unit: string;
@@ -3043,10 +3190,12 @@ export const TemplateCreateDocumentFromTemplateRepeatEvery1$outboundSchema:
     TemplateCreateDocumentFromTemplateRepeatEvery1$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateRepeatEvery1
-  > = z.object({
-    unit: TemplateCreateDocumentFromTemplateRepeatEveryUnit$outboundSchema,
-    amount: z.number().int(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      unit: TemplateCreateDocumentFromTemplateRepeatEveryUnit$outboundSchema,
+      amount: z.number().int(),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateRepeatEvery1ToJSON(
   templateCreateDocumentFromTemplateRepeatEvery1:
@@ -3080,10 +3229,16 @@ export const TemplateCreateDocumentFromTemplateRepeatEveryUnion$inboundSchema:
     TemplateCreateDocumentFromTemplateRepeatEveryUnion,
     z.ZodTypeDef,
     unknown
-  > = z.union([
-    z.lazy(() => TemplateCreateDocumentFromTemplateRepeatEvery1$inboundSchema),
-    z.lazy(() => TemplateCreateDocumentFromTemplateRepeatEvery2$inboundSchema),
-  ]);
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.union([
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateRepeatEvery1$inboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateRepeatEvery2$inboundSchema
+      ),
+    ])
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateRepeatEveryUnion$Outbound =
   | TemplateCreateDocumentFromTemplateRepeatEvery1$Outbound
@@ -3095,10 +3250,16 @@ export const TemplateCreateDocumentFromTemplateRepeatEveryUnion$outboundSchema:
     TemplateCreateDocumentFromTemplateRepeatEveryUnion$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateRepeatEveryUnion
-  > = z.union([
-    z.lazy(() => TemplateCreateDocumentFromTemplateRepeatEvery1$outboundSchema),
-    z.lazy(() => TemplateCreateDocumentFromTemplateRepeatEvery2$outboundSchema),
-  ]);
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.union([
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateRepeatEvery1$outboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateRepeatEvery2$outboundSchema
+      ),
+    ])
+  );
 
 export function templateCreateDocumentFromTemplateRepeatEveryUnionToJSON(
   templateCreateDocumentFromTemplateRepeatEveryUnion:
@@ -3132,20 +3293,26 @@ export const TemplateCreateDocumentFromTemplateReminderSettings$inboundSchema:
     TemplateCreateDocumentFromTemplateReminderSettings,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    sendAfter: z.union([
-      z.lazy(() => TemplateCreateDocumentFromTemplateSendAfter1$inboundSchema),
-      z.lazy(() => TemplateCreateDocumentFromTemplateSendAfter2$inboundSchema),
-    ]),
-    repeatEvery: z.union([
-      z.lazy(() =>
-        TemplateCreateDocumentFromTemplateRepeatEvery1$inboundSchema
-      ),
-      z.lazy(() =>
-        TemplateCreateDocumentFromTemplateRepeatEvery2$inboundSchema
-      ),
-    ]),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      sendAfter: z.union([
+        z.lazy(() =>
+          TemplateCreateDocumentFromTemplateSendAfter1$inboundSchema
+        ),
+        z.lazy(() =>
+          TemplateCreateDocumentFromTemplateSendAfter2$inboundSchema
+        ),
+      ]),
+      repeatEvery: z.union([
+        z.lazy(() =>
+          TemplateCreateDocumentFromTemplateRepeatEvery1$inboundSchema
+        ),
+        z.lazy(() =>
+          TemplateCreateDocumentFromTemplateRepeatEvery2$inboundSchema
+        ),
+      ]),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateReminderSettings$Outbound = {
   sendAfter:
@@ -3162,20 +3329,26 @@ export const TemplateCreateDocumentFromTemplateReminderSettings$outboundSchema:
     TemplateCreateDocumentFromTemplateReminderSettings$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateReminderSettings
-  > = z.object({
-    sendAfter: z.union([
-      z.lazy(() => TemplateCreateDocumentFromTemplateSendAfter1$outboundSchema),
-      z.lazy(() => TemplateCreateDocumentFromTemplateSendAfter2$outboundSchema),
-    ]),
-    repeatEvery: z.union([
-      z.lazy(() =>
-        TemplateCreateDocumentFromTemplateRepeatEvery1$outboundSchema
-      ),
-      z.lazy(() =>
-        TemplateCreateDocumentFromTemplateRepeatEvery2$outboundSchema
-      ),
-    ]),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      sendAfter: z.union([
+        z.lazy(() =>
+          TemplateCreateDocumentFromTemplateSendAfter1$outboundSchema
+        ),
+        z.lazy(() =>
+          TemplateCreateDocumentFromTemplateSendAfter2$outboundSchema
+        ),
+      ]),
+      repeatEvery: z.union([
+        z.lazy(() =>
+          TemplateCreateDocumentFromTemplateRepeatEvery1$outboundSchema
+        ),
+        z.lazy(() =>
+          TemplateCreateDocumentFromTemplateRepeatEvery2$outboundSchema
+        ),
+      ]),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateReminderSettingsToJSON(
   templateCreateDocumentFromTemplateReminderSettings:
@@ -3209,46 +3382,45 @@ export const TemplateCreateDocumentFromTemplateDocumentMeta$inboundSchema:
     TemplateCreateDocumentFromTemplateDocumentMeta,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    signingOrder: TemplateCreateDocumentFromTemplateSigningOrder$inboundSchema,
-    distributionMethod:
-      TemplateCreateDocumentFromTemplateDocumentMetaDistributionMethod$inboundSchema,
-    id: z.string(),
-    subject: z.nullable(z.string()),
-    message: z.nullable(z.string()),
-    timezone: z.nullable(z.string()),
-    dateFormat: z.nullable(z.string()),
-    redirectUrl: z.nullable(z.string()),
-    typedSignatureEnabled: z.boolean(),
-    uploadSignatureEnabled: z.boolean(),
-    drawSignatureEnabled: z.boolean(),
-    allowDictateNextSigner: z.boolean(),
-    language: z.string(),
-    emailSettings: z.nullable(
-      z.lazy(() =>
-        TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings$inboundSchema
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      signingOrder:
+        TemplateCreateDocumentFromTemplateSigningOrder$inboundSchema,
+      distributionMethod:
+        TemplateCreateDocumentFromTemplateDocumentMetaDistributionMethod$inboundSchema,
+      id: z.string(),
+      subject: z.nullable(z.string()),
+      message: z.nullable(z.string()),
+      timezone: z.nullable(z.string()),
+      dateFormat: z.nullable(z.string()),
+      redirectUrl: z.nullable(z.string()),
+      typedSignatureEnabled: z.boolean(),
+      uploadSignatureEnabled: z.boolean(),
+      drawSignatureEnabled: z.boolean(),
+      allowDictateNextSigner: z.boolean(),
+      language: z.string(),
+      emailSettings: z.nullable(
+        z.lazy(() =>
+          TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings$inboundSchema
+        ),
       ),
-    ),
-    emailId: z.nullable(z.string()),
-    emailReplyTo: z.nullable(z.string()),
-    envelopeExpirationPeriod: z.nullable(
-      z.union([
+      emailId: z.nullable(z.string()),
+      emailReplyTo: z.nullable(z.string()),
+      envelopeExpirationPeriod: z.nullable(z.union([
         z.lazy(() =>
           TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1$inboundSchema
         ),
         z.lazy(() =>
           TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2$inboundSchema
         ),
-      ]),
-    ),
-    reminderSettings: z.nullable(
-      z.lazy(() =>
+      ])),
+      reminderSettings: z.nullable(z.lazy(() =>
         TemplateCreateDocumentFromTemplateReminderSettings$inboundSchema
-      ),
-    ),
-    password: z.nullable(z.string()).default(null),
-    documentId: z.number().default(-1),
-  });
+      )),
+      password: z.nullable(z.string()).default(null),
+      documentId: z.number().default(-1),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateDocumentMeta$Outbound = {
   signingOrder: string;
@@ -3286,46 +3458,45 @@ export const TemplateCreateDocumentFromTemplateDocumentMeta$outboundSchema:
     TemplateCreateDocumentFromTemplateDocumentMeta$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateDocumentMeta
-  > = z.object({
-    signingOrder: TemplateCreateDocumentFromTemplateSigningOrder$outboundSchema,
-    distributionMethod:
-      TemplateCreateDocumentFromTemplateDocumentMetaDistributionMethod$outboundSchema,
-    id: z.string(),
-    subject: z.nullable(z.string()),
-    message: z.nullable(z.string()),
-    timezone: z.nullable(z.string()),
-    dateFormat: z.nullable(z.string()),
-    redirectUrl: z.nullable(z.string()),
-    typedSignatureEnabled: z.boolean(),
-    uploadSignatureEnabled: z.boolean(),
-    drawSignatureEnabled: z.boolean(),
-    allowDictateNextSigner: z.boolean(),
-    language: z.string(),
-    emailSettings: z.nullable(
-      z.lazy(() =>
-        TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings$outboundSchema
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      signingOrder:
+        TemplateCreateDocumentFromTemplateSigningOrder$outboundSchema,
+      distributionMethod:
+        TemplateCreateDocumentFromTemplateDocumentMetaDistributionMethod$outboundSchema,
+      id: z.string(),
+      subject: z.nullable(z.string()),
+      message: z.nullable(z.string()),
+      timezone: z.nullable(z.string()),
+      dateFormat: z.nullable(z.string()),
+      redirectUrl: z.nullable(z.string()),
+      typedSignatureEnabled: z.boolean(),
+      uploadSignatureEnabled: z.boolean(),
+      drawSignatureEnabled: z.boolean(),
+      allowDictateNextSigner: z.boolean(),
+      language: z.string(),
+      emailSettings: z.nullable(
+        z.lazy(() =>
+          TemplateCreateDocumentFromTemplateDocumentMetaEmailSettings$outboundSchema
+        ),
       ),
-    ),
-    emailId: z.nullable(z.string()),
-    emailReplyTo: z.nullable(z.string()),
-    envelopeExpirationPeriod: z.nullable(
-      z.union([
+      emailId: z.nullable(z.string()),
+      emailReplyTo: z.nullable(z.string()),
+      envelopeExpirationPeriod: z.nullable(z.union([
         z.lazy(() =>
           TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse1$outboundSchema
         ),
         z.lazy(() =>
           TemplateCreateDocumentFromTemplateEnvelopeExpirationPeriodResponse2$outboundSchema
         ),
-      ]),
-    ),
-    reminderSettings: z.nullable(
-      z.lazy(() =>
+      ])),
+      reminderSettings: z.nullable(z.lazy(() =>
         TemplateCreateDocumentFromTemplateReminderSettings$outboundSchema
-      ),
-    ),
-    password: z.nullable(z.string()).default(null),
-    documentId: z.number().default(-1),
-  });
+      )),
+      password: z.nullable(z.string()).default(null),
+      documentId: z.number().default(-1),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateDocumentMetaToJSON(
   templateCreateDocumentFromTemplateDocumentMeta:
@@ -3359,10 +3530,12 @@ export const TemplateCreateDocumentFromTemplateEnvelopeItem$inboundSchema:
     TemplateCreateDocumentFromTemplateEnvelopeItem,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    id: z.string(),
-    envelopeId: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      id: z.string(),
+      envelopeId: z.string(),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateEnvelopeItem$Outbound = {
   id: string;
@@ -3375,10 +3548,12 @@ export const TemplateCreateDocumentFromTemplateEnvelopeItem$outboundSchema:
     TemplateCreateDocumentFromTemplateEnvelopeItem$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateEnvelopeItem
-  > = z.object({
-    id: z.string(),
-    envelopeId: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      id: z.string(),
+      envelopeId: z.string(),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateEnvelopeItemToJSON(
   templateCreateDocumentFromTemplateEnvelopeItem:
@@ -3408,8 +3583,10 @@ export function templateCreateDocumentFromTemplateEnvelopeItemFromJSON(
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateFolderType$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFolderType> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateFolderType);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFolderType> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateFolderType)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateFolderType$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFolderType> =
@@ -3417,8 +3594,10 @@ export const TemplateCreateDocumentFromTemplateFolderType$outboundSchema:
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateFolderVisibility$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFolderVisibility> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateFolderVisibility);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFolderVisibility> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateFolderVisibility)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateFolderVisibility$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFolderVisibility> =
@@ -3429,18 +3608,21 @@ export const TemplateCreateDocumentFromTemplateFolder$inboundSchema: z.ZodType<
   TemplateCreateDocumentFromTemplateFolder,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.string(),
-  name: z.string(),
-  type: TemplateCreateDocumentFromTemplateFolderType$inboundSchema,
-  visibility: TemplateCreateDocumentFromTemplateFolderVisibility$inboundSchema,
-  userId: z.number(),
-  teamId: z.number(),
-  pinned: z.boolean(),
-  parentId: z.nullable(z.string()),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    name: z.string(),
+    type: TemplateCreateDocumentFromTemplateFolderType$inboundSchema,
+    visibility:
+      TemplateCreateDocumentFromTemplateFolderVisibility$inboundSchema,
+    userId: z.number(),
+    teamId: z.number(),
+    pinned: z.boolean(),
+    parentId: z.nullable(z.string()),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+  })
+);
 /** @internal */
 export type TemplateCreateDocumentFromTemplateFolder$Outbound = {
   id: string;
@@ -3460,18 +3642,21 @@ export const TemplateCreateDocumentFromTemplateFolder$outboundSchema: z.ZodType<
   TemplateCreateDocumentFromTemplateFolder$Outbound,
   z.ZodTypeDef,
   TemplateCreateDocumentFromTemplateFolder
-> = z.object({
-  id: z.string(),
-  name: z.string(),
-  type: TemplateCreateDocumentFromTemplateFolderType$outboundSchema,
-  visibility: TemplateCreateDocumentFromTemplateFolderVisibility$outboundSchema,
-  userId: z.number(),
-  teamId: z.number(),
-  pinned: z.boolean(),
-  parentId: z.nullable(z.string()),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    name: z.string(),
+    type: TemplateCreateDocumentFromTemplateFolderType$outboundSchema,
+    visibility:
+      TemplateCreateDocumentFromTemplateFolderVisibility$outboundSchema,
+    userId: z.number(),
+    teamId: z.number(),
+    pinned: z.boolean(),
+    parentId: z.nullable(z.string()),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+  })
+);
 
 export function templateCreateDocumentFromTemplateFolderToJSON(
   templateCreateDocumentFromTemplateFolder:
@@ -3501,9 +3686,10 @@ export function templateCreateDocumentFromTemplateFolderFromJSON(
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateRole$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateRole> = z.nativeEnum(
-    TemplateCreateDocumentFromTemplateRole,
-  );
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateRole> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateRole)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateRole$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateRole> =
@@ -3511,8 +3697,10 @@ export const TemplateCreateDocumentFromTemplateRole$outboundSchema:
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateReadStatus$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateReadStatus> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateReadStatus);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateReadStatus> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateReadStatus)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateReadStatus$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateReadStatus> =
@@ -3520,8 +3708,10 @@ export const TemplateCreateDocumentFromTemplateReadStatus$outboundSchema:
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateSigningStatus$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateSigningStatus> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateSigningStatus);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateSigningStatus> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateSigningStatus)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateSigningStatus$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateSigningStatus> =
@@ -3529,8 +3719,10 @@ export const TemplateCreateDocumentFromTemplateSigningStatus$outboundSchema:
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateSendStatus$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateSendStatus> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateSendStatus);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateSendStatus> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateSendStatus)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateSendStatus$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateSendStatus> =
@@ -3538,8 +3730,10 @@ export const TemplateCreateDocumentFromTemplateSendStatus$outboundSchema:
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateAccessAuth$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateAccessAuth> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateAccessAuth);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateAccessAuth> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateAccessAuth)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateAccessAuth$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateAccessAuth> =
@@ -3547,8 +3741,10 @@ export const TemplateCreateDocumentFromTemplateAccessAuth$outboundSchema:
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateActionAuth$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateActionAuth> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateActionAuth);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateActionAuth> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateActionAuth)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateActionAuth$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateActionAuth> =
@@ -3560,14 +3756,16 @@ export const TemplateCreateDocumentFromTemplateRecipientAuthOptions$inboundSchem
     TemplateCreateDocumentFromTemplateRecipientAuthOptions,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    accessAuth: z.array(
-      TemplateCreateDocumentFromTemplateAccessAuth$inboundSchema,
-    ),
-    actionAuth: z.array(
-      TemplateCreateDocumentFromTemplateActionAuth$inboundSchema,
-    ),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      accessAuth: z.array(
+        TemplateCreateDocumentFromTemplateAccessAuth$inboundSchema,
+      ),
+      actionAuth: z.array(
+        TemplateCreateDocumentFromTemplateActionAuth$inboundSchema,
+      ),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateRecipientAuthOptions$Outbound = {
   accessAuth: Array<string>;
@@ -3580,14 +3778,16 @@ export const TemplateCreateDocumentFromTemplateRecipientAuthOptions$outboundSche
     TemplateCreateDocumentFromTemplateRecipientAuthOptions$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateRecipientAuthOptions
-  > = z.object({
-    accessAuth: z.array(
-      TemplateCreateDocumentFromTemplateAccessAuth$outboundSchema,
-    ),
-    actionAuth: z.array(
-      TemplateCreateDocumentFromTemplateActionAuth$outboundSchema,
-    ),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      accessAuth: z.array(
+        TemplateCreateDocumentFromTemplateAccessAuth$outboundSchema,
+      ),
+      actionAuth: z.array(
+        TemplateCreateDocumentFromTemplateActionAuth$outboundSchema,
+      ),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateRecipientAuthOptionsToJSON(
   templateCreateDocumentFromTemplateRecipientAuthOptions:
@@ -3620,32 +3820,32 @@ export const TemplateCreateDocumentFromTemplateRecipientResponse$inboundSchema:
     TemplateCreateDocumentFromTemplateRecipientResponse,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    envelopeId: z.string(),
-    role: TemplateCreateDocumentFromTemplateRole$inboundSchema,
-    readStatus: TemplateCreateDocumentFromTemplateReadStatus$inboundSchema,
-    signingStatus:
-      TemplateCreateDocumentFromTemplateSigningStatus$inboundSchema,
-    sendStatus: TemplateCreateDocumentFromTemplateSendStatus$inboundSchema,
-    id: z.number(),
-    email: z.string(),
-    name: z.string(),
-    token: z.string(),
-    documentDeletedAt: z.nullable(z.string()),
-    expired: z.nullable(z.string()),
-    expiresAt: z.nullable(z.string()),
-    expirationNotifiedAt: z.nullable(z.string()),
-    signedAt: z.nullable(z.string()),
-    authOptions: z.nullable(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      envelopeId: z.string(),
+      role: TemplateCreateDocumentFromTemplateRole$inboundSchema,
+      readStatus: TemplateCreateDocumentFromTemplateReadStatus$inboundSchema,
+      signingStatus:
+        TemplateCreateDocumentFromTemplateSigningStatus$inboundSchema,
+      sendStatus: TemplateCreateDocumentFromTemplateSendStatus$inboundSchema,
+      id: z.number(),
+      email: z.string(),
+      name: z.string(),
+      token: z.string(),
+      documentDeletedAt: z.nullable(z.string()),
+      expired: z.nullable(z.string()),
+      expiresAt: z.nullable(z.string()),
+      expirationNotifiedAt: z.nullable(z.string()),
+      signedAt: z.nullable(z.string()),
+      authOptions: z.nullable(z.lazy(() =>
         TemplateCreateDocumentFromTemplateRecipientAuthOptions$inboundSchema
-      ),
-    ),
-    signingOrder: z.nullable(z.number()),
-    rejectionReason: z.nullable(z.string()),
-    documentId: z.nullable(z.number()).optional(),
-    templateId: z.nullable(z.number()).optional(),
-  });
+      )),
+      signingOrder: z.nullable(z.number()),
+      rejectionReason: z.nullable(z.string()),
+      documentId: z.nullable(z.number()).optional(),
+      templateId: z.nullable(z.number()).optional(),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateRecipientResponse$Outbound = {
   envelopeId: string;
@@ -3677,32 +3877,32 @@ export const TemplateCreateDocumentFromTemplateRecipientResponse$outboundSchema:
     TemplateCreateDocumentFromTemplateRecipientResponse$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateRecipientResponse
-  > = z.object({
-    envelopeId: z.string(),
-    role: TemplateCreateDocumentFromTemplateRole$outboundSchema,
-    readStatus: TemplateCreateDocumentFromTemplateReadStatus$outboundSchema,
-    signingStatus:
-      TemplateCreateDocumentFromTemplateSigningStatus$outboundSchema,
-    sendStatus: TemplateCreateDocumentFromTemplateSendStatus$outboundSchema,
-    id: z.number(),
-    email: z.string(),
-    name: z.string(),
-    token: z.string(),
-    documentDeletedAt: z.nullable(z.string()),
-    expired: z.nullable(z.string()),
-    expiresAt: z.nullable(z.string()),
-    expirationNotifiedAt: z.nullable(z.string()),
-    signedAt: z.nullable(z.string()),
-    authOptions: z.nullable(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      envelopeId: z.string(),
+      role: TemplateCreateDocumentFromTemplateRole$outboundSchema,
+      readStatus: TemplateCreateDocumentFromTemplateReadStatus$outboundSchema,
+      signingStatus:
+        TemplateCreateDocumentFromTemplateSigningStatus$outboundSchema,
+      sendStatus: TemplateCreateDocumentFromTemplateSendStatus$outboundSchema,
+      id: z.number(),
+      email: z.string(),
+      name: z.string(),
+      token: z.string(),
+      documentDeletedAt: z.nullable(z.string()),
+      expired: z.nullable(z.string()),
+      expiresAt: z.nullable(z.string()),
+      expirationNotifiedAt: z.nullable(z.string()),
+      signedAt: z.nullable(z.string()),
+      authOptions: z.nullable(z.lazy(() =>
         TemplateCreateDocumentFromTemplateRecipientAuthOptions$outboundSchema
-      ),
-    ),
-    signingOrder: z.nullable(z.number()),
-    rejectionReason: z.nullable(z.string()),
-    documentId: z.nullable(z.number()).optional(),
-    templateId: z.nullable(z.number()).optional(),
-  });
+      )),
+      signingOrder: z.nullable(z.number()),
+      rejectionReason: z.nullable(z.string()),
+      documentId: z.nullable(z.number()).optional(),
+      templateId: z.nullable(z.number()).optional(),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateRecipientResponseToJSON(
   templateCreateDocumentFromTemplateRecipientResponse:
@@ -3732,8 +3932,10 @@ export function templateCreateDocumentFromTemplateRecipientResponseFromJSON(
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateFieldTypeEnum$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFieldTypeEnum> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateFieldTypeEnum);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFieldTypeEnum> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateFieldTypeEnum)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateFieldTypeEnum$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFieldTypeEnum> =
@@ -3741,8 +3943,10 @@ export const TemplateCreateDocumentFromTemplateFieldTypeEnum$outboundSchema:
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateOverflow10$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow10> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateOverflow10);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow10> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateOverflow10)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateOverflow10$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow10> =
@@ -3753,9 +3957,11 @@ export const TemplateCreateDocumentFromTemplateValue3$inboundSchema: z.ZodType<
   TemplateCreateDocumentFromTemplateValue3,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    value: z.string(),
+  })
+);
 /** @internal */
 export type TemplateCreateDocumentFromTemplateValue3$Outbound = {
   value: string;
@@ -3766,9 +3972,11 @@ export const TemplateCreateDocumentFromTemplateValue3$outboundSchema: z.ZodType<
   TemplateCreateDocumentFromTemplateValue3$Outbound,
   z.ZodTypeDef,
   TemplateCreateDocumentFromTemplateValue3
-> = z.object({
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    value: z.string(),
+  })
+);
 
 export function templateCreateDocumentFromTemplateValue3ToJSON(
   templateCreateDocumentFromTemplateValue3:
@@ -3802,20 +4010,22 @@ export const TemplateCreateDocumentFromTemplateFieldMetaDropdown$inboundSchema:
     TemplateCreateDocumentFromTemplateFieldMetaDropdown,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: TemplateCreateDocumentFromTemplateOverflow10$inboundSchema
-      .optional(),
-    type: z.literal("dropdown"),
-    values: z.array(
-      z.lazy(() => TemplateCreateDocumentFromTemplateValue3$inboundSchema),
-    ).optional(),
-    defaultValue: z.string().optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: TemplateCreateDocumentFromTemplateOverflow10$inboundSchema
+        .optional(),
+      type: z.literal("dropdown"),
+      values: z.array(
+        z.lazy(() => TemplateCreateDocumentFromTemplateValue3$inboundSchema),
+      ).optional(),
+      defaultValue: z.string().optional(),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateFieldMetaDropdown$Outbound = {
   label?: string | undefined;
@@ -3835,20 +4045,22 @@ export const TemplateCreateDocumentFromTemplateFieldMetaDropdown$outboundSchema:
     TemplateCreateDocumentFromTemplateFieldMetaDropdown$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateFieldMetaDropdown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: TemplateCreateDocumentFromTemplateOverflow10$outboundSchema
-      .optional(),
-    type: z.literal("dropdown"),
-    values: z.array(
-      z.lazy(() => TemplateCreateDocumentFromTemplateValue3$outboundSchema),
-    ).optional(),
-    defaultValue: z.string().optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: TemplateCreateDocumentFromTemplateOverflow10$outboundSchema
+        .optional(),
+      type: z.literal("dropdown"),
+      values: z.array(
+        z.lazy(() => TemplateCreateDocumentFromTemplateValue3$outboundSchema),
+      ).optional(),
+      defaultValue: z.string().optional(),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateFieldMetaDropdownToJSON(
   templateCreateDocumentFromTemplateFieldMetaDropdown:
@@ -3878,8 +4090,10 @@ export function templateCreateDocumentFromTemplateFieldMetaDropdownFromJSON(
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateOverflow9$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow9> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateOverflow9);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow9> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateOverflow9)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateOverflow9$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow9> =
@@ -3890,11 +4104,13 @@ export const TemplateCreateDocumentFromTemplateValue2$inboundSchema: z.ZodType<
   TemplateCreateDocumentFromTemplateValue2,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 /** @internal */
 export type TemplateCreateDocumentFromTemplateValue2$Outbound = {
   id: number;
@@ -3907,11 +4123,13 @@ export const TemplateCreateDocumentFromTemplateValue2$outboundSchema: z.ZodType<
   TemplateCreateDocumentFromTemplateValue2$Outbound,
   z.ZodTypeDef,
   TemplateCreateDocumentFromTemplateValue2
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 
 export function templateCreateDocumentFromTemplateValue2ToJSON(
   templateCreateDocumentFromTemplateValue2:
@@ -3941,8 +4159,10 @@ export function templateCreateDocumentFromTemplateValue2FromJSON(
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateDirection2$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateDirection2> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateDirection2);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateDirection2> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateDirection2)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateDirection2$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateDirection2> =
@@ -3954,23 +4174,25 @@ export const TemplateCreateDocumentFromTemplateFieldMetaCheckbox$inboundSchema:
     TemplateCreateDocumentFromTemplateFieldMetaCheckbox,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: TemplateCreateDocumentFromTemplateOverflow9$inboundSchema
-      .optional(),
-    type: z.literal("checkbox"),
-    values: z.array(
-      z.lazy(() => TemplateCreateDocumentFromTemplateValue2$inboundSchema),
-    ).optional(),
-    validationRule: z.string().optional(),
-    validationLength: z.number().optional(),
-    direction: TemplateCreateDocumentFromTemplateDirection2$inboundSchema
-      .default("vertical"),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: TemplateCreateDocumentFromTemplateOverflow9$inboundSchema
+        .optional(),
+      type: z.literal("checkbox"),
+      values: z.array(
+        z.lazy(() => TemplateCreateDocumentFromTemplateValue2$inboundSchema),
+      ).optional(),
+      validationRule: z.string().optional(),
+      validationLength: z.number().optional(),
+      direction: TemplateCreateDocumentFromTemplateDirection2$inboundSchema
+        .default("vertical"),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateFieldMetaCheckbox$Outbound = {
   label?: string | undefined;
@@ -3992,23 +4214,25 @@ export const TemplateCreateDocumentFromTemplateFieldMetaCheckbox$outboundSchema:
     TemplateCreateDocumentFromTemplateFieldMetaCheckbox$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateFieldMetaCheckbox
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: TemplateCreateDocumentFromTemplateOverflow9$outboundSchema
-      .optional(),
-    type: z.literal("checkbox"),
-    values: z.array(
-      z.lazy(() => TemplateCreateDocumentFromTemplateValue2$outboundSchema),
-    ).optional(),
-    validationRule: z.string().optional(),
-    validationLength: z.number().optional(),
-    direction: TemplateCreateDocumentFromTemplateDirection2$outboundSchema
-      .default("vertical"),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: TemplateCreateDocumentFromTemplateOverflow9$outboundSchema
+        .optional(),
+      type: z.literal("checkbox"),
+      values: z.array(
+        z.lazy(() => TemplateCreateDocumentFromTemplateValue2$outboundSchema),
+      ).optional(),
+      validationRule: z.string().optional(),
+      validationLength: z.number().optional(),
+      direction: TemplateCreateDocumentFromTemplateDirection2$outboundSchema
+        .default("vertical"),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateFieldMetaCheckboxToJSON(
   templateCreateDocumentFromTemplateFieldMetaCheckbox:
@@ -4038,8 +4262,10 @@ export function templateCreateDocumentFromTemplateFieldMetaCheckboxFromJSON(
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateOverflow8$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow8> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateOverflow8);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow8> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateOverflow8)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateOverflow8$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow8> =
@@ -4050,11 +4276,13 @@ export const TemplateCreateDocumentFromTemplateValue1$inboundSchema: z.ZodType<
   TemplateCreateDocumentFromTemplateValue1,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 /** @internal */
 export type TemplateCreateDocumentFromTemplateValue1$Outbound = {
   id: number;
@@ -4067,11 +4295,13 @@ export const TemplateCreateDocumentFromTemplateValue1$outboundSchema: z.ZodType<
   TemplateCreateDocumentFromTemplateValue1$Outbound,
   z.ZodTypeDef,
   TemplateCreateDocumentFromTemplateValue1
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 
 export function templateCreateDocumentFromTemplateValue1ToJSON(
   templateCreateDocumentFromTemplateValue1:
@@ -4101,8 +4331,10 @@ export function templateCreateDocumentFromTemplateValue1FromJSON(
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateDirection1$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateDirection1> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateDirection1);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateDirection1> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateDirection1)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateDirection1$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateDirection1> =
@@ -4114,21 +4346,23 @@ export const TemplateCreateDocumentFromTemplateFieldMetaRadio$inboundSchema:
     TemplateCreateDocumentFromTemplateFieldMetaRadio,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: TemplateCreateDocumentFromTemplateOverflow8$inboundSchema
-      .optional(),
-    type: z.literal("radio"),
-    values: z.array(
-      z.lazy(() => TemplateCreateDocumentFromTemplateValue1$inboundSchema),
-    ).optional(),
-    direction: TemplateCreateDocumentFromTemplateDirection1$inboundSchema
-      .default("vertical"),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: TemplateCreateDocumentFromTemplateOverflow8$inboundSchema
+        .optional(),
+      type: z.literal("radio"),
+      values: z.array(
+        z.lazy(() => TemplateCreateDocumentFromTemplateValue1$inboundSchema),
+      ).optional(),
+      direction: TemplateCreateDocumentFromTemplateDirection1$inboundSchema
+        .default("vertical"),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateFieldMetaRadio$Outbound = {
   label?: string | undefined;
@@ -4148,21 +4382,23 @@ export const TemplateCreateDocumentFromTemplateFieldMetaRadio$outboundSchema:
     TemplateCreateDocumentFromTemplateFieldMetaRadio$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateFieldMetaRadio
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: TemplateCreateDocumentFromTemplateOverflow8$outboundSchema
-      .optional(),
-    type: z.literal("radio"),
-    values: z.array(
-      z.lazy(() => TemplateCreateDocumentFromTemplateValue1$outboundSchema),
-    ).optional(),
-    direction: TemplateCreateDocumentFromTemplateDirection1$outboundSchema
-      .default("vertical"),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: TemplateCreateDocumentFromTemplateOverflow8$outboundSchema
+        .optional(),
+      type: z.literal("radio"),
+      values: z.array(
+        z.lazy(() => TemplateCreateDocumentFromTemplateValue1$outboundSchema),
+      ).optional(),
+      direction: TemplateCreateDocumentFromTemplateDirection1$outboundSchema
+        .default("vertical"),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateFieldMetaRadioToJSON(
   templateCreateDocumentFromTemplateFieldMetaRadio:
@@ -4192,8 +4428,10 @@ export function templateCreateDocumentFromTemplateFieldMetaRadioFromJSON(
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateOverflow7$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow7> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateOverflow7);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow7> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateOverflow7)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateOverflow7$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow7> =
@@ -4201,8 +4439,10 @@ export const TemplateCreateDocumentFromTemplateOverflow7$outboundSchema:
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateTextAlign6$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign6> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateTextAlign6);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign6> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateTextAlign6)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateTextAlign6$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign6> =
@@ -4210,8 +4450,10 @@ export const TemplateCreateDocumentFromTemplateTextAlign6$outboundSchema:
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateVerticalAlign2$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateVerticalAlign2> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateVerticalAlign2);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateVerticalAlign2> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateVerticalAlign2)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateVerticalAlign2$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateVerticalAlign2> =
@@ -4223,27 +4465,29 @@ export const TemplateCreateDocumentFromTemplateFieldMetaNumber$inboundSchema:
     TemplateCreateDocumentFromTemplateFieldMetaNumber,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: TemplateCreateDocumentFromTemplateOverflow7$inboundSchema
-      .optional(),
-    type: z.literal("number"),
-    numberFormat: z.nullable(z.string()).optional(),
-    value: z.string().optional(),
-    minValue: z.nullable(z.number()).optional(),
-    maxValue: z.nullable(z.number()).optional(),
-    textAlign: TemplateCreateDocumentFromTemplateTextAlign6$inboundSchema
-      .optional(),
-    lineHeight: z.nullable(z.number()).optional(),
-    letterSpacing: z.nullable(z.number()).optional(),
-    verticalAlign: z.nullable(
-      TemplateCreateDocumentFromTemplateVerticalAlign2$inboundSchema,
-    ).optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: TemplateCreateDocumentFromTemplateOverflow7$inboundSchema
+        .optional(),
+      type: z.literal("number"),
+      numberFormat: z.nullable(z.string()).optional(),
+      value: z.string().optional(),
+      minValue: z.nullable(z.number()).optional(),
+      maxValue: z.nullable(z.number()).optional(),
+      textAlign: TemplateCreateDocumentFromTemplateTextAlign6$inboundSchema
+        .optional(),
+      lineHeight: z.nullable(z.number()).optional(),
+      letterSpacing: z.nullable(z.number()).optional(),
+      verticalAlign: z.nullable(
+        TemplateCreateDocumentFromTemplateVerticalAlign2$inboundSchema,
+      ).optional(),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateFieldMetaNumber$Outbound = {
   label?: string | undefined;
@@ -4269,27 +4513,29 @@ export const TemplateCreateDocumentFromTemplateFieldMetaNumber$outboundSchema:
     TemplateCreateDocumentFromTemplateFieldMetaNumber$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateFieldMetaNumber
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: TemplateCreateDocumentFromTemplateOverflow7$outboundSchema
-      .optional(),
-    type: z.literal("number"),
-    numberFormat: z.nullable(z.string()).optional(),
-    value: z.string().optional(),
-    minValue: z.nullable(z.number()).optional(),
-    maxValue: z.nullable(z.number()).optional(),
-    textAlign: TemplateCreateDocumentFromTemplateTextAlign6$outboundSchema
-      .optional(),
-    lineHeight: z.nullable(z.number()).optional(),
-    letterSpacing: z.nullable(z.number()).optional(),
-    verticalAlign: z.nullable(
-      TemplateCreateDocumentFromTemplateVerticalAlign2$outboundSchema,
-    ).optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: TemplateCreateDocumentFromTemplateOverflow7$outboundSchema
+        .optional(),
+      type: z.literal("number"),
+      numberFormat: z.nullable(z.string()).optional(),
+      value: z.string().optional(),
+      minValue: z.nullable(z.number()).optional(),
+      maxValue: z.nullable(z.number()).optional(),
+      textAlign: TemplateCreateDocumentFromTemplateTextAlign6$outboundSchema
+        .optional(),
+      lineHeight: z.nullable(z.number()).optional(),
+      letterSpacing: z.nullable(z.number()).optional(),
+      verticalAlign: z.nullable(
+        TemplateCreateDocumentFromTemplateVerticalAlign2$outboundSchema,
+      ).optional(),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateFieldMetaNumberToJSON(
   templateCreateDocumentFromTemplateFieldMetaNumber:
@@ -4319,8 +4565,10 @@ export function templateCreateDocumentFromTemplateFieldMetaNumberFromJSON(
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateOverflow6$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow6> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateOverflow6);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow6> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateOverflow6)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateOverflow6$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow6> =
@@ -4328,8 +4576,10 @@ export const TemplateCreateDocumentFromTemplateOverflow6$outboundSchema:
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateTextAlign5$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign5> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateTextAlign5);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign5> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateTextAlign5)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateTextAlign5$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign5> =
@@ -4337,8 +4587,10 @@ export const TemplateCreateDocumentFromTemplateTextAlign5$outboundSchema:
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateVerticalAlign1$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateVerticalAlign1> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateVerticalAlign1);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateVerticalAlign1> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateVerticalAlign1)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateVerticalAlign1$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateVerticalAlign1> =
@@ -4350,25 +4602,27 @@ export const TemplateCreateDocumentFromTemplateFieldMetaText$inboundSchema:
     TemplateCreateDocumentFromTemplateFieldMetaText,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: TemplateCreateDocumentFromTemplateOverflow6$inboundSchema
-      .optional(),
-    type: z.literal("text"),
-    text: z.string().optional(),
-    characterLimit: z.number().optional(),
-    textAlign: TemplateCreateDocumentFromTemplateTextAlign5$inboundSchema
-      .optional(),
-    lineHeight: z.nullable(z.number()).optional(),
-    letterSpacing: z.nullable(z.number()).optional(),
-    verticalAlign: z.nullable(
-      TemplateCreateDocumentFromTemplateVerticalAlign1$inboundSchema,
-    ).optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: TemplateCreateDocumentFromTemplateOverflow6$inboundSchema
+        .optional(),
+      type: z.literal("text"),
+      text: z.string().optional(),
+      characterLimit: z.number().optional(),
+      textAlign: TemplateCreateDocumentFromTemplateTextAlign5$inboundSchema
+        .optional(),
+      lineHeight: z.nullable(z.number()).optional(),
+      letterSpacing: z.nullable(z.number()).optional(),
+      verticalAlign: z.nullable(
+        TemplateCreateDocumentFromTemplateVerticalAlign1$inboundSchema,
+      ).optional(),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateFieldMetaText$Outbound = {
   label?: string | undefined;
@@ -4392,25 +4646,27 @@ export const TemplateCreateDocumentFromTemplateFieldMetaText$outboundSchema:
     TemplateCreateDocumentFromTemplateFieldMetaText$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateFieldMetaText
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: TemplateCreateDocumentFromTemplateOverflow6$outboundSchema
-      .optional(),
-    type: z.literal("text"),
-    text: z.string().optional(),
-    characterLimit: z.number().optional(),
-    textAlign: TemplateCreateDocumentFromTemplateTextAlign5$outboundSchema
-      .optional(),
-    lineHeight: z.nullable(z.number()).optional(),
-    letterSpacing: z.nullable(z.number()).optional(),
-    verticalAlign: z.nullable(
-      TemplateCreateDocumentFromTemplateVerticalAlign1$outboundSchema,
-    ).optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: TemplateCreateDocumentFromTemplateOverflow6$outboundSchema
+        .optional(),
+      type: z.literal("text"),
+      text: z.string().optional(),
+      characterLimit: z.number().optional(),
+      textAlign: TemplateCreateDocumentFromTemplateTextAlign5$outboundSchema
+        .optional(),
+      lineHeight: z.nullable(z.number()).optional(),
+      letterSpacing: z.nullable(z.number()).optional(),
+      verticalAlign: z.nullable(
+        TemplateCreateDocumentFromTemplateVerticalAlign1$outboundSchema,
+      ).optional(),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateFieldMetaTextToJSON(
   templateCreateDocumentFromTemplateFieldMetaText:
@@ -4440,8 +4696,10 @@ export function templateCreateDocumentFromTemplateFieldMetaTextFromJSON(
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateOverflow5$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow5> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateOverflow5);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow5> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateOverflow5)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateOverflow5$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow5> =
@@ -4449,8 +4707,10 @@ export const TemplateCreateDocumentFromTemplateOverflow5$outboundSchema:
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateTextAlign4$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign4> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateTextAlign4);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign4> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateTextAlign4)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateTextAlign4$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign4> =
@@ -4462,19 +4722,20 @@ export const TemplateCreateDocumentFromTemplateFieldMetaDate$inboundSchema:
     TemplateCreateDocumentFromTemplateFieldMetaDate,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: TemplateCreateDocumentFromTemplateOverflow5$inboundSchema.default(
-      "auto",
-    ),
-    type: z.literal("date"),
-    textAlign: TemplateCreateDocumentFromTemplateTextAlign4$inboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: TemplateCreateDocumentFromTemplateOverflow5$inboundSchema
+        .default("auto"),
+      type: z.literal("date"),
+      textAlign: TemplateCreateDocumentFromTemplateTextAlign4$inboundSchema
+        .optional(),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateFieldMetaDate$Outbound = {
   label?: string | undefined;
@@ -4493,18 +4754,20 @@ export const TemplateCreateDocumentFromTemplateFieldMetaDate$outboundSchema:
     TemplateCreateDocumentFromTemplateFieldMetaDate$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateFieldMetaDate
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: TemplateCreateDocumentFromTemplateOverflow5$outboundSchema
-      .default("auto"),
-    type: z.literal("date"),
-    textAlign: TemplateCreateDocumentFromTemplateTextAlign4$outboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: TemplateCreateDocumentFromTemplateOverflow5$outboundSchema
+        .default("auto"),
+      type: z.literal("date"),
+      textAlign: TemplateCreateDocumentFromTemplateTextAlign4$outboundSchema
+        .optional(),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateFieldMetaDateToJSON(
   templateCreateDocumentFromTemplateFieldMetaDate:
@@ -4534,8 +4797,10 @@ export function templateCreateDocumentFromTemplateFieldMetaDateFromJSON(
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateOverflow4$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow4> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateOverflow4);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow4> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateOverflow4)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateOverflow4$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow4> =
@@ -4543,8 +4808,10 @@ export const TemplateCreateDocumentFromTemplateOverflow4$outboundSchema:
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateTextAlign3$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign3> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateTextAlign3);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign3> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateTextAlign3)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateTextAlign3$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign3> =
@@ -4556,19 +4823,20 @@ export const TemplateCreateDocumentFromTemplateFieldMetaEmail$inboundSchema:
     TemplateCreateDocumentFromTemplateFieldMetaEmail,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: TemplateCreateDocumentFromTemplateOverflow4$inboundSchema.default(
-      "auto",
-    ),
-    type: z.literal("email"),
-    textAlign: TemplateCreateDocumentFromTemplateTextAlign3$inboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: TemplateCreateDocumentFromTemplateOverflow4$inboundSchema
+        .default("auto"),
+      type: z.literal("email"),
+      textAlign: TemplateCreateDocumentFromTemplateTextAlign3$inboundSchema
+        .optional(),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateFieldMetaEmail$Outbound = {
   label?: string | undefined;
@@ -4587,18 +4855,20 @@ export const TemplateCreateDocumentFromTemplateFieldMetaEmail$outboundSchema:
     TemplateCreateDocumentFromTemplateFieldMetaEmail$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateFieldMetaEmail
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: TemplateCreateDocumentFromTemplateOverflow4$outboundSchema
-      .default("auto"),
-    type: z.literal("email"),
-    textAlign: TemplateCreateDocumentFromTemplateTextAlign3$outboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: TemplateCreateDocumentFromTemplateOverflow4$outboundSchema
+        .default("auto"),
+      type: z.literal("email"),
+      textAlign: TemplateCreateDocumentFromTemplateTextAlign3$outboundSchema
+        .optional(),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateFieldMetaEmailToJSON(
   templateCreateDocumentFromTemplateFieldMetaEmail:
@@ -4628,8 +4898,10 @@ export function templateCreateDocumentFromTemplateFieldMetaEmailFromJSON(
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateOverflow3$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow3> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateOverflow3);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow3> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateOverflow3)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateOverflow3$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow3> =
@@ -4637,8 +4909,10 @@ export const TemplateCreateDocumentFromTemplateOverflow3$outboundSchema:
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateTextAlign2$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign2> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateTextAlign2);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign2> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateTextAlign2)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateTextAlign2$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign2> =
@@ -4650,18 +4924,20 @@ export const TemplateCreateDocumentFromTemplateFieldMetaName$inboundSchema:
     TemplateCreateDocumentFromTemplateFieldMetaName,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: TemplateCreateDocumentFromTemplateOverflow3$inboundSchema
-      .optional(),
-    type: z.literal("name"),
-    textAlign: TemplateCreateDocumentFromTemplateTextAlign2$inboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: TemplateCreateDocumentFromTemplateOverflow3$inboundSchema
+        .optional(),
+      type: z.literal("name"),
+      textAlign: TemplateCreateDocumentFromTemplateTextAlign2$inboundSchema
+        .optional(),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateFieldMetaName$Outbound = {
   label?: string | undefined;
@@ -4680,18 +4956,20 @@ export const TemplateCreateDocumentFromTemplateFieldMetaName$outboundSchema:
     TemplateCreateDocumentFromTemplateFieldMetaName$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateFieldMetaName
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: TemplateCreateDocumentFromTemplateOverflow3$outboundSchema
-      .optional(),
-    type: z.literal("name"),
-    textAlign: TemplateCreateDocumentFromTemplateTextAlign2$outboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: TemplateCreateDocumentFromTemplateOverflow3$outboundSchema
+        .optional(),
+      type: z.literal("name"),
+      textAlign: TemplateCreateDocumentFromTemplateTextAlign2$outboundSchema
+        .optional(),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateFieldMetaNameToJSON(
   templateCreateDocumentFromTemplateFieldMetaName:
@@ -4721,8 +4999,10 @@ export function templateCreateDocumentFromTemplateFieldMetaNameFromJSON(
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateOverflow2$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow2> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateOverflow2);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow2> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateOverflow2)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateOverflow2$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow2> =
@@ -4730,12 +5010,25 @@ export const TemplateCreateDocumentFromTemplateOverflow2$outboundSchema:
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateTextAlign1$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign1> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateTextAlign1);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign1> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateTextAlign1)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateTextAlign1$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateTextAlign1> =
     TemplateCreateDocumentFromTemplateTextAlign1$inboundSchema;
+
+/** @internal */
+export const TemplateCreateDocumentFromTemplateFontFamily$inboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFontFamily> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateFontFamily)
+    );
+/** @internal */
+export const TemplateCreateDocumentFromTemplateFontFamily$outboundSchema:
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateFontFamily> =
+    TemplateCreateDocumentFromTemplateFontFamily$inboundSchema;
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateFieldMetaInitials$inboundSchema:
@@ -4743,18 +5036,22 @@ export const TemplateCreateDocumentFromTemplateFieldMetaInitials$inboundSchema:
     TemplateCreateDocumentFromTemplateFieldMetaInitials,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: TemplateCreateDocumentFromTemplateOverflow2$inboundSchema
-      .optional(),
-    type: z.literal("initials"),
-    textAlign: TemplateCreateDocumentFromTemplateTextAlign1$inboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: TemplateCreateDocumentFromTemplateOverflow2$inboundSchema
+        .optional(),
+      type: z.literal("initials"),
+      textAlign: TemplateCreateDocumentFromTemplateTextAlign1$inboundSchema
+        .optional(),
+      fontFamily: TemplateCreateDocumentFromTemplateFontFamily$inboundSchema
+        .optional(),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateFieldMetaInitials$Outbound = {
   label?: string | undefined;
@@ -4765,6 +5062,7 @@ export type TemplateCreateDocumentFromTemplateFieldMetaInitials$Outbound = {
   overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -4773,18 +5071,22 @@ export const TemplateCreateDocumentFromTemplateFieldMetaInitials$outboundSchema:
     TemplateCreateDocumentFromTemplateFieldMetaInitials$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateFieldMetaInitials
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: TemplateCreateDocumentFromTemplateOverflow2$outboundSchema
-      .optional(),
-    type: z.literal("initials"),
-    textAlign: TemplateCreateDocumentFromTemplateTextAlign1$outboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: TemplateCreateDocumentFromTemplateOverflow2$outboundSchema
+        .optional(),
+      type: z.literal("initials"),
+      textAlign: TemplateCreateDocumentFromTemplateTextAlign1$outboundSchema
+        .optional(),
+      fontFamily: TemplateCreateDocumentFromTemplateFontFamily$outboundSchema
+        .optional(),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateFieldMetaInitialsToJSON(
   templateCreateDocumentFromTemplateFieldMetaInitials:
@@ -4814,8 +5116,10 @@ export function templateCreateDocumentFromTemplateFieldMetaInitialsFromJSON(
 
 /** @internal */
 export const TemplateCreateDocumentFromTemplateOverflow1$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow1> = z
-    .nativeEnum(TemplateCreateDocumentFromTemplateOverflow1);
+  z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow1> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateCreateDocumentFromTemplateOverflow1)
+    );
 /** @internal */
 export const TemplateCreateDocumentFromTemplateOverflow1$outboundSchema:
   z.ZodNativeEnum<typeof TemplateCreateDocumentFromTemplateOverflow1> =
@@ -4827,17 +5131,18 @@ export const TemplateCreateDocumentFromTemplateFieldMetaSignature$inboundSchema:
     TemplateCreateDocumentFromTemplateFieldMetaSignature,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: TemplateCreateDocumentFromTemplateOverflow1$inboundSchema.default(
-      "auto",
-    ),
-    type: z.literal("signature"),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: TemplateCreateDocumentFromTemplateOverflow1$inboundSchema
+        .default("auto"),
+      type: z.literal("signature"),
+    })
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateFieldMetaSignature$Outbound = {
   label?: string | undefined;
@@ -4855,16 +5160,18 @@ export const TemplateCreateDocumentFromTemplateFieldMetaSignature$outboundSchema
     TemplateCreateDocumentFromTemplateFieldMetaSignature$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateFieldMetaSignature
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: TemplateCreateDocumentFromTemplateOverflow1$outboundSchema
-      .default("auto"),
-    type: z.literal("signature"),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: TemplateCreateDocumentFromTemplateOverflow1$outboundSchema
+        .default("auto"),
+      type: z.literal("signature"),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateFieldMetaSignatureToJSON(
   templateCreateDocumentFromTemplateFieldMetaSignature:
@@ -4898,32 +5205,40 @@ export const TemplateCreateDocumentFromTemplateFieldMetaUnion$inboundSchema:
     TemplateCreateDocumentFromTemplateFieldMetaUnion,
     z.ZodTypeDef,
     unknown
-  > = z.union([
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaSignature$inboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaInitials$inboundSchema
-    ),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaName$inboundSchema),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaEmail$inboundSchema
-    ),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaDate$inboundSchema),
-    z.lazy(() => TemplateCreateDocumentFromTemplateFieldMetaText$inboundSchema),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaNumber$inboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaRadio$inboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaCheckbox$inboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaDropdown$inboundSchema
-    ),
-  ]);
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.union([
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateFieldMetaSignature$inboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateFieldMetaInitials$inboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateFieldMetaName$inboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateFieldMetaEmail$inboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateFieldMetaDate$inboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateFieldMetaText$inboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateFieldMetaNumber$inboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateFieldMetaRadio$inboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateFieldMetaCheckbox$inboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateFieldMetaDropdown$inboundSchema
+      ),
+    ])
+  );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateFieldMetaUnion$Outbound =
   | TemplateCreateDocumentFromTemplateFieldMetaSignature$Outbound
@@ -4943,38 +5258,40 @@ export const TemplateCreateDocumentFromTemplateFieldMetaUnion$outboundSchema:
     TemplateCreateDocumentFromTemplateFieldMetaUnion$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateFieldMetaUnion
-  > = z.union([
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaSignature$outboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaInitials$outboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaName$outboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaEmail$outboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaDate$outboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaText$outboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaNumber$outboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaRadio$outboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaCheckbox$outboundSchema
-    ),
-    z.lazy(() =>
-      TemplateCreateDocumentFromTemplateFieldMetaDropdown$outboundSchema
-    ),
-  ]);
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.union([
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateFieldMetaSignature$outboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateFieldMetaInitials$outboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateFieldMetaName$outboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateFieldMetaEmail$outboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateFieldMetaDate$outboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateFieldMetaText$outboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateFieldMetaNumber$outboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateFieldMetaRadio$outboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateFieldMetaCheckbox$outboundSchema
+      ),
+      z.lazy(() =>
+        TemplateCreateDocumentFromTemplateFieldMetaDropdown$outboundSchema
+      ),
+    ])
+  );
 
 export function templateCreateDocumentFromTemplateFieldMetaUnionToJSON(
   templateCreateDocumentFromTemplateFieldMetaUnion:
@@ -5007,22 +5324,22 @@ export const TemplateCreateDocumentFromTemplateField$inboundSchema: z.ZodType<
   TemplateCreateDocumentFromTemplateField,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeId: z.string(),
-  envelopeItemId: z.string(),
-  type: TemplateCreateDocumentFromTemplateFieldTypeEnum$inboundSchema,
-  id: z.number(),
-  secondaryId: z.string(),
-  recipientId: z.number(),
-  page: z.number(),
-  positionX: z.any().optional(),
-  positionY: z.any().optional(),
-  width: z.any().optional(),
-  height: z.any().optional(),
-  customText: z.string(),
-  inserted: z.boolean(),
-  fieldMeta: z.nullable(
-    z.union([
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    envelopeItemId: z.string(),
+    type: TemplateCreateDocumentFromTemplateFieldTypeEnum$inboundSchema,
+    id: z.number(),
+    secondaryId: z.string(),
+    recipientId: z.number(),
+    page: z.number(),
+    positionX: z.any().optional(),
+    positionY: z.any().optional(),
+    width: z.any().optional(),
+    height: z.any().optional(),
+    customText: z.string(),
+    inserted: z.boolean(),
+    fieldMeta: z.nullable(z.union([
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaSignature$inboundSchema
       ),
@@ -5053,11 +5370,11 @@ export const TemplateCreateDocumentFromTemplateField$inboundSchema: z.ZodType<
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaDropdown$inboundSchema
       ),
-    ]),
-  ),
-  documentId: z.nullable(z.number()).optional(),
-  templateId: z.nullable(z.number()).optional(),
-});
+    ])),
+    documentId: z.nullable(z.number()).optional(),
+    templateId: z.nullable(z.number()).optional(),
+  })
+);
 /** @internal */
 export type TemplateCreateDocumentFromTemplateField$Outbound = {
   envelopeId: string;
@@ -5094,22 +5411,22 @@ export const TemplateCreateDocumentFromTemplateField$outboundSchema: z.ZodType<
   TemplateCreateDocumentFromTemplateField$Outbound,
   z.ZodTypeDef,
   TemplateCreateDocumentFromTemplateField
-> = z.object({
-  envelopeId: z.string(),
-  envelopeItemId: z.string(),
-  type: TemplateCreateDocumentFromTemplateFieldTypeEnum$outboundSchema,
-  id: z.number(),
-  secondaryId: z.string(),
-  recipientId: z.number(),
-  page: z.number(),
-  positionX: z.any().optional(),
-  positionY: z.any().optional(),
-  width: z.any().optional(),
-  height: z.any().optional(),
-  customText: z.string(),
-  inserted: z.boolean(),
-  fieldMeta: z.nullable(
-    z.union([
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    envelopeItemId: z.string(),
+    type: TemplateCreateDocumentFromTemplateFieldTypeEnum$outboundSchema,
+    id: z.number(),
+    secondaryId: z.string(),
+    recipientId: z.number(),
+    page: z.number(),
+    positionX: z.any().optional(),
+    positionY: z.any().optional(),
+    width: z.any().optional(),
+    height: z.any().optional(),
+    customText: z.string(),
+    inserted: z.boolean(),
+    fieldMeta: z.nullable(z.union([
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaSignature$outboundSchema
       ),
@@ -5140,11 +5457,11 @@ export const TemplateCreateDocumentFromTemplateField$outboundSchema: z.ZodType<
       z.lazy(() =>
         TemplateCreateDocumentFromTemplateFieldMetaDropdown$outboundSchema
       ),
-    ]),
-  ),
-  documentId: z.nullable(z.number()).optional(),
-  templateId: z.nullable(z.number()).optional(),
-});
+    ])),
+    documentId: z.nullable(z.number()).optional(),
+    templateId: z.nullable(z.number()).optional(),
+  })
+);
 
 export function templateCreateDocumentFromTemplateFieldToJSON(
   templateCreateDocumentFromTemplateField:
@@ -5175,55 +5492,51 @@ export function templateCreateDocumentFromTemplateFieldFromJSON(
 /** @internal */
 export const TemplateCreateDocumentFromTemplateResponse$inboundSchema:
   z.ZodType<TemplateCreateDocumentFromTemplateResponse, z.ZodTypeDef, unknown> =
-    z.object({
-      visibility: TemplateCreateDocumentFromTemplateVisibility$inboundSchema,
-      status: TemplateCreateDocumentFromTemplateStatus$inboundSchema,
-      source: TemplateCreateDocumentFromTemplateSource$inboundSchema,
-      id: z.number(),
-      externalId: z.nullable(z.string()),
-      userId: z.number(),
-      authOptions: z.nullable(
-        z.lazy(() =>
+    /* @__PURE__ */ lazySchema$(() =>
+      z.object({
+        visibility: TemplateCreateDocumentFromTemplateVisibility$inboundSchema,
+        status: TemplateCreateDocumentFromTemplateStatus$inboundSchema,
+        source: TemplateCreateDocumentFromTemplateSource$inboundSchema,
+        id: z.number(),
+        externalId: z.nullable(z.string()),
+        userId: z.number(),
+        authOptions: z.nullable(z.lazy(() =>
           TemplateCreateDocumentFromTemplateAuthOptions$inboundSchema
+        )),
+        formValues: z.nullable(
+          z.record(z.union([z.string(), z.boolean(), z.number()])),
         ),
-      ),
-      formValues: z.nullable(
-        z.record(z.union([z.string(), z.boolean(), z.number()])),
-      ),
-      title: z.string(),
-      createdAt: z.string(),
-      updatedAt: z.string(),
-      completedAt: z.nullable(z.string()),
-      deletedAt: z.nullable(z.string()),
-      teamId: z.number(),
-      folderId: z.nullable(z.string()),
-      envelopeId: z.string(),
-      internalVersion: z.number(),
-      templateId: z.nullable(z.number()).optional(),
-      documentDataId: z.string().default(""),
-      documentData: z.lazy(() =>
-        TemplateCreateDocumentFromTemplateDocumentData$inboundSchema
-      ),
-      documentMeta: z.lazy(() =>
-        TemplateCreateDocumentFromTemplateDocumentMeta$inboundSchema
-      ),
-      envelopeItems: z.array(
-        z.lazy(() =>
+        title: z.string(),
+        createdAt: z.string(),
+        updatedAt: z.string(),
+        completedAt: z.nullable(z.string()),
+        deletedAt: z.nullable(z.string()),
+        teamId: z.number(),
+        folderId: z.nullable(z.string()),
+        envelopeId: z.string(),
+        internalVersion: z.number(),
+        templateId: z.nullable(z.number()).optional(),
+        documentDataId: z.string().default(""),
+        documentData: z.lazy(() =>
+          TemplateCreateDocumentFromTemplateDocumentData$inboundSchema
+        ),
+        documentMeta: z.lazy(() =>
+          TemplateCreateDocumentFromTemplateDocumentMeta$inboundSchema
+        ),
+        envelopeItems: z.array(z.lazy(() =>
           TemplateCreateDocumentFromTemplateEnvelopeItem$inboundSchema
-        ),
-      ),
-      folder: z.nullable(
-        z.lazy(() => TemplateCreateDocumentFromTemplateFolder$inboundSchema),
-      ),
-      recipients: z.array(
-        z.lazy(() =>
+        )),
+        folder: z.nullable(z.lazy(() =>
+          TemplateCreateDocumentFromTemplateFolder$inboundSchema
+        )),
+        recipients: z.array(z.lazy(() =>
           TemplateCreateDocumentFromTemplateRecipientResponse$inboundSchema
-        ),
-      ),
-      fields: z.array(
-        z.lazy(() => TemplateCreateDocumentFromTemplateField$inboundSchema),
-      ),
-    });
+        )),
+        fields: z.array(z.lazy(() =>
+          TemplateCreateDocumentFromTemplateField$inboundSchema
+        )),
+      })
+    );
 /** @internal */
 export type TemplateCreateDocumentFromTemplateResponse$Outbound = {
   visibility: string;
@@ -5261,55 +5574,51 @@ export const TemplateCreateDocumentFromTemplateResponse$outboundSchema:
     TemplateCreateDocumentFromTemplateResponse$Outbound,
     z.ZodTypeDef,
     TemplateCreateDocumentFromTemplateResponse
-  > = z.object({
-    visibility: TemplateCreateDocumentFromTemplateVisibility$outboundSchema,
-    status: TemplateCreateDocumentFromTemplateStatus$outboundSchema,
-    source: TemplateCreateDocumentFromTemplateSource$outboundSchema,
-    id: z.number(),
-    externalId: z.nullable(z.string()),
-    userId: z.number(),
-    authOptions: z.nullable(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      visibility: TemplateCreateDocumentFromTemplateVisibility$outboundSchema,
+      status: TemplateCreateDocumentFromTemplateStatus$outboundSchema,
+      source: TemplateCreateDocumentFromTemplateSource$outboundSchema,
+      id: z.number(),
+      externalId: z.nullable(z.string()),
+      userId: z.number(),
+      authOptions: z.nullable(z.lazy(() =>
         TemplateCreateDocumentFromTemplateAuthOptions$outboundSchema
+      )),
+      formValues: z.nullable(
+        z.record(z.union([z.string(), z.boolean(), z.number()])),
       ),
-    ),
-    formValues: z.nullable(
-      z.record(z.union([z.string(), z.boolean(), z.number()])),
-    ),
-    title: z.string(),
-    createdAt: z.string(),
-    updatedAt: z.string(),
-    completedAt: z.nullable(z.string()),
-    deletedAt: z.nullable(z.string()),
-    teamId: z.number(),
-    folderId: z.nullable(z.string()),
-    envelopeId: z.string(),
-    internalVersion: z.number(),
-    templateId: z.nullable(z.number()).optional(),
-    documentDataId: z.string().default(""),
-    documentData: z.lazy(() =>
-      TemplateCreateDocumentFromTemplateDocumentData$outboundSchema
-    ),
-    documentMeta: z.lazy(() =>
-      TemplateCreateDocumentFromTemplateDocumentMeta$outboundSchema
-    ),
-    envelopeItems: z.array(
-      z.lazy(() =>
+      title: z.string(),
+      createdAt: z.string(),
+      updatedAt: z.string(),
+      completedAt: z.nullable(z.string()),
+      deletedAt: z.nullable(z.string()),
+      teamId: z.number(),
+      folderId: z.nullable(z.string()),
+      envelopeId: z.string(),
+      internalVersion: z.number(),
+      templateId: z.nullable(z.number()).optional(),
+      documentDataId: z.string().default(""),
+      documentData: z.lazy(() =>
+        TemplateCreateDocumentFromTemplateDocumentData$outboundSchema
+      ),
+      documentMeta: z.lazy(() =>
+        TemplateCreateDocumentFromTemplateDocumentMeta$outboundSchema
+      ),
+      envelopeItems: z.array(z.lazy(() =>
         TemplateCreateDocumentFromTemplateEnvelopeItem$outboundSchema
-      ),
-    ),
-    folder: z.nullable(
-      z.lazy(() => TemplateCreateDocumentFromTemplateFolder$outboundSchema),
-    ),
-    recipients: z.array(
-      z.lazy(() =>
+      )),
+      folder: z.nullable(z.lazy(() =>
+        TemplateCreateDocumentFromTemplateFolder$outboundSchema
+      )),
+      recipients: z.array(z.lazy(() =>
         TemplateCreateDocumentFromTemplateRecipientResponse$outboundSchema
-      ),
-    ),
-    fields: z.array(
-      z.lazy(() => TemplateCreateDocumentFromTemplateField$outboundSchema),
-    ),
-  });
+      )),
+      fields: z.array(z.lazy(() =>
+        TemplateCreateDocumentFromTemplateField$outboundSchema
+      )),
+    })
+  );
 
 export function templateCreateDocumentFromTemplateResponseToJSON(
   templateCreateDocumentFromTemplateResponse:

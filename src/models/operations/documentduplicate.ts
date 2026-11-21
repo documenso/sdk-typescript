@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -24,9 +24,11 @@ export const DocumentDuplicateRequest$inboundSchema: z.ZodType<
   DocumentDuplicateRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  documentId: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    documentId: z.number(),
+  })
+);
 /** @internal */
 export type DocumentDuplicateRequest$Outbound = {
   documentId: number;
@@ -37,9 +39,11 @@ export const DocumentDuplicateRequest$outboundSchema: z.ZodType<
   DocumentDuplicateRequest$Outbound,
   z.ZodTypeDef,
   DocumentDuplicateRequest
-> = z.object({
-  documentId: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    documentId: z.number(),
+  })
+);
 
 export function documentDuplicateRequestToJSON(
   documentDuplicateRequest: DocumentDuplicateRequest,
@@ -63,10 +67,12 @@ export const DocumentDuplicateResponse$inboundSchema: z.ZodType<
   DocumentDuplicateResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.string(),
-  documentId: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    documentId: z.number(),
+  })
+);
 /** @internal */
 export type DocumentDuplicateResponse$Outbound = {
   id: string;
@@ -78,10 +84,12 @@ export const DocumentDuplicateResponse$outboundSchema: z.ZodType<
   DocumentDuplicateResponse$Outbound,
   z.ZodTypeDef,
   DocumentDuplicateResponse
-> = z.object({
-  id: z.string(),
-  documentId: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    documentId: z.number(),
+  })
+);
 
 export function documentDuplicateResponseToJSON(
   documentDuplicateResponse: DocumentDuplicateResponse,

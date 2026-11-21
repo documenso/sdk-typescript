@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -29,10 +29,12 @@ export const DocumentAttachmentUpdateData$inboundSchema: z.ZodType<
   DocumentAttachmentUpdateData,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string(),
-  data: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string(),
+    data: z.string(),
+  })
+);
 /** @internal */
 export type DocumentAttachmentUpdateData$Outbound = {
   label: string;
@@ -44,10 +46,12 @@ export const DocumentAttachmentUpdateData$outboundSchema: z.ZodType<
   DocumentAttachmentUpdateData$Outbound,
   z.ZodTypeDef,
   DocumentAttachmentUpdateData
-> = z.object({
-  label: z.string(),
-  data: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string(),
+    data: z.string(),
+  })
+);
 
 export function documentAttachmentUpdateDataToJSON(
   documentAttachmentUpdateData: DocumentAttachmentUpdateData,
@@ -73,10 +77,12 @@ export const DocumentAttachmentUpdateRequest$inboundSchema: z.ZodType<
   DocumentAttachmentUpdateRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.string(),
-  data: z.lazy(() => DocumentAttachmentUpdateData$inboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    data: z.lazy(() => DocumentAttachmentUpdateData$inboundSchema),
+  })
+);
 /** @internal */
 export type DocumentAttachmentUpdateRequest$Outbound = {
   id: string;
@@ -88,10 +94,12 @@ export const DocumentAttachmentUpdateRequest$outboundSchema: z.ZodType<
   DocumentAttachmentUpdateRequest$Outbound,
   z.ZodTypeDef,
   DocumentAttachmentUpdateRequest
-> = z.object({
-  id: z.string(),
-  data: z.lazy(() => DocumentAttachmentUpdateData$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    data: z.lazy(() => DocumentAttachmentUpdateData$outboundSchema),
+  })
+);
 
 export function documentAttachmentUpdateRequestToJSON(
   documentAttachmentUpdateRequest: DocumentAttachmentUpdateRequest,
@@ -117,9 +125,11 @@ export const DocumentAttachmentUpdateResponse$inboundSchema: z.ZodType<
   DocumentAttachmentUpdateResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  success: z.boolean(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    success: z.boolean(),
+  })
+);
 /** @internal */
 export type DocumentAttachmentUpdateResponse$Outbound = {
   success: boolean;
@@ -130,9 +140,11 @@ export const DocumentAttachmentUpdateResponse$outboundSchema: z.ZodType<
   DocumentAttachmentUpdateResponse$Outbound,
   z.ZodTypeDef,
   DocumentAttachmentUpdateResponse
-> = z.object({
-  success: z.boolean(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    success: z.boolean(),
+  })
+);
 
 export function documentAttachmentUpdateResponseToJSON(
   documentAttachmentUpdateResponse: DocumentAttachmentUpdateResponse,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -125,7 +125,9 @@ export type EnvelopeDistributeResponse = {
 /** @internal */
 export const EnvelopeDistributeDateFormat$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeDistributeDateFormat
-> = z.nativeEnum(EnvelopeDistributeDateFormat);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EnvelopeDistributeDateFormat)
+);
 /** @internal */
 export const EnvelopeDistributeDateFormat$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeDistributeDateFormat
@@ -133,9 +135,10 @@ export const EnvelopeDistributeDateFormat$outboundSchema: z.ZodNativeEnum<
 
 /** @internal */
 export const EnvelopeDistributeDistributionMethod$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeDistributeDistributionMethod> = z.nativeEnum(
-    EnvelopeDistributeDistributionMethod,
-  );
+  z.ZodNativeEnum<typeof EnvelopeDistributeDistributionMethod> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeDistributeDistributionMethod)
+    );
 /** @internal */
 export const EnvelopeDistributeDistributionMethod$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeDistributeDistributionMethod> =
@@ -144,7 +147,7 @@ export const EnvelopeDistributeDistributionMethod$outboundSchema:
 /** @internal */
 export const EnvelopeDistributeLanguage$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeDistributeLanguage
-> = z.nativeEnum(EnvelopeDistributeLanguage);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeDistributeLanguage));
 /** @internal */
 export const EnvelopeDistributeLanguage$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeDistributeLanguage
@@ -155,17 +158,19 @@ export const EnvelopeDistributeEmailSettings$inboundSchema: z.ZodType<
   EnvelopeDistributeEmailSettings,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  recipientSigningRequest: z.boolean().default(true),
-  recipientRemoved: z.boolean().default(true),
-  recipientSigned: z.boolean().default(true),
-  documentPending: z.boolean().default(true),
-  documentCompleted: z.boolean().default(true),
-  documentDeleted: z.boolean().default(true),
-  ownerDocumentCompleted: z.boolean().default(true),
-  ownerRecipientExpired: z.boolean().default(true),
-  ownerDocumentCreated: z.boolean().default(true),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    recipientSigningRequest: z.boolean().default(true),
+    recipientRemoved: z.boolean().default(true),
+    recipientSigned: z.boolean().default(true),
+    documentPending: z.boolean().default(true),
+    documentCompleted: z.boolean().default(true),
+    documentDeleted: z.boolean().default(true),
+    ownerDocumentCompleted: z.boolean().default(true),
+    ownerRecipientExpired: z.boolean().default(true),
+    ownerDocumentCreated: z.boolean().default(true),
+  })
+);
 /** @internal */
 export type EnvelopeDistributeEmailSettings$Outbound = {
   recipientSigningRequest: boolean;
@@ -184,17 +189,19 @@ export const EnvelopeDistributeEmailSettings$outboundSchema: z.ZodType<
   EnvelopeDistributeEmailSettings$Outbound,
   z.ZodTypeDef,
   EnvelopeDistributeEmailSettings
-> = z.object({
-  recipientSigningRequest: z.boolean().default(true),
-  recipientRemoved: z.boolean().default(true),
-  recipientSigned: z.boolean().default(true),
-  documentPending: z.boolean().default(true),
-  documentCompleted: z.boolean().default(true),
-  documentDeleted: z.boolean().default(true),
-  ownerDocumentCompleted: z.boolean().default(true),
-  ownerRecipientExpired: z.boolean().default(true),
-  ownerDocumentCreated: z.boolean().default(true),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    recipientSigningRequest: z.boolean().default(true),
+    recipientRemoved: z.boolean().default(true),
+    recipientSigned: z.boolean().default(true),
+    documentPending: z.boolean().default(true),
+    documentCompleted: z.boolean().default(true),
+    documentDeleted: z.boolean().default(true),
+    ownerDocumentCompleted: z.boolean().default(true),
+    ownerRecipientExpired: z.boolean().default(true),
+    ownerDocumentCreated: z.boolean().default(true),
+  })
+);
 
 export function envelopeDistributeEmailSettingsToJSON(
   envelopeDistributeEmailSettings: EnvelopeDistributeEmailSettings,
@@ -220,21 +227,23 @@ export const EnvelopeDistributeMeta$inboundSchema: z.ZodType<
   EnvelopeDistributeMeta,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  subject: z.string().optional(),
-  message: z.string().optional(),
-  timezone: z.string().optional(),
-  dateFormat: EnvelopeDistributeDateFormat$inboundSchema.optional(),
-  distributionMethod: EnvelopeDistributeDistributionMethod$inboundSchema
-    .optional(),
-  redirectUrl: z.string().optional(),
-  language: EnvelopeDistributeLanguage$inboundSchema.optional(),
-  emailId: z.nullable(z.string()).optional(),
-  emailReplyTo: z.nullable(z.string()).optional(),
-  emailSettings: z.nullable(
-    z.lazy(() => EnvelopeDistributeEmailSettings$inboundSchema),
-  ).optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    subject: z.string().optional(),
+    message: z.string().optional(),
+    timezone: z.string().optional(),
+    dateFormat: EnvelopeDistributeDateFormat$inboundSchema.optional(),
+    distributionMethod: EnvelopeDistributeDistributionMethod$inboundSchema
+      .optional(),
+    redirectUrl: z.string().optional(),
+    language: EnvelopeDistributeLanguage$inboundSchema.optional(),
+    emailId: z.nullable(z.string()).optional(),
+    emailReplyTo: z.nullable(z.string()).optional(),
+    emailSettings: z.nullable(
+      z.lazy(() => EnvelopeDistributeEmailSettings$inboundSchema),
+    ).optional(),
+  })
+);
 /** @internal */
 export type EnvelopeDistributeMeta$Outbound = {
   subject?: string | undefined;
@@ -254,21 +263,23 @@ export const EnvelopeDistributeMeta$outboundSchema: z.ZodType<
   EnvelopeDistributeMeta$Outbound,
   z.ZodTypeDef,
   EnvelopeDistributeMeta
-> = z.object({
-  subject: z.string().optional(),
-  message: z.string().optional(),
-  timezone: z.string().optional(),
-  dateFormat: EnvelopeDistributeDateFormat$outboundSchema.optional(),
-  distributionMethod: EnvelopeDistributeDistributionMethod$outboundSchema
-    .optional(),
-  redirectUrl: z.string().optional(),
-  language: EnvelopeDistributeLanguage$outboundSchema.optional(),
-  emailId: z.nullable(z.string()).optional(),
-  emailReplyTo: z.nullable(z.string()).optional(),
-  emailSettings: z.nullable(
-    z.lazy(() => EnvelopeDistributeEmailSettings$outboundSchema),
-  ).optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    subject: z.string().optional(),
+    message: z.string().optional(),
+    timezone: z.string().optional(),
+    dateFormat: EnvelopeDistributeDateFormat$outboundSchema.optional(),
+    distributionMethod: EnvelopeDistributeDistributionMethod$outboundSchema
+      .optional(),
+    redirectUrl: z.string().optional(),
+    language: EnvelopeDistributeLanguage$outboundSchema.optional(),
+    emailId: z.nullable(z.string()).optional(),
+    emailReplyTo: z.nullable(z.string()).optional(),
+    emailSettings: z.nullable(
+      z.lazy(() => EnvelopeDistributeEmailSettings$outboundSchema),
+    ).optional(),
+  })
+);
 
 export function envelopeDistributeMetaToJSON(
   envelopeDistributeMeta: EnvelopeDistributeMeta,
@@ -292,10 +303,12 @@ export const EnvelopeDistributeRequest$inboundSchema: z.ZodType<
   EnvelopeDistributeRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeId: z.string(),
-  meta: z.lazy(() => EnvelopeDistributeMeta$inboundSchema).optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    meta: z.lazy(() => EnvelopeDistributeMeta$inboundSchema).optional(),
+  })
+);
 /** @internal */
 export type EnvelopeDistributeRequest$Outbound = {
   envelopeId: string;
@@ -307,10 +320,12 @@ export const EnvelopeDistributeRequest$outboundSchema: z.ZodType<
   EnvelopeDistributeRequest$Outbound,
   z.ZodTypeDef,
   EnvelopeDistributeRequest
-> = z.object({
-  envelopeId: z.string(),
-  meta: z.lazy(() => EnvelopeDistributeMeta$outboundSchema).optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    meta: z.lazy(() => EnvelopeDistributeMeta$outboundSchema).optional(),
+  })
+);
 
 export function envelopeDistributeRequestToJSON(
   envelopeDistributeRequest: EnvelopeDistributeRequest,
@@ -332,7 +347,7 @@ export function envelopeDistributeRequestFromJSON(
 /** @internal */
 export const EnvelopeDistributeRole$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeDistributeRole
-> = z.nativeEnum(EnvelopeDistributeRole);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeDistributeRole));
 /** @internal */
 export const EnvelopeDistributeRole$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeDistributeRole
@@ -343,15 +358,17 @@ export const EnvelopeDistributeRecipient$inboundSchema: z.ZodType<
   EnvelopeDistributeRecipient,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.number(),
-  name: z.string(),
-  email: z.string(),
-  token: z.string(),
-  role: EnvelopeDistributeRole$inboundSchema,
-  signingOrder: z.nullable(z.number()),
-  signingUrl: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    name: z.string(),
+    email: z.string(),
+    token: z.string(),
+    role: EnvelopeDistributeRole$inboundSchema,
+    signingOrder: z.nullable(z.number()),
+    signingUrl: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeDistributeRecipient$Outbound = {
   id: number;
@@ -368,15 +385,17 @@ export const EnvelopeDistributeRecipient$outboundSchema: z.ZodType<
   EnvelopeDistributeRecipient$Outbound,
   z.ZodTypeDef,
   EnvelopeDistributeRecipient
-> = z.object({
-  id: z.number(),
-  name: z.string(),
-  email: z.string(),
-  token: z.string(),
-  role: EnvelopeDistributeRole$outboundSchema,
-  signingOrder: z.nullable(z.number()),
-  signingUrl: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    name: z.string(),
+    email: z.string(),
+    token: z.string(),
+    role: EnvelopeDistributeRole$outboundSchema,
+    signingOrder: z.nullable(z.number()),
+    signingUrl: z.string(),
+  })
+);
 
 export function envelopeDistributeRecipientToJSON(
   envelopeDistributeRecipient: EnvelopeDistributeRecipient,
@@ -402,11 +421,15 @@ export const EnvelopeDistributeResponse$inboundSchema: z.ZodType<
   EnvelopeDistributeResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  success: z.boolean(),
-  id: z.string(),
-  recipients: z.array(z.lazy(() => EnvelopeDistributeRecipient$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    success: z.boolean(),
+    id: z.string(),
+    recipients: z.array(
+      z.lazy(() => EnvelopeDistributeRecipient$inboundSchema),
+    ),
+  })
+);
 /** @internal */
 export type EnvelopeDistributeResponse$Outbound = {
   success: boolean;
@@ -419,11 +442,15 @@ export const EnvelopeDistributeResponse$outboundSchema: z.ZodType<
   EnvelopeDistributeResponse$Outbound,
   z.ZodTypeDef,
   EnvelopeDistributeResponse
-> = z.object({
-  success: z.boolean(),
-  id: z.string(),
-  recipients: z.array(z.lazy(() => EnvelopeDistributeRecipient$outboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    success: z.boolean(),
+    id: z.string(),
+    recipients: z.array(
+      z.lazy(() => EnvelopeDistributeRecipient$outboundSchema),
+    ),
+  })
+);
 
 export function envelopeDistributeResponseToJSON(
   envelopeDistributeResponse: EnvelopeDistributeResponse,

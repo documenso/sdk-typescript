@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -199,9 +199,11 @@ export const EnvelopeRecipientGetInternalServerErrorIssue$inboundSchema:
     EnvelopeRecipientGetInternalServerErrorIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type EnvelopeRecipientGetInternalServerErrorIssue$Outbound = {
   message: string;
@@ -213,9 +215,11 @@ export const EnvelopeRecipientGetInternalServerErrorIssue$outboundSchema:
     EnvelopeRecipientGetInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
     EnvelopeRecipientGetInternalServerErrorIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function envelopeRecipientGetInternalServerErrorIssueToJSON(
   envelopeRecipientGetInternalServerErrorIssue:
@@ -248,23 +252,25 @@ export const EnvelopeRecipientGetInternalServerError$inboundSchema: z.ZodType<
   EnvelopeRecipientGetInternalServerError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => EnvelopeRecipientGetInternalServerErrorIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new EnvelopeRecipientGetInternalServerError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => EnvelopeRecipientGetInternalServerErrorIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new EnvelopeRecipientGetInternalServerError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type EnvelopeRecipientGetInternalServerError$Outbound = {
@@ -280,24 +286,30 @@ export const EnvelopeRecipientGetInternalServerError$outboundSchema: z.ZodType<
   EnvelopeRecipientGetInternalServerError$Outbound,
   z.ZodTypeDef,
   EnvelopeRecipientGetInternalServerError
-> = z.instanceof(EnvelopeRecipientGetInternalServerError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeRecipientGetInternalServerErrorIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(EnvelopeRecipientGetInternalServerError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() =>
+          EnvelopeRecipientGetInternalServerErrorIssue$outboundSchema
+        ),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const EnvelopeRecipientGetNotFoundIssue$inboundSchema: z.ZodType<
   EnvelopeRecipientGetNotFoundIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeRecipientGetNotFoundIssue$Outbound = {
   message: string;
@@ -308,9 +320,11 @@ export const EnvelopeRecipientGetNotFoundIssue$outboundSchema: z.ZodType<
   EnvelopeRecipientGetNotFoundIssue$Outbound,
   z.ZodTypeDef,
   EnvelopeRecipientGetNotFoundIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function envelopeRecipientGetNotFoundIssueToJSON(
   envelopeRecipientGetNotFoundIssue: EnvelopeRecipientGetNotFoundIssue,
@@ -336,22 +350,25 @@ export const EnvelopeRecipientGetNotFoundError$inboundSchema: z.ZodType<
   EnvelopeRecipientGetNotFoundError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(z.lazy(() => EnvelopeRecipientGetNotFoundIssue$inboundSchema))
-    .optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new EnvelopeRecipientGetNotFoundError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => EnvelopeRecipientGetNotFoundIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new EnvelopeRecipientGetNotFoundError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type EnvelopeRecipientGetNotFoundError$Outbound = {
@@ -365,24 +382,28 @@ export const EnvelopeRecipientGetNotFoundError$outboundSchema: z.ZodType<
   EnvelopeRecipientGetNotFoundError$Outbound,
   z.ZodTypeDef,
   EnvelopeRecipientGetNotFoundError
-> = z.instanceof(EnvelopeRecipientGetNotFoundError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeRecipientGetNotFoundIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(EnvelopeRecipientGetNotFoundError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => EnvelopeRecipientGetNotFoundIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const EnvelopeRecipientGetForbiddenIssue$inboundSchema: z.ZodType<
   EnvelopeRecipientGetForbiddenIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeRecipientGetForbiddenIssue$Outbound = {
   message: string;
@@ -393,9 +414,11 @@ export const EnvelopeRecipientGetForbiddenIssue$outboundSchema: z.ZodType<
   EnvelopeRecipientGetForbiddenIssue$Outbound,
   z.ZodTypeDef,
   EnvelopeRecipientGetForbiddenIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function envelopeRecipientGetForbiddenIssueToJSON(
   envelopeRecipientGetForbiddenIssue: EnvelopeRecipientGetForbiddenIssue,
@@ -422,23 +445,25 @@ export const EnvelopeRecipientGetForbiddenError$inboundSchema: z.ZodType<
   EnvelopeRecipientGetForbiddenError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => EnvelopeRecipientGetForbiddenIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new EnvelopeRecipientGetForbiddenError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => EnvelopeRecipientGetForbiddenIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new EnvelopeRecipientGetForbiddenError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type EnvelopeRecipientGetForbiddenError$Outbound = {
@@ -452,24 +477,28 @@ export const EnvelopeRecipientGetForbiddenError$outboundSchema: z.ZodType<
   EnvelopeRecipientGetForbiddenError$Outbound,
   z.ZodTypeDef,
   EnvelopeRecipientGetForbiddenError
-> = z.instanceof(EnvelopeRecipientGetForbiddenError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeRecipientGetForbiddenIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(EnvelopeRecipientGetForbiddenError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => EnvelopeRecipientGetForbiddenIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const EnvelopeRecipientGetUnauthorizedIssue$inboundSchema: z.ZodType<
   EnvelopeRecipientGetUnauthorizedIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeRecipientGetUnauthorizedIssue$Outbound = {
   message: string;
@@ -480,9 +509,11 @@ export const EnvelopeRecipientGetUnauthorizedIssue$outboundSchema: z.ZodType<
   EnvelopeRecipientGetUnauthorizedIssue$Outbound,
   z.ZodTypeDef,
   EnvelopeRecipientGetUnauthorizedIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function envelopeRecipientGetUnauthorizedIssueToJSON(
   envelopeRecipientGetUnauthorizedIssue: EnvelopeRecipientGetUnauthorizedIssue,
@@ -509,23 +540,25 @@ export const EnvelopeRecipientGetUnauthorizedError$inboundSchema: z.ZodType<
   EnvelopeRecipientGetUnauthorizedError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => EnvelopeRecipientGetUnauthorizedIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new EnvelopeRecipientGetUnauthorizedError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => EnvelopeRecipientGetUnauthorizedIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new EnvelopeRecipientGetUnauthorizedError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type EnvelopeRecipientGetUnauthorizedError$Outbound = {
@@ -539,24 +572,28 @@ export const EnvelopeRecipientGetUnauthorizedError$outboundSchema: z.ZodType<
   EnvelopeRecipientGetUnauthorizedError$Outbound,
   z.ZodTypeDef,
   EnvelopeRecipientGetUnauthorizedError
-> = z.instanceof(EnvelopeRecipientGetUnauthorizedError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeRecipientGetUnauthorizedIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(EnvelopeRecipientGetUnauthorizedError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => EnvelopeRecipientGetUnauthorizedIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const EnvelopeRecipientGetBadRequestIssue$inboundSchema: z.ZodType<
   EnvelopeRecipientGetBadRequestIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeRecipientGetBadRequestIssue$Outbound = {
   message: string;
@@ -567,9 +604,11 @@ export const EnvelopeRecipientGetBadRequestIssue$outboundSchema: z.ZodType<
   EnvelopeRecipientGetBadRequestIssue$Outbound,
   z.ZodTypeDef,
   EnvelopeRecipientGetBadRequestIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function envelopeRecipientGetBadRequestIssueToJSON(
   envelopeRecipientGetBadRequestIssue: EnvelopeRecipientGetBadRequestIssue,
@@ -596,23 +635,25 @@ export const EnvelopeRecipientGetBadRequestError$inboundSchema: z.ZodType<
   EnvelopeRecipientGetBadRequestError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => EnvelopeRecipientGetBadRequestIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new EnvelopeRecipientGetBadRequestError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => EnvelopeRecipientGetBadRequestIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new EnvelopeRecipientGetBadRequestError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type EnvelopeRecipientGetBadRequestError$Outbound = {
@@ -626,12 +667,14 @@ export const EnvelopeRecipientGetBadRequestError$outboundSchema: z.ZodType<
   EnvelopeRecipientGetBadRequestError$Outbound,
   z.ZodTypeDef,
   EnvelopeRecipientGetBadRequestError
-> = z.instanceof(EnvelopeRecipientGetBadRequestError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeRecipientGetBadRequestIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(EnvelopeRecipientGetBadRequestError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => EnvelopeRecipientGetBadRequestIssue$outboundSchema),
+      ).optional(),
+    }))
+);

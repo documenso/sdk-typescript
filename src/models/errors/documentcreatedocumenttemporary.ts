@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -174,9 +174,11 @@ export const DocumentCreateDocumentTemporaryInternalServerErrorIssue$inboundSche
     DocumentCreateDocumentTemporaryInternalServerErrorIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type DocumentCreateDocumentTemporaryInternalServerErrorIssue$Outbound = {
   message: string;
@@ -188,9 +190,11 @@ export const DocumentCreateDocumentTemporaryInternalServerErrorIssue$outboundSch
     DocumentCreateDocumentTemporaryInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
     DocumentCreateDocumentTemporaryInternalServerErrorIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function documentCreateDocumentTemporaryInternalServerErrorIssueToJSON(
   documentCreateDocumentTemporaryInternalServerErrorIssue:
@@ -222,25 +226,25 @@ export const DocumentCreateDocumentTemporaryInternalServerError$inboundSchema:
     DocumentCreateDocumentTemporaryInternalServerError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         DocumentCreateDocumentTemporaryInternalServerErrorIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new DocumentCreateDocumentTemporaryInternalServerError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        return new DocumentCreateDocumentTemporaryInternalServerError(v, {
+          request: v.request$,
+          response: v.response$,
+          body: v.body$,
+        });
+      })
+  );
 
 /** @internal */
 export type DocumentCreateDocumentTemporaryInternalServerError$Outbound = {
@@ -257,17 +261,19 @@ export const DocumentCreateDocumentTemporaryInternalServerError$outboundSchema:
     DocumentCreateDocumentTemporaryInternalServerError$Outbound,
     z.ZodTypeDef,
     DocumentCreateDocumentTemporaryInternalServerError
-  > = z.instanceof(DocumentCreateDocumentTemporaryInternalServerError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          DocumentCreateDocumentTemporaryInternalServerErrorIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(DocumentCreateDocumentTemporaryInternalServerError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            DocumentCreateDocumentTemporaryInternalServerErrorIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const DocumentCreateDocumentTemporaryForbiddenIssue$inboundSchema:
@@ -275,9 +281,11 @@ export const DocumentCreateDocumentTemporaryForbiddenIssue$inboundSchema:
     DocumentCreateDocumentTemporaryForbiddenIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type DocumentCreateDocumentTemporaryForbiddenIssue$Outbound = {
   message: string;
@@ -289,9 +297,11 @@ export const DocumentCreateDocumentTemporaryForbiddenIssue$outboundSchema:
     DocumentCreateDocumentTemporaryForbiddenIssue$Outbound,
     z.ZodTypeDef,
     DocumentCreateDocumentTemporaryForbiddenIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function documentCreateDocumentTemporaryForbiddenIssueToJSON(
   documentCreateDocumentTemporaryForbiddenIssue:
@@ -325,23 +335,27 @@ export const DocumentCreateDocumentTemporaryForbiddenError$inboundSchema:
     DocumentCreateDocumentTemporaryForbiddenError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => DocumentCreateDocumentTemporaryForbiddenIssue$inboundSchema),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new DocumentCreateDocumentTemporaryForbiddenError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() =>
+          DocumentCreateDocumentTemporaryForbiddenIssue$inboundSchema
+        ),
+      ).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        return new DocumentCreateDocumentTemporaryForbiddenError(v, {
+          request: v.request$,
+          response: v.response$,
+          body: v.body$,
+        });
+      })
+  );
 
 /** @internal */
 export type DocumentCreateDocumentTemporaryForbiddenError$Outbound = {
@@ -358,17 +372,19 @@ export const DocumentCreateDocumentTemporaryForbiddenError$outboundSchema:
     DocumentCreateDocumentTemporaryForbiddenError$Outbound,
     z.ZodTypeDef,
     DocumentCreateDocumentTemporaryForbiddenError
-  > = z.instanceof(DocumentCreateDocumentTemporaryForbiddenError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          DocumentCreateDocumentTemporaryForbiddenIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(DocumentCreateDocumentTemporaryForbiddenError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            DocumentCreateDocumentTemporaryForbiddenIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const DocumentCreateDocumentTemporaryUnauthorizedIssue$inboundSchema:
@@ -376,9 +392,11 @@ export const DocumentCreateDocumentTemporaryUnauthorizedIssue$inboundSchema:
     DocumentCreateDocumentTemporaryUnauthorizedIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type DocumentCreateDocumentTemporaryUnauthorizedIssue$Outbound = {
   message: string;
@@ -390,9 +408,11 @@ export const DocumentCreateDocumentTemporaryUnauthorizedIssue$outboundSchema:
     DocumentCreateDocumentTemporaryUnauthorizedIssue$Outbound,
     z.ZodTypeDef,
     DocumentCreateDocumentTemporaryUnauthorizedIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function documentCreateDocumentTemporaryUnauthorizedIssueToJSON(
   documentCreateDocumentTemporaryUnauthorizedIssue:
@@ -426,25 +446,25 @@ export const DocumentCreateDocumentTemporaryUnauthorizedError$inboundSchema:
     DocumentCreateDocumentTemporaryUnauthorizedError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         DocumentCreateDocumentTemporaryUnauthorizedIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new DocumentCreateDocumentTemporaryUnauthorizedError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        return new DocumentCreateDocumentTemporaryUnauthorizedError(v, {
+          request: v.request$,
+          response: v.response$,
+          body: v.body$,
+        });
+      })
+  );
 
 /** @internal */
 export type DocumentCreateDocumentTemporaryUnauthorizedError$Outbound = {
@@ -461,17 +481,19 @@ export const DocumentCreateDocumentTemporaryUnauthorizedError$outboundSchema:
     DocumentCreateDocumentTemporaryUnauthorizedError$Outbound,
     z.ZodTypeDef,
     DocumentCreateDocumentTemporaryUnauthorizedError
-  > = z.instanceof(DocumentCreateDocumentTemporaryUnauthorizedError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          DocumentCreateDocumentTemporaryUnauthorizedIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(DocumentCreateDocumentTemporaryUnauthorizedError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            DocumentCreateDocumentTemporaryUnauthorizedIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const DocumentCreateDocumentTemporaryBadRequestIssue$inboundSchema:
@@ -479,9 +501,11 @@ export const DocumentCreateDocumentTemporaryBadRequestIssue$inboundSchema:
     DocumentCreateDocumentTemporaryBadRequestIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type DocumentCreateDocumentTemporaryBadRequestIssue$Outbound = {
   message: string;
@@ -493,9 +517,11 @@ export const DocumentCreateDocumentTemporaryBadRequestIssue$outboundSchema:
     DocumentCreateDocumentTemporaryBadRequestIssue$Outbound,
     z.ZodTypeDef,
     DocumentCreateDocumentTemporaryBadRequestIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function documentCreateDocumentTemporaryBadRequestIssueToJSON(
   documentCreateDocumentTemporaryBadRequestIssue:
@@ -529,25 +555,25 @@ export const DocumentCreateDocumentTemporaryBadRequestError$inboundSchema:
     DocumentCreateDocumentTemporaryBadRequestError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         DocumentCreateDocumentTemporaryBadRequestIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new DocumentCreateDocumentTemporaryBadRequestError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        return new DocumentCreateDocumentTemporaryBadRequestError(v, {
+          request: v.request$,
+          response: v.response$,
+          body: v.body$,
+        });
+      })
+  );
 
 /** @internal */
 export type DocumentCreateDocumentTemporaryBadRequestError$Outbound = {
@@ -564,14 +590,16 @@ export const DocumentCreateDocumentTemporaryBadRequestError$outboundSchema:
     DocumentCreateDocumentTemporaryBadRequestError$Outbound,
     z.ZodTypeDef,
     DocumentCreateDocumentTemporaryBadRequestError
-  > = z.instanceof(DocumentCreateDocumentTemporaryBadRequestError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          DocumentCreateDocumentTemporaryBadRequestIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(DocumentCreateDocumentTemporaryBadRequestError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            DocumentCreateDocumentTemporaryBadRequestIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );

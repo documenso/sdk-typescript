@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -199,9 +199,11 @@ export const DocumentDownloadBetaInternalServerErrorIssue$inboundSchema:
     DocumentDownloadBetaInternalServerErrorIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type DocumentDownloadBetaInternalServerErrorIssue$Outbound = {
   message: string;
@@ -213,9 +215,11 @@ export const DocumentDownloadBetaInternalServerErrorIssue$outboundSchema:
     DocumentDownloadBetaInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
     DocumentDownloadBetaInternalServerErrorIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function documentDownloadBetaInternalServerErrorIssueToJSON(
   documentDownloadBetaInternalServerErrorIssue:
@@ -248,23 +252,25 @@ export const DocumentDownloadBetaInternalServerError$inboundSchema: z.ZodType<
   DocumentDownloadBetaInternalServerError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => DocumentDownloadBetaInternalServerErrorIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new DocumentDownloadBetaInternalServerError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => DocumentDownloadBetaInternalServerErrorIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new DocumentDownloadBetaInternalServerError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type DocumentDownloadBetaInternalServerError$Outbound = {
@@ -280,24 +286,30 @@ export const DocumentDownloadBetaInternalServerError$outboundSchema: z.ZodType<
   DocumentDownloadBetaInternalServerError$Outbound,
   z.ZodTypeDef,
   DocumentDownloadBetaInternalServerError
-> = z.instanceof(DocumentDownloadBetaInternalServerError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => DocumentDownloadBetaInternalServerErrorIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(DocumentDownloadBetaInternalServerError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() =>
+          DocumentDownloadBetaInternalServerErrorIssue$outboundSchema
+        ),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const DocumentDownloadBetaNotFoundIssue$inboundSchema: z.ZodType<
   DocumentDownloadBetaNotFoundIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type DocumentDownloadBetaNotFoundIssue$Outbound = {
   message: string;
@@ -308,9 +320,11 @@ export const DocumentDownloadBetaNotFoundIssue$outboundSchema: z.ZodType<
   DocumentDownloadBetaNotFoundIssue$Outbound,
   z.ZodTypeDef,
   DocumentDownloadBetaNotFoundIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function documentDownloadBetaNotFoundIssueToJSON(
   documentDownloadBetaNotFoundIssue: DocumentDownloadBetaNotFoundIssue,
@@ -336,22 +350,25 @@ export const DocumentDownloadBetaNotFoundError$inboundSchema: z.ZodType<
   DocumentDownloadBetaNotFoundError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(z.lazy(() => DocumentDownloadBetaNotFoundIssue$inboundSchema))
-    .optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new DocumentDownloadBetaNotFoundError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => DocumentDownloadBetaNotFoundIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new DocumentDownloadBetaNotFoundError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type DocumentDownloadBetaNotFoundError$Outbound = {
@@ -365,24 +382,28 @@ export const DocumentDownloadBetaNotFoundError$outboundSchema: z.ZodType<
   DocumentDownloadBetaNotFoundError$Outbound,
   z.ZodTypeDef,
   DocumentDownloadBetaNotFoundError
-> = z.instanceof(DocumentDownloadBetaNotFoundError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => DocumentDownloadBetaNotFoundIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(DocumentDownloadBetaNotFoundError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => DocumentDownloadBetaNotFoundIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const DocumentDownloadBetaForbiddenIssue$inboundSchema: z.ZodType<
   DocumentDownloadBetaForbiddenIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type DocumentDownloadBetaForbiddenIssue$Outbound = {
   message: string;
@@ -393,9 +414,11 @@ export const DocumentDownloadBetaForbiddenIssue$outboundSchema: z.ZodType<
   DocumentDownloadBetaForbiddenIssue$Outbound,
   z.ZodTypeDef,
   DocumentDownloadBetaForbiddenIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function documentDownloadBetaForbiddenIssueToJSON(
   documentDownloadBetaForbiddenIssue: DocumentDownloadBetaForbiddenIssue,
@@ -422,23 +445,25 @@ export const DocumentDownloadBetaForbiddenError$inboundSchema: z.ZodType<
   DocumentDownloadBetaForbiddenError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => DocumentDownloadBetaForbiddenIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new DocumentDownloadBetaForbiddenError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => DocumentDownloadBetaForbiddenIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new DocumentDownloadBetaForbiddenError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type DocumentDownloadBetaForbiddenError$Outbound = {
@@ -452,24 +477,28 @@ export const DocumentDownloadBetaForbiddenError$outboundSchema: z.ZodType<
   DocumentDownloadBetaForbiddenError$Outbound,
   z.ZodTypeDef,
   DocumentDownloadBetaForbiddenError
-> = z.instanceof(DocumentDownloadBetaForbiddenError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => DocumentDownloadBetaForbiddenIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(DocumentDownloadBetaForbiddenError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => DocumentDownloadBetaForbiddenIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const DocumentDownloadBetaUnauthorizedIssue$inboundSchema: z.ZodType<
   DocumentDownloadBetaUnauthorizedIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type DocumentDownloadBetaUnauthorizedIssue$Outbound = {
   message: string;
@@ -480,9 +509,11 @@ export const DocumentDownloadBetaUnauthorizedIssue$outboundSchema: z.ZodType<
   DocumentDownloadBetaUnauthorizedIssue$Outbound,
   z.ZodTypeDef,
   DocumentDownloadBetaUnauthorizedIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function documentDownloadBetaUnauthorizedIssueToJSON(
   documentDownloadBetaUnauthorizedIssue: DocumentDownloadBetaUnauthorizedIssue,
@@ -509,23 +540,25 @@ export const DocumentDownloadBetaUnauthorizedError$inboundSchema: z.ZodType<
   DocumentDownloadBetaUnauthorizedError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => DocumentDownloadBetaUnauthorizedIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new DocumentDownloadBetaUnauthorizedError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => DocumentDownloadBetaUnauthorizedIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new DocumentDownloadBetaUnauthorizedError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type DocumentDownloadBetaUnauthorizedError$Outbound = {
@@ -539,24 +572,28 @@ export const DocumentDownloadBetaUnauthorizedError$outboundSchema: z.ZodType<
   DocumentDownloadBetaUnauthorizedError$Outbound,
   z.ZodTypeDef,
   DocumentDownloadBetaUnauthorizedError
-> = z.instanceof(DocumentDownloadBetaUnauthorizedError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => DocumentDownloadBetaUnauthorizedIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(DocumentDownloadBetaUnauthorizedError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => DocumentDownloadBetaUnauthorizedIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const DocumentDownloadBetaBadRequestIssue$inboundSchema: z.ZodType<
   DocumentDownloadBetaBadRequestIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type DocumentDownloadBetaBadRequestIssue$Outbound = {
   message: string;
@@ -567,9 +604,11 @@ export const DocumentDownloadBetaBadRequestIssue$outboundSchema: z.ZodType<
   DocumentDownloadBetaBadRequestIssue$Outbound,
   z.ZodTypeDef,
   DocumentDownloadBetaBadRequestIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function documentDownloadBetaBadRequestIssueToJSON(
   documentDownloadBetaBadRequestIssue: DocumentDownloadBetaBadRequestIssue,
@@ -596,23 +635,25 @@ export const DocumentDownloadBetaBadRequestError$inboundSchema: z.ZodType<
   DocumentDownloadBetaBadRequestError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => DocumentDownloadBetaBadRequestIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new DocumentDownloadBetaBadRequestError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => DocumentDownloadBetaBadRequestIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new DocumentDownloadBetaBadRequestError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type DocumentDownloadBetaBadRequestError$Outbound = {
@@ -626,12 +667,14 @@ export const DocumentDownloadBetaBadRequestError$outboundSchema: z.ZodType<
   DocumentDownloadBetaBadRequestError$Outbound,
   z.ZodTypeDef,
   DocumentDownloadBetaBadRequestError
-> = z.instanceof(DocumentDownloadBetaBadRequestError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => DocumentDownloadBetaBadRequestIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(DocumentDownloadBetaBadRequestError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => DocumentDownloadBetaBadRequestIssue$outboundSchema),
+      ).optional(),
+    }))
+);

@@ -4,7 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -25,9 +25,11 @@ export const EnvelopeCertificateDownloadPdfRequest$inboundSchema: z.ZodType<
   EnvelopeCertificateDownloadPdfRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeId: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeCertificateDownloadPdfRequest$Outbound = {
   envelopeId: string;
@@ -38,9 +40,11 @@ export const EnvelopeCertificateDownloadPdfRequest$outboundSchema: z.ZodType<
   EnvelopeCertificateDownloadPdfRequest$Outbound,
   z.ZodTypeDef,
   EnvelopeCertificateDownloadPdfRequest
-> = z.object({
-  envelopeId: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+  })
+);
 
 export function envelopeCertificateDownloadPdfRequestToJSON(
   envelopeCertificateDownloadPdfRequest: EnvelopeCertificateDownloadPdfRequest,
@@ -67,15 +71,17 @@ export const EnvelopeCertificateDownloadPdfResponse$inboundSchema: z.ZodType<
   EnvelopeCertificateDownloadPdfResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  Headers: z.record(z.array(z.string())).default({}),
-  Result: z.any().optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "Headers": "headers",
-    "Result": "result",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    Headers: z.record(z.array(z.string())).default({}),
+    Result: z.any().optional(),
+  }).transform((v) => {
+    return remap$(v, {
+      "Headers": "headers",
+      "Result": "result",
+    });
+  })
+);
 /** @internal */
 export type EnvelopeCertificateDownloadPdfResponse$Outbound = {
   Headers: { [k: string]: Array<string> };
@@ -87,15 +93,17 @@ export const EnvelopeCertificateDownloadPdfResponse$outboundSchema: z.ZodType<
   EnvelopeCertificateDownloadPdfResponse$Outbound,
   z.ZodTypeDef,
   EnvelopeCertificateDownloadPdfResponse
-> = z.object({
-  headers: z.record(z.array(z.string())),
-  result: z.any().optional(),
-}).transform((v) => {
-  return remap$(v, {
-    headers: "Headers",
-    result: "Result",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    headers: z.record(z.array(z.string())),
+    result: z.any().optional(),
+  }).transform((v) => {
+    return remap$(v, {
+      headers: "Headers",
+      result: "Result",
+    });
+  })
+);
 
 export function envelopeCertificateDownloadPdfResponseToJSON(
   envelopeCertificateDownloadPdfResponse:

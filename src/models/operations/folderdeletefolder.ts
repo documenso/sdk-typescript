@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -23,9 +23,11 @@ export const FolderDeleteFolderRequest$inboundSchema: z.ZodType<
   FolderDeleteFolderRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  folderId: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    folderId: z.string(),
+  })
+);
 /** @internal */
 export type FolderDeleteFolderRequest$Outbound = {
   folderId: string;
@@ -36,9 +38,11 @@ export const FolderDeleteFolderRequest$outboundSchema: z.ZodType<
   FolderDeleteFolderRequest$Outbound,
   z.ZodTypeDef,
   FolderDeleteFolderRequest
-> = z.object({
-  folderId: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    folderId: z.string(),
+  })
+);
 
 export function folderDeleteFolderRequestToJSON(
   folderDeleteFolderRequest: FolderDeleteFolderRequest,
@@ -62,9 +66,11 @@ export const FolderDeleteFolderResponse$inboundSchema: z.ZodType<
   FolderDeleteFolderResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  success: z.boolean(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    success: z.boolean(),
+  })
+);
 /** @internal */
 export type FolderDeleteFolderResponse$Outbound = {
   success: boolean;
@@ -75,9 +81,11 @@ export const FolderDeleteFolderResponse$outboundSchema: z.ZodType<
   FolderDeleteFolderResponse$Outbound,
   z.ZodTypeDef,
   FolderDeleteFolderResponse
-> = z.object({
-  success: z.boolean(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    success: z.boolean(),
+  })
+);
 
 export function folderDeleteFolderResponseToJSON(
   folderDeleteFolderResponse: FolderDeleteFolderResponse,

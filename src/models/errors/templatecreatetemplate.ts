@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -162,9 +162,11 @@ export const TemplateCreateTemplateInternalServerErrorIssue$inboundSchema:
     TemplateCreateTemplateInternalServerErrorIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type TemplateCreateTemplateInternalServerErrorIssue$Outbound = {
   message: string;
@@ -176,9 +178,11 @@ export const TemplateCreateTemplateInternalServerErrorIssue$outboundSchema:
     TemplateCreateTemplateInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
     TemplateCreateTemplateInternalServerErrorIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function templateCreateTemplateInternalServerErrorIssueToJSON(
   templateCreateTemplateInternalServerErrorIssue:
@@ -211,23 +215,27 @@ export const TemplateCreateTemplateInternalServerError$inboundSchema: z.ZodType<
   TemplateCreateTemplateInternalServerError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => TemplateCreateTemplateInternalServerErrorIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new TemplateCreateTemplateInternalServerError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() =>
+        TemplateCreateTemplateInternalServerErrorIssue$inboundSchema
+      ),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new TemplateCreateTemplateInternalServerError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type TemplateCreateTemplateInternalServerError$Outbound = {
@@ -244,26 +252,30 @@ export const TemplateCreateTemplateInternalServerError$outboundSchema:
     TemplateCreateTemplateInternalServerError$Outbound,
     z.ZodTypeDef,
     TemplateCreateTemplateInternalServerError
-  > = z.instanceof(TemplateCreateTemplateInternalServerError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          TemplateCreateTemplateInternalServerErrorIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(TemplateCreateTemplateInternalServerError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            TemplateCreateTemplateInternalServerErrorIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const TemplateCreateTemplateForbiddenIssue$inboundSchema: z.ZodType<
   TemplateCreateTemplateForbiddenIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type TemplateCreateTemplateForbiddenIssue$Outbound = {
   message: string;
@@ -274,9 +286,11 @@ export const TemplateCreateTemplateForbiddenIssue$outboundSchema: z.ZodType<
   TemplateCreateTemplateForbiddenIssue$Outbound,
   z.ZodTypeDef,
   TemplateCreateTemplateForbiddenIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function templateCreateTemplateForbiddenIssueToJSON(
   templateCreateTemplateForbiddenIssue: TemplateCreateTemplateForbiddenIssue,
@@ -303,23 +317,25 @@ export const TemplateCreateTemplateForbiddenError$inboundSchema: z.ZodType<
   TemplateCreateTemplateForbiddenError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => TemplateCreateTemplateForbiddenIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new TemplateCreateTemplateForbiddenError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => TemplateCreateTemplateForbiddenIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new TemplateCreateTemplateForbiddenError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type TemplateCreateTemplateForbiddenError$Outbound = {
@@ -333,24 +349,28 @@ export const TemplateCreateTemplateForbiddenError$outboundSchema: z.ZodType<
   TemplateCreateTemplateForbiddenError$Outbound,
   z.ZodTypeDef,
   TemplateCreateTemplateForbiddenError
-> = z.instanceof(TemplateCreateTemplateForbiddenError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => TemplateCreateTemplateForbiddenIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(TemplateCreateTemplateForbiddenError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => TemplateCreateTemplateForbiddenIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const TemplateCreateTemplateUnauthorizedIssue$inboundSchema: z.ZodType<
   TemplateCreateTemplateUnauthorizedIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type TemplateCreateTemplateUnauthorizedIssue$Outbound = {
   message: string;
@@ -361,9 +381,11 @@ export const TemplateCreateTemplateUnauthorizedIssue$outboundSchema: z.ZodType<
   TemplateCreateTemplateUnauthorizedIssue$Outbound,
   z.ZodTypeDef,
   TemplateCreateTemplateUnauthorizedIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function templateCreateTemplateUnauthorizedIssueToJSON(
   templateCreateTemplateUnauthorizedIssue:
@@ -396,23 +418,25 @@ export const TemplateCreateTemplateUnauthorizedError$inboundSchema: z.ZodType<
   TemplateCreateTemplateUnauthorizedError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => TemplateCreateTemplateUnauthorizedIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new TemplateCreateTemplateUnauthorizedError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => TemplateCreateTemplateUnauthorizedIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new TemplateCreateTemplateUnauthorizedError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type TemplateCreateTemplateUnauthorizedError$Outbound = {
@@ -426,24 +450,28 @@ export const TemplateCreateTemplateUnauthorizedError$outboundSchema: z.ZodType<
   TemplateCreateTemplateUnauthorizedError$Outbound,
   z.ZodTypeDef,
   TemplateCreateTemplateUnauthorizedError
-> = z.instanceof(TemplateCreateTemplateUnauthorizedError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => TemplateCreateTemplateUnauthorizedIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(TemplateCreateTemplateUnauthorizedError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => TemplateCreateTemplateUnauthorizedIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const TemplateCreateTemplateBadRequestIssue$inboundSchema: z.ZodType<
   TemplateCreateTemplateBadRequestIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type TemplateCreateTemplateBadRequestIssue$Outbound = {
   message: string;
@@ -454,9 +482,11 @@ export const TemplateCreateTemplateBadRequestIssue$outboundSchema: z.ZodType<
   TemplateCreateTemplateBadRequestIssue$Outbound,
   z.ZodTypeDef,
   TemplateCreateTemplateBadRequestIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function templateCreateTemplateBadRequestIssueToJSON(
   templateCreateTemplateBadRequestIssue: TemplateCreateTemplateBadRequestIssue,
@@ -483,23 +513,25 @@ export const TemplateCreateTemplateBadRequestError$inboundSchema: z.ZodType<
   TemplateCreateTemplateBadRequestError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => TemplateCreateTemplateBadRequestIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new TemplateCreateTemplateBadRequestError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => TemplateCreateTemplateBadRequestIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new TemplateCreateTemplateBadRequestError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type TemplateCreateTemplateBadRequestError$Outbound = {
@@ -513,12 +545,14 @@ export const TemplateCreateTemplateBadRequestError$outboundSchema: z.ZodType<
   TemplateCreateTemplateBadRequestError$Outbound,
   z.ZodTypeDef,
   TemplateCreateTemplateBadRequestError
-> = z.instanceof(TemplateCreateTemplateBadRequestError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => TemplateCreateTemplateBadRequestIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(TemplateCreateTemplateBadRequestError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => TemplateCreateTemplateBadRequestIssue$outboundSchema),
+      ).optional(),
+    }))
+);

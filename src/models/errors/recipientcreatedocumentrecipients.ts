@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -178,9 +178,11 @@ export const RecipientCreateDocumentRecipientsInternalServerErrorIssue$inboundSc
     RecipientCreateDocumentRecipientsInternalServerErrorIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type RecipientCreateDocumentRecipientsInternalServerErrorIssue$Outbound =
   {
@@ -193,9 +195,11 @@ export const RecipientCreateDocumentRecipientsInternalServerErrorIssue$outboundS
     RecipientCreateDocumentRecipientsInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
     RecipientCreateDocumentRecipientsInternalServerErrorIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function recipientCreateDocumentRecipientsInternalServerErrorIssueToJSON(
   recipientCreateDocumentRecipientsInternalServerErrorIssue:
@@ -227,25 +231,25 @@ export const RecipientCreateDocumentRecipientsInternalServerError$inboundSchema:
     RecipientCreateDocumentRecipientsInternalServerError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         RecipientCreateDocumentRecipientsInternalServerErrorIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new RecipientCreateDocumentRecipientsInternalServerError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        return new RecipientCreateDocumentRecipientsInternalServerError(v, {
+          request: v.request$,
+          response: v.response$,
+          body: v.body$,
+        });
+      })
+  );
 
 /** @internal */
 export type RecipientCreateDocumentRecipientsInternalServerError$Outbound = {
@@ -262,17 +266,19 @@ export const RecipientCreateDocumentRecipientsInternalServerError$outboundSchema
     RecipientCreateDocumentRecipientsInternalServerError$Outbound,
     z.ZodTypeDef,
     RecipientCreateDocumentRecipientsInternalServerError
-  > = z.instanceof(RecipientCreateDocumentRecipientsInternalServerError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          RecipientCreateDocumentRecipientsInternalServerErrorIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(RecipientCreateDocumentRecipientsInternalServerError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            RecipientCreateDocumentRecipientsInternalServerErrorIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const RecipientCreateDocumentRecipientsForbiddenIssue$inboundSchema:
@@ -280,9 +286,11 @@ export const RecipientCreateDocumentRecipientsForbiddenIssue$inboundSchema:
     RecipientCreateDocumentRecipientsForbiddenIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type RecipientCreateDocumentRecipientsForbiddenIssue$Outbound = {
   message: string;
@@ -294,9 +302,11 @@ export const RecipientCreateDocumentRecipientsForbiddenIssue$outboundSchema:
     RecipientCreateDocumentRecipientsForbiddenIssue$Outbound,
     z.ZodTypeDef,
     RecipientCreateDocumentRecipientsForbiddenIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function recipientCreateDocumentRecipientsForbiddenIssueToJSON(
   recipientCreateDocumentRecipientsForbiddenIssue:
@@ -330,25 +340,25 @@ export const RecipientCreateDocumentRecipientsForbiddenError$inboundSchema:
     RecipientCreateDocumentRecipientsForbiddenError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         RecipientCreateDocumentRecipientsForbiddenIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new RecipientCreateDocumentRecipientsForbiddenError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        return new RecipientCreateDocumentRecipientsForbiddenError(v, {
+          request: v.request$,
+          response: v.response$,
+          body: v.body$,
+        });
+      })
+  );
 
 /** @internal */
 export type RecipientCreateDocumentRecipientsForbiddenError$Outbound = {
@@ -365,17 +375,19 @@ export const RecipientCreateDocumentRecipientsForbiddenError$outboundSchema:
     RecipientCreateDocumentRecipientsForbiddenError$Outbound,
     z.ZodTypeDef,
     RecipientCreateDocumentRecipientsForbiddenError
-  > = z.instanceof(RecipientCreateDocumentRecipientsForbiddenError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          RecipientCreateDocumentRecipientsForbiddenIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(RecipientCreateDocumentRecipientsForbiddenError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            RecipientCreateDocumentRecipientsForbiddenIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const RecipientCreateDocumentRecipientsUnauthorizedIssue$inboundSchema:
@@ -383,9 +395,11 @@ export const RecipientCreateDocumentRecipientsUnauthorizedIssue$inboundSchema:
     RecipientCreateDocumentRecipientsUnauthorizedIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type RecipientCreateDocumentRecipientsUnauthorizedIssue$Outbound = {
   message: string;
@@ -397,9 +411,11 @@ export const RecipientCreateDocumentRecipientsUnauthorizedIssue$outboundSchema:
     RecipientCreateDocumentRecipientsUnauthorizedIssue$Outbound,
     z.ZodTypeDef,
     RecipientCreateDocumentRecipientsUnauthorizedIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function recipientCreateDocumentRecipientsUnauthorizedIssueToJSON(
   recipientCreateDocumentRecipientsUnauthorizedIssue:
@@ -433,25 +449,25 @@ export const RecipientCreateDocumentRecipientsUnauthorizedError$inboundSchema:
     RecipientCreateDocumentRecipientsUnauthorizedError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         RecipientCreateDocumentRecipientsUnauthorizedIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new RecipientCreateDocumentRecipientsUnauthorizedError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        return new RecipientCreateDocumentRecipientsUnauthorizedError(v, {
+          request: v.request$,
+          response: v.response$,
+          body: v.body$,
+        });
+      })
+  );
 
 /** @internal */
 export type RecipientCreateDocumentRecipientsUnauthorizedError$Outbound = {
@@ -468,17 +484,19 @@ export const RecipientCreateDocumentRecipientsUnauthorizedError$outboundSchema:
     RecipientCreateDocumentRecipientsUnauthorizedError$Outbound,
     z.ZodTypeDef,
     RecipientCreateDocumentRecipientsUnauthorizedError
-  > = z.instanceof(RecipientCreateDocumentRecipientsUnauthorizedError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          RecipientCreateDocumentRecipientsUnauthorizedIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(RecipientCreateDocumentRecipientsUnauthorizedError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            RecipientCreateDocumentRecipientsUnauthorizedIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const RecipientCreateDocumentRecipientsBadRequestIssue$inboundSchema:
@@ -486,9 +504,11 @@ export const RecipientCreateDocumentRecipientsBadRequestIssue$inboundSchema:
     RecipientCreateDocumentRecipientsBadRequestIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type RecipientCreateDocumentRecipientsBadRequestIssue$Outbound = {
   message: string;
@@ -500,9 +520,11 @@ export const RecipientCreateDocumentRecipientsBadRequestIssue$outboundSchema:
     RecipientCreateDocumentRecipientsBadRequestIssue$Outbound,
     z.ZodTypeDef,
     RecipientCreateDocumentRecipientsBadRequestIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function recipientCreateDocumentRecipientsBadRequestIssueToJSON(
   recipientCreateDocumentRecipientsBadRequestIssue:
@@ -536,25 +558,25 @@ export const RecipientCreateDocumentRecipientsBadRequestError$inboundSchema:
     RecipientCreateDocumentRecipientsBadRequestError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         RecipientCreateDocumentRecipientsBadRequestIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new RecipientCreateDocumentRecipientsBadRequestError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        return new RecipientCreateDocumentRecipientsBadRequestError(v, {
+          request: v.request$,
+          response: v.response$,
+          body: v.body$,
+        });
+      })
+  );
 
 /** @internal */
 export type RecipientCreateDocumentRecipientsBadRequestError$Outbound = {
@@ -571,14 +593,16 @@ export const RecipientCreateDocumentRecipientsBadRequestError$outboundSchema:
     RecipientCreateDocumentRecipientsBadRequestError$Outbound,
     z.ZodTypeDef,
     RecipientCreateDocumentRecipientsBadRequestError
-  > = z.instanceof(RecipientCreateDocumentRecipientsBadRequestError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          RecipientCreateDocumentRecipientsBadRequestIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(RecipientCreateDocumentRecipientsBadRequestError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            RecipientCreateDocumentRecipientsBadRequestIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );

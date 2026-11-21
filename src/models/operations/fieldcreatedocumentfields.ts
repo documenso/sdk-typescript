@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -461,6 +461,14 @@ export type FieldCreateDocumentFieldsTextAlignInitials = ClosedEnum<
   typeof FieldCreateDocumentFieldsTextAlignInitials
 >;
 
+export const FieldCreateDocumentFieldsFontFamilyRequest = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type FieldCreateDocumentFieldsFontFamilyRequest = ClosedEnum<
+  typeof FieldCreateDocumentFieldsFontFamilyRequest
+>;
+
 export type FieldCreateDocumentFieldsFieldMetaInitialsRequest = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -470,6 +478,7 @@ export type FieldCreateDocumentFieldsFieldMetaInitialsRequest = {
   overflow?: FieldCreateDocumentFieldsOverflowInitials | undefined;
   type: FieldCreateDocumentFieldsTypeInitialsEnum;
   textAlign?: FieldCreateDocumentFieldsTextAlignInitials | undefined;
+  fontFamily?: FieldCreateDocumentFieldsFontFamilyRequest | undefined;
 };
 
 export type FieldCreateDocumentFieldsFieldInitials = {
@@ -688,22 +697,22 @@ export type FieldCreateDocumentFieldsOverflowResponse7 = ClosedEnum<
   typeof FieldCreateDocumentFieldsOverflowResponse7
 >;
 
-export const FieldCreateDocumentFieldsTextAlignResponse6 = {
+export const FieldCreateDocumentFieldsFieldMetaTextAlign6 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type FieldCreateDocumentFieldsTextAlignResponse6 = ClosedEnum<
-  typeof FieldCreateDocumentFieldsTextAlignResponse6
+export type FieldCreateDocumentFieldsFieldMetaTextAlign6 = ClosedEnum<
+  typeof FieldCreateDocumentFieldsFieldMetaTextAlign6
 >;
 
-export const FieldCreateDocumentFieldsVerticalAlignResponse2 = {
+export const FieldCreateDocumentFieldsFieldMetaVerticalAlign2 = {
   Top: "top",
   Middle: "middle",
   Bottom: "bottom",
 } as const;
-export type FieldCreateDocumentFieldsVerticalAlignResponse2 = ClosedEnum<
-  typeof FieldCreateDocumentFieldsVerticalAlignResponse2
+export type FieldCreateDocumentFieldsFieldMetaVerticalAlign2 = ClosedEnum<
+  typeof FieldCreateDocumentFieldsFieldMetaVerticalAlign2
 >;
 
 export type FieldCreateDocumentFieldsFieldMetaNumberResponse = {
@@ -718,11 +727,11 @@ export type FieldCreateDocumentFieldsFieldMetaNumberResponse = {
   value?: string | undefined;
   minValue?: number | null | undefined;
   maxValue?: number | null | undefined;
-  textAlign?: FieldCreateDocumentFieldsTextAlignResponse6 | undefined;
+  textAlign?: FieldCreateDocumentFieldsFieldMetaTextAlign6 | undefined;
   lineHeight?: number | null | undefined;
   letterSpacing?: number | null | undefined;
   verticalAlign?:
-    | FieldCreateDocumentFieldsVerticalAlignResponse2
+    | FieldCreateDocumentFieldsFieldMetaVerticalAlign2
     | null
     | undefined;
 };
@@ -737,22 +746,22 @@ export type FieldCreateDocumentFieldsOverflowResponse6 = ClosedEnum<
   typeof FieldCreateDocumentFieldsOverflowResponse6
 >;
 
-export const FieldCreateDocumentFieldsTextAlignResponse5 = {
+export const FieldCreateDocumentFieldsFieldMetaTextAlign5 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type FieldCreateDocumentFieldsTextAlignResponse5 = ClosedEnum<
-  typeof FieldCreateDocumentFieldsTextAlignResponse5
+export type FieldCreateDocumentFieldsFieldMetaTextAlign5 = ClosedEnum<
+  typeof FieldCreateDocumentFieldsFieldMetaTextAlign5
 >;
 
-export const FieldCreateDocumentFieldsVerticalAlignResponse1 = {
+export const FieldCreateDocumentFieldsFieldMetaVerticalAlign1 = {
   Top: "top",
   Middle: "middle",
   Bottom: "bottom",
 } as const;
-export type FieldCreateDocumentFieldsVerticalAlignResponse1 = ClosedEnum<
-  typeof FieldCreateDocumentFieldsVerticalAlignResponse1
+export type FieldCreateDocumentFieldsFieldMetaVerticalAlign1 = ClosedEnum<
+  typeof FieldCreateDocumentFieldsFieldMetaVerticalAlign1
 >;
 
 export type FieldCreateDocumentFieldsFieldMetaTextResponse = {
@@ -765,11 +774,11 @@ export type FieldCreateDocumentFieldsFieldMetaTextResponse = {
   type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
-  textAlign?: FieldCreateDocumentFieldsTextAlignResponse5 | undefined;
+  textAlign?: FieldCreateDocumentFieldsFieldMetaTextAlign5 | undefined;
   lineHeight?: number | null | undefined;
   letterSpacing?: number | null | undefined;
   verticalAlign?:
-    | FieldCreateDocumentFieldsVerticalAlignResponse1
+    | FieldCreateDocumentFieldsFieldMetaVerticalAlign1
     | null
     | undefined;
 };
@@ -784,13 +793,13 @@ export type FieldCreateDocumentFieldsOverflowResponse5 = ClosedEnum<
   typeof FieldCreateDocumentFieldsOverflowResponse5
 >;
 
-export const FieldCreateDocumentFieldsTextAlignResponse4 = {
+export const FieldCreateDocumentFieldsFieldMetaTextAlign4 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type FieldCreateDocumentFieldsTextAlignResponse4 = ClosedEnum<
-  typeof FieldCreateDocumentFieldsTextAlignResponse4
+export type FieldCreateDocumentFieldsFieldMetaTextAlign4 = ClosedEnum<
+  typeof FieldCreateDocumentFieldsFieldMetaTextAlign4
 >;
 
 export type FieldCreateDocumentFieldsFieldMetaDateResponse = {
@@ -801,7 +810,7 @@ export type FieldCreateDocumentFieldsFieldMetaDateResponse = {
   fontSize?: number | undefined;
   overflow?: FieldCreateDocumentFieldsOverflowResponse5 | undefined;
   type: "date";
-  textAlign?: FieldCreateDocumentFieldsTextAlignResponse4 | undefined;
+  textAlign?: FieldCreateDocumentFieldsFieldMetaTextAlign4 | undefined;
 };
 
 export const FieldCreateDocumentFieldsOverflowResponse4 = {
@@ -814,13 +823,13 @@ export type FieldCreateDocumentFieldsOverflowResponse4 = ClosedEnum<
   typeof FieldCreateDocumentFieldsOverflowResponse4
 >;
 
-export const FieldCreateDocumentFieldsTextAlignResponse3 = {
+export const FieldCreateDocumentFieldsFieldMetaTextAlign3 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type FieldCreateDocumentFieldsTextAlignResponse3 = ClosedEnum<
-  typeof FieldCreateDocumentFieldsTextAlignResponse3
+export type FieldCreateDocumentFieldsFieldMetaTextAlign3 = ClosedEnum<
+  typeof FieldCreateDocumentFieldsFieldMetaTextAlign3
 >;
 
 export type FieldCreateDocumentFieldsFieldMetaEmailResponse = {
@@ -831,7 +840,7 @@ export type FieldCreateDocumentFieldsFieldMetaEmailResponse = {
   fontSize?: number | undefined;
   overflow?: FieldCreateDocumentFieldsOverflowResponse4 | undefined;
   type: "email";
-  textAlign?: FieldCreateDocumentFieldsTextAlignResponse3 | undefined;
+  textAlign?: FieldCreateDocumentFieldsFieldMetaTextAlign3 | undefined;
 };
 
 export const FieldCreateDocumentFieldsOverflowResponse3 = {
@@ -844,13 +853,13 @@ export type FieldCreateDocumentFieldsOverflowResponse3 = ClosedEnum<
   typeof FieldCreateDocumentFieldsOverflowResponse3
 >;
 
-export const FieldCreateDocumentFieldsTextAlignResponse2 = {
+export const FieldCreateDocumentFieldsFieldMetaTextAlign2 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type FieldCreateDocumentFieldsTextAlignResponse2 = ClosedEnum<
-  typeof FieldCreateDocumentFieldsTextAlignResponse2
+export type FieldCreateDocumentFieldsFieldMetaTextAlign2 = ClosedEnum<
+  typeof FieldCreateDocumentFieldsFieldMetaTextAlign2
 >;
 
 export type FieldCreateDocumentFieldsFieldMetaNameResponse = {
@@ -861,7 +870,7 @@ export type FieldCreateDocumentFieldsFieldMetaNameResponse = {
   fontSize?: number | undefined;
   overflow?: FieldCreateDocumentFieldsOverflowResponse3 | undefined;
   type: "name";
-  textAlign?: FieldCreateDocumentFieldsTextAlignResponse2 | undefined;
+  textAlign?: FieldCreateDocumentFieldsFieldMetaTextAlign2 | undefined;
 };
 
 export const FieldCreateDocumentFieldsOverflowResponse2 = {
@@ -874,13 +883,21 @@ export type FieldCreateDocumentFieldsOverflowResponse2 = ClosedEnum<
   typeof FieldCreateDocumentFieldsOverflowResponse2
 >;
 
-export const FieldCreateDocumentFieldsTextAlignResponse1 = {
+export const FieldCreateDocumentFieldsFieldMetaTextAlign1 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type FieldCreateDocumentFieldsTextAlignResponse1 = ClosedEnum<
-  typeof FieldCreateDocumentFieldsTextAlignResponse1
+export type FieldCreateDocumentFieldsFieldMetaTextAlign1 = ClosedEnum<
+  typeof FieldCreateDocumentFieldsFieldMetaTextAlign1
+>;
+
+export const FieldCreateDocumentFieldsFontFamilyResponse = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type FieldCreateDocumentFieldsFontFamilyResponse = ClosedEnum<
+  typeof FieldCreateDocumentFieldsFontFamilyResponse
 >;
 
 export type FieldCreateDocumentFieldsFieldMetaInitialsResponse = {
@@ -891,7 +908,8 @@ export type FieldCreateDocumentFieldsFieldMetaInitialsResponse = {
   fontSize?: number | undefined;
   overflow?: FieldCreateDocumentFieldsOverflowResponse2 | undefined;
   type: "initials";
-  textAlign?: FieldCreateDocumentFieldsTextAlignResponse1 | undefined;
+  textAlign?: FieldCreateDocumentFieldsFieldMetaTextAlign1 | undefined;
+  fontFamily?: FieldCreateDocumentFieldsFontFamilyResponse | undefined;
 };
 
 export const FieldCreateDocumentFieldsOverflowResponse1 = {
@@ -965,8 +983,10 @@ export type FieldCreateDocumentFieldsResponse = {
 
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowDropdown$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowDropdown> = z
-    .nativeEnum(FieldCreateDocumentFieldsOverflowDropdown);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowDropdown> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsOverflowDropdown)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowDropdown$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowDropdown> =
@@ -974,8 +994,10 @@ export const FieldCreateDocumentFieldsOverflowDropdown$outboundSchema:
 
 /** @internal */
 export const FieldCreateDocumentFieldsTypeDropdownEnum$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeDropdownEnum> = z
-    .nativeEnum(FieldCreateDocumentFieldsTypeDropdownEnum);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeDropdownEnum> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsTypeDropdownEnum)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsTypeDropdownEnum$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeDropdownEnum> =
@@ -986,9 +1008,11 @@ export const FieldCreateDocumentFieldsValueDropdown$inboundSchema: z.ZodType<
   FieldCreateDocumentFieldsValueDropdown,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    value: z.string(),
+  })
+);
 /** @internal */
 export type FieldCreateDocumentFieldsValueDropdown$Outbound = {
   value: string;
@@ -999,9 +1023,11 @@ export const FieldCreateDocumentFieldsValueDropdown$outboundSchema: z.ZodType<
   FieldCreateDocumentFieldsValueDropdown$Outbound,
   z.ZodTypeDef,
   FieldCreateDocumentFieldsValueDropdown
-> = z.object({
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    value: z.string(),
+  })
+);
 
 export function fieldCreateDocumentFieldsValueDropdownToJSON(
   fieldCreateDocumentFieldsValueDropdown:
@@ -1030,20 +1056,22 @@ export const FieldCreateDocumentFieldsFieldMetaDropdownRequest$inboundSchema:
     FieldCreateDocumentFieldsFieldMetaDropdownRequest,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowDropdown$inboundSchema
-      .optional(),
-    type: FieldCreateDocumentFieldsTypeDropdownEnum$inboundSchema,
-    values: z.array(
-      z.lazy(() => FieldCreateDocumentFieldsValueDropdown$inboundSchema),
-    ).optional(),
-    defaultValue: z.string().optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowDropdown$inboundSchema
+        .optional(),
+      type: FieldCreateDocumentFieldsTypeDropdownEnum$inboundSchema,
+      values: z.array(
+        z.lazy(() => FieldCreateDocumentFieldsValueDropdown$inboundSchema),
+      ).optional(),
+      defaultValue: z.string().optional(),
+    })
+  );
 /** @internal */
 export type FieldCreateDocumentFieldsFieldMetaDropdownRequest$Outbound = {
   label?: string | undefined;
@@ -1063,20 +1091,22 @@ export const FieldCreateDocumentFieldsFieldMetaDropdownRequest$outboundSchema:
     FieldCreateDocumentFieldsFieldMetaDropdownRequest$Outbound,
     z.ZodTypeDef,
     FieldCreateDocumentFieldsFieldMetaDropdownRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowDropdown$outboundSchema
-      .optional(),
-    type: FieldCreateDocumentFieldsTypeDropdownEnum$outboundSchema,
-    values: z.array(
-      z.lazy(() => FieldCreateDocumentFieldsValueDropdown$outboundSchema),
-    ).optional(),
-    defaultValue: z.string().optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowDropdown$outboundSchema
+        .optional(),
+      type: FieldCreateDocumentFieldsTypeDropdownEnum$outboundSchema,
+      values: z.array(
+        z.lazy(() => FieldCreateDocumentFieldsValueDropdown$outboundSchema),
+      ).optional(),
+      defaultValue: z.string().optional(),
+    })
+  );
 
 export function fieldCreateDocumentFieldsFieldMetaDropdownRequestToJSON(
   fieldCreateDocumentFieldsFieldMetaDropdownRequest:
@@ -1109,18 +1139,20 @@ export const FieldCreateDocumentFieldsFieldDropdown$inboundSchema: z.ZodType<
   FieldCreateDocumentFieldsFieldDropdown,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  type: z.literal("DROPDOWN"),
-  fieldMeta: z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaDropdownRequest$inboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  pageNumber: z.number(),
-  pageX: z.number(),
-  pageY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("DROPDOWN"),
+    fieldMeta: z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaDropdownRequest$inboundSchema
+    ).optional(),
+    recipientId: z.number(),
+    pageNumber: z.number(),
+    pageX: z.number(),
+    pageY: z.number(),
+    width: z.number(),
+    height: z.number(),
+  })
+);
 /** @internal */
 export type FieldCreateDocumentFieldsFieldDropdown$Outbound = {
   type: "DROPDOWN";
@@ -1140,18 +1172,20 @@ export const FieldCreateDocumentFieldsFieldDropdown$outboundSchema: z.ZodType<
   FieldCreateDocumentFieldsFieldDropdown$Outbound,
   z.ZodTypeDef,
   FieldCreateDocumentFieldsFieldDropdown
-> = z.object({
-  type: z.literal("DROPDOWN"),
-  fieldMeta: z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaDropdownRequest$outboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  pageNumber: z.number(),
-  pageX: z.number(),
-  pageY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("DROPDOWN"),
+    fieldMeta: z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaDropdownRequest$outboundSchema
+    ).optional(),
+    recipientId: z.number(),
+    pageNumber: z.number(),
+    pageX: z.number(),
+    pageY: z.number(),
+    width: z.number(),
+    height: z.number(),
+  })
+);
 
 export function fieldCreateDocumentFieldsFieldDropdownToJSON(
   fieldCreateDocumentFieldsFieldDropdown:
@@ -1176,8 +1210,10 @@ export function fieldCreateDocumentFieldsFieldDropdownFromJSON(
 
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowCheckbox$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowCheckbox> = z
-    .nativeEnum(FieldCreateDocumentFieldsOverflowCheckbox);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowCheckbox> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsOverflowCheckbox)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowCheckbox$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowCheckbox> =
@@ -1185,8 +1221,10 @@ export const FieldCreateDocumentFieldsOverflowCheckbox$outboundSchema:
 
 /** @internal */
 export const FieldCreateDocumentFieldsTypeCheckboxEnum$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeCheckboxEnum> = z
-    .nativeEnum(FieldCreateDocumentFieldsTypeCheckboxEnum);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeCheckboxEnum> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsTypeCheckboxEnum)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsTypeCheckboxEnum$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeCheckboxEnum> =
@@ -1197,11 +1235,13 @@ export const FieldCreateDocumentFieldsValueCheckbox$inboundSchema: z.ZodType<
   FieldCreateDocumentFieldsValueCheckbox,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 /** @internal */
 export type FieldCreateDocumentFieldsValueCheckbox$Outbound = {
   id: number;
@@ -1214,11 +1254,13 @@ export const FieldCreateDocumentFieldsValueCheckbox$outboundSchema: z.ZodType<
   FieldCreateDocumentFieldsValueCheckbox$Outbound,
   z.ZodTypeDef,
   FieldCreateDocumentFieldsValueCheckbox
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 
 export function fieldCreateDocumentFieldsValueCheckboxToJSON(
   fieldCreateDocumentFieldsValueCheckbox:
@@ -1243,8 +1285,10 @@ export function fieldCreateDocumentFieldsValueCheckboxFromJSON(
 
 /** @internal */
 export const FieldCreateDocumentFieldsDirectionCheckbox$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsDirectionCheckbox> = z
-    .nativeEnum(FieldCreateDocumentFieldsDirectionCheckbox);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsDirectionCheckbox> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsDirectionCheckbox)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsDirectionCheckbox$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsDirectionCheckbox> =
@@ -1256,24 +1300,25 @@ export const FieldCreateDocumentFieldsFieldMetaCheckboxRequest$inboundSchema:
     FieldCreateDocumentFieldsFieldMetaCheckboxRequest,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowCheckbox$inboundSchema
-      .optional(),
-    type: FieldCreateDocumentFieldsTypeCheckboxEnum$inboundSchema,
-    values: z.array(
-      z.lazy(() => FieldCreateDocumentFieldsValueCheckbox$inboundSchema),
-    ).optional(),
-    validationRule: z.string().optional(),
-    validationLength: z.number().optional(),
-    direction: FieldCreateDocumentFieldsDirectionCheckbox$inboundSchema.default(
-      "vertical",
-    ),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowCheckbox$inboundSchema
+        .optional(),
+      type: FieldCreateDocumentFieldsTypeCheckboxEnum$inboundSchema,
+      values: z.array(
+        z.lazy(() => FieldCreateDocumentFieldsValueCheckbox$inboundSchema),
+      ).optional(),
+      validationRule: z.string().optional(),
+      validationLength: z.number().optional(),
+      direction: FieldCreateDocumentFieldsDirectionCheckbox$inboundSchema
+        .default("vertical"),
+    })
+  );
 /** @internal */
 export type FieldCreateDocumentFieldsFieldMetaCheckboxRequest$Outbound = {
   label?: string | undefined;
@@ -1295,23 +1340,25 @@ export const FieldCreateDocumentFieldsFieldMetaCheckboxRequest$outboundSchema:
     FieldCreateDocumentFieldsFieldMetaCheckboxRequest$Outbound,
     z.ZodTypeDef,
     FieldCreateDocumentFieldsFieldMetaCheckboxRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowCheckbox$outboundSchema
-      .optional(),
-    type: FieldCreateDocumentFieldsTypeCheckboxEnum$outboundSchema,
-    values: z.array(
-      z.lazy(() => FieldCreateDocumentFieldsValueCheckbox$outboundSchema),
-    ).optional(),
-    validationRule: z.string().optional(),
-    validationLength: z.number().optional(),
-    direction: FieldCreateDocumentFieldsDirectionCheckbox$outboundSchema
-      .default("vertical"),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowCheckbox$outboundSchema
+        .optional(),
+      type: FieldCreateDocumentFieldsTypeCheckboxEnum$outboundSchema,
+      values: z.array(
+        z.lazy(() => FieldCreateDocumentFieldsValueCheckbox$outboundSchema),
+      ).optional(),
+      validationRule: z.string().optional(),
+      validationLength: z.number().optional(),
+      direction: FieldCreateDocumentFieldsDirectionCheckbox$outboundSchema
+        .default("vertical"),
+    })
+  );
 
 export function fieldCreateDocumentFieldsFieldMetaCheckboxRequestToJSON(
   fieldCreateDocumentFieldsFieldMetaCheckboxRequest:
@@ -1344,18 +1391,20 @@ export const FieldCreateDocumentFieldsFieldCheckbox$inboundSchema: z.ZodType<
   FieldCreateDocumentFieldsFieldCheckbox,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  type: z.literal("CHECKBOX"),
-  fieldMeta: z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaCheckboxRequest$inboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  pageNumber: z.number(),
-  pageX: z.number(),
-  pageY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("CHECKBOX"),
+    fieldMeta: z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaCheckboxRequest$inboundSchema
+    ).optional(),
+    recipientId: z.number(),
+    pageNumber: z.number(),
+    pageX: z.number(),
+    pageY: z.number(),
+    width: z.number(),
+    height: z.number(),
+  })
+);
 /** @internal */
 export type FieldCreateDocumentFieldsFieldCheckbox$Outbound = {
   type: "CHECKBOX";
@@ -1375,18 +1424,20 @@ export const FieldCreateDocumentFieldsFieldCheckbox$outboundSchema: z.ZodType<
   FieldCreateDocumentFieldsFieldCheckbox$Outbound,
   z.ZodTypeDef,
   FieldCreateDocumentFieldsFieldCheckbox
-> = z.object({
-  type: z.literal("CHECKBOX"),
-  fieldMeta: z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaCheckboxRequest$outboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  pageNumber: z.number(),
-  pageX: z.number(),
-  pageY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("CHECKBOX"),
+    fieldMeta: z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaCheckboxRequest$outboundSchema
+    ).optional(),
+    recipientId: z.number(),
+    pageNumber: z.number(),
+    pageX: z.number(),
+    pageY: z.number(),
+    width: z.number(),
+    height: z.number(),
+  })
+);
 
 export function fieldCreateDocumentFieldsFieldCheckboxToJSON(
   fieldCreateDocumentFieldsFieldCheckbox:
@@ -1411,9 +1462,10 @@ export function fieldCreateDocumentFieldsFieldCheckboxFromJSON(
 
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowRadio$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowRadio> = z.nativeEnum(
-    FieldCreateDocumentFieldsOverflowRadio,
-  );
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowRadio> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsOverflowRadio)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowRadio$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowRadio> =
@@ -1421,9 +1473,10 @@ export const FieldCreateDocumentFieldsOverflowRadio$outboundSchema:
 
 /** @internal */
 export const FieldCreateDocumentFieldsTypeRadioEnum$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeRadioEnum> = z.nativeEnum(
-    FieldCreateDocumentFieldsTypeRadioEnum,
-  );
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeRadioEnum> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsTypeRadioEnum)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsTypeRadioEnum$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeRadioEnum> =
@@ -1434,11 +1487,13 @@ export const FieldCreateDocumentFieldsValueRadio$inboundSchema: z.ZodType<
   FieldCreateDocumentFieldsValueRadio,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 /** @internal */
 export type FieldCreateDocumentFieldsValueRadio$Outbound = {
   id: number;
@@ -1451,11 +1506,13 @@ export const FieldCreateDocumentFieldsValueRadio$outboundSchema: z.ZodType<
   FieldCreateDocumentFieldsValueRadio$Outbound,
   z.ZodTypeDef,
   FieldCreateDocumentFieldsValueRadio
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 
 export function fieldCreateDocumentFieldsValueRadioToJSON(
   fieldCreateDocumentFieldsValueRadio: FieldCreateDocumentFieldsValueRadio,
@@ -1479,8 +1536,10 @@ export function fieldCreateDocumentFieldsValueRadioFromJSON(
 
 /** @internal */
 export const FieldCreateDocumentFieldsDirectionRadio$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsDirectionRadio> = z
-    .nativeEnum(FieldCreateDocumentFieldsDirectionRadio);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsDirectionRadio> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsDirectionRadio)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsDirectionRadio$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsDirectionRadio> =
@@ -1492,21 +1551,23 @@ export const FieldCreateDocumentFieldsFieldMetaRadioRequest$inboundSchema:
     FieldCreateDocumentFieldsFieldMetaRadioRequest,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowRadio$inboundSchema.optional(),
-    type: FieldCreateDocumentFieldsTypeRadioEnum$inboundSchema,
-    values: z.array(
-      z.lazy(() => FieldCreateDocumentFieldsValueRadio$inboundSchema),
-    ).optional(),
-    direction: FieldCreateDocumentFieldsDirectionRadio$inboundSchema.default(
-      "vertical",
-    ),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowRadio$inboundSchema.optional(),
+      type: FieldCreateDocumentFieldsTypeRadioEnum$inboundSchema,
+      values: z.array(
+        z.lazy(() => FieldCreateDocumentFieldsValueRadio$inboundSchema),
+      ).optional(),
+      direction: FieldCreateDocumentFieldsDirectionRadio$inboundSchema.default(
+        "vertical",
+      ),
+    })
+  );
 /** @internal */
 export type FieldCreateDocumentFieldsFieldMetaRadioRequest$Outbound = {
   label?: string | undefined;
@@ -1526,21 +1587,24 @@ export const FieldCreateDocumentFieldsFieldMetaRadioRequest$outboundSchema:
     FieldCreateDocumentFieldsFieldMetaRadioRequest$Outbound,
     z.ZodTypeDef,
     FieldCreateDocumentFieldsFieldMetaRadioRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowRadio$outboundSchema.optional(),
-    type: FieldCreateDocumentFieldsTypeRadioEnum$outboundSchema,
-    values: z.array(
-      z.lazy(() => FieldCreateDocumentFieldsValueRadio$outboundSchema),
-    ).optional(),
-    direction: FieldCreateDocumentFieldsDirectionRadio$outboundSchema.default(
-      "vertical",
-    ),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowRadio$outboundSchema
+        .optional(),
+      type: FieldCreateDocumentFieldsTypeRadioEnum$outboundSchema,
+      values: z.array(
+        z.lazy(() => FieldCreateDocumentFieldsValueRadio$outboundSchema),
+      ).optional(),
+      direction: FieldCreateDocumentFieldsDirectionRadio$outboundSchema.default(
+        "vertical",
+      ),
+    })
+  );
 
 export function fieldCreateDocumentFieldsFieldMetaRadioRequestToJSON(
   fieldCreateDocumentFieldsFieldMetaRadioRequest:
@@ -1573,18 +1637,20 @@ export const FieldCreateDocumentFieldsFieldRadio$inboundSchema: z.ZodType<
   FieldCreateDocumentFieldsFieldRadio,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  type: z.literal("RADIO"),
-  fieldMeta: z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaRadioRequest$inboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  pageNumber: z.number(),
-  pageX: z.number(),
-  pageY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("RADIO"),
+    fieldMeta: z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaRadioRequest$inboundSchema
+    ).optional(),
+    recipientId: z.number(),
+    pageNumber: z.number(),
+    pageX: z.number(),
+    pageY: z.number(),
+    width: z.number(),
+    height: z.number(),
+  })
+);
 /** @internal */
 export type FieldCreateDocumentFieldsFieldRadio$Outbound = {
   type: "RADIO";
@@ -1604,18 +1670,20 @@ export const FieldCreateDocumentFieldsFieldRadio$outboundSchema: z.ZodType<
   FieldCreateDocumentFieldsFieldRadio$Outbound,
   z.ZodTypeDef,
   FieldCreateDocumentFieldsFieldRadio
-> = z.object({
-  type: z.literal("RADIO"),
-  fieldMeta: z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaRadioRequest$outboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  pageNumber: z.number(),
-  pageX: z.number(),
-  pageY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("RADIO"),
+    fieldMeta: z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaRadioRequest$outboundSchema
+    ).optional(),
+    recipientId: z.number(),
+    pageNumber: z.number(),
+    pageX: z.number(),
+    pageY: z.number(),
+    width: z.number(),
+    height: z.number(),
+  })
+);
 
 export function fieldCreateDocumentFieldsFieldRadioToJSON(
   fieldCreateDocumentFieldsFieldRadio: FieldCreateDocumentFieldsFieldRadio,
@@ -1639,8 +1707,10 @@ export function fieldCreateDocumentFieldsFieldRadioFromJSON(
 
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowNumber$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowNumber> = z
-    .nativeEnum(FieldCreateDocumentFieldsOverflowNumber);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowNumber> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsOverflowNumber)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowNumber$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowNumber> =
@@ -1648,8 +1718,10 @@ export const FieldCreateDocumentFieldsOverflowNumber$outboundSchema:
 
 /** @internal */
 export const FieldCreateDocumentFieldsTypeNumberEnum$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeNumberEnum> = z
-    .nativeEnum(FieldCreateDocumentFieldsTypeNumberEnum);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeNumberEnum> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsTypeNumberEnum)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsTypeNumberEnum$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeNumberEnum> =
@@ -1657,8 +1729,10 @@ export const FieldCreateDocumentFieldsTypeNumberEnum$outboundSchema:
 
 /** @internal */
 export const FieldCreateDocumentFieldsTextAlignNumber$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignNumber> = z
-    .nativeEnum(FieldCreateDocumentFieldsTextAlignNumber);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignNumber> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsTextAlignNumber)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsTextAlignNumber$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignNumber> =
@@ -1666,8 +1740,10 @@ export const FieldCreateDocumentFieldsTextAlignNumber$outboundSchema:
 
 /** @internal */
 export const FieldCreateDocumentFieldsVerticalAlignNumber$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsVerticalAlignNumber> = z
-    .nativeEnum(FieldCreateDocumentFieldsVerticalAlignNumber);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsVerticalAlignNumber> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsVerticalAlignNumber)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsVerticalAlignNumber$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsVerticalAlignNumber> =
@@ -1679,26 +1755,29 @@ export const FieldCreateDocumentFieldsFieldMetaNumberRequest$inboundSchema:
     FieldCreateDocumentFieldsFieldMetaNumberRequest,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowNumber$inboundSchema.optional(),
-    type: FieldCreateDocumentFieldsTypeNumberEnum$inboundSchema,
-    numberFormat: z.nullable(z.string()).optional(),
-    value: z.string().optional(),
-    minValue: z.nullable(z.number()).optional(),
-    maxValue: z.nullable(z.number()).optional(),
-    textAlign: FieldCreateDocumentFieldsTextAlignNumber$inboundSchema
-      .optional(),
-    lineHeight: z.nullable(z.number()).optional(),
-    letterSpacing: z.nullable(z.number()).optional(),
-    verticalAlign: z.nullable(
-      FieldCreateDocumentFieldsVerticalAlignNumber$inboundSchema,
-    ).optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowNumber$inboundSchema
+        .optional(),
+      type: FieldCreateDocumentFieldsTypeNumberEnum$inboundSchema,
+      numberFormat: z.nullable(z.string()).optional(),
+      value: z.string().optional(),
+      minValue: z.nullable(z.number()).optional(),
+      maxValue: z.nullable(z.number()).optional(),
+      textAlign: FieldCreateDocumentFieldsTextAlignNumber$inboundSchema
+        .optional(),
+      lineHeight: z.nullable(z.number()).optional(),
+      letterSpacing: z.nullable(z.number()).optional(),
+      verticalAlign: z.nullable(
+        FieldCreateDocumentFieldsVerticalAlignNumber$inboundSchema,
+      ).optional(),
+    })
+  );
 /** @internal */
 export type FieldCreateDocumentFieldsFieldMetaNumberRequest$Outbound = {
   label?: string | undefined;
@@ -1724,26 +1803,29 @@ export const FieldCreateDocumentFieldsFieldMetaNumberRequest$outboundSchema:
     FieldCreateDocumentFieldsFieldMetaNumberRequest$Outbound,
     z.ZodTypeDef,
     FieldCreateDocumentFieldsFieldMetaNumberRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowNumber$outboundSchema.optional(),
-    type: FieldCreateDocumentFieldsTypeNumberEnum$outboundSchema,
-    numberFormat: z.nullable(z.string()).optional(),
-    value: z.string().optional(),
-    minValue: z.nullable(z.number()).optional(),
-    maxValue: z.nullable(z.number()).optional(),
-    textAlign: FieldCreateDocumentFieldsTextAlignNumber$outboundSchema
-      .optional(),
-    lineHeight: z.nullable(z.number()).optional(),
-    letterSpacing: z.nullable(z.number()).optional(),
-    verticalAlign: z.nullable(
-      FieldCreateDocumentFieldsVerticalAlignNumber$outboundSchema,
-    ).optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowNumber$outboundSchema
+        .optional(),
+      type: FieldCreateDocumentFieldsTypeNumberEnum$outboundSchema,
+      numberFormat: z.nullable(z.string()).optional(),
+      value: z.string().optional(),
+      minValue: z.nullable(z.number()).optional(),
+      maxValue: z.nullable(z.number()).optional(),
+      textAlign: FieldCreateDocumentFieldsTextAlignNumber$outboundSchema
+        .optional(),
+      lineHeight: z.nullable(z.number()).optional(),
+      letterSpacing: z.nullable(z.number()).optional(),
+      verticalAlign: z.nullable(
+        FieldCreateDocumentFieldsVerticalAlignNumber$outboundSchema,
+      ).optional(),
+    })
+  );
 
 export function fieldCreateDocumentFieldsFieldMetaNumberRequestToJSON(
   fieldCreateDocumentFieldsFieldMetaNumberRequest:
@@ -1776,18 +1858,20 @@ export const FieldCreateDocumentFieldsFieldNumber$inboundSchema: z.ZodType<
   FieldCreateDocumentFieldsFieldNumber,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  type: z.literal("NUMBER"),
-  fieldMeta: z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaNumberRequest$inboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  pageNumber: z.number(),
-  pageX: z.number(),
-  pageY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("NUMBER"),
+    fieldMeta: z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaNumberRequest$inboundSchema
+    ).optional(),
+    recipientId: z.number(),
+    pageNumber: z.number(),
+    pageX: z.number(),
+    pageY: z.number(),
+    width: z.number(),
+    height: z.number(),
+  })
+);
 /** @internal */
 export type FieldCreateDocumentFieldsFieldNumber$Outbound = {
   type: "NUMBER";
@@ -1807,18 +1891,20 @@ export const FieldCreateDocumentFieldsFieldNumber$outboundSchema: z.ZodType<
   FieldCreateDocumentFieldsFieldNumber$Outbound,
   z.ZodTypeDef,
   FieldCreateDocumentFieldsFieldNumber
-> = z.object({
-  type: z.literal("NUMBER"),
-  fieldMeta: z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaNumberRequest$outboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  pageNumber: z.number(),
-  pageX: z.number(),
-  pageY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("NUMBER"),
+    fieldMeta: z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaNumberRequest$outboundSchema
+    ).optional(),
+    recipientId: z.number(),
+    pageNumber: z.number(),
+    pageX: z.number(),
+    pageY: z.number(),
+    width: z.number(),
+    height: z.number(),
+  })
+);
 
 export function fieldCreateDocumentFieldsFieldNumberToJSON(
   fieldCreateDocumentFieldsFieldNumber: FieldCreateDocumentFieldsFieldNumber,
@@ -1842,9 +1928,10 @@ export function fieldCreateDocumentFieldsFieldNumberFromJSON(
 
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowText$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowText> = z.nativeEnum(
-    FieldCreateDocumentFieldsOverflowText,
-  );
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowText> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsOverflowText)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowText$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowText> =
@@ -1852,9 +1939,10 @@ export const FieldCreateDocumentFieldsOverflowText$outboundSchema:
 
 /** @internal */
 export const FieldCreateDocumentFieldsTypeTextEnum$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeTextEnum> = z.nativeEnum(
-    FieldCreateDocumentFieldsTypeTextEnum,
-  );
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeTextEnum> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsTypeTextEnum)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsTypeTextEnum$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeTextEnum> =
@@ -1862,9 +1950,10 @@ export const FieldCreateDocumentFieldsTypeTextEnum$outboundSchema:
 
 /** @internal */
 export const FieldCreateDocumentFieldsTextAlignText$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignText> = z.nativeEnum(
-    FieldCreateDocumentFieldsTextAlignText,
-  );
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignText> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsTextAlignText)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsTextAlignText$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignText> =
@@ -1872,8 +1961,10 @@ export const FieldCreateDocumentFieldsTextAlignText$outboundSchema:
 
 /** @internal */
 export const FieldCreateDocumentFieldsVerticalAlignText$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsVerticalAlignText> = z
-    .nativeEnum(FieldCreateDocumentFieldsVerticalAlignText);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsVerticalAlignText> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsVerticalAlignText)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsVerticalAlignText$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsVerticalAlignText> =
@@ -1885,23 +1976,26 @@ export const FieldCreateDocumentFieldsFieldMetaTextRequest$inboundSchema:
     FieldCreateDocumentFieldsFieldMetaTextRequest,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowText$inboundSchema.optional(),
-    type: FieldCreateDocumentFieldsTypeTextEnum$inboundSchema,
-    text: z.string().optional(),
-    characterLimit: z.number().optional(),
-    textAlign: FieldCreateDocumentFieldsTextAlignText$inboundSchema.optional(),
-    lineHeight: z.nullable(z.number()).optional(),
-    letterSpacing: z.nullable(z.number()).optional(),
-    verticalAlign: z.nullable(
-      FieldCreateDocumentFieldsVerticalAlignText$inboundSchema,
-    ).optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowText$inboundSchema.optional(),
+      type: FieldCreateDocumentFieldsTypeTextEnum$inboundSchema,
+      text: z.string().optional(),
+      characterLimit: z.number().optional(),
+      textAlign: FieldCreateDocumentFieldsTextAlignText$inboundSchema
+        .optional(),
+      lineHeight: z.nullable(z.number()).optional(),
+      letterSpacing: z.nullable(z.number()).optional(),
+      verticalAlign: z.nullable(
+        FieldCreateDocumentFieldsVerticalAlignText$inboundSchema,
+      ).optional(),
+    })
+  );
 /** @internal */
 export type FieldCreateDocumentFieldsFieldMetaTextRequest$Outbound = {
   label?: string | undefined;
@@ -1925,23 +2019,26 @@ export const FieldCreateDocumentFieldsFieldMetaTextRequest$outboundSchema:
     FieldCreateDocumentFieldsFieldMetaTextRequest$Outbound,
     z.ZodTypeDef,
     FieldCreateDocumentFieldsFieldMetaTextRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowText$outboundSchema.optional(),
-    type: FieldCreateDocumentFieldsTypeTextEnum$outboundSchema,
-    text: z.string().optional(),
-    characterLimit: z.number().optional(),
-    textAlign: FieldCreateDocumentFieldsTextAlignText$outboundSchema.optional(),
-    lineHeight: z.nullable(z.number()).optional(),
-    letterSpacing: z.nullable(z.number()).optional(),
-    verticalAlign: z.nullable(
-      FieldCreateDocumentFieldsVerticalAlignText$outboundSchema,
-    ).optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowText$outboundSchema.optional(),
+      type: FieldCreateDocumentFieldsTypeTextEnum$outboundSchema,
+      text: z.string().optional(),
+      characterLimit: z.number().optional(),
+      textAlign: FieldCreateDocumentFieldsTextAlignText$outboundSchema
+        .optional(),
+      lineHeight: z.nullable(z.number()).optional(),
+      letterSpacing: z.nullable(z.number()).optional(),
+      verticalAlign: z.nullable(
+        FieldCreateDocumentFieldsVerticalAlignText$outboundSchema,
+      ).optional(),
+    })
+  );
 
 export function fieldCreateDocumentFieldsFieldMetaTextRequestToJSON(
   fieldCreateDocumentFieldsFieldMetaTextRequest:
@@ -1974,18 +2071,20 @@ export const FieldCreateDocumentFieldsFieldText$inboundSchema: z.ZodType<
   FieldCreateDocumentFieldsFieldText,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  type: z.literal("TEXT"),
-  fieldMeta: z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaTextRequest$inboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  pageNumber: z.number(),
-  pageX: z.number(),
-  pageY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("TEXT"),
+    fieldMeta: z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaTextRequest$inboundSchema
+    ).optional(),
+    recipientId: z.number(),
+    pageNumber: z.number(),
+    pageX: z.number(),
+    pageY: z.number(),
+    width: z.number(),
+    height: z.number(),
+  })
+);
 /** @internal */
 export type FieldCreateDocumentFieldsFieldText$Outbound = {
   type: "TEXT";
@@ -2005,18 +2104,20 @@ export const FieldCreateDocumentFieldsFieldText$outboundSchema: z.ZodType<
   FieldCreateDocumentFieldsFieldText$Outbound,
   z.ZodTypeDef,
   FieldCreateDocumentFieldsFieldText
-> = z.object({
-  type: z.literal("TEXT"),
-  fieldMeta: z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaTextRequest$outboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  pageNumber: z.number(),
-  pageX: z.number(),
-  pageY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("TEXT"),
+    fieldMeta: z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaTextRequest$outboundSchema
+    ).optional(),
+    recipientId: z.number(),
+    pageNumber: z.number(),
+    pageX: z.number(),
+    pageY: z.number(),
+    width: z.number(),
+    height: z.number(),
+  })
+);
 
 export function fieldCreateDocumentFieldsFieldTextToJSON(
   fieldCreateDocumentFieldsFieldText: FieldCreateDocumentFieldsFieldText,
@@ -2040,9 +2141,10 @@ export function fieldCreateDocumentFieldsFieldTextFromJSON(
 
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowDate$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowDate> = z.nativeEnum(
-    FieldCreateDocumentFieldsOverflowDate,
-  );
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowDate> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsOverflowDate)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowDate$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowDate> =
@@ -2050,9 +2152,10 @@ export const FieldCreateDocumentFieldsOverflowDate$outboundSchema:
 
 /** @internal */
 export const FieldCreateDocumentFieldsTypeDateEnum$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeDateEnum> = z.nativeEnum(
-    FieldCreateDocumentFieldsTypeDateEnum,
-  );
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeDateEnum> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsTypeDateEnum)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsTypeDateEnum$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeDateEnum> =
@@ -2060,9 +2163,10 @@ export const FieldCreateDocumentFieldsTypeDateEnum$outboundSchema:
 
 /** @internal */
 export const FieldCreateDocumentFieldsTextAlignDate$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignDate> = z.nativeEnum(
-    FieldCreateDocumentFieldsTextAlignDate,
-  );
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignDate> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsTextAlignDate)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsTextAlignDate$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignDate> =
@@ -2074,18 +2178,21 @@ export const FieldCreateDocumentFieldsFieldMetaDateRequest$inboundSchema:
     FieldCreateDocumentFieldsFieldMetaDateRequest,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowDate$inboundSchema.default(
-      "auto",
-    ),
-    type: FieldCreateDocumentFieldsTypeDateEnum$inboundSchema,
-    textAlign: FieldCreateDocumentFieldsTextAlignDate$inboundSchema.optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowDate$inboundSchema.default(
+        "auto",
+      ),
+      type: FieldCreateDocumentFieldsTypeDateEnum$inboundSchema,
+      textAlign: FieldCreateDocumentFieldsTextAlignDate$inboundSchema
+        .optional(),
+    })
+  );
 /** @internal */
 export type FieldCreateDocumentFieldsFieldMetaDateRequest$Outbound = {
   label?: string | undefined;
@@ -2104,18 +2211,21 @@ export const FieldCreateDocumentFieldsFieldMetaDateRequest$outboundSchema:
     FieldCreateDocumentFieldsFieldMetaDateRequest$Outbound,
     z.ZodTypeDef,
     FieldCreateDocumentFieldsFieldMetaDateRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowDate$outboundSchema.default(
-      "auto",
-    ),
-    type: FieldCreateDocumentFieldsTypeDateEnum$outboundSchema,
-    textAlign: FieldCreateDocumentFieldsTextAlignDate$outboundSchema.optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowDate$outboundSchema.default(
+        "auto",
+      ),
+      type: FieldCreateDocumentFieldsTypeDateEnum$outboundSchema,
+      textAlign: FieldCreateDocumentFieldsTextAlignDate$outboundSchema
+        .optional(),
+    })
+  );
 
 export function fieldCreateDocumentFieldsFieldMetaDateRequestToJSON(
   fieldCreateDocumentFieldsFieldMetaDateRequest:
@@ -2148,18 +2258,20 @@ export const FieldCreateDocumentFieldsFieldDate$inboundSchema: z.ZodType<
   FieldCreateDocumentFieldsFieldDate,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  type: z.literal("DATE"),
-  fieldMeta: z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaDateRequest$inboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  pageNumber: z.number(),
-  pageX: z.number(),
-  pageY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("DATE"),
+    fieldMeta: z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaDateRequest$inboundSchema
+    ).optional(),
+    recipientId: z.number(),
+    pageNumber: z.number(),
+    pageX: z.number(),
+    pageY: z.number(),
+    width: z.number(),
+    height: z.number(),
+  })
+);
 /** @internal */
 export type FieldCreateDocumentFieldsFieldDate$Outbound = {
   type: "DATE";
@@ -2179,18 +2291,20 @@ export const FieldCreateDocumentFieldsFieldDate$outboundSchema: z.ZodType<
   FieldCreateDocumentFieldsFieldDate$Outbound,
   z.ZodTypeDef,
   FieldCreateDocumentFieldsFieldDate
-> = z.object({
-  type: z.literal("DATE"),
-  fieldMeta: z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaDateRequest$outboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  pageNumber: z.number(),
-  pageX: z.number(),
-  pageY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("DATE"),
+    fieldMeta: z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaDateRequest$outboundSchema
+    ).optional(),
+    recipientId: z.number(),
+    pageNumber: z.number(),
+    pageX: z.number(),
+    pageY: z.number(),
+    width: z.number(),
+    height: z.number(),
+  })
+);
 
 export function fieldCreateDocumentFieldsFieldDateToJSON(
   fieldCreateDocumentFieldsFieldDate: FieldCreateDocumentFieldsFieldDate,
@@ -2214,9 +2328,10 @@ export function fieldCreateDocumentFieldsFieldDateFromJSON(
 
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowEmail$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowEmail> = z.nativeEnum(
-    FieldCreateDocumentFieldsOverflowEmail,
-  );
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowEmail> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsOverflowEmail)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowEmail$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowEmail> =
@@ -2224,9 +2339,10 @@ export const FieldCreateDocumentFieldsOverflowEmail$outboundSchema:
 
 /** @internal */
 export const FieldCreateDocumentFieldsTypeEmailEnum$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeEmailEnum> = z.nativeEnum(
-    FieldCreateDocumentFieldsTypeEmailEnum,
-  );
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeEmailEnum> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsTypeEmailEnum)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsTypeEmailEnum$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeEmailEnum> =
@@ -2234,8 +2350,10 @@ export const FieldCreateDocumentFieldsTypeEmailEnum$outboundSchema:
 
 /** @internal */
 export const FieldCreateDocumentFieldsTextAlignEmail$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignEmail> = z
-    .nativeEnum(FieldCreateDocumentFieldsTextAlignEmail);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignEmail> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsTextAlignEmail)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsTextAlignEmail$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignEmail> =
@@ -2247,18 +2365,21 @@ export const FieldCreateDocumentFieldsFieldMetaEmailRequest$inboundSchema:
     FieldCreateDocumentFieldsFieldMetaEmailRequest,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowEmail$inboundSchema.default(
-      "auto",
-    ),
-    type: FieldCreateDocumentFieldsTypeEmailEnum$inboundSchema,
-    textAlign: FieldCreateDocumentFieldsTextAlignEmail$inboundSchema.optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowEmail$inboundSchema.default(
+        "auto",
+      ),
+      type: FieldCreateDocumentFieldsTypeEmailEnum$inboundSchema,
+      textAlign: FieldCreateDocumentFieldsTextAlignEmail$inboundSchema
+        .optional(),
+    })
+  );
 /** @internal */
 export type FieldCreateDocumentFieldsFieldMetaEmailRequest$Outbound = {
   label?: string | undefined;
@@ -2277,19 +2398,21 @@ export const FieldCreateDocumentFieldsFieldMetaEmailRequest$outboundSchema:
     FieldCreateDocumentFieldsFieldMetaEmailRequest$Outbound,
     z.ZodTypeDef,
     FieldCreateDocumentFieldsFieldMetaEmailRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowEmail$outboundSchema.default(
-      "auto",
-    ),
-    type: FieldCreateDocumentFieldsTypeEmailEnum$outboundSchema,
-    textAlign: FieldCreateDocumentFieldsTextAlignEmail$outboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowEmail$outboundSchema.default(
+        "auto",
+      ),
+      type: FieldCreateDocumentFieldsTypeEmailEnum$outboundSchema,
+      textAlign: FieldCreateDocumentFieldsTextAlignEmail$outboundSchema
+        .optional(),
+    })
+  );
 
 export function fieldCreateDocumentFieldsFieldMetaEmailRequestToJSON(
   fieldCreateDocumentFieldsFieldMetaEmailRequest:
@@ -2322,18 +2445,20 @@ export const FieldCreateDocumentFieldsFieldEmail$inboundSchema: z.ZodType<
   FieldCreateDocumentFieldsFieldEmail,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  type: z.literal("EMAIL"),
-  fieldMeta: z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaEmailRequest$inboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  pageNumber: z.number(),
-  pageX: z.number(),
-  pageY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("EMAIL"),
+    fieldMeta: z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaEmailRequest$inboundSchema
+    ).optional(),
+    recipientId: z.number(),
+    pageNumber: z.number(),
+    pageX: z.number(),
+    pageY: z.number(),
+    width: z.number(),
+    height: z.number(),
+  })
+);
 /** @internal */
 export type FieldCreateDocumentFieldsFieldEmail$Outbound = {
   type: "EMAIL";
@@ -2353,18 +2478,20 @@ export const FieldCreateDocumentFieldsFieldEmail$outboundSchema: z.ZodType<
   FieldCreateDocumentFieldsFieldEmail$Outbound,
   z.ZodTypeDef,
   FieldCreateDocumentFieldsFieldEmail
-> = z.object({
-  type: z.literal("EMAIL"),
-  fieldMeta: z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaEmailRequest$outboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  pageNumber: z.number(),
-  pageX: z.number(),
-  pageY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("EMAIL"),
+    fieldMeta: z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaEmailRequest$outboundSchema
+    ).optional(),
+    recipientId: z.number(),
+    pageNumber: z.number(),
+    pageX: z.number(),
+    pageY: z.number(),
+    width: z.number(),
+    height: z.number(),
+  })
+);
 
 export function fieldCreateDocumentFieldsFieldEmailToJSON(
   fieldCreateDocumentFieldsFieldEmail: FieldCreateDocumentFieldsFieldEmail,
@@ -2388,9 +2515,10 @@ export function fieldCreateDocumentFieldsFieldEmailFromJSON(
 
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowName$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowName> = z.nativeEnum(
-    FieldCreateDocumentFieldsOverflowName,
-  );
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowName> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsOverflowName)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowName$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowName> =
@@ -2398,9 +2526,10 @@ export const FieldCreateDocumentFieldsOverflowName$outboundSchema:
 
 /** @internal */
 export const FieldCreateDocumentFieldsTypeNameEnum$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeNameEnum> = z.nativeEnum(
-    FieldCreateDocumentFieldsTypeNameEnum,
-  );
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeNameEnum> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsTypeNameEnum)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsTypeNameEnum$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeNameEnum> =
@@ -2408,9 +2537,10 @@ export const FieldCreateDocumentFieldsTypeNameEnum$outboundSchema:
 
 /** @internal */
 export const FieldCreateDocumentFieldsTextAlignName$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignName> = z.nativeEnum(
-    FieldCreateDocumentFieldsTextAlignName,
-  );
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignName> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsTextAlignName)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsTextAlignName$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignName> =
@@ -2422,16 +2552,19 @@ export const FieldCreateDocumentFieldsFieldMetaNameRequest$inboundSchema:
     FieldCreateDocumentFieldsFieldMetaNameRequest,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowName$inboundSchema.optional(),
-    type: FieldCreateDocumentFieldsTypeNameEnum$inboundSchema,
-    textAlign: FieldCreateDocumentFieldsTextAlignName$inboundSchema.optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowName$inboundSchema.optional(),
+      type: FieldCreateDocumentFieldsTypeNameEnum$inboundSchema,
+      textAlign: FieldCreateDocumentFieldsTextAlignName$inboundSchema
+        .optional(),
+    })
+  );
 /** @internal */
 export type FieldCreateDocumentFieldsFieldMetaNameRequest$Outbound = {
   label?: string | undefined;
@@ -2450,16 +2583,19 @@ export const FieldCreateDocumentFieldsFieldMetaNameRequest$outboundSchema:
     FieldCreateDocumentFieldsFieldMetaNameRequest$Outbound,
     z.ZodTypeDef,
     FieldCreateDocumentFieldsFieldMetaNameRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowName$outboundSchema.optional(),
-    type: FieldCreateDocumentFieldsTypeNameEnum$outboundSchema,
-    textAlign: FieldCreateDocumentFieldsTextAlignName$outboundSchema.optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowName$outboundSchema.optional(),
+      type: FieldCreateDocumentFieldsTypeNameEnum$outboundSchema,
+      textAlign: FieldCreateDocumentFieldsTextAlignName$outboundSchema
+        .optional(),
+    })
+  );
 
 export function fieldCreateDocumentFieldsFieldMetaNameRequestToJSON(
   fieldCreateDocumentFieldsFieldMetaNameRequest:
@@ -2492,18 +2628,20 @@ export const FieldCreateDocumentFieldsFieldName$inboundSchema: z.ZodType<
   FieldCreateDocumentFieldsFieldName,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  type: z.literal("NAME"),
-  fieldMeta: z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaNameRequest$inboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  pageNumber: z.number(),
-  pageX: z.number(),
-  pageY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("NAME"),
+    fieldMeta: z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaNameRequest$inboundSchema
+    ).optional(),
+    recipientId: z.number(),
+    pageNumber: z.number(),
+    pageX: z.number(),
+    pageY: z.number(),
+    width: z.number(),
+    height: z.number(),
+  })
+);
 /** @internal */
 export type FieldCreateDocumentFieldsFieldName$Outbound = {
   type: "NAME";
@@ -2523,18 +2661,20 @@ export const FieldCreateDocumentFieldsFieldName$outboundSchema: z.ZodType<
   FieldCreateDocumentFieldsFieldName$Outbound,
   z.ZodTypeDef,
   FieldCreateDocumentFieldsFieldName
-> = z.object({
-  type: z.literal("NAME"),
-  fieldMeta: z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaNameRequest$outboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  pageNumber: z.number(),
-  pageX: z.number(),
-  pageY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("NAME"),
+    fieldMeta: z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaNameRequest$outboundSchema
+    ).optional(),
+    recipientId: z.number(),
+    pageNumber: z.number(),
+    pageX: z.number(),
+    pageY: z.number(),
+    width: z.number(),
+    height: z.number(),
+  })
+);
 
 export function fieldCreateDocumentFieldsFieldNameToJSON(
   fieldCreateDocumentFieldsFieldName: FieldCreateDocumentFieldsFieldName,
@@ -2558,8 +2698,10 @@ export function fieldCreateDocumentFieldsFieldNameFromJSON(
 
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowInitials$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowInitials> = z
-    .nativeEnum(FieldCreateDocumentFieldsOverflowInitials);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowInitials> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsOverflowInitials)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowInitials$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowInitials> =
@@ -2567,8 +2709,10 @@ export const FieldCreateDocumentFieldsOverflowInitials$outboundSchema:
 
 /** @internal */
 export const FieldCreateDocumentFieldsTypeInitialsEnum$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeInitialsEnum> = z
-    .nativeEnum(FieldCreateDocumentFieldsTypeInitialsEnum);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeInitialsEnum> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsTypeInitialsEnum)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsTypeInitialsEnum$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeInitialsEnum> =
@@ -2576,12 +2720,25 @@ export const FieldCreateDocumentFieldsTypeInitialsEnum$outboundSchema:
 
 /** @internal */
 export const FieldCreateDocumentFieldsTextAlignInitials$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignInitials> = z
-    .nativeEnum(FieldCreateDocumentFieldsTextAlignInitials);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignInitials> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsTextAlignInitials)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsTextAlignInitials$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignInitials> =
     FieldCreateDocumentFieldsTextAlignInitials$inboundSchema;
+
+/** @internal */
+export const FieldCreateDocumentFieldsFontFamilyRequest$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsFontFamilyRequest> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsFontFamilyRequest)
+    );
+/** @internal */
+export const FieldCreateDocumentFieldsFontFamilyRequest$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsFontFamilyRequest> =
+    FieldCreateDocumentFieldsFontFamilyRequest$inboundSchema;
 
 /** @internal */
 export const FieldCreateDocumentFieldsFieldMetaInitialsRequest$inboundSchema:
@@ -2589,18 +2746,22 @@ export const FieldCreateDocumentFieldsFieldMetaInitialsRequest$inboundSchema:
     FieldCreateDocumentFieldsFieldMetaInitialsRequest,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowInitials$inboundSchema
-      .optional(),
-    type: FieldCreateDocumentFieldsTypeInitialsEnum$inboundSchema,
-    textAlign: FieldCreateDocumentFieldsTextAlignInitials$inboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowInitials$inboundSchema
+        .optional(),
+      type: FieldCreateDocumentFieldsTypeInitialsEnum$inboundSchema,
+      textAlign: FieldCreateDocumentFieldsTextAlignInitials$inboundSchema
+        .optional(),
+      fontFamily: FieldCreateDocumentFieldsFontFamilyRequest$inboundSchema
+        .optional(),
+    })
+  );
 /** @internal */
 export type FieldCreateDocumentFieldsFieldMetaInitialsRequest$Outbound = {
   label?: string | undefined;
@@ -2611,6 +2772,7 @@ export type FieldCreateDocumentFieldsFieldMetaInitialsRequest$Outbound = {
   overflow?: string | undefined;
   type: string;
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -2619,18 +2781,22 @@ export const FieldCreateDocumentFieldsFieldMetaInitialsRequest$outboundSchema:
     FieldCreateDocumentFieldsFieldMetaInitialsRequest$Outbound,
     z.ZodTypeDef,
     FieldCreateDocumentFieldsFieldMetaInitialsRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowInitials$outboundSchema
-      .optional(),
-    type: FieldCreateDocumentFieldsTypeInitialsEnum$outboundSchema,
-    textAlign: FieldCreateDocumentFieldsTextAlignInitials$outboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowInitials$outboundSchema
+        .optional(),
+      type: FieldCreateDocumentFieldsTypeInitialsEnum$outboundSchema,
+      textAlign: FieldCreateDocumentFieldsTextAlignInitials$outboundSchema
+        .optional(),
+      fontFamily: FieldCreateDocumentFieldsFontFamilyRequest$outboundSchema
+        .optional(),
+    })
+  );
 
 export function fieldCreateDocumentFieldsFieldMetaInitialsRequestToJSON(
   fieldCreateDocumentFieldsFieldMetaInitialsRequest:
@@ -2663,18 +2829,20 @@ export const FieldCreateDocumentFieldsFieldInitials$inboundSchema: z.ZodType<
   FieldCreateDocumentFieldsFieldInitials,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  type: z.literal("INITIALS"),
-  fieldMeta: z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaInitialsRequest$inboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  pageNumber: z.number(),
-  pageX: z.number(),
-  pageY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("INITIALS"),
+    fieldMeta: z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaInitialsRequest$inboundSchema
+    ).optional(),
+    recipientId: z.number(),
+    pageNumber: z.number(),
+    pageX: z.number(),
+    pageY: z.number(),
+    width: z.number(),
+    height: z.number(),
+  })
+);
 /** @internal */
 export type FieldCreateDocumentFieldsFieldInitials$Outbound = {
   type: "INITIALS";
@@ -2694,18 +2862,20 @@ export const FieldCreateDocumentFieldsFieldInitials$outboundSchema: z.ZodType<
   FieldCreateDocumentFieldsFieldInitials$Outbound,
   z.ZodTypeDef,
   FieldCreateDocumentFieldsFieldInitials
-> = z.object({
-  type: z.literal("INITIALS"),
-  fieldMeta: z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaInitialsRequest$outboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  pageNumber: z.number(),
-  pageX: z.number(),
-  pageY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("INITIALS"),
+    fieldMeta: z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaInitialsRequest$outboundSchema
+    ).optional(),
+    recipientId: z.number(),
+    pageNumber: z.number(),
+    pageX: z.number(),
+    pageY: z.number(),
+    width: z.number(),
+    height: z.number(),
+  })
+);
 
 export function fieldCreateDocumentFieldsFieldInitialsToJSON(
   fieldCreateDocumentFieldsFieldInitials:
@@ -2734,15 +2904,17 @@ export const FieldCreateDocumentFieldsFieldFreeSignature$inboundSchema:
     FieldCreateDocumentFieldsFieldFreeSignature,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    type: z.literal("FREE_SIGNATURE"),
-    recipientId: z.number(),
-    pageNumber: z.number(),
-    pageX: z.number(),
-    pageY: z.number(),
-    width: z.number(),
-    height: z.number(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      type: z.literal("FREE_SIGNATURE"),
+      recipientId: z.number(),
+      pageNumber: z.number(),
+      pageX: z.number(),
+      pageY: z.number(),
+      width: z.number(),
+      height: z.number(),
+    })
+  );
 /** @internal */
 export type FieldCreateDocumentFieldsFieldFreeSignature$Outbound = {
   type: "FREE_SIGNATURE";
@@ -2760,15 +2932,17 @@ export const FieldCreateDocumentFieldsFieldFreeSignature$outboundSchema:
     FieldCreateDocumentFieldsFieldFreeSignature$Outbound,
     z.ZodTypeDef,
     FieldCreateDocumentFieldsFieldFreeSignature
-  > = z.object({
-    type: z.literal("FREE_SIGNATURE"),
-    recipientId: z.number(),
-    pageNumber: z.number(),
-    pageX: z.number(),
-    pageY: z.number(),
-    width: z.number(),
-    height: z.number(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      type: z.literal("FREE_SIGNATURE"),
+      recipientId: z.number(),
+      pageNumber: z.number(),
+      pageX: z.number(),
+      pageY: z.number(),
+      width: z.number(),
+      height: z.number(),
+    })
+  );
 
 export function fieldCreateDocumentFieldsFieldFreeSignatureToJSON(
   fieldCreateDocumentFieldsFieldFreeSignature:
@@ -2798,8 +2972,10 @@ export function fieldCreateDocumentFieldsFieldFreeSignatureFromJSON(
 
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowSignature$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowSignature> = z
-    .nativeEnum(FieldCreateDocumentFieldsOverflowSignature);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowSignature> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsOverflowSignature)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowSignature$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowSignature> =
@@ -2807,8 +2983,10 @@ export const FieldCreateDocumentFieldsOverflowSignature$outboundSchema:
 
 /** @internal */
 export const FieldCreateDocumentFieldsTypeSignatureEnum$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeSignatureEnum> = z
-    .nativeEnum(FieldCreateDocumentFieldsTypeSignatureEnum);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeSignatureEnum> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsTypeSignatureEnum)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsTypeSignatureEnum$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeSignatureEnum> =
@@ -2820,17 +2998,18 @@ export const FieldCreateDocumentFieldsFieldMetaSignatureRequest$inboundSchema:
     FieldCreateDocumentFieldsFieldMetaSignatureRequest,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowSignature$inboundSchema.default(
-      "auto",
-    ),
-    type: FieldCreateDocumentFieldsTypeSignatureEnum$inboundSchema,
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowSignature$inboundSchema
+        .default("auto"),
+      type: FieldCreateDocumentFieldsTypeSignatureEnum$inboundSchema,
+    })
+  );
 /** @internal */
 export type FieldCreateDocumentFieldsFieldMetaSignatureRequest$Outbound = {
   label?: string | undefined;
@@ -2848,17 +3027,18 @@ export const FieldCreateDocumentFieldsFieldMetaSignatureRequest$outboundSchema:
     FieldCreateDocumentFieldsFieldMetaSignatureRequest$Outbound,
     z.ZodTypeDef,
     FieldCreateDocumentFieldsFieldMetaSignatureRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowSignature$outboundSchema.default(
-      "auto",
-    ),
-    type: FieldCreateDocumentFieldsTypeSignatureEnum$outboundSchema,
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowSignature$outboundSchema
+        .default("auto"),
+      type: FieldCreateDocumentFieldsTypeSignatureEnum$outboundSchema,
+    })
+  );
 
 export function fieldCreateDocumentFieldsFieldMetaSignatureRequestToJSON(
   fieldCreateDocumentFieldsFieldMetaSignatureRequest:
@@ -2891,18 +3071,20 @@ export const FieldCreateDocumentFieldsFieldSignature$inboundSchema: z.ZodType<
   FieldCreateDocumentFieldsFieldSignature,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  type: z.literal("SIGNATURE"),
-  fieldMeta: z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaSignatureRequest$inboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  pageNumber: z.number(),
-  pageX: z.number(),
-  pageY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("SIGNATURE"),
+    fieldMeta: z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaSignatureRequest$inboundSchema
+    ).optional(),
+    recipientId: z.number(),
+    pageNumber: z.number(),
+    pageX: z.number(),
+    pageY: z.number(),
+    width: z.number(),
+    height: z.number(),
+  })
+);
 /** @internal */
 export type FieldCreateDocumentFieldsFieldSignature$Outbound = {
   type: "SIGNATURE";
@@ -2922,18 +3104,20 @@ export const FieldCreateDocumentFieldsFieldSignature$outboundSchema: z.ZodType<
   FieldCreateDocumentFieldsFieldSignature$Outbound,
   z.ZodTypeDef,
   FieldCreateDocumentFieldsFieldSignature
-> = z.object({
-  type: z.literal("SIGNATURE"),
-  fieldMeta: z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaSignatureRequest$outboundSchema
-  ).optional(),
-  recipientId: z.number(),
-  pageNumber: z.number(),
-  pageX: z.number(),
-  pageY: z.number(),
-  width: z.number(),
-  height: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("SIGNATURE"),
+    fieldMeta: z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaSignatureRequest$outboundSchema
+    ).optional(),
+    recipientId: z.number(),
+    pageNumber: z.number(),
+    pageX: z.number(),
+    pageY: z.number(),
+    width: z.number(),
+    height: z.number(),
+  })
+);
 
 export function fieldCreateDocumentFieldsFieldSignatureToJSON(
   fieldCreateDocumentFieldsFieldSignature:
@@ -2966,19 +3150,21 @@ export const FieldCreateDocumentFieldsFieldUnion$inboundSchema: z.ZodType<
   FieldCreateDocumentFieldsFieldUnion,
   z.ZodTypeDef,
   unknown
-> = z.union([
-  z.lazy(() => FieldCreateDocumentFieldsFieldSignature$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldFreeSignature$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldInitials$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldName$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldEmail$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldDate$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldText$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldNumber$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldRadio$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldCheckbox$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldDropdown$inboundSchema),
-]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([
+    z.lazy(() => FieldCreateDocumentFieldsFieldSignature$inboundSchema),
+    z.lazy(() => FieldCreateDocumentFieldsFieldFreeSignature$inboundSchema),
+    z.lazy(() => FieldCreateDocumentFieldsFieldInitials$inboundSchema),
+    z.lazy(() => FieldCreateDocumentFieldsFieldName$inboundSchema),
+    z.lazy(() => FieldCreateDocumentFieldsFieldEmail$inboundSchema),
+    z.lazy(() => FieldCreateDocumentFieldsFieldDate$inboundSchema),
+    z.lazy(() => FieldCreateDocumentFieldsFieldText$inboundSchema),
+    z.lazy(() => FieldCreateDocumentFieldsFieldNumber$inboundSchema),
+    z.lazy(() => FieldCreateDocumentFieldsFieldRadio$inboundSchema),
+    z.lazy(() => FieldCreateDocumentFieldsFieldCheckbox$inboundSchema),
+    z.lazy(() => FieldCreateDocumentFieldsFieldDropdown$inboundSchema),
+  ])
+);
 /** @internal */
 export type FieldCreateDocumentFieldsFieldUnion$Outbound =
   | FieldCreateDocumentFieldsFieldSignature$Outbound
@@ -2998,19 +3184,21 @@ export const FieldCreateDocumentFieldsFieldUnion$outboundSchema: z.ZodType<
   FieldCreateDocumentFieldsFieldUnion$Outbound,
   z.ZodTypeDef,
   FieldCreateDocumentFieldsFieldUnion
-> = z.union([
-  z.lazy(() => FieldCreateDocumentFieldsFieldSignature$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldFreeSignature$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldInitials$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldName$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldEmail$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldDate$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldText$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldNumber$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldRadio$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldCheckbox$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldDropdown$outboundSchema),
-]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([
+    z.lazy(() => FieldCreateDocumentFieldsFieldSignature$outboundSchema),
+    z.lazy(() => FieldCreateDocumentFieldsFieldFreeSignature$outboundSchema),
+    z.lazy(() => FieldCreateDocumentFieldsFieldInitials$outboundSchema),
+    z.lazy(() => FieldCreateDocumentFieldsFieldName$outboundSchema),
+    z.lazy(() => FieldCreateDocumentFieldsFieldEmail$outboundSchema),
+    z.lazy(() => FieldCreateDocumentFieldsFieldDate$outboundSchema),
+    z.lazy(() => FieldCreateDocumentFieldsFieldText$outboundSchema),
+    z.lazy(() => FieldCreateDocumentFieldsFieldNumber$outboundSchema),
+    z.lazy(() => FieldCreateDocumentFieldsFieldRadio$outboundSchema),
+    z.lazy(() => FieldCreateDocumentFieldsFieldCheckbox$outboundSchema),
+    z.lazy(() => FieldCreateDocumentFieldsFieldDropdown$outboundSchema),
+  ])
+);
 
 export function fieldCreateDocumentFieldsFieldUnionToJSON(
   fieldCreateDocumentFieldsFieldUnion: FieldCreateDocumentFieldsFieldUnion,
@@ -3037,10 +3225,10 @@ export const FieldCreateDocumentFieldsRequest$inboundSchema: z.ZodType<
   FieldCreateDocumentFieldsRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  documentId: z.number(),
-  fields: z.array(
-    z.union([
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    documentId: z.number(),
+    fields: z.array(z.union([
       z.lazy(() => FieldCreateDocumentFieldsFieldSignature$inboundSchema),
       z.lazy(() => FieldCreateDocumentFieldsFieldFreeSignature$inboundSchema),
       z.lazy(() => FieldCreateDocumentFieldsFieldInitials$inboundSchema),
@@ -3052,9 +3240,9 @@ export const FieldCreateDocumentFieldsRequest$inboundSchema: z.ZodType<
       z.lazy(() => FieldCreateDocumentFieldsFieldRadio$inboundSchema),
       z.lazy(() => FieldCreateDocumentFieldsFieldCheckbox$inboundSchema),
       z.lazy(() => FieldCreateDocumentFieldsFieldDropdown$inboundSchema),
-    ]),
-  ),
-});
+    ])),
+  })
+);
 /** @internal */
 export type FieldCreateDocumentFieldsRequest$Outbound = {
   documentId: number;
@@ -3078,10 +3266,10 @@ export const FieldCreateDocumentFieldsRequest$outboundSchema: z.ZodType<
   FieldCreateDocumentFieldsRequest$Outbound,
   z.ZodTypeDef,
   FieldCreateDocumentFieldsRequest
-> = z.object({
-  documentId: z.number(),
-  fields: z.array(
-    z.union([
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    documentId: z.number(),
+    fields: z.array(z.union([
       z.lazy(() => FieldCreateDocumentFieldsFieldSignature$outboundSchema),
       z.lazy(() => FieldCreateDocumentFieldsFieldFreeSignature$outboundSchema),
       z.lazy(() => FieldCreateDocumentFieldsFieldInitials$outboundSchema),
@@ -3093,9 +3281,9 @@ export const FieldCreateDocumentFieldsRequest$outboundSchema: z.ZodType<
       z.lazy(() => FieldCreateDocumentFieldsFieldRadio$outboundSchema),
       z.lazy(() => FieldCreateDocumentFieldsFieldCheckbox$outboundSchema),
       z.lazy(() => FieldCreateDocumentFieldsFieldDropdown$outboundSchema),
-    ]),
-  ),
-});
+    ])),
+  })
+);
 
 export function fieldCreateDocumentFieldsRequestToJSON(
   fieldCreateDocumentFieldsRequest: FieldCreateDocumentFieldsRequest,
@@ -3118,8 +3306,10 @@ export function fieldCreateDocumentFieldsRequestFromJSON(
 
 /** @internal */
 export const FieldCreateDocumentFieldsTypeResponseEnum$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeResponseEnum> = z
-    .nativeEnum(FieldCreateDocumentFieldsTypeResponseEnum);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeResponseEnum> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsTypeResponseEnum)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsTypeResponseEnum$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTypeResponseEnum> =
@@ -3127,8 +3317,10 @@ export const FieldCreateDocumentFieldsTypeResponseEnum$outboundSchema:
 
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowResponse10$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse10> = z
-    .nativeEnum(FieldCreateDocumentFieldsOverflowResponse10);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse10> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsOverflowResponse10)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowResponse10$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse10> =
@@ -3139,9 +3331,11 @@ export const FieldCreateDocumentFieldsValueResponse3$inboundSchema: z.ZodType<
   FieldCreateDocumentFieldsValueResponse3,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    value: z.string(),
+  })
+);
 /** @internal */
 export type FieldCreateDocumentFieldsValueResponse3$Outbound = {
   value: string;
@@ -3152,9 +3346,11 @@ export const FieldCreateDocumentFieldsValueResponse3$outboundSchema: z.ZodType<
   FieldCreateDocumentFieldsValueResponse3$Outbound,
   z.ZodTypeDef,
   FieldCreateDocumentFieldsValueResponse3
-> = z.object({
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    value: z.string(),
+  })
+);
 
 export function fieldCreateDocumentFieldsValueResponse3ToJSON(
   fieldCreateDocumentFieldsValueResponse3:
@@ -3188,20 +3384,22 @@ export const FieldCreateDocumentFieldsFieldMetaDropdownResponse$inboundSchema:
     FieldCreateDocumentFieldsFieldMetaDropdownResponse,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowResponse10$inboundSchema
-      .optional(),
-    type: z.literal("dropdown"),
-    values: z.array(
-      z.lazy(() => FieldCreateDocumentFieldsValueResponse3$inboundSchema),
-    ).optional(),
-    defaultValue: z.string().optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowResponse10$inboundSchema
+        .optional(),
+      type: z.literal("dropdown"),
+      values: z.array(
+        z.lazy(() => FieldCreateDocumentFieldsValueResponse3$inboundSchema),
+      ).optional(),
+      defaultValue: z.string().optional(),
+    })
+  );
 /** @internal */
 export type FieldCreateDocumentFieldsFieldMetaDropdownResponse$Outbound = {
   label?: string | undefined;
@@ -3221,20 +3419,22 @@ export const FieldCreateDocumentFieldsFieldMetaDropdownResponse$outboundSchema:
     FieldCreateDocumentFieldsFieldMetaDropdownResponse$Outbound,
     z.ZodTypeDef,
     FieldCreateDocumentFieldsFieldMetaDropdownResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowResponse10$outboundSchema
-      .optional(),
-    type: z.literal("dropdown"),
-    values: z.array(
-      z.lazy(() => FieldCreateDocumentFieldsValueResponse3$outboundSchema),
-    ).optional(),
-    defaultValue: z.string().optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowResponse10$outboundSchema
+        .optional(),
+      type: z.literal("dropdown"),
+      values: z.array(
+        z.lazy(() => FieldCreateDocumentFieldsValueResponse3$outboundSchema),
+      ).optional(),
+      defaultValue: z.string().optional(),
+    })
+  );
 
 export function fieldCreateDocumentFieldsFieldMetaDropdownResponseToJSON(
   fieldCreateDocumentFieldsFieldMetaDropdownResponse:
@@ -3264,8 +3464,10 @@ export function fieldCreateDocumentFieldsFieldMetaDropdownResponseFromJSON(
 
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowResponse9$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse9> = z
-    .nativeEnum(FieldCreateDocumentFieldsOverflowResponse9);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse9> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsOverflowResponse9)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowResponse9$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse9> =
@@ -3276,11 +3478,13 @@ export const FieldCreateDocumentFieldsValueResponse2$inboundSchema: z.ZodType<
   FieldCreateDocumentFieldsValueResponse2,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 /** @internal */
 export type FieldCreateDocumentFieldsValueResponse2$Outbound = {
   id: number;
@@ -3293,11 +3497,13 @@ export const FieldCreateDocumentFieldsValueResponse2$outboundSchema: z.ZodType<
   FieldCreateDocumentFieldsValueResponse2$Outbound,
   z.ZodTypeDef,
   FieldCreateDocumentFieldsValueResponse2
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 
 export function fieldCreateDocumentFieldsValueResponse2ToJSON(
   fieldCreateDocumentFieldsValueResponse2:
@@ -3327,8 +3533,10 @@ export function fieldCreateDocumentFieldsValueResponse2FromJSON(
 
 /** @internal */
 export const FieldCreateDocumentFieldsDirectionResponse2$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsDirectionResponse2> = z
-    .nativeEnum(FieldCreateDocumentFieldsDirectionResponse2);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsDirectionResponse2> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsDirectionResponse2)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsDirectionResponse2$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsDirectionResponse2> =
@@ -3340,23 +3548,25 @@ export const FieldCreateDocumentFieldsFieldMetaCheckboxResponse$inboundSchema:
     FieldCreateDocumentFieldsFieldMetaCheckboxResponse,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowResponse9$inboundSchema
-      .optional(),
-    type: z.literal("checkbox"),
-    values: z.array(
-      z.lazy(() => FieldCreateDocumentFieldsValueResponse2$inboundSchema),
-    ).optional(),
-    validationRule: z.string().optional(),
-    validationLength: z.number().optional(),
-    direction: FieldCreateDocumentFieldsDirectionResponse2$inboundSchema
-      .default("vertical"),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowResponse9$inboundSchema
+        .optional(),
+      type: z.literal("checkbox"),
+      values: z.array(
+        z.lazy(() => FieldCreateDocumentFieldsValueResponse2$inboundSchema),
+      ).optional(),
+      validationRule: z.string().optional(),
+      validationLength: z.number().optional(),
+      direction: FieldCreateDocumentFieldsDirectionResponse2$inboundSchema
+        .default("vertical"),
+    })
+  );
 /** @internal */
 export type FieldCreateDocumentFieldsFieldMetaCheckboxResponse$Outbound = {
   label?: string | undefined;
@@ -3378,23 +3588,25 @@ export const FieldCreateDocumentFieldsFieldMetaCheckboxResponse$outboundSchema:
     FieldCreateDocumentFieldsFieldMetaCheckboxResponse$Outbound,
     z.ZodTypeDef,
     FieldCreateDocumentFieldsFieldMetaCheckboxResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowResponse9$outboundSchema
-      .optional(),
-    type: z.literal("checkbox"),
-    values: z.array(
-      z.lazy(() => FieldCreateDocumentFieldsValueResponse2$outboundSchema),
-    ).optional(),
-    validationRule: z.string().optional(),
-    validationLength: z.number().optional(),
-    direction: FieldCreateDocumentFieldsDirectionResponse2$outboundSchema
-      .default("vertical"),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowResponse9$outboundSchema
+        .optional(),
+      type: z.literal("checkbox"),
+      values: z.array(
+        z.lazy(() => FieldCreateDocumentFieldsValueResponse2$outboundSchema),
+      ).optional(),
+      validationRule: z.string().optional(),
+      validationLength: z.number().optional(),
+      direction: FieldCreateDocumentFieldsDirectionResponse2$outboundSchema
+        .default("vertical"),
+    })
+  );
 
 export function fieldCreateDocumentFieldsFieldMetaCheckboxResponseToJSON(
   fieldCreateDocumentFieldsFieldMetaCheckboxResponse:
@@ -3424,8 +3636,10 @@ export function fieldCreateDocumentFieldsFieldMetaCheckboxResponseFromJSON(
 
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowResponse8$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse8> = z
-    .nativeEnum(FieldCreateDocumentFieldsOverflowResponse8);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse8> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsOverflowResponse8)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowResponse8$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse8> =
@@ -3436,11 +3650,13 @@ export const FieldCreateDocumentFieldsValueResponse1$inboundSchema: z.ZodType<
   FieldCreateDocumentFieldsValueResponse1,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 /** @internal */
 export type FieldCreateDocumentFieldsValueResponse1$Outbound = {
   id: number;
@@ -3453,11 +3669,13 @@ export const FieldCreateDocumentFieldsValueResponse1$outboundSchema: z.ZodType<
   FieldCreateDocumentFieldsValueResponse1$Outbound,
   z.ZodTypeDef,
   FieldCreateDocumentFieldsValueResponse1
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 
 export function fieldCreateDocumentFieldsValueResponse1ToJSON(
   fieldCreateDocumentFieldsValueResponse1:
@@ -3487,8 +3705,10 @@ export function fieldCreateDocumentFieldsValueResponse1FromJSON(
 
 /** @internal */
 export const FieldCreateDocumentFieldsDirectionResponse1$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsDirectionResponse1> = z
-    .nativeEnum(FieldCreateDocumentFieldsDirectionResponse1);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsDirectionResponse1> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsDirectionResponse1)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsDirectionResponse1$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsDirectionResponse1> =
@@ -3500,21 +3720,23 @@ export const FieldCreateDocumentFieldsFieldMetaRadioResponse$inboundSchema:
     FieldCreateDocumentFieldsFieldMetaRadioResponse,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowResponse8$inboundSchema
-      .optional(),
-    type: z.literal("radio"),
-    values: z.array(
-      z.lazy(() => FieldCreateDocumentFieldsValueResponse1$inboundSchema),
-    ).optional(),
-    direction: FieldCreateDocumentFieldsDirectionResponse1$inboundSchema
-      .default("vertical"),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowResponse8$inboundSchema
+        .optional(),
+      type: z.literal("radio"),
+      values: z.array(
+        z.lazy(() => FieldCreateDocumentFieldsValueResponse1$inboundSchema),
+      ).optional(),
+      direction: FieldCreateDocumentFieldsDirectionResponse1$inboundSchema
+        .default("vertical"),
+    })
+  );
 /** @internal */
 export type FieldCreateDocumentFieldsFieldMetaRadioResponse$Outbound = {
   label?: string | undefined;
@@ -3534,21 +3756,23 @@ export const FieldCreateDocumentFieldsFieldMetaRadioResponse$outboundSchema:
     FieldCreateDocumentFieldsFieldMetaRadioResponse$Outbound,
     z.ZodTypeDef,
     FieldCreateDocumentFieldsFieldMetaRadioResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowResponse8$outboundSchema
-      .optional(),
-    type: z.literal("radio"),
-    values: z.array(
-      z.lazy(() => FieldCreateDocumentFieldsValueResponse1$outboundSchema),
-    ).optional(),
-    direction: FieldCreateDocumentFieldsDirectionResponse1$outboundSchema
-      .default("vertical"),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowResponse8$outboundSchema
+        .optional(),
+      type: z.literal("radio"),
+      values: z.array(
+        z.lazy(() => FieldCreateDocumentFieldsValueResponse1$outboundSchema),
+      ).optional(),
+      direction: FieldCreateDocumentFieldsDirectionResponse1$outboundSchema
+        .default("vertical"),
+    })
+  );
 
 export function fieldCreateDocumentFieldsFieldMetaRadioResponseToJSON(
   fieldCreateDocumentFieldsFieldMetaRadioResponse:
@@ -3578,30 +3802,36 @@ export function fieldCreateDocumentFieldsFieldMetaRadioResponseFromJSON(
 
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowResponse7$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse7> = z
-    .nativeEnum(FieldCreateDocumentFieldsOverflowResponse7);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse7> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsOverflowResponse7)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowResponse7$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse7> =
     FieldCreateDocumentFieldsOverflowResponse7$inboundSchema;
 
 /** @internal */
-export const FieldCreateDocumentFieldsTextAlignResponse6$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignResponse6> = z
-    .nativeEnum(FieldCreateDocumentFieldsTextAlignResponse6);
+export const FieldCreateDocumentFieldsFieldMetaTextAlign6$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsFieldMetaTextAlign6> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsFieldMetaTextAlign6)
+    );
 /** @internal */
-export const FieldCreateDocumentFieldsTextAlignResponse6$outboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignResponse6> =
-    FieldCreateDocumentFieldsTextAlignResponse6$inboundSchema;
+export const FieldCreateDocumentFieldsFieldMetaTextAlign6$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsFieldMetaTextAlign6> =
+    FieldCreateDocumentFieldsFieldMetaTextAlign6$inboundSchema;
 
 /** @internal */
-export const FieldCreateDocumentFieldsVerticalAlignResponse2$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsVerticalAlignResponse2> = z
-    .nativeEnum(FieldCreateDocumentFieldsVerticalAlignResponse2);
+export const FieldCreateDocumentFieldsFieldMetaVerticalAlign2$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsFieldMetaVerticalAlign2> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsFieldMetaVerticalAlign2)
+    );
 /** @internal */
-export const FieldCreateDocumentFieldsVerticalAlignResponse2$outboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsVerticalAlignResponse2> =
-    FieldCreateDocumentFieldsVerticalAlignResponse2$inboundSchema;
+export const FieldCreateDocumentFieldsFieldMetaVerticalAlign2$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsFieldMetaVerticalAlign2> =
+    FieldCreateDocumentFieldsFieldMetaVerticalAlign2$inboundSchema;
 
 /** @internal */
 export const FieldCreateDocumentFieldsFieldMetaNumberResponse$inboundSchema:
@@ -3609,27 +3839,29 @@ export const FieldCreateDocumentFieldsFieldMetaNumberResponse$inboundSchema:
     FieldCreateDocumentFieldsFieldMetaNumberResponse,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowResponse7$inboundSchema
-      .optional(),
-    type: z.literal("number"),
-    numberFormat: z.nullable(z.string()).optional(),
-    value: z.string().optional(),
-    minValue: z.nullable(z.number()).optional(),
-    maxValue: z.nullable(z.number()).optional(),
-    textAlign: FieldCreateDocumentFieldsTextAlignResponse6$inboundSchema
-      .optional(),
-    lineHeight: z.nullable(z.number()).optional(),
-    letterSpacing: z.nullable(z.number()).optional(),
-    verticalAlign: z.nullable(
-      FieldCreateDocumentFieldsVerticalAlignResponse2$inboundSchema,
-    ).optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowResponse7$inboundSchema
+        .optional(),
+      type: z.literal("number"),
+      numberFormat: z.nullable(z.string()).optional(),
+      value: z.string().optional(),
+      minValue: z.nullable(z.number()).optional(),
+      maxValue: z.nullable(z.number()).optional(),
+      textAlign: FieldCreateDocumentFieldsFieldMetaTextAlign6$inboundSchema
+        .optional(),
+      lineHeight: z.nullable(z.number()).optional(),
+      letterSpacing: z.nullable(z.number()).optional(),
+      verticalAlign: z.nullable(
+        FieldCreateDocumentFieldsFieldMetaVerticalAlign2$inboundSchema,
+      ).optional(),
+    })
+  );
 /** @internal */
 export type FieldCreateDocumentFieldsFieldMetaNumberResponse$Outbound = {
   label?: string | undefined;
@@ -3655,27 +3887,29 @@ export const FieldCreateDocumentFieldsFieldMetaNumberResponse$outboundSchema:
     FieldCreateDocumentFieldsFieldMetaNumberResponse$Outbound,
     z.ZodTypeDef,
     FieldCreateDocumentFieldsFieldMetaNumberResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowResponse7$outboundSchema
-      .optional(),
-    type: z.literal("number"),
-    numberFormat: z.nullable(z.string()).optional(),
-    value: z.string().optional(),
-    minValue: z.nullable(z.number()).optional(),
-    maxValue: z.nullable(z.number()).optional(),
-    textAlign: FieldCreateDocumentFieldsTextAlignResponse6$outboundSchema
-      .optional(),
-    lineHeight: z.nullable(z.number()).optional(),
-    letterSpacing: z.nullable(z.number()).optional(),
-    verticalAlign: z.nullable(
-      FieldCreateDocumentFieldsVerticalAlignResponse2$outboundSchema,
-    ).optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowResponse7$outboundSchema
+        .optional(),
+      type: z.literal("number"),
+      numberFormat: z.nullable(z.string()).optional(),
+      value: z.string().optional(),
+      minValue: z.nullable(z.number()).optional(),
+      maxValue: z.nullable(z.number()).optional(),
+      textAlign: FieldCreateDocumentFieldsFieldMetaTextAlign6$outboundSchema
+        .optional(),
+      lineHeight: z.nullable(z.number()).optional(),
+      letterSpacing: z.nullable(z.number()).optional(),
+      verticalAlign: z.nullable(
+        FieldCreateDocumentFieldsFieldMetaVerticalAlign2$outboundSchema,
+      ).optional(),
+    })
+  );
 
 export function fieldCreateDocumentFieldsFieldMetaNumberResponseToJSON(
   fieldCreateDocumentFieldsFieldMetaNumberResponse:
@@ -3705,30 +3939,36 @@ export function fieldCreateDocumentFieldsFieldMetaNumberResponseFromJSON(
 
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowResponse6$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse6> = z
-    .nativeEnum(FieldCreateDocumentFieldsOverflowResponse6);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse6> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsOverflowResponse6)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowResponse6$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse6> =
     FieldCreateDocumentFieldsOverflowResponse6$inboundSchema;
 
 /** @internal */
-export const FieldCreateDocumentFieldsTextAlignResponse5$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignResponse5> = z
-    .nativeEnum(FieldCreateDocumentFieldsTextAlignResponse5);
+export const FieldCreateDocumentFieldsFieldMetaTextAlign5$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsFieldMetaTextAlign5> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsFieldMetaTextAlign5)
+    );
 /** @internal */
-export const FieldCreateDocumentFieldsTextAlignResponse5$outboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignResponse5> =
-    FieldCreateDocumentFieldsTextAlignResponse5$inboundSchema;
+export const FieldCreateDocumentFieldsFieldMetaTextAlign5$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsFieldMetaTextAlign5> =
+    FieldCreateDocumentFieldsFieldMetaTextAlign5$inboundSchema;
 
 /** @internal */
-export const FieldCreateDocumentFieldsVerticalAlignResponse1$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsVerticalAlignResponse1> = z
-    .nativeEnum(FieldCreateDocumentFieldsVerticalAlignResponse1);
+export const FieldCreateDocumentFieldsFieldMetaVerticalAlign1$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsFieldMetaVerticalAlign1> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsFieldMetaVerticalAlign1)
+    );
 /** @internal */
-export const FieldCreateDocumentFieldsVerticalAlignResponse1$outboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsVerticalAlignResponse1> =
-    FieldCreateDocumentFieldsVerticalAlignResponse1$inboundSchema;
+export const FieldCreateDocumentFieldsFieldMetaVerticalAlign1$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsFieldMetaVerticalAlign1> =
+    FieldCreateDocumentFieldsFieldMetaVerticalAlign1$inboundSchema;
 
 /** @internal */
 export const FieldCreateDocumentFieldsFieldMetaTextResponse$inboundSchema:
@@ -3736,25 +3976,27 @@ export const FieldCreateDocumentFieldsFieldMetaTextResponse$inboundSchema:
     FieldCreateDocumentFieldsFieldMetaTextResponse,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowResponse6$inboundSchema
-      .optional(),
-    type: z.literal("text"),
-    text: z.string().optional(),
-    characterLimit: z.number().optional(),
-    textAlign: FieldCreateDocumentFieldsTextAlignResponse5$inboundSchema
-      .optional(),
-    lineHeight: z.nullable(z.number()).optional(),
-    letterSpacing: z.nullable(z.number()).optional(),
-    verticalAlign: z.nullable(
-      FieldCreateDocumentFieldsVerticalAlignResponse1$inboundSchema,
-    ).optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowResponse6$inboundSchema
+        .optional(),
+      type: z.literal("text"),
+      text: z.string().optional(),
+      characterLimit: z.number().optional(),
+      textAlign: FieldCreateDocumentFieldsFieldMetaTextAlign5$inboundSchema
+        .optional(),
+      lineHeight: z.nullable(z.number()).optional(),
+      letterSpacing: z.nullable(z.number()).optional(),
+      verticalAlign: z.nullable(
+        FieldCreateDocumentFieldsFieldMetaVerticalAlign1$inboundSchema,
+      ).optional(),
+    })
+  );
 /** @internal */
 export type FieldCreateDocumentFieldsFieldMetaTextResponse$Outbound = {
   label?: string | undefined;
@@ -3778,25 +4020,27 @@ export const FieldCreateDocumentFieldsFieldMetaTextResponse$outboundSchema:
     FieldCreateDocumentFieldsFieldMetaTextResponse$Outbound,
     z.ZodTypeDef,
     FieldCreateDocumentFieldsFieldMetaTextResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowResponse6$outboundSchema
-      .optional(),
-    type: z.literal("text"),
-    text: z.string().optional(),
-    characterLimit: z.number().optional(),
-    textAlign: FieldCreateDocumentFieldsTextAlignResponse5$outboundSchema
-      .optional(),
-    lineHeight: z.nullable(z.number()).optional(),
-    letterSpacing: z.nullable(z.number()).optional(),
-    verticalAlign: z.nullable(
-      FieldCreateDocumentFieldsVerticalAlignResponse1$outboundSchema,
-    ).optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowResponse6$outboundSchema
+        .optional(),
+      type: z.literal("text"),
+      text: z.string().optional(),
+      characterLimit: z.number().optional(),
+      textAlign: FieldCreateDocumentFieldsFieldMetaTextAlign5$outboundSchema
+        .optional(),
+      lineHeight: z.nullable(z.number()).optional(),
+      letterSpacing: z.nullable(z.number()).optional(),
+      verticalAlign: z.nullable(
+        FieldCreateDocumentFieldsFieldMetaVerticalAlign1$outboundSchema,
+      ).optional(),
+    })
+  );
 
 export function fieldCreateDocumentFieldsFieldMetaTextResponseToJSON(
   fieldCreateDocumentFieldsFieldMetaTextResponse:
@@ -3826,21 +4070,25 @@ export function fieldCreateDocumentFieldsFieldMetaTextResponseFromJSON(
 
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowResponse5$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse5> = z
-    .nativeEnum(FieldCreateDocumentFieldsOverflowResponse5);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse5> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsOverflowResponse5)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowResponse5$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse5> =
     FieldCreateDocumentFieldsOverflowResponse5$inboundSchema;
 
 /** @internal */
-export const FieldCreateDocumentFieldsTextAlignResponse4$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignResponse4> = z
-    .nativeEnum(FieldCreateDocumentFieldsTextAlignResponse4);
+export const FieldCreateDocumentFieldsFieldMetaTextAlign4$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsFieldMetaTextAlign4> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsFieldMetaTextAlign4)
+    );
 /** @internal */
-export const FieldCreateDocumentFieldsTextAlignResponse4$outboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignResponse4> =
-    FieldCreateDocumentFieldsTextAlignResponse4$inboundSchema;
+export const FieldCreateDocumentFieldsFieldMetaTextAlign4$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsFieldMetaTextAlign4> =
+    FieldCreateDocumentFieldsFieldMetaTextAlign4$inboundSchema;
 
 /** @internal */
 export const FieldCreateDocumentFieldsFieldMetaDateResponse$inboundSchema:
@@ -3848,19 +4096,20 @@ export const FieldCreateDocumentFieldsFieldMetaDateResponse$inboundSchema:
     FieldCreateDocumentFieldsFieldMetaDateResponse,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowResponse5$inboundSchema.default(
-      "auto",
-    ),
-    type: z.literal("date"),
-    textAlign: FieldCreateDocumentFieldsTextAlignResponse4$inboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowResponse5$inboundSchema
+        .default("auto"),
+      type: z.literal("date"),
+      textAlign: FieldCreateDocumentFieldsFieldMetaTextAlign4$inboundSchema
+        .optional(),
+    })
+  );
 /** @internal */
 export type FieldCreateDocumentFieldsFieldMetaDateResponse$Outbound = {
   label?: string | undefined;
@@ -3879,19 +4128,20 @@ export const FieldCreateDocumentFieldsFieldMetaDateResponse$outboundSchema:
     FieldCreateDocumentFieldsFieldMetaDateResponse$Outbound,
     z.ZodTypeDef,
     FieldCreateDocumentFieldsFieldMetaDateResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowResponse5$outboundSchema.default(
-      "auto",
-    ),
-    type: z.literal("date"),
-    textAlign: FieldCreateDocumentFieldsTextAlignResponse4$outboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowResponse5$outboundSchema
+        .default("auto"),
+      type: z.literal("date"),
+      textAlign: FieldCreateDocumentFieldsFieldMetaTextAlign4$outboundSchema
+        .optional(),
+    })
+  );
 
 export function fieldCreateDocumentFieldsFieldMetaDateResponseToJSON(
   fieldCreateDocumentFieldsFieldMetaDateResponse:
@@ -3921,21 +4171,25 @@ export function fieldCreateDocumentFieldsFieldMetaDateResponseFromJSON(
 
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowResponse4$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse4> = z
-    .nativeEnum(FieldCreateDocumentFieldsOverflowResponse4);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse4> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsOverflowResponse4)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowResponse4$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse4> =
     FieldCreateDocumentFieldsOverflowResponse4$inboundSchema;
 
 /** @internal */
-export const FieldCreateDocumentFieldsTextAlignResponse3$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignResponse3> = z
-    .nativeEnum(FieldCreateDocumentFieldsTextAlignResponse3);
+export const FieldCreateDocumentFieldsFieldMetaTextAlign3$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsFieldMetaTextAlign3> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsFieldMetaTextAlign3)
+    );
 /** @internal */
-export const FieldCreateDocumentFieldsTextAlignResponse3$outboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignResponse3> =
-    FieldCreateDocumentFieldsTextAlignResponse3$inboundSchema;
+export const FieldCreateDocumentFieldsFieldMetaTextAlign3$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsFieldMetaTextAlign3> =
+    FieldCreateDocumentFieldsFieldMetaTextAlign3$inboundSchema;
 
 /** @internal */
 export const FieldCreateDocumentFieldsFieldMetaEmailResponse$inboundSchema:
@@ -3943,19 +4197,20 @@ export const FieldCreateDocumentFieldsFieldMetaEmailResponse$inboundSchema:
     FieldCreateDocumentFieldsFieldMetaEmailResponse,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowResponse4$inboundSchema.default(
-      "auto",
-    ),
-    type: z.literal("email"),
-    textAlign: FieldCreateDocumentFieldsTextAlignResponse3$inboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowResponse4$inboundSchema
+        .default("auto"),
+      type: z.literal("email"),
+      textAlign: FieldCreateDocumentFieldsFieldMetaTextAlign3$inboundSchema
+        .optional(),
+    })
+  );
 /** @internal */
 export type FieldCreateDocumentFieldsFieldMetaEmailResponse$Outbound = {
   label?: string | undefined;
@@ -3974,19 +4229,20 @@ export const FieldCreateDocumentFieldsFieldMetaEmailResponse$outboundSchema:
     FieldCreateDocumentFieldsFieldMetaEmailResponse$Outbound,
     z.ZodTypeDef,
     FieldCreateDocumentFieldsFieldMetaEmailResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowResponse4$outboundSchema.default(
-      "auto",
-    ),
-    type: z.literal("email"),
-    textAlign: FieldCreateDocumentFieldsTextAlignResponse3$outboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowResponse4$outboundSchema
+        .default("auto"),
+      type: z.literal("email"),
+      textAlign: FieldCreateDocumentFieldsFieldMetaTextAlign3$outboundSchema
+        .optional(),
+    })
+  );
 
 export function fieldCreateDocumentFieldsFieldMetaEmailResponseToJSON(
   fieldCreateDocumentFieldsFieldMetaEmailResponse:
@@ -4016,21 +4272,25 @@ export function fieldCreateDocumentFieldsFieldMetaEmailResponseFromJSON(
 
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowResponse3$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse3> = z
-    .nativeEnum(FieldCreateDocumentFieldsOverflowResponse3);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse3> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsOverflowResponse3)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowResponse3$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse3> =
     FieldCreateDocumentFieldsOverflowResponse3$inboundSchema;
 
 /** @internal */
-export const FieldCreateDocumentFieldsTextAlignResponse2$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignResponse2> = z
-    .nativeEnum(FieldCreateDocumentFieldsTextAlignResponse2);
+export const FieldCreateDocumentFieldsFieldMetaTextAlign2$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsFieldMetaTextAlign2> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsFieldMetaTextAlign2)
+    );
 /** @internal */
-export const FieldCreateDocumentFieldsTextAlignResponse2$outboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignResponse2> =
-    FieldCreateDocumentFieldsTextAlignResponse2$inboundSchema;
+export const FieldCreateDocumentFieldsFieldMetaTextAlign2$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsFieldMetaTextAlign2> =
+    FieldCreateDocumentFieldsFieldMetaTextAlign2$inboundSchema;
 
 /** @internal */
 export const FieldCreateDocumentFieldsFieldMetaNameResponse$inboundSchema:
@@ -4038,18 +4298,20 @@ export const FieldCreateDocumentFieldsFieldMetaNameResponse$inboundSchema:
     FieldCreateDocumentFieldsFieldMetaNameResponse,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowResponse3$inboundSchema
-      .optional(),
-    type: z.literal("name"),
-    textAlign: FieldCreateDocumentFieldsTextAlignResponse2$inboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowResponse3$inboundSchema
+        .optional(),
+      type: z.literal("name"),
+      textAlign: FieldCreateDocumentFieldsFieldMetaTextAlign2$inboundSchema
+        .optional(),
+    })
+  );
 /** @internal */
 export type FieldCreateDocumentFieldsFieldMetaNameResponse$Outbound = {
   label?: string | undefined;
@@ -4068,18 +4330,20 @@ export const FieldCreateDocumentFieldsFieldMetaNameResponse$outboundSchema:
     FieldCreateDocumentFieldsFieldMetaNameResponse$Outbound,
     z.ZodTypeDef,
     FieldCreateDocumentFieldsFieldMetaNameResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowResponse3$outboundSchema
-      .optional(),
-    type: z.literal("name"),
-    textAlign: FieldCreateDocumentFieldsTextAlignResponse2$outboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowResponse3$outboundSchema
+        .optional(),
+      type: z.literal("name"),
+      textAlign: FieldCreateDocumentFieldsFieldMetaTextAlign2$outboundSchema
+        .optional(),
+    })
+  );
 
 export function fieldCreateDocumentFieldsFieldMetaNameResponseToJSON(
   fieldCreateDocumentFieldsFieldMetaNameResponse:
@@ -4109,21 +4373,36 @@ export function fieldCreateDocumentFieldsFieldMetaNameResponseFromJSON(
 
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowResponse2$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse2> = z
-    .nativeEnum(FieldCreateDocumentFieldsOverflowResponse2);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse2> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsOverflowResponse2)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowResponse2$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse2> =
     FieldCreateDocumentFieldsOverflowResponse2$inboundSchema;
 
 /** @internal */
-export const FieldCreateDocumentFieldsTextAlignResponse1$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignResponse1> = z
-    .nativeEnum(FieldCreateDocumentFieldsTextAlignResponse1);
+export const FieldCreateDocumentFieldsFieldMetaTextAlign1$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsFieldMetaTextAlign1> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsFieldMetaTextAlign1)
+    );
 /** @internal */
-export const FieldCreateDocumentFieldsTextAlignResponse1$outboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsTextAlignResponse1> =
-    FieldCreateDocumentFieldsTextAlignResponse1$inboundSchema;
+export const FieldCreateDocumentFieldsFieldMetaTextAlign1$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsFieldMetaTextAlign1> =
+    FieldCreateDocumentFieldsFieldMetaTextAlign1$inboundSchema;
+
+/** @internal */
+export const FieldCreateDocumentFieldsFontFamilyResponse$inboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsFontFamilyResponse> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsFontFamilyResponse)
+    );
+/** @internal */
+export const FieldCreateDocumentFieldsFontFamilyResponse$outboundSchema:
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsFontFamilyResponse> =
+    FieldCreateDocumentFieldsFontFamilyResponse$inboundSchema;
 
 /** @internal */
 export const FieldCreateDocumentFieldsFieldMetaInitialsResponse$inboundSchema:
@@ -4131,18 +4410,22 @@ export const FieldCreateDocumentFieldsFieldMetaInitialsResponse$inboundSchema:
     FieldCreateDocumentFieldsFieldMetaInitialsResponse,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowResponse2$inboundSchema
-      .optional(),
-    type: z.literal("initials"),
-    textAlign: FieldCreateDocumentFieldsTextAlignResponse1$inboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowResponse2$inboundSchema
+        .optional(),
+      type: z.literal("initials"),
+      textAlign: FieldCreateDocumentFieldsFieldMetaTextAlign1$inboundSchema
+        .optional(),
+      fontFamily: FieldCreateDocumentFieldsFontFamilyResponse$inboundSchema
+        .optional(),
+    })
+  );
 /** @internal */
 export type FieldCreateDocumentFieldsFieldMetaInitialsResponse$Outbound = {
   label?: string | undefined;
@@ -4153,6 +4436,7 @@ export type FieldCreateDocumentFieldsFieldMetaInitialsResponse$Outbound = {
   overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -4161,18 +4445,22 @@ export const FieldCreateDocumentFieldsFieldMetaInitialsResponse$outboundSchema:
     FieldCreateDocumentFieldsFieldMetaInitialsResponse$Outbound,
     z.ZodTypeDef,
     FieldCreateDocumentFieldsFieldMetaInitialsResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowResponse2$outboundSchema
-      .optional(),
-    type: z.literal("initials"),
-    textAlign: FieldCreateDocumentFieldsTextAlignResponse1$outboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowResponse2$outboundSchema
+        .optional(),
+      type: z.literal("initials"),
+      textAlign: FieldCreateDocumentFieldsFieldMetaTextAlign1$outboundSchema
+        .optional(),
+      fontFamily: FieldCreateDocumentFieldsFontFamilyResponse$outboundSchema
+        .optional(),
+    })
+  );
 
 export function fieldCreateDocumentFieldsFieldMetaInitialsResponseToJSON(
   fieldCreateDocumentFieldsFieldMetaInitialsResponse:
@@ -4202,8 +4490,10 @@ export function fieldCreateDocumentFieldsFieldMetaInitialsResponseFromJSON(
 
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowResponse1$inboundSchema:
-  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse1> = z
-    .nativeEnum(FieldCreateDocumentFieldsOverflowResponse1);
+  z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse1> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(FieldCreateDocumentFieldsOverflowResponse1)
+    );
 /** @internal */
 export const FieldCreateDocumentFieldsOverflowResponse1$outboundSchema:
   z.ZodNativeEnum<typeof FieldCreateDocumentFieldsOverflowResponse1> =
@@ -4215,17 +4505,18 @@ export const FieldCreateDocumentFieldsFieldMetaSignatureResponse$inboundSchema:
     FieldCreateDocumentFieldsFieldMetaSignatureResponse,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowResponse1$inboundSchema.default(
-      "auto",
-    ),
-    type: z.literal("signature"),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowResponse1$inboundSchema
+        .default("auto"),
+      type: z.literal("signature"),
+    })
+  );
 /** @internal */
 export type FieldCreateDocumentFieldsFieldMetaSignatureResponse$Outbound = {
   label?: string | undefined;
@@ -4243,17 +4534,18 @@ export const FieldCreateDocumentFieldsFieldMetaSignatureResponse$outboundSchema:
     FieldCreateDocumentFieldsFieldMetaSignatureResponse$Outbound,
     z.ZodTypeDef,
     FieldCreateDocumentFieldsFieldMetaSignatureResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: FieldCreateDocumentFieldsOverflowResponse1$outboundSchema.default(
-      "auto",
-    ),
-    type: z.literal("signature"),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: FieldCreateDocumentFieldsOverflowResponse1$outboundSchema
+        .default("auto"),
+      type: z.literal("signature"),
+    })
+  );
 
 export function fieldCreateDocumentFieldsFieldMetaSignatureResponseToJSON(
   fieldCreateDocumentFieldsFieldMetaSignatureResponse:
@@ -4286,26 +4578,30 @@ export const FieldCreateDocumentFieldsFieldMetaUnion$inboundSchema: z.ZodType<
   FieldCreateDocumentFieldsFieldMetaUnion,
   z.ZodTypeDef,
   unknown
-> = z.union([
-  z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaSignatureResponse$inboundSchema
-  ),
-  z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaInitialsResponse$inboundSchema
-  ),
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaNameResponse$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaEmailResponse$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaDateResponse$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaTextResponse$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaNumberResponse$inboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaRadioResponse$inboundSchema),
-  z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaCheckboxResponse$inboundSchema
-  ),
-  z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaDropdownResponse$inboundSchema
-  ),
-]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([
+    z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaSignatureResponse$inboundSchema
+    ),
+    z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaInitialsResponse$inboundSchema
+    ),
+    z.lazy(() => FieldCreateDocumentFieldsFieldMetaNameResponse$inboundSchema),
+    z.lazy(() => FieldCreateDocumentFieldsFieldMetaEmailResponse$inboundSchema),
+    z.lazy(() => FieldCreateDocumentFieldsFieldMetaDateResponse$inboundSchema),
+    z.lazy(() => FieldCreateDocumentFieldsFieldMetaTextResponse$inboundSchema),
+    z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaNumberResponse$inboundSchema
+    ),
+    z.lazy(() => FieldCreateDocumentFieldsFieldMetaRadioResponse$inboundSchema),
+    z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaCheckboxResponse$inboundSchema
+    ),
+    z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaDropdownResponse$inboundSchema
+    ),
+  ])
+);
 /** @internal */
 export type FieldCreateDocumentFieldsFieldMetaUnion$Outbound =
   | FieldCreateDocumentFieldsFieldMetaSignatureResponse$Outbound
@@ -4324,26 +4620,34 @@ export const FieldCreateDocumentFieldsFieldMetaUnion$outboundSchema: z.ZodType<
   FieldCreateDocumentFieldsFieldMetaUnion$Outbound,
   z.ZodTypeDef,
   FieldCreateDocumentFieldsFieldMetaUnion
-> = z.union([
-  z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaSignatureResponse$outboundSchema
-  ),
-  z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaInitialsResponse$outboundSchema
-  ),
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaNameResponse$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaEmailResponse$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaDateResponse$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaTextResponse$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaNumberResponse$outboundSchema),
-  z.lazy(() => FieldCreateDocumentFieldsFieldMetaRadioResponse$outboundSchema),
-  z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaCheckboxResponse$outboundSchema
-  ),
-  z.lazy(() =>
-    FieldCreateDocumentFieldsFieldMetaDropdownResponse$outboundSchema
-  ),
-]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([
+    z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaSignatureResponse$outboundSchema
+    ),
+    z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaInitialsResponse$outboundSchema
+    ),
+    z.lazy(() => FieldCreateDocumentFieldsFieldMetaNameResponse$outboundSchema),
+    z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaEmailResponse$outboundSchema
+    ),
+    z.lazy(() => FieldCreateDocumentFieldsFieldMetaDateResponse$outboundSchema),
+    z.lazy(() => FieldCreateDocumentFieldsFieldMetaTextResponse$outboundSchema),
+    z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaNumberResponse$outboundSchema
+    ),
+    z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaRadioResponse$outboundSchema
+    ),
+    z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaCheckboxResponse$outboundSchema
+    ),
+    z.lazy(() =>
+      FieldCreateDocumentFieldsFieldMetaDropdownResponse$outboundSchema
+    ),
+  ])
+);
 
 export function fieldCreateDocumentFieldsFieldMetaUnionToJSON(
   fieldCreateDocumentFieldsFieldMetaUnion:
@@ -4376,22 +4680,22 @@ export const FieldCreateDocumentFieldsFieldResponse$inboundSchema: z.ZodType<
   FieldCreateDocumentFieldsFieldResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeId: z.string(),
-  envelopeItemId: z.string(),
-  type: FieldCreateDocumentFieldsTypeResponseEnum$inboundSchema,
-  id: z.number(),
-  secondaryId: z.string(),
-  recipientId: z.number(),
-  page: z.number(),
-  positionX: z.any().optional(),
-  positionY: z.any().optional(),
-  width: z.any().optional(),
-  height: z.any().optional(),
-  customText: z.string(),
-  inserted: z.boolean(),
-  fieldMeta: z.nullable(
-    z.union([
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    envelopeItemId: z.string(),
+    type: FieldCreateDocumentFieldsTypeResponseEnum$inboundSchema,
+    id: z.number(),
+    secondaryId: z.string(),
+    recipientId: z.number(),
+    page: z.number(),
+    positionX: z.any().optional(),
+    positionY: z.any().optional(),
+    width: z.any().optional(),
+    height: z.any().optional(),
+    customText: z.string(),
+    inserted: z.boolean(),
+    fieldMeta: z.nullable(z.union([
       z.lazy(() =>
         FieldCreateDocumentFieldsFieldMetaSignatureResponse$inboundSchema
       ),
@@ -4422,11 +4726,11 @@ export const FieldCreateDocumentFieldsFieldResponse$inboundSchema: z.ZodType<
       z.lazy(() =>
         FieldCreateDocumentFieldsFieldMetaDropdownResponse$inboundSchema
       ),
-    ]),
-  ),
-  documentId: z.nullable(z.number()).optional(),
-  templateId: z.nullable(z.number()).optional(),
-});
+    ])),
+    documentId: z.nullable(z.number()).optional(),
+    templateId: z.nullable(z.number()).optional(),
+  })
+);
 /** @internal */
 export type FieldCreateDocumentFieldsFieldResponse$Outbound = {
   envelopeId: string;
@@ -4463,22 +4767,22 @@ export const FieldCreateDocumentFieldsFieldResponse$outboundSchema: z.ZodType<
   FieldCreateDocumentFieldsFieldResponse$Outbound,
   z.ZodTypeDef,
   FieldCreateDocumentFieldsFieldResponse
-> = z.object({
-  envelopeId: z.string(),
-  envelopeItemId: z.string(),
-  type: FieldCreateDocumentFieldsTypeResponseEnum$outboundSchema,
-  id: z.number(),
-  secondaryId: z.string(),
-  recipientId: z.number(),
-  page: z.number(),
-  positionX: z.any().optional(),
-  positionY: z.any().optional(),
-  width: z.any().optional(),
-  height: z.any().optional(),
-  customText: z.string(),
-  inserted: z.boolean(),
-  fieldMeta: z.nullable(
-    z.union([
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    envelopeItemId: z.string(),
+    type: FieldCreateDocumentFieldsTypeResponseEnum$outboundSchema,
+    id: z.number(),
+    secondaryId: z.string(),
+    recipientId: z.number(),
+    page: z.number(),
+    positionX: z.any().optional(),
+    positionY: z.any().optional(),
+    width: z.any().optional(),
+    height: z.any().optional(),
+    customText: z.string(),
+    inserted: z.boolean(),
+    fieldMeta: z.nullable(z.union([
       z.lazy(() =>
         FieldCreateDocumentFieldsFieldMetaSignatureResponse$outboundSchema
       ),
@@ -4509,11 +4813,11 @@ export const FieldCreateDocumentFieldsFieldResponse$outboundSchema: z.ZodType<
       z.lazy(() =>
         FieldCreateDocumentFieldsFieldMetaDropdownResponse$outboundSchema
       ),
-    ]),
-  ),
-  documentId: z.nullable(z.number()).optional(),
-  templateId: z.nullable(z.number()).optional(),
-});
+    ])),
+    documentId: z.nullable(z.number()).optional(),
+    templateId: z.nullable(z.number()).optional(),
+  })
+);
 
 export function fieldCreateDocumentFieldsFieldResponseToJSON(
   fieldCreateDocumentFieldsFieldResponse:
@@ -4541,11 +4845,13 @@ export const FieldCreateDocumentFieldsResponse$inboundSchema: z.ZodType<
   FieldCreateDocumentFieldsResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  fields: z.array(
-    z.lazy(() => FieldCreateDocumentFieldsFieldResponse$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    fields: z.array(
+      z.lazy(() => FieldCreateDocumentFieldsFieldResponse$inboundSchema),
+    ),
+  })
+);
 /** @internal */
 export type FieldCreateDocumentFieldsResponse$Outbound = {
   fields: Array<FieldCreateDocumentFieldsFieldResponse$Outbound>;
@@ -4556,11 +4862,13 @@ export const FieldCreateDocumentFieldsResponse$outboundSchema: z.ZodType<
   FieldCreateDocumentFieldsResponse$Outbound,
   z.ZodTypeDef,
   FieldCreateDocumentFieldsResponse
-> = z.object({
-  fields: z.array(
-    z.lazy(() => FieldCreateDocumentFieldsFieldResponse$outboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    fields: z.array(
+      z.lazy(() => FieldCreateDocumentFieldsFieldResponse$outboundSchema),
+    ),
+  })
+);
 
 export function fieldCreateDocumentFieldsResponseToJSON(
   fieldCreateDocumentFieldsResponse: FieldCreateDocumentFieldsResponse,

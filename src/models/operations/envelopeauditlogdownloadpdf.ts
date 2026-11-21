@@ -4,7 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -25,9 +25,11 @@ export const EnvelopeAuditLogDownloadPdfRequest$inboundSchema: z.ZodType<
   EnvelopeAuditLogDownloadPdfRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeId: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeAuditLogDownloadPdfRequest$Outbound = {
   envelopeId: string;
@@ -38,9 +40,11 @@ export const EnvelopeAuditLogDownloadPdfRequest$outboundSchema: z.ZodType<
   EnvelopeAuditLogDownloadPdfRequest$Outbound,
   z.ZodTypeDef,
   EnvelopeAuditLogDownloadPdfRequest
-> = z.object({
-  envelopeId: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+  })
+);
 
 export function envelopeAuditLogDownloadPdfRequestToJSON(
   envelopeAuditLogDownloadPdfRequest: EnvelopeAuditLogDownloadPdfRequest,
@@ -67,15 +71,17 @@ export const EnvelopeAuditLogDownloadPdfResponse$inboundSchema: z.ZodType<
   EnvelopeAuditLogDownloadPdfResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  Headers: z.record(z.array(z.string())).default({}),
-  Result: z.any().optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "Headers": "headers",
-    "Result": "result",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    Headers: z.record(z.array(z.string())).default({}),
+    Result: z.any().optional(),
+  }).transform((v) => {
+    return remap$(v, {
+      "Headers": "headers",
+      "Result": "result",
+    });
+  })
+);
 /** @internal */
 export type EnvelopeAuditLogDownloadPdfResponse$Outbound = {
   Headers: { [k: string]: Array<string> };
@@ -87,15 +93,17 @@ export const EnvelopeAuditLogDownloadPdfResponse$outboundSchema: z.ZodType<
   EnvelopeAuditLogDownloadPdfResponse$Outbound,
   z.ZodTypeDef,
   EnvelopeAuditLogDownloadPdfResponse
-> = z.object({
-  headers: z.record(z.array(z.string())),
-  result: z.any().optional(),
-}).transform((v) => {
-  return remap$(v, {
-    headers: "Headers",
-    result: "Result",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    headers: z.record(z.array(z.string())),
+    result: z.any().optional(),
+  }).transform((v) => {
+    return remap$(v, {
+      headers: "Headers",
+      result: "Result",
+    });
+  })
+);
 
 export function envelopeAuditLogDownloadPdfResponseToJSON(
   envelopeAuditLogDownloadPdfResponse: EnvelopeAuditLogDownloadPdfResponse,

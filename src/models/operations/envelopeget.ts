@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -332,20 +332,22 @@ export const EnvelopeGetOverflow7 = {
 } as const;
 export type EnvelopeGetOverflow7 = ClosedEnum<typeof EnvelopeGetOverflow7>;
 
-export const EnvelopeGetTextAlign6 = {
+export const EnvelopeGetFieldMetaTextAlign6 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeGetTextAlign6 = ClosedEnum<typeof EnvelopeGetTextAlign6>;
+export type EnvelopeGetFieldMetaTextAlign6 = ClosedEnum<
+  typeof EnvelopeGetFieldMetaTextAlign6
+>;
 
-export const EnvelopeGetVerticalAlign2 = {
+export const EnvelopeGetFieldMetaVerticalAlign2 = {
   Top: "top",
   Middle: "middle",
   Bottom: "bottom",
 } as const;
-export type EnvelopeGetVerticalAlign2 = ClosedEnum<
-  typeof EnvelopeGetVerticalAlign2
+export type EnvelopeGetFieldMetaVerticalAlign2 = ClosedEnum<
+  typeof EnvelopeGetFieldMetaVerticalAlign2
 >;
 
 export type EnvelopeGetFieldMetaNumber = {
@@ -360,10 +362,10 @@ export type EnvelopeGetFieldMetaNumber = {
   value?: string | undefined;
   minValue?: number | null | undefined;
   maxValue?: number | null | undefined;
-  textAlign?: EnvelopeGetTextAlign6 | undefined;
+  textAlign?: EnvelopeGetFieldMetaTextAlign6 | undefined;
   lineHeight?: number | null | undefined;
   letterSpacing?: number | null | undefined;
-  verticalAlign?: EnvelopeGetVerticalAlign2 | null | undefined;
+  verticalAlign?: EnvelopeGetFieldMetaVerticalAlign2 | null | undefined;
 };
 
 export const EnvelopeGetOverflow6 = {
@@ -374,20 +376,22 @@ export const EnvelopeGetOverflow6 = {
 } as const;
 export type EnvelopeGetOverflow6 = ClosedEnum<typeof EnvelopeGetOverflow6>;
 
-export const EnvelopeGetTextAlign5 = {
+export const EnvelopeGetFieldMetaTextAlign5 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeGetTextAlign5 = ClosedEnum<typeof EnvelopeGetTextAlign5>;
+export type EnvelopeGetFieldMetaTextAlign5 = ClosedEnum<
+  typeof EnvelopeGetFieldMetaTextAlign5
+>;
 
-export const EnvelopeGetVerticalAlign1 = {
+export const EnvelopeGetFieldMetaVerticalAlign1 = {
   Top: "top",
   Middle: "middle",
   Bottom: "bottom",
 } as const;
-export type EnvelopeGetVerticalAlign1 = ClosedEnum<
-  typeof EnvelopeGetVerticalAlign1
+export type EnvelopeGetFieldMetaVerticalAlign1 = ClosedEnum<
+  typeof EnvelopeGetFieldMetaVerticalAlign1
 >;
 
 export type EnvelopeGetFieldMetaText = {
@@ -400,10 +404,10 @@ export type EnvelopeGetFieldMetaText = {
   type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
-  textAlign?: EnvelopeGetTextAlign5 | undefined;
+  textAlign?: EnvelopeGetFieldMetaTextAlign5 | undefined;
   lineHeight?: number | null | undefined;
   letterSpacing?: number | null | undefined;
-  verticalAlign?: EnvelopeGetVerticalAlign1 | null | undefined;
+  verticalAlign?: EnvelopeGetFieldMetaVerticalAlign1 | null | undefined;
 };
 
 export const EnvelopeGetOverflow5 = {
@@ -414,12 +418,14 @@ export const EnvelopeGetOverflow5 = {
 } as const;
 export type EnvelopeGetOverflow5 = ClosedEnum<typeof EnvelopeGetOverflow5>;
 
-export const EnvelopeGetTextAlign4 = {
+export const EnvelopeGetFieldMetaTextAlign4 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeGetTextAlign4 = ClosedEnum<typeof EnvelopeGetTextAlign4>;
+export type EnvelopeGetFieldMetaTextAlign4 = ClosedEnum<
+  typeof EnvelopeGetFieldMetaTextAlign4
+>;
 
 export type EnvelopeGetFieldMetaDate = {
   label?: string | undefined;
@@ -429,7 +435,7 @@ export type EnvelopeGetFieldMetaDate = {
   fontSize?: number | undefined;
   overflow?: EnvelopeGetOverflow5 | undefined;
   type: "date";
-  textAlign?: EnvelopeGetTextAlign4 | undefined;
+  textAlign?: EnvelopeGetFieldMetaTextAlign4 | undefined;
 };
 
 export const EnvelopeGetOverflow4 = {
@@ -440,12 +446,14 @@ export const EnvelopeGetOverflow4 = {
 } as const;
 export type EnvelopeGetOverflow4 = ClosedEnum<typeof EnvelopeGetOverflow4>;
 
-export const EnvelopeGetTextAlign3 = {
+export const EnvelopeGetFieldMetaTextAlign3 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeGetTextAlign3 = ClosedEnum<typeof EnvelopeGetTextAlign3>;
+export type EnvelopeGetFieldMetaTextAlign3 = ClosedEnum<
+  typeof EnvelopeGetFieldMetaTextAlign3
+>;
 
 export type EnvelopeGetFieldMetaEmail = {
   label?: string | undefined;
@@ -455,7 +463,7 @@ export type EnvelopeGetFieldMetaEmail = {
   fontSize?: number | undefined;
   overflow?: EnvelopeGetOverflow4 | undefined;
   type: "email";
-  textAlign?: EnvelopeGetTextAlign3 | undefined;
+  textAlign?: EnvelopeGetFieldMetaTextAlign3 | undefined;
 };
 
 export const EnvelopeGetOverflow3 = {
@@ -466,12 +474,14 @@ export const EnvelopeGetOverflow3 = {
 } as const;
 export type EnvelopeGetOverflow3 = ClosedEnum<typeof EnvelopeGetOverflow3>;
 
-export const EnvelopeGetTextAlign2 = {
+export const EnvelopeGetFieldMetaTextAlign2 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeGetTextAlign2 = ClosedEnum<typeof EnvelopeGetTextAlign2>;
+export type EnvelopeGetFieldMetaTextAlign2 = ClosedEnum<
+  typeof EnvelopeGetFieldMetaTextAlign2
+>;
 
 export type EnvelopeGetFieldMetaName = {
   label?: string | undefined;
@@ -481,7 +491,7 @@ export type EnvelopeGetFieldMetaName = {
   fontSize?: number | undefined;
   overflow?: EnvelopeGetOverflow3 | undefined;
   type: "name";
-  textAlign?: EnvelopeGetTextAlign2 | undefined;
+  textAlign?: EnvelopeGetFieldMetaTextAlign2 | undefined;
 };
 
 export const EnvelopeGetOverflow2 = {
@@ -492,12 +502,20 @@ export const EnvelopeGetOverflow2 = {
 } as const;
 export type EnvelopeGetOverflow2 = ClosedEnum<typeof EnvelopeGetOverflow2>;
 
-export const EnvelopeGetTextAlign1 = {
+export const EnvelopeGetFieldMetaTextAlign1 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeGetTextAlign1 = ClosedEnum<typeof EnvelopeGetTextAlign1>;
+export type EnvelopeGetFieldMetaTextAlign1 = ClosedEnum<
+  typeof EnvelopeGetFieldMetaTextAlign1
+>;
+
+export const EnvelopeGetFontFamily = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type EnvelopeGetFontFamily = ClosedEnum<typeof EnvelopeGetFontFamily>;
 
 export type EnvelopeGetFieldMetaInitials = {
   label?: string | undefined;
@@ -507,7 +525,8 @@ export type EnvelopeGetFieldMetaInitials = {
   fontSize?: number | undefined;
   overflow?: EnvelopeGetOverflow2 | undefined;
   type: "initials";
-  textAlign?: EnvelopeGetTextAlign1 | undefined;
+  textAlign?: EnvelopeGetFieldMetaTextAlign1 | undefined;
+  fontFamily?: EnvelopeGetFontFamily | undefined;
 };
 
 export const EnvelopeGetOverflow1 = {
@@ -568,6 +587,137 @@ export type EnvelopeGetField = {
     | null;
 };
 
+export type EnvelopeGetContentMetaImage = {
+  page: number;
+  positionX: number;
+  positionY: number;
+  width: number;
+  height: number;
+  zIndex?: number | undefined;
+  type: "image";
+  rotation?: number | undefined;
+};
+
+export type EnvelopeGetContentMetaHighlight = {
+  page: number;
+  positionX: number;
+  positionY: number;
+  width: number;
+  height: number;
+  zIndex?: number | undefined;
+  type: "highlight";
+  color?: string | undefined;
+  fillOpacity?: number | undefined;
+};
+
+export const EnvelopeGetShape = {
+  Rectangle: "rectangle",
+} as const;
+export type EnvelopeGetShape = ClosedEnum<typeof EnvelopeGetShape>;
+
+export const EnvelopeGetStrokeStyle2 = {
+  Solid: "solid",
+  Dashed: "dashed",
+  Dotted: "dotted",
+} as const;
+export type EnvelopeGetStrokeStyle2 = ClosedEnum<
+  typeof EnvelopeGetStrokeStyle2
+>;
+
+export type EnvelopeGetContentMetaRectangle = {
+  page: number;
+  positionX: number;
+  positionY: number;
+  width: number;
+  height: number;
+  zIndex?: number | undefined;
+  type: "shape";
+  shape: EnvelopeGetShape;
+  rotation?: number | undefined;
+  strokeWidth?: number | undefined;
+  strokeColor?: string | undefined;
+  strokeStyle?: EnvelopeGetStrokeStyle2 | undefined;
+  fillColor?: string | null | undefined;
+  fillOpacity?: number | undefined;
+};
+
+export const EnvelopeGetStrokeStyle1 = {
+  Solid: "solid",
+  Dashed: "dashed",
+  Dotted: "dotted",
+} as const;
+export type EnvelopeGetStrokeStyle1 = ClosedEnum<
+  typeof EnvelopeGetStrokeStyle1
+>;
+
+export type EnvelopeGetContentMetaLine = {
+  page: number;
+  zIndex?: number | undefined;
+  type: "line";
+  x1: number;
+  y1: number;
+  x2: number;
+  y2: number;
+  strokeWidth?: number | undefined;
+  strokeColor?: string | undefined;
+  strokeStyle?: EnvelopeGetStrokeStyle1 | undefined;
+};
+
+export const EnvelopeGetContentMetaTextAlign = {
+  Left: "left",
+  Center: "center",
+  Right: "right",
+} as const;
+export type EnvelopeGetContentMetaTextAlign = ClosedEnum<
+  typeof EnvelopeGetContentMetaTextAlign
+>;
+
+export const EnvelopeGetContentMetaVerticalAlign = {
+  Top: "top",
+  Middle: "middle",
+  Bottom: "bottom",
+} as const;
+export type EnvelopeGetContentMetaVerticalAlign = ClosedEnum<
+  typeof EnvelopeGetContentMetaVerticalAlign
+>;
+
+export type EnvelopeGetContentMetaText = {
+  page: number;
+  positionX: number;
+  positionY: number;
+  width: number;
+  height: number;
+  zIndex?: number | undefined;
+  type: "text";
+  text?: string | undefined;
+  textAlign?: EnvelopeGetContentMetaTextAlign | undefined;
+  verticalAlign?: EnvelopeGetContentMetaVerticalAlign | undefined;
+  lineHeight?: number | undefined;
+  letterSpacing?: number | undefined;
+  fontSize?: number | undefined;
+  color?: string | undefined;
+};
+
+export type EnvelopeGetContentMetaUnion =
+  | EnvelopeGetContentMetaText
+  | EnvelopeGetContentMetaLine
+  | EnvelopeGetContentMetaRectangle
+  | EnvelopeGetContentMetaHighlight
+  | EnvelopeGetContentMetaImage;
+
+export type EnvelopeGetContent = {
+  id: string;
+  envelopeId: string;
+  envelopeItemId: string;
+  contentMeta:
+    | EnvelopeGetContentMetaText
+    | EnvelopeGetContentMetaLine
+    | EnvelopeGetContentMetaRectangle
+    | EnvelopeGetContentMetaHighlight
+    | EnvelopeGetContentMetaImage;
+  dataContentId: string | null;
+};
+
 export type EnvelopeGetEnvelopeItem = {
   envelopeId: string;
   documentDataId: string;
@@ -623,6 +773,7 @@ export type EnvelopeGetResponse = {
   documentMeta: EnvelopeGetDocumentMeta;
   recipients: Array<EnvelopeGetRecipient>;
   fields: Array<EnvelopeGetField>;
+  contents: Array<EnvelopeGetContent>;
   envelopeItems: Array<EnvelopeGetEnvelopeItem>;
   directLink: EnvelopeGetDirectLink | null;
   team: EnvelopeGetTeam;
@@ -634,9 +785,11 @@ export const EnvelopeGetRequest$inboundSchema: z.ZodType<
   EnvelopeGetRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeId: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeGetRequest$Outbound = {
   envelopeId: string;
@@ -647,9 +800,11 @@ export const EnvelopeGetRequest$outboundSchema: z.ZodType<
   EnvelopeGetRequest$Outbound,
   z.ZodTypeDef,
   EnvelopeGetRequest
-> = z.object({
-  envelopeId: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+  })
+);
 
 export function envelopeGetRequestToJSON(
   envelopeGetRequest: EnvelopeGetRequest,
@@ -671,7 +826,7 @@ export function envelopeGetRequestFromJSON(
 /** @internal */
 export const EnvelopeGetTypeEnum$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetTypeEnum
-> = z.nativeEnum(EnvelopeGetTypeEnum);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetTypeEnum));
 /** @internal */
 export const EnvelopeGetTypeEnum$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetTypeEnum
@@ -680,7 +835,7 @@ export const EnvelopeGetTypeEnum$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeGetStatus$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetStatus
-> = z.nativeEnum(EnvelopeGetStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetStatus));
 /** @internal */
 export const EnvelopeGetStatus$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetStatus
@@ -689,7 +844,7 @@ export const EnvelopeGetStatus$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeGetSource$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetSource
-> = z.nativeEnum(EnvelopeGetSource);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetSource));
 /** @internal */
 export const EnvelopeGetSource$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetSource
@@ -698,7 +853,7 @@ export const EnvelopeGetSource$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeGetVisibility$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetVisibility
-> = z.nativeEnum(EnvelopeGetVisibility);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetVisibility));
 /** @internal */
 export const EnvelopeGetVisibility$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetVisibility
@@ -707,7 +862,7 @@ export const EnvelopeGetVisibility$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeGetTemplateType$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetTemplateType
-> = z.nativeEnum(EnvelopeGetTemplateType);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetTemplateType));
 /** @internal */
 export const EnvelopeGetTemplateType$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetTemplateType
@@ -716,7 +871,9 @@ export const EnvelopeGetTemplateType$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeGetGlobalAccessAuth$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetGlobalAccessAuth
-> = z.nativeEnum(EnvelopeGetGlobalAccessAuth);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EnvelopeGetGlobalAccessAuth)
+);
 /** @internal */
 export const EnvelopeGetGlobalAccessAuth$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetGlobalAccessAuth
@@ -725,7 +882,9 @@ export const EnvelopeGetGlobalAccessAuth$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeGetGlobalActionAuth$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetGlobalActionAuth
-> = z.nativeEnum(EnvelopeGetGlobalActionAuth);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EnvelopeGetGlobalActionAuth)
+);
 /** @internal */
 export const EnvelopeGetGlobalActionAuth$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetGlobalActionAuth
@@ -736,10 +895,12 @@ export const EnvelopeGetAuthOptions$inboundSchema: z.ZodType<
   EnvelopeGetAuthOptions,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  globalAccessAuth: z.array(EnvelopeGetGlobalAccessAuth$inboundSchema),
-  globalActionAuth: z.array(EnvelopeGetGlobalActionAuth$inboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    globalAccessAuth: z.array(EnvelopeGetGlobalAccessAuth$inboundSchema),
+    globalActionAuth: z.array(EnvelopeGetGlobalActionAuth$inboundSchema),
+  })
+);
 /** @internal */
 export type EnvelopeGetAuthOptions$Outbound = {
   globalAccessAuth: Array<string>;
@@ -751,10 +912,12 @@ export const EnvelopeGetAuthOptions$outboundSchema: z.ZodType<
   EnvelopeGetAuthOptions$Outbound,
   z.ZodTypeDef,
   EnvelopeGetAuthOptions
-> = z.object({
-  globalAccessAuth: z.array(EnvelopeGetGlobalAccessAuth$outboundSchema),
-  globalActionAuth: z.array(EnvelopeGetGlobalActionAuth$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    globalAccessAuth: z.array(EnvelopeGetGlobalAccessAuth$outboundSchema),
+    globalActionAuth: z.array(EnvelopeGetGlobalActionAuth$outboundSchema),
+  })
+);
 
 export function envelopeGetAuthOptionsToJSON(
   envelopeGetAuthOptions: EnvelopeGetAuthOptions,
@@ -778,7 +941,9 @@ export const EnvelopeGetFormValues$inboundSchema: z.ZodType<
   EnvelopeGetFormValues,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.boolean(), z.number()]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([z.string(), z.boolean(), z.number()])
+);
 /** @internal */
 export type EnvelopeGetFormValues$Outbound = string | boolean | number;
 
@@ -787,7 +952,9 @@ export const EnvelopeGetFormValues$outboundSchema: z.ZodType<
   EnvelopeGetFormValues$Outbound,
   z.ZodTypeDef,
   EnvelopeGetFormValues
-> = z.union([z.string(), z.boolean(), z.number()]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([z.string(), z.boolean(), z.number()])
+);
 
 export function envelopeGetFormValuesToJSON(
   envelopeGetFormValues: EnvelopeGetFormValues,
@@ -809,7 +976,7 @@ export function envelopeGetFormValuesFromJSON(
 /** @internal */
 export const EnvelopeGetSigningOrder$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetSigningOrder
-> = z.nativeEnum(EnvelopeGetSigningOrder);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetSigningOrder));
 /** @internal */
 export const EnvelopeGetSigningOrder$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetSigningOrder
@@ -818,7 +985,9 @@ export const EnvelopeGetSigningOrder$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeGetDistributionMethod$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetDistributionMethod
-> = z.nativeEnum(EnvelopeGetDistributionMethod);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EnvelopeGetDistributionMethod)
+);
 /** @internal */
 export const EnvelopeGetDistributionMethod$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetDistributionMethod
@@ -829,17 +998,19 @@ export const EnvelopeGetEmailSettings$inboundSchema: z.ZodType<
   EnvelopeGetEmailSettings,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  recipientSigningRequest: z.boolean().default(true),
-  recipientRemoved: z.boolean().default(true),
-  recipientSigned: z.boolean().default(true),
-  documentPending: z.boolean().default(true),
-  documentCompleted: z.boolean().default(true),
-  documentDeleted: z.boolean().default(true),
-  ownerDocumentCompleted: z.boolean().default(true),
-  ownerRecipientExpired: z.boolean().default(true),
-  ownerDocumentCreated: z.boolean().default(true),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    recipientSigningRequest: z.boolean().default(true),
+    recipientRemoved: z.boolean().default(true),
+    recipientSigned: z.boolean().default(true),
+    documentPending: z.boolean().default(true),
+    documentCompleted: z.boolean().default(true),
+    documentDeleted: z.boolean().default(true),
+    ownerDocumentCompleted: z.boolean().default(true),
+    ownerRecipientExpired: z.boolean().default(true),
+    ownerDocumentCreated: z.boolean().default(true),
+  })
+);
 /** @internal */
 export type EnvelopeGetEmailSettings$Outbound = {
   recipientSigningRequest: boolean;
@@ -858,17 +1029,19 @@ export const EnvelopeGetEmailSettings$outboundSchema: z.ZodType<
   EnvelopeGetEmailSettings$Outbound,
   z.ZodTypeDef,
   EnvelopeGetEmailSettings
-> = z.object({
-  recipientSigningRequest: z.boolean().default(true),
-  recipientRemoved: z.boolean().default(true),
-  recipientSigned: z.boolean().default(true),
-  documentPending: z.boolean().default(true),
-  documentCompleted: z.boolean().default(true),
-  documentDeleted: z.boolean().default(true),
-  ownerDocumentCompleted: z.boolean().default(true),
-  ownerRecipientExpired: z.boolean().default(true),
-  ownerDocumentCreated: z.boolean().default(true),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    recipientSigningRequest: z.boolean().default(true),
+    recipientRemoved: z.boolean().default(true),
+    recipientSigned: z.boolean().default(true),
+    documentPending: z.boolean().default(true),
+    documentCompleted: z.boolean().default(true),
+    documentDeleted: z.boolean().default(true),
+    ownerDocumentCompleted: z.boolean().default(true),
+    ownerRecipientExpired: z.boolean().default(true),
+    ownerDocumentCreated: z.boolean().default(true),
+  })
+);
 
 export function envelopeGetEmailSettingsToJSON(
   envelopeGetEmailSettings: EnvelopeGetEmailSettings,
@@ -892,9 +1065,11 @@ export const EnvelopeGetEnvelopeExpirationPeriod2$inboundSchema: z.ZodType<
   EnvelopeGetEnvelopeExpirationPeriod2,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  disabled: z.literal(true),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    disabled: z.literal(true),
+  })
+);
 /** @internal */
 export type EnvelopeGetEnvelopeExpirationPeriod2$Outbound = {
   disabled: true;
@@ -905,9 +1080,11 @@ export const EnvelopeGetEnvelopeExpirationPeriod2$outboundSchema: z.ZodType<
   EnvelopeGetEnvelopeExpirationPeriod2$Outbound,
   z.ZodTypeDef,
   EnvelopeGetEnvelopeExpirationPeriod2
-> = z.object({
-  disabled: z.literal(true),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    disabled: z.literal(true),
+  })
+);
 
 export function envelopeGetEnvelopeExpirationPeriod2ToJSON(
   envelopeGetEnvelopeExpirationPeriod2: EnvelopeGetEnvelopeExpirationPeriod2,
@@ -932,7 +1109,7 @@ export function envelopeGetEnvelopeExpirationPeriod2FromJSON(
 /** @internal */
 export const EnvelopeGetUnit$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetUnit
-> = z.nativeEnum(EnvelopeGetUnit);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetUnit));
 /** @internal */
 export const EnvelopeGetUnit$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetUnit
@@ -943,10 +1120,12 @@ export const EnvelopeGetEnvelopeExpirationPeriod1$inboundSchema: z.ZodType<
   EnvelopeGetEnvelopeExpirationPeriod1,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  unit: EnvelopeGetUnit$inboundSchema,
-  amount: z.number().int(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    unit: EnvelopeGetUnit$inboundSchema,
+    amount: z.number().int(),
+  })
+);
 /** @internal */
 export type EnvelopeGetEnvelopeExpirationPeriod1$Outbound = {
   unit: string;
@@ -958,10 +1137,12 @@ export const EnvelopeGetEnvelopeExpirationPeriod1$outboundSchema: z.ZodType<
   EnvelopeGetEnvelopeExpirationPeriod1$Outbound,
   z.ZodTypeDef,
   EnvelopeGetEnvelopeExpirationPeriod1
-> = z.object({
-  unit: EnvelopeGetUnit$outboundSchema,
-  amount: z.number().int(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    unit: EnvelopeGetUnit$outboundSchema,
+    amount: z.number().int(),
+  })
+);
 
 export function envelopeGetEnvelopeExpirationPeriod1ToJSON(
   envelopeGetEnvelopeExpirationPeriod1: EnvelopeGetEnvelopeExpirationPeriod1,
@@ -988,10 +1169,12 @@ export const EnvelopeGetEnvelopeExpirationPeriodUnion$inboundSchema: z.ZodType<
   EnvelopeGetEnvelopeExpirationPeriodUnion,
   z.ZodTypeDef,
   unknown
-> = z.union([
-  z.lazy(() => EnvelopeGetEnvelopeExpirationPeriod1$inboundSchema),
-  z.lazy(() => EnvelopeGetEnvelopeExpirationPeriod2$inboundSchema),
-]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([
+    z.lazy(() => EnvelopeGetEnvelopeExpirationPeriod1$inboundSchema),
+    z.lazy(() => EnvelopeGetEnvelopeExpirationPeriod2$inboundSchema),
+  ])
+);
 /** @internal */
 export type EnvelopeGetEnvelopeExpirationPeriodUnion$Outbound =
   | EnvelopeGetEnvelopeExpirationPeriod1$Outbound
@@ -1002,10 +1185,12 @@ export const EnvelopeGetEnvelopeExpirationPeriodUnion$outboundSchema: z.ZodType<
   EnvelopeGetEnvelopeExpirationPeriodUnion$Outbound,
   z.ZodTypeDef,
   EnvelopeGetEnvelopeExpirationPeriodUnion
-> = z.union([
-  z.lazy(() => EnvelopeGetEnvelopeExpirationPeriod1$outboundSchema),
-  z.lazy(() => EnvelopeGetEnvelopeExpirationPeriod2$outboundSchema),
-]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([
+    z.lazy(() => EnvelopeGetEnvelopeExpirationPeriod1$outboundSchema),
+    z.lazy(() => EnvelopeGetEnvelopeExpirationPeriod2$outboundSchema),
+  ])
+);
 
 export function envelopeGetEnvelopeExpirationPeriodUnionToJSON(
   envelopeGetEnvelopeExpirationPeriodUnion:
@@ -1038,32 +1223,32 @@ export const EnvelopeGetDocumentMeta$inboundSchema: z.ZodType<
   EnvelopeGetDocumentMeta,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  signingOrder: EnvelopeGetSigningOrder$inboundSchema,
-  distributionMethod: EnvelopeGetDistributionMethod$inboundSchema,
-  id: z.string(),
-  subject: z.nullable(z.string()),
-  message: z.nullable(z.string()),
-  timezone: z.nullable(z.string()),
-  dateFormat: z.nullable(z.string()),
-  redirectUrl: z.nullable(z.string()),
-  typedSignatureEnabled: z.boolean(),
-  uploadSignatureEnabled: z.boolean(),
-  drawSignatureEnabled: z.boolean(),
-  allowDictateNextSigner: z.boolean(),
-  language: z.string(),
-  emailSettings: z.nullable(
-    z.lazy(() => EnvelopeGetEmailSettings$inboundSchema),
-  ),
-  emailId: z.nullable(z.string()),
-  emailReplyTo: z.nullable(z.string()),
-  envelopeExpirationPeriod: z.nullable(
-    z.union([
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    signingOrder: EnvelopeGetSigningOrder$inboundSchema,
+    distributionMethod: EnvelopeGetDistributionMethod$inboundSchema,
+    id: z.string(),
+    subject: z.nullable(z.string()),
+    message: z.nullable(z.string()),
+    timezone: z.nullable(z.string()),
+    dateFormat: z.nullable(z.string()),
+    redirectUrl: z.nullable(z.string()),
+    typedSignatureEnabled: z.boolean(),
+    uploadSignatureEnabled: z.boolean(),
+    drawSignatureEnabled: z.boolean(),
+    allowDictateNextSigner: z.boolean(),
+    language: z.string(),
+    emailSettings: z.nullable(
+      z.lazy(() => EnvelopeGetEmailSettings$inboundSchema),
+    ),
+    emailId: z.nullable(z.string()),
+    emailReplyTo: z.nullable(z.string()),
+    envelopeExpirationPeriod: z.nullable(z.union([
       z.lazy(() => EnvelopeGetEnvelopeExpirationPeriod1$inboundSchema),
       z.lazy(() => EnvelopeGetEnvelopeExpirationPeriod2$inboundSchema),
-    ]),
-  ),
-});
+    ])),
+  })
+);
 /** @internal */
 export type EnvelopeGetDocumentMeta$Outbound = {
   signingOrder: string;
@@ -1093,32 +1278,32 @@ export const EnvelopeGetDocumentMeta$outboundSchema: z.ZodType<
   EnvelopeGetDocumentMeta$Outbound,
   z.ZodTypeDef,
   EnvelopeGetDocumentMeta
-> = z.object({
-  signingOrder: EnvelopeGetSigningOrder$outboundSchema,
-  distributionMethod: EnvelopeGetDistributionMethod$outboundSchema,
-  id: z.string(),
-  subject: z.nullable(z.string()),
-  message: z.nullable(z.string()),
-  timezone: z.nullable(z.string()),
-  dateFormat: z.nullable(z.string()),
-  redirectUrl: z.nullable(z.string()),
-  typedSignatureEnabled: z.boolean(),
-  uploadSignatureEnabled: z.boolean(),
-  drawSignatureEnabled: z.boolean(),
-  allowDictateNextSigner: z.boolean(),
-  language: z.string(),
-  emailSettings: z.nullable(
-    z.lazy(() => EnvelopeGetEmailSettings$outboundSchema),
-  ),
-  emailId: z.nullable(z.string()),
-  emailReplyTo: z.nullable(z.string()),
-  envelopeExpirationPeriod: z.nullable(
-    z.union([
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    signingOrder: EnvelopeGetSigningOrder$outboundSchema,
+    distributionMethod: EnvelopeGetDistributionMethod$outboundSchema,
+    id: z.string(),
+    subject: z.nullable(z.string()),
+    message: z.nullable(z.string()),
+    timezone: z.nullable(z.string()),
+    dateFormat: z.nullable(z.string()),
+    redirectUrl: z.nullable(z.string()),
+    typedSignatureEnabled: z.boolean(),
+    uploadSignatureEnabled: z.boolean(),
+    drawSignatureEnabled: z.boolean(),
+    allowDictateNextSigner: z.boolean(),
+    language: z.string(),
+    emailSettings: z.nullable(
+      z.lazy(() => EnvelopeGetEmailSettings$outboundSchema),
+    ),
+    emailId: z.nullable(z.string()),
+    emailReplyTo: z.nullable(z.string()),
+    envelopeExpirationPeriod: z.nullable(z.union([
       z.lazy(() => EnvelopeGetEnvelopeExpirationPeriod1$outboundSchema),
       z.lazy(() => EnvelopeGetEnvelopeExpirationPeriod2$outboundSchema),
-    ]),
-  ),
-});
+    ])),
+  })
+);
 
 export function envelopeGetDocumentMetaToJSON(
   envelopeGetDocumentMeta: EnvelopeGetDocumentMeta,
@@ -1140,7 +1325,7 @@ export function envelopeGetDocumentMetaFromJSON(
 /** @internal */
 export const EnvelopeGetRole$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetRole
-> = z.nativeEnum(EnvelopeGetRole);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetRole));
 /** @internal */
 export const EnvelopeGetRole$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetRole
@@ -1149,7 +1334,7 @@ export const EnvelopeGetRole$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeGetReadStatus$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetReadStatus
-> = z.nativeEnum(EnvelopeGetReadStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetReadStatus));
 /** @internal */
 export const EnvelopeGetReadStatus$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetReadStatus
@@ -1158,7 +1343,7 @@ export const EnvelopeGetReadStatus$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeGetSigningStatus$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetSigningStatus
-> = z.nativeEnum(EnvelopeGetSigningStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetSigningStatus));
 /** @internal */
 export const EnvelopeGetSigningStatus$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetSigningStatus
@@ -1167,7 +1352,7 @@ export const EnvelopeGetSigningStatus$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeGetSendStatus$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetSendStatus
-> = z.nativeEnum(EnvelopeGetSendStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetSendStatus));
 /** @internal */
 export const EnvelopeGetSendStatus$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetSendStatus
@@ -1176,7 +1361,7 @@ export const EnvelopeGetSendStatus$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeGetAccessAuth$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetAccessAuth
-> = z.nativeEnum(EnvelopeGetAccessAuth);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetAccessAuth));
 /** @internal */
 export const EnvelopeGetAccessAuth$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetAccessAuth
@@ -1185,7 +1370,7 @@ export const EnvelopeGetAccessAuth$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeGetActionAuth$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetActionAuth
-> = z.nativeEnum(EnvelopeGetActionAuth);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetActionAuth));
 /** @internal */
 export const EnvelopeGetActionAuth$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetActionAuth
@@ -1196,10 +1381,12 @@ export const EnvelopeGetRecipientAuthOptions$inboundSchema: z.ZodType<
   EnvelopeGetRecipientAuthOptions,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  accessAuth: z.array(EnvelopeGetAccessAuth$inboundSchema),
-  actionAuth: z.array(EnvelopeGetActionAuth$inboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    accessAuth: z.array(EnvelopeGetAccessAuth$inboundSchema),
+    actionAuth: z.array(EnvelopeGetActionAuth$inboundSchema),
+  })
+);
 /** @internal */
 export type EnvelopeGetRecipientAuthOptions$Outbound = {
   accessAuth: Array<string>;
@@ -1211,10 +1398,12 @@ export const EnvelopeGetRecipientAuthOptions$outboundSchema: z.ZodType<
   EnvelopeGetRecipientAuthOptions$Outbound,
   z.ZodTypeDef,
   EnvelopeGetRecipientAuthOptions
-> = z.object({
-  accessAuth: z.array(EnvelopeGetAccessAuth$outboundSchema),
-  actionAuth: z.array(EnvelopeGetActionAuth$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    accessAuth: z.array(EnvelopeGetAccessAuth$outboundSchema),
+    actionAuth: z.array(EnvelopeGetActionAuth$outboundSchema),
+  })
+);
 
 export function envelopeGetRecipientAuthOptionsToJSON(
   envelopeGetRecipientAuthOptions: EnvelopeGetRecipientAuthOptions,
@@ -1240,27 +1429,29 @@ export const EnvelopeGetRecipient$inboundSchema: z.ZodType<
   EnvelopeGetRecipient,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeId: z.string(),
-  role: EnvelopeGetRole$inboundSchema,
-  readStatus: EnvelopeGetReadStatus$inboundSchema,
-  signingStatus: EnvelopeGetSigningStatus$inboundSchema,
-  sendStatus: EnvelopeGetSendStatus$inboundSchema,
-  id: z.number(),
-  email: z.string(),
-  name: z.string(),
-  token: z.string(),
-  documentDeletedAt: z.nullable(z.string()),
-  expired: z.nullable(z.string()),
-  expiresAt: z.nullable(z.string()),
-  expirationNotifiedAt: z.nullable(z.string()),
-  signedAt: z.nullable(z.string()),
-  authOptions: z.nullable(
-    z.lazy(() => EnvelopeGetRecipientAuthOptions$inboundSchema),
-  ),
-  signingOrder: z.nullable(z.number()),
-  rejectionReason: z.nullable(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    role: EnvelopeGetRole$inboundSchema,
+    readStatus: EnvelopeGetReadStatus$inboundSchema,
+    signingStatus: EnvelopeGetSigningStatus$inboundSchema,
+    sendStatus: EnvelopeGetSendStatus$inboundSchema,
+    id: z.number(),
+    email: z.string(),
+    name: z.string(),
+    token: z.string(),
+    documentDeletedAt: z.nullable(z.string()),
+    expired: z.nullable(z.string()),
+    expiresAt: z.nullable(z.string()),
+    expirationNotifiedAt: z.nullable(z.string()),
+    signedAt: z.nullable(z.string()),
+    authOptions: z.nullable(
+      z.lazy(() => EnvelopeGetRecipientAuthOptions$inboundSchema),
+    ),
+    signingOrder: z.nullable(z.number()),
+    rejectionReason: z.nullable(z.string()),
+  })
+);
 /** @internal */
 export type EnvelopeGetRecipient$Outbound = {
   envelopeId: string;
@@ -1287,27 +1478,29 @@ export const EnvelopeGetRecipient$outboundSchema: z.ZodType<
   EnvelopeGetRecipient$Outbound,
   z.ZodTypeDef,
   EnvelopeGetRecipient
-> = z.object({
-  envelopeId: z.string(),
-  role: EnvelopeGetRole$outboundSchema,
-  readStatus: EnvelopeGetReadStatus$outboundSchema,
-  signingStatus: EnvelopeGetSigningStatus$outboundSchema,
-  sendStatus: EnvelopeGetSendStatus$outboundSchema,
-  id: z.number(),
-  email: z.string(),
-  name: z.string(),
-  token: z.string(),
-  documentDeletedAt: z.nullable(z.string()),
-  expired: z.nullable(z.string()),
-  expiresAt: z.nullable(z.string()),
-  expirationNotifiedAt: z.nullable(z.string()),
-  signedAt: z.nullable(z.string()),
-  authOptions: z.nullable(
-    z.lazy(() => EnvelopeGetRecipientAuthOptions$outboundSchema),
-  ),
-  signingOrder: z.nullable(z.number()),
-  rejectionReason: z.nullable(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    role: EnvelopeGetRole$outboundSchema,
+    readStatus: EnvelopeGetReadStatus$outboundSchema,
+    signingStatus: EnvelopeGetSigningStatus$outboundSchema,
+    sendStatus: EnvelopeGetSendStatus$outboundSchema,
+    id: z.number(),
+    email: z.string(),
+    name: z.string(),
+    token: z.string(),
+    documentDeletedAt: z.nullable(z.string()),
+    expired: z.nullable(z.string()),
+    expiresAt: z.nullable(z.string()),
+    expirationNotifiedAt: z.nullable(z.string()),
+    signedAt: z.nullable(z.string()),
+    authOptions: z.nullable(
+      z.lazy(() => EnvelopeGetRecipientAuthOptions$outboundSchema),
+    ),
+    signingOrder: z.nullable(z.number()),
+    rejectionReason: z.nullable(z.string()),
+  })
+);
 
 export function envelopeGetRecipientToJSON(
   envelopeGetRecipient: EnvelopeGetRecipient,
@@ -1329,7 +1522,7 @@ export function envelopeGetRecipientFromJSON(
 /** @internal */
 export const EnvelopeGetFieldTypeEnum$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetFieldTypeEnum
-> = z.nativeEnum(EnvelopeGetFieldTypeEnum);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetFieldTypeEnum));
 /** @internal */
 export const EnvelopeGetFieldTypeEnum$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetFieldTypeEnum
@@ -1338,7 +1531,7 @@ export const EnvelopeGetFieldTypeEnum$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeGetOverflow10$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetOverflow10
-> = z.nativeEnum(EnvelopeGetOverflow10);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetOverflow10));
 /** @internal */
 export const EnvelopeGetOverflow10$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetOverflow10
@@ -1349,9 +1542,11 @@ export const EnvelopeGetValue3$inboundSchema: z.ZodType<
   EnvelopeGetValue3,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    value: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeGetValue3$Outbound = {
   value: string;
@@ -1362,9 +1557,11 @@ export const EnvelopeGetValue3$outboundSchema: z.ZodType<
   EnvelopeGetValue3$Outbound,
   z.ZodTypeDef,
   EnvelopeGetValue3
-> = z.object({
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    value: z.string(),
+  })
+);
 
 export function envelopeGetValue3ToJSON(
   envelopeGetValue3: EnvelopeGetValue3,
@@ -1388,17 +1585,19 @@ export const EnvelopeGetFieldMetaDropdown$inboundSchema: z.ZodType<
   EnvelopeGetFieldMetaDropdown,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: EnvelopeGetOverflow10$inboundSchema.optional(),
-  type: z.literal("dropdown"),
-  values: z.array(z.lazy(() => EnvelopeGetValue3$inboundSchema)).optional(),
-  defaultValue: z.string().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: EnvelopeGetOverflow10$inboundSchema.optional(),
+    type: z.literal("dropdown"),
+    values: z.array(z.lazy(() => EnvelopeGetValue3$inboundSchema)).optional(),
+    defaultValue: z.string().optional(),
+  })
+);
 /** @internal */
 export type EnvelopeGetFieldMetaDropdown$Outbound = {
   label?: string | undefined;
@@ -1417,17 +1616,19 @@ export const EnvelopeGetFieldMetaDropdown$outboundSchema: z.ZodType<
   EnvelopeGetFieldMetaDropdown$Outbound,
   z.ZodTypeDef,
   EnvelopeGetFieldMetaDropdown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: EnvelopeGetOverflow10$outboundSchema.optional(),
-  type: z.literal("dropdown"),
-  values: z.array(z.lazy(() => EnvelopeGetValue3$outboundSchema)).optional(),
-  defaultValue: z.string().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: EnvelopeGetOverflow10$outboundSchema.optional(),
+    type: z.literal("dropdown"),
+    values: z.array(z.lazy(() => EnvelopeGetValue3$outboundSchema)).optional(),
+    defaultValue: z.string().optional(),
+  })
+);
 
 export function envelopeGetFieldMetaDropdownToJSON(
   envelopeGetFieldMetaDropdown: EnvelopeGetFieldMetaDropdown,
@@ -1451,7 +1652,7 @@ export function envelopeGetFieldMetaDropdownFromJSON(
 /** @internal */
 export const EnvelopeGetOverflow9$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetOverflow9
-> = z.nativeEnum(EnvelopeGetOverflow9);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetOverflow9));
 /** @internal */
 export const EnvelopeGetOverflow9$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetOverflow9
@@ -1462,11 +1663,13 @@ export const EnvelopeGetValue2$inboundSchema: z.ZodType<
   EnvelopeGetValue2,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeGetValue2$Outbound = {
   id: number;
@@ -1479,11 +1682,13 @@ export const EnvelopeGetValue2$outboundSchema: z.ZodType<
   EnvelopeGetValue2$Outbound,
   z.ZodTypeDef,
   EnvelopeGetValue2
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 
 export function envelopeGetValue2ToJSON(
   envelopeGetValue2: EnvelopeGetValue2,
@@ -1505,7 +1710,7 @@ export function envelopeGetValue2FromJSON(
 /** @internal */
 export const EnvelopeGetDirection2$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetDirection2
-> = z.nativeEnum(EnvelopeGetDirection2);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetDirection2));
 /** @internal */
 export const EnvelopeGetDirection2$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetDirection2
@@ -1516,19 +1721,21 @@ export const EnvelopeGetFieldMetaCheckbox$inboundSchema: z.ZodType<
   EnvelopeGetFieldMetaCheckbox,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: EnvelopeGetOverflow9$inboundSchema.optional(),
-  type: z.literal("checkbox"),
-  values: z.array(z.lazy(() => EnvelopeGetValue2$inboundSchema)).optional(),
-  validationRule: z.string().optional(),
-  validationLength: z.number().optional(),
-  direction: EnvelopeGetDirection2$inboundSchema.default("vertical"),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: EnvelopeGetOverflow9$inboundSchema.optional(),
+    type: z.literal("checkbox"),
+    values: z.array(z.lazy(() => EnvelopeGetValue2$inboundSchema)).optional(),
+    validationRule: z.string().optional(),
+    validationLength: z.number().optional(),
+    direction: EnvelopeGetDirection2$inboundSchema.default("vertical"),
+  })
+);
 /** @internal */
 export type EnvelopeGetFieldMetaCheckbox$Outbound = {
   label?: string | undefined;
@@ -1549,19 +1756,21 @@ export const EnvelopeGetFieldMetaCheckbox$outboundSchema: z.ZodType<
   EnvelopeGetFieldMetaCheckbox$Outbound,
   z.ZodTypeDef,
   EnvelopeGetFieldMetaCheckbox
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: EnvelopeGetOverflow9$outboundSchema.optional(),
-  type: z.literal("checkbox"),
-  values: z.array(z.lazy(() => EnvelopeGetValue2$outboundSchema)).optional(),
-  validationRule: z.string().optional(),
-  validationLength: z.number().optional(),
-  direction: EnvelopeGetDirection2$outboundSchema.default("vertical"),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: EnvelopeGetOverflow9$outboundSchema.optional(),
+    type: z.literal("checkbox"),
+    values: z.array(z.lazy(() => EnvelopeGetValue2$outboundSchema)).optional(),
+    validationRule: z.string().optional(),
+    validationLength: z.number().optional(),
+    direction: EnvelopeGetDirection2$outboundSchema.default("vertical"),
+  })
+);
 
 export function envelopeGetFieldMetaCheckboxToJSON(
   envelopeGetFieldMetaCheckbox: EnvelopeGetFieldMetaCheckbox,
@@ -1585,7 +1794,7 @@ export function envelopeGetFieldMetaCheckboxFromJSON(
 /** @internal */
 export const EnvelopeGetOverflow8$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetOverflow8
-> = z.nativeEnum(EnvelopeGetOverflow8);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetOverflow8));
 /** @internal */
 export const EnvelopeGetOverflow8$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetOverflow8
@@ -1596,11 +1805,13 @@ export const EnvelopeGetValue1$inboundSchema: z.ZodType<
   EnvelopeGetValue1,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeGetValue1$Outbound = {
   id: number;
@@ -1613,11 +1824,13 @@ export const EnvelopeGetValue1$outboundSchema: z.ZodType<
   EnvelopeGetValue1$Outbound,
   z.ZodTypeDef,
   EnvelopeGetValue1
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 
 export function envelopeGetValue1ToJSON(
   envelopeGetValue1: EnvelopeGetValue1,
@@ -1639,7 +1852,7 @@ export function envelopeGetValue1FromJSON(
 /** @internal */
 export const EnvelopeGetDirection1$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetDirection1
-> = z.nativeEnum(EnvelopeGetDirection1);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetDirection1));
 /** @internal */
 export const EnvelopeGetDirection1$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetDirection1
@@ -1650,17 +1863,19 @@ export const EnvelopeGetFieldMetaRadio$inboundSchema: z.ZodType<
   EnvelopeGetFieldMetaRadio,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: EnvelopeGetOverflow8$inboundSchema.optional(),
-  type: z.literal("radio"),
-  values: z.array(z.lazy(() => EnvelopeGetValue1$inboundSchema)).optional(),
-  direction: EnvelopeGetDirection1$inboundSchema.default("vertical"),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: EnvelopeGetOverflow8$inboundSchema.optional(),
+    type: z.literal("radio"),
+    values: z.array(z.lazy(() => EnvelopeGetValue1$inboundSchema)).optional(),
+    direction: EnvelopeGetDirection1$inboundSchema.default("vertical"),
+  })
+);
 /** @internal */
 export type EnvelopeGetFieldMetaRadio$Outbound = {
   label?: string | undefined;
@@ -1679,17 +1894,19 @@ export const EnvelopeGetFieldMetaRadio$outboundSchema: z.ZodType<
   EnvelopeGetFieldMetaRadio$Outbound,
   z.ZodTypeDef,
   EnvelopeGetFieldMetaRadio
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: EnvelopeGetOverflow8$outboundSchema.optional(),
-  type: z.literal("radio"),
-  values: z.array(z.lazy(() => EnvelopeGetValue1$outboundSchema)).optional(),
-  direction: EnvelopeGetDirection1$outboundSchema.default("vertical"),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: EnvelopeGetOverflow8$outboundSchema.optional(),
+    type: z.literal("radio"),
+    values: z.array(z.lazy(() => EnvelopeGetValue1$outboundSchema)).optional(),
+    direction: EnvelopeGetDirection1$outboundSchema.default("vertical"),
+  })
+);
 
 export function envelopeGetFieldMetaRadioToJSON(
   envelopeGetFieldMetaRadio: EnvelopeGetFieldMetaRadio,
@@ -1711,52 +1928,59 @@ export function envelopeGetFieldMetaRadioFromJSON(
 /** @internal */
 export const EnvelopeGetOverflow7$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetOverflow7
-> = z.nativeEnum(EnvelopeGetOverflow7);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetOverflow7));
 /** @internal */
 export const EnvelopeGetOverflow7$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetOverflow7
 > = EnvelopeGetOverflow7$inboundSchema;
 
 /** @internal */
-export const EnvelopeGetTextAlign6$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetTextAlign6
-> = z.nativeEnum(EnvelopeGetTextAlign6);
+export const EnvelopeGetFieldMetaTextAlign6$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaTextAlign6
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EnvelopeGetFieldMetaTextAlign6)
+);
 /** @internal */
-export const EnvelopeGetTextAlign6$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetTextAlign6
-> = EnvelopeGetTextAlign6$inboundSchema;
+export const EnvelopeGetFieldMetaTextAlign6$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaTextAlign6
+> = EnvelopeGetFieldMetaTextAlign6$inboundSchema;
 
 /** @internal */
-export const EnvelopeGetVerticalAlign2$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetVerticalAlign2
-> = z.nativeEnum(EnvelopeGetVerticalAlign2);
+export const EnvelopeGetFieldMetaVerticalAlign2$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaVerticalAlign2
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EnvelopeGetFieldMetaVerticalAlign2)
+);
 /** @internal */
-export const EnvelopeGetVerticalAlign2$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetVerticalAlign2
-> = EnvelopeGetVerticalAlign2$inboundSchema;
+export const EnvelopeGetFieldMetaVerticalAlign2$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaVerticalAlign2
+> = EnvelopeGetFieldMetaVerticalAlign2$inboundSchema;
 
 /** @internal */
 export const EnvelopeGetFieldMetaNumber$inboundSchema: z.ZodType<
   EnvelopeGetFieldMetaNumber,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: EnvelopeGetOverflow7$inboundSchema.optional(),
-  type: z.literal("number"),
-  numberFormat: z.nullable(z.string()).optional(),
-  value: z.string().optional(),
-  minValue: z.nullable(z.number()).optional(),
-  maxValue: z.nullable(z.number()).optional(),
-  textAlign: EnvelopeGetTextAlign6$inboundSchema.optional(),
-  lineHeight: z.nullable(z.number()).optional(),
-  letterSpacing: z.nullable(z.number()).optional(),
-  verticalAlign: z.nullable(EnvelopeGetVerticalAlign2$inboundSchema).optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: EnvelopeGetOverflow7$inboundSchema.optional(),
+    type: z.literal("number"),
+    numberFormat: z.nullable(z.string()).optional(),
+    value: z.string().optional(),
+    minValue: z.nullable(z.number()).optional(),
+    maxValue: z.nullable(z.number()).optional(),
+    textAlign: EnvelopeGetFieldMetaTextAlign6$inboundSchema.optional(),
+    lineHeight: z.nullable(z.number()).optional(),
+    letterSpacing: z.nullable(z.number()).optional(),
+    verticalAlign: z.nullable(EnvelopeGetFieldMetaVerticalAlign2$inboundSchema)
+      .optional(),
+  })
+);
 /** @internal */
 export type EnvelopeGetFieldMetaNumber$Outbound = {
   label?: string | undefined;
@@ -1781,24 +2005,26 @@ export const EnvelopeGetFieldMetaNumber$outboundSchema: z.ZodType<
   EnvelopeGetFieldMetaNumber$Outbound,
   z.ZodTypeDef,
   EnvelopeGetFieldMetaNumber
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: EnvelopeGetOverflow7$outboundSchema.optional(),
-  type: z.literal("number"),
-  numberFormat: z.nullable(z.string()).optional(),
-  value: z.string().optional(),
-  minValue: z.nullable(z.number()).optional(),
-  maxValue: z.nullable(z.number()).optional(),
-  textAlign: EnvelopeGetTextAlign6$outboundSchema.optional(),
-  lineHeight: z.nullable(z.number()).optional(),
-  letterSpacing: z.nullable(z.number()).optional(),
-  verticalAlign: z.nullable(EnvelopeGetVerticalAlign2$outboundSchema)
-    .optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: EnvelopeGetOverflow7$outboundSchema.optional(),
+    type: z.literal("number"),
+    numberFormat: z.nullable(z.string()).optional(),
+    value: z.string().optional(),
+    minValue: z.nullable(z.number()).optional(),
+    maxValue: z.nullable(z.number()).optional(),
+    textAlign: EnvelopeGetFieldMetaTextAlign6$outboundSchema.optional(),
+    lineHeight: z.nullable(z.number()).optional(),
+    letterSpacing: z.nullable(z.number()).optional(),
+    verticalAlign: z.nullable(EnvelopeGetFieldMetaVerticalAlign2$outboundSchema)
+      .optional(),
+  })
+);
 
 export function envelopeGetFieldMetaNumberToJSON(
   envelopeGetFieldMetaNumber: EnvelopeGetFieldMetaNumber,
@@ -1820,50 +2046,57 @@ export function envelopeGetFieldMetaNumberFromJSON(
 /** @internal */
 export const EnvelopeGetOverflow6$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetOverflow6
-> = z.nativeEnum(EnvelopeGetOverflow6);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetOverflow6));
 /** @internal */
 export const EnvelopeGetOverflow6$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetOverflow6
 > = EnvelopeGetOverflow6$inboundSchema;
 
 /** @internal */
-export const EnvelopeGetTextAlign5$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetTextAlign5
-> = z.nativeEnum(EnvelopeGetTextAlign5);
+export const EnvelopeGetFieldMetaTextAlign5$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaTextAlign5
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EnvelopeGetFieldMetaTextAlign5)
+);
 /** @internal */
-export const EnvelopeGetTextAlign5$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetTextAlign5
-> = EnvelopeGetTextAlign5$inboundSchema;
+export const EnvelopeGetFieldMetaTextAlign5$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaTextAlign5
+> = EnvelopeGetFieldMetaTextAlign5$inboundSchema;
 
 /** @internal */
-export const EnvelopeGetVerticalAlign1$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetVerticalAlign1
-> = z.nativeEnum(EnvelopeGetVerticalAlign1);
+export const EnvelopeGetFieldMetaVerticalAlign1$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaVerticalAlign1
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EnvelopeGetFieldMetaVerticalAlign1)
+);
 /** @internal */
-export const EnvelopeGetVerticalAlign1$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetVerticalAlign1
-> = EnvelopeGetVerticalAlign1$inboundSchema;
+export const EnvelopeGetFieldMetaVerticalAlign1$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaVerticalAlign1
+> = EnvelopeGetFieldMetaVerticalAlign1$inboundSchema;
 
 /** @internal */
 export const EnvelopeGetFieldMetaText$inboundSchema: z.ZodType<
   EnvelopeGetFieldMetaText,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: EnvelopeGetOverflow6$inboundSchema.optional(),
-  type: z.literal("text"),
-  text: z.string().optional(),
-  characterLimit: z.number().optional(),
-  textAlign: EnvelopeGetTextAlign5$inboundSchema.optional(),
-  lineHeight: z.nullable(z.number()).optional(),
-  letterSpacing: z.nullable(z.number()).optional(),
-  verticalAlign: z.nullable(EnvelopeGetVerticalAlign1$inboundSchema).optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: EnvelopeGetOverflow6$inboundSchema.optional(),
+    type: z.literal("text"),
+    text: z.string().optional(),
+    characterLimit: z.number().optional(),
+    textAlign: EnvelopeGetFieldMetaTextAlign5$inboundSchema.optional(),
+    lineHeight: z.nullable(z.number()).optional(),
+    letterSpacing: z.nullable(z.number()).optional(),
+    verticalAlign: z.nullable(EnvelopeGetFieldMetaVerticalAlign1$inboundSchema)
+      .optional(),
+  })
+);
 /** @internal */
 export type EnvelopeGetFieldMetaText$Outbound = {
   label?: string | undefined;
@@ -1886,22 +2119,24 @@ export const EnvelopeGetFieldMetaText$outboundSchema: z.ZodType<
   EnvelopeGetFieldMetaText$Outbound,
   z.ZodTypeDef,
   EnvelopeGetFieldMetaText
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: EnvelopeGetOverflow6$outboundSchema.optional(),
-  type: z.literal("text"),
-  text: z.string().optional(),
-  characterLimit: z.number().optional(),
-  textAlign: EnvelopeGetTextAlign5$outboundSchema.optional(),
-  lineHeight: z.nullable(z.number()).optional(),
-  letterSpacing: z.nullable(z.number()).optional(),
-  verticalAlign: z.nullable(EnvelopeGetVerticalAlign1$outboundSchema)
-    .optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: EnvelopeGetOverflow6$outboundSchema.optional(),
+    type: z.literal("text"),
+    text: z.string().optional(),
+    characterLimit: z.number().optional(),
+    textAlign: EnvelopeGetFieldMetaTextAlign5$outboundSchema.optional(),
+    lineHeight: z.nullable(z.number()).optional(),
+    letterSpacing: z.nullable(z.number()).optional(),
+    verticalAlign: z.nullable(EnvelopeGetFieldMetaVerticalAlign1$outboundSchema)
+      .optional(),
+  })
+);
 
 export function envelopeGetFieldMetaTextToJSON(
   envelopeGetFieldMetaText: EnvelopeGetFieldMetaText,
@@ -1923,36 +2158,40 @@ export function envelopeGetFieldMetaTextFromJSON(
 /** @internal */
 export const EnvelopeGetOverflow5$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetOverflow5
-> = z.nativeEnum(EnvelopeGetOverflow5);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetOverflow5));
 /** @internal */
 export const EnvelopeGetOverflow5$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetOverflow5
 > = EnvelopeGetOverflow5$inboundSchema;
 
 /** @internal */
-export const EnvelopeGetTextAlign4$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetTextAlign4
-> = z.nativeEnum(EnvelopeGetTextAlign4);
+export const EnvelopeGetFieldMetaTextAlign4$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaTextAlign4
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EnvelopeGetFieldMetaTextAlign4)
+);
 /** @internal */
-export const EnvelopeGetTextAlign4$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetTextAlign4
-> = EnvelopeGetTextAlign4$inboundSchema;
+export const EnvelopeGetFieldMetaTextAlign4$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaTextAlign4
+> = EnvelopeGetFieldMetaTextAlign4$inboundSchema;
 
 /** @internal */
 export const EnvelopeGetFieldMetaDate$inboundSchema: z.ZodType<
   EnvelopeGetFieldMetaDate,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: EnvelopeGetOverflow5$inboundSchema.default("auto"),
-  type: z.literal("date"),
-  textAlign: EnvelopeGetTextAlign4$inboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: EnvelopeGetOverflow5$inboundSchema.default("auto"),
+    type: z.literal("date"),
+    textAlign: EnvelopeGetFieldMetaTextAlign4$inboundSchema.optional(),
+  })
+);
 /** @internal */
 export type EnvelopeGetFieldMetaDate$Outbound = {
   label?: string | undefined;
@@ -1970,16 +2209,18 @@ export const EnvelopeGetFieldMetaDate$outboundSchema: z.ZodType<
   EnvelopeGetFieldMetaDate$Outbound,
   z.ZodTypeDef,
   EnvelopeGetFieldMetaDate
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: EnvelopeGetOverflow5$outboundSchema.default("auto"),
-  type: z.literal("date"),
-  textAlign: EnvelopeGetTextAlign4$outboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: EnvelopeGetOverflow5$outboundSchema.default("auto"),
+    type: z.literal("date"),
+    textAlign: EnvelopeGetFieldMetaTextAlign4$outboundSchema.optional(),
+  })
+);
 
 export function envelopeGetFieldMetaDateToJSON(
   envelopeGetFieldMetaDate: EnvelopeGetFieldMetaDate,
@@ -2001,36 +2242,40 @@ export function envelopeGetFieldMetaDateFromJSON(
 /** @internal */
 export const EnvelopeGetOverflow4$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetOverflow4
-> = z.nativeEnum(EnvelopeGetOverflow4);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetOverflow4));
 /** @internal */
 export const EnvelopeGetOverflow4$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetOverflow4
 > = EnvelopeGetOverflow4$inboundSchema;
 
 /** @internal */
-export const EnvelopeGetTextAlign3$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetTextAlign3
-> = z.nativeEnum(EnvelopeGetTextAlign3);
+export const EnvelopeGetFieldMetaTextAlign3$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaTextAlign3
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EnvelopeGetFieldMetaTextAlign3)
+);
 /** @internal */
-export const EnvelopeGetTextAlign3$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetTextAlign3
-> = EnvelopeGetTextAlign3$inboundSchema;
+export const EnvelopeGetFieldMetaTextAlign3$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaTextAlign3
+> = EnvelopeGetFieldMetaTextAlign3$inboundSchema;
 
 /** @internal */
 export const EnvelopeGetFieldMetaEmail$inboundSchema: z.ZodType<
   EnvelopeGetFieldMetaEmail,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: EnvelopeGetOverflow4$inboundSchema.default("auto"),
-  type: z.literal("email"),
-  textAlign: EnvelopeGetTextAlign3$inboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: EnvelopeGetOverflow4$inboundSchema.default("auto"),
+    type: z.literal("email"),
+    textAlign: EnvelopeGetFieldMetaTextAlign3$inboundSchema.optional(),
+  })
+);
 /** @internal */
 export type EnvelopeGetFieldMetaEmail$Outbound = {
   label?: string | undefined;
@@ -2048,16 +2293,18 @@ export const EnvelopeGetFieldMetaEmail$outboundSchema: z.ZodType<
   EnvelopeGetFieldMetaEmail$Outbound,
   z.ZodTypeDef,
   EnvelopeGetFieldMetaEmail
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: EnvelopeGetOverflow4$outboundSchema.default("auto"),
-  type: z.literal("email"),
-  textAlign: EnvelopeGetTextAlign3$outboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: EnvelopeGetOverflow4$outboundSchema.default("auto"),
+    type: z.literal("email"),
+    textAlign: EnvelopeGetFieldMetaTextAlign3$outboundSchema.optional(),
+  })
+);
 
 export function envelopeGetFieldMetaEmailToJSON(
   envelopeGetFieldMetaEmail: EnvelopeGetFieldMetaEmail,
@@ -2079,36 +2326,40 @@ export function envelopeGetFieldMetaEmailFromJSON(
 /** @internal */
 export const EnvelopeGetOverflow3$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetOverflow3
-> = z.nativeEnum(EnvelopeGetOverflow3);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetOverflow3));
 /** @internal */
 export const EnvelopeGetOverflow3$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetOverflow3
 > = EnvelopeGetOverflow3$inboundSchema;
 
 /** @internal */
-export const EnvelopeGetTextAlign2$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetTextAlign2
-> = z.nativeEnum(EnvelopeGetTextAlign2);
+export const EnvelopeGetFieldMetaTextAlign2$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaTextAlign2
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EnvelopeGetFieldMetaTextAlign2)
+);
 /** @internal */
-export const EnvelopeGetTextAlign2$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetTextAlign2
-> = EnvelopeGetTextAlign2$inboundSchema;
+export const EnvelopeGetFieldMetaTextAlign2$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaTextAlign2
+> = EnvelopeGetFieldMetaTextAlign2$inboundSchema;
 
 /** @internal */
 export const EnvelopeGetFieldMetaName$inboundSchema: z.ZodType<
   EnvelopeGetFieldMetaName,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: EnvelopeGetOverflow3$inboundSchema.optional(),
-  type: z.literal("name"),
-  textAlign: EnvelopeGetTextAlign2$inboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: EnvelopeGetOverflow3$inboundSchema.optional(),
+    type: z.literal("name"),
+    textAlign: EnvelopeGetFieldMetaTextAlign2$inboundSchema.optional(),
+  })
+);
 /** @internal */
 export type EnvelopeGetFieldMetaName$Outbound = {
   label?: string | undefined;
@@ -2126,16 +2377,18 @@ export const EnvelopeGetFieldMetaName$outboundSchema: z.ZodType<
   EnvelopeGetFieldMetaName$Outbound,
   z.ZodTypeDef,
   EnvelopeGetFieldMetaName
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: EnvelopeGetOverflow3$outboundSchema.optional(),
-  type: z.literal("name"),
-  textAlign: EnvelopeGetTextAlign2$outboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: EnvelopeGetOverflow3$outboundSchema.optional(),
+    type: z.literal("name"),
+    textAlign: EnvelopeGetFieldMetaTextAlign2$outboundSchema.optional(),
+  })
+);
 
 export function envelopeGetFieldMetaNameToJSON(
   envelopeGetFieldMetaName: EnvelopeGetFieldMetaName,
@@ -2157,36 +2410,50 @@ export function envelopeGetFieldMetaNameFromJSON(
 /** @internal */
 export const EnvelopeGetOverflow2$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetOverflow2
-> = z.nativeEnum(EnvelopeGetOverflow2);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetOverflow2));
 /** @internal */
 export const EnvelopeGetOverflow2$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetOverflow2
 > = EnvelopeGetOverflow2$inboundSchema;
 
 /** @internal */
-export const EnvelopeGetTextAlign1$inboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetTextAlign1
-> = z.nativeEnum(EnvelopeGetTextAlign1);
+export const EnvelopeGetFieldMetaTextAlign1$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaTextAlign1
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EnvelopeGetFieldMetaTextAlign1)
+);
 /** @internal */
-export const EnvelopeGetTextAlign1$outboundSchema: z.ZodNativeEnum<
-  typeof EnvelopeGetTextAlign1
-> = EnvelopeGetTextAlign1$inboundSchema;
+export const EnvelopeGetFieldMetaTextAlign1$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFieldMetaTextAlign1
+> = EnvelopeGetFieldMetaTextAlign1$inboundSchema;
+
+/** @internal */
+export const EnvelopeGetFontFamily$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFontFamily
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetFontFamily));
+/** @internal */
+export const EnvelopeGetFontFamily$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetFontFamily
+> = EnvelopeGetFontFamily$inboundSchema;
 
 /** @internal */
 export const EnvelopeGetFieldMetaInitials$inboundSchema: z.ZodType<
   EnvelopeGetFieldMetaInitials,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: EnvelopeGetOverflow2$inboundSchema.optional(),
-  type: z.literal("initials"),
-  textAlign: EnvelopeGetTextAlign1$inboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: EnvelopeGetOverflow2$inboundSchema.optional(),
+    type: z.literal("initials"),
+    textAlign: EnvelopeGetFieldMetaTextAlign1$inboundSchema.optional(),
+    fontFamily: EnvelopeGetFontFamily$inboundSchema.optional(),
+  })
+);
 /** @internal */
 export type EnvelopeGetFieldMetaInitials$Outbound = {
   label?: string | undefined;
@@ -2197,6 +2464,7 @@ export type EnvelopeGetFieldMetaInitials$Outbound = {
   overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -2204,16 +2472,19 @@ export const EnvelopeGetFieldMetaInitials$outboundSchema: z.ZodType<
   EnvelopeGetFieldMetaInitials$Outbound,
   z.ZodTypeDef,
   EnvelopeGetFieldMetaInitials
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: EnvelopeGetOverflow2$outboundSchema.optional(),
-  type: z.literal("initials"),
-  textAlign: EnvelopeGetTextAlign1$outboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: EnvelopeGetOverflow2$outboundSchema.optional(),
+    type: z.literal("initials"),
+    textAlign: EnvelopeGetFieldMetaTextAlign1$outboundSchema.optional(),
+    fontFamily: EnvelopeGetFontFamily$outboundSchema.optional(),
+  })
+);
 
 export function envelopeGetFieldMetaInitialsToJSON(
   envelopeGetFieldMetaInitials: EnvelopeGetFieldMetaInitials,
@@ -2237,7 +2508,7 @@ export function envelopeGetFieldMetaInitialsFromJSON(
 /** @internal */
 export const EnvelopeGetOverflow1$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetOverflow1
-> = z.nativeEnum(EnvelopeGetOverflow1);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetOverflow1));
 /** @internal */
 export const EnvelopeGetOverflow1$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeGetOverflow1
@@ -2248,15 +2519,17 @@ export const EnvelopeGetFieldMetaSignature$inboundSchema: z.ZodType<
   EnvelopeGetFieldMetaSignature,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: EnvelopeGetOverflow1$inboundSchema.default("auto"),
-  type: z.literal("signature"),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: EnvelopeGetOverflow1$inboundSchema.default("auto"),
+    type: z.literal("signature"),
+  })
+);
 /** @internal */
 export type EnvelopeGetFieldMetaSignature$Outbound = {
   label?: string | undefined;
@@ -2273,15 +2546,17 @@ export const EnvelopeGetFieldMetaSignature$outboundSchema: z.ZodType<
   EnvelopeGetFieldMetaSignature$Outbound,
   z.ZodTypeDef,
   EnvelopeGetFieldMetaSignature
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: EnvelopeGetOverflow1$outboundSchema.default("auto"),
-  type: z.literal("signature"),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: EnvelopeGetOverflow1$outboundSchema.default("auto"),
+    type: z.literal("signature"),
+  })
+);
 
 export function envelopeGetFieldMetaSignatureToJSON(
   envelopeGetFieldMetaSignature: EnvelopeGetFieldMetaSignature,
@@ -2307,18 +2582,20 @@ export const EnvelopeGetFieldMetaUnion$inboundSchema: z.ZodType<
   EnvelopeGetFieldMetaUnion,
   z.ZodTypeDef,
   unknown
-> = z.union([
-  z.lazy(() => EnvelopeGetFieldMetaSignature$inboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaInitials$inboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaName$inboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaEmail$inboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaDate$inboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaText$inboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaNumber$inboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaRadio$inboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaCheckbox$inboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaDropdown$inboundSchema),
-]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([
+    z.lazy(() => EnvelopeGetFieldMetaSignature$inboundSchema),
+    z.lazy(() => EnvelopeGetFieldMetaInitials$inboundSchema),
+    z.lazy(() => EnvelopeGetFieldMetaName$inboundSchema),
+    z.lazy(() => EnvelopeGetFieldMetaEmail$inboundSchema),
+    z.lazy(() => EnvelopeGetFieldMetaDate$inboundSchema),
+    z.lazy(() => EnvelopeGetFieldMetaText$inboundSchema),
+    z.lazy(() => EnvelopeGetFieldMetaNumber$inboundSchema),
+    z.lazy(() => EnvelopeGetFieldMetaRadio$inboundSchema),
+    z.lazy(() => EnvelopeGetFieldMetaCheckbox$inboundSchema),
+    z.lazy(() => EnvelopeGetFieldMetaDropdown$inboundSchema),
+  ])
+);
 /** @internal */
 export type EnvelopeGetFieldMetaUnion$Outbound =
   | EnvelopeGetFieldMetaSignature$Outbound
@@ -2337,18 +2614,20 @@ export const EnvelopeGetFieldMetaUnion$outboundSchema: z.ZodType<
   EnvelopeGetFieldMetaUnion$Outbound,
   z.ZodTypeDef,
   EnvelopeGetFieldMetaUnion
-> = z.union([
-  z.lazy(() => EnvelopeGetFieldMetaSignature$outboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaInitials$outboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaName$outboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaEmail$outboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaDate$outboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaText$outboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaNumber$outboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaRadio$outboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaCheckbox$outboundSchema),
-  z.lazy(() => EnvelopeGetFieldMetaDropdown$outboundSchema),
-]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([
+    z.lazy(() => EnvelopeGetFieldMetaSignature$outboundSchema),
+    z.lazy(() => EnvelopeGetFieldMetaInitials$outboundSchema),
+    z.lazy(() => EnvelopeGetFieldMetaName$outboundSchema),
+    z.lazy(() => EnvelopeGetFieldMetaEmail$outboundSchema),
+    z.lazy(() => EnvelopeGetFieldMetaDate$outboundSchema),
+    z.lazy(() => EnvelopeGetFieldMetaText$outboundSchema),
+    z.lazy(() => EnvelopeGetFieldMetaNumber$outboundSchema),
+    z.lazy(() => EnvelopeGetFieldMetaRadio$outboundSchema),
+    z.lazy(() => EnvelopeGetFieldMetaCheckbox$outboundSchema),
+    z.lazy(() => EnvelopeGetFieldMetaDropdown$outboundSchema),
+  ])
+);
 
 export function envelopeGetFieldMetaUnionToJSON(
   envelopeGetFieldMetaUnion: EnvelopeGetFieldMetaUnion,
@@ -2372,22 +2651,22 @@ export const EnvelopeGetField$inboundSchema: z.ZodType<
   EnvelopeGetField,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeId: z.string(),
-  envelopeItemId: z.string(),
-  type: EnvelopeGetFieldTypeEnum$inboundSchema,
-  id: z.number(),
-  secondaryId: z.string(),
-  recipientId: z.number(),
-  page: z.number(),
-  positionX: z.any().optional(),
-  positionY: z.any().optional(),
-  width: z.any().optional(),
-  height: z.any().optional(),
-  customText: z.string(),
-  inserted: z.boolean(),
-  fieldMeta: z.nullable(
-    z.union([
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    envelopeItemId: z.string(),
+    type: EnvelopeGetFieldTypeEnum$inboundSchema,
+    id: z.number(),
+    secondaryId: z.string(),
+    recipientId: z.number(),
+    page: z.number(),
+    positionX: z.any().optional(),
+    positionY: z.any().optional(),
+    width: z.any().optional(),
+    height: z.any().optional(),
+    customText: z.string(),
+    inserted: z.boolean(),
+    fieldMeta: z.nullable(z.union([
       z.lazy(() => EnvelopeGetFieldMetaSignature$inboundSchema),
       z.lazy(() => EnvelopeGetFieldMetaInitials$inboundSchema),
       z.lazy(() => EnvelopeGetFieldMetaName$inboundSchema),
@@ -2398,9 +2677,9 @@ export const EnvelopeGetField$inboundSchema: z.ZodType<
       z.lazy(() => EnvelopeGetFieldMetaRadio$inboundSchema),
       z.lazy(() => EnvelopeGetFieldMetaCheckbox$inboundSchema),
       z.lazy(() => EnvelopeGetFieldMetaDropdown$inboundSchema),
-    ]),
-  ),
-});
+    ])),
+  })
+);
 /** @internal */
 export type EnvelopeGetField$Outbound = {
   envelopeId: string;
@@ -2435,22 +2714,22 @@ export const EnvelopeGetField$outboundSchema: z.ZodType<
   EnvelopeGetField$Outbound,
   z.ZodTypeDef,
   EnvelopeGetField
-> = z.object({
-  envelopeId: z.string(),
-  envelopeItemId: z.string(),
-  type: EnvelopeGetFieldTypeEnum$outboundSchema,
-  id: z.number(),
-  secondaryId: z.string(),
-  recipientId: z.number(),
-  page: z.number(),
-  positionX: z.any().optional(),
-  positionY: z.any().optional(),
-  width: z.any().optional(),
-  height: z.any().optional(),
-  customText: z.string(),
-  inserted: z.boolean(),
-  fieldMeta: z.nullable(
-    z.union([
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    envelopeItemId: z.string(),
+    type: EnvelopeGetFieldTypeEnum$outboundSchema,
+    id: z.number(),
+    secondaryId: z.string(),
+    recipientId: z.number(),
+    page: z.number(),
+    positionX: z.any().optional(),
+    positionY: z.any().optional(),
+    width: z.any().optional(),
+    height: z.any().optional(),
+    customText: z.string(),
+    inserted: z.boolean(),
+    fieldMeta: z.nullable(z.union([
       z.lazy(() => EnvelopeGetFieldMetaSignature$outboundSchema),
       z.lazy(() => EnvelopeGetFieldMetaInitials$outboundSchema),
       z.lazy(() => EnvelopeGetFieldMetaName$outboundSchema),
@@ -2461,9 +2740,9 @@ export const EnvelopeGetField$outboundSchema: z.ZodType<
       z.lazy(() => EnvelopeGetFieldMetaRadio$outboundSchema),
       z.lazy(() => EnvelopeGetFieldMetaCheckbox$outboundSchema),
       z.lazy(() => EnvelopeGetFieldMetaDropdown$outboundSchema),
-    ]),
-  ),
-});
+    ])),
+  })
+);
 
 export function envelopeGetFieldToJSON(
   envelopeGetField: EnvelopeGetField,
@@ -2483,17 +2762,571 @@ export function envelopeGetFieldFromJSON(
 }
 
 /** @internal */
+export const EnvelopeGetContentMetaImage$inboundSchema: z.ZodType<
+  EnvelopeGetContentMetaImage,
+  z.ZodTypeDef,
+  unknown
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.number().int(),
+    positionX: z.number(),
+    positionY: z.number(),
+    width: z.number(),
+    height: z.number(),
+    zIndex: z.number().int().default(0),
+    type: z.literal("image"),
+    rotation: z.number().default(0),
+  })
+);
+/** @internal */
+export type EnvelopeGetContentMetaImage$Outbound = {
+  page: number;
+  positionX: number;
+  positionY: number;
+  width: number;
+  height: number;
+  zIndex: number;
+  type: "image";
+  rotation: number;
+};
+
+/** @internal */
+export const EnvelopeGetContentMetaImage$outboundSchema: z.ZodType<
+  EnvelopeGetContentMetaImage$Outbound,
+  z.ZodTypeDef,
+  EnvelopeGetContentMetaImage
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.number().int(),
+    positionX: z.number(),
+    positionY: z.number(),
+    width: z.number(),
+    height: z.number(),
+    zIndex: z.number().int().default(0),
+    type: z.literal("image"),
+    rotation: z.number().default(0),
+  })
+);
+
+export function envelopeGetContentMetaImageToJSON(
+  envelopeGetContentMetaImage: EnvelopeGetContentMetaImage,
+): string {
+  return JSON.stringify(
+    EnvelopeGetContentMetaImage$outboundSchema.parse(
+      envelopeGetContentMetaImage,
+    ),
+  );
+}
+export function envelopeGetContentMetaImageFromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeGetContentMetaImage, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeGetContentMetaImage$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeGetContentMetaImage' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeGetContentMetaHighlight$inboundSchema: z.ZodType<
+  EnvelopeGetContentMetaHighlight,
+  z.ZodTypeDef,
+  unknown
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.number().int(),
+    positionX: z.number(),
+    positionY: z.number(),
+    width: z.number(),
+    height: z.number(),
+    zIndex: z.number().int().default(0),
+    type: z.literal("highlight"),
+    color: z.string().default("#ffe600"),
+    fillOpacity: z.number().default(0.4),
+  })
+);
+/** @internal */
+export type EnvelopeGetContentMetaHighlight$Outbound = {
+  page: number;
+  positionX: number;
+  positionY: number;
+  width: number;
+  height: number;
+  zIndex: number;
+  type: "highlight";
+  color: string;
+  fillOpacity: number;
+};
+
+/** @internal */
+export const EnvelopeGetContentMetaHighlight$outboundSchema: z.ZodType<
+  EnvelopeGetContentMetaHighlight$Outbound,
+  z.ZodTypeDef,
+  EnvelopeGetContentMetaHighlight
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.number().int(),
+    positionX: z.number(),
+    positionY: z.number(),
+    width: z.number(),
+    height: z.number(),
+    zIndex: z.number().int().default(0),
+    type: z.literal("highlight"),
+    color: z.string().default("#ffe600"),
+    fillOpacity: z.number().default(0.4),
+  })
+);
+
+export function envelopeGetContentMetaHighlightToJSON(
+  envelopeGetContentMetaHighlight: EnvelopeGetContentMetaHighlight,
+): string {
+  return JSON.stringify(
+    EnvelopeGetContentMetaHighlight$outboundSchema.parse(
+      envelopeGetContentMetaHighlight,
+    ),
+  );
+}
+export function envelopeGetContentMetaHighlightFromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeGetContentMetaHighlight, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeGetContentMetaHighlight$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeGetContentMetaHighlight' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeGetShape$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetShape
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetShape));
+/** @internal */
+export const EnvelopeGetShape$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetShape
+> = EnvelopeGetShape$inboundSchema;
+
+/** @internal */
+export const EnvelopeGetStrokeStyle2$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetStrokeStyle2
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetStrokeStyle2));
+/** @internal */
+export const EnvelopeGetStrokeStyle2$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetStrokeStyle2
+> = EnvelopeGetStrokeStyle2$inboundSchema;
+
+/** @internal */
+export const EnvelopeGetContentMetaRectangle$inboundSchema: z.ZodType<
+  EnvelopeGetContentMetaRectangle,
+  z.ZodTypeDef,
+  unknown
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.number().int(),
+    positionX: z.number(),
+    positionY: z.number(),
+    width: z.number(),
+    height: z.number(),
+    zIndex: z.number().int().default(0),
+    type: z.literal("shape"),
+    shape: EnvelopeGetShape$inboundSchema,
+    rotation: z.number().default(0),
+    strokeWidth: z.number().default(1),
+    strokeColor: z.string().default("#000000"),
+    strokeStyle: EnvelopeGetStrokeStyle2$inboundSchema.default("solid"),
+    fillColor: z.nullable(z.string()).default(null),
+    fillOpacity: z.number().default(1),
+  })
+);
+/** @internal */
+export type EnvelopeGetContentMetaRectangle$Outbound = {
+  page: number;
+  positionX: number;
+  positionY: number;
+  width: number;
+  height: number;
+  zIndex: number;
+  type: "shape";
+  shape: string;
+  rotation: number;
+  strokeWidth: number;
+  strokeColor: string;
+  strokeStyle: string;
+  fillColor: string | null;
+  fillOpacity: number;
+};
+
+/** @internal */
+export const EnvelopeGetContentMetaRectangle$outboundSchema: z.ZodType<
+  EnvelopeGetContentMetaRectangle$Outbound,
+  z.ZodTypeDef,
+  EnvelopeGetContentMetaRectangle
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.number().int(),
+    positionX: z.number(),
+    positionY: z.number(),
+    width: z.number(),
+    height: z.number(),
+    zIndex: z.number().int().default(0),
+    type: z.literal("shape"),
+    shape: EnvelopeGetShape$outboundSchema,
+    rotation: z.number().default(0),
+    strokeWidth: z.number().default(1),
+    strokeColor: z.string().default("#000000"),
+    strokeStyle: EnvelopeGetStrokeStyle2$outboundSchema.default("solid"),
+    fillColor: z.nullable(z.string()).default(null),
+    fillOpacity: z.number().default(1),
+  })
+);
+
+export function envelopeGetContentMetaRectangleToJSON(
+  envelopeGetContentMetaRectangle: EnvelopeGetContentMetaRectangle,
+): string {
+  return JSON.stringify(
+    EnvelopeGetContentMetaRectangle$outboundSchema.parse(
+      envelopeGetContentMetaRectangle,
+    ),
+  );
+}
+export function envelopeGetContentMetaRectangleFromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeGetContentMetaRectangle, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeGetContentMetaRectangle$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeGetContentMetaRectangle' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeGetStrokeStyle1$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetStrokeStyle1
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeGetStrokeStyle1));
+/** @internal */
+export const EnvelopeGetStrokeStyle1$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetStrokeStyle1
+> = EnvelopeGetStrokeStyle1$inboundSchema;
+
+/** @internal */
+export const EnvelopeGetContentMetaLine$inboundSchema: z.ZodType<
+  EnvelopeGetContentMetaLine,
+  z.ZodTypeDef,
+  unknown
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.number().int(),
+    zIndex: z.number().int().default(0),
+    type: z.literal("line"),
+    x1: z.number(),
+    y1: z.number(),
+    x2: z.number(),
+    y2: z.number(),
+    strokeWidth: z.number().default(1),
+    strokeColor: z.string().default("#000000"),
+    strokeStyle: EnvelopeGetStrokeStyle1$inboundSchema.default("solid"),
+  })
+);
+/** @internal */
+export type EnvelopeGetContentMetaLine$Outbound = {
+  page: number;
+  zIndex: number;
+  type: "line";
+  x1: number;
+  y1: number;
+  x2: number;
+  y2: number;
+  strokeWidth: number;
+  strokeColor: string;
+  strokeStyle: string;
+};
+
+/** @internal */
+export const EnvelopeGetContentMetaLine$outboundSchema: z.ZodType<
+  EnvelopeGetContentMetaLine$Outbound,
+  z.ZodTypeDef,
+  EnvelopeGetContentMetaLine
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.number().int(),
+    zIndex: z.number().int().default(0),
+    type: z.literal("line"),
+    x1: z.number(),
+    y1: z.number(),
+    x2: z.number(),
+    y2: z.number(),
+    strokeWidth: z.number().default(1),
+    strokeColor: z.string().default("#000000"),
+    strokeStyle: EnvelopeGetStrokeStyle1$outboundSchema.default("solid"),
+  })
+);
+
+export function envelopeGetContentMetaLineToJSON(
+  envelopeGetContentMetaLine: EnvelopeGetContentMetaLine,
+): string {
+  return JSON.stringify(
+    EnvelopeGetContentMetaLine$outboundSchema.parse(envelopeGetContentMetaLine),
+  );
+}
+export function envelopeGetContentMetaLineFromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeGetContentMetaLine, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeGetContentMetaLine$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeGetContentMetaLine' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeGetContentMetaTextAlign$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetContentMetaTextAlign
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EnvelopeGetContentMetaTextAlign)
+);
+/** @internal */
+export const EnvelopeGetContentMetaTextAlign$outboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetContentMetaTextAlign
+> = EnvelopeGetContentMetaTextAlign$inboundSchema;
+
+/** @internal */
+export const EnvelopeGetContentMetaVerticalAlign$inboundSchema: z.ZodNativeEnum<
+  typeof EnvelopeGetContentMetaVerticalAlign
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EnvelopeGetContentMetaVerticalAlign)
+);
+/** @internal */
+export const EnvelopeGetContentMetaVerticalAlign$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeGetContentMetaVerticalAlign> =
+    EnvelopeGetContentMetaVerticalAlign$inboundSchema;
+
+/** @internal */
+export const EnvelopeGetContentMetaText$inboundSchema: z.ZodType<
+  EnvelopeGetContentMetaText,
+  z.ZodTypeDef,
+  unknown
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.number().int(),
+    positionX: z.number(),
+    positionY: z.number(),
+    width: z.number(),
+    height: z.number(),
+    zIndex: z.number().int().default(0),
+    type: z.literal("text"),
+    text: z.string().default(""),
+    textAlign: EnvelopeGetContentMetaTextAlign$inboundSchema.default("left"),
+    verticalAlign: EnvelopeGetContentMetaVerticalAlign$inboundSchema.default(
+      "middle",
+    ),
+    lineHeight: z.number().default(1),
+    letterSpacing: z.number().default(0),
+    fontSize: z.number().default(10),
+    color: z.string().default("#000000"),
+  })
+);
+/** @internal */
+export type EnvelopeGetContentMetaText$Outbound = {
+  page: number;
+  positionX: number;
+  positionY: number;
+  width: number;
+  height: number;
+  zIndex: number;
+  type: "text";
+  text: string;
+  textAlign: string;
+  verticalAlign: string;
+  lineHeight: number;
+  letterSpacing: number;
+  fontSize: number;
+  color: string;
+};
+
+/** @internal */
+export const EnvelopeGetContentMetaText$outboundSchema: z.ZodType<
+  EnvelopeGetContentMetaText$Outbound,
+  z.ZodTypeDef,
+  EnvelopeGetContentMetaText
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z.number().int(),
+    positionX: z.number(),
+    positionY: z.number(),
+    width: z.number(),
+    height: z.number(),
+    zIndex: z.number().int().default(0),
+    type: z.literal("text"),
+    text: z.string().default(""),
+    textAlign: EnvelopeGetContentMetaTextAlign$outboundSchema.default("left"),
+    verticalAlign: EnvelopeGetContentMetaVerticalAlign$outboundSchema.default(
+      "middle",
+    ),
+    lineHeight: z.number().default(1),
+    letterSpacing: z.number().default(0),
+    fontSize: z.number().default(10),
+    color: z.string().default("#000000"),
+  })
+);
+
+export function envelopeGetContentMetaTextToJSON(
+  envelopeGetContentMetaText: EnvelopeGetContentMetaText,
+): string {
+  return JSON.stringify(
+    EnvelopeGetContentMetaText$outboundSchema.parse(envelopeGetContentMetaText),
+  );
+}
+export function envelopeGetContentMetaTextFromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeGetContentMetaText, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeGetContentMetaText$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeGetContentMetaText' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeGetContentMetaUnion$inboundSchema: z.ZodType<
+  EnvelopeGetContentMetaUnion,
+  z.ZodTypeDef,
+  unknown
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([
+    z.lazy(() => EnvelopeGetContentMetaText$inboundSchema),
+    z.lazy(() => EnvelopeGetContentMetaLine$inboundSchema),
+    z.lazy(() => EnvelopeGetContentMetaRectangle$inboundSchema),
+    z.lazy(() => EnvelopeGetContentMetaHighlight$inboundSchema),
+    z.lazy(() => EnvelopeGetContentMetaImage$inboundSchema),
+  ])
+);
+/** @internal */
+export type EnvelopeGetContentMetaUnion$Outbound =
+  | EnvelopeGetContentMetaText$Outbound
+  | EnvelopeGetContentMetaLine$Outbound
+  | EnvelopeGetContentMetaRectangle$Outbound
+  | EnvelopeGetContentMetaHighlight$Outbound
+  | EnvelopeGetContentMetaImage$Outbound;
+
+/** @internal */
+export const EnvelopeGetContentMetaUnion$outboundSchema: z.ZodType<
+  EnvelopeGetContentMetaUnion$Outbound,
+  z.ZodTypeDef,
+  EnvelopeGetContentMetaUnion
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([
+    z.lazy(() => EnvelopeGetContentMetaText$outboundSchema),
+    z.lazy(() => EnvelopeGetContentMetaLine$outboundSchema),
+    z.lazy(() => EnvelopeGetContentMetaRectangle$outboundSchema),
+    z.lazy(() => EnvelopeGetContentMetaHighlight$outboundSchema),
+    z.lazy(() => EnvelopeGetContentMetaImage$outboundSchema),
+  ])
+);
+
+export function envelopeGetContentMetaUnionToJSON(
+  envelopeGetContentMetaUnion: EnvelopeGetContentMetaUnion,
+): string {
+  return JSON.stringify(
+    EnvelopeGetContentMetaUnion$outboundSchema.parse(
+      envelopeGetContentMetaUnion,
+    ),
+  );
+}
+export function envelopeGetContentMetaUnionFromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeGetContentMetaUnion, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeGetContentMetaUnion$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeGetContentMetaUnion' from JSON`,
+  );
+}
+
+/** @internal */
+export const EnvelopeGetContent$inboundSchema: z.ZodType<
+  EnvelopeGetContent,
+  z.ZodTypeDef,
+  unknown
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    envelopeId: z.string(),
+    envelopeItemId: z.string(),
+    contentMeta: z.union([
+      z.lazy(() => EnvelopeGetContentMetaText$inboundSchema),
+      z.lazy(() => EnvelopeGetContentMetaLine$inboundSchema),
+      z.lazy(() => EnvelopeGetContentMetaRectangle$inboundSchema),
+      z.lazy(() => EnvelopeGetContentMetaHighlight$inboundSchema),
+      z.lazy(() => EnvelopeGetContentMetaImage$inboundSchema),
+    ]),
+    dataContentId: z.nullable(z.string()),
+  })
+);
+/** @internal */
+export type EnvelopeGetContent$Outbound = {
+  id: string;
+  envelopeId: string;
+  envelopeItemId: string;
+  contentMeta:
+    | EnvelopeGetContentMetaText$Outbound
+    | EnvelopeGetContentMetaLine$Outbound
+    | EnvelopeGetContentMetaRectangle$Outbound
+    | EnvelopeGetContentMetaHighlight$Outbound
+    | EnvelopeGetContentMetaImage$Outbound;
+  dataContentId: string | null;
+};
+
+/** @internal */
+export const EnvelopeGetContent$outboundSchema: z.ZodType<
+  EnvelopeGetContent$Outbound,
+  z.ZodTypeDef,
+  EnvelopeGetContent
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    envelopeId: z.string(),
+    envelopeItemId: z.string(),
+    contentMeta: z.union([
+      z.lazy(() => EnvelopeGetContentMetaText$outboundSchema),
+      z.lazy(() => EnvelopeGetContentMetaLine$outboundSchema),
+      z.lazy(() => EnvelopeGetContentMetaRectangle$outboundSchema),
+      z.lazy(() => EnvelopeGetContentMetaHighlight$outboundSchema),
+      z.lazy(() => EnvelopeGetContentMetaImage$outboundSchema),
+    ]),
+    dataContentId: z.nullable(z.string()),
+  })
+);
+
+export function envelopeGetContentToJSON(
+  envelopeGetContent: EnvelopeGetContent,
+): string {
+  return JSON.stringify(
+    EnvelopeGetContent$outboundSchema.parse(envelopeGetContent),
+  );
+}
+export function envelopeGetContentFromJSON(
+  jsonString: string,
+): SafeParseResult<EnvelopeGetContent, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnvelopeGetContent$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnvelopeGetContent' from JSON`,
+  );
+}
+
+/** @internal */
 export const EnvelopeGetEnvelopeItem$inboundSchema: z.ZodType<
   EnvelopeGetEnvelopeItem,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeId: z.string(),
-  documentDataId: z.string(),
-  id: z.string(),
-  title: z.string(),
-  order: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    documentDataId: z.string(),
+    id: z.string(),
+    title: z.string(),
+    order: z.number(),
+  })
+);
 /** @internal */
 export type EnvelopeGetEnvelopeItem$Outbound = {
   envelopeId: string;
@@ -2508,13 +3341,15 @@ export const EnvelopeGetEnvelopeItem$outboundSchema: z.ZodType<
   EnvelopeGetEnvelopeItem$Outbound,
   z.ZodTypeDef,
   EnvelopeGetEnvelopeItem
-> = z.object({
-  envelopeId: z.string(),
-  documentDataId: z.string(),
-  id: z.string(),
-  title: z.string(),
-  order: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    documentDataId: z.string(),
+    id: z.string(),
+    title: z.string(),
+    order: z.number(),
+  })
+);
 
 export function envelopeGetEnvelopeItemToJSON(
   envelopeGetEnvelopeItem: EnvelopeGetEnvelopeItem,
@@ -2538,12 +3373,14 @@ export const EnvelopeGetDirectLink$inboundSchema: z.ZodType<
   EnvelopeGetDirectLink,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  directTemplateRecipientId: z.number(),
-  enabled: z.boolean(),
-  id: z.string(),
-  token: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    directTemplateRecipientId: z.number(),
+    enabled: z.boolean(),
+    id: z.string(),
+    token: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeGetDirectLink$Outbound = {
   directTemplateRecipientId: number;
@@ -2557,12 +3394,14 @@ export const EnvelopeGetDirectLink$outboundSchema: z.ZodType<
   EnvelopeGetDirectLink$Outbound,
   z.ZodTypeDef,
   EnvelopeGetDirectLink
-> = z.object({
-  directTemplateRecipientId: z.number(),
-  enabled: z.boolean(),
-  id: z.string(),
-  token: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    directTemplateRecipientId: z.number(),
+    enabled: z.boolean(),
+    id: z.string(),
+    token: z.string(),
+  })
+);
 
 export function envelopeGetDirectLinkToJSON(
   envelopeGetDirectLink: EnvelopeGetDirectLink,
@@ -2586,10 +3425,12 @@ export const EnvelopeGetTeam$inboundSchema: z.ZodType<
   EnvelopeGetTeam,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.number(),
-  url: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    url: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeGetTeam$Outbound = {
   id: number;
@@ -2601,10 +3442,12 @@ export const EnvelopeGetTeam$outboundSchema: z.ZodType<
   EnvelopeGetTeam$Outbound,
   z.ZodTypeDef,
   EnvelopeGetTeam
-> = z.object({
-  id: z.number(),
-  url: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    url: z.string(),
+  })
+);
 
 export function envelopeGetTeamToJSON(
   envelopeGetTeam: EnvelopeGetTeam,
@@ -2626,11 +3469,13 @@ export const EnvelopeGetUser$inboundSchema: z.ZodType<
   EnvelopeGetUser,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.number(),
-  name: z.string(),
-  email: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    name: z.string(),
+    email: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeGetUser$Outbound = {
   id: number;
@@ -2643,11 +3488,13 @@ export const EnvelopeGetUser$outboundSchema: z.ZodType<
   EnvelopeGetUser$Outbound,
   z.ZodTypeDef,
   EnvelopeGetUser
-> = z.object({
-  id: z.number(),
-  name: z.string(),
-  email: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    name: z.string(),
+    email: z.string(),
+  })
+);
 
 export function envelopeGetUserToJSON(
   envelopeGetUser: EnvelopeGetUser,
@@ -2669,39 +3516,42 @@ export const EnvelopeGetResponse$inboundSchema: z.ZodType<
   EnvelopeGetResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  internalVersion: z.number(),
-  type: EnvelopeGetTypeEnum$inboundSchema,
-  status: EnvelopeGetStatus$inboundSchema,
-  source: EnvelopeGetSource$inboundSchema,
-  visibility: EnvelopeGetVisibility$inboundSchema,
-  templateType: EnvelopeGetTemplateType$inboundSchema,
-  id: z.string(),
-  secondaryId: z.string(),
-  externalId: z.nullable(z.string()),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-  completedAt: z.nullable(z.string()),
-  deletedAt: z.nullable(z.string()),
-  title: z.string(),
-  authOptions: z.nullable(z.lazy(() => EnvelopeGetAuthOptions$inboundSchema)),
-  formValues: z.nullable(
-    z.record(z.union([z.string(), z.boolean(), z.number()])),
-  ),
-  publicTitle: z.string(),
-  publicDescription: z.string(),
-  userId: z.number(),
-  teamId: z.number(),
-  folderId: z.nullable(z.string()),
-  templateId: z.nullable(z.number()),
-  documentMeta: z.lazy(() => EnvelopeGetDocumentMeta$inboundSchema),
-  recipients: z.array(z.lazy(() => EnvelopeGetRecipient$inboundSchema)),
-  fields: z.array(z.lazy(() => EnvelopeGetField$inboundSchema)),
-  envelopeItems: z.array(z.lazy(() => EnvelopeGetEnvelopeItem$inboundSchema)),
-  directLink: z.nullable(z.lazy(() => EnvelopeGetDirectLink$inboundSchema)),
-  team: z.lazy(() => EnvelopeGetTeam$inboundSchema),
-  user: z.lazy(() => EnvelopeGetUser$inboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    internalVersion: z.number(),
+    type: EnvelopeGetTypeEnum$inboundSchema,
+    status: EnvelopeGetStatus$inboundSchema,
+    source: EnvelopeGetSource$inboundSchema,
+    visibility: EnvelopeGetVisibility$inboundSchema,
+    templateType: EnvelopeGetTemplateType$inboundSchema,
+    id: z.string(),
+    secondaryId: z.string(),
+    externalId: z.nullable(z.string()),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    completedAt: z.nullable(z.string()),
+    deletedAt: z.nullable(z.string()),
+    title: z.string(),
+    authOptions: z.nullable(z.lazy(() => EnvelopeGetAuthOptions$inboundSchema)),
+    formValues: z.nullable(
+      z.record(z.union([z.string(), z.boolean(), z.number()])),
+    ),
+    publicTitle: z.string(),
+    publicDescription: z.string(),
+    userId: z.number(),
+    teamId: z.number(),
+    folderId: z.nullable(z.string()),
+    templateId: z.nullable(z.number()),
+    documentMeta: z.lazy(() => EnvelopeGetDocumentMeta$inboundSchema),
+    recipients: z.array(z.lazy(() => EnvelopeGetRecipient$inboundSchema)),
+    fields: z.array(z.lazy(() => EnvelopeGetField$inboundSchema)),
+    contents: z.array(z.lazy(() => EnvelopeGetContent$inboundSchema)),
+    envelopeItems: z.array(z.lazy(() => EnvelopeGetEnvelopeItem$inboundSchema)),
+    directLink: z.nullable(z.lazy(() => EnvelopeGetDirectLink$inboundSchema)),
+    team: z.lazy(() => EnvelopeGetTeam$inboundSchema),
+    user: z.lazy(() => EnvelopeGetUser$inboundSchema),
+  })
+);
 /** @internal */
 export type EnvelopeGetResponse$Outbound = {
   internalVersion: number;
@@ -2729,6 +3579,7 @@ export type EnvelopeGetResponse$Outbound = {
   documentMeta: EnvelopeGetDocumentMeta$Outbound;
   recipients: Array<EnvelopeGetRecipient$Outbound>;
   fields: Array<EnvelopeGetField$Outbound>;
+  contents: Array<EnvelopeGetContent$Outbound>;
   envelopeItems: Array<EnvelopeGetEnvelopeItem$Outbound>;
   directLink: EnvelopeGetDirectLink$Outbound | null;
   team: EnvelopeGetTeam$Outbound;
@@ -2740,39 +3591,46 @@ export const EnvelopeGetResponse$outboundSchema: z.ZodType<
   EnvelopeGetResponse$Outbound,
   z.ZodTypeDef,
   EnvelopeGetResponse
-> = z.object({
-  internalVersion: z.number(),
-  type: EnvelopeGetTypeEnum$outboundSchema,
-  status: EnvelopeGetStatus$outboundSchema,
-  source: EnvelopeGetSource$outboundSchema,
-  visibility: EnvelopeGetVisibility$outboundSchema,
-  templateType: EnvelopeGetTemplateType$outboundSchema,
-  id: z.string(),
-  secondaryId: z.string(),
-  externalId: z.nullable(z.string()),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-  completedAt: z.nullable(z.string()),
-  deletedAt: z.nullable(z.string()),
-  title: z.string(),
-  authOptions: z.nullable(z.lazy(() => EnvelopeGetAuthOptions$outboundSchema)),
-  formValues: z.nullable(
-    z.record(z.union([z.string(), z.boolean(), z.number()])),
-  ),
-  publicTitle: z.string(),
-  publicDescription: z.string(),
-  userId: z.number(),
-  teamId: z.number(),
-  folderId: z.nullable(z.string()),
-  templateId: z.nullable(z.number()),
-  documentMeta: z.lazy(() => EnvelopeGetDocumentMeta$outboundSchema),
-  recipients: z.array(z.lazy(() => EnvelopeGetRecipient$outboundSchema)),
-  fields: z.array(z.lazy(() => EnvelopeGetField$outboundSchema)),
-  envelopeItems: z.array(z.lazy(() => EnvelopeGetEnvelopeItem$outboundSchema)),
-  directLink: z.nullable(z.lazy(() => EnvelopeGetDirectLink$outboundSchema)),
-  team: z.lazy(() => EnvelopeGetTeam$outboundSchema),
-  user: z.lazy(() => EnvelopeGetUser$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    internalVersion: z.number(),
+    type: EnvelopeGetTypeEnum$outboundSchema,
+    status: EnvelopeGetStatus$outboundSchema,
+    source: EnvelopeGetSource$outboundSchema,
+    visibility: EnvelopeGetVisibility$outboundSchema,
+    templateType: EnvelopeGetTemplateType$outboundSchema,
+    id: z.string(),
+    secondaryId: z.string(),
+    externalId: z.nullable(z.string()),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    completedAt: z.nullable(z.string()),
+    deletedAt: z.nullable(z.string()),
+    title: z.string(),
+    authOptions: z.nullable(
+      z.lazy(() => EnvelopeGetAuthOptions$outboundSchema),
+    ),
+    formValues: z.nullable(
+      z.record(z.union([z.string(), z.boolean(), z.number()])),
+    ),
+    publicTitle: z.string(),
+    publicDescription: z.string(),
+    userId: z.number(),
+    teamId: z.number(),
+    folderId: z.nullable(z.string()),
+    templateId: z.nullable(z.number()),
+    documentMeta: z.lazy(() => EnvelopeGetDocumentMeta$outboundSchema),
+    recipients: z.array(z.lazy(() => EnvelopeGetRecipient$outboundSchema)),
+    fields: z.array(z.lazy(() => EnvelopeGetField$outboundSchema)),
+    contents: z.array(z.lazy(() => EnvelopeGetContent$outboundSchema)),
+    envelopeItems: z.array(
+      z.lazy(() => EnvelopeGetEnvelopeItem$outboundSchema),
+    ),
+    directLink: z.nullable(z.lazy(() => EnvelopeGetDirectLink$outboundSchema)),
+    team: z.lazy(() => EnvelopeGetTeam$outboundSchema),
+    user: z.lazy(() => EnvelopeGetUser$outboundSchema),
+  })
+);
 
 export function envelopeGetResponseToJSON(
   envelopeGetResponse: EnvelopeGetResponse,

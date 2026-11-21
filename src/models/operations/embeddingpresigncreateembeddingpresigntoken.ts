@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -27,10 +27,12 @@ export const EmbeddingPresignCreateEmbeddingPresignTokenRequest$inboundSchema:
     EmbeddingPresignCreateEmbeddingPresignTokenRequest,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    expiresIn: z.number().default(60),
-    scope: z.string().optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      expiresIn: z.number().default(60),
+      scope: z.string().optional(),
+    })
+  );
 /** @internal */
 export type EmbeddingPresignCreateEmbeddingPresignTokenRequest$Outbound = {
   expiresIn: number;
@@ -43,10 +45,12 @@ export const EmbeddingPresignCreateEmbeddingPresignTokenRequest$outboundSchema:
     EmbeddingPresignCreateEmbeddingPresignTokenRequest$Outbound,
     z.ZodTypeDef,
     EmbeddingPresignCreateEmbeddingPresignTokenRequest
-  > = z.object({
-    expiresIn: z.number().default(60),
-    scope: z.string().optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      expiresIn: z.number().default(60),
+      scope: z.string().optional(),
+    })
+  );
 
 export function embeddingPresignCreateEmbeddingPresignTokenRequestToJSON(
   embeddingPresignCreateEmbeddingPresignTokenRequest:
@@ -80,11 +84,13 @@ export const EmbeddingPresignCreateEmbeddingPresignTokenResponse$inboundSchema:
     EmbeddingPresignCreateEmbeddingPresignTokenResponse,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    token: z.string(),
-    expiresAt: z.string(),
-    expiresIn: z.number(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      token: z.string(),
+      expiresAt: z.string(),
+      expiresIn: z.number(),
+    })
+  );
 /** @internal */
 export type EmbeddingPresignCreateEmbeddingPresignTokenResponse$Outbound = {
   token: string;
@@ -98,11 +104,13 @@ export const EmbeddingPresignCreateEmbeddingPresignTokenResponse$outboundSchema:
     EmbeddingPresignCreateEmbeddingPresignTokenResponse$Outbound,
     z.ZodTypeDef,
     EmbeddingPresignCreateEmbeddingPresignTokenResponse
-  > = z.object({
-    token: z.string(),
-    expiresAt: z.string(),
-    expiresIn: z.number(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      token: z.string(),
+      expiresAt: z.string(),
+      expiresIn: z.number(),
+    })
+  );
 
 export function embeddingPresignCreateEmbeddingPresignTokenResponseToJSON(
   embeddingPresignCreateEmbeddingPresignTokenResponse:

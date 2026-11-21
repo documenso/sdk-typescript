@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -29,10 +29,12 @@ export const DocumentAttachmentCreateData$inboundSchema: z.ZodType<
   DocumentAttachmentCreateData,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string(),
-  data: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string(),
+    data: z.string(),
+  })
+);
 /** @internal */
 export type DocumentAttachmentCreateData$Outbound = {
   label: string;
@@ -44,10 +46,12 @@ export const DocumentAttachmentCreateData$outboundSchema: z.ZodType<
   DocumentAttachmentCreateData$Outbound,
   z.ZodTypeDef,
   DocumentAttachmentCreateData
-> = z.object({
-  label: z.string(),
-  data: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string(),
+    data: z.string(),
+  })
+);
 
 export function documentAttachmentCreateDataToJSON(
   documentAttachmentCreateData: DocumentAttachmentCreateData,
@@ -73,10 +77,12 @@ export const DocumentAttachmentCreateRequest$inboundSchema: z.ZodType<
   DocumentAttachmentCreateRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  documentId: z.number(),
-  data: z.lazy(() => DocumentAttachmentCreateData$inboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    documentId: z.number(),
+    data: z.lazy(() => DocumentAttachmentCreateData$inboundSchema),
+  })
+);
 /** @internal */
 export type DocumentAttachmentCreateRequest$Outbound = {
   documentId: number;
@@ -88,10 +94,12 @@ export const DocumentAttachmentCreateRequest$outboundSchema: z.ZodType<
   DocumentAttachmentCreateRequest$Outbound,
   z.ZodTypeDef,
   DocumentAttachmentCreateRequest
-> = z.object({
-  documentId: z.number(),
-  data: z.lazy(() => DocumentAttachmentCreateData$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    documentId: z.number(),
+    data: z.lazy(() => DocumentAttachmentCreateData$outboundSchema),
+  })
+);
 
 export function documentAttachmentCreateRequestToJSON(
   documentAttachmentCreateRequest: DocumentAttachmentCreateRequest,
@@ -117,9 +125,11 @@ export const DocumentAttachmentCreateResponse$inboundSchema: z.ZodType<
   DocumentAttachmentCreateResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+  })
+);
 /** @internal */
 export type DocumentAttachmentCreateResponse$Outbound = {
   id: string;
@@ -130,9 +140,11 @@ export const DocumentAttachmentCreateResponse$outboundSchema: z.ZodType<
   DocumentAttachmentCreateResponse$Outbound,
   z.ZodTypeDef,
   DocumentAttachmentCreateResponse
-> = z.object({
-  id: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+  })
+);
 
 export function documentAttachmentCreateResponseToJSON(
   documentAttachmentCreateResponse: DocumentAttachmentCreateResponse,

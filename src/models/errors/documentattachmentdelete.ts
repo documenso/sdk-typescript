@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -164,9 +164,11 @@ export const DocumentAttachmentDeleteInternalServerErrorIssue$inboundSchema:
     DocumentAttachmentDeleteInternalServerErrorIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type DocumentAttachmentDeleteInternalServerErrorIssue$Outbound = {
   message: string;
@@ -178,9 +180,11 @@ export const DocumentAttachmentDeleteInternalServerErrorIssue$outboundSchema:
     DocumentAttachmentDeleteInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
     DocumentAttachmentDeleteInternalServerErrorIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function documentAttachmentDeleteInternalServerErrorIssueToJSON(
   documentAttachmentDeleteInternalServerErrorIssue:
@@ -214,25 +218,25 @@ export const DocumentAttachmentDeleteInternalServerError$inboundSchema:
     DocumentAttachmentDeleteInternalServerError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         DocumentAttachmentDeleteInternalServerErrorIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new DocumentAttachmentDeleteInternalServerError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        return new DocumentAttachmentDeleteInternalServerError(v, {
+          request: v.request$,
+          response: v.response$,
+          body: v.body$,
+        });
+      })
+  );
 
 /** @internal */
 export type DocumentAttachmentDeleteInternalServerError$Outbound = {
@@ -249,26 +253,30 @@ export const DocumentAttachmentDeleteInternalServerError$outboundSchema:
     DocumentAttachmentDeleteInternalServerError$Outbound,
     z.ZodTypeDef,
     DocumentAttachmentDeleteInternalServerError
-  > = z.instanceof(DocumentAttachmentDeleteInternalServerError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          DocumentAttachmentDeleteInternalServerErrorIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(DocumentAttachmentDeleteInternalServerError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            DocumentAttachmentDeleteInternalServerErrorIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const DocumentAttachmentDeleteForbiddenIssue$inboundSchema: z.ZodType<
   DocumentAttachmentDeleteForbiddenIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type DocumentAttachmentDeleteForbiddenIssue$Outbound = {
   message: string;
@@ -279,9 +287,11 @@ export const DocumentAttachmentDeleteForbiddenIssue$outboundSchema: z.ZodType<
   DocumentAttachmentDeleteForbiddenIssue$Outbound,
   z.ZodTypeDef,
   DocumentAttachmentDeleteForbiddenIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function documentAttachmentDeleteForbiddenIssueToJSON(
   documentAttachmentDeleteForbiddenIssue:
@@ -309,23 +319,25 @@ export const DocumentAttachmentDeleteForbiddenError$inboundSchema: z.ZodType<
   DocumentAttachmentDeleteForbiddenError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => DocumentAttachmentDeleteForbiddenIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new DocumentAttachmentDeleteForbiddenError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => DocumentAttachmentDeleteForbiddenIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new DocumentAttachmentDeleteForbiddenError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type DocumentAttachmentDeleteForbiddenError$Outbound = {
@@ -339,24 +351,28 @@ export const DocumentAttachmentDeleteForbiddenError$outboundSchema: z.ZodType<
   DocumentAttachmentDeleteForbiddenError$Outbound,
   z.ZodTypeDef,
   DocumentAttachmentDeleteForbiddenError
-> = z.instanceof(DocumentAttachmentDeleteForbiddenError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => DocumentAttachmentDeleteForbiddenIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(DocumentAttachmentDeleteForbiddenError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => DocumentAttachmentDeleteForbiddenIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const DocumentAttachmentDeleteUnauthorizedIssue$inboundSchema: z.ZodType<
   DocumentAttachmentDeleteUnauthorizedIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type DocumentAttachmentDeleteUnauthorizedIssue$Outbound = {
   message: string;
@@ -368,9 +384,11 @@ export const DocumentAttachmentDeleteUnauthorizedIssue$outboundSchema:
     DocumentAttachmentDeleteUnauthorizedIssue$Outbound,
     z.ZodTypeDef,
     DocumentAttachmentDeleteUnauthorizedIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function documentAttachmentDeleteUnauthorizedIssueToJSON(
   documentAttachmentDeleteUnauthorizedIssue:
@@ -403,23 +421,25 @@ export const DocumentAttachmentDeleteUnauthorizedError$inboundSchema: z.ZodType<
   DocumentAttachmentDeleteUnauthorizedError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => DocumentAttachmentDeleteUnauthorizedIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new DocumentAttachmentDeleteUnauthorizedError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => DocumentAttachmentDeleteUnauthorizedIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new DocumentAttachmentDeleteUnauthorizedError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type DocumentAttachmentDeleteUnauthorizedError$Outbound = {
@@ -436,24 +456,30 @@ export const DocumentAttachmentDeleteUnauthorizedError$outboundSchema:
     DocumentAttachmentDeleteUnauthorizedError$Outbound,
     z.ZodTypeDef,
     DocumentAttachmentDeleteUnauthorizedError
-  > = z.instanceof(DocumentAttachmentDeleteUnauthorizedError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() => DocumentAttachmentDeleteUnauthorizedIssue$outboundSchema),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(DocumentAttachmentDeleteUnauthorizedError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            DocumentAttachmentDeleteUnauthorizedIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const DocumentAttachmentDeleteBadRequestIssue$inboundSchema: z.ZodType<
   DocumentAttachmentDeleteBadRequestIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type DocumentAttachmentDeleteBadRequestIssue$Outbound = {
   message: string;
@@ -464,9 +490,11 @@ export const DocumentAttachmentDeleteBadRequestIssue$outboundSchema: z.ZodType<
   DocumentAttachmentDeleteBadRequestIssue$Outbound,
   z.ZodTypeDef,
   DocumentAttachmentDeleteBadRequestIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function documentAttachmentDeleteBadRequestIssueToJSON(
   documentAttachmentDeleteBadRequestIssue:
@@ -499,23 +527,25 @@ export const DocumentAttachmentDeleteBadRequestError$inboundSchema: z.ZodType<
   DocumentAttachmentDeleteBadRequestError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => DocumentAttachmentDeleteBadRequestIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new DocumentAttachmentDeleteBadRequestError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => DocumentAttachmentDeleteBadRequestIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      return new DocumentAttachmentDeleteBadRequestError(v, {
+        request: v.request$,
+        response: v.response$,
+        body: v.body$,
+      });
+    })
+);
 
 /** @internal */
 export type DocumentAttachmentDeleteBadRequestError$Outbound = {
@@ -529,12 +559,14 @@ export const DocumentAttachmentDeleteBadRequestError$outboundSchema: z.ZodType<
   DocumentAttachmentDeleteBadRequestError$Outbound,
   z.ZodTypeDef,
   DocumentAttachmentDeleteBadRequestError
-> = z.instanceof(DocumentAttachmentDeleteBadRequestError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => DocumentAttachmentDeleteBadRequestIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(DocumentAttachmentDeleteBadRequestError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => DocumentAttachmentDeleteBadRequestIssue$outboundSchema),
+      ).optional(),
+    }))
+);

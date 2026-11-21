@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -41,9 +41,11 @@ export const EnvelopeItemCreateManyPayload$inboundSchema: z.ZodType<
   EnvelopeItemCreateManyPayload,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeId: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeItemCreateManyPayload$Outbound = {
   envelopeId: string;
@@ -54,9 +56,11 @@ export const EnvelopeItemCreateManyPayload$outboundSchema: z.ZodType<
   EnvelopeItemCreateManyPayload$Outbound,
   z.ZodTypeDef,
   EnvelopeItemCreateManyPayload
-> = z.object({
-  envelopeId: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+  })
+);
 
 export function envelopeItemCreateManyPayloadToJSON(
   envelopeItemCreateManyPayload: EnvelopeItemCreateManyPayload,
@@ -82,15 +86,17 @@ export const EnvelopeItemCreateManyFile$inboundSchema: z.ZodType<
   EnvelopeItemCreateManyFile,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  fileName: z.string(),
-  content: z.union([
-    z.instanceof(ReadableStream<Uint8Array>),
-    z.instanceof(Blob),
-    z.instanceof(ArrayBuffer),
-    z.instanceof(Uint8Array),
-  ]),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    fileName: z.string(),
+    content: z.union([
+      z.instanceof(ReadableStream<Uint8Array>),
+      z.instanceof(Blob),
+      z.instanceof(ArrayBuffer),
+      z.instanceof(Uint8Array),
+    ]),
+  })
+);
 /** @internal */
 export type EnvelopeItemCreateManyFile$Outbound = {
   fileName: string;
@@ -102,15 +108,17 @@ export const EnvelopeItemCreateManyFile$outboundSchema: z.ZodType<
   EnvelopeItemCreateManyFile$Outbound,
   z.ZodTypeDef,
   EnvelopeItemCreateManyFile
-> = z.object({
-  fileName: z.string(),
-  content: z.union([
-    z.instanceof(ReadableStream<Uint8Array>),
-    z.instanceof(Blob),
-    z.instanceof(ArrayBuffer),
-    z.instanceof(Uint8Array),
-  ]),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    fileName: z.string(),
+    content: z.union([
+      z.instanceof(ReadableStream<Uint8Array>),
+      z.instanceof(Blob),
+      z.instanceof(ArrayBuffer),
+      z.instanceof(Uint8Array),
+    ]),
+  })
+);
 
 export function envelopeItemCreateManyFileToJSON(
   envelopeItemCreateManyFile: EnvelopeItemCreateManyFile,
@@ -134,11 +142,13 @@ export const EnvelopeItemCreateManyRequest$inboundSchema: z.ZodType<
   EnvelopeItemCreateManyRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  payload: z.lazy(() => EnvelopeItemCreateManyPayload$inboundSchema),
-  files: z.array(z.lazy(() => EnvelopeItemCreateManyFile$inboundSchema))
-    .optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    payload: z.lazy(() => EnvelopeItemCreateManyPayload$inboundSchema),
+    files: z.array(z.lazy(() => EnvelopeItemCreateManyFile$inboundSchema))
+      .optional(),
+  })
+);
 /** @internal */
 export type EnvelopeItemCreateManyRequest$Outbound = {
   payload: EnvelopeItemCreateManyPayload$Outbound;
@@ -150,11 +160,13 @@ export const EnvelopeItemCreateManyRequest$outboundSchema: z.ZodType<
   EnvelopeItemCreateManyRequest$Outbound,
   z.ZodTypeDef,
   EnvelopeItemCreateManyRequest
-> = z.object({
-  payload: z.lazy(() => EnvelopeItemCreateManyPayload$outboundSchema),
-  files: z.array(z.lazy(() => EnvelopeItemCreateManyFile$outboundSchema))
-    .optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    payload: z.lazy(() => EnvelopeItemCreateManyPayload$outboundSchema),
+    files: z.array(z.lazy(() => EnvelopeItemCreateManyFile$outboundSchema))
+      .optional(),
+  })
+);
 
 export function envelopeItemCreateManyRequestToJSON(
   envelopeItemCreateManyRequest: EnvelopeItemCreateManyRequest,
@@ -180,13 +192,15 @@ export const EnvelopeItemCreateManyData$inboundSchema: z.ZodType<
   EnvelopeItemCreateManyData,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.string(),
-  title: z.string(),
-  envelopeId: z.string(),
-  order: z.number(),
-  documentDataId: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    title: z.string(),
+    envelopeId: z.string(),
+    order: z.number(),
+    documentDataId: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeItemCreateManyData$Outbound = {
   id: string;
@@ -201,13 +215,15 @@ export const EnvelopeItemCreateManyData$outboundSchema: z.ZodType<
   EnvelopeItemCreateManyData$Outbound,
   z.ZodTypeDef,
   EnvelopeItemCreateManyData
-> = z.object({
-  id: z.string(),
-  title: z.string(),
-  envelopeId: z.string(),
-  order: z.number(),
-  documentDataId: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    title: z.string(),
+    envelopeId: z.string(),
+    order: z.number(),
+    documentDataId: z.string(),
+  })
+);
 
 export function envelopeItemCreateManyDataToJSON(
   envelopeItemCreateManyData: EnvelopeItemCreateManyData,
@@ -231,9 +247,11 @@ export const EnvelopeItemCreateManyResponse$inboundSchema: z.ZodType<
   EnvelopeItemCreateManyResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  data: z.array(z.lazy(() => EnvelopeItemCreateManyData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    data: z.array(z.lazy(() => EnvelopeItemCreateManyData$inboundSchema)),
+  })
+);
 /** @internal */
 export type EnvelopeItemCreateManyResponse$Outbound = {
   data: Array<EnvelopeItemCreateManyData$Outbound>;
@@ -244,9 +262,11 @@ export const EnvelopeItemCreateManyResponse$outboundSchema: z.ZodType<
   EnvelopeItemCreateManyResponse$Outbound,
   z.ZodTypeDef,
   EnvelopeItemCreateManyResponse
-> = z.object({
-  data: z.array(z.lazy(() => EnvelopeItemCreateManyData$outboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    data: z.array(z.lazy(() => EnvelopeItemCreateManyData$outboundSchema)),
+  })
+);
 
 export function envelopeItemCreateManyResponseToJSON(
   envelopeItemCreateManyResponse: EnvelopeItemCreateManyResponse,

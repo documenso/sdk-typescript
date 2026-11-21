@@ -20,7 +20,7 @@ Creates a new folder in your team`,
     const [result, apiCall] = await foldersCreate(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

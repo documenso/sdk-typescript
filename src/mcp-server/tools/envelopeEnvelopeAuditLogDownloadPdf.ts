@@ -22,7 +22,7 @@ Download the audit log for a document as a PDF.`,
     const [result, apiCall] = await envelopeEnvelopeAuditLogDownloadPdf(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

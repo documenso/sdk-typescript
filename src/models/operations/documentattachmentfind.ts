@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -38,9 +38,11 @@ export const DocumentAttachmentFindRequest$inboundSchema: z.ZodType<
   DocumentAttachmentFindRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  documentId: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    documentId: z.number(),
+  })
+);
 /** @internal */
 export type DocumentAttachmentFindRequest$Outbound = {
   documentId: number;
@@ -51,9 +53,11 @@ export const DocumentAttachmentFindRequest$outboundSchema: z.ZodType<
   DocumentAttachmentFindRequest$Outbound,
   z.ZodTypeDef,
   DocumentAttachmentFindRequest
-> = z.object({
-  documentId: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    documentId: z.number(),
+  })
+);
 
 export function documentAttachmentFindRequestToJSON(
   documentAttachmentFindRequest: DocumentAttachmentFindRequest,
@@ -77,7 +81,7 @@ export function documentAttachmentFindRequestFromJSON(
 /** @internal */
 export const DocumentAttachmentFindType$inboundSchema: z.ZodNativeEnum<
   typeof DocumentAttachmentFindType
-> = z.nativeEnum(DocumentAttachmentFindType);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(DocumentAttachmentFindType));
 /** @internal */
 export const DocumentAttachmentFindType$outboundSchema: z.ZodNativeEnum<
   typeof DocumentAttachmentFindType
@@ -88,12 +92,14 @@ export const DocumentAttachmentFindData$inboundSchema: z.ZodType<
   DocumentAttachmentFindData,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.string(),
-  type: DocumentAttachmentFindType$inboundSchema,
-  label: z.string(),
-  data: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    type: DocumentAttachmentFindType$inboundSchema,
+    label: z.string(),
+    data: z.string(),
+  })
+);
 /** @internal */
 export type DocumentAttachmentFindData$Outbound = {
   id: string;
@@ -107,12 +113,14 @@ export const DocumentAttachmentFindData$outboundSchema: z.ZodType<
   DocumentAttachmentFindData$Outbound,
   z.ZodTypeDef,
   DocumentAttachmentFindData
-> = z.object({
-  id: z.string(),
-  type: DocumentAttachmentFindType$outboundSchema,
-  label: z.string(),
-  data: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    type: DocumentAttachmentFindType$outboundSchema,
+    label: z.string(),
+    data: z.string(),
+  })
+);
 
 export function documentAttachmentFindDataToJSON(
   documentAttachmentFindData: DocumentAttachmentFindData,
@@ -136,9 +144,11 @@ export const DocumentAttachmentFindResponse$inboundSchema: z.ZodType<
   DocumentAttachmentFindResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  data: z.array(z.lazy(() => DocumentAttachmentFindData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    data: z.array(z.lazy(() => DocumentAttachmentFindData$inboundSchema)),
+  })
+);
 /** @internal */
 export type DocumentAttachmentFindResponse$Outbound = {
   data: Array<DocumentAttachmentFindData$Outbound>;
@@ -149,9 +159,11 @@ export const DocumentAttachmentFindResponse$outboundSchema: z.ZodType<
   DocumentAttachmentFindResponse$Outbound,
   z.ZodTypeDef,
   DocumentAttachmentFindResponse
-> = z.object({
-  data: z.array(z.lazy(() => DocumentAttachmentFindData$outboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    data: z.array(z.lazy(() => DocumentAttachmentFindData$outboundSchema)),
+  })
+);
 
 export function documentAttachmentFindResponseToJSON(
   documentAttachmentFindResponse: DocumentAttachmentFindResponse,
