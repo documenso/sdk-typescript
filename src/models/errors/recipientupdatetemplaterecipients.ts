@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -178,9 +178,11 @@ export const RecipientUpdateTemplateRecipientsInternalServerErrorIssue$inboundSc
     RecipientUpdateTemplateRecipientsInternalServerErrorIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type RecipientUpdateTemplateRecipientsInternalServerErrorIssue$Outbound =
   {
@@ -193,9 +195,11 @@ export const RecipientUpdateTemplateRecipientsInternalServerErrorIssue$outboundS
     RecipientUpdateTemplateRecipientsInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
     RecipientUpdateTemplateRecipientsInternalServerErrorIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function recipientUpdateTemplateRecipientsInternalServerErrorIssueToJSON(
   recipientUpdateTemplateRecipientsInternalServerErrorIssue:
@@ -227,25 +231,27 @@ export const RecipientUpdateTemplateRecipientsInternalServerError$inboundSchema:
     RecipientUpdateTemplateRecipientsInternalServerError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         RecipientUpdateTemplateRecipientsInternalServerErrorIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new RecipientUpdateTemplateRecipientsInternalServerError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        const { request$, response$, body$, ...data } = v;
+
+        return new RecipientUpdateTemplateRecipientsInternalServerError(data, {
+          request: request$,
+          response: response$,
+          body: body$,
+        });
+      })
+  );
 
 /** @internal */
 export type RecipientUpdateTemplateRecipientsInternalServerError$Outbound = {
@@ -262,17 +268,19 @@ export const RecipientUpdateTemplateRecipientsInternalServerError$outboundSchema
     RecipientUpdateTemplateRecipientsInternalServerError$Outbound,
     z.ZodTypeDef,
     RecipientUpdateTemplateRecipientsInternalServerError
-  > = z.instanceof(RecipientUpdateTemplateRecipientsInternalServerError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          RecipientUpdateTemplateRecipientsInternalServerErrorIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(RecipientUpdateTemplateRecipientsInternalServerError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            RecipientUpdateTemplateRecipientsInternalServerErrorIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const RecipientUpdateTemplateRecipientsForbiddenIssue$inboundSchema:
@@ -280,9 +288,11 @@ export const RecipientUpdateTemplateRecipientsForbiddenIssue$inboundSchema:
     RecipientUpdateTemplateRecipientsForbiddenIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type RecipientUpdateTemplateRecipientsForbiddenIssue$Outbound = {
   message: string;
@@ -294,9 +304,11 @@ export const RecipientUpdateTemplateRecipientsForbiddenIssue$outboundSchema:
     RecipientUpdateTemplateRecipientsForbiddenIssue$Outbound,
     z.ZodTypeDef,
     RecipientUpdateTemplateRecipientsForbiddenIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function recipientUpdateTemplateRecipientsForbiddenIssueToJSON(
   recipientUpdateTemplateRecipientsForbiddenIssue:
@@ -330,25 +342,27 @@ export const RecipientUpdateTemplateRecipientsForbiddenError$inboundSchema:
     RecipientUpdateTemplateRecipientsForbiddenError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         RecipientUpdateTemplateRecipientsForbiddenIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new RecipientUpdateTemplateRecipientsForbiddenError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        const { request$, response$, body$, ...data } = v;
+
+        return new RecipientUpdateTemplateRecipientsForbiddenError(data, {
+          request: request$,
+          response: response$,
+          body: body$,
+        });
+      })
+  );
 
 /** @internal */
 export type RecipientUpdateTemplateRecipientsForbiddenError$Outbound = {
@@ -365,17 +379,19 @@ export const RecipientUpdateTemplateRecipientsForbiddenError$outboundSchema:
     RecipientUpdateTemplateRecipientsForbiddenError$Outbound,
     z.ZodTypeDef,
     RecipientUpdateTemplateRecipientsForbiddenError
-  > = z.instanceof(RecipientUpdateTemplateRecipientsForbiddenError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          RecipientUpdateTemplateRecipientsForbiddenIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(RecipientUpdateTemplateRecipientsForbiddenError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            RecipientUpdateTemplateRecipientsForbiddenIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const RecipientUpdateTemplateRecipientsUnauthorizedIssue$inboundSchema:
@@ -383,9 +399,11 @@ export const RecipientUpdateTemplateRecipientsUnauthorizedIssue$inboundSchema:
     RecipientUpdateTemplateRecipientsUnauthorizedIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type RecipientUpdateTemplateRecipientsUnauthorizedIssue$Outbound = {
   message: string;
@@ -397,9 +415,11 @@ export const RecipientUpdateTemplateRecipientsUnauthorizedIssue$outboundSchema:
     RecipientUpdateTemplateRecipientsUnauthorizedIssue$Outbound,
     z.ZodTypeDef,
     RecipientUpdateTemplateRecipientsUnauthorizedIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function recipientUpdateTemplateRecipientsUnauthorizedIssueToJSON(
   recipientUpdateTemplateRecipientsUnauthorizedIssue:
@@ -433,25 +453,27 @@ export const RecipientUpdateTemplateRecipientsUnauthorizedError$inboundSchema:
     RecipientUpdateTemplateRecipientsUnauthorizedError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         RecipientUpdateTemplateRecipientsUnauthorizedIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new RecipientUpdateTemplateRecipientsUnauthorizedError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        const { request$, response$, body$, ...data } = v;
+
+        return new RecipientUpdateTemplateRecipientsUnauthorizedError(data, {
+          request: request$,
+          response: response$,
+          body: body$,
+        });
+      })
+  );
 
 /** @internal */
 export type RecipientUpdateTemplateRecipientsUnauthorizedError$Outbound = {
@@ -468,17 +490,19 @@ export const RecipientUpdateTemplateRecipientsUnauthorizedError$outboundSchema:
     RecipientUpdateTemplateRecipientsUnauthorizedError$Outbound,
     z.ZodTypeDef,
     RecipientUpdateTemplateRecipientsUnauthorizedError
-  > = z.instanceof(RecipientUpdateTemplateRecipientsUnauthorizedError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          RecipientUpdateTemplateRecipientsUnauthorizedIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(RecipientUpdateTemplateRecipientsUnauthorizedError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            RecipientUpdateTemplateRecipientsUnauthorizedIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const RecipientUpdateTemplateRecipientsBadRequestIssue$inboundSchema:
@@ -486,9 +510,11 @@ export const RecipientUpdateTemplateRecipientsBadRequestIssue$inboundSchema:
     RecipientUpdateTemplateRecipientsBadRequestIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type RecipientUpdateTemplateRecipientsBadRequestIssue$Outbound = {
   message: string;
@@ -500,9 +526,11 @@ export const RecipientUpdateTemplateRecipientsBadRequestIssue$outboundSchema:
     RecipientUpdateTemplateRecipientsBadRequestIssue$Outbound,
     z.ZodTypeDef,
     RecipientUpdateTemplateRecipientsBadRequestIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function recipientUpdateTemplateRecipientsBadRequestIssueToJSON(
   recipientUpdateTemplateRecipientsBadRequestIssue:
@@ -536,25 +564,27 @@ export const RecipientUpdateTemplateRecipientsBadRequestError$inboundSchema:
     RecipientUpdateTemplateRecipientsBadRequestError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         RecipientUpdateTemplateRecipientsBadRequestIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new RecipientUpdateTemplateRecipientsBadRequestError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        const { request$, response$, body$, ...data } = v;
+
+        return new RecipientUpdateTemplateRecipientsBadRequestError(data, {
+          request: request$,
+          response: response$,
+          body: body$,
+        });
+      })
+  );
 
 /** @internal */
 export type RecipientUpdateTemplateRecipientsBadRequestError$Outbound = {
@@ -571,14 +601,16 @@ export const RecipientUpdateTemplateRecipientsBadRequestError$outboundSchema:
     RecipientUpdateTemplateRecipientsBadRequestError$Outbound,
     z.ZodTypeDef,
     RecipientUpdateTemplateRecipientsBadRequestError
-  > = z.instanceof(RecipientUpdateTemplateRecipientsBadRequestError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          RecipientUpdateTemplateRecipientsBadRequestIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(RecipientUpdateTemplateRecipientsBadRequestError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            RecipientUpdateTemplateRecipientsBadRequestIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );

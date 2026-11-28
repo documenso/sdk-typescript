@@ -20,7 +20,7 @@ Create a document envelope from a template envelope. Upload custom files to repl
     const [result, apiCall] = await envelopesUse(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

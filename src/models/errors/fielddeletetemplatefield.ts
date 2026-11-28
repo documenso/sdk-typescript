@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -164,9 +164,11 @@ export const FieldDeleteTemplateFieldInternalServerErrorIssue$inboundSchema:
     FieldDeleteTemplateFieldInternalServerErrorIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type FieldDeleteTemplateFieldInternalServerErrorIssue$Outbound = {
   message: string;
@@ -178,9 +180,11 @@ export const FieldDeleteTemplateFieldInternalServerErrorIssue$outboundSchema:
     FieldDeleteTemplateFieldInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
     FieldDeleteTemplateFieldInternalServerErrorIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function fieldDeleteTemplateFieldInternalServerErrorIssueToJSON(
   fieldDeleteTemplateFieldInternalServerErrorIssue:
@@ -214,25 +218,27 @@ export const FieldDeleteTemplateFieldInternalServerError$inboundSchema:
     FieldDeleteTemplateFieldInternalServerError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         FieldDeleteTemplateFieldInternalServerErrorIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new FieldDeleteTemplateFieldInternalServerError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        const { request$, response$, body$, ...data } = v;
+
+        return new FieldDeleteTemplateFieldInternalServerError(data, {
+          request: request$,
+          response: response$,
+          body: body$,
+        });
+      })
+  );
 
 /** @internal */
 export type FieldDeleteTemplateFieldInternalServerError$Outbound = {
@@ -249,26 +255,30 @@ export const FieldDeleteTemplateFieldInternalServerError$outboundSchema:
     FieldDeleteTemplateFieldInternalServerError$Outbound,
     z.ZodTypeDef,
     FieldDeleteTemplateFieldInternalServerError
-  > = z.instanceof(FieldDeleteTemplateFieldInternalServerError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          FieldDeleteTemplateFieldInternalServerErrorIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(FieldDeleteTemplateFieldInternalServerError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            FieldDeleteTemplateFieldInternalServerErrorIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const FieldDeleteTemplateFieldForbiddenIssue$inboundSchema: z.ZodType<
   FieldDeleteTemplateFieldForbiddenIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type FieldDeleteTemplateFieldForbiddenIssue$Outbound = {
   message: string;
@@ -279,9 +289,11 @@ export const FieldDeleteTemplateFieldForbiddenIssue$outboundSchema: z.ZodType<
   FieldDeleteTemplateFieldForbiddenIssue$Outbound,
   z.ZodTypeDef,
   FieldDeleteTemplateFieldForbiddenIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function fieldDeleteTemplateFieldForbiddenIssueToJSON(
   fieldDeleteTemplateFieldForbiddenIssue:
@@ -309,23 +321,27 @@ export const FieldDeleteTemplateFieldForbiddenError$inboundSchema: z.ZodType<
   FieldDeleteTemplateFieldForbiddenError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => FieldDeleteTemplateFieldForbiddenIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new FieldDeleteTemplateFieldForbiddenError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => FieldDeleteTemplateFieldForbiddenIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new FieldDeleteTemplateFieldForbiddenError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type FieldDeleteTemplateFieldForbiddenError$Outbound = {
@@ -339,24 +355,28 @@ export const FieldDeleteTemplateFieldForbiddenError$outboundSchema: z.ZodType<
   FieldDeleteTemplateFieldForbiddenError$Outbound,
   z.ZodTypeDef,
   FieldDeleteTemplateFieldForbiddenError
-> = z.instanceof(FieldDeleteTemplateFieldForbiddenError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => FieldDeleteTemplateFieldForbiddenIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(FieldDeleteTemplateFieldForbiddenError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => FieldDeleteTemplateFieldForbiddenIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const FieldDeleteTemplateFieldUnauthorizedIssue$inboundSchema: z.ZodType<
   FieldDeleteTemplateFieldUnauthorizedIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type FieldDeleteTemplateFieldUnauthorizedIssue$Outbound = {
   message: string;
@@ -368,9 +388,11 @@ export const FieldDeleteTemplateFieldUnauthorizedIssue$outboundSchema:
     FieldDeleteTemplateFieldUnauthorizedIssue$Outbound,
     z.ZodTypeDef,
     FieldDeleteTemplateFieldUnauthorizedIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function fieldDeleteTemplateFieldUnauthorizedIssueToJSON(
   fieldDeleteTemplateFieldUnauthorizedIssue:
@@ -403,23 +425,27 @@ export const FieldDeleteTemplateFieldUnauthorizedError$inboundSchema: z.ZodType<
   FieldDeleteTemplateFieldUnauthorizedError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => FieldDeleteTemplateFieldUnauthorizedIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new FieldDeleteTemplateFieldUnauthorizedError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => FieldDeleteTemplateFieldUnauthorizedIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new FieldDeleteTemplateFieldUnauthorizedError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type FieldDeleteTemplateFieldUnauthorizedError$Outbound = {
@@ -436,24 +462,30 @@ export const FieldDeleteTemplateFieldUnauthorizedError$outboundSchema:
     FieldDeleteTemplateFieldUnauthorizedError$Outbound,
     z.ZodTypeDef,
     FieldDeleteTemplateFieldUnauthorizedError
-  > = z.instanceof(FieldDeleteTemplateFieldUnauthorizedError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() => FieldDeleteTemplateFieldUnauthorizedIssue$outboundSchema),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(FieldDeleteTemplateFieldUnauthorizedError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            FieldDeleteTemplateFieldUnauthorizedIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const FieldDeleteTemplateFieldBadRequestIssue$inboundSchema: z.ZodType<
   FieldDeleteTemplateFieldBadRequestIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type FieldDeleteTemplateFieldBadRequestIssue$Outbound = {
   message: string;
@@ -464,9 +496,11 @@ export const FieldDeleteTemplateFieldBadRequestIssue$outboundSchema: z.ZodType<
   FieldDeleteTemplateFieldBadRequestIssue$Outbound,
   z.ZodTypeDef,
   FieldDeleteTemplateFieldBadRequestIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function fieldDeleteTemplateFieldBadRequestIssueToJSON(
   fieldDeleteTemplateFieldBadRequestIssue:
@@ -499,23 +533,27 @@ export const FieldDeleteTemplateFieldBadRequestError$inboundSchema: z.ZodType<
   FieldDeleteTemplateFieldBadRequestError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => FieldDeleteTemplateFieldBadRequestIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new FieldDeleteTemplateFieldBadRequestError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => FieldDeleteTemplateFieldBadRequestIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new FieldDeleteTemplateFieldBadRequestError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type FieldDeleteTemplateFieldBadRequestError$Outbound = {
@@ -529,12 +567,14 @@ export const FieldDeleteTemplateFieldBadRequestError$outboundSchema: z.ZodType<
   FieldDeleteTemplateFieldBadRequestError$Outbound,
   z.ZodTypeDef,
   FieldDeleteTemplateFieldBadRequestError
-> = z.instanceof(FieldDeleteTemplateFieldBadRequestError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => FieldDeleteTemplateFieldBadRequestIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(FieldDeleteTemplateFieldBadRequestError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => FieldDeleteTemplateFieldBadRequestIssue$outboundSchema),
+      ).optional(),
+    }))
+);

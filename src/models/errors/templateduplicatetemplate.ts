@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -164,9 +164,11 @@ export const TemplateDuplicateTemplateInternalServerErrorIssue$inboundSchema:
     TemplateDuplicateTemplateInternalServerErrorIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type TemplateDuplicateTemplateInternalServerErrorIssue$Outbound = {
   message: string;
@@ -178,9 +180,11 @@ export const TemplateDuplicateTemplateInternalServerErrorIssue$outboundSchema:
     TemplateDuplicateTemplateInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
     TemplateDuplicateTemplateInternalServerErrorIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function templateDuplicateTemplateInternalServerErrorIssueToJSON(
   templateDuplicateTemplateInternalServerErrorIssue:
@@ -214,25 +218,27 @@ export const TemplateDuplicateTemplateInternalServerError$inboundSchema:
     TemplateDuplicateTemplateInternalServerError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         TemplateDuplicateTemplateInternalServerErrorIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new TemplateDuplicateTemplateInternalServerError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        const { request$, response$, body$, ...data } = v;
+
+        return new TemplateDuplicateTemplateInternalServerError(data, {
+          request: request$,
+          response: response$,
+          body: body$,
+        });
+      })
+  );
 
 /** @internal */
 export type TemplateDuplicateTemplateInternalServerError$Outbound = {
@@ -249,26 +255,30 @@ export const TemplateDuplicateTemplateInternalServerError$outboundSchema:
     TemplateDuplicateTemplateInternalServerError$Outbound,
     z.ZodTypeDef,
     TemplateDuplicateTemplateInternalServerError
-  > = z.instanceof(TemplateDuplicateTemplateInternalServerError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          TemplateDuplicateTemplateInternalServerErrorIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(TemplateDuplicateTemplateInternalServerError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            TemplateDuplicateTemplateInternalServerErrorIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const TemplateDuplicateTemplateForbiddenIssue$inboundSchema: z.ZodType<
   TemplateDuplicateTemplateForbiddenIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type TemplateDuplicateTemplateForbiddenIssue$Outbound = {
   message: string;
@@ -279,9 +289,11 @@ export const TemplateDuplicateTemplateForbiddenIssue$outboundSchema: z.ZodType<
   TemplateDuplicateTemplateForbiddenIssue$Outbound,
   z.ZodTypeDef,
   TemplateDuplicateTemplateForbiddenIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function templateDuplicateTemplateForbiddenIssueToJSON(
   templateDuplicateTemplateForbiddenIssue:
@@ -314,23 +326,27 @@ export const TemplateDuplicateTemplateForbiddenError$inboundSchema: z.ZodType<
   TemplateDuplicateTemplateForbiddenError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => TemplateDuplicateTemplateForbiddenIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new TemplateDuplicateTemplateForbiddenError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => TemplateDuplicateTemplateForbiddenIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new TemplateDuplicateTemplateForbiddenError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type TemplateDuplicateTemplateForbiddenError$Outbound = {
@@ -344,22 +360,26 @@ export const TemplateDuplicateTemplateForbiddenError$outboundSchema: z.ZodType<
   TemplateDuplicateTemplateForbiddenError$Outbound,
   z.ZodTypeDef,
   TemplateDuplicateTemplateForbiddenError
-> = z.instanceof(TemplateDuplicateTemplateForbiddenError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => TemplateDuplicateTemplateForbiddenIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(TemplateDuplicateTemplateForbiddenError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => TemplateDuplicateTemplateForbiddenIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const TemplateDuplicateTemplateUnauthorizedIssue$inboundSchema:
   z.ZodType<TemplateDuplicateTemplateUnauthorizedIssue, z.ZodTypeDef, unknown> =
-    z.object({
-      message: z.string(),
-    });
+    /* @__PURE__ */ lazySchema$(() =>
+      z.object({
+        message: z.string(),
+      })
+    );
 /** @internal */
 export type TemplateDuplicateTemplateUnauthorizedIssue$Outbound = {
   message: string;
@@ -371,9 +391,11 @@ export const TemplateDuplicateTemplateUnauthorizedIssue$outboundSchema:
     TemplateDuplicateTemplateUnauthorizedIssue$Outbound,
     z.ZodTypeDef,
     TemplateDuplicateTemplateUnauthorizedIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function templateDuplicateTemplateUnauthorizedIssueToJSON(
   templateDuplicateTemplateUnauthorizedIssue:
@@ -404,23 +426,29 @@ export function templateDuplicateTemplateUnauthorizedIssueFromJSON(
 /** @internal */
 export const TemplateDuplicateTemplateUnauthorizedError$inboundSchema:
   z.ZodType<TemplateDuplicateTemplateUnauthorizedError, z.ZodTypeDef, unknown> =
-    z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() => TemplateDuplicateTemplateUnauthorizedIssue$inboundSchema),
-      ).optional(),
-      request$: z.instanceof(Request),
-      response$: z.instanceof(Response),
-      body$: z.string(),
-    })
-      .transform((v) => {
-        return new TemplateDuplicateTemplateUnauthorizedError(v, {
-          request: v.request$,
-          response: v.response$,
-          body: v.body$,
-        });
-      });
+    /* @__PURE__ */ lazySchema$(() =>
+      z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            TemplateDuplicateTemplateUnauthorizedIssue$inboundSchema
+          ),
+        ).optional(),
+        request$: z.instanceof(Request),
+        response$: z.instanceof(Response),
+        body$: z.string(),
+      })
+        .transform((v) => {
+          const { request$, response$, body$, ...data } = v;
+
+          return new TemplateDuplicateTemplateUnauthorizedError(data, {
+            request: request$,
+            response: response$,
+            body: body$,
+          });
+        })
+    );
 
 /** @internal */
 export type TemplateDuplicateTemplateUnauthorizedError$Outbound = {
@@ -437,24 +465,30 @@ export const TemplateDuplicateTemplateUnauthorizedError$outboundSchema:
     TemplateDuplicateTemplateUnauthorizedError$Outbound,
     z.ZodTypeDef,
     TemplateDuplicateTemplateUnauthorizedError
-  > = z.instanceof(TemplateDuplicateTemplateUnauthorizedError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() => TemplateDuplicateTemplateUnauthorizedIssue$outboundSchema),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(TemplateDuplicateTemplateUnauthorizedError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            TemplateDuplicateTemplateUnauthorizedIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const TemplateDuplicateTemplateBadRequestIssue$inboundSchema: z.ZodType<
   TemplateDuplicateTemplateBadRequestIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type TemplateDuplicateTemplateBadRequestIssue$Outbound = {
   message: string;
@@ -465,9 +499,11 @@ export const TemplateDuplicateTemplateBadRequestIssue$outboundSchema: z.ZodType<
   TemplateDuplicateTemplateBadRequestIssue$Outbound,
   z.ZodTypeDef,
   TemplateDuplicateTemplateBadRequestIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function templateDuplicateTemplateBadRequestIssueToJSON(
   templateDuplicateTemplateBadRequestIssue:
@@ -500,23 +536,27 @@ export const TemplateDuplicateTemplateBadRequestError$inboundSchema: z.ZodType<
   TemplateDuplicateTemplateBadRequestError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => TemplateDuplicateTemplateBadRequestIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new TemplateDuplicateTemplateBadRequestError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => TemplateDuplicateTemplateBadRequestIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new TemplateDuplicateTemplateBadRequestError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type TemplateDuplicateTemplateBadRequestError$Outbound = {
@@ -530,12 +570,14 @@ export const TemplateDuplicateTemplateBadRequestError$outboundSchema: z.ZodType<
   TemplateDuplicateTemplateBadRequestError$Outbound,
   z.ZodTypeDef,
   TemplateDuplicateTemplateBadRequestError
-> = z.instanceof(TemplateDuplicateTemplateBadRequestError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => TemplateDuplicateTemplateBadRequestIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(TemplateDuplicateTemplateBadRequestError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => TemplateDuplicateTemplateBadRequestIssue$outboundSchema),
+      ).optional(),
+    }))
+);

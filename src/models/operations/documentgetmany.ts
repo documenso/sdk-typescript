@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -191,9 +191,11 @@ export const DocumentGetManyRequest$inboundSchema: z.ZodType<
   DocumentGetManyRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  documentIds: z.array(z.number()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    documentIds: z.array(z.number()),
+  })
+);
 /** @internal */
 export type DocumentGetManyRequest$Outbound = {
   documentIds: Array<number>;
@@ -204,9 +206,11 @@ export const DocumentGetManyRequest$outboundSchema: z.ZodType<
   DocumentGetManyRequest$Outbound,
   z.ZodTypeDef,
   DocumentGetManyRequest
-> = z.object({
-  documentIds: z.array(z.number()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    documentIds: z.array(z.number()),
+  })
+);
 
 export function documentGetManyRequestToJSON(
   documentGetManyRequest: DocumentGetManyRequest,
@@ -228,7 +232,7 @@ export function documentGetManyRequestFromJSON(
 /** @internal */
 export const DocumentGetManyVisibility$inboundSchema: z.ZodNativeEnum<
   typeof DocumentGetManyVisibility
-> = z.nativeEnum(DocumentGetManyVisibility);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(DocumentGetManyVisibility));
 /** @internal */
 export const DocumentGetManyVisibility$outboundSchema: z.ZodNativeEnum<
   typeof DocumentGetManyVisibility
@@ -237,7 +241,7 @@ export const DocumentGetManyVisibility$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const DocumentGetManyStatus$inboundSchema: z.ZodNativeEnum<
   typeof DocumentGetManyStatus
-> = z.nativeEnum(DocumentGetManyStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(DocumentGetManyStatus));
 /** @internal */
 export const DocumentGetManyStatus$outboundSchema: z.ZodNativeEnum<
   typeof DocumentGetManyStatus
@@ -246,7 +250,7 @@ export const DocumentGetManyStatus$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const DocumentGetManySource$inboundSchema: z.ZodNativeEnum<
   typeof DocumentGetManySource
-> = z.nativeEnum(DocumentGetManySource);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(DocumentGetManySource));
 /** @internal */
 export const DocumentGetManySource$outboundSchema: z.ZodNativeEnum<
   typeof DocumentGetManySource
@@ -255,7 +259,9 @@ export const DocumentGetManySource$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const DocumentGetManyGlobalAccessAuth$inboundSchema: z.ZodNativeEnum<
   typeof DocumentGetManyGlobalAccessAuth
-> = z.nativeEnum(DocumentGetManyGlobalAccessAuth);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(DocumentGetManyGlobalAccessAuth)
+);
 /** @internal */
 export const DocumentGetManyGlobalAccessAuth$outboundSchema: z.ZodNativeEnum<
   typeof DocumentGetManyGlobalAccessAuth
@@ -264,7 +270,9 @@ export const DocumentGetManyGlobalAccessAuth$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const DocumentGetManyGlobalActionAuth$inboundSchema: z.ZodNativeEnum<
   typeof DocumentGetManyGlobalActionAuth
-> = z.nativeEnum(DocumentGetManyGlobalActionAuth);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(DocumentGetManyGlobalActionAuth)
+);
 /** @internal */
 export const DocumentGetManyGlobalActionAuth$outboundSchema: z.ZodNativeEnum<
   typeof DocumentGetManyGlobalActionAuth
@@ -275,10 +283,12 @@ export const DocumentGetManyAuthOptions$inboundSchema: z.ZodType<
   DocumentGetManyAuthOptions,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  globalAccessAuth: z.array(DocumentGetManyGlobalAccessAuth$inboundSchema),
-  globalActionAuth: z.array(DocumentGetManyGlobalActionAuth$inboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    globalAccessAuth: z.array(DocumentGetManyGlobalAccessAuth$inboundSchema),
+    globalActionAuth: z.array(DocumentGetManyGlobalActionAuth$inboundSchema),
+  })
+);
 /** @internal */
 export type DocumentGetManyAuthOptions$Outbound = {
   globalAccessAuth: Array<string>;
@@ -290,10 +300,12 @@ export const DocumentGetManyAuthOptions$outboundSchema: z.ZodType<
   DocumentGetManyAuthOptions$Outbound,
   z.ZodTypeDef,
   DocumentGetManyAuthOptions
-> = z.object({
-  globalAccessAuth: z.array(DocumentGetManyGlobalAccessAuth$outboundSchema),
-  globalActionAuth: z.array(DocumentGetManyGlobalActionAuth$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    globalAccessAuth: z.array(DocumentGetManyGlobalAccessAuth$outboundSchema),
+    globalActionAuth: z.array(DocumentGetManyGlobalActionAuth$outboundSchema),
+  })
+);
 
 export function documentGetManyAuthOptionsToJSON(
   documentGetManyAuthOptions: DocumentGetManyAuthOptions,
@@ -317,7 +329,9 @@ export const DocumentGetManyFormValues$inboundSchema: z.ZodType<
   DocumentGetManyFormValues,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.boolean(), z.number()]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([z.string(), z.boolean(), z.number()])
+);
 /** @internal */
 export type DocumentGetManyFormValues$Outbound = string | boolean | number;
 
@@ -326,7 +340,9 @@ export const DocumentGetManyFormValues$outboundSchema: z.ZodType<
   DocumentGetManyFormValues$Outbound,
   z.ZodTypeDef,
   DocumentGetManyFormValues
-> = z.union([z.string(), z.boolean(), z.number()]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([z.string(), z.boolean(), z.number()])
+);
 
 export function documentGetManyFormValuesToJSON(
   documentGetManyFormValues: DocumentGetManyFormValues,
@@ -350,11 +366,13 @@ export const DocumentGetManyUser$inboundSchema: z.ZodType<
   DocumentGetManyUser,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.number(),
-  name: z.nullable(z.string()),
-  email: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    name: z.nullable(z.string()),
+    email: z.string(),
+  })
+);
 /** @internal */
 export type DocumentGetManyUser$Outbound = {
   id: number;
@@ -367,11 +385,13 @@ export const DocumentGetManyUser$outboundSchema: z.ZodType<
   DocumentGetManyUser$Outbound,
   z.ZodTypeDef,
   DocumentGetManyUser
-> = z.object({
-  id: z.number(),
-  name: z.nullable(z.string()),
-  email: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    name: z.nullable(z.string()),
+    email: z.string(),
+  })
+);
 
 export function documentGetManyUserToJSON(
   documentGetManyUser: DocumentGetManyUser,
@@ -393,7 +413,7 @@ export function documentGetManyUserFromJSON(
 /** @internal */
 export const DocumentGetManyRole$inboundSchema: z.ZodNativeEnum<
   typeof DocumentGetManyRole
-> = z.nativeEnum(DocumentGetManyRole);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(DocumentGetManyRole));
 /** @internal */
 export const DocumentGetManyRole$outboundSchema: z.ZodNativeEnum<
   typeof DocumentGetManyRole
@@ -402,7 +422,7 @@ export const DocumentGetManyRole$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const DocumentGetManyReadStatus$inboundSchema: z.ZodNativeEnum<
   typeof DocumentGetManyReadStatus
-> = z.nativeEnum(DocumentGetManyReadStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(DocumentGetManyReadStatus));
 /** @internal */
 export const DocumentGetManyReadStatus$outboundSchema: z.ZodNativeEnum<
   typeof DocumentGetManyReadStatus
@@ -411,7 +431,9 @@ export const DocumentGetManyReadStatus$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const DocumentGetManySigningStatus$inboundSchema: z.ZodNativeEnum<
   typeof DocumentGetManySigningStatus
-> = z.nativeEnum(DocumentGetManySigningStatus);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(DocumentGetManySigningStatus)
+);
 /** @internal */
 export const DocumentGetManySigningStatus$outboundSchema: z.ZodNativeEnum<
   typeof DocumentGetManySigningStatus
@@ -420,7 +442,7 @@ export const DocumentGetManySigningStatus$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const DocumentGetManySendStatus$inboundSchema: z.ZodNativeEnum<
   typeof DocumentGetManySendStatus
-> = z.nativeEnum(DocumentGetManySendStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(DocumentGetManySendStatus));
 /** @internal */
 export const DocumentGetManySendStatus$outboundSchema: z.ZodNativeEnum<
   typeof DocumentGetManySendStatus
@@ -429,7 +451,7 @@ export const DocumentGetManySendStatus$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const DocumentGetManyAccessAuth$inboundSchema: z.ZodNativeEnum<
   typeof DocumentGetManyAccessAuth
-> = z.nativeEnum(DocumentGetManyAccessAuth);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(DocumentGetManyAccessAuth));
 /** @internal */
 export const DocumentGetManyAccessAuth$outboundSchema: z.ZodNativeEnum<
   typeof DocumentGetManyAccessAuth
@@ -438,7 +460,7 @@ export const DocumentGetManyAccessAuth$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const DocumentGetManyActionAuth$inboundSchema: z.ZodNativeEnum<
   typeof DocumentGetManyActionAuth
-> = z.nativeEnum(DocumentGetManyActionAuth);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(DocumentGetManyActionAuth));
 /** @internal */
 export const DocumentGetManyActionAuth$outboundSchema: z.ZodNativeEnum<
   typeof DocumentGetManyActionAuth
@@ -449,10 +471,12 @@ export const DocumentGetManyRecipientAuthOptions$inboundSchema: z.ZodType<
   DocumentGetManyRecipientAuthOptions,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  accessAuth: z.array(DocumentGetManyAccessAuth$inboundSchema),
-  actionAuth: z.array(DocumentGetManyActionAuth$inboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    accessAuth: z.array(DocumentGetManyAccessAuth$inboundSchema),
+    actionAuth: z.array(DocumentGetManyActionAuth$inboundSchema),
+  })
+);
 /** @internal */
 export type DocumentGetManyRecipientAuthOptions$Outbound = {
   accessAuth: Array<string>;
@@ -464,10 +488,12 @@ export const DocumentGetManyRecipientAuthOptions$outboundSchema: z.ZodType<
   DocumentGetManyRecipientAuthOptions$Outbound,
   z.ZodTypeDef,
   DocumentGetManyRecipientAuthOptions
-> = z.object({
-  accessAuth: z.array(DocumentGetManyAccessAuth$outboundSchema),
-  actionAuth: z.array(DocumentGetManyActionAuth$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    accessAuth: z.array(DocumentGetManyAccessAuth$outboundSchema),
+    actionAuth: z.array(DocumentGetManyActionAuth$outboundSchema),
+  })
+);
 
 export function documentGetManyRecipientAuthOptionsToJSON(
   documentGetManyRecipientAuthOptions: DocumentGetManyRecipientAuthOptions,
@@ -494,29 +520,31 @@ export const DocumentGetManyRecipient$inboundSchema: z.ZodType<
   DocumentGetManyRecipient,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeId: z.string(),
-  role: DocumentGetManyRole$inboundSchema,
-  readStatus: DocumentGetManyReadStatus$inboundSchema,
-  signingStatus: DocumentGetManySigningStatus$inboundSchema,
-  sendStatus: DocumentGetManySendStatus$inboundSchema,
-  id: z.number(),
-  email: z.string(),
-  name: z.string(),
-  token: z.string(),
-  documentDeletedAt: z.nullable(z.string()),
-  expired: z.nullable(z.string()),
-  expiresAt: z.nullable(z.string()),
-  expirationNotifiedAt: z.nullable(z.string()),
-  signedAt: z.nullable(z.string()),
-  authOptions: z.nullable(
-    z.lazy(() => DocumentGetManyRecipientAuthOptions$inboundSchema),
-  ),
-  signingOrder: z.nullable(z.number()),
-  rejectionReason: z.nullable(z.string()),
-  documentId: z.nullable(z.number()).optional(),
-  templateId: z.nullable(z.number()).optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    role: DocumentGetManyRole$inboundSchema,
+    readStatus: DocumentGetManyReadStatus$inboundSchema,
+    signingStatus: DocumentGetManySigningStatus$inboundSchema,
+    sendStatus: DocumentGetManySendStatus$inboundSchema,
+    id: z.number(),
+    email: z.string(),
+    name: z.string(),
+    token: z.string(),
+    documentDeletedAt: z.nullable(z.string()),
+    expired: z.nullable(z.string()),
+    expiresAt: z.nullable(z.string()),
+    expirationNotifiedAt: z.nullable(z.string()),
+    signedAt: z.nullable(z.string()),
+    authOptions: z.nullable(
+      z.lazy(() => DocumentGetManyRecipientAuthOptions$inboundSchema),
+    ),
+    signingOrder: z.nullable(z.number()),
+    rejectionReason: z.nullable(z.string()),
+    documentId: z.nullable(z.number()).optional(),
+    templateId: z.nullable(z.number()).optional(),
+  })
+);
 /** @internal */
 export type DocumentGetManyRecipient$Outbound = {
   envelopeId: string;
@@ -545,29 +573,31 @@ export const DocumentGetManyRecipient$outboundSchema: z.ZodType<
   DocumentGetManyRecipient$Outbound,
   z.ZodTypeDef,
   DocumentGetManyRecipient
-> = z.object({
-  envelopeId: z.string(),
-  role: DocumentGetManyRole$outboundSchema,
-  readStatus: DocumentGetManyReadStatus$outboundSchema,
-  signingStatus: DocumentGetManySigningStatus$outboundSchema,
-  sendStatus: DocumentGetManySendStatus$outboundSchema,
-  id: z.number(),
-  email: z.string(),
-  name: z.string(),
-  token: z.string(),
-  documentDeletedAt: z.nullable(z.string()),
-  expired: z.nullable(z.string()),
-  expiresAt: z.nullable(z.string()),
-  expirationNotifiedAt: z.nullable(z.string()),
-  signedAt: z.nullable(z.string()),
-  authOptions: z.nullable(
-    z.lazy(() => DocumentGetManyRecipientAuthOptions$outboundSchema),
-  ),
-  signingOrder: z.nullable(z.number()),
-  rejectionReason: z.nullable(z.string()),
-  documentId: z.nullable(z.number()).optional(),
-  templateId: z.nullable(z.number()).optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    role: DocumentGetManyRole$outboundSchema,
+    readStatus: DocumentGetManyReadStatus$outboundSchema,
+    signingStatus: DocumentGetManySigningStatus$outboundSchema,
+    sendStatus: DocumentGetManySendStatus$outboundSchema,
+    id: z.number(),
+    email: z.string(),
+    name: z.string(),
+    token: z.string(),
+    documentDeletedAt: z.nullable(z.string()),
+    expired: z.nullable(z.string()),
+    expiresAt: z.nullable(z.string()),
+    expirationNotifiedAt: z.nullable(z.string()),
+    signedAt: z.nullable(z.string()),
+    authOptions: z.nullable(
+      z.lazy(() => DocumentGetManyRecipientAuthOptions$outboundSchema),
+    ),
+    signingOrder: z.nullable(z.number()),
+    rejectionReason: z.nullable(z.string()),
+    documentId: z.nullable(z.number()).optional(),
+    templateId: z.nullable(z.number()).optional(),
+  })
+);
 
 export function documentGetManyRecipientToJSON(
   documentGetManyRecipient: DocumentGetManyRecipient,
@@ -591,10 +621,12 @@ export const DocumentGetManyTeam$inboundSchema: z.ZodType<
   DocumentGetManyTeam,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.number(),
-  url: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    url: z.string(),
+  })
+);
 /** @internal */
 export type DocumentGetManyTeam$Outbound = {
   id: number;
@@ -606,10 +638,12 @@ export const DocumentGetManyTeam$outboundSchema: z.ZodType<
   DocumentGetManyTeam$Outbound,
   z.ZodTypeDef,
   DocumentGetManyTeam
-> = z.object({
-  id: z.number(),
-  url: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    url: z.string(),
+  })
+);
 
 export function documentGetManyTeamToJSON(
   documentGetManyTeam: DocumentGetManyTeam,
@@ -633,35 +667,37 @@ export const DocumentGetManyData$inboundSchema: z.ZodType<
   DocumentGetManyData,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  visibility: DocumentGetManyVisibility$inboundSchema,
-  status: DocumentGetManyStatus$inboundSchema,
-  source: DocumentGetManySource$inboundSchema,
-  id: z.number(),
-  externalId: z.nullable(z.string()),
-  userId: z.number(),
-  authOptions: z.nullable(
-    z.lazy(() => DocumentGetManyAuthOptions$inboundSchema),
-  ),
-  formValues: z.nullable(
-    z.record(z.union([z.string(), z.boolean(), z.number()])),
-  ),
-  title: z.string(),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-  completedAt: z.nullable(z.string()),
-  deletedAt: z.nullable(z.string()),
-  teamId: z.number(),
-  folderId: z.nullable(z.string()),
-  useLegacyFieldInsertion: z.boolean(),
-  envelopeId: z.string(),
-  internalVersion: z.number(),
-  documentDataId: z.string().default(""),
-  templateId: z.nullable(z.number()).optional(),
-  user: z.lazy(() => DocumentGetManyUser$inboundSchema),
-  recipients: z.array(z.lazy(() => DocumentGetManyRecipient$inboundSchema)),
-  team: z.nullable(z.lazy(() => DocumentGetManyTeam$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    visibility: DocumentGetManyVisibility$inboundSchema,
+    status: DocumentGetManyStatus$inboundSchema,
+    source: DocumentGetManySource$inboundSchema,
+    id: z.number(),
+    externalId: z.nullable(z.string()),
+    userId: z.number(),
+    authOptions: z.nullable(
+      z.lazy(() => DocumentGetManyAuthOptions$inboundSchema),
+    ),
+    formValues: z.nullable(
+      z.record(z.union([z.string(), z.boolean(), z.number()])),
+    ),
+    title: z.string(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    completedAt: z.nullable(z.string()),
+    deletedAt: z.nullable(z.string()),
+    teamId: z.number(),
+    folderId: z.nullable(z.string()),
+    useLegacyFieldInsertion: z.boolean(),
+    envelopeId: z.string(),
+    internalVersion: z.number(),
+    documentDataId: z.string().default(""),
+    templateId: z.nullable(z.number()).optional(),
+    user: z.lazy(() => DocumentGetManyUser$inboundSchema),
+    recipients: z.array(z.lazy(() => DocumentGetManyRecipient$inboundSchema)),
+    team: z.nullable(z.lazy(() => DocumentGetManyTeam$inboundSchema)),
+  })
+);
 /** @internal */
 export type DocumentGetManyData$Outbound = {
   visibility: string;
@@ -694,35 +730,37 @@ export const DocumentGetManyData$outboundSchema: z.ZodType<
   DocumentGetManyData$Outbound,
   z.ZodTypeDef,
   DocumentGetManyData
-> = z.object({
-  visibility: DocumentGetManyVisibility$outboundSchema,
-  status: DocumentGetManyStatus$outboundSchema,
-  source: DocumentGetManySource$outboundSchema,
-  id: z.number(),
-  externalId: z.nullable(z.string()),
-  userId: z.number(),
-  authOptions: z.nullable(
-    z.lazy(() => DocumentGetManyAuthOptions$outboundSchema),
-  ),
-  formValues: z.nullable(
-    z.record(z.union([z.string(), z.boolean(), z.number()])),
-  ),
-  title: z.string(),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-  completedAt: z.nullable(z.string()),
-  deletedAt: z.nullable(z.string()),
-  teamId: z.number(),
-  folderId: z.nullable(z.string()),
-  useLegacyFieldInsertion: z.boolean(),
-  envelopeId: z.string(),
-  internalVersion: z.number(),
-  documentDataId: z.string().default(""),
-  templateId: z.nullable(z.number()).optional(),
-  user: z.lazy(() => DocumentGetManyUser$outboundSchema),
-  recipients: z.array(z.lazy(() => DocumentGetManyRecipient$outboundSchema)),
-  team: z.nullable(z.lazy(() => DocumentGetManyTeam$outboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    visibility: DocumentGetManyVisibility$outboundSchema,
+    status: DocumentGetManyStatus$outboundSchema,
+    source: DocumentGetManySource$outboundSchema,
+    id: z.number(),
+    externalId: z.nullable(z.string()),
+    userId: z.number(),
+    authOptions: z.nullable(
+      z.lazy(() => DocumentGetManyAuthOptions$outboundSchema),
+    ),
+    formValues: z.nullable(
+      z.record(z.union([z.string(), z.boolean(), z.number()])),
+    ),
+    title: z.string(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    completedAt: z.nullable(z.string()),
+    deletedAt: z.nullable(z.string()),
+    teamId: z.number(),
+    folderId: z.nullable(z.string()),
+    useLegacyFieldInsertion: z.boolean(),
+    envelopeId: z.string(),
+    internalVersion: z.number(),
+    documentDataId: z.string().default(""),
+    templateId: z.nullable(z.number()).optional(),
+    user: z.lazy(() => DocumentGetManyUser$outboundSchema),
+    recipients: z.array(z.lazy(() => DocumentGetManyRecipient$outboundSchema)),
+    team: z.nullable(z.lazy(() => DocumentGetManyTeam$outboundSchema)),
+  })
+);
 
 export function documentGetManyDataToJSON(
   documentGetManyData: DocumentGetManyData,
@@ -746,9 +784,11 @@ export const DocumentGetManyResponse$inboundSchema: z.ZodType<
   DocumentGetManyResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  data: z.array(z.lazy(() => DocumentGetManyData$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    data: z.array(z.lazy(() => DocumentGetManyData$inboundSchema)),
+  })
+);
 /** @internal */
 export type DocumentGetManyResponse$Outbound = {
   data: Array<DocumentGetManyData$Outbound>;
@@ -759,9 +799,11 @@ export const DocumentGetManyResponse$outboundSchema: z.ZodType<
   DocumentGetManyResponse$Outbound,
   z.ZodTypeDef,
   DocumentGetManyResponse
-> = z.object({
-  data: z.array(z.lazy(() => DocumentGetManyData$outboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    data: z.array(z.lazy(() => DocumentGetManyData$outboundSchema)),
+  })
+);
 
 export function documentGetManyResponseToJSON(
   documentGetManyResponse: DocumentGetManyResponse,

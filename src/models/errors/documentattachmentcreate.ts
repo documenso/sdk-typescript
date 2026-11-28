@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -164,9 +164,11 @@ export const DocumentAttachmentCreateInternalServerErrorIssue$inboundSchema:
     DocumentAttachmentCreateInternalServerErrorIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type DocumentAttachmentCreateInternalServerErrorIssue$Outbound = {
   message: string;
@@ -178,9 +180,11 @@ export const DocumentAttachmentCreateInternalServerErrorIssue$outboundSchema:
     DocumentAttachmentCreateInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
     DocumentAttachmentCreateInternalServerErrorIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function documentAttachmentCreateInternalServerErrorIssueToJSON(
   documentAttachmentCreateInternalServerErrorIssue:
@@ -214,25 +218,27 @@ export const DocumentAttachmentCreateInternalServerError$inboundSchema:
     DocumentAttachmentCreateInternalServerError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         DocumentAttachmentCreateInternalServerErrorIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new DocumentAttachmentCreateInternalServerError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        const { request$, response$, body$, ...data } = v;
+
+        return new DocumentAttachmentCreateInternalServerError(data, {
+          request: request$,
+          response: response$,
+          body: body$,
+        });
+      })
+  );
 
 /** @internal */
 export type DocumentAttachmentCreateInternalServerError$Outbound = {
@@ -249,26 +255,30 @@ export const DocumentAttachmentCreateInternalServerError$outboundSchema:
     DocumentAttachmentCreateInternalServerError$Outbound,
     z.ZodTypeDef,
     DocumentAttachmentCreateInternalServerError
-  > = z.instanceof(DocumentAttachmentCreateInternalServerError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          DocumentAttachmentCreateInternalServerErrorIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(DocumentAttachmentCreateInternalServerError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            DocumentAttachmentCreateInternalServerErrorIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const DocumentAttachmentCreateForbiddenIssue$inboundSchema: z.ZodType<
   DocumentAttachmentCreateForbiddenIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type DocumentAttachmentCreateForbiddenIssue$Outbound = {
   message: string;
@@ -279,9 +289,11 @@ export const DocumentAttachmentCreateForbiddenIssue$outboundSchema: z.ZodType<
   DocumentAttachmentCreateForbiddenIssue$Outbound,
   z.ZodTypeDef,
   DocumentAttachmentCreateForbiddenIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function documentAttachmentCreateForbiddenIssueToJSON(
   documentAttachmentCreateForbiddenIssue:
@@ -309,23 +321,27 @@ export const DocumentAttachmentCreateForbiddenError$inboundSchema: z.ZodType<
   DocumentAttachmentCreateForbiddenError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => DocumentAttachmentCreateForbiddenIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new DocumentAttachmentCreateForbiddenError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => DocumentAttachmentCreateForbiddenIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new DocumentAttachmentCreateForbiddenError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type DocumentAttachmentCreateForbiddenError$Outbound = {
@@ -339,24 +355,28 @@ export const DocumentAttachmentCreateForbiddenError$outboundSchema: z.ZodType<
   DocumentAttachmentCreateForbiddenError$Outbound,
   z.ZodTypeDef,
   DocumentAttachmentCreateForbiddenError
-> = z.instanceof(DocumentAttachmentCreateForbiddenError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => DocumentAttachmentCreateForbiddenIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(DocumentAttachmentCreateForbiddenError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => DocumentAttachmentCreateForbiddenIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const DocumentAttachmentCreateUnauthorizedIssue$inboundSchema: z.ZodType<
   DocumentAttachmentCreateUnauthorizedIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type DocumentAttachmentCreateUnauthorizedIssue$Outbound = {
   message: string;
@@ -368,9 +388,11 @@ export const DocumentAttachmentCreateUnauthorizedIssue$outboundSchema:
     DocumentAttachmentCreateUnauthorizedIssue$Outbound,
     z.ZodTypeDef,
     DocumentAttachmentCreateUnauthorizedIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function documentAttachmentCreateUnauthorizedIssueToJSON(
   documentAttachmentCreateUnauthorizedIssue:
@@ -403,23 +425,27 @@ export const DocumentAttachmentCreateUnauthorizedError$inboundSchema: z.ZodType<
   DocumentAttachmentCreateUnauthorizedError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => DocumentAttachmentCreateUnauthorizedIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new DocumentAttachmentCreateUnauthorizedError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => DocumentAttachmentCreateUnauthorizedIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new DocumentAttachmentCreateUnauthorizedError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type DocumentAttachmentCreateUnauthorizedError$Outbound = {
@@ -436,24 +462,30 @@ export const DocumentAttachmentCreateUnauthorizedError$outboundSchema:
     DocumentAttachmentCreateUnauthorizedError$Outbound,
     z.ZodTypeDef,
     DocumentAttachmentCreateUnauthorizedError
-  > = z.instanceof(DocumentAttachmentCreateUnauthorizedError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() => DocumentAttachmentCreateUnauthorizedIssue$outboundSchema),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(DocumentAttachmentCreateUnauthorizedError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            DocumentAttachmentCreateUnauthorizedIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const DocumentAttachmentCreateBadRequestIssue$inboundSchema: z.ZodType<
   DocumentAttachmentCreateBadRequestIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type DocumentAttachmentCreateBadRequestIssue$Outbound = {
   message: string;
@@ -464,9 +496,11 @@ export const DocumentAttachmentCreateBadRequestIssue$outboundSchema: z.ZodType<
   DocumentAttachmentCreateBadRequestIssue$Outbound,
   z.ZodTypeDef,
   DocumentAttachmentCreateBadRequestIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function documentAttachmentCreateBadRequestIssueToJSON(
   documentAttachmentCreateBadRequestIssue:
@@ -499,23 +533,27 @@ export const DocumentAttachmentCreateBadRequestError$inboundSchema: z.ZodType<
   DocumentAttachmentCreateBadRequestError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => DocumentAttachmentCreateBadRequestIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new DocumentAttachmentCreateBadRequestError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => DocumentAttachmentCreateBadRequestIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new DocumentAttachmentCreateBadRequestError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type DocumentAttachmentCreateBadRequestError$Outbound = {
@@ -529,12 +567,14 @@ export const DocumentAttachmentCreateBadRequestError$outboundSchema: z.ZodType<
   DocumentAttachmentCreateBadRequestError$Outbound,
   z.ZodTypeDef,
   DocumentAttachmentCreateBadRequestError
-> = z.instanceof(DocumentAttachmentCreateBadRequestError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => DocumentAttachmentCreateBadRequestIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(DocumentAttachmentCreateBadRequestError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => DocumentAttachmentCreateBadRequestIssue$outboundSchema),
+      ).optional(),
+    }))
+);

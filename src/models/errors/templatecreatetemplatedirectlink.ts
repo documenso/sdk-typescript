@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -174,9 +174,11 @@ export const TemplateCreateTemplateDirectLinkInternalServerErrorIssue$inboundSch
     TemplateCreateTemplateDirectLinkInternalServerErrorIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type TemplateCreateTemplateDirectLinkInternalServerErrorIssue$Outbound =
   {
@@ -189,9 +191,11 @@ export const TemplateCreateTemplateDirectLinkInternalServerErrorIssue$outboundSc
     TemplateCreateTemplateDirectLinkInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
     TemplateCreateTemplateDirectLinkInternalServerErrorIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function templateCreateTemplateDirectLinkInternalServerErrorIssueToJSON(
   templateCreateTemplateDirectLinkInternalServerErrorIssue:
@@ -223,25 +227,27 @@ export const TemplateCreateTemplateDirectLinkInternalServerError$inboundSchema:
     TemplateCreateTemplateDirectLinkInternalServerError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         TemplateCreateTemplateDirectLinkInternalServerErrorIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new TemplateCreateTemplateDirectLinkInternalServerError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        const { request$, response$, body$, ...data } = v;
+
+        return new TemplateCreateTemplateDirectLinkInternalServerError(data, {
+          request: request$,
+          response: response$,
+          body: body$,
+        });
+      })
+  );
 
 /** @internal */
 export type TemplateCreateTemplateDirectLinkInternalServerError$Outbound = {
@@ -258,17 +264,19 @@ export const TemplateCreateTemplateDirectLinkInternalServerError$outboundSchema:
     TemplateCreateTemplateDirectLinkInternalServerError$Outbound,
     z.ZodTypeDef,
     TemplateCreateTemplateDirectLinkInternalServerError
-  > = z.instanceof(TemplateCreateTemplateDirectLinkInternalServerError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          TemplateCreateTemplateDirectLinkInternalServerErrorIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(TemplateCreateTemplateDirectLinkInternalServerError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            TemplateCreateTemplateDirectLinkInternalServerErrorIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const TemplateCreateTemplateDirectLinkForbiddenIssue$inboundSchema:
@@ -276,9 +284,11 @@ export const TemplateCreateTemplateDirectLinkForbiddenIssue$inboundSchema:
     TemplateCreateTemplateDirectLinkForbiddenIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type TemplateCreateTemplateDirectLinkForbiddenIssue$Outbound = {
   message: string;
@@ -290,9 +300,11 @@ export const TemplateCreateTemplateDirectLinkForbiddenIssue$outboundSchema:
     TemplateCreateTemplateDirectLinkForbiddenIssue$Outbound,
     z.ZodTypeDef,
     TemplateCreateTemplateDirectLinkForbiddenIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function templateCreateTemplateDirectLinkForbiddenIssueToJSON(
   templateCreateTemplateDirectLinkForbiddenIssue:
@@ -326,25 +338,27 @@ export const TemplateCreateTemplateDirectLinkForbiddenError$inboundSchema:
     TemplateCreateTemplateDirectLinkForbiddenError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         TemplateCreateTemplateDirectLinkForbiddenIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new TemplateCreateTemplateDirectLinkForbiddenError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        const { request$, response$, body$, ...data } = v;
+
+        return new TemplateCreateTemplateDirectLinkForbiddenError(data, {
+          request: request$,
+          response: response$,
+          body: body$,
+        });
+      })
+  );
 
 /** @internal */
 export type TemplateCreateTemplateDirectLinkForbiddenError$Outbound = {
@@ -361,17 +375,19 @@ export const TemplateCreateTemplateDirectLinkForbiddenError$outboundSchema:
     TemplateCreateTemplateDirectLinkForbiddenError$Outbound,
     z.ZodTypeDef,
     TemplateCreateTemplateDirectLinkForbiddenError
-  > = z.instanceof(TemplateCreateTemplateDirectLinkForbiddenError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          TemplateCreateTemplateDirectLinkForbiddenIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(TemplateCreateTemplateDirectLinkForbiddenError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            TemplateCreateTemplateDirectLinkForbiddenIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const TemplateCreateTemplateDirectLinkUnauthorizedIssue$inboundSchema:
@@ -379,9 +395,11 @@ export const TemplateCreateTemplateDirectLinkUnauthorizedIssue$inboundSchema:
     TemplateCreateTemplateDirectLinkUnauthorizedIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type TemplateCreateTemplateDirectLinkUnauthorizedIssue$Outbound = {
   message: string;
@@ -393,9 +411,11 @@ export const TemplateCreateTemplateDirectLinkUnauthorizedIssue$outboundSchema:
     TemplateCreateTemplateDirectLinkUnauthorizedIssue$Outbound,
     z.ZodTypeDef,
     TemplateCreateTemplateDirectLinkUnauthorizedIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function templateCreateTemplateDirectLinkUnauthorizedIssueToJSON(
   templateCreateTemplateDirectLinkUnauthorizedIssue:
@@ -429,25 +449,27 @@ export const TemplateCreateTemplateDirectLinkUnauthorizedError$inboundSchema:
     TemplateCreateTemplateDirectLinkUnauthorizedError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         TemplateCreateTemplateDirectLinkUnauthorizedIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new TemplateCreateTemplateDirectLinkUnauthorizedError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        const { request$, response$, body$, ...data } = v;
+
+        return new TemplateCreateTemplateDirectLinkUnauthorizedError(data, {
+          request: request$,
+          response: response$,
+          body: body$,
+        });
+      })
+  );
 
 /** @internal */
 export type TemplateCreateTemplateDirectLinkUnauthorizedError$Outbound = {
@@ -464,17 +486,19 @@ export const TemplateCreateTemplateDirectLinkUnauthorizedError$outboundSchema:
     TemplateCreateTemplateDirectLinkUnauthorizedError$Outbound,
     z.ZodTypeDef,
     TemplateCreateTemplateDirectLinkUnauthorizedError
-  > = z.instanceof(TemplateCreateTemplateDirectLinkUnauthorizedError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          TemplateCreateTemplateDirectLinkUnauthorizedIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(TemplateCreateTemplateDirectLinkUnauthorizedError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            TemplateCreateTemplateDirectLinkUnauthorizedIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const TemplateCreateTemplateDirectLinkBadRequestIssue$inboundSchema:
@@ -482,9 +506,11 @@ export const TemplateCreateTemplateDirectLinkBadRequestIssue$inboundSchema:
     TemplateCreateTemplateDirectLinkBadRequestIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type TemplateCreateTemplateDirectLinkBadRequestIssue$Outbound = {
   message: string;
@@ -496,9 +522,11 @@ export const TemplateCreateTemplateDirectLinkBadRequestIssue$outboundSchema:
     TemplateCreateTemplateDirectLinkBadRequestIssue$Outbound,
     z.ZodTypeDef,
     TemplateCreateTemplateDirectLinkBadRequestIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function templateCreateTemplateDirectLinkBadRequestIssueToJSON(
   templateCreateTemplateDirectLinkBadRequestIssue:
@@ -532,25 +560,27 @@ export const TemplateCreateTemplateDirectLinkBadRequestError$inboundSchema:
     TemplateCreateTemplateDirectLinkBadRequestError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         TemplateCreateTemplateDirectLinkBadRequestIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new TemplateCreateTemplateDirectLinkBadRequestError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        const { request$, response$, body$, ...data } = v;
+
+        return new TemplateCreateTemplateDirectLinkBadRequestError(data, {
+          request: request$,
+          response: response$,
+          body: body$,
+        });
+      })
+  );
 
 /** @internal */
 export type TemplateCreateTemplateDirectLinkBadRequestError$Outbound = {
@@ -567,14 +597,16 @@ export const TemplateCreateTemplateDirectLinkBadRequestError$outboundSchema:
     TemplateCreateTemplateDirectLinkBadRequestError$Outbound,
     z.ZodTypeDef,
     TemplateCreateTemplateDirectLinkBadRequestError
-  > = z.instanceof(TemplateCreateTemplateDirectLinkBadRequestError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          TemplateCreateTemplateDirectLinkBadRequestIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(TemplateCreateTemplateDirectLinkBadRequestError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            TemplateCreateTemplateDirectLinkBadRequestIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );

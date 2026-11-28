@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -23,9 +23,11 @@ export const DocumentDeleteRequest$inboundSchema: z.ZodType<
   DocumentDeleteRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  documentId: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    documentId: z.number(),
+  })
+);
 /** @internal */
 export type DocumentDeleteRequest$Outbound = {
   documentId: number;
@@ -36,9 +38,11 @@ export const DocumentDeleteRequest$outboundSchema: z.ZodType<
   DocumentDeleteRequest$Outbound,
   z.ZodTypeDef,
   DocumentDeleteRequest
-> = z.object({
-  documentId: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    documentId: z.number(),
+  })
+);
 
 export function documentDeleteRequestToJSON(
   documentDeleteRequest: DocumentDeleteRequest,
@@ -62,9 +66,11 @@ export const DocumentDeleteResponse$inboundSchema: z.ZodType<
   DocumentDeleteResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  success: z.boolean(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    success: z.boolean(),
+  })
+);
 /** @internal */
 export type DocumentDeleteResponse$Outbound = {
   success: boolean;
@@ -75,9 +81,11 @@ export const DocumentDeleteResponse$outboundSchema: z.ZodType<
   DocumentDeleteResponse$Outbound,
   z.ZodTypeDef,
   DocumentDeleteResponse
-> = z.object({
-  success: z.boolean(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    success: z.boolean(),
+  })
+);
 
 export function documentDeleteResponseToJSON(
   documentDeleteResponse: DocumentDeleteResponse,

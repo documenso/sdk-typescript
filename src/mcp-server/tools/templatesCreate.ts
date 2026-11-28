@@ -20,7 +20,7 @@ Create a new template. Deprecated: this endpoint is being replaced by the Envelo
     const [result, apiCall] = await templatesCreate(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

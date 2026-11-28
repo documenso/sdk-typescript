@@ -22,7 +22,7 @@ Records a rejection on behalf of a recipient. Use this when a recipient has decl
         await envelopeRecipientsEnvelopeRecipientRejectOnBehalfOf(
           client,
           args.request,
-          { fetchOptions: { signal: ctx.signal } },
+          { fetchOptions: { signal: ctx.mcpReq.signal } },
         ).$inspect();
 
       if (!result.ok) {

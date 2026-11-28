@@ -20,7 +20,7 @@ Find audit logs based on a search criteria`,
     const [result, apiCall] = await envelopeEnvelopeAuditLogFind(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

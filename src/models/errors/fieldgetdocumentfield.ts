@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -199,9 +199,11 @@ export const FieldGetDocumentFieldInternalServerErrorIssue$inboundSchema:
     FieldGetDocumentFieldInternalServerErrorIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type FieldGetDocumentFieldInternalServerErrorIssue$Outbound = {
   message: string;
@@ -213,9 +215,11 @@ export const FieldGetDocumentFieldInternalServerErrorIssue$outboundSchema:
     FieldGetDocumentFieldInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
     FieldGetDocumentFieldInternalServerErrorIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function fieldGetDocumentFieldInternalServerErrorIssueToJSON(
   fieldGetDocumentFieldInternalServerErrorIssue:
@@ -248,23 +252,27 @@ export const FieldGetDocumentFieldInternalServerError$inboundSchema: z.ZodType<
   FieldGetDocumentFieldInternalServerError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => FieldGetDocumentFieldInternalServerErrorIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new FieldGetDocumentFieldInternalServerError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => FieldGetDocumentFieldInternalServerErrorIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new FieldGetDocumentFieldInternalServerError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type FieldGetDocumentFieldInternalServerError$Outbound = {
@@ -280,26 +288,30 @@ export const FieldGetDocumentFieldInternalServerError$outboundSchema: z.ZodType<
   FieldGetDocumentFieldInternalServerError$Outbound,
   z.ZodTypeDef,
   FieldGetDocumentFieldInternalServerError
-> = z.instanceof(FieldGetDocumentFieldInternalServerError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
-        FieldGetDocumentFieldInternalServerErrorIssue$outboundSchema
-      ),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(FieldGetDocumentFieldInternalServerError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() =>
+          FieldGetDocumentFieldInternalServerErrorIssue$outboundSchema
+        ),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const FieldGetDocumentFieldNotFoundIssue$inboundSchema: z.ZodType<
   FieldGetDocumentFieldNotFoundIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type FieldGetDocumentFieldNotFoundIssue$Outbound = {
   message: string;
@@ -310,9 +322,11 @@ export const FieldGetDocumentFieldNotFoundIssue$outboundSchema: z.ZodType<
   FieldGetDocumentFieldNotFoundIssue$Outbound,
   z.ZodTypeDef,
   FieldGetDocumentFieldNotFoundIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function fieldGetDocumentFieldNotFoundIssueToJSON(
   fieldGetDocumentFieldNotFoundIssue: FieldGetDocumentFieldNotFoundIssue,
@@ -339,23 +353,27 @@ export const FieldGetDocumentFieldNotFoundError$inboundSchema: z.ZodType<
   FieldGetDocumentFieldNotFoundError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => FieldGetDocumentFieldNotFoundIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new FieldGetDocumentFieldNotFoundError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => FieldGetDocumentFieldNotFoundIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new FieldGetDocumentFieldNotFoundError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type FieldGetDocumentFieldNotFoundError$Outbound = {
@@ -369,24 +387,28 @@ export const FieldGetDocumentFieldNotFoundError$outboundSchema: z.ZodType<
   FieldGetDocumentFieldNotFoundError$Outbound,
   z.ZodTypeDef,
   FieldGetDocumentFieldNotFoundError
-> = z.instanceof(FieldGetDocumentFieldNotFoundError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => FieldGetDocumentFieldNotFoundIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(FieldGetDocumentFieldNotFoundError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => FieldGetDocumentFieldNotFoundIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const FieldGetDocumentFieldForbiddenIssue$inboundSchema: z.ZodType<
   FieldGetDocumentFieldForbiddenIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type FieldGetDocumentFieldForbiddenIssue$Outbound = {
   message: string;
@@ -397,9 +419,11 @@ export const FieldGetDocumentFieldForbiddenIssue$outboundSchema: z.ZodType<
   FieldGetDocumentFieldForbiddenIssue$Outbound,
   z.ZodTypeDef,
   FieldGetDocumentFieldForbiddenIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function fieldGetDocumentFieldForbiddenIssueToJSON(
   fieldGetDocumentFieldForbiddenIssue: FieldGetDocumentFieldForbiddenIssue,
@@ -426,23 +450,27 @@ export const FieldGetDocumentFieldForbiddenError$inboundSchema: z.ZodType<
   FieldGetDocumentFieldForbiddenError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => FieldGetDocumentFieldForbiddenIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new FieldGetDocumentFieldForbiddenError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => FieldGetDocumentFieldForbiddenIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new FieldGetDocumentFieldForbiddenError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type FieldGetDocumentFieldForbiddenError$Outbound = {
@@ -456,24 +484,28 @@ export const FieldGetDocumentFieldForbiddenError$outboundSchema: z.ZodType<
   FieldGetDocumentFieldForbiddenError$Outbound,
   z.ZodTypeDef,
   FieldGetDocumentFieldForbiddenError
-> = z.instanceof(FieldGetDocumentFieldForbiddenError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => FieldGetDocumentFieldForbiddenIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(FieldGetDocumentFieldForbiddenError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => FieldGetDocumentFieldForbiddenIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const FieldGetDocumentFieldUnauthorizedIssue$inboundSchema: z.ZodType<
   FieldGetDocumentFieldUnauthorizedIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type FieldGetDocumentFieldUnauthorizedIssue$Outbound = {
   message: string;
@@ -484,9 +516,11 @@ export const FieldGetDocumentFieldUnauthorizedIssue$outboundSchema: z.ZodType<
   FieldGetDocumentFieldUnauthorizedIssue$Outbound,
   z.ZodTypeDef,
   FieldGetDocumentFieldUnauthorizedIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function fieldGetDocumentFieldUnauthorizedIssueToJSON(
   fieldGetDocumentFieldUnauthorizedIssue:
@@ -514,23 +548,27 @@ export const FieldGetDocumentFieldUnauthorizedError$inboundSchema: z.ZodType<
   FieldGetDocumentFieldUnauthorizedError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => FieldGetDocumentFieldUnauthorizedIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new FieldGetDocumentFieldUnauthorizedError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => FieldGetDocumentFieldUnauthorizedIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new FieldGetDocumentFieldUnauthorizedError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type FieldGetDocumentFieldUnauthorizedError$Outbound = {
@@ -544,24 +582,28 @@ export const FieldGetDocumentFieldUnauthorizedError$outboundSchema: z.ZodType<
   FieldGetDocumentFieldUnauthorizedError$Outbound,
   z.ZodTypeDef,
   FieldGetDocumentFieldUnauthorizedError
-> = z.instanceof(FieldGetDocumentFieldUnauthorizedError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => FieldGetDocumentFieldUnauthorizedIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(FieldGetDocumentFieldUnauthorizedError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => FieldGetDocumentFieldUnauthorizedIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const FieldGetDocumentFieldBadRequestIssue$inboundSchema: z.ZodType<
   FieldGetDocumentFieldBadRequestIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type FieldGetDocumentFieldBadRequestIssue$Outbound = {
   message: string;
@@ -572,9 +614,11 @@ export const FieldGetDocumentFieldBadRequestIssue$outboundSchema: z.ZodType<
   FieldGetDocumentFieldBadRequestIssue$Outbound,
   z.ZodTypeDef,
   FieldGetDocumentFieldBadRequestIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function fieldGetDocumentFieldBadRequestIssueToJSON(
   fieldGetDocumentFieldBadRequestIssue: FieldGetDocumentFieldBadRequestIssue,
@@ -601,23 +645,27 @@ export const FieldGetDocumentFieldBadRequestError$inboundSchema: z.ZodType<
   FieldGetDocumentFieldBadRequestError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => FieldGetDocumentFieldBadRequestIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new FieldGetDocumentFieldBadRequestError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => FieldGetDocumentFieldBadRequestIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new FieldGetDocumentFieldBadRequestError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type FieldGetDocumentFieldBadRequestError$Outbound = {
@@ -631,12 +679,14 @@ export const FieldGetDocumentFieldBadRequestError$outboundSchema: z.ZodType<
   FieldGetDocumentFieldBadRequestError$Outbound,
   z.ZodTypeDef,
   FieldGetDocumentFieldBadRequestError
-> = z.instanceof(FieldGetDocumentFieldBadRequestError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => FieldGetDocumentFieldBadRequestIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(FieldGetDocumentFieldBadRequestError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => FieldGetDocumentFieldBadRequestIssue$outboundSchema),
+      ).optional(),
+    }))
+);

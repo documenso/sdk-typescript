@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -319,7 +319,7 @@ export type EnvelopeFindResponse = {
 /** @internal */
 export const EnvelopeFindQueryParamType$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindQueryParamType
-> = z.nativeEnum(EnvelopeFindQueryParamType);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeFindQueryParamType));
 /** @internal */
 export const EnvelopeFindQueryParamType$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindQueryParamType
@@ -328,7 +328,9 @@ export const EnvelopeFindQueryParamType$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeFindQueryParamSource$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindQueryParamSource
-> = z.nativeEnum(EnvelopeFindQueryParamSource);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EnvelopeFindQueryParamSource)
+);
 /** @internal */
 export const EnvelopeFindQueryParamSource$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindQueryParamSource
@@ -337,7 +339,9 @@ export const EnvelopeFindQueryParamSource$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeFindQueryParamStatus$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindQueryParamStatus
-> = z.nativeEnum(EnvelopeFindQueryParamStatus);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EnvelopeFindQueryParamStatus)
+);
 /** @internal */
 export const EnvelopeFindQueryParamStatus$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindQueryParamStatus
@@ -346,7 +350,9 @@ export const EnvelopeFindQueryParamStatus$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeFindHasExpiredRecipients$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindHasExpiredRecipients
-> = z.nativeEnum(EnvelopeFindHasExpiredRecipients);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EnvelopeFindHasExpiredRecipients)
+);
 /** @internal */
 export const EnvelopeFindHasExpiredRecipients$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindHasExpiredRecipients
@@ -355,7 +361,7 @@ export const EnvelopeFindHasExpiredRecipients$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeFindOrderByColumn$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindOrderByColumn
-> = z.nativeEnum(EnvelopeFindOrderByColumn);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeFindOrderByColumn));
 /** @internal */
 export const EnvelopeFindOrderByColumn$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindOrderByColumn
@@ -364,7 +370,9 @@ export const EnvelopeFindOrderByColumn$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeFindOrderByDirection$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindOrderByDirection
-> = z.nativeEnum(EnvelopeFindOrderByDirection);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EnvelopeFindOrderByDirection)
+);
 /** @internal */
 export const EnvelopeFindOrderByDirection$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindOrderByDirection
@@ -375,20 +383,24 @@ export const EnvelopeFindRequest$inboundSchema: z.ZodType<
   EnvelopeFindRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  query: z.string().optional(),
-  page: z.number().optional(),
-  perPage: z.number().optional(),
-  type: EnvelopeFindQueryParamType$inboundSchema.optional(),
-  templateId: z.number().optional(),
-  source: EnvelopeFindQueryParamSource$inboundSchema.optional(),
-  status: EnvelopeFindQueryParamStatus$inboundSchema.optional(),
-  hasExpiredRecipients: EnvelopeFindHasExpiredRecipients$inboundSchema
-    .optional(),
-  folderId: z.string().optional(),
-  orderByColumn: EnvelopeFindOrderByColumn$inboundSchema.optional(),
-  orderByDirection: EnvelopeFindOrderByDirection$inboundSchema.default("desc"),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    query: z.string().optional(),
+    page: z.number().optional(),
+    perPage: z.number().optional(),
+    type: EnvelopeFindQueryParamType$inboundSchema.optional(),
+    templateId: z.number().optional(),
+    source: EnvelopeFindQueryParamSource$inboundSchema.optional(),
+    status: EnvelopeFindQueryParamStatus$inboundSchema.optional(),
+    hasExpiredRecipients: EnvelopeFindHasExpiredRecipients$inboundSchema
+      .optional(),
+    folderId: z.string().optional(),
+    orderByColumn: EnvelopeFindOrderByColumn$inboundSchema.optional(),
+    orderByDirection: EnvelopeFindOrderByDirection$inboundSchema.default(
+      "desc",
+    ),
+  })
+);
 /** @internal */
 export type EnvelopeFindRequest$Outbound = {
   query?: string | undefined;
@@ -409,20 +421,24 @@ export const EnvelopeFindRequest$outboundSchema: z.ZodType<
   EnvelopeFindRequest$Outbound,
   z.ZodTypeDef,
   EnvelopeFindRequest
-> = z.object({
-  query: z.string().optional(),
-  page: z.number().optional(),
-  perPage: z.number().optional(),
-  type: EnvelopeFindQueryParamType$outboundSchema.optional(),
-  templateId: z.number().optional(),
-  source: EnvelopeFindQueryParamSource$outboundSchema.optional(),
-  status: EnvelopeFindQueryParamStatus$outboundSchema.optional(),
-  hasExpiredRecipients: EnvelopeFindHasExpiredRecipients$outboundSchema
-    .optional(),
-  folderId: z.string().optional(),
-  orderByColumn: EnvelopeFindOrderByColumn$outboundSchema.optional(),
-  orderByDirection: EnvelopeFindOrderByDirection$outboundSchema.default("desc"),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    query: z.string().optional(),
+    page: z.number().optional(),
+    perPage: z.number().optional(),
+    type: EnvelopeFindQueryParamType$outboundSchema.optional(),
+    templateId: z.number().optional(),
+    source: EnvelopeFindQueryParamSource$outboundSchema.optional(),
+    status: EnvelopeFindQueryParamStatus$outboundSchema.optional(),
+    hasExpiredRecipients: EnvelopeFindHasExpiredRecipients$outboundSchema
+      .optional(),
+    folderId: z.string().optional(),
+    orderByColumn: EnvelopeFindOrderByColumn$outboundSchema.optional(),
+    orderByDirection: EnvelopeFindOrderByDirection$outboundSchema.default(
+      "desc",
+    ),
+  })
+);
 
 export function envelopeFindRequestToJSON(
   envelopeFindRequest: EnvelopeFindRequest,
@@ -444,7 +460,7 @@ export function envelopeFindRequestFromJSON(
 /** @internal */
 export const EnvelopeFindDataType$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindDataType
-> = z.nativeEnum(EnvelopeFindDataType);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeFindDataType));
 /** @internal */
 export const EnvelopeFindDataType$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindDataType
@@ -453,7 +469,7 @@ export const EnvelopeFindDataType$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeFindDataStatus$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindDataStatus
-> = z.nativeEnum(EnvelopeFindDataStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeFindDataStatus));
 /** @internal */
 export const EnvelopeFindDataStatus$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindDataStatus
@@ -462,7 +478,7 @@ export const EnvelopeFindDataStatus$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeFindDataSource$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindDataSource
-> = z.nativeEnum(EnvelopeFindDataSource);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeFindDataSource));
 /** @internal */
 export const EnvelopeFindDataSource$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindDataSource
@@ -471,7 +487,7 @@ export const EnvelopeFindDataSource$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeFindVisibility$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindVisibility
-> = z.nativeEnum(EnvelopeFindVisibility);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeFindVisibility));
 /** @internal */
 export const EnvelopeFindVisibility$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindVisibility
@@ -480,7 +496,7 @@ export const EnvelopeFindVisibility$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeFindTemplateType$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindTemplateType
-> = z.nativeEnum(EnvelopeFindTemplateType);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeFindTemplateType));
 /** @internal */
 export const EnvelopeFindTemplateType$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindTemplateType
@@ -489,7 +505,9 @@ export const EnvelopeFindTemplateType$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeFindGlobalAccessAuth$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindGlobalAccessAuth
-> = z.nativeEnum(EnvelopeFindGlobalAccessAuth);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EnvelopeFindGlobalAccessAuth)
+);
 /** @internal */
 export const EnvelopeFindGlobalAccessAuth$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindGlobalAccessAuth
@@ -498,7 +516,9 @@ export const EnvelopeFindGlobalAccessAuth$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeFindGlobalActionAuth$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindGlobalActionAuth
-> = z.nativeEnum(EnvelopeFindGlobalActionAuth);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EnvelopeFindGlobalActionAuth)
+);
 /** @internal */
 export const EnvelopeFindGlobalActionAuth$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindGlobalActionAuth
@@ -509,10 +529,12 @@ export const EnvelopeFindAuthOptions$inboundSchema: z.ZodType<
   EnvelopeFindAuthOptions,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  globalAccessAuth: z.array(EnvelopeFindGlobalAccessAuth$inboundSchema),
-  globalActionAuth: z.array(EnvelopeFindGlobalActionAuth$inboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    globalAccessAuth: z.array(EnvelopeFindGlobalAccessAuth$inboundSchema),
+    globalActionAuth: z.array(EnvelopeFindGlobalActionAuth$inboundSchema),
+  })
+);
 /** @internal */
 export type EnvelopeFindAuthOptions$Outbound = {
   globalAccessAuth: Array<string>;
@@ -524,10 +546,12 @@ export const EnvelopeFindAuthOptions$outboundSchema: z.ZodType<
   EnvelopeFindAuthOptions$Outbound,
   z.ZodTypeDef,
   EnvelopeFindAuthOptions
-> = z.object({
-  globalAccessAuth: z.array(EnvelopeFindGlobalAccessAuth$outboundSchema),
-  globalActionAuth: z.array(EnvelopeFindGlobalActionAuth$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    globalAccessAuth: z.array(EnvelopeFindGlobalAccessAuth$outboundSchema),
+    globalActionAuth: z.array(EnvelopeFindGlobalActionAuth$outboundSchema),
+  })
+);
 
 export function envelopeFindAuthOptionsToJSON(
   envelopeFindAuthOptions: EnvelopeFindAuthOptions,
@@ -551,7 +575,9 @@ export const EnvelopeFindFormValues$inboundSchema: z.ZodType<
   EnvelopeFindFormValues,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.boolean(), z.number()]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([z.string(), z.boolean(), z.number()])
+);
 /** @internal */
 export type EnvelopeFindFormValues$Outbound = string | boolean | number;
 
@@ -560,7 +586,9 @@ export const EnvelopeFindFormValues$outboundSchema: z.ZodType<
   EnvelopeFindFormValues$Outbound,
   z.ZodTypeDef,
   EnvelopeFindFormValues
-> = z.union([z.string(), z.boolean(), z.number()]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([z.string(), z.boolean(), z.number()])
+);
 
 export function envelopeFindFormValuesToJSON(
   envelopeFindFormValues: EnvelopeFindFormValues,
@@ -584,11 +612,13 @@ export const EnvelopeFindUser$inboundSchema: z.ZodType<
   EnvelopeFindUser,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.number(),
-  name: z.string(),
-  email: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    name: z.string(),
+    email: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeFindUser$Outbound = {
   id: number;
@@ -601,11 +631,13 @@ export const EnvelopeFindUser$outboundSchema: z.ZodType<
   EnvelopeFindUser$Outbound,
   z.ZodTypeDef,
   EnvelopeFindUser
-> = z.object({
-  id: z.number(),
-  name: z.string(),
-  email: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    name: z.string(),
+    email: z.string(),
+  })
+);
 
 export function envelopeFindUserToJSON(
   envelopeFindUser: EnvelopeFindUser,
@@ -627,7 +659,7 @@ export function envelopeFindUserFromJSON(
 /** @internal */
 export const EnvelopeFindRole$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindRole
-> = z.nativeEnum(EnvelopeFindRole);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeFindRole));
 /** @internal */
 export const EnvelopeFindRole$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindRole
@@ -636,7 +668,7 @@ export const EnvelopeFindRole$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeFindReadStatus$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindReadStatus
-> = z.nativeEnum(EnvelopeFindReadStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeFindReadStatus));
 /** @internal */
 export const EnvelopeFindReadStatus$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindReadStatus
@@ -645,7 +677,7 @@ export const EnvelopeFindReadStatus$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeFindSigningStatus$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindSigningStatus
-> = z.nativeEnum(EnvelopeFindSigningStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeFindSigningStatus));
 /** @internal */
 export const EnvelopeFindSigningStatus$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindSigningStatus
@@ -654,7 +686,7 @@ export const EnvelopeFindSigningStatus$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeFindSendStatus$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindSendStatus
-> = z.nativeEnum(EnvelopeFindSendStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeFindSendStatus));
 /** @internal */
 export const EnvelopeFindSendStatus$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindSendStatus
@@ -663,7 +695,7 @@ export const EnvelopeFindSendStatus$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeFindAccessAuth$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindAccessAuth
-> = z.nativeEnum(EnvelopeFindAccessAuth);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeFindAccessAuth));
 /** @internal */
 export const EnvelopeFindAccessAuth$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindAccessAuth
@@ -672,7 +704,7 @@ export const EnvelopeFindAccessAuth$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const EnvelopeFindActionAuth$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindActionAuth
-> = z.nativeEnum(EnvelopeFindActionAuth);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(EnvelopeFindActionAuth));
 /** @internal */
 export const EnvelopeFindActionAuth$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFindActionAuth
@@ -683,10 +715,12 @@ export const EnvelopeFindRecipientAuthOptions$inboundSchema: z.ZodType<
   EnvelopeFindRecipientAuthOptions,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  accessAuth: z.array(EnvelopeFindAccessAuth$inboundSchema),
-  actionAuth: z.array(EnvelopeFindActionAuth$inboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    accessAuth: z.array(EnvelopeFindAccessAuth$inboundSchema),
+    actionAuth: z.array(EnvelopeFindActionAuth$inboundSchema),
+  })
+);
 /** @internal */
 export type EnvelopeFindRecipientAuthOptions$Outbound = {
   accessAuth: Array<string>;
@@ -698,10 +732,12 @@ export const EnvelopeFindRecipientAuthOptions$outboundSchema: z.ZodType<
   EnvelopeFindRecipientAuthOptions$Outbound,
   z.ZodTypeDef,
   EnvelopeFindRecipientAuthOptions
-> = z.object({
-  accessAuth: z.array(EnvelopeFindAccessAuth$outboundSchema),
-  actionAuth: z.array(EnvelopeFindActionAuth$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    accessAuth: z.array(EnvelopeFindAccessAuth$outboundSchema),
+    actionAuth: z.array(EnvelopeFindActionAuth$outboundSchema),
+  })
+);
 
 export function envelopeFindRecipientAuthOptionsToJSON(
   envelopeFindRecipientAuthOptions: EnvelopeFindRecipientAuthOptions,
@@ -727,27 +763,29 @@ export const EnvelopeFindRecipient$inboundSchema: z.ZodType<
   EnvelopeFindRecipient,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeId: z.string(),
-  role: EnvelopeFindRole$inboundSchema,
-  readStatus: EnvelopeFindReadStatus$inboundSchema,
-  signingStatus: EnvelopeFindSigningStatus$inboundSchema,
-  sendStatus: EnvelopeFindSendStatus$inboundSchema,
-  id: z.number(),
-  email: z.string(),
-  name: z.string(),
-  token: z.string(),
-  documentDeletedAt: z.nullable(z.string()),
-  expired: z.nullable(z.string()),
-  expiresAt: z.nullable(z.string()),
-  expirationNotifiedAt: z.nullable(z.string()),
-  signedAt: z.nullable(z.string()),
-  authOptions: z.nullable(
-    z.lazy(() => EnvelopeFindRecipientAuthOptions$inboundSchema),
-  ),
-  signingOrder: z.nullable(z.number()),
-  rejectionReason: z.nullable(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    role: EnvelopeFindRole$inboundSchema,
+    readStatus: EnvelopeFindReadStatus$inboundSchema,
+    signingStatus: EnvelopeFindSigningStatus$inboundSchema,
+    sendStatus: EnvelopeFindSendStatus$inboundSchema,
+    id: z.number(),
+    email: z.string(),
+    name: z.string(),
+    token: z.string(),
+    documentDeletedAt: z.nullable(z.string()),
+    expired: z.nullable(z.string()),
+    expiresAt: z.nullable(z.string()),
+    expirationNotifiedAt: z.nullable(z.string()),
+    signedAt: z.nullable(z.string()),
+    authOptions: z.nullable(
+      z.lazy(() => EnvelopeFindRecipientAuthOptions$inboundSchema),
+    ),
+    signingOrder: z.nullable(z.number()),
+    rejectionReason: z.nullable(z.string()),
+  })
+);
 /** @internal */
 export type EnvelopeFindRecipient$Outbound = {
   envelopeId: string;
@@ -774,27 +812,29 @@ export const EnvelopeFindRecipient$outboundSchema: z.ZodType<
   EnvelopeFindRecipient$Outbound,
   z.ZodTypeDef,
   EnvelopeFindRecipient
-> = z.object({
-  envelopeId: z.string(),
-  role: EnvelopeFindRole$outboundSchema,
-  readStatus: EnvelopeFindReadStatus$outboundSchema,
-  signingStatus: EnvelopeFindSigningStatus$outboundSchema,
-  sendStatus: EnvelopeFindSendStatus$outboundSchema,
-  id: z.number(),
-  email: z.string(),
-  name: z.string(),
-  token: z.string(),
-  documentDeletedAt: z.nullable(z.string()),
-  expired: z.nullable(z.string()),
-  expiresAt: z.nullable(z.string()),
-  expirationNotifiedAt: z.nullable(z.string()),
-  signedAt: z.nullable(z.string()),
-  authOptions: z.nullable(
-    z.lazy(() => EnvelopeFindRecipientAuthOptions$outboundSchema),
-  ),
-  signingOrder: z.nullable(z.number()),
-  rejectionReason: z.nullable(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    role: EnvelopeFindRole$outboundSchema,
+    readStatus: EnvelopeFindReadStatus$outboundSchema,
+    signingStatus: EnvelopeFindSigningStatus$outboundSchema,
+    sendStatus: EnvelopeFindSendStatus$outboundSchema,
+    id: z.number(),
+    email: z.string(),
+    name: z.string(),
+    token: z.string(),
+    documentDeletedAt: z.nullable(z.string()),
+    expired: z.nullable(z.string()),
+    expiresAt: z.nullable(z.string()),
+    expirationNotifiedAt: z.nullable(z.string()),
+    signedAt: z.nullable(z.string()),
+    authOptions: z.nullable(
+      z.lazy(() => EnvelopeFindRecipientAuthOptions$outboundSchema),
+    ),
+    signingOrder: z.nullable(z.number()),
+    rejectionReason: z.nullable(z.string()),
+  })
+);
 
 export function envelopeFindRecipientToJSON(
   envelopeFindRecipient: EnvelopeFindRecipient,
@@ -818,10 +858,12 @@ export const EnvelopeFindTeam$inboundSchema: z.ZodType<
   EnvelopeFindTeam,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.number(),
-  url: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    url: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeFindTeam$Outbound = {
   id: number;
@@ -833,10 +875,12 @@ export const EnvelopeFindTeam$outboundSchema: z.ZodType<
   EnvelopeFindTeam$Outbound,
   z.ZodTypeDef,
   EnvelopeFindTeam
-> = z.object({
-  id: z.number(),
-  url: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    url: z.string(),
+  })
+);
 
 export function envelopeFindTeamToJSON(
   envelopeFindTeam: EnvelopeFindTeam,
@@ -860,35 +904,39 @@ export const EnvelopeFindData$inboundSchema: z.ZodType<
   EnvelopeFindData,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  internalVersion: z.number(),
-  type: EnvelopeFindDataType$inboundSchema,
-  status: EnvelopeFindDataStatus$inboundSchema,
-  source: EnvelopeFindDataSource$inboundSchema,
-  visibility: EnvelopeFindVisibility$inboundSchema,
-  templateType: EnvelopeFindTemplateType$inboundSchema,
-  id: z.string(),
-  secondaryId: z.string(),
-  externalId: z.nullable(z.string()),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-  completedAt: z.nullable(z.string()),
-  deletedAt: z.nullable(z.string()),
-  title: z.string(),
-  authOptions: z.nullable(z.lazy(() => EnvelopeFindAuthOptions$inboundSchema)),
-  formValues: z.nullable(
-    z.record(z.union([z.string(), z.boolean(), z.number()])),
-  ),
-  publicTitle: z.string(),
-  publicDescription: z.string(),
-  userId: z.number(),
-  teamId: z.number(),
-  folderId: z.nullable(z.string()),
-  templateId: z.nullable(z.number()),
-  user: z.lazy(() => EnvelopeFindUser$inboundSchema),
-  recipients: z.array(z.lazy(() => EnvelopeFindRecipient$inboundSchema)),
-  team: z.nullable(z.lazy(() => EnvelopeFindTeam$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    internalVersion: z.number(),
+    type: EnvelopeFindDataType$inboundSchema,
+    status: EnvelopeFindDataStatus$inboundSchema,
+    source: EnvelopeFindDataSource$inboundSchema,
+    visibility: EnvelopeFindVisibility$inboundSchema,
+    templateType: EnvelopeFindTemplateType$inboundSchema,
+    id: z.string(),
+    secondaryId: z.string(),
+    externalId: z.nullable(z.string()),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    completedAt: z.nullable(z.string()),
+    deletedAt: z.nullable(z.string()),
+    title: z.string(),
+    authOptions: z.nullable(
+      z.lazy(() => EnvelopeFindAuthOptions$inboundSchema),
+    ),
+    formValues: z.nullable(
+      z.record(z.union([z.string(), z.boolean(), z.number()])),
+    ),
+    publicTitle: z.string(),
+    publicDescription: z.string(),
+    userId: z.number(),
+    teamId: z.number(),
+    folderId: z.nullable(z.string()),
+    templateId: z.nullable(z.number()),
+    user: z.lazy(() => EnvelopeFindUser$inboundSchema),
+    recipients: z.array(z.lazy(() => EnvelopeFindRecipient$inboundSchema)),
+    team: z.nullable(z.lazy(() => EnvelopeFindTeam$inboundSchema)),
+  })
+);
 /** @internal */
 export type EnvelopeFindData$Outbound = {
   internalVersion: number;
@@ -923,35 +971,39 @@ export const EnvelopeFindData$outboundSchema: z.ZodType<
   EnvelopeFindData$Outbound,
   z.ZodTypeDef,
   EnvelopeFindData
-> = z.object({
-  internalVersion: z.number(),
-  type: EnvelopeFindDataType$outboundSchema,
-  status: EnvelopeFindDataStatus$outboundSchema,
-  source: EnvelopeFindDataSource$outboundSchema,
-  visibility: EnvelopeFindVisibility$outboundSchema,
-  templateType: EnvelopeFindTemplateType$outboundSchema,
-  id: z.string(),
-  secondaryId: z.string(),
-  externalId: z.nullable(z.string()),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-  completedAt: z.nullable(z.string()),
-  deletedAt: z.nullable(z.string()),
-  title: z.string(),
-  authOptions: z.nullable(z.lazy(() => EnvelopeFindAuthOptions$outboundSchema)),
-  formValues: z.nullable(
-    z.record(z.union([z.string(), z.boolean(), z.number()])),
-  ),
-  publicTitle: z.string(),
-  publicDescription: z.string(),
-  userId: z.number(),
-  teamId: z.number(),
-  folderId: z.nullable(z.string()),
-  templateId: z.nullable(z.number()),
-  user: z.lazy(() => EnvelopeFindUser$outboundSchema),
-  recipients: z.array(z.lazy(() => EnvelopeFindRecipient$outboundSchema)),
-  team: z.nullable(z.lazy(() => EnvelopeFindTeam$outboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    internalVersion: z.number(),
+    type: EnvelopeFindDataType$outboundSchema,
+    status: EnvelopeFindDataStatus$outboundSchema,
+    source: EnvelopeFindDataSource$outboundSchema,
+    visibility: EnvelopeFindVisibility$outboundSchema,
+    templateType: EnvelopeFindTemplateType$outboundSchema,
+    id: z.string(),
+    secondaryId: z.string(),
+    externalId: z.nullable(z.string()),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    completedAt: z.nullable(z.string()),
+    deletedAt: z.nullable(z.string()),
+    title: z.string(),
+    authOptions: z.nullable(
+      z.lazy(() => EnvelopeFindAuthOptions$outboundSchema),
+    ),
+    formValues: z.nullable(
+      z.record(z.union([z.string(), z.boolean(), z.number()])),
+    ),
+    publicTitle: z.string(),
+    publicDescription: z.string(),
+    userId: z.number(),
+    teamId: z.number(),
+    folderId: z.nullable(z.string()),
+    templateId: z.nullable(z.number()),
+    user: z.lazy(() => EnvelopeFindUser$outboundSchema),
+    recipients: z.array(z.lazy(() => EnvelopeFindRecipient$outboundSchema)),
+    team: z.nullable(z.lazy(() => EnvelopeFindTeam$outboundSchema)),
+  })
+);
 
 export function envelopeFindDataToJSON(
   envelopeFindData: EnvelopeFindData,
@@ -975,13 +1027,15 @@ export const EnvelopeFindResponse$inboundSchema: z.ZodType<
   EnvelopeFindResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  data: z.array(z.lazy(() => EnvelopeFindData$inboundSchema)),
-  count: z.number(),
-  currentPage: z.number(),
-  perPage: z.number(),
-  totalPages: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    data: z.array(z.lazy(() => EnvelopeFindData$inboundSchema)),
+    count: z.number(),
+    currentPage: z.number(),
+    perPage: z.number(),
+    totalPages: z.number(),
+  })
+);
 /** @internal */
 export type EnvelopeFindResponse$Outbound = {
   data: Array<EnvelopeFindData$Outbound>;
@@ -996,13 +1050,15 @@ export const EnvelopeFindResponse$outboundSchema: z.ZodType<
   EnvelopeFindResponse$Outbound,
   z.ZodTypeDef,
   EnvelopeFindResponse
-> = z.object({
-  data: z.array(z.lazy(() => EnvelopeFindData$outboundSchema)),
-  count: z.number(),
-  currentPage: z.number(),
-  perPage: z.number(),
-  totalPages: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    data: z.array(z.lazy(() => EnvelopeFindData$outboundSchema)),
+    count: z.number(),
+    currentPage: z.number(),
+    perPage: z.number(),
+    totalPages: z.number(),
+  })
+);
 
 export function envelopeFindResponseToJSON(
   envelopeFindResponse: EnvelopeFindResponse,

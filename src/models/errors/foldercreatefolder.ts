@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -159,9 +159,11 @@ export class FolderCreateFolderBadRequestError extends DocumensoError {
 /** @internal */
 export const FolderCreateFolderInternalServerErrorIssue$inboundSchema:
   z.ZodType<FolderCreateFolderInternalServerErrorIssue, z.ZodTypeDef, unknown> =
-    z.object({
-      message: z.string(),
-    });
+    /* @__PURE__ */ lazySchema$(() =>
+      z.object({
+        message: z.string(),
+      })
+    );
 /** @internal */
 export type FolderCreateFolderInternalServerErrorIssue$Outbound = {
   message: string;
@@ -173,9 +175,11 @@ export const FolderCreateFolderInternalServerErrorIssue$outboundSchema:
     FolderCreateFolderInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
     FolderCreateFolderInternalServerErrorIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function folderCreateFolderInternalServerErrorIssueToJSON(
   folderCreateFolderInternalServerErrorIssue:
@@ -208,23 +212,27 @@ export const FolderCreateFolderInternalServerError$inboundSchema: z.ZodType<
   FolderCreateFolderInternalServerError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => FolderCreateFolderInternalServerErrorIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new FolderCreateFolderInternalServerError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => FolderCreateFolderInternalServerErrorIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new FolderCreateFolderInternalServerError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type FolderCreateFolderInternalServerError$Outbound = {
@@ -240,24 +248,28 @@ export const FolderCreateFolderInternalServerError$outboundSchema: z.ZodType<
   FolderCreateFolderInternalServerError$Outbound,
   z.ZodTypeDef,
   FolderCreateFolderInternalServerError
-> = z.instanceof(FolderCreateFolderInternalServerError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => FolderCreateFolderInternalServerErrorIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(FolderCreateFolderInternalServerError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => FolderCreateFolderInternalServerErrorIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const FolderCreateFolderForbiddenIssue$inboundSchema: z.ZodType<
   FolderCreateFolderForbiddenIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type FolderCreateFolderForbiddenIssue$Outbound = {
   message: string;
@@ -268,9 +280,11 @@ export const FolderCreateFolderForbiddenIssue$outboundSchema: z.ZodType<
   FolderCreateFolderForbiddenIssue$Outbound,
   z.ZodTypeDef,
   FolderCreateFolderForbiddenIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function folderCreateFolderForbiddenIssueToJSON(
   folderCreateFolderForbiddenIssue: FolderCreateFolderForbiddenIssue,
@@ -296,22 +310,27 @@ export const FolderCreateFolderForbiddenError$inboundSchema: z.ZodType<
   FolderCreateFolderForbiddenError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(z.lazy(() => FolderCreateFolderForbiddenIssue$inboundSchema))
-    .optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new FolderCreateFolderForbiddenError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => FolderCreateFolderForbiddenIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new FolderCreateFolderForbiddenError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type FolderCreateFolderForbiddenError$Outbound = {
@@ -325,24 +344,28 @@ export const FolderCreateFolderForbiddenError$outboundSchema: z.ZodType<
   FolderCreateFolderForbiddenError$Outbound,
   z.ZodTypeDef,
   FolderCreateFolderForbiddenError
-> = z.instanceof(FolderCreateFolderForbiddenError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => FolderCreateFolderForbiddenIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(FolderCreateFolderForbiddenError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => FolderCreateFolderForbiddenIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const FolderCreateFolderUnauthorizedIssue$inboundSchema: z.ZodType<
   FolderCreateFolderUnauthorizedIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type FolderCreateFolderUnauthorizedIssue$Outbound = {
   message: string;
@@ -353,9 +376,11 @@ export const FolderCreateFolderUnauthorizedIssue$outboundSchema: z.ZodType<
   FolderCreateFolderUnauthorizedIssue$Outbound,
   z.ZodTypeDef,
   FolderCreateFolderUnauthorizedIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function folderCreateFolderUnauthorizedIssueToJSON(
   folderCreateFolderUnauthorizedIssue: FolderCreateFolderUnauthorizedIssue,
@@ -382,23 +407,27 @@ export const FolderCreateFolderUnauthorizedError$inboundSchema: z.ZodType<
   FolderCreateFolderUnauthorizedError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => FolderCreateFolderUnauthorizedIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new FolderCreateFolderUnauthorizedError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => FolderCreateFolderUnauthorizedIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new FolderCreateFolderUnauthorizedError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type FolderCreateFolderUnauthorizedError$Outbound = {
@@ -412,24 +441,28 @@ export const FolderCreateFolderUnauthorizedError$outboundSchema: z.ZodType<
   FolderCreateFolderUnauthorizedError$Outbound,
   z.ZodTypeDef,
   FolderCreateFolderUnauthorizedError
-> = z.instanceof(FolderCreateFolderUnauthorizedError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => FolderCreateFolderUnauthorizedIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(FolderCreateFolderUnauthorizedError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => FolderCreateFolderUnauthorizedIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const FolderCreateFolderBadRequestIssue$inboundSchema: z.ZodType<
   FolderCreateFolderBadRequestIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type FolderCreateFolderBadRequestIssue$Outbound = {
   message: string;
@@ -440,9 +473,11 @@ export const FolderCreateFolderBadRequestIssue$outboundSchema: z.ZodType<
   FolderCreateFolderBadRequestIssue$Outbound,
   z.ZodTypeDef,
   FolderCreateFolderBadRequestIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function folderCreateFolderBadRequestIssueToJSON(
   folderCreateFolderBadRequestIssue: FolderCreateFolderBadRequestIssue,
@@ -468,22 +503,27 @@ export const FolderCreateFolderBadRequestError$inboundSchema: z.ZodType<
   FolderCreateFolderBadRequestError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(z.lazy(() => FolderCreateFolderBadRequestIssue$inboundSchema))
-    .optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new FolderCreateFolderBadRequestError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => FolderCreateFolderBadRequestIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new FolderCreateFolderBadRequestError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type FolderCreateFolderBadRequestError$Outbound = {
@@ -497,12 +537,14 @@ export const FolderCreateFolderBadRequestError$outboundSchema: z.ZodType<
   FolderCreateFolderBadRequestError$Outbound,
   z.ZodTypeDef,
   FolderCreateFolderBadRequestError
-> = z.instanceof(FolderCreateFolderBadRequestError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => FolderCreateFolderBadRequestIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(FolderCreateFolderBadRequestError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => FolderCreateFolderBadRequestIssue$outboundSchema),
+      ).optional(),
+    }))
+);
