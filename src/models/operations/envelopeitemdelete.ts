@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -24,10 +24,12 @@ export const EnvelopeItemDeleteRequest$inboundSchema: z.ZodType<
   EnvelopeItemDeleteRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeId: z.string(),
-  envelopeItemId: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    envelopeItemId: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeItemDeleteRequest$Outbound = {
   envelopeId: string;
@@ -39,10 +41,12 @@ export const EnvelopeItemDeleteRequest$outboundSchema: z.ZodType<
   EnvelopeItemDeleteRequest$Outbound,
   z.ZodTypeDef,
   EnvelopeItemDeleteRequest
-> = z.object({
-  envelopeId: z.string(),
-  envelopeItemId: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    envelopeItemId: z.string(),
+  })
+);
 
 export function envelopeItemDeleteRequestToJSON(
   envelopeItemDeleteRequest: EnvelopeItemDeleteRequest,
@@ -66,9 +70,11 @@ export const EnvelopeItemDeleteResponse$inboundSchema: z.ZodType<
   EnvelopeItemDeleteResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  success: z.boolean(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    success: z.boolean(),
+  })
+);
 /** @internal */
 export type EnvelopeItemDeleteResponse$Outbound = {
   success: boolean;
@@ -79,9 +85,11 @@ export const EnvelopeItemDeleteResponse$outboundSchema: z.ZodType<
   EnvelopeItemDeleteResponse$Outbound,
   z.ZodTypeDef,
   EnvelopeItemDeleteResponse
-> = z.object({
-  success: z.boolean(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    success: z.boolean(),
+  })
+);
 
 export function envelopeItemDeleteResponseToJSON(
   envelopeItemDeleteResponse: EnvelopeItemDeleteResponse,

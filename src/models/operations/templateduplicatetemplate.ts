@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -80,9 +80,11 @@ export const TemplateDuplicateTemplateRequest$inboundSchema: z.ZodType<
   TemplateDuplicateTemplateRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  templateId: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    templateId: z.number(),
+  })
+);
 /** @internal */
 export type TemplateDuplicateTemplateRequest$Outbound = {
   templateId: number;
@@ -93,9 +95,11 @@ export const TemplateDuplicateTemplateRequest$outboundSchema: z.ZodType<
   TemplateDuplicateTemplateRequest$Outbound,
   z.ZodTypeDef,
   TemplateDuplicateTemplateRequest
-> = z.object({
-  templateId: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    templateId: z.number(),
+  })
+);
 
 export function templateDuplicateTemplateRequestToJSON(
   templateDuplicateTemplateRequest: TemplateDuplicateTemplateRequest,
@@ -119,7 +123,9 @@ export function templateDuplicateTemplateRequestFromJSON(
 /** @internal */
 export const TemplateDuplicateTemplateType$inboundSchema: z.ZodNativeEnum<
   typeof TemplateDuplicateTemplateType
-> = z.nativeEnum(TemplateDuplicateTemplateType);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateDuplicateTemplateType)
+);
 /** @internal */
 export const TemplateDuplicateTemplateType$outboundSchema: z.ZodNativeEnum<
   typeof TemplateDuplicateTemplateType
@@ -128,7 +134,9 @@ export const TemplateDuplicateTemplateType$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const TemplateDuplicateTemplateVisibility$inboundSchema: z.ZodNativeEnum<
   typeof TemplateDuplicateTemplateVisibility
-> = z.nativeEnum(TemplateDuplicateTemplateVisibility);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateDuplicateTemplateVisibility)
+);
 /** @internal */
 export const TemplateDuplicateTemplateVisibility$outboundSchema:
   z.ZodNativeEnum<typeof TemplateDuplicateTemplateVisibility> =
@@ -136,8 +144,10 @@ export const TemplateDuplicateTemplateVisibility$outboundSchema:
 
 /** @internal */
 export const TemplateDuplicateTemplateGlobalAccessAuth$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateDuplicateTemplateGlobalAccessAuth> = z
-    .nativeEnum(TemplateDuplicateTemplateGlobalAccessAuth);
+  z.ZodNativeEnum<typeof TemplateDuplicateTemplateGlobalAccessAuth> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateDuplicateTemplateGlobalAccessAuth)
+    );
 /** @internal */
 export const TemplateDuplicateTemplateGlobalAccessAuth$outboundSchema:
   z.ZodNativeEnum<typeof TemplateDuplicateTemplateGlobalAccessAuth> =
@@ -145,8 +155,10 @@ export const TemplateDuplicateTemplateGlobalAccessAuth$outboundSchema:
 
 /** @internal */
 export const TemplateDuplicateTemplateGlobalActionAuth$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateDuplicateTemplateGlobalActionAuth> = z
-    .nativeEnum(TemplateDuplicateTemplateGlobalActionAuth);
+  z.ZodNativeEnum<typeof TemplateDuplicateTemplateGlobalActionAuth> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateDuplicateTemplateGlobalActionAuth)
+    );
 /** @internal */
 export const TemplateDuplicateTemplateGlobalActionAuth$outboundSchema:
   z.ZodNativeEnum<typeof TemplateDuplicateTemplateGlobalActionAuth> =
@@ -157,14 +169,16 @@ export const TemplateDuplicateTemplateAuthOptions$inboundSchema: z.ZodType<
   TemplateDuplicateTemplateAuthOptions,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  globalAccessAuth: z.array(
-    TemplateDuplicateTemplateGlobalAccessAuth$inboundSchema,
-  ),
-  globalActionAuth: z.array(
-    TemplateDuplicateTemplateGlobalActionAuth$inboundSchema,
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    globalAccessAuth: z.array(
+      TemplateDuplicateTemplateGlobalAccessAuth$inboundSchema,
+    ),
+    globalActionAuth: z.array(
+      TemplateDuplicateTemplateGlobalActionAuth$inboundSchema,
+    ),
+  })
+);
 /** @internal */
 export type TemplateDuplicateTemplateAuthOptions$Outbound = {
   globalAccessAuth: Array<string>;
@@ -176,14 +190,16 @@ export const TemplateDuplicateTemplateAuthOptions$outboundSchema: z.ZodType<
   TemplateDuplicateTemplateAuthOptions$Outbound,
   z.ZodTypeDef,
   TemplateDuplicateTemplateAuthOptions
-> = z.object({
-  globalAccessAuth: z.array(
-    TemplateDuplicateTemplateGlobalAccessAuth$outboundSchema,
-  ),
-  globalActionAuth: z.array(
-    TemplateDuplicateTemplateGlobalActionAuth$outboundSchema,
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    globalAccessAuth: z.array(
+      TemplateDuplicateTemplateGlobalAccessAuth$outboundSchema,
+    ),
+    globalActionAuth: z.array(
+      TemplateDuplicateTemplateGlobalActionAuth$outboundSchema,
+    ),
+  })
+);
 
 export function templateDuplicateTemplateAuthOptionsToJSON(
   templateDuplicateTemplateAuthOptions: TemplateDuplicateTemplateAuthOptions,
@@ -210,26 +226,28 @@ export const TemplateDuplicateTemplateResponse$inboundSchema: z.ZodType<
   TemplateDuplicateTemplateResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  type: TemplateDuplicateTemplateType$inboundSchema,
-  visibility: TemplateDuplicateTemplateVisibility$inboundSchema,
-  id: z.number(),
-  externalId: z.nullable(z.string()),
-  title: z.string(),
-  userId: z.number(),
-  teamId: z.number(),
-  authOptions: z.nullable(
-    z.lazy(() => TemplateDuplicateTemplateAuthOptions$inboundSchema),
-  ),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-  publicTitle: z.string(),
-  publicDescription: z.string(),
-  folderId: z.nullable(z.string()),
-  useLegacyFieldInsertion: z.boolean(),
-  envelopeId: z.string(),
-  templateDocumentDataId: z.string().default(""),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: TemplateDuplicateTemplateType$inboundSchema,
+    visibility: TemplateDuplicateTemplateVisibility$inboundSchema,
+    id: z.number(),
+    externalId: z.nullable(z.string()),
+    title: z.string(),
+    userId: z.number(),
+    teamId: z.number(),
+    authOptions: z.nullable(
+      z.lazy(() => TemplateDuplicateTemplateAuthOptions$inboundSchema),
+    ),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    publicTitle: z.string(),
+    publicDescription: z.string(),
+    folderId: z.nullable(z.string()),
+    useLegacyFieldInsertion: z.boolean(),
+    envelopeId: z.string(),
+    templateDocumentDataId: z.string().default(""),
+  })
+);
 /** @internal */
 export type TemplateDuplicateTemplateResponse$Outbound = {
   type: string;
@@ -255,26 +273,28 @@ export const TemplateDuplicateTemplateResponse$outboundSchema: z.ZodType<
   TemplateDuplicateTemplateResponse$Outbound,
   z.ZodTypeDef,
   TemplateDuplicateTemplateResponse
-> = z.object({
-  type: TemplateDuplicateTemplateType$outboundSchema,
-  visibility: TemplateDuplicateTemplateVisibility$outboundSchema,
-  id: z.number(),
-  externalId: z.nullable(z.string()),
-  title: z.string(),
-  userId: z.number(),
-  teamId: z.number(),
-  authOptions: z.nullable(
-    z.lazy(() => TemplateDuplicateTemplateAuthOptions$outboundSchema),
-  ),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-  publicTitle: z.string(),
-  publicDescription: z.string(),
-  folderId: z.nullable(z.string()),
-  useLegacyFieldInsertion: z.boolean(),
-  envelopeId: z.string(),
-  templateDocumentDataId: z.string().default(""),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: TemplateDuplicateTemplateType$outboundSchema,
+    visibility: TemplateDuplicateTemplateVisibility$outboundSchema,
+    id: z.number(),
+    externalId: z.nullable(z.string()),
+    title: z.string(),
+    userId: z.number(),
+    teamId: z.number(),
+    authOptions: z.nullable(
+      z.lazy(() => TemplateDuplicateTemplateAuthOptions$outboundSchema),
+    ),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    publicTitle: z.string(),
+    publicDescription: z.string(),
+    folderId: z.nullable(z.string()),
+    useLegacyFieldInsertion: z.boolean(),
+    envelopeId: z.string(),
+    templateDocumentDataId: z.string().default(""),
+  })
+);
 
 export function templateDuplicateTemplateResponseToJSON(
   templateDuplicateTemplateResponse: TemplateDuplicateTemplateResponse,

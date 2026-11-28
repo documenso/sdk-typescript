@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -24,10 +24,12 @@ export const DocumentRedistributeRequest$inboundSchema: z.ZodType<
   DocumentRedistributeRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  documentId: z.number(),
-  recipients: z.array(z.number()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    documentId: z.number(),
+    recipients: z.array(z.number()),
+  })
+);
 /** @internal */
 export type DocumentRedistributeRequest$Outbound = {
   documentId: number;
@@ -39,10 +41,12 @@ export const DocumentRedistributeRequest$outboundSchema: z.ZodType<
   DocumentRedistributeRequest$Outbound,
   z.ZodTypeDef,
   DocumentRedistributeRequest
-> = z.object({
-  documentId: z.number(),
-  recipients: z.array(z.number()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    documentId: z.number(),
+    recipients: z.array(z.number()),
+  })
+);
 
 export function documentRedistributeRequestToJSON(
   documentRedistributeRequest: DocumentRedistributeRequest,
@@ -68,9 +72,11 @@ export const DocumentRedistributeResponse$inboundSchema: z.ZodType<
   DocumentRedistributeResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  success: z.boolean(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    success: z.boolean(),
+  })
+);
 /** @internal */
 export type DocumentRedistributeResponse$Outbound = {
   success: boolean;
@@ -81,9 +87,11 @@ export const DocumentRedistributeResponse$outboundSchema: z.ZodType<
   DocumentRedistributeResponse$Outbound,
   z.ZodTypeDef,
   DocumentRedistributeResponse
-> = z.object({
-  success: z.boolean(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    success: z.boolean(),
+  })
+);
 
 export function documentRedistributeResponseToJSON(
   documentRedistributeResponse: DocumentRedistributeResponse,

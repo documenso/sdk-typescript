@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -198,9 +198,11 @@ export const DocumentDownloadInternalServerErrorIssue$inboundSchema: z.ZodType<
   DocumentDownloadInternalServerErrorIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type DocumentDownloadInternalServerErrorIssue$Outbound = {
   message: string;
@@ -211,9 +213,11 @@ export const DocumentDownloadInternalServerErrorIssue$outboundSchema: z.ZodType<
   DocumentDownloadInternalServerErrorIssue$Outbound,
   z.ZodTypeDef,
   DocumentDownloadInternalServerErrorIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function documentDownloadInternalServerErrorIssueToJSON(
   documentDownloadInternalServerErrorIssue:
@@ -246,23 +250,27 @@ export const DocumentDownloadInternalServerError$inboundSchema: z.ZodType<
   DocumentDownloadInternalServerError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => DocumentDownloadInternalServerErrorIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new DocumentDownloadInternalServerError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => DocumentDownloadInternalServerErrorIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new DocumentDownloadInternalServerError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type DocumentDownloadInternalServerError$Outbound = {
@@ -276,24 +284,28 @@ export const DocumentDownloadInternalServerError$outboundSchema: z.ZodType<
   DocumentDownloadInternalServerError$Outbound,
   z.ZodTypeDef,
   DocumentDownloadInternalServerError
-> = z.instanceof(DocumentDownloadInternalServerError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => DocumentDownloadInternalServerErrorIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(DocumentDownloadInternalServerError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => DocumentDownloadInternalServerErrorIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const DocumentDownloadNotFoundIssue$inboundSchema: z.ZodType<
   DocumentDownloadNotFoundIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type DocumentDownloadNotFoundIssue$Outbound = {
   message: string;
@@ -304,9 +316,11 @@ export const DocumentDownloadNotFoundIssue$outboundSchema: z.ZodType<
   DocumentDownloadNotFoundIssue$Outbound,
   z.ZodTypeDef,
   DocumentDownloadNotFoundIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function documentDownloadNotFoundIssueToJSON(
   documentDownloadNotFoundIssue: DocumentDownloadNotFoundIssue,
@@ -332,22 +346,26 @@ export const DocumentDownloadNotFoundError$inboundSchema: z.ZodType<
   DocumentDownloadNotFoundError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(z.lazy(() => DocumentDownloadNotFoundIssue$inboundSchema))
-    .optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new DocumentDownloadNotFoundError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(z.lazy(() => DocumentDownloadNotFoundIssue$inboundSchema))
+      .optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new DocumentDownloadNotFoundError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type DocumentDownloadNotFoundError$Outbound = {
@@ -361,23 +379,28 @@ export const DocumentDownloadNotFoundError$outboundSchema: z.ZodType<
   DocumentDownloadNotFoundError$Outbound,
   z.ZodTypeDef,
   DocumentDownloadNotFoundError
-> = z.instanceof(DocumentDownloadNotFoundError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(z.lazy(() => DocumentDownloadNotFoundIssue$outboundSchema))
-      .optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(DocumentDownloadNotFoundError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => DocumentDownloadNotFoundIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const DocumentDownloadForbiddenIssue$inboundSchema: z.ZodType<
   DocumentDownloadForbiddenIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type DocumentDownloadForbiddenIssue$Outbound = {
   message: string;
@@ -388,9 +411,11 @@ export const DocumentDownloadForbiddenIssue$outboundSchema: z.ZodType<
   DocumentDownloadForbiddenIssue$Outbound,
   z.ZodTypeDef,
   DocumentDownloadForbiddenIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function documentDownloadForbiddenIssueToJSON(
   documentDownloadForbiddenIssue: DocumentDownloadForbiddenIssue,
@@ -416,22 +441,26 @@ export const DocumentDownloadForbiddenError$inboundSchema: z.ZodType<
   DocumentDownloadForbiddenError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(z.lazy(() => DocumentDownloadForbiddenIssue$inboundSchema))
-    .optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new DocumentDownloadForbiddenError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(z.lazy(() => DocumentDownloadForbiddenIssue$inboundSchema))
+      .optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new DocumentDownloadForbiddenError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type DocumentDownloadForbiddenError$Outbound = {
@@ -445,23 +474,28 @@ export const DocumentDownloadForbiddenError$outboundSchema: z.ZodType<
   DocumentDownloadForbiddenError$Outbound,
   z.ZodTypeDef,
   DocumentDownloadForbiddenError
-> = z.instanceof(DocumentDownloadForbiddenError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(z.lazy(() => DocumentDownloadForbiddenIssue$outboundSchema))
-      .optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(DocumentDownloadForbiddenError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => DocumentDownloadForbiddenIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const DocumentDownloadUnauthorizedIssue$inboundSchema: z.ZodType<
   DocumentDownloadUnauthorizedIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type DocumentDownloadUnauthorizedIssue$Outbound = {
   message: string;
@@ -472,9 +506,11 @@ export const DocumentDownloadUnauthorizedIssue$outboundSchema: z.ZodType<
   DocumentDownloadUnauthorizedIssue$Outbound,
   z.ZodTypeDef,
   DocumentDownloadUnauthorizedIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function documentDownloadUnauthorizedIssueToJSON(
   documentDownloadUnauthorizedIssue: DocumentDownloadUnauthorizedIssue,
@@ -500,22 +536,27 @@ export const DocumentDownloadUnauthorizedError$inboundSchema: z.ZodType<
   DocumentDownloadUnauthorizedError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(z.lazy(() => DocumentDownloadUnauthorizedIssue$inboundSchema))
-    .optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new DocumentDownloadUnauthorizedError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => DocumentDownloadUnauthorizedIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new DocumentDownloadUnauthorizedError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type DocumentDownloadUnauthorizedError$Outbound = {
@@ -529,24 +570,28 @@ export const DocumentDownloadUnauthorizedError$outboundSchema: z.ZodType<
   DocumentDownloadUnauthorizedError$Outbound,
   z.ZodTypeDef,
   DocumentDownloadUnauthorizedError
-> = z.instanceof(DocumentDownloadUnauthorizedError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => DocumentDownloadUnauthorizedIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(DocumentDownloadUnauthorizedError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => DocumentDownloadUnauthorizedIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const DocumentDownloadBadRequestIssue$inboundSchema: z.ZodType<
   DocumentDownloadBadRequestIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type DocumentDownloadBadRequestIssue$Outbound = {
   message: string;
@@ -557,9 +602,11 @@ export const DocumentDownloadBadRequestIssue$outboundSchema: z.ZodType<
   DocumentDownloadBadRequestIssue$Outbound,
   z.ZodTypeDef,
   DocumentDownloadBadRequestIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function documentDownloadBadRequestIssueToJSON(
   documentDownloadBadRequestIssue: DocumentDownloadBadRequestIssue,
@@ -585,22 +632,26 @@ export const DocumentDownloadBadRequestError$inboundSchema: z.ZodType<
   DocumentDownloadBadRequestError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(z.lazy(() => DocumentDownloadBadRequestIssue$inboundSchema))
-    .optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new DocumentDownloadBadRequestError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(z.lazy(() => DocumentDownloadBadRequestIssue$inboundSchema))
+      .optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new DocumentDownloadBadRequestError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type DocumentDownloadBadRequestError$Outbound = {
@@ -614,12 +665,14 @@ export const DocumentDownloadBadRequestError$outboundSchema: z.ZodType<
   DocumentDownloadBadRequestError$Outbound,
   z.ZodTypeDef,
   DocumentDownloadBadRequestError
-> = z.instanceof(DocumentDownloadBadRequestError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => DocumentDownloadBadRequestIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(DocumentDownloadBadRequestError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => DocumentDownloadBadRequestIssue$outboundSchema),
+      ).optional(),
+    }))
+);

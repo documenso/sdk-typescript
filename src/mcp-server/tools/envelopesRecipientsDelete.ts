@@ -20,7 +20,7 @@ Delete an envelope recipient`,
     const [result, apiCall] = await envelopesRecipientsDelete(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

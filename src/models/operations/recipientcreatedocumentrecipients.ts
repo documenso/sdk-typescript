@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -147,8 +147,10 @@ export type RecipientCreateDocumentRecipientsResponse = {
 
 /** @internal */
 export const RecipientCreateDocumentRecipientsRoleRequest$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientCreateDocumentRecipientsRoleRequest> = z
-    .nativeEnum(RecipientCreateDocumentRecipientsRoleRequest);
+  z.ZodNativeEnum<typeof RecipientCreateDocumentRecipientsRoleRequest> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(RecipientCreateDocumentRecipientsRoleRequest)
+    );
 /** @internal */
 export const RecipientCreateDocumentRecipientsRoleRequest$outboundSchema:
   z.ZodNativeEnum<typeof RecipientCreateDocumentRecipientsRoleRequest> =
@@ -156,8 +158,10 @@ export const RecipientCreateDocumentRecipientsRoleRequest$outboundSchema:
 
 /** @internal */
 export const RecipientCreateDocumentRecipientsAccessAuthRequest$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientCreateDocumentRecipientsAccessAuthRequest> = z
-    .nativeEnum(RecipientCreateDocumentRecipientsAccessAuthRequest);
+  z.ZodNativeEnum<typeof RecipientCreateDocumentRecipientsAccessAuthRequest> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(RecipientCreateDocumentRecipientsAccessAuthRequest)
+    );
 /** @internal */
 export const RecipientCreateDocumentRecipientsAccessAuthRequest$outboundSchema:
   z.ZodNativeEnum<typeof RecipientCreateDocumentRecipientsAccessAuthRequest> =
@@ -165,8 +169,10 @@ export const RecipientCreateDocumentRecipientsAccessAuthRequest$outboundSchema:
 
 /** @internal */
 export const RecipientCreateDocumentRecipientsActionAuthRequest$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientCreateDocumentRecipientsActionAuthRequest> = z
-    .nativeEnum(RecipientCreateDocumentRecipientsActionAuthRequest);
+  z.ZodNativeEnum<typeof RecipientCreateDocumentRecipientsActionAuthRequest> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(RecipientCreateDocumentRecipientsActionAuthRequest)
+    );
 /** @internal */
 export const RecipientCreateDocumentRecipientsActionAuthRequest$outboundSchema:
   z.ZodNativeEnum<typeof RecipientCreateDocumentRecipientsActionAuthRequest> =
@@ -178,18 +184,20 @@ export const RecipientCreateDocumentRecipientsRecipientRequest$inboundSchema:
     RecipientCreateDocumentRecipientsRecipientRequest,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    email: z.string(),
-    name: z.string(),
-    role: RecipientCreateDocumentRecipientsRoleRequest$inboundSchema,
-    signingOrder: z.number().optional(),
-    accessAuth: z.array(
-      RecipientCreateDocumentRecipientsAccessAuthRequest$inboundSchema,
-    ).optional(),
-    actionAuth: z.array(
-      RecipientCreateDocumentRecipientsActionAuthRequest$inboundSchema,
-    ).optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      email: z.string(),
+      name: z.string(),
+      role: RecipientCreateDocumentRecipientsRoleRequest$inboundSchema,
+      signingOrder: z.number().int().optional(),
+      accessAuth: z.array(
+        RecipientCreateDocumentRecipientsAccessAuthRequest$inboundSchema,
+      ).optional(),
+      actionAuth: z.array(
+        RecipientCreateDocumentRecipientsActionAuthRequest$inboundSchema,
+      ).optional(),
+    })
+  );
 /** @internal */
 export type RecipientCreateDocumentRecipientsRecipientRequest$Outbound = {
   email: string;
@@ -206,18 +214,20 @@ export const RecipientCreateDocumentRecipientsRecipientRequest$outboundSchema:
     RecipientCreateDocumentRecipientsRecipientRequest$Outbound,
     z.ZodTypeDef,
     RecipientCreateDocumentRecipientsRecipientRequest
-  > = z.object({
-    email: z.string(),
-    name: z.string(),
-    role: RecipientCreateDocumentRecipientsRoleRequest$outboundSchema,
-    signingOrder: z.number().optional(),
-    accessAuth: z.array(
-      RecipientCreateDocumentRecipientsAccessAuthRequest$outboundSchema,
-    ).optional(),
-    actionAuth: z.array(
-      RecipientCreateDocumentRecipientsActionAuthRequest$outboundSchema,
-    ).optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      email: z.string(),
+      name: z.string(),
+      role: RecipientCreateDocumentRecipientsRoleRequest$outboundSchema,
+      signingOrder: z.number().int().optional(),
+      accessAuth: z.array(
+        RecipientCreateDocumentRecipientsAccessAuthRequest$outboundSchema,
+      ).optional(),
+      actionAuth: z.array(
+        RecipientCreateDocumentRecipientsActionAuthRequest$outboundSchema,
+      ).optional(),
+    })
+  );
 
 export function recipientCreateDocumentRecipientsRecipientRequestToJSON(
   recipientCreateDocumentRecipientsRecipientRequest:
@@ -250,14 +260,14 @@ export const RecipientCreateDocumentRecipientsRequest$inboundSchema: z.ZodType<
   RecipientCreateDocumentRecipientsRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  documentId: z.number(),
-  recipients: z.array(
-    z.lazy(() =>
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    documentId: z.number(),
+    recipients: z.array(z.lazy(() =>
       RecipientCreateDocumentRecipientsRecipientRequest$inboundSchema
-    ),
-  ),
-});
+    )),
+  })
+);
 /** @internal */
 export type RecipientCreateDocumentRecipientsRequest$Outbound = {
   documentId: number;
@@ -269,14 +279,14 @@ export const RecipientCreateDocumentRecipientsRequest$outboundSchema: z.ZodType<
   RecipientCreateDocumentRecipientsRequest$Outbound,
   z.ZodTypeDef,
   RecipientCreateDocumentRecipientsRequest
-> = z.object({
-  documentId: z.number(),
-  recipients: z.array(
-    z.lazy(() =>
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    documentId: z.number(),
+    recipients: z.array(z.lazy(() =>
       RecipientCreateDocumentRecipientsRecipientRequest$outboundSchema
-    ),
-  ),
-});
+    )),
+  })
+);
 
 export function recipientCreateDocumentRecipientsRequestToJSON(
   recipientCreateDocumentRecipientsRequest:
@@ -306,8 +316,10 @@ export function recipientCreateDocumentRecipientsRequestFromJSON(
 
 /** @internal */
 export const RecipientCreateDocumentRecipientsRoleResponse$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientCreateDocumentRecipientsRoleResponse> = z
-    .nativeEnum(RecipientCreateDocumentRecipientsRoleResponse);
+  z.ZodNativeEnum<typeof RecipientCreateDocumentRecipientsRoleResponse> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(RecipientCreateDocumentRecipientsRoleResponse)
+    );
 /** @internal */
 export const RecipientCreateDocumentRecipientsRoleResponse$outboundSchema:
   z.ZodNativeEnum<typeof RecipientCreateDocumentRecipientsRoleResponse> =
@@ -315,8 +327,10 @@ export const RecipientCreateDocumentRecipientsRoleResponse$outboundSchema:
 
 /** @internal */
 export const RecipientCreateDocumentRecipientsReadStatus$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientCreateDocumentRecipientsReadStatus> = z
-    .nativeEnum(RecipientCreateDocumentRecipientsReadStatus);
+  z.ZodNativeEnum<typeof RecipientCreateDocumentRecipientsReadStatus> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(RecipientCreateDocumentRecipientsReadStatus)
+    );
 /** @internal */
 export const RecipientCreateDocumentRecipientsReadStatus$outboundSchema:
   z.ZodNativeEnum<typeof RecipientCreateDocumentRecipientsReadStatus> =
@@ -324,8 +338,10 @@ export const RecipientCreateDocumentRecipientsReadStatus$outboundSchema:
 
 /** @internal */
 export const RecipientCreateDocumentRecipientsSigningStatus$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientCreateDocumentRecipientsSigningStatus> = z
-    .nativeEnum(RecipientCreateDocumentRecipientsSigningStatus);
+  z.ZodNativeEnum<typeof RecipientCreateDocumentRecipientsSigningStatus> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(RecipientCreateDocumentRecipientsSigningStatus)
+    );
 /** @internal */
 export const RecipientCreateDocumentRecipientsSigningStatus$outboundSchema:
   z.ZodNativeEnum<typeof RecipientCreateDocumentRecipientsSigningStatus> =
@@ -333,8 +349,10 @@ export const RecipientCreateDocumentRecipientsSigningStatus$outboundSchema:
 
 /** @internal */
 export const RecipientCreateDocumentRecipientsSendStatus$inboundSchema:
-  z.ZodNativeEnum<typeof RecipientCreateDocumentRecipientsSendStatus> = z
-    .nativeEnum(RecipientCreateDocumentRecipientsSendStatus);
+  z.ZodNativeEnum<typeof RecipientCreateDocumentRecipientsSendStatus> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(RecipientCreateDocumentRecipientsSendStatus)
+    );
 /** @internal */
 export const RecipientCreateDocumentRecipientsSendStatus$outboundSchema:
   z.ZodNativeEnum<typeof RecipientCreateDocumentRecipientsSendStatus> =
@@ -344,7 +362,9 @@ export const RecipientCreateDocumentRecipientsSendStatus$outboundSchema:
 export const RecipientCreateDocumentRecipientsAuthOptionsAccessAuth$inboundSchema:
   z.ZodNativeEnum<
     typeof RecipientCreateDocumentRecipientsAuthOptionsAccessAuth
-  > = z.nativeEnum(RecipientCreateDocumentRecipientsAuthOptionsAccessAuth);
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.nativeEnum(RecipientCreateDocumentRecipientsAuthOptionsAccessAuth)
+  );
 /** @internal */
 export const RecipientCreateDocumentRecipientsAuthOptionsAccessAuth$outboundSchema:
   z.ZodNativeEnum<
@@ -355,7 +375,9 @@ export const RecipientCreateDocumentRecipientsAuthOptionsAccessAuth$outboundSche
 export const RecipientCreateDocumentRecipientsAuthOptionsActionAuth$inboundSchema:
   z.ZodNativeEnum<
     typeof RecipientCreateDocumentRecipientsAuthOptionsActionAuth
-  > = z.nativeEnum(RecipientCreateDocumentRecipientsAuthOptionsActionAuth);
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.nativeEnum(RecipientCreateDocumentRecipientsAuthOptionsActionAuth)
+  );
 /** @internal */
 export const RecipientCreateDocumentRecipientsAuthOptionsActionAuth$outboundSchema:
   z.ZodNativeEnum<
@@ -368,14 +390,16 @@ export const RecipientCreateDocumentRecipientsAuthOptions$inboundSchema:
     RecipientCreateDocumentRecipientsAuthOptions,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    accessAuth: z.array(
-      RecipientCreateDocumentRecipientsAuthOptionsAccessAuth$inboundSchema,
-    ),
-    actionAuth: z.array(
-      RecipientCreateDocumentRecipientsAuthOptionsActionAuth$inboundSchema,
-    ),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      accessAuth: z.array(
+        RecipientCreateDocumentRecipientsAuthOptionsAccessAuth$inboundSchema,
+      ),
+      actionAuth: z.array(
+        RecipientCreateDocumentRecipientsAuthOptionsActionAuth$inboundSchema,
+      ),
+    })
+  );
 /** @internal */
 export type RecipientCreateDocumentRecipientsAuthOptions$Outbound = {
   accessAuth: Array<string>;
@@ -388,14 +412,16 @@ export const RecipientCreateDocumentRecipientsAuthOptions$outboundSchema:
     RecipientCreateDocumentRecipientsAuthOptions$Outbound,
     z.ZodTypeDef,
     RecipientCreateDocumentRecipientsAuthOptions
-  > = z.object({
-    accessAuth: z.array(
-      RecipientCreateDocumentRecipientsAuthOptionsAccessAuth$outboundSchema,
-    ),
-    actionAuth: z.array(
-      RecipientCreateDocumentRecipientsAuthOptionsActionAuth$outboundSchema,
-    ),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      accessAuth: z.array(
+        RecipientCreateDocumentRecipientsAuthOptionsAccessAuth$outboundSchema,
+      ),
+      actionAuth: z.array(
+        RecipientCreateDocumentRecipientsAuthOptionsActionAuth$outboundSchema,
+      ),
+    })
+  );
 
 export function recipientCreateDocumentRecipientsAuthOptionsToJSON(
   recipientCreateDocumentRecipientsAuthOptions:
@@ -429,29 +455,34 @@ export const RecipientCreateDocumentRecipientsRecipientResponse$inboundSchema:
     RecipientCreateDocumentRecipientsRecipientResponse,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    envelopeId: z.string(),
-    role: RecipientCreateDocumentRecipientsRoleResponse$inboundSchema,
-    readStatus: RecipientCreateDocumentRecipientsReadStatus$inboundSchema,
-    signingStatus: RecipientCreateDocumentRecipientsSigningStatus$inboundSchema,
-    sendStatus: RecipientCreateDocumentRecipientsSendStatus$inboundSchema,
-    id: z.number(),
-    email: z.string(),
-    name: z.string(),
-    token: z.string(),
-    documentDeletedAt: z.nullable(z.string()),
-    expired: z.nullable(z.string()),
-    expiresAt: z.nullable(z.string()),
-    expirationNotifiedAt: z.nullable(z.string()),
-    signedAt: z.nullable(z.string()),
-    authOptions: z.nullable(
-      z.lazy(() => RecipientCreateDocumentRecipientsAuthOptions$inboundSchema),
-    ),
-    signingOrder: z.nullable(z.number()),
-    rejectionReason: z.nullable(z.string()),
-    documentId: z.nullable(z.number()).optional(),
-    templateId: z.nullable(z.number()).optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      envelopeId: z.string(),
+      role: RecipientCreateDocumentRecipientsRoleResponse$inboundSchema,
+      readStatus: RecipientCreateDocumentRecipientsReadStatus$inboundSchema,
+      signingStatus:
+        RecipientCreateDocumentRecipientsSigningStatus$inboundSchema,
+      sendStatus: RecipientCreateDocumentRecipientsSendStatus$inboundSchema,
+      id: z.number(),
+      email: z.string(),
+      name: z.string(),
+      token: z.string(),
+      documentDeletedAt: z.nullable(z.string()),
+      expired: z.nullable(z.string()),
+      expiresAt: z.nullable(z.string()),
+      expirationNotifiedAt: z.nullable(z.string()),
+      signedAt: z.nullable(z.string()),
+      authOptions: z.nullable(
+        z.lazy(() =>
+          RecipientCreateDocumentRecipientsAuthOptions$inboundSchema
+        ),
+      ),
+      signingOrder: z.nullable(z.number()),
+      rejectionReason: z.nullable(z.string()),
+      documentId: z.nullable(z.number()).optional(),
+      templateId: z.nullable(z.number()).optional(),
+    })
+  );
 /** @internal */
 export type RecipientCreateDocumentRecipientsRecipientResponse$Outbound = {
   envelopeId: string;
@@ -481,30 +512,34 @@ export const RecipientCreateDocumentRecipientsRecipientResponse$outboundSchema:
     RecipientCreateDocumentRecipientsRecipientResponse$Outbound,
     z.ZodTypeDef,
     RecipientCreateDocumentRecipientsRecipientResponse
-  > = z.object({
-    envelopeId: z.string(),
-    role: RecipientCreateDocumentRecipientsRoleResponse$outboundSchema,
-    readStatus: RecipientCreateDocumentRecipientsReadStatus$outboundSchema,
-    signingStatus:
-      RecipientCreateDocumentRecipientsSigningStatus$outboundSchema,
-    sendStatus: RecipientCreateDocumentRecipientsSendStatus$outboundSchema,
-    id: z.number(),
-    email: z.string(),
-    name: z.string(),
-    token: z.string(),
-    documentDeletedAt: z.nullable(z.string()),
-    expired: z.nullable(z.string()),
-    expiresAt: z.nullable(z.string()),
-    expirationNotifiedAt: z.nullable(z.string()),
-    signedAt: z.nullable(z.string()),
-    authOptions: z.nullable(
-      z.lazy(() => RecipientCreateDocumentRecipientsAuthOptions$outboundSchema),
-    ),
-    signingOrder: z.nullable(z.number()),
-    rejectionReason: z.nullable(z.string()),
-    documentId: z.nullable(z.number()).optional(),
-    templateId: z.nullable(z.number()).optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      envelopeId: z.string(),
+      role: RecipientCreateDocumentRecipientsRoleResponse$outboundSchema,
+      readStatus: RecipientCreateDocumentRecipientsReadStatus$outboundSchema,
+      signingStatus:
+        RecipientCreateDocumentRecipientsSigningStatus$outboundSchema,
+      sendStatus: RecipientCreateDocumentRecipientsSendStatus$outboundSchema,
+      id: z.number(),
+      email: z.string(),
+      name: z.string(),
+      token: z.string(),
+      documentDeletedAt: z.nullable(z.string()),
+      expired: z.nullable(z.string()),
+      expiresAt: z.nullable(z.string()),
+      expirationNotifiedAt: z.nullable(z.string()),
+      signedAt: z.nullable(z.string()),
+      authOptions: z.nullable(
+        z.lazy(() =>
+          RecipientCreateDocumentRecipientsAuthOptions$outboundSchema
+        ),
+      ),
+      signingOrder: z.nullable(z.number()),
+      rejectionReason: z.nullable(z.string()),
+      documentId: z.nullable(z.number()).optional(),
+      templateId: z.nullable(z.number()).optional(),
+    })
+  );
 
 export function recipientCreateDocumentRecipientsRecipientResponseToJSON(
   recipientCreateDocumentRecipientsRecipientResponse:
@@ -537,13 +572,13 @@ export const RecipientCreateDocumentRecipientsResponse$inboundSchema: z.ZodType<
   RecipientCreateDocumentRecipientsResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  recipients: z.array(
-    z.lazy(() =>
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    recipients: z.array(z.lazy(() =>
       RecipientCreateDocumentRecipientsRecipientResponse$inboundSchema
-    ),
-  ),
-});
+    )),
+  })
+);
 /** @internal */
 export type RecipientCreateDocumentRecipientsResponse$Outbound = {
   recipients: Array<
@@ -557,13 +592,13 @@ export const RecipientCreateDocumentRecipientsResponse$outboundSchema:
     RecipientCreateDocumentRecipientsResponse$Outbound,
     z.ZodTypeDef,
     RecipientCreateDocumentRecipientsResponse
-  > = z.object({
-    recipients: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      recipients: z.array(z.lazy(() =>
         RecipientCreateDocumentRecipientsRecipientResponse$outboundSchema
-      ),
-    ),
-  });
+      )),
+    })
+  );
 
 export function recipientCreateDocumentRecipientsResponseToJSON(
   recipientCreateDocumentRecipientsResponse:

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -23,9 +23,11 @@ export const RecipientDeleteDocumentRecipientRequest$inboundSchema: z.ZodType<
   RecipientDeleteDocumentRecipientRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  recipientId: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    recipientId: z.number(),
+  })
+);
 /** @internal */
 export type RecipientDeleteDocumentRecipientRequest$Outbound = {
   recipientId: number;
@@ -36,9 +38,11 @@ export const RecipientDeleteDocumentRecipientRequest$outboundSchema: z.ZodType<
   RecipientDeleteDocumentRecipientRequest$Outbound,
   z.ZodTypeDef,
   RecipientDeleteDocumentRecipientRequest
-> = z.object({
-  recipientId: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    recipientId: z.number(),
+  })
+);
 
 export function recipientDeleteDocumentRecipientRequestToJSON(
   recipientDeleteDocumentRecipientRequest:
@@ -71,9 +75,11 @@ export const RecipientDeleteDocumentRecipientResponse$inboundSchema: z.ZodType<
   RecipientDeleteDocumentRecipientResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  success: z.boolean(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    success: z.boolean(),
+  })
+);
 /** @internal */
 export type RecipientDeleteDocumentRecipientResponse$Outbound = {
   success: boolean;
@@ -84,9 +90,11 @@ export const RecipientDeleteDocumentRecipientResponse$outboundSchema: z.ZodType<
   RecipientDeleteDocumentRecipientResponse$Outbound,
   z.ZodTypeDef,
   RecipientDeleteDocumentRecipientResponse
-> = z.object({
-  success: z.boolean(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    success: z.boolean(),
+  })
+);
 
 export function recipientDeleteDocumentRecipientResponseToJSON(
   recipientDeleteDocumentRecipientResponse:

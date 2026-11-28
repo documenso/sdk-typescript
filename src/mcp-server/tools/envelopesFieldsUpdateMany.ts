@@ -20,7 +20,7 @@ Update multiple envelope fields for an envelope`,
     const [result, apiCall] = await envelopesFieldsUpdateMany(
       client,
       args.request,
-      { fetchOptions: { signal: ctx.signal } },
+      { fetchOptions: { signal: ctx.mcpReq.signal } },
     ).$inspect();
 
     if (!result.ok) {

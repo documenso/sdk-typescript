@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -161,9 +161,11 @@ export const EnvelopeDuplicateInternalServerErrorIssue$inboundSchema: z.ZodType<
   EnvelopeDuplicateInternalServerErrorIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeDuplicateInternalServerErrorIssue$Outbound = {
   message: string;
@@ -175,9 +177,11 @@ export const EnvelopeDuplicateInternalServerErrorIssue$outboundSchema:
     EnvelopeDuplicateInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
     EnvelopeDuplicateInternalServerErrorIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function envelopeDuplicateInternalServerErrorIssueToJSON(
   envelopeDuplicateInternalServerErrorIssue:
@@ -210,23 +214,27 @@ export const EnvelopeDuplicateInternalServerError$inboundSchema: z.ZodType<
   EnvelopeDuplicateInternalServerError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => EnvelopeDuplicateInternalServerErrorIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new EnvelopeDuplicateInternalServerError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => EnvelopeDuplicateInternalServerErrorIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new EnvelopeDuplicateInternalServerError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type EnvelopeDuplicateInternalServerError$Outbound = {
@@ -242,24 +250,28 @@ export const EnvelopeDuplicateInternalServerError$outboundSchema: z.ZodType<
   EnvelopeDuplicateInternalServerError$Outbound,
   z.ZodTypeDef,
   EnvelopeDuplicateInternalServerError
-> = z.instanceof(EnvelopeDuplicateInternalServerError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeDuplicateInternalServerErrorIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(EnvelopeDuplicateInternalServerError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => EnvelopeDuplicateInternalServerErrorIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const EnvelopeDuplicateForbiddenIssue$inboundSchema: z.ZodType<
   EnvelopeDuplicateForbiddenIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeDuplicateForbiddenIssue$Outbound = {
   message: string;
@@ -270,9 +282,11 @@ export const EnvelopeDuplicateForbiddenIssue$outboundSchema: z.ZodType<
   EnvelopeDuplicateForbiddenIssue$Outbound,
   z.ZodTypeDef,
   EnvelopeDuplicateForbiddenIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function envelopeDuplicateForbiddenIssueToJSON(
   envelopeDuplicateForbiddenIssue: EnvelopeDuplicateForbiddenIssue,
@@ -298,22 +312,26 @@ export const EnvelopeDuplicateForbiddenError$inboundSchema: z.ZodType<
   EnvelopeDuplicateForbiddenError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(z.lazy(() => EnvelopeDuplicateForbiddenIssue$inboundSchema))
-    .optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new EnvelopeDuplicateForbiddenError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(z.lazy(() => EnvelopeDuplicateForbiddenIssue$inboundSchema))
+      .optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new EnvelopeDuplicateForbiddenError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type EnvelopeDuplicateForbiddenError$Outbound = {
@@ -327,24 +345,28 @@ export const EnvelopeDuplicateForbiddenError$outboundSchema: z.ZodType<
   EnvelopeDuplicateForbiddenError$Outbound,
   z.ZodTypeDef,
   EnvelopeDuplicateForbiddenError
-> = z.instanceof(EnvelopeDuplicateForbiddenError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeDuplicateForbiddenIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(EnvelopeDuplicateForbiddenError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => EnvelopeDuplicateForbiddenIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const EnvelopeDuplicateUnauthorizedIssue$inboundSchema: z.ZodType<
   EnvelopeDuplicateUnauthorizedIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeDuplicateUnauthorizedIssue$Outbound = {
   message: string;
@@ -355,9 +377,11 @@ export const EnvelopeDuplicateUnauthorizedIssue$outboundSchema: z.ZodType<
   EnvelopeDuplicateUnauthorizedIssue$Outbound,
   z.ZodTypeDef,
   EnvelopeDuplicateUnauthorizedIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function envelopeDuplicateUnauthorizedIssueToJSON(
   envelopeDuplicateUnauthorizedIssue: EnvelopeDuplicateUnauthorizedIssue,
@@ -384,23 +408,27 @@ export const EnvelopeDuplicateUnauthorizedError$inboundSchema: z.ZodType<
   EnvelopeDuplicateUnauthorizedError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => EnvelopeDuplicateUnauthorizedIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new EnvelopeDuplicateUnauthorizedError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => EnvelopeDuplicateUnauthorizedIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new EnvelopeDuplicateUnauthorizedError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type EnvelopeDuplicateUnauthorizedError$Outbound = {
@@ -414,24 +442,28 @@ export const EnvelopeDuplicateUnauthorizedError$outboundSchema: z.ZodType<
   EnvelopeDuplicateUnauthorizedError$Outbound,
   z.ZodTypeDef,
   EnvelopeDuplicateUnauthorizedError
-> = z.instanceof(EnvelopeDuplicateUnauthorizedError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeDuplicateUnauthorizedIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(EnvelopeDuplicateUnauthorizedError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => EnvelopeDuplicateUnauthorizedIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const EnvelopeDuplicateBadRequestIssue$inboundSchema: z.ZodType<
   EnvelopeDuplicateBadRequestIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeDuplicateBadRequestIssue$Outbound = {
   message: string;
@@ -442,9 +474,11 @@ export const EnvelopeDuplicateBadRequestIssue$outboundSchema: z.ZodType<
   EnvelopeDuplicateBadRequestIssue$Outbound,
   z.ZodTypeDef,
   EnvelopeDuplicateBadRequestIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function envelopeDuplicateBadRequestIssueToJSON(
   envelopeDuplicateBadRequestIssue: EnvelopeDuplicateBadRequestIssue,
@@ -470,22 +504,27 @@ export const EnvelopeDuplicateBadRequestError$inboundSchema: z.ZodType<
   EnvelopeDuplicateBadRequestError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(z.lazy(() => EnvelopeDuplicateBadRequestIssue$inboundSchema))
-    .optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new EnvelopeDuplicateBadRequestError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => EnvelopeDuplicateBadRequestIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new EnvelopeDuplicateBadRequestError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type EnvelopeDuplicateBadRequestError$Outbound = {
@@ -499,12 +538,14 @@ export const EnvelopeDuplicateBadRequestError$outboundSchema: z.ZodType<
   EnvelopeDuplicateBadRequestError$Outbound,
   z.ZodTypeDef,
   EnvelopeDuplicateBadRequestError
-> = z.instanceof(EnvelopeDuplicateBadRequestError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeDuplicateBadRequestIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(EnvelopeDuplicateBadRequestError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => EnvelopeDuplicateBadRequestIssue$outboundSchema),
+      ).optional(),
+    }))
+);

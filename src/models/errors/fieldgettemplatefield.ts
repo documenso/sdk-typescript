@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -199,9 +199,11 @@ export const FieldGetTemplateFieldInternalServerErrorIssue$inboundSchema:
     FieldGetTemplateFieldInternalServerErrorIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type FieldGetTemplateFieldInternalServerErrorIssue$Outbound = {
   message: string;
@@ -213,9 +215,11 @@ export const FieldGetTemplateFieldInternalServerErrorIssue$outboundSchema:
     FieldGetTemplateFieldInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
     FieldGetTemplateFieldInternalServerErrorIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function fieldGetTemplateFieldInternalServerErrorIssueToJSON(
   fieldGetTemplateFieldInternalServerErrorIssue:
@@ -248,23 +252,27 @@ export const FieldGetTemplateFieldInternalServerError$inboundSchema: z.ZodType<
   FieldGetTemplateFieldInternalServerError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => FieldGetTemplateFieldInternalServerErrorIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new FieldGetTemplateFieldInternalServerError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => FieldGetTemplateFieldInternalServerErrorIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new FieldGetTemplateFieldInternalServerError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type FieldGetTemplateFieldInternalServerError$Outbound = {
@@ -280,26 +288,30 @@ export const FieldGetTemplateFieldInternalServerError$outboundSchema: z.ZodType<
   FieldGetTemplateFieldInternalServerError$Outbound,
   z.ZodTypeDef,
   FieldGetTemplateFieldInternalServerError
-> = z.instanceof(FieldGetTemplateFieldInternalServerError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
-        FieldGetTemplateFieldInternalServerErrorIssue$outboundSchema
-      ),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(FieldGetTemplateFieldInternalServerError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() =>
+          FieldGetTemplateFieldInternalServerErrorIssue$outboundSchema
+        ),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const FieldGetTemplateFieldNotFoundIssue$inboundSchema: z.ZodType<
   FieldGetTemplateFieldNotFoundIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type FieldGetTemplateFieldNotFoundIssue$Outbound = {
   message: string;
@@ -310,9 +322,11 @@ export const FieldGetTemplateFieldNotFoundIssue$outboundSchema: z.ZodType<
   FieldGetTemplateFieldNotFoundIssue$Outbound,
   z.ZodTypeDef,
   FieldGetTemplateFieldNotFoundIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function fieldGetTemplateFieldNotFoundIssueToJSON(
   fieldGetTemplateFieldNotFoundIssue: FieldGetTemplateFieldNotFoundIssue,
@@ -339,23 +353,27 @@ export const FieldGetTemplateFieldNotFoundError$inboundSchema: z.ZodType<
   FieldGetTemplateFieldNotFoundError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => FieldGetTemplateFieldNotFoundIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new FieldGetTemplateFieldNotFoundError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => FieldGetTemplateFieldNotFoundIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new FieldGetTemplateFieldNotFoundError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type FieldGetTemplateFieldNotFoundError$Outbound = {
@@ -369,24 +387,28 @@ export const FieldGetTemplateFieldNotFoundError$outboundSchema: z.ZodType<
   FieldGetTemplateFieldNotFoundError$Outbound,
   z.ZodTypeDef,
   FieldGetTemplateFieldNotFoundError
-> = z.instanceof(FieldGetTemplateFieldNotFoundError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => FieldGetTemplateFieldNotFoundIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(FieldGetTemplateFieldNotFoundError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => FieldGetTemplateFieldNotFoundIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const FieldGetTemplateFieldForbiddenIssue$inboundSchema: z.ZodType<
   FieldGetTemplateFieldForbiddenIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type FieldGetTemplateFieldForbiddenIssue$Outbound = {
   message: string;
@@ -397,9 +419,11 @@ export const FieldGetTemplateFieldForbiddenIssue$outboundSchema: z.ZodType<
   FieldGetTemplateFieldForbiddenIssue$Outbound,
   z.ZodTypeDef,
   FieldGetTemplateFieldForbiddenIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function fieldGetTemplateFieldForbiddenIssueToJSON(
   fieldGetTemplateFieldForbiddenIssue: FieldGetTemplateFieldForbiddenIssue,
@@ -426,23 +450,27 @@ export const FieldGetTemplateFieldForbiddenError$inboundSchema: z.ZodType<
   FieldGetTemplateFieldForbiddenError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => FieldGetTemplateFieldForbiddenIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new FieldGetTemplateFieldForbiddenError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => FieldGetTemplateFieldForbiddenIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new FieldGetTemplateFieldForbiddenError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type FieldGetTemplateFieldForbiddenError$Outbound = {
@@ -456,24 +484,28 @@ export const FieldGetTemplateFieldForbiddenError$outboundSchema: z.ZodType<
   FieldGetTemplateFieldForbiddenError$Outbound,
   z.ZodTypeDef,
   FieldGetTemplateFieldForbiddenError
-> = z.instanceof(FieldGetTemplateFieldForbiddenError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => FieldGetTemplateFieldForbiddenIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(FieldGetTemplateFieldForbiddenError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => FieldGetTemplateFieldForbiddenIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const FieldGetTemplateFieldUnauthorizedIssue$inboundSchema: z.ZodType<
   FieldGetTemplateFieldUnauthorizedIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type FieldGetTemplateFieldUnauthorizedIssue$Outbound = {
   message: string;
@@ -484,9 +516,11 @@ export const FieldGetTemplateFieldUnauthorizedIssue$outboundSchema: z.ZodType<
   FieldGetTemplateFieldUnauthorizedIssue$Outbound,
   z.ZodTypeDef,
   FieldGetTemplateFieldUnauthorizedIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function fieldGetTemplateFieldUnauthorizedIssueToJSON(
   fieldGetTemplateFieldUnauthorizedIssue:
@@ -514,23 +548,27 @@ export const FieldGetTemplateFieldUnauthorizedError$inboundSchema: z.ZodType<
   FieldGetTemplateFieldUnauthorizedError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => FieldGetTemplateFieldUnauthorizedIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new FieldGetTemplateFieldUnauthorizedError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => FieldGetTemplateFieldUnauthorizedIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new FieldGetTemplateFieldUnauthorizedError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type FieldGetTemplateFieldUnauthorizedError$Outbound = {
@@ -544,24 +582,28 @@ export const FieldGetTemplateFieldUnauthorizedError$outboundSchema: z.ZodType<
   FieldGetTemplateFieldUnauthorizedError$Outbound,
   z.ZodTypeDef,
   FieldGetTemplateFieldUnauthorizedError
-> = z.instanceof(FieldGetTemplateFieldUnauthorizedError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => FieldGetTemplateFieldUnauthorizedIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(FieldGetTemplateFieldUnauthorizedError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => FieldGetTemplateFieldUnauthorizedIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const FieldGetTemplateFieldBadRequestIssue$inboundSchema: z.ZodType<
   FieldGetTemplateFieldBadRequestIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type FieldGetTemplateFieldBadRequestIssue$Outbound = {
   message: string;
@@ -572,9 +614,11 @@ export const FieldGetTemplateFieldBadRequestIssue$outboundSchema: z.ZodType<
   FieldGetTemplateFieldBadRequestIssue$Outbound,
   z.ZodTypeDef,
   FieldGetTemplateFieldBadRequestIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function fieldGetTemplateFieldBadRequestIssueToJSON(
   fieldGetTemplateFieldBadRequestIssue: FieldGetTemplateFieldBadRequestIssue,
@@ -601,23 +645,27 @@ export const FieldGetTemplateFieldBadRequestError$inboundSchema: z.ZodType<
   FieldGetTemplateFieldBadRequestError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => FieldGetTemplateFieldBadRequestIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new FieldGetTemplateFieldBadRequestError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => FieldGetTemplateFieldBadRequestIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new FieldGetTemplateFieldBadRequestError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type FieldGetTemplateFieldBadRequestError$Outbound = {
@@ -631,12 +679,14 @@ export const FieldGetTemplateFieldBadRequestError$outboundSchema: z.ZodType<
   FieldGetTemplateFieldBadRequestError$Outbound,
   z.ZodTypeDef,
   FieldGetTemplateFieldBadRequestError
-> = z.instanceof(FieldGetTemplateFieldBadRequestError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => FieldGetTemplateFieldBadRequestIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(FieldGetTemplateFieldBadRequestError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => FieldGetTemplateFieldBadRequestIssue$outboundSchema),
+      ).optional(),
+    }))
+);

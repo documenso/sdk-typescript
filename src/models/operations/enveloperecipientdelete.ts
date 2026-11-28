@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -23,9 +23,11 @@ export const EnvelopeRecipientDeleteRequest$inboundSchema: z.ZodType<
   EnvelopeRecipientDeleteRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  recipientId: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    recipientId: z.number(),
+  })
+);
 /** @internal */
 export type EnvelopeRecipientDeleteRequest$Outbound = {
   recipientId: number;
@@ -36,9 +38,11 @@ export const EnvelopeRecipientDeleteRequest$outboundSchema: z.ZodType<
   EnvelopeRecipientDeleteRequest$Outbound,
   z.ZodTypeDef,
   EnvelopeRecipientDeleteRequest
-> = z.object({
-  recipientId: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    recipientId: z.number(),
+  })
+);
 
 export function envelopeRecipientDeleteRequestToJSON(
   envelopeRecipientDeleteRequest: EnvelopeRecipientDeleteRequest,
@@ -64,9 +68,11 @@ export const EnvelopeRecipientDeleteResponse$inboundSchema: z.ZodType<
   EnvelopeRecipientDeleteResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  success: z.boolean(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    success: z.boolean(),
+  })
+);
 /** @internal */
 export type EnvelopeRecipientDeleteResponse$Outbound = {
   success: boolean;
@@ -77,9 +83,11 @@ export const EnvelopeRecipientDeleteResponse$outboundSchema: z.ZodType<
   EnvelopeRecipientDeleteResponse$Outbound,
   z.ZodTypeDef,
   EnvelopeRecipientDeleteResponse
-> = z.object({
-  success: z.boolean(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    success: z.boolean(),
+  })
+);
 
 export function envelopeRecipientDeleteResponseToJSON(
   envelopeRecipientDeleteResponse: EnvelopeRecipientDeleteResponse,

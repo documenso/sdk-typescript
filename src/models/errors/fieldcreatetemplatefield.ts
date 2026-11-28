@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -164,9 +164,11 @@ export const FieldCreateTemplateFieldInternalServerErrorIssue$inboundSchema:
     FieldCreateTemplateFieldInternalServerErrorIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type FieldCreateTemplateFieldInternalServerErrorIssue$Outbound = {
   message: string;
@@ -178,9 +180,11 @@ export const FieldCreateTemplateFieldInternalServerErrorIssue$outboundSchema:
     FieldCreateTemplateFieldInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
     FieldCreateTemplateFieldInternalServerErrorIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function fieldCreateTemplateFieldInternalServerErrorIssueToJSON(
   fieldCreateTemplateFieldInternalServerErrorIssue:
@@ -214,25 +218,27 @@ export const FieldCreateTemplateFieldInternalServerError$inboundSchema:
     FieldCreateTemplateFieldInternalServerError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         FieldCreateTemplateFieldInternalServerErrorIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new FieldCreateTemplateFieldInternalServerError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        const { request$, response$, body$, ...data } = v;
+
+        return new FieldCreateTemplateFieldInternalServerError(data, {
+          request: request$,
+          response: response$,
+          body: body$,
+        });
+      })
+  );
 
 /** @internal */
 export type FieldCreateTemplateFieldInternalServerError$Outbound = {
@@ -249,26 +255,30 @@ export const FieldCreateTemplateFieldInternalServerError$outboundSchema:
     FieldCreateTemplateFieldInternalServerError$Outbound,
     z.ZodTypeDef,
     FieldCreateTemplateFieldInternalServerError
-  > = z.instanceof(FieldCreateTemplateFieldInternalServerError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          FieldCreateTemplateFieldInternalServerErrorIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(FieldCreateTemplateFieldInternalServerError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            FieldCreateTemplateFieldInternalServerErrorIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const FieldCreateTemplateFieldForbiddenIssue$inboundSchema: z.ZodType<
   FieldCreateTemplateFieldForbiddenIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type FieldCreateTemplateFieldForbiddenIssue$Outbound = {
   message: string;
@@ -279,9 +289,11 @@ export const FieldCreateTemplateFieldForbiddenIssue$outboundSchema: z.ZodType<
   FieldCreateTemplateFieldForbiddenIssue$Outbound,
   z.ZodTypeDef,
   FieldCreateTemplateFieldForbiddenIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function fieldCreateTemplateFieldForbiddenIssueToJSON(
   fieldCreateTemplateFieldForbiddenIssue:
@@ -309,23 +321,27 @@ export const FieldCreateTemplateFieldForbiddenError$inboundSchema: z.ZodType<
   FieldCreateTemplateFieldForbiddenError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => FieldCreateTemplateFieldForbiddenIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new FieldCreateTemplateFieldForbiddenError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => FieldCreateTemplateFieldForbiddenIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new FieldCreateTemplateFieldForbiddenError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type FieldCreateTemplateFieldForbiddenError$Outbound = {
@@ -339,24 +355,28 @@ export const FieldCreateTemplateFieldForbiddenError$outboundSchema: z.ZodType<
   FieldCreateTemplateFieldForbiddenError$Outbound,
   z.ZodTypeDef,
   FieldCreateTemplateFieldForbiddenError
-> = z.instanceof(FieldCreateTemplateFieldForbiddenError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => FieldCreateTemplateFieldForbiddenIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(FieldCreateTemplateFieldForbiddenError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => FieldCreateTemplateFieldForbiddenIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const FieldCreateTemplateFieldUnauthorizedIssue$inboundSchema: z.ZodType<
   FieldCreateTemplateFieldUnauthorizedIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type FieldCreateTemplateFieldUnauthorizedIssue$Outbound = {
   message: string;
@@ -368,9 +388,11 @@ export const FieldCreateTemplateFieldUnauthorizedIssue$outboundSchema:
     FieldCreateTemplateFieldUnauthorizedIssue$Outbound,
     z.ZodTypeDef,
     FieldCreateTemplateFieldUnauthorizedIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function fieldCreateTemplateFieldUnauthorizedIssueToJSON(
   fieldCreateTemplateFieldUnauthorizedIssue:
@@ -403,23 +425,27 @@ export const FieldCreateTemplateFieldUnauthorizedError$inboundSchema: z.ZodType<
   FieldCreateTemplateFieldUnauthorizedError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => FieldCreateTemplateFieldUnauthorizedIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new FieldCreateTemplateFieldUnauthorizedError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => FieldCreateTemplateFieldUnauthorizedIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new FieldCreateTemplateFieldUnauthorizedError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type FieldCreateTemplateFieldUnauthorizedError$Outbound = {
@@ -436,24 +462,30 @@ export const FieldCreateTemplateFieldUnauthorizedError$outboundSchema:
     FieldCreateTemplateFieldUnauthorizedError$Outbound,
     z.ZodTypeDef,
     FieldCreateTemplateFieldUnauthorizedError
-  > = z.instanceof(FieldCreateTemplateFieldUnauthorizedError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() => FieldCreateTemplateFieldUnauthorizedIssue$outboundSchema),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(FieldCreateTemplateFieldUnauthorizedError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            FieldCreateTemplateFieldUnauthorizedIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const FieldCreateTemplateFieldBadRequestIssue$inboundSchema: z.ZodType<
   FieldCreateTemplateFieldBadRequestIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type FieldCreateTemplateFieldBadRequestIssue$Outbound = {
   message: string;
@@ -464,9 +496,11 @@ export const FieldCreateTemplateFieldBadRequestIssue$outboundSchema: z.ZodType<
   FieldCreateTemplateFieldBadRequestIssue$Outbound,
   z.ZodTypeDef,
   FieldCreateTemplateFieldBadRequestIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function fieldCreateTemplateFieldBadRequestIssueToJSON(
   fieldCreateTemplateFieldBadRequestIssue:
@@ -499,23 +533,27 @@ export const FieldCreateTemplateFieldBadRequestError$inboundSchema: z.ZodType<
   FieldCreateTemplateFieldBadRequestError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => FieldCreateTemplateFieldBadRequestIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new FieldCreateTemplateFieldBadRequestError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => FieldCreateTemplateFieldBadRequestIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new FieldCreateTemplateFieldBadRequestError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type FieldCreateTemplateFieldBadRequestError$Outbound = {
@@ -529,12 +567,14 @@ export const FieldCreateTemplateFieldBadRequestError$outboundSchema: z.ZodType<
   FieldCreateTemplateFieldBadRequestError$Outbound,
   z.ZodTypeDef,
   FieldCreateTemplateFieldBadRequestError
-> = z.instanceof(FieldCreateTemplateFieldBadRequestError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => FieldCreateTemplateFieldBadRequestIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(FieldCreateTemplateFieldBadRequestError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => FieldCreateTemplateFieldBadRequestIssue$outboundSchema),
+      ).optional(),
+    }))
+);

@@ -4,7 +4,7 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -43,7 +43,9 @@ export type EnvelopeItemDownloadResponse = {
 /** @internal */
 export const EnvelopeItemDownloadVersion$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeItemDownloadVersion
-> = z.nativeEnum(EnvelopeItemDownloadVersion);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EnvelopeItemDownloadVersion)
+);
 /** @internal */
 export const EnvelopeItemDownloadVersion$outboundSchema: z.ZodNativeEnum<
   typeof EnvelopeItemDownloadVersion
@@ -54,10 +56,12 @@ export const EnvelopeItemDownloadRequest$inboundSchema: z.ZodType<
   EnvelopeItemDownloadRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeItemId: z.string(),
-  version: EnvelopeItemDownloadVersion$inboundSchema.default("signed"),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeItemId: z.string(),
+    version: EnvelopeItemDownloadVersion$inboundSchema.default("signed"),
+  })
+);
 /** @internal */
 export type EnvelopeItemDownloadRequest$Outbound = {
   envelopeItemId: string;
@@ -69,10 +73,12 @@ export const EnvelopeItemDownloadRequest$outboundSchema: z.ZodType<
   EnvelopeItemDownloadRequest$Outbound,
   z.ZodTypeDef,
   EnvelopeItemDownloadRequest
-> = z.object({
-  envelopeItemId: z.string(),
-  version: EnvelopeItemDownloadVersion$outboundSchema.default("signed"),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeItemId: z.string(),
+    version: EnvelopeItemDownloadVersion$outboundSchema.default("signed"),
+  })
+);
 
 export function envelopeItemDownloadRequestToJSON(
   envelopeItemDownloadRequest: EnvelopeItemDownloadRequest,
@@ -98,15 +104,17 @@ export const EnvelopeItemDownloadResponse$inboundSchema: z.ZodType<
   EnvelopeItemDownloadResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  Headers: z.record(z.array(z.string())).default({}),
-  Result: z.any().optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "Headers": "headers",
-    "Result": "result",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    Headers: z.record(z.array(z.string())).default({}),
+    Result: z.any().optional(),
+  }).transform((v) => {
+    return remap$(v, {
+      "Headers": "headers",
+      "Result": "result",
+    });
+  })
+);
 /** @internal */
 export type EnvelopeItemDownloadResponse$Outbound = {
   Headers: { [k: string]: Array<string> };
@@ -118,15 +126,17 @@ export const EnvelopeItemDownloadResponse$outboundSchema: z.ZodType<
   EnvelopeItemDownloadResponse$Outbound,
   z.ZodTypeDef,
   EnvelopeItemDownloadResponse
-> = z.object({
-  headers: z.record(z.array(z.string())),
-  result: z.any().optional(),
-}).transform((v) => {
-  return remap$(v, {
-    headers: "Headers",
-    result: "Result",
-  });
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    headers: z.record(z.array(z.string())),
+    result: z.any().optional(),
+  }).transform((v) => {
+    return remap$(v, {
+      headers: "Headers",
+      result: "Result",
+    });
+  })
+);
 
 export function envelopeItemDownloadResponseToJSON(
   envelopeItemDownloadResponse: EnvelopeItemDownloadResponse,

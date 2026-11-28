@@ -11,25 +11,17 @@ let value: EnvelopeAuditLogFindData41 = {
   recipientId: 6419.95,
   recipientRole: "<value>",
   providerId: "<id>",
-  credentialId: "<id>",
-  sessionId: "<id>",
-  numItemsSigned: 6482.03,
-  signatureAlgorithm: "<value>",
-  digestAlgorithm: "<value>",
+  reason: "<value>",
 };
 ```
 
 ## Fields
 
-| Field                | Type                 | Required             | Description          |
-| -------------------- | -------------------- | -------------------- | -------------------- |
-| `recipientEmail`     | *string*             | :heavy_check_mark:   | N/A                  |
-| `recipientName`      | *string*             | :heavy_check_mark:   | N/A                  |
-| `recipientId`        | *number*             | :heavy_check_mark:   | N/A                  |
-| `recipientRole`      | *string*             | :heavy_check_mark:   | N/A                  |
-| `providerId`         | *string*             | :heavy_check_mark:   | N/A                  |
-| `credentialId`       | *string*             | :heavy_check_mark:   | N/A                  |
-| `sessionId`          | *string*             | :heavy_check_mark:   | N/A                  |
-| `numItemsSigned`     | *number*             | :heavy_check_mark:   | N/A                  |
-| `signatureAlgorithm` | *string*             | :heavy_check_mark:   | N/A                  |
-| `digestAlgorithm`    | *string*             | :heavy_check_mark:   | N/A                  |
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `recipientEmail`   | *string*           | :heavy_check_mark: | N/A                |
+| `recipientName`    | *string*           | :heavy_check_mark: | N/A                |
+| `recipientId`      | *number*           | :heavy_check_mark: | N/A                |
+| `recipientRole`    | *string*           | :heavy_check_mark: | N/A                |
+| `providerId`       | *string*           | :heavy_check_mark: | N/A                |
+| `reason`           | *string*           | :heavy_check_mark: | N/A                |

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -199,9 +199,11 @@ export const TemplateGetTemplateByIdInternalServerErrorIssue$inboundSchema:
     TemplateGetTemplateByIdInternalServerErrorIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type TemplateGetTemplateByIdInternalServerErrorIssue$Outbound = {
   message: string;
@@ -213,9 +215,11 @@ export const TemplateGetTemplateByIdInternalServerErrorIssue$outboundSchema:
     TemplateGetTemplateByIdInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
     TemplateGetTemplateByIdInternalServerErrorIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function templateGetTemplateByIdInternalServerErrorIssueToJSON(
   templateGetTemplateByIdInternalServerErrorIssue:
@@ -246,25 +250,27 @@ export function templateGetTemplateByIdInternalServerErrorIssueFromJSON(
 /** @internal */
 export const TemplateGetTemplateByIdInternalServerError$inboundSchema:
   z.ZodType<TemplateGetTemplateByIdInternalServerError, z.ZodTypeDef, unknown> =
-    z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
+    /* @__PURE__ */ lazySchema$(() =>
+      z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(z.lazy(() =>
           TemplateGetTemplateByIdInternalServerErrorIssue$inboundSchema
-        ),
-      ).optional(),
-      request$: z.instanceof(Request),
-      response$: z.instanceof(Response),
-      body$: z.string(),
-    })
-      .transform((v) => {
-        return new TemplateGetTemplateByIdInternalServerError(v, {
-          request: v.request$,
-          response: v.response$,
-          body: v.body$,
-        });
-      });
+        )).optional(),
+        request$: z.instanceof(Request),
+        response$: z.instanceof(Response),
+        body$: z.string(),
+      })
+        .transform((v) => {
+          const { request$, response$, body$, ...data } = v;
+
+          return new TemplateGetTemplateByIdInternalServerError(data, {
+            request: request$,
+            response: response$,
+            body: body$,
+          });
+        })
+    );
 
 /** @internal */
 export type TemplateGetTemplateByIdInternalServerError$Outbound = {
@@ -281,26 +287,30 @@ export const TemplateGetTemplateByIdInternalServerError$outboundSchema:
     TemplateGetTemplateByIdInternalServerError$Outbound,
     z.ZodTypeDef,
     TemplateGetTemplateByIdInternalServerError
-  > = z.instanceof(TemplateGetTemplateByIdInternalServerError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          TemplateGetTemplateByIdInternalServerErrorIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(TemplateGetTemplateByIdInternalServerError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            TemplateGetTemplateByIdInternalServerErrorIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const TemplateGetTemplateByIdNotFoundIssue$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdNotFoundIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type TemplateGetTemplateByIdNotFoundIssue$Outbound = {
   message: string;
@@ -311,9 +321,11 @@ export const TemplateGetTemplateByIdNotFoundIssue$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdNotFoundIssue$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdNotFoundIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function templateGetTemplateByIdNotFoundIssueToJSON(
   templateGetTemplateByIdNotFoundIssue: TemplateGetTemplateByIdNotFoundIssue,
@@ -340,23 +352,27 @@ export const TemplateGetTemplateByIdNotFoundError$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdNotFoundError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => TemplateGetTemplateByIdNotFoundIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new TemplateGetTemplateByIdNotFoundError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => TemplateGetTemplateByIdNotFoundIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new TemplateGetTemplateByIdNotFoundError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type TemplateGetTemplateByIdNotFoundError$Outbound = {
@@ -370,24 +386,28 @@ export const TemplateGetTemplateByIdNotFoundError$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdNotFoundError$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdNotFoundError
-> = z.instanceof(TemplateGetTemplateByIdNotFoundError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => TemplateGetTemplateByIdNotFoundIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(TemplateGetTemplateByIdNotFoundError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => TemplateGetTemplateByIdNotFoundIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const TemplateGetTemplateByIdForbiddenIssue$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdForbiddenIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type TemplateGetTemplateByIdForbiddenIssue$Outbound = {
   message: string;
@@ -398,9 +418,11 @@ export const TemplateGetTemplateByIdForbiddenIssue$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdForbiddenIssue$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdForbiddenIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function templateGetTemplateByIdForbiddenIssueToJSON(
   templateGetTemplateByIdForbiddenIssue: TemplateGetTemplateByIdForbiddenIssue,
@@ -427,23 +449,27 @@ export const TemplateGetTemplateByIdForbiddenError$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdForbiddenError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => TemplateGetTemplateByIdForbiddenIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new TemplateGetTemplateByIdForbiddenError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => TemplateGetTemplateByIdForbiddenIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new TemplateGetTemplateByIdForbiddenError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type TemplateGetTemplateByIdForbiddenError$Outbound = {
@@ -457,24 +483,28 @@ export const TemplateGetTemplateByIdForbiddenError$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdForbiddenError$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdForbiddenError
-> = z.instanceof(TemplateGetTemplateByIdForbiddenError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => TemplateGetTemplateByIdForbiddenIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(TemplateGetTemplateByIdForbiddenError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => TemplateGetTemplateByIdForbiddenIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const TemplateGetTemplateByIdUnauthorizedIssue$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdUnauthorizedIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type TemplateGetTemplateByIdUnauthorizedIssue$Outbound = {
   message: string;
@@ -485,9 +515,11 @@ export const TemplateGetTemplateByIdUnauthorizedIssue$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdUnauthorizedIssue$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdUnauthorizedIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function templateGetTemplateByIdUnauthorizedIssueToJSON(
   templateGetTemplateByIdUnauthorizedIssue:
@@ -520,23 +552,27 @@ export const TemplateGetTemplateByIdUnauthorizedError$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdUnauthorizedError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => TemplateGetTemplateByIdUnauthorizedIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new TemplateGetTemplateByIdUnauthorizedError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => TemplateGetTemplateByIdUnauthorizedIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new TemplateGetTemplateByIdUnauthorizedError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type TemplateGetTemplateByIdUnauthorizedError$Outbound = {
@@ -550,24 +586,28 @@ export const TemplateGetTemplateByIdUnauthorizedError$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdUnauthorizedError$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdUnauthorizedError
-> = z.instanceof(TemplateGetTemplateByIdUnauthorizedError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => TemplateGetTemplateByIdUnauthorizedIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(TemplateGetTemplateByIdUnauthorizedError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => TemplateGetTemplateByIdUnauthorizedIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const TemplateGetTemplateByIdBadRequestIssue$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdBadRequestIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type TemplateGetTemplateByIdBadRequestIssue$Outbound = {
   message: string;
@@ -578,9 +618,11 @@ export const TemplateGetTemplateByIdBadRequestIssue$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdBadRequestIssue$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdBadRequestIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function templateGetTemplateByIdBadRequestIssueToJSON(
   templateGetTemplateByIdBadRequestIssue:
@@ -608,23 +650,27 @@ export const TemplateGetTemplateByIdBadRequestError$inboundSchema: z.ZodType<
   TemplateGetTemplateByIdBadRequestError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => TemplateGetTemplateByIdBadRequestIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new TemplateGetTemplateByIdBadRequestError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => TemplateGetTemplateByIdBadRequestIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new TemplateGetTemplateByIdBadRequestError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type TemplateGetTemplateByIdBadRequestError$Outbound = {
@@ -638,12 +684,14 @@ export const TemplateGetTemplateByIdBadRequestError$outboundSchema: z.ZodType<
   TemplateGetTemplateByIdBadRequestError$Outbound,
   z.ZodTypeDef,
   TemplateGetTemplateByIdBadRequestError
-> = z.instanceof(TemplateGetTemplateByIdBadRequestError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => TemplateGetTemplateByIdBadRequestIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(TemplateGetTemplateByIdBadRequestError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => TemplateGetTemplateByIdBadRequestIssue$outboundSchema),
+      ).optional(),
+    }))
+);

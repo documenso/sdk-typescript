@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -30,10 +30,12 @@ export const TemplateCreateTemplateDirectLinkRequest$inboundSchema: z.ZodType<
   TemplateCreateTemplateDirectLinkRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  templateId: z.number(),
-  directRecipientId: z.number().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    templateId: z.number(),
+    directRecipientId: z.number().optional(),
+  })
+);
 /** @internal */
 export type TemplateCreateTemplateDirectLinkRequest$Outbound = {
   templateId: number;
@@ -45,10 +47,12 @@ export const TemplateCreateTemplateDirectLinkRequest$outboundSchema: z.ZodType<
   TemplateCreateTemplateDirectLinkRequest$Outbound,
   z.ZodTypeDef,
   TemplateCreateTemplateDirectLinkRequest
-> = z.object({
-  templateId: z.number(),
-  directRecipientId: z.number().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    templateId: z.number(),
+    directRecipientId: z.number().optional(),
+  })
+);
 
 export function templateCreateTemplateDirectLinkRequestToJSON(
   templateCreateTemplateDirectLinkRequest:
@@ -81,15 +85,17 @@ export const TemplateCreateTemplateDirectLinkResponse$inboundSchema: z.ZodType<
   TemplateCreateTemplateDirectLinkResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.string(),
-  token: z.string(),
-  createdAt: z.string(),
-  enabled: z.boolean(),
-  directTemplateRecipientId: z.number(),
-  envelopeId: z.string(),
-  templateId: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    token: z.string(),
+    createdAt: z.string(),
+    enabled: z.boolean(),
+    directTemplateRecipientId: z.number(),
+    envelopeId: z.string(),
+    templateId: z.number(),
+  })
+);
 /** @internal */
 export type TemplateCreateTemplateDirectLinkResponse$Outbound = {
   id: string;
@@ -106,15 +112,17 @@ export const TemplateCreateTemplateDirectLinkResponse$outboundSchema: z.ZodType<
   TemplateCreateTemplateDirectLinkResponse$Outbound,
   z.ZodTypeDef,
   TemplateCreateTemplateDirectLinkResponse
-> = z.object({
-  id: z.string(),
-  token: z.string(),
-  createdAt: z.string(),
-  enabled: z.boolean(),
-  directTemplateRecipientId: z.number(),
-  envelopeId: z.string(),
-  templateId: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    token: z.string(),
+    createdAt: z.string(),
+    enabled: z.boolean(),
+    directTemplateRecipientId: z.number(),
+    envelopeId: z.string(),
+    templateId: z.number(),
+  })
+);
 
 export function templateCreateTemplateDirectLinkResponseToJSON(
   templateCreateTemplateDirectLinkResponse:

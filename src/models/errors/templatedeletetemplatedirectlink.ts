@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -174,9 +174,11 @@ export const TemplateDeleteTemplateDirectLinkInternalServerErrorIssue$inboundSch
     TemplateDeleteTemplateDirectLinkInternalServerErrorIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type TemplateDeleteTemplateDirectLinkInternalServerErrorIssue$Outbound =
   {
@@ -189,9 +191,11 @@ export const TemplateDeleteTemplateDirectLinkInternalServerErrorIssue$outboundSc
     TemplateDeleteTemplateDirectLinkInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
     TemplateDeleteTemplateDirectLinkInternalServerErrorIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function templateDeleteTemplateDirectLinkInternalServerErrorIssueToJSON(
   templateDeleteTemplateDirectLinkInternalServerErrorIssue:
@@ -223,25 +227,27 @@ export const TemplateDeleteTemplateDirectLinkInternalServerError$inboundSchema:
     TemplateDeleteTemplateDirectLinkInternalServerError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         TemplateDeleteTemplateDirectLinkInternalServerErrorIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new TemplateDeleteTemplateDirectLinkInternalServerError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        const { request$, response$, body$, ...data } = v;
+
+        return new TemplateDeleteTemplateDirectLinkInternalServerError(data, {
+          request: request$,
+          response: response$,
+          body: body$,
+        });
+      })
+  );
 
 /** @internal */
 export type TemplateDeleteTemplateDirectLinkInternalServerError$Outbound = {
@@ -258,17 +264,19 @@ export const TemplateDeleteTemplateDirectLinkInternalServerError$outboundSchema:
     TemplateDeleteTemplateDirectLinkInternalServerError$Outbound,
     z.ZodTypeDef,
     TemplateDeleteTemplateDirectLinkInternalServerError
-  > = z.instanceof(TemplateDeleteTemplateDirectLinkInternalServerError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          TemplateDeleteTemplateDirectLinkInternalServerErrorIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(TemplateDeleteTemplateDirectLinkInternalServerError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            TemplateDeleteTemplateDirectLinkInternalServerErrorIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const TemplateDeleteTemplateDirectLinkForbiddenIssue$inboundSchema:
@@ -276,9 +284,11 @@ export const TemplateDeleteTemplateDirectLinkForbiddenIssue$inboundSchema:
     TemplateDeleteTemplateDirectLinkForbiddenIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type TemplateDeleteTemplateDirectLinkForbiddenIssue$Outbound = {
   message: string;
@@ -290,9 +300,11 @@ export const TemplateDeleteTemplateDirectLinkForbiddenIssue$outboundSchema:
     TemplateDeleteTemplateDirectLinkForbiddenIssue$Outbound,
     z.ZodTypeDef,
     TemplateDeleteTemplateDirectLinkForbiddenIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function templateDeleteTemplateDirectLinkForbiddenIssueToJSON(
   templateDeleteTemplateDirectLinkForbiddenIssue:
@@ -326,25 +338,27 @@ export const TemplateDeleteTemplateDirectLinkForbiddenError$inboundSchema:
     TemplateDeleteTemplateDirectLinkForbiddenError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         TemplateDeleteTemplateDirectLinkForbiddenIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new TemplateDeleteTemplateDirectLinkForbiddenError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        const { request$, response$, body$, ...data } = v;
+
+        return new TemplateDeleteTemplateDirectLinkForbiddenError(data, {
+          request: request$,
+          response: response$,
+          body: body$,
+        });
+      })
+  );
 
 /** @internal */
 export type TemplateDeleteTemplateDirectLinkForbiddenError$Outbound = {
@@ -361,17 +375,19 @@ export const TemplateDeleteTemplateDirectLinkForbiddenError$outboundSchema:
     TemplateDeleteTemplateDirectLinkForbiddenError$Outbound,
     z.ZodTypeDef,
     TemplateDeleteTemplateDirectLinkForbiddenError
-  > = z.instanceof(TemplateDeleteTemplateDirectLinkForbiddenError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          TemplateDeleteTemplateDirectLinkForbiddenIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(TemplateDeleteTemplateDirectLinkForbiddenError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            TemplateDeleteTemplateDirectLinkForbiddenIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const TemplateDeleteTemplateDirectLinkUnauthorizedIssue$inboundSchema:
@@ -379,9 +395,11 @@ export const TemplateDeleteTemplateDirectLinkUnauthorizedIssue$inboundSchema:
     TemplateDeleteTemplateDirectLinkUnauthorizedIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type TemplateDeleteTemplateDirectLinkUnauthorizedIssue$Outbound = {
   message: string;
@@ -393,9 +411,11 @@ export const TemplateDeleteTemplateDirectLinkUnauthorizedIssue$outboundSchema:
     TemplateDeleteTemplateDirectLinkUnauthorizedIssue$Outbound,
     z.ZodTypeDef,
     TemplateDeleteTemplateDirectLinkUnauthorizedIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function templateDeleteTemplateDirectLinkUnauthorizedIssueToJSON(
   templateDeleteTemplateDirectLinkUnauthorizedIssue:
@@ -429,25 +449,27 @@ export const TemplateDeleteTemplateDirectLinkUnauthorizedError$inboundSchema:
     TemplateDeleteTemplateDirectLinkUnauthorizedError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         TemplateDeleteTemplateDirectLinkUnauthorizedIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new TemplateDeleteTemplateDirectLinkUnauthorizedError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        const { request$, response$, body$, ...data } = v;
+
+        return new TemplateDeleteTemplateDirectLinkUnauthorizedError(data, {
+          request: request$,
+          response: response$,
+          body: body$,
+        });
+      })
+  );
 
 /** @internal */
 export type TemplateDeleteTemplateDirectLinkUnauthorizedError$Outbound = {
@@ -464,17 +486,19 @@ export const TemplateDeleteTemplateDirectLinkUnauthorizedError$outboundSchema:
     TemplateDeleteTemplateDirectLinkUnauthorizedError$Outbound,
     z.ZodTypeDef,
     TemplateDeleteTemplateDirectLinkUnauthorizedError
-  > = z.instanceof(TemplateDeleteTemplateDirectLinkUnauthorizedError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          TemplateDeleteTemplateDirectLinkUnauthorizedIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(TemplateDeleteTemplateDirectLinkUnauthorizedError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            TemplateDeleteTemplateDirectLinkUnauthorizedIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const TemplateDeleteTemplateDirectLinkBadRequestIssue$inboundSchema:
@@ -482,9 +506,11 @@ export const TemplateDeleteTemplateDirectLinkBadRequestIssue$inboundSchema:
     TemplateDeleteTemplateDirectLinkBadRequestIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type TemplateDeleteTemplateDirectLinkBadRequestIssue$Outbound = {
   message: string;
@@ -496,9 +522,11 @@ export const TemplateDeleteTemplateDirectLinkBadRequestIssue$outboundSchema:
     TemplateDeleteTemplateDirectLinkBadRequestIssue$Outbound,
     z.ZodTypeDef,
     TemplateDeleteTemplateDirectLinkBadRequestIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function templateDeleteTemplateDirectLinkBadRequestIssueToJSON(
   templateDeleteTemplateDirectLinkBadRequestIssue:
@@ -532,25 +560,27 @@ export const TemplateDeleteTemplateDirectLinkBadRequestError$inboundSchema:
     TemplateDeleteTemplateDirectLinkBadRequestError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         TemplateDeleteTemplateDirectLinkBadRequestIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new TemplateDeleteTemplateDirectLinkBadRequestError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        const { request$, response$, body$, ...data } = v;
+
+        return new TemplateDeleteTemplateDirectLinkBadRequestError(data, {
+          request: request$,
+          response: response$,
+          body: body$,
+        });
+      })
+  );
 
 /** @internal */
 export type TemplateDeleteTemplateDirectLinkBadRequestError$Outbound = {
@@ -567,14 +597,16 @@ export const TemplateDeleteTemplateDirectLinkBadRequestError$outboundSchema:
     TemplateDeleteTemplateDirectLinkBadRequestError$Outbound,
     z.ZodTypeDef,
     TemplateDeleteTemplateDirectLinkBadRequestError
-  > = z.instanceof(TemplateDeleteTemplateDirectLinkBadRequestError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          TemplateDeleteTemplateDirectLinkBadRequestIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(TemplateDeleteTemplateDirectLinkBadRequestError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            TemplateDeleteTemplateDirectLinkBadRequestIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );

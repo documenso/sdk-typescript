@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -466,6 +466,14 @@ export type EnvelopeFieldUpdateManyTextAlignInitials = ClosedEnum<
   typeof EnvelopeFieldUpdateManyTextAlignInitials
 >;
 
+export const EnvelopeFieldUpdateManyFontFamilyRequest = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type EnvelopeFieldUpdateManyFontFamilyRequest = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyFontFamilyRequest
+>;
+
 export type EnvelopeFieldUpdateManyFieldMetaInitialsRequest = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -475,6 +483,7 @@ export type EnvelopeFieldUpdateManyFieldMetaInitialsRequest = {
   overflow?: EnvelopeFieldUpdateManyOverflowInitials | undefined;
   type: EnvelopeFieldUpdateManyTypeInitialsEnum;
   textAlign?: EnvelopeFieldUpdateManyTextAlignInitials | undefined;
+  fontFamily?: EnvelopeFieldUpdateManyFontFamilyRequest | undefined;
 };
 
 export type EnvelopeFieldUpdateManyDataInitials = {
@@ -696,22 +705,22 @@ export type EnvelopeFieldUpdateManyOverflowResponse7 = ClosedEnum<
   typeof EnvelopeFieldUpdateManyOverflowResponse7
 >;
 
-export const EnvelopeFieldUpdateManyTextAlignResponse6 = {
+export const EnvelopeFieldUpdateManyFieldMetaTextAlign6 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeFieldUpdateManyTextAlignResponse6 = ClosedEnum<
-  typeof EnvelopeFieldUpdateManyTextAlignResponse6
+export type EnvelopeFieldUpdateManyFieldMetaTextAlign6 = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyFieldMetaTextAlign6
 >;
 
-export const EnvelopeFieldUpdateManyVerticalAlignResponse2 = {
+export const EnvelopeFieldUpdateManyFieldMetaVerticalAlign2 = {
   Top: "top",
   Middle: "middle",
   Bottom: "bottom",
 } as const;
-export type EnvelopeFieldUpdateManyVerticalAlignResponse2 = ClosedEnum<
-  typeof EnvelopeFieldUpdateManyVerticalAlignResponse2
+export type EnvelopeFieldUpdateManyFieldMetaVerticalAlign2 = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyFieldMetaVerticalAlign2
 >;
 
 export type EnvelopeFieldUpdateManyFieldMetaNumberResponse = {
@@ -726,11 +735,11 @@ export type EnvelopeFieldUpdateManyFieldMetaNumberResponse = {
   value?: string | undefined;
   minValue?: number | null | undefined;
   maxValue?: number | null | undefined;
-  textAlign?: EnvelopeFieldUpdateManyTextAlignResponse6 | undefined;
+  textAlign?: EnvelopeFieldUpdateManyFieldMetaTextAlign6 | undefined;
   lineHeight?: number | null | undefined;
   letterSpacing?: number | null | undefined;
   verticalAlign?:
-    | EnvelopeFieldUpdateManyVerticalAlignResponse2
+    | EnvelopeFieldUpdateManyFieldMetaVerticalAlign2
     | null
     | undefined;
 };
@@ -745,22 +754,22 @@ export type EnvelopeFieldUpdateManyOverflowResponse6 = ClosedEnum<
   typeof EnvelopeFieldUpdateManyOverflowResponse6
 >;
 
-export const EnvelopeFieldUpdateManyTextAlignResponse5 = {
+export const EnvelopeFieldUpdateManyFieldMetaTextAlign5 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeFieldUpdateManyTextAlignResponse5 = ClosedEnum<
-  typeof EnvelopeFieldUpdateManyTextAlignResponse5
+export type EnvelopeFieldUpdateManyFieldMetaTextAlign5 = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyFieldMetaTextAlign5
 >;
 
-export const EnvelopeFieldUpdateManyVerticalAlignResponse1 = {
+export const EnvelopeFieldUpdateManyFieldMetaVerticalAlign1 = {
   Top: "top",
   Middle: "middle",
   Bottom: "bottom",
 } as const;
-export type EnvelopeFieldUpdateManyVerticalAlignResponse1 = ClosedEnum<
-  typeof EnvelopeFieldUpdateManyVerticalAlignResponse1
+export type EnvelopeFieldUpdateManyFieldMetaVerticalAlign1 = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyFieldMetaVerticalAlign1
 >;
 
 export type EnvelopeFieldUpdateManyFieldMetaTextResponse = {
@@ -773,11 +782,11 @@ export type EnvelopeFieldUpdateManyFieldMetaTextResponse = {
   type: "text";
   text?: string | undefined;
   characterLimit?: number | undefined;
-  textAlign?: EnvelopeFieldUpdateManyTextAlignResponse5 | undefined;
+  textAlign?: EnvelopeFieldUpdateManyFieldMetaTextAlign5 | undefined;
   lineHeight?: number | null | undefined;
   letterSpacing?: number | null | undefined;
   verticalAlign?:
-    | EnvelopeFieldUpdateManyVerticalAlignResponse1
+    | EnvelopeFieldUpdateManyFieldMetaVerticalAlign1
     | null
     | undefined;
 };
@@ -792,13 +801,13 @@ export type EnvelopeFieldUpdateManyOverflowResponse5 = ClosedEnum<
   typeof EnvelopeFieldUpdateManyOverflowResponse5
 >;
 
-export const EnvelopeFieldUpdateManyTextAlignResponse4 = {
+export const EnvelopeFieldUpdateManyFieldMetaTextAlign4 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeFieldUpdateManyTextAlignResponse4 = ClosedEnum<
-  typeof EnvelopeFieldUpdateManyTextAlignResponse4
+export type EnvelopeFieldUpdateManyFieldMetaTextAlign4 = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyFieldMetaTextAlign4
 >;
 
 export type EnvelopeFieldUpdateManyFieldMetaDateResponse = {
@@ -809,7 +818,7 @@ export type EnvelopeFieldUpdateManyFieldMetaDateResponse = {
   fontSize?: number | undefined;
   overflow?: EnvelopeFieldUpdateManyOverflowResponse5 | undefined;
   type: "date";
-  textAlign?: EnvelopeFieldUpdateManyTextAlignResponse4 | undefined;
+  textAlign?: EnvelopeFieldUpdateManyFieldMetaTextAlign4 | undefined;
 };
 
 export const EnvelopeFieldUpdateManyOverflowResponse4 = {
@@ -822,13 +831,13 @@ export type EnvelopeFieldUpdateManyOverflowResponse4 = ClosedEnum<
   typeof EnvelopeFieldUpdateManyOverflowResponse4
 >;
 
-export const EnvelopeFieldUpdateManyTextAlignResponse3 = {
+export const EnvelopeFieldUpdateManyFieldMetaTextAlign3 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeFieldUpdateManyTextAlignResponse3 = ClosedEnum<
-  typeof EnvelopeFieldUpdateManyTextAlignResponse3
+export type EnvelopeFieldUpdateManyFieldMetaTextAlign3 = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyFieldMetaTextAlign3
 >;
 
 export type EnvelopeFieldUpdateManyFieldMetaEmailResponse = {
@@ -839,7 +848,7 @@ export type EnvelopeFieldUpdateManyFieldMetaEmailResponse = {
   fontSize?: number | undefined;
   overflow?: EnvelopeFieldUpdateManyOverflowResponse4 | undefined;
   type: "email";
-  textAlign?: EnvelopeFieldUpdateManyTextAlignResponse3 | undefined;
+  textAlign?: EnvelopeFieldUpdateManyFieldMetaTextAlign3 | undefined;
 };
 
 export const EnvelopeFieldUpdateManyOverflowResponse3 = {
@@ -852,13 +861,13 @@ export type EnvelopeFieldUpdateManyOverflowResponse3 = ClosedEnum<
   typeof EnvelopeFieldUpdateManyOverflowResponse3
 >;
 
-export const EnvelopeFieldUpdateManyTextAlignResponse2 = {
+export const EnvelopeFieldUpdateManyFieldMetaTextAlign2 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeFieldUpdateManyTextAlignResponse2 = ClosedEnum<
-  typeof EnvelopeFieldUpdateManyTextAlignResponse2
+export type EnvelopeFieldUpdateManyFieldMetaTextAlign2 = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyFieldMetaTextAlign2
 >;
 
 export type EnvelopeFieldUpdateManyFieldMetaNameResponse = {
@@ -869,7 +878,7 @@ export type EnvelopeFieldUpdateManyFieldMetaNameResponse = {
   fontSize?: number | undefined;
   overflow?: EnvelopeFieldUpdateManyOverflowResponse3 | undefined;
   type: "name";
-  textAlign?: EnvelopeFieldUpdateManyTextAlignResponse2 | undefined;
+  textAlign?: EnvelopeFieldUpdateManyFieldMetaTextAlign2 | undefined;
 };
 
 export const EnvelopeFieldUpdateManyOverflowResponse2 = {
@@ -882,13 +891,21 @@ export type EnvelopeFieldUpdateManyOverflowResponse2 = ClosedEnum<
   typeof EnvelopeFieldUpdateManyOverflowResponse2
 >;
 
-export const EnvelopeFieldUpdateManyTextAlignResponse1 = {
+export const EnvelopeFieldUpdateManyFieldMetaTextAlign1 = {
   Left: "left",
   Center: "center",
   Right: "right",
 } as const;
-export type EnvelopeFieldUpdateManyTextAlignResponse1 = ClosedEnum<
-  typeof EnvelopeFieldUpdateManyTextAlignResponse1
+export type EnvelopeFieldUpdateManyFieldMetaTextAlign1 = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyFieldMetaTextAlign1
+>;
+
+export const EnvelopeFieldUpdateManyFontFamilyResponse = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type EnvelopeFieldUpdateManyFontFamilyResponse = ClosedEnum<
+  typeof EnvelopeFieldUpdateManyFontFamilyResponse
 >;
 
 export type EnvelopeFieldUpdateManyFieldMetaInitialsResponse = {
@@ -899,7 +916,8 @@ export type EnvelopeFieldUpdateManyFieldMetaInitialsResponse = {
   fontSize?: number | undefined;
   overflow?: EnvelopeFieldUpdateManyOverflowResponse2 | undefined;
   type: "initials";
-  textAlign?: EnvelopeFieldUpdateManyTextAlignResponse1 | undefined;
+  textAlign?: EnvelopeFieldUpdateManyFieldMetaTextAlign1 | undefined;
+  fontFamily?: EnvelopeFieldUpdateManyFontFamilyResponse | undefined;
 };
 
 export const EnvelopeFieldUpdateManyOverflowResponse1 = {
@@ -973,8 +991,10 @@ export type EnvelopeFieldUpdateManyResponse = {
 
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowDropdown$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowDropdown> = z
-    .nativeEnum(EnvelopeFieldUpdateManyOverflowDropdown);
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowDropdown> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyOverflowDropdown)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowDropdown$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowDropdown> =
@@ -982,8 +1002,10 @@ export const EnvelopeFieldUpdateManyOverflowDropdown$outboundSchema:
 
 /** @internal */
 export const EnvelopeFieldUpdateManyTypeDropdownEnum$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeDropdownEnum> = z
-    .nativeEnum(EnvelopeFieldUpdateManyTypeDropdownEnum);
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeDropdownEnum> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyTypeDropdownEnum)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyTypeDropdownEnum$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeDropdownEnum> =
@@ -994,9 +1016,11 @@ export const EnvelopeFieldUpdateManyValueDropdown$inboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyValueDropdown,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    value: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeFieldUpdateManyValueDropdown$Outbound = {
   value: string;
@@ -1007,9 +1031,11 @@ export const EnvelopeFieldUpdateManyValueDropdown$outboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyValueDropdown$Outbound,
   z.ZodTypeDef,
   EnvelopeFieldUpdateManyValueDropdown
-> = z.object({
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    value: z.string(),
+  })
+);
 
 export function envelopeFieldUpdateManyValueDropdownToJSON(
   envelopeFieldUpdateManyValueDropdown: EnvelopeFieldUpdateManyValueDropdown,
@@ -1037,19 +1063,22 @@ export const EnvelopeFieldUpdateManyFieldMetaDropdownRequest$inboundSchema:
     EnvelopeFieldUpdateManyFieldMetaDropdownRequest,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowDropdown$inboundSchema.optional(),
-    type: EnvelopeFieldUpdateManyTypeDropdownEnum$inboundSchema,
-    values: z.array(
-      z.lazy(() => EnvelopeFieldUpdateManyValueDropdown$inboundSchema),
-    ).optional(),
-    defaultValue: z.string().optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowDropdown$inboundSchema
+        .optional(),
+      type: EnvelopeFieldUpdateManyTypeDropdownEnum$inboundSchema,
+      values: z.array(
+        z.lazy(() => EnvelopeFieldUpdateManyValueDropdown$inboundSchema),
+      ).optional(),
+      defaultValue: z.string().optional(),
+    })
+  );
 /** @internal */
 export type EnvelopeFieldUpdateManyFieldMetaDropdownRequest$Outbound = {
   label?: string | undefined;
@@ -1069,19 +1098,22 @@ export const EnvelopeFieldUpdateManyFieldMetaDropdownRequest$outboundSchema:
     EnvelopeFieldUpdateManyFieldMetaDropdownRequest$Outbound,
     z.ZodTypeDef,
     EnvelopeFieldUpdateManyFieldMetaDropdownRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowDropdown$outboundSchema.optional(),
-    type: EnvelopeFieldUpdateManyTypeDropdownEnum$outboundSchema,
-    values: z.array(
-      z.lazy(() => EnvelopeFieldUpdateManyValueDropdown$outboundSchema),
-    ).optional(),
-    defaultValue: z.string().optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowDropdown$outboundSchema
+        .optional(),
+      type: EnvelopeFieldUpdateManyTypeDropdownEnum$outboundSchema,
+      values: z.array(
+        z.lazy(() => EnvelopeFieldUpdateManyValueDropdown$outboundSchema),
+      ).optional(),
+      defaultValue: z.string().optional(),
+    })
+  );
 
 export function envelopeFieldUpdateManyFieldMetaDropdownRequestToJSON(
   envelopeFieldUpdateManyFieldMetaDropdownRequest:
@@ -1114,19 +1146,21 @@ export const EnvelopeFieldUpdateManyDataDropdown$inboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyDataDropdown,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  type: z.literal("DROPDOWN"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldUpdateManyFieldMetaDropdownRequest$inboundSchema
-  ).optional(),
-  id: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number().optional(),
-  positionX: z.number().optional(),
-  positionY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("DROPDOWN"),
+    fieldMeta: z.lazy(() =>
+      EnvelopeFieldUpdateManyFieldMetaDropdownRequest$inboundSchema
+    ).optional(),
+    id: z.number(),
+    envelopeItemId: z.string().optional(),
+    page: z.number().optional(),
+    positionX: z.number().optional(),
+    positionY: z.number().optional(),
+    width: z.number().optional(),
+    height: z.number().optional(),
+  })
+);
 /** @internal */
 export type EnvelopeFieldUpdateManyDataDropdown$Outbound = {
   type: "DROPDOWN";
@@ -1147,19 +1181,21 @@ export const EnvelopeFieldUpdateManyDataDropdown$outboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyDataDropdown$Outbound,
   z.ZodTypeDef,
   EnvelopeFieldUpdateManyDataDropdown
-> = z.object({
-  type: z.literal("DROPDOWN"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldUpdateManyFieldMetaDropdownRequest$outboundSchema
-  ).optional(),
-  id: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number().optional(),
-  positionX: z.number().optional(),
-  positionY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("DROPDOWN"),
+    fieldMeta: z.lazy(() =>
+      EnvelopeFieldUpdateManyFieldMetaDropdownRequest$outboundSchema
+    ).optional(),
+    id: z.number(),
+    envelopeItemId: z.string().optional(),
+    page: z.number().optional(),
+    positionX: z.number().optional(),
+    positionY: z.number().optional(),
+    width: z.number().optional(),
+    height: z.number().optional(),
+  })
+);
 
 export function envelopeFieldUpdateManyDataDropdownToJSON(
   envelopeFieldUpdateManyDataDropdown: EnvelopeFieldUpdateManyDataDropdown,
@@ -1183,8 +1219,10 @@ export function envelopeFieldUpdateManyDataDropdownFromJSON(
 
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowCheckbox$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowCheckbox> = z
-    .nativeEnum(EnvelopeFieldUpdateManyOverflowCheckbox);
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowCheckbox> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyOverflowCheckbox)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowCheckbox$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowCheckbox> =
@@ -1192,8 +1230,10 @@ export const EnvelopeFieldUpdateManyOverflowCheckbox$outboundSchema:
 
 /** @internal */
 export const EnvelopeFieldUpdateManyTypeCheckboxEnum$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeCheckboxEnum> = z
-    .nativeEnum(EnvelopeFieldUpdateManyTypeCheckboxEnum);
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeCheckboxEnum> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyTypeCheckboxEnum)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyTypeCheckboxEnum$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeCheckboxEnum> =
@@ -1204,11 +1244,13 @@ export const EnvelopeFieldUpdateManyValueCheckbox$inboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyValueCheckbox,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeFieldUpdateManyValueCheckbox$Outbound = {
   id: number;
@@ -1221,11 +1263,13 @@ export const EnvelopeFieldUpdateManyValueCheckbox$outboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyValueCheckbox$Outbound,
   z.ZodTypeDef,
   EnvelopeFieldUpdateManyValueCheckbox
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 
 export function envelopeFieldUpdateManyValueCheckboxToJSON(
   envelopeFieldUpdateManyValueCheckbox: EnvelopeFieldUpdateManyValueCheckbox,
@@ -1249,8 +1293,10 @@ export function envelopeFieldUpdateManyValueCheckboxFromJSON(
 
 /** @internal */
 export const EnvelopeFieldUpdateManyDirectionCheckbox$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyDirectionCheckbox> = z
-    .nativeEnum(EnvelopeFieldUpdateManyDirectionCheckbox);
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyDirectionCheckbox> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyDirectionCheckbox)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyDirectionCheckbox$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyDirectionCheckbox> =
@@ -1262,23 +1308,26 @@ export const EnvelopeFieldUpdateManyFieldMetaCheckboxRequest$inboundSchema:
     EnvelopeFieldUpdateManyFieldMetaCheckboxRequest,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowCheckbox$inboundSchema.optional(),
-    type: EnvelopeFieldUpdateManyTypeCheckboxEnum$inboundSchema,
-    values: z.array(
-      z.lazy(() => EnvelopeFieldUpdateManyValueCheckbox$inboundSchema),
-    ).optional(),
-    validationRule: z.string().optional(),
-    validationLength: z.number().optional(),
-    direction: EnvelopeFieldUpdateManyDirectionCheckbox$inboundSchema.default(
-      "vertical",
-    ),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowCheckbox$inboundSchema
+        .optional(),
+      type: EnvelopeFieldUpdateManyTypeCheckboxEnum$inboundSchema,
+      values: z.array(
+        z.lazy(() => EnvelopeFieldUpdateManyValueCheckbox$inboundSchema),
+      ).optional(),
+      validationRule: z.string().optional(),
+      validationLength: z.number().optional(),
+      direction: EnvelopeFieldUpdateManyDirectionCheckbox$inboundSchema.default(
+        "vertical",
+      ),
+    })
+  );
 /** @internal */
 export type EnvelopeFieldUpdateManyFieldMetaCheckboxRequest$Outbound = {
   label?: string | undefined;
@@ -1300,23 +1349,25 @@ export const EnvelopeFieldUpdateManyFieldMetaCheckboxRequest$outboundSchema:
     EnvelopeFieldUpdateManyFieldMetaCheckboxRequest$Outbound,
     z.ZodTypeDef,
     EnvelopeFieldUpdateManyFieldMetaCheckboxRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowCheckbox$outboundSchema.optional(),
-    type: EnvelopeFieldUpdateManyTypeCheckboxEnum$outboundSchema,
-    values: z.array(
-      z.lazy(() => EnvelopeFieldUpdateManyValueCheckbox$outboundSchema),
-    ).optional(),
-    validationRule: z.string().optional(),
-    validationLength: z.number().optional(),
-    direction: EnvelopeFieldUpdateManyDirectionCheckbox$outboundSchema.default(
-      "vertical",
-    ),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowCheckbox$outboundSchema
+        .optional(),
+      type: EnvelopeFieldUpdateManyTypeCheckboxEnum$outboundSchema,
+      values: z.array(
+        z.lazy(() => EnvelopeFieldUpdateManyValueCheckbox$outboundSchema),
+      ).optional(),
+      validationRule: z.string().optional(),
+      validationLength: z.number().optional(),
+      direction: EnvelopeFieldUpdateManyDirectionCheckbox$outboundSchema
+        .default("vertical"),
+    })
+  );
 
 export function envelopeFieldUpdateManyFieldMetaCheckboxRequestToJSON(
   envelopeFieldUpdateManyFieldMetaCheckboxRequest:
@@ -1349,19 +1400,21 @@ export const EnvelopeFieldUpdateManyDataCheckbox$inboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyDataCheckbox,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  type: z.literal("CHECKBOX"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldUpdateManyFieldMetaCheckboxRequest$inboundSchema
-  ).optional(),
-  id: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number().optional(),
-  positionX: z.number().optional(),
-  positionY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("CHECKBOX"),
+    fieldMeta: z.lazy(() =>
+      EnvelopeFieldUpdateManyFieldMetaCheckboxRequest$inboundSchema
+    ).optional(),
+    id: z.number(),
+    envelopeItemId: z.string().optional(),
+    page: z.number().optional(),
+    positionX: z.number().optional(),
+    positionY: z.number().optional(),
+    width: z.number().optional(),
+    height: z.number().optional(),
+  })
+);
 /** @internal */
 export type EnvelopeFieldUpdateManyDataCheckbox$Outbound = {
   type: "CHECKBOX";
@@ -1382,19 +1435,21 @@ export const EnvelopeFieldUpdateManyDataCheckbox$outboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyDataCheckbox$Outbound,
   z.ZodTypeDef,
   EnvelopeFieldUpdateManyDataCheckbox
-> = z.object({
-  type: z.literal("CHECKBOX"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldUpdateManyFieldMetaCheckboxRequest$outboundSchema
-  ).optional(),
-  id: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number().optional(),
-  positionX: z.number().optional(),
-  positionY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("CHECKBOX"),
+    fieldMeta: z.lazy(() =>
+      EnvelopeFieldUpdateManyFieldMetaCheckboxRequest$outboundSchema
+    ).optional(),
+    id: z.number(),
+    envelopeItemId: z.string().optional(),
+    page: z.number().optional(),
+    positionX: z.number().optional(),
+    positionY: z.number().optional(),
+    width: z.number().optional(),
+    height: z.number().optional(),
+  })
+);
 
 export function envelopeFieldUpdateManyDataCheckboxToJSON(
   envelopeFieldUpdateManyDataCheckbox: EnvelopeFieldUpdateManyDataCheckbox,
@@ -1418,9 +1473,10 @@ export function envelopeFieldUpdateManyDataCheckboxFromJSON(
 
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowRadio$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowRadio> = z.nativeEnum(
-    EnvelopeFieldUpdateManyOverflowRadio,
-  );
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowRadio> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyOverflowRadio)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowRadio$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowRadio> =
@@ -1428,9 +1484,10 @@ export const EnvelopeFieldUpdateManyOverflowRadio$outboundSchema:
 
 /** @internal */
 export const EnvelopeFieldUpdateManyTypeRadioEnum$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeRadioEnum> = z.nativeEnum(
-    EnvelopeFieldUpdateManyTypeRadioEnum,
-  );
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeRadioEnum> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyTypeRadioEnum)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyTypeRadioEnum$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeRadioEnum> =
@@ -1441,11 +1498,13 @@ export const EnvelopeFieldUpdateManyValueRadio$inboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyValueRadio,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeFieldUpdateManyValueRadio$Outbound = {
   id: number;
@@ -1458,11 +1517,13 @@ export const EnvelopeFieldUpdateManyValueRadio$outboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyValueRadio$Outbound,
   z.ZodTypeDef,
   EnvelopeFieldUpdateManyValueRadio
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 
 export function envelopeFieldUpdateManyValueRadioToJSON(
   envelopeFieldUpdateManyValueRadio: EnvelopeFieldUpdateManyValueRadio,
@@ -1485,9 +1546,10 @@ export function envelopeFieldUpdateManyValueRadioFromJSON(
 
 /** @internal */
 export const EnvelopeFieldUpdateManyDirectionRadio$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyDirectionRadio> = z.nativeEnum(
-    EnvelopeFieldUpdateManyDirectionRadio,
-  );
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyDirectionRadio> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyDirectionRadio)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyDirectionRadio$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyDirectionRadio> =
@@ -1499,21 +1561,23 @@ export const EnvelopeFieldUpdateManyFieldMetaRadioRequest$inboundSchema:
     EnvelopeFieldUpdateManyFieldMetaRadioRequest,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowRadio$inboundSchema.optional(),
-    type: EnvelopeFieldUpdateManyTypeRadioEnum$inboundSchema,
-    values: z.array(
-      z.lazy(() => EnvelopeFieldUpdateManyValueRadio$inboundSchema),
-    ).optional(),
-    direction: EnvelopeFieldUpdateManyDirectionRadio$inboundSchema.default(
-      "vertical",
-    ),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowRadio$inboundSchema.optional(),
+      type: EnvelopeFieldUpdateManyTypeRadioEnum$inboundSchema,
+      values: z.array(
+        z.lazy(() => EnvelopeFieldUpdateManyValueRadio$inboundSchema),
+      ).optional(),
+      direction: EnvelopeFieldUpdateManyDirectionRadio$inboundSchema.default(
+        "vertical",
+      ),
+    })
+  );
 /** @internal */
 export type EnvelopeFieldUpdateManyFieldMetaRadioRequest$Outbound = {
   label?: string | undefined;
@@ -1533,21 +1597,23 @@ export const EnvelopeFieldUpdateManyFieldMetaRadioRequest$outboundSchema:
     EnvelopeFieldUpdateManyFieldMetaRadioRequest$Outbound,
     z.ZodTypeDef,
     EnvelopeFieldUpdateManyFieldMetaRadioRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowRadio$outboundSchema.optional(),
-    type: EnvelopeFieldUpdateManyTypeRadioEnum$outboundSchema,
-    values: z.array(
-      z.lazy(() => EnvelopeFieldUpdateManyValueRadio$outboundSchema),
-    ).optional(),
-    direction: EnvelopeFieldUpdateManyDirectionRadio$outboundSchema.default(
-      "vertical",
-    ),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowRadio$outboundSchema.optional(),
+      type: EnvelopeFieldUpdateManyTypeRadioEnum$outboundSchema,
+      values: z.array(
+        z.lazy(() => EnvelopeFieldUpdateManyValueRadio$outboundSchema),
+      ).optional(),
+      direction: EnvelopeFieldUpdateManyDirectionRadio$outboundSchema.default(
+        "vertical",
+      ),
+    })
+  );
 
 export function envelopeFieldUpdateManyFieldMetaRadioRequestToJSON(
   envelopeFieldUpdateManyFieldMetaRadioRequest:
@@ -1580,19 +1646,21 @@ export const EnvelopeFieldUpdateManyDataRadio$inboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyDataRadio,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  type: z.literal("RADIO"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldUpdateManyFieldMetaRadioRequest$inboundSchema
-  ).optional(),
-  id: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number().optional(),
-  positionX: z.number().optional(),
-  positionY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("RADIO"),
+    fieldMeta: z.lazy(() =>
+      EnvelopeFieldUpdateManyFieldMetaRadioRequest$inboundSchema
+    ).optional(),
+    id: z.number(),
+    envelopeItemId: z.string().optional(),
+    page: z.number().optional(),
+    positionX: z.number().optional(),
+    positionY: z.number().optional(),
+    width: z.number().optional(),
+    height: z.number().optional(),
+  })
+);
 /** @internal */
 export type EnvelopeFieldUpdateManyDataRadio$Outbound = {
   type: "RADIO";
@@ -1611,19 +1679,21 @@ export const EnvelopeFieldUpdateManyDataRadio$outboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyDataRadio$Outbound,
   z.ZodTypeDef,
   EnvelopeFieldUpdateManyDataRadio
-> = z.object({
-  type: z.literal("RADIO"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldUpdateManyFieldMetaRadioRequest$outboundSchema
-  ).optional(),
-  id: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number().optional(),
-  positionX: z.number().optional(),
-  positionY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("RADIO"),
+    fieldMeta: z.lazy(() =>
+      EnvelopeFieldUpdateManyFieldMetaRadioRequest$outboundSchema
+    ).optional(),
+    id: z.number(),
+    envelopeItemId: z.string().optional(),
+    page: z.number().optional(),
+    positionX: z.number().optional(),
+    positionY: z.number().optional(),
+    width: z.number().optional(),
+    height: z.number().optional(),
+  })
+);
 
 export function envelopeFieldUpdateManyDataRadioToJSON(
   envelopeFieldUpdateManyDataRadio: EnvelopeFieldUpdateManyDataRadio,
@@ -1646,9 +1716,10 @@ export function envelopeFieldUpdateManyDataRadioFromJSON(
 
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowNumber$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowNumber> = z.nativeEnum(
-    EnvelopeFieldUpdateManyOverflowNumber,
-  );
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowNumber> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyOverflowNumber)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowNumber$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowNumber> =
@@ -1656,9 +1727,10 @@ export const EnvelopeFieldUpdateManyOverflowNumber$outboundSchema:
 
 /** @internal */
 export const EnvelopeFieldUpdateManyTypeNumberEnum$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeNumberEnum> = z.nativeEnum(
-    EnvelopeFieldUpdateManyTypeNumberEnum,
-  );
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeNumberEnum> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyTypeNumberEnum)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyTypeNumberEnum$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeNumberEnum> =
@@ -1666,9 +1738,10 @@ export const EnvelopeFieldUpdateManyTypeNumberEnum$outboundSchema:
 
 /** @internal */
 export const EnvelopeFieldUpdateManyTextAlignNumber$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignNumber> = z.nativeEnum(
-    EnvelopeFieldUpdateManyTextAlignNumber,
-  );
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignNumber> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyTextAlignNumber)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyTextAlignNumber$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignNumber> =
@@ -1676,8 +1749,10 @@ export const EnvelopeFieldUpdateManyTextAlignNumber$outboundSchema:
 
 /** @internal */
 export const EnvelopeFieldUpdateManyVerticalAlignNumber$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyVerticalAlignNumber> = z
-    .nativeEnum(EnvelopeFieldUpdateManyVerticalAlignNumber);
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyVerticalAlignNumber> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyVerticalAlignNumber)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyVerticalAlignNumber$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyVerticalAlignNumber> =
@@ -1689,25 +1764,28 @@ export const EnvelopeFieldUpdateManyFieldMetaNumberRequest$inboundSchema:
     EnvelopeFieldUpdateManyFieldMetaNumberRequest,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowNumber$inboundSchema.optional(),
-    type: EnvelopeFieldUpdateManyTypeNumberEnum$inboundSchema,
-    numberFormat: z.nullable(z.string()).optional(),
-    value: z.string().optional(),
-    minValue: z.nullable(z.number()).optional(),
-    maxValue: z.nullable(z.number()).optional(),
-    textAlign: EnvelopeFieldUpdateManyTextAlignNumber$inboundSchema.optional(),
-    lineHeight: z.nullable(z.number()).optional(),
-    letterSpacing: z.nullable(z.number()).optional(),
-    verticalAlign: z.nullable(
-      EnvelopeFieldUpdateManyVerticalAlignNumber$inboundSchema,
-    ).optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowNumber$inboundSchema.optional(),
+      type: EnvelopeFieldUpdateManyTypeNumberEnum$inboundSchema,
+      numberFormat: z.nullable(z.string()).optional(),
+      value: z.string().optional(),
+      minValue: z.nullable(z.number()).optional(),
+      maxValue: z.nullable(z.number()).optional(),
+      textAlign: EnvelopeFieldUpdateManyTextAlignNumber$inboundSchema
+        .optional(),
+      lineHeight: z.nullable(z.number()).optional(),
+      letterSpacing: z.nullable(z.number()).optional(),
+      verticalAlign: z.nullable(
+        EnvelopeFieldUpdateManyVerticalAlignNumber$inboundSchema,
+      ).optional(),
+    })
+  );
 /** @internal */
 export type EnvelopeFieldUpdateManyFieldMetaNumberRequest$Outbound = {
   label?: string | undefined;
@@ -1733,25 +1811,28 @@ export const EnvelopeFieldUpdateManyFieldMetaNumberRequest$outboundSchema:
     EnvelopeFieldUpdateManyFieldMetaNumberRequest$Outbound,
     z.ZodTypeDef,
     EnvelopeFieldUpdateManyFieldMetaNumberRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowNumber$outboundSchema.optional(),
-    type: EnvelopeFieldUpdateManyTypeNumberEnum$outboundSchema,
-    numberFormat: z.nullable(z.string()).optional(),
-    value: z.string().optional(),
-    minValue: z.nullable(z.number()).optional(),
-    maxValue: z.nullable(z.number()).optional(),
-    textAlign: EnvelopeFieldUpdateManyTextAlignNumber$outboundSchema.optional(),
-    lineHeight: z.nullable(z.number()).optional(),
-    letterSpacing: z.nullable(z.number()).optional(),
-    verticalAlign: z.nullable(
-      EnvelopeFieldUpdateManyVerticalAlignNumber$outboundSchema,
-    ).optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowNumber$outboundSchema.optional(),
+      type: EnvelopeFieldUpdateManyTypeNumberEnum$outboundSchema,
+      numberFormat: z.nullable(z.string()).optional(),
+      value: z.string().optional(),
+      minValue: z.nullable(z.number()).optional(),
+      maxValue: z.nullable(z.number()).optional(),
+      textAlign: EnvelopeFieldUpdateManyTextAlignNumber$outboundSchema
+        .optional(),
+      lineHeight: z.nullable(z.number()).optional(),
+      letterSpacing: z.nullable(z.number()).optional(),
+      verticalAlign: z.nullable(
+        EnvelopeFieldUpdateManyVerticalAlignNumber$outboundSchema,
+      ).optional(),
+    })
+  );
 
 export function envelopeFieldUpdateManyFieldMetaNumberRequestToJSON(
   envelopeFieldUpdateManyFieldMetaNumberRequest:
@@ -1784,19 +1865,21 @@ export const EnvelopeFieldUpdateManyDataNumber$inboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyDataNumber,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  type: z.literal("NUMBER"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldUpdateManyFieldMetaNumberRequest$inboundSchema
-  ).optional(),
-  id: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number().optional(),
-  positionX: z.number().optional(),
-  positionY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("NUMBER"),
+    fieldMeta: z.lazy(() =>
+      EnvelopeFieldUpdateManyFieldMetaNumberRequest$inboundSchema
+    ).optional(),
+    id: z.number(),
+    envelopeItemId: z.string().optional(),
+    page: z.number().optional(),
+    positionX: z.number().optional(),
+    positionY: z.number().optional(),
+    width: z.number().optional(),
+    height: z.number().optional(),
+  })
+);
 /** @internal */
 export type EnvelopeFieldUpdateManyDataNumber$Outbound = {
   type: "NUMBER";
@@ -1817,19 +1900,21 @@ export const EnvelopeFieldUpdateManyDataNumber$outboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyDataNumber$Outbound,
   z.ZodTypeDef,
   EnvelopeFieldUpdateManyDataNumber
-> = z.object({
-  type: z.literal("NUMBER"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldUpdateManyFieldMetaNumberRequest$outboundSchema
-  ).optional(),
-  id: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number().optional(),
-  positionX: z.number().optional(),
-  positionY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("NUMBER"),
+    fieldMeta: z.lazy(() =>
+      EnvelopeFieldUpdateManyFieldMetaNumberRequest$outboundSchema
+    ).optional(),
+    id: z.number(),
+    envelopeItemId: z.string().optional(),
+    page: z.number().optional(),
+    positionX: z.number().optional(),
+    positionY: z.number().optional(),
+    width: z.number().optional(),
+    height: z.number().optional(),
+  })
+);
 
 export function envelopeFieldUpdateManyDataNumberToJSON(
   envelopeFieldUpdateManyDataNumber: EnvelopeFieldUpdateManyDataNumber,
@@ -1853,7 +1938,9 @@ export function envelopeFieldUpdateManyDataNumberFromJSON(
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowText$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFieldUpdateManyOverflowText
-> = z.nativeEnum(EnvelopeFieldUpdateManyOverflowText);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EnvelopeFieldUpdateManyOverflowText)
+);
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowText$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowText> =
@@ -1862,7 +1949,9 @@ export const EnvelopeFieldUpdateManyOverflowText$outboundSchema:
 /** @internal */
 export const EnvelopeFieldUpdateManyTypeTextEnum$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFieldUpdateManyTypeTextEnum
-> = z.nativeEnum(EnvelopeFieldUpdateManyTypeTextEnum);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EnvelopeFieldUpdateManyTypeTextEnum)
+);
 /** @internal */
 export const EnvelopeFieldUpdateManyTypeTextEnum$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeTextEnum> =
@@ -1870,9 +1959,10 @@ export const EnvelopeFieldUpdateManyTypeTextEnum$outboundSchema:
 
 /** @internal */
 export const EnvelopeFieldUpdateManyTextAlignText$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignText> = z.nativeEnum(
-    EnvelopeFieldUpdateManyTextAlignText,
-  );
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignText> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyTextAlignText)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyTextAlignText$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignText> =
@@ -1880,8 +1970,10 @@ export const EnvelopeFieldUpdateManyTextAlignText$outboundSchema:
 
 /** @internal */
 export const EnvelopeFieldUpdateManyVerticalAlignText$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyVerticalAlignText> = z
-    .nativeEnum(EnvelopeFieldUpdateManyVerticalAlignText);
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyVerticalAlignText> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyVerticalAlignText)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyVerticalAlignText$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyVerticalAlignText> =
@@ -1893,23 +1985,25 @@ export const EnvelopeFieldUpdateManyFieldMetaTextRequest$inboundSchema:
     EnvelopeFieldUpdateManyFieldMetaTextRequest,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowText$inboundSchema.optional(),
-    type: EnvelopeFieldUpdateManyTypeTextEnum$inboundSchema,
-    text: z.string().optional(),
-    characterLimit: z.number().optional(),
-    textAlign: EnvelopeFieldUpdateManyTextAlignText$inboundSchema.optional(),
-    lineHeight: z.nullable(z.number()).optional(),
-    letterSpacing: z.nullable(z.number()).optional(),
-    verticalAlign: z.nullable(
-      EnvelopeFieldUpdateManyVerticalAlignText$inboundSchema,
-    ).optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowText$inboundSchema.optional(),
+      type: EnvelopeFieldUpdateManyTypeTextEnum$inboundSchema,
+      text: z.string().optional(),
+      characterLimit: z.number().optional(),
+      textAlign: EnvelopeFieldUpdateManyTextAlignText$inboundSchema.optional(),
+      lineHeight: z.nullable(z.number()).optional(),
+      letterSpacing: z.nullable(z.number()).optional(),
+      verticalAlign: z.nullable(
+        EnvelopeFieldUpdateManyVerticalAlignText$inboundSchema,
+      ).optional(),
+    })
+  );
 /** @internal */
 export type EnvelopeFieldUpdateManyFieldMetaTextRequest$Outbound = {
   label?: string | undefined;
@@ -1933,23 +2027,25 @@ export const EnvelopeFieldUpdateManyFieldMetaTextRequest$outboundSchema:
     EnvelopeFieldUpdateManyFieldMetaTextRequest$Outbound,
     z.ZodTypeDef,
     EnvelopeFieldUpdateManyFieldMetaTextRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowText$outboundSchema.optional(),
-    type: EnvelopeFieldUpdateManyTypeTextEnum$outboundSchema,
-    text: z.string().optional(),
-    characterLimit: z.number().optional(),
-    textAlign: EnvelopeFieldUpdateManyTextAlignText$outboundSchema.optional(),
-    lineHeight: z.nullable(z.number()).optional(),
-    letterSpacing: z.nullable(z.number()).optional(),
-    verticalAlign: z.nullable(
-      EnvelopeFieldUpdateManyVerticalAlignText$outboundSchema,
-    ).optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowText$outboundSchema.optional(),
+      type: EnvelopeFieldUpdateManyTypeTextEnum$outboundSchema,
+      text: z.string().optional(),
+      characterLimit: z.number().optional(),
+      textAlign: EnvelopeFieldUpdateManyTextAlignText$outboundSchema.optional(),
+      lineHeight: z.nullable(z.number()).optional(),
+      letterSpacing: z.nullable(z.number()).optional(),
+      verticalAlign: z.nullable(
+        EnvelopeFieldUpdateManyVerticalAlignText$outboundSchema,
+      ).optional(),
+    })
+  );
 
 export function envelopeFieldUpdateManyFieldMetaTextRequestToJSON(
   envelopeFieldUpdateManyFieldMetaTextRequest:
@@ -1982,19 +2078,21 @@ export const EnvelopeFieldUpdateManyDataText$inboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyDataText,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  type: z.literal("TEXT"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldUpdateManyFieldMetaTextRequest$inboundSchema
-  ).optional(),
-  id: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number().optional(),
-  positionX: z.number().optional(),
-  positionY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("TEXT"),
+    fieldMeta: z.lazy(() =>
+      EnvelopeFieldUpdateManyFieldMetaTextRequest$inboundSchema
+    ).optional(),
+    id: z.number(),
+    envelopeItemId: z.string().optional(),
+    page: z.number().optional(),
+    positionX: z.number().optional(),
+    positionY: z.number().optional(),
+    width: z.number().optional(),
+    height: z.number().optional(),
+  })
+);
 /** @internal */
 export type EnvelopeFieldUpdateManyDataText$Outbound = {
   type: "TEXT";
@@ -2013,19 +2111,21 @@ export const EnvelopeFieldUpdateManyDataText$outboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyDataText$Outbound,
   z.ZodTypeDef,
   EnvelopeFieldUpdateManyDataText
-> = z.object({
-  type: z.literal("TEXT"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldUpdateManyFieldMetaTextRequest$outboundSchema
-  ).optional(),
-  id: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number().optional(),
-  positionX: z.number().optional(),
-  positionY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("TEXT"),
+    fieldMeta: z.lazy(() =>
+      EnvelopeFieldUpdateManyFieldMetaTextRequest$outboundSchema
+    ).optional(),
+    id: z.number(),
+    envelopeItemId: z.string().optional(),
+    page: z.number().optional(),
+    positionX: z.number().optional(),
+    positionY: z.number().optional(),
+    width: z.number().optional(),
+    height: z.number().optional(),
+  })
+);
 
 export function envelopeFieldUpdateManyDataTextToJSON(
   envelopeFieldUpdateManyDataText: EnvelopeFieldUpdateManyDataText,
@@ -2049,7 +2149,9 @@ export function envelopeFieldUpdateManyDataTextFromJSON(
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowDate$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFieldUpdateManyOverflowDate
-> = z.nativeEnum(EnvelopeFieldUpdateManyOverflowDate);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EnvelopeFieldUpdateManyOverflowDate)
+);
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowDate$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowDate> =
@@ -2058,7 +2160,9 @@ export const EnvelopeFieldUpdateManyOverflowDate$outboundSchema:
 /** @internal */
 export const EnvelopeFieldUpdateManyTypeDateEnum$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFieldUpdateManyTypeDateEnum
-> = z.nativeEnum(EnvelopeFieldUpdateManyTypeDateEnum);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EnvelopeFieldUpdateManyTypeDateEnum)
+);
 /** @internal */
 export const EnvelopeFieldUpdateManyTypeDateEnum$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeDateEnum> =
@@ -2066,9 +2170,10 @@ export const EnvelopeFieldUpdateManyTypeDateEnum$outboundSchema:
 
 /** @internal */
 export const EnvelopeFieldUpdateManyTextAlignDate$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignDate> = z.nativeEnum(
-    EnvelopeFieldUpdateManyTextAlignDate,
-  );
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignDate> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyTextAlignDate)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyTextAlignDate$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignDate> =
@@ -2080,16 +2185,20 @@ export const EnvelopeFieldUpdateManyFieldMetaDateRequest$inboundSchema:
     EnvelopeFieldUpdateManyFieldMetaDateRequest,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowDate$inboundSchema.default("auto"),
-    type: EnvelopeFieldUpdateManyTypeDateEnum$inboundSchema,
-    textAlign: EnvelopeFieldUpdateManyTextAlignDate$inboundSchema.optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowDate$inboundSchema.default(
+        "auto",
+      ),
+      type: EnvelopeFieldUpdateManyTypeDateEnum$inboundSchema,
+      textAlign: EnvelopeFieldUpdateManyTextAlignDate$inboundSchema.optional(),
+    })
+  );
 /** @internal */
 export type EnvelopeFieldUpdateManyFieldMetaDateRequest$Outbound = {
   label?: string | undefined;
@@ -2108,18 +2217,20 @@ export const EnvelopeFieldUpdateManyFieldMetaDateRequest$outboundSchema:
     EnvelopeFieldUpdateManyFieldMetaDateRequest$Outbound,
     z.ZodTypeDef,
     EnvelopeFieldUpdateManyFieldMetaDateRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowDate$outboundSchema.default(
-      "auto",
-    ),
-    type: EnvelopeFieldUpdateManyTypeDateEnum$outboundSchema,
-    textAlign: EnvelopeFieldUpdateManyTextAlignDate$outboundSchema.optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowDate$outboundSchema.default(
+        "auto",
+      ),
+      type: EnvelopeFieldUpdateManyTypeDateEnum$outboundSchema,
+      textAlign: EnvelopeFieldUpdateManyTextAlignDate$outboundSchema.optional(),
+    })
+  );
 
 export function envelopeFieldUpdateManyFieldMetaDateRequestToJSON(
   envelopeFieldUpdateManyFieldMetaDateRequest:
@@ -2152,19 +2263,21 @@ export const EnvelopeFieldUpdateManyDataDate$inboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyDataDate,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  type: z.literal("DATE"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldUpdateManyFieldMetaDateRequest$inboundSchema
-  ).optional(),
-  id: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number().optional(),
-  positionX: z.number().optional(),
-  positionY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("DATE"),
+    fieldMeta: z.lazy(() =>
+      EnvelopeFieldUpdateManyFieldMetaDateRequest$inboundSchema
+    ).optional(),
+    id: z.number(),
+    envelopeItemId: z.string().optional(),
+    page: z.number().optional(),
+    positionX: z.number().optional(),
+    positionY: z.number().optional(),
+    width: z.number().optional(),
+    height: z.number().optional(),
+  })
+);
 /** @internal */
 export type EnvelopeFieldUpdateManyDataDate$Outbound = {
   type: "DATE";
@@ -2183,19 +2296,21 @@ export const EnvelopeFieldUpdateManyDataDate$outboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyDataDate$Outbound,
   z.ZodTypeDef,
   EnvelopeFieldUpdateManyDataDate
-> = z.object({
-  type: z.literal("DATE"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldUpdateManyFieldMetaDateRequest$outboundSchema
-  ).optional(),
-  id: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number().optional(),
-  positionX: z.number().optional(),
-  positionY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("DATE"),
+    fieldMeta: z.lazy(() =>
+      EnvelopeFieldUpdateManyFieldMetaDateRequest$outboundSchema
+    ).optional(),
+    id: z.number(),
+    envelopeItemId: z.string().optional(),
+    page: z.number().optional(),
+    positionX: z.number().optional(),
+    positionY: z.number().optional(),
+    width: z.number().optional(),
+    height: z.number().optional(),
+  })
+);
 
 export function envelopeFieldUpdateManyDataDateToJSON(
   envelopeFieldUpdateManyDataDate: EnvelopeFieldUpdateManyDataDate,
@@ -2218,9 +2333,10 @@ export function envelopeFieldUpdateManyDataDateFromJSON(
 
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowEmail$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowEmail> = z.nativeEnum(
-    EnvelopeFieldUpdateManyOverflowEmail,
-  );
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowEmail> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyOverflowEmail)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowEmail$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowEmail> =
@@ -2228,9 +2344,10 @@ export const EnvelopeFieldUpdateManyOverflowEmail$outboundSchema:
 
 /** @internal */
 export const EnvelopeFieldUpdateManyTypeEmailEnum$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeEmailEnum> = z.nativeEnum(
-    EnvelopeFieldUpdateManyTypeEmailEnum,
-  );
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeEmailEnum> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyTypeEmailEnum)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyTypeEmailEnum$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeEmailEnum> =
@@ -2238,9 +2355,10 @@ export const EnvelopeFieldUpdateManyTypeEmailEnum$outboundSchema:
 
 /** @internal */
 export const EnvelopeFieldUpdateManyTextAlignEmail$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignEmail> = z.nativeEnum(
-    EnvelopeFieldUpdateManyTextAlignEmail,
-  );
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignEmail> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyTextAlignEmail)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyTextAlignEmail$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignEmail> =
@@ -2252,18 +2370,20 @@ export const EnvelopeFieldUpdateManyFieldMetaEmailRequest$inboundSchema:
     EnvelopeFieldUpdateManyFieldMetaEmailRequest,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowEmail$inboundSchema.default(
-      "auto",
-    ),
-    type: EnvelopeFieldUpdateManyTypeEmailEnum$inboundSchema,
-    textAlign: EnvelopeFieldUpdateManyTextAlignEmail$inboundSchema.optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowEmail$inboundSchema.default(
+        "auto",
+      ),
+      type: EnvelopeFieldUpdateManyTypeEmailEnum$inboundSchema,
+      textAlign: EnvelopeFieldUpdateManyTextAlignEmail$inboundSchema.optional(),
+    })
+  );
 /** @internal */
 export type EnvelopeFieldUpdateManyFieldMetaEmailRequest$Outbound = {
   label?: string | undefined;
@@ -2282,18 +2402,21 @@ export const EnvelopeFieldUpdateManyFieldMetaEmailRequest$outboundSchema:
     EnvelopeFieldUpdateManyFieldMetaEmailRequest$Outbound,
     z.ZodTypeDef,
     EnvelopeFieldUpdateManyFieldMetaEmailRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowEmail$outboundSchema.default(
-      "auto",
-    ),
-    type: EnvelopeFieldUpdateManyTypeEmailEnum$outboundSchema,
-    textAlign: EnvelopeFieldUpdateManyTextAlignEmail$outboundSchema.optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowEmail$outboundSchema.default(
+        "auto",
+      ),
+      type: EnvelopeFieldUpdateManyTypeEmailEnum$outboundSchema,
+      textAlign: EnvelopeFieldUpdateManyTextAlignEmail$outboundSchema
+        .optional(),
+    })
+  );
 
 export function envelopeFieldUpdateManyFieldMetaEmailRequestToJSON(
   envelopeFieldUpdateManyFieldMetaEmailRequest:
@@ -2326,19 +2449,21 @@ export const EnvelopeFieldUpdateManyDataEmail$inboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyDataEmail,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  type: z.literal("EMAIL"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldUpdateManyFieldMetaEmailRequest$inboundSchema
-  ).optional(),
-  id: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number().optional(),
-  positionX: z.number().optional(),
-  positionY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("EMAIL"),
+    fieldMeta: z.lazy(() =>
+      EnvelopeFieldUpdateManyFieldMetaEmailRequest$inboundSchema
+    ).optional(),
+    id: z.number(),
+    envelopeItemId: z.string().optional(),
+    page: z.number().optional(),
+    positionX: z.number().optional(),
+    positionY: z.number().optional(),
+    width: z.number().optional(),
+    height: z.number().optional(),
+  })
+);
 /** @internal */
 export type EnvelopeFieldUpdateManyDataEmail$Outbound = {
   type: "EMAIL";
@@ -2357,19 +2482,21 @@ export const EnvelopeFieldUpdateManyDataEmail$outboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyDataEmail$Outbound,
   z.ZodTypeDef,
   EnvelopeFieldUpdateManyDataEmail
-> = z.object({
-  type: z.literal("EMAIL"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldUpdateManyFieldMetaEmailRequest$outboundSchema
-  ).optional(),
-  id: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number().optional(),
-  positionX: z.number().optional(),
-  positionY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("EMAIL"),
+    fieldMeta: z.lazy(() =>
+      EnvelopeFieldUpdateManyFieldMetaEmailRequest$outboundSchema
+    ).optional(),
+    id: z.number(),
+    envelopeItemId: z.string().optional(),
+    page: z.number().optional(),
+    positionX: z.number().optional(),
+    positionY: z.number().optional(),
+    width: z.number().optional(),
+    height: z.number().optional(),
+  })
+);
 
 export function envelopeFieldUpdateManyDataEmailToJSON(
   envelopeFieldUpdateManyDataEmail: EnvelopeFieldUpdateManyDataEmail,
@@ -2393,7 +2520,9 @@ export function envelopeFieldUpdateManyDataEmailFromJSON(
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowName$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFieldUpdateManyOverflowName
-> = z.nativeEnum(EnvelopeFieldUpdateManyOverflowName);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EnvelopeFieldUpdateManyOverflowName)
+);
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowName$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowName> =
@@ -2402,7 +2531,9 @@ export const EnvelopeFieldUpdateManyOverflowName$outboundSchema:
 /** @internal */
 export const EnvelopeFieldUpdateManyTypeNameEnum$inboundSchema: z.ZodNativeEnum<
   typeof EnvelopeFieldUpdateManyTypeNameEnum
-> = z.nativeEnum(EnvelopeFieldUpdateManyTypeNameEnum);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(EnvelopeFieldUpdateManyTypeNameEnum)
+);
 /** @internal */
 export const EnvelopeFieldUpdateManyTypeNameEnum$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeNameEnum> =
@@ -2410,9 +2541,10 @@ export const EnvelopeFieldUpdateManyTypeNameEnum$outboundSchema:
 
 /** @internal */
 export const EnvelopeFieldUpdateManyTextAlignName$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignName> = z.nativeEnum(
-    EnvelopeFieldUpdateManyTextAlignName,
-  );
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignName> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyTextAlignName)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyTextAlignName$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignName> =
@@ -2424,16 +2556,18 @@ export const EnvelopeFieldUpdateManyFieldMetaNameRequest$inboundSchema:
     EnvelopeFieldUpdateManyFieldMetaNameRequest,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowName$inboundSchema.optional(),
-    type: EnvelopeFieldUpdateManyTypeNameEnum$inboundSchema,
-    textAlign: EnvelopeFieldUpdateManyTextAlignName$inboundSchema.optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowName$inboundSchema.optional(),
+      type: EnvelopeFieldUpdateManyTypeNameEnum$inboundSchema,
+      textAlign: EnvelopeFieldUpdateManyTextAlignName$inboundSchema.optional(),
+    })
+  );
 /** @internal */
 export type EnvelopeFieldUpdateManyFieldMetaNameRequest$Outbound = {
   label?: string | undefined;
@@ -2452,16 +2586,18 @@ export const EnvelopeFieldUpdateManyFieldMetaNameRequest$outboundSchema:
     EnvelopeFieldUpdateManyFieldMetaNameRequest$Outbound,
     z.ZodTypeDef,
     EnvelopeFieldUpdateManyFieldMetaNameRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowName$outboundSchema.optional(),
-    type: EnvelopeFieldUpdateManyTypeNameEnum$outboundSchema,
-    textAlign: EnvelopeFieldUpdateManyTextAlignName$outboundSchema.optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowName$outboundSchema.optional(),
+      type: EnvelopeFieldUpdateManyTypeNameEnum$outboundSchema,
+      textAlign: EnvelopeFieldUpdateManyTextAlignName$outboundSchema.optional(),
+    })
+  );
 
 export function envelopeFieldUpdateManyFieldMetaNameRequestToJSON(
   envelopeFieldUpdateManyFieldMetaNameRequest:
@@ -2494,19 +2630,21 @@ export const EnvelopeFieldUpdateManyDataName$inboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyDataName,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  type: z.literal("NAME"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldUpdateManyFieldMetaNameRequest$inboundSchema
-  ).optional(),
-  id: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number().optional(),
-  positionX: z.number().optional(),
-  positionY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("NAME"),
+    fieldMeta: z.lazy(() =>
+      EnvelopeFieldUpdateManyFieldMetaNameRequest$inboundSchema
+    ).optional(),
+    id: z.number(),
+    envelopeItemId: z.string().optional(),
+    page: z.number().optional(),
+    positionX: z.number().optional(),
+    positionY: z.number().optional(),
+    width: z.number().optional(),
+    height: z.number().optional(),
+  })
+);
 /** @internal */
 export type EnvelopeFieldUpdateManyDataName$Outbound = {
   type: "NAME";
@@ -2525,19 +2663,21 @@ export const EnvelopeFieldUpdateManyDataName$outboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyDataName$Outbound,
   z.ZodTypeDef,
   EnvelopeFieldUpdateManyDataName
-> = z.object({
-  type: z.literal("NAME"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldUpdateManyFieldMetaNameRequest$outboundSchema
-  ).optional(),
-  id: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number().optional(),
-  positionX: z.number().optional(),
-  positionY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("NAME"),
+    fieldMeta: z.lazy(() =>
+      EnvelopeFieldUpdateManyFieldMetaNameRequest$outboundSchema
+    ).optional(),
+    id: z.number(),
+    envelopeItemId: z.string().optional(),
+    page: z.number().optional(),
+    positionX: z.number().optional(),
+    positionY: z.number().optional(),
+    width: z.number().optional(),
+    height: z.number().optional(),
+  })
+);
 
 export function envelopeFieldUpdateManyDataNameToJSON(
   envelopeFieldUpdateManyDataName: EnvelopeFieldUpdateManyDataName,
@@ -2560,8 +2700,10 @@ export function envelopeFieldUpdateManyDataNameFromJSON(
 
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowInitials$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowInitials> = z
-    .nativeEnum(EnvelopeFieldUpdateManyOverflowInitials);
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowInitials> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyOverflowInitials)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowInitials$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowInitials> =
@@ -2569,8 +2711,10 @@ export const EnvelopeFieldUpdateManyOverflowInitials$outboundSchema:
 
 /** @internal */
 export const EnvelopeFieldUpdateManyTypeInitialsEnum$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeInitialsEnum> = z
-    .nativeEnum(EnvelopeFieldUpdateManyTypeInitialsEnum);
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeInitialsEnum> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyTypeInitialsEnum)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyTypeInitialsEnum$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeInitialsEnum> =
@@ -2578,12 +2722,25 @@ export const EnvelopeFieldUpdateManyTypeInitialsEnum$outboundSchema:
 
 /** @internal */
 export const EnvelopeFieldUpdateManyTextAlignInitials$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignInitials> = z
-    .nativeEnum(EnvelopeFieldUpdateManyTextAlignInitials);
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignInitials> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyTextAlignInitials)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyTextAlignInitials$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignInitials> =
     EnvelopeFieldUpdateManyTextAlignInitials$inboundSchema;
+
+/** @internal */
+export const EnvelopeFieldUpdateManyFontFamilyRequest$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyFontFamilyRequest> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyFontFamilyRequest)
+    );
+/** @internal */
+export const EnvelopeFieldUpdateManyFontFamilyRequest$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyFontFamilyRequest> =
+    EnvelopeFieldUpdateManyFontFamilyRequest$inboundSchema;
 
 /** @internal */
 export const EnvelopeFieldUpdateManyFieldMetaInitialsRequest$inboundSchema:
@@ -2591,17 +2748,22 @@ export const EnvelopeFieldUpdateManyFieldMetaInitialsRequest$inboundSchema:
     EnvelopeFieldUpdateManyFieldMetaInitialsRequest,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowInitials$inboundSchema.optional(),
-    type: EnvelopeFieldUpdateManyTypeInitialsEnum$inboundSchema,
-    textAlign: EnvelopeFieldUpdateManyTextAlignInitials$inboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowInitials$inboundSchema
+        .optional(),
+      type: EnvelopeFieldUpdateManyTypeInitialsEnum$inboundSchema,
+      textAlign: EnvelopeFieldUpdateManyTextAlignInitials$inboundSchema
+        .optional(),
+      fontFamily: EnvelopeFieldUpdateManyFontFamilyRequest$inboundSchema
+        .optional(),
+    })
+  );
 /** @internal */
 export type EnvelopeFieldUpdateManyFieldMetaInitialsRequest$Outbound = {
   label?: string | undefined;
@@ -2612,6 +2774,7 @@ export type EnvelopeFieldUpdateManyFieldMetaInitialsRequest$Outbound = {
   overflow?: string | undefined;
   type: string;
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -2620,17 +2783,22 @@ export const EnvelopeFieldUpdateManyFieldMetaInitialsRequest$outboundSchema:
     EnvelopeFieldUpdateManyFieldMetaInitialsRequest$Outbound,
     z.ZodTypeDef,
     EnvelopeFieldUpdateManyFieldMetaInitialsRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowInitials$outboundSchema.optional(),
-    type: EnvelopeFieldUpdateManyTypeInitialsEnum$outboundSchema,
-    textAlign: EnvelopeFieldUpdateManyTextAlignInitials$outboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowInitials$outboundSchema
+        .optional(),
+      type: EnvelopeFieldUpdateManyTypeInitialsEnum$outboundSchema,
+      textAlign: EnvelopeFieldUpdateManyTextAlignInitials$outboundSchema
+        .optional(),
+      fontFamily: EnvelopeFieldUpdateManyFontFamilyRequest$outboundSchema
+        .optional(),
+    })
+  );
 
 export function envelopeFieldUpdateManyFieldMetaInitialsRequestToJSON(
   envelopeFieldUpdateManyFieldMetaInitialsRequest:
@@ -2663,19 +2831,21 @@ export const EnvelopeFieldUpdateManyDataInitials$inboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyDataInitials,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  type: z.literal("INITIALS"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldUpdateManyFieldMetaInitialsRequest$inboundSchema
-  ).optional(),
-  id: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number().optional(),
-  positionX: z.number().optional(),
-  positionY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("INITIALS"),
+    fieldMeta: z.lazy(() =>
+      EnvelopeFieldUpdateManyFieldMetaInitialsRequest$inboundSchema
+    ).optional(),
+    id: z.number(),
+    envelopeItemId: z.string().optional(),
+    page: z.number().optional(),
+    positionX: z.number().optional(),
+    positionY: z.number().optional(),
+    width: z.number().optional(),
+    height: z.number().optional(),
+  })
+);
 /** @internal */
 export type EnvelopeFieldUpdateManyDataInitials$Outbound = {
   type: "INITIALS";
@@ -2696,19 +2866,21 @@ export const EnvelopeFieldUpdateManyDataInitials$outboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyDataInitials$Outbound,
   z.ZodTypeDef,
   EnvelopeFieldUpdateManyDataInitials
-> = z.object({
-  type: z.literal("INITIALS"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldUpdateManyFieldMetaInitialsRequest$outboundSchema
-  ).optional(),
-  id: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number().optional(),
-  positionX: z.number().optional(),
-  positionY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("INITIALS"),
+    fieldMeta: z.lazy(() =>
+      EnvelopeFieldUpdateManyFieldMetaInitialsRequest$outboundSchema
+    ).optional(),
+    id: z.number(),
+    envelopeItemId: z.string().optional(),
+    page: z.number().optional(),
+    positionX: z.number().optional(),
+    positionY: z.number().optional(),
+    width: z.number().optional(),
+    height: z.number().optional(),
+  })
+);
 
 export function envelopeFieldUpdateManyDataInitialsToJSON(
   envelopeFieldUpdateManyDataInitials: EnvelopeFieldUpdateManyDataInitials,
@@ -2735,16 +2907,18 @@ export const EnvelopeFieldUpdateManyDataFreeSignature$inboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyDataFreeSignature,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  type: z.literal("FREE_SIGNATURE"),
-  id: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number().optional(),
-  positionX: z.number().optional(),
-  positionY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("FREE_SIGNATURE"),
+    id: z.number(),
+    envelopeItemId: z.string().optional(),
+    page: z.number().optional(),
+    positionX: z.number().optional(),
+    positionY: z.number().optional(),
+    width: z.number().optional(),
+    height: z.number().optional(),
+  })
+);
 /** @internal */
 export type EnvelopeFieldUpdateManyDataFreeSignature$Outbound = {
   type: "FREE_SIGNATURE";
@@ -2762,16 +2936,18 @@ export const EnvelopeFieldUpdateManyDataFreeSignature$outboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyDataFreeSignature$Outbound,
   z.ZodTypeDef,
   EnvelopeFieldUpdateManyDataFreeSignature
-> = z.object({
-  type: z.literal("FREE_SIGNATURE"),
-  id: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number().optional(),
-  positionX: z.number().optional(),
-  positionY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("FREE_SIGNATURE"),
+    id: z.number(),
+    envelopeItemId: z.string().optional(),
+    page: z.number().optional(),
+    positionX: z.number().optional(),
+    positionY: z.number().optional(),
+    width: z.number().optional(),
+    height: z.number().optional(),
+  })
+);
 
 export function envelopeFieldUpdateManyDataFreeSignatureToJSON(
   envelopeFieldUpdateManyDataFreeSignature:
@@ -2801,8 +2977,10 @@ export function envelopeFieldUpdateManyDataFreeSignatureFromJSON(
 
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowSignature$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowSignature> = z
-    .nativeEnum(EnvelopeFieldUpdateManyOverflowSignature);
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowSignature> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyOverflowSignature)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowSignature$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowSignature> =
@@ -2810,8 +2988,10 @@ export const EnvelopeFieldUpdateManyOverflowSignature$outboundSchema:
 
 /** @internal */
 export const EnvelopeFieldUpdateManyTypeSignatureEnum$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeSignatureEnum> = z
-    .nativeEnum(EnvelopeFieldUpdateManyTypeSignatureEnum);
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeSignatureEnum> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyTypeSignatureEnum)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyTypeSignatureEnum$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeSignatureEnum> =
@@ -2823,17 +3003,19 @@ export const EnvelopeFieldUpdateManyFieldMetaSignatureRequest$inboundSchema:
     EnvelopeFieldUpdateManyFieldMetaSignatureRequest,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowSignature$inboundSchema.default(
-      "auto",
-    ),
-    type: EnvelopeFieldUpdateManyTypeSignatureEnum$inboundSchema,
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowSignature$inboundSchema.default(
+        "auto",
+      ),
+      type: EnvelopeFieldUpdateManyTypeSignatureEnum$inboundSchema,
+    })
+  );
 /** @internal */
 export type EnvelopeFieldUpdateManyFieldMetaSignatureRequest$Outbound = {
   label?: string | undefined;
@@ -2851,17 +3033,19 @@ export const EnvelopeFieldUpdateManyFieldMetaSignatureRequest$outboundSchema:
     EnvelopeFieldUpdateManyFieldMetaSignatureRequest$Outbound,
     z.ZodTypeDef,
     EnvelopeFieldUpdateManyFieldMetaSignatureRequest
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowSignature$outboundSchema.default(
-      "auto",
-    ),
-    type: EnvelopeFieldUpdateManyTypeSignatureEnum$outboundSchema,
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowSignature$outboundSchema.default(
+        "auto",
+      ),
+      type: EnvelopeFieldUpdateManyTypeSignatureEnum$outboundSchema,
+    })
+  );
 
 export function envelopeFieldUpdateManyFieldMetaSignatureRequestToJSON(
   envelopeFieldUpdateManyFieldMetaSignatureRequest:
@@ -2894,19 +3078,21 @@ export const EnvelopeFieldUpdateManyDataSignature$inboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyDataSignature,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  type: z.literal("SIGNATURE"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldUpdateManyFieldMetaSignatureRequest$inboundSchema
-  ).optional(),
-  id: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number().optional(),
-  positionX: z.number().optional(),
-  positionY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("SIGNATURE"),
+    fieldMeta: z.lazy(() =>
+      EnvelopeFieldUpdateManyFieldMetaSignatureRequest$inboundSchema
+    ).optional(),
+    id: z.number(),
+    envelopeItemId: z.string().optional(),
+    page: z.number().optional(),
+    positionX: z.number().optional(),
+    positionY: z.number().optional(),
+    width: z.number().optional(),
+    height: z.number().optional(),
+  })
+);
 /** @internal */
 export type EnvelopeFieldUpdateManyDataSignature$Outbound = {
   type: "SIGNATURE";
@@ -2927,19 +3113,21 @@ export const EnvelopeFieldUpdateManyDataSignature$outboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyDataSignature$Outbound,
   z.ZodTypeDef,
   EnvelopeFieldUpdateManyDataSignature
-> = z.object({
-  type: z.literal("SIGNATURE"),
-  fieldMeta: z.lazy(() =>
-    EnvelopeFieldUpdateManyFieldMetaSignatureRequest$outboundSchema
-  ).optional(),
-  id: z.number(),
-  envelopeItemId: z.string().optional(),
-  page: z.number().optional(),
-  positionX: z.number().optional(),
-  positionY: z.number().optional(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: z.literal("SIGNATURE"),
+    fieldMeta: z.lazy(() =>
+      EnvelopeFieldUpdateManyFieldMetaSignatureRequest$outboundSchema
+    ).optional(),
+    id: z.number(),
+    envelopeItemId: z.string().optional(),
+    page: z.number().optional(),
+    positionX: z.number().optional(),
+    positionY: z.number().optional(),
+    width: z.number().optional(),
+    height: z.number().optional(),
+  })
+);
 
 export function envelopeFieldUpdateManyDataSignatureToJSON(
   envelopeFieldUpdateManyDataSignature: EnvelopeFieldUpdateManyDataSignature,
@@ -2966,19 +3154,21 @@ export const EnvelopeFieldUpdateManyDataUnion$inboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyDataUnion,
   z.ZodTypeDef,
   unknown
-> = z.union([
-  z.lazy(() => EnvelopeFieldUpdateManyDataSignature$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataFreeSignature$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataInitials$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataName$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataEmail$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataDate$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataText$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataNumber$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataRadio$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataCheckbox$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataDropdown$inboundSchema),
-]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([
+    z.lazy(() => EnvelopeFieldUpdateManyDataSignature$inboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyDataFreeSignature$inboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyDataInitials$inboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyDataName$inboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyDataEmail$inboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyDataDate$inboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyDataText$inboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyDataNumber$inboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyDataRadio$inboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyDataCheckbox$inboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyDataDropdown$inboundSchema),
+  ])
+);
 /** @internal */
 export type EnvelopeFieldUpdateManyDataUnion$Outbound =
   | EnvelopeFieldUpdateManyDataSignature$Outbound
@@ -2998,19 +3188,21 @@ export const EnvelopeFieldUpdateManyDataUnion$outboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyDataUnion$Outbound,
   z.ZodTypeDef,
   EnvelopeFieldUpdateManyDataUnion
-> = z.union([
-  z.lazy(() => EnvelopeFieldUpdateManyDataSignature$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataFreeSignature$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataInitials$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataName$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataEmail$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataDate$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataText$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataNumber$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataRadio$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataCheckbox$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyDataDropdown$outboundSchema),
-]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([
+    z.lazy(() => EnvelopeFieldUpdateManyDataSignature$outboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyDataFreeSignature$outboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyDataInitials$outboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyDataName$outboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyDataEmail$outboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyDataDate$outboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyDataText$outboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyDataNumber$outboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyDataRadio$outboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyDataCheckbox$outboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyDataDropdown$outboundSchema),
+  ])
+);
 
 export function envelopeFieldUpdateManyDataUnionToJSON(
   envelopeFieldUpdateManyDataUnion: EnvelopeFieldUpdateManyDataUnion,
@@ -3036,10 +3228,10 @@ export const EnvelopeFieldUpdateManyRequest$inboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeId: z.string(),
-  data: z.array(
-    z.union([
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    data: z.array(z.union([
       z.lazy(() => EnvelopeFieldUpdateManyDataSignature$inboundSchema),
       z.lazy(() => EnvelopeFieldUpdateManyDataFreeSignature$inboundSchema),
       z.lazy(() => EnvelopeFieldUpdateManyDataInitials$inboundSchema),
@@ -3051,9 +3243,9 @@ export const EnvelopeFieldUpdateManyRequest$inboundSchema: z.ZodType<
       z.lazy(() => EnvelopeFieldUpdateManyDataRadio$inboundSchema),
       z.lazy(() => EnvelopeFieldUpdateManyDataCheckbox$inboundSchema),
       z.lazy(() => EnvelopeFieldUpdateManyDataDropdown$inboundSchema),
-    ]),
-  ),
-});
+    ])),
+  })
+);
 /** @internal */
 export type EnvelopeFieldUpdateManyRequest$Outbound = {
   envelopeId: string;
@@ -3077,10 +3269,10 @@ export const EnvelopeFieldUpdateManyRequest$outboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyRequest$Outbound,
   z.ZodTypeDef,
   EnvelopeFieldUpdateManyRequest
-> = z.object({
-  envelopeId: z.string(),
-  data: z.array(
-    z.union([
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    data: z.array(z.union([
       z.lazy(() => EnvelopeFieldUpdateManyDataSignature$outboundSchema),
       z.lazy(() => EnvelopeFieldUpdateManyDataFreeSignature$outboundSchema),
       z.lazy(() => EnvelopeFieldUpdateManyDataInitials$outboundSchema),
@@ -3092,9 +3284,9 @@ export const EnvelopeFieldUpdateManyRequest$outboundSchema: z.ZodType<
       z.lazy(() => EnvelopeFieldUpdateManyDataRadio$outboundSchema),
       z.lazy(() => EnvelopeFieldUpdateManyDataCheckbox$outboundSchema),
       z.lazy(() => EnvelopeFieldUpdateManyDataDropdown$outboundSchema),
-    ]),
-  ),
-});
+    ])),
+  })
+);
 
 export function envelopeFieldUpdateManyRequestToJSON(
   envelopeFieldUpdateManyRequest: EnvelopeFieldUpdateManyRequest,
@@ -3117,8 +3309,10 @@ export function envelopeFieldUpdateManyRequestFromJSON(
 
 /** @internal */
 export const EnvelopeFieldUpdateManyTypeResponseEnum$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeResponseEnum> = z
-    .nativeEnum(EnvelopeFieldUpdateManyTypeResponseEnum);
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeResponseEnum> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyTypeResponseEnum)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyTypeResponseEnum$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTypeResponseEnum> =
@@ -3126,8 +3320,10 @@ export const EnvelopeFieldUpdateManyTypeResponseEnum$outboundSchema:
 
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowResponse10$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse10> = z
-    .nativeEnum(EnvelopeFieldUpdateManyOverflowResponse10);
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse10> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyOverflowResponse10)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowResponse10$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse10> =
@@ -3138,9 +3334,11 @@ export const EnvelopeFieldUpdateManyValueResponse3$inboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyValueResponse3,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    value: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeFieldUpdateManyValueResponse3$Outbound = {
   value: string;
@@ -3151,9 +3349,11 @@ export const EnvelopeFieldUpdateManyValueResponse3$outboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyValueResponse3$Outbound,
   z.ZodTypeDef,
   EnvelopeFieldUpdateManyValueResponse3
-> = z.object({
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    value: z.string(),
+  })
+);
 
 export function envelopeFieldUpdateManyValueResponse3ToJSON(
   envelopeFieldUpdateManyValueResponse3: EnvelopeFieldUpdateManyValueResponse3,
@@ -3181,20 +3381,22 @@ export const EnvelopeFieldUpdateManyFieldMetaDropdownResponse$inboundSchema:
     EnvelopeFieldUpdateManyFieldMetaDropdownResponse,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowResponse10$inboundSchema
-      .optional(),
-    type: z.literal("dropdown"),
-    values: z.array(
-      z.lazy(() => EnvelopeFieldUpdateManyValueResponse3$inboundSchema),
-    ).optional(),
-    defaultValue: z.string().optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowResponse10$inboundSchema
+        .optional(),
+      type: z.literal("dropdown"),
+      values: z.array(
+        z.lazy(() => EnvelopeFieldUpdateManyValueResponse3$inboundSchema),
+      ).optional(),
+      defaultValue: z.string().optional(),
+    })
+  );
 /** @internal */
 export type EnvelopeFieldUpdateManyFieldMetaDropdownResponse$Outbound = {
   label?: string | undefined;
@@ -3214,20 +3416,22 @@ export const EnvelopeFieldUpdateManyFieldMetaDropdownResponse$outboundSchema:
     EnvelopeFieldUpdateManyFieldMetaDropdownResponse$Outbound,
     z.ZodTypeDef,
     EnvelopeFieldUpdateManyFieldMetaDropdownResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowResponse10$outboundSchema
-      .optional(),
-    type: z.literal("dropdown"),
-    values: z.array(
-      z.lazy(() => EnvelopeFieldUpdateManyValueResponse3$outboundSchema),
-    ).optional(),
-    defaultValue: z.string().optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowResponse10$outboundSchema
+        .optional(),
+      type: z.literal("dropdown"),
+      values: z.array(
+        z.lazy(() => EnvelopeFieldUpdateManyValueResponse3$outboundSchema),
+      ).optional(),
+      defaultValue: z.string().optional(),
+    })
+  );
 
 export function envelopeFieldUpdateManyFieldMetaDropdownResponseToJSON(
   envelopeFieldUpdateManyFieldMetaDropdownResponse:
@@ -3257,8 +3461,10 @@ export function envelopeFieldUpdateManyFieldMetaDropdownResponseFromJSON(
 
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowResponse9$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse9> = z
-    .nativeEnum(EnvelopeFieldUpdateManyOverflowResponse9);
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse9> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyOverflowResponse9)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowResponse9$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse9> =
@@ -3269,11 +3475,13 @@ export const EnvelopeFieldUpdateManyValueResponse2$inboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyValueResponse2,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeFieldUpdateManyValueResponse2$Outbound = {
   id: number;
@@ -3286,11 +3494,13 @@ export const EnvelopeFieldUpdateManyValueResponse2$outboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyValueResponse2$Outbound,
   z.ZodTypeDef,
   EnvelopeFieldUpdateManyValueResponse2
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 
 export function envelopeFieldUpdateManyValueResponse2ToJSON(
   envelopeFieldUpdateManyValueResponse2: EnvelopeFieldUpdateManyValueResponse2,
@@ -3314,8 +3524,10 @@ export function envelopeFieldUpdateManyValueResponse2FromJSON(
 
 /** @internal */
 export const EnvelopeFieldUpdateManyDirectionResponse2$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyDirectionResponse2> = z
-    .nativeEnum(EnvelopeFieldUpdateManyDirectionResponse2);
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyDirectionResponse2> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyDirectionResponse2)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyDirectionResponse2$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyDirectionResponse2> =
@@ -3327,23 +3539,25 @@ export const EnvelopeFieldUpdateManyFieldMetaCheckboxResponse$inboundSchema:
     EnvelopeFieldUpdateManyFieldMetaCheckboxResponse,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowResponse9$inboundSchema.optional(),
-    type: z.literal("checkbox"),
-    values: z.array(
-      z.lazy(() => EnvelopeFieldUpdateManyValueResponse2$inboundSchema),
-    ).optional(),
-    validationRule: z.string().optional(),
-    validationLength: z.number().optional(),
-    direction: EnvelopeFieldUpdateManyDirectionResponse2$inboundSchema.default(
-      "vertical",
-    ),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowResponse9$inboundSchema
+        .optional(),
+      type: z.literal("checkbox"),
+      values: z.array(
+        z.lazy(() => EnvelopeFieldUpdateManyValueResponse2$inboundSchema),
+      ).optional(),
+      validationRule: z.string().optional(),
+      validationLength: z.number().optional(),
+      direction: EnvelopeFieldUpdateManyDirectionResponse2$inboundSchema
+        .default("vertical"),
+    })
+  );
 /** @internal */
 export type EnvelopeFieldUpdateManyFieldMetaCheckboxResponse$Outbound = {
   label?: string | undefined;
@@ -3365,24 +3579,25 @@ export const EnvelopeFieldUpdateManyFieldMetaCheckboxResponse$outboundSchema:
     EnvelopeFieldUpdateManyFieldMetaCheckboxResponse$Outbound,
     z.ZodTypeDef,
     EnvelopeFieldUpdateManyFieldMetaCheckboxResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowResponse9$outboundSchema
-      .optional(),
-    type: z.literal("checkbox"),
-    values: z.array(
-      z.lazy(() => EnvelopeFieldUpdateManyValueResponse2$outboundSchema),
-    ).optional(),
-    validationRule: z.string().optional(),
-    validationLength: z.number().optional(),
-    direction: EnvelopeFieldUpdateManyDirectionResponse2$outboundSchema.default(
-      "vertical",
-    ),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowResponse9$outboundSchema
+        .optional(),
+      type: z.literal("checkbox"),
+      values: z.array(
+        z.lazy(() => EnvelopeFieldUpdateManyValueResponse2$outboundSchema),
+      ).optional(),
+      validationRule: z.string().optional(),
+      validationLength: z.number().optional(),
+      direction: EnvelopeFieldUpdateManyDirectionResponse2$outboundSchema
+        .default("vertical"),
+    })
+  );
 
 export function envelopeFieldUpdateManyFieldMetaCheckboxResponseToJSON(
   envelopeFieldUpdateManyFieldMetaCheckboxResponse:
@@ -3412,8 +3627,10 @@ export function envelopeFieldUpdateManyFieldMetaCheckboxResponseFromJSON(
 
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowResponse8$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse8> = z
-    .nativeEnum(EnvelopeFieldUpdateManyOverflowResponse8);
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse8> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyOverflowResponse8)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowResponse8$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse8> =
@@ -3424,11 +3641,13 @@ export const EnvelopeFieldUpdateManyValueResponse1$inboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyValueResponse1,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeFieldUpdateManyValueResponse1$Outbound = {
   id: number;
@@ -3441,11 +3660,13 @@ export const EnvelopeFieldUpdateManyValueResponse1$outboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyValueResponse1$Outbound,
   z.ZodTypeDef,
   EnvelopeFieldUpdateManyValueResponse1
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 
 export function envelopeFieldUpdateManyValueResponse1ToJSON(
   envelopeFieldUpdateManyValueResponse1: EnvelopeFieldUpdateManyValueResponse1,
@@ -3469,8 +3690,10 @@ export function envelopeFieldUpdateManyValueResponse1FromJSON(
 
 /** @internal */
 export const EnvelopeFieldUpdateManyDirectionResponse1$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyDirectionResponse1> = z
-    .nativeEnum(EnvelopeFieldUpdateManyDirectionResponse1);
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyDirectionResponse1> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyDirectionResponse1)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyDirectionResponse1$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyDirectionResponse1> =
@@ -3482,21 +3705,23 @@ export const EnvelopeFieldUpdateManyFieldMetaRadioResponse$inboundSchema:
     EnvelopeFieldUpdateManyFieldMetaRadioResponse,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowResponse8$inboundSchema.optional(),
-    type: z.literal("radio"),
-    values: z.array(
-      z.lazy(() => EnvelopeFieldUpdateManyValueResponse1$inboundSchema),
-    ).optional(),
-    direction: EnvelopeFieldUpdateManyDirectionResponse1$inboundSchema.default(
-      "vertical",
-    ),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowResponse8$inboundSchema
+        .optional(),
+      type: z.literal("radio"),
+      values: z.array(
+        z.lazy(() => EnvelopeFieldUpdateManyValueResponse1$inboundSchema),
+      ).optional(),
+      direction: EnvelopeFieldUpdateManyDirectionResponse1$inboundSchema
+        .default("vertical"),
+    })
+  );
 /** @internal */
 export type EnvelopeFieldUpdateManyFieldMetaRadioResponse$Outbound = {
   label?: string | undefined;
@@ -3516,22 +3741,23 @@ export const EnvelopeFieldUpdateManyFieldMetaRadioResponse$outboundSchema:
     EnvelopeFieldUpdateManyFieldMetaRadioResponse$Outbound,
     z.ZodTypeDef,
     EnvelopeFieldUpdateManyFieldMetaRadioResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowResponse8$outboundSchema
-      .optional(),
-    type: z.literal("radio"),
-    values: z.array(
-      z.lazy(() => EnvelopeFieldUpdateManyValueResponse1$outboundSchema),
-    ).optional(),
-    direction: EnvelopeFieldUpdateManyDirectionResponse1$outboundSchema.default(
-      "vertical",
-    ),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowResponse8$outboundSchema
+        .optional(),
+      type: z.literal("radio"),
+      values: z.array(
+        z.lazy(() => EnvelopeFieldUpdateManyValueResponse1$outboundSchema),
+      ).optional(),
+      direction: EnvelopeFieldUpdateManyDirectionResponse1$outboundSchema
+        .default("vertical"),
+    })
+  );
 
 export function envelopeFieldUpdateManyFieldMetaRadioResponseToJSON(
   envelopeFieldUpdateManyFieldMetaRadioResponse:
@@ -3561,30 +3787,36 @@ export function envelopeFieldUpdateManyFieldMetaRadioResponseFromJSON(
 
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowResponse7$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse7> = z
-    .nativeEnum(EnvelopeFieldUpdateManyOverflowResponse7);
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse7> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyOverflowResponse7)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowResponse7$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse7> =
     EnvelopeFieldUpdateManyOverflowResponse7$inboundSchema;
 
 /** @internal */
-export const EnvelopeFieldUpdateManyTextAlignResponse6$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignResponse6> = z
-    .nativeEnum(EnvelopeFieldUpdateManyTextAlignResponse6);
+export const EnvelopeFieldUpdateManyFieldMetaTextAlign6$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyFieldMetaTextAlign6> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyFieldMetaTextAlign6)
+    );
 /** @internal */
-export const EnvelopeFieldUpdateManyTextAlignResponse6$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignResponse6> =
-    EnvelopeFieldUpdateManyTextAlignResponse6$inboundSchema;
+export const EnvelopeFieldUpdateManyFieldMetaTextAlign6$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyFieldMetaTextAlign6> =
+    EnvelopeFieldUpdateManyFieldMetaTextAlign6$inboundSchema;
 
 /** @internal */
-export const EnvelopeFieldUpdateManyVerticalAlignResponse2$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyVerticalAlignResponse2> = z
-    .nativeEnum(EnvelopeFieldUpdateManyVerticalAlignResponse2);
+export const EnvelopeFieldUpdateManyFieldMetaVerticalAlign2$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyFieldMetaVerticalAlign2> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyFieldMetaVerticalAlign2)
+    );
 /** @internal */
-export const EnvelopeFieldUpdateManyVerticalAlignResponse2$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyVerticalAlignResponse2> =
-    EnvelopeFieldUpdateManyVerticalAlignResponse2$inboundSchema;
+export const EnvelopeFieldUpdateManyFieldMetaVerticalAlign2$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyFieldMetaVerticalAlign2> =
+    EnvelopeFieldUpdateManyFieldMetaVerticalAlign2$inboundSchema;
 
 /** @internal */
 export const EnvelopeFieldUpdateManyFieldMetaNumberResponse$inboundSchema:
@@ -3592,26 +3824,29 @@ export const EnvelopeFieldUpdateManyFieldMetaNumberResponse$inboundSchema:
     EnvelopeFieldUpdateManyFieldMetaNumberResponse,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowResponse7$inboundSchema.optional(),
-    type: z.literal("number"),
-    numberFormat: z.nullable(z.string()).optional(),
-    value: z.string().optional(),
-    minValue: z.nullable(z.number()).optional(),
-    maxValue: z.nullable(z.number()).optional(),
-    textAlign: EnvelopeFieldUpdateManyTextAlignResponse6$inboundSchema
-      .optional(),
-    lineHeight: z.nullable(z.number()).optional(),
-    letterSpacing: z.nullable(z.number()).optional(),
-    verticalAlign: z.nullable(
-      EnvelopeFieldUpdateManyVerticalAlignResponse2$inboundSchema,
-    ).optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowResponse7$inboundSchema
+        .optional(),
+      type: z.literal("number"),
+      numberFormat: z.nullable(z.string()).optional(),
+      value: z.string().optional(),
+      minValue: z.nullable(z.number()).optional(),
+      maxValue: z.nullable(z.number()).optional(),
+      textAlign: EnvelopeFieldUpdateManyFieldMetaTextAlign6$inboundSchema
+        .optional(),
+      lineHeight: z.nullable(z.number()).optional(),
+      letterSpacing: z.nullable(z.number()).optional(),
+      verticalAlign: z.nullable(
+        EnvelopeFieldUpdateManyFieldMetaVerticalAlign2$inboundSchema,
+      ).optional(),
+    })
+  );
 /** @internal */
 export type EnvelopeFieldUpdateManyFieldMetaNumberResponse$Outbound = {
   label?: string | undefined;
@@ -3637,27 +3872,29 @@ export const EnvelopeFieldUpdateManyFieldMetaNumberResponse$outboundSchema:
     EnvelopeFieldUpdateManyFieldMetaNumberResponse$Outbound,
     z.ZodTypeDef,
     EnvelopeFieldUpdateManyFieldMetaNumberResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowResponse7$outboundSchema
-      .optional(),
-    type: z.literal("number"),
-    numberFormat: z.nullable(z.string()).optional(),
-    value: z.string().optional(),
-    minValue: z.nullable(z.number()).optional(),
-    maxValue: z.nullable(z.number()).optional(),
-    textAlign: EnvelopeFieldUpdateManyTextAlignResponse6$outboundSchema
-      .optional(),
-    lineHeight: z.nullable(z.number()).optional(),
-    letterSpacing: z.nullable(z.number()).optional(),
-    verticalAlign: z.nullable(
-      EnvelopeFieldUpdateManyVerticalAlignResponse2$outboundSchema,
-    ).optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowResponse7$outboundSchema
+        .optional(),
+      type: z.literal("number"),
+      numberFormat: z.nullable(z.string()).optional(),
+      value: z.string().optional(),
+      minValue: z.nullable(z.number()).optional(),
+      maxValue: z.nullable(z.number()).optional(),
+      textAlign: EnvelopeFieldUpdateManyFieldMetaTextAlign6$outboundSchema
+        .optional(),
+      lineHeight: z.nullable(z.number()).optional(),
+      letterSpacing: z.nullable(z.number()).optional(),
+      verticalAlign: z.nullable(
+        EnvelopeFieldUpdateManyFieldMetaVerticalAlign2$outboundSchema,
+      ).optional(),
+    })
+  );
 
 export function envelopeFieldUpdateManyFieldMetaNumberResponseToJSON(
   envelopeFieldUpdateManyFieldMetaNumberResponse:
@@ -3687,30 +3924,36 @@ export function envelopeFieldUpdateManyFieldMetaNumberResponseFromJSON(
 
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowResponse6$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse6> = z
-    .nativeEnum(EnvelopeFieldUpdateManyOverflowResponse6);
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse6> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyOverflowResponse6)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowResponse6$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse6> =
     EnvelopeFieldUpdateManyOverflowResponse6$inboundSchema;
 
 /** @internal */
-export const EnvelopeFieldUpdateManyTextAlignResponse5$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignResponse5> = z
-    .nativeEnum(EnvelopeFieldUpdateManyTextAlignResponse5);
+export const EnvelopeFieldUpdateManyFieldMetaTextAlign5$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyFieldMetaTextAlign5> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyFieldMetaTextAlign5)
+    );
 /** @internal */
-export const EnvelopeFieldUpdateManyTextAlignResponse5$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignResponse5> =
-    EnvelopeFieldUpdateManyTextAlignResponse5$inboundSchema;
+export const EnvelopeFieldUpdateManyFieldMetaTextAlign5$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyFieldMetaTextAlign5> =
+    EnvelopeFieldUpdateManyFieldMetaTextAlign5$inboundSchema;
 
 /** @internal */
-export const EnvelopeFieldUpdateManyVerticalAlignResponse1$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyVerticalAlignResponse1> = z
-    .nativeEnum(EnvelopeFieldUpdateManyVerticalAlignResponse1);
+export const EnvelopeFieldUpdateManyFieldMetaVerticalAlign1$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyFieldMetaVerticalAlign1> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyFieldMetaVerticalAlign1)
+    );
 /** @internal */
-export const EnvelopeFieldUpdateManyVerticalAlignResponse1$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyVerticalAlignResponse1> =
-    EnvelopeFieldUpdateManyVerticalAlignResponse1$inboundSchema;
+export const EnvelopeFieldUpdateManyFieldMetaVerticalAlign1$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyFieldMetaVerticalAlign1> =
+    EnvelopeFieldUpdateManyFieldMetaVerticalAlign1$inboundSchema;
 
 /** @internal */
 export const EnvelopeFieldUpdateManyFieldMetaTextResponse$inboundSchema:
@@ -3718,24 +3961,27 @@ export const EnvelopeFieldUpdateManyFieldMetaTextResponse$inboundSchema:
     EnvelopeFieldUpdateManyFieldMetaTextResponse,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowResponse6$inboundSchema.optional(),
-    type: z.literal("text"),
-    text: z.string().optional(),
-    characterLimit: z.number().optional(),
-    textAlign: EnvelopeFieldUpdateManyTextAlignResponse5$inboundSchema
-      .optional(),
-    lineHeight: z.nullable(z.number()).optional(),
-    letterSpacing: z.nullable(z.number()).optional(),
-    verticalAlign: z.nullable(
-      EnvelopeFieldUpdateManyVerticalAlignResponse1$inboundSchema,
-    ).optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowResponse6$inboundSchema
+        .optional(),
+      type: z.literal("text"),
+      text: z.string().optional(),
+      characterLimit: z.number().optional(),
+      textAlign: EnvelopeFieldUpdateManyFieldMetaTextAlign5$inboundSchema
+        .optional(),
+      lineHeight: z.nullable(z.number()).optional(),
+      letterSpacing: z.nullable(z.number()).optional(),
+      verticalAlign: z.nullable(
+        EnvelopeFieldUpdateManyFieldMetaVerticalAlign1$inboundSchema,
+      ).optional(),
+    })
+  );
 /** @internal */
 export type EnvelopeFieldUpdateManyFieldMetaTextResponse$Outbound = {
   label?: string | undefined;
@@ -3759,25 +4005,27 @@ export const EnvelopeFieldUpdateManyFieldMetaTextResponse$outboundSchema:
     EnvelopeFieldUpdateManyFieldMetaTextResponse$Outbound,
     z.ZodTypeDef,
     EnvelopeFieldUpdateManyFieldMetaTextResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowResponse6$outboundSchema
-      .optional(),
-    type: z.literal("text"),
-    text: z.string().optional(),
-    characterLimit: z.number().optional(),
-    textAlign: EnvelopeFieldUpdateManyTextAlignResponse5$outboundSchema
-      .optional(),
-    lineHeight: z.nullable(z.number()).optional(),
-    letterSpacing: z.nullable(z.number()).optional(),
-    verticalAlign: z.nullable(
-      EnvelopeFieldUpdateManyVerticalAlignResponse1$outboundSchema,
-    ).optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowResponse6$outboundSchema
+        .optional(),
+      type: z.literal("text"),
+      text: z.string().optional(),
+      characterLimit: z.number().optional(),
+      textAlign: EnvelopeFieldUpdateManyFieldMetaTextAlign5$outboundSchema
+        .optional(),
+      lineHeight: z.nullable(z.number()).optional(),
+      letterSpacing: z.nullable(z.number()).optional(),
+      verticalAlign: z.nullable(
+        EnvelopeFieldUpdateManyFieldMetaVerticalAlign1$outboundSchema,
+      ).optional(),
+    })
+  );
 
 export function envelopeFieldUpdateManyFieldMetaTextResponseToJSON(
   envelopeFieldUpdateManyFieldMetaTextResponse:
@@ -3807,21 +4055,25 @@ export function envelopeFieldUpdateManyFieldMetaTextResponseFromJSON(
 
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowResponse5$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse5> = z
-    .nativeEnum(EnvelopeFieldUpdateManyOverflowResponse5);
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse5> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyOverflowResponse5)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowResponse5$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse5> =
     EnvelopeFieldUpdateManyOverflowResponse5$inboundSchema;
 
 /** @internal */
-export const EnvelopeFieldUpdateManyTextAlignResponse4$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignResponse4> = z
-    .nativeEnum(EnvelopeFieldUpdateManyTextAlignResponse4);
+export const EnvelopeFieldUpdateManyFieldMetaTextAlign4$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyFieldMetaTextAlign4> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyFieldMetaTextAlign4)
+    );
 /** @internal */
-export const EnvelopeFieldUpdateManyTextAlignResponse4$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignResponse4> =
-    EnvelopeFieldUpdateManyTextAlignResponse4$inboundSchema;
+export const EnvelopeFieldUpdateManyFieldMetaTextAlign4$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyFieldMetaTextAlign4> =
+    EnvelopeFieldUpdateManyFieldMetaTextAlign4$inboundSchema;
 
 /** @internal */
 export const EnvelopeFieldUpdateManyFieldMetaDateResponse$inboundSchema:
@@ -3829,19 +4081,21 @@ export const EnvelopeFieldUpdateManyFieldMetaDateResponse$inboundSchema:
     EnvelopeFieldUpdateManyFieldMetaDateResponse,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowResponse5$inboundSchema.default(
-      "auto",
-    ),
-    type: z.literal("date"),
-    textAlign: EnvelopeFieldUpdateManyTextAlignResponse4$inboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowResponse5$inboundSchema.default(
+        "auto",
+      ),
+      type: z.literal("date"),
+      textAlign: EnvelopeFieldUpdateManyFieldMetaTextAlign4$inboundSchema
+        .optional(),
+    })
+  );
 /** @internal */
 export type EnvelopeFieldUpdateManyFieldMetaDateResponse$Outbound = {
   label?: string | undefined;
@@ -3860,19 +4114,21 @@ export const EnvelopeFieldUpdateManyFieldMetaDateResponse$outboundSchema:
     EnvelopeFieldUpdateManyFieldMetaDateResponse$Outbound,
     z.ZodTypeDef,
     EnvelopeFieldUpdateManyFieldMetaDateResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowResponse5$outboundSchema.default(
-      "auto",
-    ),
-    type: z.literal("date"),
-    textAlign: EnvelopeFieldUpdateManyTextAlignResponse4$outboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowResponse5$outboundSchema.default(
+        "auto",
+      ),
+      type: z.literal("date"),
+      textAlign: EnvelopeFieldUpdateManyFieldMetaTextAlign4$outboundSchema
+        .optional(),
+    })
+  );
 
 export function envelopeFieldUpdateManyFieldMetaDateResponseToJSON(
   envelopeFieldUpdateManyFieldMetaDateResponse:
@@ -3902,21 +4158,25 @@ export function envelopeFieldUpdateManyFieldMetaDateResponseFromJSON(
 
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowResponse4$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse4> = z
-    .nativeEnum(EnvelopeFieldUpdateManyOverflowResponse4);
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse4> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyOverflowResponse4)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowResponse4$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse4> =
     EnvelopeFieldUpdateManyOverflowResponse4$inboundSchema;
 
 /** @internal */
-export const EnvelopeFieldUpdateManyTextAlignResponse3$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignResponse3> = z
-    .nativeEnum(EnvelopeFieldUpdateManyTextAlignResponse3);
+export const EnvelopeFieldUpdateManyFieldMetaTextAlign3$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyFieldMetaTextAlign3> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyFieldMetaTextAlign3)
+    );
 /** @internal */
-export const EnvelopeFieldUpdateManyTextAlignResponse3$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignResponse3> =
-    EnvelopeFieldUpdateManyTextAlignResponse3$inboundSchema;
+export const EnvelopeFieldUpdateManyFieldMetaTextAlign3$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyFieldMetaTextAlign3> =
+    EnvelopeFieldUpdateManyFieldMetaTextAlign3$inboundSchema;
 
 /** @internal */
 export const EnvelopeFieldUpdateManyFieldMetaEmailResponse$inboundSchema:
@@ -3924,19 +4184,21 @@ export const EnvelopeFieldUpdateManyFieldMetaEmailResponse$inboundSchema:
     EnvelopeFieldUpdateManyFieldMetaEmailResponse,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowResponse4$inboundSchema.default(
-      "auto",
-    ),
-    type: z.literal("email"),
-    textAlign: EnvelopeFieldUpdateManyTextAlignResponse3$inboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowResponse4$inboundSchema.default(
+        "auto",
+      ),
+      type: z.literal("email"),
+      textAlign: EnvelopeFieldUpdateManyFieldMetaTextAlign3$inboundSchema
+        .optional(),
+    })
+  );
 /** @internal */
 export type EnvelopeFieldUpdateManyFieldMetaEmailResponse$Outbound = {
   label?: string | undefined;
@@ -3955,19 +4217,21 @@ export const EnvelopeFieldUpdateManyFieldMetaEmailResponse$outboundSchema:
     EnvelopeFieldUpdateManyFieldMetaEmailResponse$Outbound,
     z.ZodTypeDef,
     EnvelopeFieldUpdateManyFieldMetaEmailResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowResponse4$outboundSchema.default(
-      "auto",
-    ),
-    type: z.literal("email"),
-    textAlign: EnvelopeFieldUpdateManyTextAlignResponse3$outboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowResponse4$outboundSchema.default(
+        "auto",
+      ),
+      type: z.literal("email"),
+      textAlign: EnvelopeFieldUpdateManyFieldMetaTextAlign3$outboundSchema
+        .optional(),
+    })
+  );
 
 export function envelopeFieldUpdateManyFieldMetaEmailResponseToJSON(
   envelopeFieldUpdateManyFieldMetaEmailResponse:
@@ -3997,21 +4261,25 @@ export function envelopeFieldUpdateManyFieldMetaEmailResponseFromJSON(
 
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowResponse3$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse3> = z
-    .nativeEnum(EnvelopeFieldUpdateManyOverflowResponse3);
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse3> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyOverflowResponse3)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowResponse3$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse3> =
     EnvelopeFieldUpdateManyOverflowResponse3$inboundSchema;
 
 /** @internal */
-export const EnvelopeFieldUpdateManyTextAlignResponse2$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignResponse2> = z
-    .nativeEnum(EnvelopeFieldUpdateManyTextAlignResponse2);
+export const EnvelopeFieldUpdateManyFieldMetaTextAlign2$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyFieldMetaTextAlign2> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyFieldMetaTextAlign2)
+    );
 /** @internal */
-export const EnvelopeFieldUpdateManyTextAlignResponse2$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignResponse2> =
-    EnvelopeFieldUpdateManyTextAlignResponse2$inboundSchema;
+export const EnvelopeFieldUpdateManyFieldMetaTextAlign2$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyFieldMetaTextAlign2> =
+    EnvelopeFieldUpdateManyFieldMetaTextAlign2$inboundSchema;
 
 /** @internal */
 export const EnvelopeFieldUpdateManyFieldMetaNameResponse$inboundSchema:
@@ -4019,17 +4287,20 @@ export const EnvelopeFieldUpdateManyFieldMetaNameResponse$inboundSchema:
     EnvelopeFieldUpdateManyFieldMetaNameResponse,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowResponse3$inboundSchema.optional(),
-    type: z.literal("name"),
-    textAlign: EnvelopeFieldUpdateManyTextAlignResponse2$inboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowResponse3$inboundSchema
+        .optional(),
+      type: z.literal("name"),
+      textAlign: EnvelopeFieldUpdateManyFieldMetaTextAlign2$inboundSchema
+        .optional(),
+    })
+  );
 /** @internal */
 export type EnvelopeFieldUpdateManyFieldMetaNameResponse$Outbound = {
   label?: string | undefined;
@@ -4048,18 +4319,20 @@ export const EnvelopeFieldUpdateManyFieldMetaNameResponse$outboundSchema:
     EnvelopeFieldUpdateManyFieldMetaNameResponse$Outbound,
     z.ZodTypeDef,
     EnvelopeFieldUpdateManyFieldMetaNameResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowResponse3$outboundSchema
-      .optional(),
-    type: z.literal("name"),
-    textAlign: EnvelopeFieldUpdateManyTextAlignResponse2$outboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowResponse3$outboundSchema
+        .optional(),
+      type: z.literal("name"),
+      textAlign: EnvelopeFieldUpdateManyFieldMetaTextAlign2$outboundSchema
+        .optional(),
+    })
+  );
 
 export function envelopeFieldUpdateManyFieldMetaNameResponseToJSON(
   envelopeFieldUpdateManyFieldMetaNameResponse:
@@ -4089,21 +4362,36 @@ export function envelopeFieldUpdateManyFieldMetaNameResponseFromJSON(
 
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowResponse2$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse2> = z
-    .nativeEnum(EnvelopeFieldUpdateManyOverflowResponse2);
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse2> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyOverflowResponse2)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowResponse2$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse2> =
     EnvelopeFieldUpdateManyOverflowResponse2$inboundSchema;
 
 /** @internal */
-export const EnvelopeFieldUpdateManyTextAlignResponse1$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignResponse1> = z
-    .nativeEnum(EnvelopeFieldUpdateManyTextAlignResponse1);
+export const EnvelopeFieldUpdateManyFieldMetaTextAlign1$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyFieldMetaTextAlign1> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyFieldMetaTextAlign1)
+    );
 /** @internal */
-export const EnvelopeFieldUpdateManyTextAlignResponse1$outboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyTextAlignResponse1> =
-    EnvelopeFieldUpdateManyTextAlignResponse1$inboundSchema;
+export const EnvelopeFieldUpdateManyFieldMetaTextAlign1$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyFieldMetaTextAlign1> =
+    EnvelopeFieldUpdateManyFieldMetaTextAlign1$inboundSchema;
+
+/** @internal */
+export const EnvelopeFieldUpdateManyFontFamilyResponse$inboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyFontFamilyResponse> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyFontFamilyResponse)
+    );
+/** @internal */
+export const EnvelopeFieldUpdateManyFontFamilyResponse$outboundSchema:
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyFontFamilyResponse> =
+    EnvelopeFieldUpdateManyFontFamilyResponse$inboundSchema;
 
 /** @internal */
 export const EnvelopeFieldUpdateManyFieldMetaInitialsResponse$inboundSchema:
@@ -4111,17 +4399,22 @@ export const EnvelopeFieldUpdateManyFieldMetaInitialsResponse$inboundSchema:
     EnvelopeFieldUpdateManyFieldMetaInitialsResponse,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowResponse2$inboundSchema.optional(),
-    type: z.literal("initials"),
-    textAlign: EnvelopeFieldUpdateManyTextAlignResponse1$inboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowResponse2$inboundSchema
+        .optional(),
+      type: z.literal("initials"),
+      textAlign: EnvelopeFieldUpdateManyFieldMetaTextAlign1$inboundSchema
+        .optional(),
+      fontFamily: EnvelopeFieldUpdateManyFontFamilyResponse$inboundSchema
+        .optional(),
+    })
+  );
 /** @internal */
 export type EnvelopeFieldUpdateManyFieldMetaInitialsResponse$Outbound = {
   label?: string | undefined;
@@ -4132,6 +4425,7 @@ export type EnvelopeFieldUpdateManyFieldMetaInitialsResponse$Outbound = {
   overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -4140,18 +4434,22 @@ export const EnvelopeFieldUpdateManyFieldMetaInitialsResponse$outboundSchema:
     EnvelopeFieldUpdateManyFieldMetaInitialsResponse$Outbound,
     z.ZodTypeDef,
     EnvelopeFieldUpdateManyFieldMetaInitialsResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowResponse2$outboundSchema
-      .optional(),
-    type: z.literal("initials"),
-    textAlign: EnvelopeFieldUpdateManyTextAlignResponse1$outboundSchema
-      .optional(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowResponse2$outboundSchema
+        .optional(),
+      type: z.literal("initials"),
+      textAlign: EnvelopeFieldUpdateManyFieldMetaTextAlign1$outboundSchema
+        .optional(),
+      fontFamily: EnvelopeFieldUpdateManyFontFamilyResponse$outboundSchema
+        .optional(),
+    })
+  );
 
 export function envelopeFieldUpdateManyFieldMetaInitialsResponseToJSON(
   envelopeFieldUpdateManyFieldMetaInitialsResponse:
@@ -4181,8 +4479,10 @@ export function envelopeFieldUpdateManyFieldMetaInitialsResponseFromJSON(
 
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowResponse1$inboundSchema:
-  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse1> = z
-    .nativeEnum(EnvelopeFieldUpdateManyOverflowResponse1);
+  z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse1> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(EnvelopeFieldUpdateManyOverflowResponse1)
+    );
 /** @internal */
 export const EnvelopeFieldUpdateManyOverflowResponse1$outboundSchema:
   z.ZodNativeEnum<typeof EnvelopeFieldUpdateManyOverflowResponse1> =
@@ -4194,17 +4494,19 @@ export const EnvelopeFieldUpdateManyFieldMetaSignatureResponse$inboundSchema:
     EnvelopeFieldUpdateManyFieldMetaSignatureResponse,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowResponse1$inboundSchema.default(
-      "auto",
-    ),
-    type: z.literal("signature"),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowResponse1$inboundSchema.default(
+        "auto",
+      ),
+      type: z.literal("signature"),
+    })
+  );
 /** @internal */
 export type EnvelopeFieldUpdateManyFieldMetaSignatureResponse$Outbound = {
   label?: string | undefined;
@@ -4222,17 +4524,19 @@ export const EnvelopeFieldUpdateManyFieldMetaSignatureResponse$outboundSchema:
     EnvelopeFieldUpdateManyFieldMetaSignatureResponse$Outbound,
     z.ZodTypeDef,
     EnvelopeFieldUpdateManyFieldMetaSignatureResponse
-  > = z.object({
-    label: z.string().optional(),
-    placeholder: z.string().optional(),
-    required: z.boolean().optional(),
-    readOnly: z.boolean().optional(),
-    fontSize: z.number().default(12),
-    overflow: EnvelopeFieldUpdateManyOverflowResponse1$outboundSchema.default(
-      "auto",
-    ),
-    type: z.literal("signature"),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      label: z.string().optional(),
+      placeholder: z.string().optional(),
+      required: z.boolean().optional(),
+      readOnly: z.boolean().optional(),
+      fontSize: z.number().default(12),
+      overflow: EnvelopeFieldUpdateManyOverflowResponse1$outboundSchema.default(
+        "auto",
+      ),
+      type: z.literal("signature"),
+    })
+  );
 
 export function envelopeFieldUpdateManyFieldMetaSignatureResponseToJSON(
   envelopeFieldUpdateManyFieldMetaSignatureResponse:
@@ -4265,18 +4569,28 @@ export const EnvelopeFieldUpdateManyFieldMetaUnion$inboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyFieldMetaUnion,
   z.ZodTypeDef,
   unknown
-> = z.union([
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaSignatureResponse$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaInitialsResponse$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaNameResponse$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaEmailResponse$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaDateResponse$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaTextResponse$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaNumberResponse$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaRadioResponse$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaCheckboxResponse$inboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaDropdownResponse$inboundSchema),
-]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([
+    z.lazy(() =>
+      EnvelopeFieldUpdateManyFieldMetaSignatureResponse$inboundSchema
+    ),
+    z.lazy(() =>
+      EnvelopeFieldUpdateManyFieldMetaInitialsResponse$inboundSchema
+    ),
+    z.lazy(() => EnvelopeFieldUpdateManyFieldMetaNameResponse$inboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyFieldMetaEmailResponse$inboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyFieldMetaDateResponse$inboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyFieldMetaTextResponse$inboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyFieldMetaNumberResponse$inboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyFieldMetaRadioResponse$inboundSchema),
+    z.lazy(() =>
+      EnvelopeFieldUpdateManyFieldMetaCheckboxResponse$inboundSchema
+    ),
+    z.lazy(() =>
+      EnvelopeFieldUpdateManyFieldMetaDropdownResponse$inboundSchema
+    ),
+  ])
+);
 /** @internal */
 export type EnvelopeFieldUpdateManyFieldMetaUnion$Outbound =
   | EnvelopeFieldUpdateManyFieldMetaSignatureResponse$Outbound
@@ -4295,20 +4609,28 @@ export const EnvelopeFieldUpdateManyFieldMetaUnion$outboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyFieldMetaUnion$Outbound,
   z.ZodTypeDef,
   EnvelopeFieldUpdateManyFieldMetaUnion
-> = z.union([
-  z.lazy(() =>
-    EnvelopeFieldUpdateManyFieldMetaSignatureResponse$outboundSchema
-  ),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaInitialsResponse$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaNameResponse$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaEmailResponse$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaDateResponse$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaTextResponse$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaNumberResponse$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaRadioResponse$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaCheckboxResponse$outboundSchema),
-  z.lazy(() => EnvelopeFieldUpdateManyFieldMetaDropdownResponse$outboundSchema),
-]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([
+    z.lazy(() =>
+      EnvelopeFieldUpdateManyFieldMetaSignatureResponse$outboundSchema
+    ),
+    z.lazy(() =>
+      EnvelopeFieldUpdateManyFieldMetaInitialsResponse$outboundSchema
+    ),
+    z.lazy(() => EnvelopeFieldUpdateManyFieldMetaNameResponse$outboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyFieldMetaEmailResponse$outboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyFieldMetaDateResponse$outboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyFieldMetaTextResponse$outboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyFieldMetaNumberResponse$outboundSchema),
+    z.lazy(() => EnvelopeFieldUpdateManyFieldMetaRadioResponse$outboundSchema),
+    z.lazy(() =>
+      EnvelopeFieldUpdateManyFieldMetaCheckboxResponse$outboundSchema
+    ),
+    z.lazy(() =>
+      EnvelopeFieldUpdateManyFieldMetaDropdownResponse$outboundSchema
+    ),
+  ])
+);
 
 export function envelopeFieldUpdateManyFieldMetaUnionToJSON(
   envelopeFieldUpdateManyFieldMetaUnion: EnvelopeFieldUpdateManyFieldMetaUnion,
@@ -4335,22 +4657,22 @@ export const EnvelopeFieldUpdateManyDataResponse$inboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyDataResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeId: z.string(),
-  envelopeItemId: z.string(),
-  type: EnvelopeFieldUpdateManyTypeResponseEnum$inboundSchema,
-  id: z.number(),
-  secondaryId: z.string(),
-  recipientId: z.number(),
-  page: z.number(),
-  positionX: z.any().optional(),
-  positionY: z.any().optional(),
-  width: z.any().optional(),
-  height: z.any().optional(),
-  customText: z.string(),
-  inserted: z.boolean(),
-  fieldMeta: z.nullable(
-    z.union([
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    envelopeItemId: z.string(),
+    type: EnvelopeFieldUpdateManyTypeResponseEnum$inboundSchema,
+    id: z.number(),
+    secondaryId: z.string(),
+    recipientId: z.number(),
+    page: z.number(),
+    positionX: z.any().optional(),
+    positionY: z.any().optional(),
+    width: z.any().optional(),
+    height: z.any().optional(),
+    customText: z.string(),
+    inserted: z.boolean(),
+    fieldMeta: z.nullable(z.union([
       z.lazy(() =>
         EnvelopeFieldUpdateManyFieldMetaSignatureResponse$inboundSchema
       ),
@@ -4371,11 +4693,11 @@ export const EnvelopeFieldUpdateManyDataResponse$inboundSchema: z.ZodType<
       z.lazy(() =>
         EnvelopeFieldUpdateManyFieldMetaDropdownResponse$inboundSchema
       ),
-    ]),
-  ),
-  documentId: z.nullable(z.number()).optional(),
-  templateId: z.nullable(z.number()).optional(),
-});
+    ])),
+    documentId: z.nullable(z.number()).optional(),
+    templateId: z.nullable(z.number()).optional(),
+  })
+);
 /** @internal */
 export type EnvelopeFieldUpdateManyDataResponse$Outbound = {
   envelopeId: string;
@@ -4412,22 +4734,22 @@ export const EnvelopeFieldUpdateManyDataResponse$outboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyDataResponse$Outbound,
   z.ZodTypeDef,
   EnvelopeFieldUpdateManyDataResponse
-> = z.object({
-  envelopeId: z.string(),
-  envelopeItemId: z.string(),
-  type: EnvelopeFieldUpdateManyTypeResponseEnum$outboundSchema,
-  id: z.number(),
-  secondaryId: z.string(),
-  recipientId: z.number(),
-  page: z.number(),
-  positionX: z.any().optional(),
-  positionY: z.any().optional(),
-  width: z.any().optional(),
-  height: z.any().optional(),
-  customText: z.string(),
-  inserted: z.boolean(),
-  fieldMeta: z.nullable(
-    z.union([
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    envelopeItemId: z.string(),
+    type: EnvelopeFieldUpdateManyTypeResponseEnum$outboundSchema,
+    id: z.number(),
+    secondaryId: z.string(),
+    recipientId: z.number(),
+    page: z.number(),
+    positionX: z.any().optional(),
+    positionY: z.any().optional(),
+    width: z.any().optional(),
+    height: z.any().optional(),
+    customText: z.string(),
+    inserted: z.boolean(),
+    fieldMeta: z.nullable(z.union([
       z.lazy(() =>
         EnvelopeFieldUpdateManyFieldMetaSignatureResponse$outboundSchema
       ),
@@ -4452,11 +4774,11 @@ export const EnvelopeFieldUpdateManyDataResponse$outboundSchema: z.ZodType<
       z.lazy(() =>
         EnvelopeFieldUpdateManyFieldMetaDropdownResponse$outboundSchema
       ),
-    ]),
-  ),
-  documentId: z.nullable(z.number()).optional(),
-  templateId: z.nullable(z.number()).optional(),
-});
+    ])),
+    documentId: z.nullable(z.number()).optional(),
+    templateId: z.nullable(z.number()).optional(),
+  })
+);
 
 export function envelopeFieldUpdateManyDataResponseToJSON(
   envelopeFieldUpdateManyDataResponse: EnvelopeFieldUpdateManyDataResponse,
@@ -4483,11 +4805,13 @@ export const EnvelopeFieldUpdateManyResponse$inboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  data: z.array(
-    z.lazy(() => EnvelopeFieldUpdateManyDataResponse$inboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    data: z.array(
+      z.lazy(() => EnvelopeFieldUpdateManyDataResponse$inboundSchema),
+    ),
+  })
+);
 /** @internal */
 export type EnvelopeFieldUpdateManyResponse$Outbound = {
   data: Array<EnvelopeFieldUpdateManyDataResponse$Outbound>;
@@ -4498,11 +4822,13 @@ export const EnvelopeFieldUpdateManyResponse$outboundSchema: z.ZodType<
   EnvelopeFieldUpdateManyResponse$Outbound,
   z.ZodTypeDef,
   EnvelopeFieldUpdateManyResponse
-> = z.object({
-  data: z.array(
-    z.lazy(() => EnvelopeFieldUpdateManyDataResponse$outboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    data: z.array(
+      z.lazy(() => EnvelopeFieldUpdateManyDataResponse$outboundSchema),
+    ),
+  })
+);
 
 export function envelopeFieldUpdateManyResponseToJSON(
   envelopeFieldUpdateManyResponse: EnvelopeFieldUpdateManyResponse,

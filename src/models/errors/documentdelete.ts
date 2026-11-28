@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -161,9 +161,11 @@ export const DocumentDeleteInternalServerErrorIssue$inboundSchema: z.ZodType<
   DocumentDeleteInternalServerErrorIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type DocumentDeleteInternalServerErrorIssue$Outbound = {
   message: string;
@@ -174,9 +176,11 @@ export const DocumentDeleteInternalServerErrorIssue$outboundSchema: z.ZodType<
   DocumentDeleteInternalServerErrorIssue$Outbound,
   z.ZodTypeDef,
   DocumentDeleteInternalServerErrorIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function documentDeleteInternalServerErrorIssueToJSON(
   documentDeleteInternalServerErrorIssue:
@@ -204,23 +208,27 @@ export const DocumentDeleteInternalServerError$inboundSchema: z.ZodType<
   DocumentDeleteInternalServerError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => DocumentDeleteInternalServerErrorIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new DocumentDeleteInternalServerError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => DocumentDeleteInternalServerErrorIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new DocumentDeleteInternalServerError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type DocumentDeleteInternalServerError$Outbound = {
@@ -234,24 +242,28 @@ export const DocumentDeleteInternalServerError$outboundSchema: z.ZodType<
   DocumentDeleteInternalServerError$Outbound,
   z.ZodTypeDef,
   DocumentDeleteInternalServerError
-> = z.instanceof(DocumentDeleteInternalServerError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => DocumentDeleteInternalServerErrorIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(DocumentDeleteInternalServerError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => DocumentDeleteInternalServerErrorIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const DocumentDeleteForbiddenIssue$inboundSchema: z.ZodType<
   DocumentDeleteForbiddenIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type DocumentDeleteForbiddenIssue$Outbound = {
   message: string;
@@ -262,9 +274,11 @@ export const DocumentDeleteForbiddenIssue$outboundSchema: z.ZodType<
   DocumentDeleteForbiddenIssue$Outbound,
   z.ZodTypeDef,
   DocumentDeleteForbiddenIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function documentDeleteForbiddenIssueToJSON(
   documentDeleteForbiddenIssue: DocumentDeleteForbiddenIssue,
@@ -290,22 +304,26 @@ export const DocumentDeleteForbiddenError$inboundSchema: z.ZodType<
   DocumentDeleteForbiddenError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(z.lazy(() => DocumentDeleteForbiddenIssue$inboundSchema))
-    .optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new DocumentDeleteForbiddenError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(z.lazy(() => DocumentDeleteForbiddenIssue$inboundSchema))
+      .optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new DocumentDeleteForbiddenError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type DocumentDeleteForbiddenError$Outbound = {
@@ -319,23 +337,27 @@ export const DocumentDeleteForbiddenError$outboundSchema: z.ZodType<
   DocumentDeleteForbiddenError$Outbound,
   z.ZodTypeDef,
   DocumentDeleteForbiddenError
-> = z.instanceof(DocumentDeleteForbiddenError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(z.lazy(() => DocumentDeleteForbiddenIssue$outboundSchema))
-      .optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(DocumentDeleteForbiddenError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() => DocumentDeleteForbiddenIssue$outboundSchema))
+        .optional(),
+    }))
+);
 
 /** @internal */
 export const DocumentDeleteUnauthorizedIssue$inboundSchema: z.ZodType<
   DocumentDeleteUnauthorizedIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type DocumentDeleteUnauthorizedIssue$Outbound = {
   message: string;
@@ -346,9 +368,11 @@ export const DocumentDeleteUnauthorizedIssue$outboundSchema: z.ZodType<
   DocumentDeleteUnauthorizedIssue$Outbound,
   z.ZodTypeDef,
   DocumentDeleteUnauthorizedIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function documentDeleteUnauthorizedIssueToJSON(
   documentDeleteUnauthorizedIssue: DocumentDeleteUnauthorizedIssue,
@@ -374,22 +398,26 @@ export const DocumentDeleteUnauthorizedError$inboundSchema: z.ZodType<
   DocumentDeleteUnauthorizedError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(z.lazy(() => DocumentDeleteUnauthorizedIssue$inboundSchema))
-    .optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new DocumentDeleteUnauthorizedError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(z.lazy(() => DocumentDeleteUnauthorizedIssue$inboundSchema))
+      .optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new DocumentDeleteUnauthorizedError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type DocumentDeleteUnauthorizedError$Outbound = {
@@ -403,24 +431,28 @@ export const DocumentDeleteUnauthorizedError$outboundSchema: z.ZodType<
   DocumentDeleteUnauthorizedError$Outbound,
   z.ZodTypeDef,
   DocumentDeleteUnauthorizedError
-> = z.instanceof(DocumentDeleteUnauthorizedError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => DocumentDeleteUnauthorizedIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(DocumentDeleteUnauthorizedError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => DocumentDeleteUnauthorizedIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const DocumentDeleteBadRequestIssue$inboundSchema: z.ZodType<
   DocumentDeleteBadRequestIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type DocumentDeleteBadRequestIssue$Outbound = {
   message: string;
@@ -431,9 +463,11 @@ export const DocumentDeleteBadRequestIssue$outboundSchema: z.ZodType<
   DocumentDeleteBadRequestIssue$Outbound,
   z.ZodTypeDef,
   DocumentDeleteBadRequestIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function documentDeleteBadRequestIssueToJSON(
   documentDeleteBadRequestIssue: DocumentDeleteBadRequestIssue,
@@ -459,22 +493,26 @@ export const DocumentDeleteBadRequestError$inboundSchema: z.ZodType<
   DocumentDeleteBadRequestError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(z.lazy(() => DocumentDeleteBadRequestIssue$inboundSchema))
-    .optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new DocumentDeleteBadRequestError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(z.lazy(() => DocumentDeleteBadRequestIssue$inboundSchema))
+      .optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new DocumentDeleteBadRequestError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type DocumentDeleteBadRequestError$Outbound = {
@@ -488,11 +526,14 @@ export const DocumentDeleteBadRequestError$outboundSchema: z.ZodType<
   DocumentDeleteBadRequestError$Outbound,
   z.ZodTypeDef,
   DocumentDeleteBadRequestError
-> = z.instanceof(DocumentDeleteBadRequestError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(z.lazy(() => DocumentDeleteBadRequestIssue$outboundSchema))
-      .optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(DocumentDeleteBadRequestError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => DocumentDeleteBadRequestIssue$outboundSchema),
+      ).optional(),
+    }))
+);

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -23,9 +23,11 @@ export const FieldDeleteTemplateFieldRequest$inboundSchema: z.ZodType<
   FieldDeleteTemplateFieldRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  fieldId: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    fieldId: z.number(),
+  })
+);
 /** @internal */
 export type FieldDeleteTemplateFieldRequest$Outbound = {
   fieldId: number;
@@ -36,9 +38,11 @@ export const FieldDeleteTemplateFieldRequest$outboundSchema: z.ZodType<
   FieldDeleteTemplateFieldRequest$Outbound,
   z.ZodTypeDef,
   FieldDeleteTemplateFieldRequest
-> = z.object({
-  fieldId: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    fieldId: z.number(),
+  })
+);
 
 export function fieldDeleteTemplateFieldRequestToJSON(
   fieldDeleteTemplateFieldRequest: FieldDeleteTemplateFieldRequest,
@@ -64,9 +68,11 @@ export const FieldDeleteTemplateFieldResponse$inboundSchema: z.ZodType<
   FieldDeleteTemplateFieldResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  success: z.boolean(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    success: z.boolean(),
+  })
+);
 /** @internal */
 export type FieldDeleteTemplateFieldResponse$Outbound = {
   success: boolean;
@@ -77,9 +83,11 @@ export const FieldDeleteTemplateFieldResponse$outboundSchema: z.ZodType<
   FieldDeleteTemplateFieldResponse$Outbound,
   z.ZodTypeDef,
   FieldDeleteTemplateFieldResponse
-> = z.object({
-  success: z.boolean(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    success: z.boolean(),
+  })
+);
 
 export function fieldDeleteTemplateFieldResponseToJSON(
   fieldDeleteTemplateFieldResponse: FieldDeleteTemplateFieldResponse,

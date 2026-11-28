@@ -6,10 +6,13 @@
 import { EnvelopeAuditLogFindData30 } from "@documenso/sdk-typescript/models/operations";
 
 let value: EnvelopeAuditLogFindData30 = {
-  fieldId: "<id>",
-  fieldRecipientEmail: "<value>",
-  fieldRecipientId: 4579.34,
-  fieldType: "<value>",
+  contentId: "<id>",
+  contentType: "<value>",
+  envelopeItemId: "<id>",
+  contentMeta: {
+    "key": "<value>",
+  },
+  dataContentId: "<id>",
 };
 ```
 
@@ -17,7 +20,8 @@ let value: EnvelopeAuditLogFindData30 = {
 
 | Field                 | Type                  | Required              | Description           |
 | --------------------- | --------------------- | --------------------- | --------------------- |
-| `fieldId`             | *string*              | :heavy_check_mark:    | N/A                   |
-| `fieldRecipientEmail` | *string*              | :heavy_check_mark:    | N/A                   |
-| `fieldRecipientId`    | *number*              | :heavy_check_mark:    | N/A                   |
-| `fieldType`           | *string*              | :heavy_check_mark:    | N/A                   |
+| `contentId`           | *string*              | :heavy_check_mark:    | N/A                   |
+| `contentType`         | *string*              | :heavy_check_mark:    | N/A                   |
+| `envelopeItemId`      | *string*              | :heavy_check_mark:    | N/A                   |
+| `contentMeta`         | Record<string, *any*> | :heavy_check_mark:    | N/A                   |
+| `dataContentId`       | *string*              | :heavy_check_mark:    | N/A                   |

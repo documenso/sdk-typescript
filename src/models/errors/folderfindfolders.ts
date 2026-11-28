@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -198,9 +198,11 @@ export const FolderFindFoldersInternalServerErrorIssue$inboundSchema: z.ZodType<
   FolderFindFoldersInternalServerErrorIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type FolderFindFoldersInternalServerErrorIssue$Outbound = {
   message: string;
@@ -212,9 +214,11 @@ export const FolderFindFoldersInternalServerErrorIssue$outboundSchema:
     FolderFindFoldersInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
     FolderFindFoldersInternalServerErrorIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function folderFindFoldersInternalServerErrorIssueToJSON(
   folderFindFoldersInternalServerErrorIssue:
@@ -247,23 +251,27 @@ export const FolderFindFoldersInternalServerError$inboundSchema: z.ZodType<
   FolderFindFoldersInternalServerError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => FolderFindFoldersInternalServerErrorIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new FolderFindFoldersInternalServerError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => FolderFindFoldersInternalServerErrorIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new FolderFindFoldersInternalServerError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type FolderFindFoldersInternalServerError$Outbound = {
@@ -279,24 +287,28 @@ export const FolderFindFoldersInternalServerError$outboundSchema: z.ZodType<
   FolderFindFoldersInternalServerError$Outbound,
   z.ZodTypeDef,
   FolderFindFoldersInternalServerError
-> = z.instanceof(FolderFindFoldersInternalServerError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => FolderFindFoldersInternalServerErrorIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(FolderFindFoldersInternalServerError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => FolderFindFoldersInternalServerErrorIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const FolderFindFoldersNotFoundIssue$inboundSchema: z.ZodType<
   FolderFindFoldersNotFoundIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type FolderFindFoldersNotFoundIssue$Outbound = {
   message: string;
@@ -307,9 +319,11 @@ export const FolderFindFoldersNotFoundIssue$outboundSchema: z.ZodType<
   FolderFindFoldersNotFoundIssue$Outbound,
   z.ZodTypeDef,
   FolderFindFoldersNotFoundIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function folderFindFoldersNotFoundIssueToJSON(
   folderFindFoldersNotFoundIssue: FolderFindFoldersNotFoundIssue,
@@ -335,22 +349,26 @@ export const FolderFindFoldersNotFoundError$inboundSchema: z.ZodType<
   FolderFindFoldersNotFoundError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(z.lazy(() => FolderFindFoldersNotFoundIssue$inboundSchema))
-    .optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new FolderFindFoldersNotFoundError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(z.lazy(() => FolderFindFoldersNotFoundIssue$inboundSchema))
+      .optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new FolderFindFoldersNotFoundError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type FolderFindFoldersNotFoundError$Outbound = {
@@ -364,23 +382,28 @@ export const FolderFindFoldersNotFoundError$outboundSchema: z.ZodType<
   FolderFindFoldersNotFoundError$Outbound,
   z.ZodTypeDef,
   FolderFindFoldersNotFoundError
-> = z.instanceof(FolderFindFoldersNotFoundError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(z.lazy(() => FolderFindFoldersNotFoundIssue$outboundSchema))
-      .optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(FolderFindFoldersNotFoundError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => FolderFindFoldersNotFoundIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const FolderFindFoldersForbiddenIssue$inboundSchema: z.ZodType<
   FolderFindFoldersForbiddenIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type FolderFindFoldersForbiddenIssue$Outbound = {
   message: string;
@@ -391,9 +414,11 @@ export const FolderFindFoldersForbiddenIssue$outboundSchema: z.ZodType<
   FolderFindFoldersForbiddenIssue$Outbound,
   z.ZodTypeDef,
   FolderFindFoldersForbiddenIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function folderFindFoldersForbiddenIssueToJSON(
   folderFindFoldersForbiddenIssue: FolderFindFoldersForbiddenIssue,
@@ -419,22 +444,26 @@ export const FolderFindFoldersForbiddenError$inboundSchema: z.ZodType<
   FolderFindFoldersForbiddenError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(z.lazy(() => FolderFindFoldersForbiddenIssue$inboundSchema))
-    .optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new FolderFindFoldersForbiddenError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(z.lazy(() => FolderFindFoldersForbiddenIssue$inboundSchema))
+      .optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new FolderFindFoldersForbiddenError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type FolderFindFoldersForbiddenError$Outbound = {
@@ -448,24 +477,28 @@ export const FolderFindFoldersForbiddenError$outboundSchema: z.ZodType<
   FolderFindFoldersForbiddenError$Outbound,
   z.ZodTypeDef,
   FolderFindFoldersForbiddenError
-> = z.instanceof(FolderFindFoldersForbiddenError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => FolderFindFoldersForbiddenIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(FolderFindFoldersForbiddenError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => FolderFindFoldersForbiddenIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const FolderFindFoldersUnauthorizedIssue$inboundSchema: z.ZodType<
   FolderFindFoldersUnauthorizedIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type FolderFindFoldersUnauthorizedIssue$Outbound = {
   message: string;
@@ -476,9 +509,11 @@ export const FolderFindFoldersUnauthorizedIssue$outboundSchema: z.ZodType<
   FolderFindFoldersUnauthorizedIssue$Outbound,
   z.ZodTypeDef,
   FolderFindFoldersUnauthorizedIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function folderFindFoldersUnauthorizedIssueToJSON(
   folderFindFoldersUnauthorizedIssue: FolderFindFoldersUnauthorizedIssue,
@@ -505,23 +540,27 @@ export const FolderFindFoldersUnauthorizedError$inboundSchema: z.ZodType<
   FolderFindFoldersUnauthorizedError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => FolderFindFoldersUnauthorizedIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new FolderFindFoldersUnauthorizedError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => FolderFindFoldersUnauthorizedIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new FolderFindFoldersUnauthorizedError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type FolderFindFoldersUnauthorizedError$Outbound = {
@@ -535,24 +574,28 @@ export const FolderFindFoldersUnauthorizedError$outboundSchema: z.ZodType<
   FolderFindFoldersUnauthorizedError$Outbound,
   z.ZodTypeDef,
   FolderFindFoldersUnauthorizedError
-> = z.instanceof(FolderFindFoldersUnauthorizedError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => FolderFindFoldersUnauthorizedIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(FolderFindFoldersUnauthorizedError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => FolderFindFoldersUnauthorizedIssue$outboundSchema),
+      ).optional(),
+    }))
+);
 
 /** @internal */
 export const FolderFindFoldersBadRequestIssue$inboundSchema: z.ZodType<
   FolderFindFoldersBadRequestIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type FolderFindFoldersBadRequestIssue$Outbound = {
   message: string;
@@ -563,9 +606,11 @@ export const FolderFindFoldersBadRequestIssue$outboundSchema: z.ZodType<
   FolderFindFoldersBadRequestIssue$Outbound,
   z.ZodTypeDef,
   FolderFindFoldersBadRequestIssue
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 
 export function folderFindFoldersBadRequestIssueToJSON(
   folderFindFoldersBadRequestIssue: FolderFindFoldersBadRequestIssue,
@@ -591,22 +636,27 @@ export const FolderFindFoldersBadRequestError$inboundSchema: z.ZodType<
   FolderFindFoldersBadRequestError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(z.lazy(() => FolderFindFoldersBadRequestIssue$inboundSchema))
-    .optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new FolderFindFoldersBadRequestError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => FolderFindFoldersBadRequestIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new FolderFindFoldersBadRequestError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type FolderFindFoldersBadRequestError$Outbound = {
@@ -620,12 +670,14 @@ export const FolderFindFoldersBadRequestError$outboundSchema: z.ZodType<
   FolderFindFoldersBadRequestError$Outbound,
   z.ZodTypeDef,
   FolderFindFoldersBadRequestError
-> = z.instanceof(FolderFindFoldersBadRequestError)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => FolderFindFoldersBadRequestIssue$outboundSchema),
-    ).optional(),
-  }));
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.instanceof(FolderFindFoldersBadRequestError)
+    .transform(v => v.data$)
+    .pipe(z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() => FolderFindFoldersBadRequestIssue$outboundSchema),
+      ).optional(),
+    }))
+);

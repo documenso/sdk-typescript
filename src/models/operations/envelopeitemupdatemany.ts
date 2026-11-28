@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -37,11 +37,13 @@ export const EnvelopeItemUpdateManyDataRequest$inboundSchema: z.ZodType<
   EnvelopeItemUpdateManyDataRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeItemId: z.string(),
-  order: z.number().int().optional(),
-  title: z.string().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeItemId: z.string(),
+    order: z.number().int().optional(),
+    title: z.string().optional(),
+  })
+);
 /** @internal */
 export type EnvelopeItemUpdateManyDataRequest$Outbound = {
   envelopeItemId: string;
@@ -54,11 +56,13 @@ export const EnvelopeItemUpdateManyDataRequest$outboundSchema: z.ZodType<
   EnvelopeItemUpdateManyDataRequest$Outbound,
   z.ZodTypeDef,
   EnvelopeItemUpdateManyDataRequest
-> = z.object({
-  envelopeItemId: z.string(),
-  order: z.number().int().optional(),
-  title: z.string().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeItemId: z.string(),
+    order: z.number().int().optional(),
+    title: z.string().optional(),
+  })
+);
 
 export function envelopeItemUpdateManyDataRequestToJSON(
   envelopeItemUpdateManyDataRequest: EnvelopeItemUpdateManyDataRequest,
@@ -84,10 +88,14 @@ export const EnvelopeItemUpdateManyRequest$inboundSchema: z.ZodType<
   EnvelopeItemUpdateManyRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeId: z.string(),
-  data: z.array(z.lazy(() => EnvelopeItemUpdateManyDataRequest$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    data: z.array(
+      z.lazy(() => EnvelopeItemUpdateManyDataRequest$inboundSchema),
+    ),
+  })
+);
 /** @internal */
 export type EnvelopeItemUpdateManyRequest$Outbound = {
   envelopeId: string;
@@ -99,10 +107,14 @@ export const EnvelopeItemUpdateManyRequest$outboundSchema: z.ZodType<
   EnvelopeItemUpdateManyRequest$Outbound,
   z.ZodTypeDef,
   EnvelopeItemUpdateManyRequest
-> = z.object({
-  envelopeId: z.string(),
-  data: z.array(z.lazy(() => EnvelopeItemUpdateManyDataRequest$outboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    data: z.array(
+      z.lazy(() => EnvelopeItemUpdateManyDataRequest$outboundSchema),
+    ),
+  })
+);
 
 export function envelopeItemUpdateManyRequestToJSON(
   envelopeItemUpdateManyRequest: EnvelopeItemUpdateManyRequest,
@@ -128,12 +140,14 @@ export const EnvelopeItemUpdateManyDataResponse$inboundSchema: z.ZodType<
   EnvelopeItemUpdateManyDataResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.string(),
-  order: z.number(),
-  title: z.string(),
-  envelopeId: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    order: z.number(),
+    title: z.string(),
+    envelopeId: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeItemUpdateManyDataResponse$Outbound = {
   id: string;
@@ -147,12 +161,14 @@ export const EnvelopeItemUpdateManyDataResponse$outboundSchema: z.ZodType<
   EnvelopeItemUpdateManyDataResponse$Outbound,
   z.ZodTypeDef,
   EnvelopeItemUpdateManyDataResponse
-> = z.object({
-  id: z.string(),
-  order: z.number(),
-  title: z.string(),
-  envelopeId: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+    order: z.number(),
+    title: z.string(),
+    envelopeId: z.string(),
+  })
+);
 
 export function envelopeItemUpdateManyDataResponseToJSON(
   envelopeItemUpdateManyDataResponse: EnvelopeItemUpdateManyDataResponse,
@@ -179,9 +195,13 @@ export const EnvelopeItemUpdateManyResponse$inboundSchema: z.ZodType<
   EnvelopeItemUpdateManyResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  data: z.array(z.lazy(() => EnvelopeItemUpdateManyDataResponse$inboundSchema)),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    data: z.array(
+      z.lazy(() => EnvelopeItemUpdateManyDataResponse$inboundSchema),
+    ),
+  })
+);
 /** @internal */
 export type EnvelopeItemUpdateManyResponse$Outbound = {
   data: Array<EnvelopeItemUpdateManyDataResponse$Outbound>;
@@ -192,11 +212,13 @@ export const EnvelopeItemUpdateManyResponse$outboundSchema: z.ZodType<
   EnvelopeItemUpdateManyResponse$Outbound,
   z.ZodTypeDef,
   EnvelopeItemUpdateManyResponse
-> = z.object({
-  data: z.array(
-    z.lazy(() => EnvelopeItemUpdateManyDataResponse$outboundSchema),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    data: z.array(
+      z.lazy(() => EnvelopeItemUpdateManyDataResponse$outboundSchema),
+    ),
+  })
+);
 
 export function envelopeItemUpdateManyResponseToJSON(
   envelopeItemUpdateManyResponse: EnvelopeItemUpdateManyResponse,

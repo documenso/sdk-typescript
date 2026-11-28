@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -409,6 +409,14 @@ export type TemplateFindTemplatesTextAlign1 = ClosedEnum<
   typeof TemplateFindTemplatesTextAlign1
 >;
 
+export const TemplateFindTemplatesFontFamily = {
+  SansSerif: "sans-serif",
+  Handwriting: "handwriting",
+} as const;
+export type TemplateFindTemplatesFontFamily = ClosedEnum<
+  typeof TemplateFindTemplatesFontFamily
+>;
+
 export type TemplateFindTemplatesFieldMetaInitials = {
   label?: string | undefined;
   placeholder?: string | undefined;
@@ -418,6 +426,7 @@ export type TemplateFindTemplatesFieldMetaInitials = {
   overflow?: TemplateFindTemplatesOverflow2 | undefined;
   type: "initials";
   textAlign?: TemplateFindTemplatesTextAlign1 | undefined;
+  fontFamily?: TemplateFindTemplatesFontFamily | undefined;
 };
 
 export const TemplateFindTemplatesOverflow1 = {
@@ -628,7 +637,9 @@ export type TemplateFindTemplatesResponse = {
 /** @internal */
 export const TemplateFindTemplatesQueryParamType$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesQueryParamType
-> = z.nativeEnum(TemplateFindTemplatesQueryParamType);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesQueryParamType)
+);
 /** @internal */
 export const TemplateFindTemplatesQueryParamType$outboundSchema:
   z.ZodNativeEnum<typeof TemplateFindTemplatesQueryParamType> =
@@ -639,13 +650,15 @@ export const TemplateFindTemplatesRequest$inboundSchema: z.ZodType<
   TemplateFindTemplatesRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  query: z.string().optional(),
-  page: z.number().optional(),
-  perPage: z.number().optional(),
-  type: TemplateFindTemplatesQueryParamType$inboundSchema.optional(),
-  folderId: z.string().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    query: z.string().optional(),
+    page: z.number().optional(),
+    perPage: z.number().optional(),
+    type: TemplateFindTemplatesQueryParamType$inboundSchema.optional(),
+    folderId: z.string().optional(),
+  })
+);
 /** @internal */
 export type TemplateFindTemplatesRequest$Outbound = {
   query?: string | undefined;
@@ -660,13 +673,15 @@ export const TemplateFindTemplatesRequest$outboundSchema: z.ZodType<
   TemplateFindTemplatesRequest$Outbound,
   z.ZodTypeDef,
   TemplateFindTemplatesRequest
-> = z.object({
-  query: z.string().optional(),
-  page: z.number().optional(),
-  perPage: z.number().optional(),
-  type: TemplateFindTemplatesQueryParamType$outboundSchema.optional(),
-  folderId: z.string().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    query: z.string().optional(),
+    page: z.number().optional(),
+    perPage: z.number().optional(),
+    type: TemplateFindTemplatesQueryParamType$outboundSchema.optional(),
+    folderId: z.string().optional(),
+  })
+);
 
 export function templateFindTemplatesRequestToJSON(
   templateFindTemplatesRequest: TemplateFindTemplatesRequest,
@@ -690,7 +705,9 @@ export function templateFindTemplatesRequestFromJSON(
 /** @internal */
 export const TemplateFindTemplatesDataTypeEnum$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesDataTypeEnum
-> = z.nativeEnum(TemplateFindTemplatesDataTypeEnum);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesDataTypeEnum)
+);
 /** @internal */
 export const TemplateFindTemplatesDataTypeEnum$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesDataTypeEnum
@@ -699,7 +716,9 @@ export const TemplateFindTemplatesDataTypeEnum$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const TemplateFindTemplatesVisibility$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesVisibility
-> = z.nativeEnum(TemplateFindTemplatesVisibility);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesVisibility)
+);
 /** @internal */
 export const TemplateFindTemplatesVisibility$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesVisibility
@@ -707,9 +726,10 @@ export const TemplateFindTemplatesVisibility$outboundSchema: z.ZodNativeEnum<
 
 /** @internal */
 export const TemplateFindTemplatesGlobalAccessAuth$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateFindTemplatesGlobalAccessAuth> = z.nativeEnum(
-    TemplateFindTemplatesGlobalAccessAuth,
-  );
+  z.ZodNativeEnum<typeof TemplateFindTemplatesGlobalAccessAuth> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateFindTemplatesGlobalAccessAuth)
+    );
 /** @internal */
 export const TemplateFindTemplatesGlobalAccessAuth$outboundSchema:
   z.ZodNativeEnum<typeof TemplateFindTemplatesGlobalAccessAuth> =
@@ -717,9 +737,10 @@ export const TemplateFindTemplatesGlobalAccessAuth$outboundSchema:
 
 /** @internal */
 export const TemplateFindTemplatesGlobalActionAuth$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateFindTemplatesGlobalActionAuth> = z.nativeEnum(
-    TemplateFindTemplatesGlobalActionAuth,
-  );
+  z.ZodNativeEnum<typeof TemplateFindTemplatesGlobalActionAuth> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateFindTemplatesGlobalActionAuth)
+    );
 /** @internal */
 export const TemplateFindTemplatesGlobalActionAuth$outboundSchema:
   z.ZodNativeEnum<typeof TemplateFindTemplatesGlobalActionAuth> =
@@ -730,14 +751,16 @@ export const TemplateFindTemplatesAuthOptions$inboundSchema: z.ZodType<
   TemplateFindTemplatesAuthOptions,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  globalAccessAuth: z.array(
-    TemplateFindTemplatesGlobalAccessAuth$inboundSchema,
-  ),
-  globalActionAuth: z.array(
-    TemplateFindTemplatesGlobalActionAuth$inboundSchema,
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    globalAccessAuth: z.array(
+      TemplateFindTemplatesGlobalAccessAuth$inboundSchema,
+    ),
+    globalActionAuth: z.array(
+      TemplateFindTemplatesGlobalActionAuth$inboundSchema,
+    ),
+  })
+);
 /** @internal */
 export type TemplateFindTemplatesAuthOptions$Outbound = {
   globalAccessAuth: Array<string>;
@@ -749,14 +772,16 @@ export const TemplateFindTemplatesAuthOptions$outboundSchema: z.ZodType<
   TemplateFindTemplatesAuthOptions$Outbound,
   z.ZodTypeDef,
   TemplateFindTemplatesAuthOptions
-> = z.object({
-  globalAccessAuth: z.array(
-    TemplateFindTemplatesGlobalAccessAuth$outboundSchema,
-  ),
-  globalActionAuth: z.array(
-    TemplateFindTemplatesGlobalActionAuth$outboundSchema,
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    globalAccessAuth: z.array(
+      TemplateFindTemplatesGlobalAccessAuth$outboundSchema,
+    ),
+    globalActionAuth: z.array(
+      TemplateFindTemplatesGlobalActionAuth$outboundSchema,
+    ),
+  })
+);
 
 export function templateFindTemplatesAuthOptionsToJSON(
   templateFindTemplatesAuthOptions: TemplateFindTemplatesAuthOptions,
@@ -782,11 +807,13 @@ export const TemplateFindTemplatesTeam$inboundSchema: z.ZodType<
   TemplateFindTemplatesTeam,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.number(),
-  url: z.string(),
-  name: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    url: z.string(),
+    name: z.string(),
+  })
+);
 /** @internal */
 export type TemplateFindTemplatesTeam$Outbound = {
   id: number;
@@ -799,11 +826,13 @@ export const TemplateFindTemplatesTeam$outboundSchema: z.ZodType<
   TemplateFindTemplatesTeam$Outbound,
   z.ZodTypeDef,
   TemplateFindTemplatesTeam
-> = z.object({
-  id: z.number(),
-  url: z.string(),
-  name: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    url: z.string(),
+    name: z.string(),
+  })
+);
 
 export function templateFindTemplatesTeamToJSON(
   templateFindTemplatesTeam: TemplateFindTemplatesTeam,
@@ -825,7 +854,9 @@ export function templateFindTemplatesTeamFromJSON(
 /** @internal */
 export const TemplateFindTemplatesFieldTypeEnum$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesFieldTypeEnum
-> = z.nativeEnum(TemplateFindTemplatesFieldTypeEnum);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesFieldTypeEnum)
+);
 /** @internal */
 export const TemplateFindTemplatesFieldTypeEnum$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesFieldTypeEnum
@@ -834,7 +865,9 @@ export const TemplateFindTemplatesFieldTypeEnum$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const TemplateFindTemplatesOverflow10$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesOverflow10
-> = z.nativeEnum(TemplateFindTemplatesOverflow10);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesOverflow10)
+);
 /** @internal */
 export const TemplateFindTemplatesOverflow10$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesOverflow10
@@ -845,9 +878,11 @@ export const TemplateFindTemplatesValue3$inboundSchema: z.ZodType<
   TemplateFindTemplatesValue3,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    value: z.string(),
+  })
+);
 /** @internal */
 export type TemplateFindTemplatesValue3$Outbound = {
   value: string;
@@ -858,9 +893,11 @@ export const TemplateFindTemplatesValue3$outboundSchema: z.ZodType<
   TemplateFindTemplatesValue3$Outbound,
   z.ZodTypeDef,
   TemplateFindTemplatesValue3
-> = z.object({
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    value: z.string(),
+  })
+);
 
 export function templateFindTemplatesValue3ToJSON(
   templateFindTemplatesValue3: TemplateFindTemplatesValue3,
@@ -886,18 +923,20 @@ export const TemplateFindTemplatesFieldMetaDropdown$inboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMetaDropdown,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateFindTemplatesOverflow10$inboundSchema.optional(),
-  type: z.literal("dropdown"),
-  values: z.array(z.lazy(() => TemplateFindTemplatesValue3$inboundSchema))
-    .optional(),
-  defaultValue: z.string().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateFindTemplatesOverflow10$inboundSchema.optional(),
+    type: z.literal("dropdown"),
+    values: z.array(z.lazy(() => TemplateFindTemplatesValue3$inboundSchema))
+      .optional(),
+    defaultValue: z.string().optional(),
+  })
+);
 /** @internal */
 export type TemplateFindTemplatesFieldMetaDropdown$Outbound = {
   label?: string | undefined;
@@ -916,18 +955,20 @@ export const TemplateFindTemplatesFieldMetaDropdown$outboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMetaDropdown$Outbound,
   z.ZodTypeDef,
   TemplateFindTemplatesFieldMetaDropdown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateFindTemplatesOverflow10$outboundSchema.optional(),
-  type: z.literal("dropdown"),
-  values: z.array(z.lazy(() => TemplateFindTemplatesValue3$outboundSchema))
-    .optional(),
-  defaultValue: z.string().optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateFindTemplatesOverflow10$outboundSchema.optional(),
+    type: z.literal("dropdown"),
+    values: z.array(z.lazy(() => TemplateFindTemplatesValue3$outboundSchema))
+      .optional(),
+    defaultValue: z.string().optional(),
+  })
+);
 
 export function templateFindTemplatesFieldMetaDropdownToJSON(
   templateFindTemplatesFieldMetaDropdown:
@@ -953,7 +994,9 @@ export function templateFindTemplatesFieldMetaDropdownFromJSON(
 /** @internal */
 export const TemplateFindTemplatesOverflow9$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesOverflow9
-> = z.nativeEnum(TemplateFindTemplatesOverflow9);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesOverflow9)
+);
 /** @internal */
 export const TemplateFindTemplatesOverflow9$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesOverflow9
@@ -964,11 +1007,13 @@ export const TemplateFindTemplatesValue2$inboundSchema: z.ZodType<
   TemplateFindTemplatesValue2,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 /** @internal */
 export type TemplateFindTemplatesValue2$Outbound = {
   id: number;
@@ -981,11 +1026,13 @@ export const TemplateFindTemplatesValue2$outboundSchema: z.ZodType<
   TemplateFindTemplatesValue2$Outbound,
   z.ZodTypeDef,
   TemplateFindTemplatesValue2
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 
 export function templateFindTemplatesValue2ToJSON(
   templateFindTemplatesValue2: TemplateFindTemplatesValue2,
@@ -1009,7 +1056,9 @@ export function templateFindTemplatesValue2FromJSON(
 /** @internal */
 export const TemplateFindTemplatesDirection2$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesDirection2
-> = z.nativeEnum(TemplateFindTemplatesDirection2);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesDirection2)
+);
 /** @internal */
 export const TemplateFindTemplatesDirection2$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesDirection2
@@ -1020,20 +1069,24 @@ export const TemplateFindTemplatesFieldMetaCheckbox$inboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMetaCheckbox,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateFindTemplatesOverflow9$inboundSchema.optional(),
-  type: z.literal("checkbox"),
-  values: z.array(z.lazy(() => TemplateFindTemplatesValue2$inboundSchema))
-    .optional(),
-  validationRule: z.string().optional(),
-  validationLength: z.number().optional(),
-  direction: TemplateFindTemplatesDirection2$inboundSchema.default("vertical"),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateFindTemplatesOverflow9$inboundSchema.optional(),
+    type: z.literal("checkbox"),
+    values: z.array(z.lazy(() => TemplateFindTemplatesValue2$inboundSchema))
+      .optional(),
+    validationRule: z.string().optional(),
+    validationLength: z.number().optional(),
+    direction: TemplateFindTemplatesDirection2$inboundSchema.default(
+      "vertical",
+    ),
+  })
+);
 /** @internal */
 export type TemplateFindTemplatesFieldMetaCheckbox$Outbound = {
   label?: string | undefined;
@@ -1054,20 +1107,24 @@ export const TemplateFindTemplatesFieldMetaCheckbox$outboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMetaCheckbox$Outbound,
   z.ZodTypeDef,
   TemplateFindTemplatesFieldMetaCheckbox
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateFindTemplatesOverflow9$outboundSchema.optional(),
-  type: z.literal("checkbox"),
-  values: z.array(z.lazy(() => TemplateFindTemplatesValue2$outboundSchema))
-    .optional(),
-  validationRule: z.string().optional(),
-  validationLength: z.number().optional(),
-  direction: TemplateFindTemplatesDirection2$outboundSchema.default("vertical"),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateFindTemplatesOverflow9$outboundSchema.optional(),
+    type: z.literal("checkbox"),
+    values: z.array(z.lazy(() => TemplateFindTemplatesValue2$outboundSchema))
+      .optional(),
+    validationRule: z.string().optional(),
+    validationLength: z.number().optional(),
+    direction: TemplateFindTemplatesDirection2$outboundSchema.default(
+      "vertical",
+    ),
+  })
+);
 
 export function templateFindTemplatesFieldMetaCheckboxToJSON(
   templateFindTemplatesFieldMetaCheckbox:
@@ -1093,7 +1150,9 @@ export function templateFindTemplatesFieldMetaCheckboxFromJSON(
 /** @internal */
 export const TemplateFindTemplatesOverflow8$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesOverflow8
-> = z.nativeEnum(TemplateFindTemplatesOverflow8);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesOverflow8)
+);
 /** @internal */
 export const TemplateFindTemplatesOverflow8$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesOverflow8
@@ -1104,11 +1163,13 @@ export const TemplateFindTemplatesValue1$inboundSchema: z.ZodType<
   TemplateFindTemplatesValue1,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 /** @internal */
 export type TemplateFindTemplatesValue1$Outbound = {
   id: number;
@@ -1121,11 +1182,13 @@ export const TemplateFindTemplatesValue1$outboundSchema: z.ZodType<
   TemplateFindTemplatesValue1$Outbound,
   z.ZodTypeDef,
   TemplateFindTemplatesValue1
-> = z.object({
-  id: z.number(),
-  checked: z.boolean(),
-  value: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.number(),
+    checked: z.boolean(),
+    value: z.string(),
+  })
+);
 
 export function templateFindTemplatesValue1ToJSON(
   templateFindTemplatesValue1: TemplateFindTemplatesValue1,
@@ -1149,7 +1212,9 @@ export function templateFindTemplatesValue1FromJSON(
 /** @internal */
 export const TemplateFindTemplatesDirection1$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesDirection1
-> = z.nativeEnum(TemplateFindTemplatesDirection1);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesDirection1)
+);
 /** @internal */
 export const TemplateFindTemplatesDirection1$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesDirection1
@@ -1160,18 +1225,22 @@ export const TemplateFindTemplatesFieldMetaRadio$inboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMetaRadio,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateFindTemplatesOverflow8$inboundSchema.optional(),
-  type: z.literal("radio"),
-  values: z.array(z.lazy(() => TemplateFindTemplatesValue1$inboundSchema))
-    .optional(),
-  direction: TemplateFindTemplatesDirection1$inboundSchema.default("vertical"),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateFindTemplatesOverflow8$inboundSchema.optional(),
+    type: z.literal("radio"),
+    values: z.array(z.lazy(() => TemplateFindTemplatesValue1$inboundSchema))
+      .optional(),
+    direction: TemplateFindTemplatesDirection1$inboundSchema.default(
+      "vertical",
+    ),
+  })
+);
 /** @internal */
 export type TemplateFindTemplatesFieldMetaRadio$Outbound = {
   label?: string | undefined;
@@ -1190,18 +1259,22 @@ export const TemplateFindTemplatesFieldMetaRadio$outboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMetaRadio$Outbound,
   z.ZodTypeDef,
   TemplateFindTemplatesFieldMetaRadio
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateFindTemplatesOverflow8$outboundSchema.optional(),
-  type: z.literal("radio"),
-  values: z.array(z.lazy(() => TemplateFindTemplatesValue1$outboundSchema))
-    .optional(),
-  direction: TemplateFindTemplatesDirection1$outboundSchema.default("vertical"),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateFindTemplatesOverflow8$outboundSchema.optional(),
+    type: z.literal("radio"),
+    values: z.array(z.lazy(() => TemplateFindTemplatesValue1$outboundSchema))
+      .optional(),
+    direction: TemplateFindTemplatesDirection1$outboundSchema.default(
+      "vertical",
+    ),
+  })
+);
 
 export function templateFindTemplatesFieldMetaRadioToJSON(
   templateFindTemplatesFieldMetaRadio: TemplateFindTemplatesFieldMetaRadio,
@@ -1226,7 +1299,9 @@ export function templateFindTemplatesFieldMetaRadioFromJSON(
 /** @internal */
 export const TemplateFindTemplatesOverflow7$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesOverflow7
-> = z.nativeEnum(TemplateFindTemplatesOverflow7);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesOverflow7)
+);
 /** @internal */
 export const TemplateFindTemplatesOverflow7$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesOverflow7
@@ -1235,7 +1310,9 @@ export const TemplateFindTemplatesOverflow7$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const TemplateFindTemplatesTextAlign6$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesTextAlign6
-> = z.nativeEnum(TemplateFindTemplatesTextAlign6);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesTextAlign6)
+);
 /** @internal */
 export const TemplateFindTemplatesTextAlign6$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesTextAlign6
@@ -1244,7 +1321,9 @@ export const TemplateFindTemplatesTextAlign6$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const TemplateFindTemplatesVerticalAlign2$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesVerticalAlign2
-> = z.nativeEnum(TemplateFindTemplatesVerticalAlign2);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesVerticalAlign2)
+);
 /** @internal */
 export const TemplateFindTemplatesVerticalAlign2$outboundSchema:
   z.ZodNativeEnum<typeof TemplateFindTemplatesVerticalAlign2> =
@@ -1255,24 +1334,26 @@ export const TemplateFindTemplatesFieldMetaNumber$inboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMetaNumber,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateFindTemplatesOverflow7$inboundSchema.optional(),
-  type: z.literal("number"),
-  numberFormat: z.nullable(z.string()).optional(),
-  value: z.string().optional(),
-  minValue: z.nullable(z.number()).optional(),
-  maxValue: z.nullable(z.number()).optional(),
-  textAlign: TemplateFindTemplatesTextAlign6$inboundSchema.optional(),
-  lineHeight: z.nullable(z.number()).optional(),
-  letterSpacing: z.nullable(z.number()).optional(),
-  verticalAlign: z.nullable(TemplateFindTemplatesVerticalAlign2$inboundSchema)
-    .optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateFindTemplatesOverflow7$inboundSchema.optional(),
+    type: z.literal("number"),
+    numberFormat: z.nullable(z.string()).optional(),
+    value: z.string().optional(),
+    minValue: z.nullable(z.number()).optional(),
+    maxValue: z.nullable(z.number()).optional(),
+    textAlign: TemplateFindTemplatesTextAlign6$inboundSchema.optional(),
+    lineHeight: z.nullable(z.number()).optional(),
+    letterSpacing: z.nullable(z.number()).optional(),
+    verticalAlign: z.nullable(TemplateFindTemplatesVerticalAlign2$inboundSchema)
+      .optional(),
+  })
+);
 /** @internal */
 export type TemplateFindTemplatesFieldMetaNumber$Outbound = {
   label?: string | undefined;
@@ -1297,24 +1378,27 @@ export const TemplateFindTemplatesFieldMetaNumber$outboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMetaNumber$Outbound,
   z.ZodTypeDef,
   TemplateFindTemplatesFieldMetaNumber
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateFindTemplatesOverflow7$outboundSchema.optional(),
-  type: z.literal("number"),
-  numberFormat: z.nullable(z.string()).optional(),
-  value: z.string().optional(),
-  minValue: z.nullable(z.number()).optional(),
-  maxValue: z.nullable(z.number()).optional(),
-  textAlign: TemplateFindTemplatesTextAlign6$outboundSchema.optional(),
-  lineHeight: z.nullable(z.number()).optional(),
-  letterSpacing: z.nullable(z.number()).optional(),
-  verticalAlign: z.nullable(TemplateFindTemplatesVerticalAlign2$outboundSchema)
-    .optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateFindTemplatesOverflow7$outboundSchema.optional(),
+    type: z.literal("number"),
+    numberFormat: z.nullable(z.string()).optional(),
+    value: z.string().optional(),
+    minValue: z.nullable(z.number()).optional(),
+    maxValue: z.nullable(z.number()).optional(),
+    textAlign: TemplateFindTemplatesTextAlign6$outboundSchema.optional(),
+    lineHeight: z.nullable(z.number()).optional(),
+    letterSpacing: z.nullable(z.number()).optional(),
+    verticalAlign: z.nullable(
+      TemplateFindTemplatesVerticalAlign2$outboundSchema,
+    ).optional(),
+  })
+);
 
 export function templateFindTemplatesFieldMetaNumberToJSON(
   templateFindTemplatesFieldMetaNumber: TemplateFindTemplatesFieldMetaNumber,
@@ -1339,7 +1423,9 @@ export function templateFindTemplatesFieldMetaNumberFromJSON(
 /** @internal */
 export const TemplateFindTemplatesOverflow6$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesOverflow6
-> = z.nativeEnum(TemplateFindTemplatesOverflow6);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesOverflow6)
+);
 /** @internal */
 export const TemplateFindTemplatesOverflow6$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesOverflow6
@@ -1348,7 +1434,9 @@ export const TemplateFindTemplatesOverflow6$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const TemplateFindTemplatesTextAlign5$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesTextAlign5
-> = z.nativeEnum(TemplateFindTemplatesTextAlign5);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesTextAlign5)
+);
 /** @internal */
 export const TemplateFindTemplatesTextAlign5$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesTextAlign5
@@ -1357,7 +1445,9 @@ export const TemplateFindTemplatesTextAlign5$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const TemplateFindTemplatesVerticalAlign1$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesVerticalAlign1
-> = z.nativeEnum(TemplateFindTemplatesVerticalAlign1);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesVerticalAlign1)
+);
 /** @internal */
 export const TemplateFindTemplatesVerticalAlign1$outboundSchema:
   z.ZodNativeEnum<typeof TemplateFindTemplatesVerticalAlign1> =
@@ -1368,22 +1458,24 @@ export const TemplateFindTemplatesFieldMetaText$inboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMetaText,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateFindTemplatesOverflow6$inboundSchema.optional(),
-  type: z.literal("text"),
-  text: z.string().optional(),
-  characterLimit: z.number().optional(),
-  textAlign: TemplateFindTemplatesTextAlign5$inboundSchema.optional(),
-  lineHeight: z.nullable(z.number()).optional(),
-  letterSpacing: z.nullable(z.number()).optional(),
-  verticalAlign: z.nullable(TemplateFindTemplatesVerticalAlign1$inboundSchema)
-    .optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateFindTemplatesOverflow6$inboundSchema.optional(),
+    type: z.literal("text"),
+    text: z.string().optional(),
+    characterLimit: z.number().optional(),
+    textAlign: TemplateFindTemplatesTextAlign5$inboundSchema.optional(),
+    lineHeight: z.nullable(z.number()).optional(),
+    letterSpacing: z.nullable(z.number()).optional(),
+    verticalAlign: z.nullable(TemplateFindTemplatesVerticalAlign1$inboundSchema)
+      .optional(),
+  })
+);
 /** @internal */
 export type TemplateFindTemplatesFieldMetaText$Outbound = {
   label?: string | undefined;
@@ -1406,22 +1498,25 @@ export const TemplateFindTemplatesFieldMetaText$outboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMetaText$Outbound,
   z.ZodTypeDef,
   TemplateFindTemplatesFieldMetaText
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateFindTemplatesOverflow6$outboundSchema.optional(),
-  type: z.literal("text"),
-  text: z.string().optional(),
-  characterLimit: z.number().optional(),
-  textAlign: TemplateFindTemplatesTextAlign5$outboundSchema.optional(),
-  lineHeight: z.nullable(z.number()).optional(),
-  letterSpacing: z.nullable(z.number()).optional(),
-  verticalAlign: z.nullable(TemplateFindTemplatesVerticalAlign1$outboundSchema)
-    .optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateFindTemplatesOverflow6$outboundSchema.optional(),
+    type: z.literal("text"),
+    text: z.string().optional(),
+    characterLimit: z.number().optional(),
+    textAlign: TemplateFindTemplatesTextAlign5$outboundSchema.optional(),
+    lineHeight: z.nullable(z.number()).optional(),
+    letterSpacing: z.nullable(z.number()).optional(),
+    verticalAlign: z.nullable(
+      TemplateFindTemplatesVerticalAlign1$outboundSchema,
+    ).optional(),
+  })
+);
 
 export function templateFindTemplatesFieldMetaTextToJSON(
   templateFindTemplatesFieldMetaText: TemplateFindTemplatesFieldMetaText,
@@ -1446,7 +1541,9 @@ export function templateFindTemplatesFieldMetaTextFromJSON(
 /** @internal */
 export const TemplateFindTemplatesOverflow5$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesOverflow5
-> = z.nativeEnum(TemplateFindTemplatesOverflow5);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesOverflow5)
+);
 /** @internal */
 export const TemplateFindTemplatesOverflow5$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesOverflow5
@@ -1455,7 +1552,9 @@ export const TemplateFindTemplatesOverflow5$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const TemplateFindTemplatesTextAlign4$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesTextAlign4
-> = z.nativeEnum(TemplateFindTemplatesTextAlign4);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesTextAlign4)
+);
 /** @internal */
 export const TemplateFindTemplatesTextAlign4$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesTextAlign4
@@ -1466,16 +1565,18 @@ export const TemplateFindTemplatesFieldMetaDate$inboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMetaDate,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateFindTemplatesOverflow5$inboundSchema.default("auto"),
-  type: z.literal("date"),
-  textAlign: TemplateFindTemplatesTextAlign4$inboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateFindTemplatesOverflow5$inboundSchema.default("auto"),
+    type: z.literal("date"),
+    textAlign: TemplateFindTemplatesTextAlign4$inboundSchema.optional(),
+  })
+);
 /** @internal */
 export type TemplateFindTemplatesFieldMetaDate$Outbound = {
   label?: string | undefined;
@@ -1493,16 +1594,18 @@ export const TemplateFindTemplatesFieldMetaDate$outboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMetaDate$Outbound,
   z.ZodTypeDef,
   TemplateFindTemplatesFieldMetaDate
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateFindTemplatesOverflow5$outboundSchema.default("auto"),
-  type: z.literal("date"),
-  textAlign: TemplateFindTemplatesTextAlign4$outboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateFindTemplatesOverflow5$outboundSchema.default("auto"),
+    type: z.literal("date"),
+    textAlign: TemplateFindTemplatesTextAlign4$outboundSchema.optional(),
+  })
+);
 
 export function templateFindTemplatesFieldMetaDateToJSON(
   templateFindTemplatesFieldMetaDate: TemplateFindTemplatesFieldMetaDate,
@@ -1527,7 +1630,9 @@ export function templateFindTemplatesFieldMetaDateFromJSON(
 /** @internal */
 export const TemplateFindTemplatesOverflow4$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesOverflow4
-> = z.nativeEnum(TemplateFindTemplatesOverflow4);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesOverflow4)
+);
 /** @internal */
 export const TemplateFindTemplatesOverflow4$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesOverflow4
@@ -1536,7 +1641,9 @@ export const TemplateFindTemplatesOverflow4$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const TemplateFindTemplatesTextAlign3$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesTextAlign3
-> = z.nativeEnum(TemplateFindTemplatesTextAlign3);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesTextAlign3)
+);
 /** @internal */
 export const TemplateFindTemplatesTextAlign3$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesTextAlign3
@@ -1547,16 +1654,18 @@ export const TemplateFindTemplatesFieldMetaEmail$inboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMetaEmail,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateFindTemplatesOverflow4$inboundSchema.default("auto"),
-  type: z.literal("email"),
-  textAlign: TemplateFindTemplatesTextAlign3$inboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateFindTemplatesOverflow4$inboundSchema.default("auto"),
+    type: z.literal("email"),
+    textAlign: TemplateFindTemplatesTextAlign3$inboundSchema.optional(),
+  })
+);
 /** @internal */
 export type TemplateFindTemplatesFieldMetaEmail$Outbound = {
   label?: string | undefined;
@@ -1574,16 +1683,18 @@ export const TemplateFindTemplatesFieldMetaEmail$outboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMetaEmail$Outbound,
   z.ZodTypeDef,
   TemplateFindTemplatesFieldMetaEmail
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateFindTemplatesOverflow4$outboundSchema.default("auto"),
-  type: z.literal("email"),
-  textAlign: TemplateFindTemplatesTextAlign3$outboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateFindTemplatesOverflow4$outboundSchema.default("auto"),
+    type: z.literal("email"),
+    textAlign: TemplateFindTemplatesTextAlign3$outboundSchema.optional(),
+  })
+);
 
 export function templateFindTemplatesFieldMetaEmailToJSON(
   templateFindTemplatesFieldMetaEmail: TemplateFindTemplatesFieldMetaEmail,
@@ -1608,7 +1719,9 @@ export function templateFindTemplatesFieldMetaEmailFromJSON(
 /** @internal */
 export const TemplateFindTemplatesOverflow3$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesOverflow3
-> = z.nativeEnum(TemplateFindTemplatesOverflow3);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesOverflow3)
+);
 /** @internal */
 export const TemplateFindTemplatesOverflow3$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesOverflow3
@@ -1617,7 +1730,9 @@ export const TemplateFindTemplatesOverflow3$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const TemplateFindTemplatesTextAlign2$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesTextAlign2
-> = z.nativeEnum(TemplateFindTemplatesTextAlign2);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesTextAlign2)
+);
 /** @internal */
 export const TemplateFindTemplatesTextAlign2$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesTextAlign2
@@ -1628,16 +1743,18 @@ export const TemplateFindTemplatesFieldMetaName$inboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMetaName,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateFindTemplatesOverflow3$inboundSchema.optional(),
-  type: z.literal("name"),
-  textAlign: TemplateFindTemplatesTextAlign2$inboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateFindTemplatesOverflow3$inboundSchema.optional(),
+    type: z.literal("name"),
+    textAlign: TemplateFindTemplatesTextAlign2$inboundSchema.optional(),
+  })
+);
 /** @internal */
 export type TemplateFindTemplatesFieldMetaName$Outbound = {
   label?: string | undefined;
@@ -1655,16 +1772,18 @@ export const TemplateFindTemplatesFieldMetaName$outboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMetaName$Outbound,
   z.ZodTypeDef,
   TemplateFindTemplatesFieldMetaName
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateFindTemplatesOverflow3$outboundSchema.optional(),
-  type: z.literal("name"),
-  textAlign: TemplateFindTemplatesTextAlign2$outboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateFindTemplatesOverflow3$outboundSchema.optional(),
+    type: z.literal("name"),
+    textAlign: TemplateFindTemplatesTextAlign2$outboundSchema.optional(),
+  })
+);
 
 export function templateFindTemplatesFieldMetaNameToJSON(
   templateFindTemplatesFieldMetaName: TemplateFindTemplatesFieldMetaName,
@@ -1689,7 +1808,9 @@ export function templateFindTemplatesFieldMetaNameFromJSON(
 /** @internal */
 export const TemplateFindTemplatesOverflow2$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesOverflow2
-> = z.nativeEnum(TemplateFindTemplatesOverflow2);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesOverflow2)
+);
 /** @internal */
 export const TemplateFindTemplatesOverflow2$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesOverflow2
@@ -1698,27 +1819,43 @@ export const TemplateFindTemplatesOverflow2$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const TemplateFindTemplatesTextAlign1$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesTextAlign1
-> = z.nativeEnum(TemplateFindTemplatesTextAlign1);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesTextAlign1)
+);
 /** @internal */
 export const TemplateFindTemplatesTextAlign1$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesTextAlign1
 > = TemplateFindTemplatesTextAlign1$inboundSchema;
 
 /** @internal */
+export const TemplateFindTemplatesFontFamily$inboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesFontFamily
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesFontFamily)
+);
+/** @internal */
+export const TemplateFindTemplatesFontFamily$outboundSchema: z.ZodNativeEnum<
+  typeof TemplateFindTemplatesFontFamily
+> = TemplateFindTemplatesFontFamily$inboundSchema;
+
+/** @internal */
 export const TemplateFindTemplatesFieldMetaInitials$inboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMetaInitials,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateFindTemplatesOverflow2$inboundSchema.optional(),
-  type: z.literal("initials"),
-  textAlign: TemplateFindTemplatesTextAlign1$inboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateFindTemplatesOverflow2$inboundSchema.optional(),
+    type: z.literal("initials"),
+    textAlign: TemplateFindTemplatesTextAlign1$inboundSchema.optional(),
+    fontFamily: TemplateFindTemplatesFontFamily$inboundSchema.optional(),
+  })
+);
 /** @internal */
 export type TemplateFindTemplatesFieldMetaInitials$Outbound = {
   label?: string | undefined;
@@ -1729,6 +1866,7 @@ export type TemplateFindTemplatesFieldMetaInitials$Outbound = {
   overflow?: string | undefined;
   type: "initials";
   textAlign?: string | undefined;
+  fontFamily?: string | undefined;
 };
 
 /** @internal */
@@ -1736,16 +1874,19 @@ export const TemplateFindTemplatesFieldMetaInitials$outboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMetaInitials$Outbound,
   z.ZodTypeDef,
   TemplateFindTemplatesFieldMetaInitials
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateFindTemplatesOverflow2$outboundSchema.optional(),
-  type: z.literal("initials"),
-  textAlign: TemplateFindTemplatesTextAlign1$outboundSchema.optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateFindTemplatesOverflow2$outboundSchema.optional(),
+    type: z.literal("initials"),
+    textAlign: TemplateFindTemplatesTextAlign1$outboundSchema.optional(),
+    fontFamily: TemplateFindTemplatesFontFamily$outboundSchema.optional(),
+  })
+);
 
 export function templateFindTemplatesFieldMetaInitialsToJSON(
   templateFindTemplatesFieldMetaInitials:
@@ -1771,7 +1912,9 @@ export function templateFindTemplatesFieldMetaInitialsFromJSON(
 /** @internal */
 export const TemplateFindTemplatesOverflow1$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesOverflow1
-> = z.nativeEnum(TemplateFindTemplatesOverflow1);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesOverflow1)
+);
 /** @internal */
 export const TemplateFindTemplatesOverflow1$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesOverflow1
@@ -1782,15 +1925,17 @@ export const TemplateFindTemplatesFieldMetaSignature$inboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMetaSignature,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateFindTemplatesOverflow1$inboundSchema.default("auto"),
-  type: z.literal("signature"),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateFindTemplatesOverflow1$inboundSchema.default("auto"),
+    type: z.literal("signature"),
+  })
+);
 /** @internal */
 export type TemplateFindTemplatesFieldMetaSignature$Outbound = {
   label?: string | undefined;
@@ -1807,15 +1952,17 @@ export const TemplateFindTemplatesFieldMetaSignature$outboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMetaSignature$Outbound,
   z.ZodTypeDef,
   TemplateFindTemplatesFieldMetaSignature
-> = z.object({
-  label: z.string().optional(),
-  placeholder: z.string().optional(),
-  required: z.boolean().optional(),
-  readOnly: z.boolean().optional(),
-  fontSize: z.number().default(12),
-  overflow: TemplateFindTemplatesOverflow1$outboundSchema.default("auto"),
-  type: z.literal("signature"),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    label: z.string().optional(),
+    placeholder: z.string().optional(),
+    required: z.boolean().optional(),
+    readOnly: z.boolean().optional(),
+    fontSize: z.number().default(12),
+    overflow: TemplateFindTemplatesOverflow1$outboundSchema.default("auto"),
+    type: z.literal("signature"),
+  })
+);
 
 export function templateFindTemplatesFieldMetaSignatureToJSON(
   templateFindTemplatesFieldMetaSignature:
@@ -1848,18 +1995,20 @@ export const TemplateFindTemplatesFieldMetaUnion$inboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMetaUnion,
   z.ZodTypeDef,
   unknown
-> = z.union([
-  z.lazy(() => TemplateFindTemplatesFieldMetaSignature$inboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMetaInitials$inboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMetaName$inboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMetaEmail$inboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMetaDate$inboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMetaText$inboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMetaNumber$inboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMetaRadio$inboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMetaCheckbox$inboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMetaDropdown$inboundSchema),
-]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([
+    z.lazy(() => TemplateFindTemplatesFieldMetaSignature$inboundSchema),
+    z.lazy(() => TemplateFindTemplatesFieldMetaInitials$inboundSchema),
+    z.lazy(() => TemplateFindTemplatesFieldMetaName$inboundSchema),
+    z.lazy(() => TemplateFindTemplatesFieldMetaEmail$inboundSchema),
+    z.lazy(() => TemplateFindTemplatesFieldMetaDate$inboundSchema),
+    z.lazy(() => TemplateFindTemplatesFieldMetaText$inboundSchema),
+    z.lazy(() => TemplateFindTemplatesFieldMetaNumber$inboundSchema),
+    z.lazy(() => TemplateFindTemplatesFieldMetaRadio$inboundSchema),
+    z.lazy(() => TemplateFindTemplatesFieldMetaCheckbox$inboundSchema),
+    z.lazy(() => TemplateFindTemplatesFieldMetaDropdown$inboundSchema),
+  ])
+);
 /** @internal */
 export type TemplateFindTemplatesFieldMetaUnion$Outbound =
   | TemplateFindTemplatesFieldMetaSignature$Outbound
@@ -1878,18 +2027,20 @@ export const TemplateFindTemplatesFieldMetaUnion$outboundSchema: z.ZodType<
   TemplateFindTemplatesFieldMetaUnion$Outbound,
   z.ZodTypeDef,
   TemplateFindTemplatesFieldMetaUnion
-> = z.union([
-  z.lazy(() => TemplateFindTemplatesFieldMetaSignature$outboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMetaInitials$outboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMetaName$outboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMetaEmail$outboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMetaDate$outboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMetaText$outboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMetaNumber$outboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMetaRadio$outboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMetaCheckbox$outboundSchema),
-  z.lazy(() => TemplateFindTemplatesFieldMetaDropdown$outboundSchema),
-]);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.union([
+    z.lazy(() => TemplateFindTemplatesFieldMetaSignature$outboundSchema),
+    z.lazy(() => TemplateFindTemplatesFieldMetaInitials$outboundSchema),
+    z.lazy(() => TemplateFindTemplatesFieldMetaName$outboundSchema),
+    z.lazy(() => TemplateFindTemplatesFieldMetaEmail$outboundSchema),
+    z.lazy(() => TemplateFindTemplatesFieldMetaDate$outboundSchema),
+    z.lazy(() => TemplateFindTemplatesFieldMetaText$outboundSchema),
+    z.lazy(() => TemplateFindTemplatesFieldMetaNumber$outboundSchema),
+    z.lazy(() => TemplateFindTemplatesFieldMetaRadio$outboundSchema),
+    z.lazy(() => TemplateFindTemplatesFieldMetaCheckbox$outboundSchema),
+    z.lazy(() => TemplateFindTemplatesFieldMetaDropdown$outboundSchema),
+  ])
+);
 
 export function templateFindTemplatesFieldMetaUnionToJSON(
   templateFindTemplatesFieldMetaUnion: TemplateFindTemplatesFieldMetaUnion,
@@ -1916,22 +2067,22 @@ export const TemplateFindTemplatesField$inboundSchema: z.ZodType<
   TemplateFindTemplatesField,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeId: z.string(),
-  envelopeItemId: z.string(),
-  type: TemplateFindTemplatesFieldTypeEnum$inboundSchema,
-  id: z.number(),
-  secondaryId: z.string(),
-  recipientId: z.number(),
-  page: z.number(),
-  positionX: z.any().optional(),
-  positionY: z.any().optional(),
-  width: z.any().optional(),
-  height: z.any().optional(),
-  customText: z.string(),
-  inserted: z.boolean(),
-  fieldMeta: z.nullable(
-    z.union([
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    envelopeItemId: z.string(),
+    type: TemplateFindTemplatesFieldTypeEnum$inboundSchema,
+    id: z.number(),
+    secondaryId: z.string(),
+    recipientId: z.number(),
+    page: z.number(),
+    positionX: z.any().optional(),
+    positionY: z.any().optional(),
+    width: z.any().optional(),
+    height: z.any().optional(),
+    customText: z.string(),
+    inserted: z.boolean(),
+    fieldMeta: z.nullable(z.union([
       z.lazy(() => TemplateFindTemplatesFieldMetaSignature$inboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMetaInitials$inboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMetaName$inboundSchema),
@@ -1942,11 +2093,11 @@ export const TemplateFindTemplatesField$inboundSchema: z.ZodType<
       z.lazy(() => TemplateFindTemplatesFieldMetaRadio$inboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMetaCheckbox$inboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMetaDropdown$inboundSchema),
-    ]),
-  ),
-  documentId: z.nullable(z.number()).optional(),
-  templateId: z.nullable(z.number()).optional(),
-});
+    ])),
+    documentId: z.nullable(z.number()).optional(),
+    templateId: z.nullable(z.number()).optional(),
+  })
+);
 /** @internal */
 export type TemplateFindTemplatesField$Outbound = {
   envelopeId: string;
@@ -1983,22 +2134,22 @@ export const TemplateFindTemplatesField$outboundSchema: z.ZodType<
   TemplateFindTemplatesField$Outbound,
   z.ZodTypeDef,
   TemplateFindTemplatesField
-> = z.object({
-  envelopeId: z.string(),
-  envelopeItemId: z.string(),
-  type: TemplateFindTemplatesFieldTypeEnum$outboundSchema,
-  id: z.number(),
-  secondaryId: z.string(),
-  recipientId: z.number(),
-  page: z.number(),
-  positionX: z.any().optional(),
-  positionY: z.any().optional(),
-  width: z.any().optional(),
-  height: z.any().optional(),
-  customText: z.string(),
-  inserted: z.boolean(),
-  fieldMeta: z.nullable(
-    z.union([
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    envelopeItemId: z.string(),
+    type: TemplateFindTemplatesFieldTypeEnum$outboundSchema,
+    id: z.number(),
+    secondaryId: z.string(),
+    recipientId: z.number(),
+    page: z.number(),
+    positionX: z.any().optional(),
+    positionY: z.any().optional(),
+    width: z.any().optional(),
+    height: z.any().optional(),
+    customText: z.string(),
+    inserted: z.boolean(),
+    fieldMeta: z.nullable(z.union([
       z.lazy(() => TemplateFindTemplatesFieldMetaSignature$outboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMetaInitials$outboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMetaName$outboundSchema),
@@ -2009,11 +2160,11 @@ export const TemplateFindTemplatesField$outboundSchema: z.ZodType<
       z.lazy(() => TemplateFindTemplatesFieldMetaRadio$outboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMetaCheckbox$outboundSchema),
       z.lazy(() => TemplateFindTemplatesFieldMetaDropdown$outboundSchema),
-    ]),
-  ),
-  documentId: z.nullable(z.number()).optional(),
-  templateId: z.nullable(z.number()).optional(),
-});
+    ])),
+    documentId: z.nullable(z.number()).optional(),
+    templateId: z.nullable(z.number()).optional(),
+  })
+);
 
 export function templateFindTemplatesFieldToJSON(
   templateFindTemplatesField: TemplateFindTemplatesField,
@@ -2035,7 +2186,7 @@ export function templateFindTemplatesFieldFromJSON(
 /** @internal */
 export const TemplateFindTemplatesRole$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesRole
-> = z.nativeEnum(TemplateFindTemplatesRole);
+> = /* @__PURE__ */ lazySchema$(() => z.nativeEnum(TemplateFindTemplatesRole));
 /** @internal */
 export const TemplateFindTemplatesRole$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesRole
@@ -2044,7 +2195,9 @@ export const TemplateFindTemplatesRole$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const TemplateFindTemplatesReadStatus$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesReadStatus
-> = z.nativeEnum(TemplateFindTemplatesReadStatus);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesReadStatus)
+);
 /** @internal */
 export const TemplateFindTemplatesReadStatus$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesReadStatus
@@ -2053,7 +2206,9 @@ export const TemplateFindTemplatesReadStatus$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const TemplateFindTemplatesSigningStatus$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesSigningStatus
-> = z.nativeEnum(TemplateFindTemplatesSigningStatus);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesSigningStatus)
+);
 /** @internal */
 export const TemplateFindTemplatesSigningStatus$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesSigningStatus
@@ -2062,7 +2217,9 @@ export const TemplateFindTemplatesSigningStatus$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const TemplateFindTemplatesSendStatus$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesSendStatus
-> = z.nativeEnum(TemplateFindTemplatesSendStatus);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesSendStatus)
+);
 /** @internal */
 export const TemplateFindTemplatesSendStatus$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesSendStatus
@@ -2071,7 +2228,9 @@ export const TemplateFindTemplatesSendStatus$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const TemplateFindTemplatesAccessAuth$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesAccessAuth
-> = z.nativeEnum(TemplateFindTemplatesAccessAuth);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesAccessAuth)
+);
 /** @internal */
 export const TemplateFindTemplatesAccessAuth$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesAccessAuth
@@ -2080,7 +2239,9 @@ export const TemplateFindTemplatesAccessAuth$outboundSchema: z.ZodNativeEnum<
 /** @internal */
 export const TemplateFindTemplatesActionAuth$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesActionAuth
-> = z.nativeEnum(TemplateFindTemplatesActionAuth);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesActionAuth)
+);
 /** @internal */
 export const TemplateFindTemplatesActionAuth$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesActionAuth
@@ -2091,10 +2252,12 @@ export const TemplateFindTemplatesRecipientAuthOptions$inboundSchema: z.ZodType<
   TemplateFindTemplatesRecipientAuthOptions,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  accessAuth: z.array(TemplateFindTemplatesAccessAuth$inboundSchema),
-  actionAuth: z.array(TemplateFindTemplatesActionAuth$inboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    accessAuth: z.array(TemplateFindTemplatesAccessAuth$inboundSchema),
+    actionAuth: z.array(TemplateFindTemplatesActionAuth$inboundSchema),
+  })
+);
 /** @internal */
 export type TemplateFindTemplatesRecipientAuthOptions$Outbound = {
   accessAuth: Array<string>;
@@ -2107,10 +2270,12 @@ export const TemplateFindTemplatesRecipientAuthOptions$outboundSchema:
     TemplateFindTemplatesRecipientAuthOptions$Outbound,
     z.ZodTypeDef,
     TemplateFindTemplatesRecipientAuthOptions
-  > = z.object({
-    accessAuth: z.array(TemplateFindTemplatesAccessAuth$outboundSchema),
-    actionAuth: z.array(TemplateFindTemplatesActionAuth$outboundSchema),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      accessAuth: z.array(TemplateFindTemplatesAccessAuth$outboundSchema),
+      actionAuth: z.array(TemplateFindTemplatesActionAuth$outboundSchema),
+    })
+  );
 
 export function templateFindTemplatesRecipientAuthOptionsToJSON(
   templateFindTemplatesRecipientAuthOptions:
@@ -2143,29 +2308,31 @@ export const TemplateFindTemplatesRecipient$inboundSchema: z.ZodType<
   TemplateFindTemplatesRecipient,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  envelopeId: z.string(),
-  role: TemplateFindTemplatesRole$inboundSchema,
-  readStatus: TemplateFindTemplatesReadStatus$inboundSchema,
-  signingStatus: TemplateFindTemplatesSigningStatus$inboundSchema,
-  sendStatus: TemplateFindTemplatesSendStatus$inboundSchema,
-  id: z.number(),
-  email: z.string(),
-  name: z.string(),
-  token: z.string(),
-  documentDeletedAt: z.nullable(z.string()),
-  expired: z.nullable(z.string()),
-  expiresAt: z.nullable(z.string()),
-  expirationNotifiedAt: z.nullable(z.string()),
-  signedAt: z.nullable(z.string()),
-  authOptions: z.nullable(
-    z.lazy(() => TemplateFindTemplatesRecipientAuthOptions$inboundSchema),
-  ),
-  signingOrder: z.nullable(z.number()),
-  rejectionReason: z.nullable(z.string()),
-  documentId: z.nullable(z.number()).optional(),
-  templateId: z.nullable(z.number()).optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    role: TemplateFindTemplatesRole$inboundSchema,
+    readStatus: TemplateFindTemplatesReadStatus$inboundSchema,
+    signingStatus: TemplateFindTemplatesSigningStatus$inboundSchema,
+    sendStatus: TemplateFindTemplatesSendStatus$inboundSchema,
+    id: z.number(),
+    email: z.string(),
+    name: z.string(),
+    token: z.string(),
+    documentDeletedAt: z.nullable(z.string()),
+    expired: z.nullable(z.string()),
+    expiresAt: z.nullable(z.string()),
+    expirationNotifiedAt: z.nullable(z.string()),
+    signedAt: z.nullable(z.string()),
+    authOptions: z.nullable(
+      z.lazy(() => TemplateFindTemplatesRecipientAuthOptions$inboundSchema),
+    ),
+    signingOrder: z.nullable(z.number()),
+    rejectionReason: z.nullable(z.string()),
+    documentId: z.nullable(z.number()).optional(),
+    templateId: z.nullable(z.number()).optional(),
+  })
+);
 /** @internal */
 export type TemplateFindTemplatesRecipient$Outbound = {
   envelopeId: string;
@@ -2194,29 +2361,31 @@ export const TemplateFindTemplatesRecipient$outboundSchema: z.ZodType<
   TemplateFindTemplatesRecipient$Outbound,
   z.ZodTypeDef,
   TemplateFindTemplatesRecipient
-> = z.object({
-  envelopeId: z.string(),
-  role: TemplateFindTemplatesRole$outboundSchema,
-  readStatus: TemplateFindTemplatesReadStatus$outboundSchema,
-  signingStatus: TemplateFindTemplatesSigningStatus$outboundSchema,
-  sendStatus: TemplateFindTemplatesSendStatus$outboundSchema,
-  id: z.number(),
-  email: z.string(),
-  name: z.string(),
-  token: z.string(),
-  documentDeletedAt: z.nullable(z.string()),
-  expired: z.nullable(z.string()),
-  expiresAt: z.nullable(z.string()),
-  expirationNotifiedAt: z.nullable(z.string()),
-  signedAt: z.nullable(z.string()),
-  authOptions: z.nullable(
-    z.lazy(() => TemplateFindTemplatesRecipientAuthOptions$outboundSchema),
-  ),
-  signingOrder: z.nullable(z.number()),
-  rejectionReason: z.nullable(z.string()),
-  documentId: z.nullable(z.number()).optional(),
-  templateId: z.nullable(z.number()).optional(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    envelopeId: z.string(),
+    role: TemplateFindTemplatesRole$outboundSchema,
+    readStatus: TemplateFindTemplatesReadStatus$outboundSchema,
+    signingStatus: TemplateFindTemplatesSigningStatus$outboundSchema,
+    sendStatus: TemplateFindTemplatesSendStatus$outboundSchema,
+    id: z.number(),
+    email: z.string(),
+    name: z.string(),
+    token: z.string(),
+    documentDeletedAt: z.nullable(z.string()),
+    expired: z.nullable(z.string()),
+    expiresAt: z.nullable(z.string()),
+    expirationNotifiedAt: z.nullable(z.string()),
+    signedAt: z.nullable(z.string()),
+    authOptions: z.nullable(
+      z.lazy(() => TemplateFindTemplatesRecipientAuthOptions$outboundSchema),
+    ),
+    signingOrder: z.nullable(z.number()),
+    rejectionReason: z.nullable(z.string()),
+    documentId: z.nullable(z.number()).optional(),
+    templateId: z.nullable(z.number()).optional(),
+  })
+);
 
 export function templateFindTemplatesRecipientToJSON(
   templateFindTemplatesRecipient: TemplateFindTemplatesRecipient,
@@ -2240,7 +2409,9 @@ export function templateFindTemplatesRecipientFromJSON(
 /** @internal */
 export const TemplateFindTemplatesSigningOrder$inboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesSigningOrder
-> = z.nativeEnum(TemplateFindTemplatesSigningOrder);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.nativeEnum(TemplateFindTemplatesSigningOrder)
+);
 /** @internal */
 export const TemplateFindTemplatesSigningOrder$outboundSchema: z.ZodNativeEnum<
   typeof TemplateFindTemplatesSigningOrder
@@ -2248,8 +2419,10 @@ export const TemplateFindTemplatesSigningOrder$outboundSchema: z.ZodNativeEnum<
 
 /** @internal */
 export const TemplateFindTemplatesDistributionMethod$inboundSchema:
-  z.ZodNativeEnum<typeof TemplateFindTemplatesDistributionMethod> = z
-    .nativeEnum(TemplateFindTemplatesDistributionMethod);
+  z.ZodNativeEnum<typeof TemplateFindTemplatesDistributionMethod> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.nativeEnum(TemplateFindTemplatesDistributionMethod)
+    );
 /** @internal */
 export const TemplateFindTemplatesDistributionMethod$outboundSchema:
   z.ZodNativeEnum<typeof TemplateFindTemplatesDistributionMethod> =
@@ -2260,10 +2433,12 @@ export const TemplateFindTemplatesTemplateMeta$inboundSchema: z.ZodType<
   TemplateFindTemplatesTemplateMeta,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  signingOrder: TemplateFindTemplatesSigningOrder$inboundSchema,
-  distributionMethod: TemplateFindTemplatesDistributionMethod$inboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    signingOrder: TemplateFindTemplatesSigningOrder$inboundSchema,
+    distributionMethod: TemplateFindTemplatesDistributionMethod$inboundSchema,
+  })
+);
 /** @internal */
 export type TemplateFindTemplatesTemplateMeta$Outbound = {
   signingOrder: string;
@@ -2275,10 +2450,12 @@ export const TemplateFindTemplatesTemplateMeta$outboundSchema: z.ZodType<
   TemplateFindTemplatesTemplateMeta$Outbound,
   z.ZodTypeDef,
   TemplateFindTemplatesTemplateMeta
-> = z.object({
-  signingOrder: TemplateFindTemplatesSigningOrder$outboundSchema,
-  distributionMethod: TemplateFindTemplatesDistributionMethod$outboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    signingOrder: TemplateFindTemplatesSigningOrder$outboundSchema,
+    distributionMethod: TemplateFindTemplatesDistributionMethod$outboundSchema,
+  })
+);
 
 export function templateFindTemplatesTemplateMetaToJSON(
   templateFindTemplatesTemplateMeta: TemplateFindTemplatesTemplateMeta,
@@ -2304,10 +2481,12 @@ export const TemplateFindTemplatesDirectLink$inboundSchema: z.ZodType<
   TemplateFindTemplatesDirectLink,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  token: z.string(),
-  enabled: z.boolean(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    token: z.string(),
+    enabled: z.boolean(),
+  })
+);
 /** @internal */
 export type TemplateFindTemplatesDirectLink$Outbound = {
   token: string;
@@ -2319,10 +2498,12 @@ export const TemplateFindTemplatesDirectLink$outboundSchema: z.ZodType<
   TemplateFindTemplatesDirectLink$Outbound,
   z.ZodTypeDef,
   TemplateFindTemplatesDirectLink
-> = z.object({
-  token: z.string(),
-  enabled: z.boolean(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    token: z.string(),
+    enabled: z.boolean(),
+  })
+);
 
 export function templateFindTemplatesDirectLinkToJSON(
   templateFindTemplatesDirectLink: TemplateFindTemplatesDirectLink,
@@ -2348,37 +2529,39 @@ export const TemplateFindTemplatesData$inboundSchema: z.ZodType<
   TemplateFindTemplatesData,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  type: TemplateFindTemplatesDataTypeEnum$inboundSchema,
-  visibility: TemplateFindTemplatesVisibility$inboundSchema,
-  id: z.number(),
-  externalId: z.nullable(z.string()),
-  title: z.string(),
-  userId: z.number(),
-  teamId: z.number(),
-  authOptions: z.nullable(
-    z.lazy(() => TemplateFindTemplatesAuthOptions$inboundSchema),
-  ),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-  publicTitle: z.string(),
-  publicDescription: z.string(),
-  folderId: z.nullable(z.string()),
-  useLegacyFieldInsertion: z.boolean(),
-  envelopeId: z.string(),
-  team: z.nullable(z.lazy(() => TemplateFindTemplatesTeam$inboundSchema)),
-  fields: z.array(z.lazy(() => TemplateFindTemplatesField$inboundSchema)),
-  recipients: z.array(
-    z.lazy(() => TemplateFindTemplatesRecipient$inboundSchema),
-  ),
-  templateMeta: z.nullable(
-    z.lazy(() => TemplateFindTemplatesTemplateMeta$inboundSchema),
-  ),
-  directLink: z.nullable(
-    z.lazy(() => TemplateFindTemplatesDirectLink$inboundSchema),
-  ),
-  templateDocumentDataId: z.string().default(""),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: TemplateFindTemplatesDataTypeEnum$inboundSchema,
+    visibility: TemplateFindTemplatesVisibility$inboundSchema,
+    id: z.number(),
+    externalId: z.nullable(z.string()),
+    title: z.string(),
+    userId: z.number(),
+    teamId: z.number(),
+    authOptions: z.nullable(
+      z.lazy(() => TemplateFindTemplatesAuthOptions$inboundSchema),
+    ),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    publicTitle: z.string(),
+    publicDescription: z.string(),
+    folderId: z.nullable(z.string()),
+    useLegacyFieldInsertion: z.boolean(),
+    envelopeId: z.string(),
+    team: z.nullable(z.lazy(() => TemplateFindTemplatesTeam$inboundSchema)),
+    fields: z.array(z.lazy(() => TemplateFindTemplatesField$inboundSchema)),
+    recipients: z.array(
+      z.lazy(() => TemplateFindTemplatesRecipient$inboundSchema),
+    ),
+    templateMeta: z.nullable(
+      z.lazy(() => TemplateFindTemplatesTemplateMeta$inboundSchema),
+    ),
+    directLink: z.nullable(
+      z.lazy(() => TemplateFindTemplatesDirectLink$inboundSchema),
+    ),
+    templateDocumentDataId: z.string().default(""),
+  })
+);
 /** @internal */
 export type TemplateFindTemplatesData$Outbound = {
   type: string;
@@ -2409,37 +2592,39 @@ export const TemplateFindTemplatesData$outboundSchema: z.ZodType<
   TemplateFindTemplatesData$Outbound,
   z.ZodTypeDef,
   TemplateFindTemplatesData
-> = z.object({
-  type: TemplateFindTemplatesDataTypeEnum$outboundSchema,
-  visibility: TemplateFindTemplatesVisibility$outboundSchema,
-  id: z.number(),
-  externalId: z.nullable(z.string()),
-  title: z.string(),
-  userId: z.number(),
-  teamId: z.number(),
-  authOptions: z.nullable(
-    z.lazy(() => TemplateFindTemplatesAuthOptions$outboundSchema),
-  ),
-  createdAt: z.string(),
-  updatedAt: z.string(),
-  publicTitle: z.string(),
-  publicDescription: z.string(),
-  folderId: z.nullable(z.string()),
-  useLegacyFieldInsertion: z.boolean(),
-  envelopeId: z.string(),
-  team: z.nullable(z.lazy(() => TemplateFindTemplatesTeam$outboundSchema)),
-  fields: z.array(z.lazy(() => TemplateFindTemplatesField$outboundSchema)),
-  recipients: z.array(
-    z.lazy(() => TemplateFindTemplatesRecipient$outboundSchema),
-  ),
-  templateMeta: z.nullable(
-    z.lazy(() => TemplateFindTemplatesTemplateMeta$outboundSchema),
-  ),
-  directLink: z.nullable(
-    z.lazy(() => TemplateFindTemplatesDirectLink$outboundSchema),
-  ),
-  templateDocumentDataId: z.string().default(""),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    type: TemplateFindTemplatesDataTypeEnum$outboundSchema,
+    visibility: TemplateFindTemplatesVisibility$outboundSchema,
+    id: z.number(),
+    externalId: z.nullable(z.string()),
+    title: z.string(),
+    userId: z.number(),
+    teamId: z.number(),
+    authOptions: z.nullable(
+      z.lazy(() => TemplateFindTemplatesAuthOptions$outboundSchema),
+    ),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    publicTitle: z.string(),
+    publicDescription: z.string(),
+    folderId: z.nullable(z.string()),
+    useLegacyFieldInsertion: z.boolean(),
+    envelopeId: z.string(),
+    team: z.nullable(z.lazy(() => TemplateFindTemplatesTeam$outboundSchema)),
+    fields: z.array(z.lazy(() => TemplateFindTemplatesField$outboundSchema)),
+    recipients: z.array(
+      z.lazy(() => TemplateFindTemplatesRecipient$outboundSchema),
+    ),
+    templateMeta: z.nullable(
+      z.lazy(() => TemplateFindTemplatesTemplateMeta$outboundSchema),
+    ),
+    directLink: z.nullable(
+      z.lazy(() => TemplateFindTemplatesDirectLink$outboundSchema),
+    ),
+    templateDocumentDataId: z.string().default(""),
+  })
+);
 
 export function templateFindTemplatesDataToJSON(
   templateFindTemplatesData: TemplateFindTemplatesData,
@@ -2463,13 +2648,15 @@ export const TemplateFindTemplatesResponse$inboundSchema: z.ZodType<
   TemplateFindTemplatesResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  data: z.array(z.lazy(() => TemplateFindTemplatesData$inboundSchema)),
-  count: z.number(),
-  currentPage: z.number(),
-  perPage: z.number(),
-  totalPages: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    data: z.array(z.lazy(() => TemplateFindTemplatesData$inboundSchema)),
+    count: z.number(),
+    currentPage: z.number(),
+    perPage: z.number(),
+    totalPages: z.number(),
+  })
+);
 /** @internal */
 export type TemplateFindTemplatesResponse$Outbound = {
   data: Array<TemplateFindTemplatesData$Outbound>;
@@ -2484,13 +2671,15 @@ export const TemplateFindTemplatesResponse$outboundSchema: z.ZodType<
   TemplateFindTemplatesResponse$Outbound,
   z.ZodTypeDef,
   TemplateFindTemplatesResponse
-> = z.object({
-  data: z.array(z.lazy(() => TemplateFindTemplatesData$outboundSchema)),
-  count: z.number(),
-  currentPage: z.number(),
-  perPage: z.number(),
-  totalPages: z.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    data: z.array(z.lazy(() => TemplateFindTemplatesData$outboundSchema)),
+    count: z.number(),
+    currentPage: z.number(),
+    perPage: z.number(),
+    totalPages: z.number(),
+  })
+);
 
 export function templateFindTemplatesResponseToJSON(
   templateFindTemplatesResponse: TemplateFindTemplatesResponse,

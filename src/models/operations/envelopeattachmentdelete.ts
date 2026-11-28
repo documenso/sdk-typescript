@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -23,9 +23,11 @@ export const EnvelopeAttachmentDeleteRequest$inboundSchema: z.ZodType<
   EnvelopeAttachmentDeleteRequest,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeAttachmentDeleteRequest$Outbound = {
   id: string;
@@ -36,9 +38,11 @@ export const EnvelopeAttachmentDeleteRequest$outboundSchema: z.ZodType<
   EnvelopeAttachmentDeleteRequest$Outbound,
   z.ZodTypeDef,
   EnvelopeAttachmentDeleteRequest
-> = z.object({
-  id: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+  })
+);
 
 export function envelopeAttachmentDeleteRequestToJSON(
   envelopeAttachmentDeleteRequest: EnvelopeAttachmentDeleteRequest,
@@ -64,9 +68,11 @@ export const EnvelopeAttachmentDeleteResponse$inboundSchema: z.ZodType<
   EnvelopeAttachmentDeleteResponse,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  success: z.boolean(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    success: z.boolean(),
+  })
+);
 /** @internal */
 export type EnvelopeAttachmentDeleteResponse$Outbound = {
   success: boolean;
@@ -77,9 +83,11 @@ export const EnvelopeAttachmentDeleteResponse$outboundSchema: z.ZodType<
   EnvelopeAttachmentDeleteResponse$Outbound,
   z.ZodTypeDef,
   EnvelopeAttachmentDeleteResponse
-> = z.object({
-  success: z.boolean(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    success: z.boolean(),
+  })
+);
 
 export function envelopeAttachmentDeleteResponseToJSON(
   envelopeAttachmentDeleteResponse: EnvelopeAttachmentDeleteResponse,

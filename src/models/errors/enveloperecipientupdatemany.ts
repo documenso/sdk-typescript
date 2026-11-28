@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { DocumensoError } from "./documensoerror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
@@ -170,9 +170,11 @@ export const EnvelopeRecipientUpdateManyInternalServerErrorIssue$inboundSchema:
     EnvelopeRecipientUpdateManyInternalServerErrorIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type EnvelopeRecipientUpdateManyInternalServerErrorIssue$Outbound = {
   message: string;
@@ -184,9 +186,11 @@ export const EnvelopeRecipientUpdateManyInternalServerErrorIssue$outboundSchema:
     EnvelopeRecipientUpdateManyInternalServerErrorIssue$Outbound,
     z.ZodTypeDef,
     EnvelopeRecipientUpdateManyInternalServerErrorIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function envelopeRecipientUpdateManyInternalServerErrorIssueToJSON(
   envelopeRecipientUpdateManyInternalServerErrorIssue:
@@ -220,25 +224,27 @@ export const EnvelopeRecipientUpdateManyInternalServerError$inboundSchema:
     EnvelopeRecipientUpdateManyInternalServerError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() =>
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(z.lazy(() =>
         EnvelopeRecipientUpdateManyInternalServerErrorIssue$inboundSchema
-      ),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new EnvelopeRecipientUpdateManyInternalServerError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+      )).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        const { request$, response$, body$, ...data } = v;
+
+        return new EnvelopeRecipientUpdateManyInternalServerError(data, {
+          request: request$,
+          response: response$,
+          body: body$,
+        });
+      })
+  );
 
 /** @internal */
 export type EnvelopeRecipientUpdateManyInternalServerError$Outbound = {
@@ -255,26 +261,30 @@ export const EnvelopeRecipientUpdateManyInternalServerError$outboundSchema:
     EnvelopeRecipientUpdateManyInternalServerError$Outbound,
     z.ZodTypeDef,
     EnvelopeRecipientUpdateManyInternalServerError
-  > = z.instanceof(EnvelopeRecipientUpdateManyInternalServerError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          EnvelopeRecipientUpdateManyInternalServerErrorIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(EnvelopeRecipientUpdateManyInternalServerError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            EnvelopeRecipientUpdateManyInternalServerErrorIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const EnvelopeRecipientUpdateManyForbiddenIssue$inboundSchema: z.ZodType<
   EnvelopeRecipientUpdateManyForbiddenIssue,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+  })
+);
 /** @internal */
 export type EnvelopeRecipientUpdateManyForbiddenIssue$Outbound = {
   message: string;
@@ -286,9 +296,11 @@ export const EnvelopeRecipientUpdateManyForbiddenIssue$outboundSchema:
     EnvelopeRecipientUpdateManyForbiddenIssue$Outbound,
     z.ZodTypeDef,
     EnvelopeRecipientUpdateManyForbiddenIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function envelopeRecipientUpdateManyForbiddenIssueToJSON(
   envelopeRecipientUpdateManyForbiddenIssue:
@@ -321,23 +333,27 @@ export const EnvelopeRecipientUpdateManyForbiddenError$inboundSchema: z.ZodType<
   EnvelopeRecipientUpdateManyForbiddenError,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  message: z.string(),
-  code: z.string(),
-  issues: z.array(
-    z.lazy(() => EnvelopeRecipientUpdateManyForbiddenIssue$inboundSchema),
-  ).optional(),
-  request$: z.instanceof(Request),
-  response$: z.instanceof(Response),
-  body$: z.string(),
-})
-  .transform((v) => {
-    return new EnvelopeRecipientUpdateManyForbiddenError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  });
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    message: z.string(),
+    code: z.string(),
+    issues: z.array(
+      z.lazy(() => EnvelopeRecipientUpdateManyForbiddenIssue$inboundSchema),
+    ).optional(),
+    request$: z.instanceof(Request),
+    response$: z.instanceof(Response),
+    body$: z.string(),
+  })
+    .transform((v) => {
+      const { request$, response$, body$, ...data } = v;
+
+      return new EnvelopeRecipientUpdateManyForbiddenError(data, {
+        request: request$,
+        response: response$,
+        body: body$,
+      });
+    })
+);
 
 /** @internal */
 export type EnvelopeRecipientUpdateManyForbiddenError$Outbound = {
@@ -354,15 +370,19 @@ export const EnvelopeRecipientUpdateManyForbiddenError$outboundSchema:
     EnvelopeRecipientUpdateManyForbiddenError$Outbound,
     z.ZodTypeDef,
     EnvelopeRecipientUpdateManyForbiddenError
-  > = z.instanceof(EnvelopeRecipientUpdateManyForbiddenError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() => EnvelopeRecipientUpdateManyForbiddenIssue$outboundSchema),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(EnvelopeRecipientUpdateManyForbiddenError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            EnvelopeRecipientUpdateManyForbiddenIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const EnvelopeRecipientUpdateManyUnauthorizedIssue$inboundSchema:
@@ -370,9 +390,11 @@ export const EnvelopeRecipientUpdateManyUnauthorizedIssue$inboundSchema:
     EnvelopeRecipientUpdateManyUnauthorizedIssue,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 /** @internal */
 export type EnvelopeRecipientUpdateManyUnauthorizedIssue$Outbound = {
   message: string;
@@ -384,9 +406,11 @@ export const EnvelopeRecipientUpdateManyUnauthorizedIssue$outboundSchema:
     EnvelopeRecipientUpdateManyUnauthorizedIssue$Outbound,
     z.ZodTypeDef,
     EnvelopeRecipientUpdateManyUnauthorizedIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function envelopeRecipientUpdateManyUnauthorizedIssueToJSON(
   envelopeRecipientUpdateManyUnauthorizedIssue:
@@ -420,23 +444,29 @@ export const EnvelopeRecipientUpdateManyUnauthorizedError$inboundSchema:
     EnvelopeRecipientUpdateManyUnauthorizedError,
     z.ZodTypeDef,
     unknown
-  > = z.object({
-    message: z.string(),
-    code: z.string(),
-    issues: z.array(
-      z.lazy(() => EnvelopeRecipientUpdateManyUnauthorizedIssue$inboundSchema),
-    ).optional(),
-    request$: z.instanceof(Request),
-    response$: z.instanceof(Response),
-    body$: z.string(),
-  })
-    .transform((v) => {
-      return new EnvelopeRecipientUpdateManyUnauthorizedError(v, {
-        request: v.request$,
-        response: v.response$,
-        body: v.body$,
-      });
-    });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+      code: z.string(),
+      issues: z.array(
+        z.lazy(() =>
+          EnvelopeRecipientUpdateManyUnauthorizedIssue$inboundSchema
+        ),
+      ).optional(),
+      request$: z.instanceof(Request),
+      response$: z.instanceof(Response),
+      body$: z.string(),
+    })
+      .transform((v) => {
+        const { request$, response$, body$, ...data } = v;
+
+        return new EnvelopeRecipientUpdateManyUnauthorizedError(data, {
+          request: request$,
+          response: response$,
+          body: body$,
+        });
+      })
+  );
 
 /** @internal */
 export type EnvelopeRecipientUpdateManyUnauthorizedError$Outbound = {
@@ -453,24 +483,28 @@ export const EnvelopeRecipientUpdateManyUnauthorizedError$outboundSchema:
     EnvelopeRecipientUpdateManyUnauthorizedError$Outbound,
     z.ZodTypeDef,
     EnvelopeRecipientUpdateManyUnauthorizedError
-  > = z.instanceof(EnvelopeRecipientUpdateManyUnauthorizedError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() =>
-          EnvelopeRecipientUpdateManyUnauthorizedIssue$outboundSchema
-        ),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(EnvelopeRecipientUpdateManyUnauthorizedError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            EnvelopeRecipientUpdateManyUnauthorizedIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
 
 /** @internal */
 export const EnvelopeRecipientUpdateManyBadRequestIssue$inboundSchema:
   z.ZodType<EnvelopeRecipientUpdateManyBadRequestIssue, z.ZodTypeDef, unknown> =
-    z.object({
-      message: z.string(),
-    });
+    /* @__PURE__ */ lazySchema$(() =>
+      z.object({
+        message: z.string(),
+      })
+    );
 /** @internal */
 export type EnvelopeRecipientUpdateManyBadRequestIssue$Outbound = {
   message: string;
@@ -482,9 +516,11 @@ export const EnvelopeRecipientUpdateManyBadRequestIssue$outboundSchema:
     EnvelopeRecipientUpdateManyBadRequestIssue$Outbound,
     z.ZodTypeDef,
     EnvelopeRecipientUpdateManyBadRequestIssue
-  > = z.object({
-    message: z.string(),
-  });
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      message: z.string(),
+    })
+  );
 
 export function envelopeRecipientUpdateManyBadRequestIssueToJSON(
   envelopeRecipientUpdateManyBadRequestIssue:
@@ -515,23 +551,29 @@ export function envelopeRecipientUpdateManyBadRequestIssueFromJSON(
 /** @internal */
 export const EnvelopeRecipientUpdateManyBadRequestError$inboundSchema:
   z.ZodType<EnvelopeRecipientUpdateManyBadRequestError, z.ZodTypeDef, unknown> =
-    z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() => EnvelopeRecipientUpdateManyBadRequestIssue$inboundSchema),
-      ).optional(),
-      request$: z.instanceof(Request),
-      response$: z.instanceof(Response),
-      body$: z.string(),
-    })
-      .transform((v) => {
-        return new EnvelopeRecipientUpdateManyBadRequestError(v, {
-          request: v.request$,
-          response: v.response$,
-          body: v.body$,
-        });
-      });
+    /* @__PURE__ */ lazySchema$(() =>
+      z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            EnvelopeRecipientUpdateManyBadRequestIssue$inboundSchema
+          ),
+        ).optional(),
+        request$: z.instanceof(Request),
+        response$: z.instanceof(Response),
+        body$: z.string(),
+      })
+        .transform((v) => {
+          const { request$, response$, body$, ...data } = v;
+
+          return new EnvelopeRecipientUpdateManyBadRequestError(data, {
+            request: request$,
+            response: response$,
+            body: body$,
+          });
+        })
+    );
 
 /** @internal */
 export type EnvelopeRecipientUpdateManyBadRequestError$Outbound = {
@@ -548,12 +590,16 @@ export const EnvelopeRecipientUpdateManyBadRequestError$outboundSchema:
     EnvelopeRecipientUpdateManyBadRequestError$Outbound,
     z.ZodTypeDef,
     EnvelopeRecipientUpdateManyBadRequestError
-  > = z.instanceof(EnvelopeRecipientUpdateManyBadRequestError)
-    .transform(v => v.data$)
-    .pipe(z.object({
-      message: z.string(),
-      code: z.string(),
-      issues: z.array(
-        z.lazy(() => EnvelopeRecipientUpdateManyBadRequestIssue$outboundSchema),
-      ).optional(),
-    }));
+  > = /* @__PURE__ */ lazySchema$(() =>
+    z.instanceof(EnvelopeRecipientUpdateManyBadRequestError)
+      .transform(v => v.data$)
+      .pipe(z.object({
+        message: z.string(),
+        code: z.string(),
+        issues: z.array(
+          z.lazy(() =>
+            EnvelopeRecipientUpdateManyBadRequestIssue$outboundSchema
+          ),
+        ).optional(),
+      }))
+  );
